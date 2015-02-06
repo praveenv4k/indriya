@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExPhriMot_Signature", "ExPhriMot_Signature\ExPhriMot_Signature.vcxproj", "{3632850C-B1BD-4699-AD2E-00A862E89091}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExPhriMot_PCL", "ExPhriMot_PCL\ExPhriMot_PCL.vcxproj", "{6F6619DF-58D6-4633-A79F-B86E91F6F026}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3632850C-B1BD-4699-AD2E-00A862E89091}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3632850C-B1BD-4699-AD2E-00A862E89091}.Debug|Win32.Build.0 = Debug|Win32
+		{3632850C-B1BD-4699-AD2E-00A862E89091}.Release|Win32.ActiveCfg = Release|Win32
+		{3632850C-B1BD-4699-AD2E-00A862E89091}.Release|Win32.Build.0 = Release|Win32
+		{6F6619DF-58D6-4633-A79F-B86E91F6F026}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6F6619DF-58D6-4633-A79F-B86E91F6F026}.Debug|Win32.Build.0 = Debug|Win32
+		{6F6619DF-58D6-4633-A79F-B86E91F6F026}.Release|Win32.ActiveCfg = Release|Win32
+		{6F6619DF-58D6-4633-A79F-B86E91F6F026}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

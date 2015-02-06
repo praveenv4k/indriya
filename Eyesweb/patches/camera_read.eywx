@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<MainPatch version="6">
+
+  <Patch>
+    <Properties>
+      <PropertySet name="gui-mdi">
+        <Property name="Private.ZoomFactor">1</Property>
+        <Property name="Private.RunLevel">1</Property>
+        <Property name="Private.ScrollPos">0;0</Property>
+      </PropertySet>
+    </Properties>
+    <Blocks>
+      <Block active="1" catalog="system" class-id="wdmvideo_input" id="21" label="FrameGrabber_1" log_info="2" run_level="1" sync-in_mode="1">
+        <Properties>
+          <PropertySet name="gui-mdi">
+            <Property name="Appearance.Pos">180;130</Property>
+            <Property name="Private.ZOrder">4</Property>
+            <Property name="Private.ObjID">1</Property>
+            <Property name="Appearance.Size">48;48</Property>
+            <Property name="Appearance.Orientation">1</Property>
+            <Property name="Private.ExportedParams"></Property>
+            <Property name="Private.Selected">0</Property>
+            <Property name="Private.ParamsOrder">kernel::active_status;kernel::active_trigger;kernel::run_level;kernel::sync_in_mode;kernel::log_level;datatype_info;device;color_model;size;fps;vert_mirror;horiz-mirror;type;gain_flag;gain_value;brightness_flag;brightness_value;overridedeviceinitfailed;device_type</Property>
+            <Property name="Private.FullPath">ImageAndVideo.Input.FrameGrabber</Property>
+            <Property name="DisplaySyncInVisible">0</Property>
+            <Property name="DisplaySyncOutVisible">0</Property>
+          </PropertySet>
+        </Properties>
+        <Parameters>
+          <Parameter catalog="kernel" class-id="string_pair" description="Output Datatype info" design-time="1" enabled="1" group_index="0" id="datatype_info" name="Output datatype info" run-time="0">
+            <Value>base;image</Value>
+            <Domain/>
+            <Layout catalog="kernel" class-id="datatype_selector_combo">base;image_conversion;base;image_roi;base;memory_buffer;base;image_mirror</Layout>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="string" description="Device" design-time="1" enabled="1" group_index="0" id="device" name="Device" run-time="1">
+            <Value></Value>
+            <Domain/>
+            <Layout/>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="int" description="Image Color Model" design-time="1" enabled="1" group_index="0" id="color_model" name="Image Color Model" run-time="0">
+            <Value>1</Value>
+            <Domain/>
+            <Layout catalog="kernel" class-id="combo">RGB (3 channels - 24 bits);BGR (3 channels - 24 bits);YUV (3 channels - 24 bits);BW (1 channels - 8 bits);YUYV (3 channels (Y,U,Y,V) );UYVY (3 channels (U,Y,V,Y) );I420 (3 channels planar (Y,U,V) );YV12 (3 channels planar (Y,V,U) );RGBA (4 channels - 32 bits);BGRA (4 channels - 32 bits);YUVA (4 channels - 32 bits)</Layout>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="base" class-id="size2d_int" description="Output Image Size" design-time="1" enabled="1" group_index="0" id="size" name="Size" run-time="0">
+            <Value>352;288</Value>
+            <Domain/>
+            <Layout/>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="double" description="Frames per second." design-time="1" enabled="1" group_index="0" id="fps" name="Frames per second." run-time="1">
+            <Value>25</Value>
+            <Domain catalog="kernel" class-id="double-domain">0.001;1;0;0</Domain>
+            <Layout/>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="bool" description="Vertical Mirror" design-time="1" enabled="1" group_index="0" id="vert_mirror" name="Vertical Mirror" run-time="1">
+            <Value>1</Value>
+            <Domain/>
+            <Layout/>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="bool" description="Specifies whether the image must be swaped horizontaly" design-time="1" enabled="1" group_index="0" id="horiz-mirror" name="Horizontal Mirror" run-time="1">
+            <Value>0</Value>
+            <Domain/>
+            <Layout/>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="int" description="Type" design-time="1" enabled="1" group_index="0" id="type" name="Type" run-time="0">
+            <Value>0</Value>
+            <Domain/>
+            <Layout catalog="kernel" class-id="combo">AUTO;PAL-B;NTSC</Layout>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="int" description="Specifies the desired control setting for the Gain property.&#xA;Default - use the current driver setting&#xA;Auto - enables autogain&#xA;Manual - set the user-specified value&#xA;" design-time="1" enabled="1" group_index="0" id="gain_flag" name="Video Quality: Gain Flag" run-time="1">
+            <Value>0</Value>
+            <Domain catalog="kernel" class-id="int-domain">0;1;3;2</Domain>
+            <Layout catalog="kernel" class-id="combo">Default;Auto;Manual</Layout>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="double" description="Specifies the value of the Gain property. Is is used only if Gain Flag is set to manual" design-time="1" enabled="1" group_index="0" id="gain_value" name="Video Quality: Gain Value" run-time="1">
+            <Value>0.5</Value>
+            <Domain catalog="kernel" class-id="double-domain">0;1;1;1</Domain>
+            <Layout/>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="int" description="Specifies the desired control setting for the Brightness property.&#xA;Default - use the current driver setting&#xA;Auto - enables autobrightness&#xA;Manual - set the user-specified value&#xA;" design-time="1" enabled="1" group_index="0" id="brightness_flag" name="Video Quality: Brightness Flag" run-time="1">
+            <Value>0</Value>
+            <Domain catalog="kernel" class-id="int-domain">0;1;3;2</Domain>
+            <Layout catalog="kernel" class-id="combo">Default;Auto;Manual</Layout>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="double" description="Specifies the value of the Brightness property. Is is used only if Brightness Flag is set to manual" design-time="1" enabled="1" group_index="0" id="brightness_value" name="Video Quality: Brightness Value" run-time="1">
+            <Value>0.5</Value>
+            <Domain catalog="kernel" class-id="double-domain">0;1;1;1</Domain>
+            <Layout/>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="bool" description="If the system cannot initialize the selected WDM device the patch will be executed anyway." design-time="1" enabled="1" group_index="0" id="overridedeviceinitfailed" name="Override device init failed." run-time="1">
+            <Value>0</Value>
+            <Domain/>
+            <Layout/>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="int" description="Custom device properties" design-time="1" enabled="1" group_index="0" id="device_type" name="Custom device properties" run-time="0">
+            <Value>0</Value>
+            <Domain catalog="kernel" class-id="int-domain">0;1;3;2</Domain>
+            <Layout catalog="kernel" class-id="combo">Default - none;Video crossbar compliant device;Decklink frame grabber</Layout>
+            <InitInfo/>
+          </Parameter>
+        </Parameters>
+        <Inputs/>
+        <Outputs>
+          <Output catalog="base" class-id="image" description="Output" group_index="0" id="video_stream" inherited-id="" inplace-id="" name="Output"/>
+        </Outputs>
+        <PrivateData/>
+      </Block>
+      <Block active="1" catalog="system" class-id="image_display" id="105" label="DisplayDirectX_1" log_info="2" run_level="1" sync-in_mode="1" window_docked="1" window_fit_mode="1" window_full_screen="0" window_full_screen_monitor_index="0" window_horizontal_scroll_pos="0" window_keep_aspect_ratio="1" window_rect_height="327" window_rect_width="368" window_rect_x="397" window_rect_y="205" window_refresh_rate_max_frequency="25" window_refresh_rate_min_interval="400000" window_refresh_rate_mode="0" window_title="DisplayDirectX" window_title_bar_visible="1" window_vertical_scroll_pos="0" window_zoom="0.16666666666666666">
+        <Properties>
+          <PropertySet name="gui-mdi">
+            <Property name="Appearance.Pos">520;140</Property>
+            <Property name="Private.ZOrder">3</Property>
+            <Property name="Private.ObjID">2</Property>
+            <Property name="Appearance.Size">112;64</Property>
+            <Property name="Appearance.Orientation">1</Property>
+            <Property name="Private.ExportedParams"></Property>
+            <Property name="Private.Selected">0</Property>
+            <Property name="Private.ParamsOrder">kernel::active_status;kernel::active_trigger;kernel::run_level;kernel::sync_in_mode;kernel::log_level;letterbox_mode;filtering;delay;kernel::window_title;kernel::window_rect_x;kernel::window_rect_y;kernel::window_rect_width;kernel::window_rect_height;kernel::window_docked;kernel::window_full_screen;kernel::window_full_screen_monitor_index;kernel::window_zoom;kernel::window_keep_aspect_ratio;kernel::window_horizontal_scroll_pos;kernel::window_vertical_scroll_pos;kernel::window_title_visible;kernel::window_refresh_rate_mode;kernel::window_refresh_rate_min_interval;kernel::window_refresh_rate_max_frequency;kernel::fit_mode</Property>
+            <Property name="Private.FullPath">ImageAndVideo.Output.DisplayDirectX</Property>
+            <Property name="DisplaySyncInVisible">0</Property>
+            <Property name="DisplaySyncOutVisible">0</Property>
+          </PropertySet>
+        </Properties>
+        <Parameters>
+          <Parameter catalog="kernel" class-id="int" description="Specifies where to place mattes and image when using letterboxing. in 'No letterbox' the aspectRatio is not preserved, and the source image is stretched or shrinked to cover all available space. In the other cases, the aspect ratio is (or might be) preserved, thus a black frame might be needed on the horizontal or vertical side to cover the unused space. This enumerator specifies where to place such black frame.&#xA;Since the user might not know in advance whether letterboxing will place mattes above/below or left/right, each mode specifies how to behave in both cases. As an example, the letterbox mode left-middle means that if the image needs mattes on the sides, the image will be put to the extreme left, and the matte will span the right side; if the image needs mattes above/below, the image will be vertically centered. Hence, the mode is made of two terms, the first referring to the horizontal centering of the image, the second referring to the vertical centering. Horizontal centering may assume values none, left, center, or right. Vertical centering may assume values none, top, middle, or bottom. The term none means that if letterboxing is needed on that direction, than the image is stretched to fill the whole size. E.g., elmNoneTop means that is image is thinner than the destination rect, than no letterboxing is applied and the image is stretched horizontally. However, it the image is larger than the destination rect, than letterboxing is applied by putting the image on the top and a single matte below." design-time="1" enabled="1" group_index="0" id="letterbox_mode" name="LetterBox Mode" run-time="1">
+            <Value>0</Value>
+            <Domain catalog="kernel" class-id="int-domain">0;1;16;2</Domain>
+            <Layout catalog="kernel" class-id="combo">No letterbox;CenterMiddle;NoneTop;NoneMiddle;NoneBottom;LeftNone;LeftTop;LeftMiddle;LeftBottom;CenterNone;CenterTop;CenterBottom;RightNone;RightTop;RightMiddle;RightBottom</Layout>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="int" description="Interpolation" design-time="1" enabled="1" group_index="0" id="filtering" name="Interpolation" run-time="1">
+            <Value>2</Value>
+            <Domain catalog="kernel" class-id="int-domain">0;1;5;2</Domain>
+            <Layout catalog="kernel" class-id="combo">Point;Linear;Anisotropic;Pyramidal;Gaussian</Layout>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="time" description="Delay" design-time="1" enabled="1" group_index="0" id="delay" name="Delay" run-time="1">
+            <Value>400000</Value>
+            <Domain/>
+            <Layout/>
+            <InitInfo/>
+          </Parameter>
+        </Parameters>
+        <Inputs>
+          <Input catalog="kernel" class-id="generic_datatype" description="Image to be painted on the display. The I420, YV12 and HSV color spaces are not supported. the alpha channel is not supported on BW, YUYV, UYVY color spaces. " group_index="0" id="video_stream" name="Image" read-write="1" required_for_execution="1" required_for_initialization="1">
+            <RequiredInterfaces>
+              <RequiredInterface catalog="base" class-id="image_conversion"/>
+              <RequiredInterface catalog="base" class-id="image_roi"/>
+            </RequiredInterfaces>
+          </Input>
+        </Inputs>
+        <Outputs/>
+        <PrivateData/>
+      </Block>
+      <Block active="1" catalog="base" class-id="haarcascade" id="194" label="HaarCascadeDetection_1" log_info="2" run_level="1" sync-in_mode="1">
+        <Properties>
+          <PropertySet name="gui-mdi">
+            <Property name="Appearance.Pos">310;130</Property>
+            <Property name="Private.ZOrder">2</Property>
+            <Property name="Private.ObjID">3</Property>
+            <Property name="Appearance.Size">112;64</Property>
+            <Property name="Appearance.Orientation">1</Property>
+            <Property name="Private.ExportedParams"></Property>
+            <Property name="Private.Selected">0</Property>
+            <Property name="Private.ParamsOrder">kernel::active_status;kernel::active_trigger;kernel::run_level;kernel::sync_in_mode;kernel::log_level;haarcascadeclassifierpath;haarcascademinneighbors;haarcascadescalefactor;haarcascadedocannypruning;haarcascadescaleimage;haarcascadefindbiggestobject;haarcascadedoroughsearch</Property>
+            <Property name="Private.FullPath">ImageAndVideo.Analysis.HaarCascadeDetection</Property>
+            <Property name="DisplaySyncInVisible">0</Property>
+            <Property name="DisplaySyncOutVisible">0</Property>
+          </PropertySet>
+        </Properties>
+        <Parameters>
+          <Parameter catalog="kernel" class-id="string" description="Path to the XML file containing the classifier data. Some classifiers are provided together with the OpenCv distribution, which can be downloaded from the SourceForge website http://sourceforge.net/projects/opencvlibrary" design-time="1" enabled="1" group_index="0" id="haarcascadeclassifierpath" name="Classifier path" run-time="1">
+            <Value>..\data\haarcascade_frontalface_default.xml</Value>
+            <Domain/>
+            <Layout catalog="kernel" class-id="filename"></Layout>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="int" description="Minimum number (minus 1) of neighbor rectangles that makes up an object. All the groups of a smaller number of rectangles than min_neighbors-1 are rejected. If min_neighbors is 0, the function does not any grouping at all and returns all the detected candidate rectangles, which may be useful if the user wants to apply a customized grouping procedure." design-time="1" enabled="1" group_index="0" id="haarcascademinneighbors" name="Min neighbors" run-time="1">
+            <Value>2</Value>
+            <Domain catalog="kernel" class-id="int-domain">0;1;0;0</Domain>
+            <Layout/>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="double" description="The factor by which the search window is scaled between the subsequent scans, for example, 1.1 means increasing window by 10%%." design-time="1" enabled="1" group_index="0" id="haarcascadescalefactor" name="Scale Factor" run-time="1">
+            <Value>1.2</Value>
+            <Domain catalog="kernel" class-id="double-domain">1.0009999999999999;1;0;0</Domain>
+            <Layout/>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="bool" description="Enables or disables the corresponding CV_HAAR_DO_CANNY_PRUNING flag (see OpenCv doc)" design-time="1" enabled="1" group_index="0" id="haarcascadedocannypruning" name="Do Canny Pruning" run-time="1">
+            <Value>1</Value>
+            <Domain/>
+            <Layout/>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="bool" description="Enables or disables the corresponding CV_HAAR_SCALE_IMAGE flag (see OpenCv doc)" design-time="1" enabled="1" group_index="0" id="haarcascadescaleimage" name="Scale Image" run-time="1">
+            <Value>0</Value>
+            <Domain/>
+            <Layout/>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="bool" description="Enables or disables the corresponding CV_HAAR_FIND_BIGGEST_OBJECT flag (see OpenCv doc)" design-time="1" enabled="1" group_index="0" id="haarcascadefindbiggestobject" name="Find Biggest Object" run-time="1">
+            <Value>0</Value>
+            <Domain/>
+            <Layout/>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="bool" description="Enables or disables the corresponding CV_HAAR_DO_ROUGH_SEARCH flag (see OpenCv doc)" design-time="1" enabled="1" group_index="0" id="haarcascadedoroughsearch" name="Do Rough Search" run-time="1">
+            <Value>0</Value>
+            <Domain/>
+            <Layout/>
+            <InitInfo/>
+          </Parameter>
+        </Parameters>
+        <Inputs>
+          <Input catalog="base" class-id="image" description="input" group_index="0" id="haarcascadeinputimage" name="InputImage" read-write="0" required_for_execution="1" required_for_initialization="1">
+            <RequiredInterfaces/>
+          </Input>
+        </Inputs>
+        <Outputs>
+          <Output catalog="base" class-id="image" description="output" group_index="0" id="haarcascadeoutputimage" inherited-id="" inplace-id="" name="ImageOutput"/>
+          <Output catalog="kernel" class-id="list" description="List of extracted areas (list of Geometric Rectangle 2D Double)." group_index="0" id="haarcascadeoutputlist" inherited-id="" inplace-id="" name="Rectangles list"/>
+        </Outputs>
+        <PrivateData/>
+      </Block>
+    </Blocks>
+    <PatchPins/>
+    <CustomObjects/>
+    <Links>
+      <Link>
+        <Pin block="21" id="video_stream" type="source"/>
+        <Pin block="194" id="haarcascadeinputimage" target_type="input" type="target"/>
+        <Properties>
+          <PropertySet name="gui-mdi">
+            <Property name="Private.SrcPinDelta">0;0</Property>
+            <Property name="Private.SrcPinNdx">-1</Property>
+            <Property name="Private.DstPinDelta">0;0</Property>
+            <Property name="Private.DstPinNdx">-1</Property>
+            <Property name="Private.NumPins">0</Property>
+            <Property name="Private.Selected">0</Property>
+            <Property name="Private.ZOrder">1</Property>
+            <Property name="Private.ObjID">4</Property>
+          </PropertySet>
+        </Properties>
+      </Link>
+      <Link>
+        <Pin block="194" id="haarcascadeoutputimage" type="source"/>
+        <Pin block="105" id="video_stream" target_type="input" type="target"/>
+        <Properties>
+          <PropertySet name="gui-mdi">
+            <Property name="Private.SrcPinDelta">0;0</Property>
+            <Property name="Private.SrcPinNdx">-1</Property>
+            <Property name="Private.DstPinDelta">0;0</Property>
+            <Property name="Private.DstPinNdx">-1</Property>
+            <Property name="Private.NumPins">0</Property>
+            <Property name="Private.Selected">0</Property>
+            <Property name="Private.ZOrder">0</Property>
+            <Property name="Private.ObjID">5</Property>
+          </PropertySet>
+        </Properties>
+      </Link>
+    </Links>
+  </Patch>
+
+</MainPatch>

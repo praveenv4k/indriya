@@ -1,0 +1,11 @@
+; Symbols exported by ExPhriMot
+
+EXPORTS
+    EywUserDll_GetSDKVersion			PRIVATE
+    EywUserDll_IsDebugBuild				PRIVATE
+	EywUserDll_GetDllIdentifier			PRIVATE
+	EywUserDll_GetDllLanguageIDCount	PRIVATE
+	EywUserDll_GetDllLanguageID			PRIVATE
+	EywUserDll_GetDllSignature			PRIVATE
+
+
