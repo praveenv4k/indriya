@@ -29,7 +29,7 @@ static licence_registrant gLicense(
 	licence_registrant::licence_id( EYW_EXPHRIMOT_LICENSE_ID )
 		.begin_language( EYW_LANGUAGE_US_ENGLISH )
 			.name( "MIT-like license" )
-			.description( "Copyright (c) 2015 Praveenkumar VASUDEVAN"
+			.description( "Copyright (c) 2015 Praveenkumar VASUDEVAN\n"
 				"Permission is hereby granted, free of charge, to any person obtaining a copy "
 					"of this software and associated documentation files (the \"Software\"), to "
 					"deal in the Software without restriction, including without limitation the "

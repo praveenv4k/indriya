@@ -11,53 +11,53 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{6F6619DF-58D6-4633-A79F-B86E91F6F026}</ProjectGuid>
-    <RootNamespace>ExPhriMot_PCL</RootNamespace>
+    <ProjectGuid>{7E2F26D9-F4AC-4A53-857F-6A200EA3B0A6}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ExPhriMot_PclBridge</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\..\..\PCL.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\..\..\PCL.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;EXPHRIMOT_PCL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Thesis\Develop\EyesWeb XMI SDK\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>/Zm400 %(AdditionalOptions)</AdditionalOptions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;EXPHRIMOT_PCLBRIDGE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Thesis\Develop\EyesWeb XMI SDK\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ModuleDefinitionFile>.\ExPhriMot_PCL.def</ModuleDefinitionFile>
     </Link>
-    <PostBuildEvent>
-      <Command>"C:\Program Files (x86)\EyesWeb 5.5.0\EywRegisterModule" "$(TargetPath)" /e</Command>
-      <Message>Registering EyesWeb module</Message>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -66,53 +66,39 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;EXPHRIMOT_PCL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Thesis\Develop\EyesWeb XMI SDK\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>/Zm400 %(AdditionalOptions)</AdditionalOptions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;EXPHRIMOT_PCLBRIDGE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Thesis\Develop\EyesWeb XMI SDK\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ModuleDefinitionFile>.\ExPhriMot_PCL.def</ModuleDefinitionFile>
     </Link>
-    <PostBuildEvent>
-      <Command>"C:\Program Files (x86)\EyesWeb 5.5.0\EywRegisterModule" "$(TargetPath)" /e</Command>
-      <Message>Registering EyesWeb module</Message>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="readme.txt" />
+    <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PlyToPcd.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="ConversionUtil.h" />
+    <ClInclude Include="ConversionUtilImpl.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ExPhriMot_PCL.cpp" />
-    <ClCompile Include="PlyToPcd.cpp" />
-    <ClCompile Include="StdAfx.cpp">
+    <ClCompile Include="dllmain.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ExPhriMot_PclBridge.cpp" />
+    <ClCompile Include="ConversionUtil.cpp" />
+    <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ExPhriMot_PCL.def" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="ExPhriMot_PCL.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="res\ExPhriMot_PCL.bmp" />
-    <Image Include="res\PlyToPcd.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ExPhriMot_PclBridge\ExPhriMot_PclBridge.vcxproj">
-      <Project>{7e2f26d9-f4ac-4a53-857f-6a200ea3b0a6}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

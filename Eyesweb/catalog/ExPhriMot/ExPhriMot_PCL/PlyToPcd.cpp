@@ -2,7 +2,10 @@
 #include "PlyToPcd.h"
 #include "resource.h"
 #include "../ExPhriMot_Signature/Signature.h"
+#include "../ExPhriMot_PclBridge/ConversionUtil.h"
+
 using namespace Eyw;
+using namespace ExPhriMot::PclBridge;
 
 //////////////////////////////////////////////////////////
 /// <summary>
@@ -30,9 +33,9 @@ Eyw::block_class_registrant g_PlyToPcd(
 
 //////////////////////////////////////////////////////////
 // Identifiers
-#define PARAMETER_OUTPUTPCDFILE "Output PCD File"
-#define INPUT_INPUTPLYFILE "Input PLY File"
-
+#define PARAMETER_OUTPUTPCDFILE "OutputPCDFile"
+#define INPUT_INPUTPLYFILE "InputPLYFile"
+#define PARAMETER_OUTPUTFORMAT "OutputFileFormat"
 
 //////////////////////////////////////////////////////////
 /// <summary>
@@ -71,6 +74,14 @@ void CPlyToPcd::InitSignature()
 	                         .description("File Name")
 	                         .type<Eyw::IString>()
 	                         )->GetDatatype() );
+	_pParamOutputFormat = Eyw::Cast<Eyw::IBool*>(
+						 SetParameter(Eyw::pin::id(PARAMETER_OUTPUTFORMAT)
+							.name("Output File Format")
+							.description("0 - ASCII/ 1 - Binary")
+							.type<Eyw::IBool>()
+							)->GetDatatype());
+	_pParamOutputFormat->SetValue(false);
+
 	SetInput(Eyw::pin::id(INPUT_INPUTPLYFILE)
 	    .name("Input PLY File")
 	    .description("File name")
@@ -86,9 +97,9 @@ void CPlyToPcd::InitSignature()
 //////////////////////////////////////////////////////////
 void CPlyToPcd::CheckSignature()
 {
-	_pParamOutputPCDFile=get_parameter_datatype<Eyw::IString>(PARAMETER_OUTPUTPCDFILE);
+	_pParamOutputPCDFile = get_parameter_datatype<Eyw::IString>(PARAMETER_OUTPUTPCDFILE);
+	_pParamOutputFormat = get_parameter_datatype<Eyw::IBool>(PARAMETER_OUTPUTFORMAT);
 	_signaturePtr->GetInputs()->FindItem( INPUT_INPUTPLYFILE );
-
 }
 
 //////////////////////////////////////////////////////////
@@ -98,8 +109,8 @@ void CPlyToPcd::CheckSignature()
 //////////////////////////////////////////////////////////
 void CPlyToPcd::DoneSignature()
 {
-	_pParamOutputPCDFile=NULL;
-
+	_pParamOutputPCDFile = NULL;
+	_pParamOutputFormat = false;
 }
 
 /// Block Actions
@@ -119,8 +130,7 @@ bool CPlyToPcd::Init() throw()
 		/// TODO: Init data structures here 
 
 		_pInInputPLYFile = get_input_datatype<Eyw::IString>( INPUT_INPUTPLYFILE );
-
-    	return true;
+		return true;
     }
     catch(...)
     {
@@ -162,6 +172,7 @@ bool CPlyToPcd::Execute() throw()
     try
     {
     	/// TODO: add your logic
+		Convert();
     }
     catch(...)
     {
@@ -214,4 +225,18 @@ void CPlyToPcd::Done() throw()
 void CPlyToPcd::OnChangedParameter( const std::string& csParameterID )
 {
 	/// TODO: manage the changed parameters
+}
+
+
+//////////////////////////////////////////////////////////
+/// <summary>
+/// Convert the PLY File to PCD File.
+/// </summary>
+//////////////////////////////////////////////////////////
+bool CPlyToPcd::Convert(){
+	bool ret = false;
+	ret = ConversionUtil::PlyToPcd(std::string(_pInInputPLYFile->GetValue()),
+		std::string(_pParamOutputPCDFile->GetValue()),
+		_pParamOutputFormat->GetValue());
+	return ret;
 }

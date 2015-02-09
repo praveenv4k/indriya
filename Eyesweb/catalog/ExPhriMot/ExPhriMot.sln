@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExPhriMot_Signature", "ExPh
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExPhriMot_PCL", "ExPhriMot_PCL\ExPhriMot_PCL.vcxproj", "{6F6619DF-58D6-4633-A79F-B86E91F6F026}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExPhriMot_PclBridge", "ExPhriMot_PclBridge\ExPhriMot_PclBridge.vcxproj", "{7E2F26D9-F4AC-4A53-857F-6A200EA3B0A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -21,6 +23,10 @@ Global
 		{6F6619DF-58D6-4633-A79F-B86E91F6F026}.Debug|Win32.Build.0 = Debug|Win32
 		{6F6619DF-58D6-4633-A79F-B86E91F6F026}.Release|Win32.ActiveCfg = Release|Win32
 		{6F6619DF-58D6-4633-A79F-B86E91F6F026}.Release|Win32.Build.0 = Release|Win32
+		{7E2F26D9-F4AC-4A53-857F-6A200EA3B0A6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7E2F26D9-F4AC-4A53-857F-6A200EA3B0A6}.Debug|Win32.Build.0 = Debug|Win32
+		{7E2F26D9-F4AC-4A53-857F-6A200EA3B0A6}.Release|Win32.ActiveCfg = Release|Win32
+		{7E2F26D9-F4AC-4A53-857F-6A200EA3B0A6}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

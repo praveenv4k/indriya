@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __PLY_TO_PCD_H__
+#define __PLY_TO_PCD_H__
 
 class CPlyToPcd : public Eyw::CBlockImpl
 {
@@ -96,8 +97,18 @@ protected:
 	//////////////////////////////////////////////////////////
 	void OnChangedParameter( const std::string& csParameterID );
 
+	//////////////////////////////////////////////////////////
+	/// <summary>
+	/// Convert the PLY File to PCD File.
+	/// </summary>
+	//////////////////////////////////////////////////////////
+	bool Convert();
+
+	
 private:
 	Eyw::string_ptr _pParamOutputPCDFile;
 	Eyw::string_ptr _pInInputPLYFile;
-
+	Eyw::bool_ptr _pParamOutputFormat;
 };
+
+#endif //ifndef
