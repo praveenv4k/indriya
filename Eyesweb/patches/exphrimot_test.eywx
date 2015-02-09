@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<MainPatch version="6">
+
+  <Patch>
+    <Properties>
+      <PropertySet name="gui-mdi">
+        <Property name="Private.ZoomFactor">1</Property>
+        <Property name="Private.RunLevel">1</Property>
+        <Property name="Private.ScrollPos">0;0</Property>
+      </PropertySet>
+    </Properties>
+    <Blocks>
+      <Block active="1" catalog="exphrimot_catalog" class-id="PlyToPcd" id="562" label="PlyToPcd_1" log_info="2" run_level="1" sync-in_mode="1">
+        <Properties>
+          <PropertySet name="gui-mdi">
+            <Property name="Appearance.Pos">190;110</Property>
+            <Property name="Private.ZOrder">2</Property>
+            <Property name="Private.ObjID">2</Property>
+            <Property name="Appearance.Size">115;48</Property>
+            <Property name="Appearance.Orientation">1</Property>
+            <Property name="Private.ExportedParams"></Property>
+            <Property name="Private.Selected">0</Property>
+            <Property name="Private.ParamsOrder">kernel::active_status;kernel::active_trigger;kernel::run_level;kernel::sync_in_mode;kernel::log_level;OutputPCDFile;OutputFileFormat</Property>
+            <Property name="Private.FullPath">ExPhriMot.PCL.Converters.PlyToPcd</Property>
+            <Property name="DisplaySyncInVisible">0</Property>
+            <Property name="DisplaySyncOutVisible">0</Property>
+          </PropertySet>
+        </Properties>
+        <Parameters>
+          <Parameter catalog="kernel" class-id="string" description="File Name" design-time="1" enabled="1" group_index="0" id="OutputPCDFile" name="Output PCD File" run-time="1">
+            <Value>C:\Thesis\Dataset\Nao\nao-v4-head2.pcd</Value>
+            <Domain/>
+            <Layout/>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="bool" description="0 - ASCII/ 1 - Binary" design-time="1" enabled="1" group_index="0" id="OutputFileFormat" name="Output File Format" run-time="1">
+            <Value>0</Value>
+            <Domain/>
+            <Layout/>
+            <InitInfo/>
+          </Parameter>
+        </Parameters>
+        <Inputs>
+          <Input catalog="kernel" class-id="string" description="File name" group_index="0" id="InputPLYFile" name="Input PLY File" read-write="0" required_for_execution="1" required_for_initialization="1">
+            <RequiredInterfaces/>
+          </Input>
+        </Inputs>
+        <Outputs/>
+        <PrivateData/>
+      </Block>
+      <Block active="1" catalog="kernel" class-id="string_generator" id="638" label="StringGenerator_1" log_info="2" run_level="1" sync-in_mode="1">
+        <Properties>
+          <PropertySet name="gui-mdi">
+            <Property name="Appearance.Pos">90;120</Property>
+            <Property name="Private.ZOrder">1</Property>
+            <Property name="Private.ObjID">6</Property>
+            <Property name="Appearance.Size">32;32</Property>
+            <Property name="Appearance.Orientation">1</Property>
+            <Property name="Private.ExportedParams"></Property>
+            <Property name="Private.Selected">0</Property>
+            <Property name="Private.ParamsOrder">kernel::active_status;kernel::active_trigger;kernel::run_level;kernel::sync_in_mode;kernel::log_level;value;continuous_output;string_type</Property>
+            <Property name="Private.FullPath">String.Generator.StringGenerator</Property>
+            <Property name="DisplaySyncInVisible">0</Property>
+            <Property name="DisplaySyncOutVisible">0</Property>
+          </PropertySet>
+        </Properties>
+        <Parameters>
+          <Parameter catalog="kernel" class-id="string" description="The value of the string which is generated as the output of the block" design-time="1" enabled="1" group_index="0" id="value" name="Value" run-time="1">
+            <Value>C:\Thesis\Dataset\Nao\nao-v4-head2.ply</Value>
+            <Domain/>
+            <Layout/>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="bool" description="Specifies wether the output is always generated (true) or only when the value changes (false)" design-time="1" enabled="1" group_index="0" id="continuous_output" name="Continuous output" run-time="1">
+            <Value>0</Value>
+            <Domain/>
+            <Layout/>
+            <InitInfo/>
+          </Parameter>
+          <Parameter catalog="kernel" class-id="int" description="Specifies whether the string is free text or refers to a filename or foldername" design-time="1" enabled="1" group_index="0" id="string_type" name="String type" run-time="0">
+            <Value>0</Value>
+            <Domain catalog="kernel" class-id="int-domain">0;1;3;2</Domain>
+            <Layout catalog="kernel" class-id="combo">Free text;Filename;Foldername</Layout>
+            <InitInfo/>
+          </Parameter>
+        </Parameters>
+        <Inputs/>
+        <Outputs>
+          <Output catalog="kernel" class-id="string" description="Value" group_index="0" id="output" inherited-id="" inplace-id="" name="Value"/>
+        </Outputs>
+        <PrivateData/>
+      </Block>
+    </Blocks>
+    <PatchPins/>
+    <CustomObjects/>
+    <Links>
+      <Link>
+        <Pin block="638" id="output" type="source"/>
+        <Pin block="562" id="InputPLYFile" target_type="input" type="target"/>
+        <Properties>
+          <PropertySet name="gui-mdi">
+            <Property name="Private.SrcPinDelta">0;0</Property>
+            <Property name="Private.SrcPinNdx">-1</Property>
+            <Property name="Private.DstPinDelta">0;0</Property>
+            <Property name="Private.DstPinNdx">-1</Property>
+            <Property name="Private.NumPins">0</Property>
+            <Property name="Private.Selected">0</Property>
+            <Property name="Private.ZOrder">0</Property>
+            <Property name="Private.ObjID">7</Property>
+          </PropertySet>
+        </Properties>
+      </Link>
+    </Links>
+  </Patch>
+
+</MainPatch>

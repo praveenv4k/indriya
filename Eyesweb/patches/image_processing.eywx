@@ -10,12 +10,12 @@
       </PropertySet>
     </Properties>
     <Blocks>
-      <Block active="1" catalog="system" class-id="wdmvideo_input" id="497" label="FrameGrabber_1" log_info="2" run_level="1" sync-in_mode="1">
+      <Block active="1" catalog="system" class-id="wdmvideo_input" id="21" label="FrameGrabber_1" log_info="2" run_level="1" sync-in_mode="1">
         <Properties>
           <PropertySet name="gui-mdi">
-            <Property name="Appearance.Pos">360;120</Property>
+            <Property name="Appearance.Pos">470;120</Property>
             <Property name="Private.ZOrder">7</Property>
-            <Property name="Private.ObjID">2</Property>
+            <Property name="Private.ObjID">1</Property>
             <Property name="Appearance.Size">48;48</Property>
             <Property name="Appearance.Orientation">1</Property>
             <Property name="Private.ExportedParams"></Property>
@@ -118,12 +118,12 @@
         </Outputs>
         <PrivateData/>
       </Block>
-      <Block active="1" catalog="base" class-id="canny_edge_detector" id="566" label="CannyEdgeDetector_1" log_info="2" run_level="1" sync-in_mode="1">
+      <Block active="1" catalog="base" class-id="canny_edge_detector" id="105" label="CannyEdgeDetector_1" log_info="2" run_level="1" sync-in_mode="1">
         <Properties>
           <PropertySet name="gui-mdi">
-            <Property name="Appearance.Pos">490;240</Property>
+            <Property name="Appearance.Pos">600;240</Property>
             <Property name="Private.ZOrder">6</Property>
-            <Property name="Private.ObjID">4</Property>
+            <Property name="Private.ObjID">2</Property>
             <Property name="Appearance.Size">68;68</Property>
             <Property name="Appearance.Orientation">1</Property>
             <Property name="Private.ExportedParams"></Property>
@@ -158,12 +158,12 @@
         </Outputs>
         <PrivateData/>
       </Block>
-      <Block active="1" catalog="system" class-id="image_display" id="601" label="DisplayDirectX_1" log_info="2" run_level="1" sync-in_mode="1" window_docked="1" window_fit_mode="1" window_full_screen="0" window_full_screen_monitor_index="0" window_horizontal_scroll_pos="0" window_keep_aspect_ratio="1" window_rect_height="327" window_rect_width="368" window_rect_x="332" window_rect_y="243" window_refresh_rate_max_frequency="25" window_refresh_rate_min_interval="400000" window_refresh_rate_mode="0" window_title="DisplayDirectX" window_title_bar_visible="1" window_vertical_scroll_pos="0" window_zoom="0.1875">
+      <Block active="1" catalog="system" class-id="image_display" id="154" label="DisplayDirectX_1" log_info="2" run_level="1" sync-in_mode="1" window_docked="1" window_fit_mode="1" window_full_screen="0" window_full_screen_monitor_index="0" window_horizontal_scroll_pos="0" window_keep_aspect_ratio="1" window_rect_height="327" window_rect_width="368" window_rect_x="332" window_rect_y="243" window_refresh_rate_max_frequency="25" window_refresh_rate_min_interval="400000" window_refresh_rate_mode="0" window_title="DisplayDirectX" window_title_bar_visible="1" window_vertical_scroll_pos="0" window_zoom="0.1875">
         <Properties>
           <PropertySet name="gui-mdi">
-            <Property name="Appearance.Pos">590;110</Property>
+            <Property name="Appearance.Pos">700;110</Property>
             <Property name="Private.ZOrder">5</Property>
-            <Property name="Private.ObjID">7</Property>
+            <Property name="Private.ObjID">3</Property>
             <Property name="Appearance.Size">120;70</Property>
             <Property name="Appearance.Orientation">1</Property>
             <Property name="Private.ExportedParams"></Property>
@@ -205,12 +205,12 @@
         <Outputs/>
         <PrivateData/>
       </Block>
-      <Block active="1" catalog="base" class-id="opencv_image_blur" id="1009" label="ImageBlur_1" log_info="2" run_level="1" sync-in_mode="1">
+      <Block active="1" catalog="base" class-id="opencv_image_blur" id="243" label="ImageBlur_1" log_info="2" run_level="1" sync-in_mode="1">
         <Properties>
           <PropertySet name="gui-mdi">
-            <Property name="Appearance.Pos">460;160</Property>
+            <Property name="Appearance.Pos">570;160</Property>
             <Property name="Private.ZOrder">4</Property>
-            <Property name="Private.ObjID">11</Property>
+            <Property name="Private.ObjID">4</Property>
             <Property name="Appearance.Size">48;48</Property>
             <Property name="Appearance.Orientation">1</Property>
             <Property name="Private.ExportedParams"></Property>
@@ -239,12 +239,12 @@
         </Outputs>
         <PrivateData/>
       </Block>
-      <Block active="1" catalog="system" class-id="image_display" id="2942" label="DisplayDirectX_2" log_info="2" run_level="1" sync-in_mode="1" window_docked="1" window_fit_mode="1" window_full_screen="0" window_full_screen_monitor_index="0" window_horizontal_scroll_pos="0" window_keep_aspect_ratio="1" window_rect_height="327" window_rect_width="368" window_rect_x="698" window_rect_y="244" window_refresh_rate_max_frequency="25" window_refresh_rate_min_interval="400000" window_refresh_rate_mode="0" window_title="DisplayDirectX" window_title_bar_visible="1" window_vertical_scroll_pos="0" window_zoom="0.1875">
+      <Block active="1" catalog="system" class-id="image_display" id="290" label="DisplayDirectX_2" log_info="2" run_level="1" sync-in_mode="1" window_docked="1" window_fit_mode="1" window_full_screen="0" window_full_screen_monitor_index="0" window_horizontal_scroll_pos="0" window_keep_aspect_ratio="1" window_rect_height="327" window_rect_width="368" window_rect_x="698" window_rect_y="244" window_refresh_rate_max_frequency="25" window_refresh_rate_min_interval="400000" window_refresh_rate_mode="0" window_title="DisplayDirectX" window_title_bar_visible="1" window_vertical_scroll_pos="0" window_zoom="0.1875">
         <Properties>
           <PropertySet name="gui-mdi">
-            <Property name="Appearance.Pos">590;30</Property>
+            <Property name="Appearance.Pos">700;30</Property>
             <Property name="Private.ZOrder">1</Property>
-            <Property name="Private.ObjID">16</Property>
+            <Property name="Private.ObjID">5</Property>
             <Property name="Appearance.Size">120;70</Property>
             <Property name="Appearance.Orientation">1</Property>
             <Property name="Private.ExportedParams"></Property>
@@ -291,8 +291,8 @@
     <CustomObjects/>
     <Links>
       <Link>
-        <Pin block="497" id="video_stream" type="source"/>
-        <Pin block="1009" id="InputImage" target_type="input" type="target"/>
+        <Pin block="21" id="video_stream" type="source"/>
+        <Pin block="243" id="InputImage" target_type="input" type="target"/>
         <Properties>
           <PropertySet name="gui-mdi">
             <Property name="Private.SrcPinDelta">0;0</Property>
@@ -302,13 +302,13 @@
             <Property name="Private.NumPins">0</Property>
             <Property name="Private.Selected">0</Property>
             <Property name="Private.ZOrder">3</Property>
-            <Property name="Private.ObjID">12</Property>
+            <Property name="Private.ObjID">6</Property>
           </PropertySet>
         </Properties>
       </Link>
       <Link>
-        <Pin block="1009" id="OutputImage" type="source"/>
-        <Pin block="601" id="video_stream" target_type="input" type="target"/>
+        <Pin block="243" id="OutputImage" type="source"/>
+        <Pin block="154" id="video_stream" target_type="input" type="target"/>
         <Properties>
           <PropertySet name="gui-mdi">
             <Property name="Private.SrcPinDelta">0;0</Property>
@@ -318,13 +318,13 @@
             <Property name="Private.NumPins">0</Property>
             <Property name="Private.Selected">0</Property>
             <Property name="Private.ZOrder">2</Property>
-            <Property name="Private.ObjID">13</Property>
+            <Property name="Private.ObjID">7</Property>
           </PropertySet>
         </Properties>
       </Link>
       <Link>
-        <Pin block="497" id="video_stream" type="source"/>
-        <Pin block="2942" id="video_stream" target_type="input" type="target"/>
+        <Pin block="21" id="video_stream" type="source"/>
+        <Pin block="290" id="video_stream" target_type="input" type="target"/>
         <Properties>
           <PropertySet name="gui-mdi">
             <Property name="Private.SrcPinDelta">0;0</Property>
@@ -334,7 +334,7 @@
             <Property name="Private.NumPins">0</Property>
             <Property name="Private.Selected">0</Property>
             <Property name="Private.ZOrder">0</Property>
-            <Property name="Private.ObjID">18</Property>
+            <Property name="Private.ObjID">8</Property>
           </PropertySet>
         </Properties>
       </Link>
