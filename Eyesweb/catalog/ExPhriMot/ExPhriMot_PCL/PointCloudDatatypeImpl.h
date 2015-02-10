@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __POINTCLOUD_DATATYPE_IMPL_H__
+#define __POINTCLOUD_DATATYPE_IMPL_H__
 
 #include "PointCloudDatatype.h"
 
@@ -35,3 +36,5 @@ public:
 private:
 	// Here place the data members of the datatype
 };
+
+#endif
