@@ -17,6 +17,8 @@ namespace ExPhriMot{
 			ConversionUtil();
 			~ConversionUtil();
 			static bool PlyToPcd(const std::string& inputFile, const std::string& outputFile, bool binaryFormat);
+			static bool MeshToPcd(const std::string& inputFile, const std::string& outputFile);
+
 		};
 	}
 }

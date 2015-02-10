@@ -26,3 +26,13 @@ bool ExPhriMot::PclBridge::ConversionUtil::PlyToPcd(const std::string& inputFile
 	}
 	return ret;
 }
+
+bool ExPhriMot::PclBridge::ConversionUtil::MeshToPcd(const std::string& inputFile, const std::string& outputFile){
+	bool ret = false;
+	try{
+		ret = true;
+	}
+	catch (...){
+	}
+	return ret;
+}
