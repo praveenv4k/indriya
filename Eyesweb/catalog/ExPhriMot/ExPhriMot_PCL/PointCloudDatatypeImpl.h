@@ -32,9 +32,12 @@ public:
 
 public:
 	virtual EYWAPI ~CPointCloudDatatypeImpl();
-
+	virtual void EYWAPI GetPointCloud(boost::shared_ptr<ExPhriMot::PclBridge::PointCloudData>& cloud){
+		cloud = m_pCloud;
+	}
 private:
 	// Here place the data members of the datatype
+	boost::shared_ptr<ExPhriMot::PclBridge::PointCloudData> m_pCloud;
 };
 
 #endif

@@ -30,6 +30,12 @@
     <ClInclude Include="ConversionUtilImpl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PointCloudData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PclBridge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

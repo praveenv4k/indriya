@@ -6,16 +6,16 @@
       <PropertySet name="gui-mdi">
         <Property name="Private.ZoomFactor">1</Property>
         <Property name="Private.RunLevel">1</Property>
-        <Property name="Private.ScrollPos">0;0</Property>
+        <Property name="Private.ScrollPos">0;76</Property>
       </PropertySet>
     </Properties>
     <Blocks>
-      <Block active="1" catalog="exphrimot_catalog" class-id="PlyToPcd" id="562" label="PlyToPcd_1" log_info="2" run_level="1" sync-in_mode="1">
+      <Block active="1" catalog="exphrimot_catalog" class-id="PlyToPcd" id="52" label="PlyToPcd_1" log_info="2" run_level="1" sync-in_mode="1">
         <Properties>
           <PropertySet name="gui-mdi">
-            <Property name="Appearance.Pos">190;110</Property>
+            <Property name="Appearance.Pos">500;120</Property>
             <Property name="Private.ZOrder">2</Property>
-            <Property name="Private.ObjID">2</Property>
+            <Property name="Private.ObjID">1</Property>
             <Property name="Appearance.Size">115;48</Property>
             <Property name="Appearance.Orientation">1</Property>
             <Property name="Private.ExportedParams"></Property>
@@ -48,12 +48,12 @@
         <Outputs/>
         <PrivateData/>
       </Block>
-      <Block active="1" catalog="kernel" class-id="string_generator" id="638" label="StringGenerator_1" log_info="2" run_level="1" sync-in_mode="1">
+      <Block active="1" catalog="kernel" class-id="string_generator" id="100" label="StringGenerator_1" log_info="2" run_level="1" sync-in_mode="1">
         <Properties>
           <PropertySet name="gui-mdi">
-            <Property name="Appearance.Pos">90;120</Property>
+            <Property name="Appearance.Pos">400;130</Property>
             <Property name="Private.ZOrder">1</Property>
-            <Property name="Private.ObjID">6</Property>
+            <Property name="Private.ObjID">2</Property>
             <Property name="Appearance.Size">32;32</Property>
             <Property name="Appearance.Orientation">1</Property>
             <Property name="Private.ExportedParams"></Property>
@@ -95,8 +95,8 @@
     <CustomObjects/>
     <Links>
       <Link>
-        <Pin block="638" id="output" type="source"/>
-        <Pin block="562" id="InputPLYFile" target_type="input" type="target"/>
+        <Pin block="100" id="output" type="source"/>
+        <Pin block="52" id="InputPLYFile" target_type="input" type="target"/>
         <Properties>
           <PropertySet name="gui-mdi">
             <Property name="Private.SrcPinDelta">0;0</Property>
@@ -106,7 +106,7 @@
             <Property name="Private.NumPins">0</Property>
             <Property name="Private.Selected">0</Property>
             <Property name="Private.ZOrder">0</Property>
-            <Property name="Private.ObjID">7</Property>
+            <Property name="Private.ObjID">3</Property>
           </PropertySet>
         </Properties>
       </Link>
