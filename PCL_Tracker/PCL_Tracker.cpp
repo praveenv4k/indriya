@@ -28,7 +28,7 @@ int main(int argc, char** argv)
 	bool use_fixed = false;
 
 	double downsampling_grid_size = 0.01;
-
+#if 0
 	if (pcl::console::find_argument(argc, argv, "-C") > 0)
 		use_convex_hull = false;
 	if (pcl::console::find_argument(argc, argv, "-D") > 0)
@@ -51,7 +51,9 @@ int main(int argc, char** argv)
 		usage(argv);
 		exit(1);
 	}
-
+#else
+	std::string device_id = "";
+#endif
 	// open kinect
 	OpenNISegmentTracking<pcl::PointXYZRGBA> v(device_id, 8, downsampling_grid_size,
 		use_convex_hull,
