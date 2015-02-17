@@ -652,18 +652,23 @@ public:
 	void
 		run()
 	{
-		pcl::Grabber* grabber = new pcl::Kinect2Grabber();
-		boost::function<void(const CloudConstPtr&)> f =
-			boost::bind(&OpenNISegmentTracking::cloud_cb, this, _1);
-		grabber->registerCallback(f);
+		try{
+			pcl::Grabber* grabber = new pcl::Kinect2Grabber();
+			boost::function<void(const CloudConstPtr&)> f =
+				boost::bind(&OpenNISegmentTracking::cloud_cb, this, _1);
+			boost::signals2::connection ret = grabber->registerCallback(f);
 
-		viewer_.runOnVisualizationThread(boost::bind(&OpenNISegmentTracking::viz_cb, this, _1), "viz_cb");
+			viewer_.runOnVisualizationThread(boost::bind(&OpenNISegmentTracking::viz_cb, this, _1), "viz_cb");
 
-		grabber->start();
+			grabber->start();
 
-		while (!viewer_.wasStopped())
-			boost::this_thread::sleep(boost::posix_time::seconds(1));
-		grabber->stop();
+			while (!viewer_.wasStopped())
+				boost::this_thread::sleep(boost::posix_time::seconds(1));
+			grabber->stop();
+		}
+		catch (pcl::IOException& ex){
+			std::cout << ex.detailedMessage() << std::endl;
+		}
 	}
 
 	pcl::visualization::CloudViewer viewer_;

@@ -10,7 +10,7 @@
       </PropertySet>
     </Properties>
     <Blocks>
-      <Block active="1" catalog="exphrimot_catalog" class-id="PlyToPcd" id="52" label="PlyToPcd_1" log_info="2" run_level="1" sync-in_mode="1">
+      <Block active="1" catalog="exphrimot_catalog" class-id="PlyToPcd" id="21" label="PlyToPcd_1" log_info="2" run_level="1" sync-in_mode="1">
         <Properties>
           <PropertySet name="gui-mdi">
             <Property name="Appearance.Pos">500;120</Property>
@@ -19,7 +19,7 @@
             <Property name="Appearance.Size">115;48</Property>
             <Property name="Appearance.Orientation">1</Property>
             <Property name="Private.ExportedParams"></Property>
-            <Property name="Private.Selected">0</Property>
+            <Property name="Private.Selected">1</Property>
             <Property name="Private.ParamsOrder">kernel::active_status;kernel::active_trigger;kernel::run_level;kernel::sync_in_mode;kernel::log_level;OutputPCDFile;OutputFileFormat</Property>
             <Property name="Private.FullPath">ExPhriMot.PCL.Converters.PlyToPcd</Property>
             <Property name="DisplaySyncInVisible">0</Property>
@@ -28,7 +28,7 @@
         </Properties>
         <Parameters>
           <Parameter catalog="kernel" class-id="string" description="File Name" design-time="1" enabled="1" group_index="0" id="OutputPCDFile" name="Output PCD File" run-time="1">
-            <Value>C:\Thesis\Dataset\Nao\nao-v4-head2.pcd</Value>
+            <Value>C:\Users\praveenv4k\Desktop\NEXUS 5.pcd</Value>
             <Domain/>
             <Layout/>
             <InitInfo/>
@@ -48,7 +48,7 @@
         <Outputs/>
         <PrivateData/>
       </Block>
-      <Block active="1" catalog="kernel" class-id="string_generator" id="100" label="StringGenerator_1" log_info="2" run_level="1" sync-in_mode="1">
+      <Block active="1" catalog="kernel" class-id="string_generator" id="69" label="StringGenerator_1" log_info="2" run_level="1" sync-in_mode="1">
         <Properties>
           <PropertySet name="gui-mdi">
             <Property name="Appearance.Pos">400;130</Property>
@@ -66,7 +66,7 @@
         </Properties>
         <Parameters>
           <Parameter catalog="kernel" class-id="string" description="The value of the string which is generated as the output of the block" design-time="1" enabled="1" group_index="0" id="value" name="Value" run-time="1">
-            <Value>C:\Thesis\Dataset\Nao\nao-v4-head2.ply</Value>
+            <Value>C:\Users\praveenv4k\Desktop\NEXUS 5.ply</Value>
             <Domain/>
             <Layout/>
             <InitInfo/>
@@ -95,8 +95,8 @@
     <CustomObjects/>
     <Links>
       <Link>
-        <Pin block="100" id="output" type="source"/>
-        <Pin block="52" id="InputPLYFile" target_type="input" type="target"/>
+        <Pin block="69" id="output" type="source"/>
+        <Pin block="21" id="InputPLYFile" target_type="input" type="target"/>
         <Properties>
           <PropertySet name="gui-mdi">
             <Property name="Private.SrcPinDelta">0;0</Property>
