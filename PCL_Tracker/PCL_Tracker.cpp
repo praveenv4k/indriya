@@ -55,6 +55,10 @@ int main(int argc, char** argv)
 	std::string device_id = "";
 #endif
 	// open kinect
+	//OpenNISegmentTracking<pcl::PointXYZRGBA> v(device_id, 8, downsampling_grid_size,
+	//	use_convex_hull,
+	//	visualize_non_downsample, visualize_particles,
+	//	use_fixed);
 	OpenNISegmentTracking<pcl::PointXYZRGBA> v(device_id, 8, downsampling_grid_size,
 		use_convex_hull,
 		visualize_non_downsample, visualize_particles,
