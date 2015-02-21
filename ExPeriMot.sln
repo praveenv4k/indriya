@@ -10,6 +10,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenCV_KinectCapture", "OpenCV_KinectCapture\OpenCV_KinectCapture.vcxproj", "{867BCF4E-57C9-4529-B90B-CA8F013577FF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Alvar_CalibrationTool", "Alvar_CalibrationTool\Alvar_CalibrationTool.vcxproj", "{E3086093-51FF-40A4-924A-4AD150457D67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -32,6 +36,24 @@ Global
 		{5FD1B5D0-EFFA-43F3-B261-232E73380958}.RelWithDebugInfo|Win32.Build.0 = RelWithDebugInfo|Win32
 		{5FD1B5D0-EFFA-43F3-B261-232E73380958}.RelWithDebugInfo|x64.ActiveCfg = RelWithDebugInfo|x64
 		{5FD1B5D0-EFFA-43F3-B261-232E73380958}.RelWithDebugInfo|x64.Build.0 = RelWithDebugInfo|x64
+		{867BCF4E-57C9-4529-B90B-CA8F013577FF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{867BCF4E-57C9-4529-B90B-CA8F013577FF}.Debug|Win32.Build.0 = Debug|Win32
+		{867BCF4E-57C9-4529-B90B-CA8F013577FF}.Debug|x64.ActiveCfg = Debug|Win32
+		{867BCF4E-57C9-4529-B90B-CA8F013577FF}.Release|Win32.ActiveCfg = Release|Win32
+		{867BCF4E-57C9-4529-B90B-CA8F013577FF}.Release|Win32.Build.0 = Release|Win32
+		{867BCF4E-57C9-4529-B90B-CA8F013577FF}.Release|x64.ActiveCfg = Release|Win32
+		{867BCF4E-57C9-4529-B90B-CA8F013577FF}.RelWithDebugInfo|Win32.ActiveCfg = Debug|Win32
+		{867BCF4E-57C9-4529-B90B-CA8F013577FF}.RelWithDebugInfo|Win32.Build.0 = Debug|Win32
+		{867BCF4E-57C9-4529-B90B-CA8F013577FF}.RelWithDebugInfo|x64.ActiveCfg = Debug|Win32
+		{E3086093-51FF-40A4-924A-4AD150457D67}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E3086093-51FF-40A4-924A-4AD150457D67}.Debug|Win32.Build.0 = Debug|Win32
+		{E3086093-51FF-40A4-924A-4AD150457D67}.Debug|x64.ActiveCfg = Debug|Win32
+		{E3086093-51FF-40A4-924A-4AD150457D67}.Release|Win32.ActiveCfg = Release|Win32
+		{E3086093-51FF-40A4-924A-4AD150457D67}.Release|Win32.Build.0 = Release|Win32
+		{E3086093-51FF-40A4-924A-4AD150457D67}.Release|x64.ActiveCfg = Release|Win32
+		{E3086093-51FF-40A4-924A-4AD150457D67}.RelWithDebugInfo|Win32.ActiveCfg = Debug|Win32
+		{E3086093-51FF-40A4-924A-4AD150457D67}.RelWithDebugInfo|Win32.Build.0 = Debug|Win32
+		{E3086093-51FF-40A4-924A-4AD150457D67}.RelWithDebugInfo|x64.ActiveCfg = Debug|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
