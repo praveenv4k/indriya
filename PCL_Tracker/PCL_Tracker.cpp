@@ -59,6 +59,9 @@ int main(int argc, char** argv)
 	//	use_convex_hull,
 	//	visualize_non_downsample, visualize_particles,
 	//	use_fixed);
+	oniSetLogConsoleOutput(TRUE);
+	oniSetLogMinSeverity(0);
+
 	OpenNISegmentTracking<pcl::PointXYZRGBA> v(device_id, 8, downsampling_grid_size,
 		use_convex_hull,
 		visualize_non_downsample, visualize_particles,

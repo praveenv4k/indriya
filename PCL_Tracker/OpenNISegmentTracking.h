@@ -50,6 +50,7 @@
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
 #include "kinect2_grabber.h"
+#include <pcl/io/openni2_grabber.h>
 #include <pcl/console/parse.h>
 #include <pcl/common/time.h>
 #include <pcl/common/centroid.h>
@@ -669,6 +670,7 @@ public:
 	{
 		try{
 			pcl::Grabber* grabber = new pcl::Kinect2Grabber();
+			//pcl::Grabber* grabber = new pcl::io::OpenNI2Grabber();
 			boost::function<void(const CloudConstPtr&)> f =
 				boost::bind(&OpenNISegmentTracking::cloud_cb, this, _1);
 			

@@ -1,0 +1,51 @@
+Twiddling around with the PCL tracking lib.
+
+Combines the tracking example:
+http://www.willowgarage.com/blog/2012/01/17/tracking-3d-objects-point-cloud-library
+with the template alignment example:
+http://pointclouds.org/documentation/tutorials/template_alignment.php
+
+Allows you to run the tracker to capture a reference cloud into a file by
+segmenting the scene. Can then start the tracker from the saved reference,
+which segments the scene,  searches for the reference and starts the
+tracker.
+
+== Build ==
+
+To build you will need PCL installed. See: http://pointclouds.org/downloads/
+Code developed against version 1.5 installed on Ubuntu Precise from the
+pointclouds.org packages.
+
+Like the PCL examples we use cmake. For a simple command line compile:
+
+ git clone git://github.com/markpitchless/openni_tracking_mda.git
+ cd openni_tracking_mda/
+ mkdir build
+ cd build/
+ cmake ..
+ make
+
+For other setups like eclipse see: http://www.cmake.org
+
+== Run ==
+
+You will need to find the right serial for your openni camera, e.g.
+B00365724334051B. Then:
+
+ ./openni_tracking B00365724334051B
+
+Run the original tracker setup, starts up, segments the scene, picks the
+nearest cluster and starts tracking. Placing the object on flat horizontal
+service like a table or the floor works well.
+
+ ./openni_tracking B00365724334051B --save
+
+Same as first command except the referance cloud (ie the object to track) is
+saved to reference.pcd.
+
+ ./openni_tracking B00365724334051B --load
+
+Load reference.pcd, find it in the scene and start tracking.
+
+Note that being experimental code it will also save out all sorts of debug pcd
+files while processing!
