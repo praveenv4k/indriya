@@ -14,6 +14,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenCV_KinectCapture", "Ope
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PCL_Tracker2", "PCL_Tracker2\PCL_Tracker2.vcxproj", "{C9325DEC-6F09-4B5C-96C4-987A10FACDC9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenCV_Calibration", "OpenCV_Calibration\OpenCV_Calibration.vcxproj", "{D33DF366-7A84-4078-9801-30C145525070}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -54,6 +56,15 @@ Global
 		{C9325DEC-6F09-4B5C-96C4-987A10FACDC9}.RelWithDebugInfo|Win32.ActiveCfg = Debug|Win32
 		{C9325DEC-6F09-4B5C-96C4-987A10FACDC9}.RelWithDebugInfo|Win32.Build.0 = Debug|Win32
 		{C9325DEC-6F09-4B5C-96C4-987A10FACDC9}.RelWithDebugInfo|x64.ActiveCfg = Debug|Win32
+		{D33DF366-7A84-4078-9801-30C145525070}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D33DF366-7A84-4078-9801-30C145525070}.Debug|Win32.Build.0 = Debug|Win32
+		{D33DF366-7A84-4078-9801-30C145525070}.Debug|x64.ActiveCfg = Debug|Win32
+		{D33DF366-7A84-4078-9801-30C145525070}.Release|Win32.ActiveCfg = Release|Win32
+		{D33DF366-7A84-4078-9801-30C145525070}.Release|Win32.Build.0 = Release|Win32
+		{D33DF366-7A84-4078-9801-30C145525070}.Release|x64.ActiveCfg = Release|Win32
+		{D33DF366-7A84-4078-9801-30C145525070}.RelWithDebugInfo|Win32.ActiveCfg = Debug|Win32
+		{D33DF366-7A84-4078-9801-30C145525070}.RelWithDebugInfo|Win32.Build.0 = Debug|Win32
+		{D33DF366-7A84-4078-9801-30C145525070}.RelWithDebugInfo|x64.ActiveCfg = Debug|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
