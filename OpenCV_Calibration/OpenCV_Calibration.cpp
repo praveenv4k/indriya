@@ -321,10 +321,10 @@ int main(int argc, char** argv)
 	Pattern pattern = CHESSBOARD;
 	boardSize.width = 8;
 	boardSize.height = 6;
-	squareSize = 50; 
+	//squareSize = 50; 
 	flags |= CV_CALIB_ZERO_TANGENT_DIST;
 	flags |= CV_CALIB_FIX_PRINCIPAL_POINT;
-	//flags |= CV_CALIB_FIX_ASPECT_RATIO;
+	flags |= CV_CALIB_FIX_ASPECT_RATIO;
 	writeExtrinsics = true;
 	//writePoints = true;
 	showUndistorted = true;

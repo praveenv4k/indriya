@@ -1,0 +1,19 @@
+# pose calibration file generated 03/02/15 20:15:59
+
+# Pose of camera w.r.t. calibration object:
+# t .. 3x1 translation vector in [m]
+# r .. 3x1 rotation vector
+#      direction = axis of rotation, length = angle in [rad]
+
+pose = [1.6489653011338181e+000 -3.4454224539514677e+000 3.5862341306209977e+001] [-7.5824339346704150e-001 3.3390809663943816e-001 1.3094908117506865e+000]
+# rotation matrix:
+# |  0.645  0.354 -0.677 |
+# |  0.764 -0.308  0.567 |
+# | -0.008 -0.883 -0.469 |
+
+# Pose of calibration object w.r.t. camera:
+# pose = [-0.231442 0.124300 0.771044] [1.910167 0.882055 -0.540405]
+# rotation matrix:
+# |  0.645  0.764 -0.008 |
+# |  0.354 -0.308 -0.883 |
+# | -0.677  0.567 -0.469 |
