@@ -6,6 +6,7 @@
 using namespace cv;
 using namespace std;
 
+
 static void help()
 {
 	cout << "\nThis program demonstrates usage of depth sensors (Kinect, XtionPRO,...).\n"
