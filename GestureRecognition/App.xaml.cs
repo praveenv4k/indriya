@@ -4,7 +4,7 @@
 // </copyright>
 //------------------------------------------------------------------------------
 
-namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
+namespace Experimot.Kinect.GestureRecognition
 {
     using System;
     using System.Windows;

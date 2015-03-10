@@ -4,7 +4,7 @@
 // </copyright>
 //------------------------------------------------------------------------------
 
-namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
+namespace Experimot.Kinect.GestureRecognition
 {
     using System;
     using System.Collections.Generic;
@@ -38,45 +38,51 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         /// <param name="gestureResultView">GestureResultView object to store gesture results of a single body to</param>
         public GestureDetector(KinectSensor kinectSensor, GestureResultView gestureResultView)
         {
-            if (kinectSensor == null)
+            try
             {
-                throw new ArgumentNullException("kinectSensor");
-            }
-
-            if (gestureResultView == null)
-            {
-                throw new ArgumentNullException("gestureResultView");
-            }
-
-            this.GestureResultView = gestureResultView;
-
-            // create the vgb source. The associated body tracking ID will be set when a valid body frame arrives from the sensor.
-            this.vgbFrameSource = new VisualGestureBuilderFrameSource(kinectSensor, 0);
-            this.vgbFrameSource.TrackingIdLost += this.Source_TrackingIdLost;
-
-            // open the reader for the vgb frames
-            this.vgbFrameReader = this.vgbFrameSource.OpenReader();
-            if (this.vgbFrameReader != null)
-            {
-                this.vgbFrameReader.IsPaused = true;
-                this.vgbFrameReader.FrameArrived += this.Reader_GestureFrameArrived;
-            }
-
-            gesturedbs.Add(@"Database\Greet_Left.gba");
-            gesturedbs.Add(@"Database\Greet_Right.gba");
-
-            gestures.Add(GestureNames.HandwaveLeft);
-            gestures.Add(GestureNames.HandwaveRight);
-
-            foreach (var db in gesturedbs)
-            {
-                using (var database = new VisualGestureBuilderDatabase(db))
+                if (kinectSensor == null)
                 {
-                    foreach (var gesture in database.AvailableGestures)
+                    throw new ArgumentNullException("kinectSensor");
+                }
+
+                if (gestureResultView == null)
+                {
+                    throw new ArgumentNullException("gestureResultView");
+                }
+
+                this.GestureResultView = gestureResultView;
+
+                // create the vgb source. The associated body tracking ID will be set when a valid body frame arrives from the sensor.
+                this.vgbFrameSource = new VisualGestureBuilderFrameSource(kinectSensor, 0);
+                this.vgbFrameSource.TrackingIdLost += this.Source_TrackingIdLost;
+
+                // open the reader for the vgb frames
+                this.vgbFrameReader = this.vgbFrameSource.OpenReader();
+                if (this.vgbFrameReader != null)
+                {
+                    this.vgbFrameReader.IsPaused = true;
+                    this.vgbFrameReader.FrameArrived += this.Reader_GestureFrameArrived;
+                }
+
+                gesturedbs.Add(@"Database\experimot.gbd");
+
+                gestures.Add(GestureNames.HandwaveLeft);
+                gestures.Add(GestureNames.HandwaveRight);
+
+                foreach (var db in gesturedbs)
+                {
+                    using (var database = new VisualGestureBuilderDatabase(db))
                     {
-                        this.vgbFrameSource.AddGesture(gesture);
+                        foreach (var gesture in database.AvailableGestures)
+                        {
+                            this.vgbFrameSource.AddGesture(gesture);
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
             }
         }
 
@@ -170,12 +176,22 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                 {
                     // get the discrete gesture results which arrived with the latest frame
                     IReadOnlyDictionary<Gesture, DiscreteGestureResult> discreteResults = frame.DiscreteGestureResults;
-
+                    
                     if (discreteResults != null)
                     {
+                        //foreach (var gestKvp in discreteResults)
+                        //{
+                        //    if (gestKvp.Value.Detected)
+                        //    {
+                        //        //System.Diagnostics.Debug.WriteLine(gestKvp.Key.Name);
+                        //    }
+                        //    this.GestureResultView.UpdateGestureResult(true, gestKvp.Value.Detected, gestKvp.Value.Confidence, gestKvp.Key.Name);
+                        //}
+
                         // we only have one gesture in this source object, but you can get multiple gestures
                         foreach (Gesture gesture in this.vgbFrameSource.Gestures)
                         {
+                            //System.Diagnostics.Debug.WriteLine(gesture.Name);
                             if (gesture.GestureType == GestureType.Discrete && gestures.Contains(gesture.Name))
                             //if (gesture.Name.Equals(this.seatedGestureName) && gesture.GestureType == GestureType.Discrete)
                             {

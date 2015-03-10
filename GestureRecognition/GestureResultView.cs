@@ -4,7 +4,7 @@
 // </copyright>
 //------------------------------------------------------------------------------
 
-namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
+namespace Experimot.Kinect.GestureRecognition
 {
     using System;
     using System.ComponentModel;
@@ -45,7 +45,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         private float confidence = 0.0f;
 
         /// <summary> True, if the discrete gesture is currently being detected </summary>
-        private bool detected = false;
+        private string detected = GestureNames.None;
 
         /// <summary> Image to display in UI which corresponds to tracking/detection state </summary>
         private ImageSource imageSource = null;
@@ -64,7 +64,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         {
             this.BodyIndex = bodyIndex;
             this.IsTracked = isTracked;
-            this.Detected = detected;
+            this.Detected = detected ? string.Empty : GestureNames.None;
             this.Confidence = confidence;
             this.ImageSource = this.notTrackedImage;
 
@@ -141,7 +141,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         /// <summary> 
         /// Gets a value indicating whether or not the discrete gesture has been detected
         /// </summary>
-        public bool Detected 
+        public string Detected 
         {
             get
             {
@@ -212,21 +212,29 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             if (!this.IsTracked)
             {
                 this.ImageSource = this.notTrackedImage;
-                this.Detected = false;
+                this.Detected = GestureNames.None;
                 this.BodyColor = Brushes.Gray;
             }
             else
             {
-                this.Detected = isGestureDetected;
                 this.BodyColor = this.trackedColors[this.BodyIndex];
 
-                if (this.Detected)
+                if (isGestureDetected)
                 {
-                    this.Confidence = detectionConfidence;
-                    this.ImageSource = gestureImageDict[gestureKey];
+                    this.Detected = gestureKey;
+                    //this.Confidence = detectionConfidence;
+                    //this.ImageSource = gestureImageDict[gestureKey];
+
+                    //if (gestureKey == "Greet_Left")
+                    //{
+                    //    this.Detected = "Hello";
+                    //    this.ImageSource = handwaveLeft;
+                    //    System.Diagnostics.Debug.WriteLine("Hello");
+                    //}
                 }
                 else
                 {
+                    this.Detected = GestureNames.None;
                     this.ImageSource = gestureImageDict[GestureNames.None];
                 }
             }

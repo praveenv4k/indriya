@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
+namespace Experimot.Kinect.GestureRecognition
 {
     static class GestureNames
     {
