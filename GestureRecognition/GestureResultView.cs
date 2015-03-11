@@ -243,13 +243,6 @@ namespace Experimot.Kinect.GestureRecognition
                     this.Detected = gestureKey;
                     this.Confidence = detectionConfidence;
                     this.ImageSource = gestureImageDict[gestureKey];
-
-                    if (gestureKey == "Greet_Left")
-                    {
-                        this.LeftDetected = true;
-                        //this.ImageSource = handwaveLeft;
-                        //System.Diagnostics.Debug.WriteLine("Hello");
-                    }
                 }
                 else
                 {

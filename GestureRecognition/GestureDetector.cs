@@ -176,18 +176,10 @@ namespace Experimot.Kinect.GestureRecognition
                 {
                     // get the discrete gesture results which arrived with the latest frame
                     IReadOnlyDictionary<Gesture, DiscreteGestureResult> discreteResults = frame.DiscreteGestureResults;
-                    
+                    Gesture detectedGesture = null;
+                    DiscreteGestureResult detectedResult = null;
                     if (discreteResults != null)
                     {
-                        //foreach (var gestKvp in discreteResults)
-                        //{
-                        //    if (gestKvp.Value.Detected)
-                        //    {
-                        //        //System.Diagnostics.Debug.WriteLine(gestKvp.Key.Name);
-                        //    }
-                        //    this.GestureResultView.UpdateGestureResult(true, gestKvp.Value.Detected, gestKvp.Value.Confidence, gestKvp.Key.Name);
-                        //}
-
                         // we only have one gesture in this source object, but you can get multiple gestures
                         foreach (Gesture gesture in this.vgbFrameSource.Gestures)
                         {
@@ -195,16 +187,32 @@ namespace Experimot.Kinect.GestureRecognition
                             if (gesture.GestureType == GestureType.Discrete && gestures.Contains(gesture.Name))
                             //if (gesture.Name.Equals(this.seatedGestureName) && gesture.GestureType == GestureType.Discrete)
                             {
+
                                 DiscreteGestureResult result = null;
                                 discreteResults.TryGetValue(gesture, out result);
 
+                                //if (result != null && result.Detected)
                                 if (result != null)
                                 {
+                                    if (result.Detected)
+                                    {
+                                        detectedGesture = gesture;
+                                        detectedResult = result;
+                                        break;
+                                    }
                                     // update the GestureResultView object with new gesture result values
-                                    this.GestureResultView.UpdateGestureResult(true, result.Detected, result.Confidence, gesture.Name);
+                                    //this.GestureResultView.UpdateGestureResult(true, result.Detected, result.Confidence, gesture.Name);
                                 }
                             }
                         }
+                    }
+                    if (detectedGesture != null && detectedResult != null)
+                    {
+                        this.GestureResultView.UpdateGestureResult(true, detectedResult.Detected, detectedResult.Confidence, detectedGesture.Name);
+                    }
+                    else
+                    {
+                        this.GestureResultView.UpdateGestureResult(true, false, 0.0f, string.Empty);
                     }
                 }
             }

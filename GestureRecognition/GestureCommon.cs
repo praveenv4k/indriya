@@ -9,7 +9,7 @@ namespace Experimot.Kinect.GestureRecognition
     static class GestureNames
     {
         public static readonly string None = "None";
-        public static readonly string HandwaveLeft = "Greet_Left";
         public static readonly string HandwaveRight = "Greet_Right";
+        public static readonly string HandwaveLeft = "Greet_Left";
     }
 }
