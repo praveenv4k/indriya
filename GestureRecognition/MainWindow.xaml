@@ -9,7 +9,8 @@
         <SolidColorBrush x:Key="MediumGreyBrush" Color="#ff6e6e6e" />
         <SolidColorBrush x:Key="KinectPurpleBrush" Color="#ff52318f" />
         <SolidColorBrush x:Key="KinectBlueBrush" Color="#ff00BCF2" />
-        
+        <local:CameraSpacePointToStringConverter x:Key="cameraSpacePtToStringConv"/>
+        <local:Vector4ToStringConverter x:Key="vec4ToStringConv"/>
         <DataTemplate DataType="{x:Type local:GestureResultView}">
             <Grid Width="Auto" Margin="5" Background="{Binding BodyColor}">
                 <Grid.RowDefinitions>
@@ -18,11 +19,14 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <TextBlock HorizontalAlignment="Stretch" Text="{Binding BodyIndex, StringFormat='Body Index: {0}'}" FontSize="14" FontFamily="Segoe UI" FontWeight="SemiBold" Margin="5"/>
                 <Image Source="{Binding ImageSource}" Stretch="Uniform" Grid.Row="1" Margin="5"/>
-                <TextBlock Text="{Binding Detected, StringFormat='Gesture: {0}'}" FontSize="18" FontFamily="Segoe UI" FontWeight="SemiBold" Grid.Row="2" Margin="5 5 0 0"/>
-                <TextBlock Text="{Binding Confidence, StringFormat='Confidence: {0}'}" FontSize="18" FontFamily="Segoe UI" FontWeight="SemiBold" Grid.Row="4" Margin="5 0 0 0"/>
+                <TextBlock Text="{Binding Position, Converter={StaticResource cameraSpacePtToStringConv}, StringFormat='Pos: {0}'}" FontSize="12" Grid.Row="2"  FontFamily="Segoe UI" Margin="5"/>
+                <TextBlock Text="{Binding Orientation, Converter={StaticResource vec4ToStringConv}, StringFormat='Orient: {0}'}" FontSize="12" FontFamily="Segoe UI" Grid.Row="3" Margin="5"/>
+                <TextBlock Text="{Binding Detected, StringFormat='Gesture: {0}'}" FontSize="18" FontFamily="Segoe UI" FontWeight="SemiBold" Grid.Row="4" Margin="5 5 0 0"/>
+                <TextBlock Text="{Binding Confidence, StringFormat='Confidence: {0}'}" FontSize="18" FontFamily="Segoe UI" FontWeight="SemiBold" Grid.Row="5" Margin="5 0 0 0"/>
             </Grid>
         </DataTemplate>
         

@@ -6,6 +6,7 @@
 
 namespace Experimot.Kinect.GestureRecognition
 {
+    using Microsoft.Kinect;
     using System;
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
@@ -193,6 +194,40 @@ namespace Experimot.Kinect.GestureRecognition
                 if (this.ImageSource != value)
                 {
                     this.imageSource = value;
+                    this.NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private CameraSpacePoint position;
+        public CameraSpacePoint Position
+        {
+            get
+            {
+                return this.position;
+            }
+            set
+            {
+                if (this.position != value)
+                {
+                    this.position = value;
+                    this.NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private Vector4 orientation;
+        public Vector4 Orientation
+        {
+            get
+            {
+                return this.orientation;
+            }
+            set
+            {
+                if (this.orientation != value)
+                {
+                    this.orientation = value;
                     this.NotifyPropertyChanged();
                 }
             }

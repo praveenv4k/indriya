@@ -233,12 +233,22 @@ namespace Experimot.Kinect.GestureRecognition
                     {
                         Body body = this.bodies[i];
                         ulong trackingId = body.TrackingId;
+                        Joint torso = body.Joints[JointType.SpineBase];
+                        JointOrientation torsoOrient = body.JointOrientations[JointType.SpineBase];
+
+                        this.gestureDetectorList[i].GestureResultView.Position = (torso != null && torso.TrackingState == TrackingState.Tracked) ? torso.Position : new CameraSpacePoint();
+                        this.gestureDetectorList[i].GestureResultView.Orientation = (torso != null && torso.TrackingState == TrackingState.Tracked) ? torsoOrient.Orientation : new Vector4();                            
 
                         // if the current body TrackingId changed, update the corresponding gesture detector with the new value
                         if (trackingId != this.gestureDetectorList[i].TrackingId)
                         {
-                            this.gestureDetectorList[i].TrackingId = trackingId;
+                            //Joint torso = body.Joints[JointType.SpineBase];
+                            //JointOrientation torsoOrient = body.JointOrientations[JointType.SpineBase];
 
+                            //this.gestureDetectorList[i].GestureResultView.Position = (torso != null && torso.TrackingState == TrackingState.Tracked) ? torso.Position : new CameraSpacePoint();
+                            //this.gestureDetectorList[i].GestureResultView.Orientation = (torso != null && torso.TrackingState == TrackingState.Tracked) ? torsoOrient.Orientation : new Vector4();                            
+                            this.gestureDetectorList[i].TrackingId = trackingId;
+                            //this
                             // if the current body is tracked, unpause its detector to get VisualGestureBuilderFrameArrived events
                             // if the current body is not tracked, pause its detector so we don't waste resources trying to get invalid gesture results
                             this.gestureDetectorList[i].IsPaused = trackingId == 0;
