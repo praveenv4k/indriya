@@ -46,7 +46,6 @@ namespace Experimot.Kinect.GestureRecognition
 
         /// <summary> True, if the discrete gesture is currently being detected </summary>
         private string detected = GestureNames.None;
-        private bool leftdetected = false;
 
         /// <summary> Image to display in UI which corresponds to tracking/detection state </summary>
         private ImageSource imageSource = null;
@@ -159,23 +158,6 @@ namespace Experimot.Kinect.GestureRecognition
             }
         }
 
-        public bool LeftDetected
-        {
-            get
-            {
-                return this.leftdetected;
-            }
-
-            private set
-            {
-                if (this.leftdetected != value)
-                {
-                    this.leftdetected = value;
-                    this.NotifyPropertyChanged();
-                }
-            }
-        }
-
         /// <summary> 
         /// Gets a float value which indicates the detector's confidence that the gesture is occurring for the associated body 
         /// </summary>
@@ -226,7 +208,6 @@ namespace Experimot.Kinect.GestureRecognition
         {
             this.IsTracked = isBodyTrackingIdValid;
             this.Confidence = 0.0f;
-            this.LeftDetected = false;
 
             if (!this.IsTracked)
             {
