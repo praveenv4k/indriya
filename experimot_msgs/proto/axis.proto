@@ -1,6 +1,6 @@
-package gazebo.msgs;
+package experimot.msgs;
 
-/// \ingroup gazebo_msgs Messages
+/// \ingroup experimot_msgs Messages
 /// \interface Axis
 /// \brief msgs::Joint axis message
 

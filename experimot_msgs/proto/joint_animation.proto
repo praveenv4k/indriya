@@ -1,6 +1,6 @@
-package gazebo.msgs;
+package experimot.msgs;
 
-/// \ingroup gazebo_msgs
+/// \ingroup experimot_msgs
 /// \interface JointAnimation 
 /// \brief Message for a model joint animation, does not appear to be used.
 /// \todo Document me.

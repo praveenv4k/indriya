@@ -1,6 +1,6 @@
-package gazebo.msgs;
+package experimot.msgs;
 
-/// \ingroup gazebo_msgs
+/// \ingroup experimot_msgs
 /// \interface PropagationParticle
 /// \brief Wireless strength signal in a point
 

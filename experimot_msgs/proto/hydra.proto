@@ -1,6 +1,6 @@
-package gazebo.msgs;
+package experimot.msgs;
 
-/// \ingroup gazebo_msgs
+/// \ingroup experimot_msgs
 /// \interface Hydra
 /// \brief Message that contains information about a Hydra Razer controller
 

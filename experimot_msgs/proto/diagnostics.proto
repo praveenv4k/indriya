@@ -1,9 +1,9 @@
-package gazebo.msgs;
+package experimot.msgs;
 
-/// \ingroup gazebo_msgs
+/// \ingroup experimot_msgs
 /// \interface Diagnostics
-/// \brief Diagnostic information about a running instance of Gazebo.
-/// Gazebo must have been compiled with the ENABLE_DIAGNOSTICS flag.
+/// \brief Diagnostic information about a running instance of experimot.
+/// experimot must have been compiled with the ENABLE_DIAGNOSTICS flag.
 
 import "time.proto";
 

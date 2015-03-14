@@ -1,8 +1,8 @@
-package gazebo.msgs;
+package experimot.msgs;
 
-/// \ingroup gazebo_msgs
+/// \ingroup experimot_msgs
 /// \interface Plugin
-/// \brief A message containing visual information for gazebo::Plugin
+/// \brief A message containing visual information for experimot::Plugin
 
 message Plugin
 {

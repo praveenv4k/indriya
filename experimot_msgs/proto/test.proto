@@ -1,8 +1,8 @@
-package gazebo.msgs;
+package experimot.msgs;
 
 import "header.proto";
 
-/// \ingroup gazebo_msgs
+/// \ingroup experimot_msgs
 /// \interface Test
 /// \brief A test message
 
