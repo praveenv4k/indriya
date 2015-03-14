@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <ImportGroup Label="PropertySheets"/>
+
+  <!-- User Macros -->
+  <PropertyGroup Label="UserMacros">
+	<!-- Protobuf -->
+    <PROTOBUF_ROOT>$(DEV_SDK_ROOT)\msvc_protobuf</PROTOBUF_ROOT>
+	<PROTOBUF_INCLUDE>$(PROTOBUF_ROOT)\include</PROTOBUF_INCLUDE>
+	<PROTOBUF_LIB_DIR>$(PROTOBUF_ROOT)\lib</PROTOBUF_LIB_DIR>
+	<PROTOBUF_LIBS>libprotobuf.lib</PROTOBUF_LIBS>
+	<!-- boost -->
+	<BOOST_ROOT>$(DEV_SDK_ROOT)\msvc_boost</BOOST_ROOT>
+	<BOOST_INCLUDE>$(BOOST_ROOT)</BOOST_INCLUDE>
+	<BOOST_LIB_DIR>$(BOOST_ROOT)\lib</BOOST_LIB_DIR>
+	<BOOST_DEBUG_LIBS>boost_date_time-vc120-mt-gd-1_57.lib;boost_filesystem-vc120-mt-gd-1_57.lib;boost_system-vc120-mt-gd-1_57.lib;boost_thread-vc120-mt-gd-1_57.lib;boost_chrono-vc120-mt-gd-1_57.lib</BOOST_DEBUG_LIBS>
+	<BOOST_RELEASE_LIBS>boost_date_time-vc120-mt-1_57.lib;boost_filesystem-vc120-mt-1_57.lib;boost_system-vc120-mt-1_57.lib;boost_thread-vc120-mt-1_57.lib;boost_chrono-vc120-mt-1_57.lib</BOOST_RELEASE_LIBS>
+	
+    <PCL_ROOT Condition="'$(Platform)'=='x64'">$(ProgramW6432)\PCL 1.7.2</PCL_ROOT>
+  </PropertyGroup>
+  
+  <!-- Debug|Win32 -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(PROTOBUF_INCLUDE);$(BOOST_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(PROTOBUF_LIB_DIR);$(BOOST_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(PROTOBUF_LIBS);$(BOOST_DEBUG_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <!-- Release|Win32 -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(PROTOBUF_INCLUDE);$(BOOST_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(PROTOBUF_LIB_DIR);$(BOOST_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(PROTOBUF_LIBS);$(BOOST_RELEASE_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+</Project>
