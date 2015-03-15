@@ -8,8 +8,9 @@
 	<!-- Protobuf -->
     <PROTOBUF_ROOT>$(DEV_SDK_ROOT)\msvc_protobuf</PROTOBUF_ROOT>
 	<PROTOBUF_INCLUDE>$(PROTOBUF_ROOT)\include</PROTOBUF_INCLUDE>
-	<PROTOBUF_LIB_DIR>$(PROTOBUF_ROOT)\lib</PROTOBUF_LIB_DIR>
-	<PROTOBUF_LIBS>libprotobuf.lib</PROTOBUF_LIBS>
+	<PROTOBUF_DEBUG_LIB_DIR>$(PROTOBUF_ROOT)\lib\Debug</PROTOBUF_DEBUG_LIB_DIR>
+	<PROTOBUF_RELEASE_LIB_DIR>$(PROTOBUF_ROOT)\lib\Release</PROTOBUF_RELEASE_LIB_DIR>
+	<PROTOBUF_LIBS>libprotobuf.lib;libprotoc.lib</PROTOBUF_LIBS>
 	<!-- boost -->
 	<BOOST_ROOT>$(DEV_SDK_ROOT)\msvc_boost</BOOST_ROOT>
 	<BOOST_INCLUDE>$(BOOST_ROOT)</BOOST_INCLUDE>
@@ -28,7 +29,7 @@
       <AdditionalIncludeDirectories>$(PROTOBUF_INCLUDE);$(BOOST_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(PROTOBUF_LIB_DIR);$(BOOST_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(PROTOBUF_DEBUG_LIB_DIR);$(BOOST_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>$(PROTOBUF_LIBS);$(BOOST_DEBUG_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -41,7 +42,7 @@
       <AdditionalIncludeDirectories>$(PROTOBUF_INCLUDE);$(BOOST_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(PROTOBUF_LIB_DIR);$(BOOST_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(PROTOBUF_RELEASE_LIB_DIR);$(BOOST_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>$(PROTOBUF_LIBS);$(BOOST_RELEASE_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
