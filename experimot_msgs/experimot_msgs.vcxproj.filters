@@ -1,0 +1,953 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="proto">
+      <UniqueIdentifier>{9389f175-4d13-4f1a-aef4-567e8ace38d3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="proto\axis.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\boxgeom.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\camera_cmd.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\camerasensor.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\collision.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\color.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\contact.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\contacts.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\contactsensor.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\cylindergeom.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\diagnostics.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\distortion.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\factory.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\fluid.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\fog.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\friction.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\geometry.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\gps.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\gui.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\gui_camera.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\gz_string.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\gz_string_v.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\header.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\heightmapgeom.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\hydra.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\image.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\image_stamped.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\imagegeom.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\images_stamped.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\imu.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\inertial.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\int.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\joint.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\joint_animation.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\joint_cmd.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\joint_wrench.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\joint_wrench_stamped.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\joystick.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\laserscan.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\laserscan_stamped.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\light.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\link.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\link_data.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\log_control.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\log_status.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\material.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\meshgeom.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\model.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\model_configuration.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\model_v.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\packet.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\physics.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\pid.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\planegeom.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\plugin.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\pointcloud.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\polylinegeom.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\pose.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\pose_animation.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\pose_stamped.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\pose_trajectory.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\pose_v.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\poses_stamped.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\projector.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\propagation_grid.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\propagation_particle.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\publish.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\publishers.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\quaternion.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\raysensor.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\request.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\response.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\road.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\scene.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\selection.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\sensor.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\server_control.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\shadows.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\sim_event.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\sky.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\sonar.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\sonar_stamped.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\spheregeom.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\spherical_coordinates.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\subscribe.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\surface.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\tactile.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\test.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\time.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\topic_info.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\track_visual.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\vector2d.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\vector3d.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\visual.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\wireless_node.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\wireless_nodes.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\world_control.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\world_modify.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\world_reset.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\world_stats.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\wrench.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\wrench_stamped.proto">
+      <Filter>proto</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MsgFactory.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="axis.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="boxgeom.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="camera_cmd.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="camerasensor.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="collision.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="color.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="contact.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="contacts.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="contactsensor.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cylindergeom.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="diagnostics.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="distortion.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="factory.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fluid.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fog.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="friction.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="geometry.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gps.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gui.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gui_camera.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gz_string.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gz_string_v.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="header.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="heightmapgeom.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hydra.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="image.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="image_stamped.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imagegeom.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="images_stamped.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imu.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="inertial.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="int.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="joint.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="joint_animation.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="joint_cmd.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="joint_wrench.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="joint_wrench_stamped.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="joystick.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="laserscan.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="laserscan_stamped.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="light.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="link.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="link_data.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="log_control.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="log_status.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="material.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="meshgeom.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="model.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="model_configuration.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="model_v.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="packet.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="physics.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pid.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="planegeom.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="plugin.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pointcloud.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="polylinegeom.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pose.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pose_animation.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pose_stamped.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pose_trajectory.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pose_v.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="poses_stamped.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="projector.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="propagation_grid.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="propagation_particle.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="publish.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="publishers.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="quaternion.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="raysensor.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="request.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="response.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="road.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scene.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="selection.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sensor.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="server_control.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shadows.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sim_event.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sky.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sonar.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sonar_stamped.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spheregeom.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spherical_coordinates.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="subscribe.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="surface.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tactile.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="time.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="topic_info.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="track_visual.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vector2d.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vector3d.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="visual.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="wireless_node.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="wireless_nodes.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="world_control.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="world_modify.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="world_reset.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="world_stats.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="wrench.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="wrench_stamped.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="axis.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="boxgeom.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="camera_cmd.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="camerasensor.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="collision.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="color.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="contact.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="contacts.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="contactsensor.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cylindergeom.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="diagnostics.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="distortion.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="factory.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fluid.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fog.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="friction.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gps.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gui.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gui_camera.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gz_string.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gz_string_v.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="heightmapgeom.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hydra.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="image.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="image_stamped.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="imagegeom.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="images_stamped.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="imu.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inertial.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="int.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="joint.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="joint_animation.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="joint_cmd.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="joint_wrench.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="joint_wrench_stamped.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="joystick.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="laserscan.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="laserscan_stamped.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="light.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="link.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="link_data.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="log_control.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="log_status.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="material.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="meshgeom.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="model.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="model_configuration.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="model_v.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="packet.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="physics.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pid.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="planegeom.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="plugin.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pointcloud.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="polylinegeom.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pose.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pose_animation.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pose_stamped.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pose_trajectory.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pose_v.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="poses_stamped.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="projector.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="propagation_grid.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="propagation_particle.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="publish.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="publishers.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="quaternion.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="raysensor.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="request.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="response.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="road.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scene.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="selection.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sensor.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="server_control.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shadows.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sim_event.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sky.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sonar.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sonar_stamped.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="spheregeom.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="spherical_coordinates.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="subscribe.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="surface.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tactile.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="time.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="topic_info.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="track_visual.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vector2d.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vector3d.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="visual.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wireless_node.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wireless_nodes.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="world_control.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="world_modify.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="world_reset.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="world_stats.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wrench.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wrench_stamped.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MsgFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
