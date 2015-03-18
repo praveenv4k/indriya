@@ -199,7 +199,7 @@ int main(int argc, char ** argv)
 	RobotBasePtr probot = RobotBasePtr();
 	{
 		EnvironmentMutex::scoped_lock lock(penv->GetMutex());
-		probot = orMacroGetRobot(penv,1);
+		probot = orMacroGetRobot(penv, 1);
 	}
 	if (probot){
 		cout << "Robot exists!";
@@ -215,9 +215,6 @@ int main(int argc, char ** argv)
 		{
 			{
 				vector<double> jointVals;
-				/*FOREACH(it, vals){
-					jointVals.push_back((*it)[jointMap[(*it)]]);
-				}*/
 				for (size_t id = 0; id < vals.size(); id++){
 					jointVals.push_back(vals[jointMap[id]]);
 				}

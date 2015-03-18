@@ -1,0 +1,11 @@
+package experimot.msgs;
+
+/// \ingroup experimot_msgs
+/// \interface Joint Value map 
+/// \brief Message for a Joint value
+
+
+message JointValueMap
+{
+  map<int32,double> map_field  = 1;
+}

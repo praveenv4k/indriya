@@ -40,6 +40,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experimot_client", "experim
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "openrave_client", "openrave_client\openrave_client.pyproj", "{F310A000-ED6F-476A-9CE6-04FCDD808683}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "studio", "studio", "{7246ABF7-59FC-4225-A785-9E73830B00D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExperimotStudio", "studio\ExperimotStudio\ExperimotStudio.csproj", "{646B50A9-5B1E-4866-9639-660D1DB66D07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -319,6 +323,27 @@ Global
 		{F310A000-ED6F-476A-9CE6-04FCDD808683}.RelWithDebugInfo|Win32.ActiveCfg = Debug|Any CPU
 		{F310A000-ED6F-476A-9CE6-04FCDD808683}.RelWithDebugInfo|x64.ActiveCfg = Debug|Any CPU
 		{F310A000-ED6F-476A-9CE6-04FCDD808683}.RelWithDebugInfo|x86.ActiveCfg = Debug|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Release|Win32.ActiveCfg = Release|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Release|x64.ActiveCfg = Release|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Release|x86.ActiveCfg = Release|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.RelWithDebugInfo|Any CPU.ActiveCfg = Debug|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.RelWithDebugInfo|Any CPU.Build.0 = Debug|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.RelWithDebugInfo|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.RelWithDebugInfo|Mixed Platforms.Build.0 = Debug|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.RelWithDebugInfo|Win32.ActiveCfg = Debug|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.RelWithDebugInfo|x64.ActiveCfg = Debug|Any CPU
+		{646B50A9-5B1E-4866-9639-660D1DB66D07}.RelWithDebugInfo|x86.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -335,5 +360,6 @@ Global
 		{9832DF71-1F64-475A-BE0E-5F50B3636997} = {AD204C01-57A4-40D6-9862-AAEA5689DAE8}
 		{452A652E-13C2-4F9D-A988-4EF579122923} = {AD204C01-57A4-40D6-9862-AAEA5689DAE8}
 		{F310A000-ED6F-476A-9CE6-04FCDD808683} = {AD204C01-57A4-40D6-9862-AAEA5689DAE8}
+		{646B50A9-5B1E-4866-9639-660D1DB66D07} = {7246ABF7-59FC-4225-A785-9E73830B00D6}
 	EndGlobalSection
 EndGlobal

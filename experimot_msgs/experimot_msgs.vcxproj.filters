@@ -327,6 +327,9 @@
     <None Include="proto\wrench_stamped.proto">
       <Filter>proto</Filter>
     </None>
+    <None Include="proto\joint_value_map.proto">
+      <Filter>proto</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MsgFactory.cc">
@@ -638,6 +641,9 @@
     <ClCompile Include="wrench_stamped.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="joint_value_map.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="axis.pb.h">
@@ -947,6 +953,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MsgFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="joint_value_map.pb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

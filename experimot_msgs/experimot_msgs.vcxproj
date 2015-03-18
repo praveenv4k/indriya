@@ -129,6 +129,7 @@
     <None Include="proto\inertial.proto" />
     <None Include="proto\int.proto" />
     <None Include="proto\joint.proto" />
+    <None Include="proto\joint_value_map.proto" />
     <None Include="proto\joint_animation.proto" />
     <None Include="proto\joint_cmd.proto" />
     <None Include="proto\joint_wrench.proto" />
@@ -240,6 +241,7 @@
     <ClCompile Include="joint.pb.cc" />
     <ClCompile Include="joint_animation.pb.cc" />
     <ClCompile Include="joint_cmd.pb.cc" />
+    <ClCompile Include="joint_value_map.pb.cc" />
     <ClCompile Include="joint_wrench.pb.cc" />
     <ClCompile Include="joint_wrench_stamped.pb.cc" />
     <ClCompile Include="joystick.pb.cc" />
@@ -345,6 +347,7 @@
     <ClInclude Include="joint.pb.h" />
     <ClInclude Include="joint_animation.pb.h" />
     <ClInclude Include="joint_cmd.pb.h" />
+    <ClInclude Include="joint_value_map.pb.h" />
     <ClInclude Include="joint_wrench.pb.h" />
     <ClInclude Include="joint_wrench_stamped.pb.h" />
     <ClInclude Include="joystick.pb.h" />
