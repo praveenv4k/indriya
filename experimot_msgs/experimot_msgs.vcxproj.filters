@@ -330,6 +330,12 @@
     <None Include="proto\joint_value_map.proto">
       <Filter>proto</Filter>
     </None>
+    <None Include="proto\kinect_joint.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\kinect_body.proto">
+      <Filter>proto</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MsgFactory.cc">
@@ -644,6 +650,12 @@
     <ClCompile Include="joint_value_map.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="kinect_body.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kinect_joint.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="axis.pb.h">
@@ -956,6 +968,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="joint_value_map.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kinect_body.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kinect_joint.pb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

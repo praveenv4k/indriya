@@ -135,6 +135,8 @@
     <None Include="proto\joint_wrench.proto" />
     <None Include="proto\joint_wrench_stamped.proto" />
     <None Include="proto\joystick.proto" />
+    <None Include="proto\kinect_body.proto" />
+    <None Include="proto\kinect_joint.proto" />
     <None Include="proto\laserscan.proto" />
     <None Include="proto\laserscan_stamped.proto" />
     <None Include="proto\light.proto" />
@@ -245,6 +247,8 @@
     <ClCompile Include="joint_wrench.pb.cc" />
     <ClCompile Include="joint_wrench_stamped.pb.cc" />
     <ClCompile Include="joystick.pb.cc" />
+    <ClCompile Include="kinect_body.pb.cc" />
+    <ClCompile Include="kinect_joint.pb.cc" />
     <ClCompile Include="laserscan.pb.cc" />
     <ClCompile Include="laserscan_stamped.pb.cc" />
     <ClCompile Include="light.pb.cc" />
@@ -351,6 +355,8 @@
     <ClInclude Include="joint_wrench.pb.h" />
     <ClInclude Include="joint_wrench_stamped.pb.h" />
     <ClInclude Include="joystick.pb.h" />
+    <ClInclude Include="kinect_body.pb.h" />
+    <ClInclude Include="kinect_joint.pb.h" />
     <ClInclude Include="laserscan.pb.h" />
     <ClInclude Include="laserscan_stamped.pb.h" />
     <ClInclude Include="light.pb.h" />

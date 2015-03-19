@@ -23,17 +23,30 @@
     <OPENRAVE_BIN_DIR>$(OPENRAVE_ROOT)\bin</OPENRAVE_BIN_DIR>
     <OPENRAVE_DEBUG_LIBS>openrave0.9-vc120-mt.lib;openrave0.9-vc120-mt_c.lib;openrave0.9-vc120-mt-core.lib;openrave0.9-vc120-mt-core_c.lib;basecontrollers.lib;baserobots.lib;basesamplers.lib;basesensors.lib;configurationcache.lib;dualmanipulation.lib;grasper.lib;ikfastsolvers.lib;logging.lib;oderave.lib;pqprave.lib;qtcoinrave.lib;rmanipulation.lib;rplanners.lib;textserver.lib</OPENRAVE_DEBUG_LIBS>
     <OPENRAVE_RELEASE_LIBS>openrave0.9-vc120-mt.lib;openrave0.9-vc120-mt_c.lib;openrave0.9-vc120-mt-core.lib;openrave0.9-vc120-mt-core_c.lib;basecontrollers.lib;baserobots.lib;basesamplers.lib;basesensors.lib;configurationcache.lib;dualmanipulation.lib;grasper.lib;ikfastsolvers.lib;logging.lib;oderave.lib;pqprave.lib;qtcoinrave.lib;rmanipulation.lib;rplanners.lib;textserver.lib</OPENRAVE_RELEASE_LIBS>
+	<!-- zeromq -->
+	<ZEROMQ_ROOT>$(DEV_SDK_ROOT)\msvc_zeromq</ZEROMQ_ROOT>
+    <ZEROMQ_INCLUDE>$(ZEROMQ_ROOT)\include</ZEROMQ_INCLUDE>
+    <ZEROMQ_LIB_DIR>$(ZEROMQ_ROOT)\lib</ZEROMQ_LIB_DIR>
+    <ZEROMQ_BIN_DIR>$(ZEROMQ_ROOT)\bin</ZEROMQ_BIN_DIR>
+    <ZEROMQ_DEBUG_LIBS>libzmq.lib</ZEROMQ_DEBUG_LIBS>
+    <ZEROMQ_RELEASE_LIBS>libzmq.lib</ZEROMQ_RELEASE_LIBS>
+	<!-- azmq -->
+	<AZMQ_ROOT>$(DEV_SDK_ROOT)\msvc_azmq</AZMQ_ROOT>
+    <AZMQ_INCLUDE>$(AZMQ_ROOT)\include</AZMQ_INCLUDE>
+	<!-- experimot -->
+	<EXPERIMOT_ROOT>$(DEV_SDK_ROOT)\experimot</EXPERIMOT_ROOT>
+	<EXPERIMOT_BIN_DIR>$(EXPERIMOT_ROOT)\bin</EXPERIMOT_BIN_DIR>
   </PropertyGroup>
   <!-- Debug|Win32 -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(PROTOBUF_INCLUDE);$(BOOST_INCLUDE);$(OPENRAVE_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(PROTOBUF_INCLUDE);$(BOOST_INCLUDE);$(OPENRAVE_INCLUDE);$(ZEROMQ_INCLUDE);$(AZMQ_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(PROTOBUF_DEBUG_LIB_DIR);$(BOOST_LIB_DIR);$(OPENRAVE_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(PROTOBUF_LIBS);$(BOOST_DEBUG_LIBS);$(OPENRAVE_DEBUG_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(PROTOBUF_DEBUG_LIB_DIR);$(BOOST_LIB_DIR);$(OPENRAVE_LIB_DIR);$(ZEROMQ_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(PROTOBUF_LIBS);$(BOOST_DEBUG_LIBS);$(OPENRAVE_DEBUG_LIBS);$(ZEROMQ_DEBUG_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <!-- Release|Win32 -->
@@ -47,11 +60,11 @@
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(PROTOBUF_INCLUDE);$(BOOST_INCLUDE);$(OPENRAVE_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(PROTOBUF_INCLUDE);$(BOOST_INCLUDE);$(OPENRAVE_INCLUDE);$(ZEROMQ_INCLUDE);$(AZMQ_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(PROTOBUF_RELEASE_LIB_DIR);$(BOOST_LIB_DIR);$(OPENRAVE_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(PROTOBUF_LIBS);$(BOOST_RELEASE_LIBS);$(OPENRAVE_RELEASE_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(PROTOBUF_RELEASE_LIB_DIR);$(BOOST_LIB_DIR);$(OPENRAVE_LIB_DIR);$(ZEROMQ_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(PROTOBUF_LIBS);$(BOOST_RELEASE_LIBS);$(OPENRAVE_RELEASE_LIBS);$(ZEROMQ_RELEASE_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
 </Project>

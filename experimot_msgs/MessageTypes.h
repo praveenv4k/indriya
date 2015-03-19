@@ -1,7 +1,7 @@
 // Automatically generated! DO NOT EDIT!!! 
 // Experimot Message Header Files 
 // Created on  
-// Wed 03/18/2015 10:58:29.69  
+// Wed 03/18/2015 14:10:53.04  
 #include "axis.pb.h"  
 #include "boxgeom.pb.h"  
 #include "camerasensor.pb.h"  
@@ -41,6 +41,8 @@
 #include "joint_wrench.pb.h"  
 #include "joint_wrench_stamped.pb.h"  
 #include "joystick.pb.h"  
+#include "kinect_body.pb.h"  
+#include "kinect_joint.pb.h"  
 #include "laserscan.pb.h"  
 #include "laserscan_stamped.pb.h"  
 #include "light.pb.h"  
