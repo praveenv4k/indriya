@@ -96,6 +96,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="msg_export.bat" />
     <None Include="proto\axis.proto" />
     <None Include="proto\boxgeom.proto" />
     <None Include="proto\camerasensor.proto" />
@@ -201,6 +202,7 @@
     <None Include="proto\world_stats.proto" />
     <None Include="proto\wrench.proto" />
     <None Include="proto\wrench_stamped.proto" />
+    <None Include="proto_export.bat" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\experimot_msgs_gen\experimot_msgs_gen.vcxproj">

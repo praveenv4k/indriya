@@ -16,6 +16,9 @@
     <Filter Include="proto">
       <UniqueIdentifier>{9389f175-4d13-4f1a-aef4-567e8ace38d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="script">
+      <UniqueIdentifier>{ce035555-7208-4c02-9cd1-27f048fd8204}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -335,6 +338,12 @@
     </None>
     <None Include="proto\kinect_body.proto">
       <Filter>proto</Filter>
+    </None>
+    <None Include="msg_export.bat">
+      <Filter>script</Filter>
+    </None>
+    <None Include="proto_export.bat">
+      <Filter>script</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
