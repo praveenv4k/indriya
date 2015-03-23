@@ -348,6 +348,50 @@ private:
 	std::string m_strSubsribeTo;
 };
 
+class KinectStateListener{
+public:
+	//  Prepare our context and subscriber
+	KinectStateListener(){
+		m_pContext = ZmqContextPtr(new zmq::context_t(1));
+		m_pSocket = ZmqSocketPtr(new zmq::socket_t(*m_pContext, ZMQ_SUB));
+		m_pSocket->connect("tcp://localhost:5564");
+		m_strSubsribeTo = std::string("KSP");
+		m_pSocket->setsockopt(ZMQ_SUBSCRIBE, m_strSubsribeTo.c_str(), m_strSubsribeTo.size());
+	}
+
+	void Listen(EnvironmentBasePtr penv){
+		while (!done) {
+			zmq::message_t address;
+			m_pSocket->recv(&address);
+
+			zmq::message_t data;
+			m_pSocket->recv(&data);
+
+			{
+				experimot::msgs::KinectBodies kBodies;
+				if (kBodies.ParseFromArray(data.data(), data.size())){
+					kBodies.PrintDebugString();
+					
+					for (google::protobuf::int32 i = 0; i < kBodies.body_size(); i++){
+						const experimot::msgs::KinectBody& jVal = kBodies.body(i);
+
+						EnvironmentMutex::scoped_lock lock(penv->GetMutex());
+						RobotBasePtr probot = orMacroGetRobot(penv, 1);
+						if (probot){
+							probot->SetDOFValues(jointValues, false);
+						}
+					}
+				}
+
+			}
+		}
+	}
+private:
+	ZmqContextPtr m_pContext;
+	ZmqSocketPtr m_pSocket;
+	std::string m_strSubsribeTo;
+};
+
 class RobotStatePublisher{
 public:
 	typedef boost::shared_ptr<csv::io::CSVReader<25>> CsvReaderPtr;
