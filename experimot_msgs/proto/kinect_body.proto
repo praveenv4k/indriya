@@ -147,3 +147,8 @@ message KinectBody
 	optional Vector2d Lean								=	11;
 	optional int32 LeanTrackingState					=	12;
 }
+
+message KinectBodies
+{
+	repeated KinectBody Body = 1;
+}

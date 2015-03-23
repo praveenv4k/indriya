@@ -31,6 +31,9 @@ const ::google::protobuf::EnumDescriptor* KinectBody_FrameEdges_descriptor_ = NU
 const ::google::protobuf::EnumDescriptor* KinectBody_Expression_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* KinectBody_TrackingConfidence_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* KinectBody_HandState_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* KinectBodies_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  KinectBodies_reflection_ = NULL;
 
 }  // namespace
 
@@ -74,6 +77,21 @@ void protobuf_AssignDesc_kinect_5fbody_2eproto() {
   KinectBody_Expression_descriptor_ = KinectBody_descriptor_->enum_type(4);
   KinectBody_TrackingConfidence_descriptor_ = KinectBody_descriptor_->enum_type(5);
   KinectBody_HandState_descriptor_ = KinectBody_descriptor_->enum_type(6);
+  KinectBodies_descriptor_ = file->message_type(1);
+  static const int KinectBodies_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KinectBodies, body_),
+  };
+  KinectBodies_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      KinectBodies_descriptor_,
+      KinectBodies::default_instance_,
+      KinectBodies_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KinectBodies, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(KinectBodies),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KinectBodies, _internal_metadata_),
+      -1);
 }
 
 namespace {
@@ -88,6 +106,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       KinectBody_descriptor_, &KinectBody::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      KinectBodies_descriptor_, &KinectBodies::default_instance());
 }
 
 }  // namespace
@@ -95,6 +115,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void protobuf_ShutdownFile_kinect_5fbody_2eproto() {
   delete KinectBody::default_instance_;
   delete KinectBody_reflection_;
+  delete KinectBodies::default_instance_;
+  delete KinectBodies_reflection_;
 }
 
 void protobuf_AddDesc_kinect_5fbody_2eproto() {
@@ -133,11 +155,14 @@ void protobuf_AddDesc_kinect_5fbody_2eproto() {
     "\n\005Happy\020\001\"\'\n\022TrackingConfidence\022\007\n\003Low\020\000"
     "\022\010\n\004High\020\001\"X\n\tHandState\022\016\n\nHS_Unknown\020\000\022"
     "\021\n\rHS_NotTracked\020\001\022\013\n\007HS_Open\020\002\022\r\n\tHS_Cl"
-    "osed\020\003\022\014\n\010HS_Lasso\020\004", 1060);
+    "osed\020\003\022\014\n\010HS_Lasso\020\004\"8\n\014KinectBodies\022(\n\004"
+    "Body\030\001 \003(\0132\032.experimot.msgs.KinectBody", 1118);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "kinect_body.proto", &protobuf_RegisterTypes);
   KinectBody::default_instance_ = new KinectBody();
+  KinectBodies::default_instance_ = new KinectBodies();
   KinectBody::default_instance_->InitAsDefaultInstance();
+  KinectBodies::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_kinect_5fbody_2eproto);
 }
 
@@ -1379,6 +1404,271 @@ KinectBody::mutable_joints() {
   set_has_leantrackingstate();
   leantrackingstate_ = value;
   // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.LeanTrackingState)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int KinectBodies::kBodyFieldNumber;
+#endif  // !_MSC_VER
+
+KinectBodies::KinectBodies()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:experimot.msgs.KinectBodies)
+}
+
+void KinectBodies::InitAsDefaultInstance() {
+}
+
+KinectBodies::KinectBodies(const KinectBodies& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:experimot.msgs.KinectBodies)
+}
+
+void KinectBodies::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+KinectBodies::~KinectBodies() {
+  // @@protoc_insertion_point(destructor:experimot.msgs.KinectBodies)
+  SharedDtor();
+}
+
+void KinectBodies::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void KinectBodies::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* KinectBodies::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return KinectBodies_descriptor_;
+}
+
+const KinectBodies& KinectBodies::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_kinect_5fbody_2eproto();
+  return *default_instance_;
+}
+
+KinectBodies* KinectBodies::default_instance_ = NULL;
+
+KinectBodies* KinectBodies::New(::google::protobuf::Arena* arena) const {
+  KinectBodies* n = new KinectBodies;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void KinectBodies::Clear() {
+  body_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool KinectBodies::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:experimot.msgs.KinectBodies)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .experimot.msgs.KinectBody Body = 1;
+      case 1: {
+        if (tag == 10) {
+         parse_Body:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_body()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(10)) goto parse_Body;
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:experimot.msgs.KinectBodies)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:experimot.msgs.KinectBodies)
+  return false;
+#undef DO_
+}
+
+void KinectBodies::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:experimot.msgs.KinectBodies)
+  // repeated .experimot.msgs.KinectBody Body = 1;
+  for (unsigned int i = 0, n = this->body_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->body(i), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:experimot.msgs.KinectBodies)
+}
+
+::google::protobuf::uint8* KinectBodies::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.KinectBodies)
+  // repeated .experimot.msgs.KinectBody Body = 1;
+  for (unsigned int i = 0, n = this->body_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->body(i), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.KinectBodies)
+  return target;
+}
+
+int KinectBodies::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .experimot.msgs.KinectBody Body = 1;
+  total_size += 1 * this->body_size();
+  for (int i = 0; i < this->body_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->body(i));
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void KinectBodies::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const KinectBodies* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const KinectBodies*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void KinectBodies::MergeFrom(const KinectBodies& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  body_.MergeFrom(from.body_);
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void KinectBodies::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void KinectBodies::CopyFrom(const KinectBodies& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool KinectBodies::IsInitialized() const {
+
+  if (!::google::protobuf::internal::AllAreInitialized(this->body())) return false;
+  return true;
+}
+
+void KinectBodies::Swap(KinectBodies* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void KinectBodies::InternalSwap(KinectBodies* other) {
+  body_.UnsafeArenaSwap(&other->body_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata KinectBodies::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = KinectBodies_descriptor_;
+  metadata.reflection = KinectBodies_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// KinectBodies
+
+// repeated .experimot.msgs.KinectBody Body = 1;
+ int KinectBodies::body_size() const {
+  return body_.size();
+}
+ void KinectBodies::clear_body() {
+  body_.Clear();
+}
+ const ::experimot::msgs::KinectBody& KinectBodies::body(int index) const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.KinectBodies.Body)
+  return body_.Get(index);
+}
+ ::experimot::msgs::KinectBody* KinectBodies::mutable_body(int index) {
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.KinectBodies.Body)
+  return body_.Mutable(index);
+}
+ ::experimot::msgs::KinectBody* KinectBodies::add_body() {
+  // @@protoc_insertion_point(field_add:experimot.msgs.KinectBodies.Body)
+  return body_.Add();
+}
+ const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::KinectBody >&
+KinectBodies::body() const {
+  // @@protoc_insertion_point(field_list:experimot.msgs.KinectBodies.Body)
+  return body_;
+}
+ ::google::protobuf::RepeatedPtrField< ::experimot::msgs::KinectBody >*
+KinectBodies::mutable_body() {
+  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.KinectBodies.Body)
+  return &body_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

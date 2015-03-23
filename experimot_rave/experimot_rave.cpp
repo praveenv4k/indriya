@@ -321,13 +321,15 @@ public:
 			m_pSocket->recv(&data);
 
 			{
-				experimot::msgs::JointValueMap jvMap;
-				if (jvMap.ParseFromArray(data.data(), data.size())){
-					jvMap.PrintDebugString();
+				experimot::msgs::JointValueVector jVector;
+				if (jVector.ParseFromArray(data.data(), data.size())){
+					jVector.PrintDebugString();
 					//std::cout << "Size: " << jvMap.map_field_size() << std::endl;
 					std::vector<double> jointValues;
-					for (google::protobuf::int32 i = 0; i < jvMap.map_field_size(); i++){
-						jointValues.push_back(jvMap.map_field().at(i));
+					jointValues.resize(jVector.jointvalues_size());
+					for (google::protobuf::int32 i = 0; i < jVector.jointvalues_size(); i++){
+						const experimot::msgs::JointValue& jVal = jVector.jointvalues(i);
+						jointValues[jVal.id()] = jVal.value();
 					}
 
 					EnvironmentMutex::scoped_lock lock(penv->GetMutex());
@@ -430,13 +432,16 @@ public:
 				))
 			{
 				{
-					experimot::msgs::JointValueMapPtr jointValMapPtr = experimot::msgs::JointValueMapPtr(new experimot::msgs::JointValueMap);
+					//experimot::msgs::JointValueMapPtr jointValMapPtr = experimot::msgs::JointValueMapPtr(new experimot::msgs::JointValueMap);
+					experimot::msgs::JointValueVector jVector;
 					vector<double> jointVals;
 					for (google::protobuf::int32 id = 0; id < vals.size(); id++){
-						jointValMapPtr->mutable_map_field()->operator[](id) = vals[jointMap[id]];
+						experimot::msgs::JointValue* pJoint = jVector.add_jointvalues();
+						pJoint->set_id(id);
+						pJoint->set_value(vals[jointMap[id]]);
 					}
-					jointValMapPtr->PrintDebugString();
-					m_pJointValueVector.push_back(jointValMapPtr);
+					jVector.PrintDebugString();
+					m_pJointValueVector.push_back(jVector);
 				}
 			}
 		}
@@ -444,15 +449,12 @@ public:
 
 	void PublishJointValues(){
 		FOREACH(it, m_pJointValueVector) {
-			experimot::msgs::JointValueMapPtr ptr = *it;
-			if (ptr){
-				std::cout << "Publishing the joint values" << std::endl;
-				std::string str;
-				ptr->SerializeToString(&str);
-				ptr->PrintDebugString();
-				if (s_sendmore(*m_pSocket, m_strPublisherName)){
-					s_send(*m_pSocket, str);
-				}
+			std::cout << "Publishing the joint values" << std::endl;
+			std::string str;
+			it->SerializeToString(&str);
+			it->PrintDebugString();
+			if (s_sendmore(*m_pSocket, m_strPublisherName)){
+				s_send(*m_pSocket, str);
 			}
 			Sleep(100);
 		}
@@ -463,7 +465,7 @@ private:
 	ZmqContextPtr m_pContext;
 	ZmqSocketPtr m_pSocket;
 	std::string m_strPublisherName;
-	std::vector<experimot::msgs::JointValueMapPtr> m_pJointValueVector;
+	std::vector<experimot::msgs::JointValueVector> m_pJointValueVector;
 };
 
 

@@ -44,6 +44,7 @@ void protobuf_AssignDesc_kinect_5fbody_2eproto();
 void protobuf_ShutdownFile_kinect_5fbody_2eproto();
 
 class KinectBody;
+class KinectBodies;
 
 enum KinectBody_Activity {
   KinectBody_Activity_EyeLeftClosed = 0,
@@ -573,6 +574,98 @@ class KinectBody : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static KinectBody* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class KinectBodies : public ::google::protobuf::Message {
+ public:
+  KinectBodies();
+  virtual ~KinectBodies();
+
+  KinectBodies(const KinectBodies& from);
+
+  inline KinectBodies& operator=(const KinectBodies& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const KinectBodies& default_instance();
+
+  void Swap(KinectBodies* other);
+
+  // implements Message ----------------------------------------------
+
+  inline KinectBodies* New() const { return New(NULL); }
+
+  KinectBodies* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const KinectBodies& from);
+  void MergeFrom(const KinectBodies& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(KinectBodies* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .experimot.msgs.KinectBody Body = 1;
+  int body_size() const;
+  void clear_body();
+  static const int kBodyFieldNumber = 1;
+  const ::experimot::msgs::KinectBody& body(int index) const;
+  ::experimot::msgs::KinectBody* mutable_body(int index);
+  ::experimot::msgs::KinectBody* add_body();
+  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::KinectBody >&
+      body() const;
+  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::KinectBody >*
+      mutable_body();
+
+  // @@protoc_insertion_point(class_scope:experimot.msgs.KinectBodies)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::KinectBody > body_;
+  friend void  protobuf_AddDesc_kinect_5fbody_2eproto();
+  friend void protobuf_AssignDesc_kinect_5fbody_2eproto();
+  friend void protobuf_ShutdownFile_kinect_5fbody_2eproto();
+
+  void InitAsDefaultInstance();
+  static KinectBodies* default_instance_;
+};
 // ===================================================================
 
 
@@ -897,6 +990,40 @@ inline void KinectBody::set_leantrackingstate(::google::protobuf::int32 value) {
   set_has_leantrackingstate();
   leantrackingstate_ = value;
   // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.LeanTrackingState)
+}
+
+// -------------------------------------------------------------------
+
+// KinectBodies
+
+// repeated .experimot.msgs.KinectBody Body = 1;
+inline int KinectBodies::body_size() const {
+  return body_.size();
+}
+inline void KinectBodies::clear_body() {
+  body_.Clear();
+}
+inline const ::experimot::msgs::KinectBody& KinectBodies::body(int index) const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.KinectBodies.Body)
+  return body_.Get(index);
+}
+inline ::experimot::msgs::KinectBody* KinectBodies::mutable_body(int index) {
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.KinectBodies.Body)
+  return body_.Mutable(index);
+}
+inline ::experimot::msgs::KinectBody* KinectBodies::add_body() {
+  // @@protoc_insertion_point(field_add:experimot.msgs.KinectBodies.Body)
+  return body_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::KinectBody >&
+KinectBodies::body() const {
+  // @@protoc_insertion_point(field_list:experimot.msgs.KinectBodies.Body)
+  return body_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::KinectBody >*
+KinectBodies::mutable_body() {
+  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.KinectBodies.Body)
+  return &body_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
