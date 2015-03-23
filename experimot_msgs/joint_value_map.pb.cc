@@ -21,10 +21,12 @@ namespace msgs {
 
 namespace {
 
-const ::google::protobuf::Descriptor* JointValueMap_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* JointValue_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  JointValueMap_reflection_ = NULL;
-const ::google::protobuf::Descriptor* JointValueMap_MapFieldEntry_descriptor_ = NULL;
+  JointValue_reflection_ = NULL;
+const ::google::protobuf::Descriptor* JointValueVector_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  JointValueVector_reflection_ = NULL;
 
 }  // namespace
 
@@ -35,22 +37,37 @@ void protobuf_AssignDesc_joint_5fvalue_5fmap_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "joint_value_map.proto");
   GOOGLE_CHECK(file != NULL);
-  JointValueMap_descriptor_ = file->message_type(0);
-  static const int JointValueMap_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(JointValueMap, map_field_),
+  JointValue_descriptor_ = file->message_type(0);
+  static const int JointValue_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(JointValue, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(JointValue, value_),
   };
-  JointValueMap_reflection_ =
+  JointValue_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      JointValueMap_descriptor_,
-      JointValueMap::default_instance_,
-      JointValueMap_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(JointValueMap, _has_bits_[0]),
+      JointValue_descriptor_,
+      JointValue::default_instance_,
+      JointValue_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(JointValue, _has_bits_[0]),
       -1,
       -1,
-      sizeof(JointValueMap),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(JointValueMap, _internal_metadata_),
+      sizeof(JointValue),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(JointValue, _internal_metadata_),
       -1);
-  JointValueMap_MapFieldEntry_descriptor_ = JointValueMap_descriptor_->nested_type(0);
+  JointValueVector_descriptor_ = file->message_type(1);
+  static const int JointValueVector_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(JointValueVector, jointvalues_),
+  };
+  JointValueVector_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      JointValueVector_descriptor_,
+      JointValueVector::default_instance_,
+      JointValueVector_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(JointValueVector, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(JointValueVector),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(JointValueVector, _internal_metadata_),
+      -1);
 }
 
 namespace {
@@ -64,23 +81,18 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      JointValueMap_descriptor_, &JointValueMap::default_instance());
+      JointValue_descriptor_, &JointValue::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-        JointValueMap_MapFieldEntry_descriptor_,
-        ::google::protobuf::internal::MapEntry<
-            ::google::protobuf::int32,
-            double,
-            ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
-            ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE,
-            0>::CreateDefaultInstance(
-                JointValueMap_MapFieldEntry_descriptor_));
+      JointValueVector_descriptor_, &JointValueVector::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_joint_5fvalue_5fmap_2eproto() {
-  delete JointValueMap::default_instance_;
-  delete JointValueMap_reflection_;
+  delete JointValue::default_instance_;
+  delete JointValue_reflection_;
+  delete JointValueVector::default_instance_;
+  delete JointValueVector_reflection_;
 }
 
 void protobuf_AddDesc_joint_5fvalue_5fmap_2eproto() {
@@ -91,14 +103,15 @@ void protobuf_AddDesc_joint_5fvalue_5fmap_2eproto() {
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\025joint_value_map.proto\022\016experimot.msgs\""
-    "\200\001\n\rJointValueMap\022>\n\tmap_field\030\001 \003(\0132+.e"
-    "xperimot.msgs.JointValueMap.MapFieldEntr"
-    "y\032/\n\rMapFieldEntry\022\013\n\003key\030\001 \001(\005\022\r\n\005value"
-    "\030\002 \001(\001:\0028\001", 170);
+    "\'\n\nJointValue\022\n\n\002id\030\001 \002(\005\022\r\n\005value\030\002 \002(\001"
+    "\"C\n\020JointValueVector\022/\n\013JointValues\030\001 \003("
+    "\0132\032.experimot.msgs.JointValue", 149);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "joint_value_map.proto", &protobuf_RegisterTypes);
-  JointValueMap::default_instance_ = new JointValueMap();
-  JointValueMap::default_instance_->InitAsDefaultInstance();
+  JointValue::default_instance_ = new JointValue();
+  JointValueVector::default_instance_ = new JointValueVector();
+  JointValue::default_instance_->InitAsDefaultInstance();
+  JointValueVector::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_joint_5fvalue_5fmap_2eproto);
 }
 
@@ -122,100 +135,124 @@ static void MergeFromFail(int line) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int JointValueMap::kMapFieldFieldNumber;
+const int JointValue::kIdFieldNumber;
+const int JointValue::kValueFieldNumber;
 #endif  // !_MSC_VER
 
-JointValueMap::JointValueMap()
+JointValue::JointValue()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.JointValueMap)
+  // @@protoc_insertion_point(constructor:experimot.msgs.JointValue)
 }
 
-void JointValueMap::InitAsDefaultInstance() {
+void JointValue::InitAsDefaultInstance() {
 }
 
-JointValueMap::JointValueMap(const JointValueMap& from)
+JointValue::JointValue(const JointValue& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.JointValueMap)
+  // @@protoc_insertion_point(copy_constructor:experimot.msgs.JointValue)
 }
 
-void JointValueMap::SharedCtor() {
+void JointValue::SharedCtor() {
   _cached_size_ = 0;
-  map_field_.SetAssignDescriptorCallback(
-      protobuf_AssignDescriptorsOnce);
-  map_field_.SetEntryDescriptor(
-      &::experimot::msgs::JointValueMap_MapFieldEntry_descriptor_);
+  id_ = 0;
+  value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-JointValueMap::~JointValueMap() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.JointValueMap)
+JointValue::~JointValue() {
+  // @@protoc_insertion_point(destructor:experimot.msgs.JointValue)
   SharedDtor();
 }
 
-void JointValueMap::SharedDtor() {
+void JointValue::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void JointValueMap::SetCachedSize(int size) const {
+void JointValue::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* JointValueMap::descriptor() {
+const ::google::protobuf::Descriptor* JointValue::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return JointValueMap_descriptor_;
+  return JointValue_descriptor_;
 }
 
-const JointValueMap& JointValueMap::default_instance() {
+const JointValue& JointValue::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_joint_5fvalue_5fmap_2eproto();
   return *default_instance_;
 }
 
-JointValueMap* JointValueMap::default_instance_ = NULL;
+JointValue* JointValue::default_instance_ = NULL;
 
-JointValueMap* JointValueMap::New(::google::protobuf::Arena* arena) const {
-  JointValueMap* n = new JointValueMap;
+JointValue* JointValue::New(::google::protobuf::Arena* arena) const {
+  JointValue* n = new JointValue;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void JointValueMap::Clear() {
-  map_field_.Clear();
+void JointValue::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<JointValue*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(value_, id_);
+
+#undef ZR_HELPER_
+#undef ZR_
+
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->Clear();
   }
 }
 
-bool JointValueMap::MergePartialFromCodedStream(
+bool JointValue::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.JointValueMap)
+  // @@protoc_insertion_point(parse_start:experimot.msgs.JointValue)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // map<int32, double> map_field = 1;
+      // required int32 id = 1;
       case 1: {
-        if (tag == 10) {
-         parse_map_field:
-          ::google::protobuf::scoped_ptr<JointValueMap_MapFieldEntry> entry(map_field_.NewEntry());
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-              input, entry.get()));
-          (*mutable_map_field())[entry->key()] = *entry->mutable_value();
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &id_)));
+          set_has_id();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(10)) goto parse_map_field;
+        if (input->ExpectTag(17)) goto parse_value;
+        break;
+      }
+
+      // required double value = 2;
+      case 2: {
+        if (tag == 17) {
+         parse_value:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &value_)));
+          set_has_value();
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -234,71 +271,376 @@ bool JointValueMap::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.JointValueMap)
+  // @@protoc_insertion_point(parse_success:experimot.msgs.JointValue)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.JointValueMap)
+  // @@protoc_insertion_point(parse_failure:experimot.msgs.JointValue)
   return false;
 #undef DO_
 }
 
-void JointValueMap::SerializeWithCachedSizes(
+void JointValue::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.JointValueMap)
-  // map<int32, double> map_field = 1;
-  {
-    ::google::protobuf::scoped_ptr<JointValueMap_MapFieldEntry> entry;
-    for (::google::protobuf::Map< ::google::protobuf::int32, double >::const_iterator
-        it = map_field().begin(); it != map_field().end(); ++it) {
-      entry.reset(map_field_.NewEntryWrapper(it->first, it->second));
-      ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-          1, *entry, output);
-    }
+  // @@protoc_insertion_point(serialize_start:experimot.msgs.JointValue)
+  // required int32 id = 1;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  }
+
+  // required double value = 2;
+  if (has_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->value(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.JointValueMap)
+  // @@protoc_insertion_point(serialize_end:experimot.msgs.JointValue)
 }
 
-::google::protobuf::uint8* JointValueMap::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* JointValue::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.JointValueMap)
-  // map<int32, double> map_field = 1;
-  {
-    ::google::protobuf::scoped_ptr<JointValueMap_MapFieldEntry> entry;
-    for (::google::protobuf::Map< ::google::protobuf::int32, double >::const_iterator
-        it = map_field().begin(); it != map_field().end(); ++it) {
-      entry.reset(map_field_.NewEntryWrapper(it->first, it->second));
-      target = ::google::protobuf::internal::WireFormatLite::
-          WriteMessageNoVirtualToArray(
-              1, *entry, target);
-    }
+  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.JointValue)
+  // required int32 id = 1;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  }
+
+  // required double value = 2;
+  if (has_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->value(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.JointValueMap)
+  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.JointValue)
   return target;
 }
 
-int JointValueMap::ByteSize() const {
+int JointValue::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
-  // map<int32, double> map_field = 1;
-  total_size += 1 * this->map_field_size();
-  {
-    ::google::protobuf::scoped_ptr<JointValueMap_MapFieldEntry> entry;
-    for (::google::protobuf::Map< ::google::protobuf::int32, double >::const_iterator
-        it = map_field().begin(); it != map_field().end(); ++it) {
-      entry.reset(map_field_.NewEntryWrapper(it->first, it->second));
-      total_size += ::google::protobuf::internal::WireFormatLite::
-          MessageSizeNoVirtual(*entry);
+  if (has_id()) {
+    // required int32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->id());
+  }
+
+  if (has_value()) {
+    // required double value = 2;
+    total_size += 1 + 8;
+  }
+
+  return total_size;
+}
+int JointValue::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required int32 id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->id());
+
+    // required double value = 2;
+    total_size += 1 + 8;
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void JointValue::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const JointValue* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const JointValue*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void JointValue::MergeFrom(const JointValue& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_id()) {
+      set_id(from.id());
     }
+    if (from.has_value()) {
+      set_value(from.value());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void JointValue::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void JointValue::CopyFrom(const JointValue& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool JointValue::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+
+  return true;
+}
+
+void JointValue::Swap(JointValue* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void JointValue::InternalSwap(JointValue* other) {
+  std::swap(id_, other->id_);
+  std::swap(value_, other->value_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata JointValue::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = JointValue_descriptor_;
+  metadata.reflection = JointValue_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// JointValue
+
+// required int32 id = 1;
+ bool JointValue::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void JointValue::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void JointValue::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void JointValue::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+ ::google::protobuf::int32 JointValue::id() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.JointValue.id)
+  return id_;
+}
+ void JointValue::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:experimot.msgs.JointValue.id)
+}
+
+// required double value = 2;
+ bool JointValue::has_value() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void JointValue::set_has_value() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void JointValue::clear_has_value() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void JointValue::clear_value() {
+  value_ = 0;
+  clear_has_value();
+}
+ double JointValue::value() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.JointValue.value)
+  return value_;
+}
+ void JointValue::set_value(double value) {
+  set_has_value();
+  value_ = value;
+  // @@protoc_insertion_point(field_set:experimot.msgs.JointValue.value)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int JointValueVector::kJointValuesFieldNumber;
+#endif  // !_MSC_VER
+
+JointValueVector::JointValueVector()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:experimot.msgs.JointValueVector)
+}
+
+void JointValueVector::InitAsDefaultInstance() {
+}
+
+JointValueVector::JointValueVector(const JointValueVector& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:experimot.msgs.JointValueVector)
+}
+
+void JointValueVector::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+JointValueVector::~JointValueVector() {
+  // @@protoc_insertion_point(destructor:experimot.msgs.JointValueVector)
+  SharedDtor();
+}
+
+void JointValueVector::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void JointValueVector::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* JointValueVector::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return JointValueVector_descriptor_;
+}
+
+const JointValueVector& JointValueVector::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_joint_5fvalue_5fmap_2eproto();
+  return *default_instance_;
+}
+
+JointValueVector* JointValueVector::default_instance_ = NULL;
+
+JointValueVector* JointValueVector::New(::google::protobuf::Arena* arena) const {
+  JointValueVector* n = new JointValueVector;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void JointValueVector::Clear() {
+  jointvalues_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool JointValueVector::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:experimot.msgs.JointValueVector)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .experimot.msgs.JointValue JointValues = 1;
+      case 1: {
+        if (tag == 10) {
+         parse_JointValues:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_jointvalues()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(10)) goto parse_JointValues;
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:experimot.msgs.JointValueVector)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:experimot.msgs.JointValueVector)
+  return false;
+#undef DO_
+}
+
+void JointValueVector::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:experimot.msgs.JointValueVector)
+  // repeated .experimot.msgs.JointValue JointValues = 1;
+  for (unsigned int i = 0, n = this->jointvalues_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->jointvalues(i), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:experimot.msgs.JointValueVector)
+}
+
+::google::protobuf::uint8* JointValueVector::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.JointValueVector)
+  // repeated .experimot.msgs.JointValue JointValues = 1;
+  for (unsigned int i = 0, n = this->jointvalues_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->jointvalues(i), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.JointValueVector)
+  return target;
+}
+
+int JointValueVector::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .experimot.msgs.JointValue JointValues = 1;
+  total_size += 1 * this->jointvalues_size();
+  for (int i = 0; i < this->jointvalues_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->jointvalues(i));
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -312,10 +654,10 @@ int JointValueMap::ByteSize() const {
   return total_size;
 }
 
-void JointValueMap::MergeFrom(const ::google::protobuf::Message& from) {
+void JointValueVector::MergeFrom(const ::google::protobuf::Message& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const JointValueMap* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const JointValueMap*>(
+  const JointValueVector* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const JointValueVector*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -324,69 +666,82 @@ void JointValueMap::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void JointValueMap::MergeFrom(const JointValueMap& from) {
+void JointValueVector::MergeFrom(const JointValueVector& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  map_field_.MergeFrom(from.map_field_);
+  jointvalues_.MergeFrom(from.jointvalues_);
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
   }
 }
 
-void JointValueMap::CopyFrom(const ::google::protobuf::Message& from) {
+void JointValueVector::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void JointValueMap::CopyFrom(const JointValueMap& from) {
+void JointValueVector::CopyFrom(const JointValueVector& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool JointValueMap::IsInitialized() const {
+bool JointValueVector::IsInitialized() const {
 
+  if (!::google::protobuf::internal::AllAreInitialized(this->jointvalues())) return false;
   return true;
 }
 
-void JointValueMap::Swap(JointValueMap* other) {
+void JointValueVector::Swap(JointValueVector* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void JointValueMap::InternalSwap(JointValueMap* other) {
-  map_field_.Swap(&other->map_field_);
+void JointValueVector::InternalSwap(JointValueVector* other) {
+  jointvalues_.UnsafeArenaSwap(&other->jointvalues_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata JointValueMap::GetMetadata() const {
+::google::protobuf::Metadata JointValueVector::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = JointValueMap_descriptor_;
-  metadata.reflection = JointValueMap_reflection_;
+  metadata.descriptor = JointValueVector_descriptor_;
+  metadata.reflection = JointValueVector_reflection_;
   return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// JointValueMap
+// JointValueVector
 
-// map<int32, double> map_field = 1;
- int JointValueMap::map_field_size() const {
-  return map_field_.size();
+// repeated .experimot.msgs.JointValue JointValues = 1;
+ int JointValueVector::jointvalues_size() const {
+  return jointvalues_.size();
 }
- void JointValueMap::clear_map_field() {
-  map_field_.Clear();
+ void JointValueVector::clear_jointvalues() {
+  jointvalues_.Clear();
 }
- const ::google::protobuf::Map< ::google::protobuf::int32, double >&
-JointValueMap::map_field() const {
-  // @@protoc_insertion_point(field_map:experimot.msgs.JointValueMap.map_field)
-  return map_field_.GetMap();
+ const ::experimot::msgs::JointValue& JointValueVector::jointvalues(int index) const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.JointValueVector.JointValues)
+  return jointvalues_.Get(index);
 }
- ::google::protobuf::Map< ::google::protobuf::int32, double >*
-JointValueMap::mutable_map_field() {
-  // @@protoc_insertion_point(field_mutable_map:experimot.msgs.JointValueMap.map_field)
-  return map_field_.MutableMap();
+ ::experimot::msgs::JointValue* JointValueVector::mutable_jointvalues(int index) {
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.JointValueVector.JointValues)
+  return jointvalues_.Mutable(index);
+}
+ ::experimot::msgs::JointValue* JointValueVector::add_jointvalues() {
+  // @@protoc_insertion_point(field_add:experimot.msgs.JointValueVector.JointValues)
+  return jointvalues_.Add();
+}
+ const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::JointValue >&
+JointValueVector::jointvalues() const {
+  // @@protoc_insertion_point(field_list:experimot.msgs.JointValueVector.JointValues)
+  return jointvalues_;
+}
+ ::google::protobuf::RepeatedPtrField< ::experimot::msgs::JointValue >*
+JointValueVector::mutable_jointvalues() {
+  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.JointValueVector.JointValues)
+  return &jointvalues_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -396,5 +751,5 @@ JointValueMap::mutable_map_field() {
 }  // namespace msgs
 }  // namespace experimot
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.JointValueMap", JointValueMap)
+EX_REGISTER_STATIC_MSG("experimot.msgs.JointValue", JointValue)
 // @@protoc_insertion_point(global_scope)

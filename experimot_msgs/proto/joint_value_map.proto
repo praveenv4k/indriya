@@ -5,7 +5,16 @@ package experimot.msgs;
 /// \brief Message for a Joint value
 
 
-message JointValueMap
-{
-  map<int32,double> map_field  = 1;
+//message JointValueMap
+//{
+//  required map<int32,double> map_field  = 1;
+//}
+
+message JointValue{
+	required int32 id = 1;
+	required double value = 2;
+}
+
+message JointValueVector{
+	repeated JointValue JointValues = 1;
 }

@@ -24,8 +24,6 @@ namespace {
 const ::google::protobuf::Descriptor* KinectBody_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   KinectBody_reflection_ = NULL;
-const ::google::protobuf::Descriptor* KinectBody_JointPositionMapEntry_descriptor_ = NULL;
-const ::google::protobuf::Descriptor* KinectBody_JointOrientationMapEntry_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* KinectBody_Activity_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* KinectBody_Appearance_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* KinectBody_DetectionResult_descriptor_ = NULL;
@@ -33,7 +31,6 @@ const ::google::protobuf::EnumDescriptor* KinectBody_FrameEdges_descriptor_ = NU
 const ::google::protobuf::EnumDescriptor* KinectBody_Expression_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* KinectBody_TrackingConfidence_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* KinectBody_HandState_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* KinectBody_JointType_descriptor_ = NULL;
 
 }  // namespace
 
@@ -45,12 +42,11 @@ void protobuf_AssignDesc_kinect_5fbody_2eproto() {
       "kinect_body.proto");
   GOOGLE_CHECK(file != NULL);
   KinectBody_descriptor_ = file->message_type(0);
-  static const int KinectBody_offsets_[13] = {
+  static const int KinectBody_offsets_[12] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KinectBody, trackingid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KinectBody, istracked_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KinectBody, jointcount_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KinectBody, jointpositionmap_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KinectBody, jointorientationmap_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KinectBody, joints_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KinectBody, clippededges_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KinectBody, handleftconfidence_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KinectBody, handleftstate_),
@@ -71,8 +67,6 @@ void protobuf_AssignDesc_kinect_5fbody_2eproto() {
       sizeof(KinectBody),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KinectBody, _internal_metadata_),
       -1);
-  KinectBody_JointPositionMapEntry_descriptor_ = KinectBody_descriptor_->nested_type(0);
-  KinectBody_JointOrientationMapEntry_descriptor_ = KinectBody_descriptor_->nested_type(1);
   KinectBody_Activity_descriptor_ = KinectBody_descriptor_->enum_type(0);
   KinectBody_Appearance_descriptor_ = KinectBody_descriptor_->enum_type(1);
   KinectBody_DetectionResult_descriptor_ = KinectBody_descriptor_->enum_type(2);
@@ -80,7 +74,6 @@ void protobuf_AssignDesc_kinect_5fbody_2eproto() {
   KinectBody_Expression_descriptor_ = KinectBody_descriptor_->enum_type(4);
   KinectBody_TrackingConfidence_descriptor_ = KinectBody_descriptor_->enum_type(5);
   KinectBody_HandState_descriptor_ = KinectBody_descriptor_->enum_type(6);
-  KinectBody_JointType_descriptor_ = KinectBody_descriptor_->enum_type(7);
 }
 
 namespace {
@@ -95,24 +88,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       KinectBody_descriptor_, &KinectBody::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-        KinectBody_JointPositionMapEntry_descriptor_,
-        ::google::protobuf::internal::MapEntry<
-            ::google::protobuf::int32,
-            ::experimot::msgs::KinectJoint,
-            ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
-            ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
-            0>::CreateDefaultInstance(
-                KinectBody_JointPositionMapEntry_descriptor_));
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-        KinectBody_JointOrientationMapEntry_descriptor_,
-        ::google::protobuf::internal::MapEntry<
-            ::google::protobuf::int32,
-            ::experimot::msgs::Quaternion,
-            ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
-            ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
-            0>::CreateDefaultInstance(
-                KinectBody_JointOrientationMapEntry_descriptor_));
 }
 
 }  // namespace
@@ -134,49 +109,31 @@ void protobuf_AddDesc_kinect_5fbody_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\021kinect_body.proto\022\016experimot.msgs\032\016vec"
     "tor2d.proto\032\020quaternion.proto\032\022kinect_jo"
-    "int.proto\"\232\r\n\nKinectBody\022\022\n\nTrackingId\030\001"
+    "int.proto\"\310\007\n\nKinectBody\022\022\n\nTrackingId\030\001"
     " \002(\005\022\021\n\tIsTracked\030\002 \002(\010\022\022\n\nJointCount\030\003 "
-    "\002(\005\022J\n\020JointPositionMap\030\004 \003(\01320.experimo"
-    "t.msgs.KinectBody.JointPositionMapEntry\022"
-    "P\n\023JointOrientationMap\030\005 \003(\01323.experimot"
-    ".msgs.KinectBody.JointOrientationMapEntr"
-    "y\022;\n\014ClippedEdges\030\006 \001(\0162%.experimot.msgs"
-    ".KinectBody.FrameEdges\022I\n\022HandLeftConfid"
-    "ence\030\007 \001(\0162-.experimot.msgs.KinectBody.T"
-    "rackingConfidence\022;\n\rHandLeftState\030\010 \001(\016"
-    "2$.experimot.msgs.KinectBody.HandState\022J"
-    "\n\023HandRightConfidence\030\t \001(\0162-.experimot."
-    "msgs.KinectBody.TrackingConfidence\022<\n\016Ha"
-    "ndRightState\030\n \001(\0162$.experimot.msgs.Kine"
-    "ctBody.HandState\022\024\n\014IsRestricted\030\013 \001(\010\022&"
-    "\n\004Lean\030\014 \001(\0132\030.experimot.msgs.Vector2d\022D"
-    "\n\021LeanTrackingState\030\r \001(\0162).experimot.ms"
-    "gs.KinectJoint.TrackingState\032T\n\025JointPos"
-    "itionMapEntry\022\013\n\003key\030\001 \001(\005\022*\n\005value\030\002 \001("
-    "\0132\033.experimot.msgs.KinectJoint:\0028\001\032V\n\030Jo"
-    "intOrientationMapEntry\022\013\n\003key\030\001 \001(\005\022)\n\005v"
-    "alue\030\002 \001(\0132\032.experimot.msgs.Quaternion:\002"
-    "8\001\"a\n\010Activity\022\021\n\rEyeLeftClosed\020\000\022\022\n\016Eye"
-    "RightClosed\020\001\022\r\n\tMouthOpen\020\002\022\016\n\nMouthMov"
-    "ed\020\003\022\017\n\013LookingAway\020\004\" \n\nAppearance\022\022\n\016W"
-    "earingGlasses\020\000\":\n\017DetectionResult\022\013\n\007Un"
-    "known\020\000\022\006\n\002No\020\001\022\t\n\005Maybe\020\002\022\007\n\003Yes\020\003\"@\n\nF"
-    "rameEdges\022\010\n\004None\020\000\022\t\n\005Right\020\001\022\010\n\004Left\020\002"
-    "\022\007\n\003Top\020\004\022\n\n\006Bottom\020\010\"$\n\nExpression\022\013\n\007N"
-    "eutral\020\000\022\t\n\005Happy\020\001\"\'\n\022TrackingConfidenc"
-    "e\022\007\n\003Low\020\000\022\010\n\004High\020\001\"X\n\tHandState\022\016\n\nHS_"
-    "Unknown\020\000\022\021\n\rHS_NotTracked\020\001\022\013\n\007HS_Open\020"
-    "\002\022\r\n\tHS_Closed\020\003\022\014\n\010HS_Lasso\020\004\"\205\003\n\tJoint"
-    "Type\022\r\n\tSpineBase\020\000\022\014\n\010SpineMid\020\001\022\010\n\004Nec"
-    "k\020\002\022\010\n\004Head\020\003\022\020\n\014ShoulderLeft\020\004\022\r\n\tElbow"
-    "Left\020\005\022\r\n\tWristLeft\020\006\022\014\n\010HandLeft\020\007\022\021\n\rS"
-    "houlderRight\020\010\022\016\n\nElbowRight\020\t\022\016\n\nWristR"
-    "ight\020\n\022\r\n\tHandRight\020\013\022\013\n\007HipLeft\020\014\022\014\n\010Kn"
-    "eeLeft\020\r\022\r\n\tAnkleLeft\020\016\022\014\n\010FootLeft\020\017\022\014\n"
-    "\010HipRight\020\020\022\r\n\tKneeRight\020\021\022\016\n\nAnkleRight"
-    "\020\022\022\r\n\tFootRight\020\023\022\021\n\rSpineShoulder\020\024\022\017\n\013"
-    "HandTipLeft\020\025\022\r\n\tThumbLeft\020\026\022\020\n\014HandTipR"
-    "ight\020\027\022\016\n\nThumbRight\020\030", 1782);
+    "\002(\005\022+\n\006Joints\030\004 \003(\0132\033.experimot.msgs.Kin"
+    "ectJoint\022;\n\014ClippedEdges\030\005 \001(\0162%.experim"
+    "ot.msgs.KinectBody.FrameEdges\022I\n\022HandLef"
+    "tConfidence\030\006 \001(\0162-.experimot.msgs.Kinec"
+    "tBody.TrackingConfidence\022;\n\rHandLeftStat"
+    "e\030\007 \001(\0162$.experimot.msgs.KinectBody.Hand"
+    "State\022J\n\023HandRightConfidence\030\010 \001(\0162-.exp"
+    "erimot.msgs.KinectBody.TrackingConfidenc"
+    "e\022<\n\016HandRightState\030\t \001(\0162$.experimot.ms"
+    "gs.KinectBody.HandState\022\024\n\014IsRestricted\030"
+    "\n \001(\010\022&\n\004Lean\030\013 \001(\0132\030.experimot.msgs.Vec"
+    "tor2d\022\031\n\021LeanTrackingState\030\014 \001(\005\"a\n\010Acti"
+    "vity\022\021\n\rEyeLeftClosed\020\000\022\022\n\016EyeRightClose"
+    "d\020\001\022\r\n\tMouthOpen\020\002\022\016\n\nMouthMoved\020\003\022\017\n\013Lo"
+    "okingAway\020\004\" \n\nAppearance\022\022\n\016WearingGlas"
+    "ses\020\000\":\n\017DetectionResult\022\013\n\007Unknown\020\000\022\006\n"
+    "\002No\020\001\022\t\n\005Maybe\020\002\022\007\n\003Yes\020\003\"@\n\nFrameEdges\022"
+    "\010\n\004None\020\000\022\t\n\005Right\020\001\022\010\n\004Left\020\002\022\007\n\003Top\020\004\022"
+    "\n\n\006Bottom\020\010\"$\n\nExpression\022\013\n\007Neutral\020\000\022\t"
+    "\n\005Happy\020\001\"\'\n\022TrackingConfidence\022\007\n\003Low\020\000"
+    "\022\010\n\004High\020\001\"X\n\tHandState\022\016\n\nHS_Unknown\020\000\022"
+    "\021\n\rHS_NotTracked\020\001\022\013\n\007HS_Open\020\002\022\r\n\tHS_Cl"
+    "osed\020\003\022\014\n\010HS_Lasso\020\004", 1060);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "kinect_body.proto", &protobuf_RegisterTypes);
   KinectBody::default_instance_ = new KinectBody();
@@ -370,79 +327,11 @@ const KinectBody_HandState KinectBody::HandState_MIN;
 const KinectBody_HandState KinectBody::HandState_MAX;
 const int KinectBody::HandState_ARRAYSIZE;
 #endif  // _MSC_VER
-const ::google::protobuf::EnumDescriptor* KinectBody_JointType_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return KinectBody_JointType_descriptor_;
-}
-bool KinectBody_JointType_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-    case 7:
-    case 8:
-    case 9:
-    case 10:
-    case 11:
-    case 12:
-    case 13:
-    case 14:
-    case 15:
-    case 16:
-    case 17:
-    case 18:
-    case 19:
-    case 20:
-    case 21:
-    case 22:
-    case 23:
-    case 24:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#ifndef _MSC_VER
-const KinectBody_JointType KinectBody::SpineBase;
-const KinectBody_JointType KinectBody::SpineMid;
-const KinectBody_JointType KinectBody::Neck;
-const KinectBody_JointType KinectBody::Head;
-const KinectBody_JointType KinectBody::ShoulderLeft;
-const KinectBody_JointType KinectBody::ElbowLeft;
-const KinectBody_JointType KinectBody::WristLeft;
-const KinectBody_JointType KinectBody::HandLeft;
-const KinectBody_JointType KinectBody::ShoulderRight;
-const KinectBody_JointType KinectBody::ElbowRight;
-const KinectBody_JointType KinectBody::WristRight;
-const KinectBody_JointType KinectBody::HandRight;
-const KinectBody_JointType KinectBody::HipLeft;
-const KinectBody_JointType KinectBody::KneeLeft;
-const KinectBody_JointType KinectBody::AnkleLeft;
-const KinectBody_JointType KinectBody::FootLeft;
-const KinectBody_JointType KinectBody::HipRight;
-const KinectBody_JointType KinectBody::KneeRight;
-const KinectBody_JointType KinectBody::AnkleRight;
-const KinectBody_JointType KinectBody::FootRight;
-const KinectBody_JointType KinectBody::SpineShoulder;
-const KinectBody_JointType KinectBody::HandTipLeft;
-const KinectBody_JointType KinectBody::ThumbLeft;
-const KinectBody_JointType KinectBody::HandTipRight;
-const KinectBody_JointType KinectBody::ThumbRight;
-const KinectBody_JointType KinectBody::JointType_MIN;
-const KinectBody_JointType KinectBody::JointType_MAX;
-const int KinectBody::JointType_ARRAYSIZE;
-#endif  // _MSC_VER
 #ifndef _MSC_VER
 const int KinectBody::kTrackingIdFieldNumber;
 const int KinectBody::kIsTrackedFieldNumber;
 const int KinectBody::kJointCountFieldNumber;
-const int KinectBody::kJointPositionMapFieldNumber;
-const int KinectBody::kJointOrientationMapFieldNumber;
+const int KinectBody::kJointsFieldNumber;
 const int KinectBody::kClippedEdgesFieldNumber;
 const int KinectBody::kHandLeftConfidenceFieldNumber;
 const int KinectBody::kHandLeftStateFieldNumber;
@@ -476,14 +365,6 @@ void KinectBody::SharedCtor() {
   trackingid_ = 0;
   istracked_ = false;
   jointcount_ = 0;
-  jointpositionmap_.SetAssignDescriptorCallback(
-      protobuf_AssignDescriptorsOnce);
-  jointpositionmap_.SetEntryDescriptor(
-      &::experimot::msgs::KinectBody_JointPositionMapEntry_descriptor_);
-  jointorientationmap_.SetAssignDescriptorCallback(
-      protobuf_AssignDescriptorsOnce);
-  jointorientationmap_.SetEntryDescriptor(
-      &::experimot::msgs::KinectBody_JointOrientationMapEntry_descriptor_);
   clippededges_ = 0;
   handleftconfidence_ = 0;
   handleftstate_ = 0;
@@ -540,13 +421,13 @@ void KinectBody::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  if (_has_bits_[0 / 32] & 231) {
+  if (_has_bits_[0 / 32] & 247) {
     ZR_(trackingid_, jointcount_);
     ZR_(clippededges_, istracked_);
-    ZR_(handleftconfidence_, handleftstate_);
+    ZR_(handleftstate_, handrightconfidence_);
   }
-  if (_has_bits_[8 / 32] & 7936) {
-    ZR_(handrightconfidence_, handrightstate_);
+  if (_has_bits_[8 / 32] & 3840) {
+    handrightstate_ = 0;
     isrestricted_ = false;
     if (has_lean()) {
       if (lean_ != NULL) lean_->::experimot::msgs::Vector2d::Clear();
@@ -557,8 +438,7 @@ void KinectBody::Clear() {
 #undef ZR_HELPER_
 #undef ZR_
 
-  jointpositionmap_.Clear();
-  jointorientationmap_.Clear();
+  joints_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->Clear();
@@ -615,45 +495,27 @@ bool KinectBody::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_JointPositionMap;
+        if (input->ExpectTag(34)) goto parse_Joints;
         break;
       }
 
-      // map<int32, .experimot.msgs.KinectJoint> JointPositionMap = 4;
+      // repeated .experimot.msgs.KinectJoint Joints = 4;
       case 4: {
         if (tag == 34) {
-         parse_JointPositionMap:
-          ::google::protobuf::scoped_ptr<KinectBody_JointPositionMapEntry> entry(jointpositionmap_.NewEntry());
+         parse_Joints:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-              input, entry.get()));
-          (*mutable_jointpositionmap())[entry->key()].Swap(entry->mutable_value());
+                input, add_joints()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_JointPositionMap;
-        if (input->ExpectTag(42)) goto parse_JointOrientationMap;
+        if (input->ExpectTag(34)) goto parse_Joints;
+        if (input->ExpectTag(40)) goto parse_ClippedEdges;
         break;
       }
 
-      // map<int32, .experimot.msgs.Quaternion> JointOrientationMap = 5;
+      // optional .experimot.msgs.KinectBody.FrameEdges ClippedEdges = 5;
       case 5: {
-        if (tag == 42) {
-         parse_JointOrientationMap:
-          ::google::protobuf::scoped_ptr<KinectBody_JointOrientationMapEntry> entry(jointorientationmap_.NewEntry());
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-              input, entry.get()));
-          (*mutable_jointorientationmap())[entry->key()].Swap(entry->mutable_value());
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(42)) goto parse_JointOrientationMap;
-        if (input->ExpectTag(48)) goto parse_ClippedEdges;
-        break;
-      }
-
-      // optional .experimot.msgs.KinectBody.FrameEdges ClippedEdges = 6;
-      case 6: {
-        if (tag == 48) {
+        if (tag == 40) {
          parse_ClippedEdges:
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
@@ -662,18 +524,18 @@ bool KinectBody::MergePartialFromCodedStream(
           if (::experimot::msgs::KinectBody_FrameEdges_IsValid(value)) {
             set_clippededges(static_cast< ::experimot::msgs::KinectBody_FrameEdges >(value));
           } else {
-            mutable_unknown_fields()->AddVarint(6, value);
+            mutable_unknown_fields()->AddVarint(5, value);
           }
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(56)) goto parse_HandLeftConfidence;
+        if (input->ExpectTag(48)) goto parse_HandLeftConfidence;
         break;
       }
 
-      // optional .experimot.msgs.KinectBody.TrackingConfidence HandLeftConfidence = 7;
-      case 7: {
-        if (tag == 56) {
+      // optional .experimot.msgs.KinectBody.TrackingConfidence HandLeftConfidence = 6;
+      case 6: {
+        if (tag == 48) {
          parse_HandLeftConfidence:
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
@@ -682,18 +544,18 @@ bool KinectBody::MergePartialFromCodedStream(
           if (::experimot::msgs::KinectBody_TrackingConfidence_IsValid(value)) {
             set_handleftconfidence(static_cast< ::experimot::msgs::KinectBody_TrackingConfidence >(value));
           } else {
-            mutable_unknown_fields()->AddVarint(7, value);
+            mutable_unknown_fields()->AddVarint(6, value);
           }
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(64)) goto parse_HandLeftState;
+        if (input->ExpectTag(56)) goto parse_HandLeftState;
         break;
       }
 
-      // optional .experimot.msgs.KinectBody.HandState HandLeftState = 8;
-      case 8: {
-        if (tag == 64) {
+      // optional .experimot.msgs.KinectBody.HandState HandLeftState = 7;
+      case 7: {
+        if (tag == 56) {
          parse_HandLeftState:
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
@@ -702,18 +564,18 @@ bool KinectBody::MergePartialFromCodedStream(
           if (::experimot::msgs::KinectBody_HandState_IsValid(value)) {
             set_handleftstate(static_cast< ::experimot::msgs::KinectBody_HandState >(value));
           } else {
-            mutable_unknown_fields()->AddVarint(8, value);
+            mutable_unknown_fields()->AddVarint(7, value);
           }
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(72)) goto parse_HandRightConfidence;
+        if (input->ExpectTag(64)) goto parse_HandRightConfidence;
         break;
       }
 
-      // optional .experimot.msgs.KinectBody.TrackingConfidence HandRightConfidence = 9;
-      case 9: {
-        if (tag == 72) {
+      // optional .experimot.msgs.KinectBody.TrackingConfidence HandRightConfidence = 8;
+      case 8: {
+        if (tag == 64) {
          parse_HandRightConfidence:
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
@@ -722,18 +584,18 @@ bool KinectBody::MergePartialFromCodedStream(
           if (::experimot::msgs::KinectBody_TrackingConfidence_IsValid(value)) {
             set_handrightconfidence(static_cast< ::experimot::msgs::KinectBody_TrackingConfidence >(value));
           } else {
-            mutable_unknown_fields()->AddVarint(9, value);
+            mutable_unknown_fields()->AddVarint(8, value);
           }
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(80)) goto parse_HandRightState;
+        if (input->ExpectTag(72)) goto parse_HandRightState;
         break;
       }
 
-      // optional .experimot.msgs.KinectBody.HandState HandRightState = 10;
-      case 10: {
-        if (tag == 80) {
+      // optional .experimot.msgs.KinectBody.HandState HandRightState = 9;
+      case 9: {
+        if (tag == 72) {
          parse_HandRightState:
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
@@ -742,18 +604,18 @@ bool KinectBody::MergePartialFromCodedStream(
           if (::experimot::msgs::KinectBody_HandState_IsValid(value)) {
             set_handrightstate(static_cast< ::experimot::msgs::KinectBody_HandState >(value));
           } else {
-            mutable_unknown_fields()->AddVarint(10, value);
+            mutable_unknown_fields()->AddVarint(9, value);
           }
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(88)) goto parse_IsRestricted;
+        if (input->ExpectTag(80)) goto parse_IsRestricted;
         break;
       }
 
-      // optional bool IsRestricted = 11;
-      case 11: {
-        if (tag == 88) {
+      // optional bool IsRestricted = 10;
+      case 10: {
+        if (tag == 80) {
          parse_IsRestricted:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -762,36 +624,31 @@ bool KinectBody::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(98)) goto parse_Lean;
+        if (input->ExpectTag(90)) goto parse_Lean;
         break;
       }
 
-      // optional .experimot.msgs.Vector2d Lean = 12;
-      case 12: {
-        if (tag == 98) {
+      // optional .experimot.msgs.Vector2d Lean = 11;
+      case 11: {
+        if (tag == 90) {
          parse_Lean:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_lean()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(104)) goto parse_LeanTrackingState;
+        if (input->ExpectTag(96)) goto parse_LeanTrackingState;
         break;
       }
 
-      // optional .experimot.msgs.KinectJoint.TrackingState LeanTrackingState = 13;
-      case 13: {
-        if (tag == 104) {
+      // optional int32 LeanTrackingState = 12;
+      case 12: {
+        if (tag == 96) {
          parse_LeanTrackingState:
-          int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (::experimot::msgs::KinectJoint_TrackingState_IsValid(value)) {
-            set_leantrackingstate(static_cast< ::experimot::msgs::KinectJoint_TrackingState >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(13, value);
-          }
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &leantrackingstate_)));
+          set_has_leantrackingstate();
         } else {
           goto handle_unusual;
         }
@@ -839,73 +696,56 @@ void KinectBody::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->jointcount(), output);
   }
 
-  // map<int32, .experimot.msgs.KinectJoint> JointPositionMap = 4;
-  {
-    ::google::protobuf::scoped_ptr<KinectBody_JointPositionMapEntry> entry;
-    for (::google::protobuf::Map< ::google::protobuf::int32, ::experimot::msgs::KinectJoint >::const_iterator
-        it = jointpositionmap().begin(); it != jointpositionmap().end(); ++it) {
-      entry.reset(jointpositionmap_.NewEntryWrapper(it->first, it->second));
-      ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-          4, *entry, output);
-    }
+  // repeated .experimot.msgs.KinectJoint Joints = 4;
+  for (unsigned int i = 0, n = this->joints_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->joints(i), output);
   }
 
-  // map<int32, .experimot.msgs.Quaternion> JointOrientationMap = 5;
-  {
-    ::google::protobuf::scoped_ptr<KinectBody_JointOrientationMapEntry> entry;
-    for (::google::protobuf::Map< ::google::protobuf::int32, ::experimot::msgs::Quaternion >::const_iterator
-        it = jointorientationmap().begin(); it != jointorientationmap().end(); ++it) {
-      entry.reset(jointorientationmap_.NewEntryWrapper(it->first, it->second));
-      ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-          5, *entry, output);
-    }
-  }
-
-  // optional .experimot.msgs.KinectBody.FrameEdges ClippedEdges = 6;
+  // optional .experimot.msgs.KinectBody.FrameEdges ClippedEdges = 5;
   if (has_clippededges()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      6, this->clippededges(), output);
+      5, this->clippededges(), output);
   }
 
-  // optional .experimot.msgs.KinectBody.TrackingConfidence HandLeftConfidence = 7;
+  // optional .experimot.msgs.KinectBody.TrackingConfidence HandLeftConfidence = 6;
   if (has_handleftconfidence()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      7, this->handleftconfidence(), output);
+      6, this->handleftconfidence(), output);
   }
 
-  // optional .experimot.msgs.KinectBody.HandState HandLeftState = 8;
+  // optional .experimot.msgs.KinectBody.HandState HandLeftState = 7;
   if (has_handleftstate()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      8, this->handleftstate(), output);
+      7, this->handleftstate(), output);
   }
 
-  // optional .experimot.msgs.KinectBody.TrackingConfidence HandRightConfidence = 9;
+  // optional .experimot.msgs.KinectBody.TrackingConfidence HandRightConfidence = 8;
   if (has_handrightconfidence()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      9, this->handrightconfidence(), output);
+      8, this->handrightconfidence(), output);
   }
 
-  // optional .experimot.msgs.KinectBody.HandState HandRightState = 10;
+  // optional .experimot.msgs.KinectBody.HandState HandRightState = 9;
   if (has_handrightstate()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      10, this->handrightstate(), output);
+      9, this->handrightstate(), output);
   }
 
-  // optional bool IsRestricted = 11;
+  // optional bool IsRestricted = 10;
   if (has_isrestricted()) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(11, this->isrestricted(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteBool(10, this->isrestricted(), output);
   }
 
-  // optional .experimot.msgs.Vector2d Lean = 12;
+  // optional .experimot.msgs.Vector2d Lean = 11;
   if (has_lean()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      12, *this->lean_, output);
+      11, *this->lean_, output);
   }
 
-  // optional .experimot.msgs.KinectJoint.TrackingState LeanTrackingState = 13;
+  // optional int32 LeanTrackingState = 12;
   if (has_leantrackingstate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      13, this->leantrackingstate(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->leantrackingstate(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -933,76 +773,58 @@ void KinectBody::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->jointcount(), target);
   }
 
-  // map<int32, .experimot.msgs.KinectJoint> JointPositionMap = 4;
-  {
-    ::google::protobuf::scoped_ptr<KinectBody_JointPositionMapEntry> entry;
-    for (::google::protobuf::Map< ::google::protobuf::int32, ::experimot::msgs::KinectJoint >::const_iterator
-        it = jointpositionmap().begin(); it != jointpositionmap().end(); ++it) {
-      entry.reset(jointpositionmap_.NewEntryWrapper(it->first, it->second));
-      target = ::google::protobuf::internal::WireFormatLite::
-          WriteMessageNoVirtualToArray(
-              4, *entry, target);
-    }
+  // repeated .experimot.msgs.KinectJoint Joints = 4;
+  for (unsigned int i = 0, n = this->joints_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        4, this->joints(i), target);
   }
 
-  // map<int32, .experimot.msgs.Quaternion> JointOrientationMap = 5;
-  {
-    ::google::protobuf::scoped_ptr<KinectBody_JointOrientationMapEntry> entry;
-    for (::google::protobuf::Map< ::google::protobuf::int32, ::experimot::msgs::Quaternion >::const_iterator
-        it = jointorientationmap().begin(); it != jointorientationmap().end(); ++it) {
-      entry.reset(jointorientationmap_.NewEntryWrapper(it->first, it->second));
-      target = ::google::protobuf::internal::WireFormatLite::
-          WriteMessageNoVirtualToArray(
-              5, *entry, target);
-    }
-  }
-
-  // optional .experimot.msgs.KinectBody.FrameEdges ClippedEdges = 6;
+  // optional .experimot.msgs.KinectBody.FrameEdges ClippedEdges = 5;
   if (has_clippededges()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      6, this->clippededges(), target);
+      5, this->clippededges(), target);
   }
 
-  // optional .experimot.msgs.KinectBody.TrackingConfidence HandLeftConfidence = 7;
+  // optional .experimot.msgs.KinectBody.TrackingConfidence HandLeftConfidence = 6;
   if (has_handleftconfidence()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      7, this->handleftconfidence(), target);
+      6, this->handleftconfidence(), target);
   }
 
-  // optional .experimot.msgs.KinectBody.HandState HandLeftState = 8;
+  // optional .experimot.msgs.KinectBody.HandState HandLeftState = 7;
   if (has_handleftstate()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      8, this->handleftstate(), target);
+      7, this->handleftstate(), target);
   }
 
-  // optional .experimot.msgs.KinectBody.TrackingConfidence HandRightConfidence = 9;
+  // optional .experimot.msgs.KinectBody.TrackingConfidence HandRightConfidence = 8;
   if (has_handrightconfidence()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      9, this->handrightconfidence(), target);
+      8, this->handrightconfidence(), target);
   }
 
-  // optional .experimot.msgs.KinectBody.HandState HandRightState = 10;
+  // optional .experimot.msgs.KinectBody.HandState HandRightState = 9;
   if (has_handrightstate()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      10, this->handrightstate(), target);
+      9, this->handrightstate(), target);
   }
 
-  // optional bool IsRestricted = 11;
+  // optional bool IsRestricted = 10;
   if (has_isrestricted()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(11, this->isrestricted(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(10, this->isrestricted(), target);
   }
 
-  // optional .experimot.msgs.Vector2d Lean = 12;
+  // optional .experimot.msgs.Vector2d Lean = 11;
   if (has_lean()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        12, *this->lean_, target);
+        11, *this->lean_, target);
   }
 
-  // optional .experimot.msgs.KinectJoint.TrackingState LeanTrackingState = 13;
+  // optional int32 LeanTrackingState = 12;
   if (has_leantrackingstate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      13, this->leantrackingstate(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->leantrackingstate(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1057,80 +879,65 @@ int KinectBody::ByteSize() const {
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
-  if (_has_bits_[5 / 32] & 224) {
-    // optional .experimot.msgs.KinectBody.FrameEdges ClippedEdges = 6;
+  if (_has_bits_[4 / 32] & 240) {
+    // optional .experimot.msgs.KinectBody.FrameEdges ClippedEdges = 5;
     if (has_clippededges()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->clippededges());
     }
 
-    // optional .experimot.msgs.KinectBody.TrackingConfidence HandLeftConfidence = 7;
+    // optional .experimot.msgs.KinectBody.TrackingConfidence HandLeftConfidence = 6;
     if (has_handleftconfidence()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->handleftconfidence());
     }
 
-    // optional .experimot.msgs.KinectBody.HandState HandLeftState = 8;
+    // optional .experimot.msgs.KinectBody.HandState HandLeftState = 7;
     if (has_handleftstate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->handleftstate());
     }
 
-  }
-  if (_has_bits_[8 / 32] & 7936) {
-    // optional .experimot.msgs.KinectBody.TrackingConfidence HandRightConfidence = 9;
+    // optional .experimot.msgs.KinectBody.TrackingConfidence HandRightConfidence = 8;
     if (has_handrightconfidence()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->handrightconfidence());
     }
 
-    // optional .experimot.msgs.KinectBody.HandState HandRightState = 10;
+  }
+  if (_has_bits_[8 / 32] & 3840) {
+    // optional .experimot.msgs.KinectBody.HandState HandRightState = 9;
     if (has_handrightstate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->handrightstate());
     }
 
-    // optional bool IsRestricted = 11;
+    // optional bool IsRestricted = 10;
     if (has_isrestricted()) {
       total_size += 1 + 1;
     }
 
-    // optional .experimot.msgs.Vector2d Lean = 12;
+    // optional .experimot.msgs.Vector2d Lean = 11;
     if (has_lean()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->lean_);
     }
 
-    // optional .experimot.msgs.KinectJoint.TrackingState LeanTrackingState = 13;
+    // optional int32 LeanTrackingState = 12;
     if (has_leantrackingstate()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->leantrackingstate());
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->leantrackingstate());
     }
 
   }
-  // map<int32, .experimot.msgs.KinectJoint> JointPositionMap = 4;
-  total_size += 1 * this->jointpositionmap_size();
-  {
-    ::google::protobuf::scoped_ptr<KinectBody_JointPositionMapEntry> entry;
-    for (::google::protobuf::Map< ::google::protobuf::int32, ::experimot::msgs::KinectJoint >::const_iterator
-        it = jointpositionmap().begin(); it != jointpositionmap().end(); ++it) {
-      entry.reset(jointpositionmap_.NewEntryWrapper(it->first, it->second));
-      total_size += ::google::protobuf::internal::WireFormatLite::
-          MessageSizeNoVirtual(*entry);
-    }
-  }
-
-  // map<int32, .experimot.msgs.Quaternion> JointOrientationMap = 5;
-  total_size += 1 * this->jointorientationmap_size();
-  {
-    ::google::protobuf::scoped_ptr<KinectBody_JointOrientationMapEntry> entry;
-    for (::google::protobuf::Map< ::google::protobuf::int32, ::experimot::msgs::Quaternion >::const_iterator
-        it = jointorientationmap().begin(); it != jointorientationmap().end(); ++it) {
-      entry.reset(jointorientationmap_.NewEntryWrapper(it->first, it->second));
-      total_size += ::google::protobuf::internal::WireFormatLite::
-          MessageSizeNoVirtual(*entry);
-    }
+  // repeated .experimot.msgs.KinectJoint Joints = 4;
+  total_size += 1 * this->joints_size();
+  for (int i = 0; i < this->joints_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->joints(i));
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1158,8 +965,7 @@ void KinectBody::MergeFrom(const ::google::protobuf::Message& from) {
 
 void KinectBody::MergeFrom(const KinectBody& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  jointpositionmap_.MergeFrom(from.jointpositionmap_);
-  jointorientationmap_.MergeFrom(from.jointorientationmap_);
+  joints_.MergeFrom(from.joints_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_trackingid()) {
       set_trackingid(from.trackingid());
@@ -1179,11 +985,11 @@ void KinectBody::MergeFrom(const KinectBody& from) {
     if (from.has_handleftstate()) {
       set_handleftstate(from.handleftstate());
     }
-  }
-  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_handrightconfidence()) {
       set_handrightconfidence(from.handrightconfidence());
     }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_handrightstate()) {
       set_handrightstate(from.handrightstate());
     }
@@ -1217,8 +1023,7 @@ void KinectBody::CopyFrom(const KinectBody& from) {
 bool KinectBody::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
-  if (!::google::protobuf::internal::AllAreInitialized(this->jointpositionmap())) return false;
-  if (!::google::protobuf::internal::AllAreInitialized(this->jointorientationmap())) return false;
+  if (!::google::protobuf::internal::AllAreInitialized(this->joints())) return false;
   if (has_lean()) {
     if (!this->lean_->IsInitialized()) return false;
   }
@@ -1233,8 +1038,7 @@ void KinectBody::InternalSwap(KinectBody* other) {
   std::swap(trackingid_, other->trackingid_);
   std::swap(istracked_, other->istracked_);
   std::swap(jointcount_, other->jointcount_);
-  jointpositionmap_.Swap(&other->jointpositionmap_);
-  jointorientationmap_.Swap(&other->jointorientationmap_);
+  joints_.UnsafeArenaSwap(&other->joints_);
   std::swap(clippededges_, other->clippededges_);
   std::swap(handleftconfidence_, other->handleftconfidence_);
   std::swap(handleftstate_, other->handleftstate_);
@@ -1331,51 +1135,45 @@ void KinectBody::InternalSwap(KinectBody* other) {
   // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.JointCount)
 }
 
-// map<int32, .experimot.msgs.KinectJoint> JointPositionMap = 4;
- int KinectBody::jointpositionmap_size() const {
-  return jointpositionmap_.size();
+// repeated .experimot.msgs.KinectJoint Joints = 4;
+ int KinectBody::joints_size() const {
+  return joints_.size();
 }
- void KinectBody::clear_jointpositionmap() {
-  jointpositionmap_.Clear();
+ void KinectBody::clear_joints() {
+  joints_.Clear();
 }
- const ::google::protobuf::Map< ::google::protobuf::int32, ::experimot::msgs::KinectJoint >&
-KinectBody::jointpositionmap() const {
-  // @@protoc_insertion_point(field_map:experimot.msgs.KinectBody.JointPositionMap)
-  return jointpositionmap_.GetMap();
+ const ::experimot::msgs::KinectJoint& KinectBody::joints(int index) const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.KinectBody.Joints)
+  return joints_.Get(index);
 }
- ::google::protobuf::Map< ::google::protobuf::int32, ::experimot::msgs::KinectJoint >*
-KinectBody::mutable_jointpositionmap() {
-  // @@protoc_insertion_point(field_mutable_map:experimot.msgs.KinectBody.JointPositionMap)
-  return jointpositionmap_.MutableMap();
+ ::experimot::msgs::KinectJoint* KinectBody::mutable_joints(int index) {
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.KinectBody.Joints)
+  return joints_.Mutable(index);
 }
-
-// map<int32, .experimot.msgs.Quaternion> JointOrientationMap = 5;
- int KinectBody::jointorientationmap_size() const {
-  return jointorientationmap_.size();
+ ::experimot::msgs::KinectJoint* KinectBody::add_joints() {
+  // @@protoc_insertion_point(field_add:experimot.msgs.KinectBody.Joints)
+  return joints_.Add();
 }
- void KinectBody::clear_jointorientationmap() {
-  jointorientationmap_.Clear();
+ const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::KinectJoint >&
+KinectBody::joints() const {
+  // @@protoc_insertion_point(field_list:experimot.msgs.KinectBody.Joints)
+  return joints_;
 }
- const ::google::protobuf::Map< ::google::protobuf::int32, ::experimot::msgs::Quaternion >&
-KinectBody::jointorientationmap() const {
-  // @@protoc_insertion_point(field_map:experimot.msgs.KinectBody.JointOrientationMap)
-  return jointorientationmap_.GetMap();
-}
- ::google::protobuf::Map< ::google::protobuf::int32, ::experimot::msgs::Quaternion >*
-KinectBody::mutable_jointorientationmap() {
-  // @@protoc_insertion_point(field_mutable_map:experimot.msgs.KinectBody.JointOrientationMap)
-  return jointorientationmap_.MutableMap();
+ ::google::protobuf::RepeatedPtrField< ::experimot::msgs::KinectJoint >*
+KinectBody::mutable_joints() {
+  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.KinectBody.Joints)
+  return &joints_;
 }
 
-// optional .experimot.msgs.KinectBody.FrameEdges ClippedEdges = 6;
+// optional .experimot.msgs.KinectBody.FrameEdges ClippedEdges = 5;
  bool KinectBody::has_clippededges() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
  void KinectBody::set_has_clippededges() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000010u;
 }
  void KinectBody::clear_has_clippededges() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000010u;
 }
  void KinectBody::clear_clippededges() {
   clippededges_ = 0;
@@ -1392,15 +1190,15 @@ KinectBody::mutable_jointorientationmap() {
   // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.ClippedEdges)
 }
 
-// optional .experimot.msgs.KinectBody.TrackingConfidence HandLeftConfidence = 7;
+// optional .experimot.msgs.KinectBody.TrackingConfidence HandLeftConfidence = 6;
  bool KinectBody::has_handleftconfidence() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
  void KinectBody::set_has_handleftconfidence() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000020u;
 }
  void KinectBody::clear_has_handleftconfidence() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000020u;
 }
  void KinectBody::clear_handleftconfidence() {
   handleftconfidence_ = 0;
@@ -1417,15 +1215,15 @@ KinectBody::mutable_jointorientationmap() {
   // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.HandLeftConfidence)
 }
 
-// optional .experimot.msgs.KinectBody.HandState HandLeftState = 8;
+// optional .experimot.msgs.KinectBody.HandState HandLeftState = 7;
  bool KinectBody::has_handleftstate() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
  void KinectBody::set_has_handleftstate() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000040u;
 }
  void KinectBody::clear_has_handleftstate() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000040u;
 }
  void KinectBody::clear_handleftstate() {
   handleftstate_ = 0;
@@ -1442,15 +1240,15 @@ KinectBody::mutable_jointorientationmap() {
   // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.HandLeftState)
 }
 
-// optional .experimot.msgs.KinectBody.TrackingConfidence HandRightConfidence = 9;
+// optional .experimot.msgs.KinectBody.TrackingConfidence HandRightConfidence = 8;
  bool KinectBody::has_handrightconfidence() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
  void KinectBody::set_has_handrightconfidence() {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000080u;
 }
  void KinectBody::clear_has_handrightconfidence() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000080u;
 }
  void KinectBody::clear_handrightconfidence() {
   handrightconfidence_ = 0;
@@ -1467,15 +1265,15 @@ KinectBody::mutable_jointorientationmap() {
   // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.HandRightConfidence)
 }
 
-// optional .experimot.msgs.KinectBody.HandState HandRightState = 10;
+// optional .experimot.msgs.KinectBody.HandState HandRightState = 9;
  bool KinectBody::has_handrightstate() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
  void KinectBody::set_has_handrightstate() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000100u;
 }
  void KinectBody::clear_has_handrightstate() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000100u;
 }
  void KinectBody::clear_handrightstate() {
   handrightstate_ = 0;
@@ -1492,15 +1290,15 @@ KinectBody::mutable_jointorientationmap() {
   // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.HandRightState)
 }
 
-// optional bool IsRestricted = 11;
+// optional bool IsRestricted = 10;
  bool KinectBody::has_isrestricted() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
  void KinectBody::set_has_isrestricted() {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000200u;
 }
  void KinectBody::clear_has_isrestricted() {
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000200u;
 }
  void KinectBody::clear_isrestricted() {
   isrestricted_ = false;
@@ -1516,15 +1314,15 @@ KinectBody::mutable_jointorientationmap() {
   // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.IsRestricted)
 }
 
-// optional .experimot.msgs.Vector2d Lean = 12;
+// optional .experimot.msgs.Vector2d Lean = 11;
  bool KinectBody::has_lean() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
  void KinectBody::set_has_lean() {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00000400u;
 }
  void KinectBody::clear_has_lean() {
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00000400u;
 }
  void KinectBody::clear_lean() {
   if (lean_ != NULL) lean_->::experimot::msgs::Vector2d::Clear();
@@ -1559,26 +1357,25 @@ KinectBody::mutable_jointorientationmap() {
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.KinectBody.Lean)
 }
 
-// optional .experimot.msgs.KinectJoint.TrackingState LeanTrackingState = 13;
+// optional int32 LeanTrackingState = 12;
  bool KinectBody::has_leantrackingstate() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
  void KinectBody::set_has_leantrackingstate() {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00000800u;
 }
  void KinectBody::clear_has_leantrackingstate() {
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00000800u;
 }
  void KinectBody::clear_leantrackingstate() {
   leantrackingstate_ = 0;
   clear_has_leantrackingstate();
 }
- ::experimot::msgs::KinectJoint_TrackingState KinectBody::leantrackingstate() const {
+ ::google::protobuf::int32 KinectBody::leantrackingstate() const {
   // @@protoc_insertion_point(field_get:experimot.msgs.KinectBody.LeanTrackingState)
-  return static_cast< ::experimot::msgs::KinectJoint_TrackingState >(leantrackingstate_);
+  return leantrackingstate_;
 }
- void KinectBody::set_leantrackingstate(::experimot::msgs::KinectJoint_TrackingState value) {
-  assert(::experimot::msgs::KinectJoint_TrackingState_IsValid(value));
+ void KinectBody::set_leantrackingstate(::google::protobuf::int32 value) {
   set_has_leantrackingstate();
   leantrackingstate_ = value;
   // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.LeanTrackingState)

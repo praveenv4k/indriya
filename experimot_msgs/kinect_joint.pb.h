@@ -29,6 +29,7 @@
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "vector3d.pb.h"
+#include "quaternion.pb.h"
 #include <boost/shared_ptr.hpp>
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
@@ -62,6 +63,48 @@ inline bool KinectJoint_TrackingState_Parse(
     const ::std::string& name, KinectJoint_TrackingState* value) {
   return ::google::protobuf::internal::ParseNamedEnum<KinectJoint_TrackingState>(
     KinectJoint_TrackingState_descriptor(), name, value);
+}
+enum KinectJoint_JointType {
+  KinectJoint_JointType_SpineBase = 0,
+  KinectJoint_JointType_SpineMid = 1,
+  KinectJoint_JointType_Neck = 2,
+  KinectJoint_JointType_Head = 3,
+  KinectJoint_JointType_ShoulderLeft = 4,
+  KinectJoint_JointType_ElbowLeft = 5,
+  KinectJoint_JointType_WristLeft = 6,
+  KinectJoint_JointType_HandLeft = 7,
+  KinectJoint_JointType_ShoulderRight = 8,
+  KinectJoint_JointType_ElbowRight = 9,
+  KinectJoint_JointType_WristRight = 10,
+  KinectJoint_JointType_HandRight = 11,
+  KinectJoint_JointType_HipLeft = 12,
+  KinectJoint_JointType_KneeLeft = 13,
+  KinectJoint_JointType_AnkleLeft = 14,
+  KinectJoint_JointType_FootLeft = 15,
+  KinectJoint_JointType_HipRight = 16,
+  KinectJoint_JointType_KneeRight = 17,
+  KinectJoint_JointType_AnkleRight = 18,
+  KinectJoint_JointType_FootRight = 19,
+  KinectJoint_JointType_SpineShoulder = 20,
+  KinectJoint_JointType_HandTipLeft = 21,
+  KinectJoint_JointType_ThumbLeft = 22,
+  KinectJoint_JointType_HandTipRight = 23,
+  KinectJoint_JointType_ThumbRight = 24
+};
+bool KinectJoint_JointType_IsValid(int value);
+const KinectJoint_JointType KinectJoint_JointType_JointType_MIN = KinectJoint_JointType_SpineBase;
+const KinectJoint_JointType KinectJoint_JointType_JointType_MAX = KinectJoint_JointType_ThumbRight;
+const int KinectJoint_JointType_JointType_ARRAYSIZE = KinectJoint_JointType_JointType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* KinectJoint_JointType_descriptor();
+inline const ::std::string& KinectJoint_JointType_Name(KinectJoint_JointType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    KinectJoint_JointType_descriptor(), value);
+}
+inline bool KinectJoint_JointType_Parse(
+    const ::std::string& name, KinectJoint_JointType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<KinectJoint_JointType>(
+    KinectJoint_JointType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -152,30 +195,97 @@ class KinectJoint : public ::google::protobuf::Message {
     return KinectJoint_TrackingState_Parse(name, value);
   }
 
+  typedef KinectJoint_JointType JointType;
+  static const JointType SpineBase = KinectJoint_JointType_SpineBase;
+  static const JointType SpineMid = KinectJoint_JointType_SpineMid;
+  static const JointType Neck = KinectJoint_JointType_Neck;
+  static const JointType Head = KinectJoint_JointType_Head;
+  static const JointType ShoulderLeft = KinectJoint_JointType_ShoulderLeft;
+  static const JointType ElbowLeft = KinectJoint_JointType_ElbowLeft;
+  static const JointType WristLeft = KinectJoint_JointType_WristLeft;
+  static const JointType HandLeft = KinectJoint_JointType_HandLeft;
+  static const JointType ShoulderRight = KinectJoint_JointType_ShoulderRight;
+  static const JointType ElbowRight = KinectJoint_JointType_ElbowRight;
+  static const JointType WristRight = KinectJoint_JointType_WristRight;
+  static const JointType HandRight = KinectJoint_JointType_HandRight;
+  static const JointType HipLeft = KinectJoint_JointType_HipLeft;
+  static const JointType KneeLeft = KinectJoint_JointType_KneeLeft;
+  static const JointType AnkleLeft = KinectJoint_JointType_AnkleLeft;
+  static const JointType FootLeft = KinectJoint_JointType_FootLeft;
+  static const JointType HipRight = KinectJoint_JointType_HipRight;
+  static const JointType KneeRight = KinectJoint_JointType_KneeRight;
+  static const JointType AnkleRight = KinectJoint_JointType_AnkleRight;
+  static const JointType FootRight = KinectJoint_JointType_FootRight;
+  static const JointType SpineShoulder = KinectJoint_JointType_SpineShoulder;
+  static const JointType HandTipLeft = KinectJoint_JointType_HandTipLeft;
+  static const JointType ThumbLeft = KinectJoint_JointType_ThumbLeft;
+  static const JointType HandTipRight = KinectJoint_JointType_HandTipRight;
+  static const JointType ThumbRight = KinectJoint_JointType_ThumbRight;
+  static inline bool JointType_IsValid(int value) {
+    return KinectJoint_JointType_IsValid(value);
+  }
+  static const JointType JointType_MIN =
+    KinectJoint_JointType_JointType_MIN;
+  static const JointType JointType_MAX =
+    KinectJoint_JointType_JointType_MAX;
+  static const int JointType_ARRAYSIZE =
+    KinectJoint_JointType_JointType_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  JointType_descriptor() {
+    return KinectJoint_JointType_descriptor();
+  }
+  static inline const ::std::string& JointType_Name(JointType value) {
+    return KinectJoint_JointType_Name(value);
+  }
+  static inline bool JointType_Parse(const ::std::string& name,
+      JointType* value) {
+    return KinectJoint_JointType_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
-  // required .experimot.msgs.KinectJoint.TrackingState State = 1;
+  // required .experimot.msgs.KinectJoint.JointType Type = 1;
+  bool has_type() const;
+  void clear_type();
+  static const int kTypeFieldNumber = 1;
+  ::experimot::msgs::KinectJoint_JointType type() const;
+  void set_type(::experimot::msgs::KinectJoint_JointType value);
+
+  // required .experimot.msgs.KinectJoint.TrackingState State = 2;
   bool has_state() const;
   void clear_state();
-  static const int kStateFieldNumber = 1;
+  static const int kStateFieldNumber = 2;
   ::experimot::msgs::KinectJoint_TrackingState state() const;
   void set_state(::experimot::msgs::KinectJoint_TrackingState value);
 
-  // required .experimot.msgs.Vector3d Position = 2;
+  // required .experimot.msgs.Vector3d Position = 3;
   bool has_position() const;
   void clear_position();
-  static const int kPositionFieldNumber = 2;
+  static const int kPositionFieldNumber = 3;
   const ::experimot::msgs::Vector3d& position() const;
   ::experimot::msgs::Vector3d* mutable_position();
   ::experimot::msgs::Vector3d* release_position();
   void set_allocated_position(::experimot::msgs::Vector3d* position);
 
+  // required .experimot.msgs.Quaternion Orientation = 4;
+  bool has_orientation() const;
+  void clear_orientation();
+  static const int kOrientationFieldNumber = 4;
+  const ::experimot::msgs::Quaternion& orientation() const;
+  ::experimot::msgs::Quaternion* mutable_orientation();
+  ::experimot::msgs::Quaternion* release_orientation();
+  void set_allocated_orientation(::experimot::msgs::Quaternion* orientation);
+
   // @@protoc_insertion_point(class_scope:experimot.msgs.KinectJoint)
  private:
+  inline void set_has_type();
+  inline void clear_has_type();
   inline void set_has_state();
   inline void clear_has_state();
   inline void set_has_position();
   inline void clear_has_position();
+  inline void set_has_orientation();
+  inline void clear_has_orientation();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -183,8 +293,10 @@ class KinectJoint : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::Vector3d* position_;
+  int type_;
   int state_;
+  ::experimot::msgs::Vector3d* position_;
+  ::experimot::msgs::Quaternion* orientation_;
   friend void  protobuf_AddDesc_kinect_5fjoint_2eproto();
   friend void protobuf_AssignDesc_kinect_5fjoint_2eproto();
   friend void protobuf_ShutdownFile_kinect_5fjoint_2eproto();
@@ -200,15 +312,40 @@ class KinectJoint : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // KinectJoint
 
-// required .experimot.msgs.KinectJoint.TrackingState State = 1;
-inline bool KinectJoint::has_state() const {
+// required .experimot.msgs.KinectJoint.JointType Type = 1;
+inline bool KinectJoint::has_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void KinectJoint::set_has_state() {
+inline void KinectJoint::set_has_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void KinectJoint::clear_has_state() {
+inline void KinectJoint::clear_has_type() {
   _has_bits_[0] &= ~0x00000001u;
+}
+inline void KinectJoint::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::experimot::msgs::KinectJoint_JointType KinectJoint::type() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.KinectJoint.Type)
+  return static_cast< ::experimot::msgs::KinectJoint_JointType >(type_);
+}
+inline void KinectJoint::set_type(::experimot::msgs::KinectJoint_JointType value) {
+  assert(::experimot::msgs::KinectJoint_JointType_IsValid(value));
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:experimot.msgs.KinectJoint.Type)
+}
+
+// required .experimot.msgs.KinectJoint.TrackingState State = 2;
+inline bool KinectJoint::has_state() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void KinectJoint::set_has_state() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void KinectJoint::clear_has_state() {
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void KinectJoint::clear_state() {
   state_ = 0;
@@ -225,15 +362,15 @@ inline void KinectJoint::set_state(::experimot::msgs::KinectJoint_TrackingState 
   // @@protoc_insertion_point(field_set:experimot.msgs.KinectJoint.State)
 }
 
-// required .experimot.msgs.Vector3d Position = 2;
+// required .experimot.msgs.Vector3d Position = 3;
 inline bool KinectJoint::has_position() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void KinectJoint::set_has_position() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void KinectJoint::clear_has_position() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void KinectJoint::clear_position() {
   if (position_ != NULL) position_->::experimot::msgs::Vector3d::Clear();
@@ -268,6 +405,49 @@ inline void KinectJoint::set_allocated_position(::experimot::msgs::Vector3d* pos
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.KinectJoint.Position)
 }
 
+// required .experimot.msgs.Quaternion Orientation = 4;
+inline bool KinectJoint::has_orientation() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void KinectJoint::set_has_orientation() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void KinectJoint::clear_has_orientation() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void KinectJoint::clear_orientation() {
+  if (orientation_ != NULL) orientation_->::experimot::msgs::Quaternion::Clear();
+  clear_has_orientation();
+}
+inline const ::experimot::msgs::Quaternion& KinectJoint::orientation() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.KinectJoint.Orientation)
+  return orientation_ != NULL ? *orientation_ : *default_instance_->orientation_;
+}
+inline ::experimot::msgs::Quaternion* KinectJoint::mutable_orientation() {
+  set_has_orientation();
+  if (orientation_ == NULL) {
+    orientation_ = new ::experimot::msgs::Quaternion;
+  }
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.KinectJoint.Orientation)
+  return orientation_;
+}
+inline ::experimot::msgs::Quaternion* KinectJoint::release_orientation() {
+  clear_has_orientation();
+  ::experimot::msgs::Quaternion* temp = orientation_;
+  orientation_ = NULL;
+  return temp;
+}
+inline void KinectJoint::set_allocated_orientation(::experimot::msgs::Quaternion* orientation) {
+  delete orientation_;
+  orientation_ = orientation;
+  if (orientation) {
+    set_has_orientation();
+  } else {
+    clear_has_orientation();
+  }
+  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.KinectJoint.Orientation)
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
 typedef boost::shared_ptr<experimot::msgs::KinectJoint> KinectJointPtr;
@@ -284,6 +464,11 @@ template <> struct is_proto_enum< ::experimot::msgs::KinectJoint_TrackingState> 
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::KinectJoint_TrackingState>() {
   return ::experimot::msgs::KinectJoint_TrackingState_descriptor();
+}
+template <> struct is_proto_enum< ::experimot::msgs::KinectJoint_JointType> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::KinectJoint_JointType>() {
+  return ::experimot::msgs::KinectJoint_JointType_descriptor();
 }
 
 }  // namespace protobuf

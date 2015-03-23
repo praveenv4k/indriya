@@ -19,30 +19,30 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='joint_value_map.proto',
   package='experimot.msgs',
   syntax='proto2',
-  serialized_pb=_b('\n\x15joint_value_map.proto\x12\x0e\x65xperimot.msgs\"\x80\x01\n\rJointValueMap\x12>\n\tmap_field\x18\x01 \x03(\x0b\x32+.experimot.msgs.JointValueMap.MapFieldEntry\x1a/\n\rMapFieldEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12\r\n\x05value\x18\x02 \x01(\x01:\x02\x38\x01')
+  serialized_pb=_b('\n\x15joint_value_map.proto\x12\x0e\x65xperimot.msgs\"\'\n\nJointValue\x12\n\n\x02id\x18\x01 \x02(\x05\x12\r\n\x05value\x18\x02 \x02(\x01\"C\n\x10JointValueVector\x12/\n\x0bJointValues\x18\x01 \x03(\x0b\x32\x1a.experimot.msgs.JointValue')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 
 
-_JOINTVALUEMAP_MAPFIELDENTRY = _descriptor.Descriptor(
-  name='MapFieldEntry',
-  full_name='experimot.msgs.JointValueMap.MapFieldEntry',
+_JOINTVALUE = _descriptor.Descriptor(
+  name='JointValue',
+  full_name='experimot.msgs.JointValue',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='experimot.msgs.JointValueMap.MapFieldEntry.key', index=0,
-      number=1, type=5, cpp_type=1, label=1,
+      name='id', full_name='experimot.msgs.JointValue.id', index=0,
+      number=1, type=5, cpp_type=1, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='value', full_name='experimot.msgs.JointValueMap.MapFieldEntry.value', index=1,
-      number=2, type=1, cpp_type=5, label=1,
+      name='value', full_name='experimot.msgs.JointValue.value', index=1,
+      number=2, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -53,25 +53,26 @@ _JOINTVALUEMAP_MAPFIELDENTRY = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  options=_descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001')),
+  options=None,
   is_extendable=False,
   syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=123,
-  serialized_end=170,
+  serialized_start=41,
+  serialized_end=80,
 )
 
-_JOINTVALUEMAP = _descriptor.Descriptor(
-  name='JointValueMap',
-  full_name='experimot.msgs.JointValueMap',
+
+_JOINTVALUEVECTOR = _descriptor.Descriptor(
+  name='JointValueVector',
+  full_name='experimot.msgs.JointValueVector',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='map_field', full_name='experimot.msgs.JointValueMap.map_field', index=0,
+      name='JointValues', full_name='experimot.msgs.JointValueVector.JointValues', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -80,7 +81,7 @@ _JOINTVALUEMAP = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_JOINTVALUEMAP_MAPFIELDENTRY, ],
+  nested_types=[],
   enum_types=[
   ],
   options=None,
@@ -89,30 +90,27 @@ _JOINTVALUEMAP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=42,
-  serialized_end=170,
+  serialized_start=82,
+  serialized_end=149,
 )
 
-_JOINTVALUEMAP_MAPFIELDENTRY.containing_type = _JOINTVALUEMAP
-_JOINTVALUEMAP.fields_by_name['map_field'].message_type = _JOINTVALUEMAP_MAPFIELDENTRY
-DESCRIPTOR.message_types_by_name['JointValueMap'] = _JOINTVALUEMAP
+_JOINTVALUEVECTOR.fields_by_name['JointValues'].message_type = _JOINTVALUE
+DESCRIPTOR.message_types_by_name['JointValue'] = _JOINTVALUE
+DESCRIPTOR.message_types_by_name['JointValueVector'] = _JOINTVALUEVECTOR
 
-JointValueMap = _reflection.GeneratedProtocolMessageType('JointValueMap', (_message.Message,), dict(
-
-  MapFieldEntry = _reflection.GeneratedProtocolMessageType('MapFieldEntry', (_message.Message,), dict(
-    DESCRIPTOR = _JOINTVALUEMAP_MAPFIELDENTRY,
-    __module__ = 'joint_value_map_pb2'
-    # @@protoc_insertion_point(class_scope:experimot.msgs.JointValueMap.MapFieldEntry)
-    ))
-  ,
-  DESCRIPTOR = _JOINTVALUEMAP,
+JointValue = _reflection.GeneratedProtocolMessageType('JointValue', (_message.Message,), dict(
+  DESCRIPTOR = _JOINTVALUE,
   __module__ = 'joint_value_map_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.JointValueMap)
+  # @@protoc_insertion_point(class_scope:experimot.msgs.JointValue)
   ))
-_sym_db.RegisterMessage(JointValueMap)
-_sym_db.RegisterMessage(JointValueMap.MapFieldEntry)
+_sym_db.RegisterMessage(JointValue)
+
+JointValueVector = _reflection.GeneratedProtocolMessageType('JointValueVector', (_message.Message,), dict(
+  DESCRIPTOR = _JOINTVALUEVECTOR,
+  __module__ = 'joint_value_map_pb2'
+  # @@protoc_insertion_point(class_scope:experimot.msgs.JointValueVector)
+  ))
+_sym_db.RegisterMessage(JointValueVector)
 
 
-_JOINTVALUEMAP_MAPFIELDENTRY.has_options = True
-_JOINTVALUEMAP_MAPFIELDENTRY._options = _descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001'))
 # @@protoc_insertion_point(module_scope)

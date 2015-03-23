@@ -14,15 +14,16 @@ _sym_db = _symbol_database.Default()
 
 
 import vector3d_pb2 as vector3d__pb2
+import quaternion_pb2 as quaternion__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='kinect_joint.proto',
   package='experimot.msgs',
   syntax='proto2',
-  serialized_pb=_b('\n\x12kinect_joint.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\"\xaf\x01\n\x0bKinectJoint\x12\x38\n\x05State\x18\x01 \x02(\x0e\x32).experimot.msgs.KinectJoint.TrackingState\x12*\n\x08Position\x18\x02 \x02(\x0b\x32\x18.experimot.msgs.Vector3d\":\n\rTrackingState\x12\x0e\n\nNotTracked\x10\x00\x12\x0c\n\x08Inferred\x10\x01\x12\x0b\n\x07Tracked\x10\x02')
+  serialized_pb=_b('\n\x12kinect_joint.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\x1a\x10quaternion.proto\"\x9d\x05\n\x0bKinectJoint\x12\x33\n\x04Type\x18\x01 \x02(\x0e\x32%.experimot.msgs.KinectJoint.JointType\x12\x38\n\x05State\x18\x02 \x02(\x0e\x32).experimot.msgs.KinectJoint.TrackingState\x12*\n\x08Position\x18\x03 \x02(\x0b\x32\x18.experimot.msgs.Vector3d\x12/\n\x0bOrientation\x18\x04 \x02(\x0b\x32\x1a.experimot.msgs.Quaternion\":\n\rTrackingState\x12\x0e\n\nNotTracked\x10\x00\x12\x0c\n\x08Inferred\x10\x01\x12\x0b\n\x07Tracked\x10\x02\"\x85\x03\n\tJointType\x12\r\n\tSpineBase\x10\x00\x12\x0c\n\x08SpineMid\x10\x01\x12\x08\n\x04Neck\x10\x02\x12\x08\n\x04Head\x10\x03\x12\x10\n\x0cShoulderLeft\x10\x04\x12\r\n\tElbowLeft\x10\x05\x12\r\n\tWristLeft\x10\x06\x12\x0c\n\x08HandLeft\x10\x07\x12\x11\n\rShoulderRight\x10\x08\x12\x0e\n\nElbowRight\x10\t\x12\x0e\n\nWristRight\x10\n\x12\r\n\tHandRight\x10\x0b\x12\x0b\n\x07HipLeft\x10\x0c\x12\x0c\n\x08KneeLeft\x10\r\x12\r\n\tAnkleLeft\x10\x0e\x12\x0c\n\x08\x46ootLeft\x10\x0f\x12\x0c\n\x08HipRight\x10\x10\x12\r\n\tKneeRight\x10\x11\x12\x0e\n\nAnkleRight\x10\x12\x12\r\n\tFootRight\x10\x13\x12\x11\n\rSpineShoulder\x10\x14\x12\x0f\n\x0bHandTipLeft\x10\x15\x12\r\n\tThumbLeft\x10\x16\x12\x10\n\x0cHandTipRight\x10\x17\x12\x0e\n\nThumbRight\x10\x18')
   ,
-  dependencies=[vector3d__pb2.DESCRIPTOR,])
+  dependencies=[vector3d__pb2.DESCRIPTOR,quaternion__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -48,10 +49,124 @@ _KINECTJOINT_TRACKINGSTATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=172,
-  serialized_end=230,
+  serialized_start=292,
+  serialized_end=350,
 )
 _sym_db.RegisterEnumDescriptor(_KINECTJOINT_TRACKINGSTATE)
+
+_KINECTJOINT_JOINTTYPE = _descriptor.EnumDescriptor(
+  name='JointType',
+  full_name='experimot.msgs.KinectJoint.JointType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='SpineBase', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SpineMid', index=1, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='Neck', index=2, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='Head', index=3, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ShoulderLeft', index=4, number=4,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ElbowLeft', index=5, number=5,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='WristLeft', index=6, number=6,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='HandLeft', index=7, number=7,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ShoulderRight', index=8, number=8,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ElbowRight', index=9, number=9,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='WristRight', index=10, number=10,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='HandRight', index=11, number=11,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='HipLeft', index=12, number=12,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='KneeLeft', index=13, number=13,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AnkleLeft', index=14, number=14,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='FootLeft', index=15, number=15,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='HipRight', index=16, number=16,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='KneeRight', index=17, number=17,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AnkleRight', index=18, number=18,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='FootRight', index=19, number=19,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SpineShoulder', index=20, number=20,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='HandTipLeft', index=21, number=21,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ThumbLeft', index=22, number=22,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='HandTipRight', index=23, number=23,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ThumbRight', index=24, number=24,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=353,
+  serialized_end=742,
+)
+_sym_db.RegisterEnumDescriptor(_KINECTJOINT_JOINTTYPE)
 
 
 _KINECTJOINT = _descriptor.Descriptor(
@@ -62,15 +177,29 @@ _KINECTJOINT = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='State', full_name='experimot.msgs.KinectJoint.State', index=0,
+      name='Type', full_name='experimot.msgs.KinectJoint.Type', index=0,
       number=1, type=14, cpp_type=8, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Position', full_name='experimot.msgs.KinectJoint.Position', index=1,
-      number=2, type=11, cpp_type=10, label=2,
+      name='State', full_name='experimot.msgs.KinectJoint.State', index=1,
+      number=2, type=14, cpp_type=8, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='Position', full_name='experimot.msgs.KinectJoint.Position', index=2,
+      number=3, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='Orientation', full_name='experimot.msgs.KinectJoint.Orientation', index=3,
+      number=4, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -81,6 +210,7 @@ _KINECTJOINT = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
     _KINECTJOINT_TRACKINGSTATE,
+    _KINECTJOINT_JOINTTYPE,
   ],
   options=None,
   is_extendable=False,
@@ -88,13 +218,16 @@ _KINECTJOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=55,
-  serialized_end=230,
+  serialized_start=73,
+  serialized_end=742,
 )
 
+_KINECTJOINT.fields_by_name['Type'].enum_type = _KINECTJOINT_JOINTTYPE
 _KINECTJOINT.fields_by_name['State'].enum_type = _KINECTJOINT_TRACKINGSTATE
 _KINECTJOINT.fields_by_name['Position'].message_type = vector3d__pb2._VECTOR3D
+_KINECTJOINT.fields_by_name['Orientation'].message_type = quaternion__pb2._QUATERNION
 _KINECTJOINT_TRACKINGSTATE.containing_type = _KINECTJOINT
+_KINECTJOINT_JOINTTYPE.containing_type = _KINECTJOINT
 DESCRIPTOR.message_types_by_name['KinectJoint'] = _KINECTJOINT
 
 KinectJoint = _reflection.GeneratedProtocolMessageType('KinectJoint', (_message.Message,), dict(
