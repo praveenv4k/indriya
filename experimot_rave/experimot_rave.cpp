@@ -324,6 +324,7 @@ public:
 				experimot::msgs::JointValueMap jvMap;
 				if (jvMap.ParseFromArray(data.data(), data.size())){
 					jvMap.PrintDebugString();
+					//std::cout << "Size: " << jvMap.map_field_size() << std::endl;
 					std::vector<double> jointValues;
 					for (google::protobuf::int32 i = 0; i < jvMap.map_field_size(); i++){
 						jointValues.push_back(jvMap.map_field().at(i));
@@ -621,19 +622,18 @@ int main(int argc, char ** argv)
 		orDispRobots(penv);
 
 		Sleep(2000);
-		RobotStatePublisher publisher;
-		publisher.Init(std::string("datalog.csv"));
+		//RobotStatePublisher publisher;
+		//publisher.Init(std::string("datalog.csv"));
 		RobotStateListener listener;
 
-		boost::thread thPublisher(boost::bind(&RobotStatePublisher::PublishJointValues, &publisher));
+		//boost::thread thPublisher(boost::bind(&RobotStatePublisher::PublishJointValues, &publisher));
 		boost::thread thSubscriber(boost::bind(&RobotStateListener::Listen, &listener, penv));
-
 
 		thviewer.join(); // wait for the viewer thread to exit
 
 		done = true;
 
-		thPublisher.join();
+		//thPublisher.join();
 		thSubscriber.join();
 
 		penv->Destroy(); // destroy
