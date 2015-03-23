@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Kinect.Tools;
 using System.ComponentModel;
+using Microsoft.Win32;
 
 namespace KinectPlayback
 {
@@ -75,10 +76,16 @@ namespace KinectPlayback
             // create the bitmap to display
             this.depthBitmap = new WriteableBitmap(depthWidth, depthHeight, 96.0, 96.0, PixelFormats.Gray8, null);
 
+            // allocate space to put the pixels being converted
+            this.bodyIndexPixels = new uint[depthWidth * depthHeight];
+
+            // create the bitmap to display
+            this.bodyIndexBitmap = new WriteableBitmap(depthWidth, depthHeight, 96.0, 96.0, PixelFormats.Bgr32, null);
+
             this.DataContext = this;
 
             InitializeComponent();
-            _fileName = @"C:\Users\GVlab\Documents\Kinect Studio\Repository\Wave_right.xef";
+            //_fileName = @"C:\Users\GVlab\Documents\Kinect Studio\Repository\Wave_right.xef";
             //PlaybackClip(@"C:\Users\GVlab\Documents\Kinect Studio\Repository\Wave_right.xef", 1);
             //PlaybackEvent(@"C:\Users\GVlab\Documents\Kinect Studio\Repository\Wave_right.xef", 1);
             ButtonText = "Play";
@@ -261,6 +268,12 @@ namespace KinectPlayback
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //InitKStudioClient();
+        }
+
+        private void ReInitialize()
+        {
+            DestroyKStudioClient();
             InitKStudioClient();
         }
 
@@ -275,9 +288,10 @@ namespace KinectPlayback
                     System.Diagnostics.Debug.WriteLine(item.Name);
                 } 
                 _reader = _client.CreateEventReader(_fileName);
+                _streamCount = _client.EventStreams.Count;
                 //_reader.LoopCount = _loopCount;
                 _timer = new DispatcherTimer();
-                _timer.Interval = new TimeSpan(0, 0, 0, 0, (int)(1000 / (30*7)));
+                _timer.Interval = new TimeSpan(0, 0, 0, 0, (int)(1000 / (5)));
                 //_timer.Interval = new TimeSpan(30000);
                 _timer.Tick += _timer_Tick;
                 //_timer.IsEnabled = true;
@@ -313,43 +327,50 @@ namespace KinectPlayback
         {
             if (_reader != null)
             {
-                KStudioEvent evt = _reader.GetNextEvent();
-                if (evt != null)
+                string timeStamp = string.Empty;
+                for (int i = 0; i < _streamCount; i++)
                 {
-                    //if (evt.EventStreamDataTypeId == KStudioEventStreamDataTypeIds.Depth)
-                    //{
-                    //    //System.Diagnostics.Debug.WriteLine(string.Format("Event data {1} size : {0}", evt.EventIndex, evt.RelativeTime));
-
-                    //    uint _size;
-                    //    IntPtr _buffer;
-
-                    //    evt.AccessUnderlyingEventDataBuffer(out _size, out _buffer);
-
-                    //    ProcessDepthFrameData(_buffer, _size, DepthMinReliableDistance, maxDepth);
-
-                    //    RenderDepthPixels();
-
-                    //    TimeStamp = evt.RelativeTime.ToString();
-                    //}
-                    if (evt.EventStreamDataTypeId == KStudioEventStreamDataTypeIds.Body)
+                    KStudioEvent evt = _reader.GetNextEvent();
+                    if (evt != null)
                     {
-                        //System.Diagnostics.Debug.WriteLine("Body Frame");
-                        uint _size;
-                        IntPtr _buffer;
+                        if (evt.EventStreamDataTypeId == KStudioEventStreamDataTypeIds.Depth)
+                        {
+                            //System.Diagnostics.Debug.WriteLine(string.Format("Event data {1} size : {0}", evt.EventIndex, evt.RelativeTime));
 
-                        evt.AccessUnderlyingEventDataBuffer(out _size, out _buffer);
+                            uint _size;
+                            IntPtr _buffer;
 
-                        ProcessBodyIndexFrameData(_buffer, _size);
+                            evt.AccessUnderlyingEventDataBuffer(out _size, out _buffer);
 
-                        RenderBodyIndexPixels();
+                            ProcessDepthFrameData(_buffer, _size, DepthMinReliableDistance, maxDepth);
+
+                            RenderDepthPixels();
+
+                        }
+                        if (evt.EventStreamDataTypeId == KStudioEventStreamDataTypeIds.BodyIndex)
+                        {
+                            //System.Diagnostics.Debug.WriteLine("Body Frame");
+                            uint _size;
+                            IntPtr _buffer;
+
+                            evt.AccessUnderlyingEventDataBuffer(out _size, out _buffer);
+
+                            ProcessBodyIndexFrameData(_buffer, _size);
+
+                            RenderBodyIndexPixels();
+                        }
+                        TimeStamp = evt.RelativeTime.ToString();
+                    }
+                    else
+                    {
+                        _timer.IsEnabled = false;
+                        _timer.Tick -= _timer_Tick;
+                        playButton.IsEnabled = false;
+                        openButton.IsEnabled = true;
+                        break;
                     }
                 }
-                else
-                {
-                    _timer.IsEnabled = false;
-                    _timer.Tick -= _timer_Tick;
-                    playButton.IsEnabled = false;
-                }
+                TimeStamp = string.IsNullOrEmpty(timeStamp) ? TimeStamp : timeStamp;
             }
         }
 
@@ -452,6 +473,7 @@ namespace KinectPlayback
         public event PropertyChangedEventHandler PropertyChanged;
         private string timeStamp;
         private string buttonText;
+        private int _streamCount;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -459,6 +481,39 @@ namespace KinectPlayback
                 _timer.IsEnabled = !_timer.IsEnabled;
                 ButtonText = _timer.IsEnabled ? "Pause" : "Play";
             }
+        }
+
+        private void openButton_Click(object sender, RoutedEventArgs e)
+        {
+            var fo = new OpenFileDialog();
+            fo.Title = "Open Kinect Studio recorded XEF File";
+            fo.Multiselect = false;
+            fo.Filter = "Kinect Studio Clips (*.xef)|*.xef";//"Image files (*.bmp, *.jpg)|*.bmp;*.jpg|All files (*.*)|*.*"
+            var ret = fo.ShowDialog(this);
+            if (ret != null && ret.Value == true)
+            {
+                FileName = fo.FileName;
+                ButtonText = "Play";
+                playButton.IsEnabled = true;
+                openButton.IsEnabled = false;
+                ReInitialize();
+            }
+        }
+
+        public string FileName 
+        {
+            get { return _fileName; }
+            set
+            {
+                if (_fileName != value)
+                {
+                    _fileName = value;
+                    if (this.PropertyChanged != null)
+                    {
+                        this.PropertyChanged(this, new PropertyChangedEventArgs("FileName"));
+                    }
+                }
+            } 
         }
     }
 }
