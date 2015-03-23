@@ -375,11 +375,9 @@ public:
 					for (google::protobuf::int32 i = 0; i < kBodies.body_size(); i++){
 						const experimot::msgs::KinectBody& jVal = kBodies.body(i);
 
-						EnvironmentMutex::scoped_lock lock(penv->GetMutex());
-						RobotBasePtr probot = orMacroGetRobot(penv, 1);
-						if (probot){
-							probot->SetDOFValues(jointValues, false);
-						}
+						//jVal.PrintDebugString();
+						//EnvironmentMutex::scoped_lock lock(penv->GetMutex());
+						
 					}
 				}
 
@@ -671,16 +669,19 @@ int main(int argc, char ** argv)
 		//RobotStatePublisher publisher;
 		//publisher.Init(std::string("datalog.csv"));
 		RobotStateListener listener;
+		KinectStateListener klistener;
 
 		//boost::thread thPublisher(boost::bind(&RobotStatePublisher::PublishJointValues, &publisher));
-		boost::thread thSubscriber(boost::bind(&RobotStateListener::Listen, &listener, penv));
+		boost::thread thRobotSubscriber(boost::bind(&RobotStateListener::Listen, &listener, penv));
+		boost::thread thKinectSubscriber(boost::bind(&KinectStateListener::Listen, &klistener, penv));
 
 		thviewer.join(); // wait for the viewer thread to exit
 
 		done = true;
 
 		//thPublisher.join();
-		thSubscriber.join();
+		thRobotSubscriber.join();
+		thKinectSubscriber.join();
 
 		penv->Destroy(); // destroy
 	}

@@ -22,27 +22,34 @@ namespace ExperimotPerception
     /// </summary>
     public partial class MainWindow : Window
     {
-        private JointStatePublisher _jStatePub;
+        //private JointStatePublisher _jStatePub;
+        private KinectBodyPublisher _kBodyPub;
 
         public MainWindow()
         {
+            _kBodyPub = new KinectBodyPublisher();
+            this.DataContext = _kBodyPub;
+
             InitializeComponent();
             this.Loaded += MainWindow_Loaded;
             this.Closing += MainWindow_Closing;
-            _jStatePub = new JointStatePublisher();
+            
+            //_jStatePub = new JointStatePublisher();
         }
 
         void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (_jStatePub != null)
-            {
-                _jStatePub.Terminate();
-            }
+            _kBodyPub.Terminate();
+            //if (_jStatePub != null)
+            //{
+            //    _jStatePub.Terminate();
+            //}
         }
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            _jStatePub.Initialize();
+            _kBodyPub.Initialize();
+            //_jStatePub.Initialize();
         }
     }
 }

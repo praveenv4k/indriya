@@ -21,6 +21,15 @@
     <ClInclude Include="asio_server.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="KinectBodyHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Colors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="experimot_rave.cpp">

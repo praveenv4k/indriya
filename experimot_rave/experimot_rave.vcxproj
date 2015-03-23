@@ -83,6 +83,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="asio_server.h" />
+    <ClInclude Include="ColorHelper.h" />
+    <ClInclude Include="Colors.h" />
+    <ClInclude Include="KinectBodyHelper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="experimot_rave.cpp" />
