@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace ExperimotPerception
 {
@@ -20,9 +22,27 @@ namespace ExperimotPerception
     /// </summary>
     public partial class MainWindow : Window
     {
+        private JointStatePublisher _jStatePub;
+
         public MainWindow()
         {
             InitializeComponent();
+            this.Loaded += MainWindow_Loaded;
+            this.Closing += MainWindow_Closing;
+            _jStatePub = new JointStatePublisher();
+        }
+
+        void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (_jStatePub != null)
+            {
+                _jStatePub.Terminate();
+            }
+        }
+
+        void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            _jStatePub.Initialize();
         }
     }
 }

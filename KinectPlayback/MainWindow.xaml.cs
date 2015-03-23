@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using Microsoft.Kinect.Tools;
 using System.ComponentModel;
 using Microsoft.Win32;
+using Microsoft.Kinect;
 
 namespace KinectPlayback
 {
@@ -37,7 +38,8 @@ namespace KinectPlayback
         /// Intermediate storage for frame data converted to color
         /// </summary>
         private uint[] bodyIndexPixels = null;
-
+        private uint[] irIndexPixels = null;
+        private WriteableBitmap irBitmap;
         private const int MapDepthToByte = 8000 / 256;
         private const int depthWidth = 512;
         private const int depthHeight = 424;
@@ -82,12 +84,19 @@ namespace KinectPlayback
             // create the bitmap to display
             this.bodyIndexBitmap = new WriteableBitmap(depthWidth, depthHeight, 96.0, 96.0, PixelFormats.Bgr32, null);
 
+            // Create the drawing group we'll use for drawing
+            this.drawingGroup = new DrawingGroup();
+
+            // Create an image source that we can use in our image control
+            this.skeletonSource = new DrawingImage(this.drawingGroup);
+
+            this.irIndexPixels = new uint[depthWidth * depthHeight];
+            this.irBitmap = new WriteableBitmap(depthWidth, depthHeight, 96.0, 96.0, PixelFormats.Gray8, null);
+
             this.DataContext = this;
 
             InitializeComponent();
-            //_fileName = @"C:\Users\GVlab\Documents\Kinect Studio\Repository\Wave_right.xef";
-            //PlaybackClip(@"C:\Users\GVlab\Documents\Kinect Studio\Repository\Wave_right.xef", 1);
-            //PlaybackEvent(@"C:\Users\GVlab\Documents\Kinect Studio\Repository\Wave_right.xef", 1);
+
             ButtonText = "Play";
         }
 
@@ -110,6 +119,28 @@ namespace KinectPlayback
             get
             {
                 return this.bodyIndexBitmap;
+            }
+        }
+
+        /// <summary>
+        /// Gets the bitmap to display
+        /// </summary>
+        public ImageSource SkeletonImageSource
+        {
+            get
+            {
+                return this.skeletonSource;
+            }
+        }
+
+        /// <summary>
+        /// Gets the bitmap to display
+        /// </summary>
+        public ImageSource IrImageSource
+        {
+            get
+            {
+                return this.irBitmap;
             }
         }
 
@@ -323,6 +354,29 @@ namespace KinectPlayback
             }
         }
 
+
+        public string StatusText
+        {
+            get
+            {
+                return this.statusText;
+            }
+
+            set
+            {
+                if (this.statusText != value)
+                {
+                    this.statusText = value;
+
+                    // notify any bound elements that the text has changed
+                    if (this.PropertyChanged != null)
+                    {
+                        this.PropertyChanged(this, new PropertyChangedEventArgs("StatusText"));
+                    }
+                }
+            }
+        }
+
         void _timer_Tick(object sender, EventArgs e)
         {
             if (_reader != null)
@@ -330,47 +384,93 @@ namespace KinectPlayback
                 string timeStamp = string.Empty;
                 for (int i = 0; i < _streamCount; i++)
                 {
-                    KStudioEvent evt = _reader.GetNextEvent();
-                    if (evt != null)
+                    using (KStudioEvent evt = _reader.GetNextEvent())
                     {
-                        if (evt.EventStreamDataTypeId == KStudioEventStreamDataTypeIds.Depth)
+                        if (evt != null)
                         {
-                            //System.Diagnostics.Debug.WriteLine(string.Format("Event data {1} size : {0}", evt.EventIndex, evt.RelativeTime));
+                            if (evt.EventStreamDataTypeId == KStudioEventStreamDataTypeIds.Depth)
+                            {
+                                //System.Diagnostics.Debug.WriteLine(string.Format("Event data {1} size : {0}", evt.EventIndex, evt.RelativeTime));
 
-                            uint _size;
-                            IntPtr _buffer;
+                                uint _size;
+                                IntPtr _buffer;
 
-                            evt.AccessUnderlyingEventDataBuffer(out _size, out _buffer);
+                                evt.AccessUnderlyingEventDataBuffer(out _size, out _buffer);
 
-                            ProcessDepthFrameData(_buffer, _size, DepthMinReliableDistance, maxDepth);
+                                ProcessDepthFrameData(_buffer, _size, DepthMinReliableDistance, maxDepth);
 
-                            RenderDepthPixels();
+                                RenderDepthPixels();
 
+                            }
+                            if (evt.EventStreamDataTypeId == KStudioEventStreamDataTypeIds.BodyIndex)
+                            {
+                                //System.Diagnostics.Debug.WriteLine("Body Frame");
+                                uint _size;
+                                IntPtr _buffer;
+
+                                evt.AccessUnderlyingEventDataBuffer(out _size, out _buffer);
+
+                                ProcessBodyIndexFrameData(_buffer, _size);
+
+                                RenderBodyIndexPixels();
+                            }
+                            if (evt.EventStreamDataTypeId == KStudioEventStreamDataTypeIds.Body)
+                            {
+                                //var bodyFrame = (BodyFrame)
+                                //System.Diagnostics.Debug.WriteLine(evt.GetType());
+                                uint _size;
+                                IntPtr _buffer;
+                                evt.AccessUnderlyingEventDataBuffer(out _size, out _buffer);
+                                ProcessBodyFrameData(_buffer, _size);
+                                RenderBodyPixels();
+                                StatusText = _size.ToString();
+                            }
+                            TimeStamp = evt.RelativeTime.ToString();
                         }
-                        if (evt.EventStreamDataTypeId == KStudioEventStreamDataTypeIds.BodyIndex)
+                        else
                         {
-                            //System.Diagnostics.Debug.WriteLine("Body Frame");
-                            uint _size;
-                            IntPtr _buffer;
-
-                            evt.AccessUnderlyingEventDataBuffer(out _size, out _buffer);
-
-                            ProcessBodyIndexFrameData(_buffer, _size);
-
-                            RenderBodyIndexPixels();
+                            _timer.IsEnabled = false;
+                            _timer.Tick -= _timer_Tick;
+                            playButton.IsEnabled = false;
+                            openButton.IsEnabled = true;
+                            break;
                         }
-                        TimeStamp = evt.RelativeTime.ToString();
-                    }
-                    else
-                    {
-                        _timer.IsEnabled = false;
-                        _timer.Tick -= _timer_Tick;
-                        playButton.IsEnabled = false;
-                        openButton.IsEnabled = true;
-                        break;
                     }
                 }
                 TimeStamp = string.IsNullOrEmpty(timeStamp) ? TimeStamp : timeStamp;
+            }
+        }
+
+        private void RenderBodyPixels()
+        {
+            this.irBitmap.WritePixels(
+                new Int32Rect(0, 0, this.irBitmap.PixelWidth, this.irBitmap.PixelHeight),
+                this.bodyIndexPixels,
+                this.bodyIndexBitmap.PixelWidth * (int)1,
+                0);
+        }
+
+        private unsafe void ProcessBodyFrameData(IntPtr buffer, uint size)
+        {
+            byte* frameData = (byte*)buffer;
+
+            // convert body index to a visual representation
+            for (int i = 0; i < (int)size; ++i)
+            {
+                // the BodyColor array has been sized to match
+                // BodyFrameSource.BodyCount
+                if (frameData[i] < BodyColor.Length)
+                {
+                    // this pixel is part of a player,
+                    // display the appropriate color
+                    this.irIndexPixels[i] = BodyColor[frameData[i]];
+                }
+                else
+                {
+                    // this pixel is not part of a player
+                    // display black
+                    this.irIndexPixels[i] = 0x00000000;
+                }
             }
         }
 
@@ -474,6 +574,9 @@ namespace KinectPlayback
         private string timeStamp;
         private string buttonText;
         private int _streamCount;
+        private DrawingGroup drawingGroup;
+        private ImageSource skeletonSource;
+        private string statusText;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

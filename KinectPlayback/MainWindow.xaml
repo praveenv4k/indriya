@@ -28,13 +28,14 @@
         <Viewbox Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
             <Image Source="{Binding SkeletonImageSource}" Stretch="UniformToFill" />
         </Viewbox>
-        <Viewbox Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center">
+        <Viewbox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">
             <Image Source="{Binding IrImageSource}" Stretch="UniformToFill" />
         </Viewbox>
 
         <StackPanel Grid.Row="3" Orientation="Horizontal">
             <Button Name="playButton" Width="100" Margin="5" Click="Button_Click" Content="{Binding ButtonText}" IsEnabled="False"/>
             <TextBlock Text="{Binding TimeStamp, StringFormat='TimeStamp: {0}'}" FontStyle="Normal" FontSize="18" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Text="{Binding StatusText, StringFormat='Status: {0}'}" FontStyle="Normal" FontSize="12" VerticalAlignment="Center"></TextBlock>
         </StackPanel>
     </Grid>
 </Window>
