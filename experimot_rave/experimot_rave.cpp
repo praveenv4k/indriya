@@ -379,7 +379,78 @@ public:
 						const experimot::msgs::KinectBody& kBody = kBodies.body(i);
 						RaveVector<float> bColor;
 						KinectBodyHelper::Instance()->GetBodyColor(kBody.trackingid(), bColor);
+
+#if 0
 						DrawBody(kBody, bColor, penv, listgraphs);
+#else
+						const std::map<KinectJoint_JointType, KinectJoint_JointType>& boneMap = KinectBodyHelper::Instance()->GetBones();
+						FOREACHC(it, boneMap){
+							KinectJoint_JointType item1 = it->first;
+							KinectJoint_JointType item2 = it->second;
+
+							const experimot::msgs::KinectJoint& joint0 = kBody.joints(item1);
+							const experimot::msgs::KinectJoint& joint1 = kBody.joints(item2);
+
+							// If we can't find either of these joints, exit
+							if (joint0.state() == KinectJoint_TrackingState::KinectJoint_TrackingState_NotTracked ||
+								joint1.state() == KinectJoint_TrackingState::KinectJoint_TrackingState_NotTracked)
+							{
+
+							}
+							else{
+
+								// We assume all drawn bones are inferred unless BOTH joints are tracked
+								RaveVector<float> drawPen = KinectBodyHelper::Instance()->inferredBonePen;
+								if ((joint0.state() == KinectJoint_TrackingState_Tracked) && (joint1.state() == KinectJoint_TrackingState_Tracked))
+								{
+									drawPen = bColor;
+								}
+
+								const experimot::msgs::Vector3d& jointPos0 = joint0.position();
+								const experimot::msgs::Vector3d& jointPos1 = joint1.position();
+
+								vector<RaveVector<float> > vpoints;
+								vpoints.push_back(RaveVector<float>(jointPos0.x(), jointPos0.y(), jointPos0.z()));
+								vpoints.push_back(RaveVector<float>(jointPos1.x(), jointPos1.y(), jointPos1.z()));
+								listgraphs.push_back(penv->drawlinestrip(&vpoints[0].x, vpoints.size(), sizeof(vpoints[0]), KinectBodyHelper::Instance()->GetBoneWidth(), &drawPen.x));
+							}
+						}
+						RaveVector<float> extents(0.02, 0.02, 0.02);
+						vector<RaveVector<float>> jointPoints;
+						vector<RaveVector<float>> jointColors;
+						for (google::protobuf::int32 i = 0; i < kBody.joints_size(); i++)
+						{
+							bool draw = true;
+							RaveVector<float> drawBrush;
+							const experimot::msgs::KinectJoint& joint = kBody.joints(i);
+							KinectJoint_TrackingState state = joint.state();
+
+							if (state == KinectJoint_TrackingState::KinectJoint_TrackingState_Tracked)
+							{
+								drawBrush = KinectBodyHelper::Instance()->trackedJointBrush;
+							}
+							else if (state == KinectJoint_TrackingState::KinectJoint_TrackingState_Inferred)
+							{
+								drawBrush = KinectBodyHelper::Instance()->inferredJointBrush;
+							}
+							else
+							{
+								draw = false;
+							}
+
+							if (draw)
+							{
+								const experimot::msgs::Vector3d& jointPos = joint.position();
+								RaveVector<float> pos(jointPos.x(), jointPos.y(), jointPos.z());
+								jointPoints.push_back(pos);
+								jointColors.push_back(drawBrush);
+								//listgraphs.push_back(penv->drawbox(RaveVector<float>(jointPos.x(), jointPos.y(), jointPos.z()), extents));
+							}
+						}
+						if (jointPoints.size() > 0){
+							listgraphs.push_back(penv->plot3(&jointPoints[0].x, jointPoints.size(), sizeof(jointPoints[0]), KinectBodyHelper::Instance()->JointThickness, &jointColors[0].x,1));
+						}
+#endif
 					}
 				}
 

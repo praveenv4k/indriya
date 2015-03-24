@@ -32,7 +32,7 @@ public:
 	/// <summary>
 	/// Thickness of drawn joint lines
 	/// </summary>
-	const double JointThickness = 3;
+	const double JointThickness = 0.03;
 
 	/// <summary>
 	/// Thickness of clip edge rectangles
