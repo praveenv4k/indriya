@@ -26,7 +26,7 @@ const std::map<KinectJoint_JointType, KinectJoint_JointType>& KinectBodyHelper::
 int KinectBodyHelper::GetBoneWidth() const{
 	return _boneWidth;
 }
-void KinectBodyHelper::GetBodyColor(int index, Color& color){
+void KinectBodyHelper::GetBodyColor(int index, RaveVector<float>& color){
 	if (index >= 0 && index < _bodyColors.size())
 		color = _bodyColors[index];
 	else
@@ -77,7 +77,7 @@ void KinectBodyHelper::_init(){
 	// Initialize Body Colors
 
 	// populate body colors, one for each BodyIndex
-	Color color;
+	RaveVector<float> color;
 	ColorHelper::HexToRgb(RED1, color);
 	_bodyColors.push_back(color);
 	ColorHelper::HexToRgb(ORANGE, color);
@@ -92,10 +92,10 @@ void KinectBodyHelper::_init(){
 	_bodyColors.push_back(color);
 
 	// Other colors
-	handClosedBrush.set_a(128); handClosedBrush.set_r(255); handClosedBrush.set_g(0); handClosedBrush.set_b(0); // = new SolidColorBrush(Color.FromArgb(128, 255, 0, 0));
-	handOpenBrush.set_a(128); handOpenBrush.set_r(0); handOpenBrush.set_g(255); handOpenBrush.set_b(0); // = new SolidColorBrush(Color.FromArgb(128, 0, 255, 0));
-	handLassoBrush.set_a(128); handLassoBrush.set_r(0); handLassoBrush.set_g(0); handLassoBrush.set_b(255);// = new SolidColorBrush(Color.FromArgb(128, 0, 0, 255));
-	trackedJointBrush.set_a(255); trackedJointBrush.set_r(68); trackedJointBrush.set_g(192); trackedJointBrush.set_b(68); // = new SolidColorBrush(Color.FromArgb(255, 68, 192, 68));
+	handClosedBrush.w = 128; handClosedBrush.x = 255; handClosedBrush.y = 0; handClosedBrush.z = 0; // = new SolidColorBrush(Color.FromArgb(128, 255, 0, 0));
+	handOpenBrush.w = 128; handOpenBrush.x = 0; handOpenBrush.y = 255; handOpenBrush.z = 0; // = new SolidColorBrush(Color.FromArgb(128, 0, 255, 0));
+	handLassoBrush.w = 128; handLassoBrush.x = 0; handLassoBrush.y = 0; handLassoBrush.z = 255;// = new SolidColorBrush(Color.FromArgb(128, 0, 0, 255));
+	trackedJointBrush.w = 255; trackedJointBrush.x = 68; trackedJointBrush.y = 192; trackedJointBrush.z = 68; // = new SolidColorBrush(Color.FromArgb(255, 68, 192, 68));
 	ColorHelper::HexToRgb(YELLOW1, inferredJointBrush); // = Brushes.Yellow;
 	ColorHelper::HexToRgb(GRAY1, inferredBonePen);// = new Pen(Brushes.Gray, 1);
 }

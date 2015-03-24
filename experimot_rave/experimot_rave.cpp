@@ -361,6 +361,7 @@ public:
 	}
 
 	void Listen(EnvironmentBasePtr penv){
+		list<GraphHandlePtr> listgraphs;
 		while (!done) {
 			zmq::message_t address;
 			m_pSocket->recv(&address);
@@ -371,13 +372,14 @@ public:
 			{
 				experimot::msgs::KinectBodies kBodies;
 				if (kBodies.ParseFromArray(data.data(), data.size())){
-					kBodies.PrintDebugString();
-
+					//kBodies.PrintDebugString();
+					EnvironmentMutex::scoped_lock lock(penv->GetMutex()); // lock environment
+					listgraphs.clear();
 					for (google::protobuf::int32 i = 0; i < kBodies.body_size(); i++){
 						const experimot::msgs::KinectBody& kBody = kBodies.body(i);
-						Color bColor;
+						RaveVector<float> bColor;
 						KinectBodyHelper::Instance()->GetBodyColor(kBody.trackingid(), bColor);
-						DrawBody(kBody, bColor, penv);
+						DrawBody(kBody, bColor, penv, listgraphs);
 					}
 				}
 
@@ -392,7 +394,7 @@ public:
 	/// <param name="jointPoints">translated positions of joints to draw</param>
 	/// <param name="drawingContext">drawing context to draw to</param>
 	/// <param name="drawingPen">specifies color to draw a specific body</param>
-	void DrawBody(const experimot::msgs::KinectBody& kBody, Color& color,  EnvironmentBasePtr penv)
+	void DrawBody(const experimot::msgs::KinectBody& kBody, RaveVector<float>& color, EnvironmentBasePtr penv, list<GraphHandlePtr>& graphList)
 	{
 		if (!penv) return;
 
@@ -402,13 +404,17 @@ public:
 			KinectJoint_JointType item1 = it->first;
 			KinectJoint_JointType item2 = it->second;
 
-			DrawBone(kBody, item1, item2, color, penv);
+			GraphHandlePtr gPtr = DrawBone(kBody, item1, item2, color, penv);
+			if (!gPtr){
+				graphList.push_back(gPtr);
+			}
 		}
 		/*foreach(var bone in this.bones)
 		{
 			this.DrawBone(joints, jointPoints, bone.Item1, bone.Item2, drawingContext, drawingPen);
 		}*/
 
+#if 0 //TODO Draw joints
 		// Draw the joints
 		//foreach(JointType jointType in joints.Keys)
 		for (google::protobuf::int32 i = 0; i < kBody.joints_size(); i++)
@@ -439,6 +445,7 @@ public:
 				//drawingContext.DrawEllipse(drawBrush, null, jointPoints[jointType], JointThickness, JointThickness);
 			}
 		}
+#endif
 	}
 
 	/// <summary>
@@ -450,7 +457,7 @@ public:
 	/// <param name="jointType1">second joint of bone to draw</param>
 	/// <param name="drawingContext">drawing context to draw to</param>
 	/// /// <param name="drawingPen">specifies color to draw a specific bone</param>
-	void DrawBone(const experimot::msgs::KinectBody& kBody, KinectJoint_JointType jointType0, KinectJoint_JointType jointType1, Color& color, EnvironmentBasePtr penv)
+	GraphHandlePtr DrawBone(const experimot::msgs::KinectBody& kBody, KinectJoint_JointType jointType0, KinectJoint_JointType jointType1, RaveVector<float>& color, EnvironmentBasePtr penv)
 	{
 		const experimot::msgs::KinectJoint& joint0 = kBody.joints(jointType0);
 		const experimot::msgs::KinectJoint& joint1 = kBody.joints(jointType1);
@@ -459,16 +466,23 @@ public:
 		if (joint0.state() == KinectJoint_TrackingState::KinectJoint_TrackingState_NotTracked ||
 			joint1.state() == KinectJoint_TrackingState::KinectJoint_TrackingState_NotTracked)
 		{
-			return;
+			return GraphHandlePtr();
 		}
 
 		// We assume all drawn bones are inferred unless BOTH joints are tracked
-		Color drawPen = KinectBodyHelper::Instance()->inferredBonePen;
+		RaveVector<float> drawPen = KinectBodyHelper::Instance()->inferredBonePen;
 		if ((joint0.state() == KinectJoint_TrackingState_Tracked) && (joint1.state() == KinectJoint_TrackingState_Tracked))
 		{
 			drawPen = color;
 		}
 
+		const experimot::msgs::Vector3d& jointPos0 = joint0.position();
+		const experimot::msgs::Vector3d& jointPos1 = joint1.position();
+
+		vector<RaveVector<float> > vpoints;
+		vpoints.push_back(RaveVector<float>(jointPos0.x(), jointPos0.y(), jointPos0.z()));
+		vpoints.push_back(RaveVector<float>(jointPos1.x(), jointPos1.y(), jointPos1.z()));
+		return penv->drawlinestrip(&vpoints[0].x, vpoints.size(), sizeof(vpoints[0]), 1.0f, &color.x);
 		//drawingContext.DrawLine(drawPen, jointPoints[jointType0], jointPoints[jointType1]);
 	}
 

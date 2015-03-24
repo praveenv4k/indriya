@@ -3,6 +3,7 @@
 
 #include "Colors.h"
 #include "experimot\msgs\MessageTypes.h"
+#include "openrave-core.h"
 
 class ColorHelper{
 public:
@@ -18,6 +19,14 @@ public:
 		color.set_r(r);
 		color.set_g(g);
 		color.set_b(b);
+	}
+
+	static void HexToRgb(int hexValue, OpenRAVE::RaveVector<float>& color){
+		int r, g, b;
+		HexToRgb(hexValue, r, g, b);
+		color.x = r;
+		color.y = g;
+		color.z = b;
 	}
 };
 

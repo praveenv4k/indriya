@@ -415,15 +415,25 @@ namespace ExperimotPerception
             }
         }
 
+        private int _sendFrequency = 10;
+        private int _sendCount = 0;
         private void PublishKinectBodies(experimot.msgs.KinectBodies kbodies)
         {
-            if (kbodies != null && kbodies.Body.Count > 0 && _socket != null)
+            if (_sendCount < _sendFrequency)
             {
-                _socket.SendMore(_topic, _encoding);
-                using (var ms = new MemoryStream())
+                _sendCount++;
+            }
+            else
+            {
+                _sendCount = 0;
+                if (kbodies != null && kbodies.Body.Count > 0 && _socket != null)
                 {
-                    ProtoBuf.Serializer.Serialize(ms, kbodies);
-                    _socket.Send(ms.GetBuffer());
+                    _socket.SendMore(_topic, _encoding);
+                    using (var ms = new MemoryStream())
+                    {
+                        ProtoBuf.Serializer.Serialize(ms, kbodies);
+                        _socket.Send(ms.GetBuffer());
+                    }
                 }
             }
         }
