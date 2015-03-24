@@ -35,6 +35,9 @@
     <ClCompile Include="experimot_rave.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="KinectBodyHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\openrave_client\datalog.csv" />

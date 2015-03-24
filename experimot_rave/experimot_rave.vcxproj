@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="experimot_rave.cpp" />
+    <ClCompile Include="KinectBodyHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\openrave_client\datalog.csv">

@@ -44,6 +44,7 @@
 #include <zmq.hpp>
 #include <zhelpers.hpp>
 #include <boost/atomic.hpp>
+#include "KinectBodyHelper.h"
 
 boost::atomic<bool> done(false);
 
@@ -371,19 +372,132 @@ public:
 				experimot::msgs::KinectBodies kBodies;
 				if (kBodies.ParseFromArray(data.data(), data.size())){
 					kBodies.PrintDebugString();
-					
-					for (google::protobuf::int32 i = 0; i < kBodies.body_size(); i++){
-						const experimot::msgs::KinectBody& jVal = kBodies.body(i);
 
-						//jVal.PrintDebugString();
-						//EnvironmentMutex::scoped_lock lock(penv->GetMutex());
-						
+					for (google::protobuf::int32 i = 0; i < kBodies.body_size(); i++){
+						const experimot::msgs::KinectBody& kBody = kBodies.body(i);
+						Color bColor;
+						KinectBodyHelper::Instance()->GetBodyColor(kBody.trackingid(), bColor);
+						DrawBody(kBody, bColor, penv);
 					}
 				}
 
 			}
 		}
 	}
+
+	/// <summary>
+	/// Draws a body
+	/// </summary>
+	/// <param name="joints">joints to draw</param>
+	/// <param name="jointPoints">translated positions of joints to draw</param>
+	/// <param name="drawingContext">drawing context to draw to</param>
+	/// <param name="drawingPen">specifies color to draw a specific body</param>
+	void DrawBody(const experimot::msgs::KinectBody& kBody, Color& color,  EnvironmentBasePtr penv)
+	{
+		if (!penv) return;
+
+		// Draw the bones
+		const std::map<KinectJoint_JointType, KinectJoint_JointType>& boneMap = KinectBodyHelper::Instance()->GetBones();
+		FOREACHC(it, boneMap){
+			KinectJoint_JointType item1 = it->first;
+			KinectJoint_JointType item2 = it->second;
+
+			DrawBone(kBody, item1, item2, color, penv);
+		}
+		/*foreach(var bone in this.bones)
+		{
+			this.DrawBone(joints, jointPoints, bone.Item1, bone.Item2, drawingContext, drawingPen);
+		}*/
+
+		// Draw the joints
+		//foreach(JointType jointType in joints.Keys)
+		for (google::protobuf::int32 i = 0; i < kBody.joints_size(); i++)
+		{
+			//Brush drawBrush = null;
+			bool draw = true;
+			Color drawBrush;
+			KinectJoint_TrackingState state = kBody.joints(i).state();
+			//TrackingState trackingState = joints[jointType].TrackingState;
+
+			if (state == KinectJoint_TrackingState::KinectJoint_TrackingState_Tracked)
+			{
+				drawBrush = KinectBodyHelper::Instance()->trackedJointBrush;
+			}
+			else if (state == KinectJoint_TrackingState::KinectJoint_TrackingState_Inferred)
+			{
+				drawBrush = KinectBodyHelper::Instance()->inferredJointBrush;
+			}
+			else
+			{
+				draw = false;
+			}
+
+
+			if (draw)
+			{
+				//TODO draw
+				//drawingContext.DrawEllipse(drawBrush, null, jointPoints[jointType], JointThickness, JointThickness);
+			}
+		}
+	}
+
+	/// <summary>
+	/// Draws one bone of a body (joint to joint)
+	/// </summary>
+	/// <param name="joints">joints to draw</param>
+	/// <param name="jointPoints">translated positions of joints to draw</param>
+	/// <param name="jointType0">first joint of bone to draw</param>
+	/// <param name="jointType1">second joint of bone to draw</param>
+	/// <param name="drawingContext">drawing context to draw to</param>
+	/// /// <param name="drawingPen">specifies color to draw a specific bone</param>
+	void DrawBone(const experimot::msgs::KinectBody& kBody, KinectJoint_JointType jointType0, KinectJoint_JointType jointType1, Color& color, EnvironmentBasePtr penv)
+	{
+		const experimot::msgs::KinectJoint& joint0 = kBody.joints(jointType0);
+		const experimot::msgs::KinectJoint& joint1 = kBody.joints(jointType1);
+
+		// If we can't find either of these joints, exit
+		if (joint0.state() == KinectJoint_TrackingState::KinectJoint_TrackingState_NotTracked ||
+			joint1.state() == KinectJoint_TrackingState::KinectJoint_TrackingState_NotTracked)
+		{
+			return;
+		}
+
+		// We assume all drawn bones are inferred unless BOTH joints are tracked
+		Color drawPen = KinectBodyHelper::Instance()->inferredBonePen;
+		if ((joint0.state() == KinectJoint_TrackingState_Tracked) && (joint1.state() == KinectJoint_TrackingState_Tracked))
+		{
+			drawPen = color;
+		}
+
+		//drawingContext.DrawLine(drawPen, jointPoints[jointType0], jointPoints[jointType1]);
+	}
+
+	/// <summary>
+	/// Draws a hand symbol if the hand is tracked: red circle = closed, green circle = opened; blue circle = lasso
+	/// </summary>
+	/// <param name="handState">state of the hand</param>
+	/// <param name="handPosition">position of the hand</param>
+	/// <param name="drawingContext">drawing context to draw to</param>
+	void DrawHand(KinectBody_HandState handState, Vector3d& handPosition)
+	{
+		switch (handState)
+		{
+		case KinectBody_HandState::KinectBody_HandState_HS_Closed:
+			//drawingContext.DrawEllipse(this.handClosedBrush, null, handPosition, HandSize, HandSize);
+			//TODO Draw
+			break;
+
+		case KinectBody_HandState::KinectBody_HandState_HS_Open:
+			//drawingContext.DrawEllipse(this.handOpenBrush, null, handPosition, HandSize, HandSize);
+			break;
+
+		case KinectBody_HandState::KinectBody_HandState_HS_Lasso:
+			//drawingContext.DrawEllipse(this.handLassoBrush, null, handPosition, HandSize, HandSize);
+			break;
+		}
+	}
+
+
 private:
 	ZmqContextPtr m_pContext;
 	ZmqSocketPtr m_pSocket;
