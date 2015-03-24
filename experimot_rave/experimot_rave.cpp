@@ -375,6 +375,8 @@ public:
 					//kBodies.PrintDebugString();
 					EnvironmentMutex::scoped_lock lock(penv->GetMutex()); // lock environment
 					listgraphs.clear();
+					int bone_width = KinectBodyHelper::Instance()->GetBoneWidth();
+					int no_conf_width = 2;
 					for (google::protobuf::int32 i = 0; i < kBodies.body_size(); i++){
 						const experimot::msgs::KinectBody& kBody = kBodies.body(i);
 						RaveVector<float> bColor;
@@ -383,10 +385,10 @@ public:
 #if 0
 						DrawBody(kBody, bColor, penv, listgraphs);
 #else
-						const std::map<KinectJoint_JointType, KinectJoint_JointType>& boneMap = KinectBodyHelper::Instance()->GetBones();
+						const std::vector<std::tuple<KinectJoint_JointType, KinectJoint_JointType>>& boneMap = KinectBodyHelper::Instance()->GetBones();
 						FOREACHC(it, boneMap){
-							KinectJoint_JointType item1 = it->first;
-							KinectJoint_JointType item2 = it->second;
+							KinectJoint_JointType item1 = std::get<0>(*it);
+							KinectJoint_JointType item2 = std::get<1>(*it);
 
 							const experimot::msgs::KinectJoint& joint0 = kBody.joints(item1);
 							const experimot::msgs::KinectJoint& joint1 = kBody.joints(item2);
@@ -401,9 +403,11 @@ public:
 
 								// We assume all drawn bones are inferred unless BOTH joints are tracked
 								RaveVector<float> drawPen = KinectBodyHelper::Instance()->inferredBonePen;
+								int boneW = no_conf_width;
 								if ((joint0.state() == KinectJoint_TrackingState_Tracked) && (joint1.state() == KinectJoint_TrackingState_Tracked))
 								{
 									drawPen = bColor;
+									boneW = bone_width;
 								}
 
 								const experimot::msgs::Vector3d& jointPos0 = joint0.position();
@@ -412,7 +416,8 @@ public:
 								vector<RaveVector<float> > vpoints;
 								vpoints.push_back(RaveVector<float>(jointPos0.x(), jointPos0.y(), jointPos0.z()));
 								vpoints.push_back(RaveVector<float>(jointPos1.x(), jointPos1.y(), jointPos1.z()));
-								listgraphs.push_back(penv->drawlinestrip(&vpoints[0].x, vpoints.size(), sizeof(vpoints[0]), KinectBodyHelper::Instance()->GetBoneWidth(), &drawPen.x));
+								
+								listgraphs.push_back(penv->drawlinestrip(&vpoints[0].x, vpoints.size(), sizeof(vpoints[0]), boneW , drawPen));
 							}
 						}
 						RaveVector<float> extents(0.02, 0.02, 0.02);
@@ -444,11 +449,10 @@ public:
 								RaveVector<float> pos(jointPos.x(), jointPos.y(), jointPos.z());
 								jointPoints.push_back(pos);
 								jointColors.push_back(drawBrush);
-								//listgraphs.push_back(penv->drawbox(RaveVector<float>(jointPos.x(), jointPos.y(), jointPos.z()), extents));
 							}
 						}
 						if (jointPoints.size() > 0){
-							listgraphs.push_back(penv->plot3(&jointPoints[0].x, jointPoints.size(), sizeof(jointPoints[0]), KinectBodyHelper::Instance()->JointThickness, &jointColors[0].x,1));
+							listgraphs.push_back(penv->plot3(&jointPoints[0].x, jointPoints.size(), sizeof(jointPoints[0]), KinectBodyHelper::Instance()->JointThickness, &jointColors[0].x,1,true));
 						}
 #endif
 					}
@@ -456,105 +460,6 @@ public:
 
 			}
 		}
-	}
-
-	/// <summary>
-	/// Draws a body
-	/// </summary>
-	/// <param name="joints">joints to draw</param>
-	/// <param name="jointPoints">translated positions of joints to draw</param>
-	/// <param name="drawingContext">drawing context to draw to</param>
-	/// <param name="drawingPen">specifies color to draw a specific body</param>
-	void DrawBody(const experimot::msgs::KinectBody& kBody, RaveVector<float>& color, EnvironmentBasePtr penv, list<GraphHandlePtr>& graphList)
-	{
-		if (!penv) return;
-
-		// Draw the bones
-		const std::map<KinectJoint_JointType, KinectJoint_JointType>& boneMap = KinectBodyHelper::Instance()->GetBones();
-		FOREACHC(it, boneMap){
-			KinectJoint_JointType item1 = it->first;
-			KinectJoint_JointType item2 = it->second;
-
-			GraphHandlePtr gPtr = DrawBone(kBody, item1, item2, color, penv);
-			if (!gPtr){
-				graphList.push_back(gPtr);
-			}
-		}
-		/*foreach(var bone in this.bones)
-		{
-			this.DrawBone(joints, jointPoints, bone.Item1, bone.Item2, drawingContext, drawingPen);
-		}*/
-
-#if 0 //TODO Draw joints
-		// Draw the joints
-		//foreach(JointType jointType in joints.Keys)
-		for (google::protobuf::int32 i = 0; i < kBody.joints_size(); i++)
-		{
-			//Brush drawBrush = null;
-			bool draw = true;
-			Color drawBrush;
-			KinectJoint_TrackingState state = kBody.joints(i).state();
-			//TrackingState trackingState = joints[jointType].TrackingState;
-
-			if (state == KinectJoint_TrackingState::KinectJoint_TrackingState_Tracked)
-			{
-				drawBrush = KinectBodyHelper::Instance()->trackedJointBrush;
-			}
-			else if (state == KinectJoint_TrackingState::KinectJoint_TrackingState_Inferred)
-			{
-				drawBrush = KinectBodyHelper::Instance()->inferredJointBrush;
-			}
-			else
-			{
-				draw = false;
-			}
-
-
-			if (draw)
-			{
-				//TODO draw
-				//drawingContext.DrawEllipse(drawBrush, null, jointPoints[jointType], JointThickness, JointThickness);
-			}
-		}
-#endif
-	}
-
-	/// <summary>
-	/// Draws one bone of a body (joint to joint)
-	/// </summary>
-	/// <param name="joints">joints to draw</param>
-	/// <param name="jointPoints">translated positions of joints to draw</param>
-	/// <param name="jointType0">first joint of bone to draw</param>
-	/// <param name="jointType1">second joint of bone to draw</param>
-	/// <param name="drawingContext">drawing context to draw to</param>
-	/// /// <param name="drawingPen">specifies color to draw a specific bone</param>
-	GraphHandlePtr DrawBone(const experimot::msgs::KinectBody& kBody, KinectJoint_JointType jointType0, KinectJoint_JointType jointType1, RaveVector<float>& color, EnvironmentBasePtr penv)
-	{
-		const experimot::msgs::KinectJoint& joint0 = kBody.joints(jointType0);
-		const experimot::msgs::KinectJoint& joint1 = kBody.joints(jointType1);
-
-		// If we can't find either of these joints, exit
-		if (joint0.state() == KinectJoint_TrackingState::KinectJoint_TrackingState_NotTracked ||
-			joint1.state() == KinectJoint_TrackingState::KinectJoint_TrackingState_NotTracked)
-		{
-			return GraphHandlePtr();
-		}
-
-		// We assume all drawn bones are inferred unless BOTH joints are tracked
-		RaveVector<float> drawPen = KinectBodyHelper::Instance()->inferredBonePen;
-		if ((joint0.state() == KinectJoint_TrackingState_Tracked) && (joint1.state() == KinectJoint_TrackingState_Tracked))
-		{
-			drawPen = color;
-		}
-
-		const experimot::msgs::Vector3d& jointPos0 = joint0.position();
-		const experimot::msgs::Vector3d& jointPos1 = joint1.position();
-
-		vector<RaveVector<float> > vpoints;
-		vpoints.push_back(RaveVector<float>(jointPos0.x(), jointPos0.y(), jointPos0.z()));
-		vpoints.push_back(RaveVector<float>(jointPos1.x(), jointPos1.y(), jointPos1.z()));
-		return penv->drawlinestrip(&vpoints[0].x, vpoints.size(), sizeof(vpoints[0]), 1.0f, &color.x);
-		//drawingContext.DrawLine(drawPen, jointPoints[jointType0], jointPoints[jointType1]);
 	}
 
 	/// <summary>

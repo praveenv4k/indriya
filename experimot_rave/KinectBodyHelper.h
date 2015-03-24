@@ -4,6 +4,7 @@
 #include <boost\thread.hpp>
 #include <experimot\msgs\MessageTypes.h>
 #include "ColorHelper.h"
+#include <tuple>
 
 using namespace experimot::msgs;
 using namespace OpenRAVE;
@@ -18,7 +19,7 @@ class KinectBodyHelper
 {
 public:
 	static KinectBodyHelper* Instance();
-	const std::map<KinectJoint_JointType, KinectJoint_JointType>& GetBones() const;
+	const std::vector<std::tuple<KinectJoint_JointType, KinectJoint_JointType>>& GetBones() const;
 	int GetBoneWidth() const;
 	void GetBodyColor(int index, RaveVector<float>& color);
 	~KinectBodyHelper();
@@ -80,7 +81,7 @@ private:
 
 private:
 	static KinectBodyHelper* _instance;
-	std::map<KinectJoint_JointType, KinectJoint_JointType> _bones;
+	std::vector<std::tuple<KinectJoint_JointType, KinectJoint_JointType>> _bonesList;
 	std::vector<RaveVector<float>> _bodyColors;
 	int _boneWidth;
 };
