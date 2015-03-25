@@ -21,7 +21,7 @@
 * <http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html>.
 */
 
-#include "KinectVideoCapture.h"
+#include "KinectVideoCapture.hpp"
 #include "Kinect.h"
 
 #include <sstream>

@@ -71,7 +71,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(ALVAR_LIB_DIR);$(PROTOBUF_RELEASE_LIB_DIR);$(BOOST_LIB_DIR);$(OPENRAVE_LIB_DIR);$(ZEROMQ_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(ALVAR_DEBUG_LIBS);$(PROTOBUF_LIBS);$(BOOST_RELEASE_LIBS);$(OPENRAVE_RELEASE_LIBS);$(ZEROMQ_RELEASE_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(ALVAR_RELEASE_LIBS);$(PROTOBUF_LIBS);$(BOOST_RELEASE_LIBS);$(OPENRAVE_RELEASE_LIBS);$(ZEROMQ_RELEASE_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
 </Project>

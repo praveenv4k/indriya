@@ -75,15 +75,21 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
+    <PostBuildEvent>
+      <Command>call post_build.bat $(ProjectDir) $(SolutionDir) $(TargetPath) $(Configuration)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="KinectVideoCapture.h" />
+    <ClInclude Include="KinectVideoCapture.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="KinectVideoCapture.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="post_build.bat" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
