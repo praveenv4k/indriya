@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Author: Praveenkumar Vasudevan
+// Description: To playback the Kinect Streams (XEF File) recorded using Kinect Studio
+using System;
 using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,34 +30,32 @@ namespace KinectPlayback
     {
         private byte[] depthPixels;
         private WriteableBitmap depthBitmap;
-
-        /// <summary>
-        /// Bitmap to display
-        /// </summary>
         private WriteableBitmap bodyIndexBitmap = null;
+        private WriteableBitmap irBitmap;
+        private DispatcherTimer _timer;
+        private KStudioClient _client;
+        private KStudioEventReader _reader;
 
-        /// <summary>
-        /// Intermediate storage for frame data converted to color
-        /// </summary>
         private uint[] bodyIndexPixels = null;
         private uint[] irIndexPixels = null;
-        private WriteableBitmap irBitmap;
         private const int MapDepthToByte = 8000 / 256;
         private const int depthWidth = 512;
         private const int depthHeight = 424;
         private const int DepthMinReliableDistance = 500;
-        private const int BytesPerPixel = 2;
+        private const int DepthBytesPerPixel = 2;
         private const int maxDepth = 65535;
-        private DispatcherTimer _timer;
         private string _fileName;
         private uint _loopCount = 1;
-        private KStudioClient _client;
-        private KStudioEventReader _reader;
+        private const float InfraredSourceValueMaximum = (float)ushort.MaxValue;
+        private const float InfraredSourceScale = 0.75f;
+        private const float InfraredOutputValueMinimum = 0.01f;
+        private const float InfraredOutputValueMaximum = 1.0f;
 
         /// <summary>
         /// Size of the RGB pixel in the bitmap
         /// </summary>
         private const int BodyBytesPerPixel = 4;
+        private const int IrBytesPerPixel = 2;
 
         /// <summary>
         /// Collection of colors to be used to display the BodyIndexFrame data.
@@ -72,26 +72,17 @@ namespace KinectPlayback
 
         public MainWindow()
         {
-            // allocate space to put the pixels being received and converted
             this.depthPixels = new byte[depthWidth * depthHeight];
-
-            // create the bitmap to display
             this.depthBitmap = new WriteableBitmap(depthWidth, depthHeight, 96.0, 96.0, PixelFormats.Gray8, null);
 
-            // allocate space to put the pixels being converted
             this.bodyIndexPixels = new uint[depthWidth * depthHeight];
-
-            // create the bitmap to display
             this.bodyIndexBitmap = new WriteableBitmap(depthWidth, depthHeight, 96.0, 96.0, PixelFormats.Bgr32, null);
-
-            // Create the drawing group we'll use for drawing
+    
             this.drawingGroup = new DrawingGroup();
-
-            // Create an image source that we can use in our image control
             this.skeletonSource = new DrawingImage(this.drawingGroup);
 
             this.irIndexPixels = new uint[depthWidth * depthHeight];
-            this.irBitmap = new WriteableBitmap(depthWidth, depthHeight, 96.0, 96.0, PixelFormats.Gray8, null);
+            this.irBitmap = new WriteableBitmap(depthWidth, depthHeight, 96.0, 96.0, PixelFormats.Gray32Float, null);
 
             this.DataContext = this;
 
@@ -100,9 +91,6 @@ namespace KinectPlayback
             ButtonText = "Play";
         }
 
-        /// <summary>
-        /// Gets the bitmap to display
-        /// </summary>
         public ImageSource DepthImageSource
         {
             get
@@ -111,9 +99,6 @@ namespace KinectPlayback
             }
         }
 
-        /// <summary>
-        /// Gets the bitmap to display
-        /// </summary>
         public ImageSource BodyImageSource
         {
             get
@@ -122,9 +107,6 @@ namespace KinectPlayback
             }
         }
 
-        /// <summary>
-        /// Gets the bitmap to display
-        /// </summary>
         public ImageSource SkeletonImageSource
         {
             get
@@ -133,9 +115,6 @@ namespace KinectPlayback
             }
         }
 
-        /// <summary>
-        /// Gets the bitmap to display
-        /// </summary>
         public ImageSource IrImageSource
         {
             get
@@ -322,16 +301,11 @@ namespace KinectPlayback
                 _streamCount = _client.EventStreams.Count;
                 //_reader.LoopCount = _loopCount;
                 _timer = new DispatcherTimer();
-                _timer.Interval = new TimeSpan(0, 0, 0, 0, (int)(1000 / (5)));
-                //_timer.Interval = new TimeSpan(30000);
+                _timer.Interval = new TimeSpan(0, 0, 0, 0, (int)(1000 / (_streamCount)));
                 _timer.Tick += _timer_Tick;
-                //_timer.IsEnabled = true;
             }
         }
 
-        /// <summary>
-        /// Gets or sets the current status text to display
-        /// </summary>
         public string TimeStamp
         {
             get
@@ -418,12 +392,24 @@ namespace KinectPlayback
                             {
                                 //var bodyFrame = (BodyFrame)
                                 //System.Diagnostics.Debug.WriteLine(evt.GetType());
+
+                                //TODO
+                                //uint _size;
+                                //IntPtr _buffer;
+                                //evt.AccessUnderlyingEventDataBuffer(out _size, out _buffer);
+                                //ProcessBodyFrameData(_buffer, _size);
+                                //RenderBodyPixels();
+                                //StatusText = _size.ToString();
+                            }
+                            if (evt.EventStreamDataTypeId == KStudioEventStreamDataTypeIds.Ir)
+                            {
+                                //var bodyFrame = (BodyFrame)
+                                //System.Diagnostics.Debug.WriteLine(evt.GetType());
                                 uint _size;
                                 IntPtr _buffer;
                                 evt.AccessUnderlyingEventDataBuffer(out _size, out _buffer);
-                                ProcessBodyFrameData(_buffer, _size);
-                                RenderBodyPixels();
-                                StatusText = _size.ToString();
+                                ProcessInfraredFrameData(_buffer, _size);
+                                //StatusText = _size.ToString();
                             }
                             TimeStamp = evt.RelativeTime.ToString();
                         }
@@ -524,7 +510,7 @@ namespace KinectPlayback
             ushort* frameData = (ushort*)depthFrameData;
 
             // convert depth to a visual representation
-            for (int i = 0; i < (int)(depthFrameDataSize / BytesPerPixel); ++i)
+            for (int i = 0; i < (int)(depthFrameDataSize / DepthBytesPerPixel); ++i)
             {
                 // Get the depth for this pixel
                 ushort depth = frameData[i];
@@ -547,6 +533,33 @@ namespace KinectPlayback
                 0);
         }
 
+        private unsafe void ProcessInfraredFrameData(IntPtr infraredFrameData, uint infraredFrameDataSize)
+        {
+            // infrared frame data is a 16 bit value
+            ushort* frameData = (ushort*)infraredFrameData;
+
+            // lock the target bitmap
+            this.irBitmap.Lock();
+
+            // get the pointer to the bitmap's back buffer
+            float* backBuffer = (float*)this.irBitmap.BackBuffer;
+
+            // process the infrared data
+            for (int i = 0; i < (int)(infraredFrameDataSize / IrBytesPerPixel); ++i)
+            {
+                // since we are displaying the image as a normalized grey scale image, we need to convert from
+                // the ushort data (as provided by the InfraredFrame) to a value from [InfraredOutputValueMinimum, InfraredOutputValueMaximum]
+                backBuffer[i] = Math.Min(InfraredOutputValueMaximum, (((float)frameData[i] / InfraredSourceValueMaximum * InfraredSourceScale) * (1.0f - InfraredOutputValueMinimum)) + InfraredOutputValueMinimum);
+            }
+
+            // mark the entire bitmap as needing to be drawn
+            this.irBitmap.AddDirtyRect(new Int32Rect(0, 0, this.irBitmap.PixelWidth, this.irBitmap.PixelHeight));
+
+            // unlock the bitmap
+            this.irBitmap.Unlock();
+        }
+
+        
 
         public string ButtonText
         {

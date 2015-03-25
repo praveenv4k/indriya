@@ -25,10 +25,10 @@
         <Viewbox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
             <Image Source="{Binding BodyImageSource}" Stretch="UniformToFill" />
         </Viewbox>
-        <Viewbox Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
+        <Viewbox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">
             <Image Source="{Binding SkeletonImageSource}" Stretch="UniformToFill" />
         </Viewbox>
-        <Viewbox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">
+        <Viewbox Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
             <Image Source="{Binding IrImageSource}" Stretch="UniformToFill" />
         </Viewbox>
 
