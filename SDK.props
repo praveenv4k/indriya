@@ -36,17 +36,24 @@
 	<!-- experimot -->
 	<EXPERIMOT_ROOT>$(DEV_SDK_ROOT)\experimot</EXPERIMOT_ROOT>
 	<EXPERIMOT_BIN_DIR>$(EXPERIMOT_ROOT)\bin</EXPERIMOT_BIN_DIR>
+	<!-- ALVAR -->
+	<ALVAR_ROOT>$(DEV_SDK_ROOT)\msvc_alvar</ALVAR_ROOT>
+    <ALVAR_INCLUDE>$(ALVAR_ROOT)\include</ALVAR_INCLUDE>
+    <ALVAR_LIB_DIR>$(ALVAR_ROOT)\bin</ALVAR_LIB_DIR>
+    <ALVAR_BIN_DIR>$(ALVAR_ROOT)\bin</ALVAR_BIN_DIR>
+    <ALVAR_DEBUG_LIBS>alvar200d.lib</ALVAR_DEBUG_LIBS>
+    <ALVAR_RELEASE_LIBS>alvar200.lib</ALVAR_RELEASE_LIBS>
   </PropertyGroup>
   <!-- Debug|Win32 -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(PROTOBUF_INCLUDE);$(BOOST_INCLUDE);$(OPENRAVE_INCLUDE);$(ZEROMQ_INCLUDE);$(AZMQ_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ALVAR_INCLUDE);$(PROTOBUF_INCLUDE);$(BOOST_INCLUDE);$(OPENRAVE_INCLUDE);$(ZEROMQ_INCLUDE);$(AZMQ_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(PROTOBUF_DEBUG_LIB_DIR);$(BOOST_LIB_DIR);$(OPENRAVE_LIB_DIR);$(ZEROMQ_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(PROTOBUF_LIBS);$(BOOST_DEBUG_LIBS);$(OPENRAVE_DEBUG_LIBS);$(ZEROMQ_DEBUG_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ALVAR_LIB_DIR);$(PROTOBUF_DEBUG_LIB_DIR);$(BOOST_LIB_DIR);$(OPENRAVE_LIB_DIR);$(ZEROMQ_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(ALVAR_DEBUG_LIBS);$(PROTOBUF_LIBS);$(BOOST_DEBUG_LIBS);$(OPENRAVE_DEBUG_LIBS);$(ZEROMQ_DEBUG_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <!-- Release|Win32 -->
@@ -60,11 +67,11 @@
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(PROTOBUF_INCLUDE);$(BOOST_INCLUDE);$(OPENRAVE_INCLUDE);$(ZEROMQ_INCLUDE);$(AZMQ_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ALVAR_INCLUDE);$(PROTOBUF_INCLUDE);$(BOOST_INCLUDE);$(OPENRAVE_INCLUDE);$(ZEROMQ_INCLUDE);$(AZMQ_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(PROTOBUF_RELEASE_LIB_DIR);$(BOOST_LIB_DIR);$(OPENRAVE_LIB_DIR);$(ZEROMQ_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(PROTOBUF_LIBS);$(BOOST_RELEASE_LIBS);$(OPENRAVE_RELEASE_LIBS);$(ZEROMQ_RELEASE_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ALVAR_LIB_DIR);$(PROTOBUF_RELEASE_LIB_DIR);$(BOOST_LIB_DIR);$(OPENRAVE_LIB_DIR);$(ZEROMQ_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(ALVAR_DEBUG_LIBS);$(PROTOBUF_LIBS);$(BOOST_RELEASE_LIBS);$(OPENRAVE_RELEASE_LIBS);$(ZEROMQ_RELEASE_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
 </Project>
