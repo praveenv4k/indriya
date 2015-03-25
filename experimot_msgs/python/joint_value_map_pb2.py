@@ -18,6 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='joint_value_map.proto',
   package='experimot.msgs',
+  syntax='proto2',
   serialized_pb=_b('\n\x15joint_value_map.proto\x12\x0e\x65xperimot.msgs\"\'\n\nJointValue\x12\n\n\x02id\x18\x01 \x02(\x05\x12\r\n\x05value\x18\x02 \x02(\x01\"C\n\x10JointValueVector\x12/\n\x0bJointValues\x18\x01 \x03(\x0b\x32\x1a.experimot.msgs.JointValue')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -54,6 +55,7 @@ _JOINTVALUE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -84,6 +86,7 @@ _JOINTVALUEVECTOR = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

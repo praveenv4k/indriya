@@ -6,6 +6,7 @@
 #include <opencv/cv.h>
 
 #include "CvKinectCapture.h"
+#include "TransformationHelper.h"
 
 using namespace alvar;
 using namespace std;
@@ -239,6 +240,42 @@ void videocallback(IplImage *image)
     }
 }
 
+using namespace OpenRAVE;
+
+RobotBasePtr orMacroGetRobot(EnvironmentBasePtr penv, int index)
+{
+	if (!index) {
+		return RobotBasePtr();
+	}
+	KinBodyPtr pbody = penv->GetBodyFromEnvironmentId(index);
+	if (!pbody || !pbody->IsRobot()) {
+		return RobotBasePtr();
+	}
+	return RaveInterfaceCast<RobotBase>(pbody);
+}
+
+int OpenraveInit(){
+	RaveInitialize(true); // start openrave core
+	EnvironmentBasePtr penv = RaveCreateEnvironment(); // create the main environment
+
+	string scenefilename = "nao_torso_head.dae";
+	penv->Load(scenefilename); // load the scene
+
+	RobotBasePtr probot = orMacroGetRobot(penv, 1);
+
+	if (probot){
+		std::cout << "Robot DOF : " << probot->GetDOF() << std::endl;
+		RobotBase::ManipulatorPtr pManip = probot->GetManipulator(std::string("arm"));
+		if (pManip){
+			Transform tfm = pManip->GetTransform();
+			std::cout << tfm << std::endl;
+		}
+	}
+
+	penv->Destroy();
+	return 0;
+}
+
 int main(int argc, char *argv[])
 {
 	try {
@@ -260,6 +297,8 @@ int main(int argc, char *argv[])
 			cout << " [Fail]" << endl;
 		}
 
+		OpenraveInit();
+
 		KinectVideoCapture capture;
 		capture.open(0);
 		Sleep(3000);
@@ -273,7 +312,7 @@ int main(int argc, char *argv[])
 			IplImage* img = cvCloneImage(&(IplImage)view0);
 
 			if (img != NULL){
-				videocallback(img);
+				//videocallback(img);
 				cv::Mat temp(img);
 				cvShowImage("Image View", img);
 				cvRelease((void**)&img);
