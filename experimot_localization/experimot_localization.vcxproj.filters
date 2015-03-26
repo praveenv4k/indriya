@@ -31,5 +31,11 @@
     <ClInclude Include="TransformationHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="NaoHeadTransformHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestFk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

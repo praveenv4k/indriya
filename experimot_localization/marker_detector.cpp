@@ -7,6 +7,7 @@
 
 #include "CvKinectCapture.h"
 #include "TransformationHelper.h"
+#include "NaoHeadTransformHelper.h"
 
 using namespace alvar;
 using namespace std;
@@ -93,7 +94,7 @@ void Visualize(IplImage *image, Camera *cam, double edge_length, Pose& pose, CvS
 }
 
 
-void videocallback(IplImage *image)
+void videocallback(IplImage *image, Transform& tfm)
 {
     static IplImage *rgba;
     bool flip_image = (image->origin?true:false);
@@ -129,7 +130,7 @@ void videocallback(IplImage *image)
         double g = 1.0 - double(id*3%32+1)/32.0;
         double b = 1.0 - double(id*7%32+1)/32.0;
 
-		p.Output();
+		//p.Output();
 
 		// TODO - Just for debug
 		if(i==0){
@@ -138,7 +139,7 @@ void videocallback(IplImage *image)
 			double tTemp[4]={-0.531615348135546, 8.11472236117109, 1063.19537088174};
 			temp.SetQuaternion(qTemp);
 			temp.SetTranslation(tTemp);
-			Visualize(image, &cam, marker_size, temp, CV_RGB(255, 0, 0));
+			//Visualize(image, &cam, marker_size, temp, CV_RGB(255, 0, 0));
 		}
     }
 #if 0
@@ -173,12 +174,12 @@ void videocallback(IplImage *image)
 #else
 	if (marker_detector.markers->size() > 0){
 		double rot_x[4] = { 0.707, -0.707, 0, 0 };
-		
+
 		Pose p_res;
 		if (marker_detector.markers->size() == 1){
 			Marker m = (*(marker_detector.markers))[best_marker];
 			Pose p = (*(marker_detector.markers))[best_marker].pose;
-
+#if 0
 			double rot_res[4] = { 1, 0, 0, 0 };
 			Pose p2 = p;
 			CvMat* rot = cvCreateMat(4, 1, CV_64F);
@@ -188,8 +189,12 @@ void videocallback(IplImage *image)
 			Rotation::QuatMul(rot->data.db, rot_x, rot_res);
 			p2.SetQuaternion(rot_res);
 			cvRelease((void**)&rot);
-
 			p_res = p2;
+#else
+			TransformationHelper::Rotate(p, RaveVector<dReal>(1, 0, 0), -(alvar::PI) / 2, p_res);
+			p_res.translation[1] -= (double)cube_size / 2;
+			p_res.translation[2] += (double)cube_size / 2;
+#endif
 		}
 		else{
 			Marker m1 = (*(marker_detector.markers))[0];
@@ -203,11 +208,11 @@ void videocallback(IplImage *image)
 			double rot_res1[4] = { 1, 0, 0, 0 };
 			double rot_res2[4] = { 1, 0, 0, 0 };
 			double rot_res[4] = { 1, 0, 0, 0 };
-			double trans_res[4] = { (p1.translation[0] + p2.translation[0]) / 2, 
+			double trans_res[4] = { (p1.translation[0] + p2.translation[0]) / 2,
 				(p1.translation[1] + p2.translation[1] - cube_size) / 2,
 				(p1.translation[2] + p2.translation[2] + cube_size) / 2,
-									(p1.translation[3] + p2.translation[3]) / 2 };
-			
+				(p1.translation[3] + p2.translation[3]) / 2 };
+
 			p1.GetQuaternion(rot1);
 			p2.GetQuaternion(rot2);
 
@@ -231,6 +236,11 @@ void videocallback(IplImage *image)
 		double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
 
 		//p_res.Output();
+		Pose p_out;
+		p_res.Output();
+		TransformationHelper::computeTorsoFrame(p_res, tfm, p_out);
+		p_out.Output();
+		Visualize(image, &cam, marker_size, p_out, CV_RGB(0, 0, 255));
 		Visualize(image, &cam, marker_size, p_res, CV_RGB(255, 0, 0));
 	}
 #endif
@@ -254,28 +264,6 @@ RobotBasePtr orMacroGetRobot(EnvironmentBasePtr penv, int index)
 	return RaveInterfaceCast<RobotBase>(pbody);
 }
 
-int OpenraveInit(){
-	RaveInitialize(true); // start openrave core
-	EnvironmentBasePtr penv = RaveCreateEnvironment(); // create the main environment
-
-	string scenefilename = "nao_torso_head.dae";
-	penv->Load(scenefilename); // load the scene
-
-	RobotBasePtr probot = orMacroGetRobot(penv, 1);
-
-	if (probot){
-		std::cout << "Robot DOF : " << probot->GetDOF() << std::endl;
-		RobotBase::ManipulatorPtr pManip = probot->GetManipulator(std::string("arm"));
-		if (pManip){
-			Transform tfm = pManip->GetTransform();
-			std::cout << tfm << std::endl;
-		}
-	}
-
-	penv->Destroy();
-	return 0;
-}
-
 int main(int argc, char *argv[])
 {
 	try {
@@ -297,12 +285,16 @@ int main(int argc, char *argv[])
 			cout << " [Fail]" << endl;
 		}
 
-		OpenraveInit();
+		Transform tfm;
+		tfm.identity();
 
 		KinectVideoCapture capture;
 		capture.open(0);
 		Sleep(3000);
-		
+
+		RaveVector<dReal> q = OpenRAVE::geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), -alvar::PI / 2);
+		cout << q[0] << std::endl;
+
 		cvNamedWindow("Image View", 1);
 		while (capture.isOpened()){
 			cv::Mat view0;
@@ -312,7 +304,7 @@ int main(int argc, char *argv[])
 			IplImage* img = cvCloneImage(&(IplImage)view0);
 
 			if (img != NULL){
-				//videocallback(img);
+				videocallback(img, tfm);
 				cv::Mat temp(img);
 				cvShowImage("Image View", img);
 				cvRelease((void**)&img);
@@ -322,6 +314,7 @@ int main(int argc, char *argv[])
 			if ((c & 255) == 27 || c == 'q' || c == 'Q')
 				break;
 		}
+
 		return 0;
 	}
 	catch (const std::exception &e) {
