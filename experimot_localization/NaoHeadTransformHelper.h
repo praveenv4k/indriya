@@ -1,24 +1,12 @@
 #ifndef __NAOHEAD_TRANSFORM_HELPER_H__
 #define __NAOHEAD_TRANSFORM_HELPER_H__
 
-#include <tuple>
-#include <string>
-#include <vector>
-#include <openrave-core.h>
-#include <boost/typeof/std/string.hpp>
-#include <boost/typeof/std/vector.hpp>
-#include <boost/typeof/std/list.hpp>
-#include <boost/typeof/std/map.hpp>
-#include <boost/typeof/std/set.hpp>
-#include <boost/typeof/std/string.hpp>
+#include "Common.h"
 
 using namespace OpenRAVE;
 using namespace std;
 
 #define DEG_TO_RADIAN(x) (x/180.0)*OpenRAVE::PI
-
-#define FOREACH(it, v) for(BOOST_TYPEOF(v) ::iterator it = (v).begin(), __itend__=(v).end(); it != __itend__; ++(it))
-#define FOREACHC(it, v) for(BOOST_TYPEOF(v) ::const_iterator it = (v).begin(), __itend__=(v).end(); it != __itend__; ++(it))
 
 typedef struct tagFkParams{
 	Transform rot_x_alpha;

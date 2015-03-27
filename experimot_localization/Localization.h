@@ -7,9 +7,11 @@
 #include <boost/bind.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp>
 
+#include "CvKinectCapture.h"
 #include "RobotStateListener.h"
 #include "TorsoPosePublisher.h"
 #include "MarkerDetection.h"
+#include "NaoHeadTransformHelper.h"
 
 #define COMM_PROTOCOL		"tcp"
 #define COMM_SUBIPADDRESS	"127.0.0.1"

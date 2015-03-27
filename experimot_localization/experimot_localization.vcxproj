@@ -106,6 +106,7 @@
     </Xml>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Common.h" />
     <ClInclude Include="Localization.h" />
     <ClInclude Include="MarkerDetection.h" />
     <ClInclude Include="NaoHeadTransformHelper.h" />

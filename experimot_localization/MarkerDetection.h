@@ -1,16 +1,13 @@
 #ifndef __MARKER_DETECTION_H__
 #define __MARKER_DETECTION_H__
 
-//#define NOMINMAX
 #include "Marker.h"
 #include "MarkerDetector.h"
 
-#include "RobotStateListener.h"
 #include <opencv/cv.h>
 
-#include "CvKinectCapture.h"
 #include "TransformationHelper.h"
-#include "NaoHeadTransformHelper.h"
+#include "Common.h"
 
 using namespace alvar;
 using namespace std;
