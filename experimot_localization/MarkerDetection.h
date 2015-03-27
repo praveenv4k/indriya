@@ -89,7 +89,7 @@ public:
 		}
 	}
 
-	void Videocallback(IplImage *image, Transform& localTfm, Transform& out_tfm)
+	void Videocallback(IplImage *image, Transform& localTfm, Transform& out_tfm, bool drawTorso=false)
 	{
 		static IplImage *rgba;
 		bool flip_image = (image->origin ? true : false);
@@ -124,7 +124,7 @@ public:
 			double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
 			double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
 		}
-		if (marker_detector.markers->size() > 0){
+		if (marker_detector.markers->size() > 200){
 			Pose p_res;
 
 #if 0
@@ -196,12 +196,15 @@ public:
 			double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
 			double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
 
-			Pose p_out;
 			p_res.Output();
 
-			TransformationHelper::ComputeTorsoFrame(p_res, localTfm, p_out);
-			p_out.Output();
-			Visualize(image, &m_camera, m_nMarkerSize, p_out, CV_RGB(0, 0, 255));
+			if (drawTorso){
+				Pose p_out;
+				TransformationHelper::ComputeTorsoFrame(p_res, localTfm, p_out);
+				Visualize(image, &m_camera, m_nMarkerSize, p_out, CV_RGB(0, 0, 255));
+				p_out.Output();
+			}
+			
 			Visualize(image, &m_camera, m_nMarkerSize, p_res, CV_RGB(255, 0, 0));
 #endif
 		}
