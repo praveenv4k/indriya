@@ -90,11 +90,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="marker_detector.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CvKinectCapture\CvKinectCapture.vcxproj">
       <Project>{c93e9887-ff52-41e3-964d-665398828210}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\experimot_msgs\experimot_msgs.vcxproj">
+      <Project>{1ab15496-ac39-4ac7-8507-df6033138943}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -103,10 +106,13 @@
     </Xml>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Localization.h" />
+    <ClInclude Include="MarkerDetection.h" />
     <ClInclude Include="NaoHeadTransformHelper.h" />
     <ClInclude Include="RobotPoseInfo.h" />
     <ClInclude Include="RobotStateListener.h" />
     <ClInclude Include="TestFk.h" />
+    <ClInclude Include="TorsoPosePublisher.h" />
     <ClInclude Include="TransformationHelper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

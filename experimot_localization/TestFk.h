@@ -3,10 +3,12 @@
 
 #include "NaoHeadTransformHelper.h"
 
+using namespace OpenRAVE;
+
 class TestFk{
 public:
 	TestFk(){}
-	Test(){
+	void Test(){
 		Transform tfm;
 		tfm.identity();
 		RobotBasePtr probot;
@@ -28,6 +30,17 @@ public:
 			std::cout << "Helper: " << local << std::endl;
 		}
 		penv->Destroy();
+	}
+	RobotBasePtr orMacroGetRobot(EnvironmentBasePtr penv, int index)
+	{
+		if (!index) {
+			return RobotBasePtr();
+		}
+		KinBodyPtr pbody = penv->GetBodyFromEnvironmentId(index);
+		if (!pbody || !pbody->IsRobot()) {
+			return RobotBasePtr();
+		}
+		return RaveInterfaceCast<RobotBase>(pbody);
 	}
 	EnvironmentBasePtr OpenraveInit(Transform& tfm, RobotBasePtr& probot){
 		RaveInitialize(true); // start openrave core

@@ -1,12 +1,17 @@
 #ifndef __ROBOT_POSE_INFO_H__
 #define __ROBOT_POSE_INFO_H__
 
-#include <experimot\msgs\MessageTypes.h>
 #include <boost\shared_ptr.hpp>
 #include <openrave-core.h>
 
 using namespace OpenRAVE;
-//using namespace experimot::msgs;
+
+#include <zmq.hpp>
+#include <zhelpers.hpp>
+
+typedef boost::shared_ptr<zmq::context_t> ZmqContextPtr;
+typedef boost::shared_ptr<zmq::socket_t> ZmqSocketPtr;
+typedef boost::shared_ptr<zmq::message_t> ZmqMessagePtr;
 
 class RobotPoseInfo;
 

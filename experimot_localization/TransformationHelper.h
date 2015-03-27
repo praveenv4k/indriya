@@ -18,14 +18,19 @@ public:
 
 	}
 
-	static void computeTorsoFrame(Pose& worldPose, OpenRAVE::Transform& localTfmRave, Pose& torsoPose){
+	static void ComputeTorsoFrame(const Pose& worldPose, const OpenRAVE::Transform& localTfmRave, Pose& torsoPose){
 		OpenRAVE::Transform worldTfm;
 		PoseToTransform(worldPose, worldTfm);
+		OpenRAVE::Transform torsoTfm;
+		ComputeTorsoFrame(worldTfm, localTfmRave, torsoTfm);
+		TransformToPose(torsoTfm, torsoPose);
+	}
 
+	static void ComputeTorsoFrame(const OpenRAVE::Transform& markerTfm, const OpenRAVE::Transform& localTfmRave, OpenRAVE::Transform& torsoTfm){
 		// For rotating alvar frame -> Openrave - Z_UP, X_FRONT, Y_RIGHT
 		RaveVector<dReal> rot_z(0, 0, 1);
 		Transform tf1(OpenRAVE::geometry::matrixFromAxisAngle<dReal>(rot_z, -(alvar::PI / 2)));
-		worldTfm = worldTfm*tf1;
+		Transform worldTfm = markerTfm*tf1;
 
 		OpenRAVE::Transform localTfm;
 #if 0
@@ -34,14 +39,10 @@ public:
 		localTfm = localTfmRave;
 #endif
 		OpenRAVE::Transform localInv = localTfm.inverse();
-
-
-		OpenRAVE::Transform torsoTfm = worldTfm*localInv;
-
-		TransformToPose(torsoTfm, torsoPose);
+		torsoTfm = worldTfm*localInv;
 	}
 
-	static void PoseToTransform(Pose& pose, Transform& tfm){
+	static void PoseToTransform(const Pose& pose, Transform& tfm){
 		double rot_res[4] = { 1, 0, 0, 0 };
 		CvMat* rot = cvCreateMat(4, 1, CV_64F);
 		pose.GetQuaternion(rot);
@@ -58,7 +59,7 @@ public:
 		cvRelease((void**)&rot);
 	}
 
-	static void OpenRAVEToAlvar(Transform& rave, Transform& alvar)
+	static void OpenRAVEToAlvar(const Transform& rave, Transform& alvar)
 	{
 		RaveVector<dReal> rot_x(1, 0, 0);
 		RaveVector<dReal> rot_y(0, 1, 0);
@@ -71,7 +72,7 @@ public:
 
 	}
 
-	static void TransformToPose(Transform& tfm, Pose& pose){
+	static void TransformToPose(const Transform& tfm, Pose& pose){
 
 		double rot[4] = { tfm.rot[0], tfm.rot[1], tfm.rot[2], tfm.rot[3] };
 		double trans[3] = { tfm.trans.x, tfm.trans.y, tfm.trans.z };
@@ -80,7 +81,7 @@ public:
 		pose.SetTranslation(trans);
 	}
 
-	static void Rotate(Pose& input, RaveVector<dReal>& axis, dReal angle, Pose& output){
+	static void Rotate(const Pose& input, const RaveVector<dReal>& axis, dReal angle, Pose& output){
 		OpenRAVE::Transform tfm;
 		PoseToTransform(input, tfm);
 		Transform rotTfm(OpenRAVE::geometry::matrixFromAxisAngle<dReal>(axis, angle));
@@ -90,7 +91,7 @@ public:
 		TransformToPose(out, output);
 	}
 
-	static void RaveToProto(OpenRAVE::Transform& tfm, experimot::msgs::Pose& pose){
+	static void RaveToProto(const OpenRAVE::Transform& tfm, experimot::msgs::Pose& pose){
 		// Set Position
 		pose.mutable_position()->set_x(tfm.trans[0]);
 		pose.mutable_position()->set_y(tfm.trans[1]);
@@ -102,7 +103,7 @@ public:
 		pose.mutable_orientation()->set_z(tfm.rot[3]);
 	}
 
-	static void ProtoToRave(experimot::msgs::Pose& pose, OpenRAVE::Transform& tfm){
+	static void ProtoToRave(const experimot::msgs::Pose& pose, OpenRAVE::Transform& tfm){
 		// Set Position
 		tfm.trans[0] = pose.position().x();
 		tfm.trans[1] = pose.position().y();
@@ -112,6 +113,41 @@ public:
 		tfm.rot[1] = pose.orientation().x();
 		tfm.rot[2] = pose.orientation().y();
 		tfm.rot[3] = pose.orientation().z();
+	}
+
+	static void Slerp(double* q1, double* q2, double* qr, double lambda)
+	{
+		double w1 = q1[0];
+		double x1 = q1[1];
+		double y1 = q1[2];
+		double z1 = q1[3];
+
+		double w2 = q2[0];
+		double x2 = q2[1];
+		double y2 = q2[2];
+		double z2 = q2[3];
+
+		double dotproduct = x1 * x2 + y1 * y2 + z1 * z2 + w1 * w2;
+		double theta, st, sut, sout, coeff1, coeff2;
+
+		// algorithm adapted from Shoemake's paper
+		lambda = lambda / 2.0;
+
+		theta = acos(dotproduct);
+		if (theta < 0.0) theta = -theta;
+
+		st = sin(theta);
+		sut = sin(lambda*theta);
+		sout = sin((1 - lambda)*theta);
+		coeff1 = sout / st;
+		coeff2 = sut / st;
+
+		qr[0] = coeff1*w1 + coeff2*w2;
+		qr[1] = coeff1*x1 + coeff2*x2;
+		qr[2] = coeff1*y1 + coeff2*y2;
+		qr[3] = coeff1*z1 + coeff2*z2;
+
+		Rotation::QuatNorm(qr);
 	}
 };
 
