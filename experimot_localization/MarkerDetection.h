@@ -22,6 +22,7 @@ public:
 	MarkerDetection(std::string& calibFile, int markerSize, int cubeSize) :m_strCalibFile(calibFile), m_nMarkerSize(markerSize), m_nCubeSize(cubeSize)
 	{
 		max_error = std::numeric_limits<double>::max();
+		_init();
 	}
 
 	~MarkerDetection(){}
@@ -73,7 +74,7 @@ public:
 			TransformationHelper::PoseToTransform(*it, tf);
 			int factor = tf.rot[0] < 0 ? 1 : -1;
 			Transform tf2(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2)), Vector(0, -(double)m_nCubeSize / 2, (double)m_nCubeSize / 2));
-			tfs.push_back(tf2);
+			tfs.push_back(tf*tf2);
 		}
 		outTf.identity();
 		if (tfs.size()>0){
@@ -85,6 +86,7 @@ public:
 			}
 			else{
 				outTf = tfs[0];
+				std::cout << "Hello " << std::endl;
 			}
 		}
 	}
@@ -124,7 +126,7 @@ public:
 			double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
 			double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
 		}
-		if (marker_detector.markers->size() > 200){
+		if (marker_detector.markers->size() > 0){
 			Pose p_res;
 
 #if 0
@@ -218,14 +220,17 @@ private:
 	bool _init(){
 		int width = 1980;
 		int height = 1080;
+		bool ret = false;
 		cout << "Loading calibration: " << m_strCalibFile;
 		if (m_camera.SetCalib(m_strCalibFile.c_str(), width, height)) {
 			cout << " [Ok]" << endl;
+			ret = true;
 		}
 		else {
 			m_camera.SetRes(width, height);
 			cout << " [Fail]" << endl;
 		}
+		return ret;
 	}
 private:
 	std::string m_strCalibFile;
