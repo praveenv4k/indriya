@@ -27,11 +27,13 @@
 #define MARKER_SIZE			55
 #define CUBE_SIZE			64
 
+#define DEADLINE_TIMER1		30
+
 class MarkerDetectionTest{
 public:
 	MarkerDetectionTest(boost::asio::io_service& io)
 		: strand_(io),
-		timer1_(io, boost::posix_time::milliseconds(30))
+		timer1_(io, boost::posix_time::milliseconds(DEADLINE_TIMER1))
 	{
 
 		m_pMarkerDetectionPtr = MarkerDetectionPtr(new MarkerDetection(std::string(CALIB_FILE), MARKER_SIZE, CUBE_SIZE));
@@ -48,18 +50,25 @@ public:
 	void SensorDataProcess()
 	{
 		bool quit = false;
-		timer1_.expires_at(timer1_.expires_at() + boost::posix_time::milliseconds(30));
+		timer1_.expires_at(timer1_.expires_at() + boost::posix_time::milliseconds(DEADLINE_TIMER1));
 		//TODO Call marker detection here
 		if (m_VideoCapture.isOpened()){
 			cv::Mat view0;
 			m_VideoCapture >> view0;
+			//cv::Mat viewGray;
+			//cv::cvtColor(view0, viewGray, CV_RGB2GRAY);
 			IplImage* img = cvCloneImage(&(IplImage)view0);
 			if (img != NULL && m_pMarkerDetectionPtr != 0 && m_pRobotPoseInfoPtr != 0){
 				RobotPoseInfoMutex::scoped_lock lock(m_pRobotPoseInfoPtr->GetMutex());
+				
+				std::vector<double> headJoints;
+				headJoints.push_back(0);
+				headJoints.push_back(0);
 				Transform eef;
-				eef.identity();
+				NaoHeadTransformHelper::instance()->GetEndEffectorTransform(headJoints, eef);
+
 				Transform markerTfm;
-				m_pMarkerDetectionPtr->Videocallback(img, eef, markerTfm);
+				m_pMarkerDetectionPtr->Videocallback(img, eef, markerTfm,true);
 				cv::Mat temp(img);
 				cvShowImage("Image View", img);
 				cvRelease((void**)&img);

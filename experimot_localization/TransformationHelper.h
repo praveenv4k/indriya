@@ -29,9 +29,13 @@ public:
 	static void ComputeTorsoFrame(const OpenRAVE::Transform& markerTfm, const OpenRAVE::Transform& localTfmRave, OpenRAVE::Transform& torsoTfm){
 		// For rotating alvar frame -> Openrave - Z_UP, X_FRONT, Y_RIGHT
 		RaveVector<dReal> rot_z(0, 0, 1);
+		
+#if 0 // Since the appropriate orientation is taken care by the marker detection module
 		Transform tf1(OpenRAVE::geometry::matrixFromAxisAngle<dReal>(rot_z, -(alvar::PI / 2)));
 		Transform worldTfm = markerTfm*tf1;
-
+#else
+		Transform worldTfm = markerTfm;
+#endif
 		OpenRAVE::Transform localTfm;
 #if 0
 		OpenRAVEToAlvar(localTfmRave, localTfm);

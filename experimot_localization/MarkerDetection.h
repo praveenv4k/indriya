@@ -67,14 +67,14 @@ public:
 		VisualizeMarkerPose(image, cam, visualize2d_points, color);
 	}
 
-	void TransformToTopFrame(std::vector<Pose>& pose, Transform& outTf){
+	void TransformToTopFrame(std::map<int,Pose>& poseMap, Transform& outTf){
 		std::vector<Transform> tfs;
-		FOREACH(it, pose){
+		FOREACH(it, poseMap){
 			Transform tf;
-			TransformationHelper::PoseToTransform(*it, tf);
+			TransformationHelper::PoseToTransform(it->second, tf);
 			int factor = tf.rot[0] < 0 ? 1 : -1;
-			Transform tf2(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2)), Vector(0, -(double)m_nCubeSize / 2, (double)m_nCubeSize / 2));
-			tfs.push_back(tf*tf2);
+			Transform tf2(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2)), Vector(0, (double)m_nCubeSize / 2, -(double)m_nCubeSize / 2));
+			tfs.push_back(tf*tf2*m_MarkerTransformMapping[it->first]);
 		}
 		outTf.identity();
 		if (tfs.size()>0){
@@ -107,14 +107,14 @@ public:
 
 		double error = max_error;
 		int best_marker = -1;
-		std::vector<Pose> markerPoses;
+		std::map<int,Pose> markerPoses;
 		for (size_t i = 0; i < marker_detector.markers->size(); i++) {
 			if (i >= 32) break;
 
 			alvar::MarkerData mData = marker_detector.markers->operator[](i);
 			Pose p = mData.pose;
 
-			markerPoses.push_back(p);
+			markerPoses.insert(std::pair<int, Pose>(mData.GetId(), p));
 
 			double temp_error = (*(marker_detector.markers))[i].GetError(alvar::Marker::TRACK_ERROR | alvar::Marker::DECODE_ERROR | alvar::Marker::MARGIN_ERROR);
 			if (temp_error < error){
@@ -125,6 +125,9 @@ public:
 			double r = 1.0 - double(id + 1) / 32.0;
 			double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
 			double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
+
+			if (id == 7)
+				p.Output();
 		}
 		if (marker_detector.markers->size() > 0){
 			Pose p_res;
@@ -198,13 +201,13 @@ public:
 			double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
 			double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
 
-			p_res.Output();
+			//p_res.Output();
 
 			if (drawTorso){
 				Pose p_out;
 				TransformationHelper::ComputeTorsoFrame(p_res, localTfm, p_out);
 				Visualize(image, &m_camera, m_nMarkerSize, p_out, CV_RGB(0, 0, 255));
-				p_out.Output();
+				//p_out.Output();
 			}
 			
 			Visualize(image, &m_camera, m_nMarkerSize, p_res, CV_RGB(255, 0, 0));
@@ -230,6 +233,15 @@ private:
 			m_camera.SetRes(width, height);
 			cout << " [Fail]" << endl;
 		}
+
+		Vector rot_z(0, 0, 1);
+
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(7, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI / 2)), Vector())));
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(0, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI)), Vector())));
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(13, Transform(geometry::quatFromAxisAngle(rot_z, 0.0), Vector())));
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(10, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI / 2)), Vector())));
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(14, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI / 2)), Vector())));
+
 		return ret;
 	}
 private:
@@ -238,6 +250,7 @@ private:
 	int m_nCubeSize;
 	Camera m_camera;
 	double max_error;
+	std::map<int, Transform> m_MarkerTransformMapping;
 };
 
 #endif
