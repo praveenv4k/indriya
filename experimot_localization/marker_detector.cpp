@@ -3,6 +3,7 @@
 #include "Marker.h"
 #include "MarkerDetector.h"
 
+#include "RobotStateListener.h"
 #include <opencv/cv.h>
 
 #include "CvKinectCapture.h"
@@ -129,18 +130,6 @@ void videocallback(IplImage *image, Transform& tfm)
         double r = 1.0 - double(id+1)/32.0;
         double g = 1.0 - double(id*3%32+1)/32.0;
         double b = 1.0 - double(id*7%32+1)/32.0;
-
-		//p.Output();
-
-		// TODO - Just for debug
-		if(i==0){
-			Pose temp(p);
-			double qTemp[4]={0.73325678 ,0.67461462,  0.00777518,  0.0846709};
-			double tTemp[4]={-0.531615348135546, 8.11472236117109, 1063.19537088174};
-			temp.SetQuaternion(qTemp);
-			temp.SetTranslation(tTemp);
-			//Visualize(image, &cam, marker_size, temp, CV_RGB(255, 0, 0));
-		}
     }
 #if 0
 	if (best_marker > -1 && best_marker <= marker_detector.markers->size()){
@@ -173,28 +162,13 @@ void videocallback(IplImage *image, Transform& tfm)
 	}
 #else
 	if (marker_detector.markers->size() > 0){
-		double rot_x[4] = { 0.707, -0.707, 0, 0 };
-
 		Pose p_res;
 		if (marker_detector.markers->size() == 1){
 			Marker m = (*(marker_detector.markers))[best_marker];
 			Pose p = (*(marker_detector.markers))[best_marker].pose;
-#if 0
-			double rot_res[4] = { 1, 0, 0, 0 };
-			Pose p2 = p;
-			CvMat* rot = cvCreateMat(4, 1, CV_64F);
-			p.GetQuaternion(rot);
-			p2.translation[1] -= (double)cube_size / 2;
-			p2.translation[2] += (double)cube_size / 2;
-			Rotation::QuatMul(rot->data.db, rot_x, rot_res);
-			p2.SetQuaternion(rot_res);
-			cvRelease((void**)&rot);
-			p_res = p2;
-#else
 			TransformationHelper::Rotate(p, RaveVector<dReal>(1, 0, 0), -(alvar::PI) / 2, p_res);
 			p_res.translation[1] -= (double)cube_size / 2;
 			p_res.translation[2] += (double)cube_size / 2;
-#endif
 		}
 		else{
 			Marker m1 = (*(marker_detector.markers))[0];
@@ -216,6 +190,7 @@ void videocallback(IplImage *image, Transform& tfm)
 			p1.GetQuaternion(rot1);
 			p2.GetQuaternion(rot2);
 
+			double rot_x[4] = { 0.707, -0.707, 0, 0 };
 			Rotation::QuatMul(rot1->data.db, rot_x, rot_res1);
 			Rotation::QuatMul(rot2->data.db, rot_x, rot_res2);
 
@@ -235,7 +210,6 @@ void videocallback(IplImage *image, Transform& tfm)
 		double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
 		double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
 
-		//p_res.Output();
 		Pose p_out;
 		p_res.Output();
 		TransformationHelper::computeTorsoFrame(p_res, tfm, p_out);

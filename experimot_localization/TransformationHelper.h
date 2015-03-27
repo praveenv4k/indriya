@@ -3,6 +3,7 @@
 
 #include "Pose.h"
 #include <openrave-core.h>
+#include "experimot\msgs\MessageTypes.h"
 
 using namespace alvar;
 using namespace OpenRAVE;
@@ -87,6 +88,30 @@ public:
 		Transform out = tfm*rotTfm;
 
 		TransformToPose(out, output);
+	}
+
+	static void RaveToProto(OpenRAVE::Transform& tfm, experimot::msgs::Pose& pose){
+		// Set Position
+		pose.mutable_position()->set_x(tfm.trans[0]);
+		pose.mutable_position()->set_y(tfm.trans[1]);
+		pose.mutable_position()->set_z(tfm.trans[2]);
+		// Set Orientation
+		pose.mutable_orientation()->set_w(tfm.rot[0]);
+		pose.mutable_orientation()->set_x(tfm.rot[1]);
+		pose.mutable_orientation()->set_y(tfm.rot[2]);
+		pose.mutable_orientation()->set_z(tfm.rot[3]);
+	}
+
+	static void ProtoToRave(experimot::msgs::Pose& pose, OpenRAVE::Transform& tfm){
+		// Set Position
+		tfm.trans[0] = pose.position().x();
+		tfm.trans[1] = pose.position().y();
+		tfm.trans[2] = pose.position().z();
+		// Set Orientation
+		tfm.rot[0] = pose.orientation().w();
+		tfm.rot[1] = pose.orientation().x();
+		tfm.rot[2] = pose.orientation().y();
+		tfm.rot[3] = pose.orientation().z();
 	}
 };
 

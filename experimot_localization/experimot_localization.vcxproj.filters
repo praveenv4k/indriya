@@ -37,5 +37,11 @@
     <ClInclude Include="TestFk.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RobotStateListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RobotPoseInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
