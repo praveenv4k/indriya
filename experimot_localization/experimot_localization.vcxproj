@@ -113,6 +113,7 @@
     <ClInclude Include="NaoHeadTransformHelper.h" />
     <ClInclude Include="RobotPoseInfo.h" />
     <ClInclude Include="RobotStateListener.h" />
+    <ClInclude Include="RobotStateListenerTest.h" />
     <ClInclude Include="TestFk.h" />
     <ClInclude Include="TorsoPosePublisher.h" />
     <ClInclude Include="TransformationHelper.h" />

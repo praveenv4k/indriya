@@ -64,20 +64,25 @@ public:
 			if (img != NULL && m_pMarkerDetectionPtr != 0 && m_pRobotPoseInfoPtr != 0){
 				RobotPoseInfoMutex::scoped_lock lock(m_pRobotPoseInfoPtr->GetMutex());
 				const std::vector<double>& jointVals = m_pRobotPoseInfoPtr->GetJointValueVector();
+				std::vector<double> headJoints;
+
 				if (jointVals.size() >= 2){
-					std::vector<double> headJoints;
 					headJoints.push_back(jointVals[0]);
 					headJoints.push_back(jointVals[1]);
-
-					Transform eef;
-					NaoHeadTransformHelper::instance()->GetEndEffectorTransform(headJoints, eef);
-
-					Transform markerTfm;
-					m_pMarkerDetectionPtr->Videocallback(img, eef, markerTfm);
-					cv::Mat temp(img);
-					cvShowImage("Image View", img);
-					cvRelease((void**)&img);
+					//std::cout << "Received values from Naoqi" << std::endl;
 				}
+				else{
+					headJoints.push_back(0);
+					headJoints.push_back(0);
+				}
+				Transform eef;
+				NaoHeadTransformHelper::instance()->GetEndEffectorTransform(headJoints, eef);
+
+				Transform markerTfm;
+				m_pMarkerDetectionPtr->Videocallback(img, eef, markerTfm, true);
+				cv::Mat temp(img);
+				cvShowImage("Image View", img);
+				cvRelease((void**)&img);
 			}
 			int c = 0xff & cv::waitKey(1);
 			if ((c & 255) == 27 || c == 'q' || c == 'Q')
@@ -126,6 +131,8 @@ public:
 
 						Transform torsoTfm;
 						TransformationHelper::ComputeTorsoFrame(markerTfm, eef, torsoTfm);
+
+						m_pTorsoPosePublisherPtr->Publish(torsoTfm);
 					}
 				}
 		}

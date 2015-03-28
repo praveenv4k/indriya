@@ -37,7 +37,7 @@ public:
 		m_pSocket->setsockopt(ZMQ_RCVTIMEO, &to, sizeof(to));
 	}
 
-	bool Listen(std::vector<double> jointValues){
+	bool Listen(std::vector<double>& jointValues){
 		bool ret = false;
 		zmq::message_t address;
 		if (m_pSocket->recv(&address)){
@@ -51,6 +51,7 @@ public:
 						const experimot::msgs::JointValue& jVal = jVector.jointvalues(i);
 						jointValues[jVal.id()] = jVal.value();
 					}
+					//jVector.PrintDebugString();
 					ret = true;
 				}
 

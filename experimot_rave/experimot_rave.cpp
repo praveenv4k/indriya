@@ -324,7 +324,7 @@ public:
 			{
 				experimot::msgs::JointValueVector jVector;
 				if (jVector.ParseFromArray(data.data(), data.size())){
-					jVector.PrintDebugString();
+					//jVector.PrintDebugString();
 					//std::cout << "Size: " << jvMap.map_field_size() << std::endl;
 					std::vector<double> jointValues;
 					jointValues.resize(jVector.jointvalues_size());
@@ -349,6 +349,61 @@ private:
 	std::string m_strSubsribeTo;
 };
 
+class TorsoPoseListener{
+public:
+	//  Prepare our context and subscriber
+	TorsoPoseListener(){
+		m_pContext = ZmqContextPtr(new zmq::context_t(1));
+		m_pSocket = ZmqSocketPtr(new zmq::socket_t(*m_pContext, ZMQ_SUB));
+		m_pSocket->connect("tcp://localhost:5566");
+		m_strSubsribeTo = std::string("TPP");
+		m_pSocket->setsockopt(ZMQ_SUBSCRIBE, m_strSubsribeTo.c_str(), m_strSubsribeTo.size());
+	}
+
+	static void ProtoToRave(const experimot::msgs::Pose& pose, OpenRAVE::Transform& tfm){
+		// Set Position
+		tfm.trans[0] = pose.position().x() / 1000;
+		tfm.trans[1] = pose.position().y() / 1000;
+		tfm.trans[2] = pose.position().z() / 1000;
+		// Set Orientation
+		tfm.rot[0] = pose.orientation().w();
+		tfm.rot[1] = pose.orientation().x();
+		tfm.rot[2] = pose.orientation().y();
+		tfm.rot[3] = pose.orientation().z();
+	}
+
+	void Listen(EnvironmentBasePtr penv){
+		while (!done) {
+			zmq::message_t address;
+			m_pSocket->recv(&address);
+
+			zmq::message_t data;
+			m_pSocket->recv(&data);
+
+			{
+				experimot::msgs::Pose pose;
+				if (pose.ParseFromArray(data.data(), data.size())){
+					pose.PrintDebugString();
+					Transform tfm;
+					ProtoToRave(pose, tfm);
+					{
+						EnvironmentMutex::scoped_lock lock(penv->GetMutex());
+						RobotBasePtr probot = orMacroGetRobot(penv, 1);
+						if (probot){
+							probot->SetTransform(tfm);
+						}
+					}
+				}
+
+			}
+		}
+	}
+private:
+	ZmqContextPtr m_pContext;
+	ZmqSocketPtr m_pSocket;
+	std::string m_strSubsribeTo;
+};
+
 class KinectStateListener{
 public:
 	//  Prepare our context and subscriber
@@ -358,6 +413,19 @@ public:
 		m_pSocket->connect("tcp://localhost:5564");
 		m_strSubsribeTo = std::string("KSP");
 		m_pSocket->setsockopt(ZMQ_SUBSCRIBE, m_strSubsribeTo.c_str(), m_strSubsribeTo.size());
+	}
+
+	void KinectPointsProcess(const experimot::msgs::Vector3d& p0, RaveVector<float>& p0_out){
+#if 1
+		p0_out = RaveVector<float>(p0.z(), p0.x(), p0.y());
+#else
+		RaveVector<float> jp0(p0.x(), p0.y(), p0.z());
+		RaveTransform<float> tf(RaveVector<float>(1, 0, 0, 0), jp0);
+		RaveTransform<float> rot_x(geometry::quatFromAxisAngle(RaveVector<float>(1, 0, 0), (float)(-OpenRAVE::PI / 2)), RaveVector<float>(0, 0, 0));
+		RaveTransform<float> rot_z(geometry::quatFromAxisAngle(RaveVector<float>(0, 0, 1), (float)(-OpenRAVE::PI / 2)), RaveVector<float>(0, 0, 0));
+		RaveTransform<float> out = tf*rot_x*rot_z;
+		p0_out = out.trans;
+#endif
 	}
 
 	void Listen(EnvironmentBasePtr penv){
@@ -412,10 +480,13 @@ public:
 
 								const experimot::msgs::Vector3d& jointPos0 = joint0.position();
 								const experimot::msgs::Vector3d& jointPos1 = joint1.position();
+								RaveVector<float> jp0, jp1;
+								KinectPointsProcess(jointPos0, jp0);
+								KinectPointsProcess(jointPos1, jp1);
 
-								vector<RaveVector<float> > vpoints;
-								vpoints.push_back(RaveVector<float>(jointPos0.x(), jointPos0.y(), jointPos0.z()));
-								vpoints.push_back(RaveVector<float>(jointPos1.x(), jointPos1.y(), jointPos1.z()));
+								vector<RaveVector<float>> vpoints;
+								vpoints.push_back(jp0);
+								vpoints.push_back(jp1);
 								
 								listgraphs.push_back(penv->drawlinestrip(&vpoints[0].x, vpoints.size(), sizeof(vpoints[0]), boneW , drawPen));
 							}
@@ -742,6 +813,17 @@ int main(int argc, char ** argv)
 		string scenefilename = "data/nao.dae";
 		string viewername = "qtcoin";
 
+		experimot::msgs::Vector3d sample;
+		sample.set_x(100);
+		sample.set_y(200);
+		sample.set_z(500);
+
+		KinectStateListener klistener;
+		RaveVector<float> pOut;
+		klistener.KinectPointsProcess(sample, pOut);
+		sample.PrintDebugString();
+		std::cout << pOut << std::endl;
+
 		// parse the command line options
 		int i = 1;
 		while (i < argc) {
@@ -773,11 +855,13 @@ int main(int argc, char ** argv)
 		//RobotStatePublisher publisher;
 		//publisher.Init(std::string("datalog.csv"));
 		RobotStateListener listener;
-		KinectStateListener klistener;
+		//KinectStateListener klistener;
+		TorsoPoseListener tlistener;
 
 		//boost::thread thPublisher(boost::bind(&RobotStatePublisher::PublishJointValues, &publisher));
 		boost::thread thRobotSubscriber(boost::bind(&RobotStateListener::Listen, &listener, penv));
 		boost::thread thKinectSubscriber(boost::bind(&KinectStateListener::Listen, &klistener, penv));
+		boost::thread thTorsoSubscriber(boost::bind(&TorsoPoseListener::Listen, &tlistener, penv));
 
 		thviewer.join(); // wait for the viewer thread to exit
 
@@ -786,6 +870,7 @@ int main(int argc, char ** argv)
 		//thPublisher.join();
 		thRobotSubscriber.join();
 		thKinectSubscriber.join();
+		thTorsoSubscriber.join();
 
 		penv->Destroy(); // destroy
 	}

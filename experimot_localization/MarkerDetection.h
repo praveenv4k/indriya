@@ -86,7 +86,6 @@ public:
 			}
 			else{
 				outTf = tfs[0];
-				std::cout << "Hello " << std::endl;
 			}
 		}
 	}
@@ -126,8 +125,10 @@ public:
 			double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
 			double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
 
-			if (id == 7)
+			if (id == 7){
 				p.Output();
+				std::cout << "Error : " << temp_error << std::endl;
+			}
 		}
 		if (marker_detector.markers->size() > 0){
 			Pose p_res;
