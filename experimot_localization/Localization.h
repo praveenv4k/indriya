@@ -80,6 +80,9 @@ public:
 
 				Transform markerTfm;
 				m_pMarkerDetectionPtr->Videocallback(img, eef, markerTfm, true);
+
+				m_pRobotPoseInfoPtr->SetMarkerTransform(markerTfm);
+
 				cv::Mat temp(img);
 				cvShowImage("Image View", img);
 				cvRelease((void**)&img);

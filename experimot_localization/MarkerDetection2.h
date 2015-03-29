@@ -1,5 +1,5 @@
-#ifndef __MARKER_DETECTION_H__
-#define __MARKER_DETECTION_H__
+#ifndef __MARKER_DETECTION2_H__
+#define __MARKER_DETECTION2_H__
 
 #include "Marker.h"
 #include "MarkerDetector.h"
@@ -12,22 +12,20 @@
 using namespace alvar;
 using namespace std;
 
-class MarkerDetection;
+class MarkerDetection2;
 
-#define PRINT_MSG 0
+typedef boost::shared_ptr<MarkerDetection2> MarkerDetection2Ptr;
 
-typedef boost::shared_ptr<MarkerDetection> MarkerDetectionPtr;
-
-class MarkerDetection{
+class MarkerDetection2{
 
 public:
-	MarkerDetection(std::string& calibFile, int markerSize, int cubeSize) :m_strCalibFile(calibFile), m_nMarkerSize(markerSize), m_nCubeSize(cubeSize)
+	MarkerDetection2(std::string& calibFile, int markerSize, int cubeSize) :m_strCalibFile(calibFile), m_nMarkerSize(markerSize), m_nCubeSize(cubeSize)
 	{
 		max_error = std::numeric_limits<double>::max();
 		_init();
 	}
 
-	~MarkerDetection(){}
+	~MarkerDetection2(){}
 
 	static void VisualizeMarkerPose(IplImage *image, Camera *cam, double visualize2d_points[12][2], CvScalar color) {
 		// Cube
@@ -69,13 +67,15 @@ public:
 		VisualizeMarkerPose(image, cam, visualize2d_points, color);
 	}
 
-	void TransformToTopFrame(std::map<int,Pose>& poseMap, Transform& outTf){
+	void TransformToTopFrame(std::map<int, Pose>& poseMap, Transform& outTf){
 		std::vector<Transform> tfs;
 		FOREACH(it, poseMap){
 			Transform tf;
 			TransformationHelper::PoseToTransform(it->second, tf);
-			int factor = tf.rot[0] < 0 ? 1 : -1;
-			Transform tf2(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2)), Vector(0, (double)m_nCubeSize / 2, -(double)m_nCubeSize / 2));
+
+			//int factor = tf.rot[0] < 0 ? 1 : -1;
+			Transform tf2(RaveVector<dReal>(1, 0, 0, 0), Vector(0, (double)m_nCubeSize / 2, -(double)m_nCubeSize / 2));
+
 			tfs.push_back(tf*tf2*m_MarkerTransformMapping[it->first]);
 		}
 		outTf.identity();
@@ -92,7 +92,7 @@ public:
 		}
 	}
 
-	void Videocallback(IplImage *image, Transform& localTfm, Transform& out_tfm, bool drawTorso=false)
+	void Videocallback(IplImage *image, Transform& localTfm, Transform& out_tfm, bool drawTorso = false)
 	{
 		static IplImage *rgba;
 		bool flip_image = (image->origin ? true : false);
@@ -108,7 +108,7 @@ public:
 
 		double error = max_error;
 		int best_marker = -1;
-		std::map<int,Pose> markerPoses;
+		std::map<int, Pose> markerPoses;
 		for (size_t i = 0; i < marker_detector.markers->size(); i++) {
 			if (i >= 32) break;
 
@@ -127,12 +127,10 @@ public:
 			double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
 			double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
 
-#if PRINT_MSG
 			if (id == 7){
 				p.Output();
 				std::cout << "Error : " << temp_error << std::endl;
 			}
-#endif
 		}
 		if (marker_detector.markers->size() > 0){
 			Pose p_res;
@@ -211,11 +209,10 @@ public:
 			if (drawTorso){
 				Pose p_out;
 				TransformationHelper::ComputeTorsoFrame(p_res, localTfm, p_out);
-				std::cout << "Displaying : ( " << p_out.translation[0] << ", " << p_out.translation[1] << ", " << p_out.translation[2] << " )" << std::endl;
 				Visualize(image, &m_camera, m_nMarkerSize, p_out, CV_RGB(0, 0, 255));
 				//p_out.Output();
 			}
-			
+
 			Visualize(image, &m_camera, m_nMarkerSize, p_res, CV_RGB(255, 0, 0));
 #endif
 		}
@@ -240,13 +237,14 @@ private:
 			cout << " [Fail]" << endl;
 		}
 
-		Vector rot_z(0, 0, 1);
+		Vector rot_y(0, 1, 0);
+		Vector rot_x(1, 0, 0);
 
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(7, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI / 2)), Vector())));
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(0, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI)), Vector())));
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(13, Transform(geometry::quatFromAxisAngle(rot_z, 0.0), Vector())));
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(10, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI / 2)), Vector())));
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(14, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI / 2)), Vector())));
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(7, Transform(Vector(1, 0, 0, 0), Vector())));
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(0, Transform(geometry::quatFromAxisAngle(rot_y, -(alvar::PI / 2)), Vector())));
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(13, Transform(geometry::quatFromAxisAngle(rot_y, (alvar::PI / 2)), Vector())));
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(10, Transform(geometry::quatFromAxisAngle(rot_y, (alvar::PI)), Vector())));
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(14, Transform(geometry::quatFromAxisAngle(rot_x, -(alvar::PI / 2)), Vector())));
 
 		return ret;
 	}
