@@ -1,0 +1,26 @@
+CSV File					OpenRave
+0 HeadPitch			- 1 	HeadYaw 
+1 HeadYaw  			- 0 	HeadPitch
+2 LAnklePitch		- 9 	LHipYawPitch
+3 LAnkleRoll		- 8		LHipRoll
+4 LElbowRoll 		- 7 	LHipPitch
+5 LElbowYaw			- 10	LKneePitch
+6 LHand				- 2	 	LAnklePitch
+7 LHipPitch		    - 3		LAnkleRoll
+8 LHipRoll  	 	- 11	LShoulderPitch
+9 LHipYawPitch  	- 12	LShoulderRoll
+10 LKneePitch		- 5		LElbowYaw
+11 LShoulderPitch	- 4		LElbowRoll
+12 LShoulderRoll	- 13	LWristYaw
+13 LWristYaw		- 6		LHand
+14 RAnklePitch		- 20	RHipRoll
+15 RAnkleRoll		- 19	RHipPitch
+16 RElbowRoll		- 21	RKneePitch
+17 RElbowYaw		- 14	RAnklePitch
+18 RHand			- 15	RAnkleRoll
+19 RHipPitch		- 22	RShoulderPitch
+20 RHipRoll		-     23	RShoulderRoll
+21 RKneePitch		- 17	RElbowYaw
+22 RShoulderPitch	- 16	RElbowRoll
+23 RShoulderRoll	- 24	RWristYaw
+24 RWristYaw		- 18	RHand
