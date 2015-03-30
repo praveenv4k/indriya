@@ -83,13 +83,15 @@ public:
 		//std::cout << "Link1: " << alpha << ", " << d << ", " << theta << ", " << r << std::endl;
 
 		Transform link1; link1.identity();
-		if (test)
+		if (test){
 			link1 = computeTransformMatrix(alpha, d, theta, r);
-		else
+		}
+		else{
 			link1 = Transform(geometry::quatFromAxisAngle(rot_x, alpha), Vector(0, 0, 0))*
-			Transform(Vector(1, 0, 0, 0), Vector(d, 0, 0))*
-			Transform(geometry::quatFromAxisAngle(rot_z, theta), Vector(0, 0, 0))*
-			Transform(Vector(1, 0, 0, 0), Vector(0, 0, r));
+				Transform(Vector(1, 0, 0, 0), Vector(d, 0, 0))*
+				Transform(geometry::quatFromAxisAngle(rot_z, theta), Vector(0, 0, 0))*
+				Transform(Vector(1, 0, 0, 0), Vector(0, 0, r));
+		}
 
 		alpha = std::get<0>(_params[1]);
 		d = std::get<1>(_params[1]);
@@ -99,13 +101,15 @@ public:
 		//std::cout << "Link2: " << alpha << ", " << d << ", " << theta << ", " << r << std::endl;
 
 		Transform link2; link2.identity();
-		if (test)
+		if (test){
 			link2 = computeTransformMatrix(alpha, d, theta, r);
-		else
+		}
+		else{
 			link2 = Transform(geometry::quatFromAxisAngle(rot_x, alpha), Vector(0, 0, 0))*
-			Transform(Vector(1, 0, 0, 0), Vector(d, 0, 0))*
-			Transform(geometry::quatFromAxisAngle(rot_z, theta), Vector(0, 0, 0))*
-			Transform(Vector(1, 0, 0, 0), Vector(0, 0, r));
+				Transform(Vector(1, 0, 0, 0), Vector(d, 0, 0))*
+				Transform(geometry::quatFromAxisAngle(rot_z, theta), Vector(0, 0, 0))*
+				Transform(Vector(1, 0, 0, 0), Vector(0, 0, r));
+		}
 
 		alpha = OpenRAVE::PI / 2;
 		d = 0;
@@ -115,16 +119,84 @@ public:
 		//std::cout << "Link3: " << alpha << ", " << d << ", " << theta << ", " << r << std::endl;
 
 		Transform eef; eef.identity();
-		if (test)
+		if (test){
 			eef = computeTransformMatrix(alpha, d, theta, r);
-		else
+		}
+		else{
 			eef = Transform(geometry::quatFromAxisAngle(rot_x, alpha), Vector(0, 0, 0))*
-			Transform(Vector(1, 0, 0, 0), Vector(d, 0, 0))*
-			Transform(geometry::quatFromAxisAngle(rot_z, theta), Vector(0, 0, 0))*
-			Transform(Vector(1, 0, 0, 0), Vector(0, 0, r));
+				Transform(Vector(1, 0, 0, 0), Vector(d, 0, 0))*
+				Transform(geometry::quatFromAxisAngle(rot_z, theta), Vector(0, 0, 0))*
+				Transform(Vector(1, 0, 0, 0), Vector(0, 0, r));
+		}
 
 		//transform = eefTransform*_eefTransform;
 		transform = link1*link2*eef;
+	}
+
+	void GetTorsoTransform(const vector<dReal> q, const Transform& markerTransform, Transform& torsoTransform) const{
+		Vector rot_x(1, 0, 0);
+		Vector rot_z(0, 0, 1);
+
+		bool test = true;
+
+		/*Transform tf1 = markerTransform * Transform(geometry::quatFromAxisAngle(rot_z, OpenRAVE::PI / 2), Vector(0, 0, 0));
+		tf1 = tf1 * Transform(geometry::quatFromAxisAngle(rot_x, OpenRAVE::PI / 2), Vector(0, 0, 0));
+		
+		tf1 = markerTransform;
+		tf1.trans = tf1.rotate(markerTransform.trans);*/
+		//torsoTransform = markerTransform;
+
+		//dReal alpha = OpenRAVE::PI / 2;
+		dReal alpha = 0;
+		dReal d = 0;
+		dReal theta = q[1];
+		dReal r = -(110.0 + 64.0);
+
+		Transform link1; link1.identity();
+		if (test){
+			link1 = computeTransformMatrix(alpha, d, theta, r);
+		}
+		else{
+			link1 = Transform(geometry::quatFromAxisAngle(rot_x, alpha), Vector(0, 0, 0))*
+				Transform(Vector(1, 0, 0, 0), Vector(d, 0, 0))*
+				Transform(geometry::quatFromAxisAngle(rot_z, theta), Vector(0, 0, 0))*
+				Transform(Vector(1, 0, 0, 0), Vector(0, 0, r));
+		}
+
+		alpha = -OpenRAVE::PI / 2;
+		d = 0;
+		theta = q[0];
+		r = 0;
+
+		Transform link2; link2.identity();
+		if (test){
+			link2 = computeTransformMatrix(alpha, d, theta, r);
+		}
+		else{
+			link2 = Transform(geometry::quatFromAxisAngle(rot_x, alpha), Vector(0, 0, 0))*
+				Transform(Vector(1, 0, 0, 0), Vector(d, 0, 0))*
+				Transform(geometry::quatFromAxisAngle(rot_z, theta), Vector(0, 0, 0))*
+				Transform(Vector(1, 0, 0, 0), Vector(0, 0, r));
+		}
+
+		//alpha = 0;
+		alpha = OpenRAVE::PI / 2;;
+		d = 0;
+		theta = 0;
+		r = -126.50;
+
+		Transform eef; eef.identity();
+		if (test){
+			eef = computeTransformMatrix(alpha, d, theta, r);
+		}
+		else{
+			eef = Transform(geometry::quatFromAxisAngle(rot_x, alpha), Vector(0, 0, 0))*
+				Transform(Vector(1, 0, 0, 0), Vector(d, 0, 0))*
+				Transform(geometry::quatFromAxisAngle(rot_z, theta), Vector(0, 0, 0))*
+				Transform(Vector(1, 0, 0, 0), Vector(0, 0, r));
+		}
+
+		torsoTransform = markerTransform*link1*link2*eef;
 	}
 
 	Transform computeTransformMatrix(dReal alpha, dReal d, dReal theta, dReal r) const {

@@ -79,7 +79,7 @@ public:
 				NaoHeadTransformHelper::instance()->GetEndEffectorTransform(headJoints, eef);
 
 				Transform markerTfm;
-				m_pMarkerDetectionPtr->Videocallback(img, eef, markerTfm, true);
+				m_pMarkerDetectionPtr->Videocallback(img, eef, markerTfm, headJoints, true);
 
 				m_pRobotPoseInfoPtr->SetMarkerTransform(markerTfm);
 
@@ -127,6 +127,7 @@ public:
 						headJoints.push_back(jointVals[0]);
 						headJoints.push_back(jointVals[1]);
 
+#if 0
 						Transform eef;
 						NaoHeadTransformHelper::instance()->GetEndEffectorTransform(headJoints, eef);
 
@@ -134,6 +135,11 @@ public:
 
 						Transform torsoTfm;
 						TransformationHelper::ComputeTorsoFrame(markerTfm, eef, torsoTfm);
+#else 
+						const Transform& markerTfm = m_pRobotPoseInfoPtr->GetMarkerTransform();
+						Transform torsoTfm;
+						NaoHeadTransformHelper::instance()->GetTorsoTransform(headJoints, markerTfm, torsoTfm);
+#endif
 
 						m_pTorsoPosePublisherPtr->Publish(torsoTfm);
 					}
