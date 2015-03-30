@@ -13,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <NuGetPackageImportStamp>6015327a</NuGetPackageImportStamp>
+	<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,10 +34,88 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Caliburn.Micro">
+      <HintPath>..\..\packages\Caliburn.Micro.Core.2.0.2\lib\net45\Caliburn.Micro.dll</HintPath>
+    </Reference>
+    <Reference Include="Caliburn.Micro.Platform">
+      <HintPath>..\..\packages\Caliburn.Micro.2.0.2\lib\net45\Caliburn.Micro.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Gemini, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\Gemini.dll</HintPath>
+    </Reference>
+    <Reference Include="Gemini.Modules.GraphEditor, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\Gemini.Modules.GraphEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Gemini.Modules.Inspector, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\Gemini.Modules.Inspector.dll</HintPath>
+    </Reference>
+    <Reference Include="Gemini.Modules.Output, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\Gemini.Modules.Output.dll</HintPath>
+    </Reference>
+    <Reference Include="Gemini.Modules.PropertyGrid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\Gemini.Modules.PropertyGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Gemini.Modules.SharpDX, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\Gemini.Modules.SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="HelixToolkit">
+      <HintPath>..\..\packages\HelixToolkit.2015.1.503\lib\portable-net4+sl4+wp71+win8\HelixToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="HelixToolkit.Wpf">
+      <HintPath>..\..\packages\HelixToolkit.Wpf.2015.1.503\lib\net45\HelixToolkit.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.AvalonEdit">
+      <HintPath>..\..\packages\AvalonEdit.5.0.2\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis">
+      <HintPath>..\..\packages\Microsoft.CodeAnalysis.Common.1.0.0-rc1\lib\net45\Microsoft.CodeAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp">
+      <HintPath>..\..\packages\Microsoft.CodeAnalysis.CSharp.1.0.0-rc1\lib\net45\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp.Desktop">
+      <HintPath>..\..\packages\Microsoft.CodeAnalysis.CSharp.1.0.0-rc1\lib\net45\Microsoft.CodeAnalysis.CSharp.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Desktop">
+      <HintPath>..\..\packages\Microsoft.CodeAnalysis.Common.1.0.0-rc1\lib\net45\Microsoft.CodeAnalysis.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX">
+      <HintPath>$(SharpDXPackageBinDir)\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct3D11">
+      <HintPath>$(SharpDXPackageBinDir)\SharpDX.Direct3D11.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.DXGI">
+      <HintPath>$(SharpDXPackageBinDir)\SharpDX.DXGI.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Toolkit">
+      <HintPath>$(SharpDXPackageBinDir)\SharpDX.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Toolkit.Graphics">
+      <HintPath>$(SharpDXPackageBinDir)\SharpDX.Toolkit.Graphics.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>..\..\packages\System.Collections.Immutable.1.1.33-beta\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Reflection.Metadata">
+      <HintPath>..\..\packages\System.Reflection.Metadata.1.0.18-beta\lib\portable-net45+win8\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -47,6 +127,24 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock">
+      <HintPath>..\..\packages\Extended.Wpf.Toolkit.2.4\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero">
+      <HintPath>..\..\packages\Extended.Wpf.Toolkit.2.4\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro">
+      <HintPath>..\..\packages\Extended.Wpf.Toolkit.2.4\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010">
+      <HintPath>..\..\packages\Extended.Wpf.Toolkit.2.4\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid">
+      <HintPath>..\..\packages\Extended.Wpf.Toolkit.2.4\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\..\packages\Extended.Wpf.Toolkit.2.4\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -65,8 +163,101 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Modules\FilterDesigner\Views\GraphView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Home\Views\HelixView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Home\Views\HomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\SampleBrowser\Views\SampleBrowserView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\SharpDXSceneViewer\Views\SceneView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Shell\Views\DemoApplicationSettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\TextEditor\Views\EditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modules\FilterDesigner\Commands\OpenGraphCommandDefinition.cs" />
+    <Compile Include="Modules\FilterDesigner\Commands\OpenGraphCommandHandler.cs" />
+    <Compile Include="Modules\FilterDesigner\Design\DesignTimeGraphViewModel.cs" />
+    <Compile Include="Modules\FilterDesigner\Design\DesignTimeImages.cs" />
+    <Compile Include="Modules\FilterDesigner\MenuDefinitions.cs" />
+    <Compile Include="Modules\FilterDesigner\Sample.cs" />
+    <Compile Include="Modules\FilterDesigner\ShaderEffects\AddEffect.cs" />
+    <Compile Include="Modules\FilterDesigner\ShaderEffects\MultiplyEffect.cs" />
+    <Compile Include="Modules\FilterDesigner\ShaderEffects\ShaderEffectBase.cs" />
+    <Compile Include="Modules\FilterDesigner\Util\BitmapUtility.cs" />
+    <Compile Include="Modules\FilterDesigner\Util\FastBitmap.cs" />
+    <Compile Include="Modules\FilterDesigner\Util\ShaderEffectUtility.cs" />
+    <Compile Include="Modules\FilterDesigner\ViewModels\ConnectionViewModel.cs" />
+    <Compile Include="Modules\FilterDesigner\ViewModels\ConnectorDirection.cs" />
+    <Compile Include="Modules\FilterDesigner\ViewModels\ConnectorViewModel.cs" />
+    <Compile Include="Modules\FilterDesigner\ViewModels\Elements\Add.cs" />
+    <Compile Include="Modules\FilterDesigner\ViewModels\Elements\ColorInput.cs" />
+    <Compile Include="Modules\FilterDesigner\ViewModels\Elements\DynamicElement.cs" />
+    <Compile Include="Modules\FilterDesigner\ViewModels\Elements\ImageSource.cs" />
+    <Compile Include="Modules\FilterDesigner\ViewModels\Elements\Multiply.cs" />
+    <Compile Include="Modules\FilterDesigner\ViewModels\Elements\ShaderEffectElement.cs" />
+    <Compile Include="Modules\FilterDesigner\ViewModels\ElementViewModel.cs" />
+    <Compile Include="Modules\FilterDesigner\ViewModels\GraphViewModel.cs" />
+    <Compile Include="Modules\FilterDesigner\ViewModels\InputConnectorViewModel.cs" />
+    <Compile Include="Modules\FilterDesigner\ViewModels\OutputConnectorViewModel.cs" />
+    <Compile Include="Modules\FilterDesigner\Views\GraphView.xaml.cs">
+      <DependentUpon>GraphView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Home\Commands\ViewHelixCommandDefinition.cs" />
+    <Compile Include="Modules\Home\Commands\ViewHelixCommandHandler.cs" />
+    <Compile Include="Modules\Home\Module.cs" />
+    <Compile Include="Modules\Home\ViewModels\HelixViewModel.cs" />
+    <Compile Include="Modules\Home\ViewModels\HomeViewModel.cs" />
+    <Compile Include="Modules\Home\ViewModels\IDemoScript.cs" />
+    <Compile Include="Modules\Home\Views\HelixView.xaml.cs">
+      <DependentUpon>HelixView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Home\Views\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Home\Views\IHelixView.cs" />
+    <Compile Include="Modules\Home\Commands\ViewHomeCommandDefinition.cs" />
+    <Compile Include="Modules\Home\Commands\ViewHomeCommandHandler.cs" />
+    <Compile Include="Modules\SharpDXSceneViewer\Sample.cs" />
+    <Compile Include="Modules\SharpDXSceneViewer\ViewModels\SceneViewModel.cs" />
+    <Compile Include="Modules\SharpDXSceneViewer\Views\SceneView.xaml.cs">
+      <DependentUpon>SceneView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Shell\ViewModels\DemoApplicationSettingsViewModel.cs" />
+    <Compile Include="Modules\Shell\ViewModels\ShellViewModel.cs" />
+    <Compile Include="Modules\Shell\Views\DemoApplicationSettingsView.xaml.cs">
+      <DependentUpon>DemoApplicationSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\SampleBrowser\ISample.cs" />
+    <Compile Include="Modules\SampleBrowser\Module.cs" />
+    <Compile Include="Modules\SampleBrowser\ViewModels\SampleBrowserViewModel.cs" />
+    <Compile Include="Modules\SampleBrowser\Views\SampleBrowserView.xaml.cs">
+      <DependentUpon>SampleBrowserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Startup\Module.cs" />
+    <Compile Include="Modules\TextEditor\EditorProvider.cs" />
+    <Compile Include="Modules\TextEditor\ViewModels\EditorViewModel.cs" />
+    <Compile Include="Modules\TextEditor\Views\EditorView.xaml.cs">
+      <DependentUpon>EditorView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -84,6 +275,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,7 +285,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="Resources\logo.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\packages\SharpDX.2.6.3\build\SharpDX.targets" Condition="Exists('..\..\packages\SharpDX.2.6.3\build\SharpDX.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\SharpDX.2.6.3\build\SharpDX.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\SharpDX.2.6.3\build\SharpDX.targets'))" />
+    <Error Condition="!Exists('..\..\packages\SharpDX.Toolkit.2.6.3\build\SharpDX.Toolkit.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\SharpDX.Toolkit.2.6.3\build\SharpDX.Toolkit.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\SharpDX.Toolkit.2.6.3\build\SharpDX.Toolkit.targets" Condition="Exists('..\..\packages\SharpDX.Toolkit.2.6.3\build\SharpDX.Toolkit.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
