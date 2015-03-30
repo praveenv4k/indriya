@@ -418,7 +418,7 @@ public:
 	void KinectPointsProcess(const experimot::msgs::Vector3d& p0, RaveVector<float>& p0_out){
 #if 1
 		p0_out = RaveVector<float>(p0.z(), p0.x(), p0.y());
-		p0_out = RaveVector<float>(p0.x(), p0.y(), p0.z());
+		p0_out = RaveVector<float>(p0.x(), -p0.y(), p0.z());
 #else
 		RaveVector<float> jp0(p0.x(), p0.y(), p0.z());
 		RaveTransform<float> tf(RaveVector<float>(1, 0, 0, 0), jp0);
@@ -519,6 +519,7 @@ public:
 							{
 								const experimot::msgs::Vector3d& jointPos = joint.position();
 								RaveVector<float> pos(jointPos.x(), jointPos.y(), jointPos.z());
+								KinectPointsProcess(jointPos, pos);
 								jointPoints.push_back(pos);
 								jointColors.push_back(drawBrush);
 							}

@@ -7,6 +7,7 @@
 #include <opencv/cv.h>
 
 #include "TransformationHelper.h"
+#include "NaoHeadTransformHelper.h"
 #include "Common.h"
 
 using namespace alvar;
@@ -89,10 +90,15 @@ public:
 			else{
 				outTf = tfs[0];
 			}
+#if PRINT_MSG
+			Transform disp;
+			TransformationHelper::PoseToTransform(poseMap.at(7), disp);
+			cout << "First marker: " << disp << "; Top marker: " << outTf << std::endl;
+#endif
 		}
 	}
 
-	void Videocallback(IplImage *image, Transform& localTfm, Transform& out_tfm, bool drawTorso=false)
+	void Videocallback(IplImage *image, Transform& localTfm, Transform& out_tfm, std::vector<double>& q, bool drawTorso=false)
 	{
 		static IplImage *rgba;
 		bool flip_image = (image->origin ? true : false);
@@ -210,7 +216,16 @@ public:
 
 			if (drawTorso){
 				Pose p_out;
+				Transform torso_tfm;
+				
+#if 0
 				TransformationHelper::ComputeTorsoFrame(p_res, localTfm, p_out);
+#else			
+				//Transform temp(out_tfm.rot, Vector(out_tfm.trans.z, out_tfm.trans.x, out_tfm.trans.y));
+				NaoHeadTransformHelper::instance()->GetTorsoTransform(q, out_tfm, torso_tfm);
+				TransformationHelper::TransformToPose(torso_tfm, p_out);
+#endif
+				
 				std::cout << "Displaying : ( " << p_out.translation[0] << ", " << p_out.translation[1] << ", " << p_out.translation[2] << " )" << std::endl;
 				Visualize(image, &m_camera, m_nMarkerSize, p_out, CV_RGB(0, 0, 255));
 				//p_out.Output();
