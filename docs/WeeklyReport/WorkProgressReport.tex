@@ -520,5 +520,80 @@
     \end{longtable}
 \end{center}
 
+\newpage
+\section{2015/03/30-2015/04/05}
+
+\begin{center}
+    \begin{longtable}{ | c | p{6cm} | p{5cm} |}
+    \hline
+    Date & Content & Problems/Remarks \\ 
+    \endhead
+    \hline    
+     2015/03/30         & 
+  \begin{itemize}
+  \item Nao localization test. Fixed the torso frame calculation bug. 
+\end{itemize}  
+   & The pose computation is still sometimes strange. The frames of reference are not perfectly synchronized. Need more test. \\
+\hline
+  										 
+ 2015/03/31         & 
+  \begin{itemize}
+  \item Kinect body information display in openrave environment alongside Nao robot. - Works well 
+  \item Real time Nao robot simulation in OpenRave environment (\url{http://youtu.be/wUgRbslD6jk})
+  \item Absolute localization based on markers - test started
+\end{itemize}   
+& 
+  \begin{itemize}
+  \item -
+\end{itemize}  \\
+\hline
+  										 
+  
+  2015/04/01        & 
+  \begin{itemize}
+  \item Integration of localization module in the framework (experimot\_localization)
+  \item Kinect Playback tool IR stream support added
+\end{itemize}   
+  										 & - \\
+  \hline
+  
+  2015/04/02         & 
+  \begin{itemize}
+  \item Integration of localization module. Developed nao Marker frame forward kinematics module and tested against openrave forward kinematics.
+\end{itemize}   
+  & 
+\\  										 \hline
+
+  2015/04/03         & 
+  \begin{itemize}
+  \item Major refacoring of localization module
+  \item Unit testing
+  \item Localization IPC setup
+\end{itemize}   
+  & 
+- \\
+  										 \hline
+  										 
+	 2015/04/04         & 
+  \begin{itemize}
+  \item Bug fixes
+  \item Complete communication flow test (Localization, Robot-interface, Skeleton-tracking, Simulator)
+\end{itemize}   
+  & 
+\begin{itemize}
+\item Need to fine tune localization. Position looks good. Orientation is a concern ( TODO Item : Modify the way in which the torso frame is computed. )
+\item Coordinate frames has to be synchronized.
+\end{itemize}			\\					 \hline  	
+
+2015/04/05         & 
+  \begin{itemize}
+  \item Quartz scheduler - Feasibility study (Looks promising)
+\end{itemize}   
+  & 
+-  					\\					 \hline  										 
+  										   										 
+    \end{longtable}
+\end{center}
+
 
 \end{document}
