@@ -13,9 +13,41 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Quartz;
 using Quartz.Impl;
+using System.Collections.Specialized;
+using Quartz.Impl.Matchers;
 
-namespace Sample
+namespace Scheduler
 {
+    internal class JobListener : IJobListener
+    {
+        private MainWindow _window;
+        public JobListener(MainWindow window)
+        {
+            _window = window;
+        }
+        public void JobExecutionVetoed(IJobExecutionContext context)
+        {
+        }
+
+        public void JobToBeExecuted(IJobExecutionContext context)
+        {
+            _window.JobToBeExecuted(context);
+            System.Diagnostics.Debug.WriteLine(string.Format("About to execute task : {0}", context.JobDetail.Description));
+            //context.JobDetail.Description
+        }
+
+        public void JobWasExecuted(IJobExecutionContext context, JobExecutionException jobException)
+        {
+            _window.JobWasExecuted(context,jobException);
+            System.Diagnostics.Debug.WriteLine(string.Format("Finished to execute task : {0}", context.JobDetail.Description));
+        }
+
+        public string Name
+        {
+            get { return "JobListener"; }
+        }
+    }
+
     internal class SimpleTask : IJob
     {
         //private string _message;
@@ -43,15 +75,30 @@ namespace Sample
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IJobListener
     {
         private ISchedulerFactory _schedulerFactory;
         private IScheduler _scheduler;
         public MainWindow()
         {
             InitializeComponent();
-            _schedulerFactory = new StdSchedulerFactory();
+
+            // our properties that enable XML configuration plugin
+            // and makes it watch for changes every two minutes (120 seconds)
+            var properties = new NameValueCollection();
+            properties["quartz.plugin.triggHistory.type"] = "Quartz.Plugin.History.LoggingJobHistoryPlugin";
+
+            properties["quartz.plugin.jobInitializer.type"] = "Quartz.Plugin.Xml.XMLSchedulingDataProcessorPlugin";
+            properties["quartz.plugin.jobInitializer.fileNames"] = "quartz_config.xml";
+            properties["quartz.plugin.jobInitializer.failOnFileNotFound"] = "true";
+            //properties["quartz.plugin.jobInitializer.scanInterval"] = "120";
+
+            _schedulerFactory = new StdSchedulerFactory(properties);
             _scheduler = _schedulerFactory.GetScheduler();
+
+            this.Name = "ScheduleTest";
+            _scheduler.ListenerManager.AddJobListener(new JobListener(this), GroupMatcher<JobKey>.AnyGroup());
+
             _scheduler.Start();
 
             this.Closing += MainWindow_Closing;
@@ -93,5 +140,46 @@ namespace Sample
         }
 
 
+
+        public void JobExecutionVetoed(IJobExecutionContext context)
+        {
+        }
+
+        bool color = false;
+        public void JobToBeExecuted(IJobExecutionContext context)
+        {
+            try
+            {
+                this.Dispatcher.Invoke((Action)(() =>
+                {
+                    try
+                    {
+                        if (color) this.button1.Background = new SolidColorBrush(Colors.Green);
+                        else this.button1.Background = new SolidColorBrush(Colors.Red);
+                        color = !color;
+                        this.textBox.AppendText(string.Format("About to execute task : {0}\n", context.JobDetail.Key));
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                    }
+                }));
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+        }
+
+        public void JobWasExecuted(IJobExecutionContext context, JobExecutionException jobException)
+        {
+            this.Dispatcher.Invoke((Action)(() =>
+            {
+                this.textBox.AppendText(string.Format("Finished to execute task : {0}\n", context.JobDetail.Key));
+
+            }));
+        }
+
+        
     }
 }
