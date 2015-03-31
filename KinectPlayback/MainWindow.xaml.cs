@@ -32,18 +32,26 @@ namespace KinectPlayback
         private WriteableBitmap depthBitmap;
         private WriteableBitmap bodyIndexBitmap = null;
         private WriteableBitmap irBitmap;
+        private WriteableBitmap colorBitmap = null;
         private DispatcherTimer _timer;
         private KStudioClient _client;
         private KStudioEventReader _reader;
 
         private uint[] bodyIndexPixels = null;
         private uint[] irIndexPixels = null;
+
         private const int MapDepthToByte = 8000 / 256;
         private const int depthWidth = 512;
         private const int depthHeight = 424;
         private const int DepthMinReliableDistance = 500;
         private const int DepthBytesPerPixel = 2;
         private const int maxDepth = 65535;
+
+        private const int colorWidth = 1920;
+        private const int colorHeight = 1080;
+        private const int ColorBytesPerPixel = 2;
+        private byte[] colorPixels = null;
+
         private string _fileName;
         private uint _loopCount = 1;
         private const float InfraredSourceValueMaximum = (float)ushort.MaxValue;
@@ -84,6 +92,9 @@ namespace KinectPlayback
             this.irIndexPixels = new uint[depthWidth * depthHeight];
             this.irBitmap = new WriteableBitmap(depthWidth, depthHeight, 96.0, 96.0, PixelFormats.Gray32Float, null);
 
+            this.colorPixels = new byte[colorWidth * colorHeight * 4];
+            this.colorBitmap = new WriteableBitmap(colorWidth, colorHeight, 96.0, 96.0, PixelFormats.Bgr32, null);
+
             this.DataContext = this;
 
             InitializeComponent();
@@ -120,6 +131,14 @@ namespace KinectPlayback
             get
             {
                 return this.irBitmap;
+            }
+        }
+
+        public ImageSource ColorImageSource
+        {
+            get
+            {
+                return this.colorBitmap;
             }
         }
 
@@ -299,6 +318,10 @@ namespace KinectPlayback
                 } 
                 _reader = _client.CreateEventReader(_fileName);
                 _streamCount = _client.EventStreams.Count;
+                foreach (var item in _client.EventStreams)
+                {
+                    Console.WriteLine(item.DataTypeName);
+                }
                 //_reader.LoopCount = _loopCount;
                 _timer = new DispatcherTimer();
                 _timer.Interval = new TimeSpan(0, 0, 0, 0, (int)(1000 / (_streamCount)));
@@ -394,22 +417,30 @@ namespace KinectPlayback
                                 //System.Diagnostics.Debug.WriteLine(evt.GetType());
 
                                 //TODO
-                                //uint _size;
-                                //IntPtr _buffer;
-                                //evt.AccessUnderlyingEventDataBuffer(out _size, out _buffer);
+                                uint _size;
+                                IntPtr _buffer;
+                                evt.AccessUnderlyingEventDataBuffer(out _size, out _buffer);
+                                Console.WriteLine(_size);
                                 //ProcessBodyFrameData(_buffer, _size);
                                 //RenderBodyPixels();
                                 //StatusText = _size.ToString();
                             }
                             if (evt.EventStreamDataTypeId == KStudioEventStreamDataTypeIds.Ir)
                             {
-                                //var bodyFrame = (BodyFrame)
-                                //System.Diagnostics.Debug.WriteLine(evt.GetType());
                                 uint _size;
                                 IntPtr _buffer;
                                 evt.AccessUnderlyingEventDataBuffer(out _size, out _buffer);
                                 ProcessInfraredFrameData(_buffer, _size);
-                                //StatusText = _size.ToString();
+                            }
+                            if (evt.EventStreamDataTypeId == KStudioEventStreamDataTypeIds.UncompressedColor)
+                            {
+                                uint _size;
+                                IntPtr _buffer;
+                                
+                                evt.AccessUnderlyingEventDataBuffer(out _size, out _buffer);
+
+                                ProcessColorFrameData(_buffer, _size);
+                                RenderColorPixels();
                             }
                             TimeStamp = evt.RelativeTime.ToString();
                         }
@@ -425,6 +456,25 @@ namespace KinectPlayback
                 }
                 TimeStamp = string.IsNullOrEmpty(timeStamp) ? TimeStamp : timeStamp;
             }
+        }
+
+        struct RGB
+        {
+            public int Red;
+            public int Green;
+            public int Blue;
+        }
+
+        static RGB YUVtoRGB(double y, double u, double v)
+        {
+            RGB rgb = new RGB();
+
+            rgb.Red = Convert.ToInt32((y + 1.139837398373983740 * v) * 255);
+            rgb.Green = Convert.ToInt32((
+                y - 0.3946517043589703515 * u - 0.5805986066674976801 * v) * 255);
+            rgb.Blue = Convert.ToInt32((y + 2.032110091743119266 * u) * 255);
+
+            return rgb;
         }
 
         private void RenderBodyPixels()
@@ -522,6 +572,41 @@ namespace KinectPlayback
         }
 
         /// <summary>
+        /// Convert the Yuy2 data to RGB data. The raw buffer stored by Kinect Studio is in the format of Yuy2. 
+        /// </summary>
+        /// <param name="y0"></param>
+        /// <param name="u0"></param>
+        /// <param name="y1"></param>
+        /// <param name="v0"></param>
+        /// <param name="rgb1"></param>
+        /// <param name="rgb2"></param>
+        static void ConvertYuy2ToRgb(byte y0, byte u0, byte y1, byte v0, out RGB rgb1, out RGB rgb2)
+        {
+            rgb1 = new RGB();
+            rgb2 = new RGB();
+
+            int c = y0 - 16;
+            int d = u0 - 128;
+            int e = v0 - 128;
+
+            rgb1.Red = Clip((298 * c + 516 * d + 128) >> 8); // blue
+            rgb1.Green = Clip((298 * c - 100 * d - 208 * e + 128) >> 8); // green
+            rgb1.Blue = Clip((298 * c + 409 * e + 128) >> 8); // red
+            c = y1 - 16;
+
+            rgb2.Red = Clip((298 * c + 516 * d + 128) >> 8); // blue
+            rgb2.Green = Clip((298 * c - 100 * d - 208 * e + 128) >> 8); // green
+            rgb2.Blue = Clip((298 * c + 409 * e + 128) >> 8); // red
+        }
+
+
+        public static int Clip(int n)
+        {
+            return Math.Max(byte.MinValue, Math.Min(n, byte.MaxValue));
+        }
+
+
+        /// <summary>
         /// Renders color pixels into the writeableBitmap.
         /// </summary>
         private void RenderDepthPixels()
@@ -557,6 +642,44 @@ namespace KinectPlayback
 
             // unlock the bitmap
             this.irBitmap.Unlock();
+        }
+
+        private unsafe void ProcessColorFrameData(IntPtr colorFrameData, uint colorFrameDataSize)
+        {
+            byte* frameData = (byte*)colorFrameData;
+
+            int j = 0;
+            for (int i = 0; i < (int)colorFrameDataSize; i += 4)
+            {
+                // Extract yuv data
+                byte y0 = frameData[i];
+                byte u0 = frameData[i + 1];
+                byte y1 = frameData[i + 2];
+                byte v0 = frameData[i + 3];
+
+                RGB d1, d2;
+                ConvertYuy2ToRgb(y0, u0, y1, v0, out d1, out d2);
+
+                this.colorPixels[j++] = (byte)d1.Red;
+                this.colorPixels[j++] = (byte)d1.Green;
+                this.colorPixels[j++] = (byte)d1.Blue;
+                this.colorPixels[j++] = (byte)128;
+
+                this.colorPixels[j++] = (byte)d2.Red;
+                this.colorPixels[j++] = (byte)d2.Green;
+                this.colorPixels[j++] = (byte)d2.Blue;
+                this.colorPixels[j++] = (byte)128;
+            }
+        }
+
+        private void RenderColorPixels()
+        {
+
+            this.colorBitmap.WritePixels(
+               new Int32Rect(0, 0, this.colorBitmap.PixelWidth, this.colorBitmap.PixelHeight),
+               this.colorPixels,
+               this.colorBitmap.PixelWidth*4,
+               0);
         }
 
         

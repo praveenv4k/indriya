@@ -26,7 +26,7 @@
             <Image Source="{Binding BodyImageSource}" Stretch="UniformToFill" />
         </Viewbox>
         <Viewbox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">
-            <Image Source="{Binding SkeletonImageSource}" Stretch="UniformToFill" />
+            <Image Source="{Binding ColorImageSource}" Stretch="UniformToFill" />
         </Viewbox>
         <Viewbox Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
             <Image Source="{Binding IrImageSource}" Stretch="UniformToFill" />
