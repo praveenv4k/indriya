@@ -1,0 +1,35 @@
+Nui Depth
+Monitor Nui Depth
+Nui IR
+Monitor Nui IR
+Nui Long Exposure IR
+Nui Body Frame
+Monitor Nui Body Frame
+Nui Body Index
+Monitor Nui Body Index
+Nui Calibration Data
+Monitor Nui Calibration Data
+Nui Raw IR 11bit
+Nui System Info
+Nui Opaque Data
+Nui Interaction
+Nui Common Mode IR
+Nui Uncompressed Color
+Monitor Nui Uncompressed Color
+Nui Color Camera Settings
+Nui Title Audio
+Monitor Nui Title Audio
+Nui Sensor Telemetry
+Depth 512x424
+IR 512x424
+Nui Long Exposure IR
+Calibration Data
+Nui Raw IR 11bit
+Nui Raw IR 16bit
+Nui Raw IR System Info
+Nui Uncompressed Color
+Nui Compressed Color
+Nui Color Camera Settings
+Nui Sensor Telemetry
+Nui System Audio
+Nui Title Audio
