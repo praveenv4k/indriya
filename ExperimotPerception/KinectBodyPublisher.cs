@@ -361,7 +361,6 @@ namespace ExperimotPerception
                     foreach (Body body in this.bodies)
                     {
                         Pen drawPen = this.bodyColors[penIndex++];
-
                         if (body.IsTracked)
                         {
                             var kbody = new experimot.msgs.KinectBody();
@@ -388,12 +387,13 @@ namespace ExperimotPerception
                                 }
 
                                 DepthSpacePoint depthSpacePoint = this.coordinateMapper.MapCameraPointToDepthSpace(position);
+                                var colorSpacePoint = this.coordinateMapper.MapCameraPointToColorSpace(position);
                                 jointPoints[jointType] = new Point(depthSpacePoint.X, depthSpacePoint.Y);
-
+                                
                                 experimot.msgs.KinectJoint kjoint = new experimot.msgs.KinectJoint();
                                 kjoint.Type = (experimot.msgs.KinectJoint.JointType)jointType;
                                 kjoint.State = (experimot.msgs.KinectJoint.TrackingState)joints[jointType].TrackingState;
-                                kjoint.Position = new experimot.msgs.Vector3d(){x=position.X,y=position.Y,z=position.Z};
+                                kjoint.Position = new experimot.msgs.Vector3d() { x = position.X, y = position.Y, z = position.Z };
                                 var orient = body.JointOrientations[jointType].Orientation;
                                 kjoint.Orientation = new experimot.msgs.Quaternion() { w = orient.W, x = orient.X, y = orient.Y, z = orient.Z };
                                 kbody.Joints.Add(kjoint);
