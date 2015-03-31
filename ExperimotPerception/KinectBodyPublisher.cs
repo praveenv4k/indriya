@@ -405,6 +405,8 @@ namespace ExperimotPerception
                             this.DrawHand(body.HandLeftState, jointPoints[JointType.HandLeft], dc);
                             this.DrawHand(body.HandRightState, jointPoints[JointType.HandRight], dc);
 
+                            TorsoPos = string.Format("X: {0}, Y: {1}, Z: {2}", joints[JointType.SpineBase].Position.X, joints[JointType.SpineBase].Position.Y, 
+                                            joints[JointType.SpineBase].Position.Z < 0 ? InferredZPositionClamp : joints[JointType.SpineBase].Position.Z); 
                         }
                     }
 
@@ -412,6 +414,24 @@ namespace ExperimotPerception
                     this.drawingGroup.ClipGeometry = new RectangleGeometry(new Rect(0.0, 0.0, this.displayWidth, this.displayHeight));
                 }
                 this.PublishKinectBodies(kbodies);
+            }
+        }
+
+        private string _torsoPos;
+        public string TorsoPos
+        {
+            get { return _torsoPos; }
+            set
+            {
+                if (_torsoPos != value)
+                {
+                    _torsoPos = value;
+                    // notify any bound elements that the text has changed
+                    if (this.PropertyChanged != null)
+                    {
+                        this.PropertyChanged(this, new PropertyChangedEventArgs("TorsoPos"));
+                    }
+                }
             }
         }
 
