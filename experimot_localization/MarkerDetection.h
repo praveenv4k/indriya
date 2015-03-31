@@ -70,7 +70,7 @@ public:
 		VisualizeMarkerPose(image, cam, visualize2d_points, color);
 	}
 
-	void TransformToTopFrame(std::map<int,Pose>& poseMap, Transform& outTf){
+	void TransformToTopFrame(std::map<int, Pose>& poseMap, Transform& outTf){
 		std::vector<Transform> tfs;
 		FOREACH(it, poseMap){
 			Transform tf;
@@ -98,8 +98,9 @@ public:
 		}
 	}
 
-	void Videocallback(IplImage *image, Transform& localTfm, Transform& out_tfm, std::vector<double>& q, bool drawTorso=false)
+	bool Videocallback(IplImage *image, Transform& localTfm, Transform& out_tfm, std::vector<double>& q, bool drawTorso = false)
 	{
+		bool ret = false;
 		static IplImage *rgba;
 		bool flip_image = (image->origin ? true : false);
 		if (flip_image) {
@@ -114,130 +115,134 @@ public:
 
 		double error = max_error;
 		int best_marker = -1;
-		std::map<int,Pose> markerPoses;
-		for (size_t i = 0; i < marker_detector.markers->size(); i++) {
-			if (i >= 32) break;
+		std::map<int, Pose> markerPoses;
+		if (marker_detector.markers->size() >= 1){
+			for (size_t i = 0; i < marker_detector.markers->size(); i++) {
+				if (i >= 32) break;
 
-			alvar::MarkerData mData = marker_detector.markers->operator[](i);
-			Pose p = mData.pose;
+				alvar::MarkerData mData = marker_detector.markers->operator[](i);
+				Pose p = mData.pose;
 
-			markerPoses.insert(std::pair<int, Pose>(mData.GetId(), p));
+				markerPoses.insert(std::pair<int, Pose>(mData.GetId(), p));
 
-			double temp_error = (*(marker_detector.markers))[i].GetError(alvar::Marker::TRACK_ERROR | alvar::Marker::DECODE_ERROR | alvar::Marker::MARGIN_ERROR);
-			if (temp_error < error){
-				error = temp_error;
-				best_marker = i;
-			}
-			int id = (*(marker_detector.markers))[i].GetId();
-			double r = 1.0 - double(id + 1) / 32.0;
-			double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
-			double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
+				double temp_error = (*(marker_detector.markers))[i].GetError(alvar::Marker::TRACK_ERROR | alvar::Marker::DECODE_ERROR | alvar::Marker::MARGIN_ERROR);
+				if (temp_error < error){
+					error = temp_error;
+					best_marker = i;
+				}
+				int id = (*(marker_detector.markers))[i].GetId();
+				double r = 1.0 - double(id + 1) / 32.0;
+				double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
+				double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
 
 #if PRINT_MSG
-			if (id == 7){
-				p.Output();
-				std::cout << "Error : " << temp_error << std::endl;
+				if (id == 7){
+					p.Output();
+					std::cout << "Error : " << temp_error << std::endl;
 			}
 #endif
 		}
-		if (marker_detector.markers->size() > 0){
-			Pose p_res;
+			if (marker_detector.markers->size() > 0){
+				Pose p_res;
 
 #if 0
-			if (marker_detector.markers->size() == 1){
-				Marker m = (*(marker_detector.markers))[best_marker];
-				Pose p = (*(marker_detector.markers))[best_marker].pose;
-				Transform tf;
-				TransformationHelper::PoseToTransform(p, tf);
-				int factor = tf.rot[0] < 0 ? 1 : -1;
+				if (marker_detector.markers->size() == 1){
+					Marker m = (*(marker_detector.markers))[best_marker];
+					Pose p = (*(marker_detector.markers))[best_marker].pose;
+					Transform tf;
+					TransformationHelper::PoseToTransform(p, tf);
+					int factor = tf.rot[0] < 0 ? 1 : -1;
 
-				Transform tf2(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2)), Vector(0, -(double)m_nCubeSize / 2, (double)m_nCubeSize / 2));
+					Transform tf2(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2)), Vector(0, -(double)m_nCubeSize / 2, (double)m_nCubeSize / 2));
 
-				Transform res = tf*tf2;
+					Transform res = tf*tf2;
 
-				TransformationHelper::TransformToPose(res, p_res);
-				/*TransformationHelper::Rotate(p, RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2), p_res);
-				p_res.translation[1] -= (double)m_nCubeSize / 2;
-				p_res.translation[2] += (double)m_nCubeSize / 2;*/
-			}
-			else{
-				Marker m1 = (*(marker_detector.markers))[0];
-				Marker m2 = (*(marker_detector.markers))[1];
-				Pose p1 = m1.pose;
-				Pose p2 = m2.pose;
+					TransformationHelper::TransformToPose(res, p_res);
+					/*TransformationHelper::Rotate(p, RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2), p_res);
+					p_res.translation[1] -= (double)m_nCubeSize / 2;
+					p_res.translation[2] += (double)m_nCubeSize / 2;*/
+				}
+				else{
+					Marker m1 = (*(marker_detector.markers))[0];
+					Marker m2 = (*(marker_detector.markers))[1];
+					Pose p1 = m1.pose;
+					Pose p2 = m2.pose;
 
-				Transform tf1, tf2;
-				TransformationHelper::PoseToTransform(p1, tf1);
-				TransformationHelper::PoseToTransform(p2, tf2);
+					Transform tf1, tf2;
+					TransformationHelper::PoseToTransform(p1, tf1);
+					TransformationHelper::PoseToTransform(p2, tf2);
 
 
 
-				double trans_res[4] = { (p1.translation[0] + p2.translation[0]) / 2,
-					(p1.translation[1] + p2.translation[1] - m_nCubeSize) / 2,
-					(p1.translation[2] + p2.translation[2] + m_nCubeSize) / 2,
-					(p1.translation[3] + p2.translation[3]) / 2 };
+					double trans_res[4] = { (p1.translation[0] + p2.translation[0]) / 2,
+						(p1.translation[1] + p2.translation[1] - m_nCubeSize) / 2,
+						(p1.translation[2] + p2.translation[2] + m_nCubeSize) / 2,
+						(p1.translation[3] + p2.translation[3]) / 2 };
 
-				double rot_x[4] = { 0.707, -0.707, 0, 0 };
-				Rotation::QuatMul(rot1->data.db, rot_x, rot_res1);
-				Rotation::QuatMul(rot2->data.db, rot_x, rot_res2);
+					double rot_x[4] = { 0.707, -0.707, 0, 0 };
+					Rotation::QuatMul(rot1->data.db, rot_x, rot_res1);
+					Rotation::QuatMul(rot2->data.db, rot_x, rot_res2);
 
-				Slerp(rot_res1, rot_res2, rot_res, 0.01);
+					Slerp(rot_res1, rot_res2, rot_res, 0.01);
 
-				cvRelease((void**)&rot1);
-				cvRelease((void**)&rot2);
+					cvRelease((void**)&rot1);
+					cvRelease((void**)&rot2);
 
-				Pose p;
-				p.SetTranslation(trans_res);
-				p.SetQuaternion(rot_res);
+					Pose p;
+					p.SetTranslation(trans_res);
+					p.SetQuaternion(rot_res);
 
-				p_res = p;
-			}
-			int id = 10;
-			double r = 1.0 - double(id + 1) / 32.0;
-			double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
-			double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
+					p_res = p;
+				}
+				int id = 10;
+				double r = 1.0 - double(id + 1) / 32.0;
+				double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
+				double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
 
-			Pose p_out;
-			p_res.Output();
-			TransformationHelper::ComputeTorsoFrame(p_res, tfm, p_out);
-			p_out.Output();
-			Visualize(image, &cam, m_nMarkerSize, p_out, CV_RGB(0, 0, 255));
-			Visualize(image, &cam, m_nMarkerSize, p_res, CV_RGB(255, 0, 0));
-#else
-			TransformToTopFrame(markerPoses, out_tfm);
-			TransformationHelper::TransformToPose(out_tfm, p_res);
-
-			int id = 10;
-			double r = 1.0 - double(id + 1) / 32.0;
-			double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
-			double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
-
-			//p_res.Output();
-
-			if (drawTorso){
 				Pose p_out;
-				Transform torso_tfm;
-				
-#if 0
-				TransformationHelper::ComputeTorsoFrame(p_res, localTfm, p_out);
+				p_res.Output();
+				TransformationHelper::ComputeTorsoFrame(p_res, tfm, p_out);
+				p_out.Output();
+				Visualize(image, &cam, m_nMarkerSize, p_out, CV_RGB(0, 0, 255));
+				Visualize(image, &cam, m_nMarkerSize, p_res, CV_RGB(255, 0, 0));
+#else
+				TransformToTopFrame(markerPoses, out_tfm);
+				TransformationHelper::TransformToPose(out_tfm, p_res);
+
+				int id = 10;
+				double r = 1.0 - double(id + 1) / 32.0;
+				double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
+				double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
+
+				//p_res.Output();
+
+				if (drawTorso){
+					Pose p_out;
+					Transform torso_tfm;
+
+#if 1
+					TransformationHelper::ComputeTorsoFrame(p_res, localTfm, p_out);
 #else			
-				//Transform temp(out_tfm.rot, Vector(out_tfm.trans.z, out_tfm.trans.x, out_tfm.trans.y));
-				NaoHeadTransformHelper::instance()->GetTorsoTransform(q, out_tfm, torso_tfm);
-				TransformationHelper::TransformToPose(torso_tfm, p_out);
+					//Transform temp(out_tfm.rot, Vector(out_tfm.trans.z, out_tfm.trans.x, out_tfm.trans.y));
+					NaoHeadTransformHelper::instance()->GetTorsoTransform(q, out_tfm, torso_tfm);
+					TransformationHelper::TransformToPose(torso_tfm, p_out);
 #endif
-				
-				std::cout << "Displaying : ( " << p_out.translation[0] << ", " << p_out.translation[1] << ", " << p_out.translation[2] << " )" << std::endl;
-				Visualize(image, &m_camera, m_nMarkerSize, p_out, CV_RGB(0, 0, 255));
-				//p_out.Output();
+
+					std::cout << "Displaying : ( " << p_out.translation[0] << ", " << p_out.translation[1] << ", " << p_out.translation[2] << " )" << std::endl;
+					Visualize(image, &m_camera, m_nMarkerSize, p_out, CV_RGB(0, 0, 255));
+					//p_out.Output();
+				}
+
+				Visualize(image, &m_camera, m_nMarkerSize, p_res, CV_RGB(255, 0, 0));
+#endif
 			}
-			
-			Visualize(image, &m_camera, m_nMarkerSize, p_res, CV_RGB(255, 0, 0));
-#endif
+			if (flip_image) {
+				cvFlip(image);
+				image->origin = !image->origin;
+			}
+			ret = true;
 		}
-		if (flip_image) {
-			cvFlip(image);
-			image->origin = !image->origin;
-		}
+			return ret;
 	}
 
 private:

@@ -118,32 +118,36 @@ public:
 		timer3_.expires_at(timer3_.expires_at() + boost::posix_time::milliseconds(80));
 		//TODO Publish Torso transform here
 		if (m_pTorsoPosePublisherPtr != 0 && m_pRobotPoseInfoPtr != 0){
-				RobotPoseInfoMutex::scoped_lock lock(m_pRobotPoseInfoPtr->GetMutex());
-				if (m_pRobotPoseInfoPtr->IsJointValuesInit() && m_pRobotPoseInfoPtr->IsMarkerTransformInit()){
-					//NaoHeadTransformHelper::instance()->
-					const std::vector<double>& jointVals = m_pRobotPoseInfoPtr->GetJointValueVector();
-					if (jointVals.size() >= 2){
-						std::vector<double> headJoints;
-						headJoints.push_back(jointVals[0]);
-						headJoints.push_back(jointVals[1]);
+			RobotPoseInfoMutex::scoped_lock lock(m_pRobotPoseInfoPtr->GetMutex());
+			//if (m_pRobotPoseInfoPtr->IsJointValuesInit() && m_pRobotPoseInfoPtr->IsMarkerTransformInit()){
+			if (m_pRobotPoseInfoPtr->IsMarkerTransformInit()){
+				//NaoHeadTransformHelper::instance()->
+				const std::vector<double>& jointVals = m_pRobotPoseInfoPtr->GetJointValueVector();
+				std::vector<double> headJoints;
+				if (jointVals.size() >= 2){
+					headJoints.push_back(jointVals[0]);
+					headJoints.push_back(jointVals[1]);
+				}
+				else{
+					headJoints.push_back(0);
+					headJoints.push_back(0);
+				}
+#if 1
+				Transform eef;
+				NaoHeadTransformHelper::instance()->GetEndEffectorTransform(headJoints, eef);
 
-#if 0
-						Transform eef;
-						NaoHeadTransformHelper::instance()->GetEndEffectorTransform(headJoints, eef);
+				const Transform& markerTfm = m_pRobotPoseInfoPtr->GetMarkerTransform();
 
-						const Transform& markerTfm = m_pRobotPoseInfoPtr->GetMarkerTransform();
-
-						Transform torsoTfm;
-						TransformationHelper::ComputeTorsoFrame(markerTfm, eef, torsoTfm);
+				Transform torsoTfm;
+				TransformationHelper::ComputeTorsoFrame(markerTfm, eef, torsoTfm);
 #else 
-						const Transform& markerTfm = m_pRobotPoseInfoPtr->GetMarkerTransform();
-						Transform torsoTfm;
-						NaoHeadTransformHelper::instance()->GetTorsoTransform(headJoints, markerTfm, torsoTfm);
+				const Transform& markerTfm = m_pRobotPoseInfoPtr->GetMarkerTransform();
+				Transform torsoTfm;
+				NaoHeadTransformHelper::instance()->GetTorsoTransform(headJoints, markerTfm, torsoTfm);
 #endif
 
-						m_pTorsoPosePublisherPtr->Publish(torsoTfm);
-					}
-				}
+				m_pTorsoPosePublisherPtr->Publish(torsoTfm);
+			}
 		}
 		timer3_.async_wait(strand_.wrap(boost::bind(&Localization::PublishTransform, this)));
 	}
