@@ -302,6 +302,23 @@ void orDispRobots(EnvironmentBasePtr penv)
 	}
 }
 
+OpenRAVE::GraphHandlePtr kinectModel;
+
+void orInitEnvironment(EnvironmentBasePtr penv)
+{
+	Transform defTransform(Vector(0.53522962205139013, 0.517639095032381, -0.46421923037403362, 0.47966605583856331), Vector(0.084682732203775871, -0.043060926653530942, 1.139326178779198));
+	vector<RobotBasePtr> robots;
+	penv->GetRobots(robots);
+	FOREACH(it, robots){
+		cout << (*it)->GetName() << std::endl;
+		(*it)->SetTransform(defTransform);
+		break;
+	}
+	//KinBodyPtr pKinbody;
+	penv->AddKinBody(penv->ReadKinBodyXMLFile("box2.kinbody.xml"));
+	//kinectModel = penv->drawbox(Vector(), Vector(0.15, 0.05, 0.05));
+}
+
 class RobotStateListener{
 public:
 	//  Prepare our context and subscriber
@@ -390,7 +407,12 @@ public:
 						EnvironmentMutex::scoped_lock lock(penv->GetMutex());
 						RobotBasePtr probot = orMacroGetRobot(penv, 1);
 						if (probot){
+#if 0
 							probot->SetTransform(tfm);
+#else
+							Transform temp(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), OpenRAVE::PI), Vector());
+							probot->SetTransform(tfm*temp);
+#endif
 						}
 					}
 				}
@@ -417,8 +439,8 @@ public:
 
 	void KinectPointsProcess(const experimot::msgs::Vector3d& p0, RaveVector<float>& p0_out){
 #if 1
-		p0_out = RaveVector<float>(p0.z(), p0.x(), p0.y());
-		p0_out = RaveVector<float>(p0.x(), -p0.y(), p0.z());
+		//p0_out = RaveVector<float>(p0.z(), p0.x(), p0.y());
+		p0_out = RaveVector<float>(p0.x(), p0.y(), p0.z());
 #else
 		RaveVector<float> jp0(p0.x(), p0.y(), p0.z());
 		RaveTransform<float> tf(RaveVector<float>(1, 0, 0, 0), jp0);
@@ -808,6 +830,19 @@ int main(int argc, char ** argv)
 }
 #else
 
+// Default location of Nao
+//position{
+//x: 84.682732203775871
+//y : -43.060926653530942
+//z : 1139.326178779198
+//}
+//orientation{
+//x: 0.517639095032381
+//y : -0.46421923037403362
+//z : 0.47966605583856331
+//w : 0.53522962205139013
+//}
+
 int main(int argc, char ** argv)
 {
 	try{
@@ -854,8 +889,8 @@ int main(int argc, char ** argv)
 		orDispRobots(penv);
 
 		Sleep(2000);
-		//RobotStatePublisher publisher;
-		//publisher.Init(std::string("datalog.csv"));
+		orInitEnvironment(penv);
+
 		RobotStateListener listener;
 		//KinectStateListener klistener;
 		TorsoPoseListener tlistener;

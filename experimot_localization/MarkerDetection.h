@@ -75,7 +75,8 @@ public:
 		FOREACH(it, poseMap){
 			Transform tf;
 			TransformationHelper::PoseToTransform(it->second, tf);
-			int factor = tf.rot[0] < 0 ? 1 : -1;
+			//int factor = tf.rot[0] < 0 ? 1 : -1;
+			int factor = -1;
 			Transform tf2(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2)), Vector(0, (double)m_nCubeSize / 2, -(double)m_nCubeSize / 2));
 			tfs.push_back(tf*tf2*m_MarkerTransformMapping[it->first]);
 		}
@@ -262,11 +263,19 @@ private:
 
 		Vector rot_z(0, 0, 1);
 
+#if 0
 		m_MarkerTransformMapping.insert(std::pair<int, Transform>(7, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI / 2)), Vector())));
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(0, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI)), Vector())));
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(0, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI)), Vector())));
 		m_MarkerTransformMapping.insert(std::pair<int, Transform>(13, Transform(geometry::quatFromAxisAngle(rot_z, 0.0), Vector())));
 		m_MarkerTransformMapping.insert(std::pair<int, Transform>(10, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI / 2)), Vector())));
 		m_MarkerTransformMapping.insert(std::pair<int, Transform>(14, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI / 2)), Vector())));
+#else
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(7, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI / 2)), Vector())));
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(0, Transform(geometry::quatFromAxisAngle(rot_z, 0.0), Vector())));
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(13, Transform(geometry::quatFromAxisAngle(rot_z, alvar::PI), Vector())));
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(10, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI / 2)), Vector())));
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(14, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI / 2)), Vector())));
+#endif
 
 		return ret;
 	}

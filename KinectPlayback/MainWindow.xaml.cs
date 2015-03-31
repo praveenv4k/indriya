@@ -179,8 +179,8 @@ namespace KinectPlayback
                 client.ConnectToService();
                 client.EventDataAvailable += client_EventDataAvailable;
 
-                KStudioEventStreamSelectorCollection streamCollection = new KStudioEventStreamSelectorCollection();
-                streamCollection.Add(KStudioEventStreamDataTypeIds.Ir);
+                //KStudioEventStreamSelectorCollection streamCollection = new KStudioEventStreamSelectorCollection();
+                //streamCollection.Add(KStudioEventStreamDataTypeIds.Ir);
                 //streamCollection.Add(KStudioEventStreamDataTypeIds.Depth);
                 //streamCollection.Add(KStudioEventStreamDataTypeIds.Body);
                 //streamCollection.Add(KStudioEventStreamDataTypeIds.BodyIndex);
@@ -272,7 +272,6 @@ namespace KinectPlayback
         void client_EventDataAvailable(object sender, KStudioEventDataEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine(string.Format("Event data {1} size : {0}", e.EventData.EventDataSize,e.EventData.ToString()));
-
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -420,7 +419,22 @@ namespace KinectPlayback
                                 uint _size;
                                 IntPtr _buffer;
                                 evt.AccessUnderlyingEventDataBuffer(out _size, out _buffer);
-                                Console.WriteLine(_size);
+
+                                if (evt.EventIndex >= 500 && evt.EventIndex <= 502)
+                                {
+                                    Console.WriteLine(_size);
+                                    byte[] temp = new byte[_size];
+                                    evt.CopyEventDataToArray(temp, 0);
+                                    System.IO.File.WriteAllBytes(string.Format("temp{0}.bin", evt.EventIndex), temp);
+                                }
+                                if (evt.EventIndex == 30 || evt.EventIndex == 170)
+                                {
+                                    Console.WriteLine(_size);
+                                    byte[] temp = new byte[_size];
+                                    evt.CopyEventDataToArray(temp, 0);
+                                    System.IO.File.WriteAllBytes(string.Format("temp{0}.bin", evt.EventIndex), temp);
+                                }
+
                                 //ProcessBodyFrameData(_buffer, _size);
                                 //RenderBodyPixels();
                                 //StatusText = _size.ToString();
