@@ -32,8 +32,7 @@ namespace ExperimotStudio.Modules.Startup
             Shell.ToolBars.Visible = true;
 
             //MainWindow.WindowState = WindowState.Maximized;
-            MainWindow.Title = "Gemini Demo";
-
+            MainWindow.Title = "ExperiMot Studio";
             Shell.StatusBar.AddItem("Hello world!", new GridLength(1, GridUnitType.Star));
             Shell.StatusBar.AddItem("Ln 44", new GridLength(100));
             Shell.StatusBar.AddItem("Col 79", new GridLength(100));
