@@ -21,25 +21,28 @@ namespace Scheduler
     internal class JobListener : IJobListener
     {
         private MainWindow _window;
+
         public JobListener(MainWindow window)
         {
             _window = window;
         }
+        
         public void JobExecutionVetoed(IJobExecutionContext context)
         {
+            Console.WriteLine(string.Format("About to execute task : {0}", context.Get("value").ToString()));
         }
 
         public void JobToBeExecuted(IJobExecutionContext context)
         {
-            _window.JobToBeExecuted(context);
-            System.Diagnostics.Debug.WriteLine(string.Format("About to execute task : {0}", context.JobDetail.Description));
-            //context.JobDetail.Description
+            //_window.JobToBeExecuted(context);
+            //Console.WriteLine(string.Format("About to execute task : {0}", context.JobDetail.Description));
         }
 
         public void JobWasExecuted(IJobExecutionContext context, JobExecutionException jobException)
         {
-            _window.JobWasExecuted(context,jobException);
-            System.Diagnostics.Debug.WriteLine(string.Format("Finished to execute task : {0}", context.JobDetail.Description));
+            Console.WriteLine(string.Format("Finished to execute task : {0}", context.Get("value").ToString()));
+            //_window.JobWasExecuted(context,jobException);
+            //Console.WriteLine(string.Format("Finished to execute task : {0}", context.JobDetail.Description));
         }
 
         public string Name
@@ -60,14 +63,15 @@ namespace Scheduler
         {
             if (context != null)
             {
-                var message = string.Format("Hello world : {0}", context.JobDetail.Key);
-                System.Diagnostics.Debug.WriteLine(message);
+                //var message = string.Format("Hello world : {0}", context.JobDetail.Key);
+                //Console.WriteLine(message);
                 for (int i = 0; i < 10; i++)
                 {
-                    message = string.Format("Am still executing : {0}", context.JobDetail.Key);
-                    System.Diagnostics.Debug.WriteLine(message);
+                    //message = string.Format("Am still executing : {0}", context.JobDetail.Key);
+                    //Console.WriteLine(message);
                     System.Threading.Thread.Sleep(new TimeSpan(0, 0, 0, 0, 100));
                 }
+                context.Put("value", 2000);
             }
         }
     }
@@ -133,7 +137,7 @@ namespace Scheduler
                     }
                     else
                     {
-                        System.Diagnostics.Debug.WriteLine("Job already active");
+                        Console.WriteLine("Job already active");
                     }
                 }
             }
@@ -161,7 +165,7 @@ namespace Scheduler
                     }
                     catch (Exception ex)
                     {
-                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                        Console.WriteLine(ex.Message);
                     }
                 }));
             }

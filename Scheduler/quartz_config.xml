@@ -79,7 +79,7 @@
 
     <trigger>
       <simple>
-        <name>Localization</name>
+        <name>LocalizationTrigger</name>
         <group>simpleGroup</group>
         <description>SimpleTriggerDescription</description>
         <job-name>Localization</job-name>
@@ -87,11 +87,26 @@
         <start-time>1982-06-28T18:15:00.0Z</start-time>
         <end-time>2020-05-04T18:13:51.0Z</end-time>
         <misfire-instruction>SmartPolicy</misfire-instruction>
-        <repeat-count>10</repeat-count>
-        <repeat-interval>1000</repeat-interval>
+        <repeat-count>-1</repeat-count>
+        <repeat-interval>100</repeat-interval>
       </simple>
     </trigger>
 
+    <trigger>
+      <simple>
+        <name>GestureRecognitionTrigger</name>
+        <group>simpleGroup</group>
+        <description>SimpleTriggerDescription</description>
+        <job-name>GestureRecognition</job-name>
+        <job-group>jobGroup1</job-group>
+        <start-time>1982-06-28T18:15:00.0Z</start-time>
+        <end-time>2020-05-04T18:13:51.0Z</end-time>
+        <misfire-instruction>SmartPolicy</misfire-instruction>
+        <repeat-count>-1</repeat-count>
+        <repeat-interval>100</repeat-interval>
+      </simple>
+    </trigger>
+    
   </schedule>
 
 </job-scheduling-data>

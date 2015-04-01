@@ -905,6 +905,7 @@ Global
 		{32A22435-0E56-4086-900E-E73F1B9216CE}.Release|Win32.ActiveCfg = Release|Any CPU
 		{32A22435-0E56-4086-900E-E73F1B9216CE}.Release|x64.ActiveCfg = Release|Any CPU
 		{32A22435-0E56-4086-900E-E73F1B9216CE}.Release|x86.ActiveCfg = Release|Any CPU
+		{32A22435-0E56-4086-900E-E73F1B9216CE}.Release|x86.Build.0 = Release|Any CPU
 		{32A22435-0E56-4086-900E-E73F1B9216CE}.RelWithDebugInfo|Any CPU.ActiveCfg = Debug|Any CPU
 		{32A22435-0E56-4086-900E-E73F1B9216CE}.RelWithDebugInfo|Any CPU.Build.0 = Debug|Any CPU
 		{32A22435-0E56-4086-900E-E73F1B9216CE}.RelWithDebugInfo|Mixed Platforms.ActiveCfg = Debug|Any CPU
