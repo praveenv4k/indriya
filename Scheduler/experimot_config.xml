@@ -85,7 +85,7 @@
       <name>robot_interface</name>
       <process>
         <type>python</type>
-        <path></path>
+        <path>$(DEV_SDK_ROOT)experimot\scripts\ReadJointValues.py</path>
         <args></args>
       </process>
       <publishers>

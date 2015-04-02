@@ -89,7 +89,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>call msg_export.bat $(ProjectDir) $(SolutionDir) $(TargetPath) $(Configuration)</Command>
+      <Command>call msg_export.bat $(ProjectDir) $(SolutionDir) $(TargetPath) $(Configuration) $(EXPERIMOT_SCRIPTS_DIR)</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>call proto_export.bat $(PROTOBUF_ROOT)\bin\protoc.exe $(ProjectDir) $(OutDir)\experimot_msgs_gen.exe $(ProjectDir)\proto $(SolutionDir)bin\$(Configuration)\ProtoGen.exe</Command>
