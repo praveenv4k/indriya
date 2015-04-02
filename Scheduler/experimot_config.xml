@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<experimot>
+<experimot_config>
   <nodes>
     <node>
       <name>localization</name>
       <process>
         <type>executable</type>
-        <path>$(DEV_SDK_ROOT)experimot\bin\experimot_localization.exe</path>
+        <path>%DEV_SDK_ROOT%\experimot\bin\experimot_localization.exe</path>
         <args></args>
       </process>
       <publishers>
@@ -33,7 +33,7 @@
       <name>gesture_recognition</name>
       <process>
         <type>executable</type>
-        <path>$(DEV_SDK_ROOT)experimot\bin\ExperimotPerception.exe</path>
+        <path>%DEV_SDK_ROOT%\experimot\bin\ExperimotPerception.exe</path>
         <args></args>
       </process>
       <publishers>
@@ -51,7 +51,7 @@
       <name>simulation</name>
       <process>
         <type>executable</type>
-        <path>$(DEV_SDK_ROOT)experimot\bin\experimot_rave.exe</path>
+        <path>%DEV_SDK_ROOT%\experimot\bin\experimot_rave.exe</path>
         <args></args>
       </process>
       <subscribers>
@@ -83,10 +83,15 @@
     </node>
     <node>
       <name>robot_interface</name>
-      <process>
+      <!--<process>
         <type>python</type>
-        <path>$(DEV_SDK_ROOT)experimot\scripts\ReadJointValues.py</path>
+        <path>%DEV_SDK_ROOT%\experimot\scripts\ReadJointValues.py</path>
         <args></args>
+      </process>-->
+      <process>
+        <type>executable</type>
+        <path>python.exe</path>
+        <args>%DEV_SDK_ROOT%\experimot\scripts\ReadJointValues.py</args>
       </process>
       <publishers>
         <publish>
@@ -100,4 +105,4 @@
       </publishers>
     </node>
   </nodes>
-</experimot>
+</experimot_config>

@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema elementFormDefault="qualified" 
+           targetNamespace="http://www.tuat.ac.jp/~venture/ExperimotConfig"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.tuat.ac.jp/~venture/ExperimotConfig">
+  
   <xs:complexType name="process">
     <xs:sequence>
       <xs:element name="type" type="xs:string" />
@@ -7,6 +11,7 @@
       <xs:element name="args" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
+  
   <xs:complexType name="socket">
     <xs:sequence>
       <xs:element name="protocol" type="xs:string"/>
@@ -18,36 +23,36 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:element name="experimot">
+  <xs:complexType name="node">
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="process" type="process"/>
+        <xs:element name="publishers" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="publish" minOccurs="0" maxOccurs="unbounded" type="socket">
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="subscribers" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="subscribe" minOccurs="0"  maxOccurs="unbounded" type="socket">
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  
+  <xs:element name="experimot_config">
     <xs:complexType>
       <xs:sequence>
         <xs:element name="nodes">
           <xs:complexType>
             <xs:sequence>
-              <xs:element maxOccurs="unbounded" name="node">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="name" type="xs:string" />
-                    <xs:element name="process" type="process"/>
-                    <xs:element name="publishers" minOccurs="0" maxOccurs="1">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="publish" minOccurs="0" maxOccurs="unbounded" type="socket">
-                          </xs:element>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="subscribers" minOccurs="0" maxOccurs="1">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="subscribe" minOccurs="0"  maxOccurs="unbounded" type="socket">
-                          </xs:element>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
+              <xs:element name="node" minOccurs="0" maxOccurs="unbounded" type="node"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

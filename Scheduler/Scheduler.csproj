@@ -102,6 +102,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BootStrapper.cs" />
+    <Compile Include="experimot_config.designer.cs" />
     <Compile Include="Tasks\ContextSync.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +145,7 @@
     <None Include="app.config" />
     <None Include="experimot_config.xsd">
       <SubType>Designer</SubType>
+      <Generator>xsd.exe</Generator>
     </None>
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
