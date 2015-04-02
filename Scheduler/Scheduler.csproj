@@ -141,6 +141,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="experimot_config.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -157,6 +160,7 @@
     </None>
     <Content Include="experimot_config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="quartz_config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
