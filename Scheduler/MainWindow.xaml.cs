@@ -103,7 +103,10 @@ namespace Scheduler
             this.Name = "ScheduleTest";
             _scheduler.ListenerManager.AddJobListener(new JobListener(this), GroupMatcher<JobKey>.AnyGroup());
 
-            _scheduler.Start();
+            //_scheduler.Start();
+
+            var bootStrapper = new BootStrapper("experimot_config.xml");
+            bootStrapper.StartUp();
 
             this.Closing += MainWindow_Closing;
         }
