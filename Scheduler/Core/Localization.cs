@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using experimot.msgs;
 
@@ -6,13 +7,13 @@ namespace Scheduler.Core
     public class Localization
     {
         private Pose _currentPose;
-        private Queue<Pose> _recentPoses;
+        private readonly ConcurrentQueue<Pose> _recentPoses;
         public const int RecentPosesCount = 100;
 
         public Localization()
         {
             _currentPose = new Pose();
-            _recentPoses = new Queue<Pose>(RecentPosesCount);
+            _recentPoses = new ConcurrentQueue<Pose>();
         }
 
         public Pose CurrentPose
@@ -27,7 +28,7 @@ namespace Scheduler.Core
             }
         }
 
-        public Queue<Pose> RecentPose
+        public ConcurrentQueue<Pose> RecentPose
         {
             get { return _recentPoses; }
         }
