@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03f6965a-39a2-4893-a7b0-c0ae82b1fab2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Scheduler/MainWindow.xaml.cs" afterPath="$PROJECT_DIR$/../Scheduler/MainWindow.xaml.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Scheduler/Scheduler.csproj" afterPath="$PROJECT_DIR$/../Scheduler/Scheduler.csproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Scheduler/experimot_config.xml" afterPath="$PROJECT_DIR$/../Scheduler/experimot_config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Scheduler/experimot_config.xsd" afterPath="$PROJECT_DIR$/../Scheduler/experimot_config.xsd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CvKinectCapture/CvKinectCapture.h" afterPath="$PROJECT_DIR$/../CvKinectCapture/CvKinectCapture.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../include/CvKinectCapture/CvKinectCapture.h" afterPath="$PROJECT_DIR$/../include/CvKinectCapture/CvKinectCapture.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/MessageTypes.h" afterPath="$PROJECT_DIR$/../experimot_msgs/MessageTypes.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../include/experimot/msgs/MessageTypes.h" afterPath="$PROJECT_DIR$/../include/experimot/msgs/MessageTypes.h" />
     </list>
     <ignored path="PyScripts.iws" />
     <ignored path=".idea/workspace.xml" />
