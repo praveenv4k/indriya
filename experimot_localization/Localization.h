@@ -52,6 +52,22 @@ public:
 	{
 	}
 
+	void ConvertToRightHandFrame(const Transform& in, Transform& out){
+		Pose temp;
+		TransformationHelper::TransformToPose(in, temp);
+		dReal gl_mat[16];
+		temp.GetMatrixGL(gl_mat);
+		/*for (int i = 0; i < 4; i++){
+			cout << gl_mat[4 * i] << " , " << gl_mat[4 * i + 1] << " , " << gl_mat[4 * i + 2] << " , " << gl_mat[4 * i + 3] << " , " << std::endl;
+			}*/
+		TransformMatrix mat;
+		mat.rotfrommat(gl_mat[0], gl_mat[1], gl_mat[2], gl_mat[4], gl_mat[5], gl_mat[6], gl_mat[8], gl_mat[9], gl_mat[10]);
+		mat.trans = Vector(gl_mat[13], gl_mat[14], gl_mat[15]);
+		//cout << mat.inverse() << std::endl;
+
+		out = mat.inverse();
+	}
+
 	void SensorDataProcess()
 	{
 		bool quit = false;
@@ -80,7 +96,11 @@ public:
 
 				Transform markerTfm;
 				if (m_pMarkerDetectionPtr->Videocallback(img, eef, markerTfm, headJoints, true)){
-					m_pRobotPoseInfoPtr->SetMarkerTransform(markerTfm);
+					Transform out;
+					ConvertToRightHandFrame(markerTfm, out);
+					m_pRobotPoseInfoPtr->SetMarkerTransform(out);
+					TransformMatrix mat(out);
+					std::cout << mat << std::endl;
 				}
 
 				cv::Mat temp(img);

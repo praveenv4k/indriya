@@ -32,8 +32,8 @@ public:
 		std::string str;
 		pose.SerializeToString(&str);
 		//pose.PrintDebugString();
-		std::cout << "B4 Publishing :  " << torsoTransform.trans << std::endl;
-		std::cout << "Publishing : ( " << pose.position().x() << ", " << pose.position().y() << ", " << pose.position().z() << " )" << std::endl;
+		//std::cout << "Mat:  " << TransformMatrix(torsoTransform) << std::endl;
+		//std::cout << "Publishing : ( " << pose.position().x() << ", " << pose.position().y() << ", " << pose.position().z() << " )" << std::endl;
 		if (s_sendmore(*m_pSocket, m_strPublisherId)){
 			s_send(*m_pSocket, str);
 		}

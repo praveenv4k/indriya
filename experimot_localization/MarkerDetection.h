@@ -17,6 +17,8 @@ class MarkerDetection;
 
 #define PRINT_MSG 0
 
+#define TOP_MARKER_ID 14
+
 typedef boost::shared_ptr<MarkerDetection> MarkerDetectionPtr;
 
 class MarkerDetection{
@@ -78,7 +80,13 @@ public:
 			//int factor = tf.rot[0] < 0 ? 1 : -1;
 			int factor = -1;
 			Transform tf2(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2)), Vector(0, (double)m_nCubeSize / 2, -(double)m_nCubeSize / 2));
-			tfs.push_back(tf*tf2*m_MarkerTransformMapping[it->first]);
+			if (it->first == TOP_MARKER_ID){
+				//tfs.push_back(tf*m_MarkerTransformMapping[it->first]);
+				tfs.push_back(tf);
+			}
+			else{
+				tfs.push_back(tf*tf2*m_MarkerTransformMapping[it->first]);
+			}
 		}
 		outTf.identity();
 		if (tfs.size()>0){
@@ -229,7 +237,7 @@ public:
 					TransformationHelper::TransformToPose(torso_tfm, p_out);
 #endif
 
-					std::cout << "Displaying : ( " << p_out.translation[0] << ", " << p_out.translation[1] << ", " << p_out.translation[2] << " )" << std::endl;
+					//std::cout << "Displaying : ( " << p_out.translation[0] << ", " << p_out.translation[1] << ", " << p_out.translation[2] << " )" << std::endl;
 					Visualize(image, &m_camera, m_nMarkerSize, p_out, CV_RGB(0, 0, 255));
 					//p_out.Output();
 				}
@@ -274,7 +282,8 @@ private:
 		m_MarkerTransformMapping.insert(std::pair<int, Transform>(0, Transform(geometry::quatFromAxisAngle(rot_z, 0.0), Vector())));
 		m_MarkerTransformMapping.insert(std::pair<int, Transform>(13, Transform(geometry::quatFromAxisAngle(rot_z, alvar::PI), Vector())));
 		m_MarkerTransformMapping.insert(std::pair<int, Transform>(10, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI / 2)), Vector())));
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(14, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI / 2)), Vector())));
+		//m_MarkerTransformMapping.insert(std::pair<int, Transform>(14, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI / 2)), Vector())));
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(14, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI)), Vector())));
 #endif
 
 		return ret;
