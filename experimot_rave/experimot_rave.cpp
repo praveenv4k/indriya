@@ -444,7 +444,7 @@ public:
 							Vector trans = tfm.trans;
 							trans.z = tfm.trans.z;
 							trans.y = -tfm.trans.y;
-							trans.x = -tfm.trans.x;
+							trans.x = tfm.trans.x;
 
 							tfm = tfm.rotate(tfm_x);
 							tfm.trans = trans;
