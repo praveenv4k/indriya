@@ -76,6 +76,13 @@ public:
 
 	}
 
+	static void OpenGLToOpenRAVE(double* gl_mat, TransformMatrix& mat){
+		if (gl_mat != NULL){
+			mat.rotfrommat(gl_mat[0], gl_mat[1], gl_mat[2], gl_mat[4], gl_mat[5], gl_mat[6], gl_mat[8], gl_mat[9], gl_mat[10]);
+			mat.trans = Vector(gl_mat[12], gl_mat[13], gl_mat[14]);
+		}
+	}
+
 	static void TransformToPose(const Transform& tfm, Pose& pose){
 
 		double rot[4] = { tfm.rot[0], tfm.rot[1], tfm.rot[2], tfm.rot[3] };

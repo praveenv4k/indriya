@@ -77,15 +77,47 @@ public:
 		FOREACH(it, poseMap){
 			Transform tf;
 			TransformationHelper::PoseToTransform(it->second, tf);
-			//int factor = tf.rot[0] < 0 ? 1 : -1;
 			int factor = -1;
 			Transform tf2(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2)), Vector(0, (double)m_nCubeSize / 2, -(double)m_nCubeSize / 2));
 			if (it->first == TOP_MARKER_ID){
-				//tfs.push_back(tf*m_MarkerTransformMapping[it->first]);
 				tfs.push_back(tf);
 			}
 			else{
 				tfs.push_back(tf*tf2*m_MarkerTransformMapping[it->first]);
+			}
+		}
+		outTf.identity();
+		if (tfs.size()>0){
+			if (tfs.size() > 1){
+				Transform tf1 = tfs[0];
+				Transform tf2 = tfs[1];
+				outTf.rot = geometry::quatSlerp(tf1.rot, tf2.rot, 0.5);
+				outTf.trans = 0.5*(tf1.trans + tf2.trans);
+			}
+			else{
+				outTf = tfs[0];
+			}
+#if PRINT_MSG
+			Transform disp;
+			TransformationHelper::PoseToTransform(poseMap.at(7), disp);
+			cout << "First marker: " << disp << "; Top marker: " << outTf << std::endl;
+#endif
+		}
+	}
+
+
+	void TransformToTopFrame(std::map<int, Transform>& poseMap, Transform& outTf){
+		std::vector<Transform> tfs;
+		FOREACH(it, poseMap){
+			//Transform tf;
+			//TransformationHelper::PoseToTransform(it->second, tf);
+			int factor = -1;
+			Transform tf2(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2)), Vector(0, (double)m_nCubeSize / 2, -(double)m_nCubeSize / 2));
+			if (it->first == TOP_MARKER_ID){
+				tfs.push_back(it->second);
+			}
+			else{
+				tfs.push_back(it->second*tf2*m_MarkerTransformMapping[it->first]);
 			}
 		}
 		outTf.identity();
@@ -125,6 +157,7 @@ public:
 		double error = max_error;
 		int best_marker = -1;
 		std::map<int, Pose> markerPoses;
+		std::map<int, Transform> markerTfs;
 		if (marker_detector.markers->size() >= 1){
 			for (size_t i = 0; i < marker_detector.markers->size(); i++) {
 				if (i >= 32) break;
@@ -144,6 +177,26 @@ public:
 				double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
 				double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
 
+				double gl_mat[16];
+				p.GetMatrixGL(gl_mat, false);
+				TransformMatrix rave;
+				TransformationHelper::OpenGLToOpenRAVE(gl_mat, rave);
+				markerTfs.insert(std::pair<int, Transform>(mData.GetId(), Transform(rave)));
+
+				//if (i == 0){
+				//	double gl_mat[16];
+				//	p.GetMatrixGL(gl_mat, false);
+				//	for (int i = 0; i < 4; i++){
+				//		cout << gl_mat[4 * i] << " , " << gl_mat[4 * i + 1] << " , " << gl_mat[4 * i + 2] << " , " << gl_mat[4 * i + 3] << " , " << std::endl;
+				//	}
+				//	TransformMatrix rave;
+				//	TransformationHelper::OpenGLToOpenRAVE(gl_mat, rave);
+				//	cout << std::endl << rave << std::endl << std::endl;
+				//	/*Transform sTfm;
+				//	TransformationHelper::PoseToTransform(p, sTfm);
+				//	TransformMatrix sMat(sTfm);*/
+				//	//cout << std::endl << sMat << std::endl << std::endl;
+				//}
 #if PRINT_MSG
 				if (id == 7){
 					p.Output();
@@ -215,7 +268,16 @@ public:
 				Visualize(image, &cam, m_nMarkerSize, p_out, CV_RGB(0, 0, 255));
 				Visualize(image, &cam, m_nMarkerSize, p_res, CV_RGB(255, 0, 0));
 #else
-				TransformToTopFrame(markerPoses, out_tfm);
+				/*if (markerPoses.size() == 1){
+					double gl_mat[16];
+					markerPoses[0].GetMatrixGL(gl_mat);
+					for (int i = 0; i < 4; i++){
+						cout << gl_mat[4 * i] << " , " << gl_mat[4 * i + 1] << " , " << gl_mat[4 * i + 2] << " , " << gl_mat[4 * i + 3] << " , " << std::endl;
+					}
+				}*/
+
+				//TransformToTopFrame(markerPoses, out_tfm);
+				TransformToTopFrame(markerTfs, out_tfm);
 				TransformationHelper::TransformToPose(out_tfm, p_res);
 
 				int id = 10;
