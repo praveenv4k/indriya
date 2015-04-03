@@ -62,7 +62,7 @@ public:
 			}*/
 		TransformMatrix mat;
 		mat.rotfrommat(gl_mat[0], gl_mat[1], gl_mat[2], gl_mat[4], gl_mat[5], gl_mat[6], gl_mat[8], gl_mat[9], gl_mat[10]);
-		mat.trans = Vector(gl_mat[13], gl_mat[14], gl_mat[15]);
+		mat.trans = Vector(gl_mat[12], gl_mat[13], gl_mat[14]);
 		//cout << mat.inverse() << std::endl;
 
 		out = mat.inverse();
@@ -97,10 +97,16 @@ public:
 				Transform markerTfm;
 				if (m_pMarkerDetectionPtr->Videocallback(img, eef, markerTfm, headJoints, true)){
 					Transform out;
-					ConvertToRightHandFrame(markerTfm, out);
+					//ConvertToRightHandFrame(markerTfm, out);
+					
+					// Compute Top marker with respect to camera
+					//out = markerTfm.inverse();
+					out = markerTfm;
+
 					m_pRobotPoseInfoPtr->SetMarkerTransform(out);
-					TransformMatrix mat(out);
-					std::cout << mat << std::endl;
+					
+					//TransformMatrix mat(out);
+					//std::cout << mat << std::endl;
 				}
 
 				cv::Mat temp(img);
@@ -160,6 +166,13 @@ public:
 
 				Transform torsoTfm;
 				TransformationHelper::ComputeTorsoFrame(markerTfm, eef, torsoTfm);
+
+				cout << "*********************************************" << std::endl;
+				cout << "End Effector w.r.t Torso   : " << eef << std::endl;
+				cout << "Camera w.r.t Top Marker    : " << markerTfm << std::endl;
+				cout << "Camera w.r.t Torso         : " << torsoTfm << std::endl << std::endl;
+				/*torsoTfm = torsoTfm.inverse();
+				cout << "Torso w.r.t Camera         : " << torsoTfm << std::endl << std::endl;*/
 #else 
 				const Transform& markerTfm = m_pRobotPoseInfoPtr->GetMarkerTransform();
 				Transform torsoTfm;

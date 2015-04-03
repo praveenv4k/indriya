@@ -430,13 +430,26 @@ public:
 
 							tfm = tfm*temp*tfm.inverse();*/
 
-#if 0
-							TransformMatrix frame;
-							frame.rotfrommat(0, 0, -1, 0, 1, 0, 1, 0, 0);
+#if 1
+							//TransformMatrix frame;
+							//frame.rotfrommat(0, 0, -1, 0, 1, 0, 1, 0, 0);
+							//frame.rotfrommat(0, 0, -1, -1, 0, 0, 0, 1, 0);
 
 							
-							tfm = frame.inverse() * tfm;
+							//tfm = frame * tfm;
+							
+							//Transform tfm_z(geometry::quatFromAxisAngle(rot_z, OpenRAVE::PI),Vector());
+							Transform tfm_x(geometry::quatFromAxisAngle(rot_x, OpenRAVE::PI), Vector());
+
+							Vector trans = tfm.trans;
+							trans.z = tfm.trans.z;
+							trans.y = -tfm.trans.y;
+							trans.x = -tfm.trans.x;
+
+							tfm = tfm.rotate(tfm_x);
+							tfm.trans = trans;
 #else
+#if 0
 							Vector orig = tfm.trans;
 							Vector trans = tfm.trans;
 							trans.z = tfm.trans.x;
@@ -461,9 +474,10 @@ public:
 							tfm = tfm* tfm_z;
 							tfm.trans = trans;
 #endif
+#endif
 							TransformMatrix mat(tfm);
 							std::cout << mat << std::endl;
-							std::cout << tfm.rotate(orig) << std::endl;
+							//std::cout << tfm.rotate(orig) << std::endl;
 
 							probot->SetTransform(tfm);
 #endif
