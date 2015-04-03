@@ -44,8 +44,17 @@ public:
 	static NaoHeadTransformHelper* instance(){
 		if (_instance == NULL){
 			vector<tuple<dReal, dReal, dReal>> params;
+
+#if 0
 			params.push_back(tuple<dReal, dReal, dReal>(0, 0, 126.50));
 			params.push_back(tuple<dReal, dReal, dReal>(-OpenRAVE::PI/2, 0, 0));
+			params.push_back(tuple<dReal, dReal, dReal>(OpenRAVE::PI / 2, 0, 110.0 + 64.0));
+#else
+			params.push_back(tuple<dReal, dReal, dReal>(-OpenRAVE::PI / 2, 0, 126.50));
+			params.push_back(tuple<dReal, dReal, dReal>(OpenRAVE::PI/2, 0, 0));
+			params.push_back(tuple<dReal, dReal, dReal>(0, 0, 110.0 + 64.0));
+
+#endif
 
 			Transform eefTransform;
 			eefTransform.identity();
@@ -111,10 +120,15 @@ public:
 				Transform(Vector(1, 0, 0, 0), Vector(0, 0, r));
 		}
 
-		alpha = OpenRAVE::PI / 2;
+		/*alpha = OpenRAVE::PI / 2;
 		d = 0;
 		theta = 0;
-		r = 110.0 + 64.0;
+		r = 110.0 + 64.0;*/
+
+		alpha = std::get<0>(_params[2]);
+		d = std::get<1>(_params[2]);
+		theta = 0;
+		r = std::get<2>(_params[2]);
 
 		//std::cout << "Link3: " << alpha << ", " << d << ", " << theta << ", " << r << std::endl;
 
