@@ -45,7 +45,7 @@ public:
 		if (_instance == NULL){
 			vector<tuple<dReal, dReal, dReal>> params;
 
-#if 0
+#if 1
 			params.push_back(tuple<dReal, dReal, dReal>(0, 0, 126.50));
 			params.push_back(tuple<dReal, dReal, dReal>(-OpenRAVE::PI/2, 0, 0));
 			params.push_back(tuple<dReal, dReal, dReal>(OpenRAVE::PI / 2, 0, 110.0 + 64.0));
@@ -53,7 +53,6 @@ public:
 			params.push_back(tuple<dReal, dReal, dReal>(-OpenRAVE::PI / 2, 0, 126.50));
 			params.push_back(tuple<dReal, dReal, dReal>(OpenRAVE::PI/2, 0, 0));
 			params.push_back(tuple<dReal, dReal, dReal>(0, 0, 110.0 + 64.0));
-
 #endif
 
 			Transform eefTransform;
