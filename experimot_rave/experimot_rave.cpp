@@ -383,10 +383,15 @@ public:
 		tfm.trans[1] = pose.position().y() / 1000;
 		tfm.trans[2] = pose.position().z() / 1000;
 		// Set Orientation
+		
 		tfm.rot[0] = pose.orientation().w();
 		tfm.rot[1] = pose.orientation().x();
 		tfm.rot[2] = pose.orientation().y();
 		tfm.rot[3] = pose.orientation().z();
+		/*tfm.rot[0] = pose.orientation().x();
+		tfm.rot[1] = pose.orientation().y();
+		tfm.rot[2] = pose.orientation().z();
+		tfm.rot[3] = pose.orientation().w();*/
 	}
 
 	void Listen(EnvironmentBasePtr penv){
@@ -400,7 +405,7 @@ public:
 			{
 				experimot::msgs::Pose pose;
 				if (pose.ParseFromArray(data.data(), data.size())){
-					pose.PrintDebugString();
+					//pose.PrintDebugString();
 					Transform tfm;
 					ProtoToRave(pose, tfm);
 					{
@@ -410,8 +415,58 @@ public:
 #if 0
 							probot->SetTransform(tfm);
 #else
+#if 0
 							Transform temp(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), OpenRAVE::PI), Vector());
-							probot->SetTransform(tfm*temp);
+							Transform temp2 = tfm*temp;
+							probot->SetTransform(temp2);
+#else
+							Vector rot_z(0, 0, 1);
+							Vector rot_x(1, 0, 0);
+							Vector rot_y(0, 1, 0);
+
+							//Transform temp2(geometry::quatFromAxisAngle(rot_z, -OpenRAVE::PI/2), Vector());
+							
+							/*Transform temp(geometry::quatFromAxisAngle(rot_y, OpenRAVE::PI), Vector());
+
+							tfm = tfm*temp*tfm.inverse();*/
+
+#if 0
+							TransformMatrix frame;
+							frame.rotfrommat(0, 0, -1, 0, 1, 0, 1, 0, 0);
+
+							
+							tfm = frame.inverse() * tfm;
+#else
+							Vector orig = tfm.trans;
+							Vector trans = tfm.trans;
+							trans.z = tfm.trans.x;
+							trans.y = -tfm.trans.z;
+							trans.x = tfm.trans.y;
+							//tfm.trans = trans;
+
+							/*TransformMatrix tmat = geometry::matrixFromQuat(tfm.rot);
+							TransformMatrix omat;
+							omat.rotfrommat(tmat.m[1], tmat.m[5], tmat.m[9],
+								tmat.m[2], tmat.m[6], tmat.m[10],
+								tmat.m[0], tmat.m[4], tmat.m[8]);
+							tfm.rot = geometry::quatFromMatrix(omat);*/
+							
+							Transform negTrans(Vector(1, 0, 0, 0), Vector(-tfm.trans.x, -tfm.trans.y, -tfm.trans.z));
+							Transform temp2(geometry::quatFromAxisAngle(rot_x, OpenRAVE::PI/2), Vector());
+							Transform temp(geometry::quatFromAxisAngle(rot_y, -OpenRAVE::PI/2), Vector());
+							Transform tfm_z(geometry::quatFromAxisAngle(rot_z, OpenRAVE::PI), Vector());
+							Transform posTrans(Vector(1,0,0,0), tfm.trans);
+							//tfm = tfm*negTrans;
+							tfm.trans = Vector(0, 0, 0);
+							tfm = tfm* tfm_z;
+							tfm.trans = trans;
+#endif
+							TransformMatrix mat(tfm);
+							std::cout << mat << std::endl;
+							std::cout << tfm.rotate(orig) << std::endl;
+
+							probot->SetTransform(tfm);
+#endif
 #endif
 						}
 					}
