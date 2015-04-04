@@ -72,7 +72,7 @@ public:
 		VisualizeMarkerPose(image, cam, visualize2d_points, color);
 	}
 
-	void TransformToTopFrame(std::map<int, Pose>& poseMap, Transform& outTf){
+	bool TransformToTopFrame(std::map<int, Pose>& poseMap, Transform& outTf){
 		std::vector<Transform> tfs;
 		FOREACH(it, poseMap){
 			Transform tf;
@@ -80,7 +80,13 @@ public:
 			int factor = -1;
 			Transform tf2(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2)), Vector(0, (double)m_nCubeSize / 2, -(double)m_nCubeSize / 2));
 			if (it->first == TOP_MARKER_ID){
-				tfs.push_back(tf);
+				
+				/*Transform temp = tf.rotate(m_MarkerTransformMapping[it->first]);
+				temp.trans = tf.trans;
+				tfs.push_back(temp);*/
+				
+				tfs.push_back(tf*m_MarkerTransformMapping[it->first]);
+				
 			}
 			else{
 				tfs.push_back(tf*tf2*m_MarkerTransformMapping[it->first]);
@@ -97,12 +103,14 @@ public:
 			else{
 				outTf = tfs[0];
 			}
+			return true;
 #if PRINT_MSG
 			Transform disp;
 			TransformationHelper::PoseToTransform(poseMap.at(7), disp);
 			cout << "First marker: " << disp << "; Top marker: " << outTf << std::endl;
 #endif
 		}
+		return false;
 	}
 
 
@@ -111,21 +119,28 @@ public:
 		FOREACH(it, poseMap){
 			//Transform tf;
 			//TransformationHelper::PoseToTransform(it->second, tf);
-			int factor = -1;
-			Transform tf2(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2)), Vector(0, (double)m_nCubeSize / 2, -(double)m_nCubeSize / 2));
 			if (it->first == TOP_MARKER_ID){
-				tfs.push_back(it->second);
+				//tfs.push_back(it->second);
+				tfs.push_back(it->second*m_MarkerTransformMapping[it->first]);
+				/*Transform temp = it->second.rotate(m_MarkerTransformMapping[it->first]);
+				temp.trans = it->second.trans;
+				tfs.push_back(temp);*/
 			}
 			else{
+				int factor = -1;
+				Transform tf2(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2)), Vector(0, (double)m_nCubeSize / 2, -(double)m_nCubeSize / 2));
 				tfs.push_back(it->second*tf2*m_MarkerTransformMapping[it->first]);
 			}
 		}
-		outTf.identity();
+		//outTf.identity();
 		if (tfs.size()>0){
 			if (tfs.size() > 1){
+				//TODO Error based weighting of the rotation and translation
 				Transform tf1 = tfs[0];
 				Transform tf2 = tfs[1];
 				outTf.rot = geometry::quatSlerp(tf1.rot, tf2.rot, 0.5);
+				// For test
+				//outTf.rot = tf1.rot;
 				outTf.trans = 0.5*(tf1.trans + tf2.trans);
 			}
 			else{
@@ -177,10 +192,21 @@ public:
 				double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
 				double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
 
-				double gl_mat[16];
-				p.GetMatrixGL(gl_mat, false);
 				TransformMatrix rave;
+				double gl_mat[16];
+#if 1
+				p.GetMatrixGL(gl_mat, false);
 				TransformationHelper::OpenGLToOpenRAVE(gl_mat, rave);
+#else
+				//cout << "Mirror only y-axis to match kinect screen" << std::endl;
+				CvMat mat = cvMat(4, 4, CV_64F, gl_mat);
+				p.GetMatrix(&mat);
+				p.MirrorMat(&mat, false, true, false);
+				/*for (int i = 0; i < 4; i++){
+					cout << mat[4 * i] << " , " << mat[4 * i + 1] << " , " << mat[4 * i + 2] << " , " << mat[4 * i + 3] << " , " << std::endl;
+				}*/
+				TransformationHelper::OpenGLToOpenRAVE(gl_mat, rave, false);
+#endif
 				markerTfs.insert(std::pair<int, Transform>(mData.GetId(), Transform(rave)));
 
 				//if (i == 0){

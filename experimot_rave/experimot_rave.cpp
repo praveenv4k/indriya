@@ -439,6 +439,19 @@ public:
 							//tfm = frame * tfm;
 							
 							//Transform tfm_z(geometry::quatFromAxisAngle(rot_z, OpenRAVE::PI),Vector());
+
+							// Modified on 2015/04/04
+#if 0
+							Transform tfm_x(geometry::quatFromAxisAngle(rot_z, OpenRAVE::PI), Vector());
+
+							Vector trans = tfm.trans;
+							trans.z = tfm.trans.z;
+							trans.y = tfm.trans.y;
+							trans.x = tfm.trans.x;
+
+							tfm = tfm.rotate(tfm_x);
+							tfm.trans = trans;
+#else
 							Transform tfm_x(geometry::quatFromAxisAngle(rot_x, OpenRAVE::PI), Vector());
 
 							Vector trans = tfm.trans;
@@ -448,6 +461,7 @@ public:
 
 							tfm = tfm.rotate(tfm_x);
 							tfm.trans = trans;
+#endif
 #else
 #if 0
 							Vector orig = tfm.trans;
