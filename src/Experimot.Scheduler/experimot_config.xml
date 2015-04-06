@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<experimot_config>
+<experimot_config xmlns="http://www.tuat.ac.jp/~venture/ExperimotConfig">
+<!--<experimot_config>-->
   <nodes>
     <node>
       <name>localization</name>
@@ -8,24 +9,27 @@
         <path>%DEV_SDK_ROOT%\experimot\bin\experimot_localization.exe</path>
         <args></args>
       </process>
+      <params>
+        <param key="cube_size" value="64" type="int"/>
+        <param key="marker_size" value="55" type="int"/>
+        <param key="some" value="ad" type="string"/>
+      </params>
       <publishers>
         <publish>
-          <protocol>tcp</protocol>
-          <address>*</address>
+          <host>tcp://*</host>
           <port>5566</port>
           <topic>TPP</topic>
-          <message>Pose</message>
-          <task>TorsoPosePublisher</task>
+          <msg_type>Pose</msg_type>
+          <name>TorsoPosePublisher</name>
         </publish>
       </publishers>
       <subscribers>
         <subscribe>
-          <protocol>tcp</protocol>
-          <address>127.0.0.1</address>
+          <host>tcp://localhost</host>
           <port>5563</port>
           <topic>RSP</topic>
-          <message>JointValueVector</message>
-          <task>RobotStateListener</task>
+          <msg_type>JointValueVector</msg_type>
+          <name>RobotStateListener</name>
         </subscribe>
       </subscribers>
     </node>
@@ -33,17 +37,16 @@
       <name>gesture_recognition</name>
       <process>
         <type>executable</type>
-        <path>%DEV_SDK_ROOT%\experimot\bin\Experimot.Kinect.Perception.exe</path>
+        <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Perception\Experimot.Kinect.Perception.exe</path>
         <args></args>
       </process>
       <publishers>
         <publish>
-          <protocol>tcp</protocol>
-          <address>*</address>
+          <host>tcp://*</host>
           <port>5564</port>
           <topic>KSP</topic>
-          <message>KinectBodies</message>
-          <task>KinectBodyPublisher</task>
+          <msg_type>KinectBodies</msg_type>
+          <name>KinectBodyPublisher</name>
         </publish>
       </publishers>
     </node>
@@ -56,38 +59,30 @@
       </process>
       <subscribers>
         <subscribe>
-          <protocol>tcp</protocol>
-          <address>127.0.0.1</address>
+          <host>tcp://localhost</host>
           <port>5564</port>
           <topic>RSP</topic>
-          <message>JointValueVector</message>
-          <task>RobotStateListener</task>
+          <msg_type>JointValueVector</msg_type>
+          <name>RobotStateListener</name>
         </subscribe>
         <subscribe>
-          <protocol>tcp</protocol>
-          <address>127.0.0.1</address>
+          <host>tcp://localhost</host>
           <port>5566</port>
           <topic>TPP</topic>
-          <message>Pose</message>
-          <task>TorsoPoseListener</task>
+          <msg_type>Pose</msg_type>
+          <name>TorsoPoseListener</name>
         </subscribe>
         <subscribe>
-          <protocol>tcp</protocol>
-          <address>127.0.0.1</address>
+          <host>tcp://localhost</host>
           <port>5563</port>
           <topic>KSP</topic>
-          <message>KinectBodies</message>
-          <task>KinectStateListener</task>
+          <msg_type>KinectBodies</msg_type>
+          <name>KinectStateListener</name>
         </subscribe>
       </subscribers>
     </node>
     <node>
       <name>robot_interface</name>
-      <!--<process>
-        <type>python</type>
-        <path>%DEV_SDK_ROOT%\experimot\scripts\ReadJointValues.py</path>
-        <args></args>
-      </process>-->
       <process>
         <type>executable</type>
         <path>python.exe</path>
@@ -95,12 +90,11 @@
       </process>
       <publishers>
         <publish>
-          <protocol>tcp</protocol>
-          <address>*</address>
+          <host>tcp://*</host>
           <port>5563</port>
           <topic>RSP</topic>
-          <message>JointValueVector</message>
-          <task>RobotStatePublisher</task>
+          <msg_type>JointValueVector</msg_type>
+          <name>RobotStatePublisher</name>
         </publish>
       </publishers>
     </node>

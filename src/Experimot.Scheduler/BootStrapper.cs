@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 using Common.Logging;
+using experimot.msgs;
+using Experimot.Scheduler;
 using IronPython.Hosting;
 using Microsoft.Scripting.Hosting;
+using ProtoBuf;
 
 namespace Scheduler
 {
@@ -24,6 +29,8 @@ namespace Scheduler
 
             if (!string.IsNullOrEmpty(configFile))
             {
+                //_config = new experimot_config();
+                _config = experimot_config.LoadFromFile(configFile);
                 using (var reader = XmlReader.Create(configFile))
                 {
                     var serializer = new XmlSerializer(typeof (experimot_config));
@@ -114,6 +121,18 @@ namespace Scheduler
                             {
                                 try
                                 {
+                                    Node nodeInfo = MessageUtil.XmlToMessage(node);
+
+                                    string args = string.Empty;
+
+                                    using (var msTestString = new MemoryStream())
+                                    {
+                                        Serializer.Serialize(msTestString, nodeInfo);
+
+                                        args = Convert.ToBase64String(msTestString.GetBuffer(), 0,
+                                            (int) msTestString.Length);
+                                    }
+
                                     var workingDir = System.IO.Path.GetDirectoryName(exeFile);
                                     var myProcess = new Process
                                     {
@@ -122,13 +141,14 @@ namespace Scheduler
                                             UseShellExecute = true,
                                             FileName = exeFile,
                                             CreateNoWindow = true,
-                                            Arguments = node.process.args,
+                                            Arguments = args,
                                             WorkingDirectory = workingDir ?? string.Empty
                                         }
                                     };
                                     myProcess.Start();
                                     Log.InfoFormat("Started Process : {0}", exeFile);
                                     _processes.Add(myProcess);
+                                    break;
                                 }
                                 catch (Exception ex)
                                 {

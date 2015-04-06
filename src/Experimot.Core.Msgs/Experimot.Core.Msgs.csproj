@@ -220,6 +220,9 @@
     <Compile Include="..\experimot_msgs\csharp\model_v.cs">
       <Link>model_v.cs</Link>
     </Compile>
+    <Compile Include="..\experimot_msgs\csharp\node.cs">
+      <Link>node.cs</Link>
+    </Compile>
     <Compile Include="..\experimot_msgs\csharp\packet.cs">
       <Link>packet.cs</Link>
     </Compile>

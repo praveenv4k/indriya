@@ -132,6 +132,7 @@
     </ApplicationDefinition>
     <Compile Include="BootStrapper.cs" />
     <Compile Include="experimot_config.designer.cs" />
+    <Compile Include="MessageUtil.cs" />
     <Compile Include="Tasks\ContextSync.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

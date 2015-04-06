@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema elementFormDefault="qualified" 
+<xs:schema elementFormDefault="qualified"
            targetNamespace="http://www.tuat.ac.jp/~venture/ExperimotConfig"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://www.tuat.ac.jp/~venture/ExperimotConfig">
@@ -14,19 +14,41 @@
   
   <xs:complexType name="socket">
     <xs:sequence>
-      <xs:element name="protocol" type="xs:string"/>
-      <xs:element name="address" type="xs:string" />
+      <xs:element name="host" type="xs:string"/>
       <xs:element name="port" type="xs:int" />
       <xs:element name="topic" type="xs:string" />
-      <xs:element name="message" type="xs:string" />
-      <xs:element name="task" type="xs:string"/>
+      <xs:element name="msg_type" type="xs:string" />
+      <xs:element name="name" type="xs:string"/>
     </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="dataType" final="restriction" >
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="int" />
+      <xs:enumeration value="double" />
+      <xs:enumeration value="string" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+
+  <xs:complexType name="param_type">
+    <xs:attribute name="key" type="xs:string"/>
+    <xs:attribute name="value" type="xs:string"/>
+    <xs:attribute name="type" type="dataType"/>
   </xs:complexType>
 
   <xs:complexType name="node">
       <xs:sequence>
         <xs:element name="name" type="xs:string" />
         <xs:element name="process" type="process"/>
+        <xs:element name="params" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="param" minOccurs="0" maxOccurs="unbounded" type="param_type">
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <xs:element name="publishers" minOccurs="0" maxOccurs="1">
           <xs:complexType>
             <xs:sequence>

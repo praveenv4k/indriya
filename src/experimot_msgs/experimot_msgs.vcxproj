@@ -153,6 +153,7 @@
     <None Include="proto\model.proto" />
     <None Include="proto\model_configuration.proto" />
     <None Include="proto\model_v.proto" />
+    <None Include="proto\node.proto" />
     <None Include="proto\packet.proto" />
     <None Include="proto\physics.proto" />
     <None Include="proto\pid.proto" />
@@ -270,6 +271,7 @@
     <ClCompile Include="model_configuration.pb.cc" />
     <ClCompile Include="model_v.pb.cc" />
     <ClCompile Include="MsgFactory.cc" />
+    <ClCompile Include="node.pb.cc" />
     <ClCompile Include="packet.pb.cc" />
     <ClCompile Include="physics.pb.cc" />
     <ClCompile Include="pid.pb.cc" />
@@ -378,6 +380,7 @@
     <ClInclude Include="model_configuration.pb.h" />
     <ClInclude Include="model_v.pb.h" />
     <ClInclude Include="MsgFactory.h" />
+    <ClInclude Include="node.pb.h" />
     <ClInclude Include="packet.pb.h" />
     <ClInclude Include="physics.pb.h" />
     <ClInclude Include="pid.pb.h" />
