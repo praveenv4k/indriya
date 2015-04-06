@@ -170,7 +170,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Experimot.Msgs\Experimot.Msgs.csproj">
+    <ProjectReference Include="..\..\Experimot.Msgs\Experimot.Msgs.csproj">
       <Project>{45e9e170-76b7-4e71-b557-9b131e0c175b}</Project>
       <Name>Experimot.Msgs</Name>
     </ProjectReference>
