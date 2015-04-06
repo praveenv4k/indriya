@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Windows;
 using Caliburn.Micro;
-using ExperimotStudio.Properties;
+using Experimot.Studio.Properties;
 using Gemini.Framework.Services;
 using Gemini.Modules.Shell.Views;
 
-namespace ExperimotStudio.Modules.Shell.ViewModels
+namespace Experimot.Studio.Modules.Shell.ViewModels
 {
     [Export(typeof(IShell))]
     public class ShellViewModel : Gemini.Modules.Shell.ViewModels.ShellViewModel

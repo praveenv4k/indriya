@@ -603,18 +603,18 @@ namespace KinectPlayback
             int d = u0 - 128;
             int e = v0 - 128;
 
-            rgb1.Red = Clip((298 * c + 516 * d + 128) >> 8); // blue
-            rgb1.Green = Clip((298 * c - 100 * d - 208 * e + 128) >> 8); // green
-            rgb1.Blue = Clip((298 * c + 409 * e + 128) >> 8); // red
+            rgb1.Red = ClipValue((298 * c + 516 * d + 128) >> 8); // blue
+            rgb1.Green = ClipValue((298 * c - 100 * d - 208 * e + 128) >> 8); // green
+            rgb1.Blue = ClipValue((298 * c + 409 * e + 128) >> 8); // red
             c = y1 - 16;
 
-            rgb2.Red = Clip((298 * c + 516 * d + 128) >> 8); // blue
-            rgb2.Green = Clip((298 * c - 100 * d - 208 * e + 128) >> 8); // green
-            rgb2.Blue = Clip((298 * c + 409 * e + 128) >> 8); // red
+            rgb2.Red = ClipValue((298 * c + 516 * d + 128) >> 8); // blue
+            rgb2.Green = ClipValue((298 * c - 100 * d - 208 * e + 128) >> 8); // green
+            rgb2.Blue = ClipValue((298 * c + 409 * e + 128) >> 8); // red
         }
 
 
-        public static int Clip(int n)
+        public static int ClipValue(int n)
         {
             return Math.Max(byte.MinValue, Math.Min(n, byte.MaxValue));
         }

@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.Composition;
 using Caliburn.Micro;
-using ExperimotStudio.Properties;
+using Experimot.Studio.Properties;
 using Gemini.Modules.Settings;
 
-namespace ExperimotStudio.Modules.Shell.ViewModels
+namespace Experimot.Studio.Modules.Shell.ViewModels
 {
     [Export(typeof(ISettingsEditor))]
     [PartCreationPolicy(CreationPolicy.NonShared)]
