@@ -591,5 +591,76 @@
     \end{longtable}
 \end{center}
 
+\newpage
+\section{2015/04/06-2015/04/12}
+
+\begin{center}
+    \begin{longtable}{ | c | p{6cm} | p{5cm} |}
+    \hline
+    Date & Content & Problems/Remarks \\ 
+    \endhead
+    \hline    
+     2015/04/06         & 
+  \begin{itemize}
+  \item Lab meeting
+  \item Application bootstrapper - Modified XML schema to support node parameters. In the process of supplying the node parameters as a command line arguments to the individual nodes during startup.
+\end{itemize}  
+   & - \\
+\hline
+  										 
+ 2015/04/07         & 
+  \begin{itemize}
+  \item Fixed bugs in the Nao pose estimation.
+  \item Added the color stream support in the kinect playback tool.
+  \item Investigation on how to extract skeleton data from raw buffer in XEF file
+\end{itemize}   
+& 
+  \begin{itemize}
+  \item The raw format used by Microsoft for color stream was Yuy2 ( 4 bytes for 2 pixels). The conversion from Yuy2 to RGB was implemented in Kinect Playback tool
+  \item The skeleton buffer was 6288 bytes. I tried decoding the skeleton values from the byte stream. Still cannot figure out how the data structure is aligned while serializing.
+\end{itemize}  \\
+\hline
+  										 
+  
+  2015/04/08        & 
+  \begin{itemize}
+  \item Fixed Experimot studio startup problem.
+  \item Scheduler design. Written core classes that will compose the Context of the scheduler.
+  \end{itemize}   
+  										 & - \\
+  \hline
+  
+  2015/04/09         & 
+  \begin{itemize}
+  \item Schedule core classes design
+  \item Localization reference frame problem debugging
+\end{itemize}   
+  & 
+\\  										 \hline
+
+  2015/04/10         & 
+  \begin{itemize}
+  \item Localization reference frame problem fix
+  \item Testing
+\end{itemize}   
+  & 
+  -
+\\
+  										 \hline
+  										 
+	 2015/04/11         & 
+  \begin{itemize}
+  \item Bug fixes in the localization
+\end{itemize}   
+  & 
+\begin{itemize}
+  \item The camera frame considered by ALVAR was (x-right, y-down and z-forward). However for KINECT it was (x-right, y-up and z-forward). So basically I had to invert the y-axis position values after computing the Torso pose.
+  \item \emph{TODO}: Weighted pose estimation depending on the marker detection confidence.
+\end{itemize}  		\\					 \hline  	
+
+										 
+  										   								 
+    \end{longtable}
+\end{center}
 
 \end{document}
