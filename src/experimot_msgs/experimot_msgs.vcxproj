@@ -208,11 +208,11 @@
     <None Include="proto_export.bat" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\external\ProtoGen\ProtoGen.csproj">
+      <Project>{f6cbe303-3b5f-4ccc-b0b7-d81a6bd462c9}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\experimot_msgs_gen\experimot_msgs_gen.vcxproj">
       <Project>{02fe2504-329c-4e39-a5f9-663567c1ea2d}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\ProtoGen\ProtoGen.csproj">
-      <Project>{f6cbe303-3b5f-4ccc-b0b7-d81a6bd462c9}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
