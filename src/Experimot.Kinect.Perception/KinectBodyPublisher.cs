@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Globalization;
 using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using Microsoft.Kinect;
-using System.Text;
 
-namespace ExperimotPerception
+namespace Experimot.Kinect.Perception
 {
     /// <summary>
     /// Interaction logic for MainWindow
