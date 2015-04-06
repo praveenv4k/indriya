@@ -11,7 +11,7 @@
 * Development Tool: Visual Studio 2013, Update 4. Plugin: NuGet Package Manager
 * Libraries:
 * Kinect for Windows SDK 2.0 (http://www.microsoft.com/en-us/download/details.aspx?id=44561)
-* Point Cloud Library V1.7.2 - All in one installer for VS2013 can be found at (http://unanancyowen.com/?p=1255&lang=en)
+//* Point Cloud Library V1.7.2 - All in one installer for VS2013 can be found at (http://unanancyowen.com/?p=1255&lang=en)
 * OpenCV 2.4.10
 * OpenRAVE 0.9
 
