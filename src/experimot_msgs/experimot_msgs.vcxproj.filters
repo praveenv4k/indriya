@@ -345,6 +345,9 @@
     <None Include="proto_export.bat">
       <Filter>scripts</Filter>
     </None>
+    <None Include="proto\node.proto">
+      <Filter>proto</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MsgFactory.cc">
@@ -663,6 +666,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="kinect_joint.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="node.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -984,6 +990,9 @@
     </ClInclude>
     <ClInclude Include="kinect_joint.pb.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="node.pb.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -53,12 +53,6 @@ namespace Scheduler
 
     internal class SimpleTask : IJob
     {
-        //private string _message;
-        //public SimpleTask(string message)
-        //{
-        //    _message = message;
-        //}
-
         public void Execute(IJobExecutionContext context)
         {
             if (context != null)

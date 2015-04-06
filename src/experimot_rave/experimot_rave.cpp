@@ -231,64 +231,6 @@ RobotBasePtr orMacroGetRobot(EnvironmentBasePtr penv, int index)
 	return RaveInterfaceCast<RobotBase>(pbody);
 }
 
-void DoSomethingServer(boost::shared_ptr<asio::io_service> iosPtr, EnvironmentBasePtr penv){
-	//azmq::pub_socket publisher(*iosPtr);
-	azmq::socket _server(*iosPtr, ZMQ_ROUTER);
-	
-	//publisher.connect("tcp://127.0.0.1:9998");
-	_server.bind("tcp://127.0.0.1:9998");
-
-	std::array<char, 5> ident;
-	std::array<char, 256> buf;
-	size_t btb;
-	boost::system::error_code ecb;
-	//strcpy_s(buf._Elems, "Hello\n");
-	for (;;) {
-		//publisher.send(asio::buffer(buf));
-		_server.async_receive([&](boost::system::error_code const& ec, azmq::message & msg, size_t bytes_transferred) {
-			ecb = ec;
-			if (ec){
-				std::cout << "Error in async receive" << std::endl;
-				return;
-			}
-			btb += bytes_transferred;
-			msg.buffer_copy(boost::asio::buffer(ident));
-
-			if (msg.more()) {
-				btb += _server.receive(msg, ZMQ_RCVMORE, ecb);
-				if (ecb)
-					return;
-				msg.buffer_copy(boost::asio::buffer(buf));
-
-				std::cout << buf._Elems << std::endl;
-			}
-		});
-	}
-}
-
-void DoSomethingClient(boost::shared_ptr<asio::io_service> iosPtr, EnvironmentBasePtr penv){
-	asio::io_service ios;
-
-	//azmq::sub_socket subscriber(*iosPtr);
-	//subscriber.bind("tcp://127.0.0.1:9998");
-	//subscriber.set_option(azmq::socket::subscribe("NASDAQ"));
-
-	azmq::socket _client(*iosPtr,ZMQ_DEALER);
-	_client.connect("tcp://127.0.0.1:9998");
-
-	std::array<char, 256> buf;
-	std::array<boost::asio::const_buffer, 1> snd_bufs = { {
-			boost::asio::buffer("Hello\n")
-		} };
-
-	//strcpy_s(buf._Elems, "Hello\n");
-	for (;;) {
-		//auto size = subscriber.receive(asio::buffer(buf));
-		_client.send(snd_bufs);
-		//std::cout << buf._Elems << std::endl;
-	}
-}
-
 void orDispRobots(EnvironmentBasePtr penv)
 {
 	vector<RobotBasePtr> robots;
@@ -314,9 +256,8 @@ void orInitEnvironment(EnvironmentBasePtr penv)
 		(*it)->SetTransform(defTransform);
 		break;
 	}
-	//KinBodyPtr pKinbody;
-	penv->AddKinBody(penv->ReadKinBodyXMLFile("box2.kinbody.xml"));
-	//kinectModel = penv->drawbox(Vector(), Vector(0.15, 0.05, 0.05));
+	OpenRAVE::KinBodyPtr pKinectBox = penv->ReadKinBodyXMLFile("box2.kinbody.xml");
+	penv->Add(pKinectBox);
 }
 
 class RobotStateListener{
