@@ -33,7 +33,7 @@
       <name>gesture_recognition</name>
       <process>
         <type>executable</type>
-        <path>%DEV_SDK_ROOT%\experimot\bin\ExperimotPerception.exe</path>
+        <path>%DEV_SDK_ROOT%\experimot\bin\Experimot.Kinect.Perception.exe</path>
         <args></args>
       </process>
       <publishers>
