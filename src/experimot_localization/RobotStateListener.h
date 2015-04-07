@@ -14,10 +14,6 @@
 
 #include "experimot\msgs\MessageTypes.h"
 
-typedef boost::shared_ptr<zmq::context_t> ZmqContextPtr;
-typedef boost::shared_ptr<zmq::socket_t> ZmqSocketPtr;
-typedef boost::shared_ptr<zmq::message_t> ZmqMessagePtr;
-
 class RobotStateListener;
 
 typedef boost::shared_ptr<RobotStateListener> RobotStateListenerPtr;
@@ -25,16 +21,18 @@ typedef boost::shared_ptr<RobotStateListener> RobotStateListenerPtr;
 class RobotStateListener{
 public:
 	//  Prepare our context and subscriber
-	RobotStateListener(std::string& protocol, std::string& ip, int port, int timeoutMilliSec, std::string& subscribeTo) :m_strSubsribeTo(subscribeTo) {
-		m_pContext = ZmqContextPtr(new zmq::context_t(1));
-		m_pSocket = ZmqSocketPtr(new zmq::socket_t(*m_pContext, ZMQ_SUB));
+	RobotStateListener(const std::string& protocol, const std::string& ip, int port, int timeoutMilliSec, const std::string& subscribeTo) :m_strSubsribeTo(subscribeTo), m_nTimeOut(timeoutMilliSec){
 		std::stringstream ss;
 		ss << protocol << "://" << ip << ":" << port;
 		m_strAddr = ss.str();
-		m_pSocket->connect(m_strAddr.c_str());
-		m_pSocket->setsockopt(ZMQ_SUBSCRIBE, m_strSubsribeTo.c_str(), m_strSubsribeTo.size());
-		int to = timeoutMilliSec;
-		m_pSocket->setsockopt(ZMQ_RCVTIMEO, &to, sizeof(to));
+		_init();
+	}
+
+	RobotStateListener(const std::string& host, int port, int timeoutMilliSec, const std::string& subscribeTo) :m_strSubsribeTo(subscribeTo), m_nTimeOut(timeoutMilliSec) {
+		std::stringstream ss;
+		ss << host << ":" << port;
+		m_strAddr = ss.str();
+		_init();
 	}
 
 	bool Listen(std::vector<double>& jointValues){
@@ -61,6 +59,22 @@ public:
 	}
 
 private:
+	void _init(){
+		if (!m_bInit){
+			m_pContext = ZmqContextPtr(new zmq::context_t(1));
+			m_pSocket = ZmqSocketPtr(new zmq::socket_t(*m_pContext, ZMQ_SUB));
+			std::stringstream ss;
+			m_pSocket->connect(m_strAddr.c_str());
+			m_pSocket->setsockopt(ZMQ_SUBSCRIBE, m_strSubsribeTo.c_str(), m_strSubsribeTo.size());
+			int to = m_nTimeOut;
+			m_pSocket->setsockopt(ZMQ_RCVTIMEO, &to, sizeof(to));
+			m_bInit = true;
+		}
+	}
+
+private:
+	bool m_bInit;
+	int m_nTimeOut;
 	ZmqContextPtr m_pContext;
 	ZmqSocketPtr m_pSocket;
 	std::string m_strSubsribeTo;

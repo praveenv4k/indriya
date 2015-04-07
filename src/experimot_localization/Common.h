@@ -15,4 +15,11 @@
 #define FOREACH(it, v) for(BOOST_TYPEOF(v) ::iterator it = (v).begin(), __itend__=(v).end(); it != __itend__; ++(it))
 #define FOREACHC(it, v) for(BOOST_TYPEOF(v) ::const_iterator it = (v).begin(), __itend__=(v).end(); it != __itend__; ++(it))
 
+#include <zmq.hpp>
+#include <zhelpers.hpp>
+
+typedef boost::shared_ptr<zmq::context_t> ZmqContextPtr;
+typedef boost::shared_ptr<zmq::socket_t> ZmqSocketPtr;
+typedef boost::shared_ptr<zmq::message_t> ZmqMessagePtr;
+
 #endif

@@ -10,16 +10,19 @@ typedef boost::shared_ptr<TorsoPosePublisher> TorsoPosePublisherPtr;
 
 class TorsoPosePublisher{
 public:
-	TorsoPosePublisher(std::string& protocol, std::string& ip, int port, int timeoutMilliSec, std::string& publisherId) :m_strPublisherId(publisherId){
+	TorsoPosePublisher(const std::string& protocol, const std::string& ip, int port, int timeoutMilliSec, const std::string& publisherId) :m_strPublisherId(publisherId), m_nTimeOut(timeoutMilliSec) {
 		//  Prepare our context and publisher
-		m_pContext = ZmqContextPtr(new zmq::context_t(1));
-		m_pSocket = ZmqSocketPtr(new zmq::socket_t(*m_pContext, ZMQ_PUB));
 		std::stringstream ss;
 		ss << protocol << "://" << ip << ":" << port;
 		m_strAddr = ss.str();
-		m_pSocket->bind(m_strAddr.c_str());
-		int to = timeoutMilliSec;
-		m_pSocket->setsockopt(ZMQ_SNDTIMEO, &to, sizeof(to));
+		_init();
+	}
+
+	TorsoPosePublisher(const std::string& host, int port, int timeoutMilliSec, const std::string& publisherId) :m_strPublisherId(publisherId), m_nTimeOut(timeoutMilliSec) {
+		std::stringstream ss;
+		ss << host << ":" << port;
+		m_strAddr = ss.str();
+		_init();
 	}
 
 	~TorsoPosePublisher(){
@@ -40,6 +43,21 @@ public:
 	}
 
 private:
+	void _init(){
+		if (!m_bInit){
+			m_pContext = ZmqContextPtr(new zmq::context_t(1));
+			m_pSocket = ZmqSocketPtr(new zmq::socket_t(*m_pContext, ZMQ_PUB));
+			std::stringstream ss;
+			m_pSocket->bind(m_strAddr.c_str());
+			int to = m_nTimeOut;
+			m_pSocket->setsockopt(ZMQ_SNDTIMEO, &to, sizeof(to));
+			m_bInit = true;
+		}
+	}
+
+private:
+	int m_nTimeOut;
+	bool m_bInit;
 	ZmqContextPtr m_pContext;
 	ZmqSocketPtr m_pSocket;
 	std::string m_strPublisherId;
