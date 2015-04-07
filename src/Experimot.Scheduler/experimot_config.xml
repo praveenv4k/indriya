@@ -8,7 +8,7 @@
     <param key="ParameterServerHost" value="tcp://*" type="string"/>
     <param key="ParameterClientHost" value="tcp://localhost" type="string"/>
     <param key="ParameterServerPort" value="5560" type="int"/>
-    <param key="ParameterServerInterval" value="50" type="int"/>
+    <param key="ParameterServerInterval" value="10" type="int"/>
   </parameters>
   <nodes>
     <node>
@@ -71,6 +71,11 @@
         <path>%DEV_SDK_ROOT%\experimot\bin\experimot_rave.exe</path>
         <args></args>
       </process>
+      <parameters>
+        <param key="scenefilename" value="data/nao.dae" type="string"/>
+        <param key="viewername" value="qtcoin" type="string"/>
+        <param key="visualize" value="1" type="int"/>
+      </parameters>
       <subscribers>
         <subscribe>
           <host>tcp://localhost</host>

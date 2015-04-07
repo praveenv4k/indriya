@@ -46,6 +46,10 @@
 #include <boost/atomic.hpp>
 #include "KinectBodyHelper.h"
 
+#include <boost\program_options.hpp>
+#include <experimot\common\ParameterClient.h>
+#include <experimot\common\ParameterHelper.h>
+
 boost::atomic<bool> done(false);
 
 using namespace OpenRAVE;
@@ -70,134 +74,6 @@ void SetViewer(EnvironmentBasePtr penv, const string& viewername)
     // finally call the viewer's infinite loop (this is why a separate thread is needed)
     bool showgui = true;
     viewer->main(showgui);
-}
-
-// ping every 250ms
-void schedule_ping(asio::deadline_timer & timer, server_t & server) {
-	server.ping();
-
-	timer.expires_from_now(pt::milliseconds(20));
-	timer.async_wait([&](boost::system::error_code const& ec) {
-		if (ec)
-			return;
-		schedule_ping(timer, server);
-	});
-};
-
-void RunServer(EnvironmentBasePtr penv)
-{
-	//std::cout << "Server Starting... " << std::endl;
-	//boost::asio::io_service io_service;
-	//tcp_server server(io_service);
-
-	//// halt on SIGINT or SIGTERM
-	//asio::signal_set signals(io_service, SIGTERM, SIGINT);
-	//signals.async_wait([&](boost::system::error_code const&, int) {
-	//	io_service.stop();
-	//});
-	//io_service.run();
-
-	asio::io_service ios;
-	asio::io_service ios2;
-	boost::system::error_code ec;
-	std::string uri = { "ipc:///tmp/feeds/0" };
-	std::cout << "Running...";
-	std::cout.flush();
-
-	// halt on SIGINT or SIGTERM
-	asio::signal_set signals(ios, SIGTERM, SIGINT);
-	signals.async_wait([&](boost::system::error_code const&, int) {
-		ios.stop();
-	});
-
-	asio::signal_set signals2(ios, SIGTERM, SIGINT);
-	signals2.async_wait([&](boost::system::error_code const&, int) {
-		ios2.stop();
-	});
-
-	server2_t server(ios,std::string("ipc:///tmp/feeds/0"));
-	//ipc:///tmp/feeds/0
-	
-	
-	/*asio::deadline_timer timer(ios);
-	schedule_ping(timer, server);*/
-
-	//// run for 5 secods
-	//asio::deadline_timer deadline(ios, pt::seconds(5));
-	//deadline.async_wait([&](boost::system::error_code const&) {
-	//	ios.stop();
-	//});
-
-	ios.run();
-
-	//std::cout << "Done. Results - " << server << std::endl;
-}
-
-std::string subj(const char* name) {
-	//return std::string("ipc:///tmp/feeds/0") + name;
-	return std::string("tcp://127.0.0.1:9998");
-//tcp://127.0.0.1:9998
-}
-
-void Subscriber()
-{
-	//  Prepare our context and subscriber
-	zmq::context_t ctx(1);
-	zmq::socket_t sock(ctx, ZMQ_SUB);
-	sock.connect("tcp://localhost:5563");
-
-	std::string str("V");
-	sock.setsockopt(ZMQ_SUBSCRIBE, str.c_str(), str.size());
-
-	experimot::msgs::Vector3d vec3;
-
-	while (1) {
-		zmq::message_t address;
-		sock.recv(&address);
-
-		zmq::message_t data;
-		sock.recv(&data);
-
-		if (vec3.ParseFromArray(data.data(), data.size())){
-			vec3.PrintDebugString();
-		}
-	}
-}
-
-void Publisher()
-{
-	//  Prepare our context and publisher
-	zmq::context_t ctx(1);
-	zmq::socket_t sock(ctx, ZMQ_PUB);
-	sock.bind("tcp://*:5563");
-
-	experimot::msgs::Vector3d vec3;
-	std::string pub_name("V");
-	zmq::message_t pub_header(pub_name.size());
-
-	double i = 0;
-	while (1) {
-		//if (i > 10) break;
-		vec3.set_x(i++);
-		vec3.set_y(i + 1);
-		vec3.set_z(i + 2);
-
-		std::string str = vec3.SerializeAsString();
-		vec3.SerializeToString(&str);
-
-#if 1
-		if (s_sendmore(sock, pub_name)){
-			s_send(sock, str);
-		}
-#else
-		experimot::msgs::Vector3d vec2;
-		if (vec2.ParseFromString(std::string(pMsg))){
-			vec2.SerializeToOstream(&std::cout);
-			std::cout << std::endl;
-		}
-#endif
-		Sleep(1);
-	}
 }
 
 bool orRobotSetActiveDOFs(RobotBasePtr probot, vector<double> jointVals)
@@ -271,6 +147,18 @@ public:
 		m_pSocket->setsockopt(ZMQ_SUBSCRIBE, m_strSubsribeTo.c_str(), m_strSubsribeTo.size());
 	}
 
+	RobotStateListener(const string host, int port, const string topic){
+		std::stringstream ss;
+		ss << host << ":" << port;
+		string strAddr = ss.str();
+
+		m_pContext = ZmqContextPtr(new zmq::context_t(1));
+		m_pSocket = ZmqSocketPtr(new zmq::socket_t(*m_pContext, ZMQ_SUB));
+		m_pSocket->connect(strAddr.c_str());
+		m_strSubsribeTo = topic;
+		m_pSocket->setsockopt(ZMQ_SUBSCRIBE, m_strSubsribeTo.c_str(), m_strSubsribeTo.size());
+	}
+
 	void Listen(EnvironmentBasePtr penv){
 		while (!done) {
 			zmq::message_t address;
@@ -318,6 +206,18 @@ public:
 		m_pSocket->setsockopt(ZMQ_SUBSCRIBE, m_strSubsribeTo.c_str(), m_strSubsribeTo.size());
 	}
 
+	TorsoPoseListener(const string host, int port, const string topic){
+		std::stringstream ss;
+		ss << host << ":" << port;
+		string strAddr = ss.str();
+
+		m_pContext = ZmqContextPtr(new zmq::context_t(1));
+		m_pSocket = ZmqSocketPtr(new zmq::socket_t(*m_pContext, ZMQ_SUB));
+		m_pSocket->connect(strAddr.c_str());
+		m_strSubsribeTo = topic;
+		m_pSocket->setsockopt(ZMQ_SUBSCRIBE, m_strSubsribeTo.c_str(), m_strSubsribeTo.size());
+	}
+
 	static void ProtoToRave(const experimot::msgs::Pose& pose, OpenRAVE::Transform& tfm){
 		// Set Position
 		tfm.trans[0] = pose.position().x() / 1000;
@@ -329,10 +229,6 @@ public:
 		tfm.rot[1] = pose.orientation().x();
 		tfm.rot[2] = pose.orientation().y();
 		tfm.rot[3] = pose.orientation().z();
-		/*tfm.rot[0] = pose.orientation().x();
-		tfm.rot[1] = pose.orientation().y();
-		tfm.rot[2] = pose.orientation().z();
-		tfm.rot[3] = pose.orientation().w();*/
 	}
 
 	void Listen(EnvironmentBasePtr penv){
@@ -346,7 +242,6 @@ public:
 			{
 				experimot::msgs::Pose pose;
 				if (pose.ParseFromArray(data.data(), data.size())){
-					//pose.PrintDebugString();
 					Transform tfm;
 					ProtoToRave(pose, tfm);
 					{
@@ -461,6 +356,18 @@ public:
 		m_pSocket->setsockopt(ZMQ_SUBSCRIBE, m_strSubsribeTo.c_str(), m_strSubsribeTo.size());
 	}
 
+	KinectStateListener(const string host, int port, const string topic){
+		std::stringstream ss;
+		ss << host << ":" << port;
+		string strAddr = ss.str();
+
+		m_pContext = ZmqContextPtr(new zmq::context_t(1));
+		m_pSocket = ZmqSocketPtr(new zmq::socket_t(*m_pContext, ZMQ_SUB));
+		m_pSocket->connect(strAddr.c_str());
+		m_strSubsribeTo = topic;
+		m_pSocket->setsockopt(ZMQ_SUBSCRIBE, m_strSubsribeTo.c_str(), m_strSubsribeTo.size());
+	}
+
 	void KinectPointsProcess(const experimot::msgs::Vector3d& p0, RaveVector<float>& p0_out){
 #if 1
 		//p0_out = RaveVector<float>(p0.z(), p0.x(), p0.y());
@@ -496,10 +403,6 @@ public:
 						const experimot::msgs::KinectBody& kBody = kBodies.body(i);
 						RaveVector<float> bColor;
 						KinectBodyHelper::Instance()->GetBodyColor(kBody.trackingid(), bColor);
-
-#if 0
-						DrawBody(kBody, bColor, penv, listgraphs);
-#else
 						const std::vector<std::tuple<KinectJoint_JointType, KinectJoint_JointType>>& boneMap = KinectBodyHelper::Instance()->GetBones();
 						FOREACHC(it, boneMap){
 							KinectJoint_JointType item1 = std::get<0>(*it);
@@ -573,7 +476,6 @@ public:
 						if (jointPoints.size() > 0){
 							listgraphs.push_back(penv->plot3(&jointPoints[0].x, jointPoints.size(), sizeof(jointPoints[0]), KinectBodyHelper::Instance()->JointThickness, &jointColors[0].x,1,true));
 						}
-#endif
 					}
 				}
 
@@ -733,127 +635,6 @@ private:
 	std::vector<experimot::msgs::JointValueVector> m_pJointValueVector;
 };
 
-
-#if 0
-int main(int argc, char ** argv)
-{
-	try{
-		//int num = 1;
-		string scenefilename = "data/nao.dae";
-		string viewername = "qtcoin";
-
-		// parse the command line options
-		int i = 1;
-		while (i < argc) {
-			if ((strcmp(argv[i], "-h") == 0) || (strcmp(argv[i], "-?") == 0) || (strcmp(argv[i], "/?") == 0) || (strcmp(argv[i], "--help") == 0) || (strcmp(argv[i], "-help") == 0)) {
-				RAVELOG_INFO("orloadviewer [--num n] [--scene filename] viewername\n");
-				return 0;
-			}
-			else if (strcmp(argv[i], "--scene") == 0) {
-				scenefilename = argv[i + 1];
-				i += 2;
-			}
-			else
-				break;
-		}
-		if (i < argc) {
-			viewername = argv[i++];
-		}
-
-		RaveInitialize(true); // start openrave core
-		EnvironmentBasePtr penv = RaveCreateEnvironment(); // create the main environment
-		RaveSetDebugLevel(Level_Debug);
-
-		boost::thread thviewer(boost::bind(SetViewer, penv, viewername));
-		//boost::thread thServer(boost::bind(RunServer, penv));
-		//boost::thread thServer(boost::bind(ClientServer, penv));
-		boost::shared_ptr<boost::asio::io_service> ios(new boost::asio::io_service);
-		boost::thread thServer(boost::bind(Publisher));
-		boost::thread thClient(boost::bind(Subscriber));
-
-		asio::signal_set signals(*ios, SIGTERM, SIGINT);
-		signals.async_wait([&](boost::system::error_code const&, int) {
-			ios->stop();
-		});
-
-		csv::io::CSVReader<25> in("datalog.csv");
-
-		
-
-		in.read_header(csv::io::ignore_extra_column, "Device/SubDeviceList/HeadPitch/Position/Sensor/Value"
-			, "Device/SubDeviceList/HeadYaw/Position/Sensor/Value"
-			, "Device/SubDeviceList/LAnklePitch/Position/Sensor/Value"
-			, "Device/SubDeviceList/LAnkleRoll/Position/Sensor/Value",
-			"Device/SubDeviceList/LElbowRoll/Position/Sensor/Value",
-			"Device/SubDeviceList/LElbowYaw/Position/Sensor/Value",
-			"Device/SubDeviceList/LHand/Position/Sensor/Value",
-			"Device/SubDeviceList/LHipPitch/Position/Sensor/Value",
-			"Device/SubDeviceList/LHipRoll/Position/Sensor/Value"
-			, "Device/SubDeviceList/LHipYawPitch/Position/Sensor/Value"
-			, "Device/SubDeviceList/LKneePitch/Position/Sensor/Value",
-			"Device/SubDeviceList/LShoulderPitch/Position/Sensor/Value"
-			, "Device/SubDeviceList/LShoulderRoll/Position/Sensor/Value",
-			"Device/SubDeviceList/LWristYaw/Position/Sensor/Value"
-			, "Device/SubDeviceList/RAnklePitch/Position/Sensor/Value"
-			, "Device/SubDeviceList/RAnkleRoll/Position/Sensor/Value",
-			"Device/SubDeviceList/RElbowRoll/Position/Sensor/Value",
-			"Device/SubDeviceList/RElbowYaw/Position/Sensor/Value",
-			"Device/SubDeviceList/RHand/Position/Sensor/Value"
-			, "Device/SubDeviceList/RHipPitch/Position/Sensor/Value",
-			"Device/SubDeviceList/RHipRoll/Position/Sensor/Value",
-			"Device/SubDeviceList/RKneePitch/Position/Sensor/Value"
-			, "Device/SubDeviceList/RShoulderPitch/Position/Sensor/Value",
-			"Device/SubDeviceList/RShoulderRoll/Position/Sensor/Value",
-			"Device/SubDeviceList/RWristYaw/Position/Sensor/Value");
-
-		penv->Load(scenefilename); // load the scene
-
-		orDispRobots(penv);
-
-#if 1
-		RobotBasePtr probot = RobotBasePtr();
-		{
-			EnvironmentMutex::scoped_lock lock(penv->GetMutex());
-			probot = orMacroGetRobot(penv, 1);
-		}
-		if (probot){
-			cout << "Robot exists!";
-			vector<double> vals;
-			vals.resize(25);
-			while (in.read_row(vals[0], vals[1], vals[2], vals[3],
-				vals[4], vals[5], vals[6], vals[7],
-				vals[8], vals[9], vals[10], vals[11],
-				vals[12], vals[13], vals[14], vals[15],
-				vals[16], vals[17], vals[18], vals[19],
-				vals[20], vals[21], vals[22], vals[23], vals[24]
-				))
-			{
-				{
-					vector<double> jointVals;
-					for (size_t id = 0; id < vals.size(); id++){
-						jointVals.push_back(vals[jointMap[id]]);
-					}
-					orRobotSetActiveDOFs(probot, jointVals);
-					Sleep(100);
-				}
-			}
-		}
-#endif
-
-		thviewer.join(); // wait for the viewer thread to exit
-
-		penv->Destroy(); // destroy
-
-		thServer.join();
-		thClient.join();
-	}
-	catch (std::exception& ex){
-		std::cout << ex.what() << std::endl;
-	}
-	return 0;
-}
-#else
-
 // Default location of Nao
 //position{
 //x: 84.682732203775871
@@ -867,68 +648,129 @@ int main(int argc, char ** argv)
 //w : 0.53522962205139013
 //}
 
+experimot::msgs::NodePtr AcquireParameters(int argc, char** argv){
+	experimot::msgs::NodePtr pInfo;
+	if (argv != NULL){
+		if (argc > 2){
+			std::cout
+				<< "Parsing command line option " << std::endl;
+			namespace po = boost::program_options;
+			po::options_description desc("Options");
+			desc.add_options()
+				("help,h", "Print help messages")
+				("name,n", po::value<std::string>(), "name of the node")
+				("param,p", po::value<std::string>(), "parameter server address");
+
+			po::variables_map vm;
+			try
+			{
+				po::store(po::parse_command_line(argc, argv, desc),
+					vm); // can throw 
+
+				/** --help option
+				*/
+				if (vm.count("help"))
+				{
+					std::cout << "Basic Command Line Parameter App" << std::endl
+						<< desc << std::endl;
+					return 0;
+				}
+				std::string name;
+				std::string param;
+				if (vm.count("name")){
+					name = vm["name"].as<std::string>();
+					std::cout << "Name of node: " << std::endl
+						<< vm["name"].as<std::string>() << std::endl;
+				}
+				if (vm.count("param")){
+					param = vm["param"].as<std::string>();
+					std::cout << "Parameter server : " << std::endl
+						<< vm["param"].as<std::string>() << std::endl;
+				}
+				po::notify(vm); // throws on error, so do after help in case 
+				// there are any problems 
+
+				if (!name.empty() && !param.empty()){
+					pInfo = experimot::msgs::NodePtr(new experimot::msgs::Node());
+					if (ParameterClient::Get(param, name, pInfo, 1000)){
+						pInfo->PrintDebugString();
+					}
+				}
+			}
+			catch (po::error& e)
+			{
+				std::cerr << "ERROR: " << e.what() << std::endl << std::endl;
+				std::cerr << desc << std::endl;
+			}
+		}
+	}
+	return pInfo;
+}
+
+typedef boost::shared_ptr<RobotStateListener> RobotStateListenerPtr;
+typedef boost::shared_ptr<KinectStateListener> KinectStateListenerPtr;
+typedef boost::shared_ptr<TorsoPoseListener> TorsoPoseListenerPtr;
+
 int main(int argc, char ** argv)
 {
 	try{
-		//int num = 1;
+		RobotStateListenerPtr pRobotListener;
+		KinectStateListenerPtr pKinectListener;
+		TorsoPoseListenerPtr pTorsoPoseListener;
+
 		string scenefilename = "data/nao.dae";
 		string viewername = "qtcoin";
 
-		experimot::msgs::Vector3d sample;
-		sample.set_x(100);
-		sample.set_y(200);
-		sample.set_z(500);
+		experimot::msgs::NodePtr pInfo = AcquireParameters(argc, argv);
 
-		KinectStateListener klistener;
-		RaveVector<float> pOut;
-		klistener.KinectPointsProcess(sample, pOut);
-		sample.PrintDebugString();
-		std::cout << pOut << std::endl;
+		if (pInfo != 0){
+			scenefilename = ParameterHelper::GetParam(pInfo->param(), "scenefilename", scenefilename);
+			viewername = ParameterHelper::GetParam(pInfo->param(), "viewername", viewername);
 
-		// parse the command line options
-		int i = 1;
-		while (i < argc) {
-			if ((strcmp(argv[i], "-h") == 0) || (strcmp(argv[i], "-?") == 0) || (strcmp(argv[i], "/?") == 0) || (strcmp(argv[i], "--help") == 0) || (strcmp(argv[i], "-help") == 0)) {
-				RAVELOG_INFO("orloadviewer [--num n] [--scene filename] viewername\n");
-				return 0;
+			for (int i = 0; i < pInfo->subscriber_size(); i++){
+				auto& sub = pInfo->subscriber(i);
+				if (sub.msg_type() == "JointValueVector"){
+					pRobotListener = RobotStateListenerPtr(new RobotStateListener(sub.host(), sub.port(), sub.topic()));
+				}
+				if (sub.msg_type() == "Pose"){
+					pTorsoPoseListener = TorsoPoseListenerPtr(new TorsoPoseListener(sub.host(), sub.port(), sub.topic()));
+				}
+				if (sub.msg_type() == "KinectBodies"){
+					pKinectListener = KinectStateListenerPtr(new KinectStateListener(sub.host(), sub.port(), sub.topic()));
+				}
 			}
-			else if (strcmp(argv[i], "--scene") == 0) {
-				scenefilename = argv[i + 1];
-				i += 2;
-			}
-			else
-				break;
+			std::cout << "Initialized node from configuration file " << std::endl;
 		}
-		if (i < argc) {
-			viewername = argv[i++];
+		else{
+			pRobotListener = RobotStateListenerPtr(new RobotStateListener());
+			pTorsoPoseListener = TorsoPoseListenerPtr(new TorsoPoseListener());
+			pKinectListener = KinectStateListenerPtr(new KinectStateListener());
 		}
 
 		RaveInitialize(true); // start openrave core
 		EnvironmentBasePtr penv = RaveCreateEnvironment(); // create the main environment
-		RaveSetDebugLevel(Level_Debug);
+		RaveSetDebugLevel(Level_Info);
 
 		boost::thread thviewer(boost::bind(SetViewer, penv, viewername));
 
 		penv->Load(scenefilename); // load the scene
+
+#if 0
 		orDispRobots(penv);
+#endif
 
 		Sleep(2000);
 		orInitEnvironment(penv);
 
-		RobotStateListener listener;
-		//KinectStateListener klistener;
-		TorsoPoseListener tlistener;
-
 		//boost::thread thPublisher(boost::bind(&RobotStatePublisher::PublishJointValues, &publisher));
-		boost::thread thRobotSubscriber(boost::bind(&RobotStateListener::Listen, &listener, penv));
-		boost::thread thKinectSubscriber(boost::bind(&KinectStateListener::Listen, &klistener, penv));
-		boost::thread thTorsoSubscriber(boost::bind(&TorsoPoseListener::Listen, &tlistener, penv));
+		boost::thread thRobotSubscriber(boost::bind(&RobotStateListener::Listen, pRobotListener, penv));
+		boost::thread thKinectSubscriber(boost::bind(&KinectStateListener::Listen, pKinectListener, penv));
+		boost::thread thTorsoSubscriber(boost::bind(&TorsoPoseListener::Listen, pTorsoPoseListener, penv));
 
 		thviewer.join(); // wait for the viewer thread to exit
 
 		done = true;
 
-		//thPublisher.join();
 		thRobotSubscriber.join();
 		thKinectSubscriber.join();
 		thTorsoSubscriber.join();
@@ -940,5 +782,3 @@ int main(int argc, char ** argv)
 	}
 	return 0;
 }
-
-#endif

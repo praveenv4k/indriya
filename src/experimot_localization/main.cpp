@@ -10,8 +10,8 @@
 #endif
 #endif
 
-#include "ParameterClient.h"
-#include "ParameterHelper.h"
+#include "experimot\common\ParameterClient.h"
+#include "experimot\common\ParameterHelper.h"
 #include <boost/program_options.hpp>
 
 int main(int argc, char *argv[])
