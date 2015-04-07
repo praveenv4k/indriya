@@ -147,7 +147,8 @@ namespace Scheduler
                                     myProcess.Start();
                                     Log.InfoFormat("Started Process : {0}", exeFile);
                                     _processes.Add(myProcess);
-                                    break;
+                                    System.Threading.Thread.Sleep(200);
+                                    //break;
                                 }
                                 catch (Exception ex)
                                 {

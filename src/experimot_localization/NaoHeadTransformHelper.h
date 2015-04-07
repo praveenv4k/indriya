@@ -1,7 +1,7 @@
 #ifndef __NAOHEAD_TRANSFORM_HELPER_H__
 #define __NAOHEAD_TRANSFORM_HELPER_H__
 
-#include "Common.h"
+#include "experimot\common\Common.h"
 
 using namespace OpenRAVE;
 using namespace std;

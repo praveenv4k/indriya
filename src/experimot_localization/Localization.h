@@ -13,7 +13,7 @@
 #include "MarkerDetection.h"
 #include "NaoHeadTransformHelper.h"
 
-#include "ParameterHelper.h"
+#include "experimot\common\ParameterHelper.h"
 
 #define COMM_PROTOCOL		"tcp"
 #define COMM_SUBIPADDRESS	"127.0.0.1"
@@ -37,16 +37,16 @@ class Localization{
 public:
 	Localization(boost::asio::io_service& io, experimot::msgs::NodePtr& pNode)
 		: strand_(io),
-		timer1_(io, boost::posix_time::milliseconds(30)),
-		timer2_(io, boost::posix_time::milliseconds(40)),
-		timer3_(io, boost::posix_time::milliseconds(80))
+		m_SensorTimer(io, boost::posix_time::milliseconds(30)),
+		m_RobotTimer(io, boost::posix_time::milliseconds(40)),
+		m_PoseTimer(io, boost::posix_time::milliseconds(80))
 	{
 		m_pNode = pNode;
 
 		if (m_pNode != 0){
 			int cubeSize = ParameterHelper::GetParam<int>(m_pNode->param(), "cube_size", 64);
 			int markerSize = ParameterHelper::GetParam<int>(m_pNode->param(), "marker_size", 55);
-			std::string calibFile = ParameterHelper::GetParam<std::string>(m_pNode->param(), "calib_file", "dummy");
+			std::string calibFile = ParameterHelper::GetParam<std::string>(m_pNode->param(), "calib_file", "default.xml");
 			int conn_timeout = ParameterHelper::GetParam<int>(m_pNode->param(), "comm_timeout", 100);
 			m_nSensorCycle = ParameterHelper::GetParam<int>(m_pNode->param(), "sensor_process_cycle", 30);
 			m_nRobotCycle = ParameterHelper::GetParam<int>(m_pNode->param(), "robot_listener_cycle", 40);
@@ -69,9 +69,9 @@ public:
 
 			m_pRobotPoseInfoPtr = RobotPoseInfoPtr(new RobotPoseInfo());
 
-			timer1_.expires_at(timer1_.expires_at() + boost::posix_time::milliseconds(m_nSensorCycle));
-			timer2_.expires_at(timer2_.expires_at() + boost::posix_time::milliseconds(m_nRobotCycle));
-			timer3_.expires_at(timer3_.expires_at() + boost::posix_time::milliseconds(m_nPoseCycle));
+			m_SensorTimer.expires_at(m_SensorTimer.expires_at() + boost::posix_time::milliseconds(m_nSensorCycle));
+			m_RobotTimer.expires_at(m_RobotTimer.expires_at() + boost::posix_time::milliseconds(m_nRobotCycle));
+			m_PoseTimer.expires_at(m_PoseTimer.expires_at() + boost::posix_time::milliseconds(m_nPoseCycle));
 
 			m_bVisualize = ParameterHelper::GetParam<int>(m_pNode->param(), "visualize", 1) > 0;
 
@@ -83,9 +83,9 @@ public:
 
 	Localization(boost::asio::io_service& io)
 		: strand_(io), m_nSensorCycle(30), m_nRobotCycle(40), m_nPoseCycle(80), m_bVisualize(true),
-		timer1_(io, boost::posix_time::milliseconds(m_nSensorCycle)),
-		timer2_(io, boost::posix_time::milliseconds(m_nRobotCycle)),
-		timer3_(io, boost::posix_time::milliseconds(m_nPoseCycle))
+		m_SensorTimer(io, boost::posix_time::milliseconds(m_nSensorCycle)),
+		m_RobotTimer(io, boost::posix_time::milliseconds(m_nRobotCycle)),
+		m_PoseTimer(io, boost::posix_time::milliseconds(m_nPoseCycle))
 	{
 		m_pRobotStateListenerPtr = RobotStateListenerPtr(new RobotStateListener(std::string(COMM_PROTOCOL), std::string(COMM_SUBIPADDRESS), COMM_SUBPORT, COMM_TIMEOUT, std::string(COMM_SUBTOID)));
 		m_pTorsoPosePublisherPtr = TorsoPosePublisherPtr(new TorsoPosePublisher(std::string(COMM_PROTOCOL), std::string(COMM_PUBIPADDRESS), COMM_PUBPORT, COMM_TIMEOUT, std::string(COMM_PUBTOID)));
@@ -117,7 +117,7 @@ public:
 	void SensorDataProcess()
 	{
 		bool quit = false;
-		timer1_.expires_at(timer1_.expires_at() + boost::posix_time::milliseconds(m_nSensorCycle));
+		m_SensorTimer.expires_at(m_SensorTimer.expires_at() + boost::posix_time::milliseconds(m_nSensorCycle));
 		//TODO Call marker detection here
 		if (m_VideoCapture.isOpened()){
 			cv::Mat view0;
@@ -154,10 +154,11 @@ public:
 					//TransformMatrix mat(out);
 					//std::cout << mat << std::endl;
 				}
-
-				cv::Mat temp(img);
-				cvShowImage("Image View", img);
-				cvRelease((void**)&img);
+				if (m_bVisualize){
+					cv::Mat temp(img);
+					cvShowImage("Image View", img);
+					cvRelease((void**)&img);
+				}
 			}
 			int c = 0xff & cv::waitKey(1);
 			if ((c & 255) == 27 || c == 'q' || c == 'Q')
@@ -166,7 +167,7 @@ public:
 			}
 		}
 		if (!quit){
-			timer1_.async_wait(strand_.wrap(boost::bind(&Localization::SensorDataProcess, this)));
+			m_SensorTimer.async_wait(strand_.wrap(boost::bind(&Localization::SensorDataProcess, this)));
 		}
 		else{
 		}
@@ -174,7 +175,7 @@ public:
 
 	void JointDataReceive()
 	{
-		timer2_.expires_at(timer2_.expires_at() + boost::posix_time::milliseconds(m_nRobotCycle));
+		m_RobotTimer.expires_at(m_RobotTimer.expires_at() + boost::posix_time::milliseconds(m_nRobotCycle));
 		//TODO Call Joint data reception here
 		if (m_pRobotStateListenerPtr != 0 && m_pRobotPoseInfoPtr != 0){
 			std::vector<double> jointValues;
@@ -183,11 +184,11 @@ public:
 				m_pRobotPoseInfoPtr->SetJointValueVector(jointValues);
 			}
 		}
-		timer2_.async_wait(strand_.wrap(boost::bind(&Localization::JointDataReceive, this)));
+		m_RobotTimer.async_wait(strand_.wrap(boost::bind(&Localization::JointDataReceive, this)));
 	}
 
 	void PublishTransform(){
-		timer3_.expires_at(timer3_.expires_at() + boost::posix_time::milliseconds(m_nPoseCycle));
+		m_PoseTimer.expires_at(m_PoseTimer.expires_at() + boost::posix_time::milliseconds(m_nPoseCycle));
 		//TODO Publish Torso transform here
 		if (m_pTorsoPosePublisherPtr != 0 && m_pRobotPoseInfoPtr != 0){
 			RobotPoseInfoMutex::scoped_lock lock(m_pRobotPoseInfoPtr->GetMutex());
@@ -228,24 +229,27 @@ public:
 				m_pTorsoPosePublisherPtr->Publish(torsoTfm);
 			}
 		}
-		timer3_.async_wait(strand_.wrap(boost::bind(&Localization::PublishTransform, this)));
+		m_PoseTimer.async_wait(strand_.wrap(boost::bind(&Localization::PublishTransform, this)));
 	}
 
 private:
 	void _init(){
 		m_VideoCapture.open(0);
 		Sleep(3000);
-		cvNamedWindow("Image View", 1);
 
-		timer1_.async_wait(strand_.wrap(boost::bind(&Localization::SensorDataProcess, this)));
-		timer2_.async_wait(strand_.wrap(boost::bind(&Localization::JointDataReceive, this)));
-		timer3_.async_wait(strand_.wrap(boost::bind(&Localization::PublishTransform, this)));
+		if (m_bVisualize){
+			cvNamedWindow("Image View", 1);
+		}
+
+		m_SensorTimer.async_wait(strand_.wrap(boost::bind(&Localization::SensorDataProcess, this)));
+		m_RobotTimer.async_wait(strand_.wrap(boost::bind(&Localization::JointDataReceive, this)));
+		m_PoseTimer.async_wait(strand_.wrap(boost::bind(&Localization::PublishTransform, this)));
 	}
 private:
 	boost::asio::strand strand_;
-	boost::asio::deadline_timer timer1_;
-	boost::asio::deadline_timer timer2_;
-	boost::asio::deadline_timer timer3_;
+	boost::asio::deadline_timer m_SensorTimer;
+	boost::asio::deadline_timer m_RobotTimer;
+	boost::asio::deadline_timer m_PoseTimer;
 
 	int m_nSensorCycle;
 	int m_nRobotCycle;

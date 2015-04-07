@@ -25,6 +25,7 @@ public:
 		std::stringstream ss;
 		ss << protocol << "://" << ip << ":" << port;
 		m_strAddr = ss.str();
+		m_bInit = false;
 		_init();
 	}
 
@@ -32,11 +33,17 @@ public:
 		std::stringstream ss;
 		ss << host << ":" << port;
 		m_strAddr = ss.str();
+		m_bInit = false;
 		_init();
 	}
 
 	bool Listen(std::vector<double>& jointValues){
 		bool ret = false;
+		
+		if (!m_bInit){
+			return ret;
+		}
+		
 		zmq::message_t address;
 		if (m_pSocket->recv(&address)){
 			zmq::message_t data;
