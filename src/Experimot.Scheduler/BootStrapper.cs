@@ -21,7 +21,8 @@ namespace Scheduler
         private bool _shutdown;
         private ILog Log = LogManager.GetLogger(typeof (BootStrapper));
         private const string PYTHONPATH = @"C:\Python27";
-        private readonly IList<Process> _processes; 
+        private readonly IList<Process> _processes;
+        private readonly ParameterServer _parameterServer;
 
         public BootStrapper(string configFile)
         {
@@ -38,6 +39,7 @@ namespace Scheduler
                     _config = obj as experimot_config;
                 }
             }
+            _parameterServer = new ParameterServer(_config);
         }
 
         public void StartUp()
@@ -121,26 +123,14 @@ namespace Scheduler
                             {
                                 try
                                 {
-                                    Node nodeInfo = MessageUtil.XmlToMessageNode(node);
-
                                     string args = string.Empty;
 
-                                    using (var msTestString = new MemoryStream())
-                                    {
-                                        Serializer.Serialize(msTestString, nodeInfo);
-                                        var chars = new char[msTestString.Length];
-                                        byte[] buf = msTestString.GetBuffer();
-                                        for (int i = 0; i < msTestString.Length; i++)
-                                        {
-                                            chars[i] = (char) buf[i];
-                                        }
-                                        args = new string(chars);
+                                    string paramServer = ParameterUtil.Get(_config.parameters, "ParameterClientHost",
+                                        "tcp://*");
+                                    int port = ParameterUtil.Get(_config.parameters, "ParameterServerPort",
+                                        5560);
 
-                                        //args = Encoding.Default.GetString(msTestString.GetBuffer());
-
-                                        //args = Convert.ToBase64String(msTestString.GetBuffer(), 0,
-                                        //    (int) msTestString.Length);
-                                    }
+                                    args = string.Format("--name={0} --param={1}:{2}", node.name, paramServer, port);
 
                                     var workingDir = System.IO.Path.GetDirectoryName(exeFile);
                                     var myProcess = new Process

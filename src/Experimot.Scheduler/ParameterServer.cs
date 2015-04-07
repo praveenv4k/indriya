@@ -59,6 +59,7 @@ namespace Experimot.Scheduler
                     var req = _socket.Recv(Encoding.ASCII, RecvTimeout);
                     if (!string.IsNullOrEmpty(req))
                     {
+                        Console.WriteLine("Received request from {0}", req);
                         var nodeExist = _config.nodes.FirstOrDefault(s => s.name == req);
                         if (nodeExist != null)
                         {
@@ -106,6 +107,7 @@ namespace Experimot.Scheduler
                 _socket = _ctx.Socket(SocketType.REP);
                 var address = string.Format("{0}:{1}", host, port);
                 _socket.Bind(address);
+                Console.WriteLine("Parameter server running at: {0}", address);
             }
         }
 

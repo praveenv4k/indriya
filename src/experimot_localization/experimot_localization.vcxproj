@@ -104,6 +104,8 @@
     <ClInclude Include="MarkerDetection2.h" />
     <ClInclude Include="MarkerDetectionTest.h" />
     <ClInclude Include="NaoHeadTransformHelper.h" />
+    <ClInclude Include="ParameterClient.h" />
+    <ClInclude Include="ParameterHelper.h" />
     <ClInclude Include="RobotPoseInfo.h" />
     <ClInclude Include="RobotStateListener.h" />
     <ClInclude Include="RobotStateListenerTest.h" />

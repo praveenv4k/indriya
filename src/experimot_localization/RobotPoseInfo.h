@@ -6,12 +6,13 @@
 
 using namespace OpenRAVE;
 
-#include <zmq.hpp>
-#include <zhelpers.hpp>
-
-typedef boost::shared_ptr<zmq::context_t> ZmqContextPtr;
-typedef boost::shared_ptr<zmq::socket_t> ZmqSocketPtr;
-typedef boost::shared_ptr<zmq::message_t> ZmqMessagePtr;
+#include "Common.h"
+//#include <zmq.hpp>
+//#include <zhelpers.hpp>
+//
+//typedef boost::shared_ptr<zmq::context_t> ZmqContextPtr;
+//typedef boost::shared_ptr<zmq::socket_t> ZmqSocketPtr;
+//typedef boost::shared_ptr<zmq::message_t> ZmqMessagePtr;
 
 class RobotPoseInfo;
 

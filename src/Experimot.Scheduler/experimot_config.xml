@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <experimot_config xmlns="http://www.tuat.ac.jp/~venture/ExperimotConfig">
-<!--<experimot_config>-->
   <parameters>
     <param key="ApplicationName" value="ExperiMot" type="string"/>
     <param key="Author" value="Praveenkumar VASUDEVAN" type="string"/>
     <param key="Institution" value="GVLab" type="string"/>
     <param key="Description" value="An Experimental Platform for Human Robot Interaction based on Human Motion" type="string"/>
     <param key="ParameterServerHost" value="tcp://*" type="string"/>
+    <param key="ParameterClientHost" value="tcp://localhost" type="string"/>
     <param key="ParameterServerPort" value="5560" type="int"/>
     <param key="ParameterServerInterval" value="50" type="int"/>
   </parameters>
@@ -21,7 +21,11 @@
       <parameters>
         <param key="cube_size" value="64" type="int"/>
         <param key="marker_size" value="55" type="int"/>
-        <param key="some" value="ad" type="string"/>
+        <param key="comm_timeout" value="100" type="int"/>
+        <param key="calib_file" value="camera_calibration_kinect_1600.xml" type="string"/>
+        <param key="sensor_process_cycle" value="30" type="int"/>
+        <param key="robot_listener_cycle" value="40" type="int"/>
+        <param key="pose_publisher_cycle" value="80" type="int"/>
       </parameters>
       <publishers>
         <publish>
