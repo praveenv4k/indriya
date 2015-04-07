@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <experimot_config xmlns="http://www.tuat.ac.jp/~venture/ExperimotConfig">
 <!--<experimot_config>-->
+  <parameters>
+    <param key="ApplicationName" value="ExperiMot" type="string"/>
+    <param key="Author" value="Praveenkumar VASUDEVAN" type="string"/>
+    <param key="Institution" value="GVLab" type="string"/>
+    <param key="Description" value="An Experimental Platform for Human Robot Interaction based on Human Motion" type="string"/>
+    <param key="ParameterServerHost" value="tcp://*" type="string"/>
+    <param key="ParameterServerPort" value="5560" type="int"/>
+    <param key="ParameterServerInterval" value="50" type="int"/>
+  </parameters>
   <nodes>
     <node>
       <name>localization</name>
@@ -9,11 +18,11 @@
         <path>%DEV_SDK_ROOT%\experimot\bin\experimot_localization.exe</path>
         <args></args>
       </process>
-      <params>
+      <parameters>
         <param key="cube_size" value="64" type="int"/>
         <param key="marker_size" value="55" type="int"/>
         <param key="some" value="ad" type="string"/>
-      </params>
+      </parameters>
       <publishers>
         <publish>
           <host>tcp://*</host>

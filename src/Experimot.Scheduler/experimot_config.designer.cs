@@ -25,6 +25,8 @@ namespace Scheduler
     public partial class experimot_config : System.ComponentModel.INotifyPropertyChanged
     {
 
+        private ObservableCollection<param_type> parametersField;
+
         private ObservableCollection<node> nodesField;
 
         private static System.Xml.Serialization.XmlSerializer serializer;
@@ -32,9 +34,36 @@ namespace Scheduler
         public experimot_config()
         {
             this.nodesField = new ObservableCollection<node>();
+            this.parametersField = new ObservableCollection<param_type>();
         }
 
         [System.Xml.Serialization.XmlArrayAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("param", IsNullable = false)]
+        public ObservableCollection<param_type> parameters
+        {
+            get
+            {
+                return this.parametersField;
+            }
+            set
+            {
+                if ((this.parametersField != null))
+                {
+                    if ((parametersField.Equals(value) != true))
+                    {
+                        this.parametersField = value;
+                        this.OnPropertyChanged("parameters");
+                    }
+                }
+                else
+                {
+                    this.parametersField = value;
+                    this.OnPropertyChanged("parameters");
+                }
+            }
+        }
+
+        [System.Xml.Serialization.XmlArrayAttribute(Order = 1)]
         [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
         public ObservableCollection<node> nodes
         {
@@ -230,981 +259,6 @@ namespace Scheduler
         }
 
         public static experimot_config LoadFromFile(string fileName)
-        {
-            System.IO.FileStream file = null;
-            System.IO.StreamReader sr = null;
-            try
-            {
-                file = new System.IO.FileStream(fileName, FileMode.Open, FileAccess.Read);
-                sr = new System.IO.StreamReader(file);
-                string xmlString = sr.ReadToEnd();
-                sr.Close();
-                file.Close();
-                return Deserialize(xmlString);
-            }
-            finally
-            {
-                if ((file != null))
-                {
-                    file.Dispose();
-                }
-                if ((sr != null))
-                {
-                    sr.Dispose();
-                }
-            }
-        }
-        #endregion
-    }
-
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.tuat.ac.jp/~venture/ExperimotConfig")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.tuat.ac.jp/~venture/ExperimotConfig", IsNullable = true)]
-    public partial class node : System.ComponentModel.INotifyPropertyChanged
-    {
-
-        private string nameField;
-
-        private process processField;
-
-        private ObservableCollection<param_type> paramsField;
-
-        private ObservableCollection<socket> publishersField;
-
-        private ObservableCollection<socket> subscribersField;
-
-        private static System.Xml.Serialization.XmlSerializer serializer;
-
-        public node()
-        {
-            this.subscribersField = new ObservableCollection<socket>();
-            this.publishersField = new ObservableCollection<socket>();
-            this.paramsField = new ObservableCollection<param_type>();
-            this.processField = new process();
-        }
-
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
-        public string name
-        {
-            get
-            {
-                return this.nameField;
-            }
-            set
-            {
-                if ((this.nameField != null))
-                {
-                    if ((nameField.Equals(value) != true))
-                    {
-                        this.nameField = value;
-                        this.OnPropertyChanged("name");
-                    }
-                }
-                else
-                {
-                    this.nameField = value;
-                    this.OnPropertyChanged("name");
-                }
-            }
-        }
-
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
-        public process process
-        {
-            get
-            {
-                return this.processField;
-            }
-            set
-            {
-                if ((this.processField != null))
-                {
-                    if ((processField.Equals(value) != true))
-                    {
-                        this.processField = value;
-                        this.OnPropertyChanged("process");
-                    }
-                }
-                else
-                {
-                    this.processField = value;
-                    this.OnPropertyChanged("process");
-                }
-            }
-        }
-
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 2)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("param", IsNullable = false)]
-        public ObservableCollection<param_type> @params
-        {
-            get
-            {
-                return this.paramsField;
-            }
-            set
-            {
-                if ((this.paramsField != null))
-                {
-                    if ((paramsField.Equals(value) != true))
-                    {
-                        this.paramsField = value;
-                        this.OnPropertyChanged("params");
-                    }
-                }
-                else
-                {
-                    this.paramsField = value;
-                    this.OnPropertyChanged("params");
-                }
-            }
-        }
-
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 3)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("publish", IsNullable = false)]
-        public ObservableCollection<socket> publishers
-        {
-            get
-            {
-                return this.publishersField;
-            }
-            set
-            {
-                if ((this.publishersField != null))
-                {
-                    if ((publishersField.Equals(value) != true))
-                    {
-                        this.publishersField = value;
-                        this.OnPropertyChanged("publishers");
-                    }
-                }
-                else
-                {
-                    this.publishersField = value;
-                    this.OnPropertyChanged("publishers");
-                }
-            }
-        }
-
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 4)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("subscribe", IsNullable = false)]
-        public ObservableCollection<socket> subscribers
-        {
-            get
-            {
-                return this.subscribersField;
-            }
-            set
-            {
-                if ((this.subscribersField != null))
-                {
-                    if ((subscribersField.Equals(value) != true))
-                    {
-                        this.subscribersField = value;
-                        this.OnPropertyChanged("subscribers");
-                    }
-                }
-                else
-                {
-                    this.subscribersField = value;
-                    this.OnPropertyChanged("subscribers");
-                }
-            }
-        }
-
-        private static System.Xml.Serialization.XmlSerializer Serializer
-        {
-            get
-            {
-                if ((serializer == null))
-                {
-                    serializer = new System.Xml.Serialization.XmlSerializer(typeof(node));
-                }
-                return serializer;
-            }
-        }
-
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
-        public virtual void OnPropertyChanged(string propertyName)
-        {
-            System.ComponentModel.PropertyChangedEventHandler handler = this.PropertyChanged;
-            if ((handler != null))
-            {
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-
-        #region Serialize/Deserialize
-        /// <summary>
-        /// Serializes current node object into an XML document
-        /// </summary>
-        /// <returns>string XML value</returns>
-        public virtual string Serialize()
-        {
-            System.IO.StreamReader streamReader = null;
-            System.IO.MemoryStream memoryStream = null;
-            try
-            {
-                memoryStream = new System.IO.MemoryStream();
-                Serializer.Serialize(memoryStream, this);
-                memoryStream.Seek(0, System.IO.SeekOrigin.Begin);
-                streamReader = new System.IO.StreamReader(memoryStream);
-                return streamReader.ReadToEnd();
-            }
-            finally
-            {
-                if ((streamReader != null))
-                {
-                    streamReader.Dispose();
-                }
-                if ((memoryStream != null))
-                {
-                    memoryStream.Dispose();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Deserializes workflow markup into an node object
-        /// </summary>
-        /// <param name="xml">string workflow markup to deserialize</param>
-        /// <param name="obj">Output node object</param>
-        /// <param name="exception">output Exception value if deserialize failed</param>
-        /// <returns>true if this XmlSerializer can deserialize the object; otherwise, false</returns>
-        public static bool Deserialize(string xml, out node obj, out System.Exception exception)
-        {
-            exception = null;
-            obj = default(node);
-            try
-            {
-                obj = Deserialize(xml);
-                return true;
-            }
-            catch (System.Exception ex)
-            {
-                exception = ex;
-                return false;
-            }
-        }
-
-        public static bool Deserialize(string xml, out node obj)
-        {
-            System.Exception exception = null;
-            return Deserialize(xml, out obj, out exception);
-        }
-
-        public static node Deserialize(string xml)
-        {
-            System.IO.StringReader stringReader = null;
-            try
-            {
-                stringReader = new System.IO.StringReader(xml);
-                return ((node)(Serializer.Deserialize(System.Xml.XmlReader.Create(stringReader))));
-            }
-            finally
-            {
-                if ((stringReader != null))
-                {
-                    stringReader.Dispose();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Serializes current node object into file
-        /// </summary>
-        /// <param name="fileName">full path of outupt xml file</param>
-        /// <param name="exception">output Exception value if failed</param>
-        /// <returns>true if can serialize and save into file; otherwise, false</returns>
-        public virtual bool SaveToFile(string fileName, out System.Exception exception)
-        {
-            exception = null;
-            try
-            {
-                SaveToFile(fileName);
-                return true;
-            }
-            catch (System.Exception e)
-            {
-                exception = e;
-                return false;
-            }
-        }
-
-        public virtual void SaveToFile(string fileName)
-        {
-            System.IO.StreamWriter streamWriter = null;
-            try
-            {
-                string xmlString = Serialize();
-                System.IO.FileInfo xmlFile = new System.IO.FileInfo(fileName);
-                streamWriter = xmlFile.CreateText();
-                streamWriter.WriteLine(xmlString);
-                streamWriter.Close();
-            }
-            finally
-            {
-                if ((streamWriter != null))
-                {
-                    streamWriter.Dispose();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Deserializes xml markup from file into an node object
-        /// </summary>
-        /// <param name="fileName">string xml file to load and deserialize</param>
-        /// <param name="obj">Output node object</param>
-        /// <param name="exception">output Exception value if deserialize failed</param>
-        /// <returns>true if this XmlSerializer can deserialize the object; otherwise, false</returns>
-        public static bool LoadFromFile(string fileName, out node obj, out System.Exception exception)
-        {
-            exception = null;
-            obj = default(node);
-            try
-            {
-                obj = LoadFromFile(fileName);
-                return true;
-            }
-            catch (System.Exception ex)
-            {
-                exception = ex;
-                return false;
-            }
-        }
-
-        public static bool LoadFromFile(string fileName, out node obj)
-        {
-            System.Exception exception = null;
-            return LoadFromFile(fileName, out obj, out exception);
-        }
-
-        public static node LoadFromFile(string fileName)
-        {
-            System.IO.FileStream file = null;
-            System.IO.StreamReader sr = null;
-            try
-            {
-                file = new System.IO.FileStream(fileName, FileMode.Open, FileAccess.Read);
-                sr = new System.IO.StreamReader(file);
-                string xmlString = sr.ReadToEnd();
-                sr.Close();
-                file.Close();
-                return Deserialize(xmlString);
-            }
-            finally
-            {
-                if ((file != null))
-                {
-                    file.Dispose();
-                }
-                if ((sr != null))
-                {
-                    sr.Dispose();
-                }
-            }
-        }
-        #endregion
-    }
-
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.tuat.ac.jp/~venture/ExperimotConfig")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.tuat.ac.jp/~venture/ExperimotConfig", IsNullable = true)]
-    public partial class process : System.ComponentModel.INotifyPropertyChanged
-    {
-
-        private string typeField;
-
-        private string pathField;
-
-        private string argsField;
-
-        private static System.Xml.Serialization.XmlSerializer serializer;
-
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
-        public string type
-        {
-            get
-            {
-                return this.typeField;
-            }
-            set
-            {
-                if ((this.typeField != null))
-                {
-                    if ((typeField.Equals(value) != true))
-                    {
-                        this.typeField = value;
-                        this.OnPropertyChanged("type");
-                    }
-                }
-                else
-                {
-                    this.typeField = value;
-                    this.OnPropertyChanged("type");
-                }
-            }
-        }
-
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
-        public string path
-        {
-            get
-            {
-                return this.pathField;
-            }
-            set
-            {
-                if ((this.pathField != null))
-                {
-                    if ((pathField.Equals(value) != true))
-                    {
-                        this.pathField = value;
-                        this.OnPropertyChanged("path");
-                    }
-                }
-                else
-                {
-                    this.pathField = value;
-                    this.OnPropertyChanged("path");
-                }
-            }
-        }
-
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
-        public string args
-        {
-            get
-            {
-                return this.argsField;
-            }
-            set
-            {
-                if ((this.argsField != null))
-                {
-                    if ((argsField.Equals(value) != true))
-                    {
-                        this.argsField = value;
-                        this.OnPropertyChanged("args");
-                    }
-                }
-                else
-                {
-                    this.argsField = value;
-                    this.OnPropertyChanged("args");
-                }
-            }
-        }
-
-        private static System.Xml.Serialization.XmlSerializer Serializer
-        {
-            get
-            {
-                if ((serializer == null))
-                {
-                    serializer = new System.Xml.Serialization.XmlSerializer(typeof(process));
-                }
-                return serializer;
-            }
-        }
-
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
-        public virtual void OnPropertyChanged(string propertyName)
-        {
-            System.ComponentModel.PropertyChangedEventHandler handler = this.PropertyChanged;
-            if ((handler != null))
-            {
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-
-        #region Serialize/Deserialize
-        /// <summary>
-        /// Serializes current process object into an XML document
-        /// </summary>
-        /// <returns>string XML value</returns>
-        public virtual string Serialize()
-        {
-            System.IO.StreamReader streamReader = null;
-            System.IO.MemoryStream memoryStream = null;
-            try
-            {
-                memoryStream = new System.IO.MemoryStream();
-                Serializer.Serialize(memoryStream, this);
-                memoryStream.Seek(0, System.IO.SeekOrigin.Begin);
-                streamReader = new System.IO.StreamReader(memoryStream);
-                return streamReader.ReadToEnd();
-            }
-            finally
-            {
-                if ((streamReader != null))
-                {
-                    streamReader.Dispose();
-                }
-                if ((memoryStream != null))
-                {
-                    memoryStream.Dispose();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Deserializes workflow markup into an process object
-        /// </summary>
-        /// <param name="xml">string workflow markup to deserialize</param>
-        /// <param name="obj">Output process object</param>
-        /// <param name="exception">output Exception value if deserialize failed</param>
-        /// <returns>true if this XmlSerializer can deserialize the object; otherwise, false</returns>
-        public static bool Deserialize(string xml, out process obj, out System.Exception exception)
-        {
-            exception = null;
-            obj = default(process);
-            try
-            {
-                obj = Deserialize(xml);
-                return true;
-            }
-            catch (System.Exception ex)
-            {
-                exception = ex;
-                return false;
-            }
-        }
-
-        public static bool Deserialize(string xml, out process obj)
-        {
-            System.Exception exception = null;
-            return Deserialize(xml, out obj, out exception);
-        }
-
-        public static process Deserialize(string xml)
-        {
-            System.IO.StringReader stringReader = null;
-            try
-            {
-                stringReader = new System.IO.StringReader(xml);
-                return ((process)(Serializer.Deserialize(System.Xml.XmlReader.Create(stringReader))));
-            }
-            finally
-            {
-                if ((stringReader != null))
-                {
-                    stringReader.Dispose();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Serializes current process object into file
-        /// </summary>
-        /// <param name="fileName">full path of outupt xml file</param>
-        /// <param name="exception">output Exception value if failed</param>
-        /// <returns>true if can serialize and save into file; otherwise, false</returns>
-        public virtual bool SaveToFile(string fileName, out System.Exception exception)
-        {
-            exception = null;
-            try
-            {
-                SaveToFile(fileName);
-                return true;
-            }
-            catch (System.Exception e)
-            {
-                exception = e;
-                return false;
-            }
-        }
-
-        public virtual void SaveToFile(string fileName)
-        {
-            System.IO.StreamWriter streamWriter = null;
-            try
-            {
-                string xmlString = Serialize();
-                System.IO.FileInfo xmlFile = new System.IO.FileInfo(fileName);
-                streamWriter = xmlFile.CreateText();
-                streamWriter.WriteLine(xmlString);
-                streamWriter.Close();
-            }
-            finally
-            {
-                if ((streamWriter != null))
-                {
-                    streamWriter.Dispose();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Deserializes xml markup from file into an process object
-        /// </summary>
-        /// <param name="fileName">string xml file to load and deserialize</param>
-        /// <param name="obj">Output process object</param>
-        /// <param name="exception">output Exception value if deserialize failed</param>
-        /// <returns>true if this XmlSerializer can deserialize the object; otherwise, false</returns>
-        public static bool LoadFromFile(string fileName, out process obj, out System.Exception exception)
-        {
-            exception = null;
-            obj = default(process);
-            try
-            {
-                obj = LoadFromFile(fileName);
-                return true;
-            }
-            catch (System.Exception ex)
-            {
-                exception = ex;
-                return false;
-            }
-        }
-
-        public static bool LoadFromFile(string fileName, out process obj)
-        {
-            System.Exception exception = null;
-            return LoadFromFile(fileName, out obj, out exception);
-        }
-
-        public static process LoadFromFile(string fileName)
-        {
-            System.IO.FileStream file = null;
-            System.IO.StreamReader sr = null;
-            try
-            {
-                file = new System.IO.FileStream(fileName, FileMode.Open, FileAccess.Read);
-                sr = new System.IO.StreamReader(file);
-                string xmlString = sr.ReadToEnd();
-                sr.Close();
-                file.Close();
-                return Deserialize(xmlString);
-            }
-            finally
-            {
-                if ((file != null))
-                {
-                    file.Dispose();
-                }
-                if ((sr != null))
-                {
-                    sr.Dispose();
-                }
-            }
-        }
-        #endregion
-    }
-
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.tuat.ac.jp/~venture/ExperimotConfig")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.tuat.ac.jp/~venture/ExperimotConfig", IsNullable = true)]
-    public partial class socket : System.ComponentModel.INotifyPropertyChanged
-    {
-
-        private string hostField;
-
-        private int portField;
-
-        private string topicField;
-
-        private string msg_typeField;
-
-        private string nameField;
-
-        private static System.Xml.Serialization.XmlSerializer serializer;
-
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
-        public string host
-        {
-            get
-            {
-                return this.hostField;
-            }
-            set
-            {
-                if ((this.hostField != null))
-                {
-                    if ((hostField.Equals(value) != true))
-                    {
-                        this.hostField = value;
-                        this.OnPropertyChanged("host");
-                    }
-                }
-                else
-                {
-                    this.hostField = value;
-                    this.OnPropertyChanged("host");
-                }
-            }
-        }
-
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
-        public int port
-        {
-            get
-            {
-                return this.portField;
-            }
-            set
-            {
-                if ((portField.Equals(value) != true))
-                {
-                    this.portField = value;
-                    this.OnPropertyChanged("port");
-                }
-            }
-        }
-
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
-        public string topic
-        {
-            get
-            {
-                return this.topicField;
-            }
-            set
-            {
-                if ((this.topicField != null))
-                {
-                    if ((topicField.Equals(value) != true))
-                    {
-                        this.topicField = value;
-                        this.OnPropertyChanged("topic");
-                    }
-                }
-                else
-                {
-                    this.topicField = value;
-                    this.OnPropertyChanged("topic");
-                }
-            }
-        }
-
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
-        public string msg_type
-        {
-            get
-            {
-                return this.msg_typeField;
-            }
-            set
-            {
-                if ((this.msg_typeField != null))
-                {
-                    if ((msg_typeField.Equals(value) != true))
-                    {
-                        this.msg_typeField = value;
-                        this.OnPropertyChanged("msg_type");
-                    }
-                }
-                else
-                {
-                    this.msg_typeField = value;
-                    this.OnPropertyChanged("msg_type");
-                }
-            }
-        }
-
-        [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
-        public string name
-        {
-            get
-            {
-                return this.nameField;
-            }
-            set
-            {
-                if ((this.nameField != null))
-                {
-                    if ((nameField.Equals(value) != true))
-                    {
-                        this.nameField = value;
-                        this.OnPropertyChanged("name");
-                    }
-                }
-                else
-                {
-                    this.nameField = value;
-                    this.OnPropertyChanged("name");
-                }
-            }
-        }
-
-        private static System.Xml.Serialization.XmlSerializer Serializer
-        {
-            get
-            {
-                if ((serializer == null))
-                {
-                    serializer = new System.Xml.Serialization.XmlSerializer(typeof(socket));
-                }
-                return serializer;
-            }
-        }
-
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
-        public virtual void OnPropertyChanged(string propertyName)
-        {
-            System.ComponentModel.PropertyChangedEventHandler handler = this.PropertyChanged;
-            if ((handler != null))
-            {
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-
-        #region Serialize/Deserialize
-        /// <summary>
-        /// Serializes current socket object into an XML document
-        /// </summary>
-        /// <returns>string XML value</returns>
-        public virtual string Serialize()
-        {
-            System.IO.StreamReader streamReader = null;
-            System.IO.MemoryStream memoryStream = null;
-            try
-            {
-                memoryStream = new System.IO.MemoryStream();
-                Serializer.Serialize(memoryStream, this);
-                memoryStream.Seek(0, System.IO.SeekOrigin.Begin);
-                streamReader = new System.IO.StreamReader(memoryStream);
-                return streamReader.ReadToEnd();
-            }
-            finally
-            {
-                if ((streamReader != null))
-                {
-                    streamReader.Dispose();
-                }
-                if ((memoryStream != null))
-                {
-                    memoryStream.Dispose();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Deserializes workflow markup into an socket object
-        /// </summary>
-        /// <param name="xml">string workflow markup to deserialize</param>
-        /// <param name="obj">Output socket object</param>
-        /// <param name="exception">output Exception value if deserialize failed</param>
-        /// <returns>true if this XmlSerializer can deserialize the object; otherwise, false</returns>
-        public static bool Deserialize(string xml, out socket obj, out System.Exception exception)
-        {
-            exception = null;
-            obj = default(socket);
-            try
-            {
-                obj = Deserialize(xml);
-                return true;
-            }
-            catch (System.Exception ex)
-            {
-                exception = ex;
-                return false;
-            }
-        }
-
-        public static bool Deserialize(string xml, out socket obj)
-        {
-            System.Exception exception = null;
-            return Deserialize(xml, out obj, out exception);
-        }
-
-        public static socket Deserialize(string xml)
-        {
-            System.IO.StringReader stringReader = null;
-            try
-            {
-                stringReader = new System.IO.StringReader(xml);
-                return ((socket)(Serializer.Deserialize(System.Xml.XmlReader.Create(stringReader))));
-            }
-            finally
-            {
-                if ((stringReader != null))
-                {
-                    stringReader.Dispose();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Serializes current socket object into file
-        /// </summary>
-        /// <param name="fileName">full path of outupt xml file</param>
-        /// <param name="exception">output Exception value if failed</param>
-        /// <returns>true if can serialize and save into file; otherwise, false</returns>
-        public virtual bool SaveToFile(string fileName, out System.Exception exception)
-        {
-            exception = null;
-            try
-            {
-                SaveToFile(fileName);
-                return true;
-            }
-            catch (System.Exception e)
-            {
-                exception = e;
-                return false;
-            }
-        }
-
-        public virtual void SaveToFile(string fileName)
-        {
-            System.IO.StreamWriter streamWriter = null;
-            try
-            {
-                string xmlString = Serialize();
-                System.IO.FileInfo xmlFile = new System.IO.FileInfo(fileName);
-                streamWriter = xmlFile.CreateText();
-                streamWriter.WriteLine(xmlString);
-                streamWriter.Close();
-            }
-            finally
-            {
-                if ((streamWriter != null))
-                {
-                    streamWriter.Dispose();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Deserializes xml markup from file into an socket object
-        /// </summary>
-        /// <param name="fileName">string xml file to load and deserialize</param>
-        /// <param name="obj">Output socket object</param>
-        /// <param name="exception">output Exception value if deserialize failed</param>
-        /// <returns>true if this XmlSerializer can deserialize the object; otherwise, false</returns>
-        public static bool LoadFromFile(string fileName, out socket obj, out System.Exception exception)
-        {
-            exception = null;
-            obj = default(socket);
-            try
-            {
-                obj = LoadFromFile(fileName);
-                return true;
-            }
-            catch (System.Exception ex)
-            {
-                exception = ex;
-                return false;
-            }
-        }
-
-        public static bool LoadFromFile(string fileName, out socket obj)
-        {
-            System.Exception exception = null;
-            return LoadFromFile(fileName, out obj, out exception);
-        }
-
-        public static socket LoadFromFile(string fileName)
         {
             System.IO.FileStream file = null;
             System.IO.StreamReader sr = null;
@@ -1546,5 +600,980 @@ namespace Scheduler
 
         /// <remarks/>
         @string,
+    }
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.tuat.ac.jp/~venture/ExperimotConfig")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.tuat.ac.jp/~venture/ExperimotConfig", IsNullable = true)]
+    public partial class socket : System.ComponentModel.INotifyPropertyChanged
+    {
+
+        private string hostField;
+
+        private int portField;
+
+        private string topicField;
+
+        private string msg_typeField;
+
+        private string nameField;
+
+        private static System.Xml.Serialization.XmlSerializer serializer;
+
+        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        public string host
+        {
+            get
+            {
+                return this.hostField;
+            }
+            set
+            {
+                if ((this.hostField != null))
+                {
+                    if ((hostField.Equals(value) != true))
+                    {
+                        this.hostField = value;
+                        this.OnPropertyChanged("host");
+                    }
+                }
+                else
+                {
+                    this.hostField = value;
+                    this.OnPropertyChanged("host");
+                }
+            }
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        public int port
+        {
+            get
+            {
+                return this.portField;
+            }
+            set
+            {
+                if ((portField.Equals(value) != true))
+                {
+                    this.portField = value;
+                    this.OnPropertyChanged("port");
+                }
+            }
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        public string topic
+        {
+            get
+            {
+                return this.topicField;
+            }
+            set
+            {
+                if ((this.topicField != null))
+                {
+                    if ((topicField.Equals(value) != true))
+                    {
+                        this.topicField = value;
+                        this.OnPropertyChanged("topic");
+                    }
+                }
+                else
+                {
+                    this.topicField = value;
+                    this.OnPropertyChanged("topic");
+                }
+            }
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        public string msg_type
+        {
+            get
+            {
+                return this.msg_typeField;
+            }
+            set
+            {
+                if ((this.msg_typeField != null))
+                {
+                    if ((msg_typeField.Equals(value) != true))
+                    {
+                        this.msg_typeField = value;
+                        this.OnPropertyChanged("msg_type");
+                    }
+                }
+                else
+                {
+                    this.msg_typeField = value;
+                    this.OnPropertyChanged("msg_type");
+                }
+            }
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+        public string name
+        {
+            get
+            {
+                return this.nameField;
+            }
+            set
+            {
+                if ((this.nameField != null))
+                {
+                    if ((nameField.Equals(value) != true))
+                    {
+                        this.nameField = value;
+                        this.OnPropertyChanged("name");
+                    }
+                }
+                else
+                {
+                    this.nameField = value;
+                    this.OnPropertyChanged("name");
+                }
+            }
+        }
+
+        private static System.Xml.Serialization.XmlSerializer Serializer
+        {
+            get
+            {
+                if ((serializer == null))
+                {
+                    serializer = new System.Xml.Serialization.XmlSerializer(typeof(socket));
+                }
+                return serializer;
+            }
+        }
+
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+        public virtual void OnPropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler handler = this.PropertyChanged;
+            if ((handler != null))
+            {
+                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        #region Serialize/Deserialize
+        /// <summary>
+        /// Serializes current socket object into an XML document
+        /// </summary>
+        /// <returns>string XML value</returns>
+        public virtual string Serialize()
+        {
+            System.IO.StreamReader streamReader = null;
+            System.IO.MemoryStream memoryStream = null;
+            try
+            {
+                memoryStream = new System.IO.MemoryStream();
+                Serializer.Serialize(memoryStream, this);
+                memoryStream.Seek(0, System.IO.SeekOrigin.Begin);
+                streamReader = new System.IO.StreamReader(memoryStream);
+                return streamReader.ReadToEnd();
+            }
+            finally
+            {
+                if ((streamReader != null))
+                {
+                    streamReader.Dispose();
+                }
+                if ((memoryStream != null))
+                {
+                    memoryStream.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Deserializes workflow markup into an socket object
+        /// </summary>
+        /// <param name="xml">string workflow markup to deserialize</param>
+        /// <param name="obj">Output socket object</param>
+        /// <param name="exception">output Exception value if deserialize failed</param>
+        /// <returns>true if this XmlSerializer can deserialize the object; otherwise, false</returns>
+        public static bool Deserialize(string xml, out socket obj, out System.Exception exception)
+        {
+            exception = null;
+            obj = default(socket);
+            try
+            {
+                obj = Deserialize(xml);
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                exception = ex;
+                return false;
+            }
+        }
+
+        public static bool Deserialize(string xml, out socket obj)
+        {
+            System.Exception exception = null;
+            return Deserialize(xml, out obj, out exception);
+        }
+
+        public static socket Deserialize(string xml)
+        {
+            System.IO.StringReader stringReader = null;
+            try
+            {
+                stringReader = new System.IO.StringReader(xml);
+                return ((socket)(Serializer.Deserialize(System.Xml.XmlReader.Create(stringReader))));
+            }
+            finally
+            {
+                if ((stringReader != null))
+                {
+                    stringReader.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Serializes current socket object into file
+        /// </summary>
+        /// <param name="fileName">full path of outupt xml file</param>
+        /// <param name="exception">output Exception value if failed</param>
+        /// <returns>true if can serialize and save into file; otherwise, false</returns>
+        public virtual bool SaveToFile(string fileName, out System.Exception exception)
+        {
+            exception = null;
+            try
+            {
+                SaveToFile(fileName);
+                return true;
+            }
+            catch (System.Exception e)
+            {
+                exception = e;
+                return false;
+            }
+        }
+
+        public virtual void SaveToFile(string fileName)
+        {
+            System.IO.StreamWriter streamWriter = null;
+            try
+            {
+                string xmlString = Serialize();
+                System.IO.FileInfo xmlFile = new System.IO.FileInfo(fileName);
+                streamWriter = xmlFile.CreateText();
+                streamWriter.WriteLine(xmlString);
+                streamWriter.Close();
+            }
+            finally
+            {
+                if ((streamWriter != null))
+                {
+                    streamWriter.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Deserializes xml markup from file into an socket object
+        /// </summary>
+        /// <param name="fileName">string xml file to load and deserialize</param>
+        /// <param name="obj">Output socket object</param>
+        /// <param name="exception">output Exception value if deserialize failed</param>
+        /// <returns>true if this XmlSerializer can deserialize the object; otherwise, false</returns>
+        public static bool LoadFromFile(string fileName, out socket obj, out System.Exception exception)
+        {
+            exception = null;
+            obj = default(socket);
+            try
+            {
+                obj = LoadFromFile(fileName);
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                exception = ex;
+                return false;
+            }
+        }
+
+        public static bool LoadFromFile(string fileName, out socket obj)
+        {
+            System.Exception exception = null;
+            return LoadFromFile(fileName, out obj, out exception);
+        }
+
+        public static socket LoadFromFile(string fileName)
+        {
+            System.IO.FileStream file = null;
+            System.IO.StreamReader sr = null;
+            try
+            {
+                file = new System.IO.FileStream(fileName, FileMode.Open, FileAccess.Read);
+                sr = new System.IO.StreamReader(file);
+                string xmlString = sr.ReadToEnd();
+                sr.Close();
+                file.Close();
+                return Deserialize(xmlString);
+            }
+            finally
+            {
+                if ((file != null))
+                {
+                    file.Dispose();
+                }
+                if ((sr != null))
+                {
+                    sr.Dispose();
+                }
+            }
+        }
+        #endregion
+    }
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.tuat.ac.jp/~venture/ExperimotConfig")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.tuat.ac.jp/~venture/ExperimotConfig", IsNullable = true)]
+    public partial class process : System.ComponentModel.INotifyPropertyChanged
+    {
+
+        private string typeField;
+
+        private string pathField;
+
+        private string argsField;
+
+        private static System.Xml.Serialization.XmlSerializer serializer;
+
+        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        public string type
+        {
+            get
+            {
+                return this.typeField;
+            }
+            set
+            {
+                if ((this.typeField != null))
+                {
+                    if ((typeField.Equals(value) != true))
+                    {
+                        this.typeField = value;
+                        this.OnPropertyChanged("type");
+                    }
+                }
+                else
+                {
+                    this.typeField = value;
+                    this.OnPropertyChanged("type");
+                }
+            }
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        public string path
+        {
+            get
+            {
+                return this.pathField;
+            }
+            set
+            {
+                if ((this.pathField != null))
+                {
+                    if ((pathField.Equals(value) != true))
+                    {
+                        this.pathField = value;
+                        this.OnPropertyChanged("path");
+                    }
+                }
+                else
+                {
+                    this.pathField = value;
+                    this.OnPropertyChanged("path");
+                }
+            }
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        public string args
+        {
+            get
+            {
+                return this.argsField;
+            }
+            set
+            {
+                if ((this.argsField != null))
+                {
+                    if ((argsField.Equals(value) != true))
+                    {
+                        this.argsField = value;
+                        this.OnPropertyChanged("args");
+                    }
+                }
+                else
+                {
+                    this.argsField = value;
+                    this.OnPropertyChanged("args");
+                }
+            }
+        }
+
+        private static System.Xml.Serialization.XmlSerializer Serializer
+        {
+            get
+            {
+                if ((serializer == null))
+                {
+                    serializer = new System.Xml.Serialization.XmlSerializer(typeof(process));
+                }
+                return serializer;
+            }
+        }
+
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+        public virtual void OnPropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler handler = this.PropertyChanged;
+            if ((handler != null))
+            {
+                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        #region Serialize/Deserialize
+        /// <summary>
+        /// Serializes current process object into an XML document
+        /// </summary>
+        /// <returns>string XML value</returns>
+        public virtual string Serialize()
+        {
+            System.IO.StreamReader streamReader = null;
+            System.IO.MemoryStream memoryStream = null;
+            try
+            {
+                memoryStream = new System.IO.MemoryStream();
+                Serializer.Serialize(memoryStream, this);
+                memoryStream.Seek(0, System.IO.SeekOrigin.Begin);
+                streamReader = new System.IO.StreamReader(memoryStream);
+                return streamReader.ReadToEnd();
+            }
+            finally
+            {
+                if ((streamReader != null))
+                {
+                    streamReader.Dispose();
+                }
+                if ((memoryStream != null))
+                {
+                    memoryStream.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Deserializes workflow markup into an process object
+        /// </summary>
+        /// <param name="xml">string workflow markup to deserialize</param>
+        /// <param name="obj">Output process object</param>
+        /// <param name="exception">output Exception value if deserialize failed</param>
+        /// <returns>true if this XmlSerializer can deserialize the object; otherwise, false</returns>
+        public static bool Deserialize(string xml, out process obj, out System.Exception exception)
+        {
+            exception = null;
+            obj = default(process);
+            try
+            {
+                obj = Deserialize(xml);
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                exception = ex;
+                return false;
+            }
+        }
+
+        public static bool Deserialize(string xml, out process obj)
+        {
+            System.Exception exception = null;
+            return Deserialize(xml, out obj, out exception);
+        }
+
+        public static process Deserialize(string xml)
+        {
+            System.IO.StringReader stringReader = null;
+            try
+            {
+                stringReader = new System.IO.StringReader(xml);
+                return ((process)(Serializer.Deserialize(System.Xml.XmlReader.Create(stringReader))));
+            }
+            finally
+            {
+                if ((stringReader != null))
+                {
+                    stringReader.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Serializes current process object into file
+        /// </summary>
+        /// <param name="fileName">full path of outupt xml file</param>
+        /// <param name="exception">output Exception value if failed</param>
+        /// <returns>true if can serialize and save into file; otherwise, false</returns>
+        public virtual bool SaveToFile(string fileName, out System.Exception exception)
+        {
+            exception = null;
+            try
+            {
+                SaveToFile(fileName);
+                return true;
+            }
+            catch (System.Exception e)
+            {
+                exception = e;
+                return false;
+            }
+        }
+
+        public virtual void SaveToFile(string fileName)
+        {
+            System.IO.StreamWriter streamWriter = null;
+            try
+            {
+                string xmlString = Serialize();
+                System.IO.FileInfo xmlFile = new System.IO.FileInfo(fileName);
+                streamWriter = xmlFile.CreateText();
+                streamWriter.WriteLine(xmlString);
+                streamWriter.Close();
+            }
+            finally
+            {
+                if ((streamWriter != null))
+                {
+                    streamWriter.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Deserializes xml markup from file into an process object
+        /// </summary>
+        /// <param name="fileName">string xml file to load and deserialize</param>
+        /// <param name="obj">Output process object</param>
+        /// <param name="exception">output Exception value if deserialize failed</param>
+        /// <returns>true if this XmlSerializer can deserialize the object; otherwise, false</returns>
+        public static bool LoadFromFile(string fileName, out process obj, out System.Exception exception)
+        {
+            exception = null;
+            obj = default(process);
+            try
+            {
+                obj = LoadFromFile(fileName);
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                exception = ex;
+                return false;
+            }
+        }
+
+        public static bool LoadFromFile(string fileName, out process obj)
+        {
+            System.Exception exception = null;
+            return LoadFromFile(fileName, out obj, out exception);
+        }
+
+        public static process LoadFromFile(string fileName)
+        {
+            System.IO.FileStream file = null;
+            System.IO.StreamReader sr = null;
+            try
+            {
+                file = new System.IO.FileStream(fileName, FileMode.Open, FileAccess.Read);
+                sr = new System.IO.StreamReader(file);
+                string xmlString = sr.ReadToEnd();
+                sr.Close();
+                file.Close();
+                return Deserialize(xmlString);
+            }
+            finally
+            {
+                if ((file != null))
+                {
+                    file.Dispose();
+                }
+                if ((sr != null))
+                {
+                    sr.Dispose();
+                }
+            }
+        }
+        #endregion
+    }
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.tuat.ac.jp/~venture/ExperimotConfig")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.tuat.ac.jp/~venture/ExperimotConfig", IsNullable = true)]
+    public partial class node : System.ComponentModel.INotifyPropertyChanged
+    {
+
+        private string nameField;
+
+        private process processField;
+
+        private ObservableCollection<param_type> parametersField;
+
+        private ObservableCollection<socket> publishersField;
+
+        private ObservableCollection<socket> subscribersField;
+
+        private static System.Xml.Serialization.XmlSerializer serializer;
+
+        public node()
+        {
+            this.subscribersField = new ObservableCollection<socket>();
+            this.publishersField = new ObservableCollection<socket>();
+            this.parametersField = new ObservableCollection<param_type>();
+            this.processField = new process();
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        public string name
+        {
+            get
+            {
+                return this.nameField;
+            }
+            set
+            {
+                if ((this.nameField != null))
+                {
+                    if ((nameField.Equals(value) != true))
+                    {
+                        this.nameField = value;
+                        this.OnPropertyChanged("name");
+                    }
+                }
+                else
+                {
+                    this.nameField = value;
+                    this.OnPropertyChanged("name");
+                }
+            }
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        public process process
+        {
+            get
+            {
+                return this.processField;
+            }
+            set
+            {
+                if ((this.processField != null))
+                {
+                    if ((processField.Equals(value) != true))
+                    {
+                        this.processField = value;
+                        this.OnPropertyChanged("process");
+                    }
+                }
+                else
+                {
+                    this.processField = value;
+                    this.OnPropertyChanged("process");
+                }
+            }
+        }
+
+        [System.Xml.Serialization.XmlArrayAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("param", IsNullable = false)]
+        public ObservableCollection<param_type> parameters
+        {
+            get
+            {
+                return this.parametersField;
+            }
+            set
+            {
+                if ((this.parametersField != null))
+                {
+                    if ((parametersField.Equals(value) != true))
+                    {
+                        this.parametersField = value;
+                        this.OnPropertyChanged("parameters");
+                    }
+                }
+                else
+                {
+                    this.parametersField = value;
+                    this.OnPropertyChanged("parameters");
+                }
+            }
+        }
+
+        [System.Xml.Serialization.XmlArrayAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("publish", IsNullable = false)]
+        public ObservableCollection<socket> publishers
+        {
+            get
+            {
+                return this.publishersField;
+            }
+            set
+            {
+                if ((this.publishersField != null))
+                {
+                    if ((publishersField.Equals(value) != true))
+                    {
+                        this.publishersField = value;
+                        this.OnPropertyChanged("publishers");
+                    }
+                }
+                else
+                {
+                    this.publishersField = value;
+                    this.OnPropertyChanged("publishers");
+                }
+            }
+        }
+
+        [System.Xml.Serialization.XmlArrayAttribute(Order = 4)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("subscribe", IsNullable = false)]
+        public ObservableCollection<socket> subscribers
+        {
+            get
+            {
+                return this.subscribersField;
+            }
+            set
+            {
+                if ((this.subscribersField != null))
+                {
+                    if ((subscribersField.Equals(value) != true))
+                    {
+                        this.subscribersField = value;
+                        this.OnPropertyChanged("subscribers");
+                    }
+                }
+                else
+                {
+                    this.subscribersField = value;
+                    this.OnPropertyChanged("subscribers");
+                }
+            }
+        }
+
+        private static System.Xml.Serialization.XmlSerializer Serializer
+        {
+            get
+            {
+                if ((serializer == null))
+                {
+                    serializer = new System.Xml.Serialization.XmlSerializer(typeof(node));
+                }
+                return serializer;
+            }
+        }
+
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+        public virtual void OnPropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler handler = this.PropertyChanged;
+            if ((handler != null))
+            {
+                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        #region Serialize/Deserialize
+        /// <summary>
+        /// Serializes current node object into an XML document
+        /// </summary>
+        /// <returns>string XML value</returns>
+        public virtual string Serialize()
+        {
+            System.IO.StreamReader streamReader = null;
+            System.IO.MemoryStream memoryStream = null;
+            try
+            {
+                memoryStream = new System.IO.MemoryStream();
+                Serializer.Serialize(memoryStream, this);
+                memoryStream.Seek(0, System.IO.SeekOrigin.Begin);
+                streamReader = new System.IO.StreamReader(memoryStream);
+                return streamReader.ReadToEnd();
+            }
+            finally
+            {
+                if ((streamReader != null))
+                {
+                    streamReader.Dispose();
+                }
+                if ((memoryStream != null))
+                {
+                    memoryStream.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Deserializes workflow markup into an node object
+        /// </summary>
+        /// <param name="xml">string workflow markup to deserialize</param>
+        /// <param name="obj">Output node object</param>
+        /// <param name="exception">output Exception value if deserialize failed</param>
+        /// <returns>true if this XmlSerializer can deserialize the object; otherwise, false</returns>
+        public static bool Deserialize(string xml, out node obj, out System.Exception exception)
+        {
+            exception = null;
+            obj = default(node);
+            try
+            {
+                obj = Deserialize(xml);
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                exception = ex;
+                return false;
+            }
+        }
+
+        public static bool Deserialize(string xml, out node obj)
+        {
+            System.Exception exception = null;
+            return Deserialize(xml, out obj, out exception);
+        }
+
+        public static node Deserialize(string xml)
+        {
+            System.IO.StringReader stringReader = null;
+            try
+            {
+                stringReader = new System.IO.StringReader(xml);
+                return ((node)(Serializer.Deserialize(System.Xml.XmlReader.Create(stringReader))));
+            }
+            finally
+            {
+                if ((stringReader != null))
+                {
+                    stringReader.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Serializes current node object into file
+        /// </summary>
+        /// <param name="fileName">full path of outupt xml file</param>
+        /// <param name="exception">output Exception value if failed</param>
+        /// <returns>true if can serialize and save into file; otherwise, false</returns>
+        public virtual bool SaveToFile(string fileName, out System.Exception exception)
+        {
+            exception = null;
+            try
+            {
+                SaveToFile(fileName);
+                return true;
+            }
+            catch (System.Exception e)
+            {
+                exception = e;
+                return false;
+            }
+        }
+
+        public virtual void SaveToFile(string fileName)
+        {
+            System.IO.StreamWriter streamWriter = null;
+            try
+            {
+                string xmlString = Serialize();
+                System.IO.FileInfo xmlFile = new System.IO.FileInfo(fileName);
+                streamWriter = xmlFile.CreateText();
+                streamWriter.WriteLine(xmlString);
+                streamWriter.Close();
+            }
+            finally
+            {
+                if ((streamWriter != null))
+                {
+                    streamWriter.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Deserializes xml markup from file into an node object
+        /// </summary>
+        /// <param name="fileName">string xml file to load and deserialize</param>
+        /// <param name="obj">Output node object</param>
+        /// <param name="exception">output Exception value if deserialize failed</param>
+        /// <returns>true if this XmlSerializer can deserialize the object; otherwise, false</returns>
+        public static bool LoadFromFile(string fileName, out node obj, out System.Exception exception)
+        {
+            exception = null;
+            obj = default(node);
+            try
+            {
+                obj = LoadFromFile(fileName);
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                exception = ex;
+                return false;
+            }
+        }
+
+        public static bool LoadFromFile(string fileName, out node obj)
+        {
+            System.Exception exception = null;
+            return LoadFromFile(fileName, out obj, out exception);
+        }
+
+        public static node LoadFromFile(string fileName)
+        {
+            System.IO.FileStream file = null;
+            System.IO.StreamReader sr = null;
+            try
+            {
+                file = new System.IO.FileStream(fileName, FileMode.Open, FileAccess.Read);
+                sr = new System.IO.StreamReader(file);
+                string xmlString = sr.ReadToEnd();
+                sr.Close();
+                file.Close();
+                return Deserialize(xmlString);
+            }
+            finally
+            {
+                if ((file != null))
+                {
+                    file.Dispose();
+                }
+                if ((sr != null))
+                {
+                    sr.Dispose();
+                }
+            }
+        }
+        #endregion
     }
 }
