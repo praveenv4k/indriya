@@ -26,7 +26,9 @@ public:
 	}
 
 	~TorsoPosePublisher(){
-		m_pSocket->close();
+		if (m_pSocket != 0){
+			m_pSocket->close();
+		}
 	}
 
 	void Publish(Transform& torsoTransform){

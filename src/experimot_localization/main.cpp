@@ -22,15 +22,15 @@ int main(int argc, char *argv[])
 			experimot::msgs::Node _node;
 			for (int i = 0; i < argc; i++){
 				std::cout
-					<< "arg " << i+1 << " : " << std::string(argv[i]) << std::endl;
+					<< "arg " << i + 1 << " : " << std::string(argv[i]) << std::endl;
 			}
 			if (argc > 2){
 				std::cout
 					<< "Parsing command line option " << std::endl;
 				namespace po = boost::program_options;
 				po::options_description desc("Options");
-				desc.add_options() 
-					("help,h", "Print help messages") 
+				desc.add_options()
+					("help,h", "Print help messages")
 					("name,n", po::value<std::string>(), "name of the node")
 					("param,p", po::value<std::string>(), "parameter server address");
 
@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 					}
 					po::notify(vm); // throws on error, so do after help in case 
 					// there are any problems 
-					
+
 					if (!name.empty() && !param.empty()){
 						nodeInfo = experimot::msgs::NodePtr(new experimot::msgs::Node());
 						if (ParameterClient::Get(param, name, nodeInfo, 1000)){
@@ -85,11 +85,12 @@ int main(int argc, char *argv[])
 #if MarkerTest
 		MarkerDetectionTest detect(ios);
 #else
+		LocalizationPtr pLocalize;
 		if (nodeInfo != 0){
-			Localization localize(ios,nodeInfo);
+			pLocalize = LocalizationPtr(new Localization(ios, nodeInfo));
 		}
 		else{
-			Localization localize(ios);
+			pLocalize = LocalizationPtr(new Localization(ios));
 		}
 #endif
 #endif

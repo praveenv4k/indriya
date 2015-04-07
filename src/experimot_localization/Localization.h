@@ -29,6 +29,10 @@
 #define MARKER_SIZE			55
 #define CUBE_SIZE			64
 
+class Localization;
+
+typedef boost::shared_ptr<Localization> LocalizationPtr;
+
 class Localization{
 public:
 	Localization(boost::asio::io_service& io, experimot::msgs::NodePtr& pNode)
@@ -52,14 +56,14 @@ public:
 
 			for (int i = 0; i < m_pNode->publisher_size(); i++){
 				auto& pub = m_pNode->publisher(i);
-				if (pub.msg_type() == std::string("JointValueVector")){
-					m_pRobotStateListenerPtr = RobotStateListenerPtr(new RobotStateListener(pub.host(), pub.port(), conn_timeout, pub.topic()));
+				if (pub.msg_type() == std::string("Pose")){
+					m_pTorsoPosePublisherPtr = TorsoPosePublisherPtr(new TorsoPosePublisher(pub.host(), pub.port(), conn_timeout, pub.topic()));
 				}
 			}
 			for (int i = 0; i < m_pNode->subscriber_size(); i++){
 				auto& sub = m_pNode->subscriber(i);
-				if (sub.msg_type() == std::string("Pose")){
-					m_pTorsoPosePublisherPtr = TorsoPosePublisherPtr(new TorsoPosePublisher(sub.host(), sub.port(), conn_timeout, sub.topic()));
+				if (sub.msg_type() == std::string("JointValueVector")){
+					m_pRobotStateListenerPtr = RobotStateListenerPtr(new RobotStateListener(sub.host(), sub.port(), conn_timeout, sub.topic()));
 				}
 			}
 
@@ -69,6 +73,8 @@ public:
 			timer2_.expires_at(timer2_.expires_at() + boost::posix_time::milliseconds(m_nRobotCycle));
 			timer3_.expires_at(timer3_.expires_at() + boost::posix_time::milliseconds(m_nPoseCycle));
 
+			m_bVisualize = ParameterHelper::GetParam<int>(m_pNode->param(), "visualize", 1) > 0;
+
 			_init();
 
 			std::cout << "Localization node initialization complete !" << std::endl;
@@ -76,7 +82,7 @@ public:
 	}
 
 	Localization(boost::asio::io_service& io)
-		: strand_(io), m_nSensorCycle(30), m_nRobotCycle(40), m_nPoseCycle(80),
+		: strand_(io), m_nSensorCycle(30), m_nRobotCycle(40), m_nPoseCycle(80), m_bVisualize(true),
 		timer1_(io, boost::posix_time::milliseconds(m_nSensorCycle)),
 		timer2_(io, boost::posix_time::milliseconds(m_nRobotCycle)),
 		timer3_(io, boost::posix_time::milliseconds(m_nPoseCycle))
@@ -111,7 +117,7 @@ public:
 	void SensorDataProcess()
 	{
 		bool quit = false;
-		timer1_.expires_at(timer1_.expires_at() + boost::posix_time::milliseconds(30));
+		timer1_.expires_at(timer1_.expires_at() + boost::posix_time::milliseconds(m_nSensorCycle));
 		//TODO Call marker detection here
 		if (m_VideoCapture.isOpened()){
 			cv::Mat view0;
@@ -138,13 +144,13 @@ public:
 				if (m_pMarkerDetectionPtr->Videocallback(img, eef, markerTfm, headJoints, true)){
 					Transform out;
 					//ConvertToRightHandFrame(markerTfm, out);
-					
+
 					// Compute Top marker with respect to camera
 					//out = markerTfm.inverse();
 					out = markerTfm;
 
 					m_pRobotPoseInfoPtr->SetMarkerTransform(out);
-					
+
 					//TransformMatrix mat(out);
 					//std::cout << mat << std::endl;
 				}
@@ -168,7 +174,7 @@ public:
 
 	void JointDataReceive()
 	{
-		timer2_.expires_at(timer2_.expires_at() + boost::posix_time::milliseconds(40));
+		timer2_.expires_at(timer2_.expires_at() + boost::posix_time::milliseconds(m_nRobotCycle));
 		//TODO Call Joint data reception here
 		if (m_pRobotStateListenerPtr != 0 && m_pRobotPoseInfoPtr != 0){
 			std::vector<double> jointValues;
@@ -181,7 +187,7 @@ public:
 	}
 
 	void PublishTransform(){
-		timer3_.expires_at(timer3_.expires_at() + boost::posix_time::milliseconds(80));
+		timer3_.expires_at(timer3_.expires_at() + boost::posix_time::milliseconds(m_nPoseCycle));
 		//TODO Publish Torso transform here
 		if (m_pTorsoPosePublisherPtr != 0 && m_pRobotPoseInfoPtr != 0){
 			RobotPoseInfoMutex::scoped_lock lock(m_pRobotPoseInfoPtr->GetMutex());
@@ -244,6 +250,7 @@ private:
 	int m_nSensorCycle;
 	int m_nRobotCycle;
 	int m_nPoseCycle;
+	bool m_bVisualize;
 	experimot::msgs::NodePtr m_pNode;
 	RobotStateListenerPtr m_pRobotStateListenerPtr;
 	TorsoPosePublisherPtr m_pTorsoPosePublisherPtr;

@@ -26,6 +26,7 @@
         <param key="sensor_process_cycle" value="30" type="int"/>
         <param key="robot_listener_cycle" value="40" type="int"/>
         <param key="pose_publisher_cycle" value="80" type="int"/>
+        <param key="visualize" value="1" type="int"/>
       </parameters>
       <publishers>
         <publish>
