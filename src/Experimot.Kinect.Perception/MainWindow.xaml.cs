@@ -24,7 +24,7 @@ namespace ExperimotPerception
     public partial class MainWindow : Window
     {
         //private JointStatePublisher _jStatePub;
-        private KinectBodyPublisher _kBodyPub;
+        private readonly KinectBodyPublisher _kBodyPub;
 
         public MainWindow()
         {
@@ -34,7 +34,9 @@ namespace ExperimotPerception
             InitializeComponent();
             this.Loaded += MainWindow_Loaded;
             this.Closing += MainWindow_Closing;
-            
+
+            //MessageBox.Show(string.Join("; ",Environment.GetCommandLineArgs()));
+
             //_jStatePub = new JointStatePublisher();
         }
 
