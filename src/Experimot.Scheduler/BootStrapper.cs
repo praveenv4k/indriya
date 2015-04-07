@@ -121,16 +121,25 @@ namespace Scheduler
                             {
                                 try
                                 {
-                                    Node nodeInfo = MessageUtil.XmlToMessage(node);
+                                    Node nodeInfo = MessageUtil.XmlToMessageNode(node);
 
                                     string args = string.Empty;
 
                                     using (var msTestString = new MemoryStream())
                                     {
                                         Serializer.Serialize(msTestString, nodeInfo);
+                                        var chars = new char[msTestString.Length];
+                                        byte[] buf = msTestString.GetBuffer();
+                                        for (int i = 0; i < msTestString.Length; i++)
+                                        {
+                                            chars[i] = (char) buf[i];
+                                        }
+                                        args = new string(chars);
 
-                                        args = Convert.ToBase64String(msTestString.GetBuffer(), 0,
-                                            (int) msTestString.Length);
+                                        //args = Encoding.Default.GetString(msTestString.GetBuffer());
+
+                                        //args = Convert.ToBase64String(msTestString.GetBuffer(), 0,
+                                        //    (int) msTestString.Length);
                                     }
 
                                     var workingDir = System.IO.Path.GetDirectoryName(exeFile);

@@ -16,17 +16,11 @@ int main(int argc, char *argv[])
 	try {
 		if (argv != NULL){
 			experimot::msgs::Node _node;
-			//_node.ParseFromString()
-			std::cout
-				<< "args size : " << argc << std::endl;
-			std::cout
-				<< "First arg : " << std::string(argv[0]) << std::endl;
-			if (argc == 2){
+			for (int i = 0; i < argc; i++){
 				std::cout
-					<< "Second arg : " << std::string(argv[1]) << std::endl;
-				/*_node.ParseFromString(std::string(argv[1]));
-				_node.PrintDebugString();*/
+					<< "arg " << i+1 << " : " << std::string(argv[i]) << std::endl;
 			}
+			//_node.ParseFromString()
 		}
 		boost::asio::io_service ios;
 #if RobotListener

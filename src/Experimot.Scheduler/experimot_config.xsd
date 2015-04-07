@@ -41,7 +41,7 @@
       <xs:sequence>
         <xs:element name="name" type="xs:string" />
         <xs:element name="process" type="process"/>
-        <xs:element name="params" minOccurs="0" maxOccurs="1">
+        <xs:element name="parameters" minOccurs="0" maxOccurs="1">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="param" minOccurs="0" maxOccurs="unbounded" type="param_type">
@@ -71,6 +71,14 @@
   <xs:element name="experimot_config">
     <xs:complexType>
       <xs:sequence>
+        <xs:element name="parameters" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="param" minOccurs="0" maxOccurs="unbounded" type="param_type">
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <xs:element name="nodes">
           <xs:complexType>
             <xs:sequence>

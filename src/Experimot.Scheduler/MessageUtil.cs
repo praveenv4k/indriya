@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using experimot.msgs;
 using Scheduler;
 
@@ -11,7 +7,7 @@ namespace Experimot.Scheduler
 {
     internal class MessageUtil
     {
-        public static Node XmlToMessage(node node)
+        public static Node XmlToMessageNode(node node)
         {
             var ret = new Node {name = node.name};
             foreach (var item in node.publishers)
@@ -34,9 +30,9 @@ namespace Experimot.Scheduler
                     topic = item.topic
                 });
             }
-            foreach (var item in node.@params)
+            foreach (var item in node.parameters)
             {
-                ret.param.Add(new experimot.msgs.Node.Param()
+                ret.param.Add(new Node.Param()
                 {
                     key = item.key,
                     value = item.value,
@@ -44,6 +40,25 @@ namespace Experimot.Scheduler
                 });
             }
             return ret;
+        }
+
+        public static IList<Node.Param> XmlToMessageParam(node node)
+        {
+            return node == null ? XmlToMessageParam(parameters: null) : XmlToMessageParam(node.parameters);
+        }
+
+        public static IList<Node.Param> XmlToMessageParam(IList<param_type> parameters)
+        {
+            if (parameters != null)
+            {
+                return parameters.Select(item => new Node.Param()
+                {
+                    key = item.key,
+                    value = item.value,
+                    dataType = item.type.ToString()
+                }).ToList();
+            }
+            return new List<Node.Param>();
         }
     }
 }
