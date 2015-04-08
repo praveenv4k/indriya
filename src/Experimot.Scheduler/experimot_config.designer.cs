@@ -1242,6 +1242,10 @@ namespace Scheduler
 
         private ObservableCollection<socket> subscribersField;
 
+        private bool enabledField;
+
+        private bool enabledFieldSpecified;
+
         private static System.Xml.Serialization.XmlSerializer serializer;
 
         public node()
@@ -1376,6 +1380,40 @@ namespace Scheduler
                 {
                     this.subscribersField = value;
                     this.OnPropertyChanged("subscribers");
+                }
+            }
+        }
+
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public bool enabled
+        {
+            get
+            {
+                return this.enabledField;
+            }
+            set
+            {
+                if ((enabledField.Equals(value) != true))
+                {
+                    this.enabledField = value;
+                    this.OnPropertyChanged("enabled");
+                }
+            }
+        }
+
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool enabledSpecified
+        {
+            get
+            {
+                return this.enabledFieldSpecified;
+            }
+            set
+            {
+                if ((enabledFieldSpecified.Equals(value) != true))
+                {
+                    this.enabledFieldSpecified = value;
+                    this.OnPropertyChanged("enabledSpecified");
                 }
             }
         }

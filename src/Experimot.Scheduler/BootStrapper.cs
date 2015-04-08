@@ -48,7 +48,7 @@ namespace Scheduler
             {
                 foreach (var node in _config.nodes)
                 {
-                    if (node != null && node.process != null)
+                    if (node != null && node.enabled && node.process != null)
                     {
                         var exeFile = Environment.ExpandEnvironmentVariables(node.process.path);
                         if (!string.IsNullOrEmpty(exeFile))

@@ -2,6 +2,7 @@
 using System.Text;
 using System.Windows;
 using CommandLine;
+using Common.Logging;
 using experimot.msgs;
 using ProtoBuf;
 using ZMQ;
@@ -9,31 +10,44 @@ using Exception = System.Exception;
 
 namespace Experimot.Kinect.Perception
 {
-    class Options
-    {
-        [Option('n', "name", DefaultValue = "gesture_recognition", HelpText = "This is the name of the node!")]
-        public string Name { get; set; }
-        [Option('p', "param", DefaultValue = "tcp://localhost:5560", HelpText = "This is the address of parameter server!")]
-        public string ParameterServer { get; set; }
-    }
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
-        protected override void OnStartup(StartupEventArgs e)
+        private readonly ILog Log = LogManager.GetLogger<App>();
+        public App()
         {
-            var args = e.Args;
-            var options = new Options();
-            Parser.Default.ParseArguments(args, options);
-            var info = GetNodeInfo(options.Name, options.ParameterServer);
-            if (info != null)
-            {
-            }
-            base.OnStartup(e);
+            Startup += AppStartup;
         }
 
-        private Node GetNodeInfo(string name, string server, int timeout=1000)
+        private void AppStartup(object sender, StartupEventArgs e)
+        {
+            Node info = null;
+            try
+            {
+                var args = e.Args;
+                var options = new CommandLineOptions();
+                Parser.Default.ParseArguments(args, options);
+                info = GetNodeInfo(options.Name, options.ParameterServer);
+            }
+            catch (Exception ex)
+            {
+                Log.Info("Retrieving the parameter from server failed");
+            }
+            if (info == null)
+            {
+                MainWindow = new MainWindow();
+            }
+            else
+            {
+                MainWindow = new MainWindow(info);
+            }
+            MainWindow.Show();
+            MessageBox.Show("Showed new window");
+        }
+
+        private Node GetNodeInfo(string name, string server, int timeout = 1000)
         {
             try
             {
