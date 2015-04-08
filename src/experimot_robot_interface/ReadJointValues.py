@@ -138,7 +138,7 @@ if __name__ == "__main__":
     PORT = 9559
 
     # Simulated Robot
-    #ROBOT_IP = "127.0.0.1"
+    ROBOT_IP = "127.0.0.1"
     #PORT = 60170
 
     print "Publishing data ..."

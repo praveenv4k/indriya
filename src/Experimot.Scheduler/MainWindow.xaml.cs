@@ -1,22 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Experimot.Scheduler.Annotations;
+using Experimot.Scheduler.Core;
 using Quartz;
 using Quartz.Impl;
-using System.Collections.Specialized;
 using Quartz.Impl.Matchers;
+using Scheduler;
 
-namespace Scheduler
+namespace Experimot.Scheduler
 {
     internal class JobListener : IJobListener
     {
@@ -73,10 +69,12 @@ namespace Scheduler
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, IJobListener
+    public partial class MainWindow : Window, IJobListener, INotifyPropertyChanged
     {
         private ISchedulerFactory _schedulerFactory;
         private IScheduler _scheduler;
+        private Core.Context _context;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -103,6 +101,15 @@ namespace Scheduler
             bootStrapper.StartUp();
 
             this.Closing += MainWindow_Closing;
+
+            _context = new Context();
+
+            DataContext = this;
+        }
+
+        public Context Context
+        {
+            get { return _context; }
         }
 
         void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -181,6 +188,14 @@ namespace Scheduler
             }));
         }
 
-        
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

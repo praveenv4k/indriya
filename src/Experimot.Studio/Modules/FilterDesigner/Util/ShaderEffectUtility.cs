@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Media.Effects;
 
-namespace ExperimotStudio.Modules.FilterDesigner.Util
+namespace Experimot.Studio.Modules.FilterDesigner.Util
 {
     internal static class ShaderEffectUtility
     {

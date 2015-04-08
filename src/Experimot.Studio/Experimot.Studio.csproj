@@ -310,6 +310,14 @@
     <SplashScreen Include="Resources\logo.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\..\lib\ShaderBuildTask.dll">
+      <Link>ShaderBuildTask.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\lib\Xceed.Wpf.AvalonDock.Themes.VS2013.dll">
+      <Link>Xceed.Wpf.AvalonDock.Themes.VS2013.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="sharpdx_direct3d11_effects_x64.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

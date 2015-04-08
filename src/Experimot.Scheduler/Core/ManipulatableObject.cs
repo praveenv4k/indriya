@@ -1,8 +1,11 @@
-﻿using experimot.msgs;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using experimot.msgs;
+using Experimot.Scheduler.Annotations;
 
-namespace Scheduler.Core
+namespace Experimot.Scheduler.Core
 {
-    public class ManipulatableObject
+    public class ManipulatableObject: INotifyPropertyChanged
     {
         private string _id;
         private Pose _pose;
@@ -11,19 +14,43 @@ namespace Scheduler.Core
         public string Id
         {
             get { return _id; }
-            set { _id = value; }
+            set
+            {
+                if (value == _id) return;
+                _id = value;
+                OnPropertyChanged();
+            }
         }
 
-        public Pose Pose1
+        public Pose Pose
         {
             get { return _pose; }
-            set { _pose = value; }
+            set
+            {
+                if (Equals(value, _pose)) return;
+                _pose = value;
+                OnPropertyChanged();
+            }
         }
 
         public Color Color
         {
             get { return _color; }
-            set { _color = value; }
+            set
+            {
+                if (Equals(value, _color)) return;
+                _color = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
