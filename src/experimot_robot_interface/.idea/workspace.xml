@@ -2,170 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03f6965a-39a2-4893-a7b0-c0ae82b1fab2" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\App.ico" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\App.xaml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\App.xaml.cs" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\ChildWindow.xaml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\ChildWindow.xaml.cs" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\DiagramBuilder_2008.csproj" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\DiagramBuilder_2008.sln" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\DiagramBuilder_2010.csproj" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\DiagramBuilder_2010.sln" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\DiagramBuilder_2012.csproj" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\DiagramBuilder_2012.sln" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\DiagramBuilder_2013.csproj" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\DiagramBuilder_2013.sln" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\DiagramProperties.cs" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Images\App.ico" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Images\CommandCollapsed.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Images\Reset.bmp" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Images\Whiteboard Gridline.JPG" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Images\rulers.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Images\syncfusion.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Properties\AssemblyInfo.cs" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Properties\Resources.Designer.cs" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Properties\Resources.resx" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Properties\Settings.Designer.cs" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Properties\Settings.settings" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\AlignTextCenter16.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\AlignTextJustify16.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\AlignTextLeft16.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\AlignTextRight16.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\App.ico" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Bold.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Close.PNG" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\CommandCollapsed.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\FontColor.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Help.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Italic.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Landscape.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Open.PNG" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Portatrit.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Reset.bmp" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Save.PNG" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Solistice.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Technic.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Texture.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Underline16.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-1.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-3_03.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-3_06.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-3_08.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-3_10.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-3_12.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-3_14.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-3_16.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-3_18.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-4_03.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-4_06.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-4_12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-4_17.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-4_22.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-4_25.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-4_27.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-4_29.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-4_31.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-5_03.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-5_09.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-5_13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-5_17.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-5_21.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-5_25.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Untitled-5_29.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Update.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Urban.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Verve.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\Whiteboard Gridline.JPG" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\align_03.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\align_05.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\align_07.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\align_12.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\align_13.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\align_14.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\align_18.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\align_19.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\delete.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\diagram.ico" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\feat.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_03.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_06.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_08.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_14.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_21.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_22.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_23.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_24.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_26.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_28.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_35.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_36.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_37.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_38.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_39.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_40.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_47.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_48.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_49.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_50.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_51.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\glow_52.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\mail.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\rulers.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\shadow_03.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\shadow_06.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\shadow_08.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\shadow_10.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\shadow_15.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\shadow_16.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\shadow_17.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\shadow_21.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\shadow_22.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\shadow_23.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\shape-effects.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\shape-fill.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\shape-outline.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Resources\syncfusion.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\ShapeStyles.cs" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\TextStyles.cs" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\ThemeBrushes.xaml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Window1.xaml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\Window1.xaml.cs" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\CS\app.config" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\Diagram Builder\Image\Diagram Builder.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\OpenCV_KinectCapture\OpenCV.props" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\OpenCV_KinectCapture\OpenCV_KinectCapture.cpp" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\OpenCV_KinectCapture\OpenCV_KinectCapture.vcxproj" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\OpenCV_KinectCapture\OpenCV_KinectCapture.vcxproj.filters" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\OpenCV_KinectCapture\ReadMe.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\OpenCV_KinectCapture\stdafx.cpp" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\OpenCV_KinectCapture\stdafx.h" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\OpenCV_KinectCapture\targetver.h" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\PCL_Tracker2\CMakeLists.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\PCL_Tracker2\PCL_Tracker2.vcxproj" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\PCL_Tracker2\PCL_Tracker2.vcxproj.filters" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\PCL_Tracker2\README" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\PCL_Tracker2\ReadMe.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\PCL_Tracker2\cluster_segmentor.h" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\PCL_Tracker2\openni_tracking.cpp" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\PCL_Tracker2\pcl_tracking.cpp" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\PCL_Tracker2\stdafx.cpp" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\PCL_Tracker2\stdafx.h" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\PCL_Tracker2\targetver.h" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\PCL_Tracker2\template_alignment.h" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\PCL_Tracker2\tracking_sample.cpp" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\PCL_Tracker\OpenNISegmentTracking.h" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\PCL_Tracker\PCL_Tracker.cpp" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\PCL_Tracker\PCL_Tracker.vcxproj" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\PCL_Tracker\PCL_Tracker.vcxproj.filters" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\PCL_Tracker\ReadMe.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\PCL_Tracker\kinect2_grabber.h" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\openrave_client\SimpleClient.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\openrave_client\datalog.csv" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\openrave_client\openrave_client.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Work\Develop\src\github\ExPeriMot\openrave_client\openrave_client.pyproj" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/PyScripts.iml" afterPath="$PROJECT_DIR$/.idea/PyScripts.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReadJointValues.py" afterPath="$PROJECT_DIR$/ReadJointValues.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/joint_value_map_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/joint_value_map_pb2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motion_walk.py" afterPath="$PROJECT_DIR$/motion_walk.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PyScripts.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -192,8 +34,20 @@
       <file leaf-file-name="ReadJointValues.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ReadJointValues.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="2635">
-              <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1836" max-vertical-offset="2635">
+              <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+              <folding>
+                <element signature="e#29#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="joint_value_map_pb2.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../experimot_msgs/python/joint_value_map_pb2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2074">
+              <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -203,7 +57,7 @@
         <entry file="file://$PROJECT_DIR$/alrobotposture.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="179" max-vertical-offset="748">
-              <caret line="38" column="22" selection-start-line="30" selection-start-column="4" selection-end-line="38" selection-end-column="22" />
+              <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
               <folding>
                 <element signature="e#49#59#0" expanded="true" />
               </folding>
@@ -211,11 +65,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="motion_walk.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nao_interface/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.029876977" vertical-offset="0" max-vertical-offset="569">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="motion_walk.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/motion_walk.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41827768" vertical-offset="1020" max-vertical-offset="2074">
-              <caret line="74" column="61" selection-start-line="74" selection-start-column="61" selection-end-line="74" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1556" max-vertical-offset="2125">
+              <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
               <folding>
                 <element signature="e#92#102#0" expanded="true" />
               </folding>
@@ -226,7 +90,7 @@
       <file leaf-file-name="JointPublisher.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JointPublisher.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="1241">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1241">
               <caret line="55" column="13" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
               <folding>
                 <element signature="e#22#48#0" expanded="true" />
@@ -260,7 +124,7 @@
     </leaf>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -273,17 +137,16 @@
         <option value="$PROJECT_DIR$/../../../scripts/PythonScripts/PythonScripts/SymTransformHelper.py" />
         <option value="$PROJECT_DIR$/../../../scripts/PythonScripts/PythonScripts/MathUtils.py" />
         <option value="$PROJECT_DIR$/../../../scripts/PythonScripts/PythonScripts/PythonScripts.py" />
-        <option value="$PROJECT_DIR$/ReadJointValues.py" />
         <option value="$PROJECT_DIR$/../ExPeriMot/experimot_msgs/python/joint_value_map_pb2.py" />
-        <option value="$PROJECT_DIR$/../experimot_msgs/python/joint_value_map_pb2.py" />
         <option value="$PROJECT_DIR$/alrobotposture.py" />
         <option value="$PROJECT_DIR$/motion_walk.py" />
+        <option value="$PROJECT_DIR$/ReadJointValues.py" />
+        <option value="$PROJECT_DIR$/../experimot_msgs/python/joint_value_map_pb2.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="306" />
-    <option name="y" value="15" />
+    <option name="x" value="-32" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -310,7 +173,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -339,19 +201,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="experimot_robot_interface" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="PyScripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PyScripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="experimot_robot_interface" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nao_interface" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../experimot_msgs/python" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
@@ -365,7 +246,7 @@
       <recent name="C:\Work\Develop\src\github\PyScripts" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.motion_walk">
+  <component name="RunManager" selected="Python.ReadJointValues">
     <configuration default="false" name="ReadJointValues" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -596,9 +477,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.motion_walk" />
-        <item index="1" class="java.lang.String" itemvalue="Python.alrobotposture" />
-        <item index="2" class="java.lang.String" itemvalue="Python.ReadJointValues" />
+        <item index="0" class="java.lang.String" itemvalue="Python.ReadJointValues" />
+        <item index="1" class="java.lang.String" itemvalue="Python.motion_walk" />
+        <item index="2" class="java.lang.String" itemvalue="Python.alrobotposture" />
         <item index="3" class="java.lang.String" itemvalue="Python.PythonScripts" />
         <item index="4" class="java.lang.String" itemvalue="Python.JointPublisher" />
       </list>
@@ -618,17 +499,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="306" y="15" width="1400" height="1000" extended-state="0" />
-    <editor active="false" />
+    <frame x="-32" y="0" width="1400" height="1000" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32996634" sideWeight="0.3699422" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32996634" sideWeight="0.6300578" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -677,11 +558,23 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/read_values.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1496">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+          <folding>
+            <element signature="e#408#417#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ReadJointValues.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2567">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#29#55#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -717,7 +610,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2635">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#29#55#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -771,7 +666,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1653" max-vertical-offset="2516">
           <caret line="103" column="43" selection-start-line="103" selection-start-column="43" selection-end-line="103" selection-end-column="43" />
-          <folding />
+          <folding>
+            <element signature="e#29#55#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -814,7 +711,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1653" max-vertical-offset="2516">
           <caret line="103" column="43" selection-start-line="103" selection-start-column="43" selection-end-line="103" selection-end-column="43" />
-          <folding />
+          <folding>
+            <element signature="e#29#55#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -857,7 +756,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="2516">
           <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding />
+          <folding>
+            <element signature="e#29#55#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -900,7 +801,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="191" max-vertical-offset="2278">
           <caret line="110" column="32" selection-start-line="110" selection-start-column="32" selection-end-line="110" selection-end-column="32" />
-          <folding />
+          <folding>
+            <element signature="e#29#55#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -943,7 +846,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1415" max-vertical-offset="2278">
           <caret line="110" column="32" selection-start-line="110" selection-start-column="32" selection-end-line="110" selection-end-column="32" />
-          <folding />
+          <folding>
+            <element signature="e#29#55#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -986,7 +891,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1658" max-vertical-offset="2278">
           <caret line="110" column="32" selection-start-line="110" selection-start-column="32" selection-end-line="110" selection-end-column="32" />
-          <folding />
+          <folding>
+            <element signature="e#29#55#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1047,16 +954,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JointPublisher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="1241">
-          <caret line="55" column="13" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
-          <folding>
-            <element signature="e#22#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/read_values.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1496">
@@ -1067,38 +964,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/JointPublisher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="1241">
+          <caret line="55" column="13" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
+          <folding>
+            <element signature="e#22#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../experimot_msgs/python/joint_value_map_pb2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67266184" vertical-offset="1122" max-vertical-offset="2074">
-          <caret line="88" column="3" selection-start-line="88" selection-start-column="3" selection-end-line="88" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2074">
+          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ReadJointValues.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="2635">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alrobotposture.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="179" max-vertical-offset="748">
-          <caret line="38" column="22" selection-start-line="30" selection-start-column="4" selection-end-line="38" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1836" max-vertical-offset="2635">
+          <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
           <folding>
-            <element signature="e#49#59#0" expanded="true" />
+            <element signature="e#29#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/motion_walk.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41827768" vertical-offset="1020" max-vertical-offset="2074">
-          <caret line="74" column="61" selection-start-line="74" selection-start-column="61" selection-end-line="74" selection-end-column="61" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1556" max-vertical-offset="2125">
+          <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
           <folding>
             <element signature="e#92#102#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alrobotposture.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="179" max-vertical-offset="748">
+          <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+          <folding>
+            <element signature="e#49#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nao_interface/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.029876977" vertical-offset="0" max-vertical-offset="569">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

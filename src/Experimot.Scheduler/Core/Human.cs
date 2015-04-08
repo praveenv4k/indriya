@@ -1,19 +1,36 @@
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using experimot.msgs;
+using Experimot.Scheduler.Annotations;
 
-namespace Scheduler.Core
+namespace Experimot.Scheduler.Core
 {
-    public class Gesture
+    public class Gesture: INotifyPropertyChanged
     {
         private string _name;
 
         public string Name
         {
             get { return _name; }
-            set { _name = value; }
+            set
+            {
+                if (value == _name) return;
+                _name = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 
-    public class Human
+    public class Human: INotifyPropertyChanged
     {
         private string _id;
         private KinectBody _body;
@@ -22,19 +39,43 @@ namespace Scheduler.Core
         public string Id
         {
             get { return _id; }
-            set { _id = value; }
+            set
+            {
+                if (value == _id) return;
+                _id = value;
+                OnPropertyChanged();
+            }
         }
 
         public KinectBody Body
         {
             get { return _body; }
-            set { _body = value; }
+            set
+            {
+                if (Equals(value, _body)) return;
+                _body = value;
+                OnPropertyChanged();
+            }
         }
 
         public Gesture Gesture
         {
             get { return _gesture; }
-            set { _gesture = value; }
+            set
+            {
+                if (Equals(value, _gesture)) return;
+                _gesture = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

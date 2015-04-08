@@ -1,4 +1,4 @@
-namespace Scheduler.Core
+namespace Experimot.Scheduler.Core
 {
     public class Behavior
     {

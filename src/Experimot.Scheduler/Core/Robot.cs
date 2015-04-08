@@ -1,9 +1,13 @@
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using experimot.msgs;
+using Experimot.Scheduler.Annotations;
+using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
-namespace Scheduler.Core
+namespace Experimot.Scheduler.Core
 {
-    public class SensorData
+    public class SensorData : INotifyPropertyChanged
     {
         private JointValueVector _jointValues;
         private IMU _imu;
@@ -16,25 +20,47 @@ namespace Scheduler.Core
             _sensorValues = new Dictionary<string, object>();
         }
 
+        [ExpandableObject]
         public IDictionary<string, object> SensorValues
         {
             get { return _sensorValues; }
         }
 
+        [ExpandableObject]
         public IMU Imu
         {
             get { return _imu; }
-            set { _imu = value; }
+            set
+            {
+                if (Equals(value, _imu)) return;
+                _imu = value;
+                OnPropertyChanged();
+            }
         }
 
+        [ExpandableObject]
         public JointValueVector JointValues
         {
             get { return _jointValues; }
-            set { _jointValues = value; }
+            set
+            {
+                if (Equals(value, _jointValues)) return;
+                _jointValues = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 
-    public class Robot
+    public class Robot : INotifyPropertyChanged
     {
         private string _name;
         private string _version;
@@ -52,35 +78,66 @@ namespace Scheduler.Core
         public string Name
         {
             get { return _name; }
-            set { _name = value; }
+            set
+            {
+                if (value == _name) return;
+                _name = value;
+                OnPropertyChanged();
+            }
         }
 
         public string Version
         {
             get { return _version; }
-            set { _version = value; }
+            set
+            {
+                if (value == _version) return;
+                _version = value;
+                OnPropertyChanged();
+            }
         }
 
         public string Description
         {
             get { return _description; }
-            set { _description = value; }
+            set
+            {
+                if (value == _description) return;
+                _description = value;
+                OnPropertyChanged();
+            }
         }
 
         public string FilePath
         {
             get { return _filePath; }
-            set { _filePath = value; }
+            set
+            {
+                if (value == _filePath) return;
+                _filePath = value;
+                OnPropertyChanged();
+            }
         }
 
+        [ExpandableObject]
         public SensorData SensorData
         {
             get { return _sensorData; }
         }
 
+        [ExpandableObject]
         public Localization Localization
         {
             get { return _localization; }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

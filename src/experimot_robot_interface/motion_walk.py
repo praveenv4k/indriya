@@ -7,7 +7,7 @@ import sys
 import motion
 import time
 from naoqi import ALProxy
-
+from naoqi import ALBroker
 
 def StiffnessOn(proxy):
     # We use the "Body" name to signify the collection of all joints
@@ -107,11 +107,13 @@ def main(robotIP,port):
 
 if __name__ == "__main__":
     robotIp = "127.0.0.1"
-    #port = 9559
-    port = 51879
+    port = 9559
+    #robotIp = "nao.local"
+    #port = 51879
     if len(sys.argv) <= 1:
         print "Usage python alrobotposture.py robotIP (optional default: 127.0.0.1)"
     else:
         robotIp = sys.argv[1]
 
     main(robotIp,port)
+
