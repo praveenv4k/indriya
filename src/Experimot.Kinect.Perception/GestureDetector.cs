@@ -4,13 +4,15 @@
 // </copyright>
 //------------------------------------------------------------------------------
 
-namespace Experimot.Kinect.GestureRecognition
-{
-    using System;
-    using System.Collections.Generic;
-    using Microsoft.Kinect;
-    using Microsoft.Kinect.VisualGestureBuilder;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using Experimot.Kinect.GestureRecognition;
+using Microsoft.Kinect;
+using Microsoft.Kinect.VisualGestureBuilder;
 
+namespace Experimot.Kinect.Perception
+{
     /// <summary>
     /// Gesture Detector class which listens for VisualGestureBuilderFrame events from the service
     /// and updates the associated GestureResultView object with the latest results for the 'Seated' gesture
@@ -19,17 +21,17 @@ namespace Experimot.Kinect.GestureRecognition
     {
         /// <summary> Path to the gesture database that was trained with VGB </summary>
         //private readonly string gestureDatabase = @"Database\Seated.gbd";
-        private readonly List<string> gesturedbs = new List<string>();
+        private readonly List<string> _gesturedbs = new List<string>();
 
         /// <summary> Name of the discrete gesture in the database that we want to track </summary>
         //private readonly string seatedGestureName = "Seated";
-        private readonly List<string> gestures = new List<string>();
+        private readonly List<string> _gestures = new List<string>();
 
         /// <summary> Gesture frame source which should be tied to a body tracking ID </summary>
-        private VisualGestureBuilderFrameSource vgbFrameSource = null;
+        private VisualGestureBuilderFrameSource _vgbFrameSource;
 
         /// <summary> Gesture frame reader which will handle gesture events coming from the sensor </summary>
-        private VisualGestureBuilderFrameReader vgbFrameReader = null;
+        private VisualGestureBuilderFrameReader _vgbFrameReader;
 
         /// <summary>
         /// Initializes a new instance of the GestureDetector class along with the gesture frame source and reader
@@ -50,39 +52,39 @@ namespace Experimot.Kinect.GestureRecognition
                     throw new ArgumentNullException("gestureResultView");
                 }
 
-                this.GestureResultView = gestureResultView;
+                GestureResultView = gestureResultView;
 
                 // create the vgb source. The associated body tracking ID will be set when a valid body frame arrives from the sensor.
-                this.vgbFrameSource = new VisualGestureBuilderFrameSource(kinectSensor, 0);
-                this.vgbFrameSource.TrackingIdLost += this.Source_TrackingIdLost;
+                _vgbFrameSource = new VisualGestureBuilderFrameSource(kinectSensor, 0);
+                _vgbFrameSource.TrackingIdLost += Source_TrackingIdLost;
 
                 // open the reader for the vgb frames
-                this.vgbFrameReader = this.vgbFrameSource.OpenReader();
-                if (this.vgbFrameReader != null)
+                _vgbFrameReader = _vgbFrameSource.OpenReader();
+                if (_vgbFrameReader != null)
                 {
-                    this.vgbFrameReader.IsPaused = true;
-                    this.vgbFrameReader.FrameArrived += this.Reader_GestureFrameArrived;
+                    _vgbFrameReader.IsPaused = true;
+                    _vgbFrameReader.FrameArrived += Reader_GestureFrameArrived;
                 }
 
-                gesturedbs.Add(@"Database\experimot.gbd");
+                _gesturedbs.Add(@"Database\experimot.gbd");
 
-                gestures.Add(GestureNames.HandwaveLeft);
-                gestures.Add(GestureNames.HandwaveRight);
+                _gestures.Add(GestureNames.HandwaveLeft);
+                _gestures.Add(GestureNames.HandwaveRight);
 
-                foreach (var db in gesturedbs)
+                foreach (var db in _gesturedbs)
                 {
                     using (var database = new VisualGestureBuilderDatabase(db))
                     {
                         foreach (var gesture in database.AvailableGestures)
                         {
-                            this.vgbFrameSource.AddGesture(gesture);
+                            _vgbFrameSource.AddGesture(gesture);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(ex.Message);
+                Debug.WriteLine(ex.Message);
             }
         }
 
@@ -97,14 +99,14 @@ namespace Experimot.Kinect.GestureRecognition
         {
             get
             {
-                return this.vgbFrameSource.TrackingId;
+                return _vgbFrameSource.TrackingId;
             }
 
             set
             {
-                if (this.vgbFrameSource.TrackingId != value)
+                if (_vgbFrameSource.TrackingId != value)
                 {
-                    this.vgbFrameSource.TrackingId = value;
+                    _vgbFrameSource.TrackingId = value;
                 }
             }
         }
@@ -117,14 +119,14 @@ namespace Experimot.Kinect.GestureRecognition
         {
             get
             {
-                return this.vgbFrameReader.IsPaused;
+                return _vgbFrameReader.IsPaused;
             }
 
             set
             {
-                if (this.vgbFrameReader.IsPaused != value)
+                if (_vgbFrameReader.IsPaused != value)
                 {
-                    this.vgbFrameReader.IsPaused = value;
+                    _vgbFrameReader.IsPaused = value;
                 }
             }
         }
@@ -134,7 +136,7 @@ namespace Experimot.Kinect.GestureRecognition
         /// </summary>
         public void Dispose()
         {
-            this.Dispose(true);
+            Dispose(true);
             GC.SuppressFinalize(this);
         }
 
@@ -146,18 +148,18 @@ namespace Experimot.Kinect.GestureRecognition
         {
             if (disposing)
             {
-                if (this.vgbFrameReader != null)
+                if (_vgbFrameReader != null)
                 {
-                    this.vgbFrameReader.FrameArrived -= this.Reader_GestureFrameArrived;
-                    this.vgbFrameReader.Dispose();
-                    this.vgbFrameReader = null;
+                    _vgbFrameReader.FrameArrived -= Reader_GestureFrameArrived;
+                    _vgbFrameReader.Dispose();
+                    _vgbFrameReader = null;
                 }
 
-                if (this.vgbFrameSource != null)
+                if (_vgbFrameSource != null)
                 {
-                    this.vgbFrameSource.TrackingIdLost -= this.Source_TrackingIdLost;
-                    this.vgbFrameSource.Dispose();
-                    this.vgbFrameSource = null;
+                    _vgbFrameSource.TrackingIdLost -= Source_TrackingIdLost;
+                    _vgbFrameSource.Dispose();
+                    _vgbFrameSource = null;
                 }
             }
         }
@@ -181,14 +183,14 @@ namespace Experimot.Kinect.GestureRecognition
                     if (discreteResults != null)
                     {
                         // we only have one gesture in this source object, but you can get multiple gestures
-                        foreach (Gesture gesture in this.vgbFrameSource.Gestures)
+                        foreach (Gesture gesture in _vgbFrameSource.Gestures)
                         {
                             //System.Diagnostics.Debug.WriteLine(gesture.Name);
-                            if (gesture.GestureType == GestureType.Discrete && gestures.Contains(gesture.Name))
+                            if (gesture.GestureType == GestureType.Discrete && _gestures.Contains(gesture.Name))
                             //if (gesture.Name.Equals(this.seatedGestureName) && gesture.GestureType == GestureType.Discrete)
                             {
 
-                                DiscreteGestureResult result = null;
+                                DiscreteGestureResult result;
                                 discreteResults.TryGetValue(gesture, out result);
 
                                 //if (result != null && result.Detected)
@@ -206,13 +208,13 @@ namespace Experimot.Kinect.GestureRecognition
                             }
                         }
                     }
-                    if (detectedGesture != null && detectedResult != null)
+                    if (detectedGesture != null)
                     {
-                        this.GestureResultView.UpdateGestureResult(true, detectedResult.Detected, detectedResult.Confidence, detectedGesture.Name);
+                        GestureResultView.UpdateGestureResult(true, detectedResult.Detected, detectedResult.Confidence, detectedGesture.Name);
                     }
                     else
                     {
-                        this.GestureResultView.UpdateGestureResult(true, false, 0.0f, string.Empty);
+                        GestureResultView.UpdateGestureResult(true, false, 0.0f, string.Empty);
                     }
                 }
             }
@@ -226,7 +228,7 @@ namespace Experimot.Kinect.GestureRecognition
         private void Source_TrackingIdLost(object sender, TrackingIdLostEventArgs e)
         {
             // update the GestureResultView object to show the 'Not Tracked' image in the UI
-            this.GestureResultView.UpdateGestureResult(false, false, 0.0f, string.Empty);
+            GestureResultView.UpdateGestureResult(false, false, 0.0f, string.Empty);
         }
     }
 }

@@ -84,51 +84,51 @@ namespace Experimot.Kinect.Perception
         /// <param name="bodies"></param>
         public void UpdateBodyFrame(Body[] bodies)
         {
+            if (!CanSend) return;
+
+            KinectBodies kbodies = new KinectBodies();
+            int penIndex = 0;
+            foreach (var body in bodies)
             {
-                KinectBodies kbodies = new KinectBodies();
-                int penIndex = 0;
-                foreach (var body in bodies)
+                penIndex++;
+                if (body.IsTracked)
                 {
-                    penIndex++;
-                    if (body.IsTracked)
+                    var kbody = new KinectBody
                     {
-                        var kbody = new KinectBody
+                        IsTracked = true,
+                        TrackingId = penIndex - 1,
+                        JointCount = body.Joints.Count
+                    };
+
+                    IReadOnlyDictionary<JointType, Joint> joints = body.Joints;
+
+                    foreach (JointType jointType in joints.Keys)
+                    {
+                        // sometimes the depth(Z) of an inferred joint may show as negative
+                        // clamp down to 0.1f to prevent coordinatemapper from returning (-Infinity, -Infinity)
+                        CameraSpacePoint position = joints[jointType].Position;
+                        if (position.Z < 0)
                         {
-                            IsTracked = true,
-                            TrackingId = penIndex - 1,
-                            JointCount = body.Joints.Count
-                        };
-
-                        IReadOnlyDictionary<JointType, Joint> joints = body.Joints;
-
-                        foreach (JointType jointType in joints.Keys)
-                        {
-                            // sometimes the depth(Z) of an inferred joint may show as negative
-                            // clamp down to 0.1f to prevent coordinatemapper from returning (-Infinity, -Infinity)
-                            CameraSpacePoint position = joints[jointType].Position;
-                            if (position.Z < 0)
-                            {
-                                position.Z = KinectBodyHelper.InferredZPositionClamp;
-                            }
-
-                            KinectJoint kjoint = new KinectJoint
-                            {
-                                Type = (KinectJoint.JointType) jointType,
-                                State = (KinectJoint.TrackingState) joints[jointType].TrackingState,
-                                Position = new Vector3d {x = position.X, y = position.Y, z = position.Z}
-                            };
-                            var orient = body.JointOrientations[jointType].Orientation;
-                            kjoint.Orientation = new Quaternion
-                            {
-                                w = orient.W,
-                                x = orient.X,
-                                y = orient.Y,
-                                z = orient.Z
-                            };
-                            kbody.Joints.Add(kjoint);
+                            position.Z = KinectBodyHelper.InferredZPositionClamp;
                         }
-                        kbodies.Body.Add(kbody);
+
+                        KinectJoint kjoint = new KinectJoint
+                        {
+                            Type = (KinectJoint.JointType) jointType,
+                            State = (KinectJoint.TrackingState) joints[jointType].TrackingState,
+                            Position = new Vector3d {x = position.X, y = position.Y, z = position.Z}
+                        };
+                        var orient = body.JointOrientations[jointType].Orientation;
+                        kjoint.Orientation = new Quaternion
+                        {
+                            w = orient.W,
+                            x = orient.X,
+                            y = orient.Y,
+                            z = orient.Z
+                        };
+                        kbody.Joints.Add(kjoint);
                     }
+                    kbodies.Body.Add(kbody);
                 }
                 PublishKinectBodies(kbodies);
             }
@@ -138,25 +138,34 @@ namespace Experimot.Kinect.Perception
         private int _sendCount;
         private readonly string _host;
 
+        private bool CanSend
+        {
+            get
+            {
+                if (_sendCount < SendFrequency)
+                {
+                    _sendCount++;
+                }
+                else
+                {
+                    _sendCount = 0;
+                }
+                return _sendCount == 0;
+            }
+        }
+
         private void PublishKinectBodies(KinectBodies kbodies)
         {
-            if (_sendCount < SendFrequency)
+            if (kbodies != null && kbodies.Body.Count > 0 && _socket != null)
             {
-                _sendCount++;
-            }
-            else
-            {
-                _sendCount = 0;
-                if (kbodies != null && kbodies.Body.Count > 0 && _socket != null)
+                _socket.SendMore(_topic, _encoding);
+                using (var ms = new MemoryStream())
                 {
-                    _socket.SendMore(_topic, _encoding);
-                    using (var ms = new MemoryStream())
-                    {
-                        Serializer.Serialize(ms, kbodies);
-                        _socket.Send(ms.GetBuffer());
-                    }
+                    Serializer.Serialize(ms, kbodies);
+                    _socket.Send(ms.GetBuffer());
                 }
             }
+
         }
     }
 }
