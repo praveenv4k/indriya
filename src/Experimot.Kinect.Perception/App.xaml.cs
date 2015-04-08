@@ -41,8 +41,7 @@ namespace Experimot.Kinect.Perception
             }
             else
             {
-                //MainWindow = new MainWindow(info);
-                MainWindow = new MainWindow();
+                MainWindow = new MainWindow(info);
             }
             MainWindow.Show();
         }
