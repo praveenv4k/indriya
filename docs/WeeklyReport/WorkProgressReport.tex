@@ -610,15 +610,11 @@
   										 
  2015/04/07         & 
   \begin{itemize}
-  \item Fixed bugs in the Nao pose estimation.
-  \item Added the color stream support in the kinect playback tool.
-  \item Investigation on how to extract skeleton data from raw buffer in XEF file
+  \item Application bootstrapper support - Extended the xml config file to support global and local parameters. global Parameter overriding, support the new configuration information in the individual nodes. 
+  \item Testing the supported nodes. 
 \end{itemize}   
 & 
-  \begin{itemize}
-  \item The raw format used by Microsoft for color stream was Yuy2 ( 4 bytes for 2 pixels). The conversion from Yuy2 to RGB was implemented in Kinect Playback tool
-  \item The skeleton buffer was 6288 bytes. I tried decoding the skeleton values from the byte stream. Still cannot figure out how the data structure is aligned while serializing.
-\end{itemize}  \\
+ \\
 \hline
   										 
   
