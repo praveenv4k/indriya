@@ -41,10 +41,10 @@ namespace Experimot.Kinect.Perception
             }
             else
             {
-                MainWindow = new MainWindow(info);
+                //MainWindow = new MainWindow(info);
+                MainWindow = new MainWindow();
             }
             MainWindow.Show();
-            MessageBox.Show("Showed new window");
         }
 
         private Node GetNodeInfo(string name, string server, int timeout = 1000)
