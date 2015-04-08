@@ -3,16 +3,18 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using experimot.msgs;
 using Experimot.Scheduler.Annotations;
 using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace Experimot.Scheduler.Core
 {
-    public class Context: INotifyPropertyChanged
+    public class Context : INotifyPropertyChanged
     {
-        private readonly Robot _robot;
+        private Robot _robot;
         private readonly IDictionary<int, Human> _humans;
         private readonly IDictionary<string, ManipulatableObject> _objects;
+        private readonly object _object = new object();
 
         public Context()
         {
@@ -25,6 +27,12 @@ namespace Experimot.Scheduler.Core
         public Robot Robot
         {
             get { return _robot; }
+            private set
+            {
+                if (Equals(value, _robot)) return;
+                _robot = value;
+                OnPropertyChanged();
+            }
         }
 
         //[ExpandableObject]
@@ -53,6 +61,22 @@ namespace Experimot.Scheduler.Core
         {
             var handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void Update(Pose pose)
+        {
+            lock (_object)
+            {
+                Robot.Localization.CurrentPose = pose;
+            }
+        }
+
+        public void Update(SensorData sensorData)
+        {
+            lock (_object)
+            {
+                Robot.SensorData = sensorData;
+            }
         }
     }
 }
