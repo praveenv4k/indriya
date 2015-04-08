@@ -66,8 +66,8 @@ namespace Experimot.Scheduler.Core
         private string _version;
         private string _description;
         private string _filePath;
-        private readonly Localization _localization;
-        private readonly SensorData _sensorData;
+        private Localization _localization;
+        private SensorData _sensorData;
 
         public Robot()
         {
@@ -123,12 +123,24 @@ namespace Experimot.Scheduler.Core
         public SensorData SensorData
         {
             get { return _sensorData; }
+            set
+            {
+                if (Equals(value, _sensorData)) return;
+                _sensorData = value;
+                OnPropertyChanged();
+            }
         }
 
         [ExpandableObject]
         public Localization Localization
         {
             get { return _localization; }
+            set
+            {
+                if (Equals(value, _localization)) return;
+                _localization = value;
+                OnPropertyChanged();
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

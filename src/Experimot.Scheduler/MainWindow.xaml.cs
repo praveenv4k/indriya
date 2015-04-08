@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Threading;
 using Experimot.Scheduler.Annotations;
 using Experimot.Scheduler.Core;
+using Experimot.Scheduler.Tasks;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Impl.Matchers;
@@ -22,10 +26,10 @@ namespace Experimot.Scheduler
         {
             _window = window;
         }
-        
+
         public void JobExecutionVetoed(IJobExecutionContext context)
         {
-            Console.WriteLine(string.Format("About to execute task : {0}", context.Get("value").ToString()));
+            Console.WriteLine("About to execute task : {0}", context.Get("value"));
         }
 
         public void JobToBeExecuted(IJobExecutionContext context)
@@ -36,7 +40,7 @@ namespace Experimot.Scheduler
 
         public void JobWasExecuted(IJobExecutionContext context, JobExecutionException jobException)
         {
-            Console.WriteLine(string.Format("Finished to execute task : {0}", context.Get("value").ToString()));
+            Console.WriteLine("Finished to execute task : {0}", context.Get("value"));
             //_window.JobWasExecuted(context,jobException);
             //Console.WriteLine(string.Format("Finished to execute task : {0}", context.JobDetail.Description));
         }
@@ -59,7 +63,7 @@ namespace Experimot.Scheduler
                 {
                     //message = string.Format("Am still executing : {0}", context.JobDetail.Key);
                     //Console.WriteLine(message);
-                    System.Threading.Thread.Sleep(new TimeSpan(0, 0, 0, 0, 100));
+                    Thread.Sleep(new TimeSpan(0, 0, 0, 0, 100));
                 }
                 context.Put("value", 2000);
             }
@@ -73,7 +77,8 @@ namespace Experimot.Scheduler
     {
         private ISchedulerFactory _schedulerFactory;
         private IScheduler _scheduler;
-        private Core.Context _context;
+        private Context _context;
+        private DispatcherTimer _timer;
 
         public MainWindow()
         {
@@ -92,19 +97,37 @@ namespace Experimot.Scheduler
             _schedulerFactory = new StdSchedulerFactory(properties);
             _scheduler = _schedulerFactory.GetScheduler();
 
-            this.Name = "ScheduleTest";
+            Name = "ScheduleTest";
             _scheduler.ListenerManager.AddJobListener(new JobListener(this), GroupMatcher<JobKey>.AnyGroup());
 
             //_scheduler.Start();
+            string configFile = "experimot_config.xml";
+            if (!string.IsNullOrEmpty(configFile))
+            {
+                //_config = new experimot_config();
+                var config = experimot_config.LoadFromFile(configFile);
 
-            var bootStrapper = new BootStrapper("experimot_config.xml");
-            bootStrapper.StartUp();
+                _context = new Context();
+                _contextSync = new ContextSync(config, _context);
 
-            this.Closing += MainWindow_Closing;
-
-            _context = new Context();
-
+                var bootStrapper = new BootStrapper(config);
+                bootStrapper.StartUp();
+            }
+            Closing += MainWindow_Closing;
             DataContext = this;
+
+            _timer = new DispatcherTimer();
+            _timer.Tick += _timer_Tick;
+            _timer.Interval = new TimeSpan(0, 0, 0, 0, 200);
+            _timer.IsEnabled = true;
+        }
+
+        private void _timer_Tick(object sender, EventArgs e)
+        {
+            if (_contextSync != null)
+            {
+                _contextSync.Update(100);
+            }
         }
 
         public Context Context
@@ -112,7 +135,7 @@ namespace Experimot.Scheduler
             get { return _context; }
         }
 
-        void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
             if (_scheduler != null)
             {
@@ -153,39 +176,41 @@ namespace Experimot.Scheduler
         {
         }
 
-        bool color = false;
+        private bool color;
+        private ContextSync _contextSync;
+
         public void JobToBeExecuted(IJobExecutionContext context)
         {
             try
             {
-                this.Dispatcher.Invoke((Action)(() =>
+                Dispatcher.Invoke(() =>
                 {
                     try
                     {
-                        if (color) this.button1.Background = new SolidColorBrush(Colors.Green);
-                        else this.button1.Background = new SolidColorBrush(Colors.Red);
+                        if (color) button1.Background = new SolidColorBrush(Colors.Green);
+                        else button1.Background = new SolidColorBrush(Colors.Red);
                         color = !color;
-                        this.textBox.AppendText(string.Format("About to execute task : {0}\n", context.JobDetail.Key));
+                        textBox.AppendText(string.Format("About to execute task : {0}\n", context.JobDetail.Key));
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex.Message);
                     }
-                }));
+                });
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(ex.Message);
+                Debug.WriteLine(ex.Message);
             }
         }
 
         public void JobWasExecuted(IJobExecutionContext context, JobExecutionException jobException)
         {
-            this.Dispatcher.Invoke((Action)(() =>
+            Dispatcher.Invoke(() =>
             {
-                this.textBox.AppendText(string.Format("Finished to execute task : {0}\n", context.JobDetail.Key));
+                textBox.AppendText(string.Format("Finished to execute task : {0}\n", context.JobDetail.Key));
 
-            }));
+            });
         }
 
 

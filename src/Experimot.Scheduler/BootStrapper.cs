@@ -24,21 +24,11 @@ namespace Scheduler
         private readonly IList<Process> _processes;
         private readonly ParameterServer _parameterServer;
 
-        public BootStrapper(string configFile)
+        public BootStrapper(experimot_config config)
         {
+            _config = config;
             _processes = new List<Process>();
 
-            if (!string.IsNullOrEmpty(configFile))
-            {
-                //_config = new experimot_config();
-                _config = experimot_config.LoadFromFile(configFile);
-                using (var reader = XmlReader.Create(configFile))
-                {
-                    var serializer = new XmlSerializer(typeof (experimot_config));
-                    var obj = serializer.Deserialize(reader);
-                    _config = obj as experimot_config;
-                }
-            }
             _parameterServer = new ParameterServer(_config);
         }
 
