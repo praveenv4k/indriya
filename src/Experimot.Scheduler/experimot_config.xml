@@ -11,7 +11,7 @@
     <param key="ParameterServerInterval" value="10" type="int"/>
   </parameters>
   <nodes>
-    <node>
+    <node enabled="false">
       <name>localization</name>
       <process>
         <type>executable</type>
@@ -47,7 +47,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node>
+    <node enabled="true">
       <name>gesture_recognition</name>
       <process>
         <type>executable</type>
@@ -57,14 +57,14 @@
       <publishers>
         <publish>
           <host>tcp://*</host>
-          <port>5564</port>
+          <port>5570</port>
           <topic>KSP</topic>
           <msg_type>KinectBodies</msg_type>
           <name>KinectBodyPublisher</name>
         </publish>
       </publishers>
     </node>
-    <node>
+    <node enabled="true">
       <name>simulation</name>
       <process>
         <type>executable</type>
@@ -79,7 +79,7 @@
       <subscribers>
         <subscribe>
           <host>tcp://localhost</host>
-          <port>5564</port>
+          <port>5563</port>
           <topic>RSP</topic>
           <msg_type>JointValueVector</msg_type>
           <name>RobotStateListener</name>
@@ -93,14 +93,14 @@
         </subscribe>
         <subscribe>
           <host>tcp://localhost</host>
-          <port>5563</port>
+          <port>5570</port>
           <topic>KSP</topic>
           <msg_type>KinectBodies</msg_type>
           <name>KinectStateListener</name>
         </subscribe>
       </subscribers>
     </node>
-    <node>
+    <node enabled="false">
       <name>robot_interface</name>
       <process>
         <type>executable</type>

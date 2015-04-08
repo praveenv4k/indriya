@@ -5,14 +5,20 @@ using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Media;
+using experimot.msgs;
+using Experimot.Kinect.Perception.Properties;
 using Microsoft.Kinect;
+using ProtoBuf;
+using ZMQ;
+using Color = System.Windows.Media.Color;
+using Joint = Microsoft.Kinect.Joint;
 
 namespace Experimot.Kinect.Perception
 {
     /// <summary>
     /// Interaction logic for MainWindow
     /// </summary>
-    public partial class KinectBodyPublisher : INotifyPropertyChanged
+    public class KinectBodyPublisher : INotifyPropertyChanged
     {
         /// <summary>
         /// Radius of drawn hand circles
@@ -37,179 +43,187 @@ namespace Experimot.Kinect.Perception
         /// <summary>
         /// Brush used for drawing hands that are currently tracked as closed
         /// </summary>
-        private readonly Brush handClosedBrush = new SolidColorBrush(Color.FromArgb(128, 255, 0, 0));
+        private readonly Brush _handClosedBrush = new SolidColorBrush(Color.FromArgb(128, 255, 0, 0));
 
         /// <summary>
         /// Brush used for drawing hands that are currently tracked as opened
         /// </summary>
-        private readonly Brush handOpenBrush = new SolidColorBrush(Color.FromArgb(128, 0, 255, 0));
+        private readonly Brush _handOpenBrush = new SolidColorBrush(Color.FromArgb(128, 0, 255, 0));
 
         /// <summary>
         /// Brush used for drawing hands that are currently tracked as in lasso (pointer) position
         /// </summary>
-        private readonly Brush handLassoBrush = new SolidColorBrush(Color.FromArgb(128, 0, 0, 255));
+        private readonly Brush _handLassoBrush = new SolidColorBrush(Color.FromArgb(128, 0, 0, 255));
 
         /// <summary>
         /// Brush used for drawing joints that are currently tracked
         /// </summary>
-        private readonly Brush trackedJointBrush = new SolidColorBrush(Color.FromArgb(255, 68, 192, 68));
+        private readonly Brush _trackedJointBrush = new SolidColorBrush(Color.FromArgb(255, 68, 192, 68));
 
         /// <summary>
         /// Brush used for drawing joints that are currently inferred
         /// </summary>        
-        private readonly Brush inferredJointBrush = Brushes.Yellow;
+        private readonly Brush _inferredJointBrush = Brushes.Yellow;
 
         /// <summary>
         /// Pen used for drawing bones that are currently inferred
         /// </summary>        
-        private readonly Pen inferredBonePen = new Pen(Brushes.Gray, 1);
+        private readonly Pen _inferredBonePen = new Pen(Brushes.Gray, 1);
 
         /// <summary>
         /// Drawing group for body rendering output
         /// </summary>
-        private DrawingGroup drawingGroup;
+        private readonly DrawingGroup _drawingGroup;
 
         /// <summary>
         /// Drawing image that we will display
         /// </summary>
-        private DrawingImage imageSource;
+        private readonly DrawingImage _imageSource;
 
         /// <summary>
         /// Active Kinect sensor
         /// </summary>
-        private KinectSensor kinectSensor = null;
+        private KinectSensor _kinectSensor;
 
         /// <summary>
         /// Coordinate mapper to map one type of point to another
         /// </summary>
-        private CoordinateMapper coordinateMapper = null;
+        private readonly CoordinateMapper _coordinateMapper;
 
         /// <summary>
         /// Reader for body frames
         /// </summary>
-        private BodyFrameReader bodyFrameReader = null;
+        private BodyFrameReader _bodyFrameReader;
 
         /// <summary>
         /// Array for the bodies
         /// </summary>
-        private Body[] bodies = null;
+        private Body[] _bodies;
 
         /// <summary>
         /// definition of bones
         /// </summary>
-        private List<Tuple<JointType, JointType>> bones;
+        private readonly List<Tuple<JointType, JointType>> _bones;
 
         /// <summary>
         /// Width of display (depth space)
         /// </summary>
-        private int displayWidth;
+        private readonly int _displayWidth;
 
         /// <summary>
         /// Height of display (depth space)
         /// </summary>
-        private int displayHeight;
+        private readonly int _displayHeight;
 
         /// <summary>
         /// List of colors for each body tracked
         /// </summary>
-        private List<Pen> bodyColors;
+        private readonly List<Pen> _bodyColors;
 
         /// <summary>
         /// Current status text to display
         /// </summary>
-        private string statusText = null;
+        private string _statusText;
 
-        private ZMQ.Context _ctx;
-        private ZMQ.Socket _socket;
-        private int _port = 5564;
-        private string _topic;
-        private UTF8Encoding _encoding;
+        private Context _ctx;
+        private Socket _socket;
+        private readonly uint _port;
+        private readonly string _topic;
+        private readonly UTF8Encoding _encoding;
 
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
         /// </summary>
-        public KinectBodyPublisher()
+        public KinectBodyPublisher() : this("tcp://*", 5564, "KSP")
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the MainWindow class.
+        /// </summary>
+        public KinectBodyPublisher(string host, uint port, string topic)
         {
             // one sensor is currently supported
-            this.kinectSensor = KinectSensor.GetDefault();
+            _kinectSensor = KinectSensor.GetDefault();
 
             // get the coordinate mapper
-            this.coordinateMapper = this.kinectSensor.CoordinateMapper;
+            _coordinateMapper = _kinectSensor.CoordinateMapper;
 
             // get the depth (display) extents
-            FrameDescription frameDescription = this.kinectSensor.DepthFrameSource.FrameDescription;
+            FrameDescription frameDescription = _kinectSensor.DepthFrameSource.FrameDescription;
 
             // get size of joint space
-            this.displayWidth = frameDescription.Width;
-            this.displayHeight = frameDescription.Height;
+            _displayWidth = frameDescription.Width;
+            _displayHeight = frameDescription.Height;
 
             // open the reader for the body frames
-            this.bodyFrameReader = this.kinectSensor.BodyFrameSource.OpenReader();
+            _bodyFrameReader = _kinectSensor.BodyFrameSource.OpenReader();
 
             // a bone defined as a line between two joints
-            this.bones = new List<Tuple<JointType, JointType>>();
-
-            // Torso
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.Head, JointType.Neck));
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.Neck, JointType.SpineShoulder));
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.SpineShoulder, JointType.SpineMid));
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.SpineMid, JointType.SpineBase));
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.SpineShoulder, JointType.ShoulderRight));
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.SpineShoulder, JointType.ShoulderLeft));
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.SpineBase, JointType.HipRight));
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.SpineBase, JointType.HipLeft));
-
-            // Right Arm
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.ShoulderRight, JointType.ElbowRight));
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.ElbowRight, JointType.WristRight));
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.WristRight, JointType.HandRight));
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.HandRight, JointType.HandTipRight));
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.WristRight, JointType.ThumbRight));
-
-            // Left Arm
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.ShoulderLeft, JointType.ElbowLeft));
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.ElbowLeft, JointType.WristLeft));
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.WristLeft, JointType.HandLeft));
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.HandLeft, JointType.HandTipLeft));
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.WristLeft, JointType.ThumbLeft));
-
-            // Right Leg
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.HipRight, JointType.KneeRight));
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.KneeRight, JointType.AnkleRight));
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.AnkleRight, JointType.FootRight));
-
-            // Left Leg
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.HipLeft, JointType.KneeLeft));
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.KneeLeft, JointType.AnkleLeft));
-            this.bones.Add(new Tuple<JointType, JointType>(JointType.AnkleLeft, JointType.FootLeft));
+            _bones = new List<Tuple<JointType, JointType>>
+            {
+                // Torso
+                new Tuple<JointType, JointType>(JointType.Head, JointType.Neck),
+                new Tuple<JointType, JointType>(JointType.Neck, JointType.SpineShoulder),
+                new Tuple<JointType, JointType>(JointType.SpineShoulder, JointType.SpineMid),
+                new Tuple<JointType, JointType>(JointType.SpineMid, JointType.SpineBase),
+                new Tuple<JointType, JointType>(JointType.SpineShoulder, JointType.ShoulderRight),
+                new Tuple<JointType, JointType>(JointType.SpineShoulder, JointType.ShoulderLeft),
+                new Tuple<JointType, JointType>(JointType.SpineBase, JointType.HipRight),
+                new Tuple<JointType, JointType>(JointType.SpineBase, JointType.HipLeft),
+                // Right arm
+                new Tuple<JointType, JointType>(JointType.ShoulderRight, JointType.ElbowRight),
+                new Tuple<JointType, JointType>(JointType.ElbowRight, JointType.WristRight),
+                new Tuple<JointType, JointType>(JointType.WristRight, JointType.HandRight),
+                new Tuple<JointType, JointType>(JointType.HandRight, JointType.HandTipRight),
+                new Tuple<JointType, JointType>(JointType.WristRight, JointType.ThumbRight),
+                // Left arm
+                new Tuple<JointType, JointType>(JointType.ShoulderLeft, JointType.ElbowLeft),
+                new Tuple<JointType, JointType>(JointType.ElbowLeft, JointType.WristLeft),
+                new Tuple<JointType, JointType>(JointType.WristLeft, JointType.HandLeft),
+                new Tuple<JointType, JointType>(JointType.HandLeft, JointType.HandTipLeft),
+                new Tuple<JointType, JointType>(JointType.WristLeft, JointType.ThumbLeft),
+                // Right leg
+                new Tuple<JointType, JointType>(JointType.HipRight, JointType.KneeRight),
+                new Tuple<JointType, JointType>(JointType.KneeRight, JointType.AnkleRight),
+                new Tuple<JointType, JointType>(JointType.AnkleRight, JointType.FootRight),
+                // Left leg
+                new Tuple<JointType, JointType>(JointType.HipLeft, JointType.KneeLeft),
+                new Tuple<JointType, JointType>(JointType.KneeLeft, JointType.AnkleLeft),
+                new Tuple<JointType, JointType>(JointType.AnkleLeft, JointType.FootLeft)
+            };
 
             // populate body colors, one for each BodyIndex
-            this.bodyColors = new List<Pen>();
+            _bodyColors = new List<Pen>
+            {
+                new Pen(Brushes.Red, 6),
+                new Pen(Brushes.Orange, 6),
+                new Pen(Brushes.Green, 6),
+                new Pen(Brushes.Blue, 6),
+                new Pen(Brushes.Indigo, 6),
+                new Pen(Brushes.Violet, 6)
+            };
 
-            this.bodyColors.Add(new Pen(Brushes.Red, 6));
-            this.bodyColors.Add(new Pen(Brushes.Orange, 6));
-            this.bodyColors.Add(new Pen(Brushes.Green, 6));
-            this.bodyColors.Add(new Pen(Brushes.Blue, 6));
-            this.bodyColors.Add(new Pen(Brushes.Indigo, 6));
-            this.bodyColors.Add(new Pen(Brushes.Violet, 6));
 
             // set IsAvailableChanged event notifier
-            this.kinectSensor.IsAvailableChanged += this.Sensor_IsAvailableChanged;
+            _kinectSensor.IsAvailableChanged += Sensor_IsAvailableChanged;
 
             // open the sensor
-            this.kinectSensor.Open();
+            _kinectSensor.Open();
 
             // set the status text
-            this.StatusText = this.kinectSensor.IsAvailable ? Properties.Resources.RunningStatusText
-                                                            : Properties.Resources.NoSensorStatusText;
+            StatusText = _kinectSensor.IsAvailable ? Resources.RunningStatusText
+                                                            : Resources.NoSensorStatusText;
 
             // Create the drawing group we'll use for drawing
-            this.drawingGroup = new DrawingGroup();
+            _drawingGroup = new DrawingGroup();
 
             // Create an image source that we can use in our image control
-            this.imageSource = new DrawingImage(this.drawingGroup);
+            _imageSource = new DrawingImage(_drawingGroup);
 
-            _topic = "KSP";
+            _host = host;
+            _port = port;
+            _topic = topic;
             _encoding = new UTF8Encoding();
 
             // use the window object as the view model in this simple example
@@ -223,9 +237,9 @@ namespace Experimot.Kinect.Perception
         {
             if (_ctx == null)
             {
-                _ctx = new ZMQ.Context(1);
-                _socket = _ctx.Socket(ZMQ.SocketType.PUB);
-                var address = string.Format("tcp://*:{0}", _port);
+                _ctx = new Context(1);
+                _socket = _ctx.Socket(SocketType.PUB);
+                var address = string.Format("{0}:{1}", _host, _port);
                 _socket.Bind(address);
             }
         }
@@ -255,7 +269,7 @@ namespace Experimot.Kinect.Perception
         {
             get
             {
-                return this.imageSource;
+                return _imageSource;
             }
         }
 
@@ -266,19 +280,19 @@ namespace Experimot.Kinect.Perception
         {
             get
             {
-                return this.statusText;
+                return _statusText;
             }
 
             set
             {
-                if (this.statusText != value)
+                if (_statusText != value)
                 {
-                    this.statusText = value;
+                    _statusText = value;
 
                     // notify any bound elements that the text has changed
-                    if (this.PropertyChanged != null)
+                    if (PropertyChanged != null)
                     {
-                        this.PropertyChanged(this, new PropertyChangedEventArgs("StatusText"));
+                        PropertyChanged(this, new PropertyChangedEventArgs("StatusText"));
                     }
                 }
             }
@@ -287,13 +301,11 @@ namespace Experimot.Kinect.Perception
         /// <summary>
         /// Execute start up tasks
         /// </summary>
-        /// <param name="sender">object sending the event</param>
-        /// <param name="e">event arguments</param>
         public void Initialize()
         {
-            if (this.bodyFrameReader != null)
+            if (_bodyFrameReader != null)
             {
-                this.bodyFrameReader.FrameArrived += this.Reader_FrameArrived;
+                _bodyFrameReader.FrameArrived += Reader_FrameArrived;
             }
             InitZmq();
         }
@@ -301,22 +313,20 @@ namespace Experimot.Kinect.Perception
         /// <summary>
         /// Execute shutdown tasks
         /// </summary>
-        /// <param name="sender">object sending the event</param>
-        /// <param name="e">event arguments</param>
         public void Terminate()
         {
             TerminateZmq();
-            if (this.bodyFrameReader != null)
+            if (_bodyFrameReader != null)
             {
                 // BodyFrameReader is IDisposable
-                this.bodyFrameReader.Dispose();
-                this.bodyFrameReader = null;
+                _bodyFrameReader.Dispose();
+                _bodyFrameReader = null;
             }
 
-            if (this.kinectSensor != null)
+            if (_kinectSensor != null)
             {
-                this.kinectSensor.Close();
-                this.kinectSensor = null;
+                _kinectSensor.Close();
+                _kinectSensor = null;
             }
         }
 
@@ -333,40 +343,42 @@ namespace Experimot.Kinect.Perception
             {
                 if (bodyFrame != null)
                 {
-                    if (this.bodies == null)
+                    if (_bodies == null)
                     {
-                        this.bodies = new Body[bodyFrame.BodyCount];
+                        _bodies = new Body[bodyFrame.BodyCount];
                     }
 
                     // The first time GetAndRefreshBodyData is called, Kinect will allocate each Body in the array.
                     // As long as those body objects are not disposed and not set to null in the array,
                     // those body objects will be re-used.
-                    bodyFrame.GetAndRefreshBodyData(this.bodies);
+                    bodyFrame.GetAndRefreshBodyData(_bodies);
                     dataReceived = true;
                 }
             }
 
             if (dataReceived)
             {
-                experimot.msgs.KinectBodies kbodies = new experimot.msgs.KinectBodies();
-                using (DrawingContext dc = this.drawingGroup.Open())
+                KinectBodies kbodies = new KinectBodies();
+                using (var dc = _drawingGroup.Open())
                 {
                     // Draw a transparent background to set the render size
-                    dc.DrawRectangle(Brushes.Black, null, new Rect(0.0, 0.0, this.displayWidth, this.displayHeight));
+                    dc.DrawRectangle(Brushes.Black, null, new Rect(0.0, 0.0, _displayWidth, _displayHeight));
 
                     int penIndex = 0;
-                    foreach (Body body in this.bodies)
+                    foreach (Body body in _bodies)
                     {
-                        Pen drawPen = this.bodyColors[penIndex++];
+                        Pen drawPen = _bodyColors[penIndex++];
                         if (body.IsTracked)
                         {
-                            var kbody = new experimot.msgs.KinectBody();
-                            kbody.IsTracked = true;
-                            kbody.TrackingId = penIndex - 1;
-                            kbody.JointCount = body.Joints.Count;
+                            var kbody = new KinectBody
+                            {
+                                IsTracked = true,
+                                TrackingId = penIndex - 1,
+                                JointCount = body.Joints.Count
+                            };
                             //kbody.Joints = new List<experimot.msgs.KinectJoint>();
 
-                            this.DrawClippedEdges(body, dc);
+                            DrawClippedEdges(body, dc);
 
                             IReadOnlyDictionary<JointType, Joint> joints = body.Joints;
 
@@ -383,24 +395,25 @@ namespace Experimot.Kinect.Perception
                                     position.Z = InferredZPositionClamp;
                                 }
 
-                                DepthSpacePoint depthSpacePoint = this.coordinateMapper.MapCameraPointToDepthSpace(position);
-                                var colorSpacePoint = this.coordinateMapper.MapCameraPointToColorSpace(position);
+                                DepthSpacePoint depthSpacePoint = _coordinateMapper.MapCameraPointToDepthSpace(position);
                                 jointPoints[jointType] = new Point(depthSpacePoint.X, depthSpacePoint.Y);
-                                
-                                experimot.msgs.KinectJoint kjoint = new experimot.msgs.KinectJoint();
-                                kjoint.Type = (experimot.msgs.KinectJoint.JointType)jointType;
-                                kjoint.State = (experimot.msgs.KinectJoint.TrackingState)joints[jointType].TrackingState;
-                                kjoint.Position = new experimot.msgs.Vector3d() { x = position.X, y = position.Y, z = position.Z };
+
+                                KinectJoint kjoint = new KinectJoint
+                                {
+                                    Type = (KinectJoint.JointType) jointType,
+                                    State = (KinectJoint.TrackingState) joints[jointType].TrackingState,
+                                    Position = new Vector3d {x = position.X, y = position.Y, z = position.Z}
+                                };
                                 var orient = body.JointOrientations[jointType].Orientation;
-                                kjoint.Orientation = new experimot.msgs.Quaternion() { w = orient.W, x = orient.X, y = orient.Y, z = orient.Z };
+                                kjoint.Orientation = new Quaternion { w = orient.W, x = orient.X, y = orient.Y, z = orient.Z };
                                 kbody.Joints.Add(kjoint);
                             }
                             kbodies.Body.Add(kbody);
 
-                            this.DrawBody(joints, jointPoints, dc, drawPen);
+                            DrawBody(joints, jointPoints, dc, drawPen);
 
-                            this.DrawHand(body.HandLeftState, jointPoints[JointType.HandLeft], dc);
-                            this.DrawHand(body.HandRightState, jointPoints[JointType.HandRight], dc);
+                            DrawHand(body.HandLeftState, jointPoints[JointType.HandLeft], dc);
+                            DrawHand(body.HandRightState, jointPoints[JointType.HandRight], dc);
 
                             TorsoPos = string.Format("X: {0}, Y: {1}, Z: {2}", joints[JointType.SpineBase].Position.X, joints[JointType.SpineBase].Position.Y, 
                                             joints[JointType.SpineBase].Position.Z < 0 ? InferredZPositionClamp : joints[JointType.SpineBase].Position.Z); 
@@ -408,9 +421,9 @@ namespace Experimot.Kinect.Perception
                     }
 
                     // prevent drawing outside of our render area
-                    this.drawingGroup.ClipGeometry = new RectangleGeometry(new Rect(0.0, 0.0, this.displayWidth, this.displayHeight));
+                    _drawingGroup.ClipGeometry = new RectangleGeometry(new Rect(0.0, 0.0, _displayWidth, _displayHeight));
                 }
-                this.PublishKinectBodies(kbodies);
+                PublishKinectBodies(kbodies);
             }
         }
 
@@ -424,19 +437,21 @@ namespace Experimot.Kinect.Perception
                 {
                     _torsoPos = value;
                     // notify any bound elements that the text has changed
-                    if (this.PropertyChanged != null)
+                    if (PropertyChanged != null)
                     {
-                        this.PropertyChanged(this, new PropertyChangedEventArgs("TorsoPos"));
+                        PropertyChanged(this, new PropertyChangedEventArgs("TorsoPos"));
                     }
                 }
             }
         }
 
-        private int _sendFrequency = 10;
-        private int _sendCount = 0;
-        private void PublishKinectBodies(experimot.msgs.KinectBodies kbodies)
+        private const int SendFrequency = 10;
+        private int _sendCount;
+        private readonly string _host;
+
+        private void PublishKinectBodies(KinectBodies kbodies)
         {
-            if (_sendCount < _sendFrequency)
+            if (_sendCount < SendFrequency)
             {
                 _sendCount++;
             }
@@ -448,7 +463,7 @@ namespace Experimot.Kinect.Perception
                     _socket.SendMore(_topic, _encoding);
                     using (var ms = new MemoryStream())
                     {
-                        ProtoBuf.Serializer.Serialize(ms, kbodies);
+                        Serializer.Serialize(ms, kbodies);
                         _socket.Send(ms.GetBuffer());
                     }
                 }
@@ -465,9 +480,9 @@ namespace Experimot.Kinect.Perception
         private void DrawBody(IReadOnlyDictionary<JointType, Joint> joints, IDictionary<JointType, Point> jointPoints, DrawingContext drawingContext, Pen drawingPen)
         {
             // Draw the bones
-            foreach (var bone in this.bones)
+            foreach (var bone in _bones)
             {
-                this.DrawBone(joints, jointPoints, bone.Item1, bone.Item2, drawingContext, drawingPen);
+                DrawBone(joints, jointPoints, bone.Item1, bone.Item2, drawingContext, drawingPen);
             }
 
             // Draw the joints
@@ -479,11 +494,11 @@ namespace Experimot.Kinect.Perception
 
                 if (trackingState == TrackingState.Tracked)
                 {
-                    drawBrush = this.trackedJointBrush;
+                    drawBrush = _trackedJointBrush;
                 }
                 else if (trackingState == TrackingState.Inferred)
                 {
-                    drawBrush = this.inferredJointBrush;
+                    drawBrush = _inferredJointBrush;
                 }
 
                 if (drawBrush != null)
@@ -515,7 +530,7 @@ namespace Experimot.Kinect.Perception
             }
 
             // We assume all drawn bones are inferred unless BOTH joints are tracked
-            Pen drawPen = this.inferredBonePen;
+            Pen drawPen = _inferredBonePen;
             if ((joint0.TrackingState == TrackingState.Tracked) && (joint1.TrackingState == TrackingState.Tracked))
             {
                 drawPen = drawingPen;
@@ -535,15 +550,15 @@ namespace Experimot.Kinect.Perception
             switch (handState)
             {
                 case HandState.Closed:
-                    drawingContext.DrawEllipse(this.handClosedBrush, null, handPosition, HandSize, HandSize);
+                    drawingContext.DrawEllipse(_handClosedBrush, null, handPosition, HandSize, HandSize);
                     break;
 
                 case HandState.Open:
-                    drawingContext.DrawEllipse(this.handOpenBrush, null, handPosition, HandSize, HandSize);
+                    drawingContext.DrawEllipse(_handOpenBrush, null, handPosition, HandSize, HandSize);
                     break;
 
                 case HandState.Lasso:
-                    drawingContext.DrawEllipse(this.handLassoBrush, null, handPosition, HandSize, HandSize);
+                    drawingContext.DrawEllipse(_handLassoBrush, null, handPosition, HandSize, HandSize);
                     break;
             }
         }
@@ -562,7 +577,7 @@ namespace Experimot.Kinect.Perception
                 drawingContext.DrawRectangle(
                     Brushes.Red,
                     null,
-                    new Rect(0, this.displayHeight - ClipBoundsThickness, this.displayWidth, ClipBoundsThickness));
+                    new Rect(0, _displayHeight - ClipBoundsThickness, _displayWidth, ClipBoundsThickness));
             }
 
             if (clippedEdges.HasFlag(FrameEdges.Top))
@@ -570,7 +585,7 @@ namespace Experimot.Kinect.Perception
                 drawingContext.DrawRectangle(
                     Brushes.Red,
                     null,
-                    new Rect(0, 0, this.displayWidth, ClipBoundsThickness));
+                    new Rect(0, 0, _displayWidth, ClipBoundsThickness));
             }
 
             if (clippedEdges.HasFlag(FrameEdges.Left))
@@ -578,7 +593,7 @@ namespace Experimot.Kinect.Perception
                 drawingContext.DrawRectangle(
                     Brushes.Red,
                     null,
-                    new Rect(0, 0, ClipBoundsThickness, this.displayHeight));
+                    new Rect(0, 0, ClipBoundsThickness, _displayHeight));
             }
 
             if (clippedEdges.HasFlag(FrameEdges.Right))
@@ -586,7 +601,7 @@ namespace Experimot.Kinect.Perception
                 drawingContext.DrawRectangle(
                     Brushes.Red,
                     null,
-                    new Rect(this.displayWidth - ClipBoundsThickness, 0, ClipBoundsThickness, this.displayHeight));
+                    new Rect(_displayWidth - ClipBoundsThickness, 0, ClipBoundsThickness, _displayHeight));
             }
         }
 
@@ -598,8 +613,8 @@ namespace Experimot.Kinect.Perception
         private void Sensor_IsAvailableChanged(object sender, IsAvailableChangedEventArgs e)
         {
             // on failure, set the status text
-            this.StatusText = this.kinectSensor.IsAvailable ? Properties.Resources.RunningStatusText
-                                                            : Properties.Resources.SensorNotAvailableStatusText;
+            StatusText = _kinectSensor.IsAvailable ? Resources.RunningStatusText
+                                                            : Resources.SensorNotAvailableStatusText;
         }
     }
 }

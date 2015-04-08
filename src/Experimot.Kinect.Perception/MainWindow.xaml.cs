@@ -1,43 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
-using Experimot.Kinect.Perception;
+using Common.Logging;
+using experimot.msgs;
 
-namespace ExperimotPerception
+namespace Experimot.Kinect.Perception
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly Node _node;
         //private JointStatePublisher _jStatePub;
         private readonly KinectBodyPublisher _kBodyPub;
+        private readonly ILog Log = LogManager.GetLogger<MainWindow>();
 
         public MainWindow()
         {
-            _kBodyPub = new KinectBodyPublisher();
-            this.DataContext = _kBodyPub;
-
             InitializeComponent();
-            this.Loaded += MainWindow_Loaded;
-            this.Closing += MainWindow_Closing;
+        }
 
-            //MessageBox.Show(string.Join("; ",Environment.GetCommandLineArgs()));
-
-            //_jStatePub = new JointStatePublisher();
+        public MainWindow(experimot.msgs.Node node) : this()
+        {
+            _node = node;
+            if (_node != null)
+            {
+                if (node.publisher != null)
+                {
+                    foreach (var item in node.publisher)
+                    {
+                        if (item.msg_type == "KinectBodies")
+                        {
+                            _kBodyPub = new KinectBodyPublisher(item.host, item.port, item.topic);
+                            DataContext = _kBodyPub;
+                            Loaded += MainWindow_Loaded;
+                            Closing += MainWindow_Closing;
+                        }
+                        Log.Info("Gesture recognition node initialized from the config file");
+                    }
+                }
+            }
         }
 
         void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
