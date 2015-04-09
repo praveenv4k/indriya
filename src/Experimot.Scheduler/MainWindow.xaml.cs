@@ -110,8 +110,8 @@ namespace Experimot.Scheduler
                 _context = new Context();
                 _contextSync = new ContextSync(config, _context);
 
-                var bootStrapper = new BootStrapper(config);
-                bootStrapper.StartUp();
+                _bootStrapper = new BootStrapper(config);
+                _bootStrapper.StartUp();
             }
             Closing += MainWindow_Closing;
             DataContext = this;
@@ -120,7 +120,7 @@ namespace Experimot.Scheduler
             _timer.Tick += _timer_Tick;
             _timer.Interval = new TimeSpan(0, 0, 0, 10);
             
-            //_timer.IsEnabled = true;
+           _timer.IsEnabled = true;
 
             //_worker = new BackgroundWorker();
             //_worker.WorkerSupportsCancellation = true;
@@ -135,8 +135,8 @@ namespace Experimot.Scheduler
             {
                 while (true)
                 {
-                    ctx.Update(-1);
-                    System.Threading.Thread.Sleep(10);
+                    ctx.Update(100);
+                    System.Threading.Thread.Sleep(500);
                 }
             }
         }
@@ -163,11 +163,18 @@ namespace Experimot.Scheduler
         {
             if (_worker != null)
             {
-                _worker.CancelAsync();
+                if (_worker.IsBusy)
+                {
+                    _worker.CancelAsync();
+                }
             }
             if (_scheduler != null)
             {
                 _scheduler.Shutdown();
+            }
+            if (_bootStrapper != null)
+            {
+                _bootStrapper.Shutdown();
             }
         }
 
@@ -206,6 +213,7 @@ namespace Experimot.Scheduler
 
         private bool color;
         private ContextSync _contextSync;
+        private readonly BootStrapper _bootStrapper;
 
         public void JobToBeExecuted(IJobExecutionContext context)
         {

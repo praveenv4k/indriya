@@ -9,32 +9,57 @@ namespace Experimot.Scheduler.Core
 {
     public class Localization: INotifyPropertyChanged
     {
-        private Pose _currentPose;
+        private Vector3d _currentPosition;
+        private Quaternion _currentOrientation;
         private readonly ConcurrentQueue<Pose> _recentPoses;
         public const int RecentPosesCount = 100;
 
         public Localization()
         {
-            _currentPose = new Pose();
+            SetPose(new Pose());
             _recentPoses = new ConcurrentQueue<Pose>();
         }
 
-        [ExpandableObject]
-        public Pose CurrentPose
+        public void SetPose(Pose pose)
         {
-            get { return _currentPose; }
+            if (pose != null)
+            {
+                Position = pose.position;
+                Orientation = pose.orientation;
+            }
+        }
+
+        [ExpandableObject]
+        public Vector3d Position
+        {
+            get { return _currentPosition; }
             set
             {
-                if (_currentPose != value)
+                if (_currentPosition != value)
                 {
-                    if (Equals(value, _currentPose)) return;
-                    _currentPose = value;
+                    if (Equals(value, _currentPosition)) return;
+                    _currentPosition = value;
                     OnPropertyChanged();
                 }
             }
         }
 
         [ExpandableObject]
+        public Quaternion Orientation
+        {
+            get { return _currentOrientation; }
+            set
+            {
+                if (_currentOrientation != value)
+                {
+                    if (Equals(value, _currentOrientation)) return;
+                    _currentOrientation = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        //[ExpandableObject]
         public ConcurrentQueue<Pose> RecentPose
         {
             get { return _recentPoses; }
