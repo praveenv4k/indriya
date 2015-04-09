@@ -78,8 +78,9 @@ namespace Experimot.Scheduler
         private ISchedulerFactory _schedulerFactory;
         private IScheduler _scheduler;
         private Context _context;
-        private DispatcherTimer _timer;
+        //private DispatcherTimer _timer;
         private BackgroundWorker _worker;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -108,50 +109,18 @@ namespace Experimot.Scheduler
                 var config = experimot_config.LoadFromFile(configFile);
 
                 _context = new Context();
-                _contextSync = new ContextSync(config, _context);
 
-                _bootStrapper = new BootStrapper(config);
+                _bootStrapper = new BootStrapper(config, _context);
                 _bootStrapper.StartUp();
             }
             Closing += MainWindow_Closing;
             DataContext = this;
 
-            _timer = new DispatcherTimer();
-            _timer.Tick += _timer_Tick;
-            _timer.Interval = new TimeSpan(0, 0, 0, 10);
-            
-           _timer.IsEnabled = true;
+            //_timer = new DispatcherTimer();
+            //_timer.Tick += _timer_Tick;
+            //_timer.Interval = new TimeSpan(0, 0, 0, 10);
 
-            //_worker = new BackgroundWorker();
-            //_worker.WorkerSupportsCancellation = true;
-            //_worker.DoWork += _worker_DoWork;
-            //_worker.RunWorkerAsync(_contextSync);
-        }
-
-        private void _worker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            var ctx = e.Argument as ContextSync;
-            if (ctx != null)
-            {
-                while (true)
-                {
-                    ctx.Update(100);
-                    System.Threading.Thread.Sleep(500);
-                }
-            }
-        }
-
-        private void _timer_Tick(object sender, EventArgs e)
-        {
-            _worker = new BackgroundWorker();
-            _worker.WorkerSupportsCancellation = true;
-            _worker.DoWork += _worker_DoWork;
-            _worker.RunWorkerAsync(_contextSync);
-            _timer.IsEnabled = false;
-            //if (_contextSync != null)
-            //{
-            //    _contextSync.Update(1000);
-            //}
+            //_timer.IsEnabled = true;
         }
 
         public Context Context
@@ -212,7 +181,6 @@ namespace Experimot.Scheduler
         }
 
         private bool color;
-        private ContextSync _contextSync;
         private readonly BootStrapper _bootStrapper;
 
         public void JobToBeExecuted(IJobExecutionContext context)

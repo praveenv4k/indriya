@@ -12,10 +12,10 @@ using Expression = System.Linq.Expressions.Expression;
 
 namespace Experimot.Scheduler.Tasks
 {
-    public class ContextSync
+    public class ContextSync : IDisposable
     {
         private readonly Context _ctx;
-
+        private NetMQContext _netctx;
         private object _object;
         private readonly IList<socket> _publishers;
 
@@ -28,6 +28,7 @@ namespace Experimot.Scheduler.Tasks
         }
 
         private readonly IDictionary<string, DelegateInfo> _delegateDict;
+        private bool _disposed;
 
         public ContextSync(experimot_config config, Context ctx)
         {
@@ -103,6 +104,24 @@ namespace Experimot.Scheduler.Tasks
                     }
                 }
             }
+            InitZmq();
+        }
+
+        private void InitZmq()
+        {
+            if (_netctx == null)
+            {
+                _netctx = NetMQContext.Create();
+            }
+        }
+
+        private void TerminateZmq()
+        {
+            if (_netctx != null)
+            {
+                _netctx.Dispose();
+                _netctx = null;
+            }
         }
 
         private static Delegate CreateDelegate(MethodInfo method, object target)
@@ -111,16 +130,6 @@ namespace Experimot.Scheduler.Tasks
             {
                 throw new ArgumentNullException("method");
             }
-
-            //if (!method.IsStatic)
-            //{
-            //    throw new ArgumentException("The provided method must be static.", "method");
-            //}
-
-            //if (method.IsGenericMethod)
-            //{
-            //    throw new ArgumentException("The provided method must not be generic.", "method");
-            //}
 
             return method.CreateDelegate(Expression.GetDelegateType(
                 (from parameter in method.GetParameters() select parameter.ParameterType)
@@ -150,39 +159,7 @@ namespace Experimot.Scheduler.Tasks
 
         public void Update(int timeout)
         {
-            if (false)
-            {
-                using (var context = NetMQContext.Create())
-                {
-                    using (var socket = context.CreateSubscriberSocket())
-                    {
-                        //socket.Connect("tcp://127.0.0.1:5570");
-                        socket.Connect("tcp://localhost:5570");
-                        socket.Subscribe("KSP");
-
-                        //socket.SetSockOpt(SocketOpt.SUBSCRIBE, GetBytes("KSP"));
-                        var topic = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, timeout));
-                        //var topic = socket.ReceiveString();
-                        if (topic != null)
-                        {
-                            byte[] msg = socket.Receive();
-                            if (msg != null)
-                            {
-                                using (var memStream = new MemoryStream(msg))
-                                {
-                                    Console.WriteLine("Kinect bodies received");
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show(string.Format("Message buffer empty!"));
-                            }
-                        }
-                    }
-                }
-                return;
-            }
-            else
+            if (_netctx != null && _ctx != null && _publishers != null && _publishers.Count > 0)
             {
                 foreach (var publisher in _publishers)
                 {
@@ -192,38 +169,54 @@ namespace Experimot.Scheduler.Tasks
                     }
                     var delegateInfo = _delegateDict[publisher.msg_type];
 
-                    using (var context = NetMQContext.Create())
+                    using (var socket = _netctx.CreateSubscriberSocket())
                     {
-                        using (var socket = context.CreateSubscriberSocket())
+                        string addr = string.Format("{0}:{1}", publisher.host, publisher.port);
+                        socket.Connect(addr);
+                        socket.Subscribe(publisher.topic);
+                        var topic = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, timeout));
+                        if (topic != null)
                         {
-                            string addr = string.Format("{0}:{1}", publisher.host, publisher.port);
-                            //addr = string.Format("{0}:{1}", "tcp://127.0.0.1", publisher.port);
-                            socket.Connect(addr);
-                            socket.Subscribe(publisher.topic);
-                            //socket.SetSockOpt(SocketOpt.SUBSCRIBE, GetBytes(publisher.topic));
-                            var topic = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, timeout));
-                            if (topic != null)
+                            byte[] msg = socket.Receive();
+                            if (msg != null)
                             {
-                                byte[] msg = socket.Receive();
-                                if (msg != null)
+                                using (var memStream = new MemoryStream(msg))
                                 {
-                                    using (var memStream = new MemoryStream(msg))
-                                    {
-                                        MethodInfo method = typeof (Serializer).GetMethod("Deserialize");
-                                        MethodInfo generic = method.MakeGenericMethod(delegateInfo.ArgType);
-                                        var ret = generic.Invoke(null, new object[] {memStream});
-                                        delegateInfo.DelegateType.DynamicInvoke(new object[] {ret});
-                                    }
+                                    MethodInfo method = typeof (Serializer).GetMethod("Deserialize");
+                                    MethodInfo generic = method.MakeGenericMethod(delegateInfo.ArgType);
+                                    var ret = generic.Invoke(null, new object[] {memStream});
+                                    delegateInfo.DelegateType.DynamicInvoke(new object[] {ret});
                                 }
-                                else
-                                {
-                                    MessageBox.Show(string.Format("Message buffer empty!"));
-                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show(string.Format("Message buffer empty!"));
                             }
                         }
                     }
                 }
             }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        // Protected implementation of Dispose pattern. 
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed)
+                return;
+
+            if (disposing)
+            {
+            }
+
+            TerminateZmq();
+
+            _disposed = true;
         }
     }
 }
