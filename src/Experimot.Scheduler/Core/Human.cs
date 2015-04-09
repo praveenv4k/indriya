@@ -2,6 +2,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using experimot.msgs;
 using Experimot.Scheduler.Annotations;
+using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace Experimot.Scheduler.Core
 {
@@ -33,7 +34,9 @@ namespace Experimot.Scheduler.Core
     public class Human: INotifyPropertyChanged
     {
         private string _id;
+
         private KinectBody _body;
+        
         private Gesture _gesture;
 
         public string Id
@@ -47,6 +50,7 @@ namespace Experimot.Scheduler.Core
             }
         }
 
+        [ExpandableObject]
         public KinectBody Body
         {
             get { return _body; }
@@ -58,6 +62,7 @@ namespace Experimot.Scheduler.Core
             }
         }
 
+        [ExpandableObject]
         public Gesture Gesture
         {
             get { return _gesture; }

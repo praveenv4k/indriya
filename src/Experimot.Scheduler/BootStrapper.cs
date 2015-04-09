@@ -34,18 +34,18 @@ namespace Experimot.Scheduler
             _parameterServer = new ParameterServer(_config);
             _parameterServer.Start();
 
-            //_tasks = new List<Task>
-            //{
-            //    Task.Factory.StartNew(() => RunServer(_parameterServer)),
-            //    Task.Factory.StartNew(() => RunContextSync(_contextSync))
-            //};
+            _tasks = new List<Task>
+            {
+                Task.Factory.StartNew(() => RunServer(_parameterServer)),
+                Task.Factory.StartNew(() => RunContextSync(_contextSync))
+            };
 
             _threads = new List<Thread>();
-            _threads.Add(new Thread(RunServer));
-            _threads.Add(new Thread(RunContextSync));
+            //_threads.Add(new Thread(RunServer));
+            //_threads.Add(new Thread(RunContextSync));
 
-            _threads[0].Start(_parameterServer);
-            _threads[1].Start(_contextSync);
+            //_threads[0].Start(_parameterServer);
+            //_threads[1].Start(_contextSync);
         }
 
         private void RunServer(object arg)
@@ -159,7 +159,7 @@ namespace Experimot.Scheduler
                 {
                     thread.Join(1000);
                 }
-                //Task.WaitAll(_tasks.ToArray(), new TimeSpan(0, 0, 0, 1));
+                Task.WaitAll(_tasks.ToArray(), new TimeSpan(0, 0, 0, 1));
                 _shutdown = true;
             }
         }
