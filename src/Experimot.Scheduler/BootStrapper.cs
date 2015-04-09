@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using Common.Logging;
-using IronPython.Hosting;
+using Experimot.Scheduler.Core;
+using Experimot.Scheduler.Tasks;
 using Scheduler;
 
 namespace Experimot.Scheduler
@@ -18,13 +21,62 @@ namespace Experimot.Scheduler
         private const string PYTHONPATH = @"C:\Python27";
         private readonly IList<Process> _processes;
         private readonly ParameterServer _parameterServer;
+        private ContextSync _contextSync;
+        private IList<Task> _tasks;
+        private volatile bool _shouldStop;
+        private IList<Thread> _threads;
 
-        public BootStrapper(experimot_config config)
+        public BootStrapper(experimot_config config, Context context)
         {
             _config = config;
             _processes = new List<Process>();
-
+            _contextSync = new ContextSync(config, context);
             _parameterServer = new ParameterServer(_config);
+            _parameterServer.Start();
+
+            //_tasks = new List<Task>
+            //{
+            //    Task.Factory.StartNew(() => RunServer(_parameterServer)),
+            //    Task.Factory.StartNew(() => RunContextSync(_contextSync))
+            //};
+
+            _threads = new List<Thread>();
+            _threads.Add(new Thread(RunServer));
+            _threads.Add(new Thread(RunContextSync));
+
+            _threads[0].Start(_parameterServer);
+            _threads[1].Start(_contextSync);
+        }
+
+        private void RunServer(object arg)
+        {
+            var server = arg as ParameterServer;
+            if (server != null)
+            {
+                Console.WriteLine("Parameter server Started");
+                while (!_shouldStop)
+                {
+                    server.Run();
+                    Thread.Sleep(40);
+                }
+                server.Shutdown();
+            }
+            Console.WriteLine("Parameter server Completed");
+        }
+
+        private void RunContextSync(object arg)
+        {
+            var sync = arg as ContextSync;
+            if (sync != null)
+            {
+                Console.WriteLine("Context sync Started");
+                while (!_shouldStop)
+                {
+                    sync.Update(100);
+                    Thread.Sleep(200);
+                }
+            }
+            Console.WriteLine("Context sync Completed");
         }
 
         public void StartUp()
@@ -93,6 +145,7 @@ namespace Experimot.Scheduler
         {
             if (!_shutdown)
             {
+                _shouldStop = true;
                 foreach (var process in _processes)
                 {
                     if (!process.HasExited)
@@ -102,6 +155,11 @@ namespace Experimot.Scheduler
                         process.Kill();
                     }
                 }
+                foreach (var thread in _threads)
+                {
+                    thread.Join(1000);
+                }
+                //Task.WaitAll(_tasks.ToArray(), new TimeSpan(0, 0, 0, 1));
                 _shutdown = true;
             }
         }

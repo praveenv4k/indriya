@@ -1,14 +1,12 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Net.Sockets;
-using System.Text;
 using System.Windows.Threading;
 using Common.Logging;
-using ProtoBuf;
-using Scheduler;
 using NetMQ;
 using NetMQ.zmq;
+using ProtoBuf;
+using Scheduler;
 
 namespace Experimot.Scheduler
 {
@@ -20,46 +18,44 @@ namespace Experimot.Scheduler
         private bool _disposed;
         private readonly ILog Log = LogManager.GetLogger(typeof (ParameterServer));
 
-        private DispatcherTimer _timer;
+        //private DispatcherTimer _timer;
         private const int RecvTimeout = 100;
+
+        private bool _startup;
 
         public ParameterServer(experimot_config config)
         {
             _config = config;
-
-            InitZmq(ParameterUtil.Get(config.parameters, "ParameterServerHost", "tcp://*"),
-                ParameterUtil.Get(config.parameters, "ParameterServerPort", 5560));
-
-            InitTimer(ParameterUtil.Get(config.parameters, "ParameterServerInterval", 50));
         }
 
-        private void InitTimer(int milliSecInterval)
+        public void Start()
         {
-            if (_timer == null)
+            if (!_startup && _config != null)
             {
-                _timer = new DispatcherTimer {Interval = new TimeSpan(0, 0, 0, 0, milliSecInterval)};
-                _timer.Tick += TimerTick;
-                _timer.IsEnabled = true;
+                InitZmq(ParameterUtil.Get(_config.parameters, "ParameterServerHost", "tcp://*"),
+                    ParameterUtil.Get(_config.parameters, "ParameterServerPort", 5560));
+
+                //InitTimer(ParameterUtil.Get(_config.parameters, "ParameterServerInterval", 50));
+
+                _startup = true;
             }
         }
 
-        private void DestroyTimer()
+        public void Shutdown()
         {
-            if (_timer != null)
+            if (_startup)
             {
-                _timer.IsEnabled = false;
-                _timer.Tick -= TimerTick;
+                TerminateZmq();
             }
         }
 
-        private void TimerTick(object sender, EventArgs e)
+        public void Run()
         {
             if (_socket != null && _config != null)
             {
                 try
                 {
-                    //var req = _socket.Recv(Encoding.ASCII, RecvTimeout);
-                    var req = _socket.ReceiveString(new TimeSpan(0,0,0,0,RecvTimeout));
+                    var req = _socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
                     if (!string.IsNullOrEmpty(req))
                     {
                         Console.WriteLine("Received request from {0}", req);
@@ -80,9 +76,6 @@ namespace Experimot.Scheduler
                             {
                                 Serializer.Serialize(ms, nodeInfo);
                                 _socket.Send(ms.GetBuffer());
-                                //{
-                                //    Log.ErrorFormat("Parameter Send Failed: {0}", req);
-                                //}
                             }
                         }
                     }
@@ -95,11 +88,16 @@ namespace Experimot.Scheduler
                         Log.ErrorFormat("ZMQ Exception: {0}", zex.Message);
                     }
                 }
-                catch (System.Exception ex)
+                catch (Exception ex)
                 {
                     Log.Error(ex.Message);
                 }
             }
+        }
+
+        private void TimerTick(object sender, EventArgs e)
+        {
+            Run();
         }
 
         private void InitZmq(string host, int port)
@@ -143,7 +141,6 @@ namespace Experimot.Scheduler
             {
             }
 
-            DestroyTimer();
             TerminateZmq();
 
             _disposed = true;
