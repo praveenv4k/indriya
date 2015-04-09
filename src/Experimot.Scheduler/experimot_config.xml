@@ -11,7 +11,7 @@
     <param key="ParameterServerInterval" value="10" type="int"/>
   </parameters>
   <nodes>
-    <node enabled="false">
+    <node enabled="true">
       <name>localization</name>
       <process>
         <type>executable</type>
@@ -47,7 +47,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="true">
+    <node enabled="false">
       <name>gesture_recognition</name>
       <process>
         <type>executable</type>
@@ -64,7 +64,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="true">
+    <node enabled="false">
       <name>simulation</name>
       <process>
         <type>executable</type>

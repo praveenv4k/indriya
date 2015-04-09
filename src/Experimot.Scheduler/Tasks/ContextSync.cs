@@ -4,9 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
+using NetMQ;
 using ProtoBuf;
 using Scheduler;
-using ZMQ;
 using Context = Experimot.Scheduler.Core.Context;
 using Expression = System.Linq.Expressions.Expression;
 
@@ -134,82 +134,91 @@ namespace Experimot.Scheduler.Tasks
                 .Where(t => t.IsClass && t.Namespace == namespaceStr).ToList();
         }
 
-        static byte[] GetBytes(string str)
+        private static byte[] GetBytes(string str)
         {
-            byte[] bytes = new byte[str.Length * sizeof(char)];
+            byte[] bytes = new byte[str.Length*sizeof (char)];
             Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
             return bytes;
         }
 
-        static string GetString(byte[] bytes)
+        private static string GetString(byte[] bytes)
         {
-            char[] chars = new char[bytes.Length / sizeof(char)];
+            char[] chars = new char[bytes.Length/sizeof (char)];
             Buffer.BlockCopy(bytes, 0, chars, 0, bytes.Length);
             return new string(chars);
         }
 
         public void Update(int timeout)
         {
-            using (var context = new ZMQ.Context(1))
+            if (false)
             {
-                using (var socket = context.Socket(SocketType.SUB))
+                using (var context = NetMQContext.Create())
                 {
-                    socket.Connect("tcp://localhost:5570");
-                    socket.Subscribe(GetBytes("KSP"));
-
-                    //socket.SetSockOpt(SocketOpt.SUBSCRIBE, GetBytes("KSP"));
-                    var topic = socket.Recv();
-                    if (topic != null)
+                    using (var socket = context.CreateSubscriberSocket())
                     {
-                        byte[] msg = socket.Recv();
-                        if (msg != null)
-                        {
-                            using (var memStream = new MemoryStream(msg))
-                            {
-                                Console.WriteLine("Kinect bodies received");
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show(string.Format("Message buffer empty!"));
-                        }
-                    }
-                }
-            }
-            return;
-            foreach (var publisher in _publishers)
-            {
-                if (!_delegateDict.ContainsKey(publisher.msg_type))
-                {
-                    continue;
-                }
-                var delegateInfo = _delegateDict[publisher.msg_type];
+                        //socket.Connect("tcp://127.0.0.1:5570");
+                        socket.Connect("tcp://localhost:5570");
+                        socket.Subscribe("KSP");
 
-                using (var context = new ZMQ.Context(1))
-                {
-                    using (var socket = context.Socket(SocketType.SUB))
-                    {
-                        string addr = string.Format("{0}:{1}", publisher.host, publisher.port);
-                        //addr = string.Format("{0}:{1}", "tcp://127.0.0.1", publisher.port);
-                        socket.Connect(addr);
-                        socket.SetSockOpt(SocketOpt.SUBSCRIBE, GetBytes(publisher.topic));
-                        var topic = socket.Recv();
+                        //socket.SetSockOpt(SocketOpt.SUBSCRIBE, GetBytes("KSP"));
+                        var topic = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, timeout));
+                        //var topic = socket.ReceiveString();
                         if (topic != null)
                         {
-                            byte[] msg = socket.Recv();
+                            byte[] msg = socket.Receive();
                             if (msg != null)
                             {
                                 using (var memStream = new MemoryStream(msg))
                                 {
-                                    MethodInfo method = typeof (Serializer).GetMethod("Deserialize");
-                                    MethodInfo generic = method.MakeGenericMethod(delegateInfo.ArgType);
-                                    var ret = generic.Invoke(null, new object[] {memStream});
-                                    delegateInfo.DelegateType.DynamicInvoke(new object[] {ret});
+                                    Console.WriteLine("Kinect bodies received");
                                 }
                             }
                             else
                             {
                                 MessageBox.Show(string.Format("Message buffer empty!"));
+                            }
+                        }
+                    }
+                }
+                return;
+            }
+            else
+            {
+                foreach (var publisher in _publishers)
+                {
+                    if (!_delegateDict.ContainsKey(publisher.msg_type))
+                    {
+                        continue;
+                    }
+                    var delegateInfo = _delegateDict[publisher.msg_type];
+
+                    using (var context = NetMQContext.Create())
+                    {
+                        using (var socket = context.CreateSubscriberSocket())
+                        {
+                            string addr = string.Format("{0}:{1}", publisher.host, publisher.port);
+                            //addr = string.Format("{0}:{1}", "tcp://127.0.0.1", publisher.port);
+                            socket.Connect(addr);
+                            socket.Subscribe(publisher.topic);
+                            //socket.SetSockOpt(SocketOpt.SUBSCRIBE, GetBytes(publisher.topic));
+                            var topic = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, timeout));
+                            if (topic != null)
+                            {
+                                byte[] msg = socket.Receive();
+                                if (msg != null)
+                                {
+                                    using (var memStream = new MemoryStream(msg))
+                                    {
+                                        MethodInfo method = typeof (Serializer).GetMethod("Deserialize");
+                                        MethodInfo generic = method.MakeGenericMethod(delegateInfo.ArgType);
+                                        var ret = generic.Invoke(null, new object[] {memStream});
+                                        delegateInfo.DelegateType.DynamicInvoke(new object[] {ret});
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show(string.Format("Message buffer empty!"));
+                                }
                             }
                         }
                     }

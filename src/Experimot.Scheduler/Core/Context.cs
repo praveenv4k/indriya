@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using experimot.msgs;
 using Experimot.Scheduler.Annotations;
@@ -67,7 +69,7 @@ namespace Experimot.Scheduler.Core
         {
             lock (_object)
             {
-                Robot.Localization.CurrentPose = pose;
+                Robot.Localization.SetPose(pose);
             }
         }
 
@@ -83,11 +85,26 @@ namespace Experimot.Scheduler.Core
         {
             lock (_object)
             {
-                _humans.Clear();
+                IEnumerable<int> keys = _humans.Keys;
+                var bodyIds = kinectBodies.Body.Select(s => s.TrackingId).ToList();
+
+                // Remove those humans that dont exist in the list of kinect bodies anymore
+                foreach (var key in keys)
+                {
+                    if (!bodyIds.Contains(key))
+                    {
+                        _humans.Remove(key);
+                    }
+                }
+
                 foreach (var kinectBody in kinectBodies.Body)
                 {
-                    _humans.Add(kinectBody.TrackingId, new Human());
+                    if (!_humans.ContainsKey(kinectBody.TrackingId))
+                    {
+                        _humans.Add(kinectBody.TrackingId, new Human());
+                    }
                     _humans[kinectBody.TrackingId].Body = kinectBody;
+                    Console.WriteLine("Human info updated : {0}", kinectBody.TrackingId);
                 }
             }
         }

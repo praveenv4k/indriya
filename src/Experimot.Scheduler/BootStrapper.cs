@@ -4,10 +4,10 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using Common.Logging;
-using Experimot.Scheduler;
 using IronPython.Hosting;
+using Scheduler;
 
-namespace Scheduler
+namespace Experimot.Scheduler
 {
     internal class BootStrapper
     {
@@ -38,108 +38,41 @@ namespace Scheduler
                         var exeFile = Environment.ExpandEnvironmentVariables(node.process.path);
                         if (!string.IsNullOrEmpty(exeFile))
                         {
-
-                            if (node.process.type == "python")
+                            try
                             {
-                                bool ironPython = false;
-                                if (ironPython)
+                                string args = string.Empty;
+
+                                string paramServer = ParameterUtil.Get(_config.parameters, "ParameterClientHost",
+                                    "tcp://*");
+                                int port = ParameterUtil.Get(_config.parameters, "ParameterServerPort",
+                                    5560);
+
+                                args = string.Format("--name={0} --param={1}:{2}", node.name, paramServer, port);
+
+                                var workingDir = Path.GetDirectoryName(exeFile);
+                                var myProcess = new Process
                                 {
-                                    var ipy = Python.CreateEngine();
-                                    if (ipy != null)
+                                    StartInfo =
                                     {
-                                        var scope = ipy.CreateScope();
-                                        var paths = ipy.GetSearchPaths();
-                                        Console.WriteLine("Path count: {0}", paths.Count);
-
-                                        //var searchPaths =
-                                        //    new List<string>()
-                                        //    {
-                                        //        System.IO.Path.Combine(PYTHONPATH),
-                                        //        System.IO.Path.Combine(PYTHONPATH, "Lib"),
-                                        //        System.IO.Path.Combine(PYTHONPATH, "DLLs"),
-                                        //        System.IO.Path.Combine(PYTHONPATH, "Lib", "site-packages"),
-                                        //        System.IO.Path.Combine(PYTHONPATH, "Lib", "site-packages", "google",
-                                        //            "protobuf"),
-                                        //        System.IO.Path.Combine(PYTHONPATH, "Lib", "site-packages", "google"),
-                                        //        System.IO.Path.GetDirectoryName(exeFile)
-                                        //    };
-
-                                        var searchPaths =
-                                            new List<string>()
-                                            {
-                                                "C:\\Python27\\lib\\site-packages\\protobuf-3.0.0a1-py2.7.egg",
-                                                "C:\\Work\\Develop\\sdk_2013\\openrave\\lib\\site-packages\\openravepy",
-                                                "C:\\windows\\SYSTEM32\\python27.zip",
-                                                "C:\\Python27\\DLLs",
-                                                "C:\\Python27\\lib",
-                                                "C:\\Python27\\lib\\plat-win",
-                                                "C:\\Python27\\lib\\lib-tk",
-                                                "C:\\Python27",
-                                                "C:\\Python27\\lib\\site-packages",
-                                                @"C:\Python27\Lib\site-packages\zmq",
-                                                Path.GetDirectoryName(exeFile)
-                                            };
-
-                                        foreach (var path in searchPaths)
-                                        {
-                                            paths.Add(path);
-                                        }
-
-                                        ipy.SetSearchPaths(paths);
-                                        ipy.ExecuteFile(exeFile, scope);
+                                        UseShellExecute = true,
+                                        FileName = exeFile,
+                                        CreateNoWindow = true,
+                                        Arguments = args,
+                                        WorkingDirectory = workingDir ?? string.Empty
                                     }
-                                }
-                                else
-                                {
-                                    var myProcess = new Process
-                                    {
-                                        StartInfo =
-                                        {
-                                            UseShellExecute = true,
-                                            FileName = "python.exe",
-                                            CreateNoWindow = true,
-                                            Arguments = exeFile
-                                        }
-                                    };
-                                    myProcess.Start();
-                                }
+                                };
+                                myProcess.Start();
+                                Log.InfoFormat("Started Process : {0}", exeFile);
+                                _processes.Add(myProcess);
+                                myProcess.Exited += myProcess_Exited;
+                                Thread.Sleep(200);
+                                //break;
                             }
-                            else
+                            catch (Exception ex)
                             {
-                                try
-                                {
-                                    string args = string.Empty;
-
-                                    string paramServer = ParameterUtil.Get(_config.parameters, "ParameterClientHost",
-                                        "tcp://*");
-                                    int port = ParameterUtil.Get(_config.parameters, "ParameterServerPort",
-                                        5560);
-
-                                    args = string.Format("--name={0} --param={1}:{2}", node.name, paramServer, port);
-
-                                    var workingDir = Path.GetDirectoryName(exeFile);
-                                    var myProcess = new Process
-                                    {
-                                        StartInfo =
-                                        {
-                                            UseShellExecute = true,
-                                            FileName = exeFile,
-                                            CreateNoWindow = true,
-                                            Arguments = args,
-                                            WorkingDirectory = workingDir ?? string.Empty
-                                        }
-                                    };
-                                    myProcess.Start();
-                                    Log.InfoFormat("Started Process : {0}", exeFile);
-                                    _processes.Add(myProcess);
-                                    Thread.Sleep(200);
-                                    //break;
-                                }
-                                catch (Exception ex)
-                                {
-                                    Log.ErrorFormat("Process: {0}, Message: {1}",exeFile, ex.Message);
-                                }
+                                Log.ErrorFormat("Process: {0}, Message: {1}", exeFile, ex.Message);
                             }
+
                         }
                     }
                 }
@@ -147,11 +80,28 @@ namespace Scheduler
             }
         }
 
+        private void myProcess_Exited(object sender, EventArgs e)
+        {
+            var process = sender as Process;
+            if (process != null)
+            {
+                Console.WriteLine("Process exited: {0}", process.Id);
+            }
+        }
+
         public void Shutdown()
         {
             if (!_shutdown)
             {
-                //TODO Shutdown here
+                foreach (var process in _processes)
+                {
+                    if (!process.HasExited)
+                    {
+                        //process.CloseMainWindow();
+                        //process.Close();
+                        process.Kill();
+                    }
+                }
                 _shutdown = true;
             }
         }

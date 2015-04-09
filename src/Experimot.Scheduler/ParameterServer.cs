@@ -1,20 +1,22 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Windows.Threading;
 using Common.Logging;
 using ProtoBuf;
 using Scheduler;
-using ZMQ;
+using NetMQ;
+using NetMQ.zmq;
 
 namespace Experimot.Scheduler
 {
     public class ParameterServer : IDisposable
     {
         private readonly experimot_config _config;
-        private Context _ctx;
-        private Socket _socket;
+        private NetMQContext _ctx;
+        private NetMQSocket _socket;
         private bool _disposed;
         private readonly ILog Log = LogManager.GetLogger(typeof (ParameterServer));
 
@@ -56,7 +58,8 @@ namespace Experimot.Scheduler
             {
                 try
                 {
-                    var req = _socket.Recv(Encoding.ASCII, RecvTimeout);
+                    //var req = _socket.Recv(Encoding.ASCII, RecvTimeout);
+                    var req = _socket.ReceiveString(new TimeSpan(0,0,0,0,RecvTimeout));
                     if (!string.IsNullOrEmpty(req))
                     {
                         Console.WriteLine("Received request from {0}", req);
@@ -76,18 +79,18 @@ namespace Experimot.Scheduler
                             using (var ms = new MemoryStream())
                             {
                                 Serializer.Serialize(ms, nodeInfo);
-                                if (_socket.Send(ms.GetBuffer()) != SendStatus.Sent)
-                                {
-                                    Log.ErrorFormat("Parameter Send Failed: {0}", req);
-                                }
+                                _socket.Send(ms.GetBuffer());
+                                //{
+                                //    Log.ErrorFormat("Parameter Send Failed: {0}", req);
+                                //}
                             }
                         }
                     }
                 }
-                catch (ZMQ.Exception zex)
+                catch (NetMQException zex)
                 {
                     // If not timeout
-                    if (zex.Errno != (int) ERRNOS.EAGAIN)
+                    if (zex.ErrorCode != ErrorCode.EAGAIN)
                     {
                         Log.ErrorFormat("ZMQ Exception: {0}", zex.Message);
                     }
@@ -103,8 +106,8 @@ namespace Experimot.Scheduler
         {
             if (_ctx == null)
             {
-                _ctx = new Context(1);
-                _socket = _ctx.Socket(SocketType.REP);
+                _ctx = NetMQContext.Create();
+                _socket = _ctx.CreateResponseSocket();
                 var address = string.Format("{0}:{1}", host, port);
                 _socket.Bind(address);
                 Console.WriteLine("Parameter server running at: {0}", address);
