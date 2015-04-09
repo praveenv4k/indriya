@@ -2,15 +2,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Text;
-using System.Xml;
-using System.Xml.Serialization;
+using System.Threading;
 using Common.Logging;
-using experimot.msgs;
 using Experimot.Scheduler;
 using IronPython.Hosting;
-using Microsoft.Scripting.Hosting;
-using ProtoBuf;
 
 namespace Scheduler
 {
@@ -82,7 +77,7 @@ namespace Scheduler
                                                 "C:\\Python27",
                                                 "C:\\Python27\\lib\\site-packages",
                                                 @"C:\Python27\Lib\site-packages\zmq",
-                                                System.IO.Path.GetDirectoryName(exeFile)
+                                                Path.GetDirectoryName(exeFile)
                                             };
 
                                         foreach (var path in searchPaths)
@@ -122,7 +117,7 @@ namespace Scheduler
 
                                     args = string.Format("--name={0} --param={1}:{2}", node.name, paramServer, port);
 
-                                    var workingDir = System.IO.Path.GetDirectoryName(exeFile);
+                                    var workingDir = Path.GetDirectoryName(exeFile);
                                     var myProcess = new Process
                                     {
                                         StartInfo =
@@ -137,7 +132,7 @@ namespace Scheduler
                                     myProcess.Start();
                                     Log.InfoFormat("Started Process : {0}", exeFile);
                                     _processes.Add(myProcess);
-                                    System.Threading.Thread.Sleep(200);
+                                    Thread.Sleep(200);
                                     //break;
                                 }
                                 catch (Exception ex)

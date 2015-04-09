@@ -1,13 +1,11 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
-using Scheduler;
-using System.Linq.Expressions;
 using ProtoBuf;
+using Scheduler;
 using ZMQ;
 using Context = Experimot.Scheduler.Core.Context;
 using Expression = System.Linq.Expressions.Expression;
@@ -17,8 +15,6 @@ namespace Experimot.Scheduler.Tasks
     public class ContextSync
     {
         private readonly Context _ctx;
-        private ZMQ.Context _context;
-        private ZMQ.Socket _socket;
 
         private object _object;
         private readonly IList<socket> _publishers;
@@ -33,7 +29,7 @@ namespace Experimot.Scheduler.Tasks
 
         private readonly IDictionary<string, DelegateInfo> _delegateDict;
 
-        public ContextSync(experimot_config config, Core.Context ctx)
+        public ContextSync(experimot_config config, Context ctx)
         {
             _ctx = ctx;
             _publishers = new List<socket>();
@@ -93,9 +89,6 @@ namespace Experimot.Scheduler.Tasks
                                         var prmType = prms.FirstOrDefault(s => s.ParameterType == typeFound);
                                         if (prmType != null)
                                         {
-
-                                            //_delegateDict.Add(publisher.msg_type,
-                                            //    method.CreateDelegate(typeof (void), _context));
                                             _delegateDict.Add(publisher.msg_type,
                                                 new DelegateInfo()
                                                 {
@@ -144,19 +137,46 @@ namespace Experimot.Scheduler.Tasks
         static byte[] GetBytes(string str)
         {
             byte[] bytes = new byte[str.Length * sizeof(char)];
-            System.Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
+            Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
             return bytes;
         }
 
         static string GetString(byte[] bytes)
         {
             char[] chars = new char[bytes.Length / sizeof(char)];
-            System.Buffer.BlockCopy(bytes, 0, chars, 0, bytes.Length);
+            Buffer.BlockCopy(bytes, 0, chars, 0, bytes.Length);
             return new string(chars);
         }
 
         public void Update(int timeout)
         {
+            using (var context = new ZMQ.Context(1))
+            {
+                using (var socket = context.Socket(SocketType.SUB))
+                {
+                    socket.Connect("tcp://localhost:5570");
+                    socket.Subscribe(GetBytes("KSP"));
+
+                    //socket.SetSockOpt(SocketOpt.SUBSCRIBE, GetBytes("KSP"));
+                    var topic = socket.Recv();
+                    if (topic != null)
+                    {
+                        byte[] msg = socket.Recv();
+                        if (msg != null)
+                        {
+                            using (var memStream = new MemoryStream(msg))
+                            {
+                                Console.WriteLine("Kinect bodies received");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show(string.Format("Message buffer empty!"));
+                        }
+                    }
+                }
+            }
+            return;
             foreach (var publisher in _publishers)
             {
                 if (!_delegateDict.ContainsKey(publisher.msg_type))
@@ -169,9 +189,11 @@ namespace Experimot.Scheduler.Tasks
                 {
                     using (var socket = context.Socket(SocketType.SUB))
                     {
+                        string addr = string.Format("{0}:{1}", publisher.host, publisher.port);
+                        //addr = string.Format("{0}:{1}", "tcp://127.0.0.1", publisher.port);
+                        socket.Connect(addr);
                         socket.SetSockOpt(SocketOpt.SUBSCRIBE, GetBytes(publisher.topic));
-                        socket.Connect(string.Format("{0}:{1}", publisher.host, publisher.port));
-                        var topic = socket.Recv(timeout);
+                        var topic = socket.Recv();
                         if (topic != null)
                         {
                             byte[] msg = socket.Recv();
@@ -179,7 +201,7 @@ namespace Experimot.Scheduler.Tasks
                             {
                                 using (var memStream = new MemoryStream(msg))
                                 {
-                                    MethodInfo method = typeof (ProtoBuf.Serializer).GetMethod("Deserialize");
+                                    MethodInfo method = typeof (Serializer).GetMethod("Deserialize");
                                     MethodInfo generic = method.MakeGenericMethod(delegateInfo.ArgType);
                                     var ret = generic.Invoke(null, new object[] {memStream});
                                     delegateInfo.DelegateType.DynamicInvoke(new object[] {ret});

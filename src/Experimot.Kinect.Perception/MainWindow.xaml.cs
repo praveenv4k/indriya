@@ -260,7 +260,7 @@ namespace Experimot.Kinect.Perception
             {
                 // visualize the new body data
                 _kinectBodyView.UpdateBodyFrame(_bodies);
-                _kBodyPub.UpdateBodyFrame(_bodies);
+                if(_kBodyPub!=null) _kBodyPub.UpdateBodyFrame(_bodies);
                 // we may have lost/acquired bodies, so update the corresponding gesture detectors
                 if (_bodies != null)
                 {

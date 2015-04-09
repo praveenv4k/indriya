@@ -6,13 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
+using NetMQ;
 
 namespace ExperimotPerception
 {
     public class JointStatePublisher
     {
-        private ZMQ.Context _ctx;
-        private ZMQ.Socket _socket;
+        private NetMQContext _ctx;
+        private NetMQSocket _socket;
         private int _port = 5563;
         private DispatcherTimer _timer;
         private Queue<experimot.msgs.JointValueVector> _jvList;
@@ -85,10 +86,12 @@ namespace ExperimotPerception
                     }
                     else
                     {
-                        _socket.SendMore(_topic, _encoding);
+                        //_socket.SendMore(new ZFrame(_topic));
+                        _socket.SendMore(_topic);
                         using (var ms = new MemoryStream())
                         {
                             ProtoBuf.Serializer.Serialize(ms, item);
+                            //_socket.Send(new ZFrame(ms.GetBuffer()));
                             _socket.Send(ms.GetBuffer());
                         }
                     }
@@ -140,8 +143,8 @@ namespace ExperimotPerception
         {
             if (_ctx == null)
             {
-                _ctx = new ZMQ.Context(1);
-                _socket = _ctx.Socket(ZMQ.SocketType.PUB);
+                _ctx = NetMQContext.Create();
+                _socket = _ctx.CreatePublisherSocket();
                 var address = string.Format("tcp://*:{0}", _port);
                 _socket.Bind(address);
             }
