@@ -78,5 +78,18 @@ namespace Experimot.Scheduler.Core
                 Robot.SensorData = sensorData;
             }
         }
+
+        public void Update(KinectBodies kinectBodies)
+        {
+            lock (_object)
+            {
+                _humans.Clear();
+                foreach (var kinectBody in kinectBodies.Body)
+                {
+                    _humans.Add(kinectBody.TrackingId, new Human());
+                    _humans[kinectBody.TrackingId].Body = kinectBody;
+                }
+            }
+        }
     }
 }

@@ -79,7 +79,7 @@ namespace Experimot.Scheduler
         private IScheduler _scheduler;
         private Context _context;
         private DispatcherTimer _timer;
-
+        private BackgroundWorker _worker;
         public MainWindow()
         {
             InitializeComponent();
@@ -118,16 +118,40 @@ namespace Experimot.Scheduler
 
             _timer = new DispatcherTimer();
             _timer.Tick += _timer_Tick;
-            _timer.Interval = new TimeSpan(0, 0, 0, 0, 200);
-            _timer.IsEnabled = true;
+            _timer.Interval = new TimeSpan(0, 0, 0, 10);
+            
+            //_timer.IsEnabled = true;
+
+            //_worker = new BackgroundWorker();
+            //_worker.WorkerSupportsCancellation = true;
+            //_worker.DoWork += _worker_DoWork;
+            //_worker.RunWorkerAsync(_contextSync);
+        }
+
+        private void _worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            var ctx = e.Argument as ContextSync;
+            if (ctx != null)
+            {
+                while (true)
+                {
+                    ctx.Update(-1);
+                    System.Threading.Thread.Sleep(10);
+                }
+            }
         }
 
         private void _timer_Tick(object sender, EventArgs e)
         {
-            if (_contextSync != null)
-            {
-                _contextSync.Update(100);
-            }
+            _worker = new BackgroundWorker();
+            _worker.WorkerSupportsCancellation = true;
+            _worker.DoWork += _worker_DoWork;
+            _worker.RunWorkerAsync(_contextSync);
+            _timer.IsEnabled = false;
+            //if (_contextSync != null)
+            //{
+            //    _contextSync.Update(1000);
+            //}
         }
 
         public Context Context
@@ -137,6 +161,10 @@ namespace Experimot.Scheduler
 
         private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
+            if (_worker != null)
+            {
+                _worker.CancelAsync();
+            }
             if (_scheduler != null)
             {
                 _scheduler.Shutdown();

@@ -4,7 +4,7 @@ using System.Text;
 using experimot.msgs;
 using Microsoft.Kinect;
 using ProtoBuf;
-using ZMQ;
+using NetMQ;
 using Joint = Microsoft.Kinect.Joint;
 
 namespace Experimot.Kinect.Perception
@@ -14,8 +14,8 @@ namespace Experimot.Kinect.Perception
     /// </summary>
     public class KinectBodyPublisher
     {
-        private Context _ctx;
-        private Socket _socket;
+        private NetMQContext _ctx;
+        private NetMQSocket _socket;
         private readonly uint _port;
         private readonly string _topic;
         private readonly UTF8Encoding _encoding;
@@ -42,8 +42,8 @@ namespace Experimot.Kinect.Perception
         {
             if (_ctx == null)
             {
-                _ctx = new Context(1);
-                _socket = _ctx.Socket(SocketType.PUB);
+                _ctx = NetMQContext.Create();
+                _socket = _ctx.CreatePublisherSocket();
                 var address = string.Format("{0}:{1}", _host, _port);
                 _socket.Bind(address);
             }
@@ -158,11 +158,14 @@ namespace Experimot.Kinect.Perception
         {
             if (kbodies != null && kbodies.Body.Count > 0 && _socket != null)
             {
-                _socket.SendMore(_topic, _encoding);
+                //_socket.SendMore(new ZFrame(_topic));
+                _socket.SendMore(_topic);
+                //_socket.SendMore(_topic, _encoding);
                 using (var ms = new MemoryStream())
                 {
                     Serializer.Serialize(ms, kbodies);
                     _socket.Send(ms.GetBuffer());
+                    //_socket.Send(new ZFrame(ms.GetBuffer()));
                 }
             }
 
