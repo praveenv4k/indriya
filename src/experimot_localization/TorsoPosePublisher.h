@@ -15,6 +15,7 @@ public:
 		std::stringstream ss;
 		ss << protocol << "://" << ip << ":" << port;
 		m_strAddr = ss.str();
+		m_bInit = false;
 		_init();
 	}
 
@@ -22,6 +23,7 @@ public:
 		std::stringstream ss;
 		ss << host << ":" << port;
 		m_strAddr = ss.str();
+		m_bInit = false;
 		_init();
 	}
 
@@ -33,15 +35,17 @@ public:
 
 	void Publish(Transform& torsoTransform){
 		try{
-			experimot::msgs::Pose pose;
-			TransformationHelper::RaveToProto(torsoTransform, pose);
-			std::string str;
-			pose.SerializeToString(&str);
-			//pose.PrintDebugString();
-			//std::cout << "Mat:  " << TransformMatrix(torsoTransform) << std::endl;
-			//std::cout << "Publishing : ( " << pose.position().x() << ", " << pose.position().y() << ", " << pose.position().z() << " )" << std::endl;
-			if (s_sendmore(*m_pSocket, m_strPublisherId)){
-				s_send(*m_pSocket, str);
+			if (m_pSocket != 0 && m_pSocket->connected()){
+				experimot::msgs::Pose pose;
+				TransformationHelper::RaveToProto(torsoTransform, pose);
+				std::string str;
+				pose.SerializeToString(&str);
+				//pose.PrintDebugString();
+				//std::cout << "Mat:  " << TransformMatrix(torsoTransform) << std::endl;
+				//std::cout << "Publishing : ( " << pose.position().x() << ", " << pose.position().y() << ", " << pose.position().z() << " )" << std::endl;
+				if (s_sendmore(*m_pSocket, m_strPublisherId)){
+					s_send(*m_pSocket, str);
+				}
 			}
 		}
 		catch (std::exception& ex){
@@ -59,6 +63,7 @@ private:
 			int to = m_nTimeOut;
 			m_pSocket->setsockopt(ZMQ_SNDTIMEO, &to, sizeof(to));
 			m_bInit = true;
+			Sleep(100);
 		}
 	}
 

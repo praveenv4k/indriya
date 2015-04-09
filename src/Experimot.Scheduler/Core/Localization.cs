@@ -60,6 +60,7 @@ namespace Experimot.Scheduler.Core
         }
 
         //[ExpandableObject]
+        [Browsable(false)]
         public ConcurrentQueue<Pose> RecentPose
         {
             get { return _recentPoses; }

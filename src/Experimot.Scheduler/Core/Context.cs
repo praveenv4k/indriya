@@ -14,13 +14,15 @@ namespace Experimot.Scheduler.Core
     public class Context : INotifyPropertyChanged
     {
         private Robot _robot;
-        private readonly IDictionary<int, Human> _humans;
+        //private readonly IDictionary<int, Human> _humans;
+        private readonly IList<Human> _humans;
         private readonly IDictionary<string, ManipulatableObject> _objects;
         private readonly object _object = new object();
 
         public Context()
         {
-            _humans = new ConcurrentDictionary<int, Human>();
+            //_humans = new ConcurrentDictionary<int, Human>();
+            _humans = new List<Human>();
             _robot = new Robot();
             _objects = new ConcurrentDictionary<string, ManipulatableObject>();
         }
@@ -45,7 +47,7 @@ namespace Experimot.Scheduler.Core
 
         [ExpandableObject]
         //[Xceed.Wpf.Toolkit.PropertyGrid.Attributes.ItemsSource(typeof(Human))]
-        public IEnumerable Humans
+        public IList<Human> Humans
         {
             get { return _humans; }
         }
@@ -81,11 +83,39 @@ namespace Experimot.Scheduler.Core
             }
         }
 
+        //public void Update(KinectBodies kinectBodies)
+        //{
+        //    lock (_object)
+        //    {
+        //        IEnumerable<int> keys = _humans.Keys;
+        //        var bodyIds = kinectBodies.Body.Select(s => s.TrackingId).ToList();
+
+        //        // Remove those humans that dont exist in the list of kinect bodies anymore
+        //        foreach (var key in keys)
+        //        {
+        //            if (!bodyIds.Contains(key))
+        //            {
+        //                _humans.Remove(key);
+        //            }
+        //        }
+
+        //        foreach (var kinectBody in kinectBodies.Body)
+        //        {
+        //            if (!_humans.ContainsKey(kinectBody.TrackingId))
+        //            {
+        //                _humans.Add(kinectBody.TrackingId, new Human());
+        //            }
+        //            _humans[kinectBody.TrackingId].Body = kinectBody;
+        //            Console.WriteLine(@"Human info updated : {0}", kinectBody.TrackingId);
+        //        }
+        //    }
+        //}
+
         public void Update(KinectBodies kinectBodies)
         {
             lock (_object)
             {
-                IEnumerable<int> keys = _humans.Keys;
+                var keys = _humans.Select(s => s.Body.TrackingId).ToList();
                 var bodyIds = kinectBodies.Body.Select(s => s.TrackingId).ToList();
 
                 // Remove those humans that dont exist in the list of kinect bodies anymore
@@ -93,18 +123,32 @@ namespace Experimot.Scheduler.Core
                 {
                     if (!bodyIds.Contains(key))
                     {
-                        _humans.Remove(key);
+                        var item = _humans.FirstOrDefault(s => s.Body.TrackingId == key);
+                        if (item != null)
+                        {
+                            _humans.Remove(item);
+                        }
                     }
                 }
 
                 foreach (var kinectBody in kinectBodies.Body)
                 {
-                    if (!_humans.ContainsKey(kinectBody.TrackingId))
+                    var item = _humans.FirstOrDefault(s => s.Body.TrackingId == kinectBody.TrackingId);
+                    if (item == null)
                     {
-                        _humans.Add(kinectBody.TrackingId, new Human());
+                        _humans.Add(new Human()
+                        {
+                            Body = kinectBody,
+                            Gesture = new Gesture(),
+                            Id = kinectBody.TrackingId.ToString()
+                        });
                     }
-                    _humans[kinectBody.TrackingId].Body = kinectBody;
-                    Console.WriteLine("Human info updated : {0}", kinectBody.TrackingId);
+                    else
+                    {
+                        item.Body = kinectBody;
+                    }
+                    //_humans[kinectBody.TrackingId].Body = kinectBody;
+                    //Console.WriteLine(@"Human info updated : {0}", kinectBody.TrackingId);
                 }
             }
         }

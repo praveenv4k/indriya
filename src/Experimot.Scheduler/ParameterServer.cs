@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Windows.Threading;
 using Common.Logging;
 using NetMQ;
 using NetMQ.zmq;
@@ -16,9 +15,8 @@ namespace Experimot.Scheduler
         private NetMQContext _ctx;
         private NetMQSocket _socket;
         private bool _disposed;
-        private readonly ILog Log = LogManager.GetLogger(typeof (ParameterServer));
+        private readonly ILog _log = LogManager.GetLogger(typeof (ParameterServer));
 
-        //private DispatcherTimer _timer;
         private const int RecvTimeout = 100;
 
         private bool _startup;
@@ -34,9 +32,6 @@ namespace Experimot.Scheduler
             {
                 InitZmq(ParameterUtil.Get(_config.parameters, "ParameterServerHost", "tcp://*"),
                     ParameterUtil.Get(_config.parameters, "ParameterServerPort", 5560));
-
-                //InitTimer(ParameterUtil.Get(_config.parameters, "ParameterServerInterval", 50));
-
                 _startup = true;
             }
         }
@@ -58,7 +53,7 @@ namespace Experimot.Scheduler
                     var req = _socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
                     if (!string.IsNullOrEmpty(req))
                     {
-                        Console.WriteLine("Received request from {0}", req);
+                        Console.WriteLine(@"Received request from {0}", req);
                         var nodeExist = _config.nodes.FirstOrDefault(s => s.name == req);
                         if (nodeExist != null)
                         {
@@ -85,19 +80,14 @@ namespace Experimot.Scheduler
                     // If not timeout
                     if (zex.ErrorCode != ErrorCode.EAGAIN)
                     {
-                        Log.ErrorFormat("ZMQ Exception: {0}", zex.Message);
+                        _log.ErrorFormat(@"ZMQ Exception: {0}", zex.Message);
                     }
                 }
                 catch (Exception ex)
                 {
-                    Log.Error(ex.Message);
+                    _log.Error(ex.Message);
                 }
             }
-        }
-
-        private void TimerTick(object sender, EventArgs e)
-        {
-            Run();
         }
 
         private void InitZmq(string host, int port)
@@ -108,7 +98,7 @@ namespace Experimot.Scheduler
                 _socket = _ctx.CreateResponseSocket();
                 var address = string.Format("{0}:{1}", host, port);
                 _socket.Bind(address);
-                Console.WriteLine("Parameter server running at: {0}", address);
+                Console.WriteLine(@"Parameter server running at: {0}", address);
             }
         }
 
