@@ -56,9 +56,21 @@
     <ClInclude Include="MarkerDetection2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TorsoPoseFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nonlinearanalyticconditionalgaussianodo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TorsoPoseFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="nonlinearanalyticconditionalgaussianodo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

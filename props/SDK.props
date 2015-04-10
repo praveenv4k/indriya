@@ -44,17 +44,31 @@
     <ALVAR_BIN_DIR>$(ALVAR_ROOT)\bin</ALVAR_BIN_DIR>
     <ALVAR_DEBUG_LIBS>alvar200d.lib</ALVAR_DEBUG_LIBS>
     <ALVAR_RELEASE_LIBS>alvar200.lib</ALVAR_RELEASE_LIBS>
+	<!-- Bayesian Filter Library -->
+	<BFL_ROOT>$(DEV_SDK_ROOT)\msvc_orocos_bfl</BFL_ROOT>
+    <BFL_INCLUDE>$(BFL_ROOT)\include</BFL_INCLUDE>
+    <BFL_LIB_DIR>$(BFL_ROOT)\lib</BFL_LIB_DIR>
+    <BFL_BIN_DIR>$(BFL_ROOT)\bin</BFL_BIN_DIR>
+    <BFL_DEBUG_LIBS>orocos-bfl.lib</BFL_DEBUG_LIBS>
+    <BFL_RELEASE_LIBS>orocos-bfl.lib</BFL_RELEASE_LIBS>
+	<!-- Bullet Physics Library -->
+	<BULLET_ROOT>$(DEV_SDK_ROOT)\msvc_bullet</BULLET_ROOT>
+    <BULLET_INCLUDE>$(BULLET_ROOT)\include</BULLET_INCLUDE>
+    <BULLET_LIB_DIR>$(BULLET_ROOT)\lib</BULLET_LIB_DIR>
+    <BULLET_BIN_DIR>$(BULLET_ROOT)\bin</BULLET_BIN_DIR>
+    <BULLET_DEBUG_LIBS></BULLET_DEBUG_LIBS>
+    <BULLET_RELEASE_LIBS></BULLET_RELEASE_LIBS>
   </PropertyGroup>
   <!-- Debug|Win32 -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(ALVAR_INCLUDE);$(PROTOBUF_INCLUDE);$(BOOST_INCLUDE);$(OPENRAVE_INCLUDE);$(ZEROMQ_INCLUDE);$(AZMQ_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(BULLET_INCLUDE);$(ALVAR_INCLUDE);$(PROTOBUF_INCLUDE);$(BOOST_INCLUDE);$(OPENRAVE_INCLUDE);$(ZEROMQ_INCLUDE);$(AZMQ_INCLUDE);$(BFL_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(ALVAR_LIB_DIR);$(PROTOBUF_DEBUG_LIB_DIR);$(BOOST_LIB_DIR);$(OPENRAVE_LIB_DIR);$(ZEROMQ_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(ALVAR_DEBUG_LIBS);$(PROTOBUF_LIBS);$(BOOST_DEBUG_LIBS);$(OPENRAVE_DEBUG_LIBS);$(ZEROMQ_DEBUG_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(BFL_LIB_DIR);$(ALVAR_LIB_DIR);$(PROTOBUF_DEBUG_LIB_DIR);$(BOOST_LIB_DIR);$(OPENRAVE_LIB_DIR);$(ZEROMQ_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(BFL_DEBUG_LIBS);$(ALVAR_DEBUG_LIBS);$(PROTOBUF_LIBS);$(BOOST_DEBUG_LIBS);$(OPENRAVE_DEBUG_LIBS);$(ZEROMQ_DEBUG_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <!-- Release|Win32 -->
@@ -68,11 +82,11 @@
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(ALVAR_INCLUDE);$(PROTOBUF_INCLUDE);$(BOOST_INCLUDE);$(OPENRAVE_INCLUDE);$(ZEROMQ_INCLUDE);$(AZMQ_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(BULLET_INCLUDE);$(ALVAR_INCLUDE);$(PROTOBUF_INCLUDE);$(BOOST_INCLUDE);$(OPENRAVE_INCLUDE);$(ZEROMQ_INCLUDE);$(AZMQ_INCLUDE);$(BFL_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(ALVAR_LIB_DIR);$(PROTOBUF_RELEASE_LIB_DIR);$(BOOST_LIB_DIR);$(OPENRAVE_LIB_DIR);$(ZEROMQ_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(ALVAR_RELEASE_LIBS);$(PROTOBUF_LIBS);$(BOOST_RELEASE_LIBS);$(OPENRAVE_RELEASE_LIBS);$(ZEROMQ_RELEASE_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(BFL_LIB_DIR);$(ALVAR_LIB_DIR);$(PROTOBUF_RELEASE_LIB_DIR);$(BOOST_LIB_DIR);$(OPENRAVE_LIB_DIR);$(ZEROMQ_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(BFL_DEBUG_LIBS);$(ALVAR_RELEASE_LIBS);$(PROTOBUF_LIBS);$(BOOST_RELEASE_LIBS);$(OPENRAVE_RELEASE_LIBS);$(ZEROMQ_RELEASE_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
 </Project>
