@@ -15,6 +15,8 @@
 
 #include "experimot\common\ParameterHelper.h"
 
+#include "TorsoPoseFilter.h"
+
 #define COMM_PROTOCOL		"tcp"
 #define COMM_SUBIPADDRESS	"127.0.0.1"
 #define COMM_SUBPORT		5563
@@ -151,8 +153,16 @@ public:
 
 					m_pRobotPoseInfoPtr->SetMarkerTransform(out);
 
+#if 0
+					m_poseFilter.addMeasurement(out);
+
+					m_poseFilter.update(boost::posix_time::microsec_clock::local_time());
 					//TransformMatrix mat(out);
 					//std::cout << mat << std::endl;
+					if (!m_poseFilter.isInitialized()){
+						m_poseFilter.initialize(out, boost::posix_time::microsec_clock::local_time());
+					}
+#endif
 				}
 				if (m_bVisualize){
 					cv::Mat temp(img);
@@ -214,10 +224,19 @@ public:
 				Transform torsoTfm;
 				TransformationHelper::ComputeTorsoFrame(markerTfm, eef, torsoTfm);
 
+				Transform filterTfm;
+				m_poseFilter.getEstimate(filterTfm);
+
+#if 1
 				cout << "*********************************************" << std::endl;
 				cout << "End Effector w.r.t Torso   : " << eef << std::endl;
 				cout << "Camera w.r.t Top Marker    : " << markerTfm << std::endl;
 				cout << "Camera w.r.t Torso         : " << torsoTfm << std::endl << std::endl;
+#else
+				cout << "*********************************************" << std::endl;
+				cout << "Actual marker Transform      : " << markerTfm << std::endl;
+				cout << "Filtered marker Transform    : " << filterTfm << std::endl;
+#endif
 				/*torsoTfm = torsoTfm.inverse();
 				cout << "Torso w.r.t Camera         : " << torsoTfm << std::endl << std::endl;*/
 #else 
@@ -244,6 +263,8 @@ private:
 		m_SensorTimer.async_wait(strand_.wrap(boost::bind(&Localization::SensorDataProcess, this)));
 		m_RobotTimer.async_wait(strand_.wrap(boost::bind(&Localization::JointDataReceive, this)));
 		m_PoseTimer.async_wait(strand_.wrap(boost::bind(&Localization::PublishTransform, this)));
+
+		//m_poseFilter.initialize(Transform(), PosixTime(boost::posix_time::microsec_clock::local_time()));
 	}
 private:
 	boost::asio::strand strand_;
@@ -261,6 +282,7 @@ private:
 	MarkerDetectionPtr m_pMarkerDetectionPtr;
 	RobotPoseInfoPtr m_pRobotPoseInfoPtr;
 	KinectVideoCapture m_VideoCapture;
+	TorsoPoseFilter m_poseFilter;
 };
 
 #endif
