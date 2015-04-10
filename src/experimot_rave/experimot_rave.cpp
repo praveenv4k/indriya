@@ -50,6 +50,8 @@
 #include <experimot\common\ParameterClient.h>
 #include <experimot\common\ParameterHelper.h>
 
+#include <bullet\Bullet3Common\b3Matrix3x3.h>
+
 boost::atomic<bool> done(false);
 
 using namespace OpenRAVE;
@@ -62,6 +64,23 @@ using namespace boost;
 typedef boost::shared_ptr<zmq::context_t> ZmqContextPtr;
 typedef boost::shared_ptr<zmq::socket_t> ZmqSocketPtr;
 typedef boost::shared_ptr<zmq::message_t> ZmqMessagePtr;
+
+// decompose Transform into x,y,z,Rx,Ry,Rz
+void decomposeTransform(const OpenRAVE::Transform& trans, double&Rx, double& Ry, double& Rz){
+	Vector quat = trans.rot;
+	b3Quaternion b3quat(quat[1], quat[2], quat[3], quat[0]);
+	b3Matrix3x3 b3Mat(b3quat);
+	float roll, pitch, yaw;
+	b3Mat.getEulerYPR(yaw, pitch, roll);
+	Rx = roll; Ry = pitch; Rz = yaw;
+}
+
+void composeTransform(double rx, double ry, double rz, Vector& rot){
+	b3Quaternion q;
+	q.setEulerZYX(rz, ry, rx);
+
+	rot = Vector(q.w, q.x, q.y, q.z);
+}
 
 void SetViewer(EnvironmentBasePtr penv, const string& viewername)
 {
@@ -290,12 +309,16 @@ public:
 #else
 							Transform tfm_x(geometry::quatFromAxisAngle(rot_x, OpenRAVE::PI), Vector());
 
+							double roll, pitch, yaw;
+							decomposeTransform(tfm, roll, pitch, yaw);
+							composeTransform(-roll, pitch, -yaw, tfm.rot);
+
 							Vector trans = tfm.trans;
 							trans.z = tfm.trans.z;
 							trans.y = -tfm.trans.y;
 							trans.x = tfm.trans.x;
+							//tfm = tfm.rotate(tfm_x);
 
-							tfm = tfm.rotate(tfm_x);
 							tfm.trans = trans;
 #endif
 #else

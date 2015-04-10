@@ -80,7 +80,8 @@ public:
 			int factor = -1;
 			Transform tf2(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2)), Vector(0, (double)m_nCubeSize / 2, -(double)m_nCubeSize / 2));
 			if (it->first == TOP_MARKER_ID){
-				tfs.push_back(tf*m_MarkerTransformMapping[it->first]);
+				//tfs.push_back(tf*m_MarkerTransformMapping[it->first]); // 20150410
+				tfs.push_back(tf);
 			}
 			else{
 				tfs.push_back(tf*tf2*m_MarkerTransformMapping[it->first]);
@@ -112,7 +113,8 @@ public:
 		std::vector<Transform> tfs;
 		FOREACH(it, poseMap){
 			if (it->first == TOP_MARKER_ID){
-				tfs.push_back(it->second*m_MarkerTransformMapping[it->first]);
+				//tfs.push_back(it->second*m_MarkerTransformMapping[it->first]); // 20150410
+				tfs.push_back(it->second);
 			}
 			else{
 				int factor = -1;
