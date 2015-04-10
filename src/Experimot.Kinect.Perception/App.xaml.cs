@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using CommandLine;
 using Common.Logging;
@@ -9,6 +11,7 @@ using ProtoBuf;
 using NetMQ;
 using NetMQ.zmq;
 using Exception = System.Exception;
+using Poller = NetMQ.Poller;
 
 namespace Experimot.Kinect.Perception
 {
@@ -30,9 +33,12 @@ namespace Experimot.Kinect.Perception
             try
             {
                 var args = e.Args;
-                var options = new CommandLineOptions();
-                Parser.Default.ParseArguments(args, options);
-                info = GetNodeInfo(options.Name, options.ParameterServer);
+                if (args.Length > 0)
+                {
+                    var options = new CommandLineOptions();
+                    Parser.Default.ParseArguments(args, options);
+                    info = GetNodeInfo(options.Name, options.ParameterServer);
+                }
             }
             catch (Exception ex)
             {
@@ -58,16 +64,8 @@ namespace Experimot.Kinect.Perception
                     using (var socket = context.CreateRequestSocket())
                     {
                         socket.Connect(server);
-                        //socket.ReceiveTimeout = new TimeSpan(0, 0, 0, 0, timeout);
-                        //socket.Send(new ZFrame(name));
                         socket.Send(name);
-                        //socket.Receive
-                        //using (var msg = socket.ReceiveFrame())
-                        //{
-                        //    var nodeInfo = Serializer.Deserialize<Node>(msg);
-                        //    MessageBox.Show(string.Format("Received node info!"));
-                        //    return nodeInfo;
-                        //}
+
                         var msg = socket.ReceiveMessage(new TimeSpan(0, 0, 0, 0, timeout));
                         if (msg != null)
                         {
@@ -87,8 +85,7 @@ namespace Experimot.Kinect.Perception
                         }
                         else
                         {
-                            //MessageBox.Show(string.Format("Message buffer empty!"));
-                            //Console.WriteLine("Message buffer empty!");
+                            Console.WriteLine("Message buffer empty!");
                         }
                     }
                 }
@@ -99,6 +96,55 @@ namespace Experimot.Kinect.Perception
                 //MessageBox.Show(ex.StackTrace,"Parameter retrieve");
             }
             return null;
+        }
+
+        private Node GetNodeInfo2(string name, string server, int timeout = 1000)
+        {
+            Node nodeInfo = null;
+            try
+            {
+                using (var context = NetMQ.NetMQContext.Create())
+                {
+                    using (var socket = context.CreateRequestSocket())
+                    using (var poller = new Poller())
+                    {
+                        socket.Connect(server);
+
+                        socket.ReceiveReady += (s, a) =>
+                        {
+                            var msg = a.Socket.ReceiveMessage();
+                            if (msg != null)
+                            {
+                                if (msg.FrameCount > 0)
+                                {
+                                    using (var memStream = new MemoryStream(msg.First.Buffer))
+                                    {
+                                        nodeInfo = Serializer.Deserialize<Node>(memStream);
+                                    }
+                                }
+                            }
+                            if (poller != null)
+                            {
+                                poller.RemoveSocket(a.Socket);
+                            }
+                        };
+                        //poller.PollTimeout = (int) timeout/1000;
+                        poller.AddSocket(socket);
+                        socket.Send(name);
+                        Task task = Task.Factory.StartNew(poller.Start);
+                        Thread.Sleep(timeout);
+                        poller.RemoveSocket(socket);
+                        poller.Stop();
+                        task.Wait();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("{1} : {0}", ex.StackTrace, ex.Message));
+                //MessageBox.Show(ex.StackTrace,"Parameter retrieve");
+            }
+            return nodeInfo;
         }
 
     }
