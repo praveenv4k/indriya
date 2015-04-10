@@ -83,34 +83,6 @@ namespace Experimot.Scheduler.Core
             }
         }
 
-        //public void Update(KinectBodies kinectBodies)
-        //{
-        //    lock (_object)
-        //    {
-        //        IEnumerable<int> keys = _humans.Keys;
-        //        var bodyIds = kinectBodies.Body.Select(s => s.TrackingId).ToList();
-
-        //        // Remove those humans that dont exist in the list of kinect bodies anymore
-        //        foreach (var key in keys)
-        //        {
-        //            if (!bodyIds.Contains(key))
-        //            {
-        //                _humans.Remove(key);
-        //            }
-        //        }
-
-        //        foreach (var kinectBody in kinectBodies.Body)
-        //        {
-        //            if (!_humans.ContainsKey(kinectBody.TrackingId))
-        //            {
-        //                _humans.Add(kinectBody.TrackingId, new Human());
-        //            }
-        //            _humans[kinectBody.TrackingId].Body = kinectBody;
-        //            Console.WriteLine(@"Human info updated : {0}", kinectBody.TrackingId);
-        //        }
-        //    }
-        //}
-
         public void Update(KinectBodies kinectBodies)
         {
             lock (_object)
