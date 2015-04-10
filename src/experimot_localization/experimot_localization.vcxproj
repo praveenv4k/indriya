@@ -91,6 +91,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="nonlinearanalyticconditionalgaussianodo.cpp" />
+    <ClCompile Include="TorsoPoseFilter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="camera_calibration_kinect_1600.xml">
@@ -98,6 +100,8 @@
     </Xml>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="nonlinearanalyticconditionalgaussianodo.h" />
+    <ClInclude Include="TorsoPoseFilter.h" />
     <ClInclude Include="Localization.h" />
     <ClInclude Include="MarkerDetection.h" />
     <ClInclude Include="MarkerDetection2.h" />
