@@ -80,13 +80,7 @@ public:
 			int factor = -1;
 			Transform tf2(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2)), Vector(0, (double)m_nCubeSize / 2, -(double)m_nCubeSize / 2));
 			if (it->first == TOP_MARKER_ID){
-				
-				/*Transform temp = tf.rotate(m_MarkerTransformMapping[it->first]);
-				temp.trans = tf.trans;
-				tfs.push_back(temp);*/
-				
 				tfs.push_back(tf*m_MarkerTransformMapping[it->first]);
-				
 			}
 			else{
 				tfs.push_back(tf*tf2*m_MarkerTransformMapping[it->first]);
@@ -117,14 +111,8 @@ public:
 	void TransformToTopFrame(std::map<int, Transform>& poseMap, Transform& outTf){
 		std::vector<Transform> tfs;
 		FOREACH(it, poseMap){
-			//Transform tf;
-			//TransformationHelper::PoseToTransform(it->second, tf);
 			if (it->first == TOP_MARKER_ID){
-				//tfs.push_back(it->second);
 				tfs.push_back(it->second*m_MarkerTransformMapping[it->first]);
-				/*Transform temp = it->second.rotate(m_MarkerTransformMapping[it->first]);
-				temp.trans = it->second.trans;
-				tfs.push_back(temp);*/
 			}
 			else{
 				int factor = -1;
@@ -132,15 +120,13 @@ public:
 				tfs.push_back(it->second*tf2*m_MarkerTransformMapping[it->first]);
 			}
 		}
-		//outTf.identity();
+		outTf.identity();
 		if (tfs.size()>0){
 			if (tfs.size() > 1){
 				//TODO Error based weighting of the rotation and translation
 				Transform tf1 = tfs[0];
 				Transform tf2 = tfs[1];
 				outTf.rot = geometry::quatSlerp(tf1.rot, tf2.rot, 0.5);
-				// For test
-				//outTf.rot = tf1.rot;
 				outTf.trans = 0.5*(tf1.trans + tf2.trans);
 			}
 			else{
