@@ -1,7 +1,5 @@
 #include "TorsoPoseFilter.h"
 
-//#define B3_FORCE_INLINE 1
-//#define B3_USE_DOUBLE_PRECISION
 #include <bullet\Bullet3Common\b3Matrix3x3.h>
 
 using namespace MatrixWrapper;
@@ -41,6 +39,17 @@ TorsoPoseFilter::~TorsoPoseFilter(){
 	delete sys_model_;
 }
 
+void PrintVector(ColumnVector vec){
+	for (int i = 0; i < vec.size(); i++){
+		std::cout << vec[i];
+		if (i < vec.size() - 1){
+			std::cout << " , ";
+		}
+	}
+	std::cout << std::endl;
+}
+
+
 /** update the extended Kalman filter **/
 bool TorsoPoseFilter::update(const PosixTime& filter_time){
 	// only update filter when it is initialized
@@ -69,12 +78,22 @@ bool TorsoPoseFilter::update(const PosixTime& filter_time){
 	// ----------------------
 	if (vo_initialized_){
 		// convert absolute vo measurements to relative vo measurements
-		Transform vo_rel_frame = filter_estimate_old_ * vo_meas_old_.inverse() * vo_meas_;
+		//Transform vo_rel_frame = filter_estimate_old_ * vo_meas_old_.inverse() * vo_meas_;
+		Transform vo_rel_frame = filter_estimate_old_.inverse() * vo_meas_;
 		ColumnVector vo_rel(6);
 		decomposeTransform(vo_rel_frame, vo_rel(1), vo_rel(2), vo_rel(3), vo_rel(4), vo_rel(5), vo_rel(6));
 		angleOverflowCorrect(vo_rel(6), filter_estimate_old_vec_(6));
+
+		std::cout << "Old Estimate Frame : " << filter_estimate_old_ << std::endl;
+		std::cout << "Old Measure Frame : " << vo_meas_old_ << std::endl;
+		std::cout << "Current Measure Frame : " << vo_meas_old_ << std::endl;
+		std::cout << "Rel Frame : " << vo_rel_frame << std::endl;
+		PrintVector(vo_rel);
+
+		SymmetricMatrix cov = vo_meas_model_->CovarianceGet(vel_desi, filter_->PostGet()->ExpectedValueGet());
 		// update filter
 		vo_meas_pdf_->AdditiveNoiseSigmaSet(vo_covariance_ * pow(dt, 2));
+		//filter_->Update(vo_meas_model_, vo_rel, filter_->PostGet()->ExpectedValueGet());
 		filter_->Update(vo_meas_model_, vo_rel);
 	}
 	else{
@@ -117,6 +136,7 @@ void TorsoPoseFilter::initialize(const OpenRAVE::Transform& prior, const PosixTi
 	}
 	prior_ = new Gaussian(prior_Mu, prior_Cov);
 	filter_ = new ExtendedKalmanFilter(prior_);
+	//filter_->AllocateMeasModel(6);
 
 	// remember prior
 	addMeasurement(prior);
