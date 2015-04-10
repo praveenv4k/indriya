@@ -78,11 +78,11 @@ public:
 	static void OpenGLToOpenRAVE(double* gl_mat, TransformMatrix& mat, bool transposed = true){
 		if (gl_mat != NULL){
 			if (transposed){
-				mat.rotfrommat(gl_mat[0], gl_mat[1], gl_mat[2], gl_mat[4], gl_mat[5], gl_mat[6], gl_mat[8], gl_mat[9], gl_mat[10]);
+				mat.rotfrommat(gl_mat[0], gl_mat[4], gl_mat[8], gl_mat[1], gl_mat[5], gl_mat[9], gl_mat[2], gl_mat[6], gl_mat[10]);
 				mat.trans = Vector(gl_mat[12], gl_mat[13], gl_mat[14]);
 			}
 			else{
-				mat.rotfrommat(gl_mat[0], gl_mat[4], gl_mat[8], gl_mat[1], gl_mat[5], gl_mat[9], gl_mat[2], gl_mat[6], gl_mat[10]);
+				mat.rotfrommat(gl_mat[0], gl_mat[1], gl_mat[2], gl_mat[4], gl_mat[5], gl_mat[6], gl_mat[8], gl_mat[9], gl_mat[10]);
 				mat.trans = Vector(gl_mat[3], gl_mat[7], gl_mat[11]);
 			}
 		}
