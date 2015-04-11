@@ -23,9 +23,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="experimot_jsocket.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="experimot_python_client.py" />
   </ItemGroup>
   <PropertyGroup>
