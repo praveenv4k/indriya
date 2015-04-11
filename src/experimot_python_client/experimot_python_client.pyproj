@@ -12,6 +12,7 @@
     <OutputPath>.</OutputPath>
     <Name>experimot_python_client</Name>
     <RootNamespace>experimot_python_client</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,6 +23,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="experimot_jsocket.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="experimot_python_client.py" />
   </ItemGroup>
   <PropertyGroup>
