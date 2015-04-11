@@ -52,12 +52,15 @@ def localization_client(ip,port,retryCount,retryInterval):
             data = {'req':'localization'}
             # Loop forever to retrieve the localization data
             while(1):
-                # send the request as Json object
-                s.send(json.dumps(data))
-                # Receive the response and parse into a json object
-                result = json.loads(s.recv(1024));
-                # Print the result (optional). Comment if not needed
-                print(result)
+                try:
+                    # send the request as Json object
+                    s.send(json.dumps(data))
+                    # Receive the response and parse into a json object
+                    result = json.loads(s.recv(1024));
+                    # Print the result (optional). Comment if not needed
+                    print(result)
+                except:
+                    print "Exception in received value: ", sys.exc_info()
                 # 20 ms sleep
                 time.sleep(0.02)
         
@@ -79,10 +82,10 @@ if __name__ == "__main__":
         thread.start_new_thread(localization_client,(ip,port,10,1));
         
         # emulate delay in starting of the server
-        time.sleep(5)
+        # time.sleep(5)
 
         # starting a test server to test the communication. need to be commented when working with real server
-        thread.start_new_thread(localization_server,(ip,port));
+        # thread.start_new_thread(localization_server,(ip,port));
 
     except:
         # printing on exception

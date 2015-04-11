@@ -76,6 +76,9 @@ int main(int argc, char *argv[])
 					std::cerr << desc << std::endl;
 					return 1;
 				}
+				catch (const std::exception &e) {
+					std::cout << "Exception: " << e.what() << endl;
+				}
 			}
 		}
 		boost::asio::io_service ios;

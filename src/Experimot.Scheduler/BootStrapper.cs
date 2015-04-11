@@ -99,7 +99,8 @@ namespace Experimot.Scheduler
                                 int port = ParameterUtil.Get(_config.parameters, "ParameterServerPort",
                                     5560);
 
-                                args = string.Format("--name={0} --param={1}:{2}", node.name, paramServer, port);
+                                args = string.Format("{3} --name={0} --param={1}:{2}", node.name, paramServer, port,
+                                    Environment.ExpandEnvironmentVariables(node.process.args));
 
                                 var workingDir = Path.GetDirectoryName(exeFile);
                                 var myProcess = new Process
@@ -114,7 +115,7 @@ namespace Experimot.Scheduler
                                     }
                                 };
                                 myProcess.Start();
-                                Log.InfoFormat("Started Process : {0}", exeFile);
+                                Log.InfoFormat("Started Process : {0} {1}", exeFile, args);
                                 _processes.Add(myProcess);
                                 myProcess.Exited += myProcess_Exited;
                                 Thread.Sleep(200);
