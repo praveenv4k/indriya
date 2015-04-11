@@ -13,6 +13,7 @@
     <Name>experimot_python_client</Name>
     <RootNamespace>experimot_python_client</RootNamespace>
     <IsWindowsApplication>False</IsWindowsApplication>
+    <PublishUrl>C:\Work\Develop\sdk_2013\experimot\scripts\experimot_python_client</PublishUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
