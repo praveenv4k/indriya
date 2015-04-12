@@ -124,7 +124,7 @@
       <process>
         <type>executable</type>
         <path>python.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_python_client.py</args>
+        <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_zmq_client.py</args>
       </process>
     </node>
   </nodes>

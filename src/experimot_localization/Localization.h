@@ -34,7 +34,7 @@
 
 #define TDM_ADDRESS			"tcp://*"
 #define TDM_PORT			5700
-#define TDM_TIMEOUT			40
+#define TDM_TIMEOUT			100
 
 class Localization;
 
@@ -241,10 +241,12 @@ public:
 				//m_poseFilter.getEstimate(filterTfm);
 
 #if 1
+#if 0
 				cout << "*********************************************" << std::endl;
 				cout << "End Effector w.r.t Torso   : " << eef << std::endl;
 				cout << "Camera w.r.t Top Marker    : " << markerTfm << std::endl;
 				cout << "Camera w.r.t Torso         : " << torsoTfm << std::endl << std::endl;
+#endif
 #else
 				cout << "*********************************************" << std::endl;
 				cout << "Actual marker Transform      : " << markerTfm << std::endl;
@@ -292,7 +294,7 @@ public:
 
 				//Transform filterTfm;
 				//m_poseFilter.getEstimate(filterTfm);
-
+				//std::cout << "Responding to localization request" << std::endl;
 				m_pLocalizationResponderPtr->Respond(torsoTfm);
 			}
 		}

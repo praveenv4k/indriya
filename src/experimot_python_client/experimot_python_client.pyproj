@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>ed9454de-9ac1-4e5d-93a2-9abf5d6abc55</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>experimot_python_client.py</StartupFile>
+    <StartupFile>experimot_zmq_client.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -25,6 +25,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="experimot_python_client.py" />
+    <Compile Include="experimot_zmq_client.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
