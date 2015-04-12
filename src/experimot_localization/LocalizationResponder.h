@@ -28,9 +28,13 @@ public:
 	void Respond(Transform& torsoTransform){
 		try{
 			if (m_pSocket != 0 && m_pSocket->connected()){
+				//std::cout << "Receiving request : " << std::endl;
 				zmq::message_t msg;
 				if (m_pSocket->recv(&msg)){
-					std::string str("{\"x\":\"100\"}");
+					std::string req(static_cast<char*>(msg.data()), msg.size());
+					//std::cout << "Received request : " << req << std::endl;
+					std::string str;
+					toJson(torsoTransform, str);
 					s_send(*m_pSocket, str);
 				}
 			}
@@ -51,6 +55,13 @@ private:
 			m_pSocket->setsockopt(ZMQ_RCVTIMEO, &to, sizeof(to));
 			m_bInit = true;
 		}
+	}
+
+	void toJson(const Transform& tfm, string& str){
+		stringstream ss;
+		ss << "{ \"pos\" : {\"x\":" << tfm.trans.x << ", \"y\" :" << tfm.trans.y << ", \"z\" :" << tfm.trans.z << "}, \"orient\" : {\"w\":"
+			<< tfm.rot[0] << ", \"x\":" << tfm.trans.x << ", \"y\" :" << tfm.trans.y << ", \"z\" :" << tfm.trans.z << "} }";
+		str = ss.str();
 	}
 
 private:

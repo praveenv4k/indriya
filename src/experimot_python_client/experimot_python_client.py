@@ -1,3 +1,5 @@
+__author__ = 'Praveenkumar VASUDEVAN'
+
 import socket
 import json
 import sys
@@ -42,10 +44,13 @@ def localization_client(ip,port,retryCount,retryInterval):
             try:
                 s.connect((ip,port))
                 connected = 1
+                print "Connected ...."
                 break
             except:
                 print "Exception while connecting to server: ", sys.exc_info()
             time.sleep(retryInterval)
+
+        time.sleep(5);
 
         if (connected == 1):
             # Localization data request format
@@ -53,16 +58,20 @@ def localization_client(ip,port,retryCount,retryInterval):
             # Loop forever to retrieve the localization data
             while(1):
                 try:
+                    print "Requesting data ..."
                     # send the request as Json object
                     s.send(json.dumps(data))
+                    
                     # Receive the response and parse into a json object
-                    result = json.loads(s.recv(1024));
+                    #result = json.loads(s.recv(1024));
+                    result = s.recv(1024);
+                    
                     # Print the result (optional). Comment if not needed
                     print(result)
                 except:
                     print "Exception in received value: ", sys.exc_info()
-                # 20 ms sleep
-                time.sleep(0.02)
+                # 200 ms sleep
+                time.sleep(0.2)
         
             # close the socket
             s.close()
@@ -73,7 +82,7 @@ def localization_client(ip,port,retryCount,retryInterval):
 # main function
 if __name__ == "__main__":
     # port
-    port = 5560
+    port = 5700
     # ip address
     ip = "localhost"
 
