@@ -50,8 +50,6 @@
 #include <experimot\common\ParameterClient.h>
 #include <experimot\common\ParameterHelper.h>
 
-#include <bullet\Bullet3Common\b3Matrix3x3.h>
-
 boost::atomic<bool> done(false);
 
 using namespace OpenRAVE;
@@ -65,22 +63,7 @@ typedef boost::shared_ptr<zmq::context_t> ZmqContextPtr;
 typedef boost::shared_ptr<zmq::socket_t> ZmqSocketPtr;
 typedef boost::shared_ptr<zmq::message_t> ZmqMessagePtr;
 
-// decompose Transform into x,y,z,Rx,Ry,Rz
-void decomposeTransform(const OpenRAVE::Transform& trans, double&Rx, double& Ry, double& Rz){
-	Vector quat = trans.rot;
-	b3Quaternion b3quat(quat[1], quat[2], quat[3], quat[0]);
-	b3Matrix3x3 b3Mat(b3quat);
-	float roll, pitch, yaw;
-	b3Mat.getEulerYPR(yaw, pitch, roll);
-	Rx = roll; Ry = pitch; Rz = yaw;
-}
 
-void composeTransform(double rx, double ry, double rz, Vector& rot){
-	b3Quaternion q;
-	q.setEulerZYX(rz, ry, rx);
-
-	rot = Vector(q.w, q.x, q.y, q.z);
-}
 
 void SetViewer(EnvironmentBasePtr penv, const string& viewername)
 {
@@ -267,94 +250,7 @@ public:
 						EnvironmentMutex::scoped_lock lock(penv->GetMutex());
 						RobotBasePtr probot = orMacroGetRobot(penv, 1);
 						if (probot){
-#if 0
 							probot->SetTransform(tfm);
-#else
-#if 0
-							Transform temp(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), OpenRAVE::PI), Vector());
-							Transform temp2 = tfm*temp;
-							probot->SetTransform(temp2);
-#else
-							Vector rot_z(0, 0, 1);
-							Vector rot_x(1, 0, 0);
-							Vector rot_y(0, 1, 0);
-
-							//Transform temp2(geometry::quatFromAxisAngle(rot_z, -OpenRAVE::PI/2), Vector());
-							
-							/*Transform temp(geometry::quatFromAxisAngle(rot_y, OpenRAVE::PI), Vector());
-
-							tfm = tfm*temp*tfm.inverse();*/
-
-#if 1
-							//TransformMatrix frame;
-							//frame.rotfrommat(0, 0, -1, 0, 1, 0, 1, 0, 0);
-							//frame.rotfrommat(0, 0, -1, -1, 0, 0, 0, 1, 0);
-
-							
-							//tfm = frame * tfm;
-							
-							//Transform tfm_z(geometry::quatFromAxisAngle(rot_z, OpenRAVE::PI),Vector());
-
-							// Modified on 2015/04/04
-#if 0
-							Transform tfm_x(geometry::quatFromAxisAngle(rot_z, OpenRAVE::PI), Vector());
-
-							Vector trans = tfm.trans;
-							trans.z = tfm.trans.z;
-							trans.y = tfm.trans.y;
-							trans.x = tfm.trans.x;
-
-							tfm = tfm.rotate(tfm_x);
-							tfm.trans = trans;
-#else
-							Transform tfm_x(geometry::quatFromAxisAngle(rot_x, OpenRAVE::PI), Vector());
-
-							double roll, pitch, yaw;
-							decomposeTransform(tfm, roll, pitch, yaw);
-							composeTransform(-roll, pitch, -yaw, tfm.rot);
-
-							Vector trans = tfm.trans;
-							trans.z = tfm.trans.z;
-							trans.y = -tfm.trans.y;
-							trans.x = tfm.trans.x;
-							//tfm = tfm.rotate(tfm_x);
-
-							tfm.trans = trans;
-#endif
-#else
-#if 0
-							Vector orig = tfm.trans;
-							Vector trans = tfm.trans;
-							trans.z = tfm.trans.x;
-							trans.y = -tfm.trans.z;
-							trans.x = tfm.trans.y;
-							//tfm.trans = trans;
-
-							/*TransformMatrix tmat = geometry::matrixFromQuat(tfm.rot);
-							TransformMatrix omat;
-							omat.rotfrommat(tmat.m[1], tmat.m[5], tmat.m[9],
-								tmat.m[2], tmat.m[6], tmat.m[10],
-								tmat.m[0], tmat.m[4], tmat.m[8]);
-							tfm.rot = geometry::quatFromMatrix(omat);*/
-							
-							Transform negTrans(Vector(1, 0, 0, 0), Vector(-tfm.trans.x, -tfm.trans.y, -tfm.trans.z));
-							Transform temp2(geometry::quatFromAxisAngle(rot_x, OpenRAVE::PI/2), Vector());
-							Transform temp(geometry::quatFromAxisAngle(rot_y, -OpenRAVE::PI/2), Vector());
-							Transform tfm_z(geometry::quatFromAxisAngle(rot_z, OpenRAVE::PI), Vector());
-							Transform posTrans(Vector(1,0,0,0), tfm.trans);
-							//tfm = tfm*negTrans;
-							tfm.trans = Vector(0, 0, 0);
-							tfm = tfm* tfm_z;
-							tfm.trans = trans;
-#endif
-#endif
-							TransformMatrix mat(tfm);
-							std::cout << mat << std::endl;
-							//std::cout << tfm.rotate(orig) << std::endl;
-
-							probot->SetTransform(tfm);
-#endif
-#endif
 						}
 					}
 				}

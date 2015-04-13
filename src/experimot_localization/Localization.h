@@ -17,6 +17,7 @@
 #include "experimot\common\ParameterHelper.h"
 
 #include "TorsoPoseFilter.h"
+#include <bullet\Bullet3Common\b3Matrix3x3.h>
 
 #define COMM_PROTOCOL		"tcp"
 #define COMM_SUBIPADDRESS	"127.0.0.1"
@@ -111,6 +112,37 @@ public:
 
 	~Localization()
 	{
+	}
+
+	// decompose Transform into x,y,z,Rx,Ry,Rz
+	void decomposeTransform(const OpenRAVE::Transform& trans, double&Rx, double& Ry, double& Rz){
+		Vector quat = trans.rot;
+		b3Quaternion b3quat(quat[1], quat[2], quat[3], quat[0]);
+		b3Matrix3x3 b3Mat(b3quat);
+		float roll, pitch, yaw;
+		b3Mat.getEulerYPR(yaw, pitch, roll);
+		Rx = roll; Ry = pitch; Rz = yaw;
+	}
+
+	void composeTransform(double rx, double ry, double rz, Vector& rot){
+		b3Quaternion q;
+		q.setEulerZYX(rz, ry, rx);
+
+		rot = Vector(q.w, q.x, q.y, q.z);
+	}
+
+	void ToKinectFrame(const Transform& alvar, Transform& kinect){
+		double roll, pitch, yaw;
+		decomposeTransform(alvar, roll, pitch, yaw);
+		composeTransform(-roll, pitch, -yaw, kinect.rot);
+
+		Vector trans = alvar.trans;
+		trans.z = alvar.trans.z;
+		trans.y = -alvar.trans.y;
+		trans.x = alvar.trans.x;
+		//tfm = tfm.rotate(tfm_x);
+
+		kinect.trans = trans;
 	}
 
 	void ConvertToRightHandFrame(const Transform& in, Transform& out){
@@ -259,8 +291,9 @@ public:
 				Transform torsoTfm;
 				NaoHeadTransformHelper::instance()->GetTorsoTransform(headJoints, markerTfm, torsoTfm);
 #endif
-
-				m_pTorsoPosePublisherPtr->Publish(torsoTfm);
+				Transform kinectTfm;
+				ToKinectFrame(torsoTfm, kinectTfm);
+				m_pTorsoPosePublisherPtr->Publish(kinectTfm);
 			}
 		}
 		m_PoseTimer.async_wait(strand_.wrap(boost::bind(&Localization::PublishTransform, this)));
@@ -295,7 +328,10 @@ public:
 				//Transform filterTfm;
 				//m_poseFilter.getEstimate(filterTfm);
 				//std::cout << "Responding to localization request" << std::endl;
-				m_pLocalizationResponderPtr->Respond(torsoTfm);
+				//m_pLocalizationResponderPtr->Respond(torsoTfm);
+				Transform kinectTfm;
+				ToKinectFrame(torsoTfm, kinectTfm);
+				m_pLocalizationResponderPtr->Respond(kinectTfm);
 			}
 		}
 		m_TdmTimer.async_wait(strand_.wrap(boost::bind(&Localization::LocalizationRespond, this)));
