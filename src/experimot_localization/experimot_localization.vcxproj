@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LocalizationResponder.h" />
+    <ClInclude Include="MarkerDetectionKinect.h" />
     <ClInclude Include="nonlinearanalyticconditionalgaussianodo.h" />
     <ClInclude Include="TorsoPoseFilter.h" />
     <ClInclude Include="Localization.h" />

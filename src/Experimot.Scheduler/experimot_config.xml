@@ -75,6 +75,7 @@
       </process>
       <parameters>
         <param key="scenefilename" value="data/nao.dae" type="string"/>
+        <param key="kinect_model" value="box2.kinbody.xml" type="string"/>
         <param key="viewername" value="qtcoin" type="string"/>
         <param key="visualize" value="1" type="int"/>
       </parameters>
