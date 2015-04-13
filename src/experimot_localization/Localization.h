@@ -96,7 +96,7 @@ public:
 	}
 
 	Localization(boost::asio::io_service& io)
-		: strand_(io), m_nSensorCycle(30), m_nRobotCycle(40), m_nPoseCycle(80),m_nTdmCycle(40), m_bVisualize(true),
+		: strand_(io), m_nSensorCycle(30), m_nRobotCycle(40), m_nPoseCycle(80), m_nTdmCycle(40), m_bVisualize(true),
 		m_SensorTimer(io, boost::posix_time::milliseconds(m_nSensorCycle)),
 		m_RobotTimer(io, boost::posix_time::milliseconds(m_nRobotCycle)),
 		m_PoseTimer(io, boost::posix_time::milliseconds(m_nPoseCycle)),
@@ -133,15 +133,15 @@ public:
 
 	void ToKinectFrame(const Transform& alvar, Transform& kinect){
 		double roll, pitch, yaw;
+		// Decompose the transform into roll,pitch and yaw
 		decomposeTransform(alvar, roll, pitch, yaw);
+		// Compose again the transform with mirrored angles to transform from ALVAR to Kinect Frame
 		composeTransform(-roll, pitch, -yaw, kinect.rot);
-
+		// Also mirror the Y axis position direction in order to match Kinect Frame
 		Vector trans = alvar.trans;
 		trans.z = alvar.trans.z;
 		trans.y = -alvar.trans.y;
 		trans.x = alvar.trans.x;
-		//tfm = tfm.rotate(tfm_x);
-
 		kinect.trans = trans;
 	}
 
@@ -272,27 +272,25 @@ public:
 				//Transform filterTfm;
 				//m_poseFilter.getEstimate(filterTfm);
 
+				Transform kinectTfm;
+				ToKinectFrame(torsoTfm, kinectTfm);
+
 #if 1
-#if 0
 				cout << "*********************************************" << std::endl;
 				cout << "End Effector w.r.t Torso   : " << eef << std::endl;
-				cout << "Camera w.r.t Top Marker    : " << markerTfm << std::endl;
-				cout << "Camera w.r.t Torso         : " << torsoTfm << std::endl << std::endl;
-#endif
+				cout << "Top Marker w.r.t ALVAR     : " << markerTfm << std::endl;
+				cout << "Torso w.r.t ALVAR          : " << torsoTfm << std::endl << std::endl;
+				cout << "Torso w.r.t Kinect         : " << kinectTfm << std::endl << std::endl;
 #else
 				cout << "*********************************************" << std::endl;
 				cout << "Actual marker Transform      : " << markerTfm << std::endl;
 				cout << "Filtered marker Transform    : " << filterTfm << std::endl;
 #endif
-				/*torsoTfm = torsoTfm.inverse();
-				cout << "Torso w.r.t Camera         : " << torsoTfm << std::endl << std::endl;*/
 #else 
 				const Transform& markerTfm = m_pRobotPoseInfoPtr->GetMarkerTransform();
 				Transform torsoTfm;
 				NaoHeadTransformHelper::instance()->GetTorsoTransform(headJoints, markerTfm, torsoTfm);
 #endif
-				Transform kinectTfm;
-				ToKinectFrame(torsoTfm, kinectTfm);
 				m_pTorsoPosePublisherPtr->Publish(kinectTfm);
 			}
 		}
