@@ -53,9 +53,6 @@
     <ClInclude Include="RobotStateListenerTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MarkerDetection2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="TorsoPoseFilter.h">
       <Filter>Header Files</Filter>
     </ClInclude>

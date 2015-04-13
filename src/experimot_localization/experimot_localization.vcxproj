@@ -105,7 +105,6 @@
     <ClInclude Include="TorsoPoseFilter.h" />
     <ClInclude Include="Localization.h" />
     <ClInclude Include="MarkerDetection.h" />
-    <ClInclude Include="MarkerDetection2.h" />
     <ClInclude Include="MarkerDetectionTest.h" />
     <ClInclude Include="NaoHeadTransformHelper.h" />
     <ClInclude Include="RobotPoseInfo.h" />

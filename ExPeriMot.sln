@@ -44,6 +44,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experimot.Kinect.Playback",
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "experimot_python_client", "src\experimot_python_client\experimot_python_client.pyproj", "{ED9454DE-9AC1-4E5D-93A2-9ABF5D6ABC55}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experimot_pcl_grabber", "src\experimot_pcl_grabber\experimot_pcl_grabber.vcxproj", "{4D5DE559-0A46-4024-9DFE-5BB913A44B12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -254,6 +256,22 @@ Global
 		{ED9454DE-9AC1-4E5D-93A2-9ABF5D6ABC55}.Release|Win32.ActiveCfg = Release|Any CPU
 		{ED9454DE-9AC1-4E5D-93A2-9ABF5D6ABC55}.Release|x64.ActiveCfg = Release|Any CPU
 		{ED9454DE-9AC1-4E5D-93A2-9ABF5D6ABC55}.Release|x86.ActiveCfg = Release|Any CPU
+		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Debug|Win32.Build.0 = Debug|Win32
+		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Debug|x64.ActiveCfg = Debug|Win32
+		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Debug|x86.ActiveCfg = Debug|Win32
+		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Debug|x86.Build.0 = Debug|Win32
+		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Release|Any CPU.ActiveCfg = Release|Win32
+		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Release|Win32.ActiveCfg = Release|Win32
+		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Release|Win32.Build.0 = Release|Win32
+		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Release|x64.ActiveCfg = Release|Win32
+		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Release|x86.ActiveCfg = Release|Win32
+		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -272,5 +290,6 @@ Global
 		{D33DF366-7A84-4078-9801-30C145525070} = {8F8C643C-10D8-46BE-AA4F-CC58EACA0E49}
 		{90934219-A7A1-4445-A333-81C1A28F3672} = {8F8C643C-10D8-46BE-AA4F-CC58EACA0E49}
 		{ED9454DE-9AC1-4E5D-93A2-9ABF5D6ABC55} = {094315CC-B029-4AD0-8E4B-998A7094808B}
+		{4D5DE559-0A46-4024-9DFE-5BB913A44B12} = {70E7786B-1C0C-4557-84A0-DAC95A2240F7}
 	EndGlobalSection
 EndGlobal
