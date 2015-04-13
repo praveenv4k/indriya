@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using experimot.msgs;
 using Microsoft.Kinect;
 using ProtoBuf;
@@ -18,7 +17,8 @@ namespace Experimot.Kinect.Perception
         private NetMQSocket _socket;
         private readonly uint _port;
         private readonly string _topic;
-        private readonly UTF8Encoding _encoding;
+        private bool _noBodyTracked;
+        private bool _emptyMsgSent;
 
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
@@ -35,7 +35,8 @@ namespace Experimot.Kinect.Perception
             _host = host;
             _port = port;
             _topic = topic;
-            _encoding = new UTF8Encoding();
+            _noBodyTracked = false;
+            _emptyMsgSent = false;
         }
 
         private void InitZmq()
@@ -84,15 +85,17 @@ namespace Experimot.Kinect.Perception
         /// <param name="bodies"></param>
         public void UpdateBodyFrame(Body[] bodies)
         {
-            if (!CanSend) return;
-
             KinectBodies kbodies = new KinectBodies();
+            _noBodyTracked = true;
             int penIndex = 0;
             foreach (var body in bodies)
             {
                 penIndex++;
                 if (body.IsTracked)
                 {
+                    _noBodyTracked = false;
+                    _emptyMsgSent = false;
+
                     var kbody = new KinectBody
                     {
                         IsTracked = true,
@@ -132,6 +135,11 @@ namespace Experimot.Kinect.Perception
                 }
                 PublishKinectBodies(kbodies);
             }
+            if (_noBodyTracked && !_emptyMsgSent)
+            {
+                PublishKinectBodies(kbodies, true);
+                _emptyMsgSent = true;
+            }
         }
 
         private const int SendFrequency = 10;
@@ -154,18 +162,21 @@ namespace Experimot.Kinect.Perception
             }
         }
 
-        private void PublishKinectBodies(KinectBodies kbodies)
+        private void PublishKinectBodies(KinectBodies kbodies, bool force = false)
         {
             if (kbodies != null && kbodies.Body.Count > 0 && _socket != null)
             {
-                //_socket.SendMore(new ZFrame(_topic));
+                if (!force)
+                {
+                    if (!CanSend) return;
+                }
+
                 _socket.SendMore(_topic);
-                //_socket.SendMore(_topic, _encoding);
+
                 using (var ms = new MemoryStream())
                 {
                     Serializer.Serialize(ms, kbodies);
                     _socket.Send(ms.GetBuffer());
-                    //_socket.Send(new ZFrame(ms.GetBuffer()));
                 }
             }
 
