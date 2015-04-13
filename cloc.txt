@@ -1,0 +1,15 @@
+src/Experimot.Core.Msgs
+src/Experimot.Kinect.Perception
+src/Experimot.Kinect.Playback
+src/Experimot.Scheduler
+src/experimot_calibration
+src/experimot_capture
+src/experimot_localization
+src/experimot_msgs/proto/joint_value_map.proto
+src/experimot_msgs/proto/kinect_joint.proto
+src/experimot_msgs/proto/kinect_body.proto
+src/experimot_msgs/proto/node.proto
+src/experimot_msgs_gen
+src/experimot_python_client
+src/experimot_rave
+src/experimot_robot_interface
