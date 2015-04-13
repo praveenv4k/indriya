@@ -1,5 +1,5 @@
-#ifndef __MARKER_DETECTION_H__
-#define __MARKER_DETECTION_H__
+#ifndef __MARKER_DETECTION_KINECT_H__
+#define __MARKER_DETECTION_KINECT_H__
 
 #ifndef NOMINMAX
 #define NOMINMAX
@@ -13,6 +13,8 @@
 #include "TransformationHelper.h"
 #include "NaoHeadTransformHelper.h"
 #include "experimot\common\Common.h"
+#include "KinectPcl\Kinect2_PCL.h"
+#include "CallbackBase.h"
 
 using namespace alvar;
 using namespace std;
@@ -24,17 +26,25 @@ class MarkerDetectionKinect;
 #define TOP_MARKER_ID 14
 
 typedef boost::shared_ptr<MarkerDetectionKinect> MarkerDetectionKinectPtr;
+typedef boost::shared_ptr<pcl::Kinect2Grabber> Kinect2GrabberPtr;
 
-class MarkerDetectionKinect{
+class MarkerDetectionKinect : public CallbackBase {
 
 public:
+	typedef void (signal_markerdetection_transform)(Transform&);
+
 	MarkerDetectionKinect(std::string& calibFile, int markerSize, int cubeSize) :m_strCalibFile(calibFile), m_nMarkerSize(markerSize), m_nCubeSize(cubeSize)
 	{
 		max_error = std::numeric_limits<double>::max();
 		_init();
 	}
 
-	~MarkerDetectionKinect(){}
+	~MarkerDetectionKinect()
+	{
+		m_pKinect2Grabber->stop();
+
+		disconnect_all_slots<signal_markerdetection_transform>();
+	}
 
 	static void VisualizeMarkerPose(IplImage *image, Camera *cam, double visualize2d_points[12][2], CvScalar color) {
 		// Cube
@@ -90,7 +100,7 @@ public:
 			}
 		}
 		outTf.identity();
-		if (tfs.size()>0){
+		if (tfs.size() > 0){
 			if (tfs.size() > 1){
 				//TODO Error based weighting of the rotation and translation
 				Transform tf1 = tfs[0];
@@ -215,15 +225,31 @@ private:
 		m_MarkerTransformMapping.insert(std::pair<int, Transform>(10, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI / 2)), Vector())));
 		m_MarkerTransformMapping.insert(std::pair<int, Transform>(14, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI)), Vector())));
 
+		signal_transform = createSignal<signal_markerdetection_transform>();
+
+		m_pKinect2Grabber = Kinect2GrabberPtr(new pcl::Kinect2Grabber());
+
+		// Callback Function to be called when Updating Data
+		boost::function<void(const pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr&, const CvMatPtr&)> function =
+			[](const pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr &cloud, const CvMatPtr& img){
+			std::cout << "Callbacked by Kinect2grabber \n";
+		};
+
+		m_pKinect2Grabber->registerCallback(function);
+
+		m_pKinect2Grabber->start();
+
 		return ret;
 	}
 private:
+	boost::signals2::signal<signal_markerdetection_transform>* signal_transform;
 	std::string m_strCalibFile;
 	int m_nMarkerSize;
 	int m_nCubeSize;
 	Camera m_camera;
 	double max_error;
 	std::map<int, Transform> m_MarkerTransformMapping;
+	Kinect2GrabberPtr m_pKinect2Grabber;
 };
 
 #endif
