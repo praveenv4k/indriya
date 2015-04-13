@@ -13,18 +13,26 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="scripts">
+      <UniqueIdentifier>{1a3bd0d4-6de3-46ab-a375-7f6cc7ba26a8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="experimot_pcl_grabber.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <None Include="post_build.bat">
+      <Filter>scripts</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Kinect2Grabber.h">
+    <ClInclude Include="Kinect2Grabber.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Kinect2Grabber.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
