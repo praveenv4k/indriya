@@ -8,11 +8,13 @@
 #include <Windows.h>
 #include <Kinect.h>
 
+#include <opencv2\opencv.hpp>
 #include <pcl/io/boost.h>
 #include <pcl/io/grabber.h>
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
 
+typedef boost::shared_ptr<cv::Mat> CvMatPtr;
 
 namespace pcl
 {
@@ -42,13 +44,15 @@ namespace pcl
 
 		typedef void (signal_Kinect2_PointXYZ)(const boost::shared_ptr<const pcl::PointCloud<pcl::PointXYZ>>&);
 		typedef void (signal_Kinect2_PointXYZRGB)(const boost::shared_ptr<const pcl::PointCloud<pcl::PointXYZRGB>>&);
-
+		typedef void (signal_Kinect2_PointXYZRGB_CV)(const boost::shared_ptr<const pcl::PointCloud<pcl::PointXYZRGB>>&, const CvMatPtr&);
 	protected:
 		boost::signals2::signal<signal_Kinect2_PointXYZ>* signal_PointXYZ;
 		boost::signals2::signal<signal_Kinect2_PointXYZRGB>* signal_PointXYZRGB;
+		boost::signals2::signal<signal_Kinect2_PointXYZRGB_CV>* signal_PointXYZRGB_CV;
 
 		pcl::PointCloud<pcl::PointXYZ>::Ptr convertDepthToPointXYZ(UINT16* depthBuffer);
 		pcl::PointCloud<pcl::PointXYZRGB>::Ptr convertRGBDepthToPointXYZRGB(RGBQUAD* colorBuffer, UINT16* depthBuffer);
+		CvMatPtr convertRGBBufferToCvMat(RGBQUAD* pBuffer);
 
 		boost::thread thread;
 		mutable boost::mutex mutex;
@@ -170,6 +174,7 @@ namespace pcl
 
 		signal_PointXYZ = createSignal<signal_Kinect2_PointXYZ>();
 		signal_PointXYZRGB = createSignal<signal_Kinect2_PointXYZRGB>();
+		signal_PointXYZRGB_CV = createSignal<signal_Kinect2_PointXYZRGB_CV>();
 	}
 
 	pcl::Kinect2Grabber::~Kinect2Grabber() throw()
@@ -178,7 +183,7 @@ namespace pcl
 
 		disconnect_all_slots<signal_Kinect2_PointXYZ>();
 		disconnect_all_slots<signal_Kinect2_PointXYZRGB>();
-
+		disconnect_all_slots<signal_Kinect2_PointXYZRGB_CV>();
 		// End Processing
 		if (sensor){
 			sensor->Close();
@@ -276,7 +281,21 @@ namespace pcl
 			if (signal_PointXYZRGB->num_slots() > 0) {
 				signal_PointXYZRGB->operator()(convertRGBDepthToPointXYZRGB(&colorBuffer[0], &depthBuffer[0]));
 			}
+
+			if (signal_PointXYZRGB_CV->num_slots() > 0) {
+				signal_PointXYZRGB_CV->operator()(convertRGBDepthToPointXYZRGB(&colorBuffer[0], &depthBuffer[0]), convertRGBBufferToCvMat(&colorBuffer[0]));
+			}
 		}
+	}
+
+	CvMatPtr pcl::Kinect2Grabber::convertRGBBufferToCvMat(RGBQUAD* pBuffer){
+		CvMatPtr cvImg(new cv::Mat);
+		if (pBuffer)
+		{
+			cv::Mat bufMat(colorHeight, colorWidth, CV_8UC4, pBuffer);
+			bufMat.copyTo(*cvImg);
+		}
+		return cvImg;
 	}
 
 	pcl::PointCloud<pcl::PointXYZ>::Ptr pcl::Kinect2Grabber::convertDepthToPointXYZ(UINT16* depthBuffer)

@@ -124,9 +124,12 @@ void orDispRobots(EnvironmentBasePtr penv)
 
 OpenRAVE::GraphHandlePtr kinectModel;
 
-void orInitEnvironment(EnvironmentBasePtr penv)
+void orInitEnvironment(EnvironmentBasePtr penv, std::string& scenefilename, std::vector<string>& modelFiles)
 {
+	penv->Load(scenefilename); // load the scene
+
 	Transform defTransform(Vector(0.53522962205139013, 0.517639095032381, -0.46421923037403362, 0.47966605583856331), Vector(0.084682732203775871, -0.043060926653530942, 1.139326178779198));
+	
 	vector<RobotBasePtr> robots;
 	penv->GetRobots(robots);
 	FOREACH(it, robots){
@@ -134,8 +137,10 @@ void orInitEnvironment(EnvironmentBasePtr penv)
 		(*it)->SetTransform(defTransform);
 		break;
 	}
-	OpenRAVE::KinBodyPtr pKinectBox = penv->ReadKinBodyXMLFile("box2.kinbody.xml");
-	penv->Add(pKinectBox);
+	FOREACH(it, modelFiles){
+		OpenRAVE::KinBodyPtr pModel = penv->ReadKinBodyXMLFile(*it);
+		penv->Add(pModel);
+	}
 }
 
 class RobotStateListener{
@@ -405,7 +410,6 @@ public:
 				else{
 					std::cout << "Failed to parse the kinect body information" << std::endl;
 				}
-
 			}
 		}
 	}
@@ -647,12 +651,14 @@ int main(int argc, char ** argv)
 
 		string scenefilename = "data/nao.dae";
 		string viewername = "qtcoin";
+		string kinectModel = "box2.kinbody.xml";
 
 		experimot::msgs::NodePtr pInfo = AcquireParameters(argc, argv);
 
 		if (pInfo != 0){
 			scenefilename = ParameterHelper::GetParam(pInfo->param(), "scenefilename", scenefilename);
 			viewername = ParameterHelper::GetParam(pInfo->param(), "viewername", viewername);
+			kinectModel = ParameterHelper::GetParam(pInfo->param(), "kinect_model", kinectModel);
 
 			for (int i = 0; i < pInfo->subscriber_size(); i++){
 				auto& sub = pInfo->subscriber(i);
@@ -680,15 +686,16 @@ int main(int argc, char ** argv)
 
 		boost::thread thviewer(boost::bind(SetViewer, penv, viewername));
 
-		penv->Load(scenefilename); // load the scene
-
 #if 0
 		orDispRobots(penv);
 #endif
 
-		Sleep(2000);
-		orInitEnvironment(penv);
 
+		std::vector<string> modelFiles;
+		modelFiles.push_back(kinectModel);
+		orInitEnvironment(penv,scenefilename,modelFiles);
+
+		Sleep(1000);
 		//boost::thread thPublisher(boost::bind(&RobotStatePublisher::PublishJointValues, &publisher));
 		boost::thread thRobotSubscriber(boost::bind(&RobotStateListener::Listen, pRobotListener, penv));
 		boost::thread thKinectSubscriber(boost::bind(&KinectStateListener::Listen, pKinectListener, penv));
