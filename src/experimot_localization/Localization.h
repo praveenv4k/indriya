@@ -11,6 +11,7 @@
 #include "RobotStateListener.h"
 #include "TorsoPosePublisher.h"
 #include "MarkerDetection.h"
+#include "MarkerDetectionKinect.h"
 #include "NaoHeadTransformHelper.h"
 #include "LocalizationResponder.h"
 
@@ -65,6 +66,7 @@ public:
 			int tdm_port = ParameterHelper::GetParam<int>(m_pNode->param(), "tdm_server_port", TDM_PORT);
 
 			m_pMarkerDetectionPtr = MarkerDetectionPtr(new MarkerDetection(calibFile, markerSize, cubeSize));
+			m_pMarkerDetectionKinectPtr = MarkerDetectionKinectPtr(new MarkerDetectionKinect(calibFile, markerSize, cubeSize));
 
 			for (int i = 0; i < m_pNode->publisher_size(); i++){
 				auto& pub = m_pNode->publisher(i);
@@ -371,6 +373,7 @@ private:
 	RobotPoseInfoPtr m_pRobotPoseInfoPtr;
 	KinectVideoCapture m_VideoCapture;
 	TorsoPoseFilter m_poseFilter;
+	MarkerDetectionKinectPtr m_pMarkerDetectionKinectPtr;
 };
 
 #endif

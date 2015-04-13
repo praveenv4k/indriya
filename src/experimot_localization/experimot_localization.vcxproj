@@ -37,12 +37,14 @@
     <Import Project="..\..\props\SDK.props" />
     <Import Project="..\..\props\KinectSDK2.props" />
     <Import Project="..\..\props\OpenCV2.props" />
+    <Import Project="..\..\props\PCL.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\..\props\SDK.props" />
     <Import Project="..\..\props\KinectSDK2.props" />
     <Import Project="..\..\props\OpenCV2.props" />
+    <Import Project="..\..\props\PCL.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -100,6 +102,7 @@
     </Xml>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CallbackBase.h" />
     <ClInclude Include="LocalizationResponder.h" />
     <ClInclude Include="MarkerDetectionKinect.h" />
     <ClInclude Include="nonlinearanalyticconditionalgaussianodo.h" />
@@ -118,6 +121,9 @@
   <ItemGroup>
     <ProjectReference Include="..\experimot_msgs\experimot_msgs.vcxproj">
       <Project>{1ab15496-ac39-4ac7-8507-df6033138943}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\experimot_pcl_grabber\experimot_pcl_grabber.vcxproj">
+      <Project>{4d5de559-0a46-4024-9dfe-5bb913a44b12}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
