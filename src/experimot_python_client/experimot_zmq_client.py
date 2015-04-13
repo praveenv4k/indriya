@@ -1,14 +1,22 @@
-__author__ = 'Praveenkumar VASUDEVAN'
+__author__      = 'Praveenkumar VASUDEVAN'
+__copyright__   = "Copyright 2015, GVLab"
+__credits__     = ["Praveenkumar VASUDEVAN"]
+__license__     = "MIT"
+__version__     = "0.0.1"
+__email__       = "praveenv4k@gmail.com"
+__status__      = "Development"
 
+# Standard libraries
 import socket
 import json
 import sys
-import SocketServer
 import thread
 import time
+# Additional dependency - http://zeromq.org/bindings:python
 import zmq
 
-# server
+#############################################################################################################
+# Localization server - A sample server for testing purpose
 def localization_server(ip,port):
     context = zmq.Context()
     socket = context.socket(zmq.REP)
@@ -21,13 +29,14 @@ def localization_server(ip,port):
         print("Received request: %s" % message)
 
         #  Do some 'work'
-        time.sleep(1)
+        time.sleep(0.050)
 
         #  Send reply back to client
         socket.send(json.dumps(dummy))
     print "quitting ... "
 
-# client 
+#############################################################################################################
+# Localization client  
 def localization_client(ip,port):
     context = zmq.Context()
     #  Socket to talk to server
@@ -52,9 +61,10 @@ def localization_client(ip,port):
         print "Orientation : " , (float(result["orient"]["w"]),float(result["orient"]["x"]),float(result["orient"]["y"]),float(result["orient"]["z"]))
 
         # wait for a while
-        time.sleep(0.1)
+        time.sleep(0.050)
 
-# main function
+#############################################################################################################
+# Main function
 if __name__ == "__main__":
     # port
     port = 5700
@@ -63,7 +73,7 @@ if __name__ == "__main__":
 
     try:
         # Responder (server) - uncomment to check with the local server
-        # thread.start_new_thread(localization_server,(ip,port));
+        thread.start_new_thread(localization_server,(ip,port));
 
         # Requester (client)
         thread.start_new_thread(localization_client,(ip,port));
@@ -72,8 +82,6 @@ if __name__ == "__main__":
         # printing on exception
         print "Exception occured : ", sys.exc_info()
 
-    # do nothing 
+    # do nothing in the main thread
     while 1:
         pass
-
-    time.sleep(10)
