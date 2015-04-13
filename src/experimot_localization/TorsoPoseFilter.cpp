@@ -49,7 +49,6 @@ void PrintVector(ColumnVector vec){
 	std::cout << std::endl;
 }
 
-
 /** update the extended Kalman filter **/
 bool TorsoPoseFilter::update(const PosixTime& filter_time){
 	// only update filter when it is initialized
@@ -136,7 +135,6 @@ void TorsoPoseFilter::initialize(const OpenRAVE::Transform& prior, const PosixTi
 	}
 	prior_ = new Gaussian(prior_Mu, prior_Cov);
 	filter_ = new ExtendedKalmanFilter(prior_);
-	//filter_->AllocateMeasModel(6);
 
 	// remember prior
 	addMeasurement(prior);
