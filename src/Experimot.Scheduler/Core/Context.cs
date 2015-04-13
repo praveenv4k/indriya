@@ -19,12 +19,22 @@ namespace Experimot.Scheduler.Core
         private readonly IDictionary<string, ManipulatableObject> _objects;
         private readonly object _object = new object();
 
+        private List<string> _string; 
+
         public Context()
         {
             //_humans = new ConcurrentDictionary<int, Human>();
             _humans = new List<Human>();
             _robot = new Robot();
             _objects = new ConcurrentDictionary<string, ManipulatableObject>();
+            _string = new List<string>() {"Hello", "World"};
+        }
+
+        //[ExpandableObject]
+        public List<string> Strings
+        {
+            get { return _string; }
+            set { _string = value; }
         }
 
         [ExpandableObject]
@@ -45,8 +55,8 @@ namespace Experimot.Scheduler.Core
         //    get { return _humans; }
         //}
 
-        [ExpandableObject]
-        //[Xceed.Wpf.Toolkit.PropertyGrid.Attributes.ItemsSource(typeof(Human))]
+        //[ExpandableObject]
+        [Editor(typeof(Xceed.Wpf.Toolkit.PropertyGrid.Editors.CollectionEditor), typeof(Xceed.Wpf.Toolkit.PropertyGrid.Editors.CollectionEditor))]
         public IList<Human> Humans
         {
             get { return _humans; }
