@@ -182,35 +182,12 @@ public:
 
 				TransformMatrix rave;
 				double gl_mat[16];
-#if 1
+
 				p.GetMatrixGL(gl_mat, false);
 				TransformationHelper::OpenGLToOpenRAVE(gl_mat, rave);
-#else
-				//cout << "Mirror only y-axis to match kinect screen" << std::endl;
-				CvMat mat = cvMat(4, 4, CV_64F, gl_mat);
-				p.GetMatrix(&mat);
-				p.MirrorMat(&mat, false, true, false);
-				/*for (int i = 0; i < 4; i++){
-					cout << mat[4 * i] << " , " << mat[4 * i + 1] << " , " << mat[4 * i + 2] << " , " << mat[4 * i + 3] << " , " << std::endl;
-				}*/
-				TransformationHelper::OpenGLToOpenRAVE(gl_mat, rave, false);
-#endif
+
 				markerTfs.insert(std::pair<int, Transform>(mData.GetId(), Transform(rave)));
 
-				//if (i == 0){
-				//	double gl_mat[16];
-				//	p.GetMatrixGL(gl_mat, false);
-				//	for (int i = 0; i < 4; i++){
-				//		cout << gl_mat[4 * i] << " , " << gl_mat[4 * i + 1] << " , " << gl_mat[4 * i + 2] << " , " << gl_mat[4 * i + 3] << " , " << std::endl;
-				//	}
-				//	TransformMatrix rave;
-				//	TransformationHelper::OpenGLToOpenRAVE(gl_mat, rave);
-				//	cout << std::endl << rave << std::endl << std::endl;
-				//	/*Transform sTfm;
-				//	TransformationHelper::PoseToTransform(p, sTfm);
-				//	TransformMatrix sMat(sTfm);*/
-				//	//cout << std::endl << sMat << std::endl << std::endl;
-				//}
 #if PRINT_MSG
 				if (id == 7){
 					p.Output();
@@ -221,74 +198,6 @@ public:
 			if (marker_detector.markers->size() > 0){
 				Pose p_res;
 
-#if 0
-				if (marker_detector.markers->size() == 1){
-					Marker m = (*(marker_detector.markers))[best_marker];
-					Pose p = (*(marker_detector.markers))[best_marker].pose;
-					Transform tf;
-					TransformationHelper::PoseToTransform(p, tf);
-					int factor = tf.rot[0] < 0 ? 1 : -1;
-
-					Transform tf2(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2)), Vector(0, -(double)m_nCubeSize / 2, (double)m_nCubeSize / 2));
-
-					Transform res = tf*tf2;
-
-					TransformationHelper::TransformToPose(res, p_res);
-					/*TransformationHelper::Rotate(p, RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2), p_res);
-					p_res.translation[1] -= (double)m_nCubeSize / 2;
-					p_res.translation[2] += (double)m_nCubeSize / 2;*/
-				}
-				else{
-					Marker m1 = (*(marker_detector.markers))[0];
-					Marker m2 = (*(marker_detector.markers))[1];
-					Pose p1 = m1.pose;
-					Pose p2 = m2.pose;
-
-					Transform tf1, tf2;
-					TransformationHelper::PoseToTransform(p1, tf1);
-					TransformationHelper::PoseToTransform(p2, tf2);
-
-
-
-					double trans_res[4] = { (p1.translation[0] + p2.translation[0]) / 2,
-						(p1.translation[1] + p2.translation[1] - m_nCubeSize) / 2,
-						(p1.translation[2] + p2.translation[2] + m_nCubeSize) / 2,
-						(p1.translation[3] + p2.translation[3]) / 2 };
-
-					double rot_x[4] = { 0.707, -0.707, 0, 0 };
-					Rotation::QuatMul(rot1->data.db, rot_x, rot_res1);
-					Rotation::QuatMul(rot2->data.db, rot_x, rot_res2);
-
-					Slerp(rot_res1, rot_res2, rot_res, 0.01);
-
-					cvRelease((void**)&rot1);
-					cvRelease((void**)&rot2);
-
-					Pose p;
-					p.SetTranslation(trans_res);
-					p.SetQuaternion(rot_res);
-
-					p_res = p;
-				}
-				int id = 10;
-				double r = 1.0 - double(id + 1) / 32.0;
-				double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
-				double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
-
-				Pose p_out;
-				p_res.Output();
-				TransformationHelper::ComputeTorsoFrame(p_res, tfm, p_out);
-				p_out.Output();
-				Visualize(image, &cam, m_nMarkerSize, p_out, CV_RGB(0, 0, 255));
-				Visualize(image, &cam, m_nMarkerSize, p_res, CV_RGB(255, 0, 0));
-#else
-				/*if (markerPoses.size() == 1){
-					double gl_mat[16];
-					markerPoses[0].GetMatrixGL(gl_mat);
-					for (int i = 0; i < 4; i++){
-						cout << gl_mat[4 * i] << " , " << gl_mat[4 * i + 1] << " , " << gl_mat[4 * i + 2] << " , " << gl_mat[4 * i + 3] << " , " << std::endl;
-					}
-				}*/
 
 				//TransformToTopFrame(markerPoses, out_tfm);
 				TransformToTopFrame(markerTfs, out_tfm);
@@ -319,7 +228,6 @@ public:
 				}
 
 				Visualize(image, &m_camera, m_nMarkerSize, p_res, CV_RGB(255, 0, 0));
-#endif
 			}
 			if (flip_image) {
 				cvFlip(image);
@@ -371,6 +279,6 @@ private:
 	Camera m_camera;
 	double max_error;
 	std::map<int, Transform> m_MarkerTransformMapping;
-};
+	};
 
 #endif

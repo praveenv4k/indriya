@@ -85,6 +85,8 @@ namespace Experimot.Kinect.Perception
         /// <param name="bodies"></param>
         public void UpdateBodyFrame(Body[] bodies)
         {
+            if (!CanSend) return;
+
             KinectBodies kbodies = new KinectBodies();
             _noBodyTracked = true;
             int penIndex = 0;
@@ -164,19 +166,18 @@ namespace Experimot.Kinect.Perception
 
         private void PublishKinectBodies(KinectBodies kbodies, bool force = false)
         {
-            if (kbodies != null && kbodies.Body.Count > 0 && _socket != null)
+            if (kbodies != null && _socket != null)
+            //if (kbodies != null && _socket != null)
             {
-                if (!force)
+                if (force || kbodies.Body.Count > 0)
                 {
-                    if (!CanSend) return;
-                }
+                    _socket.SendMore(_topic);
 
-                _socket.SendMore(_topic);
-
-                using (var ms = new MemoryStream())
-                {
-                    Serializer.Serialize(ms, kbodies);
-                    _socket.Send(ms.GetBuffer());
+                    using (var ms = new MemoryStream())
+                    {
+                        Serializer.Serialize(ms, kbodies);
+                        _socket.Send(ms.GetBuffer());
+                    }
                 }
             }
 
