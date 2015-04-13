@@ -666,4 +666,81 @@
     \end{longtable}
 \end{center}
 
+\newpage
+\section{2015/04/13-2015/04/19}
+
+\begin{center}
+    \begin{longtable}{ | c | p{6cm} | p{5cm} |}
+    \hline
+    Date & Content & Problems/Remarks \\ 
+    \endhead
+    \hline    
+     2015/04/13         & 
+  \begin{itemize}
+  \item Lab meeting
+  \item Python client preparation for Mr.Vincent Berenz to access localization information from my platform
+  \item Bug Fix: Refreshing the simulation window when no Kinect body is detected
+  \item In order to enhance the pose estimate, I plan to consider the depth information of the detected markers as well. To do this, I started integrating the PCL Grabber with Localization module.
+\end{itemize}  
+   & - \\
+\hline
+  										 
+ 2015/04/14         & 
+  \begin{itemize}
+  \item Application bootstrapper support - Extended the xml config file to support global and local parameters. global Parameter overriding, support the new configuration information in the individual nodes. 
+  \item Testing the supported nodes. 
+\end{itemize}   
+& 
+ \\
+\hline
+  										 
+  
+  2015/04/15        & 
+  \begin{itemize}
+  \item Node startup enable/disable support
+  \item Integration of Gesture recognition and Skeleton tracking and supported start up of this node from configuration information.
+  \item Application context information management support. Auto subscription of all the published messages. Under test
+  \end{itemize}   
+  										 & - \\
+  \hline
+  
+  2015/04/16         & 
+  \begin{itemize}
+  \item Migration from clrzmq to NetMQ .NET library for ZeroMQ
+  \item Parameter server and Context synchronization from all publishing nodes - Multi-threading support
+  \item UI update of current pose from the context
+\end{itemize}   
+  & 
+\\  										 \hline
+
+  2015/04/17         & 
+  \begin{itemize}
+  \item Tried serializing the kinect body to cross check with the raw buffer size
+  \item Kalman filter implementation started
+  \item Fixed bugs in the localization module and testing
+\end{itemize}   
+  & 
+  - Walking on the floor mat was not good. So will test once again on the room 452 next week
+\\
+  										 \hline
+  										 
+	 2015/04/18         & 
+  \begin{itemize}
+  \item Target Drives Means (TDM) Framework client python script development - To make the localization data available to the TDM framework
+\end{itemize}   
+  & 
+		\\					 \hline  	
+
+	 2015/04/19         & 
+  \begin{itemize}
+  \item Target Drives Means (TDM) Framework client python script development \& Testing - Works fine
+  \item Will organize a meeting with Mr.Vincent Berenz next week and prepare for the initial integration test for the scenario of Nao robot walking to and fro between two locations.
+\end{itemize}   
+  & 
+		\\					 \hline  	
+										 
+  										   								 
+    \end{longtable}
+\end{center}
+
 \end{document}
