@@ -38,6 +38,9 @@
 #define TDM_PORT			5700
 #define TDM_TIMEOUT			100
 
+#define NEW_MARKER_ERROR	0.8
+#define MARKER_TRACK_ERROR	0.2
+
 class Localization;
 
 typedef boost::shared_ptr<Localization> LocalizationPtr;
@@ -63,11 +66,14 @@ public:
 			m_nPoseCycle = ParameterHelper::GetParam<int>(m_pNode->param(), "pose_publisher_cycle", 80);
 			m_nTdmCycle = ParameterHelper::GetParam<int>(m_pNode->param(), "tdm_server_cycle", 40);
 
+			double fNewMarkerError = ParameterHelper::GetParam<double>(m_pNode->param(), "max_new_marker_error", NEW_MARKER_ERROR);
+			double fTrackError = ParameterHelper::GetParam<double>(m_pNode->param(), "max_track_error", MARKER_TRACK_ERROR);
+
 			int tdm_port = ParameterHelper::GetParam<int>(m_pNode->param(), "tdm_server_port", TDM_PORT);
 
 			m_pMarkerDetectionPtr = MarkerDetectionPtr(new MarkerDetection(calibFile, markerSize, cubeSize));
 			
-			//m_pMarkerDetectionKinectPtr = MarkerDetectionKinectPtr(new MarkerDetectionKinect(calibFile, markerSize, cubeSize));
+			//m_pMarkerDetectionKinectPtr = MarkerDetectionKinectPtr(new MarkerDetectionKinect(calibFile, markerSize, cubeSize,fNewMarkerError,fTrackError));
 
 			for (int i = 0; i < m_pNode->publisher_size(); i++){
 				auto& pub = m_pNode->publisher(i);
@@ -333,7 +339,7 @@ public:
 				Transform kinectTfm;
 
 				// For testing
-#if 0
+#if 1
 				ToKinectFrame(torsoTfm, kinectTfm);
 #else
 				ToKinectFrame(markerTfm, kinectTfm);

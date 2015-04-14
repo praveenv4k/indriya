@@ -15,6 +15,8 @@
 #include "experimot\common\Common.h"
 #include "KinectPcl\Kinect2_PCL.h"
 #include "CallbackBase.h"
+#include "RobotPoseInfo.h"
+#include "Kinect_Filtering.h"
 
 using namespace alvar;
 using namespace std;
@@ -33,7 +35,8 @@ class MarkerDetectionKinect : public CallbackBase {
 public:
 	typedef void (signal_markerdetection_transform)(Transform&);
 
-	MarkerDetectionKinect(std::string& calibFile, int markerSize, int cubeSize) :m_strCalibFile(calibFile), m_nMarkerSize(markerSize), m_nCubeSize(cubeSize)
+	MarkerDetectionKinect(std::string& calibFile, int markerSize, int cubeSize,double newMarkerError, double trackError) :
+		m_strCalibFile(calibFile), m_nMarkerSize(markerSize), m_nCubeSize(cubeSize), m_fNewMarkerError(newMarkerError), m_fTrackError(trackError)
 	{
 		max_error = std::numeric_limits<double>::max();
 		_init();
@@ -119,7 +122,7 @@ public:
 		}
 	}
 
-	bool Videocallback(IplImage *image, Transform& localTfm, Transform& out_tfm, std::vector<double>& q, bool drawTorso = false)
+	bool Videocallback(IplImage *image, Transform& out_tfm)
 	{
 		bool ret = false;
 		static IplImage *rgba;
@@ -185,12 +188,6 @@ public:
 				double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
 				double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
 
-				if (drawTorso){
-					Pose p_out;
-					Transform torso_tfm;
-					Visualize(image, &m_camera, m_nMarkerSize, p_out, CV_RGB(0, 0, 255));
-				}
-
 				Visualize(image, &m_camera, m_nMarkerSize, p_res, CV_RGB(255, 0, 0));
 			}
 			if (flip_image) {
@@ -201,8 +198,69 @@ public:
 		}
 		return ret;
 	}
-
+	void UpdateMarkerTransform(Transform& markerTfm){
+		if (signal_transform->num_slots() > 0){
+			signal_transform->operator()(markerTfm);
+		}
+	}
 private:
+	bool GetMarkerPoses(IplImage *image, const ARCloud::ConstPtr &cloud, std::map<int, Transform>& poseMap) {
+		bool bRet = false;
+		//Detect and track the markers
+		if (m_Detector.Detect(image, &m_camera, true, false, m_fNewMarkerError,
+			m_fTrackError, CVSEQ, true))
+		{
+			printf("\n--------------------------\n\n");
+			for (size_t i = 0; i < m_Detector.markers->size(); i++)
+			{
+				vector<cv::Point, Eigen::aligned_allocator<cv::Point> > pixels;
+				Marker *m = &((*m_Detector.markers)[i]);
+				int id = m->GetId();
+				cout << "******* ID: " << id << endl;
+
+				int resol = m->GetRes();
+				//int ori = m->ros_orientation;
+
+				PointDouble pt1, pt2, pt3, pt4;
+				pt4 = m->experimot_marker_points_img[0];
+				pt3 = m->experimot_marker_points_img[resol - 1];
+				pt1 = m->experimot_marker_points_img[(resol*resol) - resol];
+				pt2 = m->experimot_marker_points_img[(resol*resol) - 1];
+
+				std::vector<pcl::PointXYZRGB> cornerPts;
+				cornerPts.push_back(cloud->operator()(pt1.x, pt1.y));
+				cornerPts.push_back(cloud->operator()(pt2.x, pt2.y));
+				cornerPts.push_back(cloud->operator()(pt3.x, pt3.y));
+				cornerPts.push_back(cloud->operator()(pt4.x, pt4.y));
+
+#if 0
+				if (ori >= 0 && ori < 4){
+					if (ori != 0){
+						std::rotate(m->ros_corners_3D.begin(), m->ros_corners_3D.begin() + ori, m->ros_corners_3D.end());
+					}
+				}
+				else
+					ROS_ERROR("FindMarkerBundles: Bad Orientation: %i for ID: %i", ori, id);
+#endif
+
+				//Get the 3D marker points
+				BOOST_FOREACH(const PointDouble& p, m->experimot_marker_points_img)
+					pixels.push_back(cv::Point(p.x, p.y));
+				ARCloud::Ptr selected_points = filterCloud(cloud, pixels);
+
+				//Use the kinect data to find a plane and pose for the marker
+				Transform pose;
+				int ret = PlaneFitPoseImprovement(i, cornerPts, selected_points, cloud, pose);
+
+				if (ret == 0){
+					poseMap.insert(std::pair<int, Transform>(m->GetId(), pose));
+					bRet = true;
+				}
+			}
+		}
+		return bRet;
+	}
+
 	bool _init(){
 		int width = 1980;
 		int height = 1080;
@@ -231,8 +289,20 @@ private:
 
 		// Callback Function to be called when Updating Data
 		boost::function<void(const pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr&, const CvMatPtr&)> function =
-			[](const pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr &cloud, const CvMatPtr& img){
-			std::cout << "Callbacked by Kinect2grabber \n";
+			[this](const pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr &cloud, const CvMatPtr& img){
+			if (img != NULL){
+				IplImage raw = *img;
+
+				std::map<int, Transform> markerMap;
+				if (GetMarkerPoses(&raw, cloud, markerMap)){
+					Transform markerTfm;
+					TransformToTopFrame(markerMap, markerTfm);
+					UpdateMarkerTransform(markerTfm);
+				}
+				/*if (Videocallback(&raw, markerTfm)){
+					UpdateMarkerTransform(markerTfm);
+				}*/
+			}
 		};
 
 		m_pKinect2Grabber->registerCallback(function);
@@ -241,6 +311,91 @@ private:
 
 		return ret;
 	}
+
+	int PlaneFitPoseImprovement(int id, const std::vector<pcl::PointXYZRGB> &corners_3D, pcl::PointCloud<pcl::PointXYZRGB>::Ptr selected_points, const ARCloud::ConstPtr &cloud, Transform &p){
+		PlaneFitResult res = fitPlane(selected_points);
+
+		//gm::PoseStamped pose;
+		//pose.header.stamp = pcl_conversions::fromPCL(cloud.header).stamp;
+		//pose.header.frame_id = cloud.header.frame_id;
+		OpenRAVE::Vector position = centroid(*res.inliers);
+		OpenRAVE::Vector orientation(1, 0, 0, 0);
+
+		//draw3dPoints(selected_points, cloud.header.frame_id, 1, id, 0.005);
+
+		//Get 2 points that point forward in marker x direction   
+		int i1, i2;
+		if (isnan(corners_3D[0].x) || isnan(corners_3D[0].y) || isnan(corners_3D[0].z) ||
+			isnan(corners_3D[3].x) || isnan(corners_3D[3].y) || isnan(corners_3D[3].z))
+		{
+			if (isnan(corners_3D[1].x) || isnan(corners_3D[1].y) || isnan(corners_3D[1].z) ||
+				isnan(corners_3D[2].x) || isnan(corners_3D[2].y) || isnan(corners_3D[2].z))
+			{
+				return -1;
+			}
+			else{
+				i1 = 1;
+				i2 = 2;
+			}
+		}
+		else{
+			i1 = 0;
+			i2 = 3;
+		}
+
+		//Get 2 points the point forward in marker y direction   
+		int i3, i4;
+		if (isnan(corners_3D[0].x) || isnan(corners_3D[0].y) || isnan(corners_3D[0].z) ||
+			isnan(corners_3D[1].x) || isnan(corners_3D[1].y) || isnan(corners_3D[1].z))
+		{
+			if (isnan(corners_3D[3].x) || isnan(corners_3D[3].y) || isnan(corners_3D[3].z) ||
+				isnan(corners_3D[2].x) || isnan(corners_3D[2].y) || isnan(corners_3D[2].z))
+			{
+				return -1;
+			}
+			else{
+				i3 = 2;
+				i4 = 3;
+			}
+		}
+		else{
+			i3 = 1;
+			i4 = 0;
+		}
+
+		ARCloud::Ptr orient_points(new ARCloud());
+		orient_points->points.push_back(corners_3D[i1]);
+		//draw3dPoints(orient_points, cloud.header.frame_id, 3, id + 1000, 0.008);
+
+		orient_points->clear();
+		orient_points->points.push_back(corners_3D[i2]);
+		//draw3dPoints(orient_points, cloud.header.frame_id, 2, id + 2000, 0.008);
+
+		int succ;
+		succ = extractOrientation(res.coeffs, corners_3D[i1], corners_3D[i2], corners_3D[i3], corners_3D[i4], orientation);
+		if (succ < 0) return -1;
+
+		b3Matrix3x3 mat;
+		succ = extractFrame(res.coeffs, corners_3D[i1], corners_3D[i2], corners_3D[i3], corners_3D[i4], mat);
+		if (succ < 0) return -1;
+
+		//drawArrow(pose.pose.position, mat, cloud.header.frame_id, 1, id);
+
+		/*p.trans[0] = position.x * 100.0;
+		p.trans[1] = position.y * 100.0;
+		p.trans[2] = position.z * 100.0;
+		p.rot[1] = orientation.x;
+		p.rot[2] = orientation.y;
+		p.rot[3] = orientation.z;
+		p.rot[0] = orientation.w;*/
+
+		p = Transform(orientation, position);
+
+		return 0;
+	}
+
+	
+
 private:
 	boost::signals2::signal<signal_markerdetection_transform>* signal_transform;
 	std::string m_strCalibFile;
@@ -248,8 +403,11 @@ private:
 	int m_nCubeSize;
 	Camera m_camera;
 	double max_error;
+	double m_fNewMarkerError;
+	double m_fTrackError;
 	std::map<int, Transform> m_MarkerTransformMapping;
 	Kinect2GrabberPtr m_pKinect2Grabber;
+	MarkerDetector<MarkerData> m_Detector;
 };
 
 #endif

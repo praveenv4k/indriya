@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -8,6 +6,7 @@ using System.Runtime.CompilerServices;
 using experimot.msgs;
 using Experimot.Scheduler.Annotations;
 using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
+using Xceed.Wpf.Toolkit.PropertyGrid.Editors;
 
 namespace Experimot.Scheduler.Core
 {
@@ -56,7 +55,7 @@ namespace Experimot.Scheduler.Core
         //}
 
         //[ExpandableObject]
-        [Editor(typeof(Xceed.Wpf.Toolkit.PropertyGrid.Editors.CollectionEditor), typeof(Xceed.Wpf.Toolkit.PropertyGrid.Editors.CollectionEditor))]
+        [Editor(typeof(CollectionEditor), typeof(CollectionEditor))]
         public IList<Human> Humans
         {
             get { return _humans; }

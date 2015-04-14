@@ -68,6 +68,12 @@
     <ClInclude Include="CallbackBase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Kinect_Filtering.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MedianFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -77,6 +83,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="nonlinearanalyticconditionalgaussianodo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Kinect_Filtering.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MedianFilter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
