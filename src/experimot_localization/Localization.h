@@ -66,7 +66,8 @@ public:
 			int tdm_port = ParameterHelper::GetParam<int>(m_pNode->param(), "tdm_server_port", TDM_PORT);
 
 			m_pMarkerDetectionPtr = MarkerDetectionPtr(new MarkerDetection(calibFile, markerSize, cubeSize));
-			m_pMarkerDetectionKinectPtr = MarkerDetectionKinectPtr(new MarkerDetectionKinect(calibFile, markerSize, cubeSize));
+			
+			//m_pMarkerDetectionKinectPtr = MarkerDetectionKinectPtr(new MarkerDetectionKinect(calibFile, markerSize, cubeSize));
 
 			for (int i = 0; i < m_pNode->publisher_size(); i++){
 				auto& pub = m_pNode->publisher(i);
@@ -330,7 +331,15 @@ public:
 				//std::cout << "Responding to localization request" << std::endl;
 				//m_pLocalizationResponderPtr->Respond(torsoTfm);
 				Transform kinectTfm;
+
+				// For testing
+#if 0
 				ToKinectFrame(torsoTfm, kinectTfm);
+#else
+				ToKinectFrame(markerTfm, kinectTfm);
+#endif
+
+
 				m_pLocalizationResponderPtr->Respond(kinectTfm);
 			}
 		}
@@ -373,7 +382,7 @@ private:
 	RobotPoseInfoPtr m_pRobotPoseInfoPtr;
 	KinectVideoCapture m_VideoCapture;
 	TorsoPoseFilter m_poseFilter;
-	MarkerDetectionKinectPtr m_pMarkerDetectionKinectPtr;
+	//MarkerDetectionKinectPtr m_pMarkerDetectionKinectPtr;
 };
 
 #endif
