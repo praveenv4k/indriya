@@ -29,6 +29,8 @@
         <param key="visualize" value="1" type="int"/>
         <param key="tdm_server_port" value="5700" type="int"/>
         <param key="tdm_server_cycle" value="40" type="int"/>
+        <param key="max_new_marker_error" value="0.08" type="double"/>
+        <param key="max_track_error" value="0.2" type="double"/>
       </parameters>
       <publishers>
         <publish>

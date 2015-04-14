@@ -92,7 +92,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Kinect_Filtering.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MedianFilter.cpp" />
     <ClCompile Include="nonlinearanalyticconditionalgaussianodo.cpp" />
     <ClCompile Include="TorsoPoseFilter.cpp" />
   </ItemGroup>
@@ -103,8 +105,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CallbackBase.h" />
+    <ClInclude Include="Kinect_Filtering.h" />
     <ClInclude Include="LocalizationResponder.h" />
     <ClInclude Include="MarkerDetectionKinect.h" />
+    <ClInclude Include="MedianFilter.h" />
     <ClInclude Include="nonlinearanalyticconditionalgaussianodo.h" />
     <ClInclude Include="TorsoPoseFilter.h" />
     <ClInclude Include="Localization.h" />
