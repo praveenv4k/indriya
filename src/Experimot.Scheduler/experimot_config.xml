@@ -120,12 +120,12 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="false">
+    <node enabled="true">
       <name>tdm_client</name>
       <process>
         <type>executable</type>
         <path>python.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_zmq_client.py</args>
+        <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_zmq_plot_client.py</args>
       </process>
     </node>
   </nodes>

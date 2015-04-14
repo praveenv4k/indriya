@@ -42,12 +42,8 @@ ax.set_ylabel('X Axis (m)')
 
 fig = plt.gcf()
 
-#circle1=patches.Ellipse((2,0),0.5,0.8,340,color='g')
-#%fig.gca().add_patch(circle1)
-
 angle = 330
 wedge1= patches.Wedge((3,0),0.5,angle-15,angle+15)
-#fig.gca().add_patch(wedge1)
 
 # Camera
 points = [[0, 0.3], [0, -0.3], [-0.3, 0]]
@@ -59,18 +55,8 @@ fig.gca().add_artist(camera_origin)
 # Camera Text annotation
 ax.text(-0.4, -0.5, 'KINECT', fontsize=18)
 
-# arrow = plt.Arrow(2,2,0.5,0)
-# fig.gca().add_artist(arrow)
-#
-# fig.gca().add_patch(make_rectangle_patch(ax,1,1,45))
-# circle2=plt.Circle((1,1),0.05,color='g')
-# fig.gca().add_artist(circle2)
-
-
-
 plt.draw()
 plt.grid()
-#plt.axis('scaled')
 
 deg =0
 

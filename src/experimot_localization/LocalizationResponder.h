@@ -60,7 +60,7 @@ private:
 	void toJson(const Transform& tfm, string& str){
 		stringstream ss;
 		ss << "{ \"pos\" : {\"x\":" << tfm.trans.x << ", \"y\" :" << tfm.trans.y << ", \"z\" :" << tfm.trans.z << "}, \"orient\" : {\"w\":"
-			<< tfm.rot[0] << ", \"x\":" << tfm.trans.x << ", \"y\" :" << tfm.trans.y << ", \"z\" :" << tfm.trans.z << "} }";
+			<< tfm.rot[0] << ", \"x\":" << tfm.rot[1] << ", \"y\" :" << tfm.rot[2] << ", \"z\" :" << tfm.rot[3] << "} }";
 		str = ss.str();
 	}
 
