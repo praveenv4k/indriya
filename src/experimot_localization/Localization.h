@@ -20,6 +20,8 @@
 #include "TorsoPoseFilter.h"
 #include <bullet\Bullet3Common\b3Matrix3x3.h>
 
+#include "MedianFilter.h"
+
 #define COMM_PROTOCOL		"tcp"
 #define COMM_SUBIPADDRESS	"127.0.0.1"
 #define COMM_SUBPORT		5563
@@ -52,7 +54,8 @@ public:
 		m_SensorTimer(io, boost::posix_time::milliseconds(30)),
 		m_RobotTimer(io, boost::posix_time::milliseconds(40)),
 		m_PoseTimer(io, boost::posix_time::milliseconds(80)),
-		m_TdmTimer(io, boost::posix_time::milliseconds(40))
+		m_TdmTimer(io, boost::posix_time::milliseconds(40)),
+		m_MedianFilter(25)
 	{
 		m_pNode = pNode;
 
@@ -109,7 +112,8 @@ public:
 		m_SensorTimer(io, boost::posix_time::milliseconds(m_nSensorCycle)),
 		m_RobotTimer(io, boost::posix_time::milliseconds(m_nRobotCycle)),
 		m_PoseTimer(io, boost::posix_time::milliseconds(m_nPoseCycle)),
-		m_TdmTimer(io, boost::posix_time::milliseconds(m_nTdmCycle))
+		m_TdmTimer(io, boost::posix_time::milliseconds(m_nTdmCycle)),
+		m_MedianFilter(25)
 	{
 		m_pRobotStateListenerPtr = RobotStateListenerPtr(new RobotStateListener(std::string(COMM_PROTOCOL), std::string(COMM_SUBIPADDRESS), COMM_SUBPORT, COMM_TIMEOUT, std::string(COMM_SUBTOID)));
 		m_pTorsoPosePublisherPtr = TorsoPosePublisherPtr(new TorsoPosePublisher(std::string(COMM_PROTOCOL), std::string(COMM_PUBIPADDRESS), COMM_PUBPORT, COMM_TIMEOUT, std::string(COMM_PUBTOID)));
@@ -203,9 +207,16 @@ public:
 
 					// Compute Top marker with respect to camera
 					//out = markerTfm.inverse();
-					out = markerTfm;
+					
 
+#if 1
+					out = markerTfm;
 					m_pRobotPoseInfoPtr->SetMarkerTransform(out);
+#else
+					m_MedianFilter.addPose(markerTfm);
+					m_MedianFilter.getMedian(out);
+					m_pRobotPoseInfoPtr->SetMarkerTransform(out);
+#endif
 
 #if 0
 					m_poseFilter.addMeasurement(out);
@@ -388,6 +399,8 @@ private:
 	RobotPoseInfoPtr m_pRobotPoseInfoPtr;
 	KinectVideoCapture m_VideoCapture;
 	TorsoPoseFilter m_poseFilter;
+
+	MedianFilter m_MedianFilter;
 	//MarkerDetectionKinectPtr m_pMarkerDetectionKinectPtr;
 };
 
