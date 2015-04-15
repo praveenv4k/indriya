@@ -203,22 +203,50 @@ public:
 			signal_transform->operator()(markerTfm);
 		}
 	}
+	void callback(const pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr &cloud, const CvMatPtr& img){
+		if (img != NULL){
+			IplImage* raw = cvCloneImage(&(IplImage)(*img));
+			cv::imshow("Image View", *img);
+			//cvShowImage("Image View", image);
+			int c = 0xff & cv::waitKey(1);
+			if (raw != NULL){
+				std::map<int, Transform> markerMap;
+				if (GetMarkerPoses(raw, cloud, markerMap)){
+					Transform markerTfm;
+					TransformToTopFrame(markerMap, markerTfm);
+					UpdateMarkerTransform(markerTfm);
+				}
+				cvRelease((void**)&raw);
+			}
+		}
+	}
 private:
 	bool GetMarkerPoses(IplImage *image, const ARCloud::ConstPtr &cloud, std::map<int, Transform>& poseMap) {
 		bool bRet = false;
+
+		
+		//std::cout << "Displaying image " << image->width << ", " << image->height << endl;
+		//return bRet;
+
 		//Detect and track the markers
-		if (m_Detector.Detect(image, &m_camera, true, false, m_fNewMarkerError,
+		static MarkerDetector<MarkerData> marker_detector;
+		marker_detector.SetMarkerSize(m_nMarkerSize); // for marker ids larger than 255, set the content resolution accordingly
+		if (marker_detector.Detect(image, &m_camera, true, false, m_fNewMarkerError,
 			m_fTrackError, CVSEQ, true))
 		{
 			printf("\n--------------------------\n\n");
-			for (size_t i = 0; i < m_Detector.markers->size(); i++)
+			for (size_t i = 0; i < marker_detector.markers->size(); i++)
 			{
 				vector<cv::Point, Eigen::aligned_allocator<cv::Point> > pixels;
-				Marker *m = &((*m_Detector.markers)[i]);
+				Marker *m = &((*marker_detector.markers)[i]);
 				int id = m->GetId();
-				cout << "******* ID: " << id << endl;
-
 				int resol = m->GetRes();
+
+				cout << "******* ID: " << id << "; Resolution: " << resol << endl;
+
+				FOREACH(pit, m->experimot_marker_points_img){
+					std::cout << pit->x << ", " << pit->y << std::endl;
+				}
 				//int ori = m->ros_orientation;
 
 				PointDouble pt1, pt2, pt3, pt4;
@@ -288,24 +316,32 @@ private:
 		m_pKinect2Grabber = Kinect2GrabberPtr(new pcl::Kinect2Grabber());
 
 		// Callback Function to be called when Updating Data
-		boost::function<void(const pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr&, const CvMatPtr&)> function =
-			[this](const pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr &cloud, const CvMatPtr& img){
-			if (img != NULL){
-				IplImage raw = *img;
+		//boost::function<void(const pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr&, const CvMatPtr&)> function =
+		//	[this](const pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr &cloud, const CvMatPtr& img){
+		//	if (img != NULL){
+		//		IplImage raw = *img;
+		//		cv::imshow("Image View", *img);
+		//		//cvShowImage("Image View", image);
+		//		int c = 0xff & cv::waitKey(1);
+		//		std::map<int, Transform> markerMap;
+		//		if (GetMarkerPoses(&raw, cloud, markerMap)){
+		//			Transform markerTfm;
+		//			TransformToTopFrame(markerMap, markerTfm);
+		//			UpdateMarkerTransform(markerTfm);
+		//		}
+		//		/*if (Videocallback(&raw, markerTfm)){
+		//			UpdateMarkerTransform(markerTfm);
+		//		}*/
+		//	}
+		//};
 
-				std::map<int, Transform> markerMap;
-				if (GetMarkerPoses(&raw, cloud, markerMap)){
-					Transform markerTfm;
-					TransformToTopFrame(markerMap, markerTfm);
-					UpdateMarkerTransform(markerTfm);
-				}
-				/*if (Videocallback(&raw, markerTfm)){
-					UpdateMarkerTransform(markerTfm);
-				}*/
-			}
-		};
-
+		boost::function<void(const pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr&, const CvMatPtr&)> function(boost::bind(&MarkerDetectionKinect::callback, this, _1, _2));
 		m_pKinect2Grabber->registerCallback(function);
+
+		Sleep(3000);
+
+		cvNamedWindow("Image View", 1);
+
 
 		m_pKinect2Grabber->start();
 
@@ -407,7 +443,7 @@ private:
 	double m_fTrackError;
 	std::map<int, Transform> m_MarkerTransformMapping;
 	Kinect2GrabberPtr m_pKinect2Grabber;
-	MarkerDetector<MarkerData> m_Detector;
+	//MarkerDetector<MarkerData> m_Detector;
 };
 
 #endif

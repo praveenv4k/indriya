@@ -171,7 +171,7 @@ template<typename T> boost::signals2::connection
 
 		sstream << "no callback for type:" << typeid (T).name();
 
-		PCL_THROW_EXCEPTION(pcl::IOException, "[" << getName() << "] " << sstream.str());
+		//PCL_THROW_EXCEPTION(pcl::IOException, "[" << getName() << "] " << sstream.str());
 	}
 	Signal* signal = dynamic_cast<Signal*> (signals_[typeid (T).name()]);
 	boost::signals2::connection ret = signal->connect(callback);
