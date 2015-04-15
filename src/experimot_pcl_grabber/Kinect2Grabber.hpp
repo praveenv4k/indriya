@@ -247,6 +247,7 @@ namespace pcl
 
 	void pcl::Kinect2Grabber::threadFunction()
 	{
+		//cvNamedWindow("Image View", 1);
 		while (!quit){
 			boost::unique_lock<boost::mutex> lock(mutex);
 
@@ -285,17 +286,20 @@ namespace pcl
 			}
 
 			if (signal_PointXYZRGB_CV->num_slots() > 0) {
-				signal_PointXYZRGB_CV->operator()(convertRGBDepthToPointXYZRGB(&colorBuffer[0], &depthBuffer[0]), convertRGBBufferToCvMat(&colorBuffer[0]));
+				CvMatPtr img = convertRGBBufferToCvMat(&colorBuffer[0]);
+				signal_PointXYZRGB_CV->operator()(convertRGBDepthToPointXYZRGB(&colorBuffer[0], &depthBuffer[0]), img);
+				//cv::imshow("Image View", *img);
+				//cv::waitKey(1);
 			}
 		}
 	}
 
 	CvMatPtr pcl::Kinect2Grabber::convertRGBBufferToCvMat(RGBQUAD* pBuffer){
-		CvMatPtr cvImg(new cv::Mat);
+		CvMatPtr cvImg;
 		if (pBuffer)
 		{
-			cv::Mat bufMat(colorHeight, colorWidth, CV_8UC4, pBuffer);
-			bufMat.copyTo(*cvImg);
+			return CvMatPtr(new cv::Mat(colorHeight, colorWidth, CV_8UC4, pBuffer));
+			//bufMat.copyTo(*cvImg);
 		}
 		return cvImg;
 	}
@@ -332,7 +336,7 @@ namespace pcl
 	pcl::PointCloud<pcl::PointXYZRGB>::Ptr pcl::Kinect2Grabber::convertRGBDepthToPointXYZRGB(RGBQUAD* colorBuffer, UINT16* depthBuffer)
 	{
 		pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZRGB>());
-
+		bool ptexist = false;
 		cloud->width = static_cast<uint32_t>(depthWidth);
 		cloud->height = static_cast<uint32_t>(depthHeight);
 		cloud->is_dense = false;
@@ -363,6 +367,10 @@ namespace pcl
 					point.x = cameraSpacePoint.X;
 					point.y = cameraSpacePoint.Y;
 					point.z = cameraSpacePoint.Z;
+					if (!ptexist){
+						ptexist = true;
+						std::cout << point.x << ", " << point.y << ", " << point.z << std::endl;
+					}
 				}
 
 				cloud->push_back(point);

@@ -88,7 +88,7 @@ public:
 			}
 		}
 		outTf.identity();
-		if (tfs.size()>0){
+		if (tfs.size() > 0){
 			if (tfs.size() > 1){
 				Transform tf1 = tfs[0];
 				Transform tf2 = tfs[1];
@@ -123,7 +123,7 @@ public:
 			}
 		}
 		outTf.identity();
-		if (tfs.size()>0){
+		if (tfs.size() > 0){
 			if (tfs.size() > 1){
 				//TODO Error based weighting of the rotation and translation
 				Transform tf1 = tfs[0];
@@ -162,6 +162,7 @@ public:
 		std::map<int, Pose> markerPoses;
 		std::map<int, Transform> markerTfs;
 		if (marker_detector.markers->size() >= 1){
+			cout << "Marker detected" << endl;
 			for (size_t i = 0; i < marker_detector.markers->size(); i++) {
 				if (i >= 32) break;
 
@@ -192,9 +193,9 @@ public:
 				if (id == 7){
 					p.Output();
 					std::cout << "Error : " << temp_error << std::endl;
-			}
+				}
 #endif
-		}
+			}
 			if (marker_detector.markers->size() > 0){
 				Pose p_res;
 
@@ -235,7 +236,7 @@ public:
 			}
 			ret = true;
 		}
-			return ret;
+		return ret;
 	}
 
 private:
@@ -279,6 +280,6 @@ private:
 	Camera m_camera;
 	double max_error;
 	std::map<int, Transform> m_MarkerTransformMapping;
-	};
+};
 
 #endif

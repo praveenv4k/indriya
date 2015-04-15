@@ -1,12 +1,20 @@
 #define MarkerTest 0
 #define RobotListener 0
+#define USE_KINECT
+
 #if MarkerTest
 #include "MarkerDetectionTest.h"
 #else
 #if RobotListener
 #include "RobotStateListenerTest.h"
 #else
+
+#ifdef USE_KINECT
+#include "LocalizationKinect.h"
+#else
 #include "Localization.h"
+#endif
+
 #endif
 #endif
 
@@ -88,6 +96,16 @@ int main(int argc, char *argv[])
 #if MarkerTest
 		MarkerDetectionTest detect(ios);
 #else
+
+#ifdef USE_KINECT
+		LocalizationKinectPtr pLocalize;
+		if (nodeInfo != 0){
+			pLocalize = LocalizationKinectPtr(new LocalizationKinect(ios, nodeInfo));
+		}
+		else{
+			pLocalize = LocalizationKinectPtr(new LocalizationKinect(ios));
+		}
+#else
 		LocalizationPtr pLocalize;
 		if (nodeInfo != 0){
 			pLocalize = LocalizationPtr(new Localization(ios, nodeInfo));
@@ -95,6 +113,8 @@ int main(int argc, char *argv[])
 		else{
 			pLocalize = LocalizationPtr(new Localization(ios));
 		}
+#endif
+
 #endif
 #endif
 		ios.run();

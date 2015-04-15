@@ -1,5 +1,5 @@
-#ifndef __LOCALIZATION_H__
-#define __LOCALIZATION_H__
+#ifndef __LOCALIZATION_KINECT_H__
+#define __LOCALIZATION_KINECT_H__
 
 #include <iostream>
 #include <boost/asio.hpp>
@@ -43,15 +43,14 @@
 #define NEW_MARKER_ERROR	0.8
 #define MARKER_TRACK_ERROR	0.2
 
-class Localization;
+class LocalizationKinect;
 
-typedef boost::shared_ptr<Localization> LocalizationPtr;
+typedef boost::shared_ptr<LocalizationKinect> LocalizationKinectPtr;
 
-class Localization{
+class LocalizationKinect{
 public:
-	Localization(boost::asio::io_service& io, experimot::msgs::NodePtr& pNode)
+	LocalizationKinect(boost::asio::io_service& io, experimot::msgs::NodePtr& pNode)
 		: strand_(io),
-		m_SensorTimer(io, boost::posix_time::milliseconds(30)),
 		m_RobotTimer(io, boost::posix_time::milliseconds(40)),
 		m_PoseTimer(io, boost::posix_time::milliseconds(80)),
 		m_TdmTimer(io, boost::posix_time::milliseconds(40)),
@@ -74,9 +73,14 @@ public:
 
 			int tdm_port = ParameterHelper::GetParam<int>(m_pNode->param(), "tdm_server_port", TDM_PORT);
 
-			m_pMarkerDetectionPtr = MarkerDetectionPtr(new MarkerDetection(calibFile, markerSize, cubeSize));
+			m_pMarkerDetectionKinectPtr = MarkerDetectionKinectPtr(new MarkerDetectionKinect(calibFile, markerSize, cubeSize,fNewMarkerError,fTrackError));
 			
-			//m_pMarkerDetectionKinectPtr = MarkerDetectionKinectPtr(new MarkerDetectionKinect(calibFile, markerSize, cubeSize,fNewMarkerError,fTrackError));
+			boost::function<void(const Transform&)> function =
+				[this](const Transform &tfm){
+				UpdateMarkerTransform(tfm);
+			};
+
+			m_pMarkerDetectionKinectPtr->registerCallback(function);
 
 			for (int i = 0; i < m_pNode->publisher_size(); i++){
 				auto& pub = m_pNode->publisher(i);
@@ -94,7 +98,6 @@ public:
 			m_pRobotPoseInfoPtr = RobotPoseInfoPtr(new RobotPoseInfo());
 			m_pLocalizationResponderPtr = LocalizationResponderPtr(new LocalizationResponder(TDM_ADDRESS, tdm_port, TDM_TIMEOUT));
 
-			m_SensorTimer.expires_at(m_SensorTimer.expires_at() + boost::posix_time::milliseconds(m_nSensorCycle));
 			m_RobotTimer.expires_at(m_RobotTimer.expires_at() + boost::posix_time::milliseconds(m_nRobotCycle));
 			m_PoseTimer.expires_at(m_PoseTimer.expires_at() + boost::posix_time::milliseconds(m_nPoseCycle));
 			m_TdmTimer.expires_at(m_TdmTimer.expires_at() + boost::posix_time::milliseconds(m_nTdmCycle));
@@ -107,9 +110,8 @@ public:
 		}
 	}
 
-	Localization(boost::asio::io_service& io)
+	LocalizationKinect(boost::asio::io_service& io)
 		: strand_(io), m_nSensorCycle(30), m_nRobotCycle(40), m_nPoseCycle(80), m_nTdmCycle(40), m_bVisualize(true),
-		m_SensorTimer(io, boost::posix_time::milliseconds(m_nSensorCycle)),
 		m_RobotTimer(io, boost::posix_time::milliseconds(m_nRobotCycle)),
 		m_PoseTimer(io, boost::posix_time::milliseconds(m_nPoseCycle)),
 		m_TdmTimer(io, boost::posix_time::milliseconds(m_nTdmCycle)),
@@ -117,13 +119,13 @@ public:
 	{
 		m_pRobotStateListenerPtr = RobotStateListenerPtr(new RobotStateListener(std::string(COMM_PROTOCOL), std::string(COMM_SUBIPADDRESS), COMM_SUBPORT, COMM_TIMEOUT, std::string(COMM_SUBTOID)));
 		m_pTorsoPosePublisherPtr = TorsoPosePublisherPtr(new TorsoPosePublisher(std::string(COMM_PROTOCOL), std::string(COMM_PUBIPADDRESS), COMM_PUBPORT, COMM_TIMEOUT, std::string(COMM_PUBTOID)));
-		m_pMarkerDetectionPtr = MarkerDetectionPtr(new MarkerDetection(std::string(CALIB_FILE), MARKER_SIZE, CUBE_SIZE));
+		m_pMarkerDetectionKinectPtr = MarkerDetectionKinectPtr(new MarkerDetectionKinect(std::string(CALIB_FILE), MARKER_SIZE, CUBE_SIZE, NEW_MARKER_ERROR, MARKER_TRACK_ERROR));
 		m_pLocalizationResponderPtr = LocalizationResponderPtr(new LocalizationResponder(TDM_ADDRESS, TDM_PORT, TDM_TIMEOUT));
 		m_pRobotPoseInfoPtr = RobotPoseInfoPtr(new RobotPoseInfo());
 		_init();
 	}
 
-	~Localization()
+	~LocalizationKinect()
 	{
 	}
 
@@ -164,8 +166,8 @@ public:
 		dReal gl_mat[16];
 		temp.GetMatrixGL(gl_mat);
 		/*for (int i = 0; i < 4; i++){
-			cout << gl_mat[4 * i] << " , " << gl_mat[4 * i + 1] << " , " << gl_mat[4 * i + 2] << " , " << gl_mat[4 * i + 3] << " , " << std::endl;
-			}*/
+		cout << gl_mat[4 * i] << " , " << gl_mat[4 * i + 1] << " , " << gl_mat[4 * i + 2] << " , " << gl_mat[4 * i + 3] << " , " << std::endl;
+		}*/
 		TransformMatrix mat;
 		mat.rotfrommat(gl_mat[0], gl_mat[1], gl_mat[2], gl_mat[4], gl_mat[5], gl_mat[6], gl_mat[8], gl_mat[9], gl_mat[10]);
 		mat.trans = Vector(gl_mat[12], gl_mat[13], gl_mat[14]);
@@ -174,82 +176,29 @@ public:
 		out = mat.inverse();
 	}
 
-	void SensorDataProcess()
+	void UpdateMarkerTransform(const Transform& markerTfm)
 	{
-		bool quit = false;
-		m_SensorTimer.expires_at(m_SensorTimer.expires_at() + boost::posix_time::milliseconds(m_nSensorCycle));
-		//TODO Call marker detection here
-		if (m_VideoCapture.isOpened()){
-			cv::Mat view0;
-			m_VideoCapture >> view0;
-			IplImage* img = cvCloneImage(&(IplImage)view0);
-			if (img != NULL && m_pMarkerDetectionPtr != 0 && m_pRobotPoseInfoPtr != 0){
-				RobotPoseInfoMutex::scoped_lock lock(m_pRobotPoseInfoPtr->GetMutex());
-				const std::vector<double>& jointVals = m_pRobotPoseInfoPtr->GetJointValueVector();
-				std::vector<double> headJoints;
+		if (m_pRobotPoseInfoPtr != 0){
+			RobotPoseInfoMutex::scoped_lock lock(m_pRobotPoseInfoPtr->GetMutex());
+			const std::vector<double>& jointVals = m_pRobotPoseInfoPtr->GetJointValueVector();
+			std::vector<double> headJoints;
 
-				if (jointVals.size() >= 2){
-					headJoints.push_back(jointVals[0]);
-					headJoints.push_back(jointVals[1]);
-					//std::cout << "Received values from Naoqi" << std::endl;
-				}
-				else{
-					headJoints.push_back(0);
-					headJoints.push_back(0);
-				}
-				Transform eef;
-				NaoHeadTransformHelper::instance()->GetEndEffectorTransform(headJoints, eef);
-
-				Transform markerTfm;
-				if (m_pMarkerDetectionPtr->Videocallback(img, eef, markerTfm, headJoints, true)){
-					Transform out;
-					//ConvertToRightHandFrame(markerTfm, out);
-
-					// Compute Top marker with respect to camera
-					//out = markerTfm.inverse();
-					
-
-#if 0
-					out = markerTfm;
-					m_pRobotPoseInfoPtr->SetMarkerTransform(out);
-#else
-					m_MedianFilter.addPose(markerTfm);
-					m_MedianFilter.getMedian(out);
-					cout << out << endl;
-					m_pRobotPoseInfoPtr->SetMarkerTransform(out);
-#endif
-
-#if 0
-					m_poseFilter.addMeasurement(out);
-
-					m_poseFilter.update(boost::posix_time::microsec_clock::local_time());
-					//TransformMatrix mat(out);
-					//std::cout << mat << std::endl;
-					if (!m_poseFilter.isInitialized()){
-						m_poseFilter.initialize(out, boost::posix_time::microsec_clock::local_time());
-					}
-#endif
-				}
-				else{
-					cout << "No markers detected" << endl;
-				}
-				if (m_bVisualize){
-					cv::Mat temp(img);
-					cvShowImage("Image View", img);
-					
-				}
-				cvRelease((void**)&img);
+			if (jointVals.size() >= 2){
+				headJoints.push_back(jointVals[0]);
+				headJoints.push_back(jointVals[1]);
+				//std::cout << "Received values from Naoqi" << std::endl;
 			}
-			int c = 0xff & cv::waitKey(1);
-			if ((c & 255) == 27 || c == 'q' || c == 'Q')
-			{
-				quit = true;
+			else{
+				headJoints.push_back(0);
+				headJoints.push_back(0);
 			}
-		}
-		if (!quit){
-			m_SensorTimer.async_wait(strand_.wrap(boost::bind(&Localization::SensorDataProcess, this)));
-		}
-		else{
+			Transform eef;
+			Transform out;
+			NaoHeadTransformHelper::instance()->GetEndEffectorTransform(headJoints, eef);
+
+			m_MedianFilter.addPose(markerTfm);
+			m_MedianFilter.getMedian(out);
+			m_pRobotPoseInfoPtr->SetMarkerTransform(out);
 		}
 	}
 
@@ -264,7 +213,7 @@ public:
 				m_pRobotPoseInfoPtr->SetJointValueVector(jointValues);
 			}
 		}
-		m_RobotTimer.async_wait(strand_.wrap(boost::bind(&Localization::JointDataReceive, this)));
+		m_RobotTimer.async_wait(strand_.wrap(boost::bind(&LocalizationKinect::JointDataReceive, this)));
 	}
 
 	void PublishTransform(){
@@ -319,7 +268,7 @@ public:
 				m_pTorsoPosePublisherPtr->Publish(kinectTfm);
 			}
 		}
-		m_PoseTimer.async_wait(strand_.wrap(boost::bind(&Localization::PublishTransform, this)));
+		m_PoseTimer.async_wait(strand_.wrap(boost::bind(&LocalizationKinect::PublishTransform, this)));
 	}
 
 
@@ -355,7 +304,7 @@ public:
 				Transform kinectTfm;
 
 				// For testing
-#if 1
+#if 0
 				ToKinectFrame(torsoTfm, kinectTfm);
 #else
 				ToKinectFrame(markerTfm, kinectTfm);
@@ -365,7 +314,7 @@ public:
 				m_pLocalizationResponderPtr->Respond(kinectTfm);
 			}
 		}
-		m_TdmTimer.async_wait(strand_.wrap(boost::bind(&Localization::LocalizationRespond, this)));
+		m_TdmTimer.async_wait(strand_.wrap(boost::bind(&LocalizationKinect::LocalizationRespond, this)));
 	}
 
 private:
@@ -377,15 +326,12 @@ private:
 			cvNamedWindow("Image View", 1);
 		}
 
-		m_SensorTimer.async_wait(strand_.wrap(boost::bind(&Localization::SensorDataProcess, this)));
-		m_RobotTimer.async_wait(strand_.wrap(boost::bind(&Localization::JointDataReceive, this)));
-		m_PoseTimer.async_wait(strand_.wrap(boost::bind(&Localization::PublishTransform, this)));
-		m_TdmTimer.async_wait(strand_.wrap(boost::bind(&Localization::LocalizationRespond, this)));
-		//m_poseFilter.initialize(Transform(), PosixTime(boost::posix_time::microsec_clock::local_time()));
+		m_RobotTimer.async_wait(strand_.wrap(boost::bind(&LocalizationKinect::JointDataReceive, this)));
+		m_PoseTimer.async_wait(strand_.wrap(boost::bind(&LocalizationKinect::PublishTransform, this)));
+		m_TdmTimer.async_wait(strand_.wrap(boost::bind(&LocalizationKinect::LocalizationRespond, this)));
 	}
 private:
 	boost::asio::strand strand_;
-	boost::asio::deadline_timer m_SensorTimer;
 	boost::asio::deadline_timer m_RobotTimer;
 	boost::asio::deadline_timer m_PoseTimer;
 	boost::asio::deadline_timer m_TdmTimer;
@@ -400,13 +346,12 @@ private:
 	RobotStateListenerPtr m_pRobotStateListenerPtr;
 	TorsoPosePublisherPtr m_pTorsoPosePublisherPtr;
 	LocalizationResponderPtr m_pLocalizationResponderPtr;
-	MarkerDetectionPtr m_pMarkerDetectionPtr;
 	RobotPoseInfoPtr m_pRobotPoseInfoPtr;
 	KinectVideoCapture m_VideoCapture;
 	TorsoPoseFilter m_poseFilter;
 
 	MedianFilter m_MedianFilter;
-	//MarkerDetectionKinectPtr m_pMarkerDetectionKinectPtr;
+	MarkerDetectionKinectPtr m_pMarkerDetectionKinectPtr;
 };
 
 #endif
