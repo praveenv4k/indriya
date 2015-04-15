@@ -75,12 +75,10 @@ public:
 
 			m_pMarkerDetectionKinectPtr = MarkerDetectionKinectPtr(new MarkerDetectionKinect(calibFile, markerSize, cubeSize,fNewMarkerError,fTrackError));
 			
-			boost::function<void(const Transform&)> function =
+			/*boost::function<void(const Transform&)> function =
 				[this](const Transform &tfm){
 				UpdateMarkerTransform(tfm);
-			};
-
-			m_pMarkerDetectionKinectPtr->registerCallback(function);
+			};*/
 
 			for (int i = 0; i < m_pNode->publisher_size(); i++){
 				auto& pub = m_pNode->publisher(i);
@@ -178,6 +176,7 @@ public:
 
 	void UpdateMarkerTransform(const Transform& markerTfm)
 	{
+		cout << "Updating tfm " << std::endl;
 		if (m_pRobotPoseInfoPtr != 0){
 			RobotPoseInfoMutex::scoped_lock lock(m_pRobotPoseInfoPtr->GetMutex());
 			const std::vector<double>& jointVals = m_pRobotPoseInfoPtr->GetJointValueVector();
@@ -323,12 +322,17 @@ private:
 		Sleep(3000);
 
 		if (m_bVisualize){
-			cvNamedWindow("Image View", 1);
+			//cvNamedWindow("Image View", 1);
 		}
 
 		m_RobotTimer.async_wait(strand_.wrap(boost::bind(&LocalizationKinect::JointDataReceive, this)));
 		m_PoseTimer.async_wait(strand_.wrap(boost::bind(&LocalizationKinect::PublishTransform, this)));
 		m_TdmTimer.async_wait(strand_.wrap(boost::bind(&LocalizationKinect::LocalizationRespond, this)));
+
+		if (m_pMarkerDetectionKinectPtr != 0){
+			boost::function<void(const Transform&)> function(boost::bind(&LocalizationKinect::UpdateMarkerTransform, this, _1));
+			m_pMarkerDetectionKinectPtr->registerCallback(function);
+		}
 	}
 private:
 	boost::asio::strand strand_;

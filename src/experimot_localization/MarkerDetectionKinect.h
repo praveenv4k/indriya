@@ -33,7 +33,7 @@ typedef boost::shared_ptr<pcl::Kinect2Grabber> Kinect2GrabberPtr;
 class MarkerDetectionKinect : public CallbackBase {
 
 public:
-	typedef void (signal_markerdetection_transform)(Transform&);
+	typedef void (signal_markerdetection_transform)(const Transform&);
 
 	MarkerDetectionKinect(std::string& calibFile, int markerSize, int cubeSize,double newMarkerError, double trackError) :
 		m_strCalibFile(calibFile), m_nMarkerSize(markerSize), m_nCubeSize(cubeSize), m_fNewMarkerError(newMarkerError), m_fTrackError(trackError)
@@ -203,7 +203,7 @@ public:
 			signal_transform->operator()(markerTfm);
 		}
 	}
-	void callback(const pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr &cloud, const CvMatPtr& img){
+	void callback(const ARCloud::ConstPtr &cloud, const CvMatPtr& img){
 		if (img != NULL){
 			IplImage* raw = cvCloneImage(&(IplImage)(*img));
 			cv::imshow("Image View", *img);
@@ -220,23 +220,52 @@ public:
 			}
 		}
 	}
+	void callback2(const ARCloud::ConstPtr& cloud, const cv::Mat& img){
+		IplImage* raw = cvCloneImage(&(IplImage)(img));
+		//cv::imshow("Image View", img);
+		//cvShowImage("Image View", raw);
+		int c = 0xff & cv::waitKey(1);
+		if (raw != NULL){
+#if 1
+			std::map<int, Transform> markerMap;
+			if (GetMarkerPoses(raw, cloud, markerMap)){
+				Transform markerTfm;
+				TransformToTopFrame(markerMap, markerTfm);
+#else
+			Transform markerTfm;
+			if (Videocallback(raw, markerTfm)){
+#endif
+				
+				UpdateMarkerTransform(markerTfm);
+			}
+			cvRelease((void**)&raw);
+		}
+	}
 private:
-	bool GetMarkerPoses(IplImage *image, const ARCloud::ConstPtr &cloud, std::map<int, Transform>& poseMap) {
+	bool GetMarkerPoses(IplImage *image, const ARCloud::ConstPtr& cloud, std::map<int, Transform>& poseMap) {
 		bool bRet = false;
 
-		
+		bool flip_image = (image->origin ? true : false);
+		if (flip_image) {
+			cvFlip(image);
+			image->origin = !image->origin;
+		}
 		//std::cout << "Displaying image " << image->width << ", " << image->height << endl;
 		//return bRet;
 
 		//Detect and track the markers
 		static MarkerDetector<MarkerData> marker_detector;
 		marker_detector.SetMarkerSize(m_nMarkerSize); // for marker ids larger than 255, set the content resolution accordingly
-		if (marker_detector.Detect(image, &m_camera, true, false, m_fNewMarkerError,
-			m_fTrackError, CVSEQ, true))
+		marker_detector.Detect(image, &m_camera, true, true);
+
+		/*if (marker_detector.Detect(image, &m_camera, true, false, m_fNewMarkerError,
+			m_fTrackError, CVSEQ, true))*/
+		if (marker_detector.markers->size() >= 1)
 		{
 			printf("\n--------------------------\n\n");
 			for (size_t i = 0; i < marker_detector.markers->size(); i++)
 			{
+				if (i >= 32) break;
 				vector<cv::Point, Eigen::aligned_allocator<cv::Point> > pixels;
 				Marker *m = &((*marker_detector.markers)[i]);
 				int id = m->GetId();
@@ -256,10 +285,16 @@ private:
 				pt2 = m->experimot_marker_points_img[(resol*resol) - 1];
 
 				std::vector<pcl::PointXYZRGB> cornerPts;
-				cornerPts.push_back(cloud->operator()(pt1.x, pt1.y));
-				cornerPts.push_back(cloud->operator()(pt2.x, pt2.y));
-				cornerPts.push_back(cloud->operator()(pt3.x, pt3.y));
-				cornerPts.push_back(cloud->operator()(pt4.x, pt4.y));
+				
+				/*cornerPts.push_back(cloud.operator()((size_t)pt1.x, (size_t)pt1.y));
+				cornerPts.push_back(cloud.operator()((size_t)pt2.x, (size_t)pt2.y));
+				cornerPts.push_back(cloud.operator()((size_t)pt3.x, (size_t)pt3.y));
+				cornerPts.push_back(cloud.operator()((size_t)pt4.x, (size_t)pt4.y));*/
+
+				cornerPts.push_back(cloud->operator()((size_t)pt1.x, (size_t)pt1.y));
+				cornerPts.push_back(cloud->operator()((size_t)pt2.x, (size_t)pt2.y));
+				cornerPts.push_back(cloud->operator()((size_t)pt3.x, (size_t)pt3.y));
+				cornerPts.push_back(cloud->operator()((size_t)pt4.x, (size_t)pt4.y));
 
 #if 0
 				if (ori >= 0 && ori < 4){
@@ -335,12 +370,13 @@ private:
 		//	}
 		//};
 
-		boost::function<void(const pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr&, const CvMatPtr&)> function(boost::bind(&MarkerDetectionKinect::callback, this, _1, _2));
-		m_pKinect2Grabber->registerCallback(function);
+		//boost::function<void(const pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr&, const CvMatPtr&)> function(boost::bind(&MarkerDetectionKinect::callback, this, _1, _2));
+		boost::function<void(const ARCloud::ConstPtr&, const cv::Mat&)> function2(boost::bind(&MarkerDetectionKinect::callback2, this, _1, _2));
+		m_pKinect2Grabber->registerCallback(function2);
 
 		Sleep(3000);
 
-		cvNamedWindow("Image View", 1);
+		//cvNamedWindow("Image View", 1);
 
 
 		m_pKinect2Grabber->start();
