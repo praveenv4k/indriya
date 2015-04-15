@@ -78,7 +78,8 @@
 	// Select out a subset of a cloud corresponding to a set of pixel coordinates
 	ARCloud::Ptr filterCloud(const ARCloud::ConstPtr& cloud,
 		const std::vector<cv::Point, Eigen::aligned_allocator<cv::Point> >& pixels);
-
+	ARCloud::Ptr filterCloud2(const ARCloud& cloud, 
+		const std::vector<cv::Point, Eigen::aligned_allocator<cv::Point> >& pixels);
 	// Wrapper for PCL plane fitting
 	PlaneFitResult fitPlane(ARCloud::ConstPtr cloud);
 
