@@ -60,6 +60,7 @@ namespace pcl
 		CvMatPtr convertRGBBufferToCvMat(RGBQUAD* pBuffer);
 		void convertRGBDepthToPointXYZRGB2(RGBQUAD* colorBuffer, UINT16* depthBuffer, pcl::PointCloud<pcl::PointXYZRGB>& cloud);
 		pcl::PointCloud<pcl::PointXYZRGB>::Ptr convertRGBDepthToPointXYZRGB(bool dummy, RGBQUAD* colorBuffer, UINT16* depthBuffer);
+		pcl::PointCloud<pcl::PointXYZRGB>::Ptr convertRGBDepthToPointXYZRGB(RGBQUAD* colorBuffer, CameraSpacePoint* cameraBuffer);
 
 		boost::thread thread;
 		mutable boost::mutex mutex;
@@ -84,6 +85,10 @@ namespace pcl
 		int depthWidth;
 		int depthHeight;
 		std::vector<UINT16> depthBuffer;
+
+		//DepthSpacePoint*        m_pDepthCoordinates;
+		CameraSpacePoint* m_pCameraCoordinates;
+		
 	};
 
 	pcl::Kinect2Grabber::Kinect2Grabber()
@@ -104,6 +109,8 @@ namespace pcl
 		, quit(false)
 		, signal_PointXYZ(nullptr)
 		, signal_PointXYZRGB(nullptr)
+		, m_pCameraCoordinates(NULL)
+		//, m_pDepthCoordinates(NULL)
 	{
 		// Create Sensor Instance
 		result = GetDefaultKinectSensor(&sensor);
@@ -179,6 +186,10 @@ namespace pcl
 		// To Reserve Depth Frame Buffer
 		depthBuffer.resize(depthWidth * depthHeight);
 
+		// create heap storage for the coorinate mapping from color to depth
+		//m_pDepthCoordinates = new DepthSpacePoint[colorWidth * colorHeight];
+		m_pCameraCoordinates = new CameraSpacePoint[colorWidth * colorHeight];
+
 		signal_PointXYZ = createSignal<signal_Kinect2_PointXYZ>();
 		signal_PointXYZRGB = createSignal<signal_Kinect2_PointXYZRGB>();
 		signal_PointXYZRGB_CV = createSignal<signal_Kinect2_PointXYZRGB_CV>();
@@ -193,6 +204,16 @@ namespace pcl
 		disconnect_all_slots<signal_Kinect2_PointXYZRGB>();
 		disconnect_all_slots<signal_Kinect2_PointXYZRGB_CV>();
 		disconnect_all_slots<signal_Kinect2_PointXYZRGB_CV2>();
+		/*if (m_pDepthCoordinates)
+		{
+			delete[] m_pDepthCoordinates;
+			m_pDepthCoordinates = NULL;
+		}*/
+		if (m_pCameraCoordinates)
+		{
+			delete[] m_pCameraCoordinates;
+			m_pCameraCoordinates = NULL;
+		}
 		// End Processing
 		if (sensor){
 			sensor->Close();
@@ -303,8 +324,20 @@ namespace pcl
 			if (signal_PointXYZRGB_CV2->num_slots() > 0) {
 				cv::Mat mat(colorHeight, colorWidth, CV_8UC4, &colorBuffer[0]);
 #if 1
+
+#if 0
 				boost::shared_ptr<pcl::PointCloud<pcl::PointXYZRGB>> cloud = convertRGBDepthToPointXYZRGB(false,&colorBuffer[0], &depthBuffer[0]);
 				signal_PointXYZRGB_CV2->operator()(cloud, mat);
+#else
+				if (mapper != NULL){
+					HRESULT hr = mapper->MapColorFrameToCameraSpace(depthWidth*depthHeight, &depthBuffer[0], colorWidth*colorHeight, m_pCameraCoordinates);
+					if (SUCCEEDED(hr)){
+						boost::shared_ptr<pcl::PointCloud<pcl::PointXYZRGB>> cloud = convertRGBDepthToPointXYZRGB(&colorBuffer[0], m_pCameraCoordinates);
+						signal_PointXYZRGB_CV2->operator()(cloud, mat);
+					}
+				}
+#endif
+
 #else
 				pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud = convertRGBDepthToPointXYZRGB(&colorBuffer[0], &depthBuffer[0]);
 				viewer.showCloud(cloud);
@@ -416,52 +449,89 @@ namespace pcl
 		//cloud->height = static_cast<uint32_t>(depthHeight);
 		cloud->is_dense = false;
 
-		for (int y = 0; y < depthHeight; y++){
-			for (int x = 0; x < depthWidth; x++){
-				pcl::PointXYZRGB point;
+		if (!dummy){
+			for (int y = 0; y < depthHeight; y++){
+				for (int x = 0; x < depthWidth; x++){
+					pcl::PointXYZRGB point;
 
-				DepthSpacePoint depthSpacePoint = { static_cast<float>(x), static_cast<float>(y) };
-				UINT16 depth = depthBuffer[y * depthWidth + x];
+					DepthSpacePoint depthSpacePoint = { static_cast<float>(x), static_cast<float>(y) };
+					UINT16 depth = depthBuffer[y * depthWidth + x];
 
-				// Coordinate Mapping Depth to Color Space, and Setting PointCloud RGB
-				ColorSpacePoint colorSpacePoint = { 0.0f, 0.0f };
-				mapper->MapDepthPointToColorSpace(depthSpacePoint, depth, &colorSpacePoint);
+					// Coordinate Mapping Depth to Color Space, and Setting PointCloud RGB
+					ColorSpacePoint colorSpacePoint = { 0.0f, 0.0f };
+					mapper->MapDepthPointToColorSpace(depthSpacePoint, depth, &colorSpacePoint);
 
-				int colorX = static_cast<int>(std::floor(colorSpacePoint.X + 0.5f));
-				int colorY = static_cast<int>(std::floor(colorSpacePoint.Y + 0.5f));
-				if ((0 <= colorX) && (colorX < colorWidth) && (0 <= colorY) && (colorY < colorHeight)){
-					RGBQUAD color = colorBuffer[colorY * colorWidth + colorX];
-					point.b = color.rgbBlue;
-					point.g = color.rgbGreen;
-					point.r = color.rgbRed;
-				}
-
-				// Coordinate Mapping Depth to Camera Space, and Setting PointCloud XYZ
-				CameraSpacePoint cameraSpacePoint = { 0.0f, 0.0f, 0.0f };
-				mapper->MapDepthPointToCameraSpace(depthSpacePoint, depth, &cameraSpacePoint);
-				if ((0 <= colorX) && (colorX < colorWidth) && (0 <= colorY) && (colorY < colorHeight)){
-#if 0
-					point.x = cameraSpacePoint.X;
-					point.y = cameraSpacePoint.Y;
-					point.z = cameraSpacePoint.Z;
-#else // meter to mm
-					point.x = cameraSpacePoint.X * 1000;
-					point.y = cameraSpacePoint.Y * 1000;
-					point.z = cameraSpacePoint.Z * 1000;
-#endif
-					if (!ptexist){
-						ptexist = true;
-						std::cout << point.x << ", " << point.y << ", " << point.z << std::endl;
+					int colorX = static_cast<int>(std::floor(colorSpacePoint.X + 0.5f));
+					int colorY = static_cast<int>(std::floor(colorSpacePoint.Y + 0.5f));
+					if ((0 <= colorX) && (colorX < colorWidth) && (0 <= colorY) && (colorY < colorHeight)){
+						RGBQUAD color = colorBuffer[colorY * colorWidth + colorX];
+						point.b = color.rgbBlue;
+						point.g = color.rgbGreen;
+						point.r = color.rgbRed;
 					}
-					//cloud->points[colorX * this->colorWidth + colorY] = point;
-					cloud->points[colorY * this->colorWidth + colorX] = point;
+
+					// Coordinate Mapping Depth to Camera Space, and Setting PointCloud XYZ
+					CameraSpacePoint cameraSpacePoint = { 0.0f, 0.0f, 0.0f };
+					mapper->MapDepthPointToCameraSpace(depthSpacePoint, depth, &cameraSpacePoint);
+					if ((0 <= colorX) && (colorX < colorWidth) && (0 <= colorY) && (colorY < colorHeight)){
+#if 0
+						point.x = cameraSpacePoint.X;
+						point.y = cameraSpacePoint.Y;
+						point.z = cameraSpacePoint.Z;
+#else // meter to mm
+						point.x = cameraSpacePoint.X * 1000;
+						point.y = cameraSpacePoint.Y * 1000;
+						point.z = cameraSpacePoint.Z * 1000;
+#endif
+						if (!ptexist){
+							ptexist = true;
+							std::cout << point.x << ", " << point.y << ", " << point.z << std::endl;
+						}
+						//cloud->points[colorX * this->colorWidth + colorY] = point;
+						cloud->points[colorY * this->colorWidth + colorX] = point;
+					}
+					//points.at(row * this->width + column)
+
+					//cloud->push_back(point);
 				}
-				//points.at(row * this->width + column)
+			}
+		}
+		else{
+			if (colorBuffer != NULL && depthBuffer != NULL){
 				
-				//cloud->push_back(point);
 			}
 		}
 
+		return cloud;
+	}
+
+	pcl::PointCloud<pcl::PointXYZRGB>::Ptr pcl::Kinect2Grabber::convertRGBDepthToPointXYZRGB(RGBQUAD* colorBuffer, CameraSpacePoint* cameraBuffer)
+	{
+		pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZRGB>(colorWidth, colorHeight));
+		bool ptexist = false;
+		cloud->is_dense = false;
+
+		if (colorBuffer != NULL && cameraBuffer != NULL){
+
+			for (int y = 0; y < colorHeight; y++){
+				for (int x = 0; x < colorWidth; x++){
+					pcl::PointXYZRGB point;
+
+					RGBQUAD color = colorBuffer[y * colorWidth + x];
+					point.b = color.rgbBlue;
+					point.g = color.rgbGreen;
+					point.r = color.rgbRed;
+
+					CameraSpacePoint cameraSpacePoint = cameraBuffer[y * colorWidth + x];
+
+					point.x = cameraSpacePoint.X * 1000;
+					point.y = cameraSpacePoint.Y * 1000;
+					point.z = cameraSpacePoint.Z * 1000;
+
+					cloud->points[y * this->colorWidth + x] = point;
+				}
+			}
+		}
 		return cloud;
 	}
 
