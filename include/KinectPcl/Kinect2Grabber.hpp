@@ -332,6 +332,7 @@ namespace pcl
 				if (mapper != NULL){
 					HRESULT hr = mapper->MapColorFrameToCameraSpace(depthWidth*depthHeight, &depthBuffer[0], colorWidth*colorHeight, m_pCameraCoordinates);
 					if (SUCCEEDED(hr)){
+						std::cout << "Cloud generation ... " << endl;
 						boost::shared_ptr<pcl::PointCloud<pcl::PointXYZRGB>> cloud = convertRGBDepthToPointXYZRGB(&colorBuffer[0], m_pCameraCoordinates);
 						signal_PointXYZRGB_CV2->operator()(cloud, mat);
 					}
