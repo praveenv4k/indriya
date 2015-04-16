@@ -273,9 +273,9 @@ private:
 
 				cout << "******* ID: " << id << "; Resolution: " << resol << endl;
 
-				FOREACH(pit, m->experimot_marker_points_img){
+				/*FOREACH(pit, m->experimot_marker_points_img){
 					std::cout << pit->x << ", " << pit->y << std::endl;
-				}
+					}*/
 				//int ori = m->ros_orientation;
 
 				PointDouble pt1, pt2, pt3, pt4;
@@ -285,7 +285,7 @@ private:
 				pt2 = m->experimot_marker_points_img[(resol*resol) - 1];
 
 				std::vector<pcl::PointXYZRGB> cornerPts;
-				
+
 				/*cornerPts.push_back(cloud.operator()((size_t)pt1.x, (size_t)pt1.y));
 				cornerPts.push_back(cloud.operator()((size_t)pt2.x, (size_t)pt2.y));
 				cornerPts.push_back(cloud.operator()((size_t)pt3.x, (size_t)pt3.y));
@@ -305,12 +305,20 @@ private:
 				else
 					ROS_ERROR("FindMarkerBundles: Bad Orientation: %i for ID: %i", ori, id);
 #endif
+				std::cout << "Corner : " << endl;
+				FOREACH(it, cornerPts){
+					std::cout << "( " << it->x << "; " << it->y << " ), ";
+				}
+				std::cout << endl;
 
 				//Get the 3D marker points
-				BOOST_FOREACH(const PointDouble& p, m->experimot_marker_points_img)
-					pixels.push_back(cv::Point(p.x, p.y));
-				ARCloud::Ptr selected_points = filterCloud(cloud, pixels);
 
+				BOOST_FOREACH(const PointDouble& p, m->experimot_marker_points_img){
+					pixels.push_back(cv::Point(p.x, p.y));
+				}
+
+				ARCloud::Ptr selected_points = filterCloud(cloud, pixels);
+				std::cout << "Selected Points: " << selected_points->size() << std::endl;
 				//Use the kinect data to find a plane and pose for the marker
 				Transform pose;
 				int ret = PlaneFitPoseImprovement(i, cornerPts, selected_points, cloud, pose);
