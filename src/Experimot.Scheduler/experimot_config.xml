@@ -23,7 +23,7 @@
         <param key="marker_size" value="55" type="int"/>
         <param key="comm_timeout" value="100" type="int"/>
         <param key="calib_file" value="camera_calibration_kinect_1600.xml" type="string"/>
-        <param key="sensor_process_cycle" value="30" type="int"/>
+        <param key="sensor_process_cycle" value="20" type="int"/>
         <param key="robot_listener_cycle" value="40" type="int"/>
         <param key="pose_publisher_cycle" value="80" type="int"/>
         <param key="visualize" value="1" type="int"/>
@@ -68,7 +68,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="false">
+    <node enabled="true">
       <name>simulation</name>
       <process>
         <type>executable</type>

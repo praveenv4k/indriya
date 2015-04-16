@@ -305,27 +305,33 @@ private:
 				else
 					ROS_ERROR("FindMarkerBundles: Bad Orientation: %i for ID: %i", ori, id);
 #endif
+				bool nan = false;
 				std::cout << "Corner : " << endl;
 				FOREACH(it, cornerPts){
 					std::cout << "( " << it->x << "; " << it->y << " ), ";
+					if (isnan(it->x) || isnan(it->y)){
+						nan = true;
+						break;
+					}
 				}
 				std::cout << endl;
+				if (!nan)
+				{
+					//Get the 3D marker points
+					BOOST_FOREACH(const PointDouble& p, m->experimot_marker_points_img){
+						pixels.push_back(cv::Point(p.x, p.y));
+					}
 
-				//Get the 3D marker points
+					ARCloud::Ptr selected_points = filterCloud(cloud, pixels);
+					std::cout << "Selected Points: " << selected_points->size() << std::endl;
+					//Use the kinect data to find a plane and pose for the marker
+					Transform pose;
+					int ret = PlaneFitPoseImprovement(i, cornerPts, selected_points, cloud, pose);
 
-				BOOST_FOREACH(const PointDouble& p, m->experimot_marker_points_img){
-					pixels.push_back(cv::Point(p.x, p.y));
-				}
-
-				ARCloud::Ptr selected_points = filterCloud(cloud, pixels);
-				std::cout << "Selected Points: " << selected_points->size() << std::endl;
-				//Use the kinect data to find a plane and pose for the marker
-				Transform pose;
-				int ret = PlaneFitPoseImprovement(i, cornerPts, selected_points, cloud, pose);
-
-				if (ret == 0){
-					poseMap.insert(std::pair<int, Transform>(m->GetId(), pose));
-					bRet = true;
+					if (ret == 0){
+						poseMap.insert(std::pair<int, Transform>(m->GetId(), pose));
+						bRet = true;
+					}
 				}
 			}
 		}
@@ -468,6 +474,10 @@ private:
 		p.rot[2] = orientation.y;
 		p.rot[3] = orientation.z;
 		p.rot[0] = orientation.w;*/
+
+		if (isnan(position.x) || isnan(position.y) || isnan(position.z)){
+			return -1;
+		}
 
 		p = Transform(orientation, position);
 

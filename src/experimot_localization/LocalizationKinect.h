@@ -145,6 +145,8 @@ public:
 	}
 
 	void ToKinectFrame(const Transform& alvar, Transform& kinect){
+		kinect = alvar;
+		return;
 		double roll, pitch, yaw;
 		// Decompose the transform into roll,pitch and yaw
 		decomposeTransform(alvar, roll, pitch, yaw);

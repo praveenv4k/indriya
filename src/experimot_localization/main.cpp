@@ -1,6 +1,6 @@
 #define MarkerTest 0
 #define RobotListener 0
-#define USE_KINECT
+//#define USE_KINECT
 
 #if MarkerTest
 #include "MarkerDetectionTest.h"
