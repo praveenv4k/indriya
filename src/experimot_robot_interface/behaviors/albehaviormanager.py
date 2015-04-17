@@ -1,13 +1,22 @@
 # -*- encoding: UTF-8 -*- 
-
+import os
 import sys
 import time
 import argparse
 
 from naoqi import ALProxy
 
+from os.path import dirname
+from os.path import abspath
+
+currdir = dirname(__file__)
+parent = abspath(os.path.join(currdir,os.pardir))
+
+sys.path.append(currdir)
+sys.path.append(parent)
+
 # Message - Node parameters
-#import node_pb2
+import node_pb2
 # Zero mq messaging library
 import zmq
 # Utils
@@ -107,7 +116,7 @@ if __name__ == "__main__":
           parser.add_argument('-p','--param', help='Parameter server address', required=True)
           parser.add_argument('-n','--name', help='Name of the node', required=True)
           args = vars(parser.parse_args())
-          print args
+          print args["name"]
       else:
           print "Start locally"
 
@@ -117,5 +126,7 @@ if __name__ == "__main__":
       main(ROBOTIP, PORT, "crouch")
   except:
       print "Exception occured : ", sys.exc_info()
+
+  obj = node_pb2.Node()
 
   raw_input("Press enter to continue ... ")

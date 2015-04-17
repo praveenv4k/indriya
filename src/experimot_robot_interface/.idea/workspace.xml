@@ -2,128 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03f6965a-39a2-4893-a7b0-c0ae82b1fab2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Experimot.Scheduler/Experimot.Scheduler.csproj" afterPath="$PROJECT_DIR$/../Experimot.Scheduler/Experimot.Scheduler.csproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../include/experimot/msgs/MessageTypes.h" afterPath="$PROJECT_DIR$/../../include/experimot/msgs/MessageTypes.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/MessageTypes.h" afterPath="$PROJECT_DIR$/../experimot_msgs/MessageTypes.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/behaviors/albehaviormanager.py" afterPath="$PROJECT_DIR$/behaviors/albehaviormanager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/axis_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/axis_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/boxgeom_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/boxgeom_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/camera_cmd_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/camera_cmd_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/camerasensor_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/camerasensor_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/collision_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/collision_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/color_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/color_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/contact_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/contact_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/contacts_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/contacts_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/contactsensor_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/contactsensor_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/cylindergeom_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/cylindergeom_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/diagnostics_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/diagnostics_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/distortion_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/distortion_pb2.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Experimot.Scheduler/experimot_config.xml" afterPath="$PROJECT_DIR$/../Experimot.Scheduler/experimot_config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/experimot_msgs.vcxproj.filters" afterPath="$PROJECT_DIR$/../experimot_msgs/experimot_msgs.vcxproj.filters" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/experimot_msgs.vcxproj" afterPath="$PROJECT_DIR$/../experimot_msgs/experimot_msgs.vcxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/factory_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/factory_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/fluid_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/fluid_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/fog_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/fog_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/friction_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/friction_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/geometry_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/geometry_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/csharp/gesture.cs" afterPath="$PROJECT_DIR$/../experimot_msgs/csharp/gesture.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/gesture.pb.cc" afterPath="$PROJECT_DIR$/../experimot_msgs/gesture.pb.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../include/experimot/msgs/gesture.pb.h" afterPath="$PROJECT_DIR$/../../include/experimot/msgs/gesture.pb.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/gesture.pb.h" afterPath="$PROJECT_DIR$/../experimot_msgs/gesture.pb.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/proto/gesture.proto" afterPath="$PROJECT_DIR$/../experimot_msgs/proto/gesture.proto" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/gesture_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/gesture_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/gps_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/gps_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/gui_camera_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/gui_camera_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/gui_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/gui_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/gz_string_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/gz_string_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/gz_string_v_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/gz_string_v_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/header_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/header_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/heightmapgeom_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/heightmapgeom_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/hydra_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/hydra_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/image_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/image_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/image_stamped_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/image_stamped_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/imagegeom_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/imagegeom_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/images_stamped_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/images_stamped_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/imu_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/imu_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/inertial_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/inertial_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/int_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/int_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/joint_animation_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/joint_animation_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/joint_cmd_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/joint_cmd_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/joint_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/joint_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/joint_value_map_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/joint_value_map_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/joint_wrench_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/joint_wrench_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/joint_wrench_stamped_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/joint_wrench_stamped_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/joystick_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/joystick_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/kinect_body_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/kinect_body_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/kinect_joint_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/kinect_joint_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/laserscan_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/laserscan_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/laserscan_stamped_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/laserscan_stamped_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/light_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/light_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/link_data_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/link_data_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/link_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/link_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/log_control_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/log_control_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/log_status_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/log_status_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/material_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/material_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/meshgeom_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/meshgeom_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/model_configuration_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/model_configuration_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/model_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/model_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/model_v_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/model_v_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/node_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/node_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/packet_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/packet_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/physics_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/physics_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/pid_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/pid_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/planegeom_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/planegeom_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/plugin_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/plugin_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/pointcloud_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/pointcloud_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/polylinegeom_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/polylinegeom_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/pose_animation_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/pose_animation_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/pose_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/pose_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/pose_stamped_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/pose_stamped_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/pose_trajectory_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/pose_trajectory_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/pose_v_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/pose_v_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/poses_stamped_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/poses_stamped_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/projector_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/projector_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/propagation_grid_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/propagation_grid_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/propagation_particle_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/propagation_particle_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/proto_export.bat" afterPath="$PROJECT_DIR$/../experimot_msgs/proto_export.bat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/publish_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/publish_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/publishers_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/publishers_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/quaternion_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/quaternion_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/raysensor_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/raysensor_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/request_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/request_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/response_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/response_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/road_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/road_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/robot_behavior_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/robot_behavior_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/scene_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/scene_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/selection_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/selection_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/sensor_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/sensor_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/server_control_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/server_control_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/shadows_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/shadows_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/sim_event_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/sim_event_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/sky_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/sky_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/sonar_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/sonar_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/sonar_stamped_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/sonar_stamped_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/spheregeom_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/spheregeom_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/spherical_coordinates_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/spherical_coordinates_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/subscribe_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/subscribe_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/surface_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/surface_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/tactile_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/tactile_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/test_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/test_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/time_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/time_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/topic_info_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/topic_info_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/track_visual_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/track_visual_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/vector2d_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/vector2d_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/vector3d_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/vector3d_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/visual_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/visual_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/wireless_node_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/wireless_node_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/wireless_nodes_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/wireless_nodes_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/world_control_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/world_control_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/world_modify_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/world_modify_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/world_reset_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/world_reset_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/world_stats_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/world_stats_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/wrench_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/wrench_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/wrench_stamped_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/wrench_stamped_pb2.py" />
     </list>
     <ignored path="PyScripts.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -159,13 +39,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plot_example.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="plot_example.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plot_example.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.2478032" vertical-offset="633" max-vertical-offset="1496">
+            <state vertical-scroll-proportion="0.0" vertical-offset="633" max-vertical-offset="1496">
               <caret line="79" column="10" selection-start-line="29" selection-start-column="0" selection-end-line="79" selection-end-column="10" />
               <folding>
                 <element signature="e#39#70#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="albehaviormanager.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/behaviors/albehaviormanager.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1641" max-vertical-offset="2210">
+              <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_dir.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test_dir.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.63708085" vertical-offset="0" max-vertical-offset="507">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -250,6 +152,8 @@
         <option value="$PROJECT_DIR$/ReadJointValues.py" />
         <option value="$PROJECT_DIR$/plot_example.py" />
         <option value="$PROJECT_DIR$/sample.py" />
+        <option value="$PROJECT_DIR$/behaviors/albehaviormanager.py" />
+        <option value="$PROJECT_DIR$/test_dir.py" />
       </list>
     </option>
   </component>
@@ -300,6 +204,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PyScripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PyScripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="experimot_robot_interface" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PyScripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PyScripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="experimot_robot_interface" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="behaviors" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -323,7 +259,7 @@
       <recent name="C:\Work\Develop\src\github\PyScripts" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.sample">
+  <component name="RunManager" selected="Python.test_dir">
     <configuration default="false" name="ReadJointValues" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -337,25 +273,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="PyScripts" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ReadJointValues.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
-    <configuration default="false" name="alrobotposture" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PyScripts" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/alrobotposture.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
@@ -418,6 +335,27 @@
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test_dir" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PyScripts" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_dir.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
@@ -545,18 +483,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.ReadJointValues" />
-      <item index="1" class="java.lang.String" itemvalue="Python.alrobotposture" />
-      <item index="2" class="java.lang.String" itemvalue="Python.motion_walk" />
-      <item index="3" class="java.lang.String" itemvalue="Python.plot_example" />
-      <item index="4" class="java.lang.String" itemvalue="Python.sample" />
+      <item index="1" class="java.lang.String" itemvalue="Python.motion_walk" />
+      <item index="2" class="java.lang.String" itemvalue="Python.plot_example" />
+      <item index="3" class="java.lang.String" itemvalue="Python.sample" />
+      <item index="4" class="java.lang.String" itemvalue="Python.test_dir" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.sample" />
-        <item index="1" class="java.lang.String" itemvalue="Python.plot_example" />
-        <item index="2" class="java.lang.String" itemvalue="Python.ReadJointValues" />
-        <item index="3" class="java.lang.String" itemvalue="Python.motion_walk" />
-        <item index="4" class="java.lang.String" itemvalue="Python.alrobotposture" />
+        <item index="0" class="java.lang.String" itemvalue="Python.test_dir" />
+        <item index="1" class="java.lang.String" itemvalue="Python.sample" />
+        <item index="2" class="java.lang.String" itemvalue="Python.plot_example" />
+        <item index="3" class="java.lang.String" itemvalue="Python.ReadJointValues" />
+        <item index="4" class="java.lang.String" itemvalue="Python.motion_walk" />
       </list>
     </recent_temporary>
   </component>
@@ -578,24 +516,24 @@
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32996634" sideWeight="0.3699422" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39955106" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44219977" sideWeight="0.6300578" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39955106" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.6300578" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39955106" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -627,8 +565,13 @@
           <line>53</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/test_dir.py</url>
+          <line>19</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="10" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1059,10 +1002,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plot_example.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2478032" vertical-offset="633" max-vertical-offset="1496">
+        <state vertical-scroll-proportion="0.0" vertical-offset="633" max-vertical-offset="1496">
           <caret line="79" column="10" selection-start-line="29" selection-start-column="0" selection-end-line="79" selection-end-column="10" />
           <folding>
             <element signature="e#39#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/behaviors/albehaviormanager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1641" max-vertical-offset="2210">
+          <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_dir.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63708085" vertical-offset="0" max-vertical-offset="507">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
