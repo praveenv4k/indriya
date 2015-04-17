@@ -16,7 +16,7 @@ namespace Experimot.Scheduler
         private NetMQContext _ctx;
         private NetMQSocket _socket;
         private bool _disposed;
-        private readonly ILog _log = LogManager.GetLogger(typeof (ParameterServer));
+        private static readonly ILog _log = LogManager.GetLogger(typeof (ParameterServer));
 
         private const int RecvTimeout = 50;
 
@@ -56,7 +56,7 @@ namespace Experimot.Scheduler
                     {
                         if (!req.Contains("register"))
                         {
-                            Console.WriteLine(@"Received request from {0}", req);
+                            _log.InfoFormat(@"Received request from {0}", req);
                             var nodeExist = _config.nodes.FirstOrDefault(s => s.name == req);
                             if (nodeExist != null)
                             {
@@ -73,13 +73,14 @@ namespace Experimot.Scheduler
                                 using (var ms = new MemoryStream())
                                 {
                                     Serializer.Serialize(ms, nodeInfo);
-                                    _socket.Send(ms.GetBuffer());
+                                    _socket.Send(ms.GetBuffer(), (int) ms.Length);
                                 }
                             }
                         }
                         else // register either motions or behaviors
                         {
                             var name = _socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
+                            _log.InfoFormat(@"Registration request from {0}", name);
                             if (req.Contains("motion"))
                             {
                                 var motionModule =
@@ -88,6 +89,7 @@ namespace Experimot.Scheduler
                                 if (motionModule != null)
                                 {
                                     Console.WriteLine(@"Module name: {0}", motionModule.name);
+                                    _socket.Send("Registration successful!");
                                 }
                             }
                             else if (req.Contains("behavior"))
@@ -129,10 +131,17 @@ namespace Experimot.Scheduler
             {
                 if (msg.FrameCount > 0)
                 {
-                    using (var memStream = new MemoryStream(msg.First.Buffer))
+                    try
                     {
-                        var nodeInfo = Serializer.Deserialize<T>(memStream);
-                        return nodeInfo;
+                        using (var memStream = new MemoryStream(msg.First.Buffer))
+                        {
+                            var nodeInfo = Serializer.Deserialize<T>(memStream);
+                            return nodeInfo;
+                        }
+                    }
+                    catch (ProtoException ex)
+                    {
+                        _log.ErrorFormat("Exception while deserializing registration message: {0} ", ex.Message);
                     }
                 }
             }

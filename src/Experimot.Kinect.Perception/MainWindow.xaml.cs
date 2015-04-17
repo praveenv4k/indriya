@@ -11,14 +11,19 @@
 // </Description>
 //----------------------------------------------------------------------------------------------------
 
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using Common.Logging;
 using experimot.msgs;
 using Experimot.Core.Util;
 using Microsoft.Kinect;
+using Microsoft.Kinect.VisualGestureBuilder;
+using NetMQ;
+using ProtoBuf;
 using Joint = Microsoft.Kinect.Joint;
 
 namespace Experimot.Kinect.Perception
@@ -306,5 +311,7 @@ namespace Experimot.Kinect.Perception
                 }
             }
         }
+
+        
     }
 }

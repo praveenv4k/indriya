@@ -92,7 +92,7 @@ namespace ExperimotPerception
                         {
                             ProtoBuf.Serializer.Serialize(ms, item);
                             //_socket.Send(new ZFrame(ms.GetBuffer()));
-                            _socket.Send(ms.GetBuffer());
+                            _socket.Send(ms.GetBuffer(),(int)ms.Length);
                         }
                     }
                 }
