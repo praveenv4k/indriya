@@ -19,7 +19,7 @@ import vector3d_pb2 as vector3d__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='wrench.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0cwrench.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\"[\n\x06Wrench\x12\'\n\x05\x66orce\x18\x01 \x02(\x0b\x32\x18.experimot.msgs.Vector3d\x12(\n\x06torque\x18\x02 \x02(\x0b\x32\x18.experimot.msgs.Vector3d')
   ,
   dependencies=[vector3d__pb2.DESCRIPTOR,])
@@ -57,7 +57,7 @@ _WRENCH = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

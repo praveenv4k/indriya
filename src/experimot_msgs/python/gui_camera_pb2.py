@@ -20,7 +20,7 @@ import track_visual_pb2 as track__visual__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='gui_camera.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x10gui_camera.proto\x12\x0e\x65xperimot.msgs\x1a\npose.proto\x1a\x12track_visual.proto\"\x82\x01\n\tGUICamera\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x17\n\x0fview_controller\x18\x02 \x01(\t\x12\"\n\x04pose\x18\x03 \x01(\x0b\x32\x14.experimot.msgs.Pose\x12*\n\x05track\x18\x04 \x01(\x0b\x32\x1b.experimot.msgs.TrackVisual')
   ,
   dependencies=[pose__pb2.DESCRIPTOR,track__visual__pb2.DESCRIPTOR,])
@@ -72,7 +72,7 @@ _GUICAMERA = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

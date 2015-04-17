@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='quaternion.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x10quaternion.proto\x12\x0e\x65xperimot.msgs\"8\n\nQuaternion\x12\t\n\x01x\x18\x02 \x02(\x01\x12\t\n\x01y\x18\x03 \x02(\x01\x12\t\n\x01z\x18\x04 \x02(\x01\x12\t\n\x01w\x18\x05 \x02(\x01')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -69,7 +69,7 @@ _QUATERNION = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

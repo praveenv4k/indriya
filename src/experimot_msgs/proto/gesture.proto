@@ -8,7 +8,7 @@ message GestureDescription
 {
 	enum GestureType
 	{
-		None = 0,
+		None = 0;
 		Discrete = 1;
 		Continuous = 2;
 	}

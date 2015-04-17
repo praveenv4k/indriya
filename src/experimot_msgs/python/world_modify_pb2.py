@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='world_modify.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x12world_modify.proto\x12\x0e\x65xperimot.msgs\"e\n\x0bWorldModify\x12\x12\n\nworld_name\x18\x01 \x02(\t\x12\x0e\n\x06remove\x18\x02 \x01(\x08\x12\x0e\n\x06\x63reate\x18\x03 \x01(\x08\x12\x0e\n\x06\x63loned\x18\x04 \x01(\x08\x12\x12\n\ncloned_uri\x18\x05 \x01(\t')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -76,7 +76,7 @@ _WORLDMODIFY = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

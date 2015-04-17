@@ -19,7 +19,7 @@ import vector3d_pb2 as vector3d__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='axis.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\naxis.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\"\xc8\x01\n\x04\x41xis\x12%\n\x03xyz\x18\x01 \x02(\x0b\x32\x18.experimot.msgs.Vector3d\x12\x13\n\x0blimit_lower\x18\x02 \x02(\x01\x12\x13\n\x0blimit_upper\x18\x03 \x02(\x01\x12\x14\n\x0climit_effort\x18\x04 \x02(\x01\x12\x16\n\x0elimit_velocity\x18\x05 \x02(\x01\x12\x0f\n\x07\x64\x61mping\x18\x06 \x02(\x01\x12\x10\n\x08\x66riction\x18\x07 \x02(\x01\x12\x1e\n\x16use_parent_model_frame\x18\x08 \x02(\x08')
   ,
   dependencies=[vector3d__pb2.DESCRIPTOR,])
@@ -99,7 +99,7 @@ _AXIS = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

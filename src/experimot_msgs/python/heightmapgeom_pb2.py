@@ -20,7 +20,7 @@ import vector3d_pb2 as vector3d__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='heightmapgeom.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x13heightmapgeom.proto\x12\x0e\x65xperimot.msgs\x1a\x0bimage.proto\x1a\x0evector3d.proto\"\xbb\x03\n\rHeightmapGeom\x12$\n\x05image\x18\x01 \x01(\x0b\x32\x15.experimot.msgs.Image\x12&\n\x04size\x18\x02 \x02(\x0b\x32\x18.experimot.msgs.Vector3d\x12(\n\x06origin\x18\x03 \x01(\x0b\x32\x18.experimot.msgs.Vector3d\x12\x0f\n\x07heights\x18\x04 \x03(\x02\x12\r\n\x05width\x18\x05 \x01(\x05\x12\x0e\n\x06height\x18\x06 \x01(\x05\x12\x36\n\x07texture\x18\x07 \x03(\x0b\x32%.experimot.msgs.HeightmapGeom.Texture\x12\x32\n\x05\x62lend\x18\x08 \x03(\x0b\x32#.experimot.msgs.HeightmapGeom.Blend\x12\x1a\n\x12use_terrain_paging\x18\t \x01(\x08\x12\x10\n\x08\x66ilename\x18\n \x01(\t\x1a\x38\n\x07Texture\x12\x0f\n\x07\x64iffuse\x18\x01 \x02(\t\x12\x0e\n\x06normal\x18\x02 \x02(\t\x12\x0c\n\x04size\x18\x03 \x02(\x01\x1a.\n\x05\x42lend\x12\x12\n\nmin_height\x18\x01 \x02(\x01\x12\x11\n\tfade_dist\x18\x02 \x02(\x01')
   ,
   dependencies=[image__pb2.DESCRIPTOR,vector3d__pb2.DESCRIPTOR,])
@@ -65,7 +65,7 @@ _HEIGHTMAPGEOM_TEXTURE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -102,7 +102,7 @@ _HEIGHTMAPGEOM_BLEND = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -195,7 +195,7 @@ _HEIGHTMAPGEOM = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

@@ -20,7 +20,7 @@ import quaternion_pb2 as quaternion__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='pose.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\npose.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\x1a\x10quaternion.proto\"}\n\x04Pose\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\r\x12*\n\x08position\x18\x03 \x02(\x0b\x32\x18.experimot.msgs.Vector3d\x12/\n\x0borientation\x18\x04 \x02(\x0b\x32\x1a.experimot.msgs.Quaternion')
   ,
   dependencies=[vector3d__pb2.DESCRIPTOR,quaternion__pb2.DESCRIPTOR,])
@@ -72,7 +72,7 @@ _POSE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

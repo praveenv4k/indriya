@@ -20,7 +20,7 @@ import plugin_pb2 as plugin__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='gui.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\tgui.proto\x12\x0e\x65xperimot.msgs\x1a\x10gui_camera.proto\x1a\x0cplugin.proto\"l\n\x03GUI\x12\x12\n\nfullscreen\x18\x01 \x01(\x08\x12)\n\x06\x63\x61mera\x18\x02 \x01(\x0b\x32\x19.experimot.msgs.GUICamera\x12&\n\x06plugin\x18\x03 \x03(\x0b\x32\x16.experimot.msgs.Plugin')
   ,
   dependencies=[gui__camera__pb2.DESCRIPTOR,plugin__pb2.DESCRIPTOR,])
@@ -65,7 +65,7 @@ _GUI = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

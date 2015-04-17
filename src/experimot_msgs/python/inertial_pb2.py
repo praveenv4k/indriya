@@ -19,7 +19,7 @@ import pose_pb2 as pose__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='inertial.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0einertial.proto\x12\x0e\x65xperimot.msgs\x1a\npose.proto\"\x8a\x01\n\x08Inertial\x12\x0c\n\x04mass\x18\x01 \x01(\x01\x12\"\n\x04pose\x18\x02 \x01(\x0b\x32\x14.experimot.msgs.Pose\x12\x0b\n\x03ixx\x18\x03 \x01(\x01\x12\x0b\n\x03ixy\x18\x04 \x01(\x01\x12\x0b\n\x03ixz\x18\x05 \x01(\x01\x12\x0b\n\x03iyy\x18\x06 \x01(\x01\x12\x0b\n\x03iyz\x18\x07 \x01(\x01\x12\x0b\n\x03izz\x18\x08 \x01(\x01')
   ,
   dependencies=[pose__pb2.DESCRIPTOR,])
@@ -99,7 +99,7 @@ _INERTIAL = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

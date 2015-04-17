@@ -20,7 +20,7 @@ import pose_pb2 as pose__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='model_configuration.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x19model_configuration.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\x1a\npose.proto\"\x9d\x01\n\x12ModelConfiguration\x12\"\n\x04time\x18\x01 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\x13\n\x0bjoint_names\x18\x02 \x03(\t\x12\x17\n\x0fjoint_positions\x18\x03 \x03(\x01\x12\"\n\x04pose\x18\x04 \x01(\x0b\x32\x14.experimot.msgs.Pose\x12\x11\n\tlink_name\x18\x05 \x01(\t')
   ,
   dependencies=[time__pb2.DESCRIPTOR,pose__pb2.DESCRIPTOR,])
@@ -79,7 +79,7 @@ _MODELCONFIGURATION = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

@@ -18,8 +18,8 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='gesture.proto',
   package='experimot.msgs',
-  syntax='proto2',
-  serialized_pb=_b('\n\rgesture.proto\x12\x0e\x65xperimot.msgs\"\xc3\x01\n\x12GestureDescription\x12\x0c\n\x04name\x18\x01 \x02(\t\x12<\n\x04type\x18\x02 \x02(\x0e\x32..experimot.msgs.GestureDescription.GestureType\x12\x0e\n\x06\x61\x63tive\x18\x03 \x01(\x08\x12\x10\n\x08progress\x18\x04 \x01(\x05\x12\x12\n\nconfidence\x18\x05 \x01(\x05\"+\n\x0bGestureType\x12\x0c\n\x08\x44iscrete\x10\x00\x12\x0e\n\nContinuous\x10\x01\"]\n\x18GestureRecognitionModule\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x33\n\x07motions\x18\x02 \x03(\x0b\x32\".experimot.msgs.GestureDescription\"V\n\x19GestureRecognitionModules\x12\x39\n\x07modules\x18\x01 \x03(\x0b\x32(.experimot.msgs.GestureRecognitionModule')
+  #syntax='proto2',
+  serialized_pb=_b('\n\rgesture.proto\x12\x0e\x65xperimot.msgs\"\xcd\x01\n\x12GestureDescription\x12\x0c\n\x04name\x18\x01 \x02(\t\x12<\n\x04type\x18\x02 \x02(\x0e\x32..experimot.msgs.GestureDescription.GestureType\x12\x0e\n\x06\x61\x63tive\x18\x03 \x01(\x08\x12\x10\n\x08progress\x18\x04 \x01(\x05\x12\x12\n\nconfidence\x18\x05 \x01(\x05\"5\n\x0bGestureType\x12\x08\n\x04None\x10\x00\x12\x0c\n\x08\x44iscrete\x10\x01\x12\x0e\n\nContinuous\x10\x02\"]\n\x18GestureRecognitionModule\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x33\n\x07motions\x18\x02 \x03(\x0b\x32\".experimot.msgs.GestureDescription\"V\n\x19GestureRecognitionModules\x12\x39\n\x07modules\x18\x01 \x03(\x0b\x32(.experimot.msgs.GestureRecognitionModule')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -32,18 +32,22 @@ _GESTUREDESCRIPTION_GESTURETYPE = _descriptor.EnumDescriptor(
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='Discrete', index=0, number=0,
+      name='None', index=0, number=0,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='Continuous', index=1, number=1,
+      name='Discrete', index=1, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='Continuous', index=2, number=2,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
   serialized_start=186,
-  serialized_end=229,
+  serialized_end=239,
 )
 _sym_db.RegisterEnumDescriptor(_GESTUREDESCRIPTION_GESTURETYPE)
 
@@ -99,12 +103,12 @@ _GESTUREDESCRIPTION = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
   serialized_start=34,
-  serialized_end=229,
+  serialized_end=239,
 )
 
 
@@ -137,12 +141,12 @@ _GESTURERECOGNITIONMODULE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=231,
-  serialized_end=324,
+  serialized_start=241,
+  serialized_end=334,
 )
 
 
@@ -168,12 +172,12 @@ _GESTURERECOGNITIONMODULES = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=326,
-  serialized_end=412,
+  serialized_start=336,
+  serialized_end=422,
 )
 
 _GESTUREDESCRIPTION.fields_by_name['type'].enum_type = _GESTUREDESCRIPTION_GESTURETYPE

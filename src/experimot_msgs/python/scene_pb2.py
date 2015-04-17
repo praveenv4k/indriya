@@ -24,7 +24,7 @@ import model_pb2 as model__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='scene.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0bscene.proto\x12\x0e\x65xperimot.msgs\x1a\x0b\x63olor.proto\x1a\tfog.proto\x1a\tsky.proto\x1a\x0blight.proto\x1a\x0bjoint.proto\x1a\x0bmodel.proto\"\xc3\x02\n\x05Scene\x12\x0c\n\x04name\x18\x01 \x02(\t\x12&\n\x07\x61mbient\x18\x02 \x01(\x0b\x32\x15.experimot.msgs.Color\x12)\n\nbackground\x18\x03 \x01(\x0b\x32\x15.experimot.msgs.Color\x12 \n\x03sky\x18\x04 \x01(\x0b\x32\x13.experimot.msgs.Sky\x12\x15\n\x07shadows\x18\x05 \x01(\x08:\x04true\x12 \n\x03\x66og\x18\x06 \x01(\x0b\x32\x13.experimot.msgs.Fog\x12\x0c\n\x04grid\x18\x07 \x01(\x08\x12$\n\x05model\x18\x08 \x03(\x0b\x32\x15.experimot.msgs.Model\x12$\n\x05light\x18\t \x03(\x0b\x32\x15.experimot.msgs.Light\x12$\n\x05joint\x18\n \x03(\x0b\x32\x15.experimot.msgs.Joint')
   ,
   dependencies=[color__pb2.DESCRIPTOR,fog__pb2.DESCRIPTOR,sky__pb2.DESCRIPTOR,light__pb2.DESCRIPTOR,joint__pb2.DESCRIPTOR,model__pb2.DESCRIPTOR,])
@@ -118,7 +118,7 @@ _SCENE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

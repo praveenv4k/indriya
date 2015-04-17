@@ -20,7 +20,7 @@ import distortion_pb2 as distortion__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='camerasensor.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x12\x63\x61merasensor.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector2d.proto\x1a\x10\x64istortion.proto\"\xe8\x01\n\x0c\x43\x61meraSensor\x12\x16\n\x0ehorizontal_fov\x18\x01 \x01(\x01\x12,\n\nimage_size\x18\x02 \x01(\x0b\x32\x18.experimot.msgs.Vector2d\x12\x14\n\x0cimage_format\x18\x03 \x01(\t\x12\x11\n\tnear_clip\x18\x04 \x01(\x01\x12\x10\n\x08\x66\x61r_clip\x18\x05 \x01(\x01\x12\x14\n\x0csave_enabled\x18\x06 \x01(\x08\x12\x11\n\tsave_path\x18\x07 \x01(\t\x12.\n\ndistortion\x18\x08 \x01(\x0b\x32\x1a.experimot.msgs.Distortion')
   ,
   dependencies=[vector2d__pb2.DESCRIPTOR,distortion__pb2.DESCRIPTOR,])
@@ -100,7 +100,7 @@ _CAMERASENSOR = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

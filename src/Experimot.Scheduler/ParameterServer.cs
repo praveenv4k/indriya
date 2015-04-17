@@ -88,7 +88,7 @@ namespace Experimot.Scheduler
                                         RecvTimeout);
                                 if (motionModule != null)
                                 {
-                                    Console.WriteLine(@"Module name: {0}", motionModule.name);
+                                    _log.InfoFormat(@"Module name: {0}", motionModule.name);
                                     _socket.Send("Registration successful!");
                                 }
                             }
@@ -99,7 +99,7 @@ namespace Experimot.Scheduler
                                         RecvTimeout);
                                 if (behaviorModule != null)
                                 {
-                                    Console.WriteLine(@"Module name: {0}", behaviorModule.name);
+                                    _log.InfoFormat(@"Module name: {0}", behaviorModule.name);
                                 }
                             }
                             else

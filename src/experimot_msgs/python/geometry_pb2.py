@@ -27,7 +27,7 @@ import polylinegeom_pb2 as polylinegeom__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='geometry.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0egeometry.proto\x12\x0e\x65xperimot.msgs\x1a\rboxgeom.proto\x1a\x12\x63ylindergeom.proto\x1a\x10spheregeom.proto\x1a\x0fplanegeom.proto\x1a\x0fimagegeom.proto\x1a\x13heightmapgeom.proto\x1a\x0emeshgeom.proto\x1a\x0evector3d.proto\x1a\x12polylinegeom.proto\"\xd3\x04\n\x08Geometry\x12+\n\x04type\x18\x01 \x01(\x0e\x32\x1d.experimot.msgs.Geometry.Type\x12$\n\x03\x62ox\x18\x02 \x01(\x0b\x32\x17.experimot.msgs.BoxGeom\x12.\n\x08\x63ylinder\x18\x03 \x01(\x0b\x32\x1c.experimot.msgs.CylinderGeom\x12(\n\x05plane\x18\x04 \x01(\x0b\x32\x19.experimot.msgs.PlaneGeom\x12*\n\x06sphere\x18\x05 \x01(\x0b\x32\x1a.experimot.msgs.SphereGeom\x12(\n\x05image\x18\x06 \x01(\x0b\x32\x19.experimot.msgs.ImageGeom\x12\x30\n\theightmap\x18\x07 \x01(\x0b\x32\x1d.experimot.msgs.HeightmapGeom\x12&\n\x04mesh\x18\x08 \x01(\x0b\x32\x18.experimot.msgs.MeshGeom\x12(\n\x06points\x18\t \x03(\x0b\x32\x18.experimot.msgs.Vector3d\x12*\n\x08polyline\x18\n \x03(\x0b\x32\x18.experimot.msgs.Polyline\"\x93\x01\n\x04Type\x12\x07\n\x03\x42OX\x10\x01\x12\x0c\n\x08\x43YLINDER\x10\x02\x12\n\n\x06SPHERE\x10\x03\x12\t\n\x05PLANE\x10\x04\x12\t\n\x05IMAGE\x10\x05\x12\r\n\tHEIGHTMAP\x10\x06\x12\x08\n\x04MESH\x10\x07\x12\x10\n\x0cTRIANGLE_FAN\x10\x08\x12\x0e\n\nLINE_STRIP\x10\t\x12\x0c\n\x08POLYLINE\x10\n\x12\t\n\x05\x45MPTY\x10\x0b')
   ,
   dependencies=[boxgeom__pb2.DESCRIPTOR,cylindergeom__pb2.DESCRIPTOR,spheregeom__pb2.DESCRIPTOR,planegeom__pb2.DESCRIPTOR,imagegeom__pb2.DESCRIPTOR,heightmapgeom__pb2.DESCRIPTOR,meshgeom__pb2.DESCRIPTOR,vector3d__pb2.DESCRIPTOR,polylinegeom__pb2.DESCRIPTOR,])
@@ -180,7 +180,7 @@ _GEOMETRY = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

@@ -21,7 +21,7 @@ import joint_wrench_pb2 as joint__wrench__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='contact.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\rcontact.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\x1a\ntime.proto\x1a\x12joint_wrench.proto\"\xf6\x01\n\x07\x43ontact\x12\x12\n\ncollision1\x18\x01 \x02(\t\x12\x12\n\ncollision2\x18\x02 \x02(\t\x12*\n\x08position\x18\x03 \x03(\x0b\x32\x18.experimot.msgs.Vector3d\x12(\n\x06normal\x18\x04 \x03(\x0b\x32\x18.experimot.msgs.Vector3d\x12\r\n\x05\x64\x65pth\x18\x05 \x03(\x01\x12+\n\x06wrench\x18\x06 \x03(\x0b\x32\x1b.experimot.msgs.JointWrench\x12\"\n\x04time\x18\x07 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\r\n\x05world\x18\x08 \x02(\t')
   ,
   dependencies=[vector3d__pb2.DESCRIPTOR,time__pb2.DESCRIPTOR,joint__wrench__pb2.DESCRIPTOR,])
@@ -101,7 +101,7 @@ _CONTACT = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

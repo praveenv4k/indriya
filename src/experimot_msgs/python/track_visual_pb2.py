@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='track_visual.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x12track_visual.proto\x12\x0e\x65xperimot.msgs\"h\n\x0bTrackVisual\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\n\n\x02id\x18\x02 \x01(\r\x12\x1b\n\x13inherit_orientation\x18\x03 \x01(\x08\x12\x10\n\x08min_dist\x18\x04 \x01(\x01\x12\x10\n\x08max_dist\x18\x05 \x01(\x01')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -76,7 +76,7 @@ _TRACKVISUAL = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

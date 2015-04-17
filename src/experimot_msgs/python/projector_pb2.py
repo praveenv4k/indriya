@@ -19,7 +19,7 @@ import pose_pb2 as pose__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='projector.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0fprojector.proto\x12\x0e\x65xperimot.msgs\x1a\npose.proto\"\xa7\x01\n\tProjector\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x0f\n\x07texture\x18\x02 \x01(\t\x12\"\n\x04pose\x18\x03 \x01(\x0b\x32\x14.experimot.msgs.Pose\x12\x12\n\x03\x66ov\x18\x04 \x01(\x01:\x05\x30.785\x12\x16\n\tnear_clip\x18\x05 \x01(\x01:\x03\x30.1\x12\x14\n\x08\x66\x61r_clip\x18\x06 \x01(\x01:\x02\x31\x30\x12\x15\n\x07\x65nabled\x18\x07 \x01(\x08:\x04true')
   ,
   dependencies=[pose__pb2.DESCRIPTOR,])
@@ -92,7 +92,7 @@ _PROJECTOR = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

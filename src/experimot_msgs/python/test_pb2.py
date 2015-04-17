@@ -19,7 +19,7 @@ import header_pb2 as header__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='test.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\ntest.proto\x12\x0e\x65xperimot.msgs\x1a\x0cheader.proto\".\n\x04Test\x12&\n\x06header\x18\x01 \x02(\x0b\x32\x16.experimot.msgs.Header')
   ,
   dependencies=[header__pb2.DESCRIPTOR,])
@@ -50,7 +50,7 @@ _TEST = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

@@ -24,7 +24,7 @@ import pose_pb2 as pose__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='link.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\nlink.proto\x12\x0e\x65xperimot.msgs\x1a\x0einertial.proto\x1a\x0f\x63ollision.proto\x1a\x0cvisual.proto\x1a\x0csensor.proto\x1a\x0fprojector.proto\x1a\npose.proto\"\xfa\x02\n\x04Link\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x14\n\x0cself_collide\x18\x03 \x01(\x08\x12\x0f\n\x07gravity\x18\x04 \x01(\x08\x12\x11\n\tkinematic\x18\x05 \x01(\x08\x12\x0f\n\x07\x65nabled\x18\x06 \x01(\x08\x12*\n\x08inertial\x18\x07 \x01(\x0b\x32\x18.experimot.msgs.Inertial\x12\"\n\x04pose\x18\x08 \x01(\x0b\x32\x14.experimot.msgs.Pose\x12&\n\x06visual\x18\t \x03(\x0b\x32\x16.experimot.msgs.Visual\x12,\n\tcollision\x18\n \x03(\x0b\x32\x19.experimot.msgs.Collision\x12&\n\x06sensor\x18\x0b \x03(\x0b\x32\x16.experimot.msgs.Sensor\x12,\n\tprojector\x18\x0c \x03(\x0b\x32\x19.experimot.msgs.Projector\x12\x11\n\tcanonical\x18\r \x01(\x08')
   ,
   dependencies=[inertial__pb2.DESCRIPTOR,collision__pb2.DESCRIPTOR,visual__pb2.DESCRIPTOR,sensor__pb2.DESCRIPTOR,projector__pb2.DESCRIPTOR,pose__pb2.DESCRIPTOR,])
@@ -139,7 +139,7 @@ _LINK = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

@@ -19,7 +19,7 @@ import color_pb2 as color__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='fog.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\tfog.proto\x12\x0e\x65xperimot.msgs\x1a\x0b\x63olor.proto\"\xc7\x01\n\x03\x46og\x12)\n\x04type\x18\x01 \x01(\x0e\x32\x1b.experimot.msgs.Fog.FogType\x12$\n\x05\x63olor\x18\x02 \x01(\x0b\x32\x15.experimot.msgs.Color\x12\x0f\n\x07\x64\x65nsity\x18\x03 \x01(\x02\x12\r\n\x05start\x18\x04 \x01(\x02\x12\x0b\n\x03\x65nd\x18\x05 \x01(\x02\"B\n\x07\x46ogType\x12\x08\n\x04NONE\x10\x01\x12\n\n\x06LINEAR\x10\x02\x12\x0f\n\x0b\x45XPONENTIAL\x10\x03\x12\x10\n\x0c\x45XPONENTIAL2\x10\x04')
   ,
   dependencies=[color__pb2.DESCRIPTOR,])
@@ -109,7 +109,7 @@ _FOG = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

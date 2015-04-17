@@ -21,7 +21,7 @@ import quaternion_pb2 as quaternion__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='imu.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\timu.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\x1a\x0evector3d.proto\x1a\x10quaternion.proto\"\xdb\x01\n\x03IMU\x12#\n\x05stamp\x18\x01 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\x13\n\x0b\x65ntity_name\x18\x02 \x02(\t\x12/\n\x0borientation\x18\x03 \x02(\x0b\x32\x1a.experimot.msgs.Quaternion\x12\x32\n\x10\x61ngular_velocity\x18\x04 \x02(\x0b\x32\x18.experimot.msgs.Vector3d\x12\x35\n\x13linear_acceleration\x18\x05 \x02(\x0b\x32\x18.experimot.msgs.Vector3d')
   ,
   dependencies=[time__pb2.DESCRIPTOR,vector3d__pb2.DESCRIPTOR,quaternion__pb2.DESCRIPTOR,])
@@ -80,7 +80,7 @@ _IMU = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

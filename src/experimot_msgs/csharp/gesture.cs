@@ -57,11 +57,14 @@ namespace experimot.msgs
     public enum GestureType
     {
             
-      [global::ProtoBuf.ProtoEnum(Name=@"Discrete", Value=0)]
-      Discrete = 0,
+      [global::ProtoBuf.ProtoEnum(Name=@"None", Value=0)]
+      None = 0,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"Continuous", Value=1)]
-      Continuous = 1
+      [global::ProtoBuf.ProtoEnum(Name=@"Discrete", Value=1)]
+      Discrete = 1,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"Continuous", Value=2)]
+      Continuous = 2
     }
   
     private global::ProtoBuf.IExtension extensionObject;

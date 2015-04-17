@@ -20,7 +20,7 @@ import time_pb2 as time__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='joint_wrench_stamped.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x1ajoint_wrench_stamped.proto\x12\x0e\x65xperimot.msgs\x1a\x12joint_wrench.proto\x1a\ntime.proto\"^\n\x0b\x46orceTorque\x12+\n\x06wrench\x18\x01 \x03(\x0b\x32\x1b.experimot.msgs.JointWrench\x12\"\n\x04time\x18\x02 \x02(\x0b\x32\x14.experimot.msgs.Time')
   ,
   dependencies=[joint__wrench__pb2.DESCRIPTOR,time__pb2.DESCRIPTOR,])
@@ -58,7 +58,7 @@ _FORCETORQUE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

@@ -19,7 +19,7 @@ import propagation_particle_pb2 as propagation__particle__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='propagation_grid.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x16propagation_grid.proto\x12\x0e\x65xperimot.msgs\x1a\x1apropagation_particle.proto\"H\n\x0fPropagationGrid\x12\x35\n\x08particle\x18\x01 \x03(\x0b\x32#.experimot.msgs.PropagationParticle')
   ,
   dependencies=[propagation__particle__pb2.DESCRIPTOR,])
@@ -50,7 +50,7 @@ _PROPAGATIONGRID = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

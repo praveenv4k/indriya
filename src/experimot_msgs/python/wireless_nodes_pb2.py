@@ -19,7 +19,7 @@ import wireless_node_pb2 as wireless__node__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='wireless_nodes.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x14wireless_nodes.proto\x12\x0e\x65xperimot.msgs\x1a\x13wireless_node.proto\";\n\rWirelessNodes\x12*\n\x04node\x18\x01 \x03(\x0b\x32\x1c.experimot.msgs.WirelessNode')
   ,
   dependencies=[wireless__node__pb2.DESCRIPTOR,])
@@ -50,7 +50,7 @@ _WIRELESSNODES = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

@@ -19,7 +19,7 @@ import friction_pb2 as friction__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='surface.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\rsurface.proto\x12\x0e\x65xperimot.msgs\x1a\x0e\x66riction.proto\"\xb3\x02\n\x07Surface\x12*\n\x08\x66riction\x18\x01 \x01(\x0b\x32\x18.experimot.msgs.Friction\x12\x1f\n\x17restitution_coefficient\x18\x02 \x01(\x01\x12\x18\n\x10\x62ounce_threshold\x18\x03 \x01(\x01\x12\x10\n\x08soft_cfm\x18\x04 \x01(\x01\x12\x10\n\x08soft_erp\x18\x05 \x01(\x01\x12\n\n\x02kp\x18\x06 \x01(\x01\x12\n\n\x02kd\x18\x07 \x01(\x01\x12\x0f\n\x07max_vel\x18\x08 \x01(\x01\x12\x11\n\tmin_depth\x18\t \x01(\x01\x12\x1f\n\x17\x63ollide_without_contact\x18\n \x01(\x08\x12\'\n\x1f\x63ollide_without_contact_bitmask\x18\x0b \x01(\r\x12\x17\n\x0f\x63ollide_bitmask\x18\x0c \x01(\r')
   ,
   dependencies=[friction__pb2.DESCRIPTOR,])
@@ -127,7 +127,7 @@ _SURFACE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

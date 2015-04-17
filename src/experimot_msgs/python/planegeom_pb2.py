@@ -20,7 +20,7 @@ import vector2d_pb2 as vector2d__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='planegeom.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0fplanegeom.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\x1a\x0evector2d.proto\"k\n\tPlaneGeom\x12(\n\x06normal\x18\x01 \x02(\x0b\x32\x18.experimot.msgs.Vector3d\x12&\n\x04size\x18\x02 \x02(\x0b\x32\x18.experimot.msgs.Vector2d\x12\x0c\n\x01\x64\x18\x03 \x01(\x01:\x01\x30')
   ,
   dependencies=[vector3d__pb2.DESCRIPTOR,vector2d__pb2.DESCRIPTOR,])
@@ -65,7 +65,7 @@ _PLANEGEOM = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

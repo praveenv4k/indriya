@@ -23,7 +23,7 @@ import vector3d_pb2 as vector3d__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='model.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0bmodel.proto\x12\x0e\x65xperimot.msgs\x1a\x0bjoint.proto\x1a\nlink.proto\x1a\npose.proto\x1a\x0cvisual.proto\x1a\x0evector3d.proto\"\x9a\x02\n\x05Model\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\n\n\x02id\x18\x02 \x01(\r\x12\x11\n\tis_static\x18\x03 \x01(\x08\x12\"\n\x04pose\x18\x04 \x01(\x0b\x32\x14.experimot.msgs.Pose\x12$\n\x05joint\x18\x05 \x03(\x0b\x32\x15.experimot.msgs.Joint\x12\"\n\x04link\x18\x06 \x03(\x0b\x32\x14.experimot.msgs.Link\x12\x0f\n\x07\x64\x65leted\x18\x07 \x01(\x08\x12&\n\x06visual\x18\x08 \x03(\x0b\x32\x16.experimot.msgs.Visual\x12\'\n\x05scale\x18\t \x01(\x0b\x32\x18.experimot.msgs.Vector3d\x12\x14\n\x0cself_collide\x18\n \x01(\x08')
   ,
   dependencies=[joint__pb2.DESCRIPTOR,link__pb2.DESCRIPTOR,pose__pb2.DESCRIPTOR,visual__pb2.DESCRIPTOR,vector3d__pb2.DESCRIPTOR,])
@@ -117,7 +117,7 @@ _MODEL = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

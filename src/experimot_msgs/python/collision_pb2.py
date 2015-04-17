@@ -22,7 +22,7 @@ import visual_pb2 as visual__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='collision.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0f\x63ollision.proto\x12\x0e\x65xperimot.msgs\x1a\npose.proto\x1a\x0egeometry.proto\x1a\rsurface.proto\x1a\x0cvisual.proto\"\xf2\x01\n\tCollision\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x13\n\x0blaser_retro\x18\x03 \x01(\x01\x12\x14\n\x0cmax_contacts\x18\x04 \x01(\x01\x12\"\n\x04pose\x18\x05 \x01(\x0b\x32\x14.experimot.msgs.Pose\x12*\n\x08geometry\x18\x06 \x01(\x0b\x32\x18.experimot.msgs.Geometry\x12(\n\x07surface\x18\x07 \x01(\x0b\x32\x17.experimot.msgs.Surface\x12&\n\x06visual\x18\x08 \x03(\x0b\x32\x16.experimot.msgs.Visual')
   ,
   dependencies=[pose__pb2.DESCRIPTOR,geometry__pb2.DESCRIPTOR,surface__pb2.DESCRIPTOR,visual__pb2.DESCRIPTOR,])
@@ -102,7 +102,7 @@ _COLLISION = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

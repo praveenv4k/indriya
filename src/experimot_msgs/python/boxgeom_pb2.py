@@ -19,7 +19,7 @@ import vector3d_pb2 as vector3d__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='boxgeom.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\rboxgeom.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\"1\n\x07\x42oxGeom\x12&\n\x04size\x18\x01 \x02(\x0b\x32\x18.experimot.msgs.Vector3d')
   ,
   dependencies=[vector3d__pb2.DESCRIPTOR,])
@@ -50,7 +50,7 @@ _BOXGEOM = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

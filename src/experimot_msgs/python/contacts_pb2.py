@@ -20,7 +20,7 @@ import time_pb2 as time__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='contacts.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0e\x63ontacts.proto\x12\x0e\x65xperimot.msgs\x1a\rcontact.proto\x1a\ntime.proto\"X\n\x08\x43ontacts\x12(\n\x07\x63ontact\x18\x01 \x03(\x0b\x32\x17.experimot.msgs.Contact\x12\"\n\x04time\x18\x02 \x02(\x0b\x32\x14.experimot.msgs.Time')
   ,
   dependencies=[contact__pb2.DESCRIPTOR,time__pb2.DESCRIPTOR,])
@@ -58,7 +58,7 @@ _CONTACTS = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

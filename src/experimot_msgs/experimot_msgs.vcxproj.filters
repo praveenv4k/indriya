@@ -19,6 +19,9 @@
     <Filter Include="scripts">
       <UniqueIdentifier>{ce035555-7208-4c02-9cd1-27f048fd8204}</UniqueIdentifier>
     </Filter>
+    <Filter Include="tools">
+      <UniqueIdentifier>{ad288bba-61d1-4647-9ea4-1cc70d6ba023}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -353,6 +356,12 @@
     </None>
     <None Include="proto\robot_behavior.proto">
       <Filter>proto</Filter>
+    </None>
+    <None Include="BatchSubstitute.bat">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="tools\fnr.exe">
+      <Filter>tools</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

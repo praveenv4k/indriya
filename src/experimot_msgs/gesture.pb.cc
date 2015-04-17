@@ -130,17 +130,17 @@ void protobuf_AddDesc_gesture_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rgesture.proto\022\016experimot.msgs\"\303\001\n\022Gest"
+    "\n\rgesture.proto\022\016experimot.msgs\"\315\001\n\022Gest"
     "ureDescription\022\014\n\004name\030\001 \002(\t\022<\n\004type\030\002 \002"
     "(\0162..experimot.msgs.GestureDescription.G"
     "estureType\022\016\n\006active\030\003 \001(\010\022\020\n\010progress\030\004"
-    " \001(\005\022\022\n\nconfidence\030\005 \001(\005\"+\n\013GestureType\022"
-    "\014\n\010Discrete\020\000\022\016\n\nContinuous\020\001\"]\n\030Gesture"
-    "RecognitionModule\022\014\n\004name\030\001 \002(\t\0223\n\007motio"
-    "ns\030\002 \003(\0132\".experimot.msgs.GestureDescrip"
-    "tion\"V\n\031GestureRecognitionModules\0229\n\007mod"
-    "ules\030\001 \003(\0132(.experimot.msgs.GestureRecog"
-    "nitionModule", 412);
+    " \001(\005\022\022\n\nconfidence\030\005 \001(\005\"5\n\013GestureType\022"
+    "\010\n\004None\020\000\022\014\n\010Discrete\020\001\022\016\n\nContinuous\020\002\""
+    "]\n\030GestureRecognitionModule\022\014\n\004name\030\001 \002("
+    "\t\0223\n\007motions\030\002 \003(\0132\".experimot.msgs.Gest"
+    "ureDescription\"V\n\031GestureRecognitionModu"
+    "les\0229\n\007modules\030\001 \003(\0132(.experimot.msgs.Ge"
+    "stureRecognitionModule", 422);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "gesture.proto", &protobuf_RegisterTypes);
   GestureDescription::default_instance_ = new GestureDescription();
@@ -179,6 +179,7 @@ bool GestureDescription_GestureType_IsValid(int value) {
   switch(value) {
     case 0:
     case 1:
+    case 2:
       return true;
     default:
       return false;
@@ -186,6 +187,7 @@ bool GestureDescription_GestureType_IsValid(int value) {
 }
 
 #ifndef _MSC_VER
+const GestureDescription_GestureType GestureDescription::None;
 const GestureDescription_GestureType GestureDescription::Discrete;
 const GestureDescription_GestureType GestureDescription::Continuous;
 const GestureDescription_GestureType GestureDescription::GestureType_MIN;

@@ -19,7 +19,7 @@ import wrench_pb2 as wrench__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='joint_wrench.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x12joint_wrench.proto\x12\x0e\x65xperimot.msgs\x1a\x0cwrench.proto\"\xbb\x01\n\x0bJointWrench\x12\x13\n\x0b\x62ody_1_name\x18\x01 \x02(\t\x12\x11\n\tbody_1_id\x18\x02 \x02(\r\x12\x13\n\x0b\x62ody_2_name\x18\x03 \x02(\t\x12\x11\n\tbody_2_id\x18\x04 \x02(\r\x12-\n\rbody_1_wrench\x18\x05 \x02(\x0b\x32\x16.experimot.msgs.Wrench\x12-\n\rbody_2_wrench\x18\x06 \x02(\x0b\x32\x16.experimot.msgs.Wrench')
   ,
   dependencies=[wrench__pb2.DESCRIPTOR,])
@@ -85,7 +85,7 @@ _JOINTWRENCH = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

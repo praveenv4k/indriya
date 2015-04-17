@@ -21,7 +21,7 @@ import color_pb2 as color__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='light.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0blight.proto\x12\x0e\x65xperimot.msgs\x1a\npose.proto\x1a\x0evector3d.proto\x1a\x0b\x63olor.proto\"\xe1\x03\n\x05Light\x12\x0c\n\x04name\x18\x01 \x02(\t\x12-\n\x04type\x18\x02 \x01(\x0e\x32\x1f.experimot.msgs.Light.LightType\x12\"\n\x04pose\x18\x03 \x01(\x0b\x32\x14.experimot.msgs.Pose\x12&\n\x07\x64iffuse\x18\x04 \x01(\x0b\x32\x15.experimot.msgs.Color\x12\'\n\x08specular\x18\x05 \x01(\x0b\x32\x15.experimot.msgs.Color\x12\x1c\n\x14\x61ttenuation_constant\x18\x06 \x01(\x02\x12\x1a\n\x12\x61ttenuation_linear\x18\x07 \x01(\x02\x12\x1d\n\x15\x61ttenuation_quadratic\x18\x08 \x01(\x02\x12+\n\tdirection\x18\t \x01(\x0b\x32\x18.experimot.msgs.Vector3d\x12\r\n\x05range\x18\n \x01(\x02\x12\x14\n\x0c\x63\x61st_shadows\x18\x0b \x01(\x08\x12\x18\n\x10spot_inner_angle\x18\x0c \x01(\x02\x12\x18\n\x10spot_outer_angle\x18\r \x01(\x02\x12\x14\n\x0cspot_falloff\x18\x0e \x01(\x02\"1\n\tLightType\x12\t\n\x05POINT\x10\x01\x12\x08\n\x04SPOT\x10\x02\x12\x0f\n\x0b\x44IRECTIONAL\x10\x03')
   ,
   dependencies=[pose__pb2.DESCRIPTOR,vector3d__pb2.DESCRIPTOR,color__pb2.DESCRIPTOR,])
@@ -170,7 +170,7 @@ _LIGHT = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

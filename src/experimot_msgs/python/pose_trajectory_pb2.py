@@ -19,7 +19,7 @@ import pose_stamped_pb2 as pose__stamped__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='pose_trajectory.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x15pose_trajectory.proto\x12\x0e\x65xperimot.msgs\x1a\x12pose_stamped.proto\"]\n\x0ePoseTrajectory\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\r\x12\x31\n\x0cpose_stamped\x18\x03 \x03(\x0b\x32\x1b.experimot.msgs.PoseStamped')
   ,
   dependencies=[pose__stamped__pb2.DESCRIPTOR,])
@@ -64,7 +64,7 @@ _POSETRAJECTORY = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

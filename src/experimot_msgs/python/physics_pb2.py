@@ -19,7 +19,7 @@ import vector3d_pb2 as vector3d__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='physics.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\rphysics.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\"\xbc\x03\n\x07Physics\x12/\n\x04type\x18\x01 \x01(\x0e\x32\x1c.experimot.msgs.Physics.Type:\x03ODE\x12\x13\n\x0bsolver_type\x18\x02 \x01(\t\x12\x15\n\rmin_step_size\x18\x03 \x01(\x01\x12\x14\n\x0cprecon_iters\x18\x04 \x01(\x05\x12\r\n\x05iters\x18\x05 \x01(\x05\x12\x0b\n\x03sor\x18\x06 \x01(\x01\x12\x0b\n\x03\x63\x66m\x18\x07 \x01(\x01\x12\x0b\n\x03\x65rp\x18\x08 \x01(\x01\x12\"\n\x1a\x63ontact_max_correcting_vel\x18\t \x01(\x01\x12\x1d\n\x15\x63ontact_surface_layer\x18\n \x01(\x01\x12)\n\x07gravity\x18\x0b \x01(\x0b\x32\x18.experimot.msgs.Vector3d\x12\x16\n\x0e\x65nable_physics\x18\x0c \x01(\x08\x12\x18\n\x10real_time_factor\x18\r \x01(\x01\x12\x1d\n\x15real_time_update_rate\x18\x0e \x01(\x01\x12\x15\n\rmax_step_size\x18\x0f \x01(\x01\"2\n\x04Type\x12\x07\n\x03ODE\x10\x01\x12\n\n\x06\x42ULLET\x10\x02\x12\x0b\n\x07SIMBODY\x10\x03\x12\x08\n\x04\x44\x41RT\x10\x04')
   ,
   dependencies=[vector3d__pb2.DESCRIPTOR,])
@@ -179,7 +179,7 @@ _PHYSICS = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
