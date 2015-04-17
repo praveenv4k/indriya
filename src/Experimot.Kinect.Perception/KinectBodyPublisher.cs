@@ -176,7 +176,7 @@ namespace Experimot.Kinect.Perception
                     using (var ms = new MemoryStream())
                     {
                         Serializer.Serialize(ms, kbodies);
-                        _socket.Send(ms.GetBuffer());
+                        _socket.Send(ms.GetBuffer(), (int)ms.Length);
                     }
                 }
             }

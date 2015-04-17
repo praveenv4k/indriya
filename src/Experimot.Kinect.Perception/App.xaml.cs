@@ -1,17 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using CommandLine;
 using Common.Logging;
 using experimot.msgs;
-using ProtoBuf;
+using Experimot.Core.Util;
+using Microsoft.Kinect.VisualGestureBuilder;
 using NetMQ;
-using NetMQ.zmq;
-using Exception = System.Exception;
-using Poller = NetMQ.Poller;
+using ProtoBuf;
 
 namespace Experimot.Kinect.Perception
 {
@@ -20,7 +19,7 @@ namespace Experimot.Kinect.Perception
     /// </summary>
     public partial class App : Application
     {
-        private readonly ILog Log = LogManager.GetLogger<App>();
+        private static readonly ILog Log = LogManager.GetLogger<App>();
 
         public App()
         {
@@ -38,6 +37,11 @@ namespace Experimot.Kinect.Perception
                     var options = new CommandLineOptions();
                     Parser.Default.ParseArguments(args, options);
                     info = GetNodeInfo(options.Name, options.ParameterServer);
+
+                    if (info != null)
+                    {
+                        SendMotionRecognitionModuleInfo(info, options.ParameterServer);
+                    }
                 }
             }
             catch (Exception ex)
@@ -55,11 +59,11 @@ namespace Experimot.Kinect.Perception
             MainWindow.Show();
         }
 
-        private Node GetNodeInfo(string name, string server, int timeout = 1000)
+        private static Node GetNodeInfo(string name, string server, int timeout = 1000)
         {
             try
             {
-                using (var context = NetMQ.NetMQContext.Create())
+                using (var context = NetMQContext.Create())
                 {
                     using (var socket = context.CreateRequestSocket())
                     {
@@ -98,12 +102,12 @@ namespace Experimot.Kinect.Perception
             return null;
         }
 
-        private Node GetNodeInfo2(string name, string server, int timeout = 1000)
+        private static Node GetNodeInfo2(string name, string server, int timeout = 1000)
         {
             Node nodeInfo = null;
             try
             {
-                using (var context = NetMQ.NetMQContext.Create())
+                using (var context = NetMQContext.Create())
                 {
                     using (var socket = context.CreateRequestSocket())
                     using (var poller = new Poller())
@@ -147,5 +151,69 @@ namespace Experimot.Kinect.Perception
             return nodeInfo;
         }
 
+        private static void SendMotionRecognitionModuleInfo(Node node, string server, int timeout = 1000)
+        {
+            try
+            {
+                if (node == null)
+                {
+                    return;
+                }
+
+                const string defaultValue = @"Database\experimot.gbd";
+                var dbList = ParameterUtil.GetCsvList(node.param, "database", defaultValue);
+                if (dbList.Count == 0)
+                {
+                    dbList.Add(defaultValue);
+                }
+
+                var module = new GestureRecognitionModule {name = node.name};
+                foreach (var db in dbList)
+                {
+                    using (var database = new VisualGestureBuilderDatabase(db))
+                    {
+                        foreach (var gesture in database.AvailableGestures)
+                        {
+                            var desc = new GestureDescription
+                            {
+                                name = gesture.Name,
+                                type = (GestureDescription.GestureType) gesture.GestureType
+                            };
+
+                            module.motions.Add(desc);
+                        }
+                    }
+                }
+
+                using (var context = NetMQContext.Create())
+                {
+                    using (var socket = context.CreateRequestSocket())
+                    {
+                        socket.Connect(server);
+                        socket.SendMore("register_motions");
+                        socket.SendMore(node.name);
+                        using (var ms = new MemoryStream())
+                        {
+                            Serializer.Serialize(ms, module);
+                            socket.Send(ms.GetBuffer(), (int)ms.Length);
+                        }
+                        
+                        var msg = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, timeout));
+                        if (msg != null)
+                        {
+                            Log.InfoFormat("Motion registration response: {0}", msg);
+                        }
+                        else
+                        {
+                            Log.Info("Message buffer empty!");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.InfoFormat("{1} : {0}", ex.StackTrace, ex.Message);
+            }
+        }
     }
 }

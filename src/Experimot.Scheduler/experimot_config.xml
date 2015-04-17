@@ -71,7 +71,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="false">
+    <node enabled="true">
       <name>simulation</name>
       <process>
         <type>executable</type>

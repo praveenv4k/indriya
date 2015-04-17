@@ -8,8 +8,9 @@ message GestureDescription
 {
 	enum GestureType
 	{
-		Discrete = 0;
-		Continuous = 1;
+		None = 0,
+		Discrete = 1;
+		Continuous = 2;
 	}
 	required string name = 1;
 	required GestureType type = 2;
