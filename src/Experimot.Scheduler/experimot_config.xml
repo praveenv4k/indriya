@@ -133,7 +133,7 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_zmq_plot_client.py</args>
       </process>
     </node>
-    <node enabled="false">
+    <node enabled="true">
       <name>nao_behavior_manager</name>
       <process>
         <type>executable</type>
