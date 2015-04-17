@@ -6,6 +6,7 @@ import sys
 
 from naoqi import ALProxy
 from naoqi import ALBehavior
+from naoqi import 
 
 def main(robotIP,port):
 
