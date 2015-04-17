@@ -142,7 +142,7 @@
       </process>
       <parameters>
         <param key="ROBOTIP" value="127.0.0.1" type="string"/>
-        <param key="PORT" value="61275" type="int"/>
+        <param key="PORT" value="55241" type="int"/>
       </parameters>
     </node>
   </nodes>

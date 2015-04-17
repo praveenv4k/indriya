@@ -11,6 +11,24 @@ from os.path import abspath
 currdir = dirname(__file__)
 parent = abspath(os.path.join(currdir,os.pardir))
 
+i = 0
+
+bin = os.environ["DEV_SDK_ROOT"]
+
+print bin
+
+parent = currdir
+while i<4:
+    #parent = abspath(os.path.join(parent,os.pardir))
+    if not "scripts" in parent:
+        i=i+1
+        continue
+    else:
+        break
+    i=i+1
+
+
+
 print currdir
 print parent
 

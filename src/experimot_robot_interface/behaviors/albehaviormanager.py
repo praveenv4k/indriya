@@ -9,21 +9,26 @@ from naoqi import ALProxy
 from os.path import dirname
 from os.path import abspath
 
-currdir = dirname(__file__)
-parent = abspath(os.path.join(currdir,os.pardir))
+dev = os.environ["DEV_SDK_ROOT"]
+dir1 = os.path.join(dev,"experimot","scripts","msgs")
+dir2 = os.path.join(dev,"experimot","scripts","experimot_robot_interface")
 
-sys.path.append(currdir)
-sys.path.append(parent)
+#currdir = dirname(__file__)
+#parent = abspath(os.path.join(currdir,os.pardir))
+
+sys.path.append(dir1)
+sys.path.append(dir2)
 
 # Message - Node parameters
-import node_pb2
+#import node_pb2
 # Zero mq messaging library
 import zmq
 # Utils
-#import parameter_utils
+import parameter_utils
 
 def main(robotIP, port, behaviorName):
   # Create proxy to ALBehaviorManager
+  print "Creating behavior manager", robotIP, port
   managerProxy = ALProxy("ALBehaviorManager", robotIP, port)
 
   getBehaviors(managerProxy)
@@ -108,25 +113,36 @@ if __name__ == "__main__":
   #  sys.exit(1)
   try:
       ROBOTIP = "127.0.0.1"
-      PORT = 61275
-
+      PORT = 55241
+      main(ROBOTIP, PORT, "stand")
       if (len(sys.argv) >= 3):
           print sys.argv
           parser = argparse.ArgumentParser(description='Nao Robot Behavior')
           parser.add_argument('-p','--param', help='Parameter server address', required=True)
           parser.add_argument('-n','--name', help='Name of the node', required=True)
           args = vars(parser.parse_args())
-          print args["name"]
+          name = args["name"]
+          paramServer = args["param"]
+
+          # Utils
+          import parameter_utils
+          node = parameter_utils.getNodeParameters(name,paramServer,1000)
+
+          ROBOTIP = parameter_utils.getParam(node,"ROBOTIP", "127.0.0.1")
+          PORT =  int(parameter_utils.getParam(node,"PORT", "9559"))
+
+          print ROBOTIP, PORT
       else:
           print "Start locally"
 
       #param = parameter_util.getNodeParameters(
 
       #main(sys.argv[1], sys.argv[2])
+
       main(ROBOTIP, PORT, "crouch")
   except:
       print "Exception occured : ", sys.exc_info()
 
-  obj = node_pb2.Node()
+  #obj = node_pb2.Node()
 
   raw_input("Press enter to continue ... ")
