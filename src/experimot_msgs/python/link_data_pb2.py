@@ -20,7 +20,7 @@ import time_pb2 as time__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='link_data.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0flink_data.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\x1a\ntime.proto\"\xa3\x01\n\x08LinkData\x12\"\n\x04time\x18\x01 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x31\n\x0flinear_velocity\x18\x03 \x01(\x0b\x32\x18.experimot.msgs.Vector3d\x12\x32\n\x10\x61ngular_velocity\x18\x04 \x01(\x0b\x32\x18.experimot.msgs.Vector3d')
   ,
   dependencies=[vector3d__pb2.DESCRIPTOR,time__pb2.DESCRIPTOR,])
@@ -72,7 +72,7 @@ _LINKDATA = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

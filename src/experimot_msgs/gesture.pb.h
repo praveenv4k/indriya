@@ -45,11 +45,12 @@ class GestureRecognitionModule;
 class GestureRecognitionModules;
 
 enum GestureDescription_GestureType {
-  GestureDescription_GestureType_Discrete = 0,
-  GestureDescription_GestureType_Continuous = 1
+  GestureDescription_GestureType_None = 0,
+  GestureDescription_GestureType_Discrete = 1,
+  GestureDescription_GestureType_Continuous = 2
 };
 bool GestureDescription_GestureType_IsValid(int value);
-const GestureDescription_GestureType GestureDescription_GestureType_GestureType_MIN = GestureDescription_GestureType_Discrete;
+const GestureDescription_GestureType GestureDescription_GestureType_GestureType_MIN = GestureDescription_GestureType_None;
 const GestureDescription_GestureType GestureDescription_GestureType_GestureType_MAX = GestureDescription_GestureType_Continuous;
 const int GestureDescription_GestureType_GestureType_ARRAYSIZE = GestureDescription_GestureType_GestureType_MAX + 1;
 
@@ -128,6 +129,7 @@ class GestureDescription : public ::google::protobuf::Message {
   // nested types ----------------------------------------------------
 
   typedef GestureDescription_GestureType GestureType;
+  static const GestureType None = GestureDescription_GestureType_None;
   static const GestureType Discrete = GestureDescription_GestureType_Discrete;
   static const GestureType Continuous = GestureDescription_GestureType_Continuous;
   static inline bool GestureType_IsValid(int value) {

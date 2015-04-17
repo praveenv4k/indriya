@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='log_control.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x11log_control.proto\x12\x0e\x65xperimot.msgs\"^\n\nLogControl\x12\r\n\x05start\x18\x01 \x01(\x08\x12\x0c\n\x04stop\x18\x02 \x01(\x08\x12\x0e\n\x06paused\x18\x03 \x01(\x08\x12\x11\n\tbase_path\x18\x04 \x01(\t\x12\x10\n\x08\x65ncoding\x18\x05 \x01(\t')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -76,7 +76,7 @@ _LOGCONTROL = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

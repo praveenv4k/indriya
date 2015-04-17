@@ -19,7 +19,7 @@ import vector3d_pb2 as vector3d__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='joystick.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0ejoystick.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\"v\n\x08Joystick\x12-\n\x0btranslation\x18\x01 \x01(\x0b\x32\x18.experimot.msgs.Vector3d\x12*\n\x08rotation\x18\x02 \x01(\x0b\x32\x18.experimot.msgs.Vector3d\x12\x0f\n\x07\x62uttons\x18\x03 \x03(\x05')
   ,
   dependencies=[vector3d__pb2.DESCRIPTOR,])
@@ -64,7 +64,7 @@ _JOYSTICK = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

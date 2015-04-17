@@ -19,7 +19,7 @@ import time_pb2 as time__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='packet.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0cpacket.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\"T\n\x06Packet\x12#\n\x05stamp\x18\x01 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\x0c\n\x04type\x18\x02 \x02(\t\x12\x17\n\x0fserialized_data\x18\x03 \x02(\x0c')
   ,
   dependencies=[time__pb2.DESCRIPTOR,])
@@ -64,7 +64,7 @@ _PACKET = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

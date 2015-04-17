@@ -19,7 +19,7 @@ import color_pb2 as color__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='sky.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\tsky.proto\x12\x0e\x65xperimot.msgs\x1a\x0b\x63olor.proto\"\xb9\x01\n\x03Sky\x12\x0c\n\x04time\x18\x01 \x01(\x01\x12\x0f\n\x07sunrise\x18\x02 \x01(\x01\x12\x0e\n\x06sunset\x18\x03 \x01(\x01\x12\x12\n\nwind_speed\x18\x04 \x01(\x01\x12\x16\n\x0ewind_direction\x18\x05 \x01(\x01\x12,\n\rcloud_ambient\x18\x06 \x01(\x0b\x32\x15.experimot.msgs.Color\x12\x10\n\x08humidity\x18\x07 \x01(\x01\x12\x17\n\x0fmean_cloud_size\x18\x08 \x01(\x01')
   ,
   dependencies=[color__pb2.DESCRIPTOR,])
@@ -99,7 +99,7 @@ _SKY = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

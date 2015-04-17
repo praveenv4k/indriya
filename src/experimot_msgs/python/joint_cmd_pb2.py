@@ -19,7 +19,7 @@ import pid_pb2 as pid__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='joint_cmd.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0fjoint_cmd.proto\x12\x0e\x65xperimot.msgs\x1a\tpid.proto\"\x95\x01\n\x08JointCmd\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x0f\n\x04\x61xis\x18\x02 \x01(\x05:\x01\x30\x12\r\n\x05\x66orce\x18\x03 \x01(\x01\x12%\n\x08position\x18\x04 \x01(\x0b\x32\x13.experimot.msgs.PID\x12%\n\x08velocity\x18\x05 \x01(\x0b\x32\x13.experimot.msgs.PID\x12\r\n\x05reset\x18\x06 \x01(\x08')
   ,
   dependencies=[pid__pb2.DESCRIPTOR,])
@@ -85,7 +85,7 @@ _JOINTCMD = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

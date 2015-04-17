@@ -19,7 +19,7 @@ import time_pb2 as time__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='tactile.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\rtactile.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\"m\n\x07Tactile\x12\x16\n\x0e\x63ollision_name\x18\x01 \x03(\t\x12\x14\n\x0c\x63ollision_id\x18\x02 \x03(\r\x12\x10\n\x08pressure\x18\x03 \x03(\x01\x12\"\n\x04time\x18\x04 \x02(\x0b\x32\x14.experimot.msgs.Time')
   ,
   dependencies=[time__pb2.DESCRIPTOR,])
@@ -71,7 +71,7 @@ _TACTILE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

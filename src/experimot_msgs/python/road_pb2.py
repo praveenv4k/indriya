@@ -20,7 +20,7 @@ import material_pb2 as material__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='road.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\nroad.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\x1a\x0ematerial.proto\"x\n\x04Road\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\r\n\x05width\x18\x02 \x02(\x01\x12\'\n\x05point\x18\x03 \x03(\x0b\x32\x18.experimot.msgs.Vector3d\x12*\n\x08material\x18\x04 \x01(\x0b\x32\x18.experimot.msgs.Material')
   ,
   dependencies=[vector3d__pb2.DESCRIPTOR,material__pb2.DESCRIPTOR,])
@@ -72,7 +72,7 @@ _ROAD = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

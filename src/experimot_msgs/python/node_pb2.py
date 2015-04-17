@@ -20,7 +20,7 @@ import subscribe_pb2 as subscribe__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='node.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\nnode.proto\x12\x0e\x65xperimot.msgs\x1a\rpublish.proto\x1a\x0fsubscribe.proto\"\xd1\x01\n\x04Node\x12\x0c\n\x04name\x18\x01 \x02(\t\x12)\n\x05param\x18\x02 \x03(\x0b\x32\x1a.experimot.msgs.Node.Param\x12*\n\tpublisher\x18\x03 \x03(\x0b\x32\x17.experimot.msgs.Publish\x12-\n\nsubscriber\x18\x04 \x03(\x0b\x32\x19.experimot.msgs.Subscribe\x1a\x35\n\x05Param\x12\x0b\n\x03key\x18\x01 \x02(\t\x12\r\n\x05value\x18\x02 \x02(\t\x12\x10\n\x08\x64\x61taType\x18\x03 \x02(\t')
   ,
   dependencies=[publish__pb2.DESCRIPTOR,subscribe__pb2.DESCRIPTOR,])
@@ -65,7 +65,7 @@ _NODE_PARAM = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -116,7 +116,7 @@ _NODE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

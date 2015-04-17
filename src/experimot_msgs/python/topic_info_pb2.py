@@ -20,7 +20,7 @@ import subscribe_pb2 as subscribe__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='topic_info.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x10topic_info.proto\x12\x0e\x65xperimot.msgs\x1a\rpublish.proto\x1a\x0fsubscribe.proto\"x\n\tTopicInfo\x12\x10\n\x08msg_type\x18\x01 \x02(\t\x12*\n\tpublisher\x18\x02 \x03(\x0b\x32\x17.experimot.msgs.Publish\x12-\n\nsubscriber\x18\x03 \x03(\x0b\x32\x19.experimot.msgs.Subscribe')
   ,
   dependencies=[publish__pb2.DESCRIPTOR,subscribe__pb2.DESCRIPTOR,])
@@ -65,7 +65,7 @@ _TOPICINFO = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

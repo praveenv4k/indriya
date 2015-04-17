@@ -20,7 +20,7 @@ import sonar_pb2 as sonar__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='sonar_stamped.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x13sonar_stamped.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\x1a\x0bsonar.proto\"X\n\x0cSonarStamped\x12\"\n\x04time\x18\x01 \x02(\x0b\x32\x14.experimot.msgs.Time\x12$\n\x05sonar\x18\x02 \x02(\x0b\x32\x15.experimot.msgs.Sonar')
   ,
   dependencies=[time__pb2.DESCRIPTOR,sonar__pb2.DESCRIPTOR,])
@@ -58,7 +58,7 @@ _SONARSTAMPED = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

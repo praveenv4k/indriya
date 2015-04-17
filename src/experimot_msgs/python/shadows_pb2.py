@@ -19,7 +19,7 @@ import color_pb2 as color__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='shadows.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\rshadows.proto\x12\x0e\x65xperimot.msgs\x1a\x0b\x63olor.proto\"\xcb\x01\n\x07Shadows\x12\x30\n\x04type\x18\x05 \x01(\x0e\x32\".experimot.msgs.Shadows.ShadowType\x12$\n\x05\x63olor\x18\x06 \x01(\x0b\x32\x15.experimot.msgs.Color\"h\n\nShadowType\x12\x14\n\x10STENCIL_ADDITIVE\x10\x01\x12\x16\n\x12STENCIL_MODULATIVE\x10\x02\x12\x14\n\x10TEXTURE_ADDITIVE\x10\x03\x12\x16\n\x12TEXTURE_MODULATIVE\x10\x04')
   ,
   dependencies=[color__pb2.DESCRIPTOR,])
@@ -88,7 +88,7 @@ _SHADOWS = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

@@ -19,7 +19,7 @@ import time_pb2 as time__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='gps.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\tgps.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\"\xbf\x01\n\x03GPS\x12\"\n\x04time\x18\x01 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\x11\n\tlink_name\x18\x02 \x02(\t\x12\x14\n\x0clatitude_deg\x18\x03 \x02(\x01\x12\x15\n\rlongitude_deg\x18\x04 \x02(\x01\x12\x10\n\x08\x61ltitude\x18\x05 \x02(\x01\x12\x15\n\rvelocity_east\x18\x06 \x01(\x01\x12\x16\n\x0evelocity_north\x18\x07 \x01(\x01\x12\x13\n\x0bvelocity_up\x18\x08 \x01(\x01')
   ,
   dependencies=[time__pb2.DESCRIPTOR,])
@@ -99,7 +99,7 @@ _GPS = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

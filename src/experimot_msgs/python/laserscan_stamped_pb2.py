@@ -20,7 +20,7 @@ import laserscan_pb2 as laserscan__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='laserscan_stamped.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x17laserscan_stamped.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\x1a\x0flaserscan.proto\"_\n\x10LaserScanStamped\x12\"\n\x04time\x18\x01 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\'\n\x04scan\x18\x02 \x02(\x0b\x32\x19.experimot.msgs.LaserScan')
   ,
   dependencies=[time__pb2.DESCRIPTOR,laserscan__pb2.DESCRIPTOR,])
@@ -58,7 +58,7 @@ _LASERSCANSTAMPED = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

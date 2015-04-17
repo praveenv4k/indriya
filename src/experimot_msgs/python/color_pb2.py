@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='color.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0b\x63olor.proto\x12\x0e\x65xperimot.msgs\"6\n\x05\x43olor\x12\t\n\x01r\x18\x02 \x02(\x02\x12\t\n\x01g\x18\x03 \x02(\x02\x12\t\n\x01\x62\x18\x04 \x02(\x02\x12\x0c\n\x01\x61\x18\x05 \x01(\x02:\x01\x31')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -69,7 +69,7 @@ _COLOR = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

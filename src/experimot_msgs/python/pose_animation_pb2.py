@@ -20,7 +20,7 @@ import time_pb2 as time__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='pose_animation.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x14pose_animation.proto\x12\x0e\x65xperimot.msgs\x1a\npose.proto\x1a\ntime.proto\"}\n\rPoseAnimation\x12\x12\n\nmodel_name\x18\x01 \x02(\t\x12\x10\n\x08model_id\x18\x02 \x01(\r\x12\"\n\x04pose\x18\x03 \x03(\x0b\x32\x14.experimot.msgs.Pose\x12\"\n\x04time\x18\x04 \x03(\x0b\x32\x14.experimot.msgs.Time')
   ,
   dependencies=[pose__pb2.DESCRIPTOR,time__pb2.DESCRIPTOR,])
@@ -72,7 +72,7 @@ _POSEANIMATION = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

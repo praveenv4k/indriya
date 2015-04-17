@@ -19,7 +19,7 @@ import publish_pb2 as publish__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='publishers.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x10publishers.proto\x12\x0e\x65xperimot.msgs\x1a\rpublish.proto\"8\n\nPublishers\x12*\n\tpublisher\x18\x01 \x03(\x0b\x32\x17.experimot.msgs.Publish')
   ,
   dependencies=[publish__pb2.DESCRIPTOR,])
@@ -50,7 +50,7 @@ _PUBLISHERS = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

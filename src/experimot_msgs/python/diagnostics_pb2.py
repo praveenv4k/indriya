@@ -19,7 +19,7 @@ import time_pb2 as time__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='diagnostics.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x11\x64iagnostics.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\"\x91\x02\n\x0b\x44iagnostics\x12\x32\n\x04time\x18\x01 \x03(\x0b\x32$.experimot.msgs.Diagnostics.DiagTime\x12\'\n\treal_time\x18\x02 \x02(\x0b\x32\x14.experimot.msgs.Time\x12&\n\x08sim_time\x18\x03 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\x18\n\x10real_time_factor\x18\x04 \x02(\x01\x1a\x63\n\x08\x44iagTime\x12\x0c\n\x04name\x18\x01 \x02(\t\x12%\n\x07\x65lapsed\x18\x02 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\"\n\x04wall\x18\x03 \x02(\x0b\x32\x14.experimot.msgs.Time')
   ,
   dependencies=[time__pb2.DESCRIPTOR,])
@@ -64,7 +64,7 @@ _DIAGNOSTICS_DIAGTIME = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -115,7 +115,7 @@ _DIAGNOSTICS = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

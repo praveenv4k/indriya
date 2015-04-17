@@ -19,7 +19,7 @@ import time_pb2 as time__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='log_status.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x10log_status.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\"\xad\x02\n\tLogStatus\x12&\n\x08sim_time\x18\x01 \x01(\x0b\x32\x14.experimot.msgs.Time\x12\x33\n\x08log_file\x18\x02 \x01(\x0b\x32!.experimot.msgs.LogStatus.LogFile\x1a\xc2\x01\n\x07LogFile\x12\x0b\n\x03uri\x18\x01 \x01(\t\x12\x11\n\tbase_path\x18\x02 \x01(\t\x12\x11\n\tfull_path\x18\x03 \x01(\t\x12\x0c\n\x04size\x18\x04 \x01(\x02\x12;\n\nsize_units\x18\x05 \x01(\x0e\x32\'.experimot.msgs.LogStatus.LogFile.Units\"9\n\x05Units\x12\t\n\x05\x42YTES\x10\x01\x12\x0b\n\x07K_BYTES\x10\x02\x12\x0b\n\x07M_BYTES\x10\x03\x12\x0b\n\x07G_BYTES\x10\x04')
   ,
   dependencies=[time__pb2.DESCRIPTOR,])
@@ -109,7 +109,7 @@ _LOGSTATUS_LOGFILE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -146,7 +146,7 @@ _LOGSTATUS = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

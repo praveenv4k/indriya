@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='imagegeom.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0fimagegeom.proto\x12\x0e\x65xperimot.msgs\"d\n\tImageGeom\x12\x0b\n\x03uri\x18\x01 \x02(\t\x12\r\n\x05scale\x18\x02 \x01(\x01\x12\x16\n\tthreshold\x18\x03 \x01(\x05:\x03\x32\x35\x35\x12\x0e\n\x06height\x18\x04 \x01(\x01\x12\x13\n\x0bgranularity\x18\x05 \x01(\x05')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -76,7 +76,7 @@ _IMAGEGEOM = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

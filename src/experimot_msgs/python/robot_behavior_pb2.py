@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='robot_behavior.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x14robot_behavior.proto\x12\x0e\x65xperimot.msgs\"\x8b\x02\n\x13\x42\x65haviorDescription\x12\x0c\n\x04name\x18\x01 \x02(\t\x12?\n\x04type\x18\x02 \x02(\x0e\x32\x31.experimot.msgs.BehaviorDescription.ExecutionType\x12\x41\n\x05state\x18\x03 \x02(\x0e\x32\x32.experimot.msgs.BehaviorDescription.ExecutionState\".\n\rExecutionType\x12\x0c\n\x08\x42locking\x10\x00\x12\x0f\n\x0bNonBlocking\x10\x01\"2\n\x0e\x45xecutionState\x12\x08\n\x04Idle\x10\x00\x12\x0b\n\x07Running\x10\x01\x12\t\n\x05\x45rror\x10\x02\"[\n\x13RobotBehaviorModule\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x36\n\tbehaviors\x18\x02 \x03(\x0b\x32#.experimot.msgs.BehaviorDescription\"L\n\x14RobotBehaviorModules\x12\x34\n\x07modules\x18\x01 \x03(\x0b\x32#.experimot.msgs.RobotBehaviorModule')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -112,7 +112,7 @@ _BEHAVIORDESCRIPTION = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -150,7 +150,7 @@ _ROBOTBEHAVIORMODULE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -181,7 +181,7 @@ _ROBOTBEHAVIORMODULES = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

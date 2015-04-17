@@ -19,7 +19,7 @@ import model_pb2 as model__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='model_v.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\rmodel_v.proto\x12\x0e\x65xperimot.msgs\x1a\x0bmodel.proto\"0\n\x07Model_V\x12%\n\x06models\x18\x02 \x03(\x0b\x32\x15.experimot.msgs.Model')
   ,
   dependencies=[model__pb2.DESCRIPTOR,])
@@ -50,7 +50,7 @@ _MODEL_V = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

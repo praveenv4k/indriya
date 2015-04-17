@@ -72,6 +72,8 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "experimot_robot_interface",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experimot.Core", "src\Experimot.Core\Experimot.Core.csproj", "{35CA8818-7E08-4B4C-A5F3-1F1E5DD0B973}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "experimot_msgs_py", "src\experimot_msgs_py\experimot_msgs_py.pyproj", "{623C9321-0554-440C-B30A-8395E3C77EB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -337,6 +339,16 @@ Global
 		{35CA8818-7E08-4B4C-A5F3-1F1E5DD0B973}.Release|Win32.Build.0 = Release|x86
 		{35CA8818-7E08-4B4C-A5F3-1F1E5DD0B973}.Release|x64.ActiveCfg = Release|Any CPU
 		{35CA8818-7E08-4B4C-A5F3-1F1E5DD0B973}.Release|x86.ActiveCfg = Release|Any CPU
+		{623C9321-0554-440C-B30A-8395E3C77EB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{623C9321-0554-440C-B30A-8395E3C77EB6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{623C9321-0554-440C-B30A-8395E3C77EB6}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{623C9321-0554-440C-B30A-8395E3C77EB6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{623C9321-0554-440C-B30A-8395E3C77EB6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{623C9321-0554-440C-B30A-8395E3C77EB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{623C9321-0554-440C-B30A-8395E3C77EB6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{623C9321-0554-440C-B30A-8395E3C77EB6}.Release|Win32.ActiveCfg = Release|Any CPU
+		{623C9321-0554-440C-B30A-8395E3C77EB6}.Release|x64.ActiveCfg = Release|Any CPU
+		{623C9321-0554-440C-B30A-8395E3C77EB6}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -359,5 +371,6 @@ Global
 		{5906299B-40D3-4C27-A493-8AC26DF8B9AB} = {7246ABF7-59FC-4225-A785-9E73830B00D6}
 		{464DCE7E-4F29-4169-BF26-D563DE3A5712} = {094315CC-B029-4AD0-8E4B-998A7094808B}
 		{35CA8818-7E08-4B4C-A5F3-1F1E5DD0B973} = {70E7786B-1C0C-4557-84A0-DAC95A2240F7}
+		{623C9321-0554-440C-B30A-8395E3C77EB6} = {70E7786B-1C0C-4557-84A0-DAC95A2240F7}
 	EndGlobalSection
 EndGlobal

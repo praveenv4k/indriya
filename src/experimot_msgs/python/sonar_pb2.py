@@ -20,7 +20,7 @@ import vector3d_pb2 as vector3d__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='sonar.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0bsonar.proto\x12\x0e\x65xperimot.msgs\x1a\npose.proto\x1a\x0evector3d.proto\"\xb0\x01\n\x05Sonar\x12\r\n\x05\x66rame\x18\x01 \x02(\t\x12(\n\nworld_pose\x18\x02 \x02(\x0b\x32\x14.experimot.msgs.Pose\x12\x11\n\trange_min\x18\x03 \x02(\x01\x12\x11\n\trange_max\x18\x04 \x02(\x01\x12\x0e\n\x06radius\x18\x05 \x02(\x01\x12\r\n\x05range\x18\x06 \x02(\x01\x12)\n\x07\x63ontact\x18\x07 \x01(\x0b\x32\x18.experimot.msgs.Vector3d')
   ,
   dependencies=[pose__pb2.DESCRIPTOR,vector3d__pb2.DESCRIPTOR,])
@@ -93,7 +93,7 @@ _SONAR = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

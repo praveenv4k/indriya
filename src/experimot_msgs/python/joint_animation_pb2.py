@@ -19,7 +19,7 @@ import time_pb2 as time__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='joint_animation.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x15joint_animation.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\"\xa3\x01\n\x0eJointAnimation\x12\x12\n\nmodel_name\x18\x01 \x02(\t\x12\x33\n\x05joint\x18\x02 \x03(\x0b\x32$.experimot.msgs.JointAnimation.Joint\x12\"\n\x04time\x18\x03 \x03(\x0b\x32\x14.experimot.msgs.Time\x1a$\n\x05Joint\x12\x0c\n\x04name\x18\x01 \x03(\t\x12\r\n\x05\x61ngle\x18\x02 \x03(\x01')
   ,
   dependencies=[time__pb2.DESCRIPTOR,])
@@ -57,7 +57,7 @@ _JOINTANIMATION_JOINT = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -101,7 +101,7 @@ _JOINTANIMATION = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='publish.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\rpublish.proto\x12\x0e\x65xperimot.msgs\"F\n\x07Publish\x12\r\n\x05topic\x18\x01 \x02(\t\x12\x10\n\x08msg_type\x18\x02 \x02(\t\x12\x0c\n\x04host\x18\x03 \x02(\t\x12\x0c\n\x04port\x18\x04 \x02(\r')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -69,7 +69,7 @@ _PUBLISH = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='response.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0eresponse.proto\x12\x0e\x65xperimot.msgs\"`\n\x08Response\x12\n\n\x02id\x18\x01 \x02(\x05\x12\x0f\n\x07request\x18\x02 \x02(\t\x12\x10\n\x08response\x18\x03 \x02(\t\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x17\n\x0fserialized_data\x18\x05 \x01(\x0c')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -76,7 +76,7 @@ _RESPONSE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

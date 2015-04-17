@@ -19,7 +19,7 @@ import vector2d_pb2 as vector2d__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='polylinegeom.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x12polylinegeom.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector2d.proto\"C\n\x08Polyline\x12\x0e\n\x06height\x18\x01 \x02(\x01\x12\'\n\x05point\x18\x02 \x03(\x0b\x32\x18.experimot.msgs.Vector2d')
   ,
   dependencies=[vector2d__pb2.DESCRIPTOR,])
@@ -57,7 +57,7 @@ _POLYLINE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

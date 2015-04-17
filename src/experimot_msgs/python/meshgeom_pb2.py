@@ -19,7 +19,7 @@ import vector3d_pb2 as vector3d__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='meshgeom.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0emeshgeom.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\"n\n\x08MeshGeom\x12\x10\n\x08\x66ilename\x18\x01 \x02(\t\x12\'\n\x05scale\x18\x02 \x01(\x0b\x32\x18.experimot.msgs.Vector3d\x12\x0f\n\x07submesh\x18\x03 \x01(\t\x12\x16\n\x0e\x63\x65nter_submesh\x18\x04 \x01(\x08')
   ,
   dependencies=[vector3d__pb2.DESCRIPTOR,])
@@ -71,7 +71,7 @@ _MESHGEOM = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

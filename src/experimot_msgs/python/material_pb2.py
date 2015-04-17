@@ -19,7 +19,7 @@ import color_pb2 as color__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='material.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0ematerial.proto\x12\x0e\x65xperimot.msgs\x1a\x0b\x63olor.proto\"\xc2\x03\n\x08Material\x12/\n\x06script\x18\x01 \x01(\x0b\x32\x1f.experimot.msgs.Material.Script\x12\x38\n\x0bshader_type\x18\x02 \x01(\x0e\x32#.experimot.msgs.Material.ShaderType\x12\x12\n\nnormal_map\x18\x03 \x01(\t\x12&\n\x07\x61mbient\x18\x04 \x01(\x0b\x32\x15.experimot.msgs.Color\x12&\n\x07\x64iffuse\x18\x05 \x01(\x0b\x32\x15.experimot.msgs.Color\x12\'\n\x08specular\x18\x06 \x01(\x0b\x32\x15.experimot.msgs.Color\x12\'\n\x08\x65missive\x18\x07 \x01(\x0b\x32\x15.experimot.msgs.Color\x12\x10\n\x08lighting\x18\x08 \x01(\x08\x1a#\n\x06Script\x12\x0b\n\x03uri\x18\x01 \x03(\t\x12\x0c\n\x04name\x18\x02 \x02(\t\"^\n\nShaderType\x12\n\n\x06VERTEX\x10\x01\x12\t\n\x05PIXEL\x10\x02\x12\x1b\n\x17NORMAL_MAP_OBJECT_SPACE\x10\x03\x12\x1c\n\x18NORMAL_MAP_TANGENT_SPACE\x10\x04')
   ,
   dependencies=[color__pb2.DESCRIPTOR,])
@@ -87,7 +87,7 @@ _MATERIAL_SCRIPT = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -167,7 +167,7 @@ _MATERIAL = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

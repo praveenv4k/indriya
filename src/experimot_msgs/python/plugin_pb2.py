@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='plugin.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0cplugin.proto\x12\x0e\x65xperimot.msgs\"<\n\x06Plugin\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x10\n\x08\x66ilename\x18\x02 \x02(\t\x12\x12\n\x08innerxml\x18\x03 \x01(\t:\x00')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -62,7 +62,7 @@ _PLUGIN = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

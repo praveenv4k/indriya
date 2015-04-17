@@ -8,6 +8,9 @@ REM Python Files
 REM protoc --proto_path=src --python_out=build/gen src/foo.proto src/bar/baz.proto
 for /r %%i in (.\proto\*.proto) do %1 --python_out=%2\python --proto_path=%4 %%i
 
+REM In the python files replace syntax with #syntax (commenting that line), since Protobuf python binding doesn't support it yet
+%2\tools\fnr.exe --cl --dir "%2\python" --fileMask "*.py" --find "syntax" --replace "#syntax"
+
 REM Csharp Files
 REM Descriptor File
 REM for /r %%i in (proto\*.proto) do %1 --descriptor_set_out=%2descriptor\%%~nxi --proto_path=%4 %%i

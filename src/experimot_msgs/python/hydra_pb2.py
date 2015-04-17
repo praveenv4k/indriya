@@ -19,7 +19,7 @@ import pose_pb2 as pose__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='hydra.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0bhydra.proto\x12\x0e\x65xperimot.msgs\x1a\npose.proto\"\xc8\x02\n\x05Hydra\x12+\n\x05right\x18\x01 \x02(\x0b\x32\x1c.experimot.msgs.Hydra.Paddle\x12*\n\x04left\x18\x02 \x02(\x0b\x32\x1c.experimot.msgs.Hydra.Paddle\x1a\xe5\x01\n\x06Paddle\x12\"\n\x04pose\x18\x01 \x02(\x0b\x32\x14.experimot.msgs.Pose\x12\x15\n\rbutton_bumper\x18\x02 \x02(\x08\x12\x10\n\x08\x62utton_1\x18\x03 \x02(\x08\x12\x10\n\x08\x62utton_2\x18\x04 \x02(\x08\x12\x10\n\x08\x62utton_3\x18\x05 \x02(\x08\x12\x10\n\x08\x62utton_4\x18\x06 \x02(\x08\x12\x12\n\nbutton_joy\x18\x07 \x02(\x08\x12\x15\n\rbutton_center\x18\x08 \x02(\x08\x12\r\n\x05joy_x\x18\t \x02(\x01\x12\r\n\x05joy_y\x18\n \x02(\x01\x12\x0f\n\x07trigger\x18\x0b \x02(\x01')
   ,
   dependencies=[pose__pb2.DESCRIPTOR,])
@@ -120,7 +120,7 @@ _HYDRA_PADDLE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -157,7 +157,7 @@ _HYDRA = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

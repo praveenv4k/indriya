@@ -19,7 +19,7 @@ import world_stats_pb2 as world__stats__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='sim_event.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0fsim_event.proto\x12\x0e\x65xperimot.msgs\x1a\x11world_stats.proto\"o\n\x08SimEvent\x12\x0c\n\x04type\x18\x01 \x02(\t\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x39\n\x10world_statistics\x18\x03 \x02(\x0b\x32\x1f.experimot.msgs.WorldStatistics\x12\x0c\n\x04\x64\x61ta\x18\x04 \x01(\t')
   ,
   dependencies=[world__stats__pb2.DESCRIPTOR,])
@@ -71,7 +71,7 @@ _SIMEVENT = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

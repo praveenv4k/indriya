@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='subscribe.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0fsubscribe.proto\x12\x0e\x65xperimot.msgs\"a\n\tSubscribe\x12\r\n\x05topic\x18\x01 \x02(\t\x12\x0c\n\x04host\x18\x02 \x02(\t\x12\x0c\n\x04port\x18\x03 \x02(\r\x12\x10\n\x08msg_type\x18\x04 \x02(\t\x12\x17\n\x08latching\x18\x05 \x01(\x08:\x05\x66\x61lse')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -76,7 +76,7 @@ _SUBSCRIBE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

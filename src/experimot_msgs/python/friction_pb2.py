@@ -19,7 +19,7 @@ import vector3d_pb2 as vector3d__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='friction.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0e\x66riction.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\"j\n\x08\x46riction\x12\n\n\x02mu\x18\x01 \x01(\x01\x12\x0b\n\x03mu2\x18\x02 \x01(\x01\x12\'\n\x05\x66\x64ir1\x18\x03 \x01(\x0b\x32\x18.experimot.msgs.Vector3d\x12\r\n\x05slip1\x18\x04 \x01(\x01\x12\r\n\x05slip2\x18\x05 \x01(\x01')
   ,
   dependencies=[vector3d__pb2.DESCRIPTOR,])
@@ -78,7 +78,7 @@ _FRICTION = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

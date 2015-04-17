@@ -23,7 +23,7 @@ import vector3d_pb2 as vector3d__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='visual.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0cvisual.proto\x12\x0e\x65xperimot.msgs\x1a\npose.proto\x1a\x0egeometry.proto\x1a\x0ematerial.proto\x1a\x0cplugin.proto\x1a\x0evector3d.proto\"\x8f\x03\n\x06Visual\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\n\n\x02id\x18\x02 \x01(\r\x12\x13\n\x0bparent_name\x18\x03 \x02(\t\x12\x11\n\tparent_id\x18\x04 \x01(\r\x12\x14\n\x0c\x63\x61st_shadows\x18\x05 \x01(\x08\x12\x14\n\x0ctransparency\x18\x06 \x01(\x01\x12\x13\n\x0blaser_retro\x18\x07 \x01(\x01\x12\"\n\x04pose\x18\x08 \x01(\x0b\x32\x14.experimot.msgs.Pose\x12*\n\x08geometry\x18\t \x01(\x0b\x32\x18.experimot.msgs.Geometry\x12*\n\x08material\x18\n \x01(\x0b\x32\x18.experimot.msgs.Material\x12\x0f\n\x07visible\x18\x0b \x01(\x08\x12\x11\n\tdelete_me\x18\x0c \x01(\x08\x12\x11\n\tis_static\x18\r \x01(\x08\x12&\n\x06plugin\x18\x0e \x01(\x0b\x32\x16.experimot.msgs.Plugin\x12\'\n\x05scale\x18\x0f \x01(\x0b\x32\x18.experimot.msgs.Vector3d')
   ,
   dependencies=[pose__pb2.DESCRIPTOR,geometry__pb2.DESCRIPTOR,material__pb2.DESCRIPTOR,plugin__pb2.DESCRIPTOR,vector3d__pb2.DESCRIPTOR,])
@@ -152,7 +152,7 @@ _VISUAL = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

@@ -2,8 +2,16 @@
 
 import sys
 import time
+import argparse
 
 from naoqi import ALProxy
+
+# Message - Node parameters
+#import node_pb2
+# Zero mq messaging library
+import zmq
+# Utils
+#import parameter_utils
 
 def main(robotIP, port, behaviorName):
   # Create proxy to ALBehaviorManager
@@ -89,9 +97,25 @@ if __name__ == "__main__":
   #if (len(sys.argv) < 3):
   #  print "Usage python albehaviormanager_example.py robotIP behaviorName"
   #  sys.exit(1)
+  try:
+      ROBOTIP = "127.0.0.1"
+      PORT = 61275
 
-  ROBOTIP = "127.0.0.1"
-  PORT = 52686
+      if (len(sys.argv) >= 3):
+          print sys.argv
+          parser = argparse.ArgumentParser(description='Nao Robot Behavior')
+          parser.add_argument('-p','--param', help='Parameter server address', required=True)
+          parser.add_argument('-n','--name', help='Name of the node', required=True)
+          args = vars(parser.parse_args())
+          print args
+      else:
+          print "Start locally"
 
-  #main(sys.argv[1], sys.argv[2])
-  main(ROBOTIP, PORT, "stand")
+      #param = parameter_util.getNodeParameters(
+
+      #main(sys.argv[1], sys.argv[2])
+      main(ROBOTIP, PORT, "crouch")
+  except:
+      print "Exception occured : ", sys.exc_info()
+
+  raw_input("Press enter to continue ... ")

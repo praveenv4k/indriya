@@ -20,7 +20,7 @@ import wrench_pb2 as wrench__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='wrench_stamped.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x14wrench_stamped.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\x1a\x0cwrench.proto\"[\n\rWrenchStamped\x12\"\n\x04time\x18\x01 \x02(\x0b\x32\x14.experimot.msgs.Time\x12&\n\x06wrench\x18\x02 \x02(\x0b\x32\x16.experimot.msgs.Wrench')
   ,
   dependencies=[time__pb2.DESCRIPTOR,wrench__pb2.DESCRIPTOR,])
@@ -58,7 +58,7 @@ _WRENCHSTAMPED = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

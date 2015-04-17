@@ -99,6 +99,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BatchSubstitute.bat" />
     <None Include="msg_export.bat" />
     <None Include="proto\axis.proto" />
     <None Include="proto\boxgeom.proto" />
@@ -209,6 +210,7 @@
     <None Include="proto\wrench.proto" />
     <None Include="proto\wrench_stamped.proto" />
     <None Include="proto_export.bat" />
+    <None Include="tools\fnr.exe" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\external\ProtoGen\ProtoGen.csproj">

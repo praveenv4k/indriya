@@ -19,7 +19,7 @@ import time_pb2 as time__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='world_stats.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x11world_stats.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\"\xc5\x01\n\x0fWorldStatistics\x12&\n\x08sim_time\x18\x02 \x02(\x0b\x32\x14.experimot.msgs.Time\x12(\n\npause_time\x18\x03 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\'\n\treal_time\x18\x04 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\x0e\n\x06paused\x18\x05 \x02(\x08\x12\x12\n\niterations\x18\x06 \x02(\x04\x12\x13\n\x0bmodel_count\x18\x07 \x01(\x05')
   ,
   dependencies=[time__pb2.DESCRIPTOR,])
@@ -85,7 +85,7 @@ _WORLDSTATISTICS = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

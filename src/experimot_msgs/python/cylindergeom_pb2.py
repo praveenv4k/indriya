@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='cylindergeom.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x12\x63ylindergeom.proto\x12\x0e\x65xperimot.msgs\".\n\x0c\x43ylinderGeom\x12\x0e\n\x06radius\x18\x01 \x02(\x01\x12\x0e\n\x06length\x18\x02 \x02(\x01')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -55,7 +55,7 @@ _CYLINDERGEOM = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

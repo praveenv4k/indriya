@@ -19,7 +19,7 @@ import vector2d_pb2 as vector2d__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='distortion.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x10\x64istortion.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector2d.proto\"r\n\nDistortion\x12(\n\x06\x63\x65nter\x18\x01 \x01(\x0b\x32\x18.experimot.msgs.Vector2d\x12\n\n\x02k1\x18\x02 \x01(\x01\x12\n\n\x02k2\x18\x03 \x01(\x01\x12\n\n\x02k3\x18\x04 \x01(\x01\x12\n\n\x02p1\x18\x05 \x01(\x01\x12\n\n\x02p2\x18\x06 \x01(\x01')
   ,
   dependencies=[vector2d__pb2.DESCRIPTOR,])
@@ -85,7 +85,7 @@ _DISTORTION = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

@@ -19,7 +19,7 @@ import pose_pb2 as pose__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='factory.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\rfactory.proto\x12\x0e\x65xperimot.msgs\x1a\npose.proto\"}\n\x07\x46\x61\x63tory\x12\x0b\n\x03sdf\x18\x01 \x01(\t\x12\x14\n\x0csdf_filename\x18\x02 \x01(\t\x12\"\n\x04pose\x18\x03 \x01(\x0b\x32\x14.experimot.msgs.Pose\x12\x11\n\tedit_name\x18\x04 \x01(\t\x12\x18\n\x10\x63lone_model_name\x18\x05 \x01(\t')
   ,
   dependencies=[pose__pb2.DESCRIPTOR,])
@@ -78,7 +78,7 @@ _FACTORY = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

@@ -22,7 +22,7 @@ import contactsensor_pb2 as contactsensor__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='sensor.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x0csensor.proto\x12\x0e\x65xperimot.msgs\x1a\npose.proto\x1a\x12\x63\x61merasensor.proto\x1a\x0fraysensor.proto\x1a\x13\x63ontactsensor.proto\"\xc7\x02\n\x06Sensor\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\n\n\x02id\x18\x02 \x01(\r\x12\x0e\n\x06parent\x18\x03 \x02(\t\x12\x11\n\tparent_id\x18\x04 \x02(\r\x12\x0c\n\x04type\x18\x05 \x02(\t\x12\x11\n\talways_on\x18\x06 \x01(\x08\x12\x13\n\x0bupdate_rate\x18\x07 \x01(\x01\x12\"\n\x04pose\x18\x08 \x01(\x0b\x32\x14.experimot.msgs.Pose\x12,\n\x06\x63\x61mera\x18\t \x01(\x0b\x32\x1c.experimot.msgs.CameraSensor\x12&\n\x03ray\x18\n \x01(\x0b\x32\x19.experimot.msgs.RaySensor\x12.\n\x07\x63ontact\x18\x0b \x01(\x0b\x32\x1d.experimot.msgs.ContactSensor\x12\x11\n\tvisualize\x18\x0c \x01(\x08\x12\r\n\x05topic\x18\r \x01(\t')
   ,
   dependencies=[pose__pb2.DESCRIPTOR,camerasensor__pb2.DESCRIPTOR,raysensor__pb2.DESCRIPTOR,contactsensor__pb2.DESCRIPTOR,])
@@ -137,7 +137,7 @@ _SENSOR = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

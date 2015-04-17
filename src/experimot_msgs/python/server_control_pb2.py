@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='server_control.proto',
   package='experimot.msgs',
-  syntax='proto2',
+  #syntax='proto2',
   serialized_pb=_b('\n\x14server_control.proto\x12\x0e\x65xperimot.msgs\"\x98\x01\n\rServerControl\x12\x17\n\x0fsave_world_name\x18\x01 \x01(\t\x12\x15\n\rsave_filename\x18\x02 \x01(\t\x12\x15\n\ropen_filename\x18\x03 \x01(\t\x12\x11\n\tnew_world\x18\x04 \x01(\x08\x12\x0c\n\x04stop\x18\x05 \x01(\x08\x12\r\n\x05\x63lone\x18\x06 \x01(\x08\x12\x10\n\x08new_port\x18\x07 \x01(\r')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -90,7 +90,7 @@ _SERVERCONTROL = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  #syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
