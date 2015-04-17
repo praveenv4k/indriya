@@ -17,6 +17,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Common.Logging;
 using experimot.msgs;
+using Experimot.Core.Util;
 using Microsoft.Kinect;
 using Joint = Microsoft.Kinect.Joint;
 
@@ -90,10 +91,22 @@ namespace Experimot.Kinect.Perception
             int col0Row = 0;
             int col1Row = 0;
             int maxBodies = _kinectSensor.BodyFrameSource.BodyCount;
+
+            IList<string> dbList = new List<string>();
+            const string defaultValue = @"Database\experimot.gbd";
+            if (_node != null)
+            {
+                dbList = ParameterUtil.GetCsvList(_node.param, "database", defaultValue);
+            }
+            else
+            {
+                dbList.Add(defaultValue);
+            }
+
             for (int i = 0; i < maxBodies; ++i)
             {
                 GestureResultView result = new GestureResultView(i, false, false, 0.0f);
-                GestureDetector detector = new GestureDetector(_kinectSensor, result);
+                GestureDetector detector = new GestureDetector(_kinectSensor, result, dbList);
                 _gestureDetectorList.Add(detector);                
                 
                 // split gesture results across the first two columns of the content grid

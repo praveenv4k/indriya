@@ -151,12 +151,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BootStrapper.cs" />
-    <Compile Include="Core\ExperimotMsgsExtenstions.cs" />
-    <Compile Include="Core\Gesture.cs" />
-    <Compile Include="experimot_config.designer.cs" />
-    <Compile Include="MessageUtil.cs" />
+    <Compile Include="Context.cs" />
     <Compile Include="ParameterServer.cs" />
-    <Compile Include="ParameterUtil.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Tasks\ContextSync.cs" />
     <Page Include="MainWindow.xaml">
@@ -167,12 +163,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Core\Behavior.cs" />
-    <Compile Include="Core\Context.cs" />
-    <Compile Include="Core\Human.cs" />
-    <Compile Include="Core\Localization.cs" />
-    <Compile Include="Core\ManipulatableObject.cs" />
-    <Compile Include="Core\Robot.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -197,10 +187,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="experimot_config.xsd">
-      <SubType>Designer</SubType>
-      <Generator>xsd.exe</Generator>
-    </None>
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -224,6 +210,10 @@
     <ProjectReference Include="..\Experimot.Core.Msgs\Experimot.Core.Msgs.csproj">
       <Project>{45e9e170-76b7-4e71-b557-9b131e0c175b}</Project>
       <Name>Experimot.Core.Msgs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Experimot.Core\Experimot.Core.csproj">
+      <Project>{35ca8818-7e08-4b4c-a5f3-1f1e5dd0b973}</Project>
+      <Name>Experimot.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -170,6 +170,10 @@
       <Project>{45e9e170-76b7-4e71-b557-9b131e0c175b}</Project>
       <Name>Experimot.Core.Msgs</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Experimot.Core\Experimot.Core.csproj">
+      <Project>{35CA8818-7E08-4B4C-A5F3-1F1E5DD0B973}</Project>
+      <Name>Experimot.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Handwave_Left.png" />

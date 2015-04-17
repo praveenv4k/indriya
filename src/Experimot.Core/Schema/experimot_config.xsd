@@ -27,6 +27,7 @@
       <xs:enumeration value="int" />
       <xs:enumeration value="double" />
       <xs:enumeration value="string" />
+      <xs:enumeration value="csv" />
     </xs:restriction>
   </xs:simpleType>
   

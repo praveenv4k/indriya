@@ -4,10 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
+using Experimot.Core;
 using NetMQ;
 using ProtoBuf;
-using Scheduler;
-using Context = Experimot.Scheduler.Core.Context;
 using Expression = System.Linq.Expressions.Expression;
 
 namespace Experimot.Scheduler.Tasks

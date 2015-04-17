@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using experimot.msgs;
-using Scheduler;
 
-namespace Experimot.Scheduler
+namespace Experimot.Core.Util
 {
-    internal class MessageUtil
+    public class MessageUtil
     {
         public static Node XmlToMessageNode(node node)
         {

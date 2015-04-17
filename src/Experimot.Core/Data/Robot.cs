@@ -3,10 +3,9 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using experimot.msgs;
-using Experimot.Scheduler.Annotations;
-using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
+using Experimot.Core.Annotations;
 
-namespace Experimot.Scheduler.Core
+namespace Experimot.Core.Data
 {
     public class SensorData : INotifyPropertyChanged
     {
@@ -21,13 +20,11 @@ namespace Experimot.Scheduler.Core
             _sensorValues = new Dictionary<string, object>();
         }
 
-        [ExpandableObject]
         public IDictionary<string, object> SensorValues
         {
             get { return _sensorValues; }
         }
 
-        [ExpandableObject]
         public IMU Imu
         {
             get { return _imu; }
@@ -39,7 +36,6 @@ namespace Experimot.Scheduler.Core
             }
         }
 
-        [ExpandableObject]
         public JointValueVector JointValues
         {
             get { return _jointValues; }
@@ -130,7 +126,6 @@ namespace Experimot.Scheduler.Core
             }
         }
 
-        [ExpandableObject]
         public SensorData SensorData
         {
             get { return _sensorData; }
@@ -142,7 +137,6 @@ namespace Experimot.Scheduler.Core
             }
         }
 
-        [ExpandableObject]
         public Localization Localization
         {
             get { return _localization; }
@@ -163,11 +157,11 @@ namespace Experimot.Scheduler.Core
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        [ExpandableObject]
         public ObservableCollection<Behavior> Behaviors
         {
             get { return _behaviors; }
         }
+
 
     }
 }

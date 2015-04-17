@@ -58,6 +58,9 @@
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Perception\Experimot.Kinect.Perception.exe</path>
         <args></args>
       </process>
+      <parameters>
+        <param key="database" type="string" value="Database\experimot.gbd"/>
+      </parameters>
       <publishers>
         <publish>
           <host>tcp://*</host>
