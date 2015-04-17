@@ -25,5 +25,6 @@
                        BorderThickness="0" 
                            IsReadOnly="True"
                        Background="#EEEEF2" x:Name="context" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" SelectedObject="{Binding Context}"></xctk:PropertyGrid>
+        
     </Grid>
 </Window>

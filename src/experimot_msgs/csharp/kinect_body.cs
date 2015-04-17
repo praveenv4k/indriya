@@ -9,7 +9,6 @@
 
 // Generated from: proto/kinect_body.proto
 // Note: requires additional types generated from: vector2d.proto
-// Note: requires additional types generated from: quaternion.proto
 // Note: requires additional types generated from: kinect_joint.proto
 namespace experimot.msgs
 {

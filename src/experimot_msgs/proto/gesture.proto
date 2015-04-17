@@ -1,0 +1,30 @@
+package experimot.msgs;
+
+/// \ingroup experimot_msgs
+/// \interface Motion description 
+/// \brief Information about all motions supported by the gesture/motion recognition module
+
+message GestureDescription
+{
+	enum GestureType
+	{
+		Discrete = 0;
+		Continuous = 1;
+	}
+	required string name = 1;
+	required GestureType type = 2;
+	optional bool active = 3;
+	optional int32 progress = 4;
+	optional int32 confidence = 5;
+}
+
+message GestureRecognitionModule
+{
+  required string name  = 1;
+  repeated GestureDescription motions = 2;
+}
+
+message GestureRecognitionModules
+{
+  repeated GestureRecognitionModule modules  = 1;
+}

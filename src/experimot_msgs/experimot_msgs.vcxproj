@@ -153,6 +153,7 @@
     <None Include="proto\model.proto" />
     <None Include="proto\model_configuration.proto" />
     <None Include="proto\model_v.proto" />
+    <None Include="proto\gesture.proto" />
     <None Include="proto\node.proto" />
     <None Include="proto\packet.proto" />
     <None Include="proto\physics.proto" />
@@ -177,6 +178,7 @@
     <None Include="proto\request.proto" />
     <None Include="proto\response.proto" />
     <None Include="proto\road.proto" />
+    <None Include="proto\robot_behavior.proto" />
     <None Include="proto\scene.proto" />
     <None Include="proto\selection.proto" />
     <None Include="proto\sensor.proto" />
@@ -234,6 +236,7 @@
     <ClCompile Include="fog.pb.cc" />
     <ClCompile Include="friction.pb.cc" />
     <ClCompile Include="geometry.pb.cc" />
+    <ClCompile Include="gesture.pb.cc" />
     <ClCompile Include="gps.pb.cc" />
     <ClCompile Include="gui.pb.cc" />
     <ClCompile Include="gui_camera.pb.cc" />
@@ -295,6 +298,7 @@
     <ClCompile Include="request.pb.cc" />
     <ClCompile Include="response.pb.cc" />
     <ClCompile Include="road.pb.cc" />
+    <ClCompile Include="robot_behavior.pb.cc" />
     <ClCompile Include="scene.pb.cc" />
     <ClCompile Include="selection.pb.cc" />
     <ClCompile Include="sensor.pb.cc" />
@@ -343,6 +347,7 @@
     <ClInclude Include="fog.pb.h" />
     <ClInclude Include="friction.pb.h" />
     <ClInclude Include="geometry.pb.h" />
+    <ClInclude Include="gesture.pb.h" />
     <ClInclude Include="gps.pb.h" />
     <ClInclude Include="gui.pb.h" />
     <ClInclude Include="gui_camera.pb.h" />
@@ -404,6 +409,7 @@
     <ClInclude Include="request.pb.h" />
     <ClInclude Include="response.pb.h" />
     <ClInclude Include="road.pb.h" />
+    <ClInclude Include="robot_behavior.pb.h" />
     <ClInclude Include="scene.pb.h" />
     <ClInclude Include="selection.pb.h" />
     <ClInclude Include="sensor.pb.h" />

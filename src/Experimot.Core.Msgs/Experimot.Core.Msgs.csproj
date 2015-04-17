@@ -112,6 +112,9 @@
     <Compile Include="..\experimot_msgs\csharp\geometry.cs">
       <Link>geometry.cs</Link>
     </Compile>
+    <Compile Include="..\experimot_msgs\csharp\gesture.cs">
+      <Link>gesture.cs</Link>
+    </Compile>
     <Compile Include="..\experimot_msgs\csharp\gps.cs">
       <Link>gps.cs</Link>
     </Compile>
@@ -291,6 +294,9 @@
     </Compile>
     <Compile Include="..\experimot_msgs\csharp\road.cs">
       <Link>road.cs</Link>
+    </Compile>
+    <Compile Include="..\experimot_msgs\csharp\robot_behavior.cs">
+      <Link>robot_behavior.cs</Link>
     </Compile>
     <Compile Include="..\experimot_msgs\csharp\scene.cs">
       <Link>scene.cs</Link>

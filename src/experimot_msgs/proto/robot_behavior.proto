@@ -1,0 +1,34 @@
+package experimot.msgs;
+
+/// \ingroup experimot_msgs
+/// \interface Motion description 
+/// \brief Information about all motions supported by the gesture/motion recognition module
+
+message BehaviorDescription
+{
+	enum ExecutionType
+	{
+		Blocking = 0;
+		NonBlocking = 1;
+	}
+	enum ExecutionState
+    {
+        Idle = 0;
+        Running = 1;
+        Error = 2;
+    }
+	required string name = 1;
+	required ExecutionType type = 2;
+	required ExecutionState state = 3;
+}
+
+message RobotBehaviorModule
+{
+  required string name  = 1;
+  repeated BehaviorDescription behaviors = 2;
+}
+
+message RobotBehaviorModules
+{
+  repeated RobotBehaviorModule modules  = 1;
+}

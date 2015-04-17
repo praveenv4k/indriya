@@ -29,7 +29,6 @@
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "vector2d.pb.h"
-#include "quaternion.pb.h"
 #include "kinect_joint.pb.h"
 #include <boost/shared_ptr.hpp>
 #include "MsgFactory.h"
