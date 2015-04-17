@@ -152,6 +152,7 @@
     </ApplicationDefinition>
     <Compile Include="BootStrapper.cs" />
     <Compile Include="Core\ExperimotMsgsExtenstions.cs" />
+    <Compile Include="Core\Gesture.cs" />
     <Compile Include="experimot_config.designer.cs" />
     <Compile Include="MessageUtil.cs" />
     <Compile Include="ParameterServer.cs" />

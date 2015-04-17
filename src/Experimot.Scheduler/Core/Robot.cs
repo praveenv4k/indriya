@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using experimot.msgs;
@@ -68,11 +69,21 @@ namespace Experimot.Scheduler.Core
         private string _filePath;
         private Localization _localization;
         private SensorData _sensorData;
+        private readonly ObservableCollection<Behavior> _behaviors;
 
         public Robot()
         {
             _sensorData = new SensorData();
             _localization = new Localization();
+
+            _behaviors = new ObservableCollection<Behavior>();
+            _behaviors.Add(new Behavior()
+            {
+                Mode = BehaviorMode.Blocking,
+                Name = "Wave",
+                State = BehaviorState.Idle
+            });
+
         }
 
         public string Name
@@ -151,5 +162,12 @@ namespace Experimot.Scheduler.Core
             var handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        [ExpandableObject]
+        public ObservableCollection<Behavior> Behaviors
+        {
+            get { return _behaviors; }
+        }
+
     }
 }

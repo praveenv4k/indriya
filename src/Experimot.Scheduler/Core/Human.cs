@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using experimot.msgs;
@@ -6,38 +7,18 @@ using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace Experimot.Scheduler.Core
 {
-    public class Gesture: INotifyPropertyChanged
-    {
-        private string _name;
-
-        public string Name
-        {
-            get { return _name; }
-            set
-            {
-                if (value == _name) return;
-                _name = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
-        }
-    }
-
-    public class Human: INotifyPropertyChanged
+    public class Human : INotifyPropertyChanged
     {
         private string _id;
 
         private KinectBody _body;
-        
-        private Gesture _gesture;
+
+        private readonly ObservableCollection<Gesture> _gestures;
+
+        public Human()
+        {
+            _gestures = new ObservableCollection<Gesture>();
+        }
 
         public string Id
         {
@@ -62,16 +43,22 @@ namespace Experimot.Scheduler.Core
             }
         }
 
+        //[ExpandableObject]
+        //public Gesture Gesture
+        //{
+        //    get { return _gesture; }
+        //    set
+        //    {
+        //        if (Equals(value, _gesture)) return;
+        //        _gesture = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
+
         [ExpandableObject]
-        public Gesture Gesture
+        public ObservableCollection<Gesture> Gestures
         {
-            get { return _gesture; }
-            set
-            {
-                if (Equals(value, _gesture)) return;
-                _gesture = value;
-                OnPropertyChanged();
-            }
+            get { return _gestures; }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
