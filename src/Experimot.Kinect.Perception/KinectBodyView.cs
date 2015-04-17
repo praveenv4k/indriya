@@ -6,8 +6,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
 using System.Windows.Media;
 using Microsoft.Kinect;
@@ -83,30 +81,6 @@ namespace Experimot.Kinect.Perception
             get { return _imageSource; }
         }
 
-        //private bool serialize = false;
-
-
-        //private void Serialize(Body[] bodies)
-        //{
-        //    try
-        //    {
-        //        if (bodies != null && bodies.Length > 0)
-        //        {
-        //            using (var memorystream = new MemoryStream())
-        //            {
-        //                BinaryFormatter bf = new BinaryFormatter();
-        //                bf.Serialize(memorystream, bodies);
-
-        //                Console.WriteLine("Number of Bytes: {0}", memorystream.GetBuffer().Length);
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex.Message);
-        //    }
-        //}
-
         /// <summary>
         /// Updates the body array with new information from the sensor
         /// Should be called whenever a new BodyFrameArrivedEvent occurs
@@ -116,12 +90,6 @@ namespace Experimot.Kinect.Perception
         {
             if (bodies != null)
             {
-                //if (!serialize)
-                //{
-                //    Serialize(bodies);
-                //    serialize = true;
-                //}
-
                 using (DrawingContext dc = _drawingGroup.Open())
                 {
                     // Draw a transparent background to set the render size

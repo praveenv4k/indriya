@@ -348,6 +348,12 @@
     <None Include="proto\node.proto">
       <Filter>proto</Filter>
     </None>
+    <None Include="proto\gesture.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\robot_behavior.proto">
+      <Filter>proto</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MsgFactory.cc">
@@ -669,6 +675,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="node.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gesture.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="robot_behavior.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -993,6 +1005,12 @@
     </ClInclude>
     <ClInclude Include="node.pb.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gesture.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="robot_behavior.pb.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

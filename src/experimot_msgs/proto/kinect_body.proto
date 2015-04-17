@@ -5,7 +5,7 @@ package experimot.msgs;
 /// \brief Message for creating KinectBody
 
 import "vector2d.proto";
-import "quaternion.proto";
+//import "quaternion.proto";
 import "kinect_joint.proto";
 
 message KinectBody

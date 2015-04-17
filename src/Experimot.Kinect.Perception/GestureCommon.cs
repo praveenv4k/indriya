@@ -1,13 +1,9 @@
-﻿using Microsoft.Kinect;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Data;
+using Microsoft.Kinect;
 
-namespace Experimot.Kinect.GestureRecognition
+namespace Experimot.Kinect.Perception
 {
     static class GestureNames
     {

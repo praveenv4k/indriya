@@ -17,7 +17,6 @@ using System.Windows;
 using System.Windows.Controls;
 using Common.Logging;
 using experimot.msgs;
-using Experimot.Kinect.GestureRecognition;
 using Microsoft.Kinect;
 using Joint = Microsoft.Kinect.Joint;
 

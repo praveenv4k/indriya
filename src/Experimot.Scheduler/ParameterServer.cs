@@ -17,7 +17,7 @@ namespace Experimot.Scheduler
         private bool _disposed;
         private readonly ILog _log = LogManager.GetLogger(typeof (ParameterServer));
 
-        private const int RecvTimeout = 100;
+        private const int RecvTimeout = 50;
 
         private bool _startup;
 
@@ -53,24 +53,55 @@ namespace Experimot.Scheduler
                     var req = _socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
                     if (!string.IsNullOrEmpty(req))
                     {
-                        Console.WriteLine(@"Received request from {0}", req);
-                        var nodeExist = _config.nodes.FirstOrDefault(s => s.name == req);
-                        if (nodeExist != null)
+                        if (!req.Contains("register"))
                         {
-                            var nodeInfo = MessageUtil.XmlToMessageNode(nodeExist);
-                            var globalParams = MessageUtil.XmlToMessageParam(_config.parameters);
-                            foreach (var item in globalParams)
+                            Console.WriteLine(@"Received request from {0}", req);
+                            var nodeExist = _config.nodes.FirstOrDefault(s => s.name == req);
+                            if (nodeExist != null)
                             {
-                                var existParam = nodeInfo.param.FirstOrDefault(s => s.key == item.key);
-                                if (existParam == null)
+                                var nodeInfo = MessageUtil.XmlToMessageNode(nodeExist);
+                                var globalParams = MessageUtil.XmlToMessageParam(_config.parameters);
+                                foreach (var item in globalParams)
                                 {
-                                    nodeInfo.param.Add(item);
+                                    var existParam = nodeInfo.param.FirstOrDefault(s => s.key == item.key);
+                                    if (existParam == null)
+                                    {
+                                        nodeInfo.param.Add(item);
+                                    }
+                                }
+                                using (var ms = new MemoryStream())
+                                {
+                                    Serializer.Serialize(ms, nodeInfo);
+                                    _socket.Send(ms.GetBuffer());
                                 }
                             }
-                            using (var ms = new MemoryStream())
+                        }
+                        else // register either motions or behaviors
+                        {
+                            var name = _socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
+                            if (req.Contains("motion"))
                             {
-                                Serializer.Serialize(ms, nodeInfo);
-                                _socket.Send(ms.GetBuffer());
+                                var motionModule =
+                                    ReceiveAndParseGestureDescription<experimot.msgs.GestureRecognitionModule>(_socket,
+                                        RecvTimeout);
+                                if (motionModule != null)
+                                {
+                                    Console.WriteLine(@"Module name: {0}", motionModule.name);
+                                }
+                            }
+                            else if (req.Contains("behavior"))
+                            {
+                                var behaviorModule =
+                                    ReceiveAndParseGestureDescription<experimot.msgs.RobotBehaviorModule>(_socket,
+                                        RecvTimeout);
+                                if (behaviorModule != null)
+                                {
+                                    Console.WriteLine(@"Module name: {0}", behaviorModule.name);
+                                }
+                            }
+                            else
+                            {
+
                             }
                         }
                     }
@@ -88,6 +119,27 @@ namespace Experimot.Scheduler
                     _log.Error(ex.Message);
                 }
             }
+        }
+
+        private static T ReceiveAndParseGestureDescription<T>(NetMQSocket socket, int timeout) where T : class
+        {
+            var msg = socket.ReceiveMessage(new TimeSpan(0, 0, 0, 0, timeout));
+            if (msg != null)
+            {
+                if (msg.FrameCount > 0)
+                {
+                    using (var memStream = new MemoryStream(msg.First.Buffer))
+                    {
+                        var nodeInfo = Serializer.Deserialize<T>(memStream);
+                        return nodeInfo;
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine(@"Message buffer empty!");
+            }
+            return default(T);
         }
 
         private void InitZmq(string host, int port)

@@ -51,7 +51,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false">
+    <node enabled="true">
       <name>gesture_recognition</name>
       <process>
         <type>executable</type>

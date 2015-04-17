@@ -43,18 +43,6 @@ namespace Experimot.Scheduler.Core
             }
         }
 
-        //[ExpandableObject]
-        //public Gesture Gesture
-        //{
-        //    get { return _gesture; }
-        //    set
-        //    {
-        //        if (Equals(value, _gesture)) return;
-        //        _gesture = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
-
         [ExpandableObject]
         public ObservableCollection<Gesture> Gestures
         {

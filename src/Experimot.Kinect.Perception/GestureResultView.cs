@@ -4,15 +4,15 @@
 // </copyright>
 //------------------------------------------------------------------------------
 
-namespace Experimot.Kinect.GestureRecognition
-{
-    using Microsoft.Kinect;
-    using System;
-    using System.ComponentModel;
-    using System.Runtime.CompilerServices;
-    using System.Windows.Media;
-    using System.Windows.Media.Imaging;
+using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using Microsoft.Kinect;
 
+namespace Experimot.Kinect.Perception
+{
     /// <summary>
     /// Stores discrete gesture results for the GestureDetector.
     /// Properties are stored/updated for display in the UI.
