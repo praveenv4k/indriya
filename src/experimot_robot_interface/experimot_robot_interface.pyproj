@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{464dce7e-4f29-4169-bf26-d563de3a5712}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>behaviors\alrobotposture.py</StartupFile>
+    <StartupFile>behaviors\albehaviormanager.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -13,6 +13,7 @@
     <LaunchProvider>Standard Python launcher</LaunchProvider>
     <InterpreterId />
     <InterpreterVersion />
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -21,6 +22,9 @@
     <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="behaviors\albehaviormanager.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="behaviors\alrobotposture.py" />
     <Compile Include="behaviors\hand_wave.py">
       <SubType>Code</SubType>
