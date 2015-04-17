@@ -2,10 +2,9 @@ using System.Collections.Concurrent;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using experimot.msgs;
-using Experimot.Scheduler.Annotations;
-using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
+using Experimot.Core.Annotations;
 
-namespace Experimot.Scheduler.Core
+namespace Experimot.Core.Data
 {
     public class Localization: INotifyPropertyChanged
     {
@@ -29,7 +28,6 @@ namespace Experimot.Scheduler.Core
             }
         }
 
-        [ExpandableObject]
         public Vector3d Position
         {
             get { return _currentPosition; }
@@ -44,7 +42,6 @@ namespace Experimot.Scheduler.Core
             }
         }
 
-        [ExpandableObject]
         public Quaternion Orientation
         {
             get { return _currentOrientation; }

@@ -7,14 +7,11 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Threading;
+using Experimot.Core;
 using Experimot.Scheduler.Annotations;
-using Experimot.Scheduler.Core;
-using Experimot.Scheduler.Tasks;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Impl.Matchers;
-using Scheduler;
 
 namespace Experimot.Scheduler
 {

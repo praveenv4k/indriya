@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using Microsoft.Kinect;
 using Microsoft.Kinect.VisualGestureBuilder;
 
@@ -37,7 +38,7 @@ namespace Experimot.Kinect.Perception
         /// </summary>
         /// <param name="kinectSensor">Active sensor to initialize the VisualGestureBuilderFrameSource object with</param>
         /// <param name="gestureResultView">GestureResultView object to store gesture results of a single body to</param>
-        public GestureDetector(KinectSensor kinectSensor, GestureResultView gestureResultView)
+        public GestureDetector(KinectSensor kinectSensor, GestureResultView gestureResultView, IList<string> gestureDbs)
         {
             try
             {
@@ -65,7 +66,10 @@ namespace Experimot.Kinect.Perception
                     _vgbFrameReader.FrameArrived += Reader_GestureFrameArrived;
                 }
 
-                _gesturedbs.Add(@"Database\experimot.gbd");
+                if (gestureDbs != null && gestureDbs.Count > 0)
+                {
+                    _gesturedbs = gestureDbs.ToList();
+                }
 
                 _gestures.Add(GestureNames.HandwaveLeft);
                 _gestures.Add(GestureNames.HandwaveRight);

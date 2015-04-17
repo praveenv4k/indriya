@@ -4,11 +4,12 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using experimot.msgs;
+using Experimot.Core.Data;
 using Experimot.Scheduler.Annotations;
 using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 using Xceed.Wpf.Toolkit.PropertyGrid.Editors;
 
-namespace Experimot.Scheduler.Core
+namespace Experimot.Scheduler
 {
     public class Context : INotifyPropertyChanged
     {

@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using experimot.msgs;
-using Experimot.Scheduler.Annotations;
+using Experimot.Core.Annotations;
 
-namespace Experimot.Scheduler.Core
+namespace Experimot.Core.Data
 {
     public class ManipulatableObject: INotifyPropertyChanged
     {
