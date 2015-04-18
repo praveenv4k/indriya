@@ -5,6 +5,7 @@ import time
 import argparse
 
 from naoqi import ALProxy
+from naoqi import ALBehavior
 
 from os.path import dirname
 from os.path import abspath
@@ -30,7 +31,17 @@ def main(robotIP, port, behaviorName):
   # Create proxy to ALBehaviorManager
   print "Creating behavior manager", robotIP, port
   managerProxy = ALProxy("ALBehaviorManager", robotIP, port)
+  getBehaviors(managerProxy)
+  launchAndStopBehavior(managerProxy, behaviorName)
+  defaultBehaviors(managerProxy, behaviorName)
 
+def create_proxy(robotIP, port):
+  # Create proxy to ALBehaviorManager
+  print "Creating behavior manager", robotIP, port
+  managerProxy = ALProxy("ALBehaviorManager", robotIP, port)
+  return managerProxy
+
+def execute_behavior(managerProxy,behaviorName):
   getBehaviors(managerProxy)
   launchAndStopBehavior(managerProxy, behaviorName)
   defaultBehaviors(managerProxy, behaviorName)
@@ -114,7 +125,7 @@ if __name__ == "__main__":
   try:
       ROBOTIP = "127.0.0.1"
       PORT = 55241
-      main(ROBOTIP, PORT, "stand")
+      #main(ROBOTIP, PORT, "stand")
       if (len(sys.argv) >= 3):
           print sys.argv
           parser = argparse.ArgumentParser(description='Nao Robot Behavior')
@@ -128,18 +139,18 @@ if __name__ == "__main__":
           import parameter_utils
           node = parameter_utils.getNodeParameters(name,paramServer,1000)
 
-          ROBOTIP = parameter_utils.getParam(node,"ROBOTIP", "127.0.0.1")
-          PORT =  int(parameter_utils.getParam(node,"PORT", "9559"))
-
-          print ROBOTIP, PORT
+          if node != None:
+              ip = parameter_utils.getParam(node,"ROBOTIP", "127.0.0.1")
+              port =  int(parameter_utils.getParam(node,"PORT", "9559"))
+              parameter_utils.register_motions(node.name,paramServer,["crouch","stand","wave"])
       else:
           print "Start locally"
 
-      #param = parameter_util.getNodeParameters(
+      time.sleep(1)
 
-      #main(sys.argv[1], sys.argv[2])
-
-      main(ROBOTIP, PORT, "crouch")
+      managerProxy = create_proxy(ROBOTIP,PORT)
+      #@main(ROBOTIP, PORT, "crouch")
+      execute_behavior(managerProxy, "crouch")
   except:
       print "Exception occured : ", sys.exc_info()
 

@@ -16,7 +16,7 @@ namespace Experimot.Scheduler
         private NetMQContext _ctx;
         private NetMQSocket _socket;
         private bool _disposed;
-        private static readonly ILog _log = LogManager.GetLogger(typeof (ParameterServer));
+        private static readonly ILog Log = LogManager.GetLogger(typeof (ParameterServer));
 
         private const int RecvTimeout = 50;
 
@@ -56,7 +56,7 @@ namespace Experimot.Scheduler
                     {
                         if (!req.Contains("register"))
                         {
-                            _log.InfoFormat(@"Received request from {0}", req);
+                            Log.InfoFormat(@"Received request from {0}", req);
                             var nodeExist = _config.nodes.FirstOrDefault(s => s.name == req);
                             if (nodeExist != null)
                             {
@@ -79,8 +79,9 @@ namespace Experimot.Scheduler
                         }
                         else // register either motions or behaviors
                         {
+                            Log.InfoFormat(@"Registration request {0}", req);
                             var name = _socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
-                            _log.InfoFormat(@"Registration request from {0}", name);
+                            Log.InfoFormat(@"Registration request from {0}", name);
                             if (req.Contains("motion"))
                             {
                                 var motionModule =
@@ -88,7 +89,7 @@ namespace Experimot.Scheduler
                                         RecvTimeout);
                                 if (motionModule != null)
                                 {
-                                    _log.InfoFormat(@"Module name: {0}", motionModule.name);
+                                    Log.InfoFormat(@"Module name: {0}", motionModule.name);
                                     _socket.Send("Registration successful!");
                                 }
                             }
@@ -99,7 +100,8 @@ namespace Experimot.Scheduler
                                         RecvTimeout);
                                 if (behaviorModule != null)
                                 {
-                                    _log.InfoFormat(@"Module name: {0}", behaviorModule.name);
+                                    Log.InfoFormat(@"Module name: {0}", behaviorModule.name);
+                                    _socket.Send("Registration successful!");
                                 }
                             }
                             else
@@ -114,12 +116,12 @@ namespace Experimot.Scheduler
                     // If not timeout
                     if (zex.ErrorCode != ErrorCode.EAGAIN)
                     {
-                        _log.ErrorFormat(@"ZMQ Exception: {0}", zex.Message);
+                        Log.ErrorFormat(@"ZMQ Exception: {0}", zex.Message);
                     }
                 }
                 catch (Exception ex)
                 {
-                    _log.Error(ex.Message);
+                    Log.Error(ex.Message);
                 }
             }
         }
@@ -141,7 +143,7 @@ namespace Experimot.Scheduler
                     }
                     catch (ProtoException ex)
                     {
-                        _log.ErrorFormat("Exception while deserializing registration message: {0} ", ex.Message);
+                        Log.ErrorFormat("Exception while deserializing registration message: {0} ", ex.Message);
                     }
                 }
             }
@@ -160,7 +162,7 @@ namespace Experimot.Scheduler
                 _socket = _ctx.CreateResponseSocket();
                 var address = string.Format("{0}:{1}", host, port);
                 _socket.Bind(address);
-                Console.WriteLine(@"Parameter server running at: {0}", address);
+                Log.InfoFormat(@"Parameter server running at: {0}", address);
             }
         }
 
@@ -174,7 +176,9 @@ namespace Experimot.Scheduler
                     _ctx.Dispose();
                     _ctx = null;
                 }
+                Log.Info(@"Parameter server disposed");
             }
+
         }
 
         public void Dispose()
