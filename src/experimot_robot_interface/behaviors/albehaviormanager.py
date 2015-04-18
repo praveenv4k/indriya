@@ -149,11 +149,9 @@ if __name__ == "__main__":
       time.sleep(1)
 
       managerProxy = create_proxy(ROBOTIP,PORT)
-      #@main(ROBOTIP, PORT, "crouch")
+
       execute_behavior(managerProxy, "crouch")
   except:
       print "Exception occured : ", sys.exc_info()
-
-  #obj = node_pb2.Node()
 
   raw_input("Press enter to continue ... ")
