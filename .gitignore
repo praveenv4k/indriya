@@ -359,3 +359,5 @@ sympy-plots-for-*.tex/
 # WinEdt
 *.bak
 *.sav
+/docs/Midterm/videos/Greeting Gestures.mp4
+/docs/Midterm/videos/Openrave application connected to Real nao..mp4
