@@ -9,9 +9,10 @@
     <param key="ParameterClientHost" value="tcp://localhost" type="string"/>
     <param key="ParameterServerPort" value="5560" type="int"/>
     <param key="ParameterServerInterval" value="10" type="int"/>
+    <param key="WebServerPort" value="8080" type="int"/>
   </parameters>
   <nodes>
-    <node enabled="true">
+    <node enabled="false">
       <name>localization</name>
       <process>
         <type>executable</type>
@@ -133,7 +134,7 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_zmq_plot_client.py</args>
       </process>
     </node>
-    <node enabled="true">
+    <node enabled="false">
       <name>nao_behavior_manager</name>
       <process>
         <type>executable</type>

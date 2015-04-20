@@ -99,6 +99,10 @@
       <HintPath>..\..\packages\NetMQ.3.3.0.11\lib\net40\NetMQ.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="protobuf-net, Version=2.0.0.668, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
       <HintPath>..\..\packages\protobuf-net.2.0.0.668\lib\net40\protobuf-net.dll</HintPath>
       <Private>True</Private>
@@ -116,6 +120,10 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="uhttpsharp, Version=0.1.5561.27363, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\uHttpSharp.0.1.6.19\lib\net40\uhttpsharp.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -155,6 +163,17 @@
     <Compile Include="ParameterServer.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Tasks\ContextSync.cs" />
+    <Compile Include="Web\Controllers\DemoController.cs" />
+    <Compile Include="Web\ExperimotServer.cs" />
+    <Compile Include="Web\Handlers\AboutHandler.cs" />
+    <Compile Include="Web\Handlers\ErrorHandler.cs" />
+    <Compile Include="Web\Handlers\ExceptionHandler.cs" />
+    <Compile Include="Web\Handlers\IndexHandler.cs" />
+    <Compile Include="Web\Handlers\TimingHandler.cs" />
+    <Compile Include="Web\HttpException.cs" />
+    <Compile Include="Web\Server.cs" />
+    <Compile Include="Web\SomeRestController.cs" />
+    <Compile Include="Web\StringsRestController.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
