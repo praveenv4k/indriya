@@ -140,8 +140,8 @@ if __name__ == "__main__":
           node = parameter_utils.getNodeParameters(name,paramServer,1000)
 
           if node != None:
-              ip = parameter_utils.getParam(node,"ROBOTIP", "127.0.0.1")
-              port =  int(parameter_utils.getParam(node,"PORT", "9559"))
+              ROBOTIP = parameter_utils.getParam(node,"ROBOTIP", "127.0.0.1")
+              PORT =  int(parameter_utils.getParam(node,"PORT", "9559"))
               parameter_utils.register_motions(node.name,paramServer,["crouch","stand","wave"])
       else:
           print "Start locally"

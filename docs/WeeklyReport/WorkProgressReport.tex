@@ -748,4 +748,87 @@
     \end{longtable}
 \end{center}
 
+
+\newpage
+\section{2015/04/20-2015/04/26}
+
+\begin{center}
+    \begin{longtable}{ | c | p{6cm} | p{5cm} |}
+    \hline
+    Date & Content & Problems/Remarks \\ 
+    \endhead
+    \hline    
+     2015/04/20         & 
+  \begin{itemize}
+  \item Mid-term presentation
+  \item Prepare Ubuntu-64 bit virtual machine. Bios option : Enabling Intex VT-x virtualization
+  \item Checked the ZMQ client in Ubuntu machine while the server is running in window machine
+  \item Prepare Naoqi sdk and Choregraphe in Ubuntu virtual machine
+\end{itemize}  
+   & - \\
+\hline
+  										 
+ 2015/04/21         & 
+  \begin{itemize}
+  \item Made a python client sample plotting the pose of the robot on the plane using matplotlib
+  \item Meeting with Mr. Vincent Berenz about the TDM framework. We agree d to develop a description of the world to communicate information between Experimot and TDM
+  \item Continue implementation of Marker pose improvement taking into account of the kinect information.
+  \item Median filter implementation
+\end{itemize}   
+& 
+ \\
+\hline
+  										 
+  
+  2015/04/22        & 
+  \begin{itemize}
+  \item Kinect data integration for improved pose estimation
+  \end{itemize}   
+  										 & 
+\begin{itemize}
+  \item Point cloud organization caused lot of issues and creating problems by crashing the application. Found the source causing the problem and fixed the issue. However the Pose estimation using kinect is still not successful.
+  \end{itemize}  
+  										 \\
+  \hline
+  
+  2015/04/23         & 
+  \begin{itemize}
+  \item Modified the point cloud generation using MapColorFrameToCameraSpace method of coordinate mapper. The Pose estimation is not stable and sometime the depth information is noisy and it give INFINITY for the depth value which crashes the localization module
+  \item Started with the presentation
+  \item Tried three.js to be used as the 3D viewer of the web site (trying the possibility of providing the web based monitor for human robot interaction)
+\end{itemize}   
+  & 
+\\  										 \hline
+
+  2015/04/24         & 
+  \begin{itemize}
+  \item Three.js robot loading verified. Refactoring the project structure
+  \item Motion/Behavior modules registration mechanism implementation
+  \item Made sample python script for calling the behavior installed in the robot
+  \item Python node parameter retrieval support - ongoing
+\end{itemize}   
+  & 
+  - 
+\\
+  										 \hline
+  										 
+	 2015/04/25         & 
+  \begin{itemize}
+  \item Python node parameter retrieval support - complete
+  \item Fixed the bugs in the robot behavior registration
+\end{itemize}   
+  & 
+		\\					 \hline  	
+
+	 2015/04/26         & 
+  \begin{itemize}
+  \item Prepare mid-term presentation
+\end{itemize}   
+  & 
+		\\					 \hline  	
+										 
+  										   								 
+    \end{longtable}
+\end{center}
+
 \end{document}
