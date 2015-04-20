@@ -9,6 +9,7 @@ using Common.Logging;
 using Experimot.Core;
 using Experimot.Core.Util;
 using Experimot.Scheduler.Tasks;
+using Experimot.Scheduler.Web;
 
 namespace Experimot.Scheduler
 {
@@ -17,14 +18,13 @@ namespace Experimot.Scheduler
         private readonly experimot_config _config;
         private bool _startup;
         private bool _shutdown;
-        private ILog Log = LogManager.GetLogger(typeof (BootStrapper));
-        private const string PYTHONPATH = @"C:\Python27";
+        private static readonly ILog Log = LogManager.GetLogger(typeof (BootStrapper));
         private readonly IList<Process> _processes;
         private readonly ParameterServer _parameterServer;
-        private ContextSync _contextSync;
-        private IList<Task> _tasks;
+        private readonly ContextSync _contextSync;
+        private readonly IList<Task> _tasks;
         private volatile bool _shouldStop;
-        private IList<Thread> _threads;
+        private ExperimotServer _server;
 
         public BootStrapper(experimot_config config, Context context)
         {
@@ -32,28 +32,23 @@ namespace Experimot.Scheduler
             _processes = new List<Process>();
             _contextSync = new ContextSync(config, context);
             _parameterServer = new ParameterServer(_config);
-            _parameterServer.Start();
+            _server = new ExperimotServer(_config);
 
             _tasks = new List<Task>
             {
-                Task.Factory.StartNew(() => RunServer(_parameterServer)),
-                Task.Factory.StartNew(() => RunContextSync(_contextSync))
+                Task.Factory.StartNew(() => RunParameterServer(_parameterServer)),
+                Task.Factory.StartNew(() => RunContextSync(_contextSync)),
+                Task.Factory.StartNew(() => RunExperimotServer(_server))
             };
-
-            _threads = new List<Thread>();
-            //_threads.Add(new Thread(RunServer));
-            //_threads.Add(new Thread(RunContextSync));
-
-            //_threads[0].Start(_parameterServer);
-            //_threads[1].Start(_contextSync);
         }
 
-        private void RunServer(object arg)
+        private void RunParameterServer(object arg)
         {
             var server = arg as ParameterServer;
             if (server != null)
             {
-                Console.WriteLine("Parameter server Started");
+                _parameterServer.Start();
+                Log.Info("Parameter server Started");
                 while (!_shouldStop)
                 {
                     server.Run();
@@ -61,7 +56,18 @@ namespace Experimot.Scheduler
                 }
                 server.Shutdown();
             }
-            Console.WriteLine("Parameter server Completed");
+            Log.Info("Parameter server Completed");
+        }
+
+        private void RunExperimotServer(object arg)
+        {
+            var server = arg as ExperimotServer;
+            if (server != null)
+            {
+                _server.Start();
+                Log.Info("Experimot server Started");
+            }
+            Log.Info("Experimot server Completed");
         }
 
         private void RunContextSync(object arg)
@@ -69,14 +75,14 @@ namespace Experimot.Scheduler
             var sync = arg as ContextSync;
             if (sync != null)
             {
-                Console.WriteLine("Context sync Started");
+                Log.Info("Context sync Started");
                 while (!_shouldStop)
                 {
                     sync.Update(100);
                     Thread.Sleep(200);
                 }
             }
-            Console.WriteLine("Context sync Completed");
+            Log.Info("Context sync Completed");
         }
 
         public void StartUp()
@@ -92,14 +98,12 @@ namespace Experimot.Scheduler
                         {
                             try
                             {
-                                string args = string.Empty;
-
                                 string paramServer = ParameterUtil.Get(_config.parameters, "ParameterClientHost",
                                     "tcp://*");
                                 int port = ParameterUtil.Get(_config.parameters, "ParameterServerPort",
                                     5560);
 
-                                args = string.Format("{3} --name={0} --param={1}:{2}", node.name, paramServer, port,
+                                var args = string.Format("{3} --name={0} --param={1}:{2}", node.name, paramServer, port,
                                     Environment.ExpandEnvironmentVariables(node.process.args));
 
                                 var workingDir = Path.GetDirectoryName(exeFile);
@@ -138,7 +142,7 @@ namespace Experimot.Scheduler
             var process = sender as Process;
             if (process != null)
             {
-                Console.WriteLine("Process exited: {0}", process.Id);
+                Log.InfoFormat("Process exited: {0}", process.Id);
             }
         }
 
@@ -156,9 +160,10 @@ namespace Experimot.Scheduler
                         process.Kill();
                     }
                 }
-                foreach (var thread in _threads)
+                if (_server != null)
                 {
-                    thread.Join(1000);
+                    _server.Stop();
+                    _server = null;
                 }
                 Task.WaitAll(_tasks.ToArray(), new TimeSpan(0, 0, 0, 1));
                 _shutdown = true;
