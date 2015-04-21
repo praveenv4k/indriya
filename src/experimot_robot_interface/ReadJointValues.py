@@ -1,10 +1,20 @@
 __author__ = 'Praveenkumar'
 
-import joint_value_map_pb2
+import os
 import zmq
 import sys
 import time
 from naoqi import ALProxy
+
+from os.path import dirname
+from os.path import abspath
+
+dev = os.environ["DEV_SDK_ROOT"]
+dir1 = os.path.join(dev,"experimot","scripts","msgs")
+
+sys.path.append(dir1)
+
+import joint_value_map_pb2
 
 #ROBOT_IP = "nao.local"
 #ROBOT_IP = "127.0.0.1"

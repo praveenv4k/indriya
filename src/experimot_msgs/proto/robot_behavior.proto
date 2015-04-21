@@ -4,6 +4,9 @@ package experimot.msgs;
 /// \interface Motion description 
 /// \brief Information about all motions supported by the gesture/motion recognition module
 
+import "request.proto";
+import "response.proto";
+
 message BehaviorDescription
 {
 	enum ExecutionType
@@ -24,8 +27,14 @@ message BehaviorDescription
 
 message RobotBehaviorModule
 {
+  message RobotBehaviorResponder
+  {
+	required string Host = 1;
+	required string Port = 2;
+  }
   required string name  = 1;
   repeated BehaviorDescription behaviors = 2;
+  optional RobotBehaviorResponder responder = 3;
 }
 
 message RobotBehaviorModules

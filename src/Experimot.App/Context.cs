@@ -1,9 +1,11 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using Common.Logging;
 using experimot.msgs;
 using Experimot.Scheduler.Annotations;
 using Experimot.Scheduler.Data;
@@ -19,7 +21,7 @@ namespace Experimot.Scheduler
         private readonly object _object = new object();
         private readonly ObservableCollection<GestureModule> _motionModules;
         private readonly ObservableCollection<RobotBehaviorModule> _behaviorModules;
-
+        private static readonly ILog Log = LogManager.GetLogger(typeof (Context)); 
         public Context()
         {
             //_humans = new ConcurrentDictionary<int, Human>();
@@ -101,6 +103,7 @@ namespace Experimot.Scheduler
                         var item = _humans.FirstOrDefault(s => s.Body.TrackingId == key);
                         if (item != null)
                         {
+                            item.Gestures.CollectionChanged -= GesturesCollectionChanged;
                             _humans.Remove(item);
                         }
                     }
@@ -111,11 +114,13 @@ namespace Experimot.Scheduler
                     var item = _humans.FirstOrDefault(s => s.Body.TrackingId == kinectBody.TrackingId);
                     if (item == null)
                     {
-                        _humans.Add(new Human()
+                        var human = new Human()
                         {
                             Body = kinectBody,
                             Id = kinectBody.TrackingId.ToString()
-                        });
+                        };
+                        human.Gestures.CollectionChanged += GesturesCollectionChanged;
+                        _humans.Add(human);
                     }
                     else
                     {
@@ -124,6 +129,24 @@ namespace Experimot.Scheduler
                 }
             }
         }
+
+        void GesturesCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            Log.InfoFormat("Gesture collection changed : {0}", sender.ToString());
+            if (e.Action == NotifyCollectionChangedAction.Add)
+            {
+                Log.InfoFormat("Gesture collection changed : {0}", sender.ToString());
+                if (e.NewItems != null && e.NewItems.Count > 0)
+                {
+                    var item = e.NewItems[0];
+                    if (item != null)
+                    {
+                        
+                    }
+                }
+            }
+        }
+
 
         public void RegisterMotionRecognitionModule(experimot.msgs.GestureRecognitionModule module)
         {

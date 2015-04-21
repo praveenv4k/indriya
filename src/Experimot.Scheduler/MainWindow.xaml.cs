@@ -99,7 +99,7 @@ namespace Experimot.Scheduler
             _scheduler.ListenerManager.AddJobListener(new JobListener(this), GroupMatcher<JobKey>.AnyGroup());
 
             //_scheduler.Start();
-            string configFile = "experimot_config.xml";
+            const string configFile = "experimot_config.xml";
             if (!string.IsNullOrEmpty(configFile))
             {
                 //_config = new experimot_config();

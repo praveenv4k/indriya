@@ -8,6 +8,8 @@
 //------------------------------------------------------------------------------
 
 // Generated from: proto/robot_behavior.proto
+// Note: requires additional types generated from: request.proto
+// Note: requires additional types generated from: response.proto
 namespace experimot.msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"BehaviorDescription")]
@@ -84,6 +86,38 @@ namespace experimot.msgs
     {
       get { return _behaviors; }
     }
+  
+    private experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder _responder = null;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"responder", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue(null)]
+    public experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder
+    {
+      get { return _responder; }
+      set { _responder = value; }
+    }
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"RobotBehaviorResponder")]
+  public partial class RobotBehaviorResponder : global::ProtoBuf.IExtensible
+  {
+    public RobotBehaviorResponder() {}
+    
+    private string _Host;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"Host", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public string Host
+    {
+      get { return _Host; }
+      set { _Host = value; }
+    }
+    private string _Port;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"Port", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public string Port
+    {
+      get { return _Port; }
+      set { _Port = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
   
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
