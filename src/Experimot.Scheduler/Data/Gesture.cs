@@ -9,8 +9,9 @@ namespace Experimot.Scheduler.Data
 {
     public enum GestureMode
     {
-        Discrete,
-        Continuous
+        None = 0,
+        Discrete = 1,
+        Continuous = 2
     }
 
     [ExpandableObject]
