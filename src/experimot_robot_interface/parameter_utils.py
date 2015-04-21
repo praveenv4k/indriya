@@ -40,9 +40,9 @@ def register_motions(node,parameterServerAddress,motions):
     behaviorModule.name = node.name
 
 
-    port = int(parameter_utils.getParam(node,"RequestServerPort", "5590"))
-    ip = parameter_utils.getParam(node,"RequestClientIP", "*")
-    behaviorModule.responder = robot_behavior_pb2.RobotBehaviorResponder()
+    port = int(getParam(node,"RequestServerPort", "5590"))
+    ip = getParam(node,"RequestClientIP", "*")
+    #behaviorModule.responder = robot_behavior_pb2.RobotBehaviorModule.RobotBehaviorResponder()
 
     behaviorModule.responder.Host = ip
     behaviorModule.responder.Port = port

@@ -170,7 +170,7 @@ void protobuf_AddDesc_robot_5fbehavior_2eproto() {
     "ponder\030\003 \001(\0132:.experimot.msgs.RobotBehav"
     "iorModule.RobotBehaviorResponder\0324\n\026Robo"
     "tBehaviorResponder\022\014\n\004Host\030\001 \002(\t\022\014\n\004Port"
-    "\030\002 \002(\t\"L\n\024RobotBehaviorModules\0224\n\007module"
+    "\030\002 \002(\005\"L\n\024RobotBehaviorModules\0224\n\007module"
     "s\030\001 \003(\0132#.experimot.msgs.RobotBehaviorMo"
     "dule", 644);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
@@ -757,7 +757,7 @@ void RobotBehaviorModule_RobotBehaviorResponder::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   host_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  port_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  port_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -768,7 +768,6 @@ RobotBehaviorModule_RobotBehaviorResponder::~RobotBehaviorModule_RobotBehaviorRe
 
 void RobotBehaviorModule_RobotBehaviorResponder::SharedDtor() {
   host_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  port_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -803,9 +802,7 @@ void RobotBehaviorModule_RobotBehaviorResponder::Clear() {
     if (has_host()) {
       host_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
-    if (has_port()) {
-      port_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-    }
+    port_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
@@ -835,20 +832,18 @@ bool RobotBehaviorModule_RobotBehaviorResponder::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_Port;
+        if (input->ExpectTag(16)) goto parse_Port;
         break;
       }
 
-      // required string Port = 2;
+      // required int32 Port = 2;
       case 2: {
-        if (tag == 18) {
+        if (tag == 16) {
          parse_Port:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_port()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->port().data(), this->port().length(),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Port");
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &port_)));
+          set_has_port();
         } else {
           goto handle_unusual;
         }
@@ -891,14 +886,9 @@ void RobotBehaviorModule_RobotBehaviorResponder::SerializeWithCachedSizes(
       1, this->host(), output);
   }
 
-  // required string Port = 2;
+  // required int32 Port = 2;
   if (has_port()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->port().data(), this->port().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Port");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->port(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->port(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -922,15 +912,9 @@ void RobotBehaviorModule_RobotBehaviorResponder::SerializeWithCachedSizes(
         1, this->host(), target);
   }
 
-  // required string Port = 2;
+  // required int32 Port = 2;
   if (has_port()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->port().data(), this->port().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Port");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->port(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->port(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -952,9 +936,9 @@ int RobotBehaviorModule_RobotBehaviorResponder::RequiredFieldsByteSizeFallback()
   }
 
   if (has_port()) {
-    // required string Port = 2;
+    // required int32 Port = 2;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->port());
   }
 
@@ -969,9 +953,9 @@ int RobotBehaviorModule_RobotBehaviorResponder::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->host());
 
-    // required string Port = 2;
+    // required int32 Port = 2;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->port());
 
   } else {
@@ -1008,8 +992,7 @@ void RobotBehaviorModule_RobotBehaviorResponder::MergeFrom(const RobotBehaviorMo
       host_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.host_);
     }
     if (from.has_port()) {
-      set_has_port();
-      port_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.port_);
+      set_port(from.port());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -1041,7 +1024,7 @@ void RobotBehaviorModule_RobotBehaviorResponder::Swap(RobotBehaviorModule_RobotB
 }
 void RobotBehaviorModule_RobotBehaviorResponder::InternalSwap(RobotBehaviorModule_RobotBehaviorResponder* other) {
   host_.Swap(&other->host_);
-  port_.Swap(&other->port_);
+  std::swap(port_, other->port_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -1449,7 +1432,7 @@ void RobotBehaviorModule::InternalSwap(RobotBehaviorModule* other) {
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Host)
 }
 
-// required string Port = 2;
+// required int32 Port = 2;
  bool RobotBehaviorModule_RobotBehaviorResponder::has_port() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1460,46 +1443,17 @@ void RobotBehaviorModule::InternalSwap(RobotBehaviorModule* other) {
   _has_bits_[0] &= ~0x00000002u;
 }
  void RobotBehaviorModule_RobotBehaviorResponder::clear_port() {
-  port_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  port_ = 0;
   clear_has_port();
 }
- const ::std::string& RobotBehaviorModule_RobotBehaviorResponder::port() const {
+ ::google::protobuf::int32 RobotBehaviorModule_RobotBehaviorResponder::port() const {
   // @@protoc_insertion_point(field_get:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Port)
-  return port_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return port_;
 }
- void RobotBehaviorModule_RobotBehaviorResponder::set_port(const ::std::string& value) {
+ void RobotBehaviorModule_RobotBehaviorResponder::set_port(::google::protobuf::int32 value) {
   set_has_port();
-  port_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  port_ = value;
   // @@protoc_insertion_point(field_set:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Port)
-}
- void RobotBehaviorModule_RobotBehaviorResponder::set_port(const char* value) {
-  set_has_port();
-  port_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Port)
-}
- void RobotBehaviorModule_RobotBehaviorResponder::set_port(const char* value, size_t size) {
-  set_has_port();
-  port_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Port)
-}
- ::std::string* RobotBehaviorModule_RobotBehaviorResponder::mutable_port() {
-  set_has_port();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Port)
-  return port_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- ::std::string* RobotBehaviorModule_RobotBehaviorResponder::release_port() {
-  clear_has_port();
-  return port_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void RobotBehaviorModule_RobotBehaviorResponder::set_allocated_port(::std::string* port) {
-  if (port != NULL) {
-    set_has_port();
-  } else {
-    clear_has_port();
-  }
-  port_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), port);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Port)
 }
 
 // -------------------------------------------------------------------

@@ -9,6 +9,8 @@ using Common.Logging;
 using experimot.msgs;
 using Experimot.Scheduler.Annotations;
 using Experimot.Scheduler.Data;
+using Experimot.Scheduler.Tasks;
+using Quartz;
 using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 using Xceed.Wpf.Toolkit.PropertyGrid.Editors;
 
@@ -16,6 +18,7 @@ namespace Experimot.Scheduler
 {
     public class Context : INotifyPropertyChanged
     {
+        private readonly IScheduler _scheduler;
         private Robot _robot;
         private readonly IList<Human> _humans;
         private readonly IDictionary<string, ManipulatableObject> _objects;
@@ -24,8 +27,9 @@ namespace Experimot.Scheduler
         private readonly ObservableCollection<RobotBehaviorModule> _behaviorModules;
         private static readonly ILog Log = LogManager.GetLogger<Context>();
 
-        public Context()
+        public Context(IScheduler scheduler)
         {
+            _scheduler = scheduler;
             //_humans = new ConcurrentDictionary<int, Human>();
             _humans = new List<Human>();
             _robot = new Robot();
@@ -143,13 +147,41 @@ namespace Experimot.Scheduler
             //Log.InfoFormat("Gesture collection changed : {0}", sender.ToString());
             if (e.Action == NotifyCollectionChangedAction.Add)
             {
-                Log.InfoFormat("Gesture collection changed : {0}", sender.ToString());
+                //Log.InfoFormat("Gesture collection changed : {0}", sender.ToString());
                 if (e.NewItems != null && e.NewItems.Count > 0)
                 {
-                    var item = e.NewItems[0];
+                    var item = e.NewItems[0] as Gesture;
                     if (item != null)
                     {
-                        
+                        lock (_object)
+                        {
+                            if (_behaviorModules != null && _behaviorModules.Count > 0)
+                            {
+                                var module = _behaviorModules[0];
+                                if (module != null)
+                                {
+                                    var jobKey = JobKey.Create(string.Format("Task{0}", item.Name), "MainGroup");
+                                    if (!_scheduler.CheckExists(jobKey))
+                                    {
+                                        IJobDetail detail = JobBuilder.Create<SimpleBehaviorTask>()
+                                            .WithIdentity(jobKey)
+                                            .Build();
+
+                                        detail.JobDataMap.Add("BehaviorServerIp", module.responder.Host);
+                                        detail.JobDataMap.Add("BehaviorServerPort", module.responder.Port);
+                                        detail.JobDataMap.Add("BehaviorName", "greet");
+
+                                        ITrigger trigger = TriggerBuilder.Create().ForJob(detail).StartNow().Build();
+                                        _scheduler.ScheduleJob(detail, trigger);
+                                        Log.InfoFormat("New job about to be scheduled: {0}", jobKey.Name);
+                                    }
+                                    else
+                                    {
+                                        Log.Info("Job already active");
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -185,7 +217,7 @@ namespace Experimot.Scheduler
                         }
                         else
                         {
-                            if (trigger.motion.confidence > 85 || trigger.motion.active)
+                            if (trigger.motion.confidence > 95 || trigger.motion.active)
                             {
                                 item.Gestures.Add(new Gesture
                                 {

@@ -50,7 +50,7 @@ namespace KinectPlayback
         private const int colorWidth = 1920;
         private const int colorHeight = 1080;
         private const int ColorBytesPerPixel = 2;
-        private byte[] colorPixels = null;
+        
 
         private string _fileName;
         private uint _loopCount = 1;
@@ -585,39 +585,7 @@ namespace KinectPlayback
             }
         }
 
-        /// <summary>
-        /// Convert the Yuy2 data to RGB data. The raw buffer stored by Kinect Studio is in the format of Yuy2. 
-        /// </summary>
-        /// <param name="y0"></param>
-        /// <param name="u0"></param>
-        /// <param name="y1"></param>
-        /// <param name="v0"></param>
-        /// <param name="rgb1"></param>
-        /// <param name="rgb2"></param>
-        static void ConvertYuy2ToRgb(byte y0, byte u0, byte y1, byte v0, out RGB rgb1, out RGB rgb2)
-        {
-            rgb1 = new RGB();
-            rgb2 = new RGB();
-
-            int c = y0 - 16;
-            int d = u0 - 128;
-            int e = v0 - 128;
-
-            rgb1.Red = ClipValue((298 * c + 516 * d + 128) >> 8); // blue
-            rgb1.Green = ClipValue((298 * c - 100 * d - 208 * e + 128) >> 8); // green
-            rgb1.Blue = ClipValue((298 * c + 409 * e + 128) >> 8); // red
-            c = y1 - 16;
-
-            rgb2.Red = ClipValue((298 * c + 516 * d + 128) >> 8); // blue
-            rgb2.Green = ClipValue((298 * c - 100 * d - 208 * e + 128) >> 8); // green
-            rgb2.Blue = ClipValue((298 * c + 409 * e + 128) >> 8); // red
-        }
-
-
-        public static int ClipValue(int n)
-        {
-            return Math.Max(byte.MinValue, Math.Min(n, byte.MaxValue));
-        }
+        
 
 
         /// <summary>
@@ -658,6 +626,7 @@ namespace KinectPlayback
             this.irBitmap.Unlock();
         }
 
+        private byte[] colorPixels = null;
         private unsafe void ProcessColorFrameData(IntPtr colorFrameData, uint colorFrameDataSize)
         {
             byte* frameData = (byte*)colorFrameData;
@@ -684,6 +653,40 @@ namespace KinectPlayback
                 this.colorPixels[j++] = (byte)d2.Blue;
                 this.colorPixels[j++] = (byte)128;
             }
+        }
+
+        /// <summary>
+        /// Convert the Yuy2 data to RGB data. The raw buffer stored by Kinect Studio is in the format of Yuy2. 
+        /// </summary>
+        /// <param name="y0"></param>
+        /// <param name="u0"></param>
+        /// <param name="y1"></param>
+        /// <param name="v0"></param>
+        /// <param name="rgb1"></param>
+        /// <param name="rgb2"></param>
+        static void ConvertYuy2ToRgb(byte y0, byte u0, byte y1, byte v0, out RGB rgb1, out RGB rgb2)
+        {
+            rgb1 = new RGB();
+            rgb2 = new RGB();
+
+            int c = y0 - 16;
+            int d = u0 - 128;
+            int e = v0 - 128;
+
+            rgb1.Red = ClipValue((298 * c + 516 * d + 128) >> 8); // blue
+            rgb1.Green = ClipValue((298 * c - 100 * d - 208 * e + 128) >> 8); // green
+            rgb1.Blue = ClipValue((298 * c + 409 * e + 128) >> 8); // red
+            c = y1 - 16;
+
+            rgb2.Red = ClipValue((298 * c + 516 * d + 128) >> 8); // blue
+            rgb2.Green = ClipValue((298 * c - 100 * d - 208 * e + 128) >> 8); // green
+            rgb2.Blue = ClipValue((298 * c + 409 * e + 128) >> 8); // red
+        }
+
+
+        public static int ClipValue(int n)
+        {
+            return Math.Max(byte.MinValue, Math.Min(n, byte.MaxValue));
         }
 
         private void RenderColorPixels()

@@ -3,6 +3,7 @@ import os
 import sys
 import time
 import argparse
+import thread
 
 from naoqi import ALProxy
 from naoqi import ALBehavior
@@ -41,16 +42,16 @@ def behavior_server(ip,port,robot_ip,robot_port):
     context = zmq.Context()
     socket = context.socket(zmq.REP)
     socket.bind(("%s:%d" % (ip,port)))
-
+    print "Server bound: %s,%d" % (ip,port)
     while True:
         #  Wait for next request from client
         behavior = socket.recv()
         print("Received request: %s" % behavior)
 
         try:
-            with create_proxy(robot_ip,robot_port) as manager:
-                execute_behavior(manager,behavior)
-                socket.send("Execution successful")
+            manager = create_proxy(robot_ip,robot_port)
+            execute_behavior(manager,behavior)
+            socket.send("Execution successful")
         except:
             print "Exception occured while execution ", sys.exc_info()
             socket.send("Execution Failed")
@@ -169,7 +170,7 @@ if __name__ == "__main__":
               PORT =  int(parameter_utils.getParam(node,"PORT", "9559"))
               BEHAVIOR_PORT = int(parameter_utils.getParam(node,"RequestServerPort", "5590"))
               BEHAVIOR_IP = parameter_utils.getParam(node,"RequestServerIP", "*")
-              parameter_utils.register_motions(node,paramServer,["crouch","stand","wave"])
+              parameter_utils.register_motions(node,paramServer,["crouch","stand","wave","greet"])
               thread.start_new_thread(behavior_server,(BEHAVIOR_IP,BEHAVIOR_PORT,ROBOTIP,PORT));
       else:
           print "Start locally"

@@ -107,9 +107,9 @@ namespace experimot.msgs
       get { return _Host; }
       set { _Host = value; }
     }
-    private string _Port;
-    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"Port", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public string Port
+    private int _Port;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"Port", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int Port
     {
       get { return _Port; }
       set { _Port = value; }

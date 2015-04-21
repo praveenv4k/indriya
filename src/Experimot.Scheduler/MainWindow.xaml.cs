@@ -98,14 +98,15 @@ namespace Experimot.Scheduler
             Name = "ScheduleTest";
             _scheduler.ListenerManager.AddJobListener(new JobListener(this), GroupMatcher<JobKey>.AnyGroup());
 
-            //_scheduler.Start();
+            _scheduler.Start();
+            
             const string configFile = "experimot_config.xml";
             if (!string.IsNullOrEmpty(configFile))
             {
                 //_config = new experimot_config();
                 var config = experimot_config.LoadFromFile(configFile);
 
-                _context = new Context();
+                _context = new Context(_scheduler);
 
                 _bootStrapper = new BootStrapper(config, _context);
                 _bootStrapper.StartUp();
