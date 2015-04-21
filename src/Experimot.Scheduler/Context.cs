@@ -18,6 +18,8 @@ namespace Experimot.Scheduler
         private readonly IList<Human> _humans;
         private readonly IDictionary<string, ManipulatableObject> _objects;
         private readonly object _object = new object();
+        private readonly IDictionary<string, GestureRecognitionModule> _motionModules;
+        private readonly IDictionary<string, RobotBehaviorModule> _behaviorModules;
 
         public Context()
         {
@@ -25,6 +27,8 @@ namespace Experimot.Scheduler
             _humans = new List<Human>();
             _robot = new Robot();
             _objects = new ConcurrentDictionary<string, ManipulatableObject>();
+            _motionModules = new ConcurrentDictionary<string, GestureRecognitionModule>();
+            _behaviorModules = new ConcurrentDictionary<string, RobotBehaviorModule>();
         }
 
         [ExpandableObject]
@@ -40,13 +44,7 @@ namespace Experimot.Scheduler
         }
 
         //[ExpandableObject]
-        //public IDictionary<int, Human> Humans
-        //{
-        //    get { return _humans; }
-        //}
-
-        //[ExpandableObject]
-        [Editor(typeof(CollectionEditor), typeof(CollectionEditor))]
+        [Editor(typeof (CollectionEditor), typeof (CollectionEditor))]
         public IList<Human> Humans
         {
             get { return _humans; }
@@ -111,7 +109,6 @@ namespace Experimot.Scheduler
                         _humans.Add(new Human()
                         {
                             Body = kinectBody,
-                            //Gesture = new Gesture(),
                             Id = kinectBody.TrackingId.ToString()
                         });
                     }
@@ -119,8 +116,34 @@ namespace Experimot.Scheduler
                     {
                         item.Body = kinectBody;
                     }
-                    //_humans[kinectBody.TrackingId].Body = kinectBody;
-                    //Console.WriteLine(@"Human info updated : {0}", kinectBody.TrackingId);
+                }
+            }
+        }
+
+        public void RegisterMotionRecognitionModule(experimot.msgs.GestureRecognitionModule module)
+        {
+            if (module != null && !string.IsNullOrEmpty(module.name))
+            {
+                lock (_object)
+                {
+                    if (_motionModules.ContainsKey(module.name))
+                    {
+                        _motionModules.Add(module.name, module);
+                    }
+                }
+            }
+        }
+
+        public void RegisterRobotBehaviorModule(experimot.msgs.RobotBehaviorModule module)
+        {
+            if (module != null && !string.IsNullOrEmpty(module.name))
+            {
+                lock (_object)
+                {
+                    if (_behaviorModules.ContainsKey(module.name))
+                    {
+                        _behaviorModules.Add(module.name, module);
+                    }
                 }
             }
         }

@@ -24,6 +24,7 @@
 
   <xs:simpleType name="dataType" final="restriction" >
     <xs:restriction base="xs:string">
+      <xs:enumeration value="bool" />
       <xs:enumeration value="int" />
       <xs:enumeration value="double" />
       <xs:enumeration value="string" />
