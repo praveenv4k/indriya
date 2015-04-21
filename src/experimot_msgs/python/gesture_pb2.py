@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='gesture.proto',
   package='experimot.msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\rgesture.proto\x12\x0e\x65xperimot.msgs\"\xcd\x01\n\x12GestureDescription\x12\x0c\n\x04name\x18\x01 \x02(\t\x12<\n\x04type\x18\x02 \x02(\x0e\x32..experimot.msgs.GestureDescription.GestureType\x12\x0e\n\x06\x61\x63tive\x18\x03 \x01(\x08\x12\x10\n\x08progress\x18\x04 \x01(\x05\x12\x12\n\nconfidence\x18\x05 \x01(\x05\"5\n\x0bGestureType\x12\x08\n\x04None\x10\x00\x12\x0c\n\x08\x44iscrete\x10\x01\x12\x0e\n\nContinuous\x10\x02\"]\n\x18GestureRecognitionModule\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x33\n\x07motions\x18\x02 \x03(\x0b\x32\".experimot.msgs.GestureDescription\"V\n\x19GestureRecognitionModules\x12\x39\n\x07modules\x18\x01 \x03(\x0b\x32(.experimot.msgs.GestureRecognitionModule')
+  serialized_pb=_b('\n\rgesture.proto\x12\x0e\x65xperimot.msgs\"\xcd\x01\n\x12GestureDescription\x12\x0c\n\x04name\x18\x01 \x02(\t\x12<\n\x04type\x18\x02 \x02(\x0e\x32..experimot.msgs.GestureDescription.GestureType\x12\x0e\n\x06\x61\x63tive\x18\x03 \x01(\x08\x12\x10\n\x08progress\x18\x04 \x01(\x05\x12\x12\n\nconfidence\x18\x05 \x01(\x05\"5\n\x0bGestureType\x12\x08\n\x04None\x10\x00\x12\x0c\n\x08\x44iscrete\x10\x01\x12\x0e\n\nContinuous\x10\x02\"]\n\x18GestureRecognitionModule\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x33\n\x07motions\x18\x02 \x03(\x0b\x32\".experimot.msgs.GestureDescription\"V\n\x19GestureRecognitionModules\x12\x39\n\x07modules\x18\x01 \x03(\x0b\x32(.experimot.msgs.GestureRecognitionModule\"P\n\x0eGestureTrigger\x12\n\n\x02id\x18\x01 \x02(\x05\x12\x32\n\x06motion\x18\x02 \x02(\x0b\x32\".experimot.msgs.GestureDescription')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -180,13 +180,53 @@ _GESTURERECOGNITIONMODULES = _descriptor.Descriptor(
   serialized_end=422,
 )
 
+
+_GESTURETRIGGER = _descriptor.Descriptor(
+  name='GestureTrigger',
+  full_name='experimot.msgs.GestureTrigger',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='experimot.msgs.GestureTrigger.id', index=0,
+      number=1, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='motion', full_name='experimot.msgs.GestureTrigger.motion', index=1,
+      number=2, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  #syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=424,
+  serialized_end=504,
+)
+
 _GESTUREDESCRIPTION.fields_by_name['type'].enum_type = _GESTUREDESCRIPTION_GESTURETYPE
 _GESTUREDESCRIPTION_GESTURETYPE.containing_type = _GESTUREDESCRIPTION
 _GESTURERECOGNITIONMODULE.fields_by_name['motions'].message_type = _GESTUREDESCRIPTION
 _GESTURERECOGNITIONMODULES.fields_by_name['modules'].message_type = _GESTURERECOGNITIONMODULE
+_GESTURETRIGGER.fields_by_name['motion'].message_type = _GESTUREDESCRIPTION
 DESCRIPTOR.message_types_by_name['GestureDescription'] = _GESTUREDESCRIPTION
 DESCRIPTOR.message_types_by_name['GestureRecognitionModule'] = _GESTURERECOGNITIONMODULE
 DESCRIPTOR.message_types_by_name['GestureRecognitionModules'] = _GESTURERECOGNITIONMODULES
+DESCRIPTOR.message_types_by_name['GestureTrigger'] = _GESTURETRIGGER
 
 GestureDescription = _reflection.GeneratedProtocolMessageType('GestureDescription', (_message.Message,), dict(
   DESCRIPTOR = _GESTUREDESCRIPTION,
@@ -208,6 +248,13 @@ GestureRecognitionModules = _reflection.GeneratedProtocolMessageType('GestureRec
   # @@protoc_insertion_point(class_scope:experimot.msgs.GestureRecognitionModules)
   ))
 _sym_db.RegisterMessage(GestureRecognitionModules)
+
+GestureTrigger = _reflection.GeneratedProtocolMessageType('GestureTrigger', (_message.Message,), dict(
+  DESCRIPTOR = _GESTURETRIGGER,
+  __module__ = 'gesture_pb2'
+  # @@protoc_insertion_point(class_scope:experimot.msgs.GestureTrigger)
+  ))
+_sym_db.RegisterMessage(GestureTrigger)
 
 
 # @@protoc_insertion_point(module_scope)

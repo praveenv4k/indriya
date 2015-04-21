@@ -1,23 +1,16 @@
-using System.Collections.ObjectModel;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using experimot.msgs;
 using Experimot.Core.Annotations;
+using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
-namespace Experimot.Core.Data
+namespace Experimot.Scheduler.Data
 {
-    public class Human : INotifyPropertyChanged
+    public class ManipulatableObject: INotifyPropertyChanged
     {
         private string _id;
-
-        private KinectBody _body;
-
-        private readonly ObservableCollection<Gesture> _gestures;
-
-        public Human()
-        {
-            _gestures = new ObservableCollection<Gesture>();
-        }
+        private Pose _pose;
+        private Color _color;
 
         public string Id
         {
@@ -30,20 +23,28 @@ namespace Experimot.Core.Data
             }
         }
 
-        public KinectBody Body
+        [ExpandableObject]
+        public Pose Pose
         {
-            get { return _body; }
+            get { return _pose; }
             set
             {
-                if (Equals(value, _body)) return;
-                _body = value;
+                if (Equals(value, _pose)) return;
+                _pose = value;
                 OnPropertyChanged();
             }
         }
 
-        public ObservableCollection<Gesture> Gestures
+        [ExpandableObject]
+        public Color Color
         {
-            get { return _gestures; }
+            get { return _color; }
+            set
+            {
+                if (Equals(value, _color)) return;
+                _color = value;
+                OnPropertyChanged();
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

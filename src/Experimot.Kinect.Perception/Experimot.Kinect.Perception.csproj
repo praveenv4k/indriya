@@ -116,6 +116,7 @@
     <Compile Include="GestureResultView.cs" />
     <Compile Include="JointStatePublisher.cs" />
     <Compile Include="KinectBodyHelper.cs" />
+    <Compile Include="GestureTriggerPublisher.cs" />
     <Compile Include="KinectBodyPublisher.cs" />
     <Compile Include="KinectBodyView.cs" />
     <Compile Include="MainWindow.xaml.cs">

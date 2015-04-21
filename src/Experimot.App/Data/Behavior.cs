@@ -2,7 +2,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Experimot.Core.Annotations;
 
-namespace Experimot.Core.Data
+namespace Experimot.Scheduler.Data
 {
     public enum BehaviorMode
     {

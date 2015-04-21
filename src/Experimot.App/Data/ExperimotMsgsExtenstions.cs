@@ -1,4 +1,4 @@
-﻿namespace Experimot.Core.Data
+﻿namespace Experimot.Scheduler.Data
 {
     public static class ExperimotMsgsExtenstions
     {

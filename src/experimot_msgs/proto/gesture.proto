@@ -29,3 +29,9 @@ message GestureRecognitionModules
 {
   repeated GestureRecognitionModule modules  = 1;
 }
+
+message GestureTrigger
+{
+  required int32 id = 1;
+  required GestureDescription motion = 2;
+}

@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using experimot.msgs;
 using Microsoft.Kinect;
 
 namespace Experimot.Kinect.Perception
@@ -239,7 +240,8 @@ namespace Experimot.Kinect.Perception
         /// <param name="isBodyTrackingIdValid">True, if the body associated with the GestureResultView object is still being tracked</param>
         /// <param name="isGestureDetected">True, if the discrete gesture is currently detected for the associated body</param>
         /// <param name="detectionConfidence">Confidence value for detection of the discrete gesture</param>
-        public void UpdateGestureResult(bool isBodyTrackingIdValid, bool isGestureDetected, float detectionConfidence, string gestureKey)
+        public void UpdateGestureResult(bool isBodyTrackingIdValid, bool isGestureDetected, float detectionConfidence,
+            string gestureKey)
         {
             this.IsTracked = isBodyTrackingIdValid;
             this.Confidence = 0.0f;
@@ -266,6 +268,19 @@ namespace Experimot.Kinect.Perception
                     this.ImageSource = gestureImageDict[GestureNames.None];
                 }
             }
+            var gestMsg = new experimot.msgs.GestureTrigger()
+            {
+                id = BodyIndex,
+                motion = new GestureDescription()
+                {
+                    active = isGestureDetected,
+                    confidence = (int) detectionConfidence*100,
+                    name = gestureKey,
+                    progress = 0,
+                    type = GestureDescription.GestureType.Discrete
+                }
+            };
+            GestureTriggerPublisher.Instance.PublishGestureTrigger(gestMsg);
         }
 
         /// <summary>
