@@ -51,7 +51,7 @@ class Localization{
 public:
 	Localization(boost::asio::io_service& io, experimot::msgs::NodePtr& pNode)
 		: strand_(io),
-		m_SensorTimer(io, boost::posix_time::milliseconds(30)),
+		m_SensorTimer(io, boost::posix_time::milliseconds(20)),
 		m_RobotTimer(io, boost::posix_time::milliseconds(40)),
 		m_PoseTimer(io, boost::posix_time::milliseconds(80)),
 		m_TdmTimer(io, boost::posix_time::milliseconds(40)),
@@ -108,7 +108,7 @@ public:
 	}
 
 	Localization(boost::asio::io_service& io)
-		: strand_(io), m_nSensorCycle(30), m_nRobotCycle(40), m_nPoseCycle(80), m_nTdmCycle(40), m_bVisualize(true),
+		: strand_(io), m_nSensorCycle(20), m_nRobotCycle(40), m_nPoseCycle(80), m_nTdmCycle(40), m_bVisualize(true),
 		m_SensorTimer(io, boost::posix_time::milliseconds(m_nSensorCycle)),
 		m_RobotTimer(io, boost::posix_time::milliseconds(m_nRobotCycle)),
 		m_PoseTimer(io, boost::posix_time::milliseconds(m_nPoseCycle)),
@@ -214,9 +214,9 @@ public:
 					m_pRobotPoseInfoPtr->SetMarkerTransform(out);
 #else
 					m_MedianFilter.addPose(markerTfm);
-					m_MedianFilter.getMedian(out);
-					cout << out << endl;
-					m_pRobotPoseInfoPtr->SetMarkerTransform(out);
+					m_MedianFilter.getMedian(markerTfm);
+					cout << markerTfm << endl;
+					m_pRobotPoseInfoPtr->SetMarkerTransform(markerTfm);
 #endif
 
 #if 0

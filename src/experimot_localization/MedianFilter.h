@@ -40,6 +40,7 @@
 #define AR_TRACK_ALVAR_MEDIAN_FILTER_H
 
 #include "openrave-core.h"
+#include <boost\circular_buffer.hpp>
 
 using namespace OpenRAVE;
 
