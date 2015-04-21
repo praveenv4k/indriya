@@ -7,8 +7,6 @@ using System.Runtime.CompilerServices;
 using experimot.msgs;
 using Experimot.Scheduler.Annotations;
 using Experimot.Scheduler.Data;
-using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
-using Xceed.Wpf.Toolkit.PropertyGrid.Editors;
 
 namespace Experimot.Scheduler
 {
@@ -32,7 +30,6 @@ namespace Experimot.Scheduler
             _behaviorModules = new ObservableCollection<RobotBehaviorModule>();
         }
 
-        [ExpandableObject]
         public Robot Robot
         {
             get { return _robot; }
@@ -44,26 +41,21 @@ namespace Experimot.Scheduler
             }
         }
 
-        //[ExpandableObject]
-        [Editor(typeof (CollectionEditor), typeof (CollectionEditor))]
         public IList<Human> Humans
         {
             get { return _humans; }
         }
 
-        [ExpandableObject]
         public IDictionary<string, ManipulatableObject> Objects
         {
             get { return _objects; }
         }
 
-        [ExpandableObject]
         public ObservableCollection<GestureModule> MotionModules
         {
             get { return _motionModules; }
         }
 
-        [ExpandableObject]
         public ObservableCollection<RobotBehaviorModule> BehaviorModules
         {
             get { return _behaviorModules; }

@@ -1,14 +1,63 @@
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Experimot.Core.Annotations;
 
-namespace Experimot.Core.Data
+namespace Experimot.Scheduler.Data
 {
     public enum GestureMode
     {
         Discrete,
         Continuous
+    }
+
+    public class GestureModule : INotifyPropertyChanged
+    {
+        private string _name;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [Annotations.NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if (value == _name) return;
+                _name = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<Gesture> Gestures
+        {
+            get { return _gestures; }
+        }
+
+        private readonly ObservableCollection<Gesture> _gestures;
+
+        public GestureModule(experimot.msgs.GestureRecognitionModule module)
+        {
+            _gestures = new ObservableCollection<Gesture>();
+            if (module != null)
+            {
+                Name = module.name;
+                foreach (var gestureDescription in module.motions)
+                {
+                    _gestures.Add(new Gesture()
+                    {
+                        Name = gestureDescription.name,
+                        Mode = (GestureMode) gestureDescription.type
+                    });
+                }
+            }
+        }
     }
 
     public class Gesture : INotifyPropertyChanged

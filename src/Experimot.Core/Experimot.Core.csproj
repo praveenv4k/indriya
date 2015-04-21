@@ -63,14 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="Data\Behavior.cs" />
-    <Compile Include="Data\ExperimotMsgsExtenstions.cs" />
-    <Compile Include="Data\Gesture.cs" />
-    <Compile Include="Data\Human.cs" />
-    <Compile Include="Data\Localization.cs" />
-    <Compile Include="Data\ManipulatableObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Data\Robot.cs" />
     <Compile Include="Schema\experimot_config.designer.cs" />
     <Compile Include="Util\MessageUtil.cs" />
     <Compile Include="Util\ParameterUtil.cs" />

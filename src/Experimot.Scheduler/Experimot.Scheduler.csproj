@@ -113,6 +113,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -160,6 +161,13 @@
     </ApplicationDefinition>
     <Compile Include="BootStrapper.cs" />
     <Compile Include="Context.cs" />
+    <Compile Include="Data\Behavior.cs" />
+    <Compile Include="Data\ExperimotMsgsExtenstions.cs" />
+    <Compile Include="Data\Gesture.cs" />
+    <Compile Include="Data\Human.cs" />
+    <Compile Include="Data\Localization.cs" />
+    <Compile Include="Data\ManipulatableObject.cs" />
+    <Compile Include="Data\Robot.cs" />
     <Compile Include="ParameterServer.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Tasks\ContextSync.cs" />
@@ -224,6 +232,7 @@
     <Content Include="quartz_config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Web\www\favicon.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Experimot.Core.Msgs\Experimot.Core.Msgs.csproj">

@@ -52,8 +52,9 @@ namespace Experimot.Kinect.Perception
         private List<GestureDetector> _gestureDetectorList;
 
         private readonly Node _node;
-        private readonly KinectBodyPublisher _kBodyPub;
+        private KinectBodyPublisher _kBodyPub;
         private readonly ILog _log = LogManager.GetLogger<MainWindow>();
+        private GestureTriggerPublisher _gestPub;
 
         /// <summary>
         /// Initializes a new instance of the MainWindow class
@@ -151,6 +152,10 @@ namespace Experimot.Kinect.Perception
                             _kBodyPub = new KinectBodyPublisher(item.host, item.port, item.topic);
                             Loaded += MainWindow_Loaded;
                         }
+                        if (item.msg_type == "GestureTrigger")
+                        {
+                            _gestPub = GestureTriggerPublisher.Create(item.host, item.port, item.topic);
+                        }
                         _log.Info("Gesture recognition node initialized from the config file");
                     }
                 }
@@ -162,6 +167,10 @@ namespace Experimot.Kinect.Perception
             if (_kBodyPub != null)
             {
                 _kBodyPub.Initialize();
+            }
+            if (_gestPub != null)
+            {
+                _gestPub.Initialize();
             }
         }
 
@@ -205,6 +214,12 @@ namespace Experimot.Kinect.Perception
             if (_kBodyPub != null)
             {
                 _kBodyPub.Terminate();
+                _kBodyPub = null;
+            }
+            if (_gestPub != null)
+            {
+                _gestPub.Terminate();
+                _gestPub = null;
             }
             if (_bodyFrameReader != null)
             {

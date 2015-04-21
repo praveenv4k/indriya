@@ -9,7 +9,7 @@
     <param key="ParameterClientHost" value="tcp://localhost" type="string"/>
     <param key="ParameterServerPort" value="5560" type="int"/>
     <param key="ParameterServerInterval" value="10" type="int"/>
-    <param key="WebServerEnabled" value="true" type="bool"/>
+    <param key="WebServerEnabled" value="false" type="bool"/>
     <param key="WebServerPort" value="82" type="int"/>
   </parameters>
   <nodes>
@@ -70,13 +70,6 @@
           <topic>KSP</topic>
           <msg_type>KinectBodies</msg_type>
           <name>KinectBodyPublisher</name>
-        </publish>
-        <publish>
-          <host>tcp://*</host>
-          <port>5580</port>
-          <topic>GTP</topic>
-          <msg_type>GestureTrigger</msg_type>
-          <name>GesturePublisher</name>
         </publish>
       </publishers>
     </node>

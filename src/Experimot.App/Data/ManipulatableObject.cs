@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using experimot.msgs;
 using Experimot.Core.Annotations;
 
-namespace Experimot.Core.Data
+namespace Experimot.Scheduler.Data
 {
     public class ManipulatableObject: INotifyPropertyChanged
     {
