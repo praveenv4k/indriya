@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='robot_behavior.proto',
   package='experimot.msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x14robot_behavior.proto\x12\x0e\x65xperimot.msgs\x1a\rrequest.proto\x1a\x0eresponse.proto\"\x8b\x02\n\x13\x42\x65haviorDescription\x12\x0c\n\x04name\x18\x01 \x02(\t\x12?\n\x04type\x18\x02 \x02(\x0e\x32\x31.experimot.msgs.BehaviorDescription.ExecutionType\x12\x41\n\x05state\x18\x03 \x02(\x0e\x32\x32.experimot.msgs.BehaviorDescription.ExecutionState\".\n\rExecutionType\x12\x0c\n\x08\x42locking\x10\x00\x12\x0f\n\x0bNonBlocking\x10\x01\"2\n\x0e\x45xecutionState\x12\x08\n\x04Idle\x10\x00\x12\x0b\n\x07Running\x10\x01\x12\t\n\x05\x45rror\x10\x02\"\xe0\x01\n\x13RobotBehaviorModule\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x36\n\tbehaviors\x18\x02 \x03(\x0b\x32#.experimot.msgs.BehaviorDescription\x12M\n\tresponder\x18\x03 \x01(\x0b\x32:.experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder\x1a\x34\n\x16RobotBehaviorResponder\x12\x0c\n\x04Host\x18\x01 \x02(\t\x12\x0c\n\x04Port\x18\x02 \x02(\t\"L\n\x14RobotBehaviorModules\x12\x34\n\x07modules\x18\x01 \x03(\x0b\x32#.experimot.msgs.RobotBehaviorModule')
+  serialized_pb=_b('\n\x14robot_behavior.proto\x12\x0e\x65xperimot.msgs\x1a\rrequest.proto\x1a\x0eresponse.proto\"\x8b\x02\n\x13\x42\x65haviorDescription\x12\x0c\n\x04name\x18\x01 \x02(\t\x12?\n\x04type\x18\x02 \x02(\x0e\x32\x31.experimot.msgs.BehaviorDescription.ExecutionType\x12\x41\n\x05state\x18\x03 \x02(\x0e\x32\x32.experimot.msgs.BehaviorDescription.ExecutionState\".\n\rExecutionType\x12\x0c\n\x08\x42locking\x10\x00\x12\x0f\n\x0bNonBlocking\x10\x01\"2\n\x0e\x45xecutionState\x12\x08\n\x04Idle\x10\x00\x12\x0b\n\x07Running\x10\x01\x12\t\n\x05\x45rror\x10\x02\"\xe0\x01\n\x13RobotBehaviorModule\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x36\n\tbehaviors\x18\x02 \x03(\x0b\x32#.experimot.msgs.BehaviorDescription\x12M\n\tresponder\x18\x03 \x01(\x0b\x32:.experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder\x1a\x34\n\x16RobotBehaviorResponder\x12\x0c\n\x04Host\x18\x01 \x02(\t\x12\x0c\n\x04Port\x18\x02 \x02(\x05\"L\n\x14RobotBehaviorModules\x12\x34\n\x07modules\x18\x01 \x03(\x0b\x32#.experimot.msgs.RobotBehaviorModule')
   ,
   dependencies=[request__pb2.DESCRIPTOR,response__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -140,8 +140,8 @@ _ROBOTBEHAVIORMODULE_ROBOTBEHAVIORRESPONDER = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='Port', full_name='experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Port', index=1,
-      number=2, type=9, cpp_type=9, label=2,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      number=2, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),

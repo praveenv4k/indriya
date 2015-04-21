@@ -330,17 +330,12 @@ class RobotBehaviorModule_RobotBehaviorResponder : public ::google::protobuf::Me
   ::std::string* release_host();
   void set_allocated_host(::std::string* host);
 
-  // required string Port = 2;
+  // required int32 Port = 2;
   bool has_port() const;
   void clear_port();
   static const int kPortFieldNumber = 2;
-  const ::std::string& port() const;
-  void set_port(const ::std::string& value);
-  void set_port(const char* value);
-  void set_port(const char* value, size_t size);
-  ::std::string* mutable_port();
-  ::std::string* release_port();
-  void set_allocated_port(::std::string* port);
+  ::google::protobuf::int32 port() const;
+  void set_port(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder)
  private:
@@ -356,7 +351,7 @@ class RobotBehaviorModule_RobotBehaviorResponder : public ::google::protobuf::Me
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr host_;
-  ::google::protobuf::internal::ArenaStringPtr port_;
+  ::google::protobuf::int32 port_;
   friend void  protobuf_AddDesc_robot_5fbehavior_2eproto();
   friend void protobuf_AssignDesc_robot_5fbehavior_2eproto();
   friend void protobuf_ShutdownFile_robot_5fbehavior_2eproto();
@@ -745,7 +740,7 @@ inline void RobotBehaviorModule_RobotBehaviorResponder::set_allocated_host(::std
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Host)
 }
 
-// required string Port = 2;
+// required int32 Port = 2;
 inline bool RobotBehaviorModule_RobotBehaviorResponder::has_port() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -756,46 +751,17 @@ inline void RobotBehaviorModule_RobotBehaviorResponder::clear_has_port() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void RobotBehaviorModule_RobotBehaviorResponder::clear_port() {
-  port_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  port_ = 0;
   clear_has_port();
 }
-inline const ::std::string& RobotBehaviorModule_RobotBehaviorResponder::port() const {
+inline ::google::protobuf::int32 RobotBehaviorModule_RobotBehaviorResponder::port() const {
   // @@protoc_insertion_point(field_get:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Port)
-  return port_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return port_;
 }
-inline void RobotBehaviorModule_RobotBehaviorResponder::set_port(const ::std::string& value) {
+inline void RobotBehaviorModule_RobotBehaviorResponder::set_port(::google::protobuf::int32 value) {
   set_has_port();
-  port_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  port_ = value;
   // @@protoc_insertion_point(field_set:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Port)
-}
-inline void RobotBehaviorModule_RobotBehaviorResponder::set_port(const char* value) {
-  set_has_port();
-  port_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Port)
-}
-inline void RobotBehaviorModule_RobotBehaviorResponder::set_port(const char* value, size_t size) {
-  set_has_port();
-  port_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Port)
-}
-inline ::std::string* RobotBehaviorModule_RobotBehaviorResponder::mutable_port() {
-  set_has_port();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Port)
-  return port_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* RobotBehaviorModule_RobotBehaviorResponder::release_port() {
-  clear_has_port();
-  return port_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void RobotBehaviorModule_RobotBehaviorResponder::set_allocated_port(::std::string* port) {
-  if (port != NULL) {
-    set_has_port();
-  } else {
-    clear_has_port();
-  }
-  port_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), port);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Port)
 }
 
 // -------------------------------------------------------------------

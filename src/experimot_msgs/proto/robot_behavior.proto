@@ -30,7 +30,7 @@ message RobotBehaviorModule
   message RobotBehaviorResponder
   {
 	required string Host = 1;
-	required string Port = 2;
+	required int32 Port = 2;
   }
   required string name  = 1;
   repeated BehaviorDescription behaviors = 2;

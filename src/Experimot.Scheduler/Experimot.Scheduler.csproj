@@ -171,6 +171,7 @@
     <Compile Include="ParameterServer.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Tasks\ContextSync.cs" />
+    <Compile Include="Tasks\SimpleBehaviorTask.cs" />
     <Compile Include="Web\Controllers\DemoController.cs" />
     <Compile Include="Web\ExperimotServer.cs" />
     <Compile Include="Web\Handlers\AboutHandler.cs" />
