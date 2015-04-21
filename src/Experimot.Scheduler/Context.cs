@@ -1,6 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -16,7 +17,6 @@ namespace Experimot.Scheduler
     public class Context : INotifyPropertyChanged
     {
         private Robot _robot;
-        //private readonly IDictionary<int, Human> _humans;
         private readonly IList<Human> _humans;
         private readonly IDictionary<string, ManipulatableObject> _objects;
         private readonly object _object = new object();
@@ -111,6 +111,7 @@ namespace Experimot.Scheduler
                         var item = _humans.FirstOrDefault(s => s.Body.TrackingId == key);
                         if (item != null)
                         {
+                            item.Gestures.CollectionChanged -= GesturesCollectionChanged;
                             _humans.Remove(item);
                         }
                     }
@@ -121,11 +122,13 @@ namespace Experimot.Scheduler
                     var item = _humans.FirstOrDefault(s => s.Body.TrackingId == kinectBody.TrackingId);
                     if (item == null)
                     {
-                        _humans.Add(new Human()
+                        var human = new Human()
                         {
                             Body = kinectBody,
                             Id = kinectBody.TrackingId.ToString()
-                        });
+                        };
+                        human.Gestures.CollectionChanged += GesturesCollectionChanged;
+                        _humans.Add(human);
                     }
                     else
                     {
@@ -135,9 +138,26 @@ namespace Experimot.Scheduler
             }
         }
 
+        void GesturesCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            //Log.InfoFormat("Gesture collection changed : {0}", sender.ToString());
+            if (e.Action == NotifyCollectionChangedAction.Add)
+            {
+                Log.InfoFormat("Gesture collection changed : {0}", sender.ToString());
+                if (e.NewItems != null && e.NewItems.Count > 0)
+                {
+                    var item = e.NewItems[0];
+                    if (item != null)
+                    {
+                        
+                    }
+                }
+            }
+        }
+
         public void Update(GestureTrigger trigger)
         {
-            Log.Info("Gesture Update");
+            //Log.Info("Gesture Update");
             if (trigger != null)
             {
                 lock (_object)

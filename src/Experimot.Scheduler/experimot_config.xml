@@ -13,7 +13,7 @@
     <param key="WebServerPort" value="82" type="int"/>
   </parameters>
   <nodes>
-    <node enabled="false">
+    <node enabled="true">
       <name>localization</name>
       <process>
         <type>executable</type>
@@ -80,7 +80,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="false">
+    <node enabled="true">
       <name>simulation</name>
       <process>
         <type>executable</type>
@@ -129,8 +129,12 @@
       <process>
         <type>executable</type>
         <path>python.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\scripts\ReadJointValues.py</args>
+        <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_robot_interface\ReadJointValues.py</args>
       </process>
+      <parameters>
+        <param key="ROBOTIP" value="169.254.123.55" type="string"/>
+        <param key="PORT" value="9559" type="int"/>
+      </parameters>
       <publishers>
         <publish>
           <host>tcp://*</host>
@@ -149,7 +153,7 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_zmq_plot_client.py</args>
       </process>
     </node>
-    <node enabled="true">
+    <node enabled="false">
       <name>nao_behavior_manager</name>
       <process>
         <type>executable</type>
@@ -159,6 +163,9 @@
       <parameters>
         <param key="ROBOTIP" value="127.0.0.1" type="string"/>
         <param key="PORT" value="61382" type="int"/>
+        <param key="RequestServerIP" value="tcp://*" type="string"/>
+        <param key="RequestClientIP" value="tcp://localhost" type="string"/>
+        <param key="RequestServerPort" value="5590" type="int"/>
         <!--<param key="ROBOTIP" value="192.168.88.130" type="string"/>
         <param key="PORT" value="52611" type="int"/>-->
       </parameters>

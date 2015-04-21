@@ -34,10 +34,18 @@ def getParam(node,key,defaultValue):
                 ret = p.value.encode('utf-8') # needed to encode in utf-8 because naoqi doesn't accept unicode
     return ret
 
-def register_motions(name,parameterServerAddress,motions):
+def register_motions(node,parameterServerAddress,motions):
     print "Creating behavior module message"
     behaviorModule = robot_behavior_pb2.RobotBehaviorModule()
-    behaviorModule.name = name
+    behaviorModule.name = node.name
+
+
+    port = int(parameter_utils.getParam(node,"RequestServerPort", "5590"))
+    ip = parameter_utils.getParam(node,"RequestClientIP", "*")
+    behaviorModule.responder = robot_behavior_pb2.RobotBehaviorResponder()
+
+    behaviorModule.responder.Host = ip
+    behaviorModule.responder.Port = port
 
     for motion in motions:
         print "Creating behavior description message", motion
@@ -55,7 +63,7 @@ def register_motions(name,parameterServerAddress,motions):
                 str = behaviorModule.SerializeToString();
                 sock.connect(parameterServerAddress)
                 parts.append("register_behaviors")
-                parts.append(name.encode('utf-8'))
+                parts.append(node.name.encode('utf-8'))
                 parts.append(str)                
                 print "Sending register_motions message", parts
                 sock.send_multipart(parts)

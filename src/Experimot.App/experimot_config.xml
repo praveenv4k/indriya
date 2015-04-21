@@ -13,7 +13,7 @@
     <param key="WebServerPort" value="82" type="int"/>
   </parameters>
   <nodes>
-    <node enabled="false">
+    <node enabled="true">
       <name>localization</name>
       <process>
         <type>executable</type>

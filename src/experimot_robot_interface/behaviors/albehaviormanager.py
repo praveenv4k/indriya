@@ -35,6 +35,31 @@ def main(robotIP, port, behaviorName):
   launchAndStopBehavior(managerProxy, behaviorName)
   defaultBehaviors(managerProxy, behaviorName)
 
+#############################################################################################################
+# Behavior server - A Behavior request/response server
+def behavior_server(ip,port,robot_ip,robot_port):
+    context = zmq.Context()
+    socket = context.socket(zmq.REP)
+    socket.bind(("%s:%d" % (ip,port)))
+
+    while True:
+        #  Wait for next request from client
+        behavior = socket.recv()
+        print("Received request: %s" % behavior)
+
+        try:
+            with create_proxy(robot_ip,robot_port) as manager:
+                execute_behavior(manager,behavior)
+                socket.send("Execution successful")
+        except:
+            print "Exception occured while execution ", sys.exc_info()
+            socket.send("Execution Failed")
+
+        #  Do some 'work'
+        time.sleep(0.5)
+
+    print "quitting ... "
+
 def create_proxy(robotIP, port):
   # Create proxy to ALBehaviorManager
   print "Creating behavior manager", robotIP, port
@@ -142,15 +167,17 @@ if __name__ == "__main__":
           if node != None:
               ROBOTIP = parameter_utils.getParam(node,"ROBOTIP", "127.0.0.1")
               PORT =  int(parameter_utils.getParam(node,"PORT", "9559"))
-              parameter_utils.register_motions(node.name,paramServer,["crouch","stand","wave"])
+              BEHAVIOR_PORT = int(parameter_utils.getParam(node,"RequestServerPort", "5590"))
+              BEHAVIOR_IP = parameter_utils.getParam(node,"RequestServerIP", "*")
+              parameter_utils.register_motions(node,paramServer,["crouch","stand","wave"])
+              thread.start_new_thread(behavior_server,(BEHAVIOR_IP,BEHAVIOR_PORT,ROBOTIP,PORT));
       else:
           print "Start locally"
 
       time.sleep(1)
 
-      managerProxy = create_proxy(ROBOTIP,PORT)
-
-      execute_behavior(managerProxy, "crouch")
+      #managerProxy = create_proxy(ROBOTIP,PORT)
+      #execute_behavior(managerProxy, "crouch")
   except:
       print "Exception occured : ", sys.exc_info()
 
