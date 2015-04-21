@@ -31,8 +31,13 @@ namespace Experimot.Scheduler
             _config = config;
             _processes = new List<Process>();
             _contextSync = new ContextSync(config, context);
-            _parameterServer = new ParameterServer(_config);
-            _server = new ExperimotServer(_config);
+            _parameterServer = new ParameterServer(_config, context);
+
+            bool enableWebServer = ParameterUtil.Get(config.parameters, "WebServerEnabled", false);
+            if (enableWebServer)
+            {
+                _server = new ExperimotServer(_config);
+            }
 
             _tasks = new List<Task>
             {
@@ -66,6 +71,10 @@ namespace Experimot.Scheduler
             {
                 _server.Start();
                 Log.Info("Experimot server Started");
+            }
+            else
+            {
+                Log.Info("server instance null. looks like it is disabled");
             }
             Log.Info("Experimot server Completed");
         }

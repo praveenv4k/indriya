@@ -21,10 +21,12 @@ namespace Experimot.Scheduler
         private const int RecvTimeout = 50;
 
         private bool _startup;
+        private Context _worldCtx;
 
-        public ParameterServer(experimot_config config)
+        public ParameterServer(experimot_config config, Context ctx)
         {
             _config = config;
+            _worldCtx = ctx;
         }
 
         public void Start()
@@ -89,6 +91,10 @@ namespace Experimot.Scheduler
                                         RecvTimeout);
                                 if (motionModule != null)
                                 {
+                                    if (_worldCtx != null)
+                                    {
+                                        _worldCtx.RegisterMotionRecognitionModule(motionModule);
+                                    }
                                     Log.InfoFormat(@"Module name: {0}", motionModule.name);
                                     _socket.Send("Registration successful!");
                                 }
@@ -100,6 +106,10 @@ namespace Experimot.Scheduler
                                         RecvTimeout);
                                 if (behaviorModule != null)
                                 {
+                                    if (_worldCtx != null)
+                                    {
+                                        _worldCtx.RegisterRobotBehaviorModule(behaviorModule);
+                                    }
                                     Log.InfoFormat(@"Module name: {0}", behaviorModule.name);
                                     _socket.Send("Registration successful!");
                                 }

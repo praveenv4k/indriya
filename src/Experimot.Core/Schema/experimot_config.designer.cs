@@ -593,6 +593,9 @@ namespace Experimot.Core
     {
 
         /// <remarks/>
+        @bool,
+
+        /// <remarks/>
         @int,
 
         /// <remarks/>
