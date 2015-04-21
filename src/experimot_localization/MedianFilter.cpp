@@ -39,46 +39,46 @@
 #include "medianFilter.h"
 
 MedianFilter::MedianFilter(int n) {
-		median_n = n;
-		median_ind = 0;
-		median_init = false;
-		median_poses.resize(median_n);
+	median_n = n;
+	median_ind = 0;
+	median_init = false;
+	median_poses.resize(median_n);
+}
+
+void MedianFilter::addPose(const Transform &new_pose){
+	median_poses[median_ind] = new_pose;
+	median_ind = (median_ind + 1) % median_n;
+}
+
+void MedianFilter::getMedian(Transform &ret_pose){
+	if (!median_init){
+		if (median_ind == median_n - 1)
+			median_init = true;
+		ret_pose = median_poses[median_ind - 1];
 	}
 
-	void MedianFilter::addPose(const Transform &new_pose){
-		median_poses[median_ind] = new_pose;
-		median_ind = (median_ind + 1) % median_n;
-	}
-
-	void MedianFilter::getMedian(Transform &ret_pose){
-		if (!median_init){
-			if (median_ind == median_n - 1)
-				median_init = true;
-			ret_pose = median_poses[median_ind - 1];
-		}
-
-		else{
-			double min_dist = 0;
-			int min_ind = 0;
-			for (int i = 0; i<median_n; i++){
-				double total_dist = 0;
-				for (int j = 0; j<median_n; j++){
-					total_dist += pow(median_poses[i].trans[0] - median_poses[j].trans[0], 2);
-					total_dist += pow(median_poses[i].trans[1] - median_poses[j].trans[1], 2);
-					total_dist += pow(median_poses[i].trans[2] - median_poses[j].trans[2], 2);
-					total_dist += pow(median_poses[i].rot[0] - median_poses[j].rot[0], 2);
-					total_dist += pow(median_poses[i].rot[1] - median_poses[j].rot[1], 2);
-					total_dist += pow(median_poses[i].rot[2] - median_poses[j].rot[2], 2);
-					total_dist += pow(median_poses[i].rot[3] - median_poses[j].rot[3], 2);
-				}
-				if (i == 0) min_dist = total_dist;
-				else{
-					if (total_dist < min_dist){
-						min_dist = total_dist;
-						min_ind = i;
-					}
+	else{
+		double min_dist = 0;
+		int min_ind = 0;
+		for (int i = 0; i < median_n; i++){
+			double total_dist = 0;
+			for (int j = 0; j < median_n; j++){
+				total_dist += pow(median_poses[i].trans[0] - median_poses[j].trans[0], 2);
+				total_dist += pow(median_poses[i].trans[1] - median_poses[j].trans[1], 2);
+				total_dist += pow(median_poses[i].trans[2] - median_poses[j].trans[2], 2);
+				total_dist += pow(median_poses[i].rot[0] - median_poses[j].rot[0], 2);
+				total_dist += pow(median_poses[i].rot[1] - median_poses[j].rot[1], 2);
+				total_dist += pow(median_poses[i].rot[2] - median_poses[j].rot[2], 2);
+				total_dist += pow(median_poses[i].rot[3] - median_poses[j].rot[3], 2);
+			}
+			if (i == 0) min_dist = total_dist;
+			else{
+				if (total_dist < min_dist){
+					min_dist = total_dist;
+					min_ind = i;
 				}
 			}
-			ret_pose = median_poses[min_ind];
 		}
+		ret_pose = median_poses[min_ind];
 	}
+}
