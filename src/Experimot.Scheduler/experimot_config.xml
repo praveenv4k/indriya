@@ -115,6 +115,13 @@
           <msg_type>KinectBodies</msg_type>
           <name>KinectStateListener</name>
         </subscribe>
+        <subscribe>
+          <host>tcp://localhost</host>
+          <port>5580</port>
+          <topic>GTP</topic>
+          <msg_type>GestureTrigger</msg_type>
+          <name>GesturePublisher</name>
+        </subscribe>
       </subscribers>
     </node>
     <node enabled="false">
