@@ -168,8 +168,10 @@
     <Compile Include="Data\Localization.cs" />
     <Compile Include="Data\ManipulatableObject.cs" />
     <Compile Include="Data\Robot.cs" />
+    <Compile Include="Tasks\JobListener.cs" />
     <Compile Include="ParameterServer.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Tasks\SimpleTask.cs" />
     <Compile Include="Tasks\ContextSync.cs" />
     <Compile Include="Tasks\SimpleBehaviorTask.cs" />
     <Compile Include="Web\Controllers\DemoController.cs" />

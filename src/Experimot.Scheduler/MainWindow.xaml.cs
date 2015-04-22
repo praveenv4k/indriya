@@ -4,80 +4,28 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Common.Logging;
 using Experimot.Core;
 using Experimot.Scheduler.Annotations;
+using Experimot.Scheduler.Tasks;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Impl.Matchers;
 
 namespace Experimot.Scheduler
 {
-    internal class JobListener : IJobListener
-    {
-        private MainWindow _window;
-
-        public JobListener(MainWindow window)
-        {
-            _window = window;
-        }
-
-        public void JobExecutionVetoed(IJobExecutionContext context)
-        {
-            Console.WriteLine("About to execute task : {0}", context.Get("value"));
-        }
-
-        public void JobToBeExecuted(IJobExecutionContext context)
-        {
-            //_window.JobToBeExecuted(context);
-            //Console.WriteLine(string.Format("About to execute task : {0}", context.JobDetail.Description));
-        }
-
-        public void JobWasExecuted(IJobExecutionContext context, JobExecutionException jobException)
-        {
-            Console.WriteLine("Finished to execute task : {0}", context.Get("value"));
-            //_window.JobWasExecuted(context,jobException);
-            //Console.WriteLine(string.Format("Finished to execute task : {0}", context.JobDetail.Description));
-        }
-
-        public string Name
-        {
-            get { return "JobListener"; }
-        }
-    }
-
-    internal class SimpleTask : IJob
-    {
-        public void Execute(IJobExecutionContext context)
-        {
-            if (context != null)
-            {
-                //var message = string.Format("Hello world : {0}", context.JobDetail.Key);
-                //Console.WriteLine(message);
-                for (int i = 0; i < 10; i++)
-                {
-                    //message = string.Format("Am still executing : {0}", context.JobDetail.Key);
-                    //Console.WriteLine(message);
-                    Thread.Sleep(new TimeSpan(0, 0, 0, 0, 100));
-                }
-                context.Put("value", 2000);
-            }
-        }
-    }
-
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window, IJobListener, INotifyPropertyChanged
     {
-        private ISchedulerFactory _schedulerFactory;
-        private IScheduler _scheduler;
-        private Context _context;
-        //private DispatcherTimer _timer;
-        private BackgroundWorker _worker;
+        private readonly ISchedulerFactory _schedulerFactory;
+        private readonly IScheduler _scheduler;
+        private readonly Context _context;
+        private static readonly ILog Log = LogManager.GetLogger(typeof (MainWindow));
 
         public MainWindow()
         {
@@ -100,7 +48,7 @@ namespace Experimot.Scheduler
             _scheduler.ListenerManager.AddJobListener(new JobListener(this), GroupMatcher<JobKey>.AnyGroup());
 
             _scheduler.Start();
-            
+
             const string configFile = "experimot_config.xml";
             if (!string.IsNullOrEmpty(configFile))
             {
@@ -114,12 +62,6 @@ namespace Experimot.Scheduler
             }
             Closing += MainWindow_Closing;
             DataContext = this;
-
-            //_timer = new DispatcherTimer();
-            //_timer.Tick += _timer_Tick;
-            //_timer.Interval = new TimeSpan(0, 0, 0, 10);
-
-            //_timer.IsEnabled = true;
         }
 
         public Context Context
@@ -129,13 +71,6 @@ namespace Experimot.Scheduler
 
         private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
-            if (_worker != null)
-            {
-                if (_worker.IsBusy)
-                {
-                    _worker.CancelAsync();
-                }
-            }
             if (_scheduler != null)
             {
                 var keys = _scheduler.GetJobKeys(GroupMatcher<JobKey>.GroupEquals("MainGroup"));
@@ -172,13 +107,11 @@ namespace Experimot.Scheduler
                     }
                     else
                     {
-                        Console.WriteLine("Job already active");
+                        Log.Info("Job already active");
                     }
                 }
             }
         }
-
-
 
         public void JobExecutionVetoed(IJobExecutionContext context)
         {
@@ -187,7 +120,7 @@ namespace Experimot.Scheduler
         private bool color;
         private readonly BootStrapper _bootStrapper;
 
-        public void JobToBeExecuted(IJobExecutionContext context)
+        public void JobToBeExecuted(IJobExecutionContext ctx)
         {
             try
             {
@@ -198,7 +131,7 @@ namespace Experimot.Scheduler
                         if (color) button1.Background = new SolidColorBrush(Colors.Green);
                         else button1.Background = new SolidColorBrush(Colors.Red);
                         color = !color;
-                        textBox.AppendText(string.Format("About to execute task : {0}\n", context.JobDetail.Key));
+                        textBox.AppendText(string.Format("About to execute task : {0}\n", ctx.JobDetail.Key));
                     }
                     catch (Exception ex)
                     {
@@ -212,11 +145,11 @@ namespace Experimot.Scheduler
             }
         }
 
-        public void JobWasExecuted(IJobExecutionContext context, JobExecutionException jobException)
+        public void JobWasExecuted(IJobExecutionContext ctx, JobExecutionException jobException)
         {
             Dispatcher.Invoke(() =>
             {
-                textBox.AppendText(string.Format("Finished to execute task : {0}\n", context.JobDetail.Key));
+                textBox.AppendText(string.Format("Finished to execute task : {0}\n", ctx.JobDetail.Key));
 
             });
         }
