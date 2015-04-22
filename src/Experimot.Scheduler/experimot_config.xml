@@ -162,7 +162,7 @@
       </process>
       <parameters>
         <!--<param key="ROBOTIP" value="127.0.0.1" type="string"/>
-        <param key="PORT" value="51396" type="int"/>-->
+        <param key="PORT" value="61269" type="int"/>-->
         <param key="ROBOTIP" value="169.254.123.55" type="string"/>
         <param key="PORT" value="9559" type="int"/>
         <param key="RequestServerIP" value="tcp://*" type="string"/>
