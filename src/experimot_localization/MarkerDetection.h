@@ -10,6 +10,8 @@
 #include "NaoHeadTransformHelper.h"
 #include "experimot\common\Common.h"
 
+#include "bullet\Bullet3Common\b3Quaternion.h"
+
 using namespace alvar;
 using namespace std;
 
@@ -18,6 +20,8 @@ class MarkerDetection;
 #define PRINT_MSG 0
 
 #define TOP_MARKER_ID 14
+
+#define MATH_PI_4 OpenRAVE::PI/4
 
 typedef boost::shared_ptr<MarkerDetection> MarkerDetectionPtr;
 
@@ -109,7 +113,8 @@ public:
 	}
 
 
-	void TransformToTopFrame(std::map<int, Transform>& poseMap, Transform& outTf){
+	bool TransformToTopFrame(std::map<int, Transform>& poseMap, const Transform& prevTfm, Transform& outTf){
+		bool ret = false;
 		std::vector<Transform> tfs;
 		FOREACH(it, poseMap){
 			if (it->first == TOP_MARKER_ID){
@@ -123,6 +128,7 @@ public:
 			}
 		}
 		outTf.identity();
+		b3Quaternion q(prevTfm.rot[1], prevTfm.rot[2], prevTfm.rot[3], prevTfm.rot[0]);
 		if (tfs.size() > 0){
 			if (tfs.size() > 1){
 				//TODO Error based weighting of the rotation and translation
@@ -130,9 +136,34 @@ public:
 				Transform tf2 = tfs[1];
 				outTf.rot = geometry::quatSlerp(tf1.rot, tf2.rot, 0.5);
 				outTf.trans = 0.5*(tf1.trans + tf2.trans);
+
+				b3Quaternion q1(tf1.rot[1], tf1.rot[2], tf1.rot[3], tf1.rot[0]);
+				b3Quaternion q2(tf2.rot[1], tf2.rot[2], tf2.rot[3], tf2.rot[0]);
+
+				double angle1 = q.angle(q1);
+				double angle2 = q.angle(q2);
+
+				
+				if (fabs(angle1) < fabs(angle2)){
+					if (fabs(angle1) < MATH_PI_4){
+						outTf = tf1;
+						ret = true;
+					}
+				}
+				else{
+					if (fabs(angle2) < MATH_PI_4){
+						outTf = tf2;
+						ret = true;
+					}
+				}
 			}
 			else{
 				outTf = tfs[0];
+				b3Quaternion q1(outTf.rot[1], outTf.rot[2], outTf.rot[3], outTf.rot[0]);
+				double angle = q.angle(q1);
+				if (fabs(angle) < MATH_PI_4){
+					ret = true;
+				}
 			}
 #if PRINT_MSG
 			Transform disp;
@@ -140,9 +171,10 @@ public:
 			cout << "First marker: " << disp << "; Top marker: " << outTf << std::endl;
 #endif
 		}
+		return ret;
 	}
 
-	bool Videocallback(IplImage *image, Transform& localTfm, Transform& out_tfm, std::vector<double>& q, bool drawTorso = false)
+	bool Videocallback(const Transform& prev_tfm, IplImage *image, Transform& localTfm, Transform& out_tfm, std::vector<double>& q, bool drawTorso = false)
 	{
 		bool ret = false;
 		static IplImage *rgba;
@@ -201,40 +233,40 @@ public:
 
 
 				//TransformToTopFrame(markerPoses, out_tfm);
-				TransformToTopFrame(markerTfs, out_tfm);
-				TransformationHelper::TransformToPose(out_tfm, p_res);
+				TransformToTopFrame(markerTfs, prev_tfm, out_tfm); {
+					TransformationHelper::TransformToPose(out_tfm, p_res);
+					ret = true;
+					int id = 10;
+					double r = 1.0 - double(id + 1) / 32.0;
+					double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
+					double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
 
-				int id = 10;
-				double r = 1.0 - double(id + 1) / 32.0;
-				double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
-				double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
+					//p_res.Output();
 
-				//p_res.Output();
-
-				if (drawTorso){
-					Pose p_out;
-					Transform torso_tfm;
+					if (drawTorso){
+						Pose p_out;
+						Transform torso_tfm;
 
 #if 1
-					TransformationHelper::ComputeTorsoFrame(p_res, localTfm, p_out);
+						TransformationHelper::ComputeTorsoFrame(p_res, localTfm, p_out);
 #else			
-					//Transform temp(out_tfm.rot, Vector(out_tfm.trans.z, out_tfm.trans.x, out_tfm.trans.y));
-					NaoHeadTransformHelper::instance()->GetTorsoTransform(q, out_tfm, torso_tfm);
-					TransformationHelper::TransformToPose(torso_tfm, p_out);
+						//Transform temp(out_tfm.rot, Vector(out_tfm.trans.z, out_tfm.trans.x, out_tfm.trans.y));
+						NaoHeadTransformHelper::instance()->GetTorsoTransform(q, out_tfm, torso_tfm);
+						TransformationHelper::TransformToPose(torso_tfm, p_out);
 #endif
 
-					//std::cout << "Displaying : ( " << p_out.translation[0] << ", " << p_out.translation[1] << ", " << p_out.translation[2] << " )" << std::endl;
-					Visualize(image, &m_camera, m_nMarkerSize, p_out, CV_RGB(0, 0, 255));
-					//p_out.Output();
-				}
+						//std::cout << "Displaying : ( " << p_out.translation[0] << ", " << p_out.translation[1] << ", " << p_out.translation[2] << " )" << std::endl;
+						Visualize(image, &m_camera, m_nMarkerSize, p_out, CV_RGB(0, 0, 255));
+						//p_out.Output();
+					}
 
-				Visualize(image, &m_camera, m_nMarkerSize, p_res, CV_RGB(255, 0, 0));
+					Visualize(image, &m_camera, m_nMarkerSize, p_res, CV_RGB(255, 0, 0));
+				}
 			}
 			if (flip_image) {
 				cvFlip(image);
 				image->origin = !image->origin;
 			}
-			ret = true;
 		}
 		return ret;
 	}

@@ -13,7 +13,7 @@
     <param key="WebServerPort" value="82" type="int"/>
   </parameters>
   <nodes>
-    <node enabled="false">
+    <node enabled="true">
       <name>localization</name>
       <process>
         <type>executable</type>
@@ -80,7 +80,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="false">
+    <node enabled="true">
       <name>simulation</name>
       <process>
         <type>executable</type>
@@ -124,7 +124,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false">
+    <node enabled="true">
       <name>robot_interface</name>
       <process>
         <type>executable</type>
@@ -161,8 +161,10 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_robot_interface\behaviors\albehaviormanager.py</args>
       </process>
       <parameters>
-        <param key="ROBOTIP" value="127.0.0.1" type="string"/>
-        <param key="PORT" value="61382" type="int"/>
+        <!--<param key="ROBOTIP" value="127.0.0.1" type="string"/>
+        <param key="PORT" value="51396" type="int"/>-->
+        <param key="ROBOTIP" value="169.254.123.55" type="string"/>
+        <param key="PORT" value="9559" type="int"/>
         <param key="RequestServerIP" value="tcp://*" type="string"/>
         <param key="RequestClientIP" value="tcp://localhost" type="string"/>
         <param key="RequestServerPort" value="5590" type="int"/>

@@ -2,6 +2,7 @@
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Windows;
@@ -137,6 +138,11 @@ namespace Experimot.Scheduler
             }
             if (_scheduler != null)
             {
+                var keys = _scheduler.GetJobKeys(GroupMatcher<JobKey>.GroupEquals("MainGroup"));
+                if (keys != null && keys.Count > 0)
+                {
+                    _scheduler.DeleteJobs(keys.ToList());
+                }
                 _scheduler.Shutdown();
             }
             if (_bootStrapper != null)
