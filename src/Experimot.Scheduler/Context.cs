@@ -170,6 +170,7 @@ namespace Experimot.Scheduler
                                         detail.JobDataMap.Add("BehaviorServerIp", module.responder.Host);
                                         detail.JobDataMap.Add("BehaviorServerPort", module.responder.Port);
                                         detail.JobDataMap.Add("BehaviorName", "wish");
+                                        //detail.JobDataMap.Add("BehaviorName", "greet");
 
                                         ITrigger trigger = TriggerBuilder.Create().ForJob(detail).StartNow().Build();
                                         _scheduler.ScheduleJob(detail, trigger);
