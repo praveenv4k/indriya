@@ -201,7 +201,8 @@ public:
 				NaoHeadTransformHelper::instance()->GetEndEffectorTransform(headJoints, eef);
 
 				Transform markerTfm;
-				if (m_pMarkerDetectionPtr->Videocallback(img, eef, markerTfm, headJoints, true)){
+				Transform prevTfm = m_pRobotPoseInfoPtr->GetMarkerTransform();
+				if (m_pMarkerDetectionPtr->Videocallback(prevTfm, img, eef, markerTfm, headJoints, true)){
 					Transform out;
 					//ConvertToRightHandFrame(markerTfm, out);
 
