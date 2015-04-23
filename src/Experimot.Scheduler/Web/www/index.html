@@ -84,9 +84,9 @@
 
         //container = document.createElement('div');
         container = document.getElementById('viewport');
-        document.body.appendChild(container);
+        //document.body.appendChild(container);
 
-        camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
+        camera = new THREE.PerspectiveCamera(45, container.innerWidth / container.innerHeight, 1, 10000000);
         //camera.position.set(2, 2, 3);
         camera.position.set(10, 8, -10);
 
@@ -239,7 +239,9 @@
 </script>
 <div>
     <div id="viewport"></div>
-    <div id="content-view"></div>
+    <div id="content-view">
+        <h1>Hello!</h1>
+    </div>
 </div>
 </body>
 </html>

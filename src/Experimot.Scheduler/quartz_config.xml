@@ -77,7 +77,7 @@
       </job-data-map>
     </job>
 
-    <trigger>
+    <!--<trigger>
       <simple>
         <name>LocalizationTrigger</name>
         <group>simpleGroup</group>
@@ -105,7 +105,7 @@
         <repeat-count>1</repeat-count>
         <repeat-interval>100</repeat-interval>
       </simple>
-    </trigger>
+    </trigger>-->
     
   </schedule>
 

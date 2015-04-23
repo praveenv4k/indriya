@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows;
 using Experimot.Core;
+using Nancy.TinyIoc;
 using NetMQ;
 using ProtoBuf;
 using Expression = System.Linq.Expressions.Expression;
@@ -15,9 +16,8 @@ namespace Experimot.Scheduler.Tasks
     {
         private readonly Context _ctx;
         private NetMQContext _netctx;
-        //private object _object;
         private readonly IList<socket> _publishers;
-
+        private const string MessageNamespace = "experimot.msgs";
         public delegate void UpdateDelegate<in T>(T item);
 
         private struct DelegateInfo
@@ -29,14 +29,16 @@ namespace Experimot.Scheduler.Tasks
         private readonly IDictionary<string, DelegateInfo> _delegateDict;
         private bool _disposed;
 
-        public ContextSync(experimot_config config, Context ctx)
+        public ContextSync()
         {
-            _ctx = ctx;
+            _ctx = TinyIoCContainer.Current.Resolve<Context>();
+            var config = TinyIoCContainer.Current.Resolve<experimot_config>();
+
             _publishers = new List<socket>();
             _delegateDict = new Dictionary<string, DelegateInfo>();
-            string ns = "experimot.msgs";
-            var msgTypes = GetMessageTypes(ns);
 
+
+            var msgTypes = GetMessageTypes(MessageNamespace);
 
             var subDict = new Dictionary<string, socket>();
             foreach (var node in config.nodes)
@@ -142,14 +144,14 @@ namespace Experimot.Scheduler.Tasks
                 .Where(t => t.IsClass && t.Namespace == namespaceStr).ToList();
         }
 
-        private static byte[] GetBytes(string str)
+        public static byte[] GetBytes(string str)
         {
             byte[] bytes = new byte[str.Length*sizeof (char)];
             Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
             return bytes;
         }
 
-        private static string GetString(byte[] bytes)
+        public static string GetString(byte[] bytes)
         {
             char[] chars = new char[bytes.Length/sizeof (char)];
             Buffer.BlockCopy(bytes, 0, chars, 0, bytes.Length);
