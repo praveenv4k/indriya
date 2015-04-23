@@ -27,18 +27,32 @@
         }
     </style>
     <link type="text/css" rel="stylesheet"
-          href="libs/jquery-ui/jquery-ui.min.css" />
+          href="libs/jquery-ui/jquery-ui.min.css"/>
+    <!--<link type="text/css" rel="stylesheet"
+          href="libs/jqtree/jqtree.css" />-->
     <script src="libs/jquery/jquery-2.1.3.min.js"></script>
     <script src="libs/jquery-ui/jquery-ui.min.js"></script>
+    <!--<script src="libs/jqtree/tree.jquery.js"></script>-->
+
+    <link rel="stylesheet" href="libs/jqwidgets/styles/jqx.base.css" type="text/css" />
+    <script type="text/javascript" src="libs/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="libs/jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="libs/jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="libs/jqwidgets/jqxmenu.js"></script>
+    <script type="text/javascript" src="libs/jqwidgets/jqxgrid.js"></script>
+    <script type="text/javascript" src="libs/jqwidgets/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="libs/jqwidgets/jqxgrid.columnsresize.js"></script>
+    <script type="text/javascript" src="libs/jqwidgets/jqxdata.js"></script> 
+
     <!--$(function() {
         $("#tabs").tabs();
     });-->
 </head>
 <body>
-<div id="info">
+<!--<div id="info">
     <a href="http://threejs.org" target="_blank">three.js</a> -
     robot from <a href="https://github.com/rdiankov/collada_robots" target="_blank">collada robots</a>
-</div>
+</div>-->
     <script src="libs/threejs/three.min.js"></script>
     <script src="js/libs/tween.min.js"></script>
     <script src="js/controls/OrbitControls.js"></script>
@@ -90,7 +104,36 @@
     });
 
     function init() {
-        $("#tabs").tabs();
+        var handleSelect = function (e, tab) {
+            if (tab.newTab.index() === 1) {
+                console.log('tab selected');
+                $.getJSON(
+                    '/context',
+                    function (data) {
+                        var dataAdapter = new $.jqx.dataAdapter(data);
+
+                        $("#tree1").jqxGrid(
+                        {
+                            width: 850,
+                            source: dataAdapter
+                            //, columnsresize: true,
+                            //columns: [
+                            //  { text: 'Name', datafield: 'name', width: 250 },
+                            //  { text: 'Beverage Type', datafield: 'type', width: 250 },
+                            //  { text: 'Calories', datafield: 'calories', width: 180 },
+                            //  { text: 'Total Fat', datafield: 'totalfat', width: 120 },
+                            //  { text: 'Protein', datafield: 'protein', minwidth: 120 }
+                            //]
+                        });
+                        //$('#tree1').tree({
+                        //    data: data
+                        //});
+                    }
+                );
+            }
+        }
+
+        $("#tabs").tabs({ beforeActivate: handleSelect });
         container = document.getElementById('viewport');
 
         camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000000);
@@ -215,7 +258,7 @@
         requestAnimationFrame(animate);
 
         render();
-        stats.update();
+        //stats.update();
         //TWEEN.update();
 
     }
@@ -261,7 +304,7 @@
         </div>
         <div id="tabs-2">
             <div id="content-view">
-                <h1>Hello!</h1>
+                <div id="tree1"></div>
             </div>
         </div>
         <div id="tabs-3">
