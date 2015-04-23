@@ -16,8 +16,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nodes", "nodes", "{094315CC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{8F8C643C-10D8-46BE-AA4F-CC58EACA0E49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experimot.Studio", "src\Experimot.Studio\Experimot.Studio.csproj", "{646B50A9-5B1E-4866-9639-660D1DB66D07}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experimot.Scheduler", "src\Experimot.Scheduler\Experimot.Scheduler.csproj", "{32A22435-0E56-4086-900E-E73F1B9216CE}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experimot_msgs", "src\experimot_msgs\experimot_msgs.vcxproj", "{1AB15496-AC39-4AC7-8507-DF6033138943}"
@@ -64,21 +62,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Release|Any CPU.Build.0 = Release|Any CPU
-		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Release|Win32.ActiveCfg = Release|x86
-		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Release|Win32.Build.0 = Release|x86
-		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Release|x64.ActiveCfg = Release|Any CPU
-		{646B50A9-5B1E-4866-9639-660D1DB66D07}.Release|x86.ActiveCfg = Release|Any CPU
 		{32A22435-0E56-4086-900E-E73F1B9216CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{32A22435-0E56-4086-900E-E73F1B9216CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32A22435-0E56-4086-900E-E73F1B9216CE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -306,7 +289,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{646B50A9-5B1E-4866-9639-660D1DB66D07} = {7246ABF7-59FC-4225-A785-9E73830B00D6}
 		{32A22435-0E56-4086-900E-E73F1B9216CE} = {7246ABF7-59FC-4225-A785-9E73830B00D6}
 		{1AB15496-AC39-4AC7-8507-DF6033138943} = {70E7786B-1C0C-4557-84A0-DAC95A2240F7}
 		{02FE2504-329C-4E39-A5F9-663567C1EA2D} = {70E7786B-1C0C-4557-84A0-DAC95A2240F7}
