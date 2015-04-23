@@ -24,7 +24,7 @@ namespace Experimot.Scheduler
         private readonly ContextSync _contextSync;
         private readonly IList<Task> _tasks;
         private volatile bool _shouldStop;
-        private ExperimotServer _server;
+        private ExperimotWeb _server;
 
         public BootStrapper(experimot_config config, Context context)
         {
@@ -36,7 +36,7 @@ namespace Experimot.Scheduler
             bool enableWebServer = ParameterUtil.Get(config.parameters, "WebServerEnabled", false);
             if (enableWebServer)
             {
-                _server = new ExperimotServer(_config);
+                _server = new ExperimotWeb(_config);
             }
 
             _tasks = new List<Task>
@@ -66,7 +66,7 @@ namespace Experimot.Scheduler
 
         private void RunExperimotServer(object arg)
         {
-            var server = arg as ExperimotServer;
+            var server = arg as ExperimotWeb;
             if (server != null)
             {
                 _server.Start();

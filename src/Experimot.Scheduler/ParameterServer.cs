@@ -21,7 +21,7 @@ namespace Experimot.Scheduler
         private const int RecvTimeout = 50;
 
         private bool _startup;
-        private Context _worldCtx;
+        private readonly Context _worldCtx;
 
         public ParameterServer(experimot_config config, Context ctx)
         {
