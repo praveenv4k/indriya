@@ -15,7 +15,7 @@ namespace Experimot.Scheduler.Tasks
     {
         private readonly Context _ctx;
         private NetMQContext _netctx;
-        private object _object;
+        //private object _object;
         private readonly IList<socket> _publishers;
 
         public delegate void UpdateDelegate<in T>(T item);
