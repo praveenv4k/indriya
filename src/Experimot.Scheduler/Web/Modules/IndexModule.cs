@@ -30,14 +30,12 @@ namespace Experimot.Scheduler.Web.Modules
     {
         public IndexModule()
         {
-            //Get["/"] = parameters => View["index", this.Request.Url];
             Get["/"] = parameters => Response.AsFile(@"index.html");
 
             Get["/testing"] = parameters => View["staticview", Request.Url];
 
             Get["/req"] = parameters => Response.AsJson(new TestModel {Name = "Hello", Id = 1000});
 
-            //Get["/models/collada/nao.dae"] = parameters =>
             Get["/models/{type}/(?<all>.*)"] = parameters =>
             {
                 Console.WriteLine(Request.Path);

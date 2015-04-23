@@ -396,7 +396,7 @@ namespace KinectPlayback
                                 ProcessDepthFrameData(_buffer, _size, DepthMinReliableDistance, maxDepth);
 
                                 RenderDepthPixels();
-
+                                Console.Write(@"Index: {0}",evt.EventIndex);
                             }
                             if (evt.EventStreamDataTypeId == KStudioEventStreamDataTypeIds.BodyIndex)
                             {
@@ -425,14 +425,14 @@ namespace KinectPlayback
                                     Console.WriteLine(_size);
                                     byte[] temp = new byte[_size];
                                     evt.CopyEventDataToArray(temp, 0);
-                                    System.IO.File.WriteAllBytes(string.Format("temp{0}.bin", evt.EventIndex), temp);
+                                    //System.IO.File.WriteAllBytes(string.Format("temp{0}.bin", evt.EventIndex), temp);
                                 }
                                 if (evt.EventIndex == 30 || evt.EventIndex == 170)
                                 {
                                     Console.WriteLine(_size);
                                     byte[] temp = new byte[_size];
                                     evt.CopyEventDataToArray(temp, 0);
-                                    System.IO.File.WriteAllBytes(string.Format("temp{0}.bin", evt.EventIndex), temp);
+                                    //System.IO.File.WriteAllBytes(string.Format("temp{0}.bin", evt.EventIndex), temp);
                                 }
 
                                 //ProcessBodyFrameData(_buffer, _size);
