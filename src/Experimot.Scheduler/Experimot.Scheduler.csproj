@@ -144,7 +144,7 @@
     <Compile Include="Tasks\SimpleBehaviorTask.cs" />
     <Compile Include="Web\ExperimotWeb.cs" />
     <Compile Include="Web\Modules\IndexModule.cs" />
-    <Compile Include="Web\WebBootStrapper.cs" />
+    <Compile Include="Web\ExperimotWebBootStrapper.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
