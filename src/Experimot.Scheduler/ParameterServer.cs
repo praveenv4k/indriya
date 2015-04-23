@@ -4,6 +4,7 @@ using System.Linq;
 using Common.Logging;
 using Experimot.Core;
 using Experimot.Core.Util;
+using Nancy.TinyIoc;
 using NetMQ;
 using NetMQ.zmq;
 using ProtoBuf;
@@ -23,10 +24,10 @@ namespace Experimot.Scheduler
         private bool _startup;
         private readonly Context _worldCtx;
 
-        public ParameterServer(experimot_config config, Context ctx)
+        public ParameterServer()
         {
-            _config = config;
-            _worldCtx = ctx;
+            _worldCtx = TinyIoCContainer.Current.Resolve<Context>();
+            _config = TinyIoCContainer.Current.Resolve<experimot_config>();
         }
 
         public void Start()

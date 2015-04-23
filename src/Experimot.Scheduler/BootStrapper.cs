@@ -27,7 +27,6 @@ namespace Experimot.Scheduler
         private readonly IList<Task> _tasks;
         private volatile bool _shouldStop;
 
-        //public BootStrapper(experimot_config config, Context context)
         public BootStrapper(string configFile)
         {
             RegisterTypes();
@@ -38,10 +37,10 @@ namespace Experimot.Scheduler
             var context = new Context();
             TinyIoCContainer.Current.Register(context);
 
-            var contextSync = new ContextSync(config, context);
+            var contextSync = new ContextSync();
             TinyIoCContainer.Current.Register(contextSync);
 
-            var parameterServer = new ParameterServer(config, context);
+            var parameterServer = new ParameterServer();
             TinyIoCContainer.Current.Register(parameterServer);
 
             _processes = new List<Process>();
