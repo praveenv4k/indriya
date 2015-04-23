@@ -174,17 +174,6 @@
     <Compile Include="Tasks\SimpleTask.cs" />
     <Compile Include="Tasks\ContextSync.cs" />
     <Compile Include="Tasks\SimpleBehaviorTask.cs" />
-    <Compile Include="Web\Controllers\DemoController.cs" />
-    <Compile Include="Web\ExperimotServer.cs" />
-    <Compile Include="Web\Handlers\AboutHandler.cs" />
-    <Compile Include="Web\Handlers\ErrorHandler.cs" />
-    <Compile Include="Web\Handlers\ExceptionHandler.cs" />
-    <Compile Include="Web\Handlers\IndexHandler.cs" />
-    <Compile Include="Web\Handlers\TimingHandler.cs" />
-    <Compile Include="Web\HttpException.cs" />
-    <Compile Include="Web\Server.cs" />
-    <Compile Include="Web\SomeRestController.cs" />
-    <Compile Include="Web\StringsRestController.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -235,7 +224,6 @@
     <Content Include="quartz_config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Web\www\favicon.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Experimot.Core.Msgs\Experimot.Core.Msgs.csproj">
@@ -246,6 +234,9 @@
       <Project>{35ca8818-7e08-4b4c-a5f3-1f1e5dd0b973}</Project>
       <Name>Experimot.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Web\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
