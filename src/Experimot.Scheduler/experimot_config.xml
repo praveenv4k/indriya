@@ -9,12 +9,12 @@
     <param key="ParameterClientHost" value="tcp://localhost" type="string"/>
     <param key="ParameterServerPort" value="5560" type="int"/>
     <param key="ParameterServerInterval" value="10" type="int"/>
-    <param key="WebServerEnabled" value="false" type="bool"/>
+    <param key="WebServerEnabled" value="true" type="bool"/>
     <param key="WebServerPort" value="8888" type="int"/>
     <param key="WebServerHost" value="http://localhost" type="int"/>
   </parameters>
   <nodes>
-    <node enabled="true">
+    <node enabled="false">
       <name>localization</name>
       <process>
         <type>executable</type>
@@ -81,7 +81,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="true">
+    <node enabled="false">
       <name>simulation</name>
       <process>
         <type>executable</type>
