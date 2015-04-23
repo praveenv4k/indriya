@@ -10,7 +10,9 @@ using experimot.msgs;
 using Experimot.Scheduler.Annotations;
 using Experimot.Scheduler.Data;
 using Experimot.Scheduler.Tasks;
+using Nancy.TinyIoc;
 using Quartz;
+using Quartz.Impl;
 using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 using Xceed.Wpf.Toolkit.PropertyGrid.Editors;
 
@@ -18,7 +20,6 @@ namespace Experimot.Scheduler
 {
     public class Context : INotifyPropertyChanged
     {
-        private readonly IScheduler _scheduler;
         private Robot _robot;
         private readonly IList<Human> _humans;
         private readonly IDictionary<string, ManipulatableObject> _objects;
@@ -27,9 +28,8 @@ namespace Experimot.Scheduler
         private readonly ObservableCollection<RobotBehaviorModule> _behaviorModules;
         private static readonly ILog Log = LogManager.GetLogger<Context>();
 
-        public Context(IScheduler scheduler)
+        public Context()
         {
-            _scheduler = scheduler;
             //_humans = new ConcurrentDictionary<int, Human>();
             _humans = new List<Human>();
             _robot = new Robot();
@@ -161,7 +161,13 @@ namespace Experimot.Scheduler
                                 if (module != null)
                                 {
                                     var jobKey = JobKey.Create(string.Format("Task{0}", item.Name), "MainGroup");
-                                    if (!_scheduler.CheckExists(jobKey))
+                                    var factory = TinyIoCContainer.Current.Resolve<StdSchedulerFactory>();
+                                    IScheduler scheduler = null;
+                                    if (factory != null)
+                                    {
+                                        scheduler = factory.GetScheduler();
+                                    }
+                                    if (!scheduler.CheckExists(jobKey))
                                     {
                                         IJobDetail detail = JobBuilder.Create<SimpleBehaviorTask>()
                                             .WithIdentity(jobKey)
@@ -173,7 +179,7 @@ namespace Experimot.Scheduler
                                         //detail.JobDataMap.Add("BehaviorName", "greet");
 
                                         ITrigger trigger = TriggerBuilder.Create().ForJob(detail).StartNow().Build();
-                                        _scheduler.ScheduleJob(detail, trigger);
+                                        scheduler.ScheduleJob(detail, trigger);
                                         Log.InfoFormat("New job about to be scheduled: {0}", jobKey.Name);
                                     }
                                     else

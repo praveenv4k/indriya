@@ -1,38 +1,30 @@
 using System;
+using Common.Logging;
 using Quartz;
 
 namespace Experimot.Scheduler.Tasks
 {
-    internal class JobListener : IJobListener
+    internal class JobListenerImpl : IJobListener
     {
-        private MainWindow _window;
-
-        public JobListener(MainWindow window)
-        {
-            _window = window;
-        }
+        private static readonly ILog Log = LogManager.GetLogger(typeof (JobListenerImpl));
 
         public void JobExecutionVetoed(IJobExecutionContext context)
         {
-            Console.WriteLine("About to execute task : {0}", context.Get("value"));
+            Log.InfoFormat("About to execute task : {0}", context.JobDetail.Key);
         }
 
         public void JobToBeExecuted(IJobExecutionContext context)
         {
-            //_window.JobToBeExecuted(context);
-            //Console.WriteLine(string.Format("About to execute task : {0}", context.JobDetail.Description));
         }
 
         public void JobWasExecuted(IJobExecutionContext context, JobExecutionException jobException)
         {
-            Console.WriteLine("Finished to execute task : {0}", context.Get("value"));
-            //_window.JobWasExecuted(context,jobException);
-            //Console.WriteLine(string.Format("Finished to execute task : {0}", context.JobDetail.Description));
+            Log.InfoFormat("Finished to execute task : {0}", context.JobDetail.Key);
         }
 
         public string Name
         {
-            get { return "JobListener"; }
+            get { return "JobListenerImpl"; }
         }
     }
 }

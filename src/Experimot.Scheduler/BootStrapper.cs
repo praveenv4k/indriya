@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -10,41 +11,56 @@ using Experimot.Core;
 using Experimot.Core.Util;
 using Experimot.Scheduler.Tasks;
 using Experimot.Scheduler.Web;
+using Nancy.TinyIoc;
+using Quartz;
+using Quartz.Impl;
+using Quartz.Impl.Matchers;
 
 namespace Experimot.Scheduler
 {
     internal class BootStrapper
     {
-        private readonly experimot_config _config;
         private bool _startup;
         private bool _shutdown;
         private static readonly ILog Log = LogManager.GetLogger(typeof (BootStrapper));
         private readonly IList<Process> _processes;
-        private readonly ParameterServer _parameterServer;
-        private readonly ContextSync _contextSync;
         private readonly IList<Task> _tasks;
         private volatile bool _shouldStop;
-        private ExperimotWeb _server;
 
-        public BootStrapper(experimot_config config, Context context)
+        //public BootStrapper(experimot_config config, Context context)
+        public BootStrapper(string configFile)
         {
-            _config = config;
+            RegisterTypes();
+
+            var config = experimot_config.LoadFromFile(configFile);
+            TinyIoCContainer.Current.Register(config);
+            
+            var context = new Context();
+            TinyIoCContainer.Current.Register(context);
+
+            var contextSync = new ContextSync(config, context);
+            TinyIoCContainer.Current.Register(contextSync);
+
+            var parameterServer = new ParameterServer(config, context);
+            TinyIoCContainer.Current.Register(parameterServer);
+
             _processes = new List<Process>();
-            _contextSync = new ContextSync(config, context);
-            _parameterServer = new ParameterServer(_config, context);
+
+            _tasks = new List<Task>
+            {
+                Task.Factory.StartNew(() => RunParameterServer(parameterServer)),
+                Task.Factory.StartNew(() => RunContextSync(contextSync)),
+            };
 
             bool enableWebServer = ParameterUtil.Get(config.parameters, "WebServerEnabled", false);
             if (enableWebServer)
             {
-                _server = new ExperimotWeb(_config);
+                var server = new ExperimotWeb(config);
+                TinyIoCContainer.Current.Register(server);
+                _tasks.Add(Task.Factory.StartNew(() => RunExperimotServer(server)));
             }
 
-            _tasks = new List<Task>
-            {
-                Task.Factory.StartNew(() => RunParameterServer(_parameterServer)),
-                Task.Factory.StartNew(() => RunContextSync(_contextSync)),
-                Task.Factory.StartNew(() => RunExperimotServer(_server))
-            };
+            InitializeScheduler();
         }
 
         private void RunParameterServer(object arg)
@@ -52,7 +68,7 @@ namespace Experimot.Scheduler
             var server = arg as ParameterServer;
             if (server != null)
             {
-                _parameterServer.Start();
+                server.Start();
                 Log.Info("Parameter server Started");
                 while (!_shouldStop)
                 {
@@ -69,7 +85,7 @@ namespace Experimot.Scheduler
             var server = arg as ExperimotWeb;
             if (server != null)
             {
-                _server.Start();
+                server.Start();
                 Log.Info("Experimot server Started");
             }
             else
@@ -94,11 +110,40 @@ namespace Experimot.Scheduler
             Log.Info("Context sync Completed");
         }
 
+        private void RegisterTypes()
+        {
+            TinyIoCContainer.Current.Register<Context>().AsSingleton();
+            TinyIoCContainer.Current.Register<ParameterServer>().AsSingleton();
+            TinyIoCContainer.Current.Register<ContextSync>().AsSingleton();
+            TinyIoCContainer.Current.Register<StdSchedulerFactory>().AsSingleton();
+            TinyIoCContainer.Current.Register<ExperimotWeb>().AsSingleton();
+        }
+
+        private void InitializeScheduler()
+        {
+            // our properties that enable XML configuration plugin
+            // and makes it watch for changes every two minutes (120 seconds)
+            var properties = new NameValueCollection();
+            properties["quartz.plugin.triggHistory.type"] = "Quartz.Plugin.History.LoggingJobHistoryPlugin";
+
+            properties["quartz.plugin.jobInitializer.type"] = "Quartz.Plugin.Xml.XMLSchedulingDataProcessorPlugin";
+            properties["quartz.plugin.jobInitializer.fileNames"] = "quartz_config.xml";
+            properties["quartz.plugin.jobInitializer.failOnFileNotFound"] = "true";
+            //properties["quartz.plugin.jobInitializer.scanInterval"] = "120";
+
+            var factory = new StdSchedulerFactory(properties);
+            TinyIoCContainer.Current.Register(factory);
+            var scheduler = factory.GetScheduler();
+
+            scheduler.ListenerManager.AddJobListener(new JobListenerImpl(), GroupMatcher<JobKey>.AnyGroup());
+        }
+
         public void StartUp()
         {
-            if (!_startup && _config != null)
+            var config = TinyIoCContainer.Current.Resolve<experimot_config>();
+            if (!_startup && config != null)
             {
-                foreach (var node in _config.nodes)
+                foreach (var node in config.nodes)
                 {
                     if (node != null && node.enabled && node.process != null)
                     {
@@ -107,9 +152,9 @@ namespace Experimot.Scheduler
                         {
                             try
                             {
-                                string paramServer = ParameterUtil.Get(_config.parameters, "ParameterClientHost",
+                                string paramServer = ParameterUtil.Get(config.parameters, "ParameterClientHost",
                                     "tcp://*");
-                                int port = ParameterUtil.Get(_config.parameters, "ParameterServerPort",
+                                int port = ParameterUtil.Get(config.parameters, "ParameterServerPort",
                                     5560);
 
                                 var args = string.Format("{3} --name={0} --param={1}:{2}", node.name, paramServer, port,
@@ -142,6 +187,12 @@ namespace Experimot.Scheduler
                         }
                     }
                 }
+
+                var factory = TinyIoCContainer.Current.Resolve<StdSchedulerFactory>();
+                if (factory != null)
+                {
+                    factory.GetScheduler().Start();
+                }
                 _startup = true;
             }
         }
@@ -169,19 +220,34 @@ namespace Experimot.Scheduler
                         process.Kill();
                     }
                 }
-                if (_server != null)
+                try
                 {
-                    _server.Stop();
-                    _server = null;
+                    var factory = TinyIoCContainer.Current.Resolve<StdSchedulerFactory>();
+                    var scheduler = factory.GetScheduler();
+                    if (scheduler != null)
+                    {
+                        var keys = scheduler.GetJobKeys(GroupMatcher<JobKey>.GroupEquals("MainGroup"));
+                        if (keys != null && keys.Count > 0)
+                        {
+                            scheduler.DeleteJobs(keys.ToList());
+                        }
+                        scheduler.Shutdown();
+                        Log.Info("Quartz Scheduler Shutdown");
+                    }
+
+                    var server = TinyIoCContainer.Current.Resolve<ExperimotWeb>(ResolveOptions.FailUnregisteredOnly);
+                    if (server != null)
+                    {
+                        server.Stop();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Log.ErrorFormat("Web shutdown exception: {0}", ex.Message);
                 }
                 Task.WaitAll(_tasks.ToArray(), new TimeSpan(0, 0, 0, 1));
                 _shutdown = true;
             }
-        }
-
-        public experimot_config Config
-        {
-            get { return _config; }
         }
     }
 }
