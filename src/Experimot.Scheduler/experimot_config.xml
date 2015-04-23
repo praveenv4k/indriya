@@ -53,7 +53,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="true">
+    <node enabled="false">
       <name>gesture_recognition</name>
       <process>
         <type>executable</type>
@@ -80,7 +80,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="true">
+    <node enabled="false">
       <name>simulation</name>
       <process>
         <type>executable</type>
@@ -124,7 +124,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="true">
+    <node enabled="false">
       <name>robot_interface</name>
       <process>
         <type>executable</type>
@@ -153,7 +153,7 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_zmq_plot_client.py</args>
       </process>
     </node>
-    <node enabled="true">
+    <node enabled="false">
       <name>nao_behavior_manager</name>
       <process>
         <type>executable</type>

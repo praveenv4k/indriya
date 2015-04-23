@@ -38,6 +38,7 @@ namespace Experimot.Kinect.Perception
         /// </summary>
         /// <param name="kinectSensor">Active sensor to initialize the VisualGestureBuilderFrameSource object with</param>
         /// <param name="gestureResultView">GestureResultView object to store gesture results of a single body to</param>
+        /// <param name="gestureDbs"></param>
         public GestureDetector(KinectSensor kinectSensor, GestureResultView gestureResultView, IList<string> gestureDbs)
         {
             try
