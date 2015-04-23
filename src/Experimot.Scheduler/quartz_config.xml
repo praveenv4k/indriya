@@ -12,7 +12,7 @@
       <name>Localization</name>
       <group>jobGroup1</group>
       <description>jobDesciption1</description>
-      <job-type>Scheduler.SimpleTask, Scheduler</job-type>
+      <job-type>Experimot.Scheduler.Tasks.SimpleTask, Experimot.Scheduler</job-type>
       <durable>true</durable>
       <recover>false</recover>
       <job-data-map>
@@ -35,7 +35,7 @@
       <name>GestureRecognition</name>
       <group>jobGroup1</group>
       <description>jobDesciption1</description>
-      <job-type>Scheduler.SimpleTask, Scheduler</job-type>
+      <job-type>Experimot.Scheduler.Tasks.SimpleTask, Experimot.Scheduler</job-type>
       <durable>true</durable>
       <recover>false</recover>
       <job-data-map>
@@ -58,7 +58,7 @@
       <name>Simulation</name>
       <group>jobGroup1</group>
       <description>jobDesciption1</description>
-      <job-type>Scheduler.SimpleTask, Scheduler</job-type>
+      <job-type>Experimot.Scheduler.Tasks.SimpleTask, Experimot.Scheduler</job-type>
       <durable>true</durable>
       <recover>false</recover>
       <job-data-map>
@@ -87,7 +87,7 @@
         <start-time>1982-06-28T18:15:00.0Z</start-time>
         <end-time>2020-05-04T18:13:51.0Z</end-time>
         <misfire-instruction>SmartPolicy</misfire-instruction>
-        <repeat-count>-1</repeat-count>
+        <repeat-count>1</repeat-count>
         <repeat-interval>100</repeat-interval>
       </simple>
     </trigger>
@@ -102,7 +102,7 @@
         <start-time>1982-06-28T18:15:00.0Z</start-time>
         <end-time>2020-05-04T18:13:51.0Z</end-time>
         <misfire-instruction>SmartPolicy</misfire-instruction>
-        <repeat-count>-1</repeat-count>
+        <repeat-count>1</repeat-count>
         <repeat-interval>100</repeat-interval>
       </simple>
     </trigger>
