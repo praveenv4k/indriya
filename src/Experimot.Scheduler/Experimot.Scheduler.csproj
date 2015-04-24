@@ -439,6 +439,9 @@
     <Resource Include="Web\www\libs\jqtree\jqtree-circle.png" />
     <Content Include="Web\www\libs\jqtree\jqtree.css" />
     <Content Include="Web\www\libs\jqtree\tree.jquery.js" />
+    <Content Include="Web\www\libs\jquery-jsonview\index.html" />
+    <Content Include="Web\www\libs\jquery-jsonview\jquery.jsonview.css" />
+    <Content Include="Web\www\libs\jquery-jsonview\jquery.jsonview.js" />
     <Content Include="Web\www\libs\jquery-ui\external\jquery\jquery.js" />
     <Resource Include="Web\www\libs\jquery-ui\images\ui-bg_flat_30_cccccc_40x100.png" />
     <Resource Include="Web\www\libs\jquery-ui\images\ui-bg_flat_50_5c5c5c_40x100.png" />
