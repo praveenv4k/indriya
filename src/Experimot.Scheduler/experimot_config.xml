@@ -9,7 +9,7 @@
     <param key="ParameterClientHost" value="tcp://localhost" type="string"/>
     <param key="ParameterServerPort" value="5560" type="int"/>
     <param key="ParameterServerInterval" value="10" type="int"/>
-    <param key="WebServerEnabled" value="true" type="bool"/>
+    <param key="WebServerEnabled" value="false" type="bool"/>
     <param key="WebServerPort" value="8888" type="int"/>
     <param key="WebServerHost" value="http://localhost" type="int"/>
   </parameters>
@@ -76,7 +76,7 @@
           <host>tcp://*</host>
           <port>5580</port>
           <topic>GTP</topic>
-          <msg_type>GestureTrigger</msg_type>
+          <msg_type>GestureTriggers</msg_type>
           <name>GesturePublisher</name>
         </publish>
       </publishers>
@@ -120,7 +120,7 @@
           <host>tcp://localhost</host>
           <port>5580</port>
           <topic>GTP</topic>
-          <msg_type>GestureTrigger</msg_type>
+          <msg_type>GestureTriggers</msg_type>
           <name>GesturePublisher</name>
         </subscribe>
       </subscribers>

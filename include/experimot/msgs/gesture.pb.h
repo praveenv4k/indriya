@@ -44,6 +44,7 @@ class GestureDescription;
 class GestureRecognitionModule;
 class GestureRecognitionModules;
 class GestureTrigger;
+class GestureTriggers;
 
 enum GestureDescription_GestureType {
   GestureDescription_GestureType_None = 0,
@@ -530,6 +531,108 @@ class GestureTrigger : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static GestureTrigger* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class GestureTriggers : public ::google::protobuf::Message {
+ public:
+  GestureTriggers();
+  virtual ~GestureTriggers();
+
+  GestureTriggers(const GestureTriggers& from);
+
+  inline GestureTriggers& operator=(const GestureTriggers& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GestureTriggers& default_instance();
+
+  void Swap(GestureTriggers* other);
+
+  // implements Message ----------------------------------------------
+
+  inline GestureTriggers* New() const { return New(NULL); }
+
+  GestureTriggers* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GestureTriggers& from);
+  void MergeFrom(const GestureTriggers& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(GestureTriggers* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 id = 1;
+  bool has_id() const;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  ::google::protobuf::int32 id() const;
+  void set_id(::google::protobuf::int32 value);
+
+  // repeated .experimot.msgs.GestureDescription motion = 2;
+  int motion_size() const;
+  void clear_motion();
+  static const int kMotionFieldNumber = 2;
+  const ::experimot::msgs::GestureDescription& motion(int index) const;
+  ::experimot::msgs::GestureDescription* mutable_motion(int index);
+  ::experimot::msgs::GestureDescription* add_motion();
+  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureDescription >&
+      motion() const;
+  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureDescription >*
+      mutable_motion();
+
+  // @@protoc_insertion_point(class_scope:experimot.msgs.GestureTriggers)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureDescription > motion_;
+  ::google::protobuf::int32 id_;
+  friend void  protobuf_AddDesc_gesture_2eproto();
+  friend void protobuf_AssignDesc_gesture_2eproto();
+  friend void protobuf_ShutdownFile_gesture_2eproto();
+
+  void InitAsDefaultInstance();
+  static GestureTriggers* default_instance_;
+};
 // ===================================================================
 
 
@@ -878,6 +981,64 @@ inline void GestureTrigger::set_allocated_motion(::experimot::msgs::GestureDescr
     clear_has_motion();
   }
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GestureTrigger.motion)
+}
+
+// -------------------------------------------------------------------
+
+// GestureTriggers
+
+// required int32 id = 1;
+inline bool GestureTriggers::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GestureTriggers::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GestureTriggers::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GestureTriggers::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 GestureTriggers::id() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.GestureTriggers.id)
+  return id_;
+}
+inline void GestureTriggers::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:experimot.msgs.GestureTriggers.id)
+}
+
+// repeated .experimot.msgs.GestureDescription motion = 2;
+inline int GestureTriggers::motion_size() const {
+  return motion_.size();
+}
+inline void GestureTriggers::clear_motion() {
+  motion_.Clear();
+}
+inline const ::experimot::msgs::GestureDescription& GestureTriggers::motion(int index) const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.GestureTriggers.motion)
+  return motion_.Get(index);
+}
+inline ::experimot::msgs::GestureDescription* GestureTriggers::mutable_motion(int index) {
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.GestureTriggers.motion)
+  return motion_.Mutable(index);
+}
+inline ::experimot::msgs::GestureDescription* GestureTriggers::add_motion() {
+  // @@protoc_insertion_point(field_add:experimot.msgs.GestureTriggers.motion)
+  return motion_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureDescription >&
+GestureTriggers::motion() const {
+  // @@protoc_insertion_point(field_list:experimot.msgs.GestureTriggers.motion)
+  return motion_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureDescription >*
+GestureTriggers::mutable_motion() {
+  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.GestureTriggers.motion)
+  return &motion_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Windows;
 using experimot.msgs;
 using Microsoft.Kinect;
 using Microsoft.Kinect.VisualGestureBuilder;
@@ -179,9 +180,10 @@ namespace Experimot.Kinect.Perception
             }
         }
 
-        public void PublishGestureTrigger(GestureTrigger gesture, bool force = false)
+        private bool once = true;
+        public void PublishGestureTrigger(GestureTriggers gesture, bool force = false)
         {
-            if (gesture != null && _socket != null)
+            if (gesture != null && gesture.motion.Count > 0 && _socket != null)
             {
                 _socket.SendMore(_topic);
 

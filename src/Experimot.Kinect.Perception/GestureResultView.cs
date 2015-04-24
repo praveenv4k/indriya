@@ -271,19 +271,19 @@ namespace Experimot.Kinect.Perception
                         this.ImageSource = gestureImageDict[GestureNames.None];
                     }
                 }
-                var gestMsg = new experimot.msgs.GestureTrigger()
-                {
-                    id = BodyIndex,
-                    motion = new GestureDescription()
-                    {
-                        active = isGestureDetected,
-                        confidence = (int) detectionConfidence*100,
-                        name = gestureKey,
-                        progress = 0,
-                        type = GestureDescription.GestureType.Discrete
-                    }
-                };
-                GestureTriggerPublisher.Instance.PublishGestureTrigger(gestMsg);
+                //var gestMsg = new experimot.msgs.GestureTrigger()
+                //{
+                //    id = BodyIndex,
+                //    motion = new GestureDescription()
+                //    {
+                //        active = isGestureDetected,
+                //        confidence = (int) detectionConfidence*100,
+                //        name = gestureKey,
+                //        progress = 0,
+                //        type = GestureDescription.GestureType.Discrete
+                //    }
+                //};
+                //GestureTriggerPublisher.Instance.PublishGestureTrigger(gestMsg);
             }
             catch (Exception ex)
             {

@@ -34,6 +34,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* GestureTrigger_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   GestureTrigger_reflection_ = NULL;
+const ::google::protobuf::Descriptor* GestureTriggers_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  GestureTriggers_reflection_ = NULL;
 
 }  // namespace
 
@@ -111,6 +114,22 @@ void protobuf_AssignDesc_gesture_2eproto() {
       sizeof(GestureTrigger),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GestureTrigger, _internal_metadata_),
       -1);
+  GestureTriggers_descriptor_ = file->message_type(4);
+  static const int GestureTriggers_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GestureTriggers, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GestureTriggers, motion_),
+  };
+  GestureTriggers_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      GestureTriggers_descriptor_,
+      GestureTriggers::default_instance_,
+      GestureTriggers_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GestureTriggers, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(GestureTriggers),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GestureTriggers, _internal_metadata_),
+      -1);
 }
 
 namespace {
@@ -131,6 +150,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
       GestureRecognitionModules_descriptor_, &GestureRecognitionModules::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       GestureTrigger_descriptor_, &GestureTrigger::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      GestureTriggers_descriptor_, &GestureTriggers::default_instance());
 }
 
 }  // namespace
@@ -144,6 +165,8 @@ void protobuf_ShutdownFile_gesture_2eproto() {
   delete GestureRecognitionModules_reflection_;
   delete GestureTrigger::default_instance_;
   delete GestureTrigger_reflection_;
+  delete GestureTriggers::default_instance_;
+  delete GestureTriggers_reflection_;
 }
 
 void protobuf_AddDesc_gesture_2eproto() {
@@ -165,17 +188,21 @@ void protobuf_AddDesc_gesture_2eproto() {
     "les\0229\n\007modules\030\001 \003(\0132(.experimot.msgs.Ge"
     "stureRecognitionModule\"P\n\016GestureTrigger"
     "\022\n\n\002id\030\001 \002(\005\0222\n\006motion\030\002 \002(\0132\".experimot"
-    ".msgs.GestureDescription", 504);
+    ".msgs.GestureDescription\"Q\n\017GestureTrigg"
+    "ers\022\n\n\002id\030\001 \002(\005\0222\n\006motion\030\002 \003(\0132\".experi"
+    "mot.msgs.GestureDescription", 587);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "gesture.proto", &protobuf_RegisterTypes);
   GestureDescription::default_instance_ = new GestureDescription();
   GestureRecognitionModule::default_instance_ = new GestureRecognitionModule();
   GestureRecognitionModules::default_instance_ = new GestureRecognitionModules();
   GestureTrigger::default_instance_ = new GestureTrigger();
+  GestureTriggers::default_instance_ = new GestureTriggers();
   GestureDescription::default_instance_->InitAsDefaultInstance();
   GestureRecognitionModule::default_instance_->InitAsDefaultInstance();
   GestureRecognitionModules::default_instance_->InitAsDefaultInstance();
   GestureTrigger::default_instance_->InitAsDefaultInstance();
+  GestureTriggers::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_gesture_2eproto);
 }
 
@@ -1822,6 +1849,335 @@ void GestureTrigger::InternalSwap(GestureTrigger* other) {
     clear_has_motion();
   }
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GestureTrigger.motion)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int GestureTriggers::kIdFieldNumber;
+const int GestureTriggers::kMotionFieldNumber;
+#endif  // !_MSC_VER
+
+GestureTriggers::GestureTriggers()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:experimot.msgs.GestureTriggers)
+}
+
+void GestureTriggers::InitAsDefaultInstance() {
+}
+
+GestureTriggers::GestureTriggers(const GestureTriggers& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:experimot.msgs.GestureTriggers)
+}
+
+void GestureTriggers::SharedCtor() {
+  _cached_size_ = 0;
+  id_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+GestureTriggers::~GestureTriggers() {
+  // @@protoc_insertion_point(destructor:experimot.msgs.GestureTriggers)
+  SharedDtor();
+}
+
+void GestureTriggers::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void GestureTriggers::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* GestureTriggers::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return GestureTriggers_descriptor_;
+}
+
+const GestureTriggers& GestureTriggers::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_gesture_2eproto();
+  return *default_instance_;
+}
+
+GestureTriggers* GestureTriggers::default_instance_ = NULL;
+
+GestureTriggers* GestureTriggers::New(::google::protobuf::Arena* arena) const {
+  GestureTriggers* n = new GestureTriggers;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void GestureTriggers::Clear() {
+  id_ = 0;
+  motion_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool GestureTriggers::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:experimot.msgs.GestureTriggers)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_motion;
+        break;
+      }
+
+      // repeated .experimot.msgs.GestureDescription motion = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_motion:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_motion()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_motion;
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:experimot.msgs.GestureTriggers)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:experimot.msgs.GestureTriggers)
+  return false;
+#undef DO_
+}
+
+void GestureTriggers::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:experimot.msgs.GestureTriggers)
+  // required int32 id = 1;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  }
+
+  // repeated .experimot.msgs.GestureDescription motion = 2;
+  for (unsigned int i = 0, n = this->motion_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->motion(i), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:experimot.msgs.GestureTriggers)
+}
+
+::google::protobuf::uint8* GestureTriggers::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.GestureTriggers)
+  // required int32 id = 1;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  }
+
+  // repeated .experimot.msgs.GestureDescription motion = 2;
+  for (unsigned int i = 0, n = this->motion_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->motion(i), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.GestureTriggers)
+  return target;
+}
+
+int GestureTriggers::ByteSize() const {
+  int total_size = 0;
+
+  // required int32 id = 1;
+  if (has_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->id());
+  }
+  // repeated .experimot.msgs.GestureDescription motion = 2;
+  total_size += 1 * this->motion_size();
+  for (int i = 0; i < this->motion_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->motion(i));
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void GestureTriggers::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const GestureTriggers* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const GestureTriggers*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void GestureTriggers::MergeFrom(const GestureTriggers& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  motion_.MergeFrom(from.motion_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void GestureTriggers::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GestureTriggers::CopyFrom(const GestureTriggers& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GestureTriggers::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  if (!::google::protobuf::internal::AllAreInitialized(this->motion())) return false;
+  return true;
+}
+
+void GestureTriggers::Swap(GestureTriggers* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void GestureTriggers::InternalSwap(GestureTriggers* other) {
+  std::swap(id_, other->id_);
+  motion_.UnsafeArenaSwap(&other->motion_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata GestureTriggers::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = GestureTriggers_descriptor_;
+  metadata.reflection = GestureTriggers_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// GestureTriggers
+
+// required int32 id = 1;
+ bool GestureTriggers::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void GestureTriggers::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void GestureTriggers::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void GestureTriggers::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+ ::google::protobuf::int32 GestureTriggers::id() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.GestureTriggers.id)
+  return id_;
+}
+ void GestureTriggers::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:experimot.msgs.GestureTriggers.id)
+}
+
+// repeated .experimot.msgs.GestureDescription motion = 2;
+ int GestureTriggers::motion_size() const {
+  return motion_.size();
+}
+ void GestureTriggers::clear_motion() {
+  motion_.Clear();
+}
+ const ::experimot::msgs::GestureDescription& GestureTriggers::motion(int index) const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.GestureTriggers.motion)
+  return motion_.Get(index);
+}
+ ::experimot::msgs::GestureDescription* GestureTriggers::mutable_motion(int index) {
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.GestureTriggers.motion)
+  return motion_.Mutable(index);
+}
+ ::experimot::msgs::GestureDescription* GestureTriggers::add_motion() {
+  // @@protoc_insertion_point(field_add:experimot.msgs.GestureTriggers.motion)
+  return motion_.Add();
+}
+ const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureDescription >&
+GestureTriggers::motion() const {
+  // @@protoc_insertion_point(field_list:experimot.msgs.GestureTriggers.motion)
+  return motion_;
+}
+ ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureDescription >*
+GestureTriggers::mutable_motion() {
+  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.GestureTriggers.motion)
+  return &motion_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

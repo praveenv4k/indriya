@@ -196,31 +196,36 @@ namespace Experimot.Scheduler
             }
         }
 
-        public void Update(GestureTrigger trigger)
+        public void Update(GestureTriggers triggers)
         {
             //Log.Info("Gesture Update");
-            if (trigger != null)
+            if (triggers != null)
             {
                 lock (_object)
                 {
                     //if
-                    var item = _humans.FirstOrDefault(s => s.Body.TrackingId == trigger.id);
+                    var item = _humans.FirstOrDefault(s => s.Body.TrackingId == triggers.id);
                     if (item != null)
                     {
-                        var gest = item.Gestures.FirstOrDefault(g => g.Name == trigger.motion.name);
+                        Log.InfoFormat("Gesture Update: {0} : {1}", triggers.id, triggers.motion.Count);
+                        foreach (var trigger in triggers.motion)
+                        {
+                            var gest = item.Gestures.FirstOrDefault(g => g.Name == trigger.name);
 
-                        if (gest != null && !string.IsNullOrEmpty(trigger.motion.name))
-                        {
-                            gest.Refresh(trigger);
-                        }
-                        else
-                        {
-                            if (!string.IsNullOrEmpty(trigger.motion.name))
+                            if (gest != null && !string.IsNullOrEmpty(trigger.name))
                             {
-                                var newGest = new Gesture();
-                                newGest.Refresh(trigger);
-                                item.Gestures.Add(newGest);
+                                gest.Refresh(trigger);
                             }
+                            else
+                            {
+                                if (!string.IsNullOrEmpty(trigger.name))
+                                {
+                                    var newGest = new Gesture();
+                                    newGest.Refresh(trigger);
+                                    item.Gestures.Add(newGest);
+                                }
+                            }
+                            
                         }
 
                         //if (gest != null)
