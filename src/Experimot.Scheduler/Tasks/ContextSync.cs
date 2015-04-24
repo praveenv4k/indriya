@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
+using Common.Logging;
 using Experimot.Core;
 using Nancy.TinyIoc;
 using NetMQ;
@@ -17,6 +18,8 @@ namespace Experimot.Scheduler.Tasks
     {
         private readonly Context _ctx;
         private NetMQContext _netctx;
+        private static readonly ILog Log = LogManager.GetLogger(typeof (ContextSync));
+
         private readonly IList<socket> _publishers;
         private const string MessageNamespace = "experimot.msgs";
         public delegate void UpdateDelegate<in T>(T item);
@@ -98,6 +101,7 @@ namespace Experimot.Scheduler.Tasks
                                                     DelegateType = CreateDelegate(method, _ctx),
                                                     ArgType = typeFound
                                                 });
+                                            Log.InfoFormat("Create update delegate for Msg type {0}", publisher.msg_type);
                                         }
                                     }
                                 }

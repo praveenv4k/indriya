@@ -152,7 +152,7 @@ namespace Experimot.Kinect.Perception
                             _kBodyPub = new KinectBodyPublisher(item.host, item.port, item.topic);
                             Loaded += MainWindow_Loaded;
                         }
-                        if (item.msg_type == "GestureTrigger")
+                        if (item.msg_type == "GestureTriggers")
                         {
                             _gestPub = GestureTriggerPublisher.Create(item.host, item.port, item.topic);
                         }

@@ -84,15 +84,15 @@ namespace Experimot.Scheduler.Data
             };
         }
 
-        public void Refresh(GestureTrigger trigger)
+        public void Refresh(GestureDescription trigger)
         {
             if (trigger != null)
             {
-                Name = trigger.motion.name;
-                Mode = (GestureMode) trigger.motion.type;
-                Active = trigger.motion.active;
-                Confidence = trigger.motion.confidence;
-                Progress = trigger.motion.progress;
+                Name = trigger.name;
+                Mode = (GestureMode) trigger.type;
+                Active = trigger.active;
+                Confidence = trigger.confidence;
+                Progress = trigger.progress;
             }
         }
 

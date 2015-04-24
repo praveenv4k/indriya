@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Common.Logging;
+using experimot.msgs;
 using Microsoft.Kinect;
 using Microsoft.Kinect.VisualGestureBuilder;
 
@@ -32,6 +34,8 @@ namespace Experimot.Kinect.Perception
 
         /// <summary> Gesture frame reader which will handle gesture events coming from the sensor </summary>
         private VisualGestureBuilderFrameReader _vgbFrameReader;
+
+        private static readonly ILog Log = LogManager.GetLogger(typeof (GestureDetector)); 
 
         /// <summary>
         /// Initializes a new instance of the GestureDetector class along with the gesture frame source and reader
@@ -79,9 +83,12 @@ namespace Experimot.Kinect.Perception
                 {
                     using (var database = new VisualGestureBuilderDatabase(db))
                     {
+                        //_vgbFrameSource.AddGestures(database.AvailableGestures);
                         foreach (var gesture in database.AvailableGestures)
                         {
+                            //_vgbFrameSource.AddGestures(database.AvailableGestures);
                             _vgbFrameSource.AddGesture(gesture);
+                            _vgbFrameSource.SetIsEnabled(gesture,true);
                         }
                     }
                 }
@@ -186,6 +193,9 @@ namespace Experimot.Kinect.Perception
                     DiscreteGestureResult detectedResult = null;
                     if (discreteResults != null)
                     {
+                        // Publish the discrete results
+                        PublishDiscreteGestureResult(discreteResults);
+
                         // we only have one gesture in this source object, but you can get multiple gestures
                         foreach (Gesture gesture in _vgbFrameSource.Gestures)
                         {
@@ -221,6 +231,50 @@ namespace Experimot.Kinect.Perception
                         GestureResultView.UpdateGestureResult(true, false, 0.0f, string.Empty);
                     }
                 }
+            }
+        }
+
+        private void PublishDiscreteGestureResult(IReadOnlyDictionary<Gesture, DiscreteGestureResult> discreteResults)
+        {
+            try
+            {
+                if (discreteResults != null && _vgbFrameSource != null && _vgbFrameSource.Gestures != null &&
+                    _vgbFrameSource.Gestures.Count > 0 && GestureResultView != null)
+                {
+                    GestureTriggers triggers = new GestureTriggers {id = GestureResultView.BodyIndex};
+
+                    // For publishing
+                    foreach (Gesture gesture in _vgbFrameSource.Gestures)
+                    {
+                        //System.Diagnostics.Debug.WriteLine(gesture.Name);
+                        if (gesture.GestureType == GestureType.Discrete && _gestures.Contains(gesture.Name))
+                            //if (gesture.GestureType == GestureType.Discrete)
+                            //if (gesture.Name.Equals(this.seatedGestureName) && gesture.GestureType == GestureType.Discrete)
+                        {
+                            //if (gesture.Name != GestureNames.HandwaveRight)
+                            //{
+                            //    continue;
+                            //}
+                            DiscreteGestureResult result;
+                            discreteResults.TryGetValue(gesture, out result);
+                            var trigger = new GestureDescription
+                            {
+                                name = gesture.Name,
+                                progress = 0,
+                                type = (GestureDescription.GestureType) gesture.GestureType,
+                                active = result != null && result.Detected,
+                                confidence = result != null ? (int) (result.Confidence*100.00) : 0
+                            };
+                            triggers.motion.Add(trigger);
+                        }
+                    }
+                    GestureTriggerPublisher.Instance.PublishGestureTrigger(triggers);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.ErrorFormat("Exception occured while publishing gesture data: {0}", ex.Message);
             }
         }
 

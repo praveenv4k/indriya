@@ -182,7 +182,6 @@ namespace Experimot.Scheduler
                             {
                                 Log.ErrorFormat("Process: {0}, Message: {1}", exeFile, ex.Message);
                             }
-
                         }
                     }
                 }
@@ -207,45 +206,52 @@ namespace Experimot.Scheduler
 
         public void Shutdown()
         {
-            if (!_shutdown)
+            try
             {
-                _shouldStop = true;
-                foreach (var process in _processes)
+                if (!_shutdown)
                 {
-                    if (!process.HasExited)
+                    _shouldStop = true;
+                    foreach (var process in _processes)
                     {
-                        //process.CloseMainWindow();
-                        //process.Close();
-                        process.Kill();
-                    }
-                }
-                try
-                {
-                    var factory = TinyIoCContainer.Current.Resolve<StdSchedulerFactory>();
-                    var scheduler = factory.GetScheduler();
-                    if (scheduler != null)
-                    {
-                        var keys = scheduler.GetJobKeys(GroupMatcher<JobKey>.GroupEquals("MainGroup"));
-                        if (keys != null && keys.Count > 0)
+                        if (!process.HasExited)
                         {
-                            scheduler.DeleteJobs(keys.ToList());
+                            //process.CloseMainWindow();
+                            //process.Close();
+                            process.Kill();
                         }
-                        scheduler.Shutdown();
-                        Log.Info("Quartz Scheduler Shutdown");
                     }
-
-                    var server = TinyIoCContainer.Current.Resolve<ExperimotWeb>(ResolveOptions.FailUnregisteredOnly);
-                    if (server != null)
+                    try
                     {
-                        server.Stop();
+                        var factory = TinyIoCContainer.Current.Resolve<StdSchedulerFactory>();
+                        var scheduler = factory.GetScheduler();
+                        if (scheduler != null)
+                        {
+                            var keys = scheduler.GetJobKeys(GroupMatcher<JobKey>.GroupEquals("MainGroup"));
+                            if (keys != null && keys.Count > 0)
+                            {
+                                scheduler.DeleteJobs(keys.ToList());
+                            }
+                            scheduler.Shutdown();
+                            Log.Info("Quartz Scheduler Shutdown");
+                        }
+
+                        var server = TinyIoCContainer.Current.Resolve<ExperimotWeb>(ResolveOptions.FailUnregisteredOnly);
+                        if (server != null)
+                        {
+                            server.Stop();
+                        }
                     }
+                    catch (Exception ex)
+                    {
+                        Log.ErrorFormat("Web shutdown exception: {0}", ex.Message);
+                    }
+                    Task.WaitAll(_tasks.ToArray(), new TimeSpan(0, 0, 0, 3));
+                    _shutdown = true;
                 }
-                catch (Exception ex)
-                {
-                    Log.ErrorFormat("Web shutdown exception: {0}", ex.Message);
-                }
-                Task.WaitAll(_tasks.ToArray(), new TimeSpan(0, 0, 0, 1));
-                _shutdown = true;
+            }
+            catch (Exception ex)
+            {
+                Log.ErrorFormat("Exception occured while shutdown: {0}", ex.Message);
             }
         }
     }

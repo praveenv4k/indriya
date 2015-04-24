@@ -1,5 +1,5 @@
 // Automatically generated! DO NOT EDIT!!! 
 // Experimot Message Header Files 
 // Created on  
-// Thu 04/23/2015 21:10:59.98  
+// Fri 04/24/2015 18:39:41.24  
 #include "KinectVideoCapture.hpp"  

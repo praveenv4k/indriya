@@ -35,3 +35,9 @@ message GestureTrigger
   required int32 id = 1;
   required GestureDescription motion = 2;
 }
+
+message GestureTriggers
+{
+  required int32 id = 1;
+  repeated GestureDescription motion = 2;
+}
