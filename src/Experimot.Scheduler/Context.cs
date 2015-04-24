@@ -113,7 +113,12 @@ namespace Experimot.Scheduler
         {
             lock (_object)
             {
-                var keys = _humans.Select(s => s.Body.TrackingId).ToList();
+                if (kinectBodies.Body.Count <= 0)
+                {
+                    Humans.Clear();
+                    return;
+                }
+                var keys = Humans.Select(s => s.Body.TrackingId).ToList();
                 var bodyIds = kinectBodies.Body.Select(s => s.TrackingId).ToList();
 
                 // Remove those humans that dont exist in the list of kinect bodies anymore
@@ -121,11 +126,12 @@ namespace Experimot.Scheduler
                 {
                     if (!bodyIds.Contains(key))
                     {
-                        var item = _humans.FirstOrDefault(s => s.Body.TrackingId == key);
+                        var item = Humans.FirstOrDefault(s => s.Body.TrackingId == key);
                         if (item != null)
                         {
                             //item.Gestures.CollectionChanged -= GesturesCollectionChanged;
-                            _humans.Remove(item);
+                            Humans.Remove(item);
+                            Log.InfoFormat("Removed human: {0}", item.Id);
                         }
                     }
                 }
@@ -141,10 +147,19 @@ namespace Experimot.Scheduler
                         };
                         //human.Gestures.CollectionChanged += GesturesCollectionChanged;
                         Humans.Add(human);
+                        Log.InfoFormat("Added new human: {0}", human.Id);
                     }
                     else
                     {
-                        item.Body = kinectBody;
+                        if (!kinectBody.IsTracked)
+                        {
+                            Humans.Remove(item);
+                            Log.InfoFormat("Removed untracked human: {0}", item.Id);
+                        }
+                        else
+                        {
+                            item.Body = kinectBody;
+                        }
                     }
                 }
             }
@@ -213,7 +228,7 @@ namespace Experimot.Scheduler
                     var item = _humans.FirstOrDefault(s => s.Body.TrackingId == triggers.id);
                     if (item != null)
                     {
-                        Log.InfoFormat("Gesture Update: {0} : {1}", triggers.id, triggers.motion.Count);
+                        //Log.InfoFormat("Gesture Update: {0} : {1}", triggers.id, triggers.motion.Count);
                         foreach (var trigger in triggers.motion)
                         {
                             var gest = item.Gestures.FirstOrDefault(g => g.Name == trigger.name);

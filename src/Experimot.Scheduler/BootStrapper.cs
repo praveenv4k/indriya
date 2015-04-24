@@ -245,7 +245,7 @@ namespace Experimot.Scheduler
                     {
                         Log.ErrorFormat("Web shutdown exception: {0}", ex.Message);
                     }
-                    Task.WaitAll(_tasks.ToArray(), new TimeSpan(0, 0, 0, 3));
+                    Task.WaitAll(_tasks.ToArray(), new TimeSpan(0, 0, 0, 5));
                     _shutdown = true;
                 }
             }

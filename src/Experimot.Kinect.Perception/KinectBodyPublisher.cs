@@ -18,7 +18,7 @@ namespace Experimot.Kinect.Perception
         private readonly uint _port;
         private readonly string _topic;
         private bool _noBodyTracked;
-        private bool _emptyMsgSent;
+        private int _emptyMsgSent;
 
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
@@ -36,7 +36,7 @@ namespace Experimot.Kinect.Perception
             _port = port;
             _topic = topic;
             _noBodyTracked = false;
-            _emptyMsgSent = false;
+            _emptyMsgSent = 0;
         }
 
         private void InitZmq()
@@ -96,7 +96,7 @@ namespace Experimot.Kinect.Perception
                 if (body.IsTracked)
                 {
                     _noBodyTracked = false;
-                    _emptyMsgSent = false;
+                    _emptyMsgSent = 0;
 
                     var kbody = new KinectBody
                     {
@@ -137,14 +137,14 @@ namespace Experimot.Kinect.Perception
                 }
                 PublishKinectBodies(kbodies);
             }
-            if (_noBodyTracked && !_emptyMsgSent)
+            if (_noBodyTracked && _emptyMsgSent<5)
             {
                 PublishKinectBodies(kbodies, true);
-                _emptyMsgSent = true;
+                _emptyMsgSent++;
             }
         }
 
-        private const int SendFrequency = 10;
+        private const int SendFrequency = 2;
         private int _sendCount;
         private readonly string _host;
 

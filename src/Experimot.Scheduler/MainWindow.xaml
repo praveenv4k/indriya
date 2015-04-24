@@ -17,13 +17,13 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <cefSharp:ChromiumWebBrowser DataContext="{Binding TabViewModel}" Grid.Row="0" Grid.Column="0" x:Name="browser"
+        <!--<cefSharp:ChromiumWebBrowser DataContext="{Binding TabViewModel}" Grid.Row="0" Grid.Column="0" x:Name="browser"
                                   Address="{Binding Address, Mode=TwoWay}"
                                   Title="{Binding Title, Mode=OneWayToSource}"
                                   AllowDrop="True"
                                   WebBrowser="{Binding WebBrowser, Mode=OneWayToSource}">
             
-        </cefSharp:ChromiumWebBrowser>
+        </cefSharp:ChromiumWebBrowser>-->
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
             <TextBlock HorizontalAlignment="Center" FontSize="18">World Description</TextBlock>
             <Expander Header="Robot Information" DataContext="{Binding Robot}" HorizontalAlignment="Stretch" IsExpanded="False">
@@ -53,7 +53,7 @@
                     
                 </Grid>
             </Expander>
-            <Expander Header="Human Information" HorizontalAlignment="Stretch" IsExpanded="False" >
+            <Expander Header="{Binding Humans.Count, StringFormat='Human Info: {0}'}" HorizontalAlignment="Stretch" IsExpanded="False" >
                 <ItemsControl ItemsSource="{Binding Humans}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
