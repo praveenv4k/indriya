@@ -269,6 +269,7 @@ public:
 	}
 
 	void PublishTransform(){
+		cout << "Publishing transform" << endl;
 		m_PoseTimer.expires_at(m_PoseTimer.expires_at() + boost::posix_time::milliseconds(m_nPoseCycle));
 		//TODO Publish Torso transform here
 		if (m_pTorsoPosePublisherPtr != 0 && m_pRobotPoseInfoPtr != 0){

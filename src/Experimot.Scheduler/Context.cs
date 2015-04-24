@@ -117,7 +117,7 @@ namespace Experimot.Scheduler
                         var item = _humans.FirstOrDefault(s => s.Body.TrackingId == key);
                         if (item != null)
                         {
-                            item.Gestures.CollectionChanged -= GesturesCollectionChanged;
+                            //item.Gestures.CollectionChanged -= GesturesCollectionChanged;
                             _humans.Remove(item);
                         }
                     }
@@ -128,12 +128,12 @@ namespace Experimot.Scheduler
                     var item = _humans.FirstOrDefault(s => s.Body.TrackingId == kinectBody.TrackingId);
                     if (item == null)
                     {
-                        var human = new Human()
+                        var human = new Human(_motionModules)
                         {
                             Body = kinectBody,
                             Id = kinectBody.TrackingId.ToString()
                         };
-                        human.Gestures.CollectionChanged += GesturesCollectionChanged;
+                        //human.Gestures.CollectionChanged += GesturesCollectionChanged;
                         _humans.Add(human);
                     }
                     else
@@ -208,34 +208,51 @@ namespace Experimot.Scheduler
                     if (item != null)
                     {
                         var gest = item.Gestures.FirstOrDefault(g => g.Name == trigger.motion.name);
-                        if (gest != null)
+
+                        if (gest != null && !string.IsNullOrEmpty(trigger.motion.name))
                         {
-                            if (trigger.motion.confidence < 85 || !trigger.motion.active)
-                            {
-                                item.Gestures.Remove(gest);
-                                Log.InfoFormat("Gesture Removed: {0}",trigger.motion.name);
-                            }
-                            else
-                            {
-                                //gest = new Gesture
-                                //{
-                                //    Name = trigger.motion.name,
-                                //    Mode = (GestureMode) trigger.motion.type
-                                //};
-                            }
+                            gest.Refresh(trigger);
                         }
                         else
                         {
-                            if (trigger.motion.confidence > 95 || trigger.motion.active)
+                            if (!string.IsNullOrEmpty(trigger.motion.name))
                             {
-                                item.Gestures.Add(new Gesture
-                                {
-                                    Name = trigger.motion.name,
-                                    Mode = (GestureMode) trigger.motion.type
-                                });
-                                Log.InfoFormat("Gesture Added: {0}", trigger.motion.name);
+                                var newGest = new Gesture();
+                                newGest.Refresh(trigger);
+                                item.Gestures.Add(newGest);
                             }
                         }
+
+                        //if (gest != null)
+                        //{
+                        //    if (trigger.motion.confidence < 85 || !trigger.motion.active)
+                        //    {
+                        //        item.Gestures.Remove(gest);
+                        //        Log.InfoFormat("Gesture Removed: {0}",trigger.motion.name);
+                        //    }
+                        //    else
+                        //    {
+                        //        //gest = new Gesture
+                        //        //{
+                        //        //    Name = trigger.motion.name,
+                        //        //    Mode = (GestureMode) trigger.motion.type
+                        //        //};
+                        //    }
+                        //}
+                        //else
+                        //{
+                        //    if (trigger.motion.confidence > 95 || trigger.motion.active)
+                        //    {
+                        //        item.Gestures.Add(new Gesture
+                        //        {
+                        //            Name = trigger.motion.name,
+                        //            Mode = (GestureMode) trigger.motion.type
+                        //        });
+                        //        Log.InfoFormat("Gesture Added: {0}", trigger.motion.name);
+                        //    }
+                        //}
+
+
                     }
                 }
             }

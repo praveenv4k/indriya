@@ -2,6 +2,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using experimot.msgs;
 using Experimot.Core.Annotations;
 using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
@@ -66,8 +67,34 @@ namespace Experimot.Scheduler.Data
 
     public class Gesture : INotifyPropertyChanged
     {
-        protected string _name;
-        protected GestureMode _gestureMode;
+        private string _name;
+        private GestureMode _gestureMode;
+        private bool _active;
+
+        public static Gesture Default(string name, GestureMode mode)
+        {
+            return new Gesture()
+            {
+                Name = name,
+                Mode = mode,
+                Active = false,
+                Confidence = 0,
+                Count = 0,
+                Progress = 0
+            };
+        }
+
+        public void Refresh(GestureTrigger trigger)
+        {
+            if (trigger != null)
+            {
+                Name = trigger.motion.name;
+                Mode = (GestureMode) trigger.motion.type;
+                Active = trigger.motion.active;
+                Confidence = trigger.motion.confidence;
+                Progress = trigger.motion.progress;
+            }
+        }
 
         public string Name
         {
@@ -91,19 +118,18 @@ namespace Experimot.Scheduler.Data
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        public bool Active
         {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+            get { return _active; }
+            set
+            {
+                if (value == _active) return;
+                _active = value;
+                OnPropertyChanged();
+            }
         }
-    }
 
-    public class ContinuousGesture : Gesture
-    {
-        protected int _progress;
+        private int _progress;
 
         public int Progress
         {
@@ -115,23 +141,26 @@ namespace Experimot.Scheduler.Data
                 OnPropertyChanged();
             }
         }
-    }
 
-    public class DiscreteGesture : Gesture
-    {
-        private int _count;
-        private bool _active;
-        public EventHandler<DiscreteGestureArgs> GestureTriggered;
+        private int _confidence;
 
-        public DiscreteGesture()
+        public int Confidence
         {
-            _count = 0;
+            get { return _confidence; }
+            set
+            {
+                if (value == _confidence) return;
+                _confidence = value;
+                OnPropertyChanged();
+            }
         }
+
+        private int _count;
 
         public int Count
         {
             get { return _count; }
-            private set
+            set
             {
                 if (_count != value)
                 {
@@ -139,38 +168,36 @@ namespace Experimot.Scheduler.Data
                     var handler = GestureTriggered;
                     if (handler != null)
                     {
-                        handler(this, new DiscreteGestureArgs(this));
+                        handler(this, new GestureArgs(this));
                     }
                 }
             }
         }
 
-        public bool Active
+        public event EventHandler<GestureArgs> GestureTriggered;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            get { return _active; }
-            set
-            {
-                if (value.Equals(_active)) return;
-                if (!_active && value)
-                {
-                    Count = Count + 1;
-                }
-                _active = value;
-                OnPropertyChanged();
-            }
+            var handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 
-    public class DiscreteGestureArgs : EventArgs
-    {
-        private readonly DiscreteGesture _gesture;
 
-        public DiscreteGestureArgs(DiscreteGesture gesture)
+
+    public class GestureArgs : EventArgs
+    {
+        private readonly Gesture _gesture;
+
+        public GestureArgs(Gesture gesture)
         {
             _gesture = gesture;
         }
 
-        public DiscreteGesture Gesture
+        public Gesture Gesture
         {
             get { return _gesture; }
         }
