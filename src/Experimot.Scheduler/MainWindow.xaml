@@ -1,8 +1,11 @@
 ﻿<Window x:Class="Experimot.Scheduler.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
+       xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+             
         Title="Experimot" Height="768" Width="1024" FontSize="14">
     <Grid>
         <Grid.RowDefinitions>
@@ -14,6 +17,13 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <cefSharp:ChromiumWebBrowser DataContext="{Binding TabViewModel}" Grid.Row="0" Grid.Column="0" x:Name="browser"
+                                  Address="{Binding Address, Mode=TwoWay}"
+                                  Title="{Binding Title, Mode=OneWayToSource}"
+                                  AllowDrop="True"
+                                  WebBrowser="{Binding WebBrowser, Mode=OneWayToSource}">
+            
+        </cefSharp:ChromiumWebBrowser>
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
             <TextBlock HorizontalAlignment="Center" FontSize="18">World Description</TextBlock>
             <Expander Header="Robot Information" DataContext="{Binding Robot}" HorizontalAlignment="Stretch" IsExpanded="False">
@@ -73,6 +83,7 @@
             </Expander>
             <Expander Header="Object Information" DataContext="{Binding Robot}" HorizontalAlignment="Stretch" IsExpanded="False">
             </Expander>
+            <Button Grid.Row="0" Grid.Column="0" Height="50" Width="120" Click="ButtonBase_OnClick">Add Human</Button>
         </StackPanel>
         <RichTextBox x:Name="textBox" Grid.Row="1" Grid.ColumnSpan="2">
             
