@@ -68,6 +68,10 @@
         var camera, scene, renderer, objects, controls;
         var particleLight;
         var dae;
+        var jointvals;
+        var jointvalIndex = 0;
+        var delay = 5;
+        var currDelay = 0;
 
         var kinematics;
         var kinematicsTween;
@@ -77,6 +81,14 @@
 
         var loader = new THREE.ColladaLoader();
         loader.options.convertUpAxis = true;
+
+        $.getJSON(
+                        '/jointvals',
+                        function (data) {
+                            console.log(data);
+                            jointvals = data;
+                        }
+                    );
 
         loader.load("models/collada/nao.dae", function (collada) {
 
@@ -98,6 +110,12 @@
 
             kinematics = collada.kinematics;
 
+            //console.log(kinematics.joints.length);
+            //for (var i = 0; i < kinematics.joints.length; i++) {
+
+            //   console.log("Joint value "+ i.toString() + " : " + kinematics.getJointValue(i));
+
+            //}
             init();
             animate();
 
@@ -245,11 +263,30 @@
 
         }
 
+        function degrees(radians) {
+            return radians * 180 / Math.PI;
+        };
         //
 
         function animate() {
 
             requestAnimationFrame(animate);
+
+            if (currDelay < delay) {
+                currDelay++;
+            } else {
+                currDelay = 0;
+                console.log(jointvals.length);
+                if (jointvalIndex < jointvals.length) {
+                    values = jointvals[jointvalIndex];
+                    for (var i = 0; i < values.length; i++) {
+
+                        kinematics.setJointValue(i, degrees(values[i]));
+
+                    }
+                    jointvalIndex++;
+                }
+            }
 
             render();
             //stats.update();
