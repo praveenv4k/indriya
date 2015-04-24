@@ -5,7 +5,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using Common.Logging;
+using Caliburn.Micro;
 using experimot.msgs;
 using Experimot.Scheduler.Annotations;
 using Experimot.Scheduler.Data;
@@ -15,27 +15,29 @@ using Quartz;
 using Quartz.Impl;
 using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 using Xceed.Wpf.Toolkit.PropertyGrid.Editors;
+using ILog = Common.Logging.ILog;
+using LogManager = Common.Logging.LogManager;
 
 namespace Experimot.Scheduler
 {
     public class Context : INotifyPropertyChanged
     {
         private Robot _robot;
-        private readonly IList<Human> _humans;
+        private readonly BindableCollection<Human> _humans;
         private readonly IDictionary<string, ManipulatableObject> _objects;
         private readonly object _object = new object();
-        private readonly ObservableCollection<GestureModule> _motionModules;
-        private readonly ObservableCollection<RobotBehaviorModule> _behaviorModules;
+        private readonly BindableCollection<GestureModule> _motionModules;
+        private readonly BindableCollection<RobotBehaviorModule> _behaviorModules;
         private static readonly ILog Log = LogManager.GetLogger<Context>();
 
         public Context()
         {
             //_humans = new ConcurrentDictionary<int, Human>();
-            _humans = new List<Human>();
+            _humans = new BindableCollection<Human>();
             _robot = new Robot();
             _objects = new ConcurrentDictionary<string, ManipulatableObject>();
-            _motionModules = new ObservableCollection<GestureModule>();
-            _behaviorModules = new ObservableCollection<RobotBehaviorModule>();
+            _motionModules = new BindableCollection<GestureModule>();
+            _behaviorModules = new BindableCollection<RobotBehaviorModule>();
         }
 
         [ExpandableObject]
@@ -52,7 +54,7 @@ namespace Experimot.Scheduler
 
         //[ExpandableObject]
         [Editor(typeof (CollectionEditor), typeof (CollectionEditor))]
-        public IList<Human> Humans
+        public BindableCollection<Human> Humans
         {
             get { return _humans; }
         }
@@ -64,13 +66,13 @@ namespace Experimot.Scheduler
         }
 
         [ExpandableObject]
-        public ObservableCollection<GestureModule> MotionModules
+        public BindableCollection<GestureModule> MotionModules
         {
             get { return _motionModules; }
         }
 
         [ExpandableObject]
-        public ObservableCollection<RobotBehaviorModule> BehaviorModules
+        public BindableCollection<RobotBehaviorModule> BehaviorModules
         {
             get { return _behaviorModules; }
         }

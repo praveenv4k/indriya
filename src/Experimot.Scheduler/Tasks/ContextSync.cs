@@ -8,6 +8,7 @@ using Experimot.Core;
 using Nancy.TinyIoc;
 using NetMQ;
 using ProtoBuf;
+using Scheduler;
 using Expression = System.Linq.Expressions.Expression;
 
 namespace Experimot.Scheduler.Tasks
@@ -186,7 +187,11 @@ namespace Experimot.Scheduler.Tasks
                                     MethodInfo method = typeof (Serializer).GetMethod("Deserialize");
                                     MethodInfo generic = method.MakeGenericMethod(delegateInfo.ArgType);
                                     var ret = generic.Invoke(null, new object[] {memStream});
-                                    delegateInfo.DelegateType.DynamicInvoke(new object[] {ret});
+                                    App.Current.Dispatcher.Invoke((Action)delegate // <--- HERE
+                                    {
+                                        delegateInfo.DelegateType.DynamicInvoke(new object[] { ret });
+                                    });
+                                    //delegateInfo.DelegateType.DynamicInvoke(new object[] {ret});
                                 }
                             }
                             else

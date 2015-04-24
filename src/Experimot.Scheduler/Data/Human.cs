@@ -2,6 +2,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Caliburn.Micro;
 using experimot.msgs;
 using Experimot.Core.Annotations;
 
@@ -13,11 +14,11 @@ namespace Experimot.Scheduler.Data
 
         private KinectBody _body;
 
-        private readonly ObservableCollection<Gesture> _gestures;
+        private readonly BindableCollection<Gesture> _gestures;
 
         public Human()
         {
-            _gestures = new ObservableCollection<Gesture>();
+            _gestures = new BindableCollection<Gesture>();
         }
 
         public string Id
@@ -42,7 +43,7 @@ namespace Experimot.Scheduler.Data
             }
         }
 
-        public ObservableCollection<Gesture> Gestures
+        public BindableCollection<Gesture> Gestures
         {
             get { return _gestures; }
         }

@@ -17,15 +17,15 @@ namespace Experimot.Scheduler
 
         public MainWindow()
         {
-            InitializeComponent();
             const string configFile = "experimot_config.xml";
             if (!string.IsNullOrEmpty(configFile))
             {
                 _bootStrapper = new BootStrapper(configFile);
                 _bootStrapper.StartUp();
             }
+            DataContext = Context;
+            InitializeComponent();
             Closing += MainWindow_Closing;
-            DataContext = this;
         }
 
         public Context Context
@@ -42,18 +42,6 @@ namespace Experimot.Scheduler
             if (_bootStrapper != null)
             {
                 _bootStrapper.Shutdown();
-            }
-        }
-
-        private void ClickButton(object sender, RoutedEventArgs e)
-        {
-            var btn = sender as Button;
-            if (btn != null)
-            {
-                var tag = btn.Tag;
-                if (tag != null)
-                {
-                }
             }
         }
 
