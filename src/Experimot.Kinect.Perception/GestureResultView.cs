@@ -7,6 +7,7 @@
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using experimot.msgs;
@@ -243,44 +244,51 @@ namespace Experimot.Kinect.Perception
         public void UpdateGestureResult(bool isBodyTrackingIdValid, bool isGestureDetected, float detectionConfidence,
             string gestureKey)
         {
-            this.IsTracked = isBodyTrackingIdValid;
-            this.Confidence = 0.0f;
-
-            if (!this.IsTracked)
+            try
             {
-                this.ImageSource = this.notTrackedImage;
-                this.Detected = GestureNames.None;
-                this.BodyColor = Brushes.Gray;
-            }
-            else
-            {
-                this.BodyColor = this.trackedColors[this.BodyIndex];
+                this.IsTracked = isBodyTrackingIdValid;
+                this.Confidence = 0.0f;
 
-                if (isGestureDetected)
+                if (!this.IsTracked)
                 {
-                    this.Detected = gestureKey;
-                    this.Confidence = detectionConfidence;
-                    this.ImageSource = gestureImageDict[gestureKey];
+                    this.ImageSource = this.notTrackedImage;
+                    this.Detected = GestureNames.None;
+                    this.BodyColor = Brushes.Gray;
                 }
                 else
                 {
-                    this.Detected = GestureNames.None;
-                    this.ImageSource = gestureImageDict[GestureNames.None];
+                    this.BodyColor = this.trackedColors[this.BodyIndex];
+
+                    if (isGestureDetected)
+                    {
+                        this.Detected = gestureKey;
+                        this.Confidence = detectionConfidence;
+                        this.ImageSource = gestureImageDict[gestureKey];
+                    }
+                    else
+                    {
+                        this.Detected = GestureNames.None;
+                        this.ImageSource = gestureImageDict[GestureNames.None];
+                    }
                 }
-            }
-            var gestMsg = new experimot.msgs.GestureTrigger()
-            {
-                id = BodyIndex,
-                motion = new GestureDescription()
+                var gestMsg = new experimot.msgs.GestureTrigger()
                 {
-                    active = isGestureDetected,
-                    confidence = (int) detectionConfidence*100,
-                    name = gestureKey,
-                    progress = 0,
-                    type = GestureDescription.GestureType.Discrete
-                }
-            };
-            GestureTriggerPublisher.Instance.PublishGestureTrigger(gestMsg);
+                    id = BodyIndex,
+                    motion = new GestureDescription()
+                    {
+                        active = isGestureDetected,
+                        confidence = (int) detectionConfidence*100,
+                        name = gestureKey,
+                        progress = 0,
+                        type = GestureDescription.GestureType.Discrete
+                    }
+                };
+                GestureTriggerPublisher.Instance.PublishGestureTrigger(gestMsg);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("{0}: {1}", ex.Message, ex.StackTrace));
+            }
         }
 
         /// <summary>

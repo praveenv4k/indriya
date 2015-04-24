@@ -1,5 +1,4 @@
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Caliburn.Micro;
@@ -19,6 +18,24 @@ namespace Experimot.Scheduler.Data
         public Human()
         {
             _gestures = new BindableCollection<Gesture>();
+        }
+
+        public Human(IList<GestureModule> modules)
+        {
+            _gestures = new BindableCollection<Gesture>();
+            if (modules != null)
+            {
+                foreach (var module in modules)
+                {
+                    if (module.Gestures != null && module.Gestures.Count > 0)
+                    {
+                        foreach (var gestureDescription in module.Gestures)
+                        {
+                            _gestures.Add(Gesture.Default(gestureDescription.Name, gestureDescription.Mode));
+                        }
+                    }
+                }
+            }
         }
 
         public string Id
