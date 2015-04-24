@@ -3,7 +3,9 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using Common.Logging;
+using experimot.msgs;
 using Experimot.Scheduler.Annotations;
+using Experimot.Scheduler.Data;
 using Nancy.TinyIoc;
 
 namespace Experimot.Scheduler
@@ -54,6 +56,18 @@ namespace Experimot.Scheduler
         {
             var handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private int prev = 7;
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (Context != null)
+            {
+                Context.Humans.Add(new Human(prev, Context.MotionModules)
+                {
+                    Body = new KinectBody() { TrackingId = prev++}
+                });
+            }
         }
     }
 }

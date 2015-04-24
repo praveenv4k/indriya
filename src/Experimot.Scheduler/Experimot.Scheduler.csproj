@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\CefSharp.Wpf.39.0.0\build\CefSharp.Wpf.props" Condition="Exists('..\..\packages\CefSharp.Wpf.39.0.0\build\CefSharp.Wpf.props')" />
+  <Import Project="..\..\packages\CefSharp.Common.39.0.0\build\CefSharp.Common.props" Condition="Exists('..\..\packages\CefSharp.Common.39.0.0\build\CefSharp.Common.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -29,6 +31,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>d452cd75</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -156,6 +159,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BootStrapper.cs" />
+    <Compile Include="BrowserViewModel.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Data\Behavior.cs" />
     <Compile Include="Data\ExperimotMsgsExtenstions.cs" />
@@ -164,6 +168,10 @@
     <Compile Include="Data\Localization.cs" />
     <Compile Include="Data\ManipulatableObject.cs" />
     <Compile Include="Data\Robot.cs" />
+    <Compile Include="Mvvm\DelegateCommand.cs" />
+    <Compile Include="Mvvm\DelegateCommandT.cs" />
+    <Compile Include="Mvvm\PropertyChangedExtensionMethods.cs" />
+    <Compile Include="Mvvm\ViewModelBase.cs" />
     <Compile Include="Tasks\JobListener.cs" />
     <Compile Include="ParameterServer.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -515,6 +523,19 @@
     <PostBuildEvent>xcopy /i/f/s/y $(SolutionDir)src\experimot_robot_interface\*.py %25DEV_SDK_ROOT%25\experimot\scripts\experimot_robot_interface\
 </PostBuildEvent>
   </PropertyGroup>
+  <Import Project="..\..\packages\cef.redist.x86.3.2171.2069\build\cef.redist.x86.targets" Condition="Exists('..\..\packages\cef.redist.x86.3.2171.2069\build\cef.redist.x86.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\cef.redist.x86.3.2171.2069\build\cef.redist.x86.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\cef.redist.x86.3.2171.2069\build\cef.redist.x86.targets'))" />
+    <Error Condition="!Exists('..\..\packages\cef.redist.x64.3.2171.2069\build\cef.redist.x64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\cef.redist.x64.3.2171.2069\build\cef.redist.x64.targets'))" />
+    <Error Condition="!Exists('..\..\packages\CefSharp.Common.39.0.0\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\CefSharp.Common.39.0.0\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\..\packages\CefSharp.Common.39.0.0\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\CefSharp.Common.39.0.0\build\CefSharp.Common.targets'))" />
+    <Error Condition="!Exists('..\..\packages\CefSharp.Wpf.39.0.0\build\CefSharp.Wpf.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\CefSharp.Wpf.39.0.0\build\CefSharp.Wpf.props'))" />
+  </Target>
+  <Import Project="..\..\packages\cef.redist.x64.3.2171.2069\build\cef.redist.x64.targets" Condition="Exists('..\..\packages\cef.redist.x64.3.2171.2069\build\cef.redist.x64.targets')" />
+  <Import Project="..\..\packages\CefSharp.Common.39.0.0\build\CefSharp.Common.targets" Condition="Exists('..\..\packages\CefSharp.Common.39.0.0\build\CefSharp.Common.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -9,20 +9,20 @@ namespace Experimot.Scheduler.Data
 {
     public class Human : INotifyPropertyChanged
     {
-        private string _id;
+        private int _id;
 
         private KinectBody _body;
 
         private readonly BindableCollection<Gesture> _gestures;
 
-        public Human()
+        public Human(int id)
         {
+            _id = id;
             _gestures = new BindableCollection<Gesture>();
         }
 
-        public Human(IList<GestureModule> modules)
+        public Human(int id, IList<GestureModule> modules) : this(id)
         {
-            _gestures = new BindableCollection<Gesture>();
             if (modules != null)
             {
                 foreach (var module in modules)
@@ -38,7 +38,7 @@ namespace Experimot.Scheduler.Data
             }
         }
 
-        public string Id
+        public int Id
         {
             get { return _id; }
             set

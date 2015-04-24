@@ -29,6 +29,7 @@ namespace Experimot.Scheduler
         private readonly BindableCollection<GestureModule> _motionModules;
         private readonly BindableCollection<RobotBehaviorModule> _behaviorModules;
         private static readonly ILog Log = LogManager.GetLogger<Context>();
+        private readonly BrowserTabViewModel _browserTabViewModel;
 
         public Context()
         {
@@ -38,6 +39,7 @@ namespace Experimot.Scheduler
             _objects = new ConcurrentDictionary<string, ManipulatableObject>();
             _motionModules = new BindableCollection<GestureModule>();
             _behaviorModules = new BindableCollection<RobotBehaviorModule>();
+            _browserTabViewModel = new BrowserTabViewModel("http://localhost:8888");
         }
 
         [ExpandableObject]
@@ -75,6 +77,11 @@ namespace Experimot.Scheduler
         public BindableCollection<RobotBehaviorModule> BehaviorModules
         {
             get { return _behaviorModules; }
+        }
+
+        public BrowserTabViewModel TabViewModel
+        {
+            get { return _browserTabViewModel; }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -125,16 +132,15 @@ namespace Experimot.Scheduler
 
                 foreach (var kinectBody in kinectBodies.Body)
                 {
-                    var item = _humans.FirstOrDefault(s => s.Body.TrackingId == kinectBody.TrackingId);
+                    var item = Humans.FirstOrDefault(s => s.Body.TrackingId == kinectBody.TrackingId);
                     if (item == null)
                     {
-                        var human = new Human(_motionModules)
+                        var human = new Human(kinectBody.TrackingId, _motionModules)
                         {
-                            Body = kinectBody,
-                            Id = kinectBody.TrackingId.ToString()
+                            Body = kinectBody
                         };
                         //human.Gestures.CollectionChanged += GesturesCollectionChanged;
-                        _humans.Add(human);
+                        Humans.Add(human);
                     }
                     else
                     {
