@@ -6,9 +6,10 @@
              xmlns:converters="clr-namespace:Gemini.Modules.GraphEditor.Converters;assembly=Gemini.Modules.GraphEditor"
              xmlns:local="clr-namespace:Gemini.Modules.GraphEditor.Controls;assembly=Gemini.Modules.GraphEditor"
              xmlns:vm="clr-namespace:ExperimotStudio.Modules.FilterDesigner.ViewModels"
+             xmlns:design="clr-namespace:ExperimotStudio.Modules.FilterDesigner.Design"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="700"
-			 d:DataContext="{d:DesignInstance dd:DesignTimeGraphViewModel, IsDesignTimeCreatable=True}"
+			 d:DataContext="{d:DesignInstance design:DesignTimeGraphViewModel, IsDesignTimeCreatable=True}"
 			 Background="WhiteSmoke" Focusable="True">
 	<UserControl.Resources>
 		<converters:ColorToBrushConverter x:Key="ColorToBrushConverter" />
