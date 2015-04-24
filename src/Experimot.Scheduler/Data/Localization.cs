@@ -16,7 +16,11 @@ namespace Experimot.Scheduler.Data
 
         public Localization()
         {
-            SetPose(new Pose());
+            SetPose(new Pose()
+            {
+                position = new Vector3d() {x = 0, y = 0, z = 0},
+                orientation = new Quaternion() {w = 1, x = 0, y = 0, z = 0}
+            });
             _recentPoses = new ConcurrentQueue<Pose>();
         }
 

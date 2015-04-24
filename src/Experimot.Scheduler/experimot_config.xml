@@ -14,7 +14,7 @@
     <param key="WebServerHost" value="http://localhost" type="int"/>
   </parameters>
   <nodes>
-    <node enabled="false">
+    <node enabled="true">
       <name>localization</name>
       <process>
         <type>executable</type>
@@ -54,7 +54,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false">
+    <node enabled="true">
       <name>gesture_recognition</name>
       <process>
         <type>executable</type>
