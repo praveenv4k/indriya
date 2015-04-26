@@ -3,7 +3,7 @@ using Nancy.Bootstrapper;
 using Nancy.Conventions;
 using Nancy.TinyIoc;
 
-namespace NancyFx
+namespace Experimot.Scheduler.Web
 {
     class ExperimotWebBootStrapper: DefaultNancyBootstrapper
     {
@@ -15,6 +15,7 @@ namespace NancyFx
             Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("js", "Web/www/js"));
             Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("libs", "Web/www/libs"));
             Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("scenes", "Web/www/scenes"));
+            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("demo", "Web/www/demo"));
         }
     }
 }

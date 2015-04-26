@@ -3,7 +3,6 @@ using Common.Logging;
 using Experimot.Core;
 using Experimot.Core.Util;
 using Nancy.Hosting.Self;
-using NancyFx;
 
 namespace Experimot.Scheduler.Web
 {
