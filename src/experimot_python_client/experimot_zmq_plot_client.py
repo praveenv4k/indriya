@@ -32,6 +32,7 @@ import transformations
 pos = [0.0,0.0,0.0]
 orient = [1.0,0.0,0.0,0.0]
 
+pose = [0.0,0.0,0.0]
 #############################################################################################################
 # Localization server - A sample server for testing purpose
 def localization_server(ip,port):
@@ -39,7 +40,8 @@ def localization_server(ip,port):
     socket = context.socket(zmq.REP)
     socket.bind(("tcp://*:%d" % port))
 
-    dummy = { 'pos' : {'x':'1000','y':'1000','z':'1000'}, 'orient': {'w':'1','x':'0','y':'0','z':'0'}};
+    #dummy = { 'pos' : {'x':'1000','y':'1000','z':'1000'}, 'orient': {'w':'1','x':'0','y':'0','z':'0'}};
+    dummy = { 'pose' : {'x':'1','y':'1','alpha':'0'}};
     while True:
         #  Wait for next request from client
         message = socket.recv()
@@ -76,9 +78,11 @@ def localization_client(lock,ip,port):
         # In order to access orientation : (result["orient"]["w"],result["orient"]["x"],result["orient"]["y"],result["orient"]["z"])
 
         lock.acquire()
-        global pos, orient
-        pos = [float(result["pos"]["x"]),float(result["pos"]["y"]),float(result["pos"]["z"])]
-        orient = [float(result["orient"]["w"]),float(result["orient"]["x"]),float(result["orient"]["y"]),float(result["orient"]["z"])]
+        #global pos, orient
+        #pos = [float(result["pos"]["x"]),float(result["pos"]["y"]),float(result["pos"]["z"])]
+        #orient = [float(result["orient"]["w"]),float(result["orient"]["x"]),float(result["orient"]["y"]),float(result["orient"]["z"])]
+        global pose
+        pose = [float(result["pose"]["x"]),float(result["pose"]["y"]),float(result["pose"]["alpha"])]
         lock.release()
 
         #print "Position    : " , pos
@@ -131,19 +135,20 @@ def plot_robot_pose(interval, lock):
 
     def animate(i):
         lock.acquire()
-        local_pos = pos;
-        local_orient = orient
+        local_pos = pose[0:2];
+        local_orient = pose[2]
         lock.release()
 
-        local_pos = [x/1000 for x in local_pos]
+        #local_pos = [x/1000 for x in local_pos]
         
-        euler = transformations.euler_from_quaternion(local_orient,axes='syxz')
-        euler = [math.degrees(x) for x in euler]
+        #euler = transformations.euler_from_quaternion(local_orient,axes='syxz')
+        #euler = [math.degrees(x) for x in euler]
+        #deg = euler[1]
+        deg = math.degrees(local_orient)
 
-        deg = euler[1]
         #x,y   = wedge1.center
-        x = local_pos[2]
-        y = local_pos[0]
+        x = local_pos[0]
+        y = local_pos[1]
 
         wedge1.set_center((x,y))
         wedge1.set_theta1(deg - 15)
@@ -152,7 +157,7 @@ def plot_robot_pose(interval, lock):
         
         print "Position    : " , local_pos
         print "Orientation : " , local_orient
-        print "Euler       : " , euler
+        print "Euler       : " , deg
 
         return wedge1,
 
@@ -177,7 +182,7 @@ if __name__ == "__main__":
         thread.start_new_thread(plot_robot_pose,(interval,lock));
 
         # Responder (server) - uncomment to check with the local server
-        # thread.start_new_thread(localization_server,(ip,port));
+        #thread.start_new_thread(localization_server,(ip,port));
 
         # Requester (client)
         thread.start_new_thread(localization_client,(lock,ip,port));
