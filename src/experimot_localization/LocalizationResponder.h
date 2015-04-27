@@ -25,7 +25,7 @@ public:
 		}
 	}
 
-	void Respond(Transform& torsoTransform){
+	void Respond(Transform& torsoTransform, bool fullPose){
 		try{
 			if (m_pSocket != 0 && m_pSocket->connected()){
 				//std::cout << "Receiving request : " << std::endl;
@@ -34,7 +34,7 @@ public:
 					std::string req(static_cast<char*>(msg.data()), msg.size());
 					//std::cout << "Received request : " << req << std::endl;
 					std::string str;
-					toJson(torsoTransform, str);
+					toJson(torsoTransform, str, fullPose);
 					s_send(*m_pSocket, str);
 				}
 			}
@@ -57,12 +57,28 @@ private:
 		}
 	}
 
-	void toJson(const Transform& tfm, string& str){
+	void decomposeTransform(const OpenRAVE::Transform& trans, double&Rx, double& Ry, double& Rz){
+		Vector quat = trans.rot;
+		b3Quaternion b3quat(quat[1], quat[2], quat[3], quat[0]);
+		b3Matrix3x3 b3Mat(b3quat);
+		float roll, pitch, yaw;
+		b3Mat.getEulerYPR(yaw, pitch, roll);
+		Rx = roll; Ry = pitch; Rz = yaw;
+	}
+
+	void toJson(const Transform& tfm, string& str, bool fullPose = false){
 		stringstream ss;
-		/*ss << "{ \"pos\" : {\"x\":" << tfm.trans.x << ", \"y\" :" << tfm.trans.y << ", \"z\" :" << tfm.trans.z << "}, \"orient\" : {\"w\":"
-			<< tfm.rot[0] << ", \"x\":" << tfm.rot[1] << ", \"y\" :" << tfm.rot[2] << ", \"z\" :" << tfm.rot[3] << "} }";*/
-		ss << "{ \"pos\" : {\"x\":" << tfm.trans.x/1000 << ", \"y\" :" << tfm.trans.y/1000 << ", \"z\" :" << tfm.trans.z/1000 << "}, \"orient\" : {\"w\":"
-			<< tfm.rot[0] << ", \"x\":" << tfm.rot[1] << ", \"y\" :" << tfm.rot[2] << ", \"z\" :" << tfm.rot[3] << "} }"; 
+		if (fullPose){
+			/*ss << "{ \"pos\" : {\"x\":" << tfm.trans.x << ", \"y\" :" << tfm.trans.y << ", \"z\" :" << tfm.trans.z << "}, \"orient\" : {\"w\":"
+				<< tfm.rot[0] << ", \"x\":" << tfm.rot[1] << ", \"y\" :" << tfm.rot[2] << ", \"z\" :" << tfm.rot[3] << "} }";*/
+			ss << "{ \"pos\" : {\"x\":" << tfm.trans.x / 1000 << ", \"y\" :" << tfm.trans.y / 1000 << ", \"z\" :" << tfm.trans.z / 1000 << "}, \"orient\" : {\"w\":"
+				<< tfm.rot[0] << ", \"x\":" << tfm.rot[1] << ", \"y\" :" << tfm.rot[2] << ", \"z\" :" << tfm.rot[3] << "} }";
+		}
+		else{
+			double Rx, Ry, Rz;
+			decomposeTransform(tfm, Rx, Ry, Rz);
+			ss << "{ \"pose\" : {\"x\":" << tfm.trans.z / 1000 << ", \"y\" :" << tfm.trans.x / 1000 << ", \"alpha\" :" << OpenRAVE::PI-Rx << "} }";
+		}
 		str = ss.str();
 	}
 

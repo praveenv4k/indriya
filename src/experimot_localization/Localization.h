@@ -105,6 +105,7 @@ public:
 
 			std::cout << "Localization node initialization complete !" << std::endl;
 		}
+		m_SensorThreadQuit = false;
 	}
 
 	Localization(boost::asio::io_service& io)
@@ -120,11 +121,14 @@ public:
 		m_pMarkerDetectionPtr = MarkerDetectionPtr(new MarkerDetection(std::string(CALIB_FILE), MARKER_SIZE, CUBE_SIZE));
 		m_pLocalizationResponderPtr = LocalizationResponderPtr(new LocalizationResponder(TDM_ADDRESS, TDM_PORT, TDM_TIMEOUT));
 		m_pRobotPoseInfoPtr = RobotPoseInfoPtr(new RobotPoseInfo());
+		m_SensorThreadQuit = false;
 		_init();
 	}
 
 	~Localization()
 	{
+		m_SensorThreadQuit = true;
+		m_SensorThread.join();
 	}
 
 	// decompose Transform into x,y,z,Rx,Ry,Rz
@@ -174,8 +178,70 @@ public:
 		out = mat.inverse();
 	}
 
+	void SensorDataProcessThread()
+	{
+		bool quit = false;
+		if (m_bVisualize){
+			cvNamedWindow("Image View", 1);
+		}
+		while (true){
+			if (m_VideoCapture.isOpened()){
+				cv::Mat view0;
+				m_VideoCapture >> view0;
+				IplImage* img = cvCloneImage(&(IplImage)view0);
+				if (img != NULL && m_pMarkerDetectionPtr != 0 && m_pRobotPoseInfoPtr != 0){
+					RobotPoseInfoMutex::scoped_lock lock(m_pRobotPoseInfoPtr->GetMutex());
+					const std::vector<double>& jointVals = m_pRobotPoseInfoPtr->GetJointValueVector();
+					std::vector<double> headJoints;
+
+					if (jointVals.size() >= 2){
+						headJoints.push_back(jointVals[0]);
+						headJoints.push_back(jointVals[1]);
+					}
+					else{
+						headJoints.push_back(0);
+						headJoints.push_back(0);
+					}
+					Transform eef;
+					NaoHeadTransformHelper::instance()->GetEndEffectorTransform(headJoints, eef);
+
+					Transform markerTfm;
+					Transform prevTfm = m_pRobotPoseInfoPtr->GetMarkerTransform();
+					if (m_pMarkerDetectionPtr->Videocallback(prevTfm, img, eef, markerTfm, headJoints, true)){
+						Transform out;
+						m_MedianFilter.addPose(markerTfm);
+						m_MedianFilter.getMedian(markerTfm);
+						cout << markerTfm << endl;
+						m_pRobotPoseInfoPtr->SetMarkerTransform(markerTfm);
+					}
+					else{
+						cout << "No markers detected" << endl;
+					}
+					if (m_bVisualize){
+						cv::Mat temp(img);
+						cvShowImage("Image View", img);
+					}
+					cvRelease((void**)&img);
+				}
+				int c = 0xff & cv::waitKey(1);
+				if ((c & 255) == 27 || c == 'q' || c == 'Q' || m_SensorThreadQuit)
+				{
+					std::cout << "About to quit the sensor process thread : " << m_SensorThreadQuit << std::endl;
+					quit = true;
+				}
+			}
+			if (!quit){
+
+			}
+			else{
+				break;
+			}
+		}
+	}
+
 	void SensorDataProcess()
 	{
+		return;
 		bool quit = false;
 		m_SensorTimer.expires_at(m_SensorTimer.expires_at() + boost::posix_time::milliseconds(m_nSensorCycle));
 		//TODO Call marker detection here
@@ -237,7 +303,6 @@ public:
 				if (m_bVisualize){
 					cv::Mat temp(img);
 					cvShowImage("Image View", img);
-					
 				}
 				cvRelease((void**)&img);
 			}
@@ -269,7 +334,7 @@ public:
 	}
 
 	void PublishTransform(){
-		cout << "Publishing transform" << endl;
+		//cout << "Publishing transform" << endl;
 		m_PoseTimer.expires_at(m_PoseTimer.expires_at() + boost::posix_time::milliseconds(m_nPoseCycle));
 		//TODO Publish Torso transform here
 		if (m_pTorsoPosePublisherPtr != 0 && m_pRobotPoseInfoPtr != 0){
@@ -303,11 +368,15 @@ public:
 				ToKinectFrame(torsoTfm, kinectTfm);
 
 #if 1
+
+#if 0
 				cout << "*********************************************" << std::endl;
 				cout << "End Effector w.r.t Torso   : " << eef << std::endl;
 				cout << "Top Marker w.r.t ALVAR     : " << markerTfm << std::endl;
 				cout << "Torso w.r.t ALVAR          : " << torsoTfm << std::endl << std::endl;
 				cout << "Torso w.r.t Kinect         : " << kinectTfm << std::endl << std::endl;
+#endif
+
 #else
 				cout << "*********************************************" << std::endl;
 				cout << "Actual marker Transform      : " << markerTfm << std::endl;
@@ -364,7 +433,7 @@ public:
 #endif
 
 
-				m_pLocalizationResponderPtr->Respond(kinectTfm);
+				m_pLocalizationResponderPtr->Respond(kinectTfm,false);
 			}
 		}
 		m_TdmTimer.async_wait(strand_.wrap(boost::bind(&Localization::LocalizationRespond, this)));
@@ -375,17 +444,22 @@ private:
 		m_VideoCapture.open(0);
 		Sleep(3000);
 
-		if (m_bVisualize){
+		/*if (m_bVisualize){
 			cvNamedWindow("Image View", 1);
-		}
+		}*/
 
 		m_SensorTimer.async_wait(strand_.wrap(boost::bind(&Localization::SensorDataProcess, this)));
 		m_RobotTimer.async_wait(strand_.wrap(boost::bind(&Localization::JointDataReceive, this)));
 		m_PoseTimer.async_wait(strand_.wrap(boost::bind(&Localization::PublishTransform, this)));
 		m_TdmTimer.async_wait(strand_.wrap(boost::bind(&Localization::LocalizationRespond, this)));
 		//m_poseFilter.initialize(Transform(), PosixTime(boost::posix_time::microsec_clock::local_time()));
+		//boost::thread t1(&Multi::increase, &m); // 1.
+		m_SensorThread = boost::thread(&Localization::SensorDataProcessThread, this);
 	}
 private:
+	boost::thread m_SensorThread;
+	volatile bool m_SensorThreadQuit;
+
 	boost::asio::strand strand_;
 	boost::asio::deadline_timer m_SensorTimer;
 	boost::asio::deadline_timer m_RobotTimer;
