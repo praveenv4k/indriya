@@ -34,7 +34,7 @@
 // Measurement noise
 #define SIGMA_MEAS_NOISE_POS pow(2,2)
 #define SIGMA_SYSTEM_NOISE_ORIENT pow(2*M_PI/180,2)
-#define MU_MEAS_NOISE 0.0
+#define MU_MEAS_NOISE 0.001
 
 // Prior:
 // Initial estimate of position and orientation
@@ -134,7 +134,7 @@ public:
 			for (int i = 1; i <= STATE_SIZE; i++){
 				for (int j = 1; j <= STATE_SIZE; j++){
 					if (i == j){
-						meas_noise_Cov(i, j) = noise[i - 1];
+						meas_noise_Cov(i, j) = meas_noise[i - 1];
 					}
 					else{
 						meas_noise_Cov(i, j) = 0.0;
@@ -204,6 +204,9 @@ public:
 				if (filter != 0 && sys_model != 0 && meas_model != 0){
 					filter->Update(sys_model.get(), input, meas_model.get(), measurement);
 				}
+				else{
+					std::cout << "Invalid pointer" << std::endl;
+				}
 			}
 			else{
 				std::cout << "Filter not initialized" << std::endl;
@@ -234,10 +237,10 @@ public:
 	}
 
 	MarkerParticleFilterMutex& GetMutex() {
-		return _mutexRobotPoseInfo;
+		return _mutex;
 	}
 private:
-	mutable RobotPoseInfoMutex _mutexRobotPoseInfo;
+	mutable MarkerParticleFilterMutex _mutex;
 	ColumnVector sys_noise_Mu;
 	SymmetricMatrix sys_noise_Cov;
 	ColumnVector meas_noise_Mu;

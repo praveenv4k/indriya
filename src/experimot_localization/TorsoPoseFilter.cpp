@@ -9,24 +9,32 @@ using namespace std;
 TorsoPoseFilter::TorsoPoseFilter() :prior_(NULL),
 filter_(NULL),
 filter_initialized_(false),
-vo_initialized_(false)
+vo_initialized_(false),
+sysNoise_Mu(6),
+sysNoise_Cov(6),
+measNoiseVo_Mu(6),
+measNoiseVo_Cov(6),
+Hvo(6, 6)
 {
 	// create SYSTEM MODEL
-	ColumnVector sysNoise_Mu(6);  sysNoise_Mu = 0;
-	SymmetricMatrix sysNoise_Cov(6); sysNoise_Cov = 0;
+	sysNoise_Mu = 0;
+	sysNoise_Cov = 0;
+
 	for (unsigned int i = 1; i <= 6; i++) sysNoise_Cov(i, i) = pow(1000.0, 2);
-	Gaussian system_Uncertainty(sysNoise_Mu, sysNoise_Cov);
-	sys_pdf_ = new NonLinearAnalyticConditionalGaussianOdo(system_Uncertainty);
+	
+	system_Uncertainty = new Gaussian(sysNoise_Mu, sysNoise_Cov);
+	sys_pdf_ = new NonLinearAnalyticConditionalGaussianOdo(*system_Uncertainty);
 	sys_model_ = new AnalyticSystemModelGaussianUncertainty(sys_pdf_);
 
 	// create MEASUREMENT MODEL VO
-	ColumnVector measNoiseVo_Mu(6);  measNoiseVo_Mu = 0;
-	SymmetricMatrix measNoiseVo_Cov(6);  measNoiseVo_Cov = 0;
+	measNoiseVo_Mu = 0;
+	measNoiseVo_Cov = 0;
 	for (unsigned int i = 1; i <= 6; i++) measNoiseVo_Cov(i, i) = 1;
-	Gaussian measurement_Uncertainty_Vo(measNoiseVo_Mu, measNoiseVo_Cov);
-	Matrix Hvo(6, 6);  Hvo = 0;
+
+	measurement_Uncertainty_Vo = new Gaussian(measNoiseVo_Mu, measNoiseVo_Cov);
+	Hvo = 0;
 	Hvo(1, 1) = 1;    Hvo(2, 2) = 1;    Hvo(3, 3) = 1;    Hvo(4, 4) = 1;    Hvo(5, 5) = 1;    Hvo(6, 6) = 1;
-	vo_meas_pdf_ = new LinearAnalyticConditionalGaussian(Hvo, measurement_Uncertainty_Vo);
+	vo_meas_pdf_ = new LinearAnalyticConditionalGaussian(Hvo, *measurement_Uncertainty_Vo);
 	vo_meas_model_ = new LinearAnalyticMeasurementModelGaussianUncertainty(vo_meas_pdf_);
 }
 
@@ -37,6 +45,8 @@ TorsoPoseFilter::~TorsoPoseFilter(){
 	delete vo_meas_pdf_;
 	delete sys_pdf_;
 	delete sys_model_;
+	delete system_Uncertainty;
+	delete measurement_Uncertainty_Vo;
 }
 
 void PrintVector(ColumnVector vec){
@@ -53,7 +63,7 @@ void PrintVector(ColumnVector vec){
 bool TorsoPoseFilter::update(const PosixTime& filter_time){
 	// only update filter when it is initialized
 	if (!filter_initialized_){
-		//ROS_INFO("Cannot update filter when filter was not initialized first.");
+		cout << "Cannot update filter when filter was not initialized first." << std::endl;
 		return false;
 	}
 
@@ -61,7 +71,7 @@ bool TorsoPoseFilter::update(const PosixTime& filter_time){
 	double dt = (filter_time - filter_time_old_).seconds();
 	if (dt == 0) return false;
 	if (dt < 0){
-		//ROS_INFO("Will not update robot pose with time %f sec in the past.", dt);
+		cout << "Will not update robot pose with time " << dt << "sec in the past. : " << endl;
 		return false;
 	}
 	//ROS_DEBUG("Update filter at time %f with dt %f", filter_time.toSec(), dt);
@@ -78,14 +88,15 @@ bool TorsoPoseFilter::update(const PosixTime& filter_time){
 	if (vo_initialized_){
 		// convert absolute vo measurements to relative vo measurements
 		//Transform vo_rel_frame = filter_estimate_old_ * vo_meas_old_.inverse() * vo_meas_;
-		Transform vo_rel_frame = filter_estimate_old_.inverse() * vo_meas_;
+		/*Transform vo_rel_frame = filter_estimate_old_.inverse() * vo_meas_;*/
+		Transform vo_rel_frame = filter_estimate_old_ * vo_meas_.inverse();
 		ColumnVector vo_rel(6);
 		decomposeTransform(vo_rel_frame, vo_rel(1), vo_rel(2), vo_rel(3), vo_rel(4), vo_rel(5), vo_rel(6));
 		angleOverflowCorrect(vo_rel(6), filter_estimate_old_vec_(6));
 
 		std::cout << "Old Estimate Frame : " << filter_estimate_old_ << std::endl;
 		std::cout << "Old Measure Frame : " << vo_meas_old_ << std::endl;
-		std::cout << "Current Measure Frame : " << vo_meas_old_ << std::endl;
+		std::cout << "Current Measure Frame : " << vo_meas_ << std::endl;
 		std::cout << "Rel Frame : " << vo_rel_frame << std::endl;
 		PrintVector(vo_rel);
 
@@ -126,7 +137,7 @@ void TorsoPoseFilter::initialize(const OpenRAVE::Transform& prior, const PosixTi
 	for (unsigned int i = 1; i <= 6; i++) {
 		for (unsigned int j = 1; j <= 6; j++){
 			if (i == j) {
-				prior_Cov(i, j) = pow(0.001, 2);
+				prior_Cov(i, j) = pow(2, 2);
 			}
 			else{
 				prior_Cov(i, j) = 0;

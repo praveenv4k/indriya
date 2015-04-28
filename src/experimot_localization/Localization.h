@@ -251,6 +251,14 @@ public:
 						PrintColumnVector(particlePose);
 						m_ParticleFilter.Update(particlePose);
 
+						/*cout << "************* Updating KF *****************" << std::endl;
+						m_poseFilter.addMeasurement(markerTfm);
+
+						m_poseFilter.update(boost::posix_time::microsec_clock::local_time());
+						if (!m_poseFilter.isInitialized()){
+							m_poseFilter.initialize(markerTfm, boost::posix_time::microsec_clock::local_time());
+						}*/
+
 						m_pRobotPoseInfoPtr->SetMarkerTransform(markerTfm);
 					}
 					else{
@@ -325,15 +333,14 @@ public:
 					m_pRobotPoseInfoPtr->SetMarkerTransform(markerTfm);
 #endif
 
-#if 0
+#if 1
+					/*cout << "************* Updating KF *****************" << std::endl;
 					m_poseFilter.addMeasurement(out);
 
 					m_poseFilter.update(boost::posix_time::microsec_clock::local_time());
-					//TransformMatrix mat(out);
-					//std::cout << mat << std::endl;
 					if (!m_poseFilter.isInitialized()){
 						m_poseFilter.initialize(out, boost::posix_time::microsec_clock::local_time());
-					}
+					}*/
 #endif
 				}
 				else{
@@ -410,8 +417,9 @@ public:
 				Transform torsoTfm;
 				TransformationHelper::ComputeTorsoFrame(markerTfm, eef, torsoTfm);
 
-				//Transform filterTfm;
-				//m_poseFilter.getEstimate(filterTfm);
+				/*Transform filterTfm;
+				m_poseFilter.getEstimate(filterTfm);
+				cout << "Filter Tfm : " << filterTfm << std::endl;*/
 
 				Transform kinectTfm;
 				ToKinectFrame(torsoTfm, kinectTfm);
@@ -504,8 +512,8 @@ private:
 		m_RobotTimer.async_wait(strand_.wrap(boost::bind(&Localization::JointDataReceive, this)));
 		m_PoseTimer.async_wait(strand_.wrap(boost::bind(&Localization::PublishTransform, this)));
 		m_TdmTimer.async_wait(strand_.wrap(boost::bind(&Localization::LocalizationRespond, this)));
+
 		//m_poseFilter.initialize(Transform(), PosixTime(boost::posix_time::microsec_clock::local_time()));
-		//boost::thread t1(&Multi::increase, &m); // 1.
 		m_SensorThread = boost::thread(&Localization::SensorDataProcessThread, this);
 
 		m_ParticleFilter.Init();
@@ -533,7 +541,7 @@ private:
 	MarkerDetection2Ptr m_pMarkerDetectionPtr;
 	RobotPoseInfoPtr m_pRobotPoseInfoPtr;
 	KinectVideoCapture m_VideoCapture;
-	TorsoPoseFilter m_poseFilter;
+	//TorsoPoseFilter m_poseFilter;
 
 	MedianFilter m_MedianFilter;
 	MarkerParticleFilter m_ParticleFilter;
