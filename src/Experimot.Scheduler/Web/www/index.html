@@ -112,6 +112,29 @@
 
     //$("#tabs").tabs();
 
+    var handleSelect = function (e, tab) {
+        if (tab.newTab.index() === 1) {
+            console.log('tab selected');
+            $.getJSON(
+                '/context',
+                function (data) {
+                    $('#tree1').JSONView(data);
+                }
+            );
+        }
+    }
+
+    var appSlidebar = new $.slidebars();
+
+    $("#toggle-btn")
+        .button()
+        .click(function () {
+            appSlidebar.slidebars.toggle('left');
+        })
+        .text("TOGGLE");
+
+    $("#tabs").tabs({ beforeActivate: handleSelect });
+
     var loader = new THREE.ColladaLoader();
     loader.options.convertUpAxis = true;
 
@@ -157,28 +180,28 @@
     });
 
     function init() {
-        var handleSelect = function(e, tab) {
-            if (tab.newTab.index() === 1) {
-                console.log('tab selected');
-                $.getJSON(
-                    '/context',
-                    function(data) {
-                        $('#tree1').JSONView(data);
-                    }
-                );
-            }
-        }
+        //var handleSelect = function(e, tab) {
+        //    if (tab.newTab.index() === 1) {
+        //        console.log('tab selected');
+        //        $.getJSON(
+        //            '/context',
+        //            function(data) {
+        //                $('#tree1').JSONView(data);
+        //            }
+        //        );
+        //    }
+        //}
 
-        var appSlidebar = new $.slidebars();
+        //var appSlidebar = new $.slidebars();
 
-        $("#toggle-btn")
-            .button()
-            .click(function() {
-                appSlidebar.slidebars.toggle('left');
-            })
-            .text("TOGGLE");
+        //$("#toggle-btn")
+        //    .button()
+        //    .click(function() {
+        //        appSlidebar.slidebars.toggle('left');
+        //    })
+        //    .text("TOGGLE");
 
-        $("#tabs").tabs({ beforeActivate: handleSelect });
+        //$("#tabs").tabs({ beforeActivate: handleSelect });
 
         container = document.getElementById('viewport');
 
