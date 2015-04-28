@@ -14,7 +14,7 @@
     <param key="WebServerHost" value="http://localhost" type="int"/>
   </parameters>
   <nodes>
-    <node enabled="true">
+    <node enabled="false">
       <name>localization</name>
       <process>
         <type>executable</type>
@@ -146,7 +146,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="true">
+    <node enabled="false">
       <name>tdm_client</name>
       <process>
         <type>executable</type>
