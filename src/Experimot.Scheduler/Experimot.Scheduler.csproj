@@ -256,8 +256,11 @@
     <Content Include="Web\www\fonts\helvetiker_regular.typeface.js" />
     <Content Include="Web\www\fonts\optimer_bold.typeface.js" />
     <Content Include="Web\www\fonts\optimer_regular.typeface.js" />
-    <Content Include="Web\www\index.html">
+    <Content Include="Web\www\index_joint.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web\www\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Web\www\js\AudioObject.js" />
     <Content Include="Web\www\js\BlendCharacter.js" />
