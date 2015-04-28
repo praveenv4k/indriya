@@ -18,6 +18,8 @@ class RobotPoseInfo;
 
 typedef boost::shared_ptr<RobotPoseInfo> RobotPoseInfoPtr;
 typedef boost::recursive_try_mutex RobotPoseInfoMutex;
+typedef std::map<int, Transform>::iterator TransformMapIterator;
+typedef std::map<int, Transform>::const_iterator TransformMapConstIterator;
 
 class RobotPoseInfo : public boost::enable_shared_from_this < RobotPoseInfo > {
 public:
@@ -27,6 +29,22 @@ public:
 	}
 	const Transform& GetMarkerTransform() const{
 		return m_MarkerTransform;
+	}
+	bool GetMarkerTransform(int id, Transform& tf) const{
+		TransformMapConstIterator it = m_MarkerTransforms.find(id);
+		if (it != m_MarkerTransforms.end()){
+			tf = it->second;
+			return true;
+		}
+		return false;
+	}
+	bool SetMarkerTransform(int id, const Transform& tf){
+		TransformMapIterator it = m_MarkerTransforms.find(id);
+		if (it != m_MarkerTransforms.end()){
+			it->second = tf;
+			return true;
+		}
+		return false;
 	}
 	void SetMarkerTransform(const Transform& transform){
 		m_MarkerTransform = transform;
@@ -54,6 +72,7 @@ public:
 	bool IsTorsoTransformInit() const { return m_TorsoInit; }
 private:
 	Transform m_MarkerTransform;
+	std::map<int,Transform> m_MarkerTransforms;
 	std::vector<dReal> m_JointValueVector;
 	Transform m_TorsoTransform;
 	mutable RobotPoseInfoMutex _mutexRobotPoseInfo;          

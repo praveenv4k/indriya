@@ -10,7 +10,7 @@
 #include "CvKinectCapture.h"
 #include "RobotStateListener.h"
 #include "TorsoPosePublisher.h"
-#include "MarkerDetection.h"
+#include "MarkerDetection2.h"
 #include "MarkerDetectionKinect.h"
 #include "NaoHeadTransformHelper.h"
 #include "LocalizationResponder.h"
@@ -21,6 +21,7 @@
 #include <bullet\Bullet3Common\b3Matrix3x3.h>
 
 #include "MedianFilter.h"
+#include "MarkerParticleFilter.h"
 
 #define COMM_PROTOCOL		"tcp"
 #define COMM_SUBIPADDRESS	"127.0.0.1"
@@ -74,8 +75,8 @@ public:
 
 			int tdm_port = ParameterHelper::GetParam<int>(m_pNode->param(), "tdm_server_port", TDM_PORT);
 
-			m_pMarkerDetectionPtr = MarkerDetectionPtr(new MarkerDetection(calibFile, markerSize, cubeSize));
-			
+			m_pMarkerDetectionPtr = MarkerDetection2Ptr(new MarkerDetection2(calibFile, markerSize, cubeSize));
+
 			//m_pMarkerDetectionKinectPtr = MarkerDetectionKinectPtr(new MarkerDetectionKinect(calibFile, markerSize, cubeSize,fNewMarkerError,fTrackError));
 
 			for (int i = 0; i < m_pNode->publisher_size(); i++){
@@ -118,7 +119,7 @@ public:
 	{
 		m_pRobotStateListenerPtr = RobotStateListenerPtr(new RobotStateListener(std::string(COMM_PROTOCOL), std::string(COMM_SUBIPADDRESS), COMM_SUBPORT, COMM_TIMEOUT, std::string(COMM_SUBTOID)));
 		m_pTorsoPosePublisherPtr = TorsoPosePublisherPtr(new TorsoPosePublisher(std::string(COMM_PROTOCOL), std::string(COMM_PUBIPADDRESS), COMM_PUBPORT, COMM_TIMEOUT, std::string(COMM_PUBTOID)));
-		m_pMarkerDetectionPtr = MarkerDetectionPtr(new MarkerDetection(std::string(CALIB_FILE), MARKER_SIZE, CUBE_SIZE));
+		m_pMarkerDetectionPtr = MarkerDetection2Ptr(new MarkerDetection2(std::string(CALIB_FILE), MARKER_SIZE, CUBE_SIZE));
 		m_pLocalizationResponderPtr = LocalizationResponderPtr(new LocalizationResponder(TDM_ADDRESS, TDM_PORT, TDM_TIMEOUT));
 		m_pRobotPoseInfoPtr = RobotPoseInfoPtr(new RobotPoseInfo());
 		m_SensorThreadQuit = false;
@@ -178,6 +179,27 @@ public:
 		out = mat.inverse();
 	}
 
+	void ToColumnVector(const Transform& tfm, ColumnVector& filterPose){
+		double roll, pitch, yaw;
+		decomposeTransform(tfm, roll, pitch, yaw);
+		filterPose.resize(STATE_SIZE);
+		filterPose(1) = tfm.trans.x;
+		filterPose(2) = tfm.trans.y;
+		filterPose(3) = tfm.trans.z;
+		filterPose(4) = roll;
+		filterPose(5) = pitch;
+		filterPose(6) = yaw;
+	}
+
+	void ToTransform(const ColumnVector& colVector, Transform& tfm){
+		if (colVector.size() == STATE_SIZE){
+			tfm.trans.x = colVector(1);
+			tfm.trans.y = colVector(2);
+			tfm.trans.z = colVector(3);
+			composeTransform(colVector(4), colVector(5), colVector(6), tfm.rot);
+		}
+	}
+
 	void SensorDataProcessThread()
 	{
 		bool quit = false;
@@ -208,14 +230,31 @@ public:
 					Transform markerTfm;
 					Transform prevTfm = m_pRobotPoseInfoPtr->GetMarkerTransform();
 					if (m_pMarkerDetectionPtr->Videocallback(prevTfm, img, eef, markerTfm, headJoints, true)){
-						Transform out;
 						m_MedianFilter.addPose(markerTfm);
 						m_MedianFilter.getMedian(markerTfm);
-						cout << markerTfm << endl;
+
+						double distance = (markerTfm.rot - prevTfm.rot).lengthsqr4();
+						if (distance > 1e-4){
+
+							b3Quaternion q1(prevTfm.rot[1], prevTfm.rot[2], prevTfm.rot[3], prevTfm.rot[0]);
+							b3Quaternion q2(markerTfm.rot[1], markerTfm.rot[2], markerTfm.rot[3], markerTfm.rot[0]);
+
+							double angle = q1.angle(q2);
+
+							/*cout << "Transform : " << TransformMatrix(markerTfm) << endl;
+							cout << "Distance : " << distance << endl;*/
+							//cout << markerTfm.rot << "\t " << (angle * 180) / B3_PI << "\t " << distance << std::endl;
+						}
+
+						ColumnVector particlePose;
+						ToColumnVector(markerTfm, particlePose);
+						PrintColumnVector(particlePose);
+						m_ParticleFilter.Update(particlePose);
+
 						m_pRobotPoseInfoPtr->SetMarkerTransform(markerTfm);
 					}
 					else{
-						cout << "No markers detected" << endl;
+						//cout << "No markers detected" << endl;
 					}
 					if (m_bVisualize){
 						cv::Mat temp(img);
@@ -333,6 +372,16 @@ public:
 		m_RobotTimer.async_wait(strand_.wrap(boost::bind(&Localization::JointDataReceive, this)));
 	}
 
+	void PrintColumnVector(ColumnVector& colVector){
+		for (int i = 0; i < colVector.size(); i++){
+			cout << colVector(i + 1);
+			if (i != colVector.size() - 1){
+				cout << "\t";
+			}
+		}
+		cout << std::endl;
+	}
+
 	void PublishTransform(){
 		//cout << "Publishing transform" << endl;
 		m_PoseTimer.expires_at(m_PoseTimer.expires_at() + boost::posix_time::milliseconds(m_nPoseCycle));
@@ -367,6 +416,9 @@ public:
 				Transform kinectTfm;
 				ToKinectFrame(torsoTfm, kinectTfm);
 
+				ColumnVector filteredPose;
+				m_ParticleFilter.GetPose(filteredPose);
+				PrintColumnVector(filteredPose);
 #if 1
 
 #if 0
@@ -455,6 +507,8 @@ private:
 		//m_poseFilter.initialize(Transform(), PosixTime(boost::posix_time::microsec_clock::local_time()));
 		//boost::thread t1(&Multi::increase, &m); // 1.
 		m_SensorThread = boost::thread(&Localization::SensorDataProcessThread, this);
+
+		m_ParticleFilter.Init();
 	}
 private:
 	boost::thread m_SensorThread;
@@ -476,12 +530,13 @@ private:
 	RobotStateListenerPtr m_pRobotStateListenerPtr;
 	TorsoPosePublisherPtr m_pTorsoPosePublisherPtr;
 	LocalizationResponderPtr m_pLocalizationResponderPtr;
-	MarkerDetectionPtr m_pMarkerDetectionPtr;
+	MarkerDetection2Ptr m_pMarkerDetectionPtr;
 	RobotPoseInfoPtr m_pRobotPoseInfoPtr;
 	KinectVideoCapture m_VideoCapture;
 	TorsoPoseFilter m_poseFilter;
 
 	MedianFilter m_MedianFilter;
+	MarkerParticleFilter m_ParticleFilter;
 	//MarkerDetectionKinectPtr m_pMarkerDetectionKinectPtr;
 };
 

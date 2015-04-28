@@ -1,8 +1,8 @@
-#ifndef __MARKER_DETECTION_H__
-#define __MARKER_DETECTION_H__
+#ifndef __MARKER_DETECTION2_H__
+#define __MARKER_DETECTION2_H__
 
 #ifndef NOMINMAX
-#define NOMINMAX
+	#define NOMINMAX
 #endif
 
 #include "Marker.h"
@@ -19,7 +19,7 @@
 using namespace alvar;
 using namespace std;
 
-class MarkerDetection;
+class MarkerDetection2;
 
 #define PRINT_MSG 0
 
@@ -27,18 +27,18 @@ class MarkerDetection;
 
 #define MATH_PI_4 OpenRAVE::PI/4
 
-typedef boost::shared_ptr<MarkerDetection> MarkerDetectionPtr;
+typedef boost::shared_ptr<MarkerDetection2> MarkerDetection2Ptr;
 
-class MarkerDetection{
+class MarkerDetection2{
 
 public:
-	MarkerDetection(std::string& calibFile, int markerSize, int cubeSize) :m_strCalibFile(calibFile), m_nMarkerSize(markerSize), m_nCubeSize(cubeSize)
+	MarkerDetection2(std::string& calibFile, int markerSize, int cubeSize) :m_strCalibFile(calibFile), m_nMarkerSize(markerSize), m_nCubeSize(cubeSize)
 	{
 		max_error = std::numeric_limits<double>::max();
 		_init();
 	}
 
-	~MarkerDetection(){}
+	~MarkerDetection2(){}
 
 	static void VisualizeMarkerPose(IplImage *image, Camera *cam, double visualize2d_points[12][2], CvScalar color) {
 		// Cube
@@ -116,6 +116,41 @@ public:
 		return false;
 	}
 
+	bool ComputeOtherMarkers(const std::map<int, Transform>& poseMap, std::map<int, Transform>& outMap){
+		if (poseMap.size() > 0){
+			std::vector<std::map<int, Transform>> allMap;
+			allMap.resize(poseMap.size());
+			int i = 0;
+			FOREACHC(it, poseMap){
+				Transform topFrame;
+				TransformToTopFrame(it->first, it->second, topFrame);
+				//allMap[i].insert(std::pair<int, Transform>(TOP_MARKER_ID, topFrame));
+				FOREACH(itt, m_MarkerTransformMapping){
+					int factor = -1;
+					Transform tf1(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2)), Vector(0, (double)m_nCubeSize / 2, -(double)m_nCubeSize / 2));
+					Transform tf2 = m_MarkerTransformMapping[itt->first];
+
+					Transform frameN = topFrame* tf2.inverse() * tf1.inverse();
+
+					allMap[i].insert(std::pair<int, Transform>(itt->first, frameN));
+					//outTf = pose*tf2*m_MarkerTransformMapping[id];
+				}
+				i++;
+			}
+		}
+		return false;
+	}
+
+	void TransformToTopFrame(const int id, const Transform& pose, Transform& outTf){
+		if (id == TOP_MARKER_ID){
+			outTf = pose;
+		}
+		else{
+			int factor = -1;
+			Transform tf2(geometry::quatFromAxisAngle(RaveVector<dReal>(1, 0, 0), factor*((alvar::PI) / 2)), Vector(0, (double)m_nCubeSize / 2, -(double)m_nCubeSize / 2));
+			outTf = pose*tf2*m_MarkerTransformMapping[id];
+		}
+	}
 
 	bool TransformToTopFrame(std::map<int, Transform>& poseMap, const Transform& prevTfm, Transform& outTf){
 		bool ret = false;
@@ -147,7 +182,7 @@ public:
 				double angle1 = q.angle(q1);
 				double angle2 = q.angle(q2);
 
-				
+
 				if (fabs(angle1) < fabs(angle2)){
 					if (fabs(angle1) < MATH_PI_4){
 						outTf = tf1;
@@ -198,7 +233,7 @@ public:
 		std::map<int, Pose> markerPoses;
 		std::map<int, Transform> markerTfs;
 		if (marker_detector.markers->size() >= 1){
-			cout << "Marker detected" << endl;
+			//cout << "Marker detected" << endl;
 			for (size_t i = 0; i < marker_detector.markers->size(); i++) {
 				if (i >= 32) break;
 
@@ -263,7 +298,7 @@ public:
 						Visualize(image, &m_camera, m_nMarkerSize, p_out, CV_RGB(0, 0, 255));
 						//p_out.Output();
 					}
-
+					//p_res.Mirror(true, false, true);
 					Visualize(image, &m_camera, m_nMarkerSize, p_res, CV_RGB(255, 0, 0));
 				}
 			}
