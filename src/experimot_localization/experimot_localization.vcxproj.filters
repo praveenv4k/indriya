@@ -77,6 +77,18 @@
     <ClInclude Include="LocalizationKinect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MarkerDetection2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nonlinearMeasurementPdf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nonlinearSystemPdf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MarkerParticleFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -92,6 +104,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MedianFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="nonlinearSystemPdf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="nonlinearMeasurementPdf.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
