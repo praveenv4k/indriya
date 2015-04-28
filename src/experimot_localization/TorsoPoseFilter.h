@@ -15,6 +15,9 @@ typedef boost::posix_time::ptime PosixTime;
 typedef boost::posix_time::time_duration PosixDuration;
 
 using namespace OpenRAVE;
+using namespace MatrixWrapper;
+using namespace BFL;
+using namespace std;
 
 class TorsoPoseFilter
 {
@@ -101,6 +104,14 @@ private:
 	PosixTime filter_time_old_;
 	bool filter_initialized_, vo_initialized_;
 
+	ColumnVector sysNoise_Mu;
+	SymmetricMatrix sysNoise_Cov;
+	ColumnVector measNoiseVo_Mu;
+	SymmetricMatrix measNoiseVo_Cov;
+
+	Gaussian* system_Uncertainty;
+	Gaussian* measurement_Uncertainty_Vo;
+	Matrix Hvo;
 };
 
 #endif
