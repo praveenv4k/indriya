@@ -240,11 +240,19 @@ public:
 							b3Quaternion q2(markerTfm.rot[1], markerTfm.rot[2], markerTfm.rot[3], markerTfm.rot[0]);
 
 							double angle = q1.angle(q2);
+							if (fabs(angle) > 10){
+								markerTfm = prevTfm;
+							}
 
 							/*cout << "Transform : " << TransformMatrix(markerTfm) << endl;
 							cout << "Distance : " << distance << endl;*/
 							//cout << markerTfm.rot << "\t " << (angle * 180) / B3_PI << "\t " << distance << std::endl;
 						}
+
+						// Interpolate
+						markerTfm.trans = 0.5 * (markerTfm.trans + prevTfm.trans);
+						Vector temp = OpenRAVE::geometry::quatSlerp(markerTfm.rot, prevTfm.rot, 0.5);
+						markerTfm.rot = temp;
 
 						ColumnVector particlePose;
 						ToColumnVector(markerTfm, particlePose);

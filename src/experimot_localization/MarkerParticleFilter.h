@@ -34,7 +34,7 @@
 // Measurement noise
 #define SIGMA_MEAS_NOISE_POS pow(2,2)
 #define SIGMA_SYSTEM_NOISE_ORIENT pow(2*M_PI/180,2)
-#define MU_MEAS_NOISE 0.001
+#define MU_MEAS_NOISE 4
 
 // Prior:
 // Initial estimate of position and orientation
@@ -43,7 +43,7 @@
 #define PRIOR_MU_Z 1000
 #define PRIOR_MU_ROLL 0	//M_PI/4
 #define PRIOR_MU_PITCH 0	//M_PI/4
-#define PRIOR_MU_YAW M_PI / 4	//M_PI/4
+#define PRIOR_MU_YAW M_PI/4	//M_PI/4
 
 // Initial covariances of position and orientation
 #define PRIOR_COV_X pow(5,2)
@@ -54,7 +54,7 @@
 #define PRIOR_COV_YAW pow(M_PI/8,2)
 
 // Sample size
-#define NUM_SAMPLES 1000
+#define NUM_SAMPLES 100
 
 using namespace MatrixWrapper;
 using namespace BFL;
@@ -65,8 +65,9 @@ typedef boost::recursive_try_mutex MarkerParticleFilterMutex;
 class MarkerParticleFilter{
 public:
 	MarkerParticleFilter() :sys_noise_Mu(STATE_SIZE), sys_noise_Cov(STATE_SIZE), meas_noise_Mu(MEAS_SIZE), meas_noise_Cov(MEAS_SIZE), H(MEAS_SIZE, STATE_SIZE), prior_Mu(STATE_SIZE),
-		prior_samples(NUM_SAMPLES), prior_discr(NUM_SAMPLES, STATE_SIZE), prior_Cov(STATE_SIZE)
+		prior_discr(NUM_SAMPLES, STATE_SIZE), prior_Cov(STATE_SIZE)
 	{
+		prior_samples.resize(NUM_SAMPLES);
 		init = false;
 	}
 
@@ -181,7 +182,13 @@ public:
 			// Discrete prior for Particle filter (using the continuous Gaussian prior)
 			prior_cont->SampleFrom(prior_samples, NUM_SAMPLES, CHOLESKY, NULL);
 			
+			std::cout << "Particle samples : " << prior_samples.size() << std::endl;
+
 			prior_discr.ListOfSamplesSet(prior_samples);
+
+			/*for (int i = 0; i < prior_samples.size(); i++){
+				PrintColumnVector(prior_samples[i].ValueGet());
+			}*/
 
 			/******************************
 			* Construction of the Filter *
@@ -193,6 +200,16 @@ public:
 		catch (std::exception& ex){
 			std::cout << "Exception: Filiter Initialization: " << ex.what() << std::endl;
 		}
+	}
+
+	void PrintColumnVector(ColumnVector& colVector){
+		for (int i = 0; i < colVector.size(); i++){
+			cout << colVector(i + 1);
+			if (i != colVector.size() - 1){
+				cout << "\t";
+			}
+		}
+		cout << std::endl;
 	}
 
 	void Update(ColumnVector& measurement){
