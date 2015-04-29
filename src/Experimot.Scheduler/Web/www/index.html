@@ -29,6 +29,12 @@
             z-index: 1;
         }
 
+       .tab1 {
+    background: green;
+    position: relative;
+    height:100%;
+}
+
         a {
             color: skyblue;
         }
@@ -206,6 +212,7 @@
         container = document.getElementById('viewport');
 
         camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000000);
+        //camera = new THREE.PerspectiveCamera(45, container.offsetWidth / container.offsetHeight, 1, 1000000);
         //camera.position.set(2, 2, 3);
         camera.position.set(10, 8, -10);
 
@@ -255,6 +262,7 @@
         renderer = new THREE.WebGLRenderer();
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
+        //renderer.setSize(container.offsetWidth, container.offsetHeight);
         container.appendChild(renderer.domElement);
 
         //stats = new Stats();
@@ -310,9 +318,9 @@
     function onWindowResize() {
 
         //container = document.getElementById('viewport');
-        //camera.aspect = container.innerWidth / container.innerHeight;
+        //camera.aspect = container.offsetWidth / container.offsetHeight;
         //camera.updateProjectionMatrix();
-        //renderer.setSize(container.innerWidth, container.innerHeight);
+        //renderer.setSize(container.offsetWidth, container.offsetHeight);
 
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
