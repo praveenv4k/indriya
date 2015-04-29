@@ -22,7 +22,7 @@
         <args></args>
       </process>
       <parameters>
-        <param key="cube_size" value="80" type="int"/>
+        <param key="cube_size" value="65" type="int"/>
         <param key="marker_size" value="60" type="int"/>
         <param key="comm_timeout" value="100" type="int"/>
         <param key="calib_file" value="camera_calibration_kinect_1600.xml" type="string"/>
@@ -81,7 +81,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="false">
+    <node enabled="true">
       <name>simulation</name>
       <process>
         <type>executable</type>
@@ -125,7 +125,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false">
+    <node enabled="true">
       <name>robot_interface</name>
       <process>
         <type>executable</type>
@@ -133,7 +133,7 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_robot_interface\ReadJointValues.py</args>
       </process>
       <parameters>
-        <param key="ROBOTIP" value="169.254.123.55" type="string"/>
+        <param key="ROBOTIP" value="192.168.11.2" type="string"/>
         <param key="PORT" value="9559" type="int"/>
       </parameters>
       <publishers>
@@ -146,7 +146,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="true">
+    <node enabled="false">
       <name>tdm_client</name>
       <process>
         <type>executable</type>

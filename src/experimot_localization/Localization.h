@@ -254,6 +254,7 @@ public:
 						Vector temp = OpenRAVE::geometry::quatSlerp(markerTfm.rot, prevTfm.rot, 0.5);
 						markerTfm.rot = temp;
 
+#ifdef USE_PARTICLE_FILTER
 						{
 							MarkerParticleFilterMutex::scoped_lock lock2(m_ParticleFilter.GetMutex());
 							ColumnVector particlePose;
@@ -261,6 +262,7 @@ public:
 							PrintColumnVector(particlePose);
 							m_ParticleFilter.Update(particlePose);
 						}
+#endif
 						/*cout << "************* Updating KF *****************" << std::endl;
 						m_poseFilter.addMeasurement(markerTfm);
 
@@ -434,16 +436,18 @@ public:
 				Transform kinectTfm;
 				ToKinectFrame(torsoTfm, kinectTfm);
 
-
+#ifdef USE_PARTICLE_FILTER
 				{
 					MarkerParticleFilterMutex::scoped_lock lock2(m_ParticleFilter.GetMutex());
 					ColumnVector filteredPose;
 					m_ParticleFilter.GetPose(filteredPose);
 					PrintColumnVector(filteredPose);
 				}
+#endif
+		
 #if 1
 
-#if 0
+#if 1
 				cout << "*********************************************" << std::endl;
 				cout << "End Effector w.r.t Torso   : " << eef << std::endl;
 				cout << "Top Marker w.r.t ALVAR     : " << markerTfm << std::endl;
@@ -528,7 +532,9 @@ private:
 		m_TdmTimer.async_wait(strand_.wrap(boost::bind(&Localization::LocalizationRespond, this)));
 
 		//m_poseFilter.initialize(Transform(), PosixTime(boost::posix_time::microsec_clock::local_time()));
+#ifdef USE_PARTICLE_FILTER
 		m_ParticleFilter.Init();
+#endif
 
 		m_SensorThread = boost::thread(&Localization::SensorDataProcessThread, this);
 	}
@@ -558,7 +564,9 @@ private:
 	//TorsoPoseFilter m_poseFilter;
 
 	MedianFilter m_MedianFilter;
+#ifdef USE_PARTICLE_FILTER
 	MarkerParticleFilter m_ParticleFilter;
+#endif
 	//MarkerDetectionKinectPtr m_pMarkerDetectionKinectPtr;
 };
 
