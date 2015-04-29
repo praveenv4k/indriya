@@ -77,7 +77,11 @@ private:
 		else{
 			double Rx, Ry, Rz;
 			decomposeTransform(tfm, Rx, Ry, Rz);
+#if 0
 			ss << "{ \"pose\" : {\"x\":" << tfm.trans.z / 1000 << ", \"y\" :" << tfm.trans.x / 1000 << ", \"alpha\" :" << OpenRAVE::PI-Rx << "} }";
+#else
+			ss << "{ \"pos\" : {\"x\":" << tfm.trans.z / 1000 << ", \"y\" :" << tfm.trans.x / 1000 << "}, \"orient\" : {\"z\":" << OpenRAVE::PI - Rx << "} }";
+#endif
 		}
 		str = ss.str();
 	}
