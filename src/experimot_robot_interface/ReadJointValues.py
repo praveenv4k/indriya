@@ -144,7 +144,7 @@ if __name__ == "__main__":
     header = "RSP"
 
     # Real Robot
-    ROBOT_IP = "169.254.123.55"
+    ROBOT_IP = "192.168.11.2"
     PORT = 9559
 
     # Simulated Robot
