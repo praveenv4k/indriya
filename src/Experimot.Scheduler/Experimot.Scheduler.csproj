@@ -230,6 +230,8 @@
     <None Include="Web\www\files\inconsolata.woff" />
     <None Include="Web\www\fonts\droid\NOTICE" />
     <None Include="Web\www\fonts\LICENSE" />
+    <None Include="Web\www\libs\backbone\backbone-min.map" />
+    <None Include="Web\www\libs\underscore\underscore-min.map" />
     <None Include="Web\www\models\collada\avatar.dae" />
     <None Include="Web\www\models\collada\kawada-hironx.dae" />
     <None Include="Web\www\models\collada\multimaterial.dae" />
@@ -242,6 +244,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="quartz_config.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web\www\app\app.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Web\www\app\collections\behaviormodules.js">
@@ -272,6 +277,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Web\www\app\init.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web\www\app\routers\approuter.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Web\www\app\templates\main.html">
@@ -506,6 +514,10 @@
     <Content Include="Web\www\js\wip\proxies\ProxyVector4.js" />
     <Content Include="Web\www\js\wip\ProxyGeometry.js" />
     <Content Include="Web\www\js\wip\TypedGeometry.js" />
+    <Content Include="Web\www\libs\backbone.poller\backbone.poller.js" />
+    <Content Include="Web\www\libs\backbone.poller\backbone.poller.min.js" />
+    <Content Include="Web\www\libs\backbone\backbone-min.js" />
+    <Content Include="Web\www\libs\backbone\backbone.js" />
     <Content Include="Web\www\libs\joint\joint.all.clean.js" />
     <Content Include="Web\www\libs\joint\joint.all.clean.min.js" />
     <Content Include="Web\www\libs\joint\joint.all.css" />
@@ -574,6 +586,14 @@
     <Content Include="Web\www\libs\jquery-ui\jquery-ui.theme.css" />
     <Content Include="Web\www\libs\jquery-ui\jquery-ui.theme.min.css" />
     <Content Include="Web\www\libs\jquery\jquery-2.1.3.min.js" />
+    <Content Include="Web\www\libs\marionette\backbone.marionette.js" />
+    <Content Include="Web\www\libs\marionette\backbone.marionette.min.js" />
+    <Content Include="Web\www\libs\requirejs\cs.js" />
+    <Content Include="Web\www\libs\requirejs\domReady.js" />
+    <Content Include="Web\www\libs\requirejs\i18n.js" />
+    <Content Include="Web\www\libs\requirejs\require-min.js" />
+    <Content Include="Web\www\libs\requirejs\require.js" />
+    <Content Include="Web\www\libs\requirejs\text.js" />
     <Content Include="Web\www\libs\slidebars\slidebars.css" />
     <Content Include="Web\www\libs\slidebars\slidebars.js" />
     <Content Include="Web\www\libs\slidebars\slidebars.min.css" />
@@ -581,6 +601,8 @@
     <Content Include="Web\www\libs\threejs\three.js" />
     <Content Include="Web\www\libs\threejs\three.min.js" />
     <Resource Include="Web\www\models\collada\VWS_B_Male2-2.jpg" />
+    <Content Include="Web\www\libs\underscore\underscore-min.js" />
+    <Content Include="Web\www\libs\underscore\underscore.js" />
     <Content Include="Web\www\scenes\robo_pigeon.js" />
     <Content Include="Web\www\scenes\test_scene.js" />
   </ItemGroup>
