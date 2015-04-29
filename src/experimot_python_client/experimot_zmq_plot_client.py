@@ -69,7 +69,9 @@ def localization_client(lock,ip,port):
         socket.send(b"pose")
 
         #  Get the reply.
-        result = json.loads(socket.recv(1024));
+        str = socket.recv(1024)
+        print str
+        result = json.loads(str)
 
         # printing the result
         # print(result)
@@ -82,7 +84,8 @@ def localization_client(lock,ip,port):
         #pos = [float(result["pos"]["x"]),float(result["pos"]["y"]),float(result["pos"]["z"])]
         #orient = [float(result["orient"]["w"]),float(result["orient"]["x"]),float(result["orient"]["y"]),float(result["orient"]["z"])]
         global pose
-        pose = [float(result["pose"]["x"]),float(result["pose"]["y"]),float(result["pose"]["alpha"])]
+        #pose = [float(result["pose"]["x"]),float(result["pose"]["y"]),float(result["pose"]["alpha"])]
+        pose = [float(result["pos"]["x"]),float(result["pos"]["y"]),float(result["orient"]["z"])]
         lock.release()
 
         #print "Position    : " , pos

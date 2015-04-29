@@ -254,11 +254,13 @@ public:
 						Vector temp = OpenRAVE::geometry::quatSlerp(markerTfm.rot, prevTfm.rot, 0.5);
 						markerTfm.rot = temp;
 
-						ColumnVector particlePose;
-						ToColumnVector(markerTfm, particlePose);
-						PrintColumnVector(particlePose);
-						m_ParticleFilter.Update(particlePose);
-
+						{
+							MarkerParticleFilterMutex::scoped_lock lock2(m_ParticleFilter.GetMutex());
+							ColumnVector particlePose;
+							ToColumnVector(markerTfm, particlePose);
+							PrintColumnVector(particlePose);
+							m_ParticleFilter.Update(particlePose);
+						}
 						/*cout << "************* Updating KF *****************" << std::endl;
 						m_poseFilter.addMeasurement(markerTfm);
 
@@ -432,9 +434,13 @@ public:
 				Transform kinectTfm;
 				ToKinectFrame(torsoTfm, kinectTfm);
 
-				ColumnVector filteredPose;
-				m_ParticleFilter.GetPose(filteredPose);
-				PrintColumnVector(filteredPose);
+
+				{
+					MarkerParticleFilterMutex::scoped_lock lock2(m_ParticleFilter.GetMutex());
+					ColumnVector filteredPose;
+					m_ParticleFilter.GetPose(filteredPose);
+					PrintColumnVector(filteredPose);
+				}
 #if 1
 
 #if 0
@@ -522,9 +528,9 @@ private:
 		m_TdmTimer.async_wait(strand_.wrap(boost::bind(&Localization::LocalizationRespond, this)));
 
 		//m_poseFilter.initialize(Transform(), PosixTime(boost::posix_time::microsec_clock::local_time()));
-		m_SensorThread = boost::thread(&Localization::SensorDataProcessThread, this);
-
 		m_ParticleFilter.Init();
+
+		m_SensorThread = boost::thread(&Localization::SensorDataProcessThread, this);
 	}
 private:
 	boost::thread m_SensorThread;

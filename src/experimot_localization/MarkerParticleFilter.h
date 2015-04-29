@@ -33,8 +33,8 @@
 
 // Measurement noise
 #define SIGMA_MEAS_NOISE_POS pow(2,2)
-#define SIGMA_SYSTEM_NOISE_ORIENT pow(2*M_PI/180,2)
-#define MU_MEAS_NOISE 4
+#define SIGMA_MEAS_NOISE_ORIENT pow(2*M_PI/180,2)
+#define MU_MEAS_NOISE 0.0
 
 // Prior:
 // Initial estimate of position and orientation
@@ -90,7 +90,7 @@ public:
 			sys_noise_Mu(6) = MU_SYSTEM_NOISE_YAW;
 
 			sys_noise_Cov = 0.0;
-			double noise[6] = { SIGMA_SYSTEM_NOISE_X, SIGMA_SYSTEM_NOISE_Y, SIGMA_SYSTEM_NOISE_Z, SIGMA_SYSTEM_NOISE_ROLL, SIGMA_SYSTEM_NOISE_PITCH, SIGMA_SYSTEM_NOISE_YAW };
+			double noise[STATE_SIZE] = { SIGMA_SYSTEM_NOISE_X, SIGMA_SYSTEM_NOISE_Y, SIGMA_SYSTEM_NOISE_Z, SIGMA_SYSTEM_NOISE_ROLL, SIGMA_SYSTEM_NOISE_PITCH, SIGMA_SYSTEM_NOISE_YAW };
 			for (int i = 1; i <= STATE_SIZE; i++){
 				for (int j = 1; j <= STATE_SIZE; j++){
 					if (i == j){
@@ -130,10 +130,10 @@ public:
 				meas_noise_Mu(i) = MU_MEAS_NOISE;
 			}
 
-			double meas_noise[6] = { SIGMA_MEAS_NOISE_POS, SIGMA_MEAS_NOISE_POS, SIGMA_MEAS_NOISE_POS, SIGMA_SYSTEM_NOISE_ORIENT, SIGMA_SYSTEM_NOISE_ORIENT, SIGMA_SYSTEM_NOISE_ORIENT };
+			double meas_noise[MEAS_SIZE] = { SIGMA_MEAS_NOISE_POS, SIGMA_MEAS_NOISE_POS, SIGMA_MEAS_NOISE_POS, SIGMA_MEAS_NOISE_ORIENT, SIGMA_MEAS_NOISE_ORIENT, SIGMA_MEAS_NOISE_ORIENT };
 
-			for (int i = 1; i <= STATE_SIZE; i++){
-				for (int j = 1; j <= STATE_SIZE; j++){
+			for (int i = 1; i <= MEAS_SIZE; i++){
+				for (int j = 1; j <= MEAS_SIZE; j++){
 					if (i == j){
 						meas_noise_Cov(i, j) = meas_noise[i - 1];
 					}
@@ -186,9 +186,11 @@ public:
 
 			prior_discr.ListOfSamplesSet(prior_samples);
 
-			/*for (int i = 0; i < prior_samples.size(); i++){
-				PrintColumnVector(prior_samples[i].ValueGet());
-			}*/
+			for (int i = 0; i < NUM_SAMPLES; i++){
+				ColumnVector& col = prior_samples.at(i).ValueGet();
+				PrintColumnVector(col);
+				//PrintColumnVector(prior_samples[i].ValueGet());
+			}
 
 			/******************************
 			* Construction of the Filter *
@@ -219,7 +221,10 @@ public:
 		try{
 			if (init){
 				if (filter != 0 && sys_model != 0 && meas_model != 0){
-					filter->Update(sys_model.get(), input, meas_model.get(), measurement);
+					if (!filter->Update(sys_model.get(), input, meas_model.get(), measurement)){
+					//if (!filter->Update(NULL, input, meas_model.get(), measurement)){
+						std::cout << "Unable to update the filter" << std::endl;
+					}
 				}
 				else{
 					std::cout << "Invalid pointer" << std::endl;
@@ -251,6 +256,10 @@ public:
 			std::cout << "Exception: Get pose: " << ex.what() << std::endl;
 		}
 		return false;
+	}
+
+	bool IsInit() const{
+		return init;
 	}
 
 	MarkerParticleFilterMutex& GetMutex() {
