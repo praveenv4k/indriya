@@ -178,6 +178,10 @@ namespace Experimot.Kinect.Perception
 
                         human.orientation = ToQuaternion(xAxis, yAxis, zAxis);
                     }
+                    else
+                    {
+                        human.orientation = new Quaternion() {w = 1, x = 0, y = 0, z = 0};
+                    }
                     kbodies.Body.Add(kbody);
                     humans.human.Add(human);
                 }
@@ -207,6 +211,18 @@ namespace Experimot.Kinect.Perception
             double m20 = xAxis.Z;
             double m21 = yAxis.Z;
             double m22 = zAxis.Z;
+
+            //double m00 = xAxis.X;
+            //double m01 = xAxis.Y;
+            //double m02 = xAxis.Z;
+
+            //double m10 = yAxis.X;
+            //double m11 = yAxis.Y;
+            //double m12 = yAxis.Z;
+
+            //double m20 = zAxis.X;
+            //double m21 = zAxis.Y;
+            //double m22 = zAxis.Z;
 
 
             double qw = Math.Sqrt(0.5*(1 + m00 + m11 + m22));
