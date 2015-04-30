@@ -53,7 +53,7 @@
                     
                 </Grid>
             </Expander>
-            <Expander Header="{Binding Humans.Count, StringFormat='Human Info: {0}'}" HorizontalAlignment="Stretch" IsExpanded="False" >
+            <Expander Header="{Binding Humans.Count, StringFormat='Human Information - Count: {0}'}" HorizontalAlignment="Stretch" IsExpanded="False" >
                 <ItemsControl ItemsSource="{Binding Humans}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -83,7 +83,6 @@
             </Expander>
             <Expander Header="Object Information" DataContext="{Binding Robot}" HorizontalAlignment="Stretch" IsExpanded="False">
             </Expander>
-            <Button Grid.Row="0" Grid.Column="0" Height="50" Width="120" Click="ButtonBase_OnClick">Add Human</Button>
         </StackPanel>
         <RichTextBox x:Name="textBox" Grid.Row="1" Grid.ColumnSpan="2">
             

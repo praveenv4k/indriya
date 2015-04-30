@@ -64,49 +64,70 @@ namespace Experimot.Scheduler
 
         private void RunParameterServer(object arg)
         {
-            var server = arg as ParameterServer;
-            if (server != null)
+            try
             {
-                server.Start();
-                Log.Info("Parameter server Started");
-                while (!_shouldStop)
+                var server = arg as ParameterServer;
+                if (server != null)
                 {
-                    server.Run();
-                    Thread.Sleep(40);
+                    server.Start();
+                    Log.Info("Parameter server Started");
+                    while (!_shouldStop)
+                    {
+                        server.Run();
+                        Thread.Sleep(40);
+                    }
+                    server.Shutdown();
                 }
-                server.Shutdown();
+                Log.Info("Parameter server Completed");
             }
-            Log.Info("Parameter server Completed");
+            catch (Exception ex)
+            {
+                Log.ErrorFormat("Exception in parameter server: {0}", ex.StackTrace);
+            }
         }
 
         private void RunExperimotServer(object arg)
         {
-            var server = arg as ExperimotWeb;
-            if (server != null)
+            try
             {
-                server.Start();
-                Log.Info("Experimot server Started");
+                var server = arg as ExperimotWeb;
+                if (server != null)
+                {
+                    server.Start();
+                    Log.Info("Experimot server Started");
+                }
+                else
+                {
+                    Log.Info("server instance null. looks like it is disabled");
+                }
+                Log.Info("Experimot server Completed");
             }
-            else
+            catch (Exception ex)
             {
-                Log.Info("server instance null. looks like it is disabled");
+                Log.ErrorFormat("Exception in experimot web server: {0}", ex.StackTrace);
             }
-            Log.Info("Experimot server Completed");
         }
 
         private void RunContextSync(object arg)
         {
-            var sync = arg as ContextSync;
-            if (sync != null)
+            try
             {
-                Log.Info("Context sync Started");
-                while (!_shouldStop)
+                var sync = arg as ContextSync;
+                if (sync != null)
                 {
-                    sync.Update(100);
-                    Thread.Sleep(200);
+                    Log.Info("Context sync Started");
+                    while (!_shouldStop)
+                    {
+                        sync.Update(100);
+                        Thread.Sleep(200);
+                    }
                 }
+                Log.Info("Context sync Completed");
             }
-            Log.Info("Context sync Completed");
+            catch (Exception ex)
+            {
+                Log.ErrorFormat("Exception in Context Sync Task: {0}",ex.StackTrace);
+            }
         }
 
         private void RegisterTypes()

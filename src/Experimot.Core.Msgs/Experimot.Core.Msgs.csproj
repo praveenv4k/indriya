@@ -229,6 +229,9 @@
     <Compile Include="..\experimot_msgs\csharp\packet.cs">
       <Link>packet.cs</Link>
     </Compile>
+    <Compile Include="..\experimot_msgs\csharp\param.cs">
+      <Link>param.cs</Link>
+    </Compile>
     <Compile Include="..\experimot_msgs\csharp\physics.cs">
       <Link>physics.cs</Link>
     </Compile>

@@ -1,0 +1,12 @@
+package experimot.msgs;
+
+/// \ingroup experimot_msgs
+/// \interface Param
+/// \brief Generic parameter key value pair
+
+message Param
+{
+	required string key = 1;
+	required string value = 2;
+	required string dataType = 3;
+}

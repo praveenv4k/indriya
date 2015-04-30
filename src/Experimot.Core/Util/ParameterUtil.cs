@@ -46,7 +46,7 @@ namespace Experimot.Core.Util
             return ret;
         }
 
-        public static IList<string> GetCsvList(IList<Node.Param> parameters, string key, string defaultValue)
+        public static IList<string> GetCsvList(IList<Param> parameters, string key, string defaultValue)
         {
             IList<string> ret = new List<string>();
 

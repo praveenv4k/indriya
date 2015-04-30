@@ -31,7 +31,7 @@ namespace Experimot.Core.Util
             }
             foreach (var item in node.parameters)
             {
-                ret.param.Add(new Node.Param()
+                ret.param.Add(new Param()
                 {
                     key = item.key,
                     value = item.value,
@@ -41,23 +41,23 @@ namespace Experimot.Core.Util
             return ret;
         }
 
-        public static IList<Node.Param> XmlToMessageParam(node node)
+        public static IList<Param> XmlToMessageParam(node node)
         {
             return node == null ? XmlToMessageParam(parameters: null) : XmlToMessageParam(node.parameters);
         }
 
-        public static IList<Node.Param> XmlToMessageParam(IList<param_type> parameters)
+        public static IList<Param> XmlToMessageParam(IList<param_type> parameters)
         {
             if (parameters != null)
             {
-                return parameters.Select(item => new Node.Param()
+                return parameters.Select(item => new Param()
                 {
                     key = item.key,
                     value = item.value,
                     dataType = item.type.ToString()
                 }).ToList();
             }
-            return new List<Node.Param>();
+            return new List<Param>();
         }
     }
 }

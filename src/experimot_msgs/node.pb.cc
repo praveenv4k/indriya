@@ -24,9 +24,6 @@ namespace {
 const ::google::protobuf::Descriptor* Node_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Node_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Node_Param_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Node_Param_reflection_ = NULL;
 
 }  // namespace
 
@@ -55,23 +52,6 @@ void protobuf_AssignDesc_node_2eproto() {
       sizeof(Node),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node, _internal_metadata_),
       -1);
-  Node_Param_descriptor_ = Node_descriptor_->nested_type(0);
-  static const int Node_Param_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node_Param, key_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node_Param, value_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node_Param, datatype_),
-  };
-  Node_Param_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      Node_Param_descriptor_,
-      Node_Param::default_instance_,
-      Node_Param_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node_Param, _has_bits_[0]),
-      -1,
-      -1,
-      sizeof(Node_Param),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node_Param, _internal_metadata_),
-      -1);
 }
 
 namespace {
@@ -86,8 +66,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       Node_descriptor_, &Node::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      Node_Param_descriptor_, &Node_Param::default_instance());
 }
 
 }  // namespace
@@ -95,8 +73,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void protobuf_ShutdownFile_node_2eproto() {
   delete Node::default_instance_;
   delete Node_reflection_;
-  delete Node_Param::default_instance_;
-  delete Node_Param_reflection_;
 }
 
 void protobuf_AddDesc_node_2eproto() {
@@ -107,20 +83,18 @@ void protobuf_AddDesc_node_2eproto() {
 
   ::experimot::msgs::protobuf_AddDesc_publish_2eproto();
   ::experimot::msgs::protobuf_AddDesc_subscribe_2eproto();
+  ::experimot::msgs::protobuf_AddDesc_param_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\nnode.proto\022\016experimot.msgs\032\rpublish.pr"
-    "oto\032\017subscribe.proto\"\321\001\n\004Node\022\014\n\004name\030\001 "
-    "\002(\t\022)\n\005param\030\002 \003(\0132\032.experimot.msgs.Node"
-    ".Param\022*\n\tpublisher\030\003 \003(\0132\027.experimot.ms"
-    "gs.Publish\022-\n\nsubscriber\030\004 \003(\0132\031.experim"
-    "ot.msgs.Subscribe\0325\n\005Param\022\013\n\003key\030\001 \002(\t\022"
-    "\r\n\005value\030\002 \002(\t\022\020\n\010dataType\030\003 \002(\t", 272);
+    "oto\032\017subscribe.proto\032\013param.proto\"\225\001\n\004No"
+    "de\022\014\n\004name\030\001 \002(\t\022$\n\005param\030\002 \003(\0132\025.experi"
+    "mot.msgs.Param\022*\n\tpublisher\030\003 \003(\0132\027.expe"
+    "rimot.msgs.Publish\022-\n\nsubscriber\030\004 \003(\0132\031"
+    ".experimot.msgs.Subscribe", 225);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "node.proto", &protobuf_RegisterTypes);
   Node::default_instance_ = new Node();
-  Node_Param::default_instance_ = new Node_Param();
   Node::default_instance_->InitAsDefaultInstance();
-  Node_Param::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_node_2eproto);
 }
 
@@ -142,394 +116,6 @@ static void MergeFromFail(int line) {
 
 
 // ===================================================================
-
-#ifndef _MSC_VER
-const int Node_Param::kKeyFieldNumber;
-const int Node_Param::kValueFieldNumber;
-const int Node_Param::kDataTypeFieldNumber;
-#endif  // !_MSC_VER
-
-Node_Param::Node_Param()
-  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Node.Param)
-}
-
-void Node_Param::InitAsDefaultInstance() {
-}
-
-Node_Param::Node_Param(const Node_Param& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Node.Param)
-}
-
-void Node_Param::SharedCtor() {
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
-  key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  value_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  datatype_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-Node_Param::~Node_Param() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Node.Param)
-  SharedDtor();
-}
-
-void Node_Param::SharedDtor() {
-  key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  value_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  datatype_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
-}
-
-void Node_Param::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* Node_Param::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Node_Param_descriptor_;
-}
-
-const Node_Param& Node_Param::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_node_2eproto();
-  return *default_instance_;
-}
-
-Node_Param* Node_Param::default_instance_ = NULL;
-
-Node_Param* Node_Param::New(::google::protobuf::Arena* arena) const {
-  Node_Param* n = new Node_Param;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
-
-void Node_Param::Clear() {
-  if (_has_bits_[0 / 32] & 7) {
-    if (has_key()) {
-      key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-    }
-    if (has_value()) {
-      value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-    }
-    if (has_datatype()) {
-      datatype_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-    }
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  if (_internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->Clear();
-  }
-}
-
-bool Node_Param::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Node.Param)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required string key = 1;
-      case 1: {
-        if (tag == 10) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_key()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->key().data(), this->key().length(),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Node.Param.key");
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(18)) goto parse_value;
-        break;
-      }
-
-      // required string value = 2;
-      case 2: {
-        if (tag == 18) {
-         parse_value:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_value()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->value().data(), this->value().length(),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Node.Param.value");
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(26)) goto parse_dataType;
-        break;
-      }
-
-      // required string dataType = 3;
-      case 3: {
-        if (tag == 26) {
-         parse_dataType:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_datatype()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->datatype().data(), this->datatype().length(),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Node.Param.dataType");
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectAtEnd()) goto success;
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Node.Param)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Node.Param)
-  return false;
-#undef DO_
-}
-
-void Node_Param::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Node.Param)
-  // required string key = 1;
-  if (has_key()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->key().data(), this->key().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Node.Param.key");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->key(), output);
-  }
-
-  // required string value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->value().data(), this->value().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Node.Param.value");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->value(), output);
-  }
-
-  // required string dataType = 3;
-  if (has_datatype()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->datatype().data(), this->datatype().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Node.Param.dataType");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->datatype(), output);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Node.Param)
-}
-
-::google::protobuf::uint8* Node_Param::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Node.Param)
-  // required string key = 1;
-  if (has_key()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->key().data(), this->key().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Node.Param.key");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->key(), target);
-  }
-
-  // required string value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->value().data(), this->value().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Node.Param.value");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->value(), target);
-  }
-
-  // required string dataType = 3;
-  if (has_datatype()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->datatype().data(), this->datatype().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Node.Param.dataType");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->datatype(), target);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Node.Param)
-  return target;
-}
-
-int Node_Param::RequiredFieldsByteSizeFallback() const {
-  int total_size = 0;
-
-  if (has_key()) {
-    // required string key = 1;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->key());
-  }
-
-  if (has_value()) {
-    // required string value = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->value());
-  }
-
-  if (has_datatype()) {
-    // required string dataType = 3;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->datatype());
-  }
-
-  return total_size;
-}
-int Node_Param::ByteSize() const {
-  int total_size = 0;
-
-  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
-    // required string key = 1;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->key());
-
-    // required string value = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->value());
-
-    // required string dataType = 3;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->datatype());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
-  }
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void Node_Param::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const Node_Param* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Node_Param*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void Node_Param::MergeFrom(const Node_Param& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_key()) {
-      set_has_key();
-      key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
-    }
-    if (from.has_value()) {
-      set_has_value();
-      value_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.value_);
-    }
-    if (from.has_datatype()) {
-      set_has_datatype();
-      datatype_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.datatype_);
-    }
-  }
-  if (from._internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-  }
-}
-
-void Node_Param::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Node_Param::CopyFrom(const Node_Param& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Node_Param::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
-
-  return true;
-}
-
-void Node_Param::Swap(Node_Param* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void Node_Param::InternalSwap(Node_Param* other) {
-  key_.Swap(&other->key_);
-  value_.Swap(&other->value_);
-  datatype_.Swap(&other->datatype_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
-}
-
-::google::protobuf::Metadata Node_Param::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Node_Param_descriptor_;
-  metadata.reflection = Node_Param_reflection_;
-  return metadata;
-}
-
-
-// -------------------------------------------------------------------
 
 #ifndef _MSC_VER
 const int Node::kNameFieldNumber;
@@ -637,7 +223,7 @@ bool Node::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .experimot.msgs.Node.Param param = 2;
+      // repeated .experimot.msgs.Param param = 2;
       case 2: {
         if (tag == 18) {
          parse_param:
@@ -714,7 +300,7 @@ void Node::SerializeWithCachedSizes(
       1, this->name(), output);
   }
 
-  // repeated .experimot.msgs.Node.Param param = 2;
+  // repeated .experimot.msgs.Param param = 2;
   for (unsigned int i = 0, n = this->param_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->param(i), output);
@@ -753,7 +339,7 @@ void Node::SerializeWithCachedSizes(
         1, this->name(), target);
   }
 
-  // repeated .experimot.msgs.Node.Param param = 2;
+  // repeated .experimot.msgs.Param param = 2;
   for (unsigned int i = 0, n = this->param_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -791,7 +377,7 @@ int Node::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->name());
   }
-  // repeated .experimot.msgs.Node.Param param = 2;
+  // repeated .experimot.msgs.Param param = 2;
   total_size += 1 * this->param_size();
   for (int i = 0; i < this->param_size(); i++) {
     total_size +=
@@ -898,169 +484,6 @@ void Node::InternalSwap(Node* other) {
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// Node_Param
-
-// required string key = 1;
- bool Node_Param::has_key() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
- void Node_Param::set_has_key() {
-  _has_bits_[0] |= 0x00000001u;
-}
- void Node_Param::clear_has_key() {
-  _has_bits_[0] &= ~0x00000001u;
-}
- void Node_Param::clear_key() {
-  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_key();
-}
- const ::std::string& Node_Param::key() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Node.Param.key)
-  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void Node_Param::set_key(const ::std::string& value) {
-  set_has_key();
-  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Node.Param.key)
-}
- void Node_Param::set_key(const char* value) {
-  set_has_key();
-  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Node.Param.key)
-}
- void Node_Param::set_key(const char* value, size_t size) {
-  set_has_key();
-  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Node.Param.key)
-}
- ::std::string* Node_Param::mutable_key() {
-  set_has_key();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Node.Param.key)
-  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- ::std::string* Node_Param::release_key() {
-  clear_has_key();
-  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void Node_Param::set_allocated_key(::std::string* key) {
-  if (key != NULL) {
-    set_has_key();
-  } else {
-    clear_has_key();
-  }
-  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Node.Param.key)
-}
-
-// required string value = 2;
- bool Node_Param::has_value() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
- void Node_Param::set_has_value() {
-  _has_bits_[0] |= 0x00000002u;
-}
- void Node_Param::clear_has_value() {
-  _has_bits_[0] &= ~0x00000002u;
-}
- void Node_Param::clear_value() {
-  value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_value();
-}
- const ::std::string& Node_Param::value() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Node.Param.value)
-  return value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void Node_Param::set_value(const ::std::string& value) {
-  set_has_value();
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Node.Param.value)
-}
- void Node_Param::set_value(const char* value) {
-  set_has_value();
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Node.Param.value)
-}
- void Node_Param::set_value(const char* value, size_t size) {
-  set_has_value();
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Node.Param.value)
-}
- ::std::string* Node_Param::mutable_value() {
-  set_has_value();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Node.Param.value)
-  return value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- ::std::string* Node_Param::release_value() {
-  clear_has_value();
-  return value_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void Node_Param::set_allocated_value(::std::string* value) {
-  if (value != NULL) {
-    set_has_value();
-  } else {
-    clear_has_value();
-  }
-  value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Node.Param.value)
-}
-
-// required string dataType = 3;
- bool Node_Param::has_datatype() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
- void Node_Param::set_has_datatype() {
-  _has_bits_[0] |= 0x00000004u;
-}
- void Node_Param::clear_has_datatype() {
-  _has_bits_[0] &= ~0x00000004u;
-}
- void Node_Param::clear_datatype() {
-  datatype_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_datatype();
-}
- const ::std::string& Node_Param::datatype() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Node.Param.dataType)
-  return datatype_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void Node_Param::set_datatype(const ::std::string& value) {
-  set_has_datatype();
-  datatype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Node.Param.dataType)
-}
- void Node_Param::set_datatype(const char* value) {
-  set_has_datatype();
-  datatype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Node.Param.dataType)
-}
- void Node_Param::set_datatype(const char* value, size_t size) {
-  set_has_datatype();
-  datatype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Node.Param.dataType)
-}
- ::std::string* Node_Param::mutable_datatype() {
-  set_has_datatype();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Node.Param.dataType)
-  return datatype_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- ::std::string* Node_Param::release_datatype() {
-  clear_has_datatype();
-  return datatype_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void Node_Param::set_allocated_datatype(::std::string* datatype) {
-  if (datatype != NULL) {
-    set_has_datatype();
-  } else {
-    clear_has_datatype();
-  }
-  datatype_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), datatype);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Node.Param.dataType)
-}
-
-// -------------------------------------------------------------------
-
 // Node
 
 // required string name = 1;
@@ -1116,31 +539,31 @@ void Node::InternalSwap(Node* other) {
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Node.name)
 }
 
-// repeated .experimot.msgs.Node.Param param = 2;
+// repeated .experimot.msgs.Param param = 2;
  int Node::param_size() const {
   return param_.size();
 }
  void Node::clear_param() {
   param_.Clear();
 }
- const ::experimot::msgs::Node_Param& Node::param(int index) const {
+ const ::experimot::msgs::Param& Node::param(int index) const {
   // @@protoc_insertion_point(field_get:experimot.msgs.Node.param)
   return param_.Get(index);
 }
- ::experimot::msgs::Node_Param* Node::mutable_param(int index) {
+ ::experimot::msgs::Param* Node::mutable_param(int index) {
   // @@protoc_insertion_point(field_mutable:experimot.msgs.Node.param)
   return param_.Mutable(index);
 }
- ::experimot::msgs::Node_Param* Node::add_param() {
+ ::experimot::msgs::Param* Node::add_param() {
   // @@protoc_insertion_point(field_add:experimot.msgs.Node.param)
   return param_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Node_Param >&
+ const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
 Node::param() const {
   // @@protoc_insertion_point(field_list:experimot.msgs.Node.param)
   return param_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Node_Param >*
+ ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
 Node::mutable_param() {
   // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Node.param)
   return &param_;

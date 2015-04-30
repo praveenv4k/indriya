@@ -1,6 +1,5 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
@@ -23,23 +22,23 @@ namespace Experimot.Scheduler
     public class Context : INotifyPropertyChanged
     {
         private Robot _robot;
-        private readonly BindableCollection<Human> _humans;
-        private readonly IDictionary<string, ManipulatableObject> _objects;
+        private BindableCollection<Human> _humans;
+        private IDictionary<string, ManipulatableObject> _objects;
         private readonly object _object = new object();
-        private readonly BindableCollection<GestureModule> _motionModules;
-        private readonly BindableCollection<RobotBehaviorModule> _behaviorModules;
+        private BindableCollection<GestureModule> _motionModules;
+        private BindableCollection<RobotBehaviorModule> _behaviorModules;
         private static readonly ILog Log = LogManager.GetLogger<Context>();
-        private readonly BrowserTabViewModel _browserTabViewModel;
+        private BrowserTabViewModel _browserTabViewModel;
 
         public Context()
         {
             //_humans = new ConcurrentDictionary<int, Human>();
-            _humans = new BindableCollection<Human>();
-            _robot = new Robot();
-            _objects = new ConcurrentDictionary<string, ManipulatableObject>();
-            _motionModules = new BindableCollection<GestureModule>();
-            _behaviorModules = new BindableCollection<RobotBehaviorModule>();
-            _browserTabViewModel = new BrowserTabViewModel("http://localhost:8888");
+            Humans = new BindableCollection<Human>();
+            Robot = new Robot();
+            Objects = new ConcurrentDictionary<string, ManipulatableObject>();
+            MotionModules = new BindableCollection<GestureModule>();
+            BehaviorModules = new BindableCollection<RobotBehaviorModule>();
+            TabViewModel = new BrowserTabViewModel("http://localhost:8888");
         }
 
         [ExpandableObject]
@@ -59,29 +58,34 @@ namespace Experimot.Scheduler
         public BindableCollection<Human> Humans
         {
             get { return _humans; }
+            set { _humans = value; }
         }
 
         [ExpandableObject]
         public IDictionary<string, ManipulatableObject> Objects
         {
             get { return _objects; }
+            set { _objects = value; }
         }
 
         [ExpandableObject]
         public BindableCollection<GestureModule> MotionModules
         {
             get { return _motionModules; }
+            set { _motionModules = value; }
         }
 
         [ExpandableObject]
         public BindableCollection<RobotBehaviorModule> BehaviorModules
         {
             get { return _behaviorModules; }
+            set { _behaviorModules = value; }
         }
 
         public BrowserTabViewModel TabViewModel
         {
             get { return _browserTabViewModel; }
+            set { _browserTabViewModel = value; }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -165,7 +169,7 @@ namespace Experimot.Scheduler
             }
         }
 
-        void GesturesCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        void GesturesCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             //Log.InfoFormat("Gesture collection changed : {0}", sender.ToString());
             if (e.Action == NotifyCollectionChangedAction.Add)
@@ -190,7 +194,7 @@ namespace Experimot.Scheduler
                                     {
                                         scheduler = factory.GetScheduler();
                                     }
-                                    if (!scheduler.CheckExists(jobKey))
+                                    if (scheduler != null && !scheduler.CheckExists(jobKey))
                                     {
                                         IJobDetail detail = JobBuilder.Create<SimpleBehaviorTask>()
                                             .WithIdentity(jobKey)
@@ -284,7 +288,7 @@ namespace Experimot.Scheduler
             }
         }
 
-        public void RegisterMotionRecognitionModule(experimot.msgs.GestureRecognitionModule module)
+        public void RegisterMotionRecognitionModule(GestureRecognitionModule module)
         {
             if (module != null && !string.IsNullOrEmpty(module.name))
             {
@@ -303,7 +307,7 @@ namespace Experimot.Scheduler
             }
         }
 
-        public void RegisterRobotBehaviorModule(experimot.msgs.RobotBehaviorModule module)
+        public void RegisterRobotBehaviorModule(RobotBehaviorModule module)
         {
             if (module != null && !string.IsNullOrEmpty(module.name))
             {
