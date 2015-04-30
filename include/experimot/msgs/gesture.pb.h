@@ -28,6 +28,7 @@
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "param.pb.h"
 #include <boost/shared_ptr.hpp>
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
@@ -306,10 +307,22 @@ class GestureRecognitionModule : public ::google::protobuf::Message {
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // repeated .experimot.msgs.GestureDescription motions = 2;
+  // repeated .experimot.msgs.Param params = 2;
+  int params_size() const;
+  void clear_params();
+  static const int kParamsFieldNumber = 2;
+  const ::experimot::msgs::Param& params(int index) const;
+  ::experimot::msgs::Param* mutable_params(int index);
+  ::experimot::msgs::Param* add_params();
+  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+      params() const;
+  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+      mutable_params();
+
+  // repeated .experimot.msgs.GestureDescription motions = 3;
   int motions_size() const;
   void clear_motions();
-  static const int kMotionsFieldNumber = 2;
+  static const int kMotionsFieldNumber = 3;
   const ::experimot::msgs::GestureDescription& motions(int index) const;
   ::experimot::msgs::GestureDescription* mutable_motions(int index);
   ::experimot::msgs::GestureDescription* add_motions();
@@ -327,6 +340,7 @@ class GestureRecognitionModule : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param > params_;
   ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureDescription > motions_;
   friend void  protobuf_AddDesc_gesture_2eproto();
   friend void protobuf_AssignDesc_gesture_2eproto();
@@ -848,7 +862,37 @@ inline void GestureRecognitionModule::set_allocated_name(::std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GestureRecognitionModule.name)
 }
 
-// repeated .experimot.msgs.GestureDescription motions = 2;
+// repeated .experimot.msgs.Param params = 2;
+inline int GestureRecognitionModule::params_size() const {
+  return params_.size();
+}
+inline void GestureRecognitionModule::clear_params() {
+  params_.Clear();
+}
+inline const ::experimot::msgs::Param& GestureRecognitionModule::params(int index) const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.GestureRecognitionModule.params)
+  return params_.Get(index);
+}
+inline ::experimot::msgs::Param* GestureRecognitionModule::mutable_params(int index) {
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.GestureRecognitionModule.params)
+  return params_.Mutable(index);
+}
+inline ::experimot::msgs::Param* GestureRecognitionModule::add_params() {
+  // @@protoc_insertion_point(field_add:experimot.msgs.GestureRecognitionModule.params)
+  return params_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+GestureRecognitionModule::params() const {
+  // @@protoc_insertion_point(field_list:experimot.msgs.GestureRecognitionModule.params)
+  return params_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+GestureRecognitionModule::mutable_params() {
+  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.GestureRecognitionModule.params)
+  return &params_;
+}
+
+// repeated .experimot.msgs.GestureDescription motions = 3;
 inline int GestureRecognitionModule::motions_size() const {
   return motions_.size();
 }

@@ -6,6 +6,7 @@ package experimot.msgs;
 
 import "request.proto";
 import "response.proto";
+import "param.proto";
 
 message BehaviorDescription
 {
@@ -33,8 +34,9 @@ message RobotBehaviorModule
 	required int32 Port = 2;
   }
   required string name  = 1;
-  repeated BehaviorDescription behaviors = 2;
-  optional RobotBehaviorResponder responder = 3;
+  repeated Param param = 2;
+  repeated BehaviorDescription behaviors = 3;
+  optional RobotBehaviorResponder responder = 4;
 }
 
 message RobotBehaviorModules

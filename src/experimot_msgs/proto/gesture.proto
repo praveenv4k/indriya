@@ -4,6 +4,8 @@ package experimot.msgs;
 /// \interface Motion description 
 /// \brief Information about all motions supported by the gesture/motion recognition module
 
+import "param.proto";
+
 message GestureDescription
 {
 	enum GestureType
@@ -22,7 +24,8 @@ message GestureDescription
 message GestureRecognitionModule
 {
   required string name  = 1;
-  repeated GestureDescription motions = 2;
+  repeated Param params = 2;
+  repeated GestureDescription motions = 3;
 }
 
 message GestureRecognitionModules

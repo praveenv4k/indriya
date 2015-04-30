@@ -1238,8 +1238,6 @@ namespace Experimot.Core
     public partial class node : System.ComponentModel.INotifyPropertyChanged
     {
 
-        private string nameField;
-
         private process processField;
 
         private ObservableCollection<param_type> parametersField;
@@ -1250,7 +1248,9 @@ namespace Experimot.Core
 
         private bool enabledField;
 
-        private bool enabledFieldSpecified;
+        private string nameField;
+
+        private nodeType typeField;
 
         private static System.Xml.Serialization.XmlSerializer serializer;
 
@@ -1260,34 +1260,10 @@ namespace Experimot.Core
             this.publishersField = new ObservableCollection<socket>();
             this.parametersField = new ObservableCollection<param_type>();
             this.processField = new process();
+            this.typeField = nodeType.misc;
         }
 
         [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
-        public string name
-        {
-            get
-            {
-                return this.nameField;
-            }
-            set
-            {
-                if ((this.nameField != null))
-                {
-                    if ((nameField.Equals(value) != true))
-                    {
-                        this.nameField = value;
-                        this.OnPropertyChanged("name");
-                    }
-                }
-                else
-                {
-                    this.nameField = value;
-                    this.OnPropertyChanged("name");
-                }
-            }
-        }
-
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
         public process process
         {
             get
@@ -1312,7 +1288,7 @@ namespace Experimot.Core
             }
         }
 
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlArrayAttribute(Order = 1)]
         [System.Xml.Serialization.XmlArrayItemAttribute("param", IsNullable = false)]
         public ObservableCollection<param_type> parameters
         {
@@ -1338,7 +1314,7 @@ namespace Experimot.Core
             }
         }
 
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 3)]
+        [System.Xml.Serialization.XmlArrayAttribute(Order = 2)]
         [System.Xml.Serialization.XmlArrayItemAttribute("publish", IsNullable = false)]
         public ObservableCollection<socket> publishers
         {
@@ -1364,7 +1340,7 @@ namespace Experimot.Core
             }
         }
 
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 4)]
+        [System.Xml.Serialization.XmlArrayAttribute(Order = 3)]
         [System.Xml.Serialization.XmlArrayItemAttribute("subscribe", IsNullable = false)]
         public ObservableCollection<socket> subscribers
         {
@@ -1407,19 +1383,45 @@ namespace Experimot.Core
             }
         }
 
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool enabledSpecified
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string name
         {
             get
             {
-                return this.enabledFieldSpecified;
+                return this.nameField;
             }
             set
             {
-                if ((enabledFieldSpecified.Equals(value) != true))
+                if ((this.nameField != null))
                 {
-                    this.enabledFieldSpecified = value;
-                    this.OnPropertyChanged("enabledSpecified");
+                    if ((nameField.Equals(value) != true))
+                    {
+                        this.nameField = value;
+                        this.OnPropertyChanged("name");
+                    }
+                }
+                else
+                {
+                    this.nameField = value;
+                    this.OnPropertyChanged("name");
+                }
+            }
+        }
+
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [System.ComponentModel.DefaultValueAttribute(nodeType.misc)]
+        public nodeType type
+        {
+            get
+            {
+                return this.typeField;
+            }
+            set
+            {
+                if ((typeField.Equals(value) != true))
+                {
+                    this.typeField = value;
+                    this.OnPropertyChanged("type");
                 }
             }
         }
@@ -1619,5 +1621,25 @@ namespace Experimot.Core
             }
         }
         #endregion
+    }
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.tuat.ac.jp/~venture/ExperimotConfig")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.tuat.ac.jp/~venture/ExperimotConfig", IsNullable = false)]
+    public enum nodeType
+    {
+
+        /// <remarks/>
+        visualization,
+
+        /// <remarks/>
+        motion_recognition,
+
+        /// <remarks/>
+        robot_behavior,
+
+        /// <remarks/>
+        misc,
     }
 }

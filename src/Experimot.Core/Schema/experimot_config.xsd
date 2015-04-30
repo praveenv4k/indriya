@@ -31,6 +31,15 @@
       <xs:enumeration value="csv" />
     </xs:restriction>
   </xs:simpleType>
+
+  <xs:simpleType name="nodeType" final="restriction" >
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="visualization" />
+      <xs:enumeration value="motion_recognition" />
+      <xs:enumeration value="robot_behavior" />
+      <xs:enumeration value="misc" />
+    </xs:restriction>
+  </xs:simpleType>
   
 
   <xs:complexType name="param_type">
@@ -41,7 +50,6 @@
 
   <xs:complexType name="node">
       <xs:sequence>
-        <xs:element name="name" type="xs:string" />
         <xs:element name="process" type="process"/>
         <xs:element name="parameters" minOccurs="0" maxOccurs="1">
           <xs:complexType>
@@ -68,7 +76,9 @@
           </xs:complexType>
         </xs:element>
       </xs:sequence>
-      <xs:attribute name="enabled" type="xs:boolean"/>
+      <xs:attribute name="enabled" type="xs:boolean" use="required"/>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+      <xs:attribute name="type" type="nodeType" use="optional" default="misc"/>
   </xs:complexType>
   
   <xs:element name="experimot_config">
