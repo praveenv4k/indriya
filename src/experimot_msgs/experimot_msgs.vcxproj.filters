@@ -363,6 +363,9 @@
     <None Include="tools\fnr.exe">
       <Filter>tools</Filter>
     </None>
+    <None Include="proto\param.proto">
+      <Filter>proto</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MsgFactory.cc">
@@ -692,6 +695,9 @@
     <ClCompile Include="robot_behavior.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="param.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="axis.pb.h">
@@ -1019,6 +1025,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="robot_behavior.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="param.pb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

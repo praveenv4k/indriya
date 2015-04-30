@@ -9,7 +9,6 @@ using Experimot.Core;
 using Nancy.TinyIoc;
 using NetMQ;
 using ProtoBuf;
-using Scheduler;
 using Expression = System.Linq.Expressions.Expression;
 
 namespace Experimot.Scheduler.Tasks

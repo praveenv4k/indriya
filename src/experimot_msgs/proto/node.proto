@@ -7,15 +7,10 @@ package experimot.msgs;
 
 import "publish.proto";
 import "subscribe.proto";
+import "param.proto";
 
 message Node
 {
-  message Param
-  {
-	required string key = 1;
-	required string value = 2;
-	required string dataType = 3;
-  }
   required string name = 1;
   repeated Param param = 2;
   repeated Publish publisher = 3;

@@ -7,12 +7,12 @@
 
 class ParameterHelper{
 public:
-	static bool GetParamString(const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Node_Param >& params,
+	static bool GetParamString(const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >& params,
 		const std::string& key, std::string& paramValue){
 		bool ret = false;
 		int size = params.size();
 		for (int i = 0; i < size; i++){
-			const experimot::msgs::Node_Param& param = params.Get(i);
+			const experimot::msgs::Param& param = params.Get(i);
 			if (param.key() == key){
 				paramValue = param.value();
 				ret = true;
@@ -23,7 +23,7 @@ public:
 	}
 
 	template <typename T>
-	static T GetParam(const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Node_Param >& params,
+	static T GetParam(const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >& params,
 		const std::string& key, T defaultValue){
 		T ret = defaultValue;
 		std::string paramValue;

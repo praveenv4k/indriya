@@ -157,6 +157,7 @@
     <None Include="proto\gesture.proto" />
     <None Include="proto\node.proto" />
     <None Include="proto\packet.proto" />
+    <None Include="proto\param.proto" />
     <None Include="proto\physics.proto" />
     <None Include="proto\pid.proto" />
     <None Include="proto\planegeom.proto" />
@@ -278,6 +279,7 @@
     <ClCompile Include="MsgFactory.cc" />
     <ClCompile Include="node.pb.cc" />
     <ClCompile Include="packet.pb.cc" />
+    <ClCompile Include="param.pb.cc" />
     <ClCompile Include="physics.pb.cc" />
     <ClCompile Include="pid.pb.cc" />
     <ClCompile Include="planegeom.pb.cc" />
@@ -389,6 +391,7 @@
     <ClInclude Include="MsgFactory.h" />
     <ClInclude Include="node.pb.h" />
     <ClInclude Include="packet.pb.h" />
+    <ClInclude Include="param.pb.h" />
     <ClInclude Include="physics.pb.h" />
     <ClInclude Include="pid.pb.h" />
     <ClInclude Include="planegeom.pb.h" />

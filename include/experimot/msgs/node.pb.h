@@ -29,6 +29,7 @@
 #include <google/protobuf/unknown_field_set.h>
 #include "publish.pb.h"
 #include "subscribe.pb.h"
+#include "param.pb.h"
 #include <boost/shared_ptr.hpp>
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
@@ -42,136 +43,8 @@ void protobuf_AssignDesc_node_2eproto();
 void protobuf_ShutdownFile_node_2eproto();
 
 class Node;
-class Node_Param;
 
 // ===================================================================
-
-class Node_Param : public ::google::protobuf::Message {
- public:
-  Node_Param();
-  virtual ~Node_Param();
-
-  Node_Param(const Node_Param& from);
-
-  inline Node_Param& operator=(const Node_Param& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Node_Param& default_instance();
-
-  void Swap(Node_Param* other);
-
-  // implements Message ----------------------------------------------
-
-  inline Node_Param* New() const { return New(NULL); }
-
-  Node_Param* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Node_Param& from);
-  void MergeFrom(const Node_Param& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(Node_Param* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // required string key = 1;
-  bool has_key() const;
-  void clear_key();
-  static const int kKeyFieldNumber = 1;
-  const ::std::string& key() const;
-  void set_key(const ::std::string& value);
-  void set_key(const char* value);
-  void set_key(const char* value, size_t size);
-  ::std::string* mutable_key();
-  ::std::string* release_key();
-  void set_allocated_key(::std::string* key);
-
-  // required string value = 2;
-  bool has_value() const;
-  void clear_value();
-  static const int kValueFieldNumber = 2;
-  const ::std::string& value() const;
-  void set_value(const ::std::string& value);
-  void set_value(const char* value);
-  void set_value(const char* value, size_t size);
-  ::std::string* mutable_value();
-  ::std::string* release_value();
-  void set_allocated_value(::std::string* value);
-
-  // required string dataType = 3;
-  bool has_datatype() const;
-  void clear_datatype();
-  static const int kDataTypeFieldNumber = 3;
-  const ::std::string& datatype() const;
-  void set_datatype(const ::std::string& value);
-  void set_datatype(const char* value);
-  void set_datatype(const char* value, size_t size);
-  ::std::string* mutable_datatype();
-  ::std::string* release_datatype();
-  void set_allocated_datatype(::std::string* datatype);
-
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Node.Param)
- private:
-  inline void set_has_key();
-  inline void clear_has_key();
-  inline void set_has_value();
-  inline void clear_has_value();
-  inline void set_has_datatype();
-  inline void clear_has_datatype();
-
-  // helper for ByteSize()
-  int RequiredFieldsByteSizeFallback() const;
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr key_;
-  ::google::protobuf::internal::ArenaStringPtr value_;
-  ::google::protobuf::internal::ArenaStringPtr datatype_;
-  friend void  protobuf_AddDesc_node_2eproto();
-  friend void protobuf_AssignDesc_node_2eproto();
-  friend void protobuf_ShutdownFile_node_2eproto();
-
-  void InitAsDefaultInstance();
-  static Node_Param* default_instance_;
-};
-// -------------------------------------------------------------------
 
 class Node : public ::google::protobuf::Message {
  public:
@@ -235,8 +108,6 @@ class Node : public ::google::protobuf::Message {
 
   // nested types ----------------------------------------------------
 
-  typedef Node_Param Param;
-
   // accessors -------------------------------------------------------
 
   // required string name = 1;
@@ -251,16 +122,16 @@ class Node : public ::google::protobuf::Message {
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // repeated .experimot.msgs.Node.Param param = 2;
+  // repeated .experimot.msgs.Param param = 2;
   int param_size() const;
   void clear_param();
   static const int kParamFieldNumber = 2;
-  const ::experimot::msgs::Node_Param& param(int index) const;
-  ::experimot::msgs::Node_Param* mutable_param(int index);
-  ::experimot::msgs::Node_Param* add_param();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Node_Param >&
+  const ::experimot::msgs::Param& param(int index) const;
+  ::experimot::msgs::Param* mutable_param(int index);
+  ::experimot::msgs::Param* add_param();
+  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
       param() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Node_Param >*
+  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
       mutable_param();
 
   // repeated .experimot.msgs.Publish publisher = 3;
@@ -296,7 +167,7 @@ class Node : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Node_Param > param_;
+  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param > param_;
   ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish > publisher_;
   ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Subscribe > subscriber_;
   friend void  protobuf_AddDesc_node_2eproto();
@@ -312,169 +183,6 @@ class Node : public ::google::protobuf::Message {
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
-// Node_Param
-
-// required string key = 1;
-inline bool Node_Param::has_key() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Node_Param::set_has_key() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Node_Param::clear_has_key() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void Node_Param::clear_key() {
-  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_key();
-}
-inline const ::std::string& Node_Param::key() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Node.Param.key)
-  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void Node_Param::set_key(const ::std::string& value) {
-  set_has_key();
-  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Node.Param.key)
-}
-inline void Node_Param::set_key(const char* value) {
-  set_has_key();
-  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Node.Param.key)
-}
-inline void Node_Param::set_key(const char* value, size_t size) {
-  set_has_key();
-  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Node.Param.key)
-}
-inline ::std::string* Node_Param::mutable_key() {
-  set_has_key();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Node.Param.key)
-  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* Node_Param::release_key() {
-  clear_has_key();
-  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void Node_Param::set_allocated_key(::std::string* key) {
-  if (key != NULL) {
-    set_has_key();
-  } else {
-    clear_has_key();
-  }
-  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Node.Param.key)
-}
-
-// required string value = 2;
-inline bool Node_Param::has_value() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Node_Param::set_has_value() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Node_Param::clear_has_value() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void Node_Param::clear_value() {
-  value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_value();
-}
-inline const ::std::string& Node_Param::value() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Node.Param.value)
-  return value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void Node_Param::set_value(const ::std::string& value) {
-  set_has_value();
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Node.Param.value)
-}
-inline void Node_Param::set_value(const char* value) {
-  set_has_value();
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Node.Param.value)
-}
-inline void Node_Param::set_value(const char* value, size_t size) {
-  set_has_value();
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Node.Param.value)
-}
-inline ::std::string* Node_Param::mutable_value() {
-  set_has_value();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Node.Param.value)
-  return value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* Node_Param::release_value() {
-  clear_has_value();
-  return value_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void Node_Param::set_allocated_value(::std::string* value) {
-  if (value != NULL) {
-    set_has_value();
-  } else {
-    clear_has_value();
-  }
-  value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Node.Param.value)
-}
-
-// required string dataType = 3;
-inline bool Node_Param::has_datatype() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void Node_Param::set_has_datatype() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void Node_Param::clear_has_datatype() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void Node_Param::clear_datatype() {
-  datatype_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_datatype();
-}
-inline const ::std::string& Node_Param::datatype() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Node.Param.dataType)
-  return datatype_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void Node_Param::set_datatype(const ::std::string& value) {
-  set_has_datatype();
-  datatype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Node.Param.dataType)
-}
-inline void Node_Param::set_datatype(const char* value) {
-  set_has_datatype();
-  datatype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Node.Param.dataType)
-}
-inline void Node_Param::set_datatype(const char* value, size_t size) {
-  set_has_datatype();
-  datatype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Node.Param.dataType)
-}
-inline ::std::string* Node_Param::mutable_datatype() {
-  set_has_datatype();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Node.Param.dataType)
-  return datatype_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* Node_Param::release_datatype() {
-  clear_has_datatype();
-  return datatype_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void Node_Param::set_allocated_datatype(::std::string* datatype) {
-  if (datatype != NULL) {
-    set_has_datatype();
-  } else {
-    clear_has_datatype();
-  }
-  datatype_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), datatype);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Node.Param.dataType)
-}
-
-// -------------------------------------------------------------------
-
 // Node
 
 // required string name = 1;
@@ -530,31 +238,31 @@ inline void Node::set_allocated_name(::std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Node.name)
 }
 
-// repeated .experimot.msgs.Node.Param param = 2;
+// repeated .experimot.msgs.Param param = 2;
 inline int Node::param_size() const {
   return param_.size();
 }
 inline void Node::clear_param() {
   param_.Clear();
 }
-inline const ::experimot::msgs::Node_Param& Node::param(int index) const {
+inline const ::experimot::msgs::Param& Node::param(int index) const {
   // @@protoc_insertion_point(field_get:experimot.msgs.Node.param)
   return param_.Get(index);
 }
-inline ::experimot::msgs::Node_Param* Node::mutable_param(int index) {
+inline ::experimot::msgs::Param* Node::mutable_param(int index) {
   // @@protoc_insertion_point(field_mutable:experimot.msgs.Node.param)
   return param_.Mutable(index);
 }
-inline ::experimot::msgs::Node_Param* Node::add_param() {
+inline ::experimot::msgs::Param* Node::add_param() {
   // @@protoc_insertion_point(field_add:experimot.msgs.Node.param)
   return param_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Node_Param >&
+inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
 Node::param() const {
   // @@protoc_insertion_point(field_list:experimot.msgs.Node.param)
   return param_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Node_Param >*
+inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
 Node::mutable_param() {
   // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Node.param)
   return &param_;
