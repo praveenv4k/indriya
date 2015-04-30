@@ -506,11 +506,12 @@ public:
 								ss << "human" << human.id();
 								std::string fileName(ss.str() + ".kinbody.xml");
 								RaveVector<float> bColor;
-								KinectBodyHelper::Instance()->GetBodyColor(human.id(), bColor);
+								KinectBodyHelper::Instance()->GetBodyColor(human.id()-1, bColor);
 								OpenRAVE::KinBodyPtr pModel = penv->ReadKinBodyXMLFile(fileName);
 								Transform tfm;
 								Convert(human.torso_position(), human.orientation(), tfm);
 								pModel->SetTransform(tfm);
+								penv->Add(pModel);
 								OpenRAVE::KinBody::LinkPtr link = pModel->GetLink(ss.str());
 								if (link != 0){
 									link->GetGeometry(0)->SetDiffuseColor(bColor);
