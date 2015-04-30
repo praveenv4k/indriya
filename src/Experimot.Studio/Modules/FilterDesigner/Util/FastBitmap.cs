@@ -3,7 +3,7 @@ using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace ExperimotStudio.Modules.FilterDesigner.Util
+namespace Experimot.Studio.Modules.FilterDesigner.Util
 {
     public class FastBitmap : IDisposable
     {

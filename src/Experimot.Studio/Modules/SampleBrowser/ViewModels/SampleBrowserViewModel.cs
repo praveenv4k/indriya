@@ -2,7 +2,7 @@
 using Gemini.Framework;
 using Gemini.Framework.Services;
 
-namespace ExperimotStudio.Modules.SampleBrowser.ViewModels
+namespace Experimot.Studio.Modules.SampleBrowser.ViewModels
 {
     [Export(typeof(SampleBrowserViewModel))]
     public class SampleBrowserViewModel : Document

@@ -1,4 +1,4 @@
-﻿namespace ExperimotStudio.Modules.FilterDesigner.Design
+﻿namespace Experimot.Studio.Modules.FilterDesigner.Design
 {
     internal static class DesignTimeImages
     {

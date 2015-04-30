@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.Composition;
-using ExperimotStudio.Modules.FilterDesigner.Commands;
+using Experimot.Studio.Modules.FilterDesigner.Commands;
 using Gemini.Framework.Menus;
 
-namespace ExperimotStudio.Modules.FilterDesigner
+namespace Experimot.Studio.Modules.FilterDesigner
 {
     public static class MenuDefinitions
     {

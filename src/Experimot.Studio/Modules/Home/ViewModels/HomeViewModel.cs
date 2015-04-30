@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Media;
 using Gemini.Framework;
 
-namespace ExperimotStudio.Modules.Home.ViewModels
+namespace Experimot.Studio.Modules.Home.ViewModels
 {
     [DisplayName("Home View Model")]
 	[Export]

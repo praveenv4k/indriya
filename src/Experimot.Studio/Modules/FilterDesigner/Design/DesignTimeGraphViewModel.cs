@@ -1,6 +1,6 @@
-﻿using ExperimotStudio.Modules.FilterDesigner.ViewModels;
+﻿using Experimot.Studio.Modules.FilterDesigner.ViewModels;
 
-namespace ExperimotStudio.Modules.FilterDesigner.Design
+namespace Experimot.Studio.Modules.FilterDesigner.Design
 {
     public class DesignTimeGraphViewModel : GraphViewModel
     {

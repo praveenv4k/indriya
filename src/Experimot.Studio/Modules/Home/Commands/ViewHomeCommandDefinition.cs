@@ -1,6 +1,6 @@
 ﻿using Gemini.Framework.Commands;
 
-namespace ExperimotStudio.Modules.Home.Commands
+namespace Experimot.Studio.Modules.Home.Commands
 {
     [CommandDefinition]
     public class ViewHomeCommandDefinition : CommandDefinition

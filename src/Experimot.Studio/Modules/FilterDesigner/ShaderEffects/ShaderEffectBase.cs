@@ -1,9 +1,8 @@
 using System;
 using System.Windows.Media.Effects;
 using Experimot.Studio.Modules.FilterDesigner.Util;
-using ExperimotStudio.Modules.FilterDesigner.Util;
 
-namespace ExperimotStudio.Modules.FilterDesigner.ShaderEffects
+namespace Experimot.Studio.Modules.FilterDesigner.ShaderEffects
 {
     internal class ShaderEffectBase<T> : ShaderEffect, IDisposable
     {

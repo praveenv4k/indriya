@@ -2,12 +2,12 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using ExperimotStudio.Modules.FilterDesigner.ViewModels;
+using Experimot.Studio.Modules.FilterDesigner.ViewModels;
 using Gemini.Modules.GraphEditor.Controls;
 using Gemini.Modules.Toolbox;
 using Gemini.Modules.Toolbox.Models;
 
-namespace ExperimotStudio.Modules.FilterDesigner.Views
+namespace Experimot.Studio.Modules.FilterDesigner.Views
 {
     /// <summary>
     /// Interaction logic for GraphView.xaml

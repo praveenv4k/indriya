@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Media;
 using Caliburn.Micro;
 
-namespace ExperimotStudio.Modules.FilterDesigner.ViewModels
+namespace Experimot.Studio.Modules.FilterDesigner.ViewModels
 {
     public enum ConnectorDataType
     {

@@ -2,7 +2,7 @@
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 
-namespace ExperimotStudio.Modules.FilterDesigner.ViewModels.Elements
+namespace Experimot.Studio.Modules.FilterDesigner.ViewModels.Elements
 {
     public abstract class ShaderEffectElement : DynamicElement
     {

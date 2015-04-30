@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.Composition;
 using Caliburn.Micro;
-using ExperimotStudio.Modules.SampleBrowser.ViewModels;
+using Experimot.Studio.Modules.SampleBrowser.ViewModels;
 using Gemini.Framework;
 
-namespace ExperimotStudio.Modules.SampleBrowser
+namespace Experimot.Studio.Modules.SampleBrowser
 {
     [Export(typeof(IModule))]
     public class Module : ModuleBase

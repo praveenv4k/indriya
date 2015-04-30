@@ -2,7 +2,7 @@
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace ExperimotStudio.Modules.FilterDesigner.ViewModels
+namespace Experimot.Studio.Modules.FilterDesigner.ViewModels
 {
     public class InputConnectorViewModel : ConnectorViewModel
     {
