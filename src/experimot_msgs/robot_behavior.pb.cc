@@ -65,8 +65,9 @@ void protobuf_AssignDesc_robot_5fbehavior_2eproto() {
   BehaviorDescription_ExecutionType_descriptor_ = BehaviorDescription_descriptor_->enum_type(0);
   BehaviorDescription_ExecutionState_descriptor_ = BehaviorDescription_descriptor_->enum_type(1);
   RobotBehaviorModule_descriptor_ = file->message_type(1);
-  static const int RobotBehaviorModule_offsets_[3] = {
+  static const int RobotBehaviorModule_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RobotBehaviorModule, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RobotBehaviorModule, param_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RobotBehaviorModule, behaviors_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RobotBehaviorModule, responder_),
   };
@@ -155,24 +156,26 @@ void protobuf_AddDesc_robot_5fbehavior_2eproto() {
 
   ::experimot::msgs::protobuf_AddDesc_request_2eproto();
   ::experimot::msgs::protobuf_AddDesc_response_2eproto();
+  ::experimot::msgs::protobuf_AddDesc_param_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\024robot_behavior.proto\022\016experimot.msgs\032\r"
-    "request.proto\032\016response.proto\"\213\002\n\023Behavi"
-    "orDescription\022\014\n\004name\030\001 \002(\t\022\?\n\004type\030\002 \002("
-    "\01621.experimot.msgs.BehaviorDescription.E"
-    "xecutionType\022A\n\005state\030\003 \002(\01622.experimot."
-    "msgs.BehaviorDescription.ExecutionState\""
-    ".\n\rExecutionType\022\014\n\010Blocking\020\000\022\017\n\013NonBlo"
-    "cking\020\001\"2\n\016ExecutionState\022\010\n\004Idle\020\000\022\013\n\007R"
-    "unning\020\001\022\t\n\005Error\020\002\"\340\001\n\023RobotBehaviorMod"
-    "ule\022\014\n\004name\030\001 \002(\t\0226\n\tbehaviors\030\002 \003(\0132#.e"
-    "xperimot.msgs.BehaviorDescription\022M\n\tres"
-    "ponder\030\003 \001(\0132:.experimot.msgs.RobotBehav"
-    "iorModule.RobotBehaviorResponder\0324\n\026Robo"
-    "tBehaviorResponder\022\014\n\004Host\030\001 \002(\t\022\014\n\004Port"
-    "\030\002 \002(\005\"L\n\024RobotBehaviorModules\0224\n\007module"
-    "s\030\001 \003(\0132#.experimot.msgs.RobotBehaviorMo"
-    "dule", 644);
+    "request.proto\032\016response.proto\032\013param.pro"
+    "to\"\213\002\n\023BehaviorDescription\022\014\n\004name\030\001 \002(\t"
+    "\022\?\n\004type\030\002 \002(\01621.experimot.msgs.Behavior"
+    "Description.ExecutionType\022A\n\005state\030\003 \002(\016"
+    "22.experimot.msgs.BehaviorDescription.Ex"
+    "ecutionState\".\n\rExecutionType\022\014\n\010Blockin"
+    "g\020\000\022\017\n\013NonBlocking\020\001\"2\n\016ExecutionState\022\010"
+    "\n\004Idle\020\000\022\013\n\007Running\020\001\022\t\n\005Error\020\002\"\206\002\n\023Rob"
+    "otBehaviorModule\022\014\n\004name\030\001 \002(\t\022$\n\005param\030"
+    "\002 \003(\0132\025.experimot.msgs.Param\0226\n\tbehavior"
+    "s\030\003 \003(\0132#.experimot.msgs.BehaviorDescrip"
+    "tion\022M\n\tresponder\030\004 \001(\0132:.experimot.msgs"
+    ".RobotBehaviorModule.RobotBehaviorRespon"
+    "der\0324\n\026RobotBehaviorResponder\022\014\n\004Host\030\001 "
+    "\002(\t\022\014\n\004Port\030\002 \002(\005\"L\n\024RobotBehaviorModule"
+    "s\0224\n\007modules\030\001 \003(\0132#.experimot.msgs.Robo"
+    "tBehaviorModule", 695);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "robot_behavior.proto", &protobuf_RegisterTypes);
   BehaviorDescription::default_instance_ = new BehaviorDescription();
@@ -1043,6 +1046,7 @@ void RobotBehaviorModule_RobotBehaviorResponder::InternalSwap(RobotBehaviorModul
 
 #ifndef _MSC_VER
 const int RobotBehaviorModule::kNameFieldNumber;
+const int RobotBehaviorModule::kParamFieldNumber;
 const int RobotBehaviorModule::kBehaviorsFieldNumber;
 const int RobotBehaviorModule::kResponderFieldNumber;
 #endif  // !_MSC_VER
@@ -1111,7 +1115,7 @@ RobotBehaviorModule* RobotBehaviorModule::New(::google::protobuf::Arena* arena) 
 }
 
 void RobotBehaviorModule::Clear() {
-  if (_has_bits_[0 / 32] & 5) {
+  if (_has_bits_[0 / 32] & 9) {
     if (has_name()) {
       name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
@@ -1119,6 +1123,7 @@ void RobotBehaviorModule::Clear() {
       if (responder_ != NULL) responder_->::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder::Clear();
     }
   }
+  param_.Clear();
   behaviors_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1148,27 +1153,41 @@ bool RobotBehaviorModule::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_behaviors;
+        if (input->ExpectTag(18)) goto parse_param;
         break;
       }
 
-      // repeated .experimot.msgs.BehaviorDescription behaviors = 2;
+      // repeated .experimot.msgs.Param param = 2;
       case 2: {
         if (tag == 18) {
+         parse_param:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_param()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_param;
+        if (input->ExpectTag(26)) goto parse_behaviors;
+        break;
+      }
+
+      // repeated .experimot.msgs.BehaviorDescription behaviors = 3;
+      case 3: {
+        if (tag == 26) {
          parse_behaviors:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_behaviors()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_behaviors;
-        if (input->ExpectTag(26)) goto parse_responder;
+        if (input->ExpectTag(26)) goto parse_behaviors;
+        if (input->ExpectTag(34)) goto parse_responder;
         break;
       }
 
-      // optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 3;
-      case 3: {
-        if (tag == 26) {
+      // optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 4;
+      case 4: {
+        if (tag == 34) {
          parse_responder:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_responder()));
@@ -1214,16 +1233,22 @@ void RobotBehaviorModule::SerializeWithCachedSizes(
       1, this->name(), output);
   }
 
-  // repeated .experimot.msgs.BehaviorDescription behaviors = 2;
-  for (unsigned int i = 0, n = this->behaviors_size(); i < n; i++) {
+  // repeated .experimot.msgs.Param param = 2;
+  for (unsigned int i = 0, n = this->param_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->behaviors(i), output);
+      2, this->param(i), output);
   }
 
-  // optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 3;
+  // repeated .experimot.msgs.BehaviorDescription behaviors = 3;
+  for (unsigned int i = 0, n = this->behaviors_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->behaviors(i), output);
+  }
+
+  // optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 4;
   if (has_responder()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, *this->responder_, output);
+      4, *this->responder_, output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1247,18 +1272,25 @@ void RobotBehaviorModule::SerializeWithCachedSizes(
         1, this->name(), target);
   }
 
-  // repeated .experimot.msgs.BehaviorDescription behaviors = 2;
+  // repeated .experimot.msgs.Param param = 2;
+  for (unsigned int i = 0, n = this->param_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->param(i), target);
+  }
+
+  // repeated .experimot.msgs.BehaviorDescription behaviors = 3;
   for (unsigned int i = 0, n = this->behaviors_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->behaviors(i), target);
+        3, this->behaviors(i), target);
   }
 
-  // optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 3;
+  // optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 4;
   if (has_responder()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        3, *this->responder_, target);
+        4, *this->responder_, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1278,14 +1310,22 @@ int RobotBehaviorModule::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->name());
   }
-  // optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 3;
+  // optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 4;
   if (has_responder()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->responder_);
   }
 
-  // repeated .experimot.msgs.BehaviorDescription behaviors = 2;
+  // repeated .experimot.msgs.Param param = 2;
+  total_size += 1 * this->param_size();
+  for (int i = 0; i < this->param_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->param(i));
+  }
+
+  // repeated .experimot.msgs.BehaviorDescription behaviors = 3;
   total_size += 1 * this->behaviors_size();
   for (int i = 0; i < this->behaviors_size(); i++) {
     total_size +=
@@ -1318,6 +1358,7 @@ void RobotBehaviorModule::MergeFrom(const ::google::protobuf::Message& from) {
 
 void RobotBehaviorModule::MergeFrom(const RobotBehaviorModule& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  param_.MergeFrom(from.param_);
   behaviors_.MergeFrom(from.behaviors_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_name()) {
@@ -1348,6 +1389,7 @@ void RobotBehaviorModule::CopyFrom(const RobotBehaviorModule& from) {
 bool RobotBehaviorModule::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
+  if (!::google::protobuf::internal::AllAreInitialized(this->param())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->behaviors())) return false;
   if (has_responder()) {
     if (!this->responder_->IsInitialized()) return false;
@@ -1361,6 +1403,7 @@ void RobotBehaviorModule::Swap(RobotBehaviorModule* other) {
 }
 void RobotBehaviorModule::InternalSwap(RobotBehaviorModule* other) {
   name_.Swap(&other->name_);
+  param_.UnsafeArenaSwap(&other->param_);
   behaviors_.UnsafeArenaSwap(&other->behaviors_);
   std::swap(responder_, other->responder_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -1513,7 +1556,37 @@ void RobotBehaviorModule::InternalSwap(RobotBehaviorModule* other) {
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.RobotBehaviorModule.name)
 }
 
-// repeated .experimot.msgs.BehaviorDescription behaviors = 2;
+// repeated .experimot.msgs.Param param = 2;
+ int RobotBehaviorModule::param_size() const {
+  return param_.size();
+}
+ void RobotBehaviorModule::clear_param() {
+  param_.Clear();
+}
+ const ::experimot::msgs::Param& RobotBehaviorModule::param(int index) const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.RobotBehaviorModule.param)
+  return param_.Get(index);
+}
+ ::experimot::msgs::Param* RobotBehaviorModule::mutable_param(int index) {
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.RobotBehaviorModule.param)
+  return param_.Mutable(index);
+}
+ ::experimot::msgs::Param* RobotBehaviorModule::add_param() {
+  // @@protoc_insertion_point(field_add:experimot.msgs.RobotBehaviorModule.param)
+  return param_.Add();
+}
+ const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+RobotBehaviorModule::param() const {
+  // @@protoc_insertion_point(field_list:experimot.msgs.RobotBehaviorModule.param)
+  return param_;
+}
+ ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+RobotBehaviorModule::mutable_param() {
+  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.RobotBehaviorModule.param)
+  return &param_;
+}
+
+// repeated .experimot.msgs.BehaviorDescription behaviors = 3;
  int RobotBehaviorModule::behaviors_size() const {
   return behaviors_.size();
 }
@@ -1543,15 +1616,15 @@ RobotBehaviorModule::mutable_behaviors() {
   return &behaviors_;
 }
 
-// optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 3;
+// optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 4;
  bool RobotBehaviorModule::has_responder() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
  void RobotBehaviorModule::set_has_responder() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
  void RobotBehaviorModule::clear_has_responder() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
  void RobotBehaviorModule::clear_responder() {
   if (responder_ != NULL) responder_->::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder::Clear();

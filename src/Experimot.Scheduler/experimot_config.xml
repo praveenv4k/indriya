@@ -14,8 +14,7 @@
     <param key="WebServerHost" value="http://localhost" type="int"/>
   </parameters>
   <nodes>
-    <node enabled="false">
-      <name>localization</name>
+    <node enabled="false" name="localization">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\experimot_localization.exe</path>
@@ -54,8 +53,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="true">
-      <name>gesture_recognition</name>
+    <node enabled="true" name="gesture_recognition">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Perception\Experimot.Kinect.Perception.exe</path>
@@ -81,8 +79,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="false">
-      <name>simulation</name>
+    <node enabled="false" name="simulation">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\experimot_rave.exe</path>
@@ -125,8 +122,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false">
-      <name>robot_interface</name>
+    <node enabled="false" name="robot_interface">
       <process>
         <type>executable</type>
         <path>python.exe</path>
@@ -146,16 +142,14 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="false">
-      <name>tdm_client</name>
+    <node enabled="false" name="tdm_client">
       <process>
         <type>executable</type>
         <path>python.exe</path>
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_zmq_plot_client.py</args>
       </process>
     </node>
-    <node enabled="false">
-      <name>nao_behavior_manager</name>
+    <node enabled="false" name="nao_behavior_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>

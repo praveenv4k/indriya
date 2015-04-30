@@ -30,6 +30,7 @@
 #include <google/protobuf/unknown_field_set.h>
 #include "request.pb.h"
 #include "response.pb.h"
+#include "param.pb.h"
 #include <boost/shared_ptr.hpp>
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
@@ -439,10 +440,22 @@ class RobotBehaviorModule : public ::google::protobuf::Message {
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // repeated .experimot.msgs.BehaviorDescription behaviors = 2;
+  // repeated .experimot.msgs.Param param = 2;
+  int param_size() const;
+  void clear_param();
+  static const int kParamFieldNumber = 2;
+  const ::experimot::msgs::Param& param(int index) const;
+  ::experimot::msgs::Param* mutable_param(int index);
+  ::experimot::msgs::Param* add_param();
+  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+      param() const;
+  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+      mutable_param();
+
+  // repeated .experimot.msgs.BehaviorDescription behaviors = 3;
   int behaviors_size() const;
   void clear_behaviors();
-  static const int kBehaviorsFieldNumber = 2;
+  static const int kBehaviorsFieldNumber = 3;
   const ::experimot::msgs::BehaviorDescription& behaviors(int index) const;
   ::experimot::msgs::BehaviorDescription* mutable_behaviors(int index);
   ::experimot::msgs::BehaviorDescription* add_behaviors();
@@ -451,10 +464,10 @@ class RobotBehaviorModule : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorDescription >*
       mutable_behaviors();
 
-  // optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 3;
+  // optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 4;
   bool has_responder() const;
   void clear_responder();
-  static const int kResponderFieldNumber = 3;
+  static const int kResponderFieldNumber = 4;
   const ::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder& responder() const;
   ::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder* mutable_responder();
   ::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder* release_responder();
@@ -471,6 +484,7 @@ class RobotBehaviorModule : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param > param_;
   ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorDescription > behaviors_;
   ::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder* responder_;
   friend void  protobuf_AddDesc_robot_5fbehavior_2eproto();
@@ -821,7 +835,37 @@ inline void RobotBehaviorModule::set_allocated_name(::std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.RobotBehaviorModule.name)
 }
 
-// repeated .experimot.msgs.BehaviorDescription behaviors = 2;
+// repeated .experimot.msgs.Param param = 2;
+inline int RobotBehaviorModule::param_size() const {
+  return param_.size();
+}
+inline void RobotBehaviorModule::clear_param() {
+  param_.Clear();
+}
+inline const ::experimot::msgs::Param& RobotBehaviorModule::param(int index) const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.RobotBehaviorModule.param)
+  return param_.Get(index);
+}
+inline ::experimot::msgs::Param* RobotBehaviorModule::mutable_param(int index) {
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.RobotBehaviorModule.param)
+  return param_.Mutable(index);
+}
+inline ::experimot::msgs::Param* RobotBehaviorModule::add_param() {
+  // @@protoc_insertion_point(field_add:experimot.msgs.RobotBehaviorModule.param)
+  return param_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+RobotBehaviorModule::param() const {
+  // @@protoc_insertion_point(field_list:experimot.msgs.RobotBehaviorModule.param)
+  return param_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+RobotBehaviorModule::mutable_param() {
+  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.RobotBehaviorModule.param)
+  return &param_;
+}
+
+// repeated .experimot.msgs.BehaviorDescription behaviors = 3;
 inline int RobotBehaviorModule::behaviors_size() const {
   return behaviors_.size();
 }
@@ -851,15 +895,15 @@ RobotBehaviorModule::mutable_behaviors() {
   return &behaviors_;
 }
 
-// optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 3;
+// optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 4;
 inline bool RobotBehaviorModule::has_responder() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void RobotBehaviorModule::set_has_responder() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void RobotBehaviorModule::clear_has_responder() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void RobotBehaviorModule::clear_responder() {
   if (responder_ != NULL) responder_->::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder::Clear();

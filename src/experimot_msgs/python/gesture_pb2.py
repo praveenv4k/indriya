@@ -13,14 +13,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
+import param_pb2 as param__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='gesture.proto',
   package='experimot.msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\rgesture.proto\x12\x0e\x65xperimot.msgs\"\xcd\x01\n\x12GestureDescription\x12\x0c\n\x04name\x18\x01 \x02(\t\x12<\n\x04type\x18\x02 \x02(\x0e\x32..experimot.msgs.GestureDescription.GestureType\x12\x0e\n\x06\x61\x63tive\x18\x03 \x01(\x08\x12\x10\n\x08progress\x18\x04 \x01(\x05\x12\x12\n\nconfidence\x18\x05 \x01(\x05\"5\n\x0bGestureType\x12\x08\n\x04None\x10\x00\x12\x0c\n\x08\x44iscrete\x10\x01\x12\x0e\n\nContinuous\x10\x02\"]\n\x18GestureRecognitionModule\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x33\n\x07motions\x18\x02 \x03(\x0b\x32\".experimot.msgs.GestureDescription\"V\n\x19GestureRecognitionModules\x12\x39\n\x07modules\x18\x01 \x03(\x0b\x32(.experimot.msgs.GestureRecognitionModule\"P\n\x0eGestureTrigger\x12\n\n\x02id\x18\x01 \x02(\x05\x12\x32\n\x06motion\x18\x02 \x02(\x0b\x32\".experimot.msgs.GestureDescription\"Q\n\x0fGestureTriggers\x12\n\n\x02id\x18\x01 \x02(\x05\x12\x32\n\x06motion\x18\x02 \x03(\x0b\x32\".experimot.msgs.GestureDescription')
-)
+  serialized_pb=_b('\n\rgesture.proto\x12\x0e\x65xperimot.msgs\x1a\x0bparam.proto\"\xcd\x01\n\x12GestureDescription\x12\x0c\n\x04name\x18\x01 \x02(\t\x12<\n\x04type\x18\x02 \x02(\x0e\x32..experimot.msgs.GestureDescription.GestureType\x12\x0e\n\x06\x61\x63tive\x18\x03 \x01(\x08\x12\x10\n\x08progress\x18\x04 \x01(\x05\x12\x12\n\nconfidence\x18\x05 \x01(\x05\"5\n\x0bGestureType\x12\x08\n\x04None\x10\x00\x12\x0c\n\x08\x44iscrete\x10\x01\x12\x0e\n\nContinuous\x10\x02\"\x84\x01\n\x18GestureRecognitionModule\x12\x0c\n\x04name\x18\x01 \x02(\t\x12%\n\x06params\x18\x02 \x03(\x0b\x32\x15.experimot.msgs.Param\x12\x33\n\x07motions\x18\x03 \x03(\x0b\x32\".experimot.msgs.GestureDescription\"V\n\x19GestureRecognitionModules\x12\x39\n\x07modules\x18\x01 \x03(\x0b\x32(.experimot.msgs.GestureRecognitionModule\"P\n\x0eGestureTrigger\x12\n\n\x02id\x18\x01 \x02(\x05\x12\x32\n\x06motion\x18\x02 \x02(\x0b\x32\".experimot.msgs.GestureDescription\"Q\n\x0fGestureTriggers\x12\n\n\x02id\x18\x01 \x02(\x05\x12\x32\n\x06motion\x18\x02 \x03(\x0b\x32\".experimot.msgs.GestureDescription')
+  ,
+  dependencies=[param__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -46,8 +48,8 @@ _GESTUREDESCRIPTION_GESTURETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=186,
-  serialized_end=239,
+  serialized_start=199,
+  serialized_end=252,
 )
 _sym_db.RegisterEnumDescriptor(_GESTUREDESCRIPTION_GESTURETYPE)
 
@@ -107,8 +109,8 @@ _GESTUREDESCRIPTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=34,
-  serialized_end=239,
+  serialized_start=47,
+  serialized_end=252,
 )
 
 
@@ -127,8 +129,15 @@ _GESTURERECOGNITIONMODULE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='motions', full_name='experimot.msgs.GestureRecognitionModule.motions', index=1,
+      name='params', full_name='experimot.msgs.GestureRecognitionModule.params', index=1,
       number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='motions', full_name='experimot.msgs.GestureRecognitionModule.motions', index=2,
+      number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -145,8 +154,8 @@ _GESTURERECOGNITIONMODULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=241,
-  serialized_end=334,
+  serialized_start=255,
+  serialized_end=387,
 )
 
 
@@ -176,8 +185,8 @@ _GESTURERECOGNITIONMODULES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=336,
-  serialized_end=422,
+  serialized_start=389,
+  serialized_end=475,
 )
 
 
@@ -214,8 +223,8 @@ _GESTURETRIGGER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=424,
-  serialized_end=504,
+  serialized_start=477,
+  serialized_end=557,
 )
 
 
@@ -252,12 +261,13 @@ _GESTURETRIGGERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=506,
-  serialized_end=587,
+  serialized_start=559,
+  serialized_end=640,
 )
 
 _GESTUREDESCRIPTION.fields_by_name['type'].enum_type = _GESTUREDESCRIPTION_GESTURETYPE
 _GESTUREDESCRIPTION_GESTURETYPE.containing_type = _GESTUREDESCRIPTION
+_GESTURERECOGNITIONMODULE.fields_by_name['params'].message_type = param__pb2._PARAM
 _GESTURERECOGNITIONMODULE.fields_by_name['motions'].message_type = _GESTUREDESCRIPTION
 _GESTURERECOGNITIONMODULES.fields_by_name['modules'].message_type = _GESTURERECOGNITIONMODULE
 _GESTURETRIGGER.fields_by_name['motion'].message_type = _GESTUREDESCRIPTION

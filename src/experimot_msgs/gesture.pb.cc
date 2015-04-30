@@ -68,8 +68,9 @@ void protobuf_AssignDesc_gesture_2eproto() {
       -1);
   GestureDescription_GestureType_descriptor_ = GestureDescription_descriptor_->enum_type(0);
   GestureRecognitionModule_descriptor_ = file->message_type(1);
-  static const int GestureRecognitionModule_offsets_[2] = {
+  static const int GestureRecognitionModule_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GestureRecognitionModule, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GestureRecognitionModule, params_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GestureRecognitionModule, motions_),
   };
   GestureRecognitionModule_reflection_ =
@@ -175,22 +176,24 @@ void protobuf_AddDesc_gesture_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::experimot::msgs::protobuf_AddDesc_param_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rgesture.proto\022\016experimot.msgs\"\315\001\n\022Gest"
-    "ureDescription\022\014\n\004name\030\001 \002(\t\022<\n\004type\030\002 \002"
-    "(\0162..experimot.msgs.GestureDescription.G"
-    "estureType\022\016\n\006active\030\003 \001(\010\022\020\n\010progress\030\004"
-    " \001(\005\022\022\n\nconfidence\030\005 \001(\005\"5\n\013GestureType\022"
-    "\010\n\004None\020\000\022\014\n\010Discrete\020\001\022\016\n\nContinuous\020\002\""
-    "]\n\030GestureRecognitionModule\022\014\n\004name\030\001 \002("
-    "\t\0223\n\007motions\030\002 \003(\0132\".experimot.msgs.Gest"
-    "ureDescription\"V\n\031GestureRecognitionModu"
-    "les\0229\n\007modules\030\001 \003(\0132(.experimot.msgs.Ge"
-    "stureRecognitionModule\"P\n\016GestureTrigger"
-    "\022\n\n\002id\030\001 \002(\005\0222\n\006motion\030\002 \002(\0132\".experimot"
-    ".msgs.GestureDescription\"Q\n\017GestureTrigg"
-    "ers\022\n\n\002id\030\001 \002(\005\0222\n\006motion\030\002 \003(\0132\".experi"
-    "mot.msgs.GestureDescription", 587);
+    "\n\rgesture.proto\022\016experimot.msgs\032\013param.p"
+    "roto\"\315\001\n\022GestureDescription\022\014\n\004name\030\001 \002("
+    "\t\022<\n\004type\030\002 \002(\0162..experimot.msgs.Gesture"
+    "Description.GestureType\022\016\n\006active\030\003 \001(\010\022"
+    "\020\n\010progress\030\004 \001(\005\022\022\n\nconfidence\030\005 \001(\005\"5\n"
+    "\013GestureType\022\010\n\004None\020\000\022\014\n\010Discrete\020\001\022\016\n\n"
+    "Continuous\020\002\"\204\001\n\030GestureRecognitionModul"
+    "e\022\014\n\004name\030\001 \002(\t\022%\n\006params\030\002 \003(\0132\025.experi"
+    "mot.msgs.Param\0223\n\007motions\030\003 \003(\0132\".experi"
+    "mot.msgs.GestureDescription\"V\n\031GestureRe"
+    "cognitionModules\0229\n\007modules\030\001 \003(\0132(.expe"
+    "rimot.msgs.GestureRecognitionModule\"P\n\016G"
+    "estureTrigger\022\n\n\002id\030\001 \002(\005\0222\n\006motion\030\002 \002("
+    "\0132\".experimot.msgs.GestureDescription\"Q\n"
+    "\017GestureTriggers\022\n\n\002id\030\001 \002(\005\0222\n\006motion\030\002"
+    " \003(\0132\".experimot.msgs.GestureDescription", 640);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "gesture.proto", &protobuf_RegisterTypes);
   GestureDescription::default_instance_ = new GestureDescription();
@@ -845,6 +848,7 @@ void GestureDescription::InternalSwap(GestureDescription* other) {
 
 #ifndef _MSC_VER
 const int GestureRecognitionModule::kNameFieldNumber;
+const int GestureRecognitionModule::kParamsFieldNumber;
 const int GestureRecognitionModule::kMotionsFieldNumber;
 #endif  // !_MSC_VER
 
@@ -912,6 +916,7 @@ void GestureRecognitionModule::Clear() {
   if (has_name()) {
     name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
+  params_.Clear();
   motions_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
@@ -941,20 +946,34 @@ bool GestureRecognitionModule::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_motions;
+        if (input->ExpectTag(18)) goto parse_params;
         break;
       }
 
-      // repeated .experimot.msgs.GestureDescription motions = 2;
+      // repeated .experimot.msgs.Param params = 2;
       case 2: {
         if (tag == 18) {
+         parse_params:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_params()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_params;
+        if (input->ExpectTag(26)) goto parse_motions;
+        break;
+      }
+
+      // repeated .experimot.msgs.GestureDescription motions = 3;
+      case 3: {
+        if (tag == 26) {
          parse_motions:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_motions()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_motions;
+        if (input->ExpectTag(26)) goto parse_motions;
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -994,10 +1013,16 @@ void GestureRecognitionModule::SerializeWithCachedSizes(
       1, this->name(), output);
   }
 
-  // repeated .experimot.msgs.GestureDescription motions = 2;
+  // repeated .experimot.msgs.Param params = 2;
+  for (unsigned int i = 0, n = this->params_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->params(i), output);
+  }
+
+  // repeated .experimot.msgs.GestureDescription motions = 3;
   for (unsigned int i = 0, n = this->motions_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->motions(i), output);
+      3, this->motions(i), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1021,11 +1046,18 @@ void GestureRecognitionModule::SerializeWithCachedSizes(
         1, this->name(), target);
   }
 
-  // repeated .experimot.msgs.GestureDescription motions = 2;
+  // repeated .experimot.msgs.Param params = 2;
+  for (unsigned int i = 0, n = this->params_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->params(i), target);
+  }
+
+  // repeated .experimot.msgs.GestureDescription motions = 3;
   for (unsigned int i = 0, n = this->motions_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->motions(i), target);
+        3, this->motions(i), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1045,7 +1077,15 @@ int GestureRecognitionModule::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->name());
   }
-  // repeated .experimot.msgs.GestureDescription motions = 2;
+  // repeated .experimot.msgs.Param params = 2;
+  total_size += 1 * this->params_size();
+  for (int i = 0; i < this->params_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->params(i));
+  }
+
+  // repeated .experimot.msgs.GestureDescription motions = 3;
   total_size += 1 * this->motions_size();
   for (int i = 0; i < this->motions_size(); i++) {
     total_size +=
@@ -1078,6 +1118,7 @@ void GestureRecognitionModule::MergeFrom(const ::google::protobuf::Message& from
 
 void GestureRecognitionModule::MergeFrom(const GestureRecognitionModule& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  params_.MergeFrom(from.params_);
   motions_.MergeFrom(from.motions_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_name()) {
@@ -1105,6 +1146,7 @@ void GestureRecognitionModule::CopyFrom(const GestureRecognitionModule& from) {
 bool GestureRecognitionModule::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
+  if (!::google::protobuf::internal::AllAreInitialized(this->params())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->motions())) return false;
   return true;
 }
@@ -1115,6 +1157,7 @@ void GestureRecognitionModule::Swap(GestureRecognitionModule* other) {
 }
 void GestureRecognitionModule::InternalSwap(GestureRecognitionModule* other) {
   name_.Swap(&other->name_);
+  params_.UnsafeArenaSwap(&other->params_);
   motions_.UnsafeArenaSwap(&other->motions_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -1185,7 +1228,37 @@ void GestureRecognitionModule::InternalSwap(GestureRecognitionModule* other) {
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GestureRecognitionModule.name)
 }
 
-// repeated .experimot.msgs.GestureDescription motions = 2;
+// repeated .experimot.msgs.Param params = 2;
+ int GestureRecognitionModule::params_size() const {
+  return params_.size();
+}
+ void GestureRecognitionModule::clear_params() {
+  params_.Clear();
+}
+ const ::experimot::msgs::Param& GestureRecognitionModule::params(int index) const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.GestureRecognitionModule.params)
+  return params_.Get(index);
+}
+ ::experimot::msgs::Param* GestureRecognitionModule::mutable_params(int index) {
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.GestureRecognitionModule.params)
+  return params_.Mutable(index);
+}
+ ::experimot::msgs::Param* GestureRecognitionModule::add_params() {
+  // @@protoc_insertion_point(field_add:experimot.msgs.GestureRecognitionModule.params)
+  return params_.Add();
+}
+ const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+GestureRecognitionModule::params() const {
+  // @@protoc_insertion_point(field_list:experimot.msgs.GestureRecognitionModule.params)
+  return params_;
+}
+ ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+GestureRecognitionModule::mutable_params() {
+  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.GestureRecognitionModule.params)
+  return &params_;
+}
+
+// repeated .experimot.msgs.GestureDescription motions = 3;
  int GestureRecognitionModule::motions_size() const {
   return motions_.size();
 }

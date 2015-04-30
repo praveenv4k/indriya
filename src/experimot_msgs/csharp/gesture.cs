@@ -8,6 +8,7 @@
 //------------------------------------------------------------------------------
 
 // Generated from: proto/gesture.proto
+// Note: requires additional types generated from: param.proto
 namespace experimot.msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"GestureDescription")]
@@ -84,8 +85,15 @@ namespace experimot.msgs
       get { return _name; }
       set { _name = value; }
     }
+    private readonly global::System.Collections.Generic.List<experimot.msgs.Param> _params = new global::System.Collections.Generic.List<experimot.msgs.Param>();
+    [global::ProtoBuf.ProtoMember(2, Name=@"params", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<experimot.msgs.Param> @params
+    {
+      get { return _params; }
+    }
+  
     private readonly global::System.Collections.Generic.List<experimot.msgs.GestureDescription> _motions = new global::System.Collections.Generic.List<experimot.msgs.GestureDescription>();
-    [global::ProtoBuf.ProtoMember(2, Name=@"motions", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::ProtoBuf.ProtoMember(3, Name=@"motions", DataFormat = global::ProtoBuf.DataFormat.Default)]
     public global::System.Collections.Generic.List<experimot.msgs.GestureDescription> motions
     {
       get { return _motions; }
