@@ -366,6 +366,9 @@
     <None Include="proto\param.proto">
       <Filter>proto</Filter>
     </None>
+    <None Include="proto\human.proto">
+      <Filter>proto</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MsgFactory.cc">
@@ -698,6 +701,9 @@
     <ClCompile Include="param.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="human.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="axis.pb.h">
@@ -1028,6 +1034,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="param.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="human.pb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

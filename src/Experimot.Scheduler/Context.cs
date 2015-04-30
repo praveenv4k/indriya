@@ -22,7 +22,7 @@ namespace Experimot.Scheduler
     public class Context : INotifyPropertyChanged
     {
         private Robot _robot;
-        private BindableCollection<Human> _humans;
+        private BindableCollection<Data.Human> _humans;
         private IDictionary<string, ManipulatableObject> _objects;
         private readonly object _object = new object();
         private BindableCollection<GestureModule> _motionModules;
@@ -33,7 +33,7 @@ namespace Experimot.Scheduler
         public Context()
         {
             //_humans = new ConcurrentDictionary<int, Human>();
-            Humans = new BindableCollection<Human>();
+            Humans = new BindableCollection<Data.Human>();
             Robot = new Robot();
             Objects = new ConcurrentDictionary<string, ManipulatableObject>();
             MotionModules = new BindableCollection<GestureModule>();
@@ -55,7 +55,7 @@ namespace Experimot.Scheduler
 
         //[ExpandableObject]
         [Editor(typeof (CollectionEditor), typeof (CollectionEditor))]
-        public BindableCollection<Human> Humans
+        public BindableCollection<Data.Human> Humans
         {
             get { return _humans; }
             set { _humans = value; }
@@ -145,7 +145,7 @@ namespace Experimot.Scheduler
                     var item = Humans.FirstOrDefault(s => s.Body.TrackingId == kinectBody.TrackingId);
                     if (item == null)
                     {
-                        var human = new Human(kinectBody.TrackingId, _motionModules)
+                        var human = new Data.Human(kinectBody.TrackingId, _motionModules)
                         {
                             Body = kinectBody
                         };

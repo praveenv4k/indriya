@@ -11,19 +11,14 @@
 // </Description>
 //----------------------------------------------------------------------------------------------------
 
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using Common.Logging;
 using experimot.msgs;
 using Experimot.Core.Util;
 using Microsoft.Kinect;
-using Microsoft.Kinect.VisualGestureBuilder;
-using NetMQ;
-using ProtoBuf;
 using Joint = Microsoft.Kinect.Joint;
 
 namespace Experimot.Kinect.Perception
@@ -55,7 +50,7 @@ namespace Experimot.Kinect.Perception
         private KinectBodyPublisher _kBodyPub;
         private readonly ILog _log = LogManager.GetLogger<MainWindow>();
         private GestureTriggerPublisher _gestPub;
-
+        private HumanPosePublisher _humanPub;
         /// <summary>
         /// Initializes a new instance of the MainWindow class
         /// </summary>
@@ -136,6 +131,15 @@ namespace Experimot.Kinect.Perception
 
                 contentGrid.Children.Add(contentControl);
             }
+
+            if (_kBodyPub == null)
+            {
+                _kBodyPub = new KinectBodyPublisher();
+            }
+            if (_humanPub == null)
+            {
+                _humanPub = new HumanPosePublisher();
+            }
         }
 
         public MainWindow(Node node) : this()
@@ -156,6 +160,10 @@ namespace Experimot.Kinect.Perception
                         {
                             _gestPub = GestureTriggerPublisher.Create(item.host, item.port, item.topic);
                         }
+                        if (item.msg_type == "Humans")
+                        {
+                            _humanPub = new HumanPosePublisher(item.host, item.port, item.topic);
+                        }
                         _log.Info("Gesture recognition node initialized from the config file");
                     }
                 }
@@ -171,6 +179,10 @@ namespace Experimot.Kinect.Perception
             if (_gestPub != null)
             {
                 _gestPub.Initialize();
+            }
+            if (_humanPub != null)
+            {
+                _humanPub.Initialize();
             }
         }
 
@@ -220,6 +232,11 @@ namespace Experimot.Kinect.Perception
             {
                 _gestPub.Terminate();
                 _gestPub = null;
+            }
+            if (_humanPub != null)
+            {
+                _humanPub.Terminate();
+                _humanPub = null;
             }
             if (_bodyFrameReader != null)
             {
@@ -288,11 +305,12 @@ namespace Experimot.Kinect.Perception
                 }
             }
 
+
             if (dataReceived)
             {
                 // visualize the new body data
                 _kinectBodyView.UpdateBodyFrame(_bodies);
-                if(_kBodyPub!=null) _kBodyPub.UpdateBodyFrame(_bodies);
+                if(_kBodyPub!=null) _kBodyPub.UpdateBodyFrame(_bodies,_humanPub);
                 // we may have lost/acquired bodies, so update the corresponding gesture detectors
                 if (_bodies != null)
                 {

@@ -1,0 +1,22 @@
+package experimot.msgs;
+
+/// \ingroup experimot_msgs
+/// \interface Motion description 
+/// \brief Information about all motions supported by the gesture/motion recognition module
+
+import "vector3d.proto";
+import "quaternion.proto";
+
+message Human
+{
+	required int32 id = 1;
+	required bool tracked = 2;
+	required Vector3d torso_position = 3;
+	required Vector3d head_position = 4;
+	required Quaternion orientation = 5;	
+}
+
+message Humans
+{
+	repeated Human human = 1;
+}

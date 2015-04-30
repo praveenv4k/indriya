@@ -77,9 +77,16 @@
           <msg_type>GestureTriggers</msg_type>
           <name>GesturePublisher</name>
         </publish>
+        <publish>
+          <host>tcp://*</host>
+          <port>5571</port>
+          <topic>HPP</topic>
+          <msg_type>Humans</msg_type>
+          <name>HumanPosePublisher</name>
+        </publish>
       </publishers>
     </node>
-    <node enabled="false" name="simulation">
+    <node enabled="true" name="simulation">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\experimot_rave.exe</path>
@@ -119,6 +126,13 @@
           <topic>GTP</topic>
           <msg_type>GestureTriggers</msg_type>
           <name>GesturePublisher</name>
+        </subscribe>
+        <subscribe>
+          <host>tcp://localhost</host>
+          <port>5571</port>
+          <topic>HPP</topic>
+          <msg_type>Humans</msg_type>
+          <name>HumanPosePublisher</name>
         </subscribe>
       </subscribers>
     </node>

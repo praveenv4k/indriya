@@ -63,7 +63,7 @@ namespace Experimot.Scheduler
         {
             if (Context != null)
             {
-                Context.Humans.Add(new Human(prev, Context.MotionModules)
+                Context.Humans.Add(new Data.Human(prev, Context.MotionModules)
                 {
                     Body = new KinectBody() { TrackingId = prev++}
                 });
