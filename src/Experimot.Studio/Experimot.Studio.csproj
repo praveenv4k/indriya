@@ -14,7 +14,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <NuGetPackageImportStamp>c9c7fbf4</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>f15e3a0a</NuGetPackageImportStamp>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -104,12 +104,6 @@
     <Reference Include="Microsoft.CodeAnalysis.Desktop">
       <HintPath>..\..\packages\Microsoft.CodeAnalysis.Common.1.0.0-rc1\lib\net45\Microsoft.CodeAnalysis.Desktop.dll</HintPath>
     </Reference>
-    <Reference Include="SharpDX">
-      <HintPath>$(SharpDXPackageBinDir)\SharpDX.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.Direct3D9">
-      <HintPath>$(SharpDXPackageBinDir)\SharpDX.Direct3D9.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Collections.Immutable">
       <HintPath>..\..\packages\System.Collections.Immutable.1.1.33-beta\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
@@ -182,6 +176,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Modules\WebBrowser\Views\WebBrowserView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modules\FilterDesigner\Commands\OpenGraphCommandDefinition.cs" />
@@ -204,6 +202,7 @@
     <Compile Include="Modules\FilterDesigner\ViewModels\Elements\DynamicElement.cs" />
     <Compile Include="Modules\FilterDesigner\ViewModels\Elements\ImageSource.cs" />
     <Compile Include="Modules\FilterDesigner\ViewModels\Elements\Multiply.cs" />
+    <Compile Include="Modules\FilterDesigner\ViewModels\Elements\Robot.cs" />
     <Compile Include="Modules\FilterDesigner\ViewModels\Elements\ShaderEffectElement.cs" />
     <Compile Include="Modules\FilterDesigner\ViewModels\ElementViewModel.cs" />
     <Compile Include="Modules\FilterDesigner\ViewModels\GraphViewModel.cs" />
@@ -231,6 +230,13 @@
       <DependentUpon>SampleBrowserView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\Startup\Module.cs" />
+    <Compile Include="Modules\WebBrowser\Commands\ViewBrowserCommandDefinition.cs" />
+    <Compile Include="Modules\WebBrowser\Commands\ViewBrowserCommandHandler.cs" />
+    <Compile Include="Modules\WebBrowser\Module.cs" />
+    <Compile Include="Modules\WebBrowser\ViewModels\WebBrowserViewModel.cs" />
+    <Compile Include="Modules\WebBrowser\Views\WebBrowserView.xaml.cs">
+      <DependentUpon>WebBrowserView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -270,12 +276,7 @@
       <Link>Xceed.Wpf.AvalonDock.Themes.VS2013.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="sharpdx_direct3d11_effects_x64.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="sharpdx_direct3d11_effects_x86.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Resource Include="Modules\FilterDesigner\Resources\nao.png" />
     <Effect Include="Modules\FilterDesigner\ShaderEffects\AddEffect.fx" />
     <Effect Include="Modules\FilterDesigner\ShaderEffects\MultiplyEffect.fx" />
     <Resource Include="Modules\FilterDesigner\Resources\action_add_16xLG.png" />
@@ -293,13 +294,6 @@
     <!-- Add effect compilation to the PrepareResourcesDependsOn so that the effect fx  get compiled before resources are collected -->
     <PrepareResourcesDependsOn>EffectCompile;$(PrepareResourcesDependsOn)</PrepareResourcesDependsOn>
   </PropertyGroup>
-  <Import Project="..\..\packages\SharpDX.2.6.3\build\SharpDX.targets" Condition="Exists('..\..\packages\SharpDX.2.6.3\build\SharpDX.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\SharpDX.2.6.3\build\SharpDX.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\SharpDX.2.6.3\build\SharpDX.targets'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
