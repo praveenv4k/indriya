@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel.Composition;
 using System.Threading.Tasks;
 using Caliburn.Micro;
-using ExperimotStudio.Modules.Home.ViewModels;
+using Experimot.Studio.Modules.Home.ViewModels;
 using Gemini.Framework;
 using Gemini.Framework.Commands;
 using Gemini.Framework.Services;
 using Gemini.Framework.Threading;
 
-namespace ExperimotStudio.Modules.Home.Commands
+namespace Experimot.Studio.Modules.Home.Commands
 {
     [CommandHandler]
     public class ViewHomeCommandHandler : CommandHandlerBase<ViewHomeCommandDefinition>

@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Windows.Media.Imaging;
 
-namespace ExperimotStudio.Modules.FilterDesigner.Util
+namespace Experimot.Studio.Modules.FilterDesigner.Util
 {
     internal static class BitmapUtility
     {

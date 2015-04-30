@@ -4,14 +4,14 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using Caliburn.Micro;
-using ExperimotStudio.Modules.FilterDesigner.Design;
-using ExperimotStudio.Modules.FilterDesigner.Util;
-using ExperimotStudio.Modules.FilterDesigner.ViewModels.Elements;
+using Experimot.Studio.Modules.FilterDesigner.Design;
+using Experimot.Studio.Modules.FilterDesigner.Util;
+using Experimot.Studio.Modules.FilterDesigner.ViewModels.Elements;
 using Gemini.Framework;
 using Gemini.Modules.Inspector;
-using ImageSource = ExperimotStudio.Modules.FilterDesigner.ViewModels.Elements.ImageSource;
+using ImageSource = Experimot.Studio.Modules.FilterDesigner.ViewModels.Elements.ImageSource;
 
-namespace ExperimotStudio.Modules.FilterDesigner.ViewModels
+namespace Experimot.Studio.Modules.FilterDesigner.ViewModels
 {
     [Export(typeof(GraphViewModel))]
     [PartCreationPolicy(CreationPolicy.NonShared)]

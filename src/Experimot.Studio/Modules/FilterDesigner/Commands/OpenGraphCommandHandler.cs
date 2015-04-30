@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel.Composition;
 using System.Threading.Tasks;
 using Caliburn.Micro;
-using ExperimotStudio.Modules.FilterDesigner.ViewModels;
+using Experimot.Studio.Modules.FilterDesigner.ViewModels;
 using Gemini.Framework.Commands;
 using Gemini.Framework.Services;
 using Gemini.Framework.Threading;
 using Gemini.Modules.Inspector;
 
-namespace ExperimotStudio.Modules.FilterDesigner.Commands
+namespace Experimot.Studio.Modules.FilterDesigner.Commands
 {
     [CommandHandler]
     public class OpenGraphCommandHandler : CommandHandlerBase<OpenGraphCommandDefinition>

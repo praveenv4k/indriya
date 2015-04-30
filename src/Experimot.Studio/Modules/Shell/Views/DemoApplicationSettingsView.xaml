@@ -4,7 +4,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:viewModels="clr-namespace:Experimot.Studio.Modules.Shell.ViewModels"
-    x:Class="ExperimotStudio.Modules.Shell.Views.DemoApplicationSettingsView" mc:Ignorable="d" d:DesignHeight="300"
+    x:Class="Experimot.Studio.Modules.Shell.Views.DemoApplicationSettingsView" mc:Ignorable="d" d:DesignHeight="300"
     d:DesignWidth="300" d:DataContext="{d:DesignInstance viewModels:DemoApplicationSettingsViewModel}">
     <Grid>
         <CheckBox IsChecked="{Binding ConfirmExit}">Confirm application exit</CheckBox>

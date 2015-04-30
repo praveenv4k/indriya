@@ -2,7 +2,7 @@
 using System.Windows.Media;
 using Gemini.Modules.Toolbox;
 
-namespace ExperimotStudio.Modules.FilterDesigner.ViewModels.Elements
+namespace Experimot.Studio.Modules.FilterDesigner.ViewModels.Elements
 {
     [ToolboxItem(typeof(GraphViewModel), "Color", "Generators", "pack://application:,,,/Modules/FilterDesigner/Resources/color_swatch.png")]
     public class ColorInput : DynamicElement

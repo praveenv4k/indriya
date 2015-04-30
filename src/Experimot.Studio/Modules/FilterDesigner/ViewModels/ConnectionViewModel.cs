@@ -2,7 +2,7 @@
 using System.Windows;
 using Caliburn.Micro;
 
-namespace ExperimotStudio.Modules.FilterDesigner.ViewModels
+namespace Experimot.Studio.Modules.FilterDesigner.ViewModels
 {
     public class ConnectionViewModel : PropertyChangedBase
     {

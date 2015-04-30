@@ -6,7 +6,7 @@ using Gemini.Framework;
 using Gemini.Modules.Inspector;
 using Gemini.Modules.Output;
 
-namespace ExperimotStudio.Modules.Startup
+namespace Experimot.Studio.Modules.Startup
 {
 	[Export(typeof(IModule))]
 	public class Module : ModuleBase

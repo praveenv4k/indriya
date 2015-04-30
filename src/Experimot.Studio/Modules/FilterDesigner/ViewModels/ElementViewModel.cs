@@ -6,7 +6,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Caliburn.Micro;
 
-namespace ExperimotStudio.Modules.FilterDesigner.ViewModels
+namespace Experimot.Studio.Modules.FilterDesigner.ViewModels
 {
     public abstract class ElementViewModel : PropertyChangedBase
     {

@@ -1,7 +1,7 @@
 using System.Windows;
 using System.Windows.Media;
 
-namespace ExperimotStudio.Modules.FilterDesigner.ShaderEffects
+namespace Experimot.Studio.Modules.FilterDesigner.ShaderEffects
 {
 	internal class AddEffect : ShaderEffectBase<AddEffect>
 	{

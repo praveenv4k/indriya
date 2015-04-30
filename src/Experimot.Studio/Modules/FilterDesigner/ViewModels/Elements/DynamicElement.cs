@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace ExperimotStudio.Modules.FilterDesigner.ViewModels.Elements
+namespace Experimot.Studio.Modules.FilterDesigner.ViewModels.Elements
 {
     public abstract class DynamicElement : ElementViewModel
     {

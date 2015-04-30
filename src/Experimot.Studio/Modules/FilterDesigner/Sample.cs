@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.Composition;
 using Caliburn.Micro;
-using ExperimotStudio.Modules.FilterDesigner.ViewModels;
-using ExperimotStudio.Modules.SampleBrowser;
+using Experimot.Studio.Modules.FilterDesigner.ViewModels;
+using Experimot.Studio.Modules.SampleBrowser;
 using Gemini.Framework.Services;
 using Gemini.Modules.Inspector;
 using Gemini.Modules.Toolbox;
 
-namespace ExperimotStudio.Modules.FilterDesigner
+namespace Experimot.Studio.Modules.FilterDesigner
 {
     [Export(typeof(ISample))]
     public class Sample : ISample

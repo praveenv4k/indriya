@@ -1,6 +1,6 @@
 ﻿using Gemini.Framework.Commands;
 
-namespace ExperimotStudio.Modules.FilterDesigner.Commands
+namespace Experimot.Studio.Modules.FilterDesigner.Commands
 {
     [CommandDefinition]
     public class OpenGraphCommandDefinition : CommandDefinition

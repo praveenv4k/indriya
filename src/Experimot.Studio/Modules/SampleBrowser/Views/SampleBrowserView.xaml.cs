@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace ExperimotStudio.Modules.SampleBrowser.Views
+namespace Experimot.Studio.Modules.SampleBrowser.Views
 {
     public partial class SampleBrowserView : UserControl
     {

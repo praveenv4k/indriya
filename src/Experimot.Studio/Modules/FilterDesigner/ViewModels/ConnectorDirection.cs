@@ -1,4 +1,4 @@
-﻿namespace ExperimotStudio.Modules.FilterDesigner.ViewModels
+﻿namespace Experimot.Studio.Modules.FilterDesigner.ViewModels
 {
     public enum ConnectorDirection
     {

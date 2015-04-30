@@ -2,7 +2,7 @@
 using System.Windows.Media.Imaging;
 using Gemini.Modules.Toolbox;
 
-namespace ExperimotStudio.Modules.FilterDesigner.ViewModels.Elements
+namespace Experimot.Studio.Modules.FilterDesigner.ViewModels.Elements
 {
     [ToolboxItem(typeof(GraphViewModel), "Image Source", "Generators", "pack://application:,,,/Modules/FilterDesigner/Resources/image.png")]
     public class ImageSource : ElementViewModel

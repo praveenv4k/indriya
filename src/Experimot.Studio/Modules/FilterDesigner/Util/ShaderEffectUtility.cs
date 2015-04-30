@@ -9,7 +9,7 @@ namespace Experimot.Studio.Modules.FilterDesigner.Util
         {
             return new PixelShader
             {
-                UriSource = new Uri(@"pack://application:,,,/ExperimotStudio;component/Modules/FilterDesigner/ShaderEffects/" + name + ".ps")
+                UriSource = new Uri(@"pack://application:,,,/Experimot.Studio;component/Modules/FilterDesigner/ShaderEffects/" + name + ".ps")
             };
         }
     }

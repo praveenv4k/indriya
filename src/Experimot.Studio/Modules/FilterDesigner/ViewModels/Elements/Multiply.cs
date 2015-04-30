@@ -1,9 +1,9 @@
 ﻿using System.Windows.Media;
 using System.Windows.Media.Effects;
-using ExperimotStudio.Modules.FilterDesigner.ShaderEffects;
+using Experimot.Studio.Modules.FilterDesigner.ShaderEffects;
 using Gemini.Modules.Toolbox;
 
-namespace ExperimotStudio.Modules.FilterDesigner.ViewModels.Elements
+namespace Experimot.Studio.Modules.FilterDesigner.ViewModels.Elements
 {
     [ToolboxItem(typeof(GraphViewModel), "Multiply", "Maths", "pack://application:,,,/Modules/FilterDesigner/Resources/active_x_16xLG.png")]
     public class Multiply : ShaderEffectElement

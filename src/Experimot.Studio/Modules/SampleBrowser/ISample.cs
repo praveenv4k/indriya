@@ -1,6 +1,6 @@
 ﻿using Gemini.Framework.Services;
 
-namespace ExperimotStudio.Modules.SampleBrowser
+namespace Experimot.Studio.Modules.SampleBrowser
 {
     public interface ISample
     {

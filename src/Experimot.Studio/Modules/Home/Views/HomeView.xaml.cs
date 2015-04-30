@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace ExperimotStudio.Modules.Home.Views
+namespace Experimot.Studio.Modules.Home.Views
 {
 	/// <summary>
 	/// Interaction logic for HomeView.xaml
