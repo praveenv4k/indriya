@@ -35,7 +35,14 @@ namespace Experimot.Kinect.Perception
 
         public static GestureTriggerPublisher Instance
         {
-            get { return _publisher; }
+            get
+            {
+                if (_publisher == null)
+                {
+                    _publisher = new GestureTriggerPublisher();
+                }
+                return _publisher;
+            }
         }
 
         /// <summary>

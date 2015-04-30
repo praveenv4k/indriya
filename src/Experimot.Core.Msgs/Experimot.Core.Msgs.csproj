@@ -136,6 +136,9 @@
     <Compile Include="..\experimot_msgs\csharp\heightmapgeom.cs">
       <Link>heightmapgeom.cs</Link>
     </Compile>
+    <Compile Include="..\experimot_msgs\csharp\human.cs">
+      <Link>human.cs</Link>
+    </Compile>
     <Compile Include="..\experimot_msgs\csharp\hydra.cs">
       <Link>hydra.cs</Link>
     </Compile>

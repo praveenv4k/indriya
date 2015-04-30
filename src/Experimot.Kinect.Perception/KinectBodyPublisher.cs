@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Windows.Media;
+using System.Windows.Media.Media3D;
 using experimot.msgs;
 using Microsoft.Kinect;
 using ProtoBuf;
 using NetMQ;
 using Joint = Microsoft.Kinect.Joint;
+using Quaternion = experimot.msgs.Quaternion;
 
 namespace Experimot.Kinect.Perception
 {
@@ -23,7 +27,8 @@ namespace Experimot.Kinect.Perception
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
         /// </summary>
-        public KinectBodyPublisher() : this("tcp://*", 5564, "KSP")
+        public KinectBodyPublisher()
+            : this("tcp://*", 5570, "KSP")
         {
         }
 
@@ -83,16 +88,23 @@ namespace Experimot.Kinect.Perception
         /// Handles the body frame data arriving from the sensor
         /// </summary>
         /// <param name="bodies"></param>
-        public void UpdateBodyFrame(Body[] bodies)
+        public void UpdateBodyFrame(Body[] bodies, HumanPosePublisher humanPose)
         {
             if (!CanSend) return;
 
             KinectBodies kbodies = new KinectBodies();
+            var humans = new Humans();
             _noBodyTracked = true;
             int penIndex = 0;
             foreach (var body in bodies)
             {
                 penIndex++;
+
+                var human = new Human();
+                human.tracked = body.IsTracked;
+                var jointPosDict = new Dictionary<JointType, Vector3D>();
+                human.id = penIndex;
+
                 if (body.IsTracked)
                 {
                     _noBodyTracked = false;
@@ -117,11 +129,12 @@ namespace Experimot.Kinect.Perception
                             position.Z = KinectBodyHelper.InferredZPositionClamp;
                         }
 
+                        var vector3 = new Vector3d {x = position.X, y = position.Y, z = position.Z};
                         KinectJoint kjoint = new KinectJoint
                         {
                             Type = (KinectJoint.JointType) jointType,
                             State = (KinectJoint.TrackingState) joints[jointType].TrackingState,
-                            Position = new Vector3d {x = position.X, y = position.Y, z = position.Z}
+                            Position = vector3
                         };
                         var orient = body.JointOrientations[jointType].Orientation;
                         kjoint.Orientation = new Quaternion
@@ -132,16 +145,78 @@ namespace Experimot.Kinect.Perception
                             z = orient.Z
                         };
                         kbody.Joints.Add(kjoint);
+
+                        if (jointType == JointType.SpineBase || jointType == JointType.ShoulderLeft ||
+                            jointType == JointType.ShoulderRight || jointType == JointType.Head ||
+                            jointType == JointType.SpineShoulder)
+                        {
+                            if (jointType == JointType.Head)
+                            {
+                                human.head_position = vector3;
+                            }
+                            if (jointType == JointType.SpineBase)
+                            {
+                                human.torso_position = vector3;
+                            }
+                            jointPosDict.Add(jointType, new Vector3D(position.X, position.Y, position.Z));
+                        }
+                    }
+
+                    if (jointPosDict.ContainsKey(JointType.SpineBase) &&
+                        jointPosDict.ContainsKey(JointType.ShoulderLeft) &&
+                        jointPosDict.ContainsKey(JointType.ShoulderRight) && jointPosDict.ContainsKey(JointType.Head) &&
+                        jointPosDict.ContainsKey(JointType.SpineShoulder))
+                    {
+                        var tri = new Triangle(jointPosDict[JointType.SpineBase], jointPosDict[JointType.ShoulderLeft],
+                            jointPosDict[JointType.ShoulderRight]);
+                        var zAxis = tri.Normal(); // Z Axis
+                        var midPt = jointPosDict[JointType.SpineShoulder];
+                        var yAxis = (midPt - jointPosDict[JointType.SpineBase]);
+                        yAxis.Normalize();
+                        var xAxis = Vector3D.CrossProduct(yAxis, zAxis);
+                        xAxis.Normalize();
+
+                        human.orientation = ToQuaternion(xAxis, yAxis, zAxis);
                     }
                     kbodies.Body.Add(kbody);
+                    humans.human.Add(human);
+                }
+                if (humanPose != null)
+                {
+                    humanPose.UpdateHumans(humans);
                 }
                 PublishKinectBodies(kbodies);
             }
-            if (_noBodyTracked && _emptyMsgSent<5)
+            if (_noBodyTracked && _emptyMsgSent < 5)
             {
                 PublishKinectBodies(kbodies, true);
                 _emptyMsgSent++;
             }
+        }
+
+        private Quaternion ToQuaternion(Vector3D xAxis, Vector3D yAxis, Vector3D zAxis)
+        {
+            double m00 = xAxis.X;
+            double m01 = yAxis.X;
+            double m02 = zAxis.X;
+
+            double m10 = xAxis.Y;
+            double m11 = yAxis.Y;
+            double m12 = zAxis.Y;
+
+            double m20 = xAxis.Z;
+            double m21 = yAxis.Z;
+            double m22 = zAxis.Z;
+
+
+            double qw = Math.Sqrt(0.5*(1 + m00 + m11 + m22));
+            double qx = (m21 - m12)/(4*qw);
+            double qy = (m02 - m20)/(4*qw);
+            double qz = (m10 - m01)/(4*qw);
+
+            System.Windows.Media.Media3D.Quaternion quat = new System.Windows.Media.Media3D.Quaternion(qx, qy, qz, qw);
+            quat.Normalize();
+            return new Quaternion {w = quat.W, x = quat.X, y = quat.Y, z = quat.Z};
         }
 
         private const int SendFrequency = 2;

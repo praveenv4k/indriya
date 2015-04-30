@@ -125,6 +125,7 @@
     <None Include="proto\gz_string_v.proto" />
     <None Include="proto\header.proto" />
     <None Include="proto\heightmapgeom.proto" />
+    <None Include="proto\human.proto" />
     <None Include="proto\hydra.proto" />
     <None Include="proto\image.proto" />
     <None Include="proto\imagegeom.proto" />
@@ -247,6 +248,7 @@
     <ClCompile Include="gz_string_v.pb.cc" />
     <ClCompile Include="header.pb.cc" />
     <ClCompile Include="heightmapgeom.pb.cc" />
+    <ClCompile Include="human.pb.cc" />
     <ClCompile Include="hydra.pb.cc" />
     <ClCompile Include="image.pb.cc" />
     <ClCompile Include="imagegeom.pb.cc" />
@@ -359,6 +361,7 @@
     <ClInclude Include="gz_string_v.pb.h" />
     <ClInclude Include="header.pb.h" />
     <ClInclude Include="heightmapgeom.pb.h" />
+    <ClInclude Include="human.pb.h" />
     <ClInclude Include="hydra.pb.h" />
     <ClInclude Include="image.pb.h" />
     <ClInclude Include="imagegeom.pb.h" />

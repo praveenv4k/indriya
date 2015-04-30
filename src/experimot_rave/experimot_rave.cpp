@@ -446,6 +446,95 @@ private:
 	std::string m_strSubsribeTo;
 };
 
+class HumanPoseListener{
+public:
+	//  Prepare our context and subscriber
+	HumanPoseListener() {
+		m_pContext = ZmqContextPtr(new zmq::context_t(1));
+		m_pSocket = ZmqSocketPtr(new zmq::socket_t(*m_pContext, ZMQ_SUB));
+		m_pSocket->connect("tcp://localhost:5571");
+		m_strSubsribeTo = std::string("HPP");
+		m_pSocket->setsockopt(ZMQ_SUBSCRIBE, m_strSubsribeTo.c_str(), m_strSubsribeTo.size());
+	}
+
+	HumanPoseListener(const string host, int port, const string topic){
+		std::stringstream ss;
+		ss << host << ":" << port;
+		string strAddr = ss.str();
+
+		m_pContext = ZmqContextPtr(new zmq::context_t(1));
+		m_pSocket = ZmqSocketPtr(new zmq::socket_t(*m_pContext, ZMQ_SUB));
+		m_pSocket->connect(strAddr.c_str());
+		m_strSubsribeTo = topic;
+		m_pSocket->setsockopt(ZMQ_SUBSCRIBE, m_strSubsribeTo.c_str(), m_strSubsribeTo.size());
+	}
+
+	void Convert(const experimot::msgs::Vector3d& trans, const experimot::msgs::Quaternion& rot, Transform& p0_out){
+		p0_out.trans = Vector(trans.x(), trans.y(), trans.z());
+		Vector quat = Vector(rot.w(), rot.x(), rot.y(), rot.z());
+		quat = quat.normalize4();
+		p0_out.rot = quat;
+	}
+
+
+	void Listen(EnvironmentBasePtr penv){
+		list<KinBodyPtr> listgraphs;
+		while (!done) {
+			try{
+				zmq::message_t address;
+				m_pSocket->recv(&address);
+
+				zmq::message_t data;
+				m_pSocket->recv(&data);
+
+				{
+					experimot::msgs::Humans humans;
+					if (humans.ParseFromArray(data.data(), data.size())){
+						//kBodies.PrintDebugString();
+						EnvironmentMutex::scoped_lock lock(penv->GetMutex()); // lock environment
+						FOREACH(it, listgraphs){
+							penv->Remove(*it);
+						}
+						listgraphs.clear();
+						if (humans.human_size() <= 0){
+							std::cout << "There is no body information" << std::endl;
+						}
+						else{
+							for (google::protobuf::int32 i = 0; i < humans.human_size(); i++){
+								const experimot::msgs::Human& human = humans.human(i);
+								stringstream ss;
+								ss << "human" << human.id();
+								std::string fileName(ss.str() + ".kinbody.xml");
+								RaveVector<float> bColor;
+								KinectBodyHelper::Instance()->GetBodyColor(human.id(), bColor);
+								OpenRAVE::KinBodyPtr pModel = penv->ReadKinBodyXMLFile(fileName);
+								Transform tfm;
+								Convert(human.torso_position(), human.orientation(), tfm);
+								pModel->SetTransform(tfm);
+								OpenRAVE::KinBody::LinkPtr link = pModel->GetLink(ss.str());
+								if (link != 0){
+									link->GetGeometry(0)->SetDiffuseColor(bColor);
+								}
+								listgraphs.push_back(pModel);
+							}
+						}
+					}
+					else{
+						std::cout << "Failed to parse the kinect body information" << std::endl;
+					}
+				}
+			}
+			catch (std::exception& ex){
+				std::cout << "HumanPoseListener Exception: " << ex.what() << std::endl;
+			}
+		}
+	}
+private:
+	ZmqContextPtr m_pContext;
+	ZmqSocketPtr m_pSocket;
+	std::string m_strSubsribeTo;
+};
+
 class RobotStatePublisher{
 public:
 	typedef boost::shared_ptr<csv::io::CSVReader<25>> CsvReaderPtr;
@@ -641,6 +730,7 @@ experimot::msgs::NodePtr AcquireParameters(int argc, char** argv){
 typedef boost::shared_ptr<RobotStateListener> RobotStateListenerPtr;
 typedef boost::shared_ptr<KinectStateListener> KinectStateListenerPtr;
 typedef boost::shared_ptr<TorsoPoseListener> TorsoPoseListenerPtr;
+typedef boost::shared_ptr<HumanPoseListener> HumanPoseListenerPtr;
 
 int main(int argc, char ** argv)
 {
@@ -648,7 +738,7 @@ int main(int argc, char ** argv)
 		RobotStateListenerPtr pRobotListener;
 		KinectStateListenerPtr pKinectListener;
 		TorsoPoseListenerPtr pTorsoPoseListener;
-
+		HumanPoseListenerPtr pHumanPoseListener;
 		string scenefilename = "data/nao.dae";
 		string viewername = "qtcoin";
 		string kinectModel = "box2.kinbody.xml";
@@ -671,6 +761,9 @@ int main(int argc, char ** argv)
 				if (sub.msg_type() == "KinectBodies"){
 					pKinectListener = KinectStateListenerPtr(new KinectStateListener(sub.host(), sub.port(), sub.topic()));
 				}
+				if (sub.msg_type() == "Humans"){
+					pHumanPoseListener = HumanPoseListenerPtr(new HumanPoseListener(sub.host(), sub.port(), sub.topic()));
+				}
 			}
 			std::cout << "Initialized node from configuration file " << std::endl;
 		}
@@ -678,6 +771,7 @@ int main(int argc, char ** argv)
 			pRobotListener = RobotStateListenerPtr(new RobotStateListener());
 			pTorsoPoseListener = TorsoPoseListenerPtr(new TorsoPoseListener());
 			pKinectListener = KinectStateListenerPtr(new KinectStateListener());
+			pHumanPoseListener = HumanPoseListenerPtr(new HumanPoseListener());
 		}
 
 		RaveInitialize(true); // start openrave core
@@ -693,14 +787,14 @@ int main(int argc, char ** argv)
 
 		std::vector<string> modelFiles;
 		modelFiles.push_back(kinectModel);
-		orInitEnvironment(penv,scenefilename,modelFiles);
+		orInitEnvironment(penv, scenefilename, modelFiles);
 
 		Sleep(1000);
 		//boost::thread thPublisher(boost::bind(&RobotStatePublisher::PublishJointValues, &publisher));
 		boost::thread thRobotSubscriber(boost::bind(&RobotStateListener::Listen, pRobotListener, penv));
 		boost::thread thKinectSubscriber(boost::bind(&KinectStateListener::Listen, pKinectListener, penv));
 		boost::thread thTorsoSubscriber(boost::bind(&TorsoPoseListener::Listen, pTorsoPoseListener, penv));
-
+		boost::thread thHumanSubscriber(boost::bind(&HumanPoseListener::Listen, pHumanPoseListener, penv));
 		thviewer.join(); // wait for the viewer thread to exit
 
 		done = true;
@@ -708,6 +802,7 @@ int main(int argc, char ** argv)
 		thRobotSubscriber.join();
 		thKinectSubscriber.join();
 		thTorsoSubscriber.join();
+		thHumanSubscriber.join();
 
 		penv->Destroy(); // destroy
 	}
