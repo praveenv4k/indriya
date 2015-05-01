@@ -9,7 +9,10 @@
         text: "../libs/requirejs/text",
         joint: "../libs/joint/joint.nojquerynobackbone",
         slidebars: "../libs/slidebars/slidebars",
-        threejs: "../libs/threejs/threejs"
+        threejs: "../libs/threejs/threejs",
+        jsonview: "../libs/jquery-jsonview",
+        blockly: "../libs/blockly_compressed",
+        blocks: "../libs/blocks_compressed"
     },
     shim: {
         // jQueryUI
@@ -32,6 +35,13 @@
         "joint": {
             "deps": ["underscore", "backbone", "jquery"],
             "exports": "Joint"
+        },
+        // Json-view
+        "jsonview": {
+            "deps": ["jquery"]
+        },
+        "blocks": {
+            "deps": ["blockly"]
         }
     }
 });
