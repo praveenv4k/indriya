@@ -1,9 +1,17 @@
-﻿define(['app', 'backbone', 'marionette', 'views/main'],
-    function (app, backbone, marionette, main) {
+﻿define(['app', 'backbone', 'marionette', 'collections/drawables'],
+    function (app, backbone, marionette, drawables) {
         return backbone.Marionette.Controller.extend({
             initialize: function (options) {
-                console.log(options);
-                //App.headerRegion.show(new DesktopHeaderView());
+                // BIJ Data screen items
+                app.Drawables = new drawables();
+
+                //var globalCh = Backbone.Wreqr.radio.channel('global');
+                //App.StatusPoller = Poller.get(App.MachineStatus, this.pollerOptions());
+                //App.StatusPoller.on('error', function (model) {
+                //    globalCh.vent.trigger("serverCommunication", false);
+                //    console.error('Error retrieving machine Status information from server!');
+                //});
+                //App.StatusPoller.start();
             },
             //gets mapped to in AppRouter's appRoutes
             //index: function () {
