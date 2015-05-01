@@ -1,8 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Effects;
-using System.Windows.Media.Imaging;
-using Experimot.Studio.Modules.FilterDesigner.ShaderEffects;
 using Gemini.Modules.Toolbox;
 
 namespace Experimot.Studio.Modules.FilterDesigner.ViewModels.Elements
