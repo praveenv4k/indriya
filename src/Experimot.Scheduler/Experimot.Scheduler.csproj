@@ -342,6 +342,15 @@
     <Content Include="Web\www\app\routers\approuter.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Web\www\app\templates\monitor.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web\www\app\templates\viewport.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web\www\app\templates\designer.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Web\www\app\templates\main.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
