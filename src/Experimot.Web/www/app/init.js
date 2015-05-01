@@ -16,6 +16,7 @@
         blockly_msg_en: "../libs/google-blockly/msg/js/en",
         handlebars: "../libs/handlebars/handlebars",
         orbitcontrols: "../js/controls/OrbitControls",
+        projector: "../js/renderers/Projector",
         colladaloader: "../js/loaders/ColladaLoader",
         webgldetector: "../js/Detector",
         marionette_threejs: "../libs/marionette-threejs/marionette-threejs"
@@ -55,12 +56,12 @@
             "deps": ["blocks"]
         },
         // threejs
-        "threejs" : {
-          exports: "THREE"  
-        },
+        //"threejs" : {
+        //  exports: "THREE"  
+        //},
         // Marionette JS
         "marionette_threejs": {
-            "deps": ["threejs","underscore", "backbone", "jquery"],
+            "deps": ["projector","threejs","underscore", "backbone", "jquery"],
         },
         // collada loader
         "colladaloader": {
@@ -73,7 +74,7 @@
 // Include Desktop Specific JavaScript files here (or inside of your Desktop Controller, or differentiate based off App.mobile === false)
 //require(["app", "jquery", "routers/approuter", "controllers/appcontroller", "backbone", "marionette", "jqueryui", "handlebars"],
 require(["app", "jquery", "routers/approuter", "controllers/appcontroller", "backbone", "marionette", "jqueryui", "threejs",
-                "colladaloader", "blocks", "blockly_msg_en", "orbitcontrols", "marionette_threejs"],
+                "colladaloader", "blocks", "blockly_msg_en", "orbitcontrols", "marionette_threejs","projector"],
     function(app, $, appRouter, appController) {
         //$.mobile.ajaxEnabled = false;
         //// Prevents all anchor click handling
