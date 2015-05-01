@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using Common.Logging;
 using Nancy;
-using Nancy.Responses;
 using Nancy.TinyIoc;
 using Newtonsoft.Json;
 
@@ -30,17 +29,20 @@ namespace Experimot.Scheduler.Web.Modules
     public class IndexModule : NancyModule
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof (IndexModule));
-
+        private const string WebRoot = @"C:\Work\Develop\src\github\ExPeriMot\src\Experimot.Web\www";
         public IndexModule()
         {
-            Get["/"] = parameters => Response.AsFile(@"Web/www/index.html");
+            //Get["/"] = parameters => Response.AsFile(@"Web/www/index.html");
+            //Get["/"] = parameters => Response.AsFile(Path.Combine(WebRoot, "index.html"));
+            Get["/"] = parameters => Response.AsFile("index.html");
 
             Get["/req"] = parameters => Response.AsJson(new TestModel {Name = "Hello", Id = 1000});
 
             Get["/models/{type}/(?<all>.*)"] = parameters =>
             {
                 Console.WriteLine(Request.Path);
-                return Response.AsFile(System.IO.Path.Combine("Web/www" + Request.Path));
+                //return Response.AsFile(System.IO.Path.Combine("Web/www" + Request.Path));
+                return Response.AsFile(Path.Combine(WebRoot, Request.Path));
             };
 
             Get["/context"] = parameters =>
