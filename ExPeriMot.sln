@@ -52,6 +52,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experimot.Studio", "src\Exp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experimot.Core.NLP", "src\Experimot.Core.NLP\Experimot.Core.NLP.csproj", "{1D73FD20-9700-4018-B564-4AA7B6BF2AE1}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Experimot.Web", "http://localhost:61645", "{5CD97BBC-C4DB-433E-9C4E-A1FE12EDFC70}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_61645"
+		Debug.AspNetCompiler.PhysicalPath = "src\Experimot.Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61645\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_61645"
+		Release.AspNetCompiler.PhysicalPath = "src\Experimot.Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61645\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "src\Experimot.Web\"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -321,6 +342,20 @@ Global
 		{1D73FD20-9700-4018-B564-4AA7B6BF2AE1}.Release|Win32.Build.0 = Release|Any CPU
 		{1D73FD20-9700-4018-B564-4AA7B6BF2AE1}.Release|x64.ActiveCfg = Release|Any CPU
 		{1D73FD20-9700-4018-B564-4AA7B6BF2AE1}.Release|x86.ActiveCfg = Release|Any CPU
+		{5CD97BBC-C4DB-433E-9C4E-A1FE12EDFC70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CD97BBC-C4DB-433E-9C4E-A1FE12EDFC70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CD97BBC-C4DB-433E-9C4E-A1FE12EDFC70}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5CD97BBC-C4DB-433E-9C4E-A1FE12EDFC70}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5CD97BBC-C4DB-433E-9C4E-A1FE12EDFC70}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{5CD97BBC-C4DB-433E-9C4E-A1FE12EDFC70}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5CD97BBC-C4DB-433E-9C4E-A1FE12EDFC70}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5CD97BBC-C4DB-433E-9C4E-A1FE12EDFC70}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CD97BBC-C4DB-433E-9C4E-A1FE12EDFC70}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{5CD97BBC-C4DB-433E-9C4E-A1FE12EDFC70}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5CD97BBC-C4DB-433E-9C4E-A1FE12EDFC70}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5CD97BBC-C4DB-433E-9C4E-A1FE12EDFC70}.Release|Win32.ActiveCfg = Debug|Any CPU
+		{5CD97BBC-C4DB-433E-9C4E-A1FE12EDFC70}.Release|x64.ActiveCfg = Debug|Any CPU
+		{5CD97BBC-C4DB-433E-9C4E-A1FE12EDFC70}.Release|x86.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -343,5 +378,6 @@ Global
 		{35CA8818-7E08-4B4C-A5F3-1F1E5DD0B973} = {70E7786B-1C0C-4557-84A0-DAC95A2240F7}
 		{646B50A9-5B1E-4866-9639-660D1DB66D07} = {7246ABF7-59FC-4225-A785-9E73830B00D6}
 		{1D73FD20-9700-4018-B564-4AA7B6BF2AE1} = {70E7786B-1C0C-4557-84A0-DAC95A2240F7}
+		{5CD97BBC-C4DB-433E-9C4E-A1FE12EDFC70} = {7246ABF7-59FC-4225-A785-9E73830B00D6}
 	EndGlobalSection
 EndGlobal
