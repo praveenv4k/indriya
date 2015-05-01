@@ -7,14 +7,10 @@
 
     <link type="text/css" rel="stylesheet" href="libs/jquery-ui/jquery-ui.min.css" />
     <link type="text/css" rel="stylesheet" href="libs/jquery-jsonview/jquery.jsonview.css" />
-
-    <script src="libs/google-blockly/blockly_compressed.js"></script>
-    <script src="libs/google-blockly/blocks_compressed.js"></script>
-    <script src="libs/google-blockly/msg/js/en.js"></script>
 </head>
 <body>
 <div id="main">
-    <div id="tabs" style="width: 100%; height: 100%">
+    <div id="tabs">
         <ul>
             <li><a href="#tabs-1">Visualize</a></li>
             <li><a href="#tabs-2">Design</a></li>
@@ -30,5 +26,6 @@
         </div>
     </div>
 </div>
+    <script src="libs/requirejs/require.js" data-main="app/init"></script>
 </body>
 </html>
