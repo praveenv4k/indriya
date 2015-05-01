@@ -332,6 +332,7 @@
     <Content Include="Web\www\app\models\human.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Web\www\app\models\model.js" />
     <Content Include="Web\www\app\models\robot.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -356,6 +357,7 @@
     <Content Include="Web\www\app\views\viewport.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Web\www\favicon.ico" />
     <Content Include="Web\www\fonts\droid\droid_sans_bold.typeface.js" />
     <Content Include="Web\www\fonts\droid\droid_sans_mono_regular.typeface.js" />
     <Content Include="Web\www\fonts\droid\droid_sans_regular.typeface.js" />
@@ -368,6 +370,9 @@
     <Content Include="Web\www\fonts\helvetiker_regular.typeface.js" />
     <Content Include="Web\www\fonts\optimer_bold.typeface.js" />
     <Content Include="Web\www\fonts\optimer_regular.typeface.js" />
+    <Content Include="Web\www\index-back.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Web\www\index_joint.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -739,6 +744,7 @@
     <Content Include="Web\www\libs\google-blockly\msg\js\zh-hant.js" />
     <Content Include="Web\www\libs\google-blockly\msg\messages.js" />
     <Content Include="Web\www\libs\google-blockly\python_compressed.js" />
+    <Content Include="Web\www\libs\handlebars\handlebars.js" />
     <Content Include="Web\www\libs\joint\joint.all.clean.js" />
     <Content Include="Web\www\libs\joint\joint.all.clean.min.js" />
     <Content Include="Web\www\libs\joint\joint.all.css" />
