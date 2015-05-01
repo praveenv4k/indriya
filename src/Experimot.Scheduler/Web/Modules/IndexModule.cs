@@ -29,7 +29,8 @@ namespace Experimot.Scheduler.Web.Modules
     public class IndexModule : NancyModule
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof (IndexModule));
-        private const string WebRoot = @"C:\Work\Develop\src\github\ExPeriMot\src\Experimot.Web\www";
+        private const string WebRoot = @"C:/Work/Develop/src/github/ExPeriMot/src/Experimot.Web/www";
+        //private const string WebRoot = @"../../src/Experimot.Web/www/";
         public IndexModule()
         {
             //Get["/"] = parameters => Response.AsFile(@"Web/www/index.html");

@@ -2,11 +2,11 @@
     function (app, _, backbone, marionette, $, THREE,m3Js, template) {
 
 
-        return renderer = new m3Js.ThreeJSRenderer({
+        var renderer = new m3Js.ThreeJSRenderer({
             collection: app.Drawables
         });
 
-
+        return renderer;
 
 
         ////ItemView provides some default rendering logic
