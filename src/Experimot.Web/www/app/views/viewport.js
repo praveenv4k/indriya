@@ -1,5 +1,5 @@
-﻿define(['app', 'underscore', 'backbone', 'marionette', 'jquery', 'threejs', 'marionette_threejs', 'text!templates/viewport.html'],
-    function (app, _, backbone, marionette, $, THREE,m3Js, template) {
+﻿define(['app', 'jquery', 'underscore', 'backbone', 'marionette', 'marionette_threejs', 'text!templates/viewport.html'],
+    function (app, $, _, Backbone, Marionette, m3Js, template) {
 
 
         var renderer = new m3Js.ThreeJSRenderer({
