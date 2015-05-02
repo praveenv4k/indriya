@@ -18,21 +18,36 @@
                 //});
                 //App.StatusPoller.start();
             },
-            index: function () {
+            index: function() {
                 require(["jquery", "app", "views/designer", "views/monitor"],
-                    function ($, app, designer, monitor) {
-                        $("#tabs").tabs();
+                    function($, app, designer, monitor) {
                         //app.designer.show(new designer());
                         app.monitor.show(new monitor());
                         //app.viewport.show(app.renderer);
                         app.viewport.show(app.renderer);
                         app.workspace = Blockly.inject('blocklyDiv',
                         { toolbox: document.getElementById('toolbox') });
-                        app.loader.load("models/collada/nao.dae", function (collada) {
+
+                        var newDrawable = new m3Js.Drawable({
+                            texture: 'app/crate.gif',
+                            geometryType: 'TorusGeometry',
+                            geometryParams: [50, 20, 20, 20]
+                        });
+                        app.Drawables.add(newDrawable);
+                        //this.createNewDrawable({
+                        //    //texture: 'crate.gif',
+                        //    geometryType: 'TorusGeometry',
+                        //    geometryParams: [50, 20, 20, 20]
+                        //});
+
+                        $("#tabs").tabs();
+
+
+                        app.loader.load("models/collada/nao.dae", function(collada) {
 
                             app.dae = collada.scene;
 
-                            app.dae.traverse(function (child) {
+                            app.dae.traverse(function(child) {
 
                                 if (child instanceof THREE.Mesh) {
 
@@ -53,6 +68,12 @@
                             globalCh.vent.trigger("addMeshRequest", app.dae);
                         });
                     });
+            },
+
+            createNewDrawable: function(options) {
+
+                var newDrawable = new m3Js.Drawable(options);
+                app.Drawables.add(newDrawable);
             }
         });
     });
