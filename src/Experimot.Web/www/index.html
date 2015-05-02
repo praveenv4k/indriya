@@ -15,6 +15,12 @@
             height: 89vh;
             border: none;
         }
+        #blocklyDiv {
+          margin: 0;
+            padding: 0;
+            height: 89vh;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -26,11 +32,25 @@
             <li><a href="#tabs-3">Visualize</a></li>
         </ul>
         <div id="tabs-1">
+            <div id="designer-anchor">
+                <!--<div id="blocklyDiv" style="height: 480px; width: 600px;"></div>-->
+                <div id="blocklyDiv"></div>
+                <xml id="toolbox" style="display: none">
+                    <block type="controls_if"></block>
+                    <block type="logic_compare"></block>
+                    <block type="controls_repeat_ext"></block>
+                    <block type="math_number"></block>
+                    <block type="math_arithmetic"></block>
+                    <block type="text"></block>
+                    <block type="text_print"></block>
+                </xml>
+            </div>
         </div>
         <div id="tabs-2">
+            <div id="monitor-anchor"></div>
         </div>
         <div id="tabs-3">
-            <div id="viewport-anchor"/>
+            <div id="viewport-anchor"></div>
         </div>
     </div>
 </div>

@@ -6,6 +6,10 @@
             // View Event Handlers
             events: {
 
+            },
+            render: function() {
+                app.workspace = Blockly.inject('blocklyDiv',
+                { toolbox: document.getElementById('toolbox') });
             }
         });
     });

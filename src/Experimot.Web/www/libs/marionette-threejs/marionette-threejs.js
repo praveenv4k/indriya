@@ -2324,11 +2324,19 @@
   
     removeDrawable: function(drawable) {
       console.log('ThreeJSRenderer: remove drawable');
-  
+        
       var mesh = drawable.getMesh();
       if (mesh) {
         this.scene.remove(mesh);
       }
+    },
+
+    addMesh: function(mesh) {
+        console.log('ThreeJSRenderer: add mesh');
+        if (mesh) {
+            console.log(mesh);
+            this.scene.add(mesh);
+        }
     },
   
     onWindowResize: function() {
@@ -2492,6 +2500,12 @@
         window.addEventListener('resize', function() {
           _this.onWindowResize();
         }, false);
+
+        var globalCh = Backbone.Wreqr.radio.channel('global');
+        this.listenTo(globalCh.vent, "addMeshRequest", function(mesh) {
+            console.log("Got request");
+            this.addMesh(mesh);
+        });
   
         _this.startWebGLRendering();
         _this.render();
