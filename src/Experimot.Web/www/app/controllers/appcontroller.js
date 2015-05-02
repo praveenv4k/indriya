@@ -28,10 +28,10 @@
                 //    });
                 require(["jquery", "app", "views/designer", "views/monitor"],
                     function ($, app, designer, monitor) {
-                        $("#main").tabs();
+                        $("#tabs").tabs();
                         app.tab1.show(new designer());
                         app.tab2.show(new monitor());
-                        app.tab3.show(app.renderer);
+                        app.viewport.show(app.renderer);
                     });
             }
         });
