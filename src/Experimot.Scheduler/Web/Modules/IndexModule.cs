@@ -43,7 +43,8 @@ namespace Experimot.Scheduler.Web.Modules
             {
                 Console.WriteLine(Request.Path);
                 //return Response.AsFile(System.IO.Path.Combine("Web/www" + Request.Path));
-                return Response.AsFile(Path.Combine(WebRoot, Request.Path));
+                return Response.AsFile(WebRoot + Request.Path);
+                //return Response.AsFile(Request.Path);
             };
 
             Get["/context"] = parameters =>

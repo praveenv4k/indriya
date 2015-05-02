@@ -10,8 +10,8 @@
         //Organize Application into regions corresponding to DOM elements
         //Regions can contain views, Layouts, or subregions nested as necessary
         app.addRegions({
-            tab1: "#tabs-1",
-            tab2: "#tabs-2",
+            designer: "#designer-anchor",
+            monitor: "#monitor-anchor",
             viewport: "#viewport-anchor"
         });
 

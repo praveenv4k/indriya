@@ -18,6 +18,7 @@
         //orbitcontrols: "../js/controls/OrbitControls",
         //projector: "../js/renderers/Projector",
         //colladaloader: "../js/loaders/ColladaLoader",
+        colladaloader: "../libs/threejs/r68/ColladaLoader",
         //webgldetector: "../js/Detector",
         marionette_threejs: "../libs/marionette-threejs/marionette-threejs"
     },
@@ -63,9 +64,9 @@
         "marionette_threejs": {
             "deps": ["threejs"]
         }
-        //,"colladaloader": {
-        //    "deps": ["threejs"]
-        //},
+        ,"colladaloader": {
+            "deps": ["threejs"]
+        },
         //"projector": {
         //    "deps": ["threejs"]
         //}
@@ -75,7 +76,7 @@
 // Include Desktop Specific JavaScript files here (or inside of your Desktop Controller, or differentiate based off App.mobile === false)
 //require(["app", "jquery", "routers/approuter", "controllers/appcontroller", "backbone", "marionette", "jqueryui", "handlebars"],
 require(["app", "jquery", "routers/approuter", "controllers/appcontroller", "backbone", "marionette", "jqueryui", 
-                "blocks", "blockly_msg_en"],
+                "blocks", "blockly_msg_en", "colladaloader"],
                 //, "marionette_threejs","projector", "colladaloader"],
     function(app, $, appRouter, appController) {
         //$.mobile.ajaxEnabled = false;
