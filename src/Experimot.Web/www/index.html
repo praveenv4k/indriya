@@ -7,30 +7,33 @@
 
     <link type="text/css" rel="stylesheet" href="libs/jquery-ui/jquery-ui.min.css" />
     <link type="text/css" rel="stylesheet" href="libs/jquery-jsonview/jquery.jsonview.css" />
+
+    <style>
+        #viewport-anchor {
+            margin: 0;
+            padding: 0;
+            height: 89vh;
+            border: none;
+        }
+    </style>
 </head>
 <body>
 <div id="main">
-    <div id="tabs" style="height: 100%; width: 100%">
+    <div id="tabs">
         <ul>
-            <li><a href="#tabs-1">Visualize</a></li>
-            <li><a href="#tabs-2">Design</a></li>
-            <li><a href="#tabs-3">Monitor</a></li>
+            <li><a href="#tabs-1">Design</a></li>
+            <li><a href="#tabs-2">Execute</a></li>
+            <li><a href="#tabs-3">Visualize</a></li>
         </ul>
-        <div id="tabs-1" style="height: 100%; width: 100%">
+        <div id="tabs-1">
         </div>
-        <div id="tabs-2" style="height: 100%; width: 100%">
+        <div id="tabs-2">
         </div>
-        <div id="tabs-3" style="height: 100%; width: 100%">
+        <div id="tabs-3">
+            <div id="viewport-anchor"/>
         </div>
     </div>
 </div>
-    <!--<script src="libs/threejs/three.js"></script>
-    <script src="js/controls/OrbitControls.js"></script>
-    <script src="js/renderers/Projector.js"></script>
-    <script src="js/loaders/ColladaLoader.js"></script>
-    <script src="js/Detector.js"></script>
-    <script src="libs/marionette-threejs/marionette-threejs.js"></script>-->
-
 <script src="libs/requirejs/require.js" data-main="app/init"></script>
 </body>
 </html>
