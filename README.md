@@ -13,9 +13,12 @@
 * Kinect for Windows SDK 2.0 (http://www.microsoft.com/en-us/download/details.aspx?id=44561)
 * Point Cloud Library V1.7.2 - All in one installer for VS2013 can be found at (http://unanancyowen.com/?p=1255&lang=en)
 * OpenCV 2.4.10
-* OpenRAVE 0.9
+* Boost C++ Libraries V1.57 (http://www.boost.org)
+* ALVAR Marker detection toolkit (http://virtual.vtt.fi/virtual/proj2/multimedia/alvar/)
+* OpenRAVE 0.9 (https://github.com/rdiankov/openrave)
 * Zero MQ (http://zeromq.org)
 * Google Protocol Buffers (https://developers.google.com/protocol-buffers/)
+* Web Libraries: Jquery-ui, Backbone, Marionette, Underscore, Threejs
 
 **Build steps**
 
