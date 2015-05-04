@@ -10,9 +10,9 @@
         joint: "../libs/joint/joint.nojquerynobackbone",
         slidebars: "../libs/slidebars/slidebars",
         jsonview: "../libs/jquery-jsonview/jquery-jsonview",
-        blockly: "../libs/google-blockly/blockly_compressed",
-        blocks: "../libs/google-blockly/blocks_compressed",
-        blockly_msg_en: "../libs/google-blockly/msg/js/en",
+        blockly: "../libs/google/blockly/blockly_compressed",
+        blocks: "../libs/google/blockly/blocks_compressed",
+        blockly_msg_en: "../libs/google/blockly/msg/js/en",
         handlebars: "../libs/handlebars/handlebars"
         // r68
         //, threejs: "../libs/threejs/r68/three"
