@@ -33,13 +33,6 @@
                         app.workspace = Blockly.inject('blocklyDiv',
                         { toolbox: document.getElementById('toolbox') });
 
-                        var newDrawable = new m3Js.Drawable({
-                            //texture: 'app/crate.gif',
-                            //geometryType: 'TorusGeometry',
-                            //geometryParams: [50, 20, 20, 20],
-                            colladaUrl: "models/collada/nao.dae"
-                        });
-                        app.Drawables.add(newDrawable);
                         //this.createNewDrawable({
                         //    //texture: 'crate.gif',
                         //    geometryType: 'TorusGeometry',
@@ -48,6 +41,13 @@
 
                         $("#tabs").tabs();
 
+                        var newDrawable = new m3Js.Drawable({
+                            //texture: 'app/crate.gif',
+                            //geometryType: 'TorusGeometry',
+                            //geometryParams: [50, 20, 20, 20],
+                            colladaUrl: "models/collada/nao.dae"
+                        });
+                        app.Drawables.add(newDrawable);
 
                         //app.loader.load("models/collada/nao.dae", function(collada) {
 
