@@ -14,13 +14,17 @@
         blocks: "../libs/google-blockly/blocks_compressed",
         blockly_msg_en: "../libs/google-blockly/msg/js/en",
         handlebars: "../libs/handlebars/handlebars"
-        ,threejs: "../libs/threejs/r68/three",
-        //orbitcontrols: "../js/controls/OrbitControls",
-        //projector: "../js/renderers/Projector",
-        //colladaloader: "../js/loaders/ColladaLoader",
-        colladaloader: "../libs/threejs/r68/ColladaLoader",
+        // r68
+        //, threejs: "../libs/threejs/r68/three"
+        //, colladaloader: "../libs/threejs/r68/ColladaLoader"
+        // r71
+        , threejs: "../libs/threejs/three"
+        , orbitcontrols: "../js/controls/OrbitControls"
+        , projector: "../js/renderers/Projector"
+        , colladaloader: "../js/loaders/ColladaLoader"
+
         //webgldetector: "../js/Detector",
-        marionette_threejs: "../libs/marionette-threejs/marionette-threejs"
+        , marionette_threejs: "../libs/marionette-threejs/marionette-threejs"
     },
     shim: {
         // jQueryUI
