@@ -21,24 +21,90 @@
                 app.robotpoller.start();
             },
 
-            index: function() {
+            index: function () {
+                var _this = this;
                 require(["jquery", "app", "views/designer", "views/monitor"],
-                    function($, app, designer, monitor) {
+                    function ($, app, designer, monitor) {
+                        _this.initCodeMenu();
                         //app.designer.show(new designer());
                         app.monitor.show(new monitor());
                         //app.viewport.show(app.renderer);
                         app.viewport.show(app.renderer);
-                        app.workspace = Blockly.inject('blocklyDiv',
-                        { toolbox: document.getElementById('toolbox') });
+                        app.workspace = Blockly.inject('blocklyDiv', {
+                            grid:
+                            {
+                                spacing: 25,
+                                length: 3,
+                                colour: '#ccc',
+                                snap: true
+                            },
+                            media: '../libs/google/blockly/media/',
+                            toolbox: document.getElementById('toolbox')
+                        });
 
                         $("#tabs").tabs();
 
-                        var newDrawable = new m3Js.Drawable({
+                        _this.createNewDrawable({
                             colladaUrl: "models/collada/nao.dae"
                         });
-                        app.Drawables.add(newDrawable);
                     });
             },
+
+            initCodeMenu: function() {
+                $("#play").button({
+                        text: true,
+                        icons: {
+                            primary: "ui-icon-play"
+                        }
+                    })
+                    .click(function() {
+                        var options;
+                        if ($(this).text() === "PLAY") {
+                            options = {
+                                label: "PAUSE",
+                                icons: {
+                                    primary: "ui-icon-pause"
+                                }
+                            };
+                        } else {
+                            options = {
+                                label: "PLAY",
+                                icons: {
+                                    primary: "ui-icon-play"
+                                }
+                            };
+                        }
+                        $(this).button("option", options);
+                    });
+                //ui-icon-document
+                $("#code").button({
+                    text: true,
+                    icons: {
+                        primary: "ui-icon-document"
+                    }
+                })
+                .click(function() {
+                    if (app.workspace != undefined) {
+                        app.code = Blockly.Python.workspaceToCode(app.workspace);
+                        console.log(app.code);
+                    }
+                });
+                $("#stop").button({
+                        text: true,
+                        icons: {
+                            primary: "ui-icon-stop"
+                        }
+                    })
+                    .click(function() {
+                        $("#play").button("option", {
+                            label: "PLAY",
+                            icons: {
+                                primary: "ui-icon-play"
+                            }
+                        });
+                    });
+            },
+
 
             createNewDrawable: function(options) {
 

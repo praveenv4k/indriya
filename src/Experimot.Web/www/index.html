@@ -22,6 +22,10 @@
             height: 89vh;
             border: none;
         }
+
+        .ui-icon {
+            zoom: 1.5;
+        }
     </style>
 </head>
 <body>
@@ -33,6 +37,13 @@
                 <li><a href="#tabs-3">Visualize</a></li>
             </ul>
             <div id="tabs-1">
+                <div id="editor_menu">
+                    <div id="toolbar" class="ui-widget-header ui-corner-all">
+                        <button id="play">PLAY</button>
+                        <button id="stop">STOP</button>
+                        <button id="code">CODE</button>
+                    </div>
+                </div>
                 <div id="designer-anchor">
                     <!--<div id="blocklyDiv" style="height: 480px; width: 600px;"></div>-->
                     <div id="blocklyDiv"></div>
@@ -347,6 +358,9 @@
                             </category>
                         </category>
                     </xml>
+                </div>
+                <div id="editor_output">
+
                 </div>
             </div>
             <div id="tabs-2">
