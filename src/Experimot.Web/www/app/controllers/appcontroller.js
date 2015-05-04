@@ -34,9 +34,10 @@
                         { toolbox: document.getElementById('toolbox') });
 
                         var newDrawable = new m3Js.Drawable({
-                            texture: 'app/crate.gif',
-                            geometryType: 'TorusGeometry',
-                            geometryParams: [50, 20, 20, 20]
+                            //texture: 'app/crate.gif',
+                            //geometryType: 'TorusGeometry',
+                            //geometryParams: [50, 20, 20, 20],
+                            colladaUrl: "models/collada/nao.dae"
                         });
                         app.Drawables.add(newDrawable);
                         //this.createNewDrawable({
@@ -48,30 +49,30 @@
                         $("#tabs").tabs();
 
 
-                        app.loader.load("models/collada/nao.dae", function(collada) {
+                        //app.loader.load("models/collada/nao.dae", function(collada) {
 
-                            app.dae = collada.scene;
+                        //    app.dae = collada.scene;
 
-                            app.dae.traverse(function(child) {
+                        //    app.dae.traverse(function(child) {
 
-                                if (child instanceof THREE.Mesh) {
+                        //        if (child instanceof THREE.Mesh) {
 
-                                    child.geometry.computeFaceNormals();
-                                    child.material.shading = THREE.FlatShading;
+                        //            child.geometry.computeFaceNormals();
+                        //            child.material.shading = THREE.FlatShading;
 
-                                }
+                        //        }
 
-                            });
+                        //    });
 
-                            app.dae.scale.x = app.dae.scale.y = app.dae.scale.z = 10.0;
-                            app.dae.updateMatrix();
+                        //    app.dae.scale.x = app.dae.scale.y = app.dae.scale.z = 10.0;
+                        //    app.dae.updateMatrix();
 
-                            app.kinematics = collada.kinematics;
+                        //    app.kinematics = collada.kinematics;
 
-                            var globalCh = Backbone.Wreqr.radio.channel('global');
-                            console.log("Triggering request");
-                            globalCh.vent.trigger("addMeshRequest", app.dae);
-                        });
+                        //    var globalCh = Backbone.Wreqr.radio.channel('global');
+                        //    console.log("Triggering request");
+                        //    globalCh.vent.trigger("addMeshRequest", app.dae);
+                        //});
                     });
             },
 

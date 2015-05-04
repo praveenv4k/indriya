@@ -1926,7 +1926,8 @@
     _texture: undefined,
     _material: undefined,
     _geometry: undefined,
-  
+    _kinematics: undefined,
+
     initDrawable: function() {
       var _this = this;
   
@@ -1941,20 +1942,47 @@
         });
         _this.updateMesh();
       };
-  
-      if (THREE.hasOwnProperty(this.get('geometryType'))) {
-        this._texture = THREE.ImageUtils.loadTexture(this.get('texture'), new THREE.UVMapping(), _loaded);
-        // this._texture.anisotropy = window._renderer.renderer.getMaxAnisotropy();
-        this._geometry = construct(THREE[this.get('geometryType')], this.get('geometryParams'));
-        this._material = new THREE.MeshLambertMaterial({
-          map: this._texture
-        });
-  
-        this._mesh = new THREE.Mesh(this._geometry, this._material);
-      }
-      else {
-        console.warn('Drawable: no compatible geometry type');
-      }
+        if (this.get('colladaUrl')) {
+            console.log('Collada URL: ' + this.get('colladaUrl'));
+            var loader = new THREE.ColladaLoader();
+            loader.options.convertUpAxis = true;
+            loader.load(this.get('colladaUrl'), function(collada) {
+                _this._mesh = collada.scene;
+                _this._mesh.traverse(function(child) {
+                    if (child instanceof THREE.Mesh) {
+                        child.geometry.computeFaceNormals();
+                        child.material.shading = THREE.FlatShading;
+                    }
+                });
+                _this._mesh.scale.x = _this._mesh.scale.y = _this._mesh.scale.z = 10.0;
+                _this._mesh.updateMatrix();
+
+                _this._kinematics = collada.kinematics;
+
+                if (_this.collection !== undefined) {
+                    _this.collection.trigger('drawable:loaded', _this);
+                }
+                _this.trigger('drawable:loaded', _this);
+
+                _this.on('change:matrix', function () {
+                    _this.updateMesh();
+                });
+                _this.updateMesh();
+            });
+        } else {
+            if (THREE.hasOwnProperty(this.get('geometryType'))) {
+                this._texture = THREE.ImageUtils.loadTexture(this.get('texture'), new THREE.UVMapping(), _loaded);
+                // this._texture.anisotropy = window._renderer.renderer.getMaxAnisotropy();
+                this._geometry = construct(THREE[this.get('geometryType')], this.get('geometryParams'));
+                this._material = new THREE.MeshLambertMaterial({
+                    map: this._texture
+                });
+
+                this._mesh = new THREE.Mesh(this._geometry, this._material);
+            } else {
+                console.warn('Drawable: no compatible geometry type');
+            }
+        }
     },
   
     updateMesh: function() {
@@ -1964,6 +1992,10 @@
   
     getMesh: function() {
       return this._mesh;
+    },
+
+    getKinematics: function() {
+        return this._kinematics;
     },
   
     initialize: function(options) {
@@ -2318,6 +2350,7 @@
   
       var mesh = drawable.getMesh();
       if (mesh) {
+          console.log(mesh);
         this.scene.add(mesh);
       }
     },
