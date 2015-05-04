@@ -64,6 +64,23 @@ namespace Experimot.Scheduler.Web.Modules
                 return (Response) HttpStatusCode.OK;
             };
 
+            Get["/robot"] = parameters =>
+            {
+                try
+                {
+                    var context = TinyIoCContainer.Current.Resolve<Context>();
+                    if (context != null)
+                    {
+                        return Response.AsJson(context.Robot);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Log.InfoFormat("Exception occured while GET context : {0}", ex.Message);
+                }
+                return (Response) HttpStatusCode.OK;
+            };
+
             Get["/jointvals"] = parameters =>
             {
                 try
