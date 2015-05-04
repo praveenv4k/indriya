@@ -71,16 +71,16 @@
         ,"colladaloader": {
             "deps": ["threejs"]
         },
-        //"projector": {
-        //    "deps": ["threejs"]
-        //}
+        "projector": {
+            "deps": ["threejs"]
+        }
     }
 });
 
 // Include Desktop Specific JavaScript files here (or inside of your Desktop Controller, or differentiate based off App.mobile === false)
 //require(["app", "jquery", "routers/approuter", "controllers/appcontroller", "backbone", "marionette", "jqueryui", "handlebars"],
 require(["app", "jquery", "routers/approuter", "controllers/appcontroller", "backbone", "marionette", "jqueryui", 
-                "blocks", "blockly_msg_en", "colladaloader"],
+                "blocks", "blockly_msg_en", "colladaloader", "projector"],
                 //, "marionette_threejs","projector", "colladaloader"],
     function(app, $, appRouter, appController) {
         //$.mobile.ajaxEnabled = false;
