@@ -881,7 +881,7 @@
   
             var tempGeometry = new THREE.Geometry();
             tempGeometry.merge(child.geometry, child.matrix);
-  
+
             child.geometry = tempGeometry;
             child.position.set(0, 0, 0);
             child.rotation.set(0, 0, 0);
@@ -1805,7 +1805,9 @@
         var y = (pointer.clientY - rect.top) / rect.height;
         pointerVector.set((x) * 2 - 1, -(y) * 2 + 1, 0.5);
   
-        projector.unprojectVector(pointerVector, camera);
+        // Praveen
+          //projector.unprojectVector(pointerVector, camera);
+          pointerVector.unproject(camera);
         ray.set(camPosition, pointerVector.sub(camPosition).normalize());
   
         var intersections = ray.intersectObjects(objects, true);
@@ -2423,7 +2425,9 @@
       var y = (e.clientY - rect.top) / rect.height;
       this.pointerVector.set((x) * 2.0 - 1.0, -(y) * 2.0 + 1.0, 0.5);
   
-      this.projector.unprojectVector(this.pointerVector, this.camera);
+        // Praveen
+        //this.projector.unprojectVector(this.pointerVector, this.camera);
+        this.pointerVector.unproject(this.camera);
       this.rayCaster.set(this.camera.position, this.pointerVector.sub(this.camera.position).normalize());
   
       var intersections = this.rayCaster.intersectObjects(meshes, true);
