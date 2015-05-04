@@ -1966,14 +1966,14 @@
                 }
                 _this.trigger('drawable:loaded', _this);
 
-                _this.on('change:matrix', function () {
-                    _this.updateMesh();
-                });
-                _this.updateMesh();
+                //_this.on('change:matrix', function () {
+                //    _this.updateMesh();
+                //});
+                //_this.updateMesh();
             });
         } else {
             if (THREE.hasOwnProperty(this.get('geometryType'))) {
-                this._texture = THREE.ImageUtils.loadTexture(this.get('texture'), new THREE.UVMapping(), _loaded);
+                this._texture = THREE.ImageUtils.loadTexture(this.get('texture'), THREE.UVMapping, _loaded);
                 // this._texture.anisotropy = window._renderer.renderer.getMaxAnisotropy();
                 this._geometry = construct(THREE[this.get('geometryType')], this.get('geometryParams'));
                 this._material = new THREE.MeshLambertMaterial({
@@ -2319,7 +2319,8 @@
       this.renderer.sortObjects = false;
       this.renderer.setSize(this.getWidth(), this.getHeight());
   
-      this.renderer.setClearColor(0xaaaaaa);
+        //Praveen
+      //this.renderer.setClearColor(0xaaaaaa);
   
       var _this = this;
       var _setRendererDOMElement = function() {
@@ -2330,15 +2331,19 @@
     },
   
     setupCamera: function() {
-      this.camera = new THREE.PerspectiveCamera(70, this.getWidth() / this.getHeight(), 0.01, 10000.0);
-      this.camera.position.set(1000, 500, 1000);
+        this.camera = new THREE.PerspectiveCamera(70, this.getWidth() / this.getHeight(), 0.01, 1000000.0);
+        // Praveen
+      //this.camera.position.set(1000, 500, 1000);
+      this.camera.position.set(10, 8, -10);
       this.camera.lookAt(new THREE.Vector3(0, 200, 0));
     },
   
     setupScene: function() {
       this.scene = new THREE.Scene();
   
-      var grid = new THREE.GridHelper(1000, 100);
+        // Praveen
+      //var grid = new THREE.GridHelper(1000, 100);
+      var grid = new THREE.GridHelper(14, 1);
       grid.setColors(0x444444, 0x888888);
       this.scene.add(grid);
   
@@ -2364,14 +2369,6 @@
       if (mesh) {
         this.scene.remove(mesh);
       }
-    },
-
-    addMesh: function(mesh) {
-        console.log('ThreeJSRenderer: add mesh');
-        if (mesh) {
-            console.log(mesh);
-            this.scene.add(mesh);
-        }
     },
   
     onWindowResize: function() {
