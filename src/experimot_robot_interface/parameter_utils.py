@@ -34,6 +34,15 @@ def getParam(node,key,defaultValue):
                 ret = p.value.encode('utf-8') # needed to encode in utf-8 because naoqi doesn't accept unicode
     return ret
 
+def getPublisherInfo(node,publisher_topic):
+    ret = None
+    if node != None:
+        for p in node.publisher:
+            if p.msg_type == publisher_topic:
+                ret = p
+                break
+    return ret
+
 def register_motions(node,parameterServerAddress,motions):
     print "Creating behavior module message"
     behaviorModule = robot_behavior_pb2.RobotBehaviorModule()
