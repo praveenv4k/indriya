@@ -167,7 +167,7 @@ if __name__ == "__main__":
 
           if node != None:
               ROBOTIP = parameter_utils.getParam(node,"ROBOTIP", "127.0.0.1")
-              PORT =  int(parameter_utils.getParam(node,"PORT", "9559"))
+              PORT =  int(parameter_utils.getParam(node,"ROBOTPORT", "9559"))
               BEHAVIOR_PORT = int(parameter_utils.getParam(node,"RequestServerPort", "5590"))
               BEHAVIOR_IP = parameter_utils.getParam(node,"RequestServerIP", "*")
               parameter_utils.register_motions(node,paramServer,["crouch","stand","wave","greet"])

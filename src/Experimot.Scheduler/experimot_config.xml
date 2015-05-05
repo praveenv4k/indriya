@@ -12,6 +12,8 @@
     <param key="WebServerEnabled" value="true" type="bool"/>
     <param key="WebServerPort" value="8888" type="int"/>
     <param key="WebServerHost" value="http://localhost" type="int"/>
+    <param key="ROBOTIP" value="127.0.0.1" type="string"/>
+    <param key="ROBOTPORT" value="49445" type="int"/>
   </parameters>
   <nodes>
     <node enabled="false" name="localization">
@@ -136,15 +138,15 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false" name="robot_interface">
+    <node enabled="true" name="robot_interface">
       <process>
         <type>executable</type>
         <path>python.exe</path>
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_robot_interface\ReadJointValues.py</args>
       </process>
       <parameters>
-        <param key="ROBOTIP" value="192.168.11.2" type="string"/>
-        <param key="PORT" value="9559" type="int"/>
+        <!--<param key="ROBOTIP" value="192.168.11.2" type="string"/>
+        <param key="PORT" value="9559" type="int"/>-->
       </parameters>
       <publishers>
         <publish>
@@ -171,9 +173,27 @@
       </process>
       <parameters>
         <!--<param key="ROBOTIP" value="127.0.0.1" type="string"/>
-        <param key="PORT" value="61269" type="int"/>-->
-        <param key="ROBOTIP" value="169.254.123.55" type="string"/>
-        <param key="PORT" value="9559" type="int"/>
+        <param key="PORT" value="49445" type="int"/>-->
+        <!--<param key="ROBOTIP" value="169.254.123.55" type="string"/>
+        <param key="PORT" value="9559" type="int"/>-->
+        <param key="RequestServerIP" value="tcp://*" type="string"/>
+        <param key="RequestClientIP" value="tcp://localhost" type="string"/>
+        <param key="RequestServerPort" value="5590" type="int"/>
+        <!--<param key="ROBOTIP" value="192.168.88.130" type="string"/>
+        <param key="PORT" value="52611" type="int"/>-->
+      </parameters>
+    </node>
+    <node enabled="false" name="main_program">
+      <process>
+        <type>executable</type>
+        <path>python.exe</path>
+        <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\aps_test.py</args>
+      </process>
+      <parameters>
+        <!--<param key="ROBOTIP" value="127.0.0.1" type="string"/>
+        <param key="PORT" value="49445" type="int"/>-->
+        <!--<param key="ROBOTIP" value="169.254.123.55" type="string"/>
+        <param key="PORT" value="9559" type="int"/>-->
         <param key="RequestServerIP" value="tcp://*" type="string"/>
         <param key="RequestClientIP" value="tcp://localhost" type="string"/>
         <param key="RequestServerPort" value="5590" type="int"/>
