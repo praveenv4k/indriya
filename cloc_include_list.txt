@@ -4,6 +4,7 @@ src/Experimot.Core.Msgs
 src/Experimot.Kinect.Perception
 src/Experimot.Kinect.Playback
 src/Experimot.Scheduler
+src/Experimot.Scriptcs
 src/Experimot.Web/www/app
 src/Experimot.Web/www/index.html
 src/experimot_calibration
