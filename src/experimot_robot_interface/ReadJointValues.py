@@ -4,6 +4,9 @@ import os
 import zmq
 import sys
 import time
+import argparse
+import thread
+
 from naoqi import ALProxy
 
 from os.path import dirname
@@ -137,24 +140,43 @@ def recordData(memory):
 
 if __name__ == "__main__":
     port = "5563"
-
-    context = zmq.Context()
-    socket = context.socket(zmq.PUB)
-    socket.bind("tcp://*:%s" % port)
-    header = "RSP"
-
     # Real Robot
     ROBOT_IP = "192.168.11.2"
-    PORT = 9559
+    ROBOT_PORT = 9559
 
-    # Simulated Robot
-    #ROBOT_IP = "127.0.0.1"
-    #PORT = 60170
+    try:
+        if (len(sys.argv) >= 3):
+              print sys.argv
+              parser = argparse.ArgumentParser(description='Nao Robot Behavior')
+              parser.add_argument('-p','--param', help='Parameter server address', required=True)
+              parser.add_argument('-n','--name', help='Name of the node', required=True)
+              args = vars(parser.parse_args())
+              name = args["name"]
+              paramServer = args["param"]
 
-    print "Publishing data ..."
-    memory = ALProxy("ALMemory", ROBOT_IP, PORT)
-    while 1:
-        value = recordData(memory)
-        print value
-        send_joint_values(socket,header,value)
-        time.sleep(0.1)
+              # Utils
+              import parameter_utils
+              node = parameter_utils.getNodeParameters(name,paramServer,1000)
+
+              if node != None:
+                  ROBOT_IP = parameter_utils.getParam(node,"ROBOTIP", "127.0.0.1")
+                  ROBOT_PORT =  int(parameter_utils.getParam(node,"ROBOTPORT", "9559"))
+        else:
+              print "Start locally"
+
+        context = zmq.Context()
+        socket = context.socket(zmq.PUB)
+        socket.bind("tcp://*:%s" % port)
+        header = "RSP"
+
+        print "Publishing data ..."
+        memory = ALProxy("ALMemory", ROBOT_IP, ROBOT_PORT)
+        while 1:
+            value = recordData(memory)
+            print value
+            send_joint_values(socket,header,value)
+            time.sleep(0.1)
+    except:
+      print "Exception occured : ", sys.exc_info()
+
+    raw_input("Press enter to continue ... ")
