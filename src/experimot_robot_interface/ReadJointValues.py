@@ -71,30 +71,30 @@ jMap = {0:1,1:0,2:9,3:8,4:7,5:10,6:2,7:3,8:11,
         16:21,17:14,18:15,19:22,20:23,21:17,22:16,23:24,24:18}
 
 SENSOR_TO_LOG_LIST = ["Device/SubDeviceList/HeadPitch/Position/Sensor/Value",
-                               "Device/SubDeviceList/HeadYaw/Position/Sensor/Value",
-                               "Device/SubDeviceList/LAnklePitch/Position/Sensor/Value",
-                               "Device/SubDeviceList/LAnkleRoll/Position/Sensor/Value",
-                               "Device/SubDeviceList/LElbowRoll/Position/Sensor/Value",
-                               "Device/SubDeviceList/LElbowYaw/Position/Sensor/Value",
-                               "Device/SubDeviceList/LHand/Position/Sensor/Value",
-                               "Device/SubDeviceList/LHipPitch/Position/Sensor/Value",
-                               "Device/SubDeviceList/LHipRoll/Position/Sensor/Value",
-                               "Device/SubDeviceList/LHipYawPitch/Position/Sensor/Value",
-                               "Device/SubDeviceList/LKneePitch/Position/Sensor/Value",
-                               "Device/SubDeviceList/LShoulderPitch/Position/Sensor/Value",
-                               "Device/SubDeviceList/LShoulderRoll/Position/Sensor/Value",
-                               "Device/SubDeviceList/LWristYaw/Position/Sensor/Value",
-                               "Device/SubDeviceList/RAnklePitch/Position/Sensor/Value",
-                               "Device/SubDeviceList/RAnkleRoll/Position/Sensor/Value",
-                               "Device/SubDeviceList/RElbowRoll/Position/Sensor/Value",
-                               "Device/SubDeviceList/RElbowYaw/Position/Sensor/Value",
-                               "Device/SubDeviceList/RHand/Position/Sensor/Value",
-                               "Device/SubDeviceList/RHipPitch/Position/Sensor/Value",
-                               "Device/SubDeviceList/RHipRoll/Position/Sensor/Value",
-                               "Device/SubDeviceList/RKneePitch/Position/Sensor/Value",
-                               "Device/SubDeviceList/RShoulderPitch/Position/Sensor/Value",
-                               "Device/SubDeviceList/RShoulderRoll/Position/Sensor/Value",
-                               "Device/SubDeviceList/RWristYaw/Position/Sensor/Value"]
+                        "Device/SubDeviceList/HeadYaw/Position/Sensor/Value",
+                        "Device/SubDeviceList/LAnklePitch/Position/Sensor/Value",
+                        "Device/SubDeviceList/LAnkleRoll/Position/Sensor/Value",
+                        "Device/SubDeviceList/LElbowRoll/Position/Sensor/Value",
+                        "Device/SubDeviceList/LElbowYaw/Position/Sensor/Value",
+                        "Device/SubDeviceList/LHand/Position/Sensor/Value",
+                        "Device/SubDeviceList/LHipPitch/Position/Sensor/Value",
+                        "Device/SubDeviceList/LHipRoll/Position/Sensor/Value",
+                        "Device/SubDeviceList/LHipYawPitch/Position/Sensor/Value",
+                        "Device/SubDeviceList/LKneePitch/Position/Sensor/Value",
+                        "Device/SubDeviceList/LShoulderPitch/Position/Sensor/Value",
+                        "Device/SubDeviceList/LShoulderRoll/Position/Sensor/Value",
+                        "Device/SubDeviceList/LWristYaw/Position/Sensor/Value",
+                        "Device/SubDeviceList/RAnklePitch/Position/Sensor/Value",
+                        "Device/SubDeviceList/RAnkleRoll/Position/Sensor/Value",
+                        "Device/SubDeviceList/RElbowRoll/Position/Sensor/Value",
+                        "Device/SubDeviceList/RElbowYaw/Position/Sensor/Value",
+                        "Device/SubDeviceList/RHand/Position/Sensor/Value",
+                        "Device/SubDeviceList/RHipPitch/Position/Sensor/Value",
+                        "Device/SubDeviceList/RHipRoll/Position/Sensor/Value",
+                        "Device/SubDeviceList/RKneePitch/Position/Sensor/Value",
+                        "Device/SubDeviceList/RShoulderPitch/Position/Sensor/Value",
+                        "Device/SubDeviceList/RShoulderRoll/Position/Sensor/Value",
+                        "Device/SubDeviceList/RWristYaw/Position/Sensor/Value"]
 
 # def recordData(nao_ip):
 #     """ Record the data from ALMemory.
@@ -139,11 +139,13 @@ def recordData(memory):
     return value
 
 if __name__ == "__main__":
-    port = "5563"
     # Real Robot
     ROBOT_IP = "192.168.11.2"
     ROBOT_PORT = 9559
 
+    PUB_IP = "tcp://*"
+    PUB_PORT = "5563"
+    PUB_TOPIC = "RSP"
     try:
         if (len(sys.argv) >= 3):
               print sys.argv
@@ -161,20 +163,24 @@ if __name__ == "__main__":
               if node != None:
                   ROBOT_IP = parameter_utils.getParam(node,"ROBOTIP", "127.0.0.1")
                   ROBOT_PORT =  int(parameter_utils.getParam(node,"ROBOTPORT", "9559"))
+                  pub = parameter_utils.getPublisherInfo(node,"JointValueVector")
+                  if pub != None:
+                    PUB_IP = pub.host.encode('utf-8')
+                    PUB_PORT = pub.port
+                    PUB_TOPIC = pub.topic.encode('utf-8')
         else:
               print "Start locally"
 
         context = zmq.Context()
         socket = context.socket(zmq.PUB)
-        socket.bind("tcp://*:%s" % port)
-        header = "RSP"
+        socket.bind("%s:%s" % (PUB_IP,PUB_PORT))
 
         print "Publishing data ..."
         memory = ALProxy("ALMemory", ROBOT_IP, ROBOT_PORT)
         while 1:
             value = recordData(memory)
             print value
-            send_joint_values(socket,header,value)
+            send_joint_values(socket,PUB_TOPIC,value)
             time.sleep(0.1)
     except:
       print "Exception occured : ", sys.exc_info()
