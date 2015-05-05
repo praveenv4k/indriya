@@ -45,7 +45,7 @@ namespace Experimot.Scheduler
             if (!_startup && _config != null)
             {
                 InitZmq(ParameterUtil.Get(_config.parameters, "ContextServerHost", "tcp://*"),
-                    ParameterUtil.Get(_config.parameters, "ContextServerPort", 5560));
+                    ParameterUtil.Get(_config.parameters, "ContextServerPort", 5800));
                 _startup = true;
             }
         }
@@ -67,7 +67,28 @@ namespace Experimot.Scheduler
                     var req = _socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
                     if (!string.IsNullOrEmpty(req))
                     {
-                        if (req.Contains("human"))
+                        if (req.Contains("node"))
+                        {
+                            var name = req.Replace("node_", "");
+                            if (_config != null)
+                            {
+                                var node = _config.nodes.FirstOrDefault(s => s.name == name);
+                                if (node != null)
+                                {
+                                    var ret = node.Clone();
+                                    foreach (var p in _config.parameters)
+                                    {
+                                        if (ret.parameters.FirstOrDefault(s => s.key == p.key) == null)
+                                        {
+                                            ret.parameters.Add(p);
+                                        }
+                                    }
+                                    string json = JsonConvert.SerializeObject(ret);
+                                    _socket.Send(json);
+                                }
+                            }
+                        }
+                        else if (req.Contains("human"))
                         {
                             var context = TinyIoCContainer.Current.Resolve<Context>();
                             if (context != null)
