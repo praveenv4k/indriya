@@ -39,24 +39,33 @@ def context_client(lock,ip,port):
     socket.connect("%s:%s" % (ip,port))
 
     while True:
-        # print("Sending request %s ... " % request)
         socket.send(b"human")
 
         #  Get the reply.
         str = socket.recv(1024)
-        print str
+        #print str
         result = json.loads(str)
 
         # printing the result
-        print(result)
+        #print len(result)
+        check_gesture_trigger(result)
         
-        #lock.acquire()
-        #global pose
-        #pose = [float(result["pos"]["x"]),float(result["pos"]["y"]),float(result["orient"]["z"])]
-        #lock.release()
-
         # wait for a while
         time.sleep(0.200)
+
+def check_gesture_trigger(humans):
+    num = len(humans)
+    for human in humans:
+        #print human
+        for gesture in human["Gestures"]:
+            active = bool(gesture["Active"])
+            if active == True:
+                confidence = int(gesture["Confidence"])
+                if confidence > 95:
+                    print "Gesture %s is detected" % gesture["Name"]
+
+def execute_behavior_blocking(behavior_name):
+    print behavior_name
 
 # main function
 if __name__ == "__main__":
