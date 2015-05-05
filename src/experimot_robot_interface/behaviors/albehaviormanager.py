@@ -177,9 +177,13 @@ if __name__ == "__main__":
 
       time.sleep(1)
 
+      # do nothing 
+      while 1:
+        pass
       #managerProxy = create_proxy(ROBOTIP,PORT)
       #execute_behavior(managerProxy, "crouch")
   except:
       print "Exception occured : ", sys.exc_info()
 
+    
   raw_input("Press enter to continue ... ")

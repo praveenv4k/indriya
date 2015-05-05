@@ -13,7 +13,7 @@
     <param key="WebServerPort" value="8888" type="int"/>
     <param key="WebServerHost" value="http://localhost" type="int"/>
     <param key="ROBOTIP" value="127.0.0.1" type="string"/>
-    <param key="ROBOTPORT" value="49445" type="int"/>
+    <param key="ROBOTPORT" value="55880" type="int"/>
     <param key="ContextServerHost" value="tcp://*" type="string"/>
     <param key="ContextClientHost" value="tcp://localhost" type="string"/>
     <param key="ContextServerPort" value="5800" type="int"/>
@@ -169,22 +169,16 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_zmq_plot_client.py</args>
       </process>
     </node>
-    <node enabled="false" name="nao_behavior_manager">
+    <node enabled="true" name="nao_behavior_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_robot_interface\behaviors\albehaviormanager.py</args>
       </process>
       <parameters>
-        <!--<param key="ROBOTIP" value="127.0.0.1" type="string"/>
-        <param key="PORT" value="49445" type="int"/>-->
-        <!--<param key="ROBOTIP" value="169.254.123.55" type="string"/>
-        <param key="PORT" value="9559" type="int"/>-->
         <param key="RequestServerIP" value="tcp://*" type="string"/>
         <param key="RequestClientIP" value="tcp://localhost" type="string"/>
         <param key="RequestServerPort" value="5590" type="int"/>
-        <!--<param key="ROBOTIP" value="192.168.88.130" type="string"/>
-        <param key="PORT" value="52611" type="int"/>-->
       </parameters>
     </node>
     <node enabled="true" name="main_program">
