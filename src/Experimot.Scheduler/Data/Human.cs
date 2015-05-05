@@ -15,6 +15,9 @@ namespace Experimot.Scheduler.Data
         private KinectBody _body;
 
         private readonly BindableCollection<Gesture> _gestures;
+        private Vector3d _headPosition;
+        private Vector3d _torsoPosition;
+        private Quaternion _torsoOrientation;
 
         public Human(int id)
         {
@@ -58,6 +61,39 @@ namespace Experimot.Scheduler.Data
             {
                 if (Equals(value, _body)) return;
                 _body = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public Vector3d HeadPosition
+        {
+            get { return _headPosition; }
+            set
+            {
+                if (Equals(value, _headPosition)) return;
+                _headPosition = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public Vector3d TorsoPosition
+        {
+            get { return _torsoPosition; }
+            set
+            {
+                if (Equals(value, _torsoPosition)) return;
+                _torsoPosition = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public Quaternion TorsoOrientation
+        {
+            get { return _torsoOrientation; }
+            set
+            {
+                if (Equals(value, _torsoOrientation)) return;
+                _torsoOrientation = value;
                 OnPropertyChanged();
             }
         }

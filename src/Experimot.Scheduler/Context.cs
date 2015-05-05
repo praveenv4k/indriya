@@ -252,37 +252,26 @@ namespace Experimot.Scheduler
                             }
                             
                         }
+                    }
+                }
+            }
+        }
 
-                        //if (gest != null)
-                        //{
-                        //    if (trigger.motion.confidence < 85 || !trigger.motion.active)
-                        //    {
-                        //        item.Gestures.Remove(gest);
-                        //        Log.InfoFormat("Gesture Removed: {0}",trigger.motion.name);
-                        //    }
-                        //    else
-                        //    {
-                        //        //gest = new Gesture
-                        //        //{
-                        //        //    Name = trigger.motion.name,
-                        //        //    Mode = (GestureMode) trigger.motion.type
-                        //        //};
-                        //    }
-                        //}
-                        //else
-                        //{
-                        //    if (trigger.motion.confidence > 95 || trigger.motion.active)
-                        //    {
-                        //        item.Gestures.Add(new Gesture
-                        //        {
-                        //            Name = trigger.motion.name,
-                        //            Mode = (GestureMode) trigger.motion.type
-                        //        });
-                        //        Log.InfoFormat("Gesture Added: {0}", trigger.motion.name);
-                        //    }
-                        //}
-
-
+        public void Update(Humans humans)
+        {
+            if (humans != null)
+            {
+                lock (_object)
+                {
+                    foreach (var human in humans.human)
+                    {
+                        var item = _humans.FirstOrDefault(s => s.Body.TrackingId == human.id);
+                        if (item != null)
+                        {
+                            item.HeadPosition = human.head_position;
+                            item.TorsoPosition = human.torso_position;
+                            item.TorsoOrientation = human.orientation;
+                        }
                     }
                 }
             }
