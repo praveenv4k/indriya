@@ -4,6 +4,7 @@ import sys
 import time
 import argparse
 import thread
+import json
 
 from apscheduler.schedulers.background import BackgroundScheduler
 #from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
@@ -28,12 +29,39 @@ import zmq
 def myfunc():
     print "Hello, this is my function"
 
+#############################################################################################################
+# Localization client  
+def context_client(lock,ip,port):
+    context = zmq.Context()
+    #  Socket to talk to server
+    print "Connecting to context server ... "
+    socket = context.socket(zmq.REQ)
+    socket.connect("%s:%s" % (ip,port))
+
+    while True:
+        # print("Sending request %s ... " % request)
+        socket.send(b"human")
+
+        #  Get the reply.
+        str = socket.recv(1024)
+        print str
+        result = json.loads(str)
+
+        # printing the result
+        print(result)
+        
+        #lock.acquire()
+        #global pose
+        #pose = [float(result["pos"]["x"]),float(result["pos"]["y"]),float(result["orient"]["z"])]
+        #lock.release()
+
+        # wait for a while
+        time.sleep(0.200)
+
 # main function
 if __name__ == "__main__":
-    # port
-    port = 5700
-    # ip address
-    ip = "localhost"
+    context_server = "tcp://localhost"
+    context_port = "5800"
 
     try:
         if (len(sys.argv) >= 3):
@@ -50,12 +78,8 @@ if __name__ == "__main__":
             node = parameter_utils.getNodeParameters(name,paramServer,1000)
 
             if node != None:
-                ROBOTIP = parameter_utils.getParam(node,"ROBOTIP", "127.0.0.1")
-                PORT =  int(parameter_utils.getParam(node,"PORT", "9559"))
-                BEHAVIOR_PORT = int(parameter_utils.getParam(node,"RequestServerPort", "5590"))
-                BEHAVIOR_IP = parameter_utils.getParam(node,"RequestServerIP", "*")
-                parameter_utils.register_motions(node,paramServer,["crouch","stand","wave","greet"])
-                thread.start_new_thread(behavior_server,(BEHAVIOR_IP,BEHAVIOR_PORT,ROBOTIP,PORT));
+                context_server = parameter_utils.getParam(node,"ContextClientHost","tcp://localhost")
+                context_port = parameter_utils.getParam(node,"ContextServerPort","5800")
         else:
             print "Start locally"
 
@@ -78,8 +102,11 @@ if __name__ == "__main__":
 
         scheduler.start()
 
+        # create a lock object for synchronization
+        lock = thread.allocate_lock()
+
         # client listener
-        thread.start_new_thread(localization_client,(ip,port,10,1));
+        thread.start_new_thread(context_client,(lock,context_server,context_port));
         
         # starting a test server to test the communication. need to be commented when working with real server
         # thread.start_new_thread(localization_server,(ip,port));

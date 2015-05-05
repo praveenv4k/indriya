@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using Caliburn.Micro;
 using experimot.msgs;
 using Experimot.Core.Annotations;
+using Newtonsoft.Json;
 
 namespace Experimot.Scheduler.Data
 {
@@ -49,6 +50,7 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        [JsonIgnore]
         public KinectBody Body
         {
             get { return _body; }

@@ -34,12 +34,21 @@ def getParam(node,key,defaultValue):
                 ret = p.value.encode('utf-8') # needed to encode in utf-8 because naoqi doesn't accept unicode
     return ret
 
-def getPublisherInfo(node,publisher_topic):
+def getPublisherInfo(node,publisher_msg):
     ret = None
     if node != None:
         for p in node.publisher:
-            if p.msg_type == publisher_topic:
+            if p.msg_type == publisher_msg:
                 ret = p
+                break
+    return ret
+
+def getSubscriberInfo(node,subscriber_msg):
+    ret = None
+    if node != None:
+        for s in node.subscriber:
+            if s.msg_type == subscriber_msg:
+                ret = s
                 break
     return ret
 
