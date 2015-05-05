@@ -33,7 +33,7 @@ namespace Experimot.Scheduler
 
             var config = experimot_config.LoadFromFile(configFile);
             TinyIoCContainer.Current.Register(config);
-            
+
             var context = new Context();
             TinyIoCContainer.Current.Register(context);
 
@@ -43,12 +43,16 @@ namespace Experimot.Scheduler
             var parameterServer = new ParameterServer();
             TinyIoCContainer.Current.Register(parameterServer);
 
+            var contextServer = new ContextServer();
+            TinyIoCContainer.Current.Register(contextServer);
+
             _processes = new List<Process>();
 
             _tasks = new List<Task>
             {
                 Task.Factory.StartNew(() => RunParameterServer(parameterServer)),
                 Task.Factory.StartNew(() => RunContextSync(contextSync)),
+                Task.Factory.StartNew(() => RunContextServer(contextServer))
             };
 
             bool enableWebServer = ParameterUtil.Get(config.parameters, "WebServerEnabled", false);
@@ -83,6 +87,30 @@ namespace Experimot.Scheduler
             catch (Exception ex)
             {
                 Log.ErrorFormat("Exception in parameter server: {0}", ex.StackTrace);
+            }
+        }
+
+        private void RunContextServer(object arg)
+        {
+            try
+            {
+                var server = arg as ContextServer;
+                if (server != null)
+                {
+                    server.Start();
+                    Log.Info("Context server Started");
+                    while (!_shouldStop)
+                    {
+                        server.Run();
+                        Thread.Sleep(40);
+                    }
+                    server.Shutdown();
+                }
+                Log.Info("Context server Completed");
+            }
+            catch (Exception ex)
+            {
+                Log.ErrorFormat("Exception in context server: {0}", ex.StackTrace);
             }
         }
 
@@ -134,6 +162,7 @@ namespace Experimot.Scheduler
         {
             TinyIoCContainer.Current.Register<Context>().AsSingleton();
             TinyIoCContainer.Current.Register<ParameterServer>().AsSingleton();
+            TinyIoCContainer.Current.Register<ContextServer>().AsSingleton();
             TinyIoCContainer.Current.Register<ContextSync>().AsSingleton();
             TinyIoCContainer.Current.Register<StdSchedulerFactory>().AsSingleton();
             TinyIoCContainer.Current.Register<ExperimotWeb>().AsSingleton();

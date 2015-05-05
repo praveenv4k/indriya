@@ -14,6 +14,10 @@
     <param key="WebServerHost" value="http://localhost" type="int"/>
     <param key="ROBOTIP" value="127.0.0.1" type="string"/>
     <param key="ROBOTPORT" value="49445" type="int"/>
+    <param key="ContextServerHost" value="tcp://*" type="string"/>
+    <param key="ContextClientHost" value="tcp://localhost" type="string"/>
+    <param key="ContextServerPort" value="5800" type="int"/>
+    <param key="ContextServerInterval" value="10" type="int"/>
   </parameters>
   <nodes>
     <node enabled="false" name="localization">
@@ -55,7 +59,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false" name="gesture_recognition">
+    <node enabled="true" name="gesture_recognition">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Perception\Experimot.Kinect.Perception.exe</path>
@@ -138,7 +142,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="true" name="robot_interface">
+    <node enabled="false" name="robot_interface">
       <process>
         <type>executable</type>
         <path>python.exe</path>
@@ -183,22 +187,14 @@
         <param key="PORT" value="52611" type="int"/>-->
       </parameters>
     </node>
-    <node enabled="false" name="main_program">
+    <node enabled="true" name="main_program">
       <process>
         <type>executable</type>
         <path>python.exe</path>
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\aps_test.py</args>
       </process>
       <parameters>
-        <!--<param key="ROBOTIP" value="127.0.0.1" type="string"/>
-        <param key="PORT" value="49445" type="int"/>-->
-        <!--<param key="ROBOTIP" value="169.254.123.55" type="string"/>
-        <param key="PORT" value="9559" type="int"/>-->
-        <param key="RequestServerIP" value="tcp://*" type="string"/>
-        <param key="RequestClientIP" value="tcp://localhost" type="string"/>
-        <param key="RequestServerPort" value="5590" type="int"/>
-        <!--<param key="ROBOTIP" value="192.168.88.130" type="string"/>
-        <param key="PORT" value="52611" type="int"/>-->
+        <param key="BehaviorManagerName" value="nao_behavior_manager" type="string"/>
       </parameters>
     </node>
   </nodes>
