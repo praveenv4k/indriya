@@ -52,6 +52,28 @@ def getSubscriberInfo(node,subscriber_msg):
                 break
     return ret
 
+def get_behavior_modules(req,ip,port,timeout):
+    try:
+        # using with keyword save the life! If not used, the unmanaged resources are getting cleaned up
+        # and this caused problems with interacting with Naoqi proxy
+        with zmq.Context.instance() as ctx: 
+            with ctx.socket(zmq.REQ) as sock:
+                #socket = context.socket(zmq.REQ)
+                sock.connect("%s:%s" % (ip,port))
+                print "Sending behavior modules request"
+                sock.send(req)
+                print "Waiting behavior modules response"
+                #  Get the reply.
+                str = sock.recv(1024)
+                print "Received behavior modules response"
+                #print str
+                result = json.loads(str)
+                return result
+    except:
+        print "get_behavior_modules : ", sys.exc_info()
+
+    return None
+
 def register_motions(node,parameterServerAddress,motions):
     print "Creating behavior module message"
     behaviorModule = robot_behavior_pb2.RobotBehaviorModule()
