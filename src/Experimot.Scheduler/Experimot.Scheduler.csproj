@@ -177,12 +177,14 @@
     <Compile Include="Mvvm\PropertyChangedExtensionMethods.cs" />
     <Compile Include="Mvvm\ViewModelBase.cs" />
     <Compile Include="ContextServer.cs" />
+    <Compile Include="Scriptcs\ProgramGenerator.cs" />
     <Compile Include="Tasks\JobListener.cs" />
     <Compile Include="ParameterServer.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Tasks\SimpleTask.cs" />
     <Compile Include="Tasks\ContextSync.cs" />
     <Compile Include="Tasks\SimpleBehaviorTask.cs" />
+    <Compile Include="Tests\Test.cs" />
     <Compile Include="Web\ExperimotWeb.cs" />
     <Compile Include="Web\Modules\IndexModule.cs" />
     <Compile Include="Web\ExperimotWebBootStrapper.cs" />
@@ -231,6 +233,7 @@
     <Compile Include="Scriptcs\MainProgramUtil.cs" />
     <Compile Include="Scriptcs\SimpleBehaviorTask.cs" />
     <Compile Include="Scriptcs\MainProgram.cs" />
+    <None Include="Scriptcs\main_template.csx" />
     <None Include="Scriptcs\main.csx" />
   </ItemGroup>
   <ItemGroup>
@@ -269,7 +272,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /i/f/s/y $(SolutionDir)src\experimot_robot_interface\*.py %25DEV_SDK_ROOT%25\experimot\scripts\experimot_robot_interface\

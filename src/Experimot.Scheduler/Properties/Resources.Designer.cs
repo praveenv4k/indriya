@@ -59,5 +59,15 @@ namespace Experimot.Scheduler.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] main_template {
+            get {
+                object obj = ResourceManager.GetObject("main_template", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
