@@ -1,6 +1,5 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -8,12 +7,9 @@ using Caliburn.Micro;
 using experimot.msgs;
 using Experimot.Scheduler.Annotations;
 using Experimot.Scheduler.Data;
-using Experimot.Scheduler.Tasks;
-using Nancy.TinyIoc;
-using Quartz;
-using Quartz.Impl;
 using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 using Xceed.Wpf.Toolkit.PropertyGrid.Editors;
+using Human = Experimot.Scheduler.Data.Human;
 using ILog = Common.Logging.ILog;
 using LogManager = Common.Logging.LogManager;
 
@@ -22,7 +18,7 @@ namespace Experimot.Scheduler
     public class Context : INotifyPropertyChanged
     {
         private Robot _robot;
-        private BindableCollection<Data.Human> _humans;
+        private BindableCollection<Human> _humans;
         private IDictionary<string, ManipulatableObject> _objects;
         private readonly object _object = new object();
         private BindableCollection<GestureModule> _motionModules;
@@ -33,7 +29,7 @@ namespace Experimot.Scheduler
         public Context()
         {
             //_humans = new ConcurrentDictionary<int, Human>();
-            Humans = new BindableCollection<Data.Human>();
+            Humans = new BindableCollection<Human>();
             Robot = new Robot();
             Objects = new ConcurrentDictionary<string, ManipulatableObject>();
             MotionModules = new BindableCollection<GestureModule>();
@@ -55,7 +51,7 @@ namespace Experimot.Scheduler
 
         //[ExpandableObject]
         [Editor(typeof (CollectionEditor), typeof (CollectionEditor))]
-        public BindableCollection<Data.Human> Humans
+        public BindableCollection<Human> Humans
         {
             get { return _humans; }
             set { _humans = value; }
@@ -145,7 +141,7 @@ namespace Experimot.Scheduler
                     var item = Humans.FirstOrDefault(s => s.Body.TrackingId == kinectBody.TrackingId);
                     if (item == null)
                     {
-                        var human = new Data.Human(kinectBody.TrackingId, _motionModules)
+                        var human = new Human(kinectBody.TrackingId, _motionModules)
                         {
                             Body = kinectBody
                         };
@@ -169,59 +165,7 @@ namespace Experimot.Scheduler
             }
         }
 
-        void GesturesCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            //Log.InfoFormat("Gesture collection changed : {0}", sender.ToString());
-            if (e.Action == NotifyCollectionChangedAction.Add)
-            {
-                //Log.InfoFormat("Gesture collection changed : {0}", sender.ToString());
-                if (e.NewItems != null && e.NewItems.Count > 0)
-                {
-                    var item = e.NewItems[0] as Gesture;
-                    if (item != null)
-                    {
-                        lock (_object)
-                        {
-                            if (_behaviorModules != null && _behaviorModules.Count > 0)
-                            {
-                                var module = _behaviorModules[0];
-                                if (module != null)
-                                {
-                                    var jobKey = JobKey.Create(string.Format("Task{0}", item.Name), "MainGroup");
-                                    var factory = TinyIoCContainer.Current.Resolve<StdSchedulerFactory>();
-                                    IScheduler scheduler = null;
-                                    if (factory != null)
-                                    {
-                                        scheduler = factory.GetScheduler();
-                                    }
-                                    if (scheduler != null && !scheduler.CheckExists(jobKey))
-                                    {
-                                        IJobDetail detail = JobBuilder.Create<SimpleBehaviorTask>()
-                                            .WithIdentity(jobKey)
-                                            .Build();
-
-                                        detail.JobDataMap.Add("BehaviorServerIp", module.responder.Host);
-                                        detail.JobDataMap.Add("BehaviorServerPort", module.responder.Port);
-                                        detail.JobDataMap.Add("BehaviorName", "wish");
-                                        //detail.JobDataMap.Add("BehaviorName", "greet");
-
-                                        ITrigger trigger = TriggerBuilder.Create().ForJob(detail).StartNow().Build();
-                                        scheduler.ScheduleJob(detail, trigger);
-                                        Log.InfoFormat("New job about to be scheduled: {0}", jobKey.Name);
-                                    }
-                                    else
-                                    {
-                                        Log.Info("Job already active");
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        public void Update(GestureTriggers triggers)
+       public void Update(GestureTriggers triggers)
         {
             //Log.Info("Gesture Update");
             if (triggers != null)
