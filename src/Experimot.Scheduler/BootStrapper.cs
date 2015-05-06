@@ -6,15 +6,14 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using Common.Logging;
 using Experimot.Core;
 using Experimot.Core.Util;
+using Experimot.Scheduler.Scriptcs;
 using Experimot.Scheduler.Tasks;
 using Experimot.Scheduler.Web;
 using Nancy.TinyIoc;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Serialization;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Impl.Matchers;
@@ -34,11 +33,13 @@ namespace Experimot.Scheduler
         {
             RegisterTypes();
 
+            TinyIoCContainer.Current.Register(this);
+
             var config = experimot_config.LoadFromFile(configFile);
             TinyIoCContainer.Current.Register(config);
 
             //Tests.Test.TestJson(JsonConvert.SerializeObject(config));
-            Tests.Test.TestProgramGeneration(config);
+            //Tests.Test.TestProgramGeneration(config);
 
             var context = new Context();
             TinyIoCContainer.Current.Register(context);
@@ -160,12 +161,13 @@ namespace Experimot.Scheduler
             }
             catch (Exception ex)
             {
-                Log.ErrorFormat("Exception in Context Sync Task: {0}",ex.StackTrace);
+                Log.ErrorFormat("Exception in Context Sync Task: {0}", ex.StackTrace);
             }
         }
 
         private void RegisterTypes()
         {
+            TinyIoCContainer.Current.Register<BootStrapper>().AsSingleton();
             TinyIoCContainer.Current.Register<Context>().AsSingleton();
             TinyIoCContainer.Current.Register<ParameterServer>().AsSingleton();
             TinyIoCContainer.Current.Register<ContextServer>().AsSingleton();
@@ -199,12 +201,12 @@ namespace Experimot.Scheduler
             if (!_startup && config != null)
             {
                 string paramServer = ParameterUtil.Get(config.parameters, "ParameterClientHost",
-                                    "tcp://localhost");
+                    "tcp://localhost");
                 int paramPort = ParameterUtil.Get(config.parameters, "ParameterServerPort",
                     5560);
 
                 string contextServer = ParameterUtil.Get(config.parameters, "ContextClientHost",
-                                    "tcp://localhost");
+                    "tcp://localhost");
                 int contextPort = ParameterUtil.Get(config.parameters, "ContextServerPort",
                     5800);
 
@@ -217,9 +219,10 @@ namespace Experimot.Scheduler
                         {
                             try
                             {
-                                
 
-                                var args = string.Format("{3} --name={0} --param={1}:{2}", node.name, paramServer, paramPort,
+
+                                var args = string.Format("{3} --name={0} --param={1}:{2}", node.name, paramServer,
+                                    paramPort,
                                     Environment.ExpandEnvironmentVariables(node.process.args));
 
                                 if (node.process.type == "scriptcs")
@@ -227,7 +230,7 @@ namespace Experimot.Scheduler
                                     //args = string.Format("{3} -- --name={0} --param={1}:{2}", node.name, paramServer, port,
                                     //Environment.ExpandEnvironmentVariables(node.process.args));
                                     args = string.Format("{3} -- {0} {1}:{2}", node.name, contextServer, contextPort,
-                                    Environment.ExpandEnvironmentVariables(node.process.args));
+                                        Environment.ExpandEnvironmentVariables(node.process.args));
                                 }
 
                                 var workingDir = Path.GetDirectoryName(exeFile);
@@ -282,6 +285,8 @@ namespace Experimot.Scheduler
                 if (!_shutdown)
                 {
                     _shouldStop = true;
+                    // Stop main program is it being executed
+                    MainProgramExecutionRequest(ExecutionRequest.Stop);
                     foreach (var process in _processes)
                     {
                         if (!process.HasExited)
@@ -325,5 +330,85 @@ namespace Experimot.Scheduler
                 Log.ErrorFormat("Exception occured while shutdown: {0}", ex.Message);
             }
         }
+
+        public void RequestMainProgramGeneration(IDictionary<string, string> map)
+        {
+            var config = TinyIoCContainer.Current.Resolve<experimot_config>();
+            var outputPath = ParameterUtil.Get(config.parameters, "MainProgramFilePath", "");
+            if (!string.IsNullOrEmpty(outputPath))
+            {
+                outputPath = Environment.ExpandEnvironmentVariables(outputPath);
+                var dict = new Dictionary<string, string>();
+                dict.Add("Greet_Left", "wave");
+                ProgramGenerator.GeneratePrograms(dict, outputPath);
+            }
+        }
+
+        private Process _mainProgramProcess;
+
+        public void MainProgramExecutionRequest(ExecutionRequest request)
+        {
+            var config = TinyIoCContainer.Current.Resolve<experimot_config>();
+            string contextServer = ParameterUtil.Get(config.parameters, "ContextClientHost",
+                "tcp://localhost");
+            int contextPort = ParameterUtil.Get(config.parameters, "ContextServerPort",
+                5800);
+            var mainProgram = config.nodes.FirstOrDefault(s => s.name == "scriptcs_program");
+            if (mainProgram != null)
+            {
+                switch (request)
+                {
+                    case ExecutionRequest.Start:
+                        if (_mainProgramProcess == null)
+                        {
+                            var exeFile = Environment.ExpandEnvironmentVariables(mainProgram.process.path);
+                            var args = string.Format("{3} -- {0} {1}:{2}", mainProgram.name, contextServer, contextPort,
+                                Environment.ExpandEnvironmentVariables(mainProgram.process.args));
+                            var workingDir = Path.GetDirectoryName(exeFile);
+                            _mainProgramProcess = new Process
+                            {
+                                StartInfo =
+                                {
+                                    UseShellExecute = true,
+                                    FileName = exeFile,
+                                    CreateNoWindow = true,
+                                    Arguments = args,
+                                    WorkingDirectory = workingDir ?? string.Empty
+                                }
+                            };
+                            _mainProgramProcess.Start();
+                            Log.InfoFormat("Started Process : {0} {1}", exeFile, args);
+                        }
+                        break;
+                    case ExecutionRequest.Pause:
+                        break;
+                    case ExecutionRequest.Stop:
+                        if (_mainProgramProcess.HasExited)
+                        {
+                            _mainProgramProcess.Dispose();
+                            _mainProgramProcess = null;
+                        }
+                        if (_mainProgramProcess != null && !_mainProgramProcess.HasExited)
+                        {
+                            _mainProgramProcess.Kill();
+                            _mainProgramProcess.Dispose();
+                            _mainProgramProcess = null;
+                        }
+                        Log.Info("Stopped Main Program");
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException("request");
+                }
+            }
+
+        }
+    }
+
+
+    public enum ExecutionRequest
+    {
+        Start,
+        Pause,
+        Stop
     }
 }

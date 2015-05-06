@@ -69,5 +69,24 @@ namespace Experimot.Scheduler
                 });
             }
         }
+
+        private void ProgramExecution(ExecutionRequest req)
+        {
+            var bootStrapper = TinyIoCContainer.Current.Resolve<BootStrapper>();
+            if (bootStrapper != null)
+            {
+                bootStrapper.MainProgramExecutionRequest(req);
+            }
+        }
+
+        private void ProgramRun(object sender, RoutedEventArgs e)
+        {
+            ProgramExecution(ExecutionRequest.Start);
+        }
+
+        private void ProgramStop(object sender, RoutedEventArgs e)
+        {
+            ProgramExecution(ExecutionRequest.Stop);
+        }
     }
 }
