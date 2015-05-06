@@ -32,6 +32,23 @@ namespace Experimot.Scheduler
 
         private void TestJson(string str)
         {
+            var humanStr =
+                "[{\"Id\":2,\"HeadPosition\":null,\"TorsoPosition\":null,\"TorsoOrientation\":null,\"Gestures\":[{\"Name\":\"Greet_Left\",\"Mode\":1,\"Active\":false,\"Progress\":0,\"Confidence\":0,\"Count\":0},{\"Name\":\"Greet_Right\",\"Mode\":1,\"Active\":false,\"Progress\":0,\"Confidence\":0,\"Count\":0}]}]";
+            JArray array = JArray.Parse(humanStr);
+            if (array != null && array.Count > 0)
+            {
+                foreach (var human in array)
+                {
+                    var gestures = human.SelectToken("$.Gestures");
+                    foreach (var gesture in gestures)
+                    {
+                        string name = gesture.Value<string>("Name");
+                        bool active = gesture.Value<bool>("Active");
+                        int confidence = gesture.Value<int>("Confidence");
+                        Log.InfoFormat(@"Name : {0}, Active : {1}, Confidence: {2}", name, active, confidence);
+                    }
+                }
+            }
             if (!string.IsNullOrEmpty(str))
             {
                 var obj = JObject.Parse(str);
