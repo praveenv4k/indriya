@@ -2,17 +2,21 @@ using System;
 using System.Collections.Generic;
 using NetMQ;
 using Newtonsoft.Json.Linq;
+using Quartz;
 
+// ReSharper disable once CheckNamespace
 public class MainProgram
 {
     private static volatile bool _requestStop;
     private readonly IDictionary<string, object> _props;
+    private readonly IScheduler _scheduler;
     private const int RecvTimeout = 200;
     private const int Period = 200;
 
-    public MainProgram(IDictionary<string, object> props)
+    public MainProgram(IDictionary<string, object> props, IScheduler scheduler)
     {
         _props = props;
+        _scheduler = scheduler;
         _requestStop = false;
     }
 
@@ -48,7 +52,7 @@ public class MainProgram
                         if (active && confidence > 95)
                         {
                             ret.Add(name, gestBehaviorMap[name]);
-                            Console.WriteLine(@"Name : {0}, Confidence: {1}", name, confidence);
+                            //Console.WriteLine(@"Name : {0}, Confidence: {1}", name, confidence);
                         }
                     }
 
@@ -56,6 +60,78 @@ public class MainProgram
             }
         }
         return ret;
+    }
+
+    private static Dictionary<string, JToken> GetBehaviorModules(NetMQSocket socket,
+        Dictionary<string, string> gestBehaviorMap)
+    {
+        var ret = new Dictionary<string, JToken>();
+
+        //behavior_modules
+        if (socket != null && gestBehaviorMap != null && gestBehaviorMap.Count > 0)
+        {
+            socket.Send("behavior_modules");
+            var resp = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
+            if (!string.IsNullOrEmpty(resp))
+            {
+                var modules = JArray.Parse(resp);
+                if (modules != null && modules.Count > 0)
+                {
+                    //Console.WriteLine(resp);
+                    foreach (var module in modules)
+                    {
+                        var moduleName = module.Value<string>("name");
+                        var behaviors = module.SelectToken("$.behaviors");
+                        foreach (var behavior in behaviors)
+                        {
+                            string name = behavior.Value<string>("name");
+                            //Console.WriteLine("Checking if {0} exists in module supported behaviors");
+                            if (gestBehaviorMap.ContainsValue(name))
+                            {
+                                ret.Add(name, module);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return ret;
+    }
+
+    private static void ScheduleBehaviorExecution(IScheduler scheduler, JToken behaviorModule, string behaviorName)
+    {
+        Console.WriteLine(@"Behavior Execution request : {0}", behaviorName);
+        if (behaviorModule != null)
+        {
+            var moduleName = behaviorModule.Value<string>("name");
+            if (!string.IsNullOrEmpty(moduleName))
+            {
+                var jobKey = JobKey.Create(string.Format("Task_{0}", behaviorName), moduleName);
+                if (scheduler != null && !scheduler.CheckExists(jobKey))
+                {
+                    var responder = behaviorModule.SelectToken("$.responder");
+                    if (responder != null)
+                    {
+                        string host = responder.Value<string>("Host");
+                        int port = responder.Value<int>("Port");
+                       // Console.WriteLine(@"Host : {0}, Port : {1}", host, port);
+
+                        IJobDetail detail = JobBuilder.Create<SimpleBehaviorTask>()
+                            .WithIdentity(jobKey)
+                            .Build();
+
+                        detail.JobDataMap.Add("BehaviorServerIp", host);
+                        detail.JobDataMap.Add("BehaviorServerPort", port);
+                        detail.JobDataMap.Add("BehaviorName", behaviorName);
+
+                        ITrigger trigger = TriggerBuilder.Create().ForJob(detail).StartNow().Build();
+                        scheduler.ScheduleJob(detail, trigger);
+                        Console.WriteLine(@"New job about to be scheduled Job : {0}, Module : {1}", jobKey.Name,
+                            jobKey.Group);
+                    }
+                }
+            }
+        }
     }
 
     public void Run()
@@ -102,6 +178,27 @@ public class MainProgram
                                             {
                                                 Console.WriteLine(@"Gesture: {0} -> Behavior : {1}", behavior.Key,
                                                     behavior.Value);
+                                                //var modules = GetBehaviorModules(socket, behaviorMap);
+                                                //if (modules != null && modules.Count > 0)
+                                                //{
+                                                //    foreach (var module in modules)
+                                                //    {
+                                                //        ScheduleBehaviorExecution(_scheduler, module.Value,
+                                                //            module.Key);
+                                                //    }
+                                                //}
+                                            }
+                                            if (behaviorMap.Count > 0)
+                                            {
+                                                var modules = GetBehaviorModules(socket, behaviorMap);
+                                                if (modules != null && modules.Count > 0)
+                                                {
+                                                    foreach (var module in modules)
+                                                    {
+                                                        ScheduleBehaviorExecution(_scheduler, module.Value,
+                                                            module.Key);
+                                                    }
+                                                }
                                             }
                                         }
                                         catch (Exception ex)

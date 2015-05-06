@@ -17,11 +17,15 @@ var dict = new Dictionary<string,object>();
 dict.Add("ContextServer","tcp://localhost:5800");
 
 var gestBehaviorMap = new Dictionary<string,string>();
-gestBehaviorMap.Add("Greet_Left","greet");
+gestBehaviorMap.Add("Greet_Right","greet");
+gestBehaviorMap.Add("Greet_Left","wish");
 
 dict.Add("TriggerBehaviorMap",gestBehaviorMap);
 
-var main = new MainProgram(dict);
+var scheduler = MainProgramUtil.GetScheduler();
+scheduler.Start();
+
+var main = new MainProgram(dict,scheduler);
 var tasks = new List<Task>
             {
 				Task.Factory.StartNew(() => main.Run())
