@@ -186,6 +186,7 @@
     <Compile Include="Tasks\SimpleBehaviorTask.cs" />
     <Compile Include="Tests\Test.cs" />
     <Compile Include="Web\ExperimotWeb.cs" />
+    <Compile Include="Web\Modules\DesignerModule.cs" />
     <Compile Include="Web\Modules\IndexModule.cs" />
     <Compile Include="Web\ExperimotWebBootStrapper.cs" />
     <Page Include="MainWindow.xaml">
