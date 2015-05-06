@@ -7,6 +7,7 @@ using System.Collections.Specialized;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Impl.Matchers;
+using System.Threading.Tasks;
 
 public class SimpleTask : IJob
 {
@@ -111,12 +112,11 @@ public class Util{
 	}
 }
 
-var scheduler = Util.GetScheduler();
-scheduler.Start();
-var jobKey = JobKey.Create(string.Format("Task{0}", 1), "MainGroup");
-IJobDetail detail = JobBuilder.Create<SimpleTask>()
-							.WithIdentity(jobKey)
-							.Build();
+            // {
+            //     Task.Factory.StartNew(() => RunParameterServer(parameterServer)),
+            //     Task.Factory.StartNew(() => RunContextSync(contextSync)),
+            //     Task.Factory.StartNew(() => RunContextServer(contextServer))
+            // };
 
 //detail.JobDataMap.Add("BehaviorServerIp", module.responder.Host);
 //detail.JobDataMap.Add("BehaviorServerPort", module.responder.Port);
@@ -136,4 +136,14 @@ else
 	var context_server = Env.ScriptArgs[1];
 	var resp = Util.GetNodeInfo("node_"+name,context_server);
 	Console.WriteLine(resp);
+
+	var scheduler = Util.GetScheduler();
+	scheduler.Start();
+	var jobKey = JobKey.Create(string.Format("Task{0}", 1), "MainGroup");
+	IJobDetail detail = JobBuilder.Create<SimpleTask>()
+								.WithIdentity(jobKey)
+								.Build();
+
+	var tasks = new List<Task>();
+
 }

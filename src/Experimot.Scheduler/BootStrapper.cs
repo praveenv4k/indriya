@@ -12,6 +12,9 @@ using Experimot.Core.Util;
 using Experimot.Scheduler.Tasks;
 using Experimot.Scheduler.Web;
 using Nancy.TinyIoc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Impl.Matchers;
@@ -27,12 +30,37 @@ namespace Experimot.Scheduler
         private readonly IList<Task> _tasks;
         private volatile bool _shouldStop;
 
+        private void TestJson(string str)
+        {
+            if (!string.IsNullOrEmpty(str))
+            {
+                var obj = JObject.Parse(str);
+                if (obj != null)
+                {
+                    Log.InfoFormat("Json object count : {0}", obj.Count);
+                    var token2 = obj.SelectToken("$.parameters"); //$.Manufacturers[?(@.Name == 'Acme Co')]
+                    if (token2 != null)
+                    {
+                        
+                    }
+                    var token = obj.SelectToken("$.parameters[?(@.key == 'ApplicationName')]"); //$.Manufacturers[?(@.Name == 'Acme Co')]
+                    if (token != null)
+                    {
+                        Log.InfoFormat("Value : {0}", token.Value<string>("value"));
+                        
+                    }
+                }
+            }   
+        }
+
         public BootStrapper(string configFile)
         {
             RegisterTypes();
 
             var config = experimot_config.LoadFromFile(configFile);
             TinyIoCContainer.Current.Register(config);
+
+            //TestJson(JsonConvert.SerializeObject(config));
 
             var context = new Context();
             TinyIoCContainer.Current.Register(context);
@@ -208,6 +236,12 @@ namespace Experimot.Scheduler
 
                                 var args = string.Format("{3} --name={0} --param={1}:{2}", node.name, paramServer, port,
                                     Environment.ExpandEnvironmentVariables(node.process.args));
+
+                                if (node.process.type == "scriptcs")
+                                {
+                                    args = string.Format("{3} -- --name={0} --param={1}:{2}", node.name, paramServer, port,
+                                    Environment.ExpandEnvironmentVariables(node.process.args));
+                                }
 
                                 var workingDir = Path.GetDirectoryName(exeFile);
                                 var myProcess = new Process

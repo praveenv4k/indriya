@@ -228,6 +228,10 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Compile Include="Scriptcs\MainProgramUtil.cs" />
+    <Compile Include="Scriptcs\SimpleBehaviorTask.cs" />
+    <Compile Include="Scriptcs\MainProgram.cs" />
+    <None Include="Scriptcs\main.csx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="experimot_config.xml">
@@ -269,7 +273,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /i/f/s/y $(SolutionDir)src\experimot_robot_interface\*.py %25DEV_SDK_ROOT%25\experimot\scripts\experimot_robot_interface\
-</PostBuildEvent>
+xcopy /i/f/s/y $(SolutionDir)src\Experimot.Scheduler\Scriptcs\*.cs* %25DEV_SDK_ROOT%25\experimot\bin\Scriptcs\*.csx</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\..\packages\cef.redist.x86.3.2171.2069\build\cef.redist.x86.targets" Condition="Exists('..\..\packages\cef.redist.x86.3.2171.2069\build\cef.redist.x86.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
