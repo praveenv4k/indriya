@@ -102,7 +102,7 @@ namespace Experimot.Scheduler
             var config = experimot_config.LoadFromFile(configFile);
             TinyIoCContainer.Current.Register(config);
 
-            TestJson(JsonConvert.SerializeObject(config));
+            //TestJson(JsonConvert.SerializeObject(config));
 
             var context = new Context();
             TinyIoCContainer.Current.Register(context);
@@ -262,6 +262,16 @@ namespace Experimot.Scheduler
             var config = TinyIoCContainer.Current.Resolve<experimot_config>();
             if (!_startup && config != null)
             {
+                string paramServer = ParameterUtil.Get(config.parameters, "ParameterClientHost",
+                                    "tcp://localhost");
+                int paramPort = ParameterUtil.Get(config.parameters, "ParameterServerPort",
+                    5560);
+
+                string contextServer = ParameterUtil.Get(config.parameters, "ContextClientHost",
+                                    "tcp://localhost");
+                int contextPort = ParameterUtil.Get(config.parameters, "ContextServerPort",
+                    5800);
+
                 foreach (var node in config.nodes)
                 {
                     if (node != null && node.enabled && node.process != null)
@@ -271,17 +281,16 @@ namespace Experimot.Scheduler
                         {
                             try
                             {
-                                string paramServer = ParameterUtil.Get(config.parameters, "ParameterClientHost",
-                                    "tcp://*");
-                                int port = ParameterUtil.Get(config.parameters, "ParameterServerPort",
-                                    5560);
+                                
 
-                                var args = string.Format("{3} --name={0} --param={1}:{2}", node.name, paramServer, port,
+                                var args = string.Format("{3} --name={0} --param={1}:{2}", node.name, paramServer, paramPort,
                                     Environment.ExpandEnvironmentVariables(node.process.args));
 
                                 if (node.process.type == "scriptcs")
                                 {
-                                    args = string.Format("{3} -- --name={0} --param={1}:{2}", node.name, paramServer, port,
+                                    //args = string.Format("{3} -- --name={0} --param={1}:{2}", node.name, paramServer, port,
+                                    //Environment.ExpandEnvironmentVariables(node.process.args));
+                                    args = string.Format("{3} -- {0} {1}:{2}", node.name, contextServer, contextPort,
                                     Environment.ExpandEnvironmentVariables(node.process.args));
                                 }
 
