@@ -10,12 +10,12 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="250"></RowDefinition>
             <!--<RowDefinition></RowDefinition>-->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="400"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <!--<cefSharp:ChromiumWebBrowser DataContext="{Binding TabViewModel}" Grid.Row="0" Grid.Column="0" x:Name="browser"
                                   Address="{Binding Address, Mode=TwoWay}"

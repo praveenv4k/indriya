@@ -6,7 +6,6 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using Common.Logging;
 using Experimot.Core;
 using Experimot.Core.Util;
@@ -383,7 +382,7 @@ namespace Experimot.Scheduler
                     case ExecutionRequest.Pause:
                         break;
                     case ExecutionRequest.Stop:
-                        if (_mainProgramProcess.HasExited)
+                        if (_mainProgramProcess != null && _mainProgramProcess.HasExited)
                         {
                             _mainProgramProcess.Dispose();
                             _mainProgramProcess = null;
