@@ -60,6 +60,10 @@
                     .click(function() {
                         var options;
                         if ($(this).text() === "PLAY") {
+                            $.post("/designer/program/start", function (data) {
+                                console.log("Program Started: " + data);
+                            });
+
                             options = {
                                 label: "PAUSE",
                                 icons: {
@@ -86,6 +90,9 @@
                 .click(function() {
                     if (app.workspace != undefined) {
                         app.code = Blockly.Python.workspaceToCode(app.workspace);
+                        $.post("/designer/program/start", app.code, function (data) {
+                            console.log("Program Started: " + data);
+                        });
                         console.log(app.code);
                     }
                 });
@@ -95,7 +102,10 @@
                             primary: "ui-icon-stop"
                         }
                     })
-                    .click(function() {
+                    .click(function () {
+                        $.post("/designer/program/stop", function (data) {
+                            console.log("Program Stopped: " + data);
+                        });
                         $("#play").button("option", {
                             label: "PLAY",
                             icons: {
