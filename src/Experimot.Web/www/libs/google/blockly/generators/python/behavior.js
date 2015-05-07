@@ -5,15 +5,20 @@
     branch = Blockly.Python.addLoopTrap(branch, block.id) ||
         Blockly.Python.PASS;
     // TODO: Assemble Python into code variable.
-    var code = 'when trigger = \'' + value_when + '\'' + branch + 'at priority='+ value_priority;
+    console.log(branch);
+    var code = 'when trigger = ' + value_when + ' do = \'' + branch.join() + '\' at priority='+ value_priority;
     return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
 Blockly.Python['robot_action'] = function (block) {
+    //return "";
     var dropdown_actions = block.getFieldValue('actions');
+    //console.log(dropdown_actions);
     // TODO: Assemble Python into code variable.
     var code = '\'' + dropdown_actions + '\'';
-    return [code, Blockly.Python.ORDER_ATOMIC];
+    //var code =  dropdown_actions ;
+    //return [code, Blockly.Python.ORDER_ATOMIC];
+    return code;
 };
 
 Blockly.Python['trigger'] = function (block) {
