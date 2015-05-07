@@ -146,6 +146,24 @@ namespace Experimot.Scheduler.Web.Modules
                 }
                 return (Response)HttpStatusCode.OK;
             };
+
+
+            Post["/designer/program/start"] = parameters =>
+            {
+                Log.InfoFormat("POST  : {0}", Request.Url);
+                return (Response)HttpStatusCode.OK;
+            };
+            Post["/designer/program/stop"] = parameters =>
+            {
+                Log.InfoFormat("POST  : {0}", Request.Url);
+                return (Response)HttpStatusCode.OK;
+            };
+            Post["/designer/program/code"] = parameters =>
+            {
+                Log.InfoFormat("POST  : {0}", Request.Url);
+                Log.InfoFormat("Code  : {0}", Request.Body);
+                return (Response)HttpStatusCode.OK;
+            };
         }
     }
 }

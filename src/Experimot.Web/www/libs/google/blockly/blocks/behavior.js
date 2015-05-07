@@ -50,6 +50,7 @@ Blockly.Blocks['robot_action'] = {
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField(new Blockly.FieldDropdown([["Greet", "greet"], ["Crouch", "crouch"], ["Stand", "stand"]]), "actions");
         this.setPreviousStatement(true);
+        this.setNextStatement(true, "robot_action");
         this.setTooltip('Robot Action response');
     }
 };

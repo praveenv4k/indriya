@@ -90,7 +90,7 @@
                 .click(function() {
                     if (app.workspace != undefined) {
                         app.code = Blockly.Python.workspaceToCode(app.workspace);
-                        $.post("/designer/program/start", app.code, function (data) {
+                        $.post("/designer/program/code", app.code, function (data) {
                             console.log("Program Started: " + data);
                         });
                         console.log(app.code);
