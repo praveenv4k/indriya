@@ -6,7 +6,7 @@
         Blockly.Python.PASS;
     // TODO: Assemble Python into code variable.
     console.log(branch);
-    var code = 'when trigger = ' + value_when + ' do = \'' + branch.join() + '\' at priority='+ value_priority;
+    var code = 'when trigger = ' + value_when + ' do = \'' + branch + '\' at priority='+ value_priority;
     return [code, Blockly.Python.ORDER_ATOMIC];
 };
 

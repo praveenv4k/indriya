@@ -1,23 +1,26 @@
 'use strict';
 
-Blockly.CSharp.lists = {}
+//Blockly.CSharp.lists = {}
+goog.provide('Blockly.CSharp.lists');
 
-Blockly.CSharp.lists_create_empty = function() {
+goog.require('Blockly.CSharp');
+
+Blockly.CSharp['lists_create_empty'] = function(block) {
   return ['null', Blockly.CSharp.ORDER_ATOMIC];
 };
 
-Blockly.CSharp.lists_create_with = function() {
+Blockly.CSharp['lists_create_with'] = function(block) {
   // Create a list with any number of elements of any type.
-  var code = new Array(this.itemCount_);
-  for (var n = 0; n < this.itemCount_; n++) {
-    code[n] = Blockly.CSharp.valueToCode(this, 'ADD' + n,
+    var code = new Array(block.itemCount_);
+    for (var n = 0; n < block.itemCount_; n++) {
+        code[n] = Blockly.CSharp.valueToCode(block, 'ADD' + n,
         Blockly.CSharp.ORDER_COMMA) || 'null';
   }
   code = 'new List<dynamic> {' + code.join(', ') + '}';
   return [code, Blockly.CSharp.ORDER_ATOMIC];
 };
 
-Blockly.CSharp.lists_repeat = function() {
+Blockly.CSharp['lists_repeat'] = function(block) {
   // Create a list with one element repeated.
   if (!Blockly.CSharp.definitions_['lists_repeat']) {
     // Function copied from Closure's goog.array.repeat.
@@ -34,46 +37,46 @@ Blockly.CSharp.lists_repeat = function() {
     func.push('});');
     Blockly.CSharp.definitions_['lists_repeat'] = func.join('\n');
   }
-  var argument0 = Blockly.CSharp.valueToCode(this, 'ITEM',
+  var argument0 = Blockly.CSharp.valueToCode(block, 'ITEM',
       Blockly.CSharp.ORDER_COMMA) || 'null';
-  var argument1 = Blockly.CSharp.valueToCode(this, 'NUM',
+  var argument1 = Blockly.CSharp.valueToCode(block, 'NUM',
       Blockly.CSharp.ORDER_COMMA) || '0';
   var code = Blockly.CSharp.lists_repeat.repeat +
       '(' + argument0 + ', ' + argument1 + ')';
   return [code, Blockly.CSharp.ORDER_FUNCTION_CALL];
 };
 
-Blockly.CSharp.lists_length = function() {
+Blockly.CSharp['lists_length'] = function(block) {
   // List length.
-  var argument0 = Blockly.CSharp.valueToCode(this, 'VALUE', Blockly.CSharp.ORDER_FUNCTION_CALL) || 'null';
+    var argument0 = Blockly.CSharp.valueToCode(block, 'VALUE', Blockly.CSharp.ORDER_FUNCTION_CALL) || 'null';
   return [argument0 + '.Count', Blockly.CSharp.ORDER_MEMBER];
 };
 
-Blockly.CSharp.lists_isEmpty = function() {
+Blockly.CSharp['lists_isEmpty'] = function(block) {
   // Is the list empty?
-  var argument0 = Blockly.CSharp.valueToCode(this, 'VALUE',
+    var argument0 = Blockly.CSharp.valueToCode(block, 'VALUE',
       Blockly.CSharp.ORDER_MEMBER) || 'null';
   return [argument0 + '.Count == 0', Blockly.CSharp.ORDER_LOGICAL_NOT];
 };
 
-Blockly.CSharp.lists_indexOf = function() {
+Blockly.CSharp['lists_indexOf'] = function(block) {
   // Find an item in the list.
-  var operator = this.getTitleValue('END') == 'FIRST' ?
+  var operator = block.getFieldValue('END') == 'FIRST' ?
       'IndexOf' : 'LastIndexOf';
-  var argument0 = Blockly.CSharp.valueToCode(this, 'FIND',
+  var argument0 = Blockly.CSharp.valueToCode(block, 'FIND',
       Blockly.CSharp.ORDER_NONE) || 'null';
-  var argument1 = Blockly.CSharp.valueToCode(this, 'VALUE',
+  var argument1 = Blockly.CSharp.valueToCode(block, 'VALUE',
       Blockly.CSharp.ORDER_MEMBER) || 'null';
   var code = argument1 + '.' + operator + '(' + argument0 + ') + 1';
   return [code, Blockly.CSharp.ORDER_MEMBER];
 };
 
-Blockly.CSharp.lists_getIndex = function() {
-  var mode = this.getTitleValue('MODE') || 'GET';
-  var where = this.getTitleValue('WHERE') || 'FROM_START';
-  var at = Blockly.CSharp.valueToCode(this, 'AT',
+Blockly.CSharp['lists_getIndex'] = function(block) {
+  var mode = block.getFieldValue('MODE') || 'GET';
+  var where = block.getFieldValue('WHERE') || 'FROM_START';
+  var at = Blockly.CSharp.valueToCode(block, 'AT',
       Blockly.CSharp.ORDER_UNARY_NEGATION) || '1';
-  var list = Blockly.CSharp.valueToCode(this, 'VALUE',
+  var list = Blockly.CSharp.valueToCode(block, 'VALUE',
       Blockly.CSharp.ORDER_MEMBER) || 'null';
 
   if (mode == 'GET_REMOVE') {
@@ -174,15 +177,15 @@ Blockly.CSharp.lists_getIndex = function() {
   throw 'Unhandled combination (lists_getIndex).';
 };
 
-Blockly.CSharp.lists_setIndex = function() {
+Blockly.CSharp['lists_setIndex'] = function(block) {
   // Set element at index.
-  var list = Blockly.CSharp.valueToCode(this, 'LIST',
+  var list = Blockly.CSharp.valueToCode(block, 'LIST',
       Blockly.CSharp.ORDER_MEMBER) || 'null';
-  var mode = this.getTitleValue('MODE') || 'GET';
-  var where = this.getTitleValue('WHERE') || 'FROM_START';
-  var at = Blockly.CSharp.valueToCode(this, 'AT',
+  var mode = block.getFieldValue('MODE') || 'GET';
+  var where = block.getFieldValue('WHERE') || 'FROM_START';
+  var at = Blockly.CSharp.valueToCode(block, 'AT',
       Blockly.CSharp.ORDER_NONE) || '1';
-  var value = Blockly.CSharp.valueToCode(this, 'TO',
+  var value = Blockly.CSharp.valueToCode(block, 'TO',
       Blockly.CSharp.ORDER_ASSIGNMENT) || 'null';
 
   if (where == 'FIRST') {
@@ -235,15 +238,15 @@ Blockly.CSharp.lists_setIndex = function() {
   throw 'Unhandled combination (lists_setIndex).';
 };
 
-Blockly.CSharp.lists_getSublist = function() {
+Blockly.CSharp['lists_getSublist'] = function (block) {
   // Get sublist.
-  var list = Blockly.CSharp.valueToCode(this, 'LIST',
+  var list = Blockly.CSharp.valueToCode(block, 'LIST',
       Blockly.CSharp.ORDER_MEMBER) || 'null';
-  var where1 = this.getTitleValue('WHERE1');
-  var where2 = this.getTitleValue('WHERE2');
-  var at1 = Blockly.CSharp.valueToCode(this, 'AT1',
+  var where1 = block.getFieldValue('WHERE1');
+  var where2 = block.getFieldValue('WHERE2');
+  var at1 = Blockly.CSharp.valueToCode(block, 'AT1',
       Blockly.CSharp.ORDER_NONE) || '1';
-  var at2 = Blockly.CSharp.valueToCode(this, 'AT2',
+  var at2 = Blockly.CSharp.valueToCode(block, 'AT2',
       Blockly.CSharp.ORDER_NONE) || '1';
   if (where1 == 'FIRST' && where2 == 'LAST') {
     var code = 'new List<dynamic>(' + list + ')';

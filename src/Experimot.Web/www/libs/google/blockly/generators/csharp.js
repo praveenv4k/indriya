@@ -48,7 +48,7 @@ Blockly.CSharp.ORDER_NONE = 99;          // (...)
  */
 Blockly.CSharp.INFINITE_LOOP_TRAP = null;
 
-Blockly.CSharp.init = function() {
+Blockly.CSharp.init = function(workspace) {
   Blockly.CSharp.definitions_ = {};
 
   if (Blockly.Variables) {
@@ -60,7 +60,7 @@ Blockly.CSharp.init = function() {
     }
 
     var defvars = [];
-    var variables = Blockly.Variables.allVariables();
+    var variables = Blockly.Variables.allVariables(workspace);
     for (var x = 0; x < variables.length; x++) {
       defvars[x] = 'dynamic ' +
           Blockly.CSharp.variableDB_.getName(variables[x],
