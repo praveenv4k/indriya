@@ -27,7 +27,7 @@ Blockly.Blocks['trigger'] = {
         this.setColour(75);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(new Blockly.FieldDropdown([["WaveLeft", "wave_left"], ["WaveRight", "wave_right"], ["Bow", "bow"]]), "triggers");
+            .appendField(new Blockly.FieldDropdown([["WaveLeft", "Greet_Left"], ["WaveRight", "Greet_Right"], ["Bow", "Bow"]]), "triggers");
         this.setOutput(true);
         this.setTooltip('Motion Trigger');
     }

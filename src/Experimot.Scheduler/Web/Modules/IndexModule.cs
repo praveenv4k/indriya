@@ -156,20 +156,36 @@ namespace Experimot.Scheduler.Web.Modules
                     using (var reader = new StreamReader(Request.Body))
                     {
                         string result = reader.ReadToEnd();
+                        var bootStrapper = TinyIoCContainer.Current.Resolve<BootStrapper>();
+                        if (bootStrapper!=null && !string.IsNullOrEmpty(result))
+                        {
+                            bootStrapper.RequestMainProgramGeneration(result);
+                            bootStrapper.MainProgramExecutionRequest(ExecutionRequest.Start);
+                            return (Response)HttpStatusCode.OK;
+                        }
                         Log.InfoFormat("Body  : {0}", result);
+
                     }
                 }
                 else
                 {
                     
                 }
-                return (Response)HttpStatusCode.OK;
+                return (Response)HttpStatusCode.NotModified;
             };
+
             Post["/designer/program/stop"] = parameters =>
             {
                 Log.InfoFormat("POST  : {0}", Request.Url);
-                return (Response)HttpStatusCode.OK;
+                var bootStrapper = TinyIoCContainer.Current.Resolve<BootStrapper>();
+                if (bootStrapper != null)
+                {
+                    bootStrapper.MainProgramExecutionRequest(ExecutionRequest.Stop);
+                    return (Response)HttpStatusCode.OK;
+                }
+                return (Response)HttpStatusCode.NotModified;
             };
+
             Post["/designer/program/code"] = parameters =>
             {
                 Log.InfoFormat("POST  : {0}", Request.Url);

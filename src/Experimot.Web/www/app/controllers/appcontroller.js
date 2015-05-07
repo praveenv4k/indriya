@@ -62,9 +62,15 @@
 
                         if ($(this).text() === "RUN") {
 
-                            $.post("/designer/program/start", function (data) {
-                                console.log("Program Started: " + data);
+                            //$.post("/designer/program/start", function (data) {
+                            //    console.log("Program Started: " + data);
+                            //});
+
+                            app.code = Blockly.CSharp.workspaceToCode(app.workspace); // C# code generation
+                            $.post("/designer/program/start", app.code, function (data) {
+                                console.log("Program Sent & Started: " + data);
                             });
+                            console.log(app.code);
 
                             options = {
                                 label: "STOP",

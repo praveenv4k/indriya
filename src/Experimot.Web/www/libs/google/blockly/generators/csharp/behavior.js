@@ -32,7 +32,7 @@
     code =  "{ name : '" + text_name + "' , " +
         "trigger  : '" + value_when + "' , " +
         "priority : '" + value_priority + "' , " +
-        "actions: '[";
+        "actions: [";
     actions.forEach(actionFunction);
     code += "] }";
 
