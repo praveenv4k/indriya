@@ -161,7 +161,34 @@ namespace Experimot.Scheduler.Web.Modules
             Post["/designer/program/code"] = parameters =>
             {
                 Log.InfoFormat("POST  : {0}", Request.Url);
-                Log.InfoFormat("Code  : {0}", Request.Body);
+
+
+                if (Request.Body != null)
+                {
+                    using (var reader = new StreamReader(Request.Body))
+                    {
+                        string result = reader.ReadToEnd();
+                        Log.InfoFormat("Body  : {0}", result);
+                    }
+                }
+
+                var formDict = Request.Form as Nancy.DynamicDictionary;
+                if (formDict != null)
+                {
+                    foreach (var key in formDict.Keys)
+                    {
+                        Log.InfoFormat("Form - Key  : {0}; Value: {1}", key, formDict[key]);
+                    }
+                }
+
+                var queryDict = Request.Query as Nancy.DynamicDictionary;
+                if (queryDict != null)
+                {
+                    foreach (var key in queryDict.Keys)
+                    {
+                        Log.InfoFormat("Query - Key  : {0}; Value: {1}", key, queryDict[key]);
+                    }
+                }
                 return (Response)HttpStatusCode.OK;
             };
         }

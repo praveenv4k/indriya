@@ -30,7 +30,7 @@ Blockly.CSharp['math_number'] = function(block) {
   return [code, order];
 };
 
-  Blockly.CSharp['math_arithmetic.OPERATORS'] = {
+  Blockly.CSharp['math_arithmetic'].OPERATORS = {
   ADD: [' + ', Blockly.CSharp.ORDER_ADDITION],
   MINUS: [' - ', Blockly.CSharp.ORDER_SUBTRACTION],
   MULTIPLY: [' * ', Blockly.CSharp.ORDER_MULTIPLICATION],

@@ -92,7 +92,7 @@
                         //app.code = Blockly.Python.workspaceToCode(app.workspace);
                         app.code = Blockly.CSharp.workspaceToCode(app.workspace); // C# code generation
                         $.post("/designer/program/code", app.code, function (data) {
-                            console.log("Program Started: " + data);
+                            console.log("Sent Program: " + data);
                         });
                         console.log(app.code);
                     }
