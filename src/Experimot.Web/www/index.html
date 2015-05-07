@@ -23,6 +23,12 @@
             border: none;
         }
 
+        /*.blocklyToolboxDiv {
+            border: 1px solid #666666;
+            background-color: #000000;
+            color: #ffffff;
+        }*/
+
         .ui-icon {
             zoom: 1.5;
         }
@@ -39,12 +45,12 @@
             <div id="tabs-1">
                 <div id="editor_menu">
                     <div id="toolbar" class="ui-widget-header ui-corner-all">
-                        <button id="play">PLAY</button>
-                        <button id="stop">STOP</button>
+                        <button id="run" class="ui-button-icon-secondary">RUN</button>
+                        <!--<button id="stop">STOP</button>-->
                         <button id="code">CODE</button>
                     </div>
                 </div>
-                <div id="designer-anchor">
+                <div id="designer-anchor" style="border-radius: 6px;">
                     <!--<div id="blocklyDiv" style="height: 480px; width: 600px;"></div>-->
                     <div id="blocklyDiv"></div>
                     <xml id="toolbox" style="display: none">

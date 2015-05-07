@@ -51,7 +51,7 @@
             },
 
             initCodeMenu: function() {
-                $("#play").button({
+                $("#run").button({
                         text: true,
                         icons: {
                             primary: "ui-icon-play"
@@ -59,20 +59,27 @@
                     })
                     .click(function() {
                         var options;
-                        if ($(this).text() === "PLAY") {
+
+                        if ($(this).text() === "RUN") {
+
                             $.post("/designer/program/start", function (data) {
                                 console.log("Program Started: " + data);
                             });
 
                             options = {
-                                label: "PAUSE",
+                                label: "STOP",
                                 icons: {
-                                    primary: "ui-icon-pause"
+                                    primary: "ui-icon-stop"
                                 }
                             };
                         } else {
+
+                            $.post("/designer/program/stop", function (data) {
+                                console.log("Program Stopped: " + data);
+                            });
+
                             options = {
-                                label: "PLAY",
+                                label: "RUN",
                                 icons: {
                                     primary: "ui-icon-play"
                                 }
@@ -97,23 +104,23 @@
                         console.log(app.code);
                     }
                 });
-                $("#stop").button({
-                        text: true,
-                        icons: {
-                            primary: "ui-icon-stop"
-                        }
-                    })
-                    .click(function () {
-                        $.post("/designer/program/stop", function (data) {
-                            console.log("Program Stopped: " + data);
-                        });
-                        $("#play").button("option", {
-                            label: "PLAY",
-                            icons: {
-                                primary: "ui-icon-play"
-                            }
-                        });
-                    });
+                //$("#stop").button({
+                //        text: true,
+                //        icons: {
+                //            primary: "ui-icon-stop"
+                //        }
+                //    })
+                //    .click(function () {
+                //        $.post("/designer/program/stop", function (data) {
+                //            console.log("Program Stopped: " + data);
+                //        });
+                //        $("#play").button("option", {
+                //            label: "PLAY",
+                //            icons: {
+                //                primary: "ui-icon-play"
+                //            }
+                //        });
+                //    });
             },
 
 
