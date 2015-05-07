@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using NetMQ;
 using Newtonsoft.Json.Linq;
 using Quartz;
@@ -63,12 +64,12 @@ public class MainProgram
     }
 
     private static Dictionary<string, JToken> GetBehaviorModules(NetMQSocket socket,
-        Dictionary<string, string> gestBehaviorMap)
+        ICollection<string> behaviorList)
     {
         var ret = new Dictionary<string, JToken>();
 
         //behavior_modules
-        if (socket != null && gestBehaviorMap != null && gestBehaviorMap.Count > 0)
+        if (socket != null && behaviorList != null && behaviorList.Count > 0)
         {
             socket.Send("behavior_modules");
             var resp = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
@@ -86,7 +87,7 @@ public class MainProgram
                         {
                             string name = behavior.Value<string>("name");
                             //Console.WriteLine("Checking if {0} exists in module supported behaviors");
-                            if (gestBehaviorMap.ContainsValue(name))
+                            if (behaviors.Contains(name))
                             {
                                 ret.Add(name, module);
                             }
@@ -120,6 +121,15 @@ public class MainProgram
                             .WithIdentity(jobKey)
                             .Build();
 
+                        IList<BehaviorInfo> info = new List<BehaviorInfo>();
+                        info.Add(new BehaviorInfo()
+                        {
+                            BehaviorName = behaviorName,
+                            Ip = host,
+                            Port = port,
+                            ModuleName = moduleName
+                        });
+                        detail.JobDataMap.Add("BehaviorInfoList", info);
                         detail.JobDataMap.Add("BehaviorServerIp", host);
                         detail.JobDataMap.Add("BehaviorServerPort", port);
                         detail.JobDataMap.Add("BehaviorName", behaviorName);
@@ -190,7 +200,7 @@ public class MainProgram
                                             }
                                             if (behaviorMap.Count > 0)
                                             {
-                                                var modules = GetBehaviorModules(socket, behaviorMap);
+                                                var modules = GetBehaviorModules(socket, behaviorMap.Values);
                                                 if (modules != null && modules.Count > 0)
                                                 {
                                                     foreach (var module in modules)

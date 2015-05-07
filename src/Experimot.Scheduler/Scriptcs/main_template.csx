@@ -1,3 +1,4 @@
+#load "BehaviorInfo"
 #load "SimpleBehaviorTask.csx"
 #load "MainProgramUtil.csx"
 #load "MainProgram.csx"

@@ -151,6 +151,18 @@ namespace Experimot.Scheduler.Web.Modules
             Post["/designer/program/start"] = parameters =>
             {
                 Log.InfoFormat("POST  : {0}", Request.Url);
+                if (Request.Body != null)
+                {
+                    using (var reader = new StreamReader(Request.Body))
+                    {
+                        string result = reader.ReadToEnd();
+                        Log.InfoFormat("Body  : {0}", result);
+                    }
+                }
+                else
+                {
+                    
+                }
                 return (Response)HttpStatusCode.OK;
             };
             Post["/designer/program/stop"] = parameters =>

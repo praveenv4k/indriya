@@ -177,7 +177,9 @@
     <Compile Include="Mvvm\PropertyChangedExtensionMethods.cs" />
     <Compile Include="Mvvm\ViewModelBase.cs" />
     <Compile Include="ContextServer.cs" />
+    <Compile Include="Scriptcs\BehaviorInfo.cs" />
     <Compile Include="Scriptcs\ProgramGenerator.cs" />
+    <Compile Include="Scriptcs\ChainBehaviorTask.cs" />
     <Compile Include="Tasks\JobListener.cs" />
     <Compile Include="ParameterServer.cs" />
     <Compile Include="Properties\Annotations.cs" />
