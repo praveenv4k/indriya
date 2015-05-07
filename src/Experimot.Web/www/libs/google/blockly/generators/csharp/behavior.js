@@ -16,18 +16,25 @@
         if (element) {
             if (element.length) {
                 if (index !== 0) {
-                    code += ", "
+                    code += ", ";
                 }
-                code += '{ \"name\"      : \"' + element.trim() + '\" }';
+                code += "{ name : '" + element.trim() + "' }";
             }
         }
     };
-    code = 'var ' + text_name + ' = \"{ \"name\"      : \"' + text_name + '\", ' +
-        '\"trigger\"   : \"' + value_when + '\", ' +
-        ' \"priority\" : \"' + value_priority + '\", ' +
-        ' \"actions\"  : [';
+    //code = 'var ' + text_name + ' = \"{ \"name\"      : \"' + text_name + '\", ' +
+    //    '\"trigger\"   : \"' + value_when + '\", ' +
+    //    ' \"priority\" : \"' + value_priority + '\", ' +
+    //    ' \"actions\"  : [';
+    //actions.forEach(actionFunction);
+    //code += '] }\"';
+
+    code =  "{ name : '" + text_name + "' , " +
+        "trigger  : '" + value_when + "' , " +
+        "priority : '" + value_priority + "' , " +
+        "actions: '[";
     actions.forEach(actionFunction);
-    code += '] }\"';
+    code += "] }";
 
     return [code, Blockly.CSharp.ORDER_ATOMIC];
 };

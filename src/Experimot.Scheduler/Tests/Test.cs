@@ -84,18 +84,17 @@ namespace Experimot.Scheduler.Tests
             if (!string.IsNullOrEmpty(outputPath))
             {
                 outputPath = Environment.ExpandEnvironmentVariables(outputPath);
-                var dict = new Dictionary<string, string>();
-                dict.Add("Greet_Left", "wave");
+                var dict = new Dictionary<string, string> {{"Greet_Left", "wave"}};
                 ProgramGenerator.GeneratePrograms(dict, outputPath);
             }
         }
 
-        public static void TestJsonToProgram()
+        public static void TestJsonToProgram(experimot_config config)
         {
             var behaviorInfoDict = new Dictionary<string, List<BehaviorInfo>>();
 
             const string behavior =
-                @"{ name : 'behavior', trigger : 'wave_left',  priority : 'high',  actions  : [{ name : 'stand' }, { name : 'greet' }, { name : 'crouch' }] }";
+                @"{ name : 'behavior', trigger : 'Greet_Left',  priority : 'high',  actions  : [{ name : 'stand' }, { name : 'greet' }, { name : 'crouch' }] }";
             var obj = JObject.Parse(behavior);
             if (obj != null)
             {
@@ -114,7 +113,13 @@ namespace Experimot.Scheduler.Tests
                     Log.InfoFormat("Action Info - Name: {0}", actionName);
                 }
             }
-            Log.InfoFormat("Dictionary constructed: {0}" , behaviorInfoDict.Count);
+            Log.InfoFormat("Dictionary constructed: {0}", behaviorInfoDict.Count);
+            var outputPath = ParameterUtil.Get(config.parameters, "MainProgramFilePath", "");
+            if (!string.IsNullOrEmpty(outputPath))
+            {
+                outputPath = Environment.ExpandEnvironmentVariables(outputPath);
+                ProgramGenerator.GeneratePrograms(behavior, outputPath);
+            }
         }
     }
 }

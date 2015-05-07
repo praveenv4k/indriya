@@ -4,9 +4,10 @@ src/Experimot.Core.Msgs
 src/Experimot.Kinect.Perception
 src/Experimot.Kinect.Playback
 src/Experimot.Scheduler
-src/Experimot.Scriptcs
 src/Experimot.Web/www/app
 src/Experimot.Web/www/index.html
+src/Experimot.Web/www/libs/google/blockly/blocks/behavior.js
+src/Experimot.Web/www/libs/google/blockly/generators/csharp/behavior.js
 src/experimot_calibration
 src/experimot_capture
 src/experimot_localization
