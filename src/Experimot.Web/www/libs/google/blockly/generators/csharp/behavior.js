@@ -1,4 +1,4 @@
-﻿Blockly.CSharp['behavior'] = function (block) {
+﻿Blockly.CSharp['behavior'] = function(block) {
     var value_when = Blockly.CSharp.valueToCode(block, 'when', Blockly.CSharp.ORDER_ATOMIC);
     var value_priority = Blockly.CSharp.valueToCode(block, 'priority', Blockly.CSharp.ORDER_ATOMIC);
     var branch = Blockly.CSharp.statementToCode(block, 'do');
@@ -6,7 +6,8 @@
         Blockly.CSharp.PASS;
     // TODO: Assemble CSharp into code variable.
     console.log(branch);
-    var code = 'when trigger = ' + value_when + ' do = \'' + branch.join() + '\' at priority='+ value_priority;
+    //var code = 'if(trigger == ' + value_when + ' ) \n { ' + branch + ' } at priority='+ value_priority;
+    var code = 'if(trigger == ' + value_when + ' ) \n { \n' + branch + ' } \n';
     return [code, Blockly.CSharp.ORDER_ATOMIC];
 };
 
@@ -15,7 +16,8 @@ Blockly.CSharp['robot_action'] = function (block) {
     var dropdown_actions = block.getFieldValue('actions');
     //console.log(dropdown_actions);
     // TODO: Assemble CSharp into code variable.
-    var code = '\'' + dropdown_actions + '\'';
+    //var code = '\'' + dropdown_actions + '\'';
+    var code = 'execute_action(' + dropdown_actions + '); \n';
     //var code =  dropdown_actions ;
     //return [code, Blockly.CSharp.ORDER_ATOMIC];
     return code;

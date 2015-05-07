@@ -1,26 +1,31 @@
 'use strict';
 
-Blockly.CSharp.procedures = {};
+//Blockly.CSharp.procedures = {};
 
-Blockly.CSharp.procedures_defreturn = function() {
+goog.provide('Blockly.CSharp.procedures');
+
+goog.require('Blockly.CSharp');
+
+
+Blockly.CSharp['procedures_defreturn'] = function (block) {
   // Define a procedure with a return value.
   var funcName = Blockly.CSharp.variableDB_.getName(
-      this.getTitleValue('NAME'), Blockly.Procedures.NAME_TYPE);
-  var branch = Blockly.CSharp.statementToCode(this, 'STACK');
+      block.getFieldValue('NAME'), Blockly.Procedures.NAME_TYPE);
+  var branch = Blockly.CSharp.statementToCode(block, 'STACK');
 
   if (Blockly.CSharp.INFINITE_LOOP_TRAP) {
     branch = Blockly.CSharp.INFINITE_LOOP_TRAP.replace(/%1/g,
-        '\'' + this.id + '\'') + branch;
+        '\'' + block.id + '\'') + branch;
   }
 
-  var returnValue = Blockly.CSharp.valueToCode(this, 'RETURN', Blockly.CSharp.ORDER_NONE) || '';
+  var returnValue = Blockly.CSharp.valueToCode(block, 'RETURN', Blockly.CSharp.ORDER_NONE) || '';
   if (returnValue) {
     returnValue = '  return ' + returnValue + ';\n';
   }
 
   var args = [];
-  for (var x = 0; x < this.arguments_.length; x++) {
-    args[x] = Blockly.CSharp.variableDB_.getName(this.arguments_[x],
+  for (var x = 0; x < block.arguments_.length; x++) {
+    args[x] = Blockly.CSharp.variableDB_.getName(block.arguments_[x],
         Blockly.Variables.NAME_TYPE);
   }
 
@@ -43,47 +48,47 @@ Blockly.CSharp.procedures_defreturn = function() {
   var delegateType = (returnValue.length == 0) ? 'Action' : ('Func<' + argTypes + '>');
 
   var code = 'var ' + funcName + ' = new ' + delegateType + '((' + args.join(', ') + ') => {\n' + branch + returnValue + '});';
-  code = Blockly.CSharp.scrub_(this, code);
+  code = Blockly.CSharp.scrub_(block, code);
   Blockly.CSharp.definitions_[funcName] = code;
   return null;
 };
 
 // Defining a procedure without a return value uses the same generator as
 // a procedure with a return value.
-Blockly.CSharp.procedures_defnoreturn =
-    Blockly.CSharp.procedures_defreturn;
+  Blockly.CSharp['procedures_defnoreturn'] =
+    Blockly.CSharp['procedures_defreturn'];
 
-Blockly.CSharp.procedures_callreturn = function() {
+Blockly.CSharp['procedures_callreturn'] = function(block) {
   // Call a procedure with a return value.
   var funcName = Blockly.CSharp.variableDB_.getName(
-      this.getTitleValue('NAME'), Blockly.Procedures.NAME_TYPE);
+      block.getFieldValue('NAME'), Blockly.Procedures.NAME_TYPE);
   var args = [];
-  for (var x = 0; x < this.arguments_.length; x++) {
-    args[x] = Blockly.CSharp.valueToCode(this, 'ARG' + x,
+  for (var x = 0; x < block.arguments_.length; x++) {
+    args[x] = Blockly.CSharp.valueToCode(block, 'ARG' + x,
         Blockly.CSharp.ORDER_COMMA) || 'null';
   }
   var code = funcName + '(' + args.join(', ') + ')';
   return [code, Blockly.CSharp.ORDER_FUNCTION_CALL];
 };
 
-Blockly.CSharp.procedures_callnoreturn = function() {
+  Blockly.CSharp['procedures_callnoreturn'] = function(block) {
   // Call a procedure with no return value.
   var funcName = Blockly.CSharp.variableDB_.getName(
-      this.getTitleValue('NAME'), Blockly.Procedures.NAME_TYPE);
+      block.getFieldValue('NAME'), Blockly.Procedures.NAME_TYPE);
   var args = [];
-  for (var x = 0; x < this.arguments_.length; x++) {
-    args[x] = Blockly.CSharp.valueToCode(this, 'ARG' + x, Blockly.CSharp.ORDER_COMMA) || 'null';
+  for (var x = 0; x < block.arguments_.length; x++) {
+    args[x] = Blockly.CSharp.valueToCode(block, 'ARG' + x, Blockly.CSharp.ORDER_COMMA) || 'null';
   }
   var code = funcName + '(' + args.join(', ') + ');\n';
   return code;
 };
 
-Blockly.CSharp.procedures_ifreturn = function() {
+Blockly.CSharp['procedures_ifreturn'] = function(block) {
   // Conditionally return value from a procedure.
-  var condition = Blockly.CSharp.valueToCode(this, 'CONDITION', Blockly.CSharp.ORDER_NONE) || 'false';
+  var condition = Blockly.CSharp.valueToCode(block, 'CONDITION', Blockly.CSharp.ORDER_NONE) || 'false';
   var code = 'if (' + condition + ') {\n';
-  if (this.hasReturnValue_) {
-    var value = Blockly.CSharp.valueToCode(this, 'VALUE', Blockly.CSharp.ORDER_NONE) || 'null';
+  if (block.hasReturnValue_) {
+    var value = Blockly.CSharp.valueToCode(block, 'VALUE', Blockly.CSharp.ORDER_NONE) || 'null';
     code += '  return ' + value + ';\n';
   } else {
     code += '  return;\n';

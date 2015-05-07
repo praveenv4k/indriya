@@ -1,14 +1,16 @@
 'use strict';
 
-Blockly.CSharp.colour = {};
+goog.provide('Blockly.CSharp.colour');
 
-Blockly.CSharp.colour_picker = function() {
-  // Colour picker.
-    var code = 'ColorTranslator.FromHtml("' + this.getTitleValue('COLOUR') + '")';
-  return [code, Blockly.CSharp.ORDER_ATOMIC];
+goog.require('Blockly.CSharp');
+
+Blockly.CSharp['colour_picker'] = function(block) {
+    // Colour picker.
+    var code = 'ColorTranslator.FromHtml("' + block.getFieldValue('COLOUR') + '")';
+    return [code, Blockly.CSharp.ORDER_ATOMIC];
 };
 
-Blockly.CSharp.colour_random = function() {
+Blockly.CSharp['colour_random'] = function(block) {
   // Generate a random colour.
   if (!Blockly.CSharp.definitions_['colour_random']) {
     var functionName = Blockly.CSharp.variableDB_.getDistinctName(
@@ -26,13 +28,13 @@ Blockly.CSharp.colour_random = function() {
   return [code, Blockly.CSharp.ORDER_FUNCTION_CALL];
 };
 
-Blockly.CSharp.colour_rgb = function() {
+Blockly.CSharp['colour_rgb'] = function(block) {
   // Compose a colour from RGB components expressed as percentages.
-  var red = Blockly.CSharp.valueToCode(this, 'RED',
+    var red = Blockly.CSharp.valueToCode(block, 'RED',
       Blockly.CSharp.ORDER_COMMA) || 0;
-  var green = Blockly.CSharp.valueToCode(this, 'GREEN',
+    var green = Blockly.CSharp.valueToCode(block, 'GREEN',
       Blockly.CSharp.ORDER_COMMA) || 0;
-  var blue = Blockly.CSharp.valueToCode(this, 'BLUE',
+    var blue = Blockly.CSharp.valueToCode(block, 'BLUE',
       Blockly.CSharp.ORDER_COMMA) || 0;
 
   if (!Blockly.CSharp.definitions_['colour_rgb']) {
@@ -54,13 +56,13 @@ Blockly.CSharp.colour_rgb = function() {
   return [code, Blockly.CSharp.ORDER_FUNCTION_CALL];
 };
 
-Blockly.CSharp.colour_blend = function() {
+Blockly.CSharp['colour_blend'] = function (block) {
   // Blend two colours together.
-  var c1 = Blockly.CSharp.valueToCode(this, 'COLOUR1',
+    var c1 = Blockly.CSharp.valueToCode(block, 'COLOUR1',
       Blockly.CSharp.ORDER_COMMA) || 'Color.Black';
-  var c2 = Blockly.CSharp.valueToCode(this, 'COLOUR2',
+    var c2 = Blockly.CSharp.valueToCode(block, 'COLOUR2',
       Blockly.CSharp.ORDER_COMMA) || 'Color.Black';
-  var ratio = Blockly.CSharp.valueToCode(this, 'RATIO',
+    var ratio = Blockly.CSharp.valueToCode(block, 'RATIO',
       Blockly.CSharp.ORDER_COMMA) || 0.5;
 
   if (!Blockly.CSharp.definitions_['colour_blend']) {

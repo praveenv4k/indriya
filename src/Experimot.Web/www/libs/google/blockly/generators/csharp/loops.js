@@ -1,14 +1,17 @@
 'use strict';
 
-Blockly.CSharp.control = {};
+//Blockly.CSharp.control = {};
+goog.provide('Blockly.CSharp.loops');
 
-Blockly.CSharp.controls_repeat = function() {
+goog.require('Blockly.CSharp');
+
+Blockly.CSharp['controls_repeat'] = function(block) {
   // Repeat n times (internal number).
-  var repeats = Number(this.getTitleValue('TIMES'));
-  var branch = Blockly.CSharp.statementToCode(this, 'DO');
+  var repeats = Number(block.getFieldValue('TIMES'));
+  var branch = Blockly.CSharp.statementToCode(block, 'DO');
   if (Blockly.CSharp.INFINITE_LOOP_TRAP) {
     branch = Blockly.CSharp.INFINITE_LOOP_TRAP.replace(/%1/g,
-        '\'' + this.id + '\'') + branch;
+        '\'' + block.id + '\'') + branch;
   }
   var loopVar = Blockly.CSharp.variableDB_.getDistinctName(
       'count', Blockly.Variables.NAME_TYPE);
@@ -19,14 +22,14 @@ Blockly.CSharp.controls_repeat = function() {
   return code;
 };
 
-Blockly.CSharp.controls_repeat_ext = function() {
+Blockly.CSharp['controls_repeat_ext'] = function(block) {
   // Repeat n times (external number).
-  var repeats = Blockly.CSharp.valueToCode(this, 'TIMES',
+  var repeats = Blockly.CSharp.valueToCode(block, 'TIMES',
       Blockly.CSharp.ORDER_ASSIGNMENT) || '0';
-  var branch = Blockly.CSharp.statementToCode(this, 'DO');
+  var branch = Blockly.CSharp.statementToCode(block, 'DO');
   if (Blockly.CSharp.INFINITE_LOOP_TRAP) {
     branch = Blockly.CSharp.INFINITE_LOOP_TRAP.replace(/%1/g,
-        '\'' + this.id + '\'') + branch;
+        '\'' + block.id + '\'') + branch;
   }
   var code = '';
   var loopVar = Blockly.CSharp.variableDB_.getDistinctName(
@@ -44,16 +47,16 @@ Blockly.CSharp.controls_repeat_ext = function() {
   return code;
 };
 
-Blockly.CSharp.controls_whileUntil = function() {
+Blockly.CSharp['controls_whileUntil'] = function(block) {
   // Do while/until loop.
-  var until = this.getTitleValue('MODE') == 'UNTIL';
-  var argument0 = Blockly.CSharp.valueToCode(this, 'BOOL',
+  var until = block.getFieldValue('MODE') == 'UNTIL';
+  var argument0 = Blockly.CSharp.valueToCode(block, 'BOOL',
       until ? Blockly.CSharp.ORDER_LOGICAL_NOT :
       Blockly.CSharp.ORDER_NONE) || 'false';
-  var branch = Blockly.CSharp.statementToCode(this, 'DO');
+  var branch = Blockly.CSharp.statementToCode(block, 'DO');
   if (Blockly.CSharp.INFINITE_LOOP_TRAP) {
     branch = Blockly.CSharp.INFINITE_LOOP_TRAP.replace(/%1/g,
-        '\'' + this.id + '\'') + branch;
+        '\'' + block.id + '\'') + branch;
   }
   if (until) {
     argument0 = '!' + argument0;
@@ -61,20 +64,20 @@ Blockly.CSharp.controls_whileUntil = function() {
   return 'while (' + argument0 + ') {\n' + branch + '}\n';
 };
 
-Blockly.CSharp.controls_for = function() {
+Blockly.CSharp['controls_for'] = function(block) {
   // For loop.
   var variable0 = Blockly.CSharp.variableDB_.getName(
-      this.getTitleValue('VAR'), Blockly.Variables.NAME_TYPE);
-  var argument0 = Blockly.CSharp.valueToCode(this, 'FROM',
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  var argument0 = Blockly.CSharp.valueToCode(block, 'FROM',
       Blockly.CSharp.ORDER_ASSIGNMENT) || '0';
-  var argument1 = Blockly.CSharp.valueToCode(this, 'TO',
+  var argument1 = Blockly.CSharp.valueToCode(block, 'TO',
       Blockly.CSharp.ORDER_ASSIGNMENT) || '0';
-  var increment = Blockly.CSharp.valueToCode(this, 'BY',
+  var increment = Blockly.CSharp.valueToCode(block, 'BY',
       Blockly.CSharp.ORDER_ASSIGNMENT) || '1';
-  var branch = Blockly.CSharp.statementToCode(this, 'DO');
+  var branch = Blockly.CSharp.statementToCode(block, 'DO');
   if (Blockly.CSharp.INFINITE_LOOP_TRAP) {
     branch = Blockly.CSharp.INFINITE_LOOP_TRAP.replace(/%1/g,
-        '\'' + this.id + '\'') + branch;
+        '\'' + block.id + '\'') + branch;
   }
   var code;
   if (Blockly.isNumber(argument0) && Blockly.isNumber(argument1) &&
@@ -129,16 +132,16 @@ Blockly.CSharp.controls_for = function() {
   return code;
 };
 
-Blockly.CSharp.controls_forEach = function() {
+Blockly.CSharp['controls_forEach'] = function(block) {
   // For each loop.
   var variable0 = Blockly.CSharp.variableDB_.getName(
-      this.getTitleValue('VAR'), Blockly.Variables.NAME_TYPE);
-  var argument0 = Blockly.CSharp.valueToCode(this, 'LIST',
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  var argument0 = Blockly.CSharp.valueToCode(block, 'LIST',
       Blockly.CSharp.ORDER_ASSIGNMENT) || '[]';
-  var branch = Blockly.CSharp.statementToCode(this, 'DO');
+  var branch = Blockly.CSharp.statementToCode(block, 'DO');
   if (Blockly.CSharp.INFINITE_LOOP_TRAP) {
     branch = Blockly.CSharp.INFINITE_LOOP_TRAP.replace(/%1/g,
-        '\'' + this.id + '\'') + branch;
+        '\'' + block.id + '\'') + branch;
   }
   var code;
   var indexVar = Blockly.CSharp.variableDB_.getDistinctName(
@@ -159,9 +162,9 @@ Blockly.CSharp.controls_forEach = function() {
   return code;
 };
 
-Blockly.CSharp.controls_flow_statements = function() {
+Blockly.CSharp['controls_flow_statements'] = function(block) {
   // Flow statements: continue, break.
-  switch (this.getTitleValue('FLOW')) {
+  switch (block.getFieldValue('FLOW')) {
     case 'BREAK':
       return 'break;\n';
     case 'CONTINUE':
