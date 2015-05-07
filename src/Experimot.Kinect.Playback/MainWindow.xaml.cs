@@ -242,7 +242,7 @@ namespace Experimot.Kinect.Playback
                         if (evt.EventStreamDataTypeId == KStudioEventStreamDataTypeIds.Ir)
                         {
                             var evt1 = evt;
-                            Application.Current.Dispatcher.BeginInvoke(
+                            Application.Current.Dispatcher.Invoke(
                                 DispatcherPriority.Background,
                                 new Action(() =>
                                 {
@@ -256,7 +256,7 @@ namespace Experimot.Kinect.Playback
                         if (evt.EventStreamDataTypeId == KStudioEventStreamDataTypeIds.Depth)
                         {
                             var evt1 = evt;
-                            Application.Current.Dispatcher.BeginInvoke(
+                            Application.Current.Dispatcher.Invoke(
                                 DispatcherPriority.Background,
                                 new Action(() =>
                                 {
@@ -271,7 +271,7 @@ namespace Experimot.Kinect.Playback
                         if (evt.EventStreamDataTypeId == KStudioEventStreamDataTypeIds.UncompressedColor)
                         {
                             var evt1 = evt;
-                            Application.Current.Dispatcher.BeginInvoke(
+                            Application.Current.Dispatcher.Invoke(
                                 DispatcherPriority.Background,
                                 new Action(() =>
                                 {
@@ -286,7 +286,7 @@ namespace Experimot.Kinect.Playback
                         if (evt.EventStreamDataTypeId == KStudioEventStreamDataTypeIds.BodyIndex)
                         {
                             var evt1 = evt;
-                            Application.Current.Dispatcher.BeginInvoke(
+                            Application.Current.Dispatcher.Invoke(
                                 DispatcherPriority.Background,
                                 new Action(() =>
                                 {
