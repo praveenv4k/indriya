@@ -25,5 +25,16 @@ namespace Experimot.Scheduler.Scriptcs
                 File.WriteAllText(path, newFile);
             }
         }
+
+        public static void GeneratePrograms(string jsonString, string path)
+        {
+            using (var stream = new MemoryStream(Properties.Resources.main_template))
+            using (var reader = new StreamReader(stream))
+            {
+                string result = reader.ReadToEnd();
+                var newFile = result.Replace(ModifyText, jsonString);
+                File.WriteAllText(path, newFile);
+            }
+        }
     }
 }

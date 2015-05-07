@@ -34,10 +34,10 @@ public class MainProgram
         return ret;
     }
 
-    private static Dictionary<string, string> CheckGestureTrigger(NetMQSocket socket, JArray humanArray,
-        Dictionary<string, string> gestBehaviorMap)
+    private static Dictionary<string, List<BehaviorInfo>> CheckGestureTrigger(NetMQSocket socket, JArray humanArray,
+        Dictionary<string, List<BehaviorInfo>> gestBehaviorMap)
     {
-        Dictionary<string, string> ret = new Dictionary<string, string>();
+        var ret = new Dictionary<string, List<BehaviorInfo>>();
         if (humanArray != null && socket != null && humanArray.Count > 0)
         {
             foreach (var human in humanArray)
@@ -53,7 +53,7 @@ public class MainProgram
                         if (active && confidence > 95)
                         {
                             ret.Add(name, gestBehaviorMap[name]);
-                            //Console.WriteLine(@"Name : {0}, Confidence: {1}", name, confidence);
+                            Console.WriteLine(@"Name : {0}, Confidence: {1}", name, confidence);
                         }
                     }
 
@@ -63,10 +63,10 @@ public class MainProgram
         return ret;
     }
 
-    private static Dictionary<string, JToken> GetBehaviorModules(NetMQSocket socket,
-        ICollection<string> behaviorList)
+    private static Dictionary<string, BehaviorInfo> GetBehaviorModules(NetMQSocket socket,
+        ICollection<List<BehaviorInfo>> behaviorList)
     {
-        var ret = new Dictionary<string, JToken>();
+        var ret = new Dictionary<string, BehaviorInfo>();
 
         //behavior_modules
         if (socket != null && behaviorList != null && behaviorList.Count > 0)
@@ -82,21 +82,125 @@ public class MainProgram
                     foreach (var module in modules)
                     {
                         var moduleName = module.Value<string>("name");
+                        var responder = module.SelectToken("$.responder");
+                        string host = string.Empty;
+                        int port = 0;
+                        if (responder != null)
+                        {
+                            host = responder.Value<string>("Host");
+                            port = responder.Value<int>("Port");
+                        }
                         var behaviors = module.SelectToken("$.behaviors");
                         foreach (var behavior in behaviors)
                         {
                             string name = behavior.Value<string>("name");
-                            //Console.WriteLine("Checking if {0} exists in module supported behaviors");
-                            if (behaviors.Contains(name))
+                            foreach (var item in behaviorList)
                             {
-                                ret.Add(name, module);
+                                foreach (var behaviorInfo in item)
+                                {
+                                    if (behaviorInfo.BehaviorName == name)
+                                    {
+                                        behaviorInfo.ModuleName = moduleName;
+                                        behaviorInfo.Ip = host;
+                                        behaviorInfo.Port = port;
+
+                                        if (!ret.ContainsKey(name))
+                                        {
+                                            ret.Add(name, behaviorInfo);
+                                        }
+                                    }
+                                }
                             }
+                            //Console.WriteLine("Checking if {0} exists in module supported behaviors");
+                            //if (behaviors.Contains(name))
+                            //{
+                            //    ret.Add(name, module);
+                            //}
                         }
                     }
                 }
             }
         }
         return ret;
+    }
+
+    private static IList<BehaviorInfo> GetBehaviorModules(NetMQSocket socket,
+        List<BehaviorInfo> behaviorList)
+    {
+        var ret = new List<BehaviorInfo>();
+
+        //behavior_modules
+        if (socket != null && behaviorList != null && behaviorList.Count > 0)
+        {
+            socket.Send("behavior_modules");
+            var resp = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
+            if (!string.IsNullOrEmpty(resp))
+            {
+                var modules = JArray.Parse(resp);
+                if (modules != null && modules.Count > 0)
+                {
+                    //Console.WriteLine(resp);
+                    foreach (var module in modules)
+                    {
+                        var moduleName = module.Value<string>("name");
+                        var responder = module.SelectToken("$.responder");
+                        string host = string.Empty;
+                        int port = 0;
+                        if (responder != null)
+                        {
+                            host = responder.Value<string>("Host");
+                            port = responder.Value<int>("Port");
+                        }
+                        var behaviors = module.SelectToken("$.behaviors");
+                        foreach (var behavior in behaviors)
+                        {
+                            string name = behavior.Value<string>("name");
+                            foreach (var item in behaviorList)
+                            {
+                                if (item.BehaviorName == name)
+                                {
+                                    item.ModuleName = moduleName;
+                                    item.Ip = host;
+                                    item.Port = port;
+
+                                    if (ret.All(s => s.BehaviorName != name))
+                                    {
+                                        ret.Add(item);
+                                    }
+                                }
+                            }
+                            //Console.WriteLine("Checking if {0} exists in module supported behaviors");
+                            //if (behaviors.Contains(name))
+                            //{
+                            //    ret.Add(name, module);
+                            //}
+                        }
+                    }
+                }
+            }
+        }
+        return ret;
+    }
+
+    private static void ScheduleBehaviorExecution(IScheduler scheduler, IList<BehaviorInfo> behaviorInfo,
+        string triggerName)
+    {
+        Console.WriteLine(@"Behavior Execution for trigger : {0}", triggerName);
+        if (behaviorInfo != null && behaviorInfo.Count > 0 && scheduler != null)
+        {
+            var jobKey = JobKey.Create(string.Format("Task_{0}", triggerName), triggerName);
+            if (!scheduler.CheckExists(jobKey))
+            {
+                IJobDetail detail = JobBuilder.Create<SimpleBehaviorTask>()
+                    .WithIdentity(jobKey)
+                    .Build();
+                detail.JobDataMap.Add("BehaviorInfoList", behaviorInfo);
+                ITrigger trigger = TriggerBuilder.Create().ForJob(detail).StartNow().Build();
+                scheduler.ScheduleJob(detail, trigger);
+                Console.WriteLine(@"New job about to be scheduled Job : {0}, Module : {1}", jobKey.Name,
+                    jobKey.Group);
+            }
+        }
     }
 
     private static void ScheduleBehaviorExecution(IScheduler scheduler, JToken behaviorModule, string behaviorName)
@@ -154,14 +258,17 @@ public class MainProgram
                 var contextServer = GetValue(_props, "ContextServer", "tcp://localhost:5800").ToString();
                 if (!string.IsNullOrEmpty(contextServer))
                 {
-                    var triggerBehaviorMap = GetValue(_props, "TriggerBehaviorMap", new Dictionary<string, string>());
-                    var dict = triggerBehaviorMap as Dictionary<string, string>;
+                    var triggerBehaviorMap = GetValue(_props, "TriggerBehaviorMap", new Dictionary<string, List<BehaviorInfo>>());
+                    var dict = triggerBehaviorMap as Dictionary<string, List<BehaviorInfo>>;
                     if (dict != null && dict.Count > 0)
                     {
                         foreach (var item in dict)
                         {
-                            Console.WriteLine(@"Gesture: {0} -> Behavior : {1}", item.Key,
-                                item.Value);
+                            Console.WriteLine(@"Gesture: {0} -> ", item.Key);
+                            foreach (var value in item.Value)
+                            {
+                                Console.WriteLine(@"Action: {0} -> ", value.BehaviorName);
+                            }
                         }
 
                         using (var ctx = NetMQContext.Create())
@@ -186,9 +293,24 @@ public class MainProgram
                                             }
                                             foreach (var behavior in behaviorMap)
                                             {
-                                                Console.WriteLine(@"Gesture: {0} -> Behavior : {1}", behavior.Key,
-                                                    behavior.Value);
-                                                //var modules = GetBehaviorModules(socket, behaviorMap);
+                                                Console.WriteLine(@"Detected Gesture: {0} -> ", behavior.Key);
+                                                foreach (var value in behavior.Value)
+                                                {
+                                                    Console.WriteLine(@"Action: {0} -> ", value.BehaviorName);
+                                                }
+                                            }
+                                            if (behaviorMap.Count > 0)
+                                            {
+                                                foreach (var behavior in behaviorMap)
+                                                {
+                                                    var modules = GetBehaviorModules(socket, behavior.Value);
+                                                    if (modules != null && modules.Count > 0)
+                                                    {
+                                                        ScheduleBehaviorExecution(_scheduler, modules,
+                                                            behavior.Key);
+                                                    }
+                                                }
+                                                //var modules = GetBehaviorModules(socket, behaviorMap.Values);
                                                 //if (modules != null && modules.Count > 0)
                                                 //{
                                                 //    foreach (var module in modules)
@@ -197,18 +319,6 @@ public class MainProgram
                                                 //            module.Key);
                                                 //    }
                                                 //}
-                                            }
-                                            if (behaviorMap.Count > 0)
-                                            {
-                                                var modules = GetBehaviorModules(socket, behaviorMap.Values);
-                                                if (modules != null && modules.Count > 0)
-                                                {
-                                                    foreach (var module in modules)
-                                                    {
-                                                        ScheduleBehaviorExecution(_scheduler, module.Value,
-                                                            module.Key);
-                                                    }
-                                                }
                                             }
                                         }
                                         catch (Exception ex)
