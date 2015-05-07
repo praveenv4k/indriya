@@ -14,6 +14,7 @@
         blocks: "../libs/google/blockly/blocks_compressed",
         blockly_msg_en: "../libs/google/blockly/msg/js/en",
         blockly_python: "../libs/google/blockly/python_compressed",
+        blockly_csharp: "../libs/google/blockly/csharp_compressed",
         handlebars: "../libs/handlebars/handlebars"
         // r68
         //, threejs: "../libs/threejs/r68/three"
@@ -65,6 +66,10 @@
         "blockly_python": {
             "deps": ["blockly", "blocks"]
         },
+        // Python code generation
+        "blockly_csharp": {
+            "deps": ["blockly", "blocks"]
+        },
         // Marionette Three JS
         "threejs": {
             exports: "THREE"
@@ -85,7 +90,7 @@
 // Include Desktop Specific JavaScript files here (or inside of your Desktop Controller, or differentiate based off App.mobile === false)
 //require(["app", "jquery", "routers/approuter", "controllers/appcontroller", "backbone", "marionette", "jqueryui", "handlebars"],
 require(["app", "jquery", "routers/approuter", "controllers/appcontroller", "backbone", "marionette", "jqueryui", 
-                "blocks", "blockly_msg_en", "colladaloader", "projector", "blockly_python"],
+                "blocks", "blockly_msg_en", "colladaloader", "projector", "blockly_python", "blockly_csharp"],
                 //, "marionette_threejs","projector", "colladaloader"],
     function(app, $, appRouter, appController) {
         //$.mobile.ajaxEnabled = false;
