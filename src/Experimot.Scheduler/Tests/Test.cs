@@ -8,12 +8,14 @@ using Newtonsoft.Json.Linq;
 
 namespace Experimot.Scheduler.Tests
 {
-    class Test
+    internal class Test
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(Test));
+        private static readonly ILog Log = LogManager.GetLogger(typeof (Test));
+
         public static void TestJson(string str)
         {
-            const string humanStr = "[{\"Id\":2,\"HeadPosition\":null,\"TorsoPosition\":null,\"TorsoOrientation\":null,\"Gestures\":[{\"Name\":\"Greet_Left\",\"Mode\":1,\"Active\":false,\"Progress\":0,\"Confidence\":0,\"Count\":0},{\"Name\":\"Greet_Right\",\"Mode\":1,\"Active\":false,\"Progress\":0,\"Confidence\":0,\"Count\":0}]}]";
+            const string humanStr =
+                "[{\"Id\":2,\"HeadPosition\":null,\"TorsoPosition\":null,\"TorsoOrientation\":null,\"Gestures\":[{\"Name\":\"Greet_Left\",\"Mode\":1,\"Active\":false,\"Progress\":0,\"Confidence\":0,\"Count\":0},{\"Name\":\"Greet_Right\",\"Mode\":1,\"Active\":false,\"Progress\":0,\"Confidence\":0,\"Count\":0}]}]";
             JArray humanArray = JArray.Parse(humanStr);
             if (humanArray != null && humanArray.Count > 0)
             {
@@ -29,7 +31,8 @@ namespace Experimot.Scheduler.Tests
                     }
                 }
             }
-            const string behaviorStr = "[{\"name\":\"nao_behavior_manager\",\"param\":[],\"behaviors\":[{\"name\":\"crouch\",\"type\":0,\"state\":0},{\"name\":\"stand\",\"type\":0,\"state\":0},{\"name\":\"wave\",\"type\":0,\"state\":0},{\"name\":\"greet\",\"type\":0,\"state\":0}],\"responder\":{\"Host\":\"tcp://localhost\",\"Port\":5590}}]";
+            const string behaviorStr =
+                "[{\"name\":\"nao_behavior_manager\",\"param\":[],\"behaviors\":[{\"name\":\"crouch\",\"type\":0,\"state\":0},{\"name\":\"stand\",\"type\":0,\"state\":0},{\"name\":\"wave\",\"type\":0,\"state\":0},{\"name\":\"greet\",\"type\":0,\"state\":0}],\"responder\":{\"Host\":\"tcp://localhost\",\"Port\":5590}}]";
             JArray behaviorArray = JArray.Parse(behaviorStr);
             if (behaviorArray != null && behaviorArray.Count > 0)
             {
@@ -64,7 +67,8 @@ namespace Experimot.Scheduler.Tests
                     {
 
                     }
-                    var token = obj.SelectToken("$.parameters[?(@.key == 'ApplicationName')]"); //$.Manufacturers[?(@.Name == 'Acme Co')]
+                    var token = obj.SelectToken("$.parameters[?(@.key == 'ApplicationName')]");
+                    //$.Manufacturers[?(@.Name == 'Acme Co')]
                     if (token != null)
                     {
                         Log.InfoFormat("Value : {0}", token.Value<string>("value"));
@@ -84,6 +88,33 @@ namespace Experimot.Scheduler.Tests
                 dict.Add("Greet_Left", "wave");
                 ProgramGenerator.GeneratePrograms(dict, outputPath);
             }
+        }
+
+        public static void TestJsonToProgram()
+        {
+            var behaviorInfoDict = new Dictionary<string, List<BehaviorInfo>>();
+
+            const string behavior =
+                @"{ name : 'behavior', trigger : 'wave_left',  priority : 'high',  actions  : [{ name : 'stand' }, { name : 'greet' }, { name : 'crouch' }] }";
+            var obj = JObject.Parse(behavior);
+            if (obj != null)
+            {
+                var name = obj.Value<string>("name");
+                Log.InfoFormat("Behavior Info - Name: {0}, Trigger: {1}, Priority: {2}", name,
+                    obj.Value<string>("trigger"), obj.Value<string>("priority"));
+                behaviorInfoDict.Add(name, new List<BehaviorInfo>());
+                var actions = obj.SelectToken("$.actions"); //$.Manufacturers[?(@.Name == 'Acme Co')]
+                foreach (var action in actions)
+                {
+                    var actionName = action.Value<string>("name");
+                    behaviorInfoDict[name].Add(new BehaviorInfo()
+                    {
+                        BehaviorName = actionName
+                    });
+                    Log.InfoFormat("Action Info - Name: {0}", actionName);
+                }
+            }
+            Log.InfoFormat("Dictionary constructed: {0}" , behaviorInfoDict.Count);
         }
     }
 }

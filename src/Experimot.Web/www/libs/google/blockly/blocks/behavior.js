@@ -2,6 +2,9 @@
     init: function() {
         this.setHelpUrl('http://www.example.com/');
         this.setColour(300);
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField(new Blockly.FieldTextInput("behavior"), "NAME");
         this.appendValueInput("when")
             .setCheck("trigger")
             .setAlign(Blockly.ALIGN_RIGHT)
