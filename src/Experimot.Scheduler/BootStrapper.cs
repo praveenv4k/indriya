@@ -331,6 +331,17 @@ namespace Experimot.Scheduler
             }
         }
 
+        public void RequestMainProgramGeneration(string jsonString)
+        {
+            var config = TinyIoCContainer.Current.Resolve<experimot_config>();
+            var outputPath = ParameterUtil.Get(config.parameters, "MainProgramFilePath", "");
+            if (!string.IsNullOrEmpty(outputPath))
+            {
+                outputPath = Environment.ExpandEnvironmentVariables(outputPath);
+                ProgramGenerator.GeneratePrograms(jsonString, outputPath);
+            }
+        }
+
         public void RequestMainProgramGeneration(IDictionary<string, string> map)
         {
             var config = TinyIoCContainer.Current.Resolve<experimot_config>();

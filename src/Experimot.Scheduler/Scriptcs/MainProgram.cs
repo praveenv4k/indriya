@@ -128,7 +128,7 @@ public class MainProgram
         List<BehaviorInfo> behaviorList)
     {
         var ret = new List<BehaviorInfo>();
-
+        var dict = new Dictionary<string, BehaviorInfo>();
         //behavior_modules
         if (socket != null && behaviorList != null && behaviorList.Count > 0)
         {
@@ -155,19 +155,14 @@ public class MainProgram
                         foreach (var behavior in behaviors)
                         {
                             string name = behavior.Value<string>("name");
-                            foreach (var item in behaviorList)
+                            if (!dict.ContainsKey(name))
                             {
-                                if (item.BehaviorName == name)
+                                dict.Add(name, new BehaviorInfo
                                 {
-                                    item.ModuleName = moduleName;
-                                    item.Ip = host;
-                                    item.Port = port;
-
-                                    if (ret.All(s => s.BehaviorName != name))
-                                    {
-                                        ret.Add(item);
-                                    }
-                                }
+                                    BehaviorName = name,
+                                    Ip = host,
+                                    Port = port
+                                });
                             }
                             //Console.WriteLine("Checking if {0} exists in module supported behaviors");
                             //if (behaviors.Contains(name))
@@ -175,6 +170,17 @@ public class MainProgram
                             //    ret.Add(name, module);
                             //}
                         }
+                    }
+                }
+            }
+            if (dict.Count > 0)
+            {
+                // ReSharper disable once LoopCanBeConvertedToQuery
+                foreach (var item in behaviorList)
+                {
+                    if (dict.ContainsKey(item.BehaviorName))
+                    {
+                        ret.Add(dict[item.BehaviorName]);
                     }
                 }
             }
