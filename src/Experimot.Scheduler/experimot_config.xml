@@ -12,10 +12,10 @@
     <param key="WebServerEnabled" value="true" type="bool"/>
     <param key="WebServerPort" value="8888" type="int"/>
     <param key="WebServerHost" value="http://localhost" type="int"/>
-    <!--<param key="ROBOTIP" value="127.0.0.1" type="string"/>
-    <param key="ROBOTPORT" value="57198" type="int"/>-->
-    <param key="ROBOTIP" value="192.168.11.3" type="string"/>
-    <param key="ROBOTPORT" value="9559" type="int"/>
+    <param key="ROBOTIP" value="127.0.0.1" type="string"/>
+    <param key="ROBOTPORT" value="49593" type="int"/>
+    <!--<param key="ROBOTIP" value="192.168.11.3" type="string"/>
+    <param key="ROBOTPORT" value="9559" type="int"/>-->
     <param key="ContextServerHost" value="tcp://*" type="string"/>
     <param key="ContextClientHost" value="tcp://localhost" type="string"/>
     <param key="ContextServerPort" value="5800" type="int"/>
