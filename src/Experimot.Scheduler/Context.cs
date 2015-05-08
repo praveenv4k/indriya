@@ -101,6 +101,14 @@ namespace Experimot.Scheduler
             }
         }
 
+        public void Update(JointValueVector jointValue)
+        {
+            lock (_object)
+            {
+                Robot.SensorData.JointValues = jointValue;
+            }
+        }
+
         public void Update(SensorData sensorData)
         {
             lock (_object)
