@@ -1,4 +1,34 @@
-﻿Blockly.CSharp['behavior'] = function(block) {
+﻿Blockly.CSharp['behavior_sleek'] = function(block) {
+    var text_behavior_name = block.getFieldValue('behavior_name');
+    var dropdown_triggers = block.getFieldValue('triggers');
+    var dropdown_confidence_levels = block.getFieldValue('confidence_levels');
+    var statements_do = Blockly.CSharp.statementToCode(block, 'DO');
+    var dropdown_priorities = block.getFieldValue('priorities');
+    // TODO: Assemble Python into code variable.
+
+    var actions = statements_do.split(",");
+    var code = "";
+    var actionFunction = function appendActions(element, index, array) {
+        if (element) {
+            if (element.length) {
+                if (index !== 0) {
+                    code += ", ";
+                }
+                code += "{ name : '" + element.trim() + "' }";
+            }
+        }
+    };
+    code = "{ name : '" + text_behavior_name + "' , " +
+        "trigger  : '" + dropdown_triggers + "' , " +
+        "confidence  : '" + dropdown_confidence_levels + "' , " +
+        "priority : '" + dropdown_priorities + "' , " +
+        "actions: [";
+    actions.forEach(actionFunction);
+    code += "] }";
+    return code;
+};
+
+Blockly.CSharp['behavior'] = function (block) {
     var text_name = block.getFieldValue('NAME');
     var value_when = Blockly.CSharp.valueToCode(block, 'when', Blockly.CSharp.ORDER_ATOMIC);
     var value_priority = Blockly.CSharp.valueToCode(block, 'priority', Blockly.CSharp.ORDER_ATOMIC);
@@ -8,8 +38,6 @@
     // TODO: Assemble CSharp into code variable.
     console.log(branch);
 
-    //var code = 'if(trigger == ' + value_when + ' ) \n { ' + branch + ' } at priority='+ value_priority;
-    //var code = 'if(trigger == ' + value_when + ' ) \n { \n' + branch + ' } \n';
     var actions = branch.split(",");
     var code = "";
     var actionFunction = function appendActions(element, index, array) {
@@ -22,12 +50,6 @@
             }
         }
     };
-    //code = 'var ' + text_name + ' = \"{ \"name\"      : \"' + text_name + '\", ' +
-    //    '\"trigger\"   : \"' + value_when + '\", ' +
-    //    ' \"priority\" : \"' + value_priority + '\", ' +
-    //    ' \"actions\"  : [';
-    //actions.forEach(actionFunction);
-    //code += '] }\"';
 
     code =  "{ name : '" + text_name + "' , " +
         "trigger  : '" + value_when + "' , " +
