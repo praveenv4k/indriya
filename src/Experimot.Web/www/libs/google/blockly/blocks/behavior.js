@@ -78,12 +78,12 @@ Blockly.Blocks['priority'] = {
 };
 
 Blockly.Blocks['robot_action'] = {
-    init: function () {
+    init: function() {
         this.setHelpUrl('http://www.example.com/');
         this.setColour(225);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(new Blockly.FieldDropdown([["Greet", "greet"], ["Crouch", "crouch"], ["Stand", "stand"]]), "actions");
+            .appendField(new Blockly.FieldDropdown([["Greet", "greet"], ["Crouch", "crouch"], ["Stand", "stand"], ["Wish", "wish"]]), "actions");
         this.setPreviousStatement(true);
         this.setNextStatement(true, "robot_action");
         this.setTooltip('Robot Action response');

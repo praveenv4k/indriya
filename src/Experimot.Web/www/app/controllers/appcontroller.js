@@ -1,5 +1,5 @@
-﻿define(['app', 'backbone', 'marionette', 'models/robot','models/jointvalues', 'collections/drawables', 'marionette_threejs', 'poller'],
-    function (app, backbone, marionette, robot,jointVals, drawables, m3Js,poller) {
+﻿define(['app', 'backbone', 'marionette', 'models/robot', 'models/testjointvalues', 'models/JointValues', 'collections/drawables', 'marionette_threejs', 'poller'],
+    function (app, backbone, marionette, robot,testJointVals,jointVals, drawables, m3Js,poller) {
         return backbone.Marionette.Controller.extend({
             initialize: function(options) {
                 app.Drawables = new drawables();
@@ -30,7 +30,7 @@
                 var test_joint_options = {
 
                     // default delay is 1000ms
-                    delay: 100,
+                    delay: 200,
 
                     // run after a delayed interval. defaults to false
                     // can be a boolean `true` to wait `delay` ms before starting or a number to override the wait period
@@ -46,6 +46,24 @@
                     //}
                 }
 
+                //var _this = this;
+                //app.testJointVals = new testJointVals();
+
+                //app.testjointpoller = poller.get(app.testJointVals, test_joint_options);
+                //app.testjointpoller.on('error', function (model) {
+                //    globalCh.vent.trigger("serverCommunication", false);
+                //    console.error('Error retrieving Robot Status information from server!');
+                //});
+                //app.testjointpoller.on('success', function(model) {
+                //    _this.setJointVals(model);
+                //    app.testJointVals.id = app.testJointVals.id + 1;
+                //});
+                //app.testjointpoller.on('complete', function (model) {
+                //    console.log("Done !!!");
+                //    //app.testJointVals.id = app.testJointVals.id + 1;
+                //});
+                //app.testjointpoller.start();
+
                 var _this = this;
                 app.jointVals = new jointVals();
 
@@ -54,23 +72,17 @@
                     globalCh.vent.trigger("serverCommunication", false);
                     console.error('Error retrieving Robot Status information from server!');
                 });
-                app.jointpoller.on('success', function(model) {
-                    //console.log(model.get("0"));
+                app.jointpoller.on('success', function (model) {
                     _this.setJointVals(model);
-                    app.jointVals.id = app.jointVals.id + 1;
                 });
                 app.jointpoller.on('complete', function (model) {
                     console.log("Done !!!");
-                    //app.jointVals.id = app.jointVals.id + 1;
                 });
                 app.jointpoller.start();
             },
 
             setJointVals: function(jointModel) {
                 if (jointModel != undefined && app.kinematics != undefined) {
-                    //console.log(jointModel);
-                    //console.log(jointModel.get(0));
-                    //console.log(this.degrees(jointModel.get(0)));
                     for (var i = 0; i < 25; i++) {
                         app.kinematics.setJointValue(i, this.degrees(jointModel.get(i)));
                     }
@@ -121,10 +133,6 @@
                         var options;
 
                         if ($(this).text() === "RUN") {
-
-                            //$.post("/designer/program/start", function (data) {
-                            //    console.log("Program Started: " + data);
-                            //});
 
                             app.code = Blockly.CSharp.workspaceToCode(app.workspace); // C# code generation
                             $.post("/designer/program/start", app.code, function (data) {

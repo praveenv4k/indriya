@@ -17,6 +17,14 @@ namespace Experimot.Scheduler.Data
         public SensorData()
         {
             _jointValues = new JointValueVector();
+            for (int i = 0; i < 25; i++)
+            {
+                _jointValues.JointValues.Add(new JointValue
+                {
+                    id = i,
+                    value = 0.0
+                });
+            }
             _imu = new IMU();
             _sensorValues = new Dictionary<string, object>();
         }
