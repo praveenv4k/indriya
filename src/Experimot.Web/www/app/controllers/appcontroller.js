@@ -1,8 +1,13 @@
-﻿define(['app', 'backbone', 'marionette', 'models/robot', 'collections/drawables', 'marionette_threejs', 'poller'],
-    function (app, backbone, marionette, robot, drawables, m3Js,poller) {
+﻿define(['app', 'backbone', 'marionette', 'models/robot','models/jointvalues', 'collections/drawables', 'marionette_threejs', 'poller'],
+    function (app, backbone, marionette, robot,jointVals, drawables, m3Js,poller) {
         return backbone.Marionette.Controller.extend({
-            initialize: function (options) {
+            initialize: function(options) {
                 app.Drawables = new drawables();
+
+                this.listenTo(app.Drawables, "drawable:loaded", function(drawable) {
+                    app.kinematics = drawable.getKinematics();
+                });
+
                 app.renderer = new m3Js.ThreeJSRenderer({
                     collection: app.Drawables
                 });
@@ -14,11 +19,66 @@
                 app.robot = new robot();
 
                 app.robotpoller = poller.get(app.robot, this.pollerOptions());
-                app.robotpoller.on('error', function (model) {
+                app.robotpoller.on('error', function(model) {
                     globalCh.vent.trigger("serverCommunication", false);
-                    console.error('Error retrieving machine Status information from server!');
+                    console.error('Error retrieving Robot Status information from server!');
                 });
                 app.robotpoller.start();
+
+
+                // Test Joint values poller
+                var test_joint_options = {
+
+                    // default delay is 1000ms
+                    delay: 100,
+
+                    // run after a delayed interval. defaults to false
+                    // can be a boolean `true` to wait `delay` ms before starting or a number to override the wait period
+                    delayed: 3000,
+
+                    // do not stop the poller on error. defaults to false
+                    // `error` event is always fired even with this option on.
+                    continueOnError: false,
+
+                    // condition for keeping polling active (when this stops being true, polling will stop)
+                    //condition: function(model) {
+                    //    return model.id === -1;
+                    //}
+                }
+
+                var _this = this;
+                app.jointVals = new jointVals();
+
+                app.jointpoller = poller.get(app.jointVals, test_joint_options);
+                app.jointpoller.on('error', function (model) {
+                    globalCh.vent.trigger("serverCommunication", false);
+                    console.error('Error retrieving Robot Status information from server!');
+                });
+                app.jointpoller.on('success', function(model) {
+                    //console.log(model.get("0"));
+                    _this.setJointVals(model);
+                    app.jointVals.id = app.jointVals.id + 1;
+                });
+                app.jointpoller.on('complete', function (model) {
+                    console.log("Done !!!");
+                    //app.jointVals.id = app.jointVals.id + 1;
+                });
+                app.jointpoller.start();
+            },
+
+            setJointVals: function(jointModel) {
+                if (jointModel != undefined && app.kinematics != undefined) {
+                    //console.log(jointModel);
+                    //console.log(jointModel.get(0));
+                    //console.log(this.degrees(jointModel.get(0)));
+                    for (var i = 0; i < 25; i++) {
+                        app.kinematics.setJointValue(i, this.degrees(jointModel.get(i)));
+                    }
+                }
+            },
+
+            degrees: function(radians) {
+                return radians * 180 / Math.PI;        
             },
 
             index: function () {

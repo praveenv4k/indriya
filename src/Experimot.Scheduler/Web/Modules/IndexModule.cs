@@ -81,6 +81,44 @@ namespace Experimot.Scheduler.Web.Modules
                 return (Response) HttpStatusCode.OK;
             };
 
+            Get["/human/{id}"] = _ =>
+            {
+                try
+                {
+                    var context = TinyIoCContainer.Current.Resolve<Context>();
+                    if (context != null)
+                    {
+                        int id = _.id;
+                        if (id >= 0 && id < context.Humans.Count)
+                        {
+                            return Response.AsJson(context.Humans[id]);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Log.InfoFormat("Exception :  {0} occured while processing request : {1}", ex.Message, Request.Url);
+                }
+                return (Response) HttpStatusCode.OK;
+            };
+
+            Get["/humans"] = parameters =>
+            {
+                try
+                {
+                    var context = TinyIoCContainer.Current.Resolve<Context>();
+                    if (context != null)
+                    {
+                        return Response.AsJson(context.Humans);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Log.InfoFormat("Exception occured while GET context : {0}", ex.Message);
+                }
+                return (Response)HttpStatusCode.OK;
+            };
+
             Get["/jointvals"] = parameters =>
             {
                 try
@@ -138,6 +176,30 @@ namespace Experimot.Scheduler.Web.Modules
                                 }
                     };
                     ////application/json
+                    return resp;
+                }
+                catch (Exception ex)
+                {
+                    Log.InfoFormat("Exception occured while GET jointvals : {0}", ex.Message);
+                }
+                return (Response)HttpStatusCode.OK;
+            };
+
+            Get["/testjointvals/{id}"] = parameters =>
+            {
+                try
+                {
+                    int id = parameters.id;
+                    string json = Tests.TestJointValues.Instance.GetJointValues(id);
+                    var resp = new Response()
+                    {
+                        ContentType = "application/json",
+                        Contents = s =>
+                        {
+                            var bytes = Encoding.UTF8.GetBytes(json);
+                            s.Write(bytes, 0, bytes.Length);
+                        }
+                    };
                     return resp;
                 }
                 catch (Exception ex)

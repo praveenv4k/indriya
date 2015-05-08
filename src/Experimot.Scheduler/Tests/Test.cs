@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Common.Logging;
 using Experimot.Core;
 using Experimot.Core.Util;
 using Experimot.Scheduler.Scriptcs;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Experimot.Scheduler.Tests
@@ -120,6 +122,73 @@ namespace Experimot.Scheduler.Tests
                 outputPath = Environment.ExpandEnvironmentVariables(outputPath);
                 ProgramGenerator.GeneratePrograms(behavior, outputPath);
             }
+        }
+    }
+
+    internal class TestJointValues
+    {
+        private TestJointValues()
+        {
+            var dict = new Dictionary<int, int>()
+            {
+                {0, 1},
+                {1, 0},
+                {2, 9},
+                {3, 8},
+                {4, 7},
+                {5, 10},
+                {6, 2},
+                {7, 3},
+                {8, 11},
+                {9, 12},
+                {10, 5},
+                {11, 4},
+                {12, 13},
+                {13, 6},
+                {14, 20},
+                {15, 19},
+                {16, 21},
+                {17, 14},
+                {18, 15},
+                {19, 22},
+                {20, 23},
+                {21, 17},
+                {22, 16},
+                {23, 24},
+                {24, 18},
+            };
+            var lines = System.IO.File.ReadAllLines(@"datalog.csv");
+            var csv = lines.Select(line => line.Split(',')).ToList(); // or, List<YourClass>
+            _jointList = new List<List<double>>();
+            for (int i = 0; i < csv.Count; i++)
+            {
+                if (i == 0) continue;
+                //var list = new IndexVal() {id = i + 1};
+                var list = new List<double>();
+                for (int j = 4; j < 29; j++)
+                {
+                    list.Add(double.Parse(csv[i][dict[j - 4] + 4]));
+                }
+                _jointList.Add(list);
+            }
+        }
+
+        private static TestJointValues _instance;
+        private readonly List<List<double>> _jointList;
+
+        public static TestJointValues Instance
+        {
+            get { return _instance ?? (_instance = new TestJointValues()); }
+        }
+
+        public string GetJointValues(int id)
+        {
+            var ret = string.Empty;
+            if (_jointList != null && _jointList.Count > 0 && id >= 0 && id < _jointList.Count)
+            {
+                ret = JsonConvert.SerializeObject(_jointList[id]);
+            }
+            return ret;
         }
     }
 }
