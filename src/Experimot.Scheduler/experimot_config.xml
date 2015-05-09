@@ -145,6 +145,24 @@
         </subscribe>
       </subscribers>
     </node>
+    <node enabled="true" name="localization_logger">
+      <process>
+        <type>executable</type>
+        <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Localization.Logger\Experimot.Localization.Logger.exe</path>
+        <args></args>
+      </process>
+      <parameters>
+      </parameters>
+      <subscribers>
+        <subscribe>
+          <host>tcp://localhost</host>
+          <port>5566</port>
+          <topic>TPP</topic>
+          <msg_type>Pose</msg_type>
+          <name>TorsoPoseListener</name>
+        </subscribe>
+      </subscribers>
+    </node>
     <node enabled="true" name="robot_interface">
       <process>
         <type>executable</type>
