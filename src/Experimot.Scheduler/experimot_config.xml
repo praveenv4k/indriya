@@ -23,14 +23,14 @@
     <param key="MainProgramFilePath" value="%DEV_SDK_ROOT%\experimot\bin\scriptcs\main.csx" type="string"/>
   </parameters>
   <nodes>
-    <node enabled="false" name="localization">
+    <node enabled="true" name="localization">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\experimot_localization.exe</path>
         <args></args>
       </process>
       <parameters>
-        <param key="cube_size" value="65" type="int"/>
+        <param key="cube_size" value="80" type="int"/>
         <param key="marker_size" value="60" type="int"/>
         <param key="comm_timeout" value="100" type="int"/>
         <param key="calib_file" value="camera_calibration_kinect_1600.xml" type="string"/>
@@ -62,7 +62,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="true" name="gesture_recognition">
+    <node enabled="false" name="gesture_recognition">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Perception\Experimot.Kinect.Perception.exe</path>
@@ -163,7 +163,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="true" name="robot_interface">
+    <node enabled="false" name="robot_interface">
       <process>
         <type>executable</type>
         <path>python.exe</path>
@@ -190,7 +190,7 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_zmq_plot_client.py</args>
       </process>
     </node>
-    <node enabled="true" name="nao_behavior_manager">
+    <node enabled="false" name="nao_behavior_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>
