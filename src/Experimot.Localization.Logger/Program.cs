@@ -46,32 +46,43 @@ namespace Experimot.Localization.Logger
             {
                 Console.WriteLine("Retrieving the parameter from server failed");
             }
-            if (info != null)
+            try
             {
-                Console.WriteLine("Press Enter to start collecting information!");
-                Console.Read();
-                Task<IList<experimot.msgs.Pose>> logTask = Task.Factory.StartNew(() => LogLocalizationInfo(info));
-                Console.WriteLine("Press enter to stop logging !");
-                Console.Read();
-                _stopTask = true;
-                Console.WriteLine("Enter the file name to which the data has to be saved");
-                string fileName = Console.ReadLine();
-                if (!string.IsNullOrEmpty(fileName))
+                if (info != null)
                 {
-                    using (var writer = File.CreateText(fileName))
+                    Console.WriteLine("Press Enter to start collecting information!");
+                    string c = Console.ReadLine();
+                    Task<IList<experimot.msgs.Pose>> logTask = Task.Factory.StartNew(() => LogLocalizationInfo(info));
+                    Console.WriteLine("Enter stop to stop logging !");
+                    string dummy = Console.ReadLine();
+                    //Console.WriteLine("Received stop !");
+                    //if (dummy == "stop")
+                    //{
+                        _stopTask = true;
+                        
+                    //}
+                    logTask.Wait();
+                    Console.WriteLine("Enter the file name to which the data has to be saved");
+                    string fileName = Console.ReadLine();
+                    if (!string.IsNullOrEmpty(fileName))
                     {
-                        using (var csv = new CsvWriter(writer))
+                        using (var writer = File.CreateText(fileName))
                         {
-                            csv.WriteRecords(logTask.Result);
-                        }
+                            using (var csv = new CsvWriter(writer))
+                            {
+                                csv.WriteRecords(logTask.Result);
+                            }
 
+                        }
                     }
                 }
-                logTask.Wait();
             }
-            else
+            catch (Exception ex)
             {
+                Console.WriteLine("Exception : {0}", ex.StackTrace);
             }
+            Console.WriteLine("About to exit. Press enter to close the console window.");
+            Console.Read();
         }
 
         private static IList<Pose> LogLocalizationInfo(object info)
@@ -83,22 +94,32 @@ namespace Experimot.Localization.Logger
                 Subscribe subscriber = nodeInfo.subscriber.FirstOrDefault(subscribe => subscribe.msg_type == "Pose");
                 if (subscriber != null)
                 {
-                    while (!_stopTask)
+                    Console.WriteLine("Creating context");
+                    using (var context = NetMQContext.Create())
                     {
-                        using (var context = NetMQ.NetMQContext.Create())
+                        Console.WriteLine("Creating socket");
+                        using (var socket = context.CreateSubscriberSocket())
                         {
-                            using (var socket = context.CreateSubscriberSocket())
+                            var addr = string.Format("{0}:{1}", subscriber.host, subscriber.port);
+                            Console.WriteLine("Connecting to {0}", addr);
+                            socket.Connect(addr);
+                            Console.WriteLine("Subscribing to {0}", subscriber.topic);
+                            socket.Subscribe(subscriber.topic);
+                            while (!_stopTask)
                             {
-                                var addr = string.Format("{0}:{1}", subscriber.host, subscriber.port);
-                                socket.Connect(addr);
-
-                                byte[] msg = socket.Receive();
-                                if (msg != null && msg.Length > 0)
+                                var topic = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, 100));
+                                if (topic != null)
                                 {
-                                    using (var memStream = new MemoryStream(msg))
+
+                                    byte[] msg = socket.Receive();
+                                    if (msg != null)
                                     {
-                                        var pose = Serializer.Deserialize<Pose>(memStream);
-                                        poseList.Add(pose);
+                                        using (var memStream = new MemoryStream(msg))
+                                        {
+                                            var pose = Serializer.Deserialize<Pose>(memStream);
+                                            Console.Write(".");
+                                            poseList.Add(pose);
+                                        }
                                     }
                                 }
                             }
@@ -106,7 +127,16 @@ namespace Experimot.Localization.Logger
                         System.Threading.Thread.Sleep(50);
                     }
                 }
+                else
+                {
+                    Console.WriteLine("No valid publisher of Pose");
+                }
             }
+            else
+            {
+                Console.WriteLine("Node info empty");
+            }
+            Console.WriteLine("Completing the logging task");
             return poseList;
         }
 
