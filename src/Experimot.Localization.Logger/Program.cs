@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using CommandLine;
 using CsvHelper;
@@ -44,7 +43,7 @@ namespace Experimot.Localization.Logger
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Retrieving the parameter from server failed");
+                Console.WriteLine("Retrieving the parameter from server failed : {0}",ex.StackTrace);
             }
             try
             {
@@ -52,7 +51,7 @@ namespace Experimot.Localization.Logger
                 {
                     Console.WriteLine("Press Enter to start collecting information!");
                     string c = Console.ReadLine();
-                    Task<IList<experimot.msgs.Pose>> logTask = Task.Factory.StartNew(() => LogLocalizationInfo(info));
+                    Task<IList<Pose>> logTask = Task.Factory.StartNew(() => LogLocalizationInfo(info));
                     Console.WriteLine("Enter stop to stop logging !");
                     string dummy = Console.ReadLine();
                     //Console.WriteLine("Received stop !");
