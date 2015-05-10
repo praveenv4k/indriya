@@ -105,6 +105,7 @@ namespace Experimot.Localization.Logger
                             socket.Connect(addr);
                             Console.WriteLine("Subscribing to {0}", subscriber.topic);
                             socket.Subscribe(subscriber.topic);
+                            uint id = 1;
                             while (!_stopTask)
                             {
                                 var topic = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, 100));
@@ -117,6 +118,8 @@ namespace Experimot.Localization.Logger
                                         using (var memStream = new MemoryStream(msg))
                                         {
                                             var pose = Serializer.Deserialize<Pose>(memStream);
+                                            pose.id = id++;
+                                            pose.name = DateTime.Now.Ticks.ToString();
                                             Console.Write(".");
                                             poseList.Add(pose);
                                         }
