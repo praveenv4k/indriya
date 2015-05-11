@@ -152,6 +152,7 @@
         <args></args>
       </process>
       <parameters>
+        <param key="tdm_server_port" value="5700" type="int"/>
       </parameters>
       <subscribers>
         <subscribe>

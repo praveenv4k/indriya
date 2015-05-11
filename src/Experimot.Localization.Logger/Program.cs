@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using CommandLine;
 using CsvHelper;
 using experimot.msgs;
+using Experimot.Core.Util;
 using NetMQ;
+using Newtonsoft.Json.Linq;
 using ProtoBuf;
 
 namespace Experimot.Localization.Logger
@@ -19,6 +21,14 @@ namespace Experimot.Localization.Logger
         [Option('p', "param", DefaultValue = "tcp://localhost:5560",
             HelpText = "This is the address of parameter server!")]
         public string ParameterServer { get; set; }
+    }
+
+    internal class PlanarPose
+    {
+        public long TimeStamp { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Theta { get; set; }
     }
 
     internal class Program
@@ -43,24 +53,35 @@ namespace Experimot.Localization.Logger
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Retrieving the parameter from server failed : {0}",ex.StackTrace);
+                Console.WriteLine("Retrieving the parameter from server failed : {0}", ex.StackTrace);
             }
             try
             {
                 if (info != null)
                 {
-                    Console.WriteLine("Press Enter to start collecting information!");
+                    Console.WriteLine("Enter 0 for 6D pose and 1 for pose on a plane!");
                     string c = Console.ReadLine();
-                    Task<IList<Pose>> logTask = Task.Factory.StartNew(() => LogLocalizationInfo(info));
+                    Task<IList<Pose>> logTask = null;
+                    Task<IList<PlanarPose>> logPlanarTask = null;
+                    if (c == "0")
+                    {
+                        logTask = Task.Factory.StartNew(() => LogLocalizationInfo(info));
+                    }
+                    else
+                    {
+                        logPlanarTask = Task.Factory.StartNew(() => LogPlanarLocalizationInfo(info));
+                    }
                     Console.WriteLine("Enter stop to stop logging !");
+
                     string dummy = Console.ReadLine();
                     //Console.WriteLine("Received stop !");
                     //if (dummy == "stop")
                     //{
-                        _stopTask = true;
-                        
+                    _stopTask = true;
+
                     //}
-                    logTask.Wait();
+                    if (logTask != null) logTask.Wait();
+                    if (logPlanarTask != null) logPlanarTask.Wait(new TimeSpan(0, 0, 5));
                     Console.WriteLine("Enter the file name to which the data has to be saved");
                     string fileName = Console.ReadLine();
                     if (!string.IsNullOrEmpty(fileName))
@@ -69,7 +90,14 @@ namespace Experimot.Localization.Logger
                         {
                             using (var csv = new CsvWriter(writer))
                             {
-                                csv.WriteRecords(logTask.Result);
+                                if (logTask != null)
+                                {
+                                    csv.WriteRecords(logTask.Result);
+                                }
+                                if (logPlanarTask != null)
+                                {
+                                    csv.WriteRecords(logPlanarTask.Result);
+                                }
                             }
 
                         }
@@ -127,6 +155,60 @@ namespace Experimot.Localization.Logger
                             }
                         }
                         System.Threading.Thread.Sleep(50);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No valid publisher of Pose");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Node info empty");
+            }
+            Console.WriteLine("Completing the logging task");
+            return poseList;
+        }
+
+        private static IList<PlanarPose> LogPlanarLocalizationInfo(object info)
+        {
+            IList<PlanarPose> poseList = new List<PlanarPose>();
+            Node nodeInfo = info as Node;
+            if (nodeInfo != null)
+            {
+                var port = ParameterUtil.Get(nodeInfo.param, "tdm_server_port", 0);
+                if (port != 0)
+                {
+                    using (var context = NetMQContext.Create())
+                    {
+                        Console.WriteLine("Creating socket");
+                        using (var socket = context.CreateRequestSocket())
+                        {
+                            var addr = string.Format("tcp://localhost:{0}", port);
+                            Console.WriteLine("Connecting to {0}", addr);
+                            socket.Connect(addr);
+                            //uint id = 1;
+                            while (!_stopTask)
+                            {
+                                socket.Send("pose");
+                                var pose = socket.ReceiveString();
+                                var jObj = JObject.Parse(pose);
+                                var jPos = jObj.SelectToken("$.pos");
+                                var jOrient = jObj.SelectToken("$.orient");
+                                var planarPose = new PlanarPose()
+                                {
+                                    TimeStamp = DateTime.Now.Ticks,
+                                    X = jPos.Value<double>("x"),
+                                    Y = jPos.Value<double>("y"),
+                                    Theta = jOrient.Value<double>("z")
+                                };
+                                //Console.WriteLine("x: {0}, y: {1}, theta: {2}, pose:{3}", planarPose.X, planarPose.Y,
+                                //    planarPose.Theta, pose);
+                                Console.Write(".");
+                                poseList.Add(planarPose);
+                                //System.Threading.Thread.Sleep(50);
+                            }
+                        }
                     }
                 }
                 else
