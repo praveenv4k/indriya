@@ -23,6 +23,22 @@ namespace Experimot.Core.Util
             return ret;
         }
 
+        public static T Get<T>(IList<Param> parameters, string key, T defaultValue)
+        {
+            var ret = defaultValue;
+
+            if (parameters != null && parameters.Count > 0)
+            {
+                var paramExist = parameters.FirstOrDefault(s => s.key == key);
+                if (paramExist != null)
+                {
+                    ret = (T)Convert.ChangeType(paramExist.value, defaultValue.GetType());
+                }
+            }
+
+            return ret;
+        }
+
         public static IList<string> GetCsvList(IList<param_type> parameters, string key, string defaultValue)
         {
             IList<string> ret = new List<string>();
