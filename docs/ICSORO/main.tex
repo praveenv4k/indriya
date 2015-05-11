@@ -22,24 +22,22 @@ Associate Professor, Tokyo University of Agriculture and Technology, Japan\\
 
 \maketitle   
 \begin{abstract}
-	Humans interacting with intelligent robots has been seen as a potential game changer of the future. In a step towards such a promising future where robots coexist with humans in a social environment, understanding not only verbal communication, but also non-verbal communication is extremely inevitable. The non-verbal communication carries information such as intention, emotion and health of a human, that would adds value to the way robots participate in an interaction. Additionally, the people who design interaction scenarios are from diverse fields who does not essentially have the robot programming skills. In this paper we propose an intuitive programming paradigm which is easy to use while at the same time gives the power to design robot behaviors taking into account human motions. We present a distributed architecture which gives the capability to plugin multimodal motion recognition systems and diverse class of robots. We present the results using kinect sensor as motion recognition system working seemlessly with Nao humanoid robot exploiting our intuitive programming interface.  \dots
-\keywords{human robot interaction, motion recognition, robot behaviors}
+	Humans interacting with intelligent robots has been seen as a potential game changer of the future. In scenarios where robots coexist with humans in a social environment, understanding not only verbal communication, but also non-verbal communication is extremely inevitable. The non-verbal communication carries information such as intention, emotion and health of a human, that adds value to the way robots participate in an interaction. Additionally, the people who design interaction scenarios are from diverse fields who do not essentially have the required robot programming skills. In this paper we propose an easy to use and intuitive programming paradigm which gives the power to design robot behaviors taking into account human motions. We propose a distributed architecture which gives the capability to plug and play multimodal motion recognition systems and diverse class of robots. We present results of Nao humanoid robot performing actions understanding human motions using kinect motion recognition system.
+\keywords{human robot interaction, motion recognition, robot behaviors, kinect, nao}
 \end{abstract}
 %
 \section{Introduction}
 %
-With this chapter, the preliminaries are over, and we begin the search
-for periodic solutions to Hamiltonian systems. All this will be done in
-the convex case; that is, we shall study the boundary-value problem
-\begin{eqnarray*}
-  \dot{x}&=&JH' (t,x)\\
-  x(0) &=& x(T)
-\end{eqnarray*}
-with $H(t,\cdot)$ a convex function of $x$, going to $+\infty$ when
-$\left\|x\right\| \to \infty$.
+Human-Robot interaction (HRI) has emerged as the most promising fields in the recent years owing to its immense potential in the fields of education, entertainment, elderly care and rehabilitation. HRI is a challenging research field at the intersection of psychology, cognitive science, social sciences, artificial intelligence, computer science, robotics, engineering and human-computer interaction\cite{Dautenhahn2007}. Goodrich\cite{Goodrich:2007:HIS:1348099.1348100} in his extensive survey proposed two main types of HRI namely Remote interaction/ Tele-operation and Proximate interaction. The latter is particularly important where the humans and the robots are co-located (for example, service robots may be in the same room as humans). Proximate interaction has gained importance due to the successful encounters of putting robots to work with human beings. It has led to the development of a new class of robots called Social Robots. Fong et al. \cite{Fong2003} define that social robots are able to recognize each other and engage in social interactions; Breazeal et al.\cite{Breazeal:2002:DSR:515422} explain that a social robot is a robot which is able to communicate with humans in a personal way; Bartneck and Forlizzi \cite{Bartneck2004} describe that a social robot is an autonomous or semi-autonomous robot that interacts with humans by following some social behaviors; Hegel et al. \cite{Hegel2009} define that a social robot is a combination of a robot and a social interface. Summarizing all these Yan et al. \cite{Yan2014} defines “A social robot is a robot which can execute designated tasks and the necessary condition turning a robot into a social robot is the ability to interact with humans by adhering to certain social cues and rules.”
+
+The social robots already entered the human spaces as entertainers, educators[3] and caring agents[1]. Given that social robotics has emerged as a promising field, designing and developing interaction systems need to be approached in a systematic manner wherein the robots should be able to understand and interact with the environment (man and materials) in a better way. To make it possible it is necessary to develop robotic systems with essential cognitive skills for efficient and natural interaction. Most often the onboard sensors on the robots fail to satisfy this demanding requirement. Hence consideration of using exteroceptive sensors to this purpose is important.
+
+The HRI designers are from diverse backgrounds. So the tools needed to design behaviors of a social robot should be intuitive and user friendly. However when it comes to designing complex behaviors, traditional flow chart based approaches[2] increase the cognitive load of the users as they have to hand tailor all the data flow and reactiveness. More efficient tools are needed which could tackle this issue.
+
+The main contribution of this paper will be to develop an application independent experimental platform wherein a social robot will be equipped with essential perceptual ability to understand human motions. The behavior design of such a social robot will be made possible by efficient behavioral framework. The experimental platform will be used to design and evaluate the interaction between the social robot and the human.
 
 %
-\subsection{Autonomous Systems}
+\section{Previous work}
 %
 In this section, we will consider the case when the Hamiltonian $H(x)$
 is autonomous. For the sake of simplicity, we shall also assume that it
@@ -401,8 +399,9 @@ Sect.~5.2 of this article.
 %
 % ---- Bibliography ----
 %
-\begin{thebibliography}{5}
+%\begin{thebibliography}{5}
 %
+\bibliographystyle{plain}
 \bibliography{Bibliography}
 %\bibitem {clar:eke}
 %Clarke, F., Ekeland, I.:
@@ -433,5 +432,5 @@ Sect.~5.2 of this article.
 %On subharmonic solutions of a Hamiltonian system.
 %Comm. Pure Appl. Math. 33, 609--633 (1980)
 
-\end{thebibliography}
+%\end{thebibliography}
 \end{document}
