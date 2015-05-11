@@ -987,4 +987,85 @@
     \end{longtable}
 \end{center}
 
+\newpage
+\section{2015/05/11-2015/05/17}
+
+\begin{center}
+    \begin{longtable}{ | c | p{6cm} | p{5cm} |}
+    \hline
+    Date & Content & Problems/Remarks \\ 
+    \endhead
+    \hline    
+     2015/05/11         & 
+  \begin{itemize}
+  \item Lab meeting and Meeting with Mr. Vincent Berenz
+  \item Implemented Planar pose logger
+  \item Started consolidating bibliographic references for ICSORO 2015
+\end{itemize}  
+   & - \\
+\hline
+  										 
+ 2015/05/12         & 
+  \begin{itemize}
+  \item Main program generation using APScheduler and tested for simple gesture to behavior workflow. APScheduler does not work for immediate triggers
+  \item Started trying out scriptcs which will enable running csharp programs as scripts. Made sample program. Need to incorporate automatic generation of code from the blockly program
+  \item Minor improvements and refactoring
+\end{itemize}   
+& 
+ \\
+\hline
+  										 
+  
+  2015/05/13        & 
+  \begin{itemize}
+  \item Scriptcs - Main program generation. Made individual scripts for helper classes
+  \item Tested auto generation for a given Gesture-Behavior mapping and confirmed the execution. Works well
+  \end{itemize}   
+  										 & 
+ 
+  										 \\
+  \hline
+  
+  2015/05/14         & 
+  \begin{itemize}
+  \item Blockly csharp code generation bug fixes
+  \item Automatic code generation from the blockly.
+  \item The blockly block information is sent as JSON string to the server and the server parses the string to dynamically generate the program. Works pretty well
+  \item Support for multiple behavior execution in sequence :)
+  \item Start and Stop program from the web client
+  \item First important milestone reached :)
+  \end{itemize}
+  & 
+\\  										 \hline
+
+  2015/05/15         & 
+  \begin{itemize}
+  \item Created a more sleek behavior definition block.
+  \item NetMq pre-release install. Better performance and no exception occurs while application exit
+  \item Simulation of robot in the new web interface using the real joint values. Added necessary AJAX interfaces to access the joint values
+  \item Tested the behavior execution workflow with the real robot. Works just fine :)
+  \item Prepared presentation
+\end{itemize}   
+  & 
+\\
+  										 \hline
+  										 
+	 2015/05/16         & 
+  \begin{itemize}
+  \item Localization information logger node development and testing. CSV export of the collected pose data.
+  \end{itemize}
+  & 
+		\\					 \hline  	
+
+	 2015/05/17         & 
+  \begin{itemize}
+  \item Plotting the collected localization log. Need to collect more data and perform more tests.
+  \end{itemize}
+  & 
+		\\					 \hline  	
+										 
+  										   								 
+    \end{longtable}
+\end{center}
+
 \end{document}
