@@ -72,6 +72,7 @@ namespace Experimot.Localization.Logger
             {
                 if (info != null)
                 {
+                    Task writeSkeleton = Task.Factory.StartNew(() => LogKinectSkeleton(info));
                     Console.WriteLine("Enter 0 for 6D pose and 1 for pose on a plane!");
                     string c = Console.ReadLine();
                     Task<IList<Pose>> logTask = null;
@@ -251,6 +252,57 @@ namespace Experimot.Localization.Logger
             }
             Console.WriteLine("Completing the logging task");
             return poseList;
+        }
+
+        private static void LogKinectSkeleton(object info)
+        {
+            Console.Write("Sleep for 5 seconds");
+            System.Threading.Thread.Sleep(5000);
+            Console.Write("Start processing...");
+            Node nodeInfo = info as Node;
+            if (nodeInfo != null)
+            {
+                Subscribe subscriber =
+                    nodeInfo.subscriber.FirstOrDefault(subscribe => subscribe.msg_type == "KinectBodies");
+                if (subscriber != null)
+                {
+                    using (var context = NetMQContext.Create())
+                    {
+                        Console.WriteLine("Creating socket");
+                        using (var socket = context.CreateSubscriberSocket())
+                        {
+                            var addr = string.Format("{0}:{1}", subscriber.host, subscriber.port);
+                            Console.WriteLine("Connecting to {0}", addr);
+                            socket.Connect(addr);
+                            Console.WriteLine("Subscribing to {0}", subscriber.topic);
+                            socket.Subscribe(subscriber.topic);
+                            uint id = 1;
+                            while (!_stopTask)
+                            {
+                                var topic = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, 100));
+                                if (topic != null)
+                                {
+
+                                    byte[] msg = socket.Receive();
+                                    if (msg != null)
+                                    {
+                                        using (var memStream = new MemoryStream(msg))
+                                        {
+                                            var bodies = Serializer.Deserialize<KinectBodies>(memStream);
+                                            using (var file = File.Create("skeleton.bin"))
+                                            {
+                                                Serializer.Serialize<KinectBodies>(file, bodies);
+                                            }
+                                            Console.Write("Written to file");
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         private static Node GetNodeInfo(string name, string server, int timeout = 1000)
