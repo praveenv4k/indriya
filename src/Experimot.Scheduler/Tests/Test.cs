@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using Common.Logging;
 using Experimot.Core;
 using Experimot.Core.Util;
 using Experimot.Scheduler.Scriptcs;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Quartz.Util;
 
 namespace Experimot.Scheduler.Tests
 {
@@ -122,6 +124,110 @@ namespace Experimot.Scheduler.Tests
                 outputPath = Environment.ExpandEnvironmentVariables(outputPath);
                 ProgramGenerator.GeneratePrograms(behavior, outputPath);
             }
+        }
+
+
+        public static void ReadBehaviorXmlFile(string xmlFile)
+        {
+            var root = XElement.Load(xmlFile);
+            //var doc = XmlDocumentUtil.RemoveXmlns(xmlFile);
+
+            var blocks = root.ElementsAnyNS("block");
+            Console.WriteLine(@"Number of behavior blocks : {0}", blocks.Count());
+
+            var motionBehaviorList = new List<MotionBasedBehavior>();
+            foreach (var block in blocks)
+            {
+                var type = block.Attribute("type");
+                if (type.Value == "behavior_sleek")
+                {
+                    var motionBehavior = new MotionBasedBehavior();
+                    var fields = block.ElementsAnyNS("field");
+                    foreach (var field in fields)
+                    {
+                        var nameAttribute = field.Attribute("name");
+                        if (nameAttribute != null)
+                        {
+                            if (nameAttribute.Value == "behavior_name")
+                            {
+                                motionBehavior.Name = field.Value;
+                            }
+                            else if (nameAttribute.Value == "priorities")
+                            {
+                                BehaviorExecutionPriority priority = BehaviorExecutionPriority.normal;
+                                Enum.TryParse(field.Value, out priority);
+                                motionBehavior.Priority = priority;
+                            }
+                            else if (nameAttribute.Value == "triggers")
+                            {
+                                motionBehavior.Trigger = field.Value;
+                            }
+                            else if (nameAttribute.Value == "confidence_levels")
+                            {
+                                int confidence = 90;
+                                int.TryParse(field.Value, out confidence);
+                                motionBehavior.ConfidenceLevel = confidence;
+                            }
+                        }
+                    }
+                    var statements = block.ElementsAnyNS("statement");
+                    var statementBlocks = statements.ElementsAnyNS("block").ToArray();
+                    for (int i = 0; i < statementBlocks.Length; i++)
+                    {
+                        var tempBlock = statementBlocks[i];
+                        var behaviorInfo = GetBehaviorInfo(tempBlock);
+                        if (behaviorInfo != null)
+                        {
+                            motionBehavior.RobotActions.Add(behaviorInfo);
+                            var nextBlock = tempBlock.ElementsAnyNS("next");
+                            while (nextBlock != null && nextBlock.Any())
+                            {
+                                var childBlock = nextBlock.ElementsAnyNS("block").FirstOrDefault();
+                                if (childBlock != null)
+                                {
+                                    behaviorInfo = GetBehaviorInfo(childBlock);
+                                    motionBehavior.RobotActions.Add(behaviorInfo);
+                                    Console.WriteLine(childBlock);
+                                    nextBlock = childBlock.ElementsAnyNS("next");
+                                    Console.WriteLine(nextBlock);
+                                }
+                                else
+                                {
+                                    nextBlock = null;
+                                }
+                            }
+                        }
+                    }
+                    motionBehaviorList.Add(motionBehavior);
+                }
+            }
+        }
+
+        public static BehaviorInfo GetBehaviorInfo(XElement behaviorBlock)
+        {
+            if (behaviorBlock != null)
+            {
+                var blockType = behaviorBlock.Attribute("type");
+                if (blockType.Value == "robot_action")
+                {
+                    var robotActions = behaviorBlock.ElementsAnyNS("field");
+                    if (robotActions != null)
+                    {
+                        foreach (var robotAction in robotActions)
+                        {
+                            var actionType = robotAction.Attribute("name");
+                            if (actionType.Value == "actions")
+                            {
+                                return new BehaviorInfo
+                                {
+                                    BehaviorName = robotAction.Value
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+            return null;
         }
     }
 

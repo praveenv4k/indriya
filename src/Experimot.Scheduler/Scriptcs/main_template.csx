@@ -31,6 +31,17 @@ else
 	var dict = new Dictionary<string,object>();
 	dict.Add("ContextServer",context_server);
 
+	var motionBehaviors = MainProgramUtil.ReadBehaviorXmlFile("behavior.xml");
+	foreach (var motionBehavior in motionBehaviors)
+        {
+            Console.WriteLine(@"Motion Behavior : {0}, Trigger : {1}, Confidence: {2}, Priority: {3}",
+                motionBehavior.Name, motionBehavior.Trigger, motionBehavior.ConfidenceLevel, motionBehavior.Priority);
+            foreach (var behaviorInfo in motionBehavior.RobotActions)
+            {
+                Console.WriteLine(@"\t -> Action Name : {0}", behaviorInfo.BehaviorName);
+            }
+        }
+
 	var gestBehaviorMap = new Dictionary<string, List<BehaviorInfo>>();
 
 	// The dynamic JSON string will be put here
