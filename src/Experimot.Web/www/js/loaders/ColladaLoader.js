@@ -880,7 +880,7 @@ THREE.ColladaLoader = function () {
 
 			},
 
-			setJointValue: function( jointIndex, value ) {
+			setJointValue: function( jointIndex, value, checkLimits ) {
 
 				var jointData = jointMap[ jointIndex ];
 
@@ -888,7 +888,7 @@ THREE.ColladaLoader = function () {
 
 					var joint = jointData.joint;
 
-					if ( value > joint.limits.max || value < joint.limits.min ) {
+					if ( checkLimits && (value > joint.limits.max || value < joint.limits.min) ) {
 
 						console.log( 'setJointValue: joint ' + jointIndex + ' value ' + value + ' outside of limits (min: ' + joint.limits.min + ', max: ' + joint.limits.max + ')' );
 
