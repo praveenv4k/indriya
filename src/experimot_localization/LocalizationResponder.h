@@ -25,7 +25,7 @@ public:
 		}
 	}
 
-	void Respond(Transform& torsoTransform, bool fullPose){
+	void Respond(Transform& torsoTransform,Transform& prevTransform, bool fullPose){
 		try{
 			if (m_pSocket != 0 && m_pSocket->connected()){
 				//std::cout << "Receiving request : " << std::endl;
@@ -34,7 +34,7 @@ public:
 					std::string req(static_cast<char*>(msg.data()), msg.size());
 					//std::cout << "Received request : " << req << std::endl;
 					std::string str;
-					toJson(torsoTransform, str, fullPose);
+					toJson(torsoTransform, prevTransform, str, fullPose);
 					s_send(*m_pSocket, str);
 				}
 			}
@@ -66,7 +66,7 @@ private:
 		Rx = roll; Ry = pitch; Rz = yaw;
 	}
 
-	void toJson(const Transform& tfm, string& str, bool fullPose = false){
+	void toJson(const Transform& tfm, const Transform& prevTransform, string& str, bool fullPose = false){
 		stringstream ss;
 		if (fullPose){
 			/*ss << "{ \"pos\" : {\"x\":" << tfm.trans.x << ", \"y\" :" << tfm.trans.y << ", \"z\" :" << tfm.trans.z << "}, \"orient\" : {\"w\":"
@@ -80,7 +80,12 @@ private:
 #if 0
 			ss << "{ \"pose\" : {\"x\":" << tfm.trans.z / 1000 << ", \"y\" :" << tfm.trans.x / 1000 << ", \"alpha\" :" << OpenRAVE::PI-Rx << "} }";
 #else
-			ss << "{ \"pos\" : {\"x\":" << tfm.trans.z / 1000 << ", \"y\" :" << tfm.trans.x / 1000 << "}, \"orient\" : {\"z\":" << OpenRAVE::PI - Rx << "} }";
+			OpenRAVE::dReal trans = (tfm.trans - prevTransform.trans).lengthsqr3();
+			OpenRAVE::dReal rot = (tfm.rot - prevTransform.rot).lengthsqr4();
+			ss << "{ \"pos\" : {\"x\":" << tfm.trans.z / 1000 << ", \"y\" :" << tfm.trans.x / 1000 << "}, " << 
+				    "\"orient\" : {\"z\":" << OpenRAVE::PI - Rx << "}, " <<
+					"\"error\" : {\"trans\":" << trans/1000 << ", \"rot\" :" << rot << "}, " <<
+					"\"euler\" : {\"Rx\":" << Rx << ", \"Ry\" :" << Ry << ", \"Rz\" :" << Rz << "} }";
 #endif
 		}
 		str = ss.str();

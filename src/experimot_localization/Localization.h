@@ -234,7 +234,7 @@ public:
 						m_MedianFilter.getMedian(markerTfm);
 
 						double distance = (markerTfm.rot - prevTfm.rot).lengthsqr4();
-						if (distance > 1e-4){
+						if (distance > 1){
 
 							b3Quaternion q1(prevTfm.rot[1], prevTfm.rot[2], prevTfm.rot[3], prevTfm.rot[0]);
 							b3Quaternion q2(markerTfm.rot[1], markerTfm.rot[2], markerTfm.rot[3], markerTfm.rot[0]);
@@ -511,7 +511,9 @@ public:
 #endif
 
 
-				m_pLocalizationResponderPtr->Respond(kinectTfm,false);
+				m_pLocalizationResponderPtr->Respond(kinectTfm, m_prevLocalizationTransform,false);
+
+				m_prevLocalizationTransform = kinectTfm;
 			}
 		}
 		m_TdmTimer.async_wait(strand_.wrap(boost::bind(&Localization::LocalizationRespond, this)));
@@ -562,6 +564,8 @@ private:
 	RobotPoseInfoPtr m_pRobotPoseInfoPtr;
 	KinectVideoCapture m_VideoCapture;
 	//TorsoPoseFilter m_poseFilter;
+
+	Transform m_prevLocalizationTransform;
 
 	MedianFilter m_MedianFilter;
 #ifdef USE_PARTICLE_FILTER
