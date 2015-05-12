@@ -80,7 +80,7 @@ public class MainProgram
                     {
                         bool active = gesture.Value<bool>("Active");
                         int confidence = gesture.Value<int>("Confidence");
-                        if (active && confidence > 95)
+                        if (active && confidence > motionBehavior.ConfidenceLevel)
                         {
                             ret.Add(motionBehavior);
                             Console.WriteLine(@"Name : {0}, Confidence: {1}", name, confidence);
