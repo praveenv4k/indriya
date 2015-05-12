@@ -13,7 +13,7 @@
     <param key="WebServerPort" value="8888" type="int"/>
     <param key="WebServerHost" value="http://localhost" type="int"/>
     <param key="ROBOTIP" value="127.0.0.1" type="string"/>
-    <param key="ROBOTPORT" value="60342" type="int"/>
+    <param key="ROBOTPORT" value="52459" type="int"/>
     <!--<param key="ROBOTIP" value="192.168.11.3" type="string"/>
     <param key="ROBOTPORT" value="9559" type="int"/>-->
     <param key="ContextServerHost" value="tcp://*" type="string"/>
@@ -21,6 +21,7 @@
     <param key="ContextServerPort" value="5800" type="int"/>
     <param key="ContextServerInterval" value="10" type="int"/>
     <param key="MainProgramFilePath" value="%DEV_SDK_ROOT%\experimot\bin\scriptcs\main.csx" type="string"/>
+    <param key="MainProgramFolder" value="%DEV_SDK_ROOT%\experimot\bin\scriptcs\" type="string"/>
   </parameters>
   <nodes>
     <node enabled="false" name="localization">
@@ -62,7 +63,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false" name="gesture_recognition">
+    <node enabled="true" name="gesture_recognition">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Perception\Experimot.Kinect.Perception.exe</path>
@@ -191,7 +192,7 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_zmq_plot_client.py</args>
       </process>
     </node>
-    <node enabled="false" name="nao_behavior_manager">
+    <node enabled="true" name="nao_behavior_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>

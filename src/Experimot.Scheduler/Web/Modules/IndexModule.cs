@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Common.Logging;
+using Experimot.Core;
+using Experimot.Core.Util;
 using Nancy;
 using Nancy.TinyIoc;
 using Newtonsoft.Json;
@@ -189,6 +191,40 @@ namespace Experimot.Scheduler.Web.Modules
                 else
                 {
                     
+                }
+                return (Response)HttpStatusCode.NotModified;
+            };
+
+            Post["/designer/program/startxml"] = parameters =>
+            {
+                Log.InfoFormat("POST  : {0}", Request.Url);
+                if (Request.Body != null)
+                {
+                    using (var reader = new StreamReader(Request.Body))
+                    {
+                        string result = reader.ReadToEnd();
+                        var config = TinyIoCContainer.Current.Resolve<experimot_config>();
+                        var outputPath = ParameterUtil.Get(config.parameters, "MainProgramFolder", "");
+                        if (!string.IsNullOrEmpty(outputPath))
+                        {
+                            File.WriteAllText(
+                                Path.Combine(Environment.ExpandEnvironmentVariables(outputPath), "behavior.xml"), result);
+
+                            var bootStrapper = TinyIoCContainer.Current.Resolve<BootStrapper>();
+                            if (bootStrapper != null && !string.IsNullOrEmpty(result))
+                            {
+                                //bootStrapper.RequestMainProgramGeneration(result);
+                                bootStrapper.MainProgramExecutionRequest(ExecutionRequest.Start);
+                                return (Response) HttpStatusCode.OK;
+                            }
+                        }
+                        Log.InfoFormat("Body  : {0}", result);
+
+                    }
+                }
+                else
+                {
+
                 }
                 return (Response)HttpStatusCode.NotModified;
             };
