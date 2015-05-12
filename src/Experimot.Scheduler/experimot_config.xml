@@ -146,7 +146,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false" name="localization_logger">
+    <node enabled="true" name="localization_logger">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Localization.Logger\Experimot.Localization.Logger.exe</path>
@@ -162,6 +162,13 @@
           <topic>TPP</topic>
           <msg_type>Pose</msg_type>
           <name>TorsoPoseListener</name>
+        </subscribe>
+        <subscribe>
+          <host>tcp://localhost</host>
+          <port>5570</port>
+          <topic>KSP</topic>
+          <msg_type>KinectBodies</msg_type>
+          <name>KinectBodyPublisher</name>
         </subscribe>
       </subscribers>
     </node>
@@ -192,7 +199,7 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_zmq_plot_client.py</args>
       </process>
     </node>
-    <node enabled="true" name="nao_behavior_manager">
+    <node enabled="false" name="nao_behavior_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>
