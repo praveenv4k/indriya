@@ -23,7 +23,7 @@
     <param key="MainProgramFilePath" value="%DEV_SDK_ROOT%\experimot\bin\scriptcs\main.csx" type="string"/>
   </parameters>
   <nodes>
-    <node enabled="true" name="localization">
+    <node enabled="false" name="localization">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\experimot_localization.exe</path>
@@ -145,7 +145,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="true" name="localization_logger">
+    <node enabled="false" name="localization_logger">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Localization.Logger\Experimot.Localization.Logger.exe</path>
