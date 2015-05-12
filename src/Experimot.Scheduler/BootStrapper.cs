@@ -40,6 +40,7 @@ namespace Experimot.Scheduler
             //Tests.Test.TestJson(JsonConvert.SerializeObject(config));
             //Tests.Test.TestProgramGeneration(config);
             Tests.Test.TestJsonToProgram(config);
+            //Tests.Test.ReadBehaviorXmlFile("sample_xml.xml");
 
             var context = new Context();
             TinyIoCContainer.Current.Register(context);

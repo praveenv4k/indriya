@@ -11,10 +11,10 @@ goog.require('Blockly.Blocks');
  * @return {string} Non-colliding name.
  */
 Blockly.Blocks.behaviors.findLegalName = function (name, block) {
-    //if (block.isInFlyout) {
-    //    // Flyouts can have multiple behaviors called 'behavior'.
-    //    return name;
-    //}
+    if (block.isInFlyout) {
+        // Flyouts can have multiple behaviors called 'behavior'.
+        return name;
+    }
     while (!Blockly.Blocks.behaviors.isLegalName(name, block.workspace, block)) {
         // Collision with another behavior.
         var r = name.match(/^(.*?)(\d+)$/);
@@ -144,6 +144,10 @@ Blockly.Blocks['behavior'] = {
         var name = Blockly.Blocks.behaviors.findLegalName(nameText, this);
         var nameField = new Blockly.FieldTextInput(name,
             Blockly.Blocks.behaviors.rename);
+
+        if (name !== nameText) {
+            console.log("Resolved name : " + name);
+        }
         this.setHelpUrl('http://www.example.com/');
         this.setColour(300);
         this.appendDummyInput()

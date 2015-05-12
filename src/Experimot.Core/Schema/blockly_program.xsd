@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           >
+  
+  <xs:complexType name="block">
+    <xs:sequence>
+      <xs:element name="field" type="field" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="statement" type="statement" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="next" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="block" minOccurs="0" maxOccurs="1" type="block">
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string" use="required" />
+    <xs:attribute name="id" type="xs:int" use="required"/>
+    <xs:attribute name="x" type="xs:int" />
+    <xs:attribute name="y" type="xs:int" />
+  </xs:complexType>
+  
+  <!--<xs:complexType name="nested_blocks">
+    <xs:sequence>
+      <xs:element name="host" type="xs:string"/>
+      <xs:element name="port" type="xs:int" />
+      <xs:element name="topic" type="xs:string" />
+      <xs:element name="msg_type" type="xs:string" />
+      <xs:element name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>-->
+  
+  <xs:complexType name="field">
+    <xs:attribute name="name" type="xs:string"/>
+  </xs:complexType>
+
+ 
+  <xs:complexType name="statement">
+    <xs:sequence>
+      <xs:element name="block" minOccurs="0" maxOccurs="1" type="block"/>
+      <xs:element name="next" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="block" minOccurs="0" maxOccurs="1" type="block">
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  
+  
+  <xs:element name="block" type="block" >
+  </xs:element>
+</xs:schema>
