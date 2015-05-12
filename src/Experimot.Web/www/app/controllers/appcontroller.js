@@ -84,7 +84,7 @@
             setJointVals: function(jointModel) {
                 if (jointModel != undefined && app.kinematics != undefined) {
                     for (var i = 0; i < 25; i++) {
-                        app.kinematics.setJointValue(i, this.degrees(jointModel.get(i)));
+                        app.kinematics.setJointValue(i, this.degrees(jointModel.get(i)),false);
                     }
                 }
             },
@@ -175,6 +175,11 @@
                         $.post("/designer/program/code", app.code, function (data) {
                             console.log("Sent Program: " + data);
                         });
+                        console.log(app.code);
+
+                        app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
+                        var xmlText = Blockly.Xml.domToPrettyText(app.codeXmlDom);
+                        console.log(xmlText);
                         console.log(app.code);
                     }
                 });
