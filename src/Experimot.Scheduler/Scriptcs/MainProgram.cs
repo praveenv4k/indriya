@@ -63,69 +63,99 @@ public class MainProgram
         return ret;
     }
 
-    private static Dictionary<string, BehaviorInfo> GetBehaviorModules(NetMQSocket socket,
-        ICollection<List<BehaviorInfo>> behaviorList)
+    private static List<MotionBasedBehavior> CheckGestureTrigger(NetMQSocket socket, JArray humanArray,
+        List<MotionBasedBehavior> gestBehaviorMap)
     {
-        var ret = new Dictionary<string, BehaviorInfo>();
-
-        //behavior_modules
-        if (socket != null && behaviorList != null && behaviorList.Count > 0)
+        var ret = new List<MotionBasedBehavior>();
+        if (humanArray != null && socket != null && humanArray.Count > 0)
         {
-            socket.Send("behavior_modules");
-            var resp = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
-            if (!string.IsNullOrEmpty(resp))
+            foreach (var human in humanArray)
             {
-                var modules = JArray.Parse(resp);
-                if (modules != null && modules.Count > 0)
+                var gestures = human.SelectToken("$.Gestures");
+                foreach (var gesture in gestures)
                 {
-                    //Console.WriteLine(resp);
-                    foreach (var module in modules)
+                    string name = gesture.Value<string>("Name");
+                    var motionBehavior = gestBehaviorMap.FirstOrDefault(s => s.Trigger == name);
+                    if (motionBehavior != null)
                     {
-                        var moduleName = module.Value<string>("name");
-                        var responder = module.SelectToken("$.responder");
-                        string host = string.Empty;
-                        int port = 0;
-                        if (responder != null)
+                        bool active = gesture.Value<bool>("Active");
+                        int confidence = gesture.Value<int>("Confidence");
+                        if (active && confidence > 95)
                         {
-                            host = responder.Value<string>("Host");
-                            port = responder.Value<int>("Port");
-                        }
-                        var behaviors = module.SelectToken("$.behaviors");
-                        foreach (var behavior in behaviors)
-                        {
-                            string name = behavior.Value<string>("name");
-                            foreach (var item in behaviorList)
-                            {
-                                foreach (var behaviorInfo in item)
-                                {
-                                    if (behaviorInfo.BehaviorName == name)
-                                    {
-                                        behaviorInfo.ModuleName = moduleName;
-                                        behaviorInfo.Ip = host;
-                                        behaviorInfo.Port = port;
-
-                                        if (!ret.ContainsKey(name))
-                                        {
-                                            ret.Add(name, behaviorInfo);
-                                        }
-                                    }
-                                }
-                            }
-                            //Console.WriteLine("Checking if {0} exists in module supported behaviors");
-                            //if (behaviors.Contains(name))
-                            //{
-                            //    ret.Add(name, module);
-                            //}
+                            ret.Add(motionBehavior);
+                            Console.WriteLine(@"Name : {0}, Confidence: {1}", name, confidence);
                         }
                     }
+
                 }
             }
         }
         return ret;
     }
 
+    //private static Dictionary<string, BehaviorInfo> GetBehaviorModules(NetMQSocket socket,
+    //    ICollection<List<BehaviorInfo>> behaviorList)
+    //{
+    //    var ret = new Dictionary<string, BehaviorInfo>();
+
+    //    //behavior_modules
+    //    if (socket != null && behaviorList != null && behaviorList.Count > 0)
+    //    {
+    //        socket.Send("behavior_modules");
+    //        var resp = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
+    //        if (!string.IsNullOrEmpty(resp))
+    //        {
+    //            var modules = JArray.Parse(resp);
+    //            if (modules != null && modules.Count > 0)
+    //            {
+    //                //Console.WriteLine(resp);
+    //                foreach (var module in modules)
+    //                {
+    //                    var moduleName = module.Value<string>("name");
+    //                    var responder = module.SelectToken("$.responder");
+    //                    string host = string.Empty;
+    //                    int port = 0;
+    //                    if (responder != null)
+    //                    {
+    //                        host = responder.Value<string>("Host");
+    //                        port = responder.Value<int>("Port");
+    //                    }
+    //                    var behaviors = module.SelectToken("$.behaviors");
+    //                    foreach (var behavior in behaviors)
+    //                    {
+    //                        string name = behavior.Value<string>("name");
+    //                        foreach (var item in behaviorList)
+    //                        {
+    //                            foreach (var behaviorInfo in item)
+    //                            {
+    //                                if (behaviorInfo.BehaviorName == name)
+    //                                {
+    //                                    behaviorInfo.ModuleName = moduleName;
+    //                                    behaviorInfo.Ip = host;
+    //                                    behaviorInfo.Port = port;
+
+    //                                    if (!ret.ContainsKey(name))
+    //                                    {
+    //                                        ret.Add(name, behaviorInfo);
+    //                                    }
+    //                                }
+    //                            }
+    //                        }
+    //                        //Console.WriteLine("Checking if {0} exists in module supported behaviors");
+    //                        //if (behaviors.Contains(name))
+    //                        //{
+    //                        //    ret.Add(name, module);
+    //                        //}
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
+    //    return ret;
+    //}
+
     private static IList<BehaviorInfo> GetBehaviorModules(NetMQSocket socket,
-        List<BehaviorInfo> behaviorList)
+        IList<BehaviorInfo> behaviorList)
     {
         var ret = new List<BehaviorInfo>();
         var dict = new Dictionary<string, BehaviorInfo>();
@@ -194,7 +224,8 @@ public class MainProgram
         Console.WriteLine(@"Behavior Execution for trigger : {0}", triggerName);
         if (behaviorInfo != null && behaviorInfo.Count > 0 && scheduler != null)
         {
-            var jobKey = JobKey.Create(string.Format("Task_{0}", triggerName), triggerName);
+            var moduleName = behaviorInfo[0].ModuleName;
+            var jobKey = JobKey.Create(string.Format("Task_{0}", moduleName), moduleName);
             if (!scheduler.CheckExists(jobKey))
             {
                 IJobDetail detail = JobBuilder.Create<SimpleBehaviorTask>()
@@ -314,6 +345,107 @@ public class MainProgram
                                                     {
                                                         ScheduleBehaviorExecution(_scheduler, modules,
                                                             behavior.Key);
+                                                    }
+                                                }
+                                                //var modules = GetBehaviorModules(socket, behaviorMap.Values);
+                                                //if (modules != null && modules.Count > 0)
+                                                //{
+                                                //    foreach (var module in modules)
+                                                //    {
+                                                //        ScheduleBehaviorExecution(_scheduler, module.Value,
+                                                //            module.Key);
+                                                //    }
+                                                //}
+                                            }
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            Console.WriteLine(ex.Message);
+                                        }
+                                    }
+                                    System.Threading.Thread.Sleep(Period);
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine(@"Configuration information not available! Program will end now!");
+                }
+            }
+            else
+            {
+                Console.WriteLine(@"Configuration information missing!");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(@"Main Program Run exception: {0}", ex.StackTrace);
+        }
+        Console.WriteLine(@"About to complete main program");
+    }
+
+    public void RunBehaviors()
+    {
+        Console.WriteLine(@"About to start running main program");
+        try
+        {
+            if (_props != null && _props.Count > 0)
+            {
+                var contextServer = GetValue(_props, "ContextServer", "tcp://localhost:5800").ToString();
+                if (!string.IsNullOrEmpty(contextServer))
+                {
+                    var triggerBehaviorMap = GetValue(_props, "BehaviorList",new List<MotionBasedBehavior>());
+                    var list = triggerBehaviorMap as List<MotionBasedBehavior>;
+                    if (list != null && list.Count > 0)
+                    {
+                        foreach (var item in list)
+                        {
+                            Console.WriteLine(@"Gesture: {0} -> ", item.Trigger);
+                            foreach (var value in item.RobotActions)
+                            {
+                                Console.WriteLine(@"Action: {0} -> ", value.BehaviorName);
+                            }
+                        }
+
+                        using (var ctx = NetMQContext.Create())
+                        {
+                            using (var socket = ctx.CreateRequestSocket())
+                            {
+                                socket.Connect(contextServer);
+                                while (!_requestStop)
+                                {
+                                    socket.Send("human");
+                                    var resp = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
+                                    if (!string.IsNullOrEmpty(resp))
+                                    {
+                                        try
+                                        {
+                                            JArray obj = JArray.Parse(resp);
+                                            //Console.WriteLine(resp);
+                                            var behaviorMap = CheckGestureTrigger(socket, obj, list);
+                                            if (behaviorMap.Count == 0)
+                                            {
+                                                //Console.WriteLine(@"No gesture detected!");
+                                            }
+                                            foreach (var behavior in behaviorMap)
+                                            {
+                                                Console.WriteLine(@"Detected Gesture: {0} -> ", behavior.Trigger);
+                                                foreach (var value in behavior.RobotActions)
+                                                {
+                                                    Console.WriteLine(@"Action: {0} -> ", value.BehaviorName);
+                                                }
+                                            }
+                                            if (behaviorMap.Count > 0)
+                                            {
+                                                foreach (var behavior in behaviorMap)
+                                                {
+                                                    var modules = GetBehaviorModules(socket, behavior.RobotActions);
+                                                    if (modules != null && modules.Count > 0)
+                                                    {
+                                                        ScheduleBehaviorExecution(_scheduler, modules,
+                                                            behavior.Trigger);
                                                     }
                                                 }
                                                 //var modules = GetBehaviorModules(socket, behaviorMap.Values);

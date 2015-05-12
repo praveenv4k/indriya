@@ -135,10 +135,16 @@
                         if ($(this).text() === "RUN") {
 
                             app.code = Blockly.CSharp.workspaceToCode(app.workspace); // C# code generation
-                            $.post("/designer/program/start", app.code, function (data) {
+                            //$.post("/designer/program/start", app.code, function (data) {
+                            //    console.log("Program Sent & Started: " + data);
+                            //});
+                            console.log(app.code);
+
+                            app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
+                            var xmlText = Blockly.Xml.domToPrettyText(app.codeXmlDom);
+                            $.post("/designer/program/startxml", xmlText, function (data) {
                                 console.log("Program Sent & Started: " + data);
                             });
-                            console.log(app.code);
 
                             options = {
                                 label: "STOP",
