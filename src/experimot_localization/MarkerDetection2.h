@@ -179,6 +179,7 @@ public:
 				b3Quaternion q1(tf1.rot[1], tf1.rot[2], tf1.rot[3], tf1.rot[0]);
 				b3Quaternion q2(tf2.rot[1], tf2.rot[2], tf2.rot[3], tf2.rot[0]);
 
+#if 0
 				double angle1 = q.angle(q1);
 				double angle2 = q.angle(q2);
 
@@ -195,14 +196,38 @@ public:
 						ret = true;
 					}
 				}
+#else
+				dReal dist1 = (prevTfm.rot - tf1.rot).lengthsqr4();
+				dReal dist2 = (prevTfm.rot - tf2.rot).lengthsqr4();
+				if (dist1 < 2.0 && dist2 < 2.0){
+					ret = true;
+				}
+				else if (dist1 < 2.0){
+					outTf = tf1;
+					ret = true;
+				}
+				else if (dist2 < 2.0){
+					outTf = tf2;
+					ret = true;
+				}
+#endif
 			}
 			else{
 				outTf = tfs[0];
 				b3Quaternion q1(outTf.rot[1], outTf.rot[2], outTf.rot[3], outTf.rot[0]);
-				double angle = q.angle(q1);
-				if (fabs(angle) < MATH_PI_4){
+				dReal dist = (prevTfm.rot - outTf.rot).lengthsqr4();
+				if (dist < 2.0){
 					ret = true;
 				}
+				/*double angle = q.angle(q1);
+				if (fabs(angle) < MATH_PI_4){
+					ret = true;
+				}*/
+			}
+
+			if(!ret){
+				outTf = prevTfm;
+				ret = true;
 			}
 #if PRINT_MSG
 			Transform disp;

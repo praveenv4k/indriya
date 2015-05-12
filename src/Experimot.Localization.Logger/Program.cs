@@ -31,6 +31,19 @@ namespace Experimot.Localization.Logger
         public double Theta { get; set; }
     }
 
+    internal class PlanarPoseExt
+    {
+        public long TimeStamp { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Theta { get; set; }
+        public double TransError { get; set; }
+        public double RotError { get; set; }
+        public double Rx { get; set; }
+        public double Ry { get; set; }
+        public double Rz { get; set; }
+    }
+
     internal class Program
     {
         private static volatile bool _stopTask = false;
@@ -62,7 +75,7 @@ namespace Experimot.Localization.Logger
                     Console.WriteLine("Enter 0 for 6D pose and 1 for pose on a plane!");
                     string c = Console.ReadLine();
                     Task<IList<Pose>> logTask = null;
-                    Task<IList<PlanarPose>> logPlanarTask = null;
+                    Task<IList<PlanarPoseExt>> logPlanarTask = null;
                     if (c == "0")
                     {
                         logTask = Task.Factory.StartNew(() => LogLocalizationInfo(info));
@@ -170,9 +183,9 @@ namespace Experimot.Localization.Logger
             return poseList;
         }
 
-        private static IList<PlanarPose> LogPlanarLocalizationInfo(object info)
+        private static IList<PlanarPoseExt> LogPlanarLocalizationInfo(object info)
         {
-            IList<PlanarPose> poseList = new List<PlanarPose>();
+            IList<PlanarPoseExt> poseList = new List<PlanarPoseExt>();
             Node nodeInfo = info as Node;
             if (nodeInfo != null)
             {
@@ -195,17 +208,33 @@ namespace Experimot.Localization.Logger
                                 var jObj = JObject.Parse(pose);
                                 var jPos = jObj.SelectToken("$.pos");
                                 var jOrient = jObj.SelectToken("$.orient");
-                                var planarPose = new PlanarPose()
+                                var jError = jObj.SelectToken("$.error");
+                                var jEuler = jObj.SelectToken("$.euler");
+                                var planarPose = new PlanarPoseExt()
                                 {
                                     TimeStamp = DateTime.Now.Ticks,
                                     X = jPos.Value<double>("x"),
                                     Y = jPos.Value<double>("y"),
                                     Theta = jOrient.Value<double>("z")
                                 };
+                                if (jError != null) 
+                                {
+
+                                    planarPose.TransError = jError.Value<double>("trans");
+                                    planarPose.RotError = jError.Value<double>("rot");
+                                }
+                                if (jEuler != null)
+                                {
+                                    planarPose.Rx = jEuler.Value<double>("Rx");
+                                    planarPose.Ry = jEuler.Value<double>("Ry");
+                                    planarPose.Rz = jEuler.Value<double>("Rz");
+                                }
+
+                                poseList.Add(planarPose);
                                 //Console.WriteLine("x: {0}, y: {1}, theta: {2}, pose:{3}", planarPose.X, planarPose.Y,
                                 //    planarPose.Theta, pose);
                                 Console.Write(".");
-                                poseList.Add(planarPose);
+                                
                                 //System.Threading.Thread.Sleep(50);
                             }
                         }
