@@ -5,7 +5,7 @@ using NetMQ;
 
 public class MotionBehaviorTask : Quartz.IJob
 {
-    private static readonly ILog Log = LogManager.GetLogger(typeof (SimpleBehaviorTask));
+    private static readonly ILog Log = LogManager.GetLogger(typeof(MotionBehaviorTask));
 
     public void Execute(Quartz.IJobExecutionContext context)
     {
