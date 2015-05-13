@@ -217,7 +217,8 @@ namespace Experimot.Scheduler
                 {
                     foreach (var human in humans.human)
                     {
-                        var item = _humans.FirstOrDefault(s => s.Body.TrackingId == human.id);
+                        //TODO Need to unify the usage of tracking id across the application
+                        var item = _humans.FirstOrDefault(s => s.Body.TrackingId == human.id-1);
                         if (item != null)
                         {
                             item.HeadPosition = human.head_position;
