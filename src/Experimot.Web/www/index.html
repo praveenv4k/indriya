@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
     <link type="text/css" rel="stylesheet" href="libs/jquery-ui/jquery-ui.min.css" />
-    <link type="text/css" rel="stylesheet" href="libs/jquery-jsonview/jquery.jsonview.css"/>
+    <link type="text/css" rel="stylesheet" href="libs/jquery-jsonview/jquery.jsonview.css" />
 
-    <link type="text/css" rel="stylesheet" href="libs/backbone.modal/backbone.modal.css"/>
+    <link type="text/css" rel="stylesheet" href="libs/backbone.modal/backbone.modal.css" />
     <link type="text/css" rel="stylesheet" href="libs/backbone.modal/backbone.modal.theme.css" />
 
     <style>
@@ -46,55 +46,135 @@
                 <li><a href="#tabs-3">Monitor</a></li>
             </ul>
             <div id="tabs-1">
-                <div id="editor_menu">
-                    <div id="toolbar" class="ui-widget-header ui-corner-all">
-                        <button id="run" class="ui-button-icon-secondary">RUN</button>
-                        <!--<button id="stop">STOP</button>-->
-                        <button id="code">CODE</button>
-                    </div>
+            <div id="editor_menu">
+                <div id="toolbar" class="ui-widget-header ui-corner-all">
+                    <button id="open">OPEN</button>
+                    <button id="run" class="ui-button-icon-secondary">RUN</button>
+                    <!--<button id="stop">STOP</button>-->
+                    <button id="code">CODE</button>
                 </div>
-                <div id="designer-anchor" style="border-radius: 6px;">
-                    <!--<div id="blocklyDiv" style="height: 480px; width: 600px;"></div>-->
-                    <div id="blocklyDiv"></div>
-                    <xml id="toolbox" style="display: none">
-                        <category name="Logic">
-                            <category name="If">
-                                <block type="controls_if"></block>
-                                <block type="controls_if">
-                                    <mutation else="1"></mutation>
-                                </block>
-                                <block type="controls_if">
-                                    <mutation elseif="1" else="1"></mutation>
-                                </block>
-                            </category>
-                            <category name="Boolean">
-                                <block type="logic_compare"></block>
-                                <block type="logic_operation"></block>
-                                <block type="logic_negate"></block>
-                                <block type="logic_boolean"></block>
-                                <block type="logic_null"></block>
-                                <block type="logic_ternary"></block>
-                            </category>
-                        </category>
-                        <category name="Loops">
-                            <block type="controls_repeat_ext">
-                                <value name="TIMES">
-                                    <block type="math_number">
-                                        <field name="NUM">10</field>
-                                    </block>
-                                </value>
-                            </block>
-                            <block type="controls_whileUntil"></block>
-                            <block type="controls_for">
-                                <field name="VAR">i</field>
+            </div>
+            <div id="designer-anchor" style="border-radius: 6px;">
+            <!--<div id="blocklyDiv" style="height: 480px; width: 600px;"></div>-->
+            <div id="blocklyDiv"></div>
+            <xml id="toolbox" style="display: none">
+            <category name="Logic">
+                <category name="If">
+                    <block type="controls_if"></block>
+                    <block type="controls_if">
+                        <mutation else="1"></mutation>
+                    </block>
+                    <block type="controls_if">
+                        <mutation elseif="1" else="1"></mutation>
+                    </block>
+                </category>
+                <category name="Boolean">
+                    <block type="logic_compare"></block>
+                    <block type="logic_operation"></block>
+                    <block type="logic_negate"></block>
+                    <block type="logic_boolean"></block>
+                    <block type="logic_null"></block>
+                    <block type="logic_ternary"></block>
+                </category>
+            </category>
+            <category name="Loops">
+                <block type="controls_repeat_ext">
+                    <value name="TIMES">
+                        <block type="math_number">
+                            <field name="NUM">10</field>
+                        </block>
+                    </value>
+                </block>
+                <block type="controls_whileUntil"></block>
+                <block type="controls_for">
+                    <field name="VAR">i</field>
+                    <value name="FROM">
+                        <block type="math_number">
+                            <field name="NUM">1</field>
+                        </block>
+                    </value>
+                    <value name="TO">
+                        <block type="math_number">
+                            <field name="NUM">10</field>
+                        </block>
+                    </value>
+                    <value name="BY">
+                        <block type="math_number">
+                            <field name="NUM">1</field>
+                        </block>
+                    </value>
+                </block>
+                <block type="controls_forEach"></block>
+                <block type="controls_flow_statements"></block>
+            </category>
+            <category name="Math">
+                <block type="math_number"></block>
+                <block type="math_arithmetic"></block>
+                <block type="math_single"></block>
+                <block type="math_trig"></block>
+                <block type="math_constant"></block>
+                <block type="math_number_property"></block>
+                <block type="math_change">
+                    <value name="DELTA">
+                        <block type="math_number">
+                            <field name="NUM">1</field>
+                        </block>
+                    </value>
+                </block>
+                <block type="math_round"></block>
+                <block type="math_on_list"></block>
+                <block type="math_modulo"></block>
+                <block type="math_constrain">
+                    <value name="LOW">
+                        <block type="math_number">
+                            <field name="NUM">1</field>
+                        </block>
+                    </value>
+                    <value name="HIGH">
+                        <block type="math_number">
+                            <field name="NUM">100</field>
+                        </block>
+                    </value>
+                </block>
+                <block type="math_random_int">
+                    <value name="FROM">
+                        <block type="math_number">
+                            <field name="NUM">1</field>
+                        </block>
+                    </value>
+                    <value name="TO">
+                        <block type="math_number">
+                            <field name="NUM">100</field>
+                        </block>
+                    </value>
+                </block>
+                <block type="math_random_float"></block>
+            </category>
+            <category name="Variables" custom="VARIABLE"></category>
+            <category name="Functions" custom="PROCEDURE"></category>
+            <sep></sep>
+            <category name="Library">
+                <category name="Randomize">
+                    <block type="procedures_defnoreturn">
+                        <mutation>
+                            <arg name="list"></arg>
+                        </mutation>
+                        <field name="NAME">randomize</field>
+                        <statement name="STACK">
+                            <block type="controls_for" inline="true">
+                                <field name="VAR">x</field>
                                 <value name="FROM">
                                     <block type="math_number">
                                         <field name="NUM">1</field>
                                     </block>
                                 </value>
                                 <value name="TO">
-                                    <block type="math_number">
-                                        <field name="NUM">10</field>
+                                    <block type="lists_length" inline="false">
+                                        <value name="VALUE">
+                                            <block type="variables_get">
+                                                <field name="VAR">list</field>
+                                            </block>
+                                        </value>
                                     </block>
                                 </value>
                                 <value name="BY">
@@ -102,273 +182,196 @@
                                         <field name="NUM">1</field>
                                     </block>
                                 </value>
+                                <statement name="DO">
+                                    <block type="variables_set" inline="false">
+                                        <field name="VAR">y</field>
+                                        <value name="VALUE">
+                                            <block type="math_random_int" inline="true">
+                                                <value name="FROM">
+                                                    <block type="math_number">
+                                                        <field name="NUM">1</field>
+                                                    </block>
+                                                </value>
+                                                <value name="TO">
+                                                    <block type="lists_length" inline="false">
+                                                        <value name="VALUE">
+                                                            <block type="variables_get">
+                                                                <field name="VAR">list</field>
+                                                            </block>
+                                                        </value>
+                                                    </block>
+                                                </value>
+                                            </block>
+                                        </value>
+                                        <next>
+                                            <block type="variables_set" inline="false">
+                                                <field name="VAR">temp</field>
+                                                <value name="VALUE">
+                                                    <block type="lists_getIndex" inline="true">
+                                                        <mutation statement="false" at="true"></mutation>
+                                                        <field name="MODE">GET</field>
+                                                        <field name="WHERE">FROM_START</field>
+                                                        <value name="AT">
+                                                            <block type="variables_get">
+                                                                <field name="VAR">y</field>
+                                                            </block>
+                                                        </value>
+                                                        <value name="VALUE">
+                                                            <block type="variables_get">
+                                                                <field name="VAR">list</field>
+                                                            </block>
+                                                        </value>
+                                                    </block>
+                                                </value>
+                                                <next>
+                                                    <block type="lists_setIndex" inline="false">
+                                                        <value name="AT">
+                                                            <block type="variables_get">
+                                                                <field name="VAR">y</field>
+                                                            </block>
+                                                        </value>
+                                                        <value name="LIST">
+                                                            <block type="variables_get">
+                                                                <field name="VAR">list</field>
+                                                            </block>
+                                                        </value>
+                                                        <value name="TO">
+                                                            <block type="lists_getIndex" inline="true">
+                                                                <mutation statement="false" at="true"></mutation>
+                                                                <field name="MODE">GET</field>
+                                                                <field name="WHERE">FROM_START</field>
+                                                                <value name="AT">
+                                                                    <block type="variables_get">
+                                                                        <field name="VAR">x</field>
+                                                                    </block>
+                                                                </value>
+                                                                <value name="VALUE">
+                                                                    <block type="variables_get">
+                                                                        <field name="VAR">list</field>
+                                                                    </block>
+                                                                </value>
+                                                            </block>
+                                                        </value>
+                                                        <next>
+                                                            <block type="lists_setIndex" inline="false">
+                                                                <value name="AT">
+                                                                    <block type="variables_get">
+                                                                        <field name="VAR">x</field>
+                                                                    </block>
+                                                                </value>
+                                                                <value name="LIST">
+                                                                    <block type="variables_get">
+                                                                        <field name="VAR">list</field>
+                                                                    </block>
+                                                                </value>
+                                                                <value name="TO">
+                                                                    <block type="variables_get">
+                                                                        <field name="VAR">temp</field>
+                                                                    </block>
+                                                                </value>
+                                                            </block>
+                                                        </next>
+                                                    </block>
+                                                </next>
+                                            </block>
+                                        </next>
+                                    </block>
+                                </statement>
                             </block>
-                            <block type="controls_forEach"></block>
-                            <block type="controls_flow_statements"></block>
-                        </category>
-                        <category name="Math">
-                            <block type="math_number"></block>
-                            <block type="math_arithmetic"></block>
-                            <block type="math_single"></block>
-                            <block type="math_trig"></block>
-                            <block type="math_constant"></block>
-                            <block type="math_number_property"></block>
-                            <block type="math_change">
-                                <value name="DELTA">
-                                    <block type="math_number">
-                                        <field name="NUM">1</field>
-                                    </block>
-                                </value>
+                        </statement>
+                    </block>
+                </category>
+                <category name="Jabberwocky">
+                    <block type="text_print">
+                        <value name="TEXT">
+                            <block type="text">
+                                <field name="TEXT">'Twas brillig, and the slithy toves</field>
                             </block>
-                            <block type="math_round"></block>
-                            <block type="math_on_list"></block>
-                            <block type="math_modulo"></block>
-                            <block type="math_constrain">
-                                <value name="LOW">
-                                    <block type="math_number">
-                                        <field name="NUM">1</field>
+                        </value>
+                        <next>
+                            <block type="text_print">
+                                <value name="TEXT">
+                                    <block type="text">
+                                        <field name="TEXT"> Did gyre and gimble in the wabe:</field>
                                     </block>
                                 </value>
-                                <value name="HIGH">
-                                    <block type="math_number">
-                                        <field name="NUM">100</field>
+                                <next>
+                                    <block type="text_print">
+                                        <value name="TEXT">
+                                            <block type="text">
+                                                <field name="TEXT">All mimsy were the borogroves,</field>
+                                            </block>
+                                        </value>
+                                        <next>
+                                            <block type="text_print">
+                                                <value name="TEXT">
+                                                    <block type="text">
+                                                        <field name="TEXT"> And the mome raths outgrabe.</field>
+                                                    </block>
+                                                </value>
+                                            </block>
+                                        </next>
                                     </block>
-                                </value>
+                                </next>
                             </block>
-                            <block type="math_random_int">
-                                <value name="FROM">
-                                    <block type="math_number">
-                                        <field name="NUM">1</field>
-                                    </block>
-                                </value>
-                                <value name="TO">
-                                    <block type="math_number">
-                                        <field name="NUM">100</field>
-                                    </block>
-                                </value>
+                        </next>
+                    </block>
+                    <block type="text_print">
+                        <value name="TEXT">
+                            <block type="text">
+                                <field name="TEXT">"Beware the Jabberwock, my son!</field>
                             </block>
-                            <block type="math_random_float"></block>
-                        </category>
-                        <category name="Variables" custom="VARIABLE"></category>
-                        <category name="Functions" custom="PROCEDURE"></category>
-                        <sep></sep>
-                        <category name="Library">
-                            <category name="Randomize">
-                                <block type="procedures_defnoreturn">
-                                    <mutation>
-                                        <arg name="list"></arg>
-                                    </mutation>
-                                    <field name="NAME">randomize</field>
-                                    <statement name="STACK">
-                                        <block type="controls_for" inline="true">
-                                            <field name="VAR">x</field>
-                                            <value name="FROM">
-                                                <block type="math_number">
-                                                    <field name="NUM">1</field>
-                                                </block>
-                                            </value>
-                                            <value name="TO">
-                                                <block type="lists_length" inline="false">
-                                                    <value name="VALUE">
-                                                        <block type="variables_get">
-                                                            <field name="VAR">list</field>
-                                                        </block>
-                                                    </value>
-                                                </block>
-                                            </value>
-                                            <value name="BY">
-                                                <block type="math_number">
-                                                    <field name="NUM">1</field>
-                                                </block>
-                                            </value>
-                                            <statement name="DO">
-                                                <block type="variables_set" inline="false">
-                                                    <field name="VAR">y</field>
-                                                    <value name="VALUE">
-                                                        <block type="math_random_int" inline="true">
-                                                            <value name="FROM">
-                                                                <block type="math_number">
-                                                                    <field name="NUM">1</field>
-                                                                </block>
-                                                            </value>
-                                                            <value name="TO">
-                                                                <block type="lists_length" inline="false">
-                                                                    <value name="VALUE">
-                                                                        <block type="variables_get">
-                                                                            <field name="VAR">list</field>
-                                                                        </block>
-                                                                    </value>
-                                                                </block>
-                                                            </value>
-                                                        </block>
-                                                    </value>
-                                                    <next>
-                                                        <block type="variables_set" inline="false">
-                                                            <field name="VAR">temp</field>
-                                                            <value name="VALUE">
-                                                                <block type="lists_getIndex" inline="true">
-                                                                    <mutation statement="false" at="true"></mutation>
-                                                                    <field name="MODE">GET</field>
-                                                                    <field name="WHERE">FROM_START</field>
-                                                                    <value name="AT">
-                                                                        <block type="variables_get">
-                                                                            <field name="VAR">y</field>
-                                                                        </block>
-                                                                    </value>
-                                                                    <value name="VALUE">
-                                                                        <block type="variables_get">
-                                                                            <field name="VAR">list</field>
-                                                                        </block>
-                                                                    </value>
-                                                                </block>
-                                                            </value>
-                                                            <next>
-                                                                <block type="lists_setIndex" inline="false">
-                                                                    <value name="AT">
-                                                                        <block type="variables_get">
-                                                                            <field name="VAR">y</field>
-                                                                        </block>
-                                                                    </value>
-                                                                    <value name="LIST">
-                                                                        <block type="variables_get">
-                                                                            <field name="VAR">list</field>
-                                                                        </block>
-                                                                    </value>
-                                                                    <value name="TO">
-                                                                        <block type="lists_getIndex" inline="true">
-                                                                            <mutation statement="false" at="true"></mutation>
-                                                                            <field name="MODE">GET</field>
-                                                                            <field name="WHERE">FROM_START</field>
-                                                                            <value name="AT">
-                                                                                <block type="variables_get">
-                                                                                    <field name="VAR">x</field>
-                                                                                </block>
-                                                                            </value>
-                                                                            <value name="VALUE">
-                                                                                <block type="variables_get">
-                                                                                    <field name="VAR">list</field>
-                                                                                </block>
-                                                                            </value>
-                                                                        </block>
-                                                                    </value>
-                                                                    <next>
-                                                                        <block type="lists_setIndex" inline="false">
-                                                                            <value name="AT">
-                                                                                <block type="variables_get">
-                                                                                    <field name="VAR">x</field>
-                                                                                </block>
-                                                                            </value>
-                                                                            <value name="LIST">
-                                                                                <block type="variables_get">
-                                                                                    <field name="VAR">list</field>
-                                                                                </block>
-                                                                            </value>
-                                                                            <value name="TO">
-                                                                                <block type="variables_get">
-                                                                                    <field name="VAR">temp</field>
-                                                                                </block>
-                                                                            </value>
-                                                                        </block>
-                                                                    </next>
-                                                                </block>
-                                                            </next>
-                                                        </block>
-                                                    </next>
-                                                </block>
-                                            </statement>
-                                        </block>
-                                    </statement>
-                                </block>
-                            </category>
-                            <category name="Jabberwocky">
-                                <block type="text_print">
-                                    <value name="TEXT">
-                                        <block type="text">
-                                            <field name="TEXT">'Twas brillig, and the slithy toves</field>
-                                        </block>
-                                    </value>
-                                    <next>
-                                        <block type="text_print">
-                                            <value name="TEXT">
-                                                <block type="text">
-                                                    <field name="TEXT"> Did gyre and gimble in the wabe:</field>
-                                                </block>
-                                            </value>
-                                            <next>
-                                                <block type="text_print">
-                                                    <value name="TEXT">
-                                                        <block type="text">
-                                                            <field name="TEXT">All mimsy were the borogroves,</field>
-                                                        </block>
-                                                    </value>
-                                                    <next>
-                                                        <block type="text_print">
-                                                            <value name="TEXT">
-                                                                <block type="text">
-                                                                    <field name="TEXT"> And the mome raths outgrabe.</field>
-                                                                </block>
-                                                            </value>
-                                                        </block>
-                                                    </next>
-                                                </block>
-                                            </next>
-                                        </block>
-                                    </next>
-                                </block>
-                                <block type="text_print">
-                                    <value name="TEXT">
-                                        <block type="text">
-                                            <field name="TEXT">"Beware the Jabberwock, my son!</field>
-                                        </block>
-                                    </value>
-                                    <next>
-                                        <block type="text_print">
-                                            <value name="TEXT">
-                                                <block type="text">
-                                                    <field name="TEXT"> The jaws that bite, the claws that catch!</field>
-                                                </block>
-                                            </value>
-                                            <next>
-                                                <block type="text_print">
-                                                    <value name="TEXT">
-                                                        <block type="text">
-                                                            <field name="TEXT">Beware the Jubjub bird, and shun</field>
-                                                        </block>
-                                                    </value>
-                                                    <next>
-                                                        <block type="text_print">
-                                                            <value name="TEXT">
-                                                                <block type="text">
-                                                                    <field name="TEXT"> The frumious Bandersnatch!"</field>
-                                                                </block>
-                                                            </value>
-                                                        </block>
-                                                    </next>
-                                                </block>
-                                            </next>
-                                        </block>
-                                    </next>
-                                </block>
-                            </category>
-                        </category>
-                        <sep></sep>
-                        <category name="Experimot">
-                            <category name="Behaviors">
-                                <block type="behavior"></block>
-                                <block type="behavior_sleek"></block>
-                            </category>
-                            <category name="Triggers">
-                                <block type="trigger"></block>
-                            </category>
-                            <category name="Priorities">
-                                <block type="priority"></block>
-                            </category>
-                            <category name="Actions">
-                                <block type="robot_action"></block>
-                            </category>
-                        </category>
-                    </xml>
-                </div>
+                        </value>
+                        <next>
+                            <block type="text_print">
+                                <value name="TEXT">
+                                    <block type="text">
+                                        <field name="TEXT"> The jaws that bite, the claws that catch!</field>
+                                    </block>
+                                </value>
+                                <next>
+                                    <block type="text_print">
+                                        <value name="TEXT">
+                                            <block type="text">
+                                                <field name="TEXT">Beware the Jubjub bird, and shun</field>
+                                            </block>
+                                        </value>
+                                        <next>
+                                            <block type="text_print">
+                                                <value name="TEXT">
+                                                    <block type="text">
+                                                        <field name="TEXT"> The frumious Bandersnatch!"</field>
+                                                    </block>
+                                                </value>
+                                            </block>
+                                        </next>
+                                    </block>
+                                </next>
+                            </block>
+                        </next>
+                    </block>
+                </category>
+            </category>
+            <sep></sep>
+            <category name="Experimot">
+                <category name="Behaviors">
+                    <block type="behavior"></block>
+                    <block type="behavior_sleek"></block>
+                </category>
+                <category name="Triggers">
+                    <block type="trigger"></block>
+                </category>
+                <category name="Priorities">
+                    <block type="priority"></block>
+                </category>
+                <category name="Actions">
+                    <block type="robot_action"></block>
+                </category>
+            </category>
+            </xml>
+            </div>
+                <div id="modals-container"></div>
+
                 <div id="editor_output">
 
                 </div>
@@ -380,6 +383,7 @@
                 <div id="monitor-anchor"></div>
             </div>
         </div>
+        <!--<div id="modals-container"></div>-->
     </div>
     <script src="libs/requirejs/require.js" data-main="app/init"></script>
 </body>

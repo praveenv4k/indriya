@@ -1,5 +1,5 @@
-﻿define(['app', 'backbone', 'marionette', 'models/robot', 'models/testjointvalues', 'models/JointValues', 'collections/drawables', 'marionette_threejs', 'poller'],
-    function (app, backbone, marionette, robot,testJointVals,jointVals, drawables, m3Js,poller) {
+﻿define(['app', 'backbone', 'marionette', 'models/robot', 'models/testjointvalues', 'models/JointValues', 'collections/drawables', 'marionette_threejs', 'poller','views/programSelectModal'],
+    function (app, backbone, marionette, robot,testJointVals,jointVals, drawables, m3Js,poller,openDialog) {
         return backbone.Marionette.Controller.extend({
             initialize: function(options) {
                 app.Drawables = new drawables();
@@ -142,7 +142,7 @@
 
                             app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
                             var xmlText = Blockly.Xml.domToPrettyText(app.codeXmlDom);
-                            $.post("/designer/program/startxml", xmlText, function (data) {
+                            $.post("/designer/program/startxml", xmlText, function(data) {
                                 console.log("Program Sent & Started: " + data);
                             });
 
@@ -154,7 +154,7 @@
                             };
                         } else {
 
-                            $.post("/designer/program/stop", function (data) {
+                            $.post("/designer/program/stop", function(data) {
                                 console.log("Program Stopped: " + data);
                             });
 
@@ -169,43 +169,36 @@
                     });
                 //ui-icon-document
                 $("#code").button({
-                    text: true,
-                    icons: {
-                        primary: "ui-icon-document"
-                    }
-                })
-                .click(function() {
-                    if (app.workspace != undefined) {
-                        //app.code = Blockly.Python.workspaceToCode(app.workspace);
-                        app.code = Blockly.CSharp.workspaceToCode(app.workspace); // C# code generation
-                        $.post("/designer/program/code", app.code, function (data) {
-                            console.log("Sent Program: " + data);
-                        });
-                        console.log(app.code);
+                        text: true,
+                        icons: {
+                            primary: "ui-icon-document"
+                        }
+                    })
+                    .click(function() {
+                        if (app.workspace != undefined) {
+                            //app.code = Blockly.Python.workspaceToCode(app.workspace);
+                            app.code = Blockly.CSharp.workspaceToCode(app.workspace); // C# code generation
+                            $.post("/designer/program/code", app.code, function(data) {
+                                console.log("Sent Program: " + data);
+                            });
+                            console.log(app.code);
 
-                        app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
-                        var xmlText = Blockly.Xml.domToPrettyText(app.codeXmlDom);
-                        console.log(xmlText);
-                        console.log(app.code);
-                    }
-                });
-                //$("#stop").button({
-                //        text: true,
-                //        icons: {
-                //            primary: "ui-icon-stop"
-                //        }
-                //    })
-                //    .click(function () {
-                //        $.post("/designer/program/stop", function (data) {
-                //            console.log("Program Stopped: " + data);
-                //        });
-                //        $("#play").button("option", {
-                //            label: "PLAY",
-                //            icons: {
-                //                primary: "ui-icon-play"
-                //            }
-                //        });
-                //    });
+                            app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
+                            var xmlText = Blockly.Xml.domToPrettyText(app.codeXmlDom);
+                            console.log(xmlText);
+                            console.log(app.code);
+                        }
+                    });
+                $("#open").button({
+                        text: true,
+                        icons: {
+                            primary: "ui-icon-document"
+                        }
+                    })
+                    .click(function () {
+                        console.log(app.modals);
+                        app.modals.show(new openDialog());
+                    });
             },
 
 
