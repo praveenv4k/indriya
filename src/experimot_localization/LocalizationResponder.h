@@ -84,7 +84,7 @@ private:
 			OpenRAVE::dReal rot = (tfm.rot - prevTransform.rot).lengthsqr4();
 			ss << "{ \"pos\" : {\"x\":" << tfm.trans.z / 1000 << ", \"y\" :" << tfm.trans.x / 1000 << "}, " << 
 				    /*"\"orient\" : {\"z\":" << OpenRAVE::PI - Rx << "}, " <<*/
-					"\"orient\" : {\"z\":" << Rz << "}, " <<
+					"\"orient\" : {\"z\":" << Rx << "}, " <<
 					"\"error\" : {\"trans\":" << trans/1000 << ", \"rot\" :" << rot << "}, " <<
 					"\"euler\" : {\"Rx\":" << Rx << ", \"Ry\" :" << Ry << ", \"Rz\" :" << Rz << "} }";
 #endif
