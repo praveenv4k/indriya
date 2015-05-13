@@ -24,63 +24,42 @@ if(Env.ScriptArgs.Count <=0)
 }
 else
 {
-	var node_name = Env.ScriptArgs[0];
-	var context_server = Env.ScriptArgs[1];
-	var resp = MainProgramUtil.GetNodeInfo("node_"+node_name,context_server);
-	Console.WriteLine(resp);
+	try{
+		var node_name = Env.ScriptArgs[0];
+		var context_server = Env.ScriptArgs[1];
+		var resp = MainProgramUtil.GetNodeInfo("node_"+node_name,context_server);
+		Console.WriteLine(resp);
 
-	var dict = new Dictionary<string,object>();
-	dict.Add("ContextServer",context_server);
+		var dict = new Dictionary<string,object>();
+		dict.Add("ContextServer",context_server);
 
-	var motionBehaviors = MainProgramUtil.ReadBehaviorXmlFile("behavior.xml");
-	foreach (var motionBehavior in motionBehaviors)
-    {
-        Console.WriteLine(@"Motion Behavior : {0}, Trigger : {1}, Confidence: {2}, Priority: {3}",
-            motionBehavior.Name, motionBehavior.Trigger, motionBehavior.ConfidenceLevel, motionBehavior.Priority);
-        foreach (var behaviorInfo in motionBehavior.RobotActions)
-        {
-            Console.WriteLine(@"	-> Action Name : {0}", behaviorInfo.BehaviorName);
-        }
-    }
+		var motionBehaviors = MainProgramUtil.ReadBehaviorXmlFile("behavior.xml");
+		foreach (var motionBehavior in motionBehaviors)
+		{
+			Console.WriteLine(@"Motion Behavior : {0}, Trigger : {1}, Confidence: {2}, Priority: {3}",
+				motionBehavior.Name, motionBehavior.Trigger, motionBehavior.ConfidenceLevel, motionBehavior.Priority);
+			foreach (var behaviorInfo in motionBehavior.RobotActions)
+			{
+				Console.WriteLine(@"	-> Action Name : {0}", behaviorInfo.BehaviorName);
+			}
+		}
 
-	//var gestBehaviorMap = new Dictionary<string, List<BehaviorInfo>>();
+		dict.Add("BehaviorList",motionBehaviors);
+		var scheduler = MainProgramUtil.GetScheduler();
+		scheduler.Start();
 
-	// The dynamic JSON string will be put here
-	//var behavior = "<% MODIFY_HERE %>";
+		var main = new MainProgram(dict,scheduler);
+		var tasks = new List<Task>
+					{
+						Task.Factory.StartNew(() => main.RunBehaviors())
+					};
 
-	//var obj = JObject.Parse(behavior);
-	//if (obj != null)
-	//{
-	//	var name = obj.Value<string>("name");
-	//	var trigger = obj.Value<string>("trigger");
-	//	Console.WriteLine("Behavior Info - Name: {0}, Trigger: {1}, Priority: {2}", name,
-	//		obj.Value<string>("trigger"), obj.Value<string>("priority"));
-	//	gestBehaviorMap.Add(trigger, new List<BehaviorInfo>());
-	//	var actions = obj.SelectToken("$.actions"); 
-	//	foreach (var action in actions)
-	//	{
-	//		var actionName = action.Value<string>("name");
-	//		gestBehaviorMap[trigger].Add(new BehaviorInfo()
-	//		{
-	//			BehaviorName = actionName
-	//		});
-	//		Console.WriteLine("Action Info - Name: {0}", actionName);
-	//	}
-	//}
-	//
-	//dict.Add("TriggerBehaviorMap",gestBehaviorMap);
-
-	dict.Add("BehaviorList",motionBehaviors);
-	var scheduler = MainProgramUtil.GetScheduler();
-	scheduler.Start();
-
-	var main = new MainProgram(dict,scheduler);
-	var tasks = new List<Task>
-				{
-					Task.Factory.StartNew(() => main.RunBehaviors())
-				};
-
-	Task.WaitAll(tasks.ToArray());
-
-	Console.WriteLine(resp);
+		Task.WaitAll(tasks.ToArray());
+	}
+	catch(Exception ex){
+		Console.WriteLine("Exception occured : {0}", ex.StackTrace);
+	}
+	Console.WriteLine("Program Terminating ... ");
+	Console.WriteLine("Press any key to continue ...");
+	Console.ReadKey();
 }
