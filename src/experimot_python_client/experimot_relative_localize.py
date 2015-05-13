@@ -147,7 +147,7 @@ def human_client(lock,ip,port,topic):
         #print "Orientation : " , orient
 
         # wait for a while
-        time.sleep(0.200)
+        time.sleep(0.050)
 
 #############################################################################################################
 # Plotting function
@@ -236,6 +236,7 @@ def plot_robot_pose(interval, lock, lock2):
         lock.release()
 
         lock2.acquire()
+        global global_humans
         local_humans = global_humans
         lock2.release()
 
@@ -273,7 +274,7 @@ def plot_robot_pose(interval, lock, lock2):
                 
                 human_euler = transformations.euler_from_quaternion(human_orient,axes='syxz')
                 human_euler = [math.degrees(x) for x in human_euler]
-                human_deg = human_euler[2]
+                human_deg = human_euler[1]
                 temp_wedge.set_theta1(human_deg - 15)
                 temp_wedge.set_theta2(human_deg + 15)
         #local_pos = [x/1000 for x in local_pos]
@@ -322,7 +323,7 @@ if __name__ == "__main__":
         lock2 = thread.allocate_lock()
 
         # Starting the plotting thread
-        interval = 500;
+        interval = 200;
         thread.start_new_thread(plot_robot_pose,(interval,lock,lock2));
 
         # Responder (server) - uncomment to check with the local server
