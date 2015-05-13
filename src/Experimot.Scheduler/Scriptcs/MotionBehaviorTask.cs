@@ -14,6 +14,7 @@ public class MotionBehaviorTask : Quartz.IJob
             try
             {
                 var behavior = context.MergedJobDataMap.Get("MotionBasedBehavior") as MotionBasedBehavior;
+                var contextServer = context.MergedJobDataMap.Get("ContextServer") as string;
                 
                 //var ip = context.MergedJobDataMap.GetString("BehaviorServerIp");
                 //var port = context.MergedJobDataMap.GetIntValue("BehaviorServerPort");
@@ -33,6 +34,26 @@ public class MotionBehaviorTask : Quartz.IJob
 
                         foreach (var behaviorInfo in behavior.RobotActions)
                         {
+                            // Before executing each action get the latest information about the human
+                            string humanInfo = string.Empty;
+                            if (!string.IsNullOrEmpty(contextServer))
+                            {
+                                using (var ctx = NetMQ.NetMQContext.Create())
+                                {
+                                    using (var sock = ctx.CreateRequestSocket())
+                                    {
+                                        sock.Connect(contextServer);
+                                        Console.WriteLine(@"Getting updated information about the human : {0}",
+                                            behavior.Id);
+                                        sock.Send(string.Format("human/{0}", behavior.Id));
+                                        humanInfo = sock.ReceiveString();
+                                    }
+                                }
+                            }
+                            if (!string.IsNullOrEmpty(humanInfo))
+                            {
+                                Console.WriteLine(humanInfo);
+                            }
                             using (var ctx = NetMQ.NetMQContext.Create())
                             {
                                 using (var sock = ctx.CreateRequestSocket())
