@@ -17,6 +17,7 @@ import math
 import os
 import argparse
 
+
 from os.path import dirname
 from os.path import abspath
 
@@ -267,16 +268,27 @@ def plot_robot_pose(interval, lock, lock2):
             if temp_wedge != None:
                 temp_wedge.set_visible(True)
                 human_torso = human.torso_position
-                print human_torso
+                #print human_torso
+                w = human.orientation.w
+                x = human.orientation.x
+                y = human.orientation.y
+                z = human.orientation.z
                 human_orient = [human.orientation.w,human.orientation.x,human.orientation.y,human.orientation.z]
-                print human_orient
+                #print human_orient
                 temp_wedge.set_center((human_torso.z,human_torso.x))
                 
-                human_euler = transformations.euler_from_quaternion(human_orient,axes='syxz')
-                human_euler = [math.degrees(x) for x in human_euler]
-                human_deg = human_euler[1]
-                temp_wedge.set_theta1(human_deg - 15)
-                temp_wedge.set_theta2(human_deg + 15)
+                human_euler = transformations.euler_from_quaternion(human_orient,axes='szyx')
+
+                if(not(math.isnan(w)) and not(math.isnan(x)) and not(math.isnan(y)) and not(math.isnan(z))):
+                    roll  = math.degrees(math.atan2(2*y*w - 2*x*z, 1 - 2*y*y - 2*z*z));
+                    pitch = math.degrees(math.atan2(2*x*w - 2*y*z, 1 - 2*x*x - 2*z*z));
+                    yaw   = math.degrees(math.asin(2*x*y + 2*z*w));
+                    human_euler = [math.degrees(x) for x in human_euler]
+                    human_deg = 180-roll
+                    temp_wedge.set_theta1(human_deg - 15)
+                    temp_wedge.set_theta2(human_deg + 15)
+
+                    print "Human : " , human.id, " , " , [human_torso.z,human_torso.x], " , " , [roll,pitch,yaw] 
         #local_pos = [x/1000 for x in local_pos]
         
         #euler = transformations.euler_from_quaternion(local_orient,axes='syxz')
@@ -293,6 +305,7 @@ def plot_robot_pose(interval, lock, lock2):
         wedge1.set_theta2(deg + 15)
         #print "Hello : (%d,%d);(%d,%d)" % (x,y,theta1,theta2)
         
+        print local_pos,deg
         #print "Position    : " , local_pos
         #print "Orientation : " , local_orient
         #print "Euler       : " , deg
