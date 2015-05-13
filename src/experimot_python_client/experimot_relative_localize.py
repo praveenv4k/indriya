@@ -52,7 +52,7 @@ import human_pb2
 pos = [0.0,0.0,0.0]
 orient = [1.0,0.0,0.0,0.0]
 
-pose = [0.0,0.0,0.0]
+pose = [0.0,0.0,0.0,0.0,0.0,0.0]
 
 global_humans = human_pb2.Humans()
 #############################################################################################################
@@ -107,7 +107,7 @@ def localization_client(lock,ip,port):
         #orient = [float(result["orient"]["w"]),float(result["orient"]["x"]),float(result["orient"]["y"]),float(result["orient"]["z"])]
         global pose
         #pose = [float(result["pose"]["x"]),float(result["pose"]["y"]),float(result["pose"]["alpha"])]
-        pose = [float(result["pos"]["x"]),float(result["pos"]["y"]),float(result["orient"]["z"])]
+        pose = [float(result["pos"]["x"]),float(result["pos"]["y"]),float(result["orient"]["z"]),float(result["euler"]["Rx"]),float(result["euler"]["Ry"]),float(result["euler"]["Rz"])]
         lock.release()
 
         #print "Position    : " , pos
@@ -234,6 +234,7 @@ def plot_robot_pose(interval, lock, lock2):
         lock.acquire()
         local_pos = pose[0:2];
         local_orient = pose[2]
+        local_rpy = [pose[3],pose[4],pose[5]]
         lock.release()
 
         lock2.acquire()
@@ -295,7 +296,10 @@ def plot_robot_pose(interval, lock, lock2):
         #euler = [math.degrees(x) for x in euler]
         #deg = euler[1]
         deg = math.degrees(local_orient)
-
+        if(deg > 0):
+            deg = deg-90
+        else:
+            deg = deg+90
         #x,y   = wedge1.center
         x = local_pos[0]
         y = local_pos[1]
@@ -305,7 +309,8 @@ def plot_robot_pose(interval, lock, lock2):
         wedge1.set_theta2(deg + 15)
         #print "Hello : (%d,%d);(%d,%d)" % (x,y,theta1,theta2)
         
-        print local_pos,deg
+        local_rpy = [math.degrees(x) for x in local_rpy]
+        print local_pos,deg,local_rpy
         #print "Position    : " , local_pos
         #print "Orientation : " , local_orient
         #print "Euler       : " , deg
