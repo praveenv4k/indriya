@@ -6,8 +6,7 @@
     <ProjectGuid>ed9454de-9ac1-4e5d-93a2-9abf5d6abc55</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>plot_planar_localize.py</StartupFile>
-    <SearchPath>
-    </SearchPath>
+    <SearchPath>..\experimot_msgs\python\</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>experimot_python_client</Name>
@@ -31,6 +30,7 @@
     <Compile Include="experimot_zmq_client.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="experimot_relative_localize.py" />
     <Compile Include="experimot_zmq_plot_client.py">
       <SubType>Code</SubType>
     </Compile>
