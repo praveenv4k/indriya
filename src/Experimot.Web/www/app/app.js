@@ -1,4 +1,4 @@
-﻿define(['jquery', 'backbone', 'marionette', 'underscore'],
+﻿define(['jquery', 'backbone', 'marionette', 'underscore', 'backboneMarionetteModals'],
     function($, Backbone, Marionette, _) {
         var app = new Backbone.Marionette.Application();
 
@@ -12,7 +12,11 @@
         app.addRegions({
             designer: "#designer-anchor",
             monitor: "#monitor-anchor",
-            viewport: "#viewport-anchor"
+            viewport: "#viewport-anchor",
+            modals: {
+                selector: '#modals-container',
+                regionClass: Backbone.Marionette.Modals
+            }
         });
 
         app.addInitializer(function() {

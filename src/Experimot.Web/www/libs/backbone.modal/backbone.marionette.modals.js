@@ -5,9 +5,9 @@
 
   (function(factory) {
     if (typeof define === "function" && define.amd) {
-      return define(["underscore", "backbone", "backbone.marionette", "exports"], factory);
+      return define(["underscore", "backbone", "marionette", "exports"], factory);
     } else if (typeof exports === "object") {
-      return factory(require("underscore"), require("backbone"), require("backbone.marionette"), exports);
+      return factory(require("underscore"), require("backbone"), require("marionette"), exports);
     } else {
       return factory(_, Backbone, Backbone.Marionette, {});
     }

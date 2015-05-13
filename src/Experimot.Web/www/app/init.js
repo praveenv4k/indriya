@@ -5,9 +5,9 @@
         underscore: "../libs/underscore/underscore",
         backbone: "../libs/backbone/backbone",
         marionette: "../libs/marionette/backbone.marionette",
+        'backbone.marionette': "../libs/marionette/backbone.marionette", //alias
         poller: "../libs/backbone.poller/backbone.poller",
         text: "../libs/requirejs/text",
-        joint: "../libs/joint/joint.nojquerynobackbone",
         slidebars: "../libs/slidebars/slidebars",
         jsonview: "../libs/jquery-jsonview/jquery-jsonview",
         blockly: "../libs/google/blockly/blockly_compressed",
@@ -27,6 +27,9 @@
 
         //webgldetector: "../js/Detector",
         , marionette_threejs: "../libs/marionette-threejs/marionette-threejs"
+        // Backbone Marionette modal
+        , backboneModal : "../libs/backbone.modal/backbone.modal"
+        , backboneMarionetteModals : "../libs/backbone.modal/backbone.marionette.modals"
     },
     shim: {
         // jQueryUI
@@ -39,16 +42,23 @@
         //Marionette
         "marionette": {
             "deps": ["underscore", "backbone", "jquery"],
-            "exports": "Marionette"
+            exports: "Marionette"
+        },
+        "backbone.marionette": {
+            "deps": ["underscore", "backbone", "jquery"],
+            exports: "Marionette"
         },
         // Underscore
         "underscore": {
             exports: "_"
         },
-        // Joint JS
-        "joint": {
-            "deps": ["underscore", "backbone", "jquery"],
-            "exports": "Joint"
+        // Backbone Modal
+        "backboneModal": {
+            "deps": ["underscore", "backbone", "jquery"]
+        },
+        // Backbone Marionette Modal
+        "backboneMarionetteModals": {
+            "deps": ["marionette", "backboneModal"]
         },
         // Json-view
         "jsonview": {
@@ -90,7 +100,7 @@
 // Include Desktop Specific JavaScript files here (or inside of your Desktop Controller, or differentiate based off App.mobile === false)
 //require(["app", "jquery", "routers/approuter", "controllers/appcontroller", "backbone", "marionette", "jqueryui", "handlebars"],
 require(["app", "jquery", "routers/approuter", "controllers/appcontroller", "backbone", "marionette", "jqueryui", 
-                "blocks", "blockly_msg_en", "colladaloader", "projector", "blockly_python", "blockly_csharp"],
+                "blocks", "blockly_msg_en", "colladaloader", "projector", "blockly_python", "blockly_csharp", "backboneModal", "backboneMarionetteModals"],
                 //, "marionette_threejs","projector", "colladaloader"],
     function(app, $, appRouter, appController) {
         //$.mobile.ajaxEnabled = false;
