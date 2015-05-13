@@ -7,6 +7,19 @@
             events: {
 
             },
+            onShow: function() {
+                console.log(this.model);
+                $("#program-list").selectable({
+                    stop: function () {
+                        var result = $("#select-program").empty();
+                        $(".ui-selected", this).each(function () {
+                            var index = $("#program-list li").index(this);
+                            
+                            result.append(" #" + (index + 1));
+                        });
+                    }
+                });
+            },
             submitEl: '.bbm-button'
 
         });
