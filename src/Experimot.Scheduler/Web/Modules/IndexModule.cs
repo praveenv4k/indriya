@@ -195,6 +195,24 @@ namespace Experimot.Scheduler.Web.Modules
                 return (Response)HttpStatusCode.NotModified;
             };
 
+            Get["/designer/program/list"] = parameters =>
+            {
+                try
+                {
+                    List<string> programs = new List<string>();
+                    programs.Add("simple_behavior");
+                    programs.Add("complex_behavior");
+
+                    return Response.AsJson(programs);
+
+                }
+                catch (Exception ex)
+                {
+                    Log.InfoFormat("Exception occured while GET program list : {0}", ex.Message);
+                }
+                return (Response) HttpStatusCode.OK;
+            };
+
             Post["/designer/program/startxml"] = parameters =>
             {
                 Log.InfoFormat("POST  : {0}", Request.Url);

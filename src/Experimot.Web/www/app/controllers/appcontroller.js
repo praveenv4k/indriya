@@ -1,7 +1,8 @@
-﻿define(['app', 'backbone', 'marionette', 'models/robot', 'models/testjointvalues', 'models/JointValues', 'collections/drawables', 'marionette_threejs', 'poller','views/programSelectModal','models/Model'],
-    function (app, backbone, marionette, robot,testJointVals,jointVals, drawables, m3Js,poller,openDialog,dummyModel) {
+﻿define(['app', 'backbone', 'marionette', 'models/robot', 'models/testjointvalues', 'models/JointValues', 'collections/drawables', 'marionette_threejs', 'poller','views/programSelectModal','collections/programs'],
+    function (app, backbone, marionette, robot,testJointVals,jointVals, drawables, m3Js,poller,openDialog,programs) {
         return backbone.Marionette.Controller.extend({
-            initialize: function(options) {
+            initialize: function (options) {
+                app.programs = new programs();
                 app.Drawables = new drawables();
 
                 this.listenTo(app.Drawables, "drawable:loaded", function(drawable) {
@@ -196,10 +197,14 @@
                         }
                     })
                     .click(function () {
-                    var model = new dummyModel();
-                        var dialog = new openDialog({model:model});
-                        console.log(dialog);
-                        app.modals.show(dialog);
+                        app.programs.fetch({
+                            success: function() {
+                                var dialog = new openDialog({ collection: app.programs });
+                                //console.log(dialog);
+                                app.modals.show(dialog);
+                            }
+                        });
+                        
                     });
             },
 
