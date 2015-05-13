@@ -88,7 +88,7 @@ namespace Experimot.Scheduler
                                 }
                             }
                         }
-                        else if (req.Contains("human"))
+                        else if (req.Contains("humans"))
                         {
                             var context = TinyIoCContainer.Current.Resolve<Context>();
                             if (context != null)
@@ -96,6 +96,27 @@ namespace Experimot.Scheduler
                                 string json = JsonConvert.SerializeObject(context.Humans);
                                 _socket.Send(json);
                             }
+                        }
+                        else if (req.Contains("human/"))
+                        {
+                            string json = string.Empty;
+                            string[] strArray = req.Split('/');
+                            int id = -1;
+                            if (strArray.Length == 2)
+                            {
+                                int.TryParse(strArray[1], out id);
+                            }
+                            if (id != -1)
+                            {
+                                var context = TinyIoCContainer.Current.Resolve<Context>();
+                                if (context != null)
+                                {
+                                    var human = context.Humans.FirstOrDefault(s => s.Id == id);
+                                    json = JsonConvert.SerializeObject(human);
+                                    //_socket.Send(json);
+                                }
+                            }
+                            _socket.Send(json);
                         }
                         else if (req.Contains("behavior_modules"))
                         {

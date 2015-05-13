@@ -198,6 +198,12 @@ namespace Experimot.Scheduler.Tests
                             }
                         }
                     }
+                    // Check cloning
+                    //var temp = motionBehavior.Clone() as MotionBasedBehavior;
+                    //if (temp != null)
+                    //{
+                        
+                    //}
                     motionBehaviorList.Add(motionBehavior);
                 }
             }

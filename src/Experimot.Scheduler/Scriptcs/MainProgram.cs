@@ -82,6 +82,7 @@ public class MainProgram
                         int confidence = gesture.Value<int>("Confidence");
                         if (active && confidence > motionBehavior.ConfidenceLevel)
                         {
+                            motionBehavior.Id = human.Value<int>("Id");
                             ret.Add(motionBehavior);
                             Console.WriteLine(@"Name : {0}, Confidence: {1}", name, confidence);
                         }
@@ -232,6 +233,28 @@ public class MainProgram
                     .WithIdentity(jobKey)
                     .Build();
                 detail.JobDataMap.Add("BehaviorInfoList", behaviorInfo);
+                ITrigger trigger = TriggerBuilder.Create().ForJob(detail).StartNow().Build();
+                scheduler.ScheduleJob(detail, trigger);
+                Console.WriteLine(@"New job about to be scheduled Job : {0}, Module : {1}", jobKey.Name,
+                    jobKey.Group);
+            }
+        }
+    }
+
+    private static void ScheduleBehaviorExecution(IScheduler scheduler, MotionBasedBehavior behavior,
+        string triggerName)
+    {
+        Console.WriteLine(@"Behavior Execution for trigger : {0}", triggerName);
+        if (behavior != null && behavior.RobotActions.Count > 0 && scheduler != null)
+        {
+            var moduleName = behavior.RobotActions[0].ModuleName;
+            var jobKey = JobKey.Create(string.Format("Task_{0}", moduleName), moduleName);
+            if (!scheduler.CheckExists(jobKey))
+            {
+                IJobDetail detail = JobBuilder.Create<MotionBehaviorTask>()
+                    .WithIdentity(jobKey)
+                    .Build();
+                detail.JobDataMap.Add("MotionBasedBehavior", behavior);
                 ITrigger trigger = TriggerBuilder.Create().ForJob(detail).StartNow().Build();
                 scheduler.ScheduleJob(detail, trigger);
                 Console.WriteLine(@"New job about to be scheduled Job : {0}, Module : {1}", jobKey.Name,
@@ -416,7 +439,7 @@ public class MainProgram
                                 socket.Connect(contextServer);
                                 while (!_requestStop)
                                 {
-                                    socket.Send("human");
+                                    socket.Send("humans");
                                     var resp = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
                                     if (!string.IsNullOrEmpty(resp))
                                     {
@@ -444,8 +467,13 @@ public class MainProgram
                                                     var modules = GetBehaviorModules(socket, behavior.RobotActions);
                                                     if (modules != null && modules.Count > 0)
                                                     {
-                                                        ScheduleBehaviorExecution(_scheduler, modules,
-                                                            behavior.Trigger);
+                                                        var motionBasedBehavior = behavior.Clone() as MotionBasedBehavior;
+                                                        if (motionBasedBehavior != null)
+                                                        {
+                                                            motionBasedBehavior.RobotActions = modules;
+                                                            ScheduleBehaviorExecution(_scheduler, motionBasedBehavior,
+                                                                behavior.Trigger);
+                                                        }
                                                     }
                                                 }
                                                 //var modules = GetBehaviorModules(socket, behaviorMap.Values);

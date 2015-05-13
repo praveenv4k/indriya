@@ -25,7 +25,7 @@ public enum BehaviorExecutionPriority
 }
 
 
-public class MotionBasedBehavior
+public class MotionBasedBehavior: ICloneable
 {
     public MotionBasedBehavior()
     {
@@ -39,6 +39,13 @@ public class MotionBasedBehavior
     public string Name { get; set; }
     public BehaviorExecutionPriority Priority { get; set; }
     public string Trigger { get; set; }
+    public int Id { get; set; }
     public int ConfidenceLevel { get; set; }
     public IList<BehaviorInfo> RobotActions { get; set; }
+    
+    public object Clone()
+    {
+        var cloned = this.MemberwiseClone() as MotionBasedBehavior;
+        return cloned;
+    }
 }
