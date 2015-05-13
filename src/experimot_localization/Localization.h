@@ -233,6 +233,7 @@ public:
 						m_MedianFilter.addPose(markerTfm);
 						m_MedianFilter.getMedian(markerTfm);
 
+#if 0
 						double distance = (markerTfm.rot - prevTfm.rot).lengthsqr4();
 						if (distance > 1){
 
@@ -248,6 +249,7 @@ public:
 							cout << "Distance : " << distance << endl;*/
 							//cout << markerTfm.rot << "\t " << (angle * 180) / B3_PI << "\t " << distance << std::endl;
 						}
+#endif
 
 						// Interpolate
 						markerTfm.trans = 0.5 * (markerTfm.trans + prevTfm.trans);

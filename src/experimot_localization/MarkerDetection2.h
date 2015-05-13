@@ -27,6 +27,8 @@ class MarkerDetection2;
 
 #define MATH_PI_4 OpenRAVE::PI/4
 
+#define ROT_DIST_THRES 10
+
 typedef boost::shared_ptr<MarkerDetection2> MarkerDetection2Ptr;
 
 class MarkerDetection2{
@@ -35,6 +37,7 @@ public:
 	MarkerDetection2(std::string& calibFile, int markerSize, int cubeSize) :m_strCalibFile(calibFile), m_nMarkerSize(markerSize), m_nCubeSize(cubeSize)
 	{
 		max_error = std::numeric_limits<double>::max();
+		init_detection = 0;
 		_init();
 	}
 
@@ -152,9 +155,10 @@ public:
 		}
 	}
 
-	bool TransformToTopFrame(std::map<int, Transform>& poseMap, const Transform& prevTfm, Transform& outTf){
+	bool TransformToTopFrame(std::map<int, Transform>& poseMap, const Transform& prevTfm, Transform& outTf, bool init_frames){
 		bool ret = false;
 		std::vector<Transform> tfs;
+		double dist_threshold = 500;
 		FOREACH(it, poseMap){
 			if (it->first == TOP_MARKER_ID){
 				//tfs.push_back(it->second*m_MarkerTransformMapping[it->first]); // 20150410
@@ -197,27 +201,54 @@ public:
 					}
 				}
 #else
+				dReal euc_dist1 = (prevTfm.trans - tf1.trans).lengthsqr3();
+				dReal euc_dist2 = (prevTfm.trans - tf2.trans).lengthsqr3();
 				dReal dist1 = (prevTfm.rot - tf1.rot).lengthsqr4();
 				dReal dist2 = (prevTfm.rot - tf2.rot).lengthsqr4();
-				if (dist1 < 2.0 && dist2 < 2.0){
+				if (init_frames){
 					ret = true;
 				}
-				else if (dist1 < 2.0){
-					outTf = tf1;
-					ret = true;
-				}
-				else if (dist2 < 2.0){
-					outTf = tf2;
-					ret = true;
+				else{
+					/*if (dist1 < 3.0 && euc_dist1 < dist_threshold && dist2 < 3.0 && euc_dist2 < dist_threshold){
+						ret = true;
+					}
+					else if (dist1 < 3.0 && euc_dist1 < dist_threshold){
+						outTf = tf1;
+						ret = true;
+					}
+					else if (dist2 < 3.0 && euc_dist2 < dist_threshold){
+						outTf = tf2;
+						ret = true;
+					}*/
+					if (dist1 < ROT_DIST_THRES  && dist2 < ROT_DIST_THRES){
+						ret = true;
+					}
+					else if (dist1 < ROT_DIST_THRES){
+						outTf = tf1;
+						ret = true;
+					}
+					else if (dist2 < ROT_DIST_THRES){
+						outTf = tf2;
+						ret = true;
+					}
 				}
 #endif
 			}
 			else{
 				outTf = tfs[0];
-				b3Quaternion q1(outTf.rot[1], outTf.rot[2], outTf.rot[3], outTf.rot[0]);
-				dReal dist = (prevTfm.rot - outTf.rot).lengthsqr4();
-				if (dist < 2.0){
+				if (init_frames){
 					ret = true;
+				}
+				else{
+					b3Quaternion q1(outTf.rot[1], outTf.rot[2], outTf.rot[3], outTf.rot[0]);
+					dReal dist = (prevTfm.rot - outTf.rot).lengthsqr4();
+					dReal euc_dist = (prevTfm.trans - outTf.trans).lengthsqr3();
+					/*if (dist < 3.0 && euc_dist < dist_threshold){
+						ret = true;
+					}*/
+					if (dist < ROT_DIST_THRES){
+						ret = true;
+					}
 				}
 				/*double angle = q.angle(q1);
 				if (fabs(angle) < MATH_PI_4){
@@ -258,6 +289,7 @@ public:
 		std::map<int, Pose> markerPoses;
 		std::map<int, Transform> markerTfs;
 		if (marker_detector.markers->size() >= 1){
+			init_detection++;
 			//cout << "Marker detected" << endl;
 			for (size_t i = 0; i < marker_detector.markers->size(); i++) {
 				if (i >= 32) break;
@@ -297,7 +329,7 @@ public:
 
 
 				//TransformToTopFrame(markerPoses, out_tfm);
-				TransformToTopFrame(markerTfs, prev_tfm, out_tfm); {
+				TransformToTopFrame(markerTfs, prev_tfm, out_tfm, init_detection < 10); {
 					TransformationHelper::TransformToPose(out_tfm, p_res);
 					ret = true;
 					int id = 10;
@@ -332,8 +364,12 @@ public:
 				image->origin = !image->origin;
 			}
 		}
+		else{
+			// In order to reinitialize the pose detection
+			init_detection = 0;
+		}
 		return ret;
-	}
+		}
 
 private:
 	bool _init(){
@@ -375,6 +411,7 @@ private:
 	int m_nCubeSize;
 	Camera m_camera;
 	double max_error;
+	int init_detection;
 	std::map<int, Transform> m_MarkerTransformMapping;
 };
 

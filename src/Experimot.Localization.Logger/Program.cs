@@ -72,7 +72,7 @@ namespace Experimot.Localization.Logger
             {
                 if (info != null)
                 {
-                    Task writeSkeleton = Task.Factory.StartNew(() => LogKinectSkeleton(info));
+                    //Task writeSkeleton = Task.Factory.StartNew(() => LogKinectSkeleton(info));
                     Console.WriteLine("Enter 0 for 6D pose and 1 for pose on a plane!");
                     string c = Console.ReadLine();
                     Task<IList<Pose>> logTask = null;
