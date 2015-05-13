@@ -242,7 +242,7 @@ public class MainProgram
     }
 
     private static void ScheduleBehaviorExecution(IScheduler scheduler, MotionBasedBehavior behavior,
-        string triggerName)
+        string triggerName,IDictionary<string,object> props )
     {
         Console.WriteLine(@"Behavior Execution for trigger : {0}", triggerName);
         if (behavior != null && behavior.RobotActions.Count > 0 && scheduler != null)
@@ -255,6 +255,11 @@ public class MainProgram
                     .WithIdentity(jobKey)
                     .Build();
                 detail.JobDataMap.Add("MotionBasedBehavior", behavior);
+                var contextServer = GetValue(props, "ContextServer", "tcp://localhost:5800").ToString();
+                if (!string.IsNullOrEmpty(contextServer))
+                {
+                    detail.JobDataMap.Add("ContextServer", contextServer);
+                }
                 ITrigger trigger = TriggerBuilder.Create().ForJob(detail).StartNow().Build();
                 scheduler.ScheduleJob(detail, trigger);
                 Console.WriteLine(@"New job about to be scheduled Job : {0}, Module : {1}", jobKey.Name,
@@ -472,7 +477,7 @@ public class MainProgram
                                                         {
                                                             motionBasedBehavior.RobotActions = modules;
                                                             ScheduleBehaviorExecution(_scheduler, motionBasedBehavior,
-                                                                behavior.Trigger);
+                                                                behavior.Trigger,_props);
                                                         }
                                                     }
                                                 }
