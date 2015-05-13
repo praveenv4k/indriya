@@ -8,7 +8,7 @@
 
             },
             onShow: function() {
-                console.log(this.model);
+                console.log(this.collection);
                 $("#program-list").selectable({
                     stop: function () {
                         var result = $("#select-program").empty();
