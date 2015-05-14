@@ -1,5 +1,8 @@
-﻿define(['app', 'backbone', 'marionette', 'models/robot', 'models/testjointvalues', 'models/JointValues', 'collections/drawables', 'marionette_threejs', 'poller','views/programSelectModal','collections/programs'],
-    function (app, backbone, marionette, robot,testJointVals,jointVals, drawables, m3Js,poller,openDialog,programs) {
+﻿define(['app', 'backbone', 'marionette', 'models/robot', 'models/testjointvalues', 'models/JointValues', 'collections/drawables', 'marionette_threejs', 'poller',
+    'views/programSelectModal',
+    'views/saveDialog',
+    'collections/programs'],
+    function (app, backbone, marionette, robot,testJointVals,jointVals, drawables, m3Js,poller,openDialog,saveDialog,programs) {
         return backbone.Marionette.Controller.extend({
             initialize: function (options) {
                 app.programs = new programs();
@@ -33,6 +36,14 @@
                             //app.codeXmlDom = data;
                             //Blockly.Xml.domToWorkspace(app.workspace, app.codeXmlDom);
                         }
+                    });
+                });
+
+                globalCh.vent.on("saveProgram", function(name) {
+                    app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
+                    var xmlText = Blockly.Xml.domToPrettyText(app.codeXmlDom);
+                    $.post("/designer/program/save", { "name": name, "value": xmlText }, function(data) {
+                        console.log("Program save: " + data);
                     });
                 });
 
@@ -142,7 +153,18 @@
                     });
             },
 
-            initCodeMenu: function() {
+            checkProgramEmpty: function() {
+                app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
+                var hasChildren = $(app.codeXmlDom).children('block').length > 0;
+                if (hasChildren === false) {
+                    console.log("Empty program");
+                    return true;
+                }
+                return false;
+            },
+
+            initCodeMenu: function () {
+                var _this = this;
                 $("#run").button({
                         text: true,
                         icons: {
@@ -153,25 +175,27 @@
                         var options;
 
                         if ($(this).text() === "RUN") {
+                            var programEmpty = _this.checkProgramEmpty();
+                            if (programEmpty === false) {
+                                app.code = Blockly.CSharp.workspaceToCode(app.workspace); // C# code generation
+                                //$.post("/designer/program/start", app.code, function (data) {
+                                //    console.log("Program Sent & Started: " + data);
+                                //});
+                                console.log(app.code);
 
-                            app.code = Blockly.CSharp.workspaceToCode(app.workspace); // C# code generation
-                            //$.post("/designer/program/start", app.code, function (data) {
-                            //    console.log("Program Sent & Started: " + data);
-                            //});
-                            console.log(app.code);
+                                app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
+                                var xmlText = Blockly.Xml.domToPrettyText(app.codeXmlDom);
+                                $.post("/designer/program/startxml", xmlText, function(data) {
+                                    console.log("Program Sent & Started: " + data);
+                                });
 
-                            app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
-                            var xmlText = Blockly.Xml.domToPrettyText(app.codeXmlDom);
-                            $.post("/designer/program/startxml", xmlText, function(data) {
-                                console.log("Program Sent & Started: " + data);
-                            });
-
-                            options = {
-                                label: "STOP",
-                                icons: {
-                                    primary: "ui-icon-stop"
-                                }
-                            };
+                                options = {
+                                    label: "STOP",
+                                    icons: {
+                                        primary: "ui-icon-stop"
+                                    }
+                                };
+                            }
                         } else {
 
                             $.post("/designer/program/stop", function(data) {
@@ -196,17 +220,20 @@
                     })
                     .click(function() {
                         if (app.workspace != undefined) {
-                            //app.code = Blockly.Python.workspaceToCode(app.workspace);
-                            app.code = Blockly.CSharp.workspaceToCode(app.workspace); // C# code generation
-                            $.post("/designer/program/code", app.code, function(data) {
-                                console.log("Sent Program: " + data);
-                            });
-                            console.log(app.code);
+                            var programEmpty = _this.checkProgramEmpty();
+                            if (programEmpty === false) {
+                                //app.code = Blockly.Python.workspaceToCode(app.workspace);
+                                app.code = Blockly.CSharp.workspaceToCode(app.workspace); // C# code generation
+                                $.post("/designer/program/code", app.code, function(data) {
+                                    console.log("Sent Program: " + data);
+                                });
+                                console.log(app.code);
 
-                            app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
-                            var xmlText = Blockly.Xml.domToPrettyText(app.codeXmlDom);
-                            console.log(xmlText);
-                            console.log(app.code);
+                                app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
+                                var xmlText = Blockly.Xml.domToPrettyText(app.codeXmlDom);
+                                console.log(xmlText);
+                                console.log(app.code);
+                            }
                         }
                     });
                 $("#open").button({
@@ -215,7 +242,7 @@
                             primary: "ui-icon-document"
                         }
                     })
-                    .click(function () {
+                    .click(function() {
                         app.programs.fetch({
                             success: function() {
                                 var dialog = new openDialog({
@@ -225,7 +252,62 @@
                                 app.modals.show(dialog);
                             }
                         });
-                        
+
+                    });
+                //ui - icon - trash
+
+                $("#save").button({
+                        text: true,
+                        icons: {
+                            primary: "ui-icon-disk"
+                        }
+                    })
+                    .click(function () {
+                        var programEmpty = _this.checkProgramEmpty();
+                        if (programEmpty === false) {
+                            var dialog = new saveDialog({
+                                programName: $("#program-name").text()
+                            });
+                            //console.log(dialog);
+                            app.modals.show(dialog);
+                        }
+                        //app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
+                        //var hasChildren = $(app.codeXmlDom).children('block').length > 0;
+                        //if (hasChildren === false) {
+                        //    console.log("Empty program");
+                        //} else {
+                        //    console.log(app.codeXmlDom);
+                        //    if (app.codeXmlDom != undefined) {
+                        //        var xmlText = Blockly.Xml.domToPrettyText(app.codeXmlDom);
+                        //        if (xmlText !== "") {
+                        //            var dialog = new saveDialog({
+                        //                programName: $("#program-name").text()
+                        //            });
+                        //            //console.log(dialog);
+                        //            app.modals.show(dialog);
+                        //        }
+                        //    }
+                        //}
+                    });
+
+                $("#clear").button({
+                        text: true,
+                        icons: {
+                            primary: "ui-icon-trash"
+                        }
+                    })
+                    .click(function () {
+                        //app.codeXmlDom = Blockly.Xml.textToDom('<xml></xml>');
+                        //Blockly.Xml.domToWorkspace(app.workspace, app.codeXmlDom);
+
+                        //TODO Add confirmation dialog
+                        //if (count < 2) {
+                        app.workspace.clear();
+                        app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
+                        //}
+
+                        var name = $("#program-name").empty();
+                        name.append("None");
                     });
             },
 
