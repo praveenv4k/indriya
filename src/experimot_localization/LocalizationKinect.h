@@ -312,7 +312,9 @@ public:
 #endif
 
 
-				m_pLocalizationResponderPtr->Respond(kinectTfm);
+				m_pLocalizationResponderPtr->Respond(kinectTfm, m_prevLocalizationTransform, false);
+
+				m_prevLocalizationTransform = kinectTfm;
 			}
 		}
 		m_TdmTimer.async_wait(strand_.wrap(boost::bind(&LocalizationKinect::LocalizationRespond, this)));
@@ -346,6 +348,8 @@ private:
 	int m_nRobotCycle;
 	int m_nPoseCycle;
 	int m_nTdmCycle;
+
+	Transform m_prevLocalizationTransform;
 
 	bool m_bVisualize;
 	experimot::msgs::NodePtr m_pNode;

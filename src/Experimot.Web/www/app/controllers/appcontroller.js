@@ -17,6 +17,25 @@
 
                 var globalCh = Backbone.Wreqr.radio.channel('global');
 
+                globalCh.vent.on("loadProgram", function(model) {
+                    $.ajax({
+                        url: model.get('path'),
+                        dataType: "text",
+                        success: function (data) {
+                            console.log(data);
+                            //console.log(app.workspace);
+                            app.codeXmlDom = Blockly.Xml.textToDom(data);
+                            Blockly.Xml.domToWorkspace(app.workspace, app.codeXmlDom);
+                            var name = $("#program-name").empty();
+                            name.append(model.get('name'));
+                            //program - name
+                            //console.log(app.workspace);
+                            //app.codeXmlDom = data;
+                            //Blockly.Xml.domToWorkspace(app.workspace, app.codeXmlDom);
+                        }
+                    });
+                });
+
                 app.robot = new robot();
 
                 app.robotpoller = poller.get(app.robot, this.pollerOptions());
@@ -199,7 +218,9 @@
                     .click(function () {
                         app.programs.fetch({
                             success: function() {
-                                var dialog = new openDialog({ collection: app.programs });
+                                var dialog = new openDialog({
+                                    collection: app.programs
+                                });
                                 //console.log(dialog);
                                 app.modals.show(dialog);
                             }
