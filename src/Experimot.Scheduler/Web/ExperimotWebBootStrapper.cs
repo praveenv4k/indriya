@@ -46,6 +46,7 @@ namespace Experimot.Scheduler.Web
             Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("scenes", @"C:/Work/Develop/src/github/ExPeriMot/src/Experimot.Web/www/scenes"));
             Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("demo", @"C:/Work/Develop/src/github/ExPeriMot/src/Experimot.Web/www/demo"));
             Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("app", @"C:/Work/Develop/src/github/ExPeriMot/src/Experimot.Web/www/app"));
+            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("data", @"C:/Work/Develop/src/github/ExPeriMot/src/Experimot.Web/www/data"));
         }
 
         protected override IRootPathProvider RootPathProvider

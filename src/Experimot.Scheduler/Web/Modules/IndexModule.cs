@@ -28,6 +28,12 @@ namespace Experimot.Scheduler.Web.Modules
         public List<double> val { get; set; }
     }
 
+    internal class ProgramList
+    {
+        public string Name { get; set; }
+        public string Path { get; set; }
+    }
+
     public class IndexModule : NancyModule
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof (IndexModule));
@@ -199,10 +205,26 @@ namespace Experimot.Scheduler.Web.Modules
             {
                 try
                 {
-                    List<string> programs = new List<string>();
-                    programs.Add("simple_behavior");
-                    programs.Add("complex_behavior");
+                    List<ProgramList> programs = new List<ProgramList>();
 
+                    var programsFolder = Path.Combine(WebRoot, "data", "programs");
+                    if (Directory.Exists(programsFolder))
+                    {
+                        var files = Directory.GetFiles(programsFolder);
+                        // ReSharper disable once LoopCanBeConvertedToQuery
+                        foreach (var file in files)
+                        {
+                            var fileName = Path.GetFileName(file);
+                            if (fileName != null)
+                            {
+                                programs.Add(new ProgramList()
+                                {
+                                    Name = fileName,
+                                    Path = Path.Combine("data", "programs", fileName)
+                                });
+                            }
+                        }
+                    }
                     return Response.AsJson(programs);
 
                 }
