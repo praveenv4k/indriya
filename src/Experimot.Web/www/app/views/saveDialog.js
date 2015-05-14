@@ -8,21 +8,26 @@
                 'click .save-button': 'onSave'
             },
             onSave: function() {
-                console.log("Save clicked " + $("#program-save-text").text());
+                var name = $("#program-save-text").val();
+                console.log("Save clicked " + name);
+                if (name.indexOf(".xml") >= 0) {
+
+                } else {
+                    name = name + ".xml";
+                }
                 var globalCh = Backbone.Wreqr.radio.channel('global');
-                globalCh.vent.trigger("saveProgram", $("#program-save-text").val());
+                globalCh.vent.trigger("saveProgram", name);
             },
             onShow: function () {
                 var name = "";
-                if (this.programName != undefined) {
-                    if (this.programName !== "none") {
-                        name = this.programName;
-                    }                       
+                console.log(this.model);
+                if (this.model != undefined) {
+                    name = this.model.get('name');
                 }
                 //result = $("#program-save-text").empty();
                 if (name === "") {
                     var d = new Date($.now());
-                    name = d.getFullYear() + d.getMonth() + d.getDay() + "_" + d.getHours() + d.getMinutes() + d.getSeconds();
+                    name = d.getYear() + d.getMonth() + d.getDay() + "_" + d.getHours() + d.getMinutes() + d.getSeconds();
                 }
                 $("#program-save-text").val(name);
             },

@@ -5,6 +5,7 @@
     function (app, backbone, marionette, robot,testJointVals,jointVals, drawables, m3Js,poller,openDialog,saveDialog,programs) {
         return backbone.Marionette.Controller.extend({
             initialize: function (options) {
+                var _this = this;
                 app.programs = new programs();
                 app.Drawables = new drawables();
 
@@ -25,6 +26,7 @@
                         url: model.get('path'),
                         dataType: "text",
                         success: function (data) {
+                            _this.clearWorkspace();
                             console.log(data);
                             //console.log(app.workspace);
                             app.codeXmlDom = Blockly.Xml.textToDom(data);
@@ -43,7 +45,9 @@
                     app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
                     var xmlText = Blockly.Xml.domToPrettyText(app.codeXmlDom);
                     $.post("/designer/program/save", { "name": name, "value": xmlText }, function(data) {
-                        console.log("Program save: " + data);
+                        console.log("Program save successful: " + name);
+                        var pgmName = $("#program-name").empty();
+                        pgmName.append(name);
                     });
                 });
 
@@ -95,7 +99,7 @@
                 //});
                 //app.testjointpoller.start();
 
-                var _this = this;
+
                 app.jointVals = new jointVals();
 
                 app.jointpoller = poller.get(app.jointVals, test_joint_options);
@@ -161,6 +165,20 @@
                     return true;
                 }
                 return false;
+            },
+
+            clearWorkspace:function() {
+                //app.codeXmlDom = Blockly.Xml.textToDom('<xml></xml>');
+                //Blockly.Xml.domToWorkspace(app.workspace, app.codeXmlDom);
+
+                //TODO Add confirmation dialog
+                //if (count < 2) {
+                app.workspace.clear();
+                app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
+                //}
+
+                var name = $("#program-name").empty();
+                name.append("None");
             },
 
             initCodeMenu: function () {
@@ -264,14 +282,20 @@
                     })
                     .click(function () {
                         var programEmpty = _this.checkProgramEmpty();
-                        if (programEmpty === false) {
-                            var dialog = new saveDialog({
-                                programName: $("#program-name").text()
-                            });
-                            //console.log(dialog);
-                            app.modals.show(dialog);
-                        }
-                        //app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
+                    if (programEmpty === false) {
+                        var programName = $("#program-name").text();
+                        var SaveModel = backbone.Model.extend({
+                        });
+                        var saveModel = new SaveModel();
+                        saveModel.set({ name: programName });
+                        //console.log(programName);
+                        var dialog = new saveDialog({
+                            model: saveModel
+                        });
+                        //console.log(dialog);
+                        app.modals.show(dialog);
+                    }
+                    //app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
                         //var hasChildren = $(app.codeXmlDom).children('block').length > 0;
                         //if (hasChildren === false) {
                         //    console.log("Empty program");
@@ -297,18 +321,8 @@
                         }
                     })
                     .click(function () {
-                        //app.codeXmlDom = Blockly.Xml.textToDom('<xml></xml>');
-                        //Blockly.Xml.domToWorkspace(app.workspace, app.codeXmlDom);
-
-                        //TODO Add confirmation dialog
-                        //if (count < 2) {
-                        app.workspace.clear();
-                        app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
-                        //}
-
-                        var name = $("#program-name").empty();
-                        name.append("None");
-                    });
+                    _this.clearWorkspace();
+                });
             },
 
 
