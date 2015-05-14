@@ -269,6 +269,22 @@ public:
 		return ret;
 	}
 
+	void CorrectZAxisInversion(Pose& p){
+#if 0
+		double ext_rodriques[3];
+		double ext_translate[3];
+		CvMat ext_rodriques_mat = cvMat(3, 1, CV_64F, ext_rodriques);
+		CvMat ext_translate_mat = cvMat(3, 1, CV_64F, ext_translate);
+		p.GetRodriques(&ext_rodriques_mat);
+		p.GetTranslation(&ext_translate_mat);
+
+		if (ext_rodriques[2] < 0){
+			p.Mirror(true, false, false);
+			p.SetTranslation(ext_translate[0], ext_translate[1], ext_translate[2]);
+		}
+#endif
+	}
+
 	bool Videocallback(const Transform& prev_tfm, IplImage *image, Transform& localTfm, Transform& out_tfm, std::vector<double>& q, bool drawTorso = false)
 	{
 		bool ret = false;
@@ -296,6 +312,9 @@ public:
 
 				alvar::MarkerData mData = marker_detector.markers->operator[](i);
 				Pose p = mData.pose;
+
+				// Check Z-Axis inversion
+				CorrectZAxisInversion(p);
 
 				markerPoses.insert(std::pair<int, Pose>(mData.GetId(), p));
 
