@@ -203,6 +203,7 @@ public:
 			signal_transform->operator()(markerTfm);
 		}
 	}
+
 	void callback(const ARCloud::ConstPtr &cloud, const CvMatPtr& img){
 		if (img != NULL){
 			IplImage* raw = cvCloneImage(&(IplImage)(*img));
@@ -220,6 +221,7 @@ public:
 			}
 		}
 	}
+
 	void callback2(const ARCloud::ConstPtr& cloud, const cv::Mat& img){
 		IplImage* raw = cvCloneImage(&(IplImage)(img));
 		//cv::imshow("Image View", img);
