@@ -289,7 +289,7 @@ public:
 	{
 		bool ret = false;
 		bool showCorners = true;
-		bool visualize = false;
+		bool visualize = true;
 		static IplImage *rgba;
 		bool flip_image = (image->origin ? true : false);
 		if (flip_image) {
