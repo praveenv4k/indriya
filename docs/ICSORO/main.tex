@@ -88,16 +88,27 @@ The important components of the system are
 \end{itemize}
 \begin{figure}
 \centering
-\includegraphics[width=1\textwidth]{../thesis/assets/architecture.eps}
+\includegraphics[width=0.5\textwidth]{../thesis/assets/architecture.eps}
 \caption[System Architecture]{System Architecture}
 \label{fig:architecture}
 \end{figure}
 %
+\subsection{Workflow}
+%
+Describe the workflow of the operations
+%
 \subsection{Implementation}
 %
+For the implementation
+\begin{itemize}
+\item Zero mq for communication
+\item Protobuf for messaging description
+\item Google blockly
+\end{itemize}
 %
 \section{Experimentation}
 %
+The software is tested on a 64-bit Intel Core i7-4790 CPU 3.60 Ghz with 8 GB of RAM on a  Microsoft Windows 8.1 operating system. The Kinect for Windows V2 is used as the motion capture system and robot is used is Nao Humanoid V5 powered by latest NaoQi OS V2.3. A set of gestures are created using the visual gesture builder that comes with the kinect sdk. The process involves capturing the clips of the motions, tagging the clips with the appropriate gestures and training the weak learners. The trained gestures would be emitted as a Visual gesture database that could be integrated with the application. Similarly a set of actions of the Nao humanoid robot are developed as python scripts that are being names corresponding to the actions. Whenever the user to chooses to execute a particular action the corresponding script would be called. The python scripts uses Naoqi python sdk which exposes a huge set of API for motion control, sensor data access etc.,
 %
 \section{Conclusions}
 %
