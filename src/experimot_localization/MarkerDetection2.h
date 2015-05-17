@@ -288,6 +288,8 @@ public:
 	bool Videocallback(const Transform& prev_tfm, IplImage *image, Transform& localTfm, Transform& out_tfm, std::vector<double>& q, bool drawTorso = false)
 	{
 		bool ret = false;
+		bool showCorners = true;
+		bool visualize = false;
 		static IplImage *rgba;
 		bool flip_image = (image->origin ? true : false);
 		if (flip_image) {
@@ -298,7 +300,7 @@ public:
 		static MarkerDetector<MarkerData> marker_detector;
 		marker_detector.SetMarkerSize(m_nMarkerSize); // for marker ids larger than 255, set the content resolution accordingly
 
-		marker_detector.Detect(image, &m_camera, true, true);
+		marker_detector.Detect(image, &m_camera, true, visualize);
 
 		double error = max_error;
 		int best_marker = -1;
@@ -313,17 +315,36 @@ public:
 				alvar::MarkerData mData = marker_detector.markers->operator[](i);
 				Pose p = mData.pose;
 
+				int resol = mData.GetRes();
+				int id = mData.GetId();
+
+				cout << "******* ID: " << id << "; Resolution: " << resol << endl;
+
+				PointDouble pt1, pt2, pt3, pt4;
+				pt4 = mData.experimot_marker_points_img[0];
+				pt3 = mData.experimot_marker_points_img[resol - 1];
+				pt1 = mData.experimot_marker_points_img[(resol*resol) - resol];
+				pt2 = mData.experimot_marker_points_img[(resol*resol) - 1];
+
+				if (showCorners) {
+					cout << "Showing Corners " << endl;
+					cvCircle(image, cvPoint(int(pt1.x), int(pt1.y)), 5, CV_RGB(255, 255, 255));
+					cvCircle(image, cvPoint(int(pt2.x), int(pt2.y)), 5, CV_RGB(255, 0, 0));
+					cvCircle(image, cvPoint(int(pt3.x), int(pt3.y)), 5, CV_RGB(0, 255, 0));
+					cvCircle(image, cvPoint(int(pt4.x), int(pt4.y)), 5, CV_RGB(0, 0, 255));
+				}
+
 				// Check Z-Axis inversion
 				CorrectZAxisInversion(p);
 
-				markerPoses.insert(std::pair<int, Pose>(mData.GetId(), p));
+				markerPoses.insert(std::pair<int, Pose>(id, p));
 
 				double temp_error = (*(marker_detector.markers))[i].GetError(alvar::Marker::TRACK_ERROR | alvar::Marker::DECODE_ERROR | alvar::Marker::MARGIN_ERROR);
 				if (temp_error < error){
 					error = temp_error;
 					best_marker = i;
 				}
-				int id = (*(marker_detector.markers))[i].GetId();
+				//int id = (*(marker_detector.markers))[i].GetId();
 				double r = 1.0 - double(id + 1) / 32.0;
 				double g = 1.0 - double(id * 3 % 32 + 1) / 32.0;
 				double b = 1.0 - double(id * 7 % 32 + 1) / 32.0;
