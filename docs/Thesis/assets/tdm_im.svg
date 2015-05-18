@@ -1,0 +1,1609 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="421px"
+   height="278px"
+   version="1.1"
+   id="svg2"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="tdm_im.svg"
+   inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <metadata
+     id="metadata310">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1280"
+     inkscape:window-height="703"
+     id="namedview308"
+     showgrid="false"
+     inkscape:zoom="1.6934268"
+     inkscape:cx="202.23108"
+     inkscape:cy="146.76695"
+     inkscape:window-x="0"
+     inkscape:window-y="23"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g16" />
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Lend"
+       style="overflow:visible;">
+      <path
+         id="path4191"
+         style="fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) rotate(180) translate(1,0)" />
+    </marker>
+    <linearGradient
+       id="linearGradient5520"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop5522" />
+    </linearGradient>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="TriangleOutM"
+       style="overflow:visible">
+      <path
+         id="path4315"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.4)" />
+    </marker>
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3450"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3446"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3442"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3438"
+       is_visible="true" />
+    <linearGradient
+       x1="0%"
+       y1="0%"
+       x2="0%"
+       y2="100%"
+       id="mx-gradient-ffffff-1-ffffff-1-s-0">
+      <stop
+         offset="0%"
+         style="stop-color:#FFFFFF"
+         id="stop7" />
+      <stop
+         offset="100%"
+         style="stop-color:#FFFFFF"
+         id="stop9" />
+    </linearGradient>
+    <linearGradient
+       x1="0%"
+       y1="0%"
+       x2="0%"
+       y2="100%"
+       id="mx-gradient-ababab-1-b3b3b3-1-s-0">
+      <stop
+         offset="0%"
+         style="stop-color:#ABABAB"
+         id="stop12" />
+      <stop
+         offset="100%"
+         style="stop-color:#B3B3B3"
+         id="stop14" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#mx-gradient-ffffff-1-ffffff-1-s-0"
+       id="linearGradient3111"
+       x1="31.736996"
+       y1="139.2145"
+       x2="31.736996"
+       y2="227.70744"
+       gradientTransform="matrix(2.1583643,0,0,0.46331381,34.455244,29.430521)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#mx-gradient-ababab-1-b3b3b3-1-s-0"
+       id="linearGradient3115"
+       x1="523.44649"
+       y1="96.44794"
+       x2="523.44649"
+       y2="158.6923"
+       gradientTransform="matrix(0,-0.37164284,2.122461,0,11.480042,419.0894)"
+       gradientUnits="userSpaceOnUse" />
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-1"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4315-7"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-1-1"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4315-7-6"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#mx-gradient-ababab-1-b3b3b3-1-s-0-4"
+       id="linearGradient3115-5"
+       x1="523.44647"
+       y1="96.447937"
+       x2="523.44647"
+       y2="158.69231"
+       gradientTransform="matrix(0,-0.37164284,2.122461,0,10.851634,381.0329)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1"
+       id="mx-gradient-ababab-1-b3b3b3-1-s-0-4">
+      <stop
+         offset="0%"
+         style="stop-color:#ABABAB"
+         id="stop12-2" />
+      <stop
+         offset="100%"
+         style="stop-color:#B3B3B3"
+         id="stop14-4" />
+    </linearGradient>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-1-4"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4315-7-9"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#mx-gradient-ababab-1-b3b3b3-1-s-0-0"
+       id="linearGradient3115-3"
+       x1="523.44647"
+       y1="96.447937"
+       x2="523.44647"
+       y2="158.69231"
+       gradientTransform="matrix(0,-0.37164284,2.122461,0,10.851633,343.24602)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1"
+       id="mx-gradient-ababab-1-b3b3b3-1-s-0-0">
+      <stop
+         offset="0%"
+         style="stop-color:#ABABAB"
+         id="stop12-7" />
+      <stop
+         offset="100%"
+         style="stop-color:#B3B3B3"
+         id="stop14-2" />
+    </linearGradient>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-1-6"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4315-7-3"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#mx-gradient-ababab-1-b3b3b3-1-s-0-0-6"
+       id="linearGradient3115-3-1"
+       x1="523.44647"
+       y1="96.447937"
+       x2="523.44647"
+       y2="158.69231"
+       gradientTransform="matrix(0,-0.37164284,2.122461,0,9.695252,304.44141)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1"
+       id="mx-gradient-ababab-1-b3b3b3-1-s-0-0-6">
+      <stop
+         offset="0%"
+         style="stop-color:#ABABAB"
+         id="stop12-7-1" />
+      <stop
+         offset="100%"
+         style="stop-color:#B3B3B3"
+         id="stop14-2-2" />
+    </linearGradient>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-9"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4315-9"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-4"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4315-1"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-6"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4315-73"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-61"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4315-2"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-7"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4315-5"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-7-3"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4315-5-5"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+  </defs>
+  <g
+     transform="translate(0.5,0.5)"
+     id="g16">
+    <rect
+       x="111.73232"
+       y="223.7076"
+       width="84"
+       height="76"
+       pointer-events="none"
+       id="rect42"
+       style="fill:none;stroke:none" />
+    <rect
+       x="86.732323"
+       y="-150.26631"
+       width="112.83951"
+       height="25.558733"
+       pointer-events="none"
+       id="rect64"
+       transform="scale(1,-1)"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.84931684;stroke-miterlimit:4;stroke-dasharray:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="124.73232"
+       y="89.707588"
+       width="190"
+       height="147"
+       pointer-events="none"
+       id="rect66"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="124.73232"
+       y="89.707588"
+       width="190"
+       height="107"
+       pointer-events="none"
+       id="rect68"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="124.73232"
+       y="89.707588"
+       width="190"
+       height="107"
+       pointer-events="none"
+       id="rect70"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="134.73233"
+       y="136.70758"
+       width="60"
+       height="30"
+       pointer-events="none"
+       id="rect76"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="235.7323"
+       y="136.70758"
+       width="60"
+       height="30"
+       pointer-events="none"
+       id="rect86"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="124.73232"
+       y="129.70758"
+       width="190"
+       height="107"
+       pointer-events="none"
+       id="rect96"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="124.73232"
+       y="129.70758"
+       width="190"
+       height="107"
+       pointer-events="none"
+       id="rect98"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="134.73233"
+       y="168.7076"
+       width="60"
+       height="30"
+       pointer-events="none"
+       id="rect104"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="235.7323"
+       y="168.7076"
+       width="60"
+       height="30"
+       pointer-events="none"
+       id="rect114"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="95.732323"
+       y="133.70758"
+       width="32"
+       height="30"
+       pointer-events="none"
+       id="rect124"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="95.732323"
+       y="168.7076"
+       width="32"
+       height="30"
+       pointer-events="none"
+       id="rect134"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="95.732323"
+       y="104.70759"
+       width="102"
+       height="30"
+       pointer-events="none"
+       id="rect144"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="1"
+       y="2"
+       width="102"
+       height="30"
+       fill="none"
+       stroke="none"
+       pointer-events="none"
+       id="rect158"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="138"
+       y="163"
+       width="60"
+       height="107"
+       pointer-events="none"
+       id="rect174"
+       style="fill:none;stroke:none" />
+    <rect
+       x="221.73232"
+       y="256.70758"
+       width="60"
+       height="30"
+       pointer-events="none"
+       id="rect178"
+       style="fill:none;stroke:none" />
+    <rect
+       x="151"
+       y="154"
+       width="60"
+       height="107"
+       pointer-events="none"
+       id="rect188"
+       style="fill:none;stroke:none" />
+    <rect
+       x="250.73232"
+       y="247.7076"
+       width="60"
+       height="30"
+       pointer-events="none"
+       id="rect192"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="249.73232"
+       y="199.7076"
+       width="60"
+       height="107"
+       pointer-events="none"
+       id="rect202"
+       style="fill:none;stroke:none" />
+    <rect
+       x="243.7323"
+       y="240.7076"
+       width="60"
+       height="30"
+       pointer-events="none"
+       id="rect206"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="264"
+       y="50"
+       width="95"
+       height="100"
+       pointer-events="none"
+       id="rect216"
+       style="fill:none;stroke:none" />
+    <rect
+       x="215.34647"
+       y="101.68294"
+       width="95"
+       height="39.580002"
+       pointer-events="none"
+       id="rect228"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="279"
+       y="146"
+       width="119"
+       height="130"
+       fill="none"
+       stroke="none"
+       pointer-events="none"
+       id="rect238" />
+    <rect
+       x="279"
+       y="166"
+       width="95"
+       height="110"
+       fill="none"
+       stroke="none"
+       pointer-events="none"
+       id="rect240" />
+    <rect
+       x="257"
+       y="169"
+       width="95"
+       height="100"
+       pointer-events="none"
+       id="rect242"
+       style="fill:none;stroke:none" />
+    <rect
+       x="208.34647"
+       y="206.68295"
+       width="95"
+       height="39.580002"
+       pointer-events="none"
+       id="rect254"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="268"
+       y="159"
+       width="95"
+       height="100"
+       pointer-events="none"
+       id="rect264"
+       style="fill:none;stroke:none" />
+    <path
+       d="m 216.84103,224.25274 0,-22.52963 114.93676,0 15.86643,11.26482 -15.86643,11.26481 z"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path266"
+       style="fill:url(#linearGradient3115);stroke:#000000;stroke-width:0.88814265;stroke-miterlimit:10"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="219.34647"
+       y="196.68295"
+       width="95"
+       height="39.580002"
+       pointer-events="none"
+       id="rect276"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="281"
+       y="148"
+       width="95"
+       height="100"
+       pointer-events="none"
+       id="rect286"
+       style="fill:none;stroke:none" />
+    <rect
+       x="232.34647"
+       y="185.68295"
+       width="95"
+       height="39.580002"
+       pointer-events="none"
+       id="rect298"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="138.24918"
+       y="23.037954"
+       id="text3291"
+       sodipodi:linespacing="125%"
+       transform="translate(-0.5,-0.5)"><tspan
+         sodipodi:role="line"
+         id="tspan3293"
+         x="138.24918"
+         y="23.037954" /></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3404"
+       y="141.64488"
+       x="108.03099"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="font-size:10px"
+         y="141.64488"
+         x="108.03099"
+         id="tspan3406"
+         sodipodi:role="line">Behavior A1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="51.409241"
+       y="95.983498"
+       id="text3408"
+       sodipodi:linespacing="125%"
+       transform="translate(-0.5,-0.5)"><tspan
+         sodipodi:role="line"
+         id="tspan3410"
+         x="51.409241"
+         y="95.983498" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="57.317375"
+       y="141.3327"
+       id="text3416"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3418"
+         x="57.317375"
+         y="141.3327"
+         style="font-size:13px">2</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-miterlimit:10;marker-end:url(#TriangleOutM-1)"
+       inkscape:connector-curvature="0"
+       d="m 346.80247,212.39273 16.64,0.72"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path170-6"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="87.075287"
+       y="-187.86028"
+       width="112.83951"
+       height="23.793791"
+       pointer-events="none"
+       id="rect64-3"
+       transform="scale(1,-1)"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.81946784;stroke-miterlimit:4;stroke-dasharray:1.63893569, 0.81946784;stroke-dashoffset:0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:none;stroke:none"
+       x="96.075279"
+       y="148.59871"
+       width="102"
+       height="30"
+       pointer-events="none"
+       id="rect144-7"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3404-8"
+       y="177.68945"
+       x="108.37396"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="font-size:10px"
+         y="177.68945"
+         x="108.37396"
+         id="tspan3406-8"
+         sodipodi:role="line">Behavior A2</tspan></text>
+    <rect
+       x="86.628304"
+       y="-223.21169"
+       width="112.83951"
+       height="21.676485"
+       pointer-events="none"
+       id="rect64-8"
+       transform="scale(1,-1)"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.78215802;stroke-miterlimit:4;stroke-dasharray:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:none;stroke:none"
+       x="95.628304"
+       y="189.35608"
+       width="102"
+       height="30"
+       pointer-events="none"
+       id="rect144-9"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3404-6"
+       y="216.29337"
+       x="112.65114"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="font-size:10px"
+         y="216.29337"
+         x="112.65114"
+         id="tspan3406-6"
+         sodipodi:role="line">Behavior B</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="86.45092"
+       y="199.58293"
+       id="text3287-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3289-7"
+         x="86.45092"
+         y="199.58293"
+         style="font-size:10px">Trigger</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.55449408;stroke-miterlimit:10;marker-end:url(#TriangleOutM)"
+       inkscape:connector-curvature="0"
+       d="m 79.94164,193.22838 12.86292,16.11934"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path154-2"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 199.46781,212.62251 17.37322,0.0767"
+       id="path4074"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#rect64-8"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#path266"
+       inkscape:connection-end-point="d4"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 143.49504,175.96338 0,0"
+       id="path4076"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#rect64-3"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#rect64-3"
+       inkscape:connection-end-point="d4"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 143.26599,150.26631 0.12301,13.80017"
+       id="path4078"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#rect64"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#rect64-3"
+       inkscape:connection-end-point="d4"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 143.34899,187.86028 -0.16788,13.67492"
+       id="path4080"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#rect64-3"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#rect64-8"
+       inkscape:connection-end-point="d4"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:tb-rl;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="298.45331"
+       y="63.296333"
+       id="text4082"
+       sodipodi:linespacing="125%"
+       transform="translate(-0.5,-0.5)"><tspan
+         sodipodi:role="line"
+         id="tspan4084"
+         x="63.296333"
+         y="298.45331"
+         style="font-size:10px" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="82.166786"
+       y="-371.34497"
+       id="text4090"
+       sodipodi:linespacing="125%"
+       transform="matrix(0,1,-1,0,0,0)"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4092"
+         x="82.166786"
+         y="-371.34497"
+         style="font-size:12px;font-weight:normal;-inkscape-font-specification:Sans">Behavior Priority Control</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="84.671593"
+       y="246.87462"
+       id="text4094"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4096"
+         x="84.671593"
+         y="246.87462">Resource Management</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:tb-rl;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="92.285187"
+       y="272.70029"
+       id="text4098"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4100"
+         x="92.285187"
+         y="272.70029"
+         style="font-weight:bold;writing-mode:lr-tb;-inkscape-font-specification:Sans Bold">Behavior Execution</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 108.98688,223.10694 0.0965,14.03551"
+       id="path4078-8"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 141.97916,223.25841 0.0965,14.03551"
+       id="path4078-7"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 174.40329,223.13723 0.0965,14.03551"
+       id="path4078-0"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.921;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#TriangleOutM)"
+       d="m 109.55504,248.67359 0.0965,11.90055"
+       id="path4078-87"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.92961729px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutM)"
+       d="m 141.02461,249.11844 0.0965,12.12932"
+       id="path4078-4"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.94024068px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutM)"
+       d="m 174.81254,249.43875 0.0965,12.40812"
+       id="path4078-87-4"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="60.060745"
+       y="74.661743"
+       id="text4090-5"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4092-8"
+         x="61.642776"
+         y="74.661743"
+         style="font-size:9px;font-weight:normal;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans">Behavior </tspan><tspan
+         sodipodi:role="line"
+         x="61.642776"
+         y="85.911743"
+         style="font-size:9px;font-weight:normal;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans"
+         id="tspan5656">Priority </tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.61364836;stroke-miterlimit:10;marker-end:url(#TriangleOutM)"
+       inkscape:connector-curvature="0"
+       d="m 79.70224,117.79421 14.53605,17.46972"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path154-2-3"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="85.891563"
+       y="122.4151"
+       id="text3287-9-0"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3289-7-3"
+         x="85.891563"
+         y="122.4151"
+         style="font-size:10px">Trigger</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="220.84015"
+       y="216.58952"
+       id="text5241"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5243"
+         x="220.84015"
+         y="216.58952"
+         style="font-size:12px">Score Calculator B</tspan></text>
+    <rect
+       x="207.71805"
+       y="160.62645"
+       width="95"
+       height="39.580002"
+       pointer-events="none"
+       id="rect254-7"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       d="m 216.21262,186.19624 0,-22.52963 114.93676,0 15.86643,11.26482 -15.86643,11.26481 z"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path266-2"
+       style="fill:url(#linearGradient3115-5);stroke:#000000;stroke-width:0.88814265;stroke-miterlimit:10;stroke-dasharray:1.77628529, 0.88814265;stroke-dashoffset:0"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="218.71805"
+       y="150.62645"
+       width="95"
+       height="39.580002"
+       pointer-events="none"
+       id="rect276-2"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:2, 1;stroke-dashoffset:0;marker-end:url(#TriangleOutM-1)"
+       inkscape:connector-curvature="0"
+       d="m 346.17406,174.33623 16.64,0.72"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path170-6-0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="220.21175"
+       y="179.25084"
+       id="text5241-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5243-0"
+         x="220.21175"
+         y="179.25084"
+         style="font-size:12px">Score Calculator A2</tspan></text>
+    <rect
+       x="207.71806"
+       y="124.83957"
+       width="95"
+       height="39.580002"
+       pointer-events="none"
+       id="rect254-9"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       d="m 216.21262,148.40936 0,-22.52963 114.93676,0 15.86643,11.26482 -15.86643,11.26481 z"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path266-5"
+       style="fill:url(#linearGradient3115-3);stroke:#000000;stroke-width:0.88814265;stroke-miterlimit:10"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="218.71806"
+       y="120.83958"
+       width="95"
+       height="39.580002"
+       pointer-events="none"
+       id="rect276-6"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-miterlimit:10;marker-end:url(#TriangleOutM-1)"
+       inkscape:connector-curvature="0"
+       d="m 346.17406,136.54935 16.64,0.72"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path170-6-06"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="219.49393"
+       y="142.18178"
+       id="text5241-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5243-03"
+         x="219.49393"
+         y="142.18178"
+         style="font-size:12px">Score Calculator A1</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 199.57183,137.34743 16.64079,-0.0412"
+       id="path5514"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#rect64"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#path266-5"
+       inkscape:connection-end-point="d4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 199.91479,175.54184 16.29783,-0.12177"
+       id="path5516"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#rect64-3"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#path266-2"
+       inkscape:connection-end-point="d4" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:7.5999999;stroke-opacity:1;stroke-dasharray:none"
+       id="rect5518"
+       width="15.074169"
+       height="16.509804"
+       x="53.047585"
+       y="128.75833" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="56.394104"
+       y="179.33012"
+       id="text3416-8"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3418-3"
+         x="56.394104"
+         y="179.33012"
+         style="font-size:13px">3</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:7.5999999;stroke-opacity:1;stroke-dasharray:2, 1;stroke-dashoffset:0"
+       id="rect5518-2"
+       width="15.074169"
+       height="16.509804"
+       x="52.714836"
+       y="166.75575" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="57.319939"
+       y="216.60208"
+       id="text3416-82"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3418-2"
+         x="57.319939"
+         y="216.60208"
+         style="font-size:13px">4</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:7.5999999;stroke-opacity:1;stroke-dasharray:none"
+       id="rect5518-21"
+       width="15.074169"
+       height="16.509804"
+       x="53.640671"
+       y="204.02771" />
+    <rect
+       x="85.575943"
+       y="-111.4617"
+       width="112.83951"
+       height="25.558733"
+       pointer-events="none"
+       id="rect64-0"
+       transform="scale(1,-1)"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.84931684;stroke-miterlimit:4;stroke-dasharray:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="94.575943"
+       y="61.902985"
+       width="102"
+       height="30"
+       pointer-events="none"
+       id="rect144-2"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="214.19008"
+       y="58.878326"
+       width="95"
+       height="39.580002"
+       pointer-events="none"
+       id="rect228-5"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3404-2"
+       y="96.935081"
+       x="142.15926"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="font-size:10px;text-align:center;text-anchor:middle"
+         y="96.935081"
+         x="143.91707"
+         id="tspan3406-84"
+         sodipodi:role="line">Default </tspan><tspan
+         style="font-size:10px;text-align:center;text-anchor:middle"
+         y="109.43508"
+         x="142.15926"
+         sodipodi:role="line"
+         id="tspan5905">Behavior</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="56.160995"
+       y="102.52809"
+       id="text3416-3"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3418-1"
+         x="56.160995"
+         y="102.52809"
+         style="font-size:13px">1</tspan></text>
+    <path
+       d="m 215.05623,109.60475 0,-22.529631 114.93676,0 15.86643,11.264821 -15.86643,11.26481 z"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path266-5-8"
+       style="fill:url(#linearGradient3115-3-1);stroke:#000000;stroke-width:0.88814265;stroke-miterlimit:10"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-miterlimit:10;marker-end:url(#TriangleOutM-1)"
+       inkscape:connector-curvature="0"
+       d="m 345.01767,97.74474 16.64,0.72"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path170-6-06-3"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="227.66917"
+       y="103.37717"
+       id="text5241-1-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5243-03-4"
+         x="227.66917"
+         y="103.37717"
+         style="font-size:12px">Score Calculator</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 198.41545,98.542815 16.64078,-0.04115"
+       id="path5514-7"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#rect64-0"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#path266-5-8"
+       inkscape:connection-end-point="d4" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:7.5999999;stroke-opacity:1;stroke-dasharray:none"
+       id="rect5518-9"
+       width="15.074169"
+       height="16.509804"
+       x="52.48172"
+       y="89.95372" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 67.555889,98.252176 18.020054,0.104131"
+       id="path5648"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-end-point="d4"
+       inkscape:connection-end="#rect64-0"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-start="#rect5518-9" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 68.121754,137.05648 18.610569,0.10677"
+       id="path5650"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#rect5518"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#rect64"
+       inkscape:connection-end-point="d4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 1;stroke-dashoffset:0"
+       d="m 67.789005,175.09692 19.286282,0.22073"
+       id="path5652"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#rect5518-2"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#rect64-3"
+       inkscape:connection-end-point="d4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 86.628304,212.31085 68.71484,212.29097"
+       id="path5654"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#rect64-8"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#rect5518-21"
+       inkscape:connection-end-point="d4" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.97354549;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect5658"
+       width="263.90945"
+       height="51.26226"
+       x="85.004517"
+       y="6.7026119" />
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="173.23238"
+       y="22.274363"
+       id="text4094-5"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4096-9"
+         x="173.23238"
+         y="22.274363"
+         style="font-weight:bold;-inkscape-font-specification:Sans Bold">Internal Model</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="216.83566"
+       y="38.568417"
+       id="text5875"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5877"
+         x="216.83566"
+         y="38.568417"
+         style="font-size:10px;text-align:center;text-anchor:middle">memory, odometry, object permanence,</tspan><tspan
+         sodipodi:role="line"
+         x="216.83566"
+         y="51.068417"
+         id="tspan5879"
+         style="font-size:10px;text-align:center;text-anchor:middle">dynamic instantiation, information flow redirection</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.06736255;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.26945039, 1.0673626;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
+       d="m 172.87367,58.120551 0.0965,72.867709"
+       id="path4078-4-5"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.04021084;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.16084341, 1.04021085;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
+       d="m 190.58253,57.473385 0.0965,111.336475"
+       id="path4078-4-5-9"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4, 1;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
+       d="m 315.18188,57.524851 0.0965,26.669946"
+       id="path4078-4-5-7"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.15010941;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.60043769, 1.15010942;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
+       d="M 99.0545,97.56178 99.151,62.284067"
+       id="path4078-4-5-7-7"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
+       d="M 85.004517,32.167327 9.978523,32.072708"
+       id="path5981"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#rect5658"
+       inkscape:connection-start-point="d4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.99390316;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 9.978522,32.072708 0,143.465652"
+       id="path5985"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.96843684px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 52.714836,175.09057 -42.296424,0.47816"
+       id="path5987"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="44.366478"
+       y="17.151009"
+       id="text4090-5-2"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_priority.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4092-8-1"
+         x="45.948509"
+         y="17.151009"
+         style="font-size:9px;font-weight:normal;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans">Behavior </tspan><tspan
+         sodipodi:role="line"
+         x="45.948509"
+         y="28.401009"
+         style="font-size:9px;font-weight:normal;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans"
+         id="tspan5656-3">instantiation </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="103.28046"
+       y="73.999527"
+       id="text6013"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6015"
+         x="103.28046"
+         y="73.999527"
+         style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial">push</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="157.88902"
+       y="73.705818"
+       id="text6013-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6015-0"
+         x="157.88902"
+         y="73.705818"
+         style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial">pull</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="193.32014"
+       y="73.705818"
+       id="text6013-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6015-5"
+         x="193.32014"
+         y="73.705818"
+         style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial">pull</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="299.61349"
+       y="73.705818"
+       id="text6013-0"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6015-6"
+         x="299.61349"
+         y="73.705818"
+         style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial">pull</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:1.19752097;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#TriangleOutM-7)"
+       id="path6058"
+       sodipodi:cx="334.23352"
+       sodipodi:cy="26.439077"
+       sodipodi:rx="11.810372"
+       sodipodi:ry="11.219853"
+       d="m 346.04389,26.439077 a 11.810372,11.219853 0 0 1 -23.44132,1.948308"
+       transform="matrix(0.81607479,0,0,0.85448367,62.403764,-0.3529577)"
+       sodipodi:start="0"
+       sodipodi:end="2.9670597"
+       sodipodi:open="true" />
+    <path
+       transform="matrix(-0.79591049,0,0,-0.75825875,600.81824,39.366661)"
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:1.28723896;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#TriangleOutM-7)"
+       id="path6058-8"
+       sodipodi:cx="334.23352"
+       sodipodi:cy="26.439077"
+       sodipodi:rx="11.810372"
+       sodipodi:ry="11.219853"
+       d="m 346.04389,26.439077 a 11.810372,11.219853 0 0 1 -23.44132,1.948308"
+       sodipodi:start="0"
+       sodipodi:end="2.9670597"
+       sodipodi:open="true" />
+  </g>
+</svg>

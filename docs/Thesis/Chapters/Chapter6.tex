@@ -1,0 +1,97 @@
+% Chapter Template
+
+\chapter{HRI Design and Evaluation} % Main chapter title
+
+\label{Chapter6} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+
+\lhead{Chapter 6. \emph{HRI Design and Evaluation}} 
+	Human-Robot Interaction (HRI) being a rapidly advancing area of research, there is a growing need for strong experimental designs and methods of evaluation. This will bring credibility and validity to scientific research that involves humans as subjects, as recognized in the psychology and social science fields. Some methods of evaluation have been adopted and/or modified from such fields as human-computer interaction, psychology, and social sciences; however, the manner in which a human interacts with a robot is similar but not identical to interactions between a human and a computer or a human interacting with another human. It often has a strong social or emotional component — a difference that poses potential challenges related to the design and evaluation of HRI. As robots are becoming more prevalent, accurate methods to assess how humans respond to robots, how they feel about their interactions with robots, and how they interpret the actions of robots are very important. In this section some of the HRI design and evaluation techniques are presented.
+
+\section{Planning, Design and Data collection}
+A successful human study in HRI requires careful planning and design. In \cite{Bethel2010}, a set of questions  when planning and designing a human study in HRI is presented. They are
+\begin{enumerate}
+\item What type of study will be conducted (within-subjects, between-subjects, mixed-model, etc.)?
+\item How many groups will be in the study?
+\item How many participants per group will be required?
+\item What methods of evaluation will be used (self-assessments, behavioral measures, interviews, psychophysiological measures, task performance, etc.)?
+\item What type of environment and space is required to conduct the study (field, laboratory, virtual, etc.)?
+\item What type of robots will be used?
+\item How many different types of robots will be used?
+\item What type of equipment will be needed (computers, measurement equipment, recording devices, etc.)?
+\item How will contingencies and failures be handled?
+\item What types of tasks will the participants perform or observe (Study Protocol)?
+\item How will participants be recruited for the study?
+\item What type of assistance is needed to conduct the study?
+\end{enumerate}
+	If the HRI designer has the answers to the above questions in hand, then it means half the job is done and it will enable him/her to carry out the HRI experiments without any hurdles. Apart from providing a checklist for planning and design of HRI studies, a list of recommendations for the experimental design and study execution is also provided in \cite{Bethel2010}.
+	
+	Data collection is one of the important steps in the evaluation process. In \cite{Rogers2011} which provides insights into designing interative systems, five key issues in the data gathering has been described. They are 
+\begin{itemize}
+\item \emph{Identifying participants} : Decide who to gather data from
+\item \emph{Relationship with participants} : Establishing a clear and professional relationship
+\item \emph{Setting goals} : Deciding how to analyze data once collected, Informed consent when appropriate
+\item \emph{Triangulation} : Looking at data from more than one perspective
+\item \emph{Pilot studies} : Small trial of main study. 
+\end{itemize}
+Taking into account these issues while experimentation is essential in order to tackle them. 
+
+\section{HRI Evaluation techniques}
+	An extensive review of HRI evaluation methods presented in \cite{Bethel2010} summarises five primary methods of evaluation summarised. They are
+\begin{itemize}
+\item \emph{Self assessments} are among the most commonly used methods of evaluation in HRI studies. It can however be a challenge obtaining validated assessments designed for HRI studies. Self-assessment measures include paper or computer-based psychometric scales, questionnaires, or surveys. With this method, participants provide a personal assessment of how they felt or their motivations related to an object, situation, or interactions.
+\item \emph{Interviews} are closely related to self-assessments and they can be structured in such a way that  the researcher develops a series of questions that can be close-ended or open-ended; however the questions are given in the same order to every participant in the study. The interview can be audio and/or video recorded for evaluation at a later time. It can be a challenge to obtain responses that are reflective of participants’ true behaviors.
+\item \emph{Behavioral Measures} are the second most common method of evaluation in HRI studies, and sometimes are included along with psychophysiological evaluations and participants’ self-assessment responses for obtaining convergent validity. The benefit of behavioral measures is that researchers are able to record the actual behaviors of participants and do not need to rely on participants to report accurately their intended behaviors or preferences.
+\item \emph{Psychophysiology measures} has the primary advantage that participants cannot consciously manipulate the activities of their autonomic nervous system. Also, psychophysiological measures offer a minimally-invasive method that are used to determine the stress levels and responses of participants interacting with technology. Multiple physiological signals (blood pressure (BP), muscular system-electromyography (EMG), brain activity - electroencephalography (EEG) to name a few) could be used to obtain correlations in the results.
+\item \emph{Task performance metrics} are becoming more common in HRI studies, especially in studies where teams are evaluated and/or more than one person is interacting with one or more robots. These metrics are designed to measure how well a person or team performs or completes a task or tasks. This is essential in some HRI studies and should be included with other methods of evaluation such as behavioral and/or self-assessments.
+\end{itemize}
+Each of these methods has advantages and disadvantages. However the study claims that it is possible to overcome these disadvantages by using three or more appropriate methods of evaluation. 
+
+ An effort to identify a set of Common metrics to be used in task-oriented HRI can be found in \cite{Steinfeld2006}. This study proposes a set of metric to evaluate the human-robot team and human-robot interactions and those proposed metrics are shown in Table~\ref{table:hri_metrics}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Common Metrics for task-based HRI}
+\label{table:hri_metrics}
+\begin{tabularx}{400pt}{c*3{X}}
+\toprule
+  \textbf{Common metrics} & \textbf{Sub-metrics} 
+                          & \textbf{Description}
+  \tabularnewline \midrule
+  
+  %\multicolumn{1}{l}{System Performance}  
+  \multirow{4}{*}{System Performance} & Quantitative performance & Quantitative measures assess the
+effectiveness and efficiency of the team at performing a task \\
+                                      & Subjective ratings & Subjective ratings assess the quality
+of the effort \\
+                                      & Utilization of mixed-initiative & Ability of the human-robot team to appropriately regulate who has control initiative 
+                                          \tabularnewline\midrule
+                                          
+  \multirow{4}{*}{Operator Performance} & Situation Awareness (SA) & The degree to which the robot is situation aware. It is critical for effective decision-making \\
+                                      & Workload & Multidimensional workload assessment techniques are useful for relating human perceptions of cognitive load to operator SA \\
+                                      & Accuracy of mental models & Impact of Design affordances, operator expectations and stimulus-response compatibility.
+                                          \tabularnewline\midrule
+  
+  \multirow{4}{*}{Robot Performance} & Self Awareness & The degree to which a robot can accurately
+assess itself \\
+                                      & Human Awareness & The degree to which the robot is aware of humans \\
+                                      & Autonomy & The ability of robots to function independently without human intervention.
+                                          \tabularnewline                                
+                                         
+  										\bottomrule
+\end{tabularx}
+\end{table}
+
+	Bartneck et al.,\cite{Bartneck2009} emphasize the need for standardized measurement tools for human robot interaction. The main contribution of this work is that it presents measurements tools of five key concepts in HRI: anthropomorphism, animacy, likeability, perceived intelligence, and perceived safety. The outcome of the work is basically five consistent questionnaires using semantic differential scales. Moreover the study also reported reliability and validity indicators based on several empirical studies that used these questionnaires. Specifically, this study uses \emph{Cronbach's alpha} to estimate the reliability of the questionnaires. The results presented in the study showed that the developed questionnaires to measure the aspects have sufficient internal consistency reliability. 
+	
+	Young et al.,\cite{Young2011} propose \emph{holistic interaction experience} and introduce a set of three perspectives for exploring social interaction with robots.
+\begin{itemize}
+\item Visceral factors of interaction(P1): It focuses on a person’s biological, visceral, and instinctual involvement in interaction. This includes such things as instinctual frustration, fear, joy, happiness, and so on, on a reactionary level where they are difficult to control.
+\item Social mechanics(P2): It focuses on the higher-level communication and social techniques used in interaction. This includes both the social mechanics that a person uses in communication as well as what they interpret from the robot throughout meaning-building during interaction. Examples range from gestures such as facial expressions and body language, to spoken language, to cultural norms such as personal space and eye-contact rules.
+\item Social Structures(P3): It covers the development of and changes in the social relationships and interaction between two entities, perhaps over a relatively long period of time (longer relative to P1 and P2). P3 considers the changes in or trajectory of P1, P2, as well as how a robot interacts with, understands, and even modifies social structures.
+\end{itemize}
+The study proposes that these three perspectives could be used as concrete tools throughout the evaluation process. 
+
+	Baddoura et al.,\cite{Baddoura2013} explore the human affective state of the familiar during a new or unknown situation as it relates to interacting with a robot. The measurement of the familiar experienced by two humans interacting with a robot and the intensity and adequacy of their response to its proactive social and practical actions is performed. An analysis is done on the participants’ reactions to the robot’s actions, the motion of their arms, and their answers to some parts of a questionnaire designed to measure their experience of the familiar and the robot’s sociability. This study aims at learning more about the familiar state in its relation to a satisfying, efficient and reciprocal HRI by considering a set of hypotheses such as familiarity increases with responsiveness,  behavioral changes affect familiarity, sociability of the robot is proportional to the human responsiveness. The study recorded the \emph{Behavioral measures} of the participants using IMU sensors on their heads and hands in order to measure the intensity of their response during the interaction. Additionally the whole interaction is recorded in order to evaluate the facial response of the participants. This study also used \emph{Self assessments} technique for evaluation in the form a questionnaire (using Likert scale). The statistical analysis performed during the study confirmed almost all the hypotheses except that the change in behavior of the robot did not show significant change in response from the human.
+	
+	All the evaluation techniques rely on the statistical tools for validating the results and generalizing the phenomena. A summary of statistical tools for the data analysis in HRI can be found in Appendix~\ref{AppendixA}.

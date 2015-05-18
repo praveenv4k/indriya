@@ -1,0 +1,1458 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="421px"
+   height="278px"
+   version="1.1"
+   id="svg2"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="tdm_example.svg"
+   inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_components.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <metadata
+     id="metadata310">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1280"
+     inkscape:window-height="703"
+     id="namedview308"
+     showgrid="false"
+     inkscape:zoom="1.3931116"
+     inkscape:cx="210.5"
+     inkscape:cy="119.0367"
+     inkscape:window-x="0"
+     inkscape:window-y="23"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g16" />
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="TriangleOutM"
+       style="overflow:visible">
+      <path
+         id="path4138"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.4)" />
+    </marker>
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3450"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3446"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3442"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3438"
+       is_visible="true" />
+    <linearGradient
+       x1="0%"
+       y1="0%"
+       x2="0%"
+       y2="100%"
+       id="mx-gradient-ffffff-1-ffffff-1-s-0">
+      <stop
+         offset="0%"
+         style="stop-color:#FFFFFF"
+         id="stop7" />
+      <stop
+         offset="100%"
+         style="stop-color:#FFFFFF"
+         id="stop9" />
+    </linearGradient>
+    <linearGradient
+       x1="0%"
+       y1="0%"
+       x2="0%"
+       y2="100%"
+       id="mx-gradient-ababab-1-b3b3b3-1-s-0">
+      <stop
+         offset="0%"
+         style="stop-color:#ABABAB"
+         id="stop12" />
+      <stop
+         offset="100%"
+         style="stop-color:#B3B3B3"
+         id="stop14" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#mx-gradient-ababab-1-b3b3b3-1-s-0"
+       id="linearGradient3121"
+       x1="301.06749"
+       y1="18.792298"
+       x2="301.06749"
+       y2="85.335517"
+       gradientTransform="matrix(0,0.61614092,-1.5292973,0,280.71013,-141.5)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#mx-gradient-ababab-1-b3b3b3-1-s-0"
+       id="linearGradient3152"
+       x1="301.06749"
+       y1="43.437935"
+       x2="301.06749"
+       y2="109.98115"
+       gradientTransform="matrix(0,0.61614092,-1.5292973,0,318.40064,-97.5)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#mx-gradient-ffffff-1-ffffff-1-s-0"
+       id="linearGradient3154"
+       x1="31.736996"
+       y1="225.54907"
+       x2="31.736996"
+       y2="314.04201"
+       gradientTransform="matrix(2.1583643,0,0,0.46331381,-8,-16)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#mx-gradient-ffffff-1-ffffff-1-s-0"
+       id="linearGradient3209"
+       x1="31.736996"
+       y1="139.2145"
+       x2="31.736996"
+       y2="227.70744"
+       gradientTransform="matrix(2.1583643,0,0,0.46331381,-8,-20)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#mx-gradient-ababab-1-b3b3b3-1-s-0"
+       id="linearGradient3211"
+       x1="516.95594"
+       y1="29.273336"
+       x2="516.95594"
+       y2="91.517693"
+       gradientTransform="matrix(0,-0.6056073,2.0265645,0,218.92239,413.5612)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#mx-gradient-ababab-1-b3b3b3-1-s-0-5"
+       id="linearGradient3211-5"
+       x1="516.95593"
+       y1="29.273336"
+       x2="516.95593"
+       y2="91.517693"
+       gradientTransform="matrix(0,-1.0421799,2.0824856,0,215.93137,801.81187)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1"
+       id="mx-gradient-ababab-1-b3b3b3-1-s-0-5">
+      <stop
+         offset="0%"
+         style="stop-color:#ABABAB"
+         id="stop12-3" />
+      <stop
+         offset="100%"
+         style="stop-color:#B3B3B3"
+         id="stop14-3" />
+    </linearGradient>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-3"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4138-4"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#mx-gradient-ababab-1-b3b3b3-1-s-0-5"
+       id="linearGradient3152-4"
+       x1="301.0675"
+       y1="43.437935"
+       x2="301.0675"
+       y2="109.98115"
+       gradientTransform="matrix(0,0.79509303,-1.5741231,0,321.02478,-17.400189)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1"
+       id="linearGradient4454">
+      <stop
+         offset="0%"
+         style="stop-color:#ABABAB"
+         id="stop4456" />
+      <stop
+         offset="100%"
+         style="stop-color:#B3B3B3"
+         id="stop4458" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#mx-gradient-ffffff-1-ffffff-1-s-0-3"
+       id="linearGradient3154-5"
+       x1="31.736996"
+       y1="225.54907"
+       x2="31.736996"
+       y2="314.04202"
+       gradientTransform="matrix(2.1583643,0,0,0.59343531,-7.336831,88.632485)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1"
+       id="mx-gradient-ffffff-1-ffffff-1-s-0-3">
+      <stop
+         offset="0%"
+         style="stop-color:#FFFFFF"
+         id="stop7-6" />
+      <stop
+         offset="100%"
+         style="stop-color:#FFFFFF"
+         id="stop9-7" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#mx-gradient-ababab-1-b3b3b3-1-s-0-5"
+       id="linearGradient3121-4"
+       x1="301.0675"
+       y1="18.792297"
+       x2="301.0675"
+       y2="85.335518"
+       gradientTransform="matrix(0,0.61614092,-1.5620091,0,281.99812,-7.3783052)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1"
+       id="linearGradient4465">
+      <stop
+         offset="0%"
+         style="stop-color:#ABABAB"
+         id="stop4467" />
+      <stop
+         offset="100%"
+         style="stop-color:#B3B3B3"
+         id="stop4469" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#mx-gradient-ffffff-1-ffffff-1-s-0-3"
+       id="linearGradient3209-0"
+       x1="31.736996"
+       y1="139.21449"
+       x2="31.736996"
+       y2="227.70744"
+       gradientTransform="matrix(2.1583643,0,0,0.46331381,-7.336831,114.12169)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1"
+       id="linearGradient4472">
+      <stop
+         offset="0%"
+         style="stop-color:#FFFFFF"
+         id="stop4474" />
+      <stop
+         offset="100%"
+         style="stop-color:#FFFFFF"
+         id="stop4476" />
+    </linearGradient>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-4"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4138-0"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#mx-gradient-ffffff-1-ffffff-1-s-0-3-2"
+       id="linearGradient3209-0-9"
+       x1="31.736996"
+       y1="139.21449"
+       x2="31.736996"
+       y2="227.70744"
+       gradientTransform="matrix(2.1583643,0,0,0.46331381,-7.336831,114.12169)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1"
+       id="mx-gradient-ffffff-1-ffffff-1-s-0-3-2">
+      <stop
+         offset="0%"
+         style="stop-color:#FFFFFF"
+         id="stop7-6-0" />
+      <stop
+         offset="100%"
+         style="stop-color:#FFFFFF"
+         id="stop9-7-5" />
+    </linearGradient>
+    <linearGradient
+       y2="227.70744"
+       x2="31.736996"
+       y1="139.21449"
+       x1="31.736996"
+       gradientTransform="matrix(2.1583643,0,0,0.46331381,-7.2979506,213.31671)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4709"
+       xlink:href="#mx-gradient-ffffff-1-ffffff-1-s-0-3-2"
+       inkscape:collect="always" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#mx-gradient-ababab-1-b3b3b3-1-s-0-5-5"
+       id="linearGradient3121-4-6"
+       x1="301.0675"
+       y1="18.792297"
+       x2="301.0675"
+       y2="85.335518"
+       gradientTransform="matrix(0,0.61614092,-1.5620091,0,281.99812,-7.3783052)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1"
+       id="mx-gradient-ababab-1-b3b3b3-1-s-0-5-5">
+      <stop
+         offset="0%"
+         style="stop-color:#ABABAB"
+         id="stop12-3-1" />
+      <stop
+         offset="100%"
+         style="stop-color:#B3B3B3"
+         id="stop14-3-9" />
+    </linearGradient>
+    <linearGradient
+       y2="85.335518"
+       x2="301.0675"
+       y1="18.792297"
+       x1="301.0675"
+       gradientTransform="matrix(0,0.61614092,-1.5620091,0,281.0954,91.598888)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4770"
+       xlink:href="#mx-gradient-ababab-1-b3b3b3-1-s-0-5-5"
+       inkscape:collect="always" />
+  </defs>
+  <g
+     transform="translate(0.5,0.5)"
+     id="g16">
+    <rect
+       x="38"
+       y="167"
+       width="84"
+       height="76"
+       pointer-events="none"
+       id="rect42"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="24.6931"
+       y="-133.35448"
+       width="240"
+       height="113.66138"
+       pointer-events="none"
+       id="rect64"
+       transform="scale(1,-1)"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.90103662"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="57"
+       y="31"
+       width="190"
+       height="147"
+       pointer-events="none"
+       id="rect66"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="67"
+       y="27"
+       width="190"
+       height="107"
+       pointer-events="none"
+       id="rect68"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="67"
+       y="27"
+       width="190"
+       height="107"
+       pointer-events="none"
+       id="rect70"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="61"
+       y="45"
+       width="190"
+       height="40"
+       pointer-events="none"
+       id="rect72"
+       style="fill:url(#linearGradient3209);stroke:#000000"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       d="m 251.5,44.5 0,40 -88.59154,0 -12.23056,-20 12.23056,-20 z"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path74"
+       style="fill:url(#linearGradient3121);stroke:#000000;stroke-width:0.97070217;stroke-miterlimit:10"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="71"
+       y="56"
+       width="60"
+       height="30"
+       pointer-events="none"
+       id="rect76"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="172"
+       y="56"
+       width="60"
+       height="30"
+       pointer-events="none"
+       id="rect86"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="57"
+       y="71"
+       width="190"
+       height="107"
+       pointer-events="none"
+       id="rect96"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="57"
+       y="71"
+       width="190"
+       height="107"
+       pointer-events="none"
+       id="rect98"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="61"
+       y="89"
+       width="190"
+       height="40"
+       pointer-events="none"
+       id="rect100"
+       style="fill:url(#linearGradient3154);stroke:#000000"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       d="m 251.5,88.5 0,40 -88.59154,0 -12.23056,-20 12.23056,-20 z"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path102"
+       style="fill:url(#linearGradient3152);stroke:#000000;stroke-width:0.97070217;stroke-miterlimit:10"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="71"
+       y="96"
+       width="60"
+       height="30"
+       pointer-events="none"
+       id="rect104"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="172"
+       y="96"
+       width="60"
+       height="30"
+       pointer-events="none"
+       id="rect114"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="32"
+       y="53"
+       width="32"
+       height="30"
+       pointer-events="none"
+       id="rect124"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="32"
+       y="96"
+       width="32"
+       height="30"
+       pointer-events="none"
+       id="rect134"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="38"
+       y="28"
+       width="102"
+       height="30"
+       pointer-events="none"
+       id="rect144"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       d="M 9,4 33.72,31.28"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path154"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-miterlimit:10"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       d="m 37.25,35.17 -7.29,-2.84 3.76,-1.05 1.42,-3.65 z"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path156"
+       inkscape:connector-curvature="0"
+       style="fill:#000000;stroke:#000000;stroke-miterlimit:10"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="1"
+       y="2"
+       width="102"
+       height="30"
+       pointer-events="none"
+       id="rect158"
+       stroke="none"
+       fill="none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="148"
+       y="161"
+       width="60"
+       height="107"
+       pointer-events="none"
+       id="rect174"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="161"
+       y="152"
+       width="60"
+       height="107"
+       pointer-events="none"
+       id="rect188"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="176"
+       y="143"
+       width="60"
+       height="107"
+       pointer-events="none"
+       id="rect202"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="284"
+       y="44"
+       width="95"
+       height="100"
+       pointer-events="none"
+       id="rect216"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       d="m 278.87117,99.99757 0,-36.712957 109.74372,0 15.14957,18.356478 -15.14957,18.356479 z"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path218"
+       style="fill:url(#linearGradient3211);stroke:#000000;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="284"
+       y="74.209999"
+       width="95"
+       height="39.580002"
+       pointer-events="none"
+       id="rect228"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="267"
+       y="146"
+       width="119"
+       height="130"
+       pointer-events="none"
+       id="rect238"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="267"
+       y="166"
+       width="95"
+       height="110"
+       pointer-events="none"
+       id="rect240"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="267"
+       y="167"
+       width="95"
+       height="100"
+       pointer-events="none"
+       id="rect242"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="278"
+       y="157"
+       width="95"
+       height="100"
+       pointer-events="none"
+       id="rect264"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="291"
+       y="146"
+       width="95"
+       height="100"
+       pointer-events="none"
+       id="rect286"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="23.894485"
+       y="12.169988"
+       id="text3287"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3289"
+         x="23.894485"
+         y="12.169988"
+         style="font-size:11px">(no trigger)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="138.24918"
+       y="23.037954"
+       id="text3291"
+       sodipodi:linespacing="125%"
+       transform="translate(-0.5,-0.5)"><tspan
+         sodipodi:role="line"
+         id="tspan3293"
+         x="138.24918"
+         y="23.037954" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="64.229431"
+       y="57.745934"
+       id="text3295"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3297"
+         x="64.229431"
+         y="57.745934"
+         style="font-size:10px;font-weight:bold;-inkscape-font-specification:Sans Bold">Function</tspan><tspan
+         sodipodi:role="line"
+         x="64.229431"
+         y="68.177834"
+         style="font-size:8px;font-weight:normal;-inkscape-font-specification:Sans"
+         id="tspan3117">Ball detection</tspan><tspan
+         sodipodi:role="line"
+         x="64.229431"
+         y="78.177834"
+         style="font-size:8px;font-weight:normal;-inkscape-font-specification:Sans"
+         id="tspan3119">push:trigger.position</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3388"
+       y="103.21078"
+       x="289.02435"
+       style="font-size:46.1796608px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       transform="scale(1.1544915,0.8661822)"><tspan
+         style="font-size:11.5449152px;text-align:center;text-anchor:middle"
+         y="103.21078"
+         x="289.02435"
+         sodipodi:role="line"
+         id="tspan3392" /></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3404"
+       y="38.93729"
+       x="50.298683"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="font-size:10px"
+         y="38.93729"
+         x="50.298683"
+         id="tspan3406"
+         sodipodi:role="line">Default Behavior</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="51.409241"
+       y="95.983498"
+       id="text3408"
+       sodipodi:linespacing="125%"
+       transform="translate(-0.5,-0.5)"><tspan
+         sodipodi:role="line"
+         id="tspan3410"
+         x="51.409241"
+         y="95.983498" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="40.130367"
+       y="69.231018"
+       id="text3416"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3418"
+         x="40.130367"
+         y="69.231018"
+         style="font-size:13px">1.</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3424"
+       y="111.94116"
+       x="40.489277"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="font-size:13px"
+         y="111.94116"
+         x="40.489277"
+         id="tspan3426"
+         sodipodi:role="line">2.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="159.48102"
+       y="62.378838"
+       id="text3295-1"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3297-1"
+         x="159.48102"
+         y="62.378838"
+         style="font-size:10px;font-weight:bold;-inkscape-font-specification:Sans Bold">Condition</tspan><tspan
+         sodipodi:role="line"
+         x="159.48102"
+         y="73.844788"
+         style="font-size:9px;font-weight:normal;-inkscape-font-specification:Sans"
+         id="tspan3119-5">always true</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="65.446922"
+       y="102.01226"
+       id="text3295-5"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3297-0"
+         x="65.446922"
+         y="102.01226"
+         style="font-size:10px;font-weight:bold;-inkscape-font-specification:Sans Bold">Function</tspan><tspan
+         sodipodi:role="line"
+         x="65.446922"
+         y="112.44416"
+         style="font-size:8px;font-weight:normal;-inkscape-font-specification:Sans"
+         id="tspan4692">Move head </tspan><tspan
+         sodipodi:role="line"
+         x="65.446922"
+         y="122.44416"
+         style="font-size:8px;font-weight:normal;-inkscape-font-specification:Sans"
+         id="tspan4815">Left/Right</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="162.25041"
+       y="105.35452"
+       id="text3295-1-4"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3297-1-6"
+         x="162.25041"
+         y="105.35452"
+         style="font-size:10px;font-weight:bold;-inkscape-font-specification:Sans Bold">Condition</tspan><tspan
+         sodipodi:role="line"
+         x="162.25041"
+         y="116.82047"
+         style="font-size:9px;font-weight:normal;-inkscape-font-specification:Sans"
+         id="tspan3119-5-0">always true</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="281.80521"
+       y="81.585251"
+       id="text3215"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3217"
+         x="281.80521"
+         y="81.585251"
+         style="font-weight:bold;-inkscape-font-specification:Sans Bold">Score Calculator</tspan><tspan
+         sodipodi:role="line"
+         x="281.80521"
+         y="94.085251"
+         id="tspan3219">return: 0</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 278.87117,80.015872 264.6931,79.646877"
+       id="path4435"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#path218"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#rect64"
+       inkscape:connection-end-point="d4"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="25.35627"
+       y="-323.72357"
+       width="240"
+       height="169.90878"
+       pointer-events="none"
+       id="rect64-3"
+       transform="scale(1,-1)"
+       style="fill:#ffffff;stroke:#000000;stroke-width:1.10165071"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="67.66317"
+       y="161.12169"
+       width="190"
+       height="107"
+       pointer-events="none"
+       id="rect68-4"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="67.66317"
+       y="161.12169"
+       width="190"
+       height="107"
+       pointer-events="none"
+       id="rect70-9"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="61.66317"
+       y="179.12169"
+       width="190"
+       height="40"
+       pointer-events="none"
+       id="rect72-1"
+       style="fill:url(#linearGradient3209-0);stroke:#000000"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       d="m 252.16317,178.6217 0,40 -90.48652,0 -12.49217,-20 12.49217,-20 z"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path74-0"
+       style="fill:url(#linearGradient3121-4);stroke:#000000;stroke-width:0.98102891;stroke-miterlimit:10"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="71.66317"
+       y="190.12169"
+       width="60"
+       height="30"
+       pointer-events="none"
+       id="rect76-5"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="172.66316"
+       y="190.12169"
+       width="60"
+       height="30"
+       pointer-events="none"
+       id="rect86-3"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="61.66317"
+       y="223.12169"
+       width="190"
+       height="51.233982"
+       pointer-events="none"
+       id="rect100-5"
+       style="fill:url(#linearGradient3154-5);stroke:#000000;stroke-width:1.13174629"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       d="m 252.16317,222.6217 0,51.61761 -91.18828,0 -12.58905,-25.80881 12.58905,-25.8088 z"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path102-3"
+       style="fill:url(#linearGradient3152-4);stroke:#000000;stroke-width:1.11873782;stroke-miterlimit:10"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="71.66317"
+       y="230.12169"
+       width="60"
+       height="30"
+       pointer-events="none"
+       id="rect104-9"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="172.66316"
+       y="230.12169"
+       width="60"
+       height="30"
+       pointer-events="none"
+       id="rect114-2"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="32.66317"
+       y="187.12169"
+       width="32"
+       height="30"
+       pointer-events="none"
+       id="rect124-9"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="32.66317"
+       y="230.12169"
+       width="32"
+       height="30"
+       pointer-events="none"
+       id="rect134-1"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="38.66317"
+       y="162.12169"
+       width="102"
+       height="30"
+       pointer-events="none"
+       id="rect144-6"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       d="m 9.663169,138.1217 24.719999,27.28"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path154-8"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-miterlimit:10"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       d="m 37.913168,169.2917 -7.29,-2.84 3.76,-1.05 1.42,-3.65 z"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path156-8"
+       inkscape:connector-curvature="0"
+       style="fill:#000000;stroke:#000000;stroke-miterlimit:10"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       d="m 403.5362,82.043259 10.53424,0.72"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path170-4"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:0.79565531;stroke-miterlimit:10;marker-end:url(#TriangleOutM)"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="284.66318"
+       y="178.12169"
+       width="95"
+       height="100"
+       pointer-events="none"
+       id="rect216-0"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       d="m 277.53434,262.20526 0,-63.17874 112.77198,0 15.5676,31.58936 -15.5676,31.58938 z"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path218-3"
+       style="fill:url(#linearGradient3211-5);stroke:#000000;stroke-width:0.9318257;stroke-miterlimit:10;stroke-dasharray:none"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="284.66318"
+       y="208.3317"
+       width="95"
+       height="39.580002"
+       pointer-events="none"
+       id="rect228-3"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="24.557655"
+       y="146.29169"
+       id="text3287-2"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3289-6"
+         x="24.557655"
+         y="146.29169"
+         style="font-size:11px">trigger : ball</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="66.892601"
+       y="191.86763"
+       id="text3295-4"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3297-19"
+         x="66.892601"
+         y="191.86763"
+         style="font-size:10px;font-weight:bold;-inkscape-font-specification:Sans Bold">Function</tspan><tspan
+         sodipodi:role="line"
+         x="66.892601"
+         y="202.29953"
+         style="font-size:8px;font-weight:normal;-inkscape-font-specification:Sans"
+         id="tspan3117-5">Head Tracking</tspan><tspan
+         sodipodi:role="line"
+         x="66.892601"
+         y="212.29953"
+         style="font-size:8px;font-weight:normal;-inkscape-font-specification:Sans"
+         id="tspan3119-6">pull:trigger.position</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3404-3"
+       y="173.05898"
+       x="50.961853"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="font-size:10px"
+         y="173.05898"
+         x="50.961853"
+         id="tspan3406-3"
+         sodipodi:role="line">Behavior 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="40.793537"
+       y="203.35271"
+       id="text3416-3"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3418-1"
+         x="40.793537"
+         y="203.35271"
+         style="font-size:13px">1.</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3424-3"
+       y="254.06285"
+       x="41.152447"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="font-size:13px"
+         y="254.06285"
+         x="41.152447"
+         id="tspan3426-8"
+         sodipodi:role="line">2.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="158.70854"
+       y="195.0649"
+       id="text3295-1-1"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3297-1-1"
+         x="158.70854"
+         y="195.0649"
+         style="font-size:10px;font-weight:bold;-inkscape-font-specification:Sans Bold">Condition</tspan><tspan
+         sodipodi:role="line"
+         x="158.70854"
+         y="206.53085"
+         style="font-size:9px;font-weight:normal;-inkscape-font-specification:Sans"
+         id="tspan3119-5-6">always true</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="68.110092"
+       y="240.44086"
+       id="text3295-5-4"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3297-0-7"
+         x="68.110092"
+         y="240.44086"
+         style="font-size:10px;font-weight:bold;-inkscape-font-specification:Sans Bold">Function</tspan><tspan
+         sodipodi:role="line"
+         x="68.110092"
+         y="250.87276"
+         style="font-size:8px;font-weight:normal;-inkscape-font-specification:Sans"
+         id="tspan3119-51-5">Kicking</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="157.88885"
+       y="240.19403"
+       id="text3295-1-4-5"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3297-1-6-4"
+         x="157.88885"
+         y="240.19403"
+         style="font-size:10px;font-weight:bold;-inkscape-font-specification:Sans Bold">Condition</tspan><tspan
+         sodipodi:role="line"
+         x="157.88885"
+         y="251.65999"
+         style="font-size:9px;font-weight:normal;-inkscape-font-specification:Sans"
+         id="tspan3119-5-0-0">object:close/aligned</tspan><tspan
+         sodipodi:role="line"
+         x="157.88885"
+         y="262.90997"
+         style="font-size:9px;font-weight:normal;-inkscape-font-specification:Sans"
+         id="tspan4690">pull:trigger.position</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="281.75058"
+       y="218.73677"
+       id="text3215-8"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3217-3"
+         x="281.75058"
+         y="218.73677"
+         style="font-weight:bold;-inkscape-font-specification:Sans Bold">Score Calculator</tspan><tspan
+         sodipodi:role="line"
+         x="281.75058"
+         y="231.23677"
+         id="tspan3219-3"
+         style="font-size:9px">Criteria: Distance</tspan><tspan
+         sodipodi:role="line"
+         x="281.75058"
+         y="243.73677"
+         id="tspan4662"
+         style="font-size:9px">pull: trigger.position</tspan><tspan
+         sodipodi:role="line"
+         x="281.75058"
+         y="256.23676"
+         id="tspan4664"
+         style="font-size:9px">return: 1(far), 2(near)</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 277.53434,233.28052 -12.17807,0.50569"
+       id="path4435-7"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#path218-3"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#rect64-3"
+       inkscape:connection-end-point="d4"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       d="m 405.59802,230.69928 10.53326,0.72"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path170-4-7"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:0.79561841;stroke-miterlimit:10;marker-end:url(#TriangleOutM)"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       x="61.702053"
+       y="278.31671"
+       width="190"
+       height="40"
+       pointer-events="none"
+       id="rect72-1-7"
+       style="fill:url(#linearGradient4709);stroke:#000000"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="69.173164"
+       y="289.89291"
+       id="text3295-4-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3297-19-7"
+         x="69.173164"
+         y="289.89291"
+         style="font-size:10px;font-weight:bold;-inkscape-font-specification:Sans Bold">Function</tspan><tspan
+         sodipodi:role="line"
+         x="69.173164"
+         y="300.32483"
+         style="font-size:8px;font-weight:normal;-inkscape-font-specification:Sans"
+         id="tspan3117-5-0">Walking</tspan><tspan
+         sodipodi:role="line"
+         x="69.173164"
+         y="310.32483"
+         style="font-size:8px;font-weight:normal;-inkscape-font-specification:Sans"
+         id="tspan3119-6-2">pull:trigger.position</tspan></text>
+    <path
+       d="m 251.26045,277.5989 0,40 -90.48652,0 -12.49217,-20 12.49217,-20 z"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path74-0-1"
+       style="fill:url(#linearGradient4770);stroke:#000000;stroke-width:0.98102891;stroke-miterlimit:10"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="158.76534"
+       y="295.47729"
+       id="text3295-1-1-8"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3297-1-1-1"
+         x="158.76534"
+         y="295.47729"
+         style="font-size:10px;font-weight:bold;-inkscape-font-specification:Sans Bold">Condition</tspan><tspan
+         sodipodi:role="line"
+         x="158.76534"
+         y="306.94324"
+         style="font-size:9px;font-weight:normal;-inkscape-font-specification:Sans"
+         id="tspan3119-5-6-8">always true</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3424-3-0"
+       y="302.27991"
+       x="41.536053"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/praveenv4k/Documents/Learn/EMARO/ThirdSemester/REMET/Bibliography/Report/assets/tdm_example.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="font-size:13px"
+         y="302.27991"
+         x="41.536053"
+         id="tspan3426-8-0"
+         sodipodi:role="line">3.</tspan></text>
+  </g>
+</svg>
