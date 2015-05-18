@@ -222,7 +222,7 @@ Blockly.Blocks['robot_action'] = {
         this.setColour(225);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(new Blockly.FieldDropdown([["Greet", "greet"], ["Crouch", "crouch"], ["Stand", "stand"], ["Wish", "wish"]]), "actions");
+            .appendField(new Blockly.FieldDropdown([["Greet", "greet"], ["Crouch", "crouch"], ["Stand", "stand"], ["Wish", "wish"], ["LabIntroduction", "introduction"]]), "actions");
         this.setPreviousStatement(true);
         this.setNextStatement(true, "robot_action");
         this.setTooltip('Robot Action response');
