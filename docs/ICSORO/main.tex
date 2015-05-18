@@ -1,6 +1,12 @@
 \documentclass{llncs}
+
+%\usepackage{amsmath,amsfonts,amsthm,amssymb}
 \usepackage{graphicx,float,wrapfig}
 \usepackage{epstopdf}
+\usepackage{caption}
+%\usepackage{subcaption}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
 %
 %\title{Experimental Platform for Human Robot Interaction based on Human Motions}
 \title{An Intuitive Interface for designing Social behaviors based on Human motions}
@@ -12,7 +18,7 @@
 \author{Praveenkumar Vasudevan\inst{1} \and Gentiane Venture\inst{2}}
 %
 \authorrunning{Praveenkumar Vasudevan et al.} % abbreviated author list (for running head)
-%
+%\
 %%%% list of authors for the TOC (use if author list has to be modified)
 \tocauthor{Praveenkumar Vasudevan, Gentiane Venture}
 %
@@ -32,9 +38,34 @@ Associate Professor, Tokyo University of Agriculture and Technology, Japan\\
 \section{Introduction}
 %
 %Human-Robot interaction (HRI) has emerged as the most promising fields in the recent years owing to its immense potential in the fields of education, entertainment, elderly care and rehabilitation. 
-\emph{Human Robot Interaction (HRI) is a challenging research field at the intersection of psychology, cognitive science, social sciences, artificial intelligence, computer science, robotics, engineering and human-computer interaction}\cite{Dautenhahn2007}. Goodrich\cite{Goodrich:2007:HIS:1348099.1348100} in his extensive survey proposed two main types of HRI namely Remote interaction or Teleoperation and Proximate interaction. The latter is particularly important where the humans and the robots are co-located (for example, service robots may be in the same room as humans). Proximate interaction has gained importance due to the successful encounters of putting robots to work with human beings. It has led to the development of a new class of robots called Social Robots. Yan et al. \cite{Yan2014} defines \emph{“A social robot is a robot which can execute designated tasks and the necessary condition turning a robot into a social robot is the ability to interact with humans by adhering to certain social cues and rules.”}
+\emph{Human Robot Interaction (HRI) is a challenging research field at the intersection of psychology, cognitive science, social sciences, artificial intelligence, computer science, robotics, engineering and human-computer interaction}\cite{Dautenhahn2007}. Goodrich\cite{Goodrich:2007:HIS:1348099.1348100} in his extensive survey proposed two main types of HRI namely Remote interaction or Teleoperation and Proximate interaction. The latter is particularly important where the humans and the robots are co-located (for example, service robots may be in the same room as humans). Proximate interaction has gained importance due to the successful encounters of putting robots to work with human beings. It has led to the development of a new class of robots called Social Robots. In his survey on social robotics, Yan et al. \cite{Yan2014} defines \emph{“A social robot is a robot which can execute designated tasks and the necessary condition turning a robot into a social robot is the ability to interact with humans by adhering to certain social cues and rules.”}
 
-The Social robots already entered the human spaces as entertainers\cite{NaoTheRobot}, educators\cite{NaoTheRobot}, caring agents\cite{ASKNao} and personal assistants\cite{ProjectRomeo}. The design and development of interaction systems need to be approached in a systematic manner wherein the robots should be able to understand the human motions and intentions in order to interact in a better way. To make it possible it is necessary to develop robotic systems with essential cognitive skills for efficient and natural interaction. Most often the on-board sensors on the robots fail to satisfy this demanding requirement due to various constraints like space, power and computational requirements. Hence consideration of augmenting exteroceptive sensors that are commonly available in the smart home/public environments is important.
+The Social robots already entered the human spaces as entertainers\cite{NaoTheRobot}, educators\cite{NaoTheRobot}, caring agents\cite{ASKNao} and personal assistants\cite{ProjectRomeo}\cite{PepperTheRobot}. The design and development of interaction systems need to be approached in a systematic manner wherein the robots should be able to understand the human motions and intentions in order to interact in a better way. To make it possible it is necessary to develop robotic systems with essential cognitive skills for efficient and natural interaction. Most often the on-board sensors on the robots fail to satisfy this demanding requirement due to various constraints like space, power and computational requirements. Hence consideration of augmenting exteroceptive sensors that are commonly available in the smart home/public environments is important.
+ 
+ %  .
+
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.45\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/asknao.png}
+\caption[Human Robot Interaction]{Autism Therapy$^{\cite{ASKNao}}$ }
+\end{subfigure}
+\begin{subfigure}[t]{0.45\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/nao_education.png}
+\caption[Human Robot Interaction]{Education$^{\cite{NaoTheRobot}}$ }
+\end{subfigure}
+
+\begin{subfigure}[t]{0.45\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/romeo_interaction.png}
+\caption[Human Robot Interaction]{Physical Interaction$^{\cite{ProjectRomeo}}$ }
+\end{subfigure}
+\begin{subfigure}[t]{0.45\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/pepper_interaction.png}
+\caption[Human Robot Interaction]{Casual Interaction$^{\cite{PepperTheRobot}}$ }
+\end{subfigure}
+\caption[Human Robot Interaction]{Human Robot Interaction}
+\label{fig:hri}
+\end{figure}
 
 %However when it comes to designing complex behaviors, traditional flow chart based approaches[2] increase the cognitive load on the end users.
 Another important aspect in HRI is the fact that the users of such systems are from diverse backgrounds. People study various aspects such as robot ethics, social acceptance, liveliness, cultural influence etc., from various perspectives like Sociology, Psychology, Humanities and so on. So the tools needed to design behaviors of a social robot should be intuitive and user friendly.  With increased availability of social robots and cost effective motion recognition sensors, we could still observe a huge void which inhibits the exploitation of available technology for designing human motion driven robot behaviors.
@@ -52,7 +83,7 @@ The main contribution of this work will be to develop an application independent
 %
 %\subsection{Human Pose Detection}
 %
-	Vision based motion capture and analysis has been studied widely and a summary of all the approaches developed during the past three decades have been presented in the surveys \cite{Moeslund2001231}\cite{Moeslund200690}\cite{Poppe20074}. Vision based human pose estimation has traditionally suffered from the requirement to adopt an initialization pose and losing track after a few frames. These problems have been addressed by the approaches proposed by Xbox\cite{Kinect2014} team which are capable of accurately predicting the 3D positions of body joints using single depth images without using any temporal information\cite{Shotton2013}. Unlike the approaches used in the Kinect SDK, the approach presented in \cite{Buys201439} uses both the depth and color(RGB-D) data for human body detection and pose estimation using a customizable human kinematic model. Understanding of human motion is not complete if the action of the human could not be understood. In the survey by Microsoft research team\cite{KinectCV2013}, a background study on various algorithms used for human activity analysis is presented. Recently data-driven machine learning approaches like neural networks, support vector machines, clustering, decision trees and bayesian networks have proven to be successful with recognition accuracy as high as 94\%\cite{KinectSDK2014}.\\
+	Vision based motion capture and analysis has been studied widely and a summary of all the approaches developed during the past three decades have been presented in the surveys \cite{Moeslund2001231}\cite{Moeslund200690}\cite{Poppe20074}. Vision based human pose estimation has traditionally suffered from the requirement to adopt an initialization pose and losing track after a few frames. These problems have been addressed by the approaches proposed by Xbox\cite{Kinect2014} team which are capable of accurately predicting the 3D positions of body joints using single depth images without using any temporal information\cite{Shotton2013}. Unlike the approaches used in the Kinect SDK, the approach presented in \cite{Buys201439} uses both the depth and color(RGB-D) data for human body detection and pose estimation using a customizable human kinematic model. Understanding of human motion is not complete if the action of the human could not be understood. In the survey by Microsoft research team\cite{KinectCV2013}, a background study on various algorithms used for human activity analysis is presented. Recently data-driven machine learning approaches like neural networks, support vector machines, clustering, decision trees and bayesian networks have proven to be successful with recognition accuracy as high as 94\%\cite{Kinect2014}.\\
 	The localization of humanoid robots is a challenging issue, due to rough odometry estimation, noisy onboard sensing, and the swaying motion caused by walking\cite{Cervera2012}. The Point cloud library\cite{RusuPCL11} which is one of the most widely used 3D perception software library, implements ready to use probabilistic tracking algorithms\cite{RUeda2012}. Studies on robot localization, obstacle mapping, and path planning in multilevel 3D environments by equipping Nao with a consumer-level depth camera has been reported in \cite{Maier2012}. Localization and motion planning in smart home environment using an external Kinect sensor have been proposed in \cite{Cervera2012}. In \cite{choi13_rgb_d_objec_track} a robust particle filter parallelized on a GPU that can track a known 3D object model over a sequence of RGB-D images is proposed. However all these methods are computationally demanding and it could cause overall performance degradation particularly when we want to share the same sensor for both human motion recognition and localization of the robot.  Tracking rectangular fiducial markers using  augmented reality toolkits like ARToolKit\cite{Kato1999} can be interesting if we could embed those markers on the humanoid robot. This is one of the simplest and cheapest solution in terms of the computational power as it can provide position and orientation of the physical markers in real time.\\
 	The users of social robots do not have necessary backgrounds in programming and design of robot behaviors. The main challenge in the behavior design is the ability to define the behavior which can abstract complex data flows from the end user. There exists several flow-chart based visual programming languages\cite{MSRS4},\cite{Choregraphe} which allow non-programmers to create robot applications using a set of pre-built behavioral blocks. These programs are very intuitive and allow the users to realize complex sequence of movements and sequential behaviors. However when it comes to designing reactive behaviors for human-in-the-loop scenarios, the existing visual programming methods increase the cognitive load on the end users. Specialized robot programming techniques like Task description language\cite{Simmons724883}, scripting techniques like Universal Robotic Body Interface(URBI)\cite{Baillie4814281} and ROS\cite{quigley2009ros} have been proposed in the literature. Though these programs provide modular and distributed architecture, support multiple sensors and robots etc., all these tools require high level of skill in robotics and programming to use them. Recently non-domain-specific solution like \emph{Target Drives Means} is proposed in \cite{BerenzTDM2014}, however it lacks an intuitive interface.\\
 	Recently there has been lot of efforts to teach programming to children and people without computer science background\cite{Scratch}\cite{Blockly}. These tools are very intuitive and have already been proven to be used by novice programmers to build games and educational applications. The Blockly library\cite{Blockly} from Google offers a complete client side javascript library which could be used for developing custom blocks and code generators as per the application requirements.
@@ -60,7 +91,7 @@ The main contribution of this work will be to develop an application independent
 %\subsection{Behavior Design Frameworks}
 \section{Motion Driven Behavior Interface}
 %
-We propose a light weight interface for designing human motion driven behaviors taking inspiration from distributed architecture like ROS\cite{quigley2009ros} and intuitive visual programming techniques\cite{Blockly}. 
+We propose a light weight interface for designing human motion driven behaviors taking inspiration from distributed architecture\cite{quigley2009ros} and intuitive visual programming techniques\cite{Blockly}. 
 %
 \subsection{System Architecture}
 %
@@ -89,7 +120,14 @@ The important components of the system are
 \end{itemize}
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth]{../thesis/assets/architecture.eps}
+\begin{subfigure}[t]{0.48\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/architecture.eps}
+\caption[System Architecture]{Setup}
+\end{subfigure}
+\begin{subfigure}[t]{0.48\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/architecture.eps}
+\caption[System Architecture]{Architecture}
+\end{subfigure}
 \caption[System Architecture]{System Architecture}
 \label{fig:architecture}
 \end{figure}
@@ -109,7 +147,7 @@ For the implementation
 %
 \section{Experimentatal Setup}
 %
-The software is tested on a 64-bit Intel Core i7-4790 CPU 3.60 Ghz with 8 GB of RAM on a  Microsoft Windows 8.1 operating system. The Kinect for Windows V2 is used as the motion capture system and robot is used is Nao Humanoid V5 powered by latest NaoQi OS V2.3. A set of gestures are created using the Visual Gesture Builder that comes with the Kinect Sdk\cite{KinectSDK2014}. The process involves capturing the clips of the motions, tagging the clips with the appropriate gestures and training the gesture recognizer. The trained gestures are then exported as a Visual gesture database and integrated with the motion recognition node. Similarly a set of actions of the Nao humanoid robot are developed as python scripts that are being named corresponding to the actions. The Robot interface node is responsible for invoking these actions whenever requested. The python scripts uses Naoqi python sdk which exposes a huge set of API for motion control, sensor data access etc.,
+The software is tested on a 64-bit Intel Core i7-4790 CPU 3.60 Ghz with 8 GB of RAM on a  Microsoft Windows 8.1 operating system. The Kinect for Windows V2 is used as the motion capture system and robot is used is Nao Humanoid V5 powered by latest NaoQi OS V2.3. A set of gestures are created using the Visual Gesture Builder that comes with the Kinect Sdk\cite{Kinect2014}. The process involves capturing the clips of the motions, tagging the clips with the appropriate gestures and training the gesture recognizer. The trained gestures are then exported as a Visual gesture database and integrated with the motion recognition node. Similarly a set of actions of the Nao humanoid robot are developed as python scripts that are being named corresponding to the actions. The Robot interface node is responsible for invoking these actions whenever requested. The python scripts uses Naoqi python sdk which exposes a huge set of API for motion control, sensor data access etc.,
 %
 \section{Conclusions}
 %
