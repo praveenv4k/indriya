@@ -170,7 +170,7 @@ if __name__ == "__main__":
               PORT =  int(parameter_utils.getParam(node,"ROBOTPORT", "9559"))
               BEHAVIOR_PORT = int(parameter_utils.getParam(node,"RequestServerPort", "5590"))
               BEHAVIOR_IP = parameter_utils.getParam(node,"RequestServerIP", "*")
-              parameter_utils.register_motions(node,paramServer,["crouch","stand","hand_wave","greet","wish"])
+              parameter_utils.register_motions(node,paramServer,["crouch","stand","hand_wave","greet","wish","introduction"])
               thread.start_new_thread(behavior_server,(BEHAVIOR_IP,BEHAVIOR_PORT,ROBOTIP,PORT));
       else:
           print "Start locally"
