@@ -340,12 +340,12 @@ Blockly.Blocks['behavior_sleek'] = {
         this.setTooltip('');
 
         var doStatement = this.getInput('INIT_DO');
-        console.log(doStatement);
+        //console.log(doStatement);
 
         if (doStatement != null || doStatement != undefined) {
             // Get connection of INIT_DO
             var doConnection = doStatement.connection;
-            console.log(doConnection.targetConnection);
+            //console.log(doConnection.targetConnection);
 
             var itemBlock = Blockly.Block.obtain(this.workspace, 'gesture_count_up');
             itemBlock.initSvg();
@@ -355,16 +355,22 @@ Blockly.Blocks['behavior_sleek'] = {
             itemBlock.setFieldValue(gestureDropdown.value_, "GESTURE_NAME");
             itemBlock.setFieldValue(gestureDropdown.value_ + 'Count', "VAR");
 
-            console.log(itemBlock);
+            //console.log(itemBlock);
 
-            if (!doConnection.targetConnection && !itemBlock.previousConnection.targetConnection) {
+            if (doConnection.targetConnection == null && itemBlock.previousConnection.targetConnection == null && itemBlock.targetConnection == null) {
 
                 //if (itemBlock.previousConnection) {
                 //    doConnection.connect(itemBlock.previousConnection);
                 //}
+                console.log("Do Statement Connection!");
+                console.log(doConnection);
+                console.log("Do Statement Target Connection!");
+                console.log(doConnection.targetConnection);
+                console.log("Item Block previous Target Connection!");
+                console.log(itemBlock.previousConnection.targetConnection);
 
-                doConnection.connect(itemBlock.previousConnection);
-
+                //doConnection.connect(itemBlock.previousConnection);
+                itemBlock.previousConnection.connect(doConnection);
                 //var itemBlock = Blockly.Block.obtain(this.workspace, 'variables_set');
                 //itemBlock.initSvg();
                 //itemBlock.setFieldValue("WaveLeft", "VAR");

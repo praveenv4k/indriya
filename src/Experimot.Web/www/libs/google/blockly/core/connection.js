@@ -124,6 +124,7 @@ Blockly.Connection.prototype.connect = function(otherConnection) {
     }
   } else {
     if (this.targetConnection) {
+		console.log(this.targetConnection);
       throw 'Source connection already connected (block).';
     } else if (otherConnection.targetConnection) {
       // Statement blocks may be inserted into the middle of a stack.
