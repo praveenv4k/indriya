@@ -140,6 +140,50 @@ Blockly.Blocks['behavior_sleek'] = {
     }
 };
 
+Blockly.Blocks['behavior_startup'] = {
+    init: function() {
+        var nameText = "Startup Behavior";
+
+        this.setHelpUrl('http://www.example.com/');
+        this.setColour(200);
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_CENTRE)
+            .appendField("Behavior Name :")
+            //.appendField(new Blockly.FieldTextInput("behavior"), "behavior_name")
+            .appendField(nameText);
+        this.appendDummyInput()
+            .appendField("");
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_CENTRE)
+            .appendField("Robot Actions");
+        this.appendStatementInput("DO")
+            .appendField("do");
+        this.setTooltip('Behavior to define a set of actions to execute during the system startup');
+    }
+};
+
+Blockly.Blocks['behavior_exit'] = {
+    init: function() {
+        var nameText = "Exit Behavior";
+
+        this.setHelpUrl('http://www.example.com/');
+        this.setColour(400);
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_CENTRE)
+            .appendField("Behavior Name :")
+            //.appendField(new Blockly.FieldTextInput("behavior"), "behavior_name")
+            .appendField(nameText);
+        this.appendDummyInput()
+            .appendField("");
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_CENTRE)
+            .appendField("Robot Actions");
+        this.appendStatementInput("DO")
+            .appendField("do");
+        this.setTooltip('Behavior to define a set of actions to execute during the system shutdown');
+    }
+};
+
 Blockly.Blocks['behavior'] = {
     init: function () {
         var nameText = "behavior";
