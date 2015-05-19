@@ -1,0 +1,23 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_startup" id="5" x="338" y="63">
+    <statement name="DO">
+      <block type="robot_action" id="11">
+        <field name="actions">greet</field>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_sleek" id="7" x="288" y="213">
+    <field name="behavior_name">behavior</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <field name="triggers">Greet_Left</field>
+    <field name="confidence_levels">80</field>
+  </block>
+  <block type="behavior_exit" id="9" x="363" y="438">
+    <statement name="DO">
+      <block type="robot_action" id="13">
+        <field name="actions">greet</field>
+      </block>
+    </statement>
+  </block>
+</xml>
