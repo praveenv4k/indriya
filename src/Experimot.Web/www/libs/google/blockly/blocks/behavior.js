@@ -94,7 +94,9 @@ Blockly.Blocks['behavior_sleek'] = {
             .appendField(nameField, "behavior_name")
             .appendField("    Priority : ")
             .appendField(new Blockly.FieldDropdown([["Low", "low"], ["Normal", "normal"], ["High", "high"]]), "priorities");
-        this.appendDummyInput();
+        this.appendDummyInput()
+            .appendField("    Execute : ")
+            .appendField(new Blockly.FieldDropdown([["Forever", "forever"], ["Once", "once"], ["Until", "until"]]), "execution");
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
             .appendField("Human Motion");

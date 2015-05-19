@@ -1,11 +1,11 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="behavior_sleek" id="3" x="313" y="138">
+  <block type="behavior_sleek" id="9" x="663" y="113">
     <field name="behavior_name">behavior</field>
     <field name="priorities">low</field>
     <field name="triggers">Greet_Right</field>
-    <field name="confidence_levels">95</field>
+    <field name="confidence_levels">80</field>
     <statement name="DO">
-      <block type="robot_action" id="5">
+      <block type="robot_action" id="11">
         <field name="actions">introduction</field>
       </block>
     </statement>
