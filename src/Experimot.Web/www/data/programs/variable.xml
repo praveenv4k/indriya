@@ -1,0 +1,19 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_sleek" id="2" x="63" y="138">
+    <field name="behavior_name">behavior</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <field name="triggers">Greet_Left</field>
+    <field name="confidence_levels">95</field>
+    <statement name="DO">
+      <block type="variables_set" id="12" inline="true">
+        <field name="VAR">item</field>
+        <value name="VALUE">
+          <block type="math_number" id="33">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>
