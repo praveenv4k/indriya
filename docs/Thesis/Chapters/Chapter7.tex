@@ -26,12 +26,12 @@ In this section a description of the research plan and research schedule are pre
                                           \tabularnewline\toprule
 \end{tabularx}
 \end{table}
-\begin{figure}
-\centering
-\includegraphics[width=0.9\textwidth]{assets/SystemArchitecture.pdf}
-\caption{Proposed architecture of the experimental platform}
-\label{fig:architecture}
-\end{figure}
+%\begin{figure}
+%\centering
+%\includegraphics[width=0.9\textwidth]{assets/SystemArchitecture.pdf}
+%\caption{Proposed architecture of the experimental platform}
+%\label{fig:architecture}
+%\end{figure}
 	The Kinect SDK will be used for the skeleton tracking of human using the RGB-D information acquired from the sensor. The Gesture recognition library will be used in order to recognize the gesture of the tracked skeletons. If additional gestures will be needed for the experimental scenario, they will be captured and tagged using the \emph{Gesture builder} that accompanies the Kinect SDK. In order to track the position of the Nao, a particle filter tracker (\emph{KLDAdaptiveParticleFilterOMPTracker}) available in point cloud library will be used. In case if the tracker is heavier to run beside the skeleton tracking of Kinect (since the kinect tracking is resource consuming), pose tracking using \emph{ARToolKit} will be tried out. All the heavy data processing will be done by a powerful computer which will be called \emph{Interaction Manager}. 
 
 	The human motion tracking and nao pose tracking would be implemented as TDM components which would be able to pull/push information from/to the Internal model provided by the TDM architecture. For instance, Nao robot's pose would be continuosly pushed to the IM and other blocks which are responsible to command Nao to move to a particular position could pull the pose information from the IM. Also triggers like \emph{Human detected}, \emph{Object Detected} will be implemented which could be used to activate behavioral blocks as needed. The communication with Nao will be established using SOAP(Simple Object Access Protocol)\cite{SoapSpec} over Wifi network. The NaoQi middleware already exposes APIs to perform data communication using SOAP protocol. An example component library and a simple \emph{Human greeting} behavior using the "to be" implemented function and trigger blocks is shown in Figure~\ref{fig:program}. The details about the sensor$\Leftrightarrow$robot data communication will be taken care by the individual function by interacting with the internal model. For instance in the example program proposed, the default behavior just embeds functions to track the human and Nao. The default program updates their information to the internal model. The actual \emph{Human Greet} behavior embeds \emph{Approach Human function}: which gets the position of the Human from the internal model and move towards him, \emph{Greet Human function}: which pulls the position of the Nao robot from the internal model and when it is close enough to human, it will greet human by bowing (\emph{Japanese style greeting}). Thanks to the TDM framework, it will take care of the object permanence and say this simple program could be used irrespective of the number of persons to greet.
