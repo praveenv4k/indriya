@@ -321,7 +321,14 @@
                         }
                     })
                     .click(function () {
-                    _this.clearWorkspace();
+                        app.code = Blockly.CSharp.workspaceToCode(app.workspace); // C# code generation
+                        console.log(app.code);
+                        var blocks = app.workspace.getAllBlocks();
+                        // Iterate through every block and check the name.
+                        for (var x = 0; x < blocks.length; x++) {
+                            console.log(blocks[x]);
+                        }
+                        //_this.clearWorkspace();
                 });
             },
 

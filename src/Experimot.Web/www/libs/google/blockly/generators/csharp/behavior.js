@@ -25,6 +25,10 @@
         "actions: [";
     actions.forEach(actionFunction);
     code += "] }";
+
+    //var doStatement = this.getInputTargetBlock('DO');
+    //console.log(doStatement);
+
     return code;
 };
 
