@@ -157,21 +157,25 @@ namespace Experimot.Scheduler
                     }
                     else
                     {
-                        if (!kinectBody.IsTracked)
-                        {
-                            Humans.Remove(item);
-                            Log.InfoFormat("Removed untracked human: {0}", item.Id);
-                        }
-                        else
-                        {
-                            item.Body = kinectBody;
-                        }
+                        item.Body = kinectBody;
+
+                        // Check below is not needed since only tracked kinect bodies are published by the publisher
+
+                        //if (!kinectBody.IsTracked)
+                        //{
+                        //    Humans.Remove(item);
+                        //    Log.InfoFormat("Removed untracked human: {0}", item.Id);
+                        //}
+                        //else
+                        //{
+                        //    item.Body = kinectBody;
+                        //}
                     }
                 }
             }
         }
 
-       public void Update(GestureTriggers triggers)
+        public void Update(GestureTriggers triggers)
         {
             if (triggers != null)
             {
