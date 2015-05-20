@@ -57,6 +57,7 @@ public class MotionBasedBehavior : ICloneable
     public BehaviorExecutionLifetime ExecutionLifetime { get; set; }
     public string ExecutionEvalExpression { get; set; }
     public string Trigger { get; set; }
+    public string TriggerCount { get; set; }
     public int Id { get; set; }
     public int ConfidenceLevel { get; set; }
     public IList<BehaviorInfo> InitActions { get; set; }
