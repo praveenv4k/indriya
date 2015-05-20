@@ -79,105 +79,34 @@ Blockly.Blocks.behaviors.rename = function (text) {
     return text;
 };
 
-Blockly.Blocks['behavior_variables_get'] = {
-    /**
-     * Block for variable getter.
-     * @this Blockly.Block
-     */
-    init: function () {
-        this.setHelpUrl(Blockly.Msg.VARIABLES_GET_HELPURL);
-        this.setColour(Blockly.Blocks.variables.HUE);
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.VARIABLES_GET_TITLE)
-            .appendField(new Blockly.FieldVariable(
-            Blockly.Msg.VARIABLES_GET_ITEM), 'VAR')
-            .appendField(Blockly.Msg.VARIABLES_GET_TAIL);
-        this.setOutput(true);
-        this.setTooltip(Blockly.Msg.VARIABLES_GET_TOOLTIP);
-        this.contextMenuMsg_ = Blockly.Msg.VARIABLES_GET_CREATE_SET;
-        this.contextMenuType_ = 'behavior_variables_set';
-    },
-    /**
-     * Return all variables referenced by this block.
-     * @return {!Array.<string>} List of variable names.
-     * @this Blockly.Block
-     */
-    getVars: function () {
-        return [this.getFieldValue('VAR')];
-    },
-    /**
-     * Notification that a variable is renaming.
-     * If the name matches one of this block's variables, rename it.
-     * @param {string} oldName Previous name of variable.
-     * @param {string} newName Renamed variable.
-     * @this Blockly.Block
-     */
-    renameVar: function (oldName, newName) {
-        if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
-            this.setFieldValue(newName, 'VAR');
-        }
-    },
-    /**
-     * Add menu option to create getter/setter block for this setter/getter.
-     * @param {!Array} options List of menu options to add to.
-     * @this Blockly.Block
-     */
-    customContextMenu: function (options) {
-        var option = { enabled: true };
-        var name = this.getFieldValue('VAR');
-        option.text = this.contextMenuMsg_.replace('%1', name);
-        var xmlField = goog.dom.createDom('field', null, name);
-        xmlField.setAttribute('name', 'VAR');
-        var xmlBlock = goog.dom.createDom('block', null, xmlField);
-        xmlBlock.setAttribute('type', this.contextMenuType_);
-        option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
-        options.push(option);
-    }
-};
+Blockly.Blocks.behaviors.GestureProperties =
+[
+    ["WaveLeft", 'Greet_Left'],
+    ["WaveRight", 'Greet_Right'],
+    ["Bow", 'Bow']
+];
 
-Blockly.Blocks['behavior_variables_set'] = {
-    /**
-     * Block for variable setter.
-     * @this Blockly.Block
-     */
-    init: function () {
-        this.setHelpUrl(Blockly.Msg.VARIABLES_SET_HELPURL);
-        this.setColour(Blockly.Blocks.variables.HUE);
-        this.interpolateMsg(
-            // TODO: Combine these messages instead of using concatenation.
-            Blockly.Msg.VARIABLES_SET_TITLE + ' %1 ' +
-            Blockly.Msg.VARIABLES_SET_TAIL + ' %2',
-            ['VAR', new Blockly.FieldVariable(Blockly.Msg.VARIABLES_SET_ITEM)],
-            ['VALUE', null, Blockly.ALIGN_RIGHT],
-            Blockly.ALIGN_RIGHT);
-        this.setPreviousStatement(true);
-        this.setNextStatement(true);
-        this.setTooltip(Blockly.Msg.VARIABLES_SET_TOOLTIP);
-        this.contextMenuMsg_ = Blockly.Msg.VARIABLES_SET_CREATE_GET;
-        this.contextMenuType_ = 'behavior_variables_get';
-    },
-    /**
-     * Return all variables referenced by this block.
-     * @return {!Array.<string>} List of variable names.
-     * @this Blockly.Block
-     */
-    getVars: function () {
-        return [this.getFieldValue('VAR')];
-    },
-    /**
-     * Notification that a variable is renaming.
-     * If the name matches one of this block's variables, rename it.
-     * @param {string} oldName Previous name of variable.
-     * @param {string} newName Renamed variable.
-     * @this Blockly.Block
-     */
-    renameVar: function (oldName, newName) {
-        if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
-            this.setFieldValue(newName, 'VAR');
-        }
-    },
-    customContextMenu: Blockly.Blocks['behavior_variables_get'].customContextMenu
-};
+Blockly.Blocks.behaviors.PriorityProperties =
+[
+    ["Low", 'low'],
+    ["Normal", 'normal'],
+    ["High", 'high']
+];
+
+Blockly.Blocks.behaviors.ExecutionProperties =
+[
+    ["Forever", 'forever'],
+    ["Once", 'once'],
+    ["Until", 'until']
+];
+
+Blockly.Blocks.behaviors.ConfidenceProperties =
+[
+    ["80%", "80"],
+    ["85%", "85"],
+    ["90%", "90"],
+    ["95%", "95"]
+];
 
 Blockly.Blocks['gesture_count_up'] = {
     /**
@@ -248,56 +177,33 @@ Blockly.Blocks['gesture_count_up'] = {
     }
 };
 
+
+
+
 Blockly.Blocks['behavior_sleek'] = {
-    init: function() {
+    init: function () {
+
+        console.log("Creating Behavior Sleek Block");
+
         var nameText = "behavior";
         var name = Blockly.Blocks.behaviors.findLegalName(nameText, this);
         var nameField = new Blockly.FieldTextInput(name, Blockly.Blocks.behaviors.rename);
 
-        var priorityProperties =
-        [
-            ["Low", 'low'],
-            ["Normal", 'normal'],
-            ["High", 'high']
-        ];
-
-        var priorityDropdown = new Blockly.FieldDropdown(priorityProperties, function(option) {
+        var priorityDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.PriorityProperties, function (option) {
 
         });
 
-        var executionProperties =
-        [
-            ["Forever", 'forever'],
-            ["Once", 'once'],
-            ["Until", 'until']
-        ];
-
-        var executionDropdown = new Blockly.FieldDropdown(executionProperties, function(option) {
+        var executionDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.ExecutionProperties, function (option) {
 
         });
 
-        var gestureProperties =
-        [
-            ["WaveLeft", 'Greet_Left'],
-            ["WaveRight", 'Greet_Right'],
-            ["Bow", 'Bow']
-        ];
-
-        var gestureDropdown = new Blockly.FieldDropdown(gestureProperties, function(option) {
+        var gestureDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.GestureProperties, function (option) {
             //var trigger = this;
             //console.log(this);
             console.log("Old Value : " + this.value_ + ", New Value : " + option);
         });
 
-        var confidenceProperties =
-        [
-            ["80%", "80"],
-            ["85%", "85"],
-            ["90%", "90"],
-            ["95%", "95"]
-        ];
-
-        var confidenceDropdown = new Blockly.FieldDropdown(confidenceProperties, function(option) {
+        var confidenceDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.ConfidenceProperties, function (option) {
         });
 
         this.setHelpUrl('http://www.example.com/');
@@ -310,7 +216,7 @@ Blockly.Blocks['behavior_sleek'] = {
             .appendField("    Priority : ")
             .appendField(priorityDropdown, "priorities");
         this.appendDummyInput()
-            .appendField("    Execute : ")
+            .appendField("Execute : ")
             .appendField(executionDropdown, "execution");
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
@@ -320,6 +226,9 @@ Blockly.Blocks['behavior_sleek'] = {
             .appendField(gestureDropdown, "triggers")
             .appendField("with confidence level")
             .appendField(confidenceDropdown, "confidence_levels");
+        this.appendDummyInput()
+            .appendField("Gesture Count variable")
+            .appendField(new Blockly.FieldVariable(null), 'VAR');
         this.appendDummyInput()
             .appendField("Init : ");
         this.appendDummyInput()
@@ -340,9 +249,10 @@ Blockly.Blocks['behavior_sleek'] = {
         this.setTooltip('');
 
         var doStatement = this.getInput('INIT_DO');
-        //console.log(doStatement);
+        console.log(doStatement);
 
-        if (doStatement != null || doStatement != undefined) {
+        
+        if ((doStatement != null || doStatement != undefined) && doStatement.sourceBlock_.childBlocks_.length == 0) {
             // Get connection of INIT_DO
             var doConnection = doStatement.connection;
             //console.log(doConnection.targetConnection);
@@ -352,22 +262,28 @@ Blockly.Blocks['behavior_sleek'] = {
 
             //var trigger = this.getFieldValue("triggers");
 
-            itemBlock.setFieldValue(gestureDropdown.value_, "GESTURE_NAME");
-            itemBlock.setFieldValue(gestureDropdown.value_ + 'Count', "VAR");
+            //itemBlock.setFieldValue(gestureDropdown.value_, "GESTURE_NAME");
+            //itemBlock.setFieldValue(gestureDropdown.value_ + 'Count', "VAR");
+            itemBlock.setFieldValue(gestureDropdown.text_, "GESTURE_NAME");
+            itemBlock.setFieldValue(gestureDropdown.text_ + 'Count', "VAR");
+
+            //var allConn = itemBlock.getConnections_(true);
+            //console.log(allConn);
 
             //console.log(itemBlock);
 
-            if (doConnection.targetConnection == null && itemBlock.previousConnection.targetConnection == null && itemBlock.targetConnection == null) {
+            if (doConnection.targetConnection == null && itemBlock.previousConnection.targetConnection == null && itemBlock.targetConnection == null && doConnection.targetBlock() == null) {
 
                 //if (itemBlock.previousConnection) {
                 //    doConnection.connect(itemBlock.previousConnection);
                 //}
-                console.log("Do Statement Connection!");
-                console.log(doConnection);
-                console.log("Do Statement Target Connection!");
-                console.log(doConnection.targetConnection);
-                console.log("Item Block previous Target Connection!");
-                console.log(itemBlock.previousConnection.targetConnection);
+
+                //console.log("Do Statement Connection!");
+                //console.log(doConnection);
+                //console.log("Do Statement Target Connection!");
+                //console.log(doConnection.targetConnection);
+                //console.log("Item Block previous Target Connection!");
+                //console.log(itemBlock.previousConnection.targetConnection);
 
                 //doConnection.connect(itemBlock.previousConnection);
                 itemBlock.previousConnection.connect(doConnection);
