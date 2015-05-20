@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 using Common.Logging;
 using Experimot.Core;
@@ -12,22 +11,6 @@ using Newtonsoft.Json;
 
 namespace Experimot.Scheduler.Web.Modules
 {
-    public class TestModel
-    {
-        public String Name { get; set; }
-        public int Id { get; set; }
-    }
-
-    class IndexVal
-    {
-        public IndexVal()
-        {
-            val = new List<double>(25);
-        }
-        public int id { get; set; }
-        public List<double> val { get; set; }
-    }
-
     internal class ProgramList
     {
         public string Name { get; set; }
@@ -44,8 +27,6 @@ namespace Experimot.Scheduler.Web.Modules
             //Get["/"] = parameters => Response.AsFile(@"Web/www/index.html");
             //Get["/"] = parameters => Response.AsFile(Path.Combine(WebRoot, "index.html"));
             Get["/"] = parameters => Response.AsFile("index.html");
-
-            Get["/req"] = parameters => Response.AsJson(new TestModel {Name = "Hello", Id = 1000});
 
             Get["/models/{type}/(?<all>.*)"] = parameters =>
             {
@@ -117,7 +98,8 @@ namespace Experimot.Scheduler.Web.Modules
                     var context = TinyIoCContainer.Current.Resolve<Context>();
                     if (context != null)
                     {
-                        return Response.AsJson(context.Humans);
+                        //return Response.AsJson(context.Humans);
+                        return (Response)JsonConvert.SerializeObject(context.Humans);
                     }
                 }
                 catch (Exception ex)
@@ -262,10 +244,6 @@ namespace Experimot.Scheduler.Web.Modules
 
                     }
                 }
-                else
-                {
-
-                }
                 return (Response)HttpStatusCode.NotModified;
             };
 
@@ -277,7 +255,7 @@ namespace Experimot.Scheduler.Web.Modules
                     if (Request.Form != null)
                     {
                         Log.Info(Request.Form);
-                        var dynDict = Request.Form as Nancy.DynamicDictionary;
+                        var dynDict = Request.Form as DynamicDictionary;
                         if (dynDict != null)
                         {
 
@@ -343,7 +321,7 @@ namespace Experimot.Scheduler.Web.Modules
                     }
                 }
 
-                var formDict = Request.Form as Nancy.DynamicDictionary;
+                var formDict = Request.Form as DynamicDictionary;
                 if (formDict != null)
                 {
                     foreach (var key in formDict.Keys)
@@ -352,7 +330,7 @@ namespace Experimot.Scheduler.Web.Modules
                     }
                 }
 
-                var queryDict = Request.Query as Nancy.DynamicDictionary;
+                var queryDict = Request.Query as DynamicDictionary;
                 if (queryDict != null)
                 {
                     foreach (var key in queryDict.Keys)

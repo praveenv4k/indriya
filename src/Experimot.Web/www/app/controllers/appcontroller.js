@@ -1,10 +1,10 @@
 ﻿define(['app', 'backbone', 'marionette', 'models/robot', 'models/testjointvalues', 'models/JointValues', 'collections/drawables', 'marionette_threejs', 'poller',
     'views/programSelectModal',
     'views/saveDialog',
-    'collections/programs'],
+    'collections/programs', 'jsonview'],
     function (app, backbone, marionette, robot,testJointVals,jointVals, drawables, m3Js,poller,openDialog,saveDialog,programs) {
         return backbone.Marionette.Controller.extend({
-            initialize: function (options) {
+            initialize: function(options) {
                 var _this = this;
                 app.programs = new programs();
                 app.Drawables = new drawables();
@@ -25,7 +25,7 @@
                     $.ajax({
                         url: model.get('path'),
                         dataType: "text",
-                        success: function (data) {
+                        success: function(data) {
                             _this.clearWorkspace();
                             console.log(data);
                             //console.log(app.workspace);
@@ -103,17 +103,20 @@
                 app.jointVals = new jointVals();
 
                 app.jointpoller = poller.get(app.jointVals, test_joint_options);
-                app.jointpoller.on('error', function (model) {
+                app.jointpoller.on('error', function(model) {
                     globalCh.vent.trigger("serverCommunication", false);
                     console.error('Error retrieving Robot Status information from server!');
                 });
-                app.jointpoller.on('success', function (model) {
+                app.jointpoller.on('success', function(model) {
                     _this.setJointVals(model);
                 });
-                app.jointpoller.on('complete', function (model) {
+                app.jointpoller.on('complete', function(model) {
                     console.log("Done !!!");
                 });
                 app.jointpoller.start();
+
+                app.initHumanPoll = false;
+                app.humanPollError = false;
             },
 
             setJointVals: function(jointModel) {
@@ -128,10 +131,10 @@
                 return radians * 180 / Math.PI;        
             },
 
-            index: function () {
+            index: function() {
                 var _this = this;
                 require(["jquery", "app", "views/designer", "views/monitor"],
-                    function ($, app, designer, monitor) {
+                    function($, app, designer, monitor) {
                         _this.initCodeMenu();
                         //app.designer.show(new designer());
                         app.monitor.show(new monitor());
@@ -154,6 +157,31 @@
                         _this.createNewDrawable({
                             colladaUrl: "models/collada/nao.dae"
                         });
+
+                        if (!app.initHumanPoll) {
+                            app.initHumanPoll = true;
+                            (function humansPoll() {
+                                if (app.humanPollError) {
+                                    return;
+                                } else {
+                                    setTimeout(function() {
+                                        $.ajax({
+                                            url: "/humans",
+                                            success: function(data) {
+                                                //sales.setValue(data.value);
+                                                $('#humansTree').JSONView(data);
+                                            },
+                                            error: function() {
+                                                console.log('Error receiving humans data from server');
+                                                app.humanPollError = true;
+                                            },
+                                            dataType: "json",
+                                            complete: humansPoll
+                                        });
+                                    }, 200);
+                                }
+                            })();
+                        }
                     });
             },
 
