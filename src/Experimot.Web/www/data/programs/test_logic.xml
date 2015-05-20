@@ -1,0 +1,26 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_sleek" id="2" inline="false" x="213" y="88">
+    <mutation run_until="true" run_logic="(WaveLeftCount &lt;= 10)"></mutation>
+    <field name="behavior_name">behavior</field>
+    <field name="triggers">Greet_Left</field>
+    <field name="confidence_levels">80</field>
+    <field name="VAR">WaveLeftCount</field>
+    <field name="priorities">low</field>
+    <field name="execution">until</field>
+    <value name="RUN_UNTIL">
+      <block type="logic_compare" id="44" inline="true">
+        <field name="OP">LTE</field>
+        <value name="A">
+          <block type="variables_get" id="76">
+            <field name="VAR">WaveLeftCount</field>
+          </block>
+        </value>
+        <value name="B">
+          <block type="math_number" id="99">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+</xml>

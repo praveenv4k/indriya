@@ -158,6 +158,26 @@ namespace Experimot.Scheduler.Tests
                                 Enum.TryParse(field.Value, out priority);
                                 motionBehavior.Priority = priority;
                             }
+                            else if (nameAttribute.Value == "execution")
+                            {
+                                BehaviorExecutionLifetime execution = BehaviorExecutionLifetime.forever;
+                                Enum.TryParse(field.Value, out execution);
+                                motionBehavior.ExecutionLifetime = execution;
+                                if (execution == BehaviorExecutionLifetime.until)
+                                {
+                                    var mutationBlock = block.ElementsAnyNS("mutation").ToList();
+                                    if (mutationBlock.Count > 0)
+                                    {
+                                        var mutation = mutationBlock[0];
+                                        var runLogicAttr = mutation.Attribute("run_logic");
+                                        if (runLogicAttr != null)
+                                        {
+                                            motionBehavior.ExecutionEvalExpression =
+                                                runLogicAttr.Value;
+                                        }
+                                    }
+                                }
+                            }
                             else if (nameAttribute.Value == "triggers")
                             {
                                 motionBehavior.Trigger = field.Value;
@@ -170,30 +190,50 @@ namespace Experimot.Scheduler.Tests
                             }
                         }
                     }
-                    var statements = block.ElementsAnyNS("statement");
-                    var statementBlocks = statements.ElementsAnyNS("block").ToArray();
-                    for (int i = 0; i < statementBlocks.Length; i++)
+                    var statements = block.ElementsAnyNS("statement").ToArray();
+                    for (int s = 0; s < statements.Length; s++)
                     {
-                        var tempBlock = statementBlocks[i];
-                        var behaviorInfo = GetBehaviorInfo(tempBlock);
-                        if (behaviorInfo != null)
+                        var currStatement = statements[s];
+                        IList<BehaviorInfo> tempList = null;
+                        if (currStatement.Attribute("name").Value == "INIT_DO")
                         {
-                            motionBehavior.RobotActions.Add(behaviorInfo);
-                            var nextBlock = tempBlock.ElementsAnyNS("next");
-                            while (nextBlock != null && nextBlock.Any())
+                            tempList = motionBehavior.InitActions;
+                        }
+                        if (currStatement.Attribute("name").Value == "DO")
+                        {
+                            tempList = motionBehavior.RobotActions;
+                        }
+                        if (currStatement.Attribute("name").Value == "EXIT_DO")
+                        {
+                            tempList = motionBehavior.ExitActions;
+                        }
+                        if (tempList != null)
+                        {
+                            var statementBlocks = currStatement.ElementsAnyNS("block").ToArray();
+                            for (int i = 0; i < statementBlocks.Length; i++)
                             {
-                                var childBlock = nextBlock.ElementsAnyNS("block").FirstOrDefault();
-                                if (childBlock != null)
+                                var tempBlock = statementBlocks[i];
+                                var behaviorInfo = GetBehaviorInfo(tempBlock);
+                                if (behaviorInfo != null)
                                 {
-                                    behaviorInfo = GetBehaviorInfo(childBlock);
-                                    motionBehavior.RobotActions.Add(behaviorInfo);
-                                    Console.WriteLine(childBlock);
-                                    nextBlock = childBlock.ElementsAnyNS("next");
-                                    Console.WriteLine(nextBlock);
-                                }
-                                else
-                                {
-                                    nextBlock = null;
+                                    tempList.Add(behaviorInfo);
+                                    var nextBlock = tempBlock.ElementsAnyNS("next");
+                                    while (nextBlock != null && nextBlock.Any())
+                                    {
+                                        var childBlock = nextBlock.ElementsAnyNS("block").FirstOrDefault();
+                                        if (childBlock != null)
+                                        {
+                                            behaviorInfo = GetBehaviorInfo(childBlock);
+                                            tempList.Add(behaviorInfo);
+                                            Console.WriteLine(childBlock);
+                                            nextBlock = childBlock.ElementsAnyNS("next");
+                                            Console.WriteLine(nextBlock);
+                                        }
+                                        else
+                                        {
+                                            nextBlock = null;
+                                        }
+                                    }
                                 }
                             }
                         }
