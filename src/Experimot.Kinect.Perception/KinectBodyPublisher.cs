@@ -103,7 +103,7 @@ namespace Experimot.Kinect.Perception
                 var human = new Human();
                 human.tracked = body.IsTracked;
                 var jointPosDict = new Dictionary<JointType, Vector3D>();
-                human.id = penIndex;
+                human.id = penIndex-1;
 
                 if (body.IsTracked)
                 {
