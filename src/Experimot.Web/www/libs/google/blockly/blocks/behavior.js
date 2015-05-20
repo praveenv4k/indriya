@@ -203,7 +203,7 @@ Blockly.Blocks['behavior_sleek'] = {
 
             var kvp = Blockly.Blocks.behaviors.GestureProperties.filter(function(gesture) { return gesture[1] === option });
             if (kvp.length > 0) {
-                thisBlock.setFieldValue(kvp[0][0] + 'Count', 'VAR');
+                thisBlock.setFieldValue(kvp[0][0] + 'Count', 'trigger_count');
             }
         });
 
@@ -229,7 +229,7 @@ Blockly.Blocks['behavior_sleek'] = {
             .appendField(confidenceDropdown, "confidence_levels");
         this.appendDummyInput()
             .appendField("count with")
-            .appendField(new Blockly.FieldVariable(null), 'VAR');
+            .appendField(new Blockly.FieldVariable(null), 'trigger_count');
         this.appendDummyInput()
             .appendField("");
         this.appendDummyInput()
@@ -241,7 +241,7 @@ Blockly.Blocks['behavior_sleek'] = {
 
         this.appendStatementInput("INIT_DO")
             .appendField("do");
-        
+
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
             .appendField("Cyclic Actions");
@@ -270,7 +270,7 @@ Blockly.Blocks['behavior_sleek'] = {
         //this.setNextStatement(true, "behavior_sleek");
         this.setTooltip('');
         //this.setInputsInline(true);
-        this.setFieldValue(gestureDropdown.text_ + 'Count', 'VAR');
+        this.setFieldValue(gestureDropdown.text_ + 'Count', 'trigger_count');
 
         //var doStatement = this.getInput('INIT_DO');
         //console.log(doStatement);
@@ -372,7 +372,7 @@ Blockly.Blocks['behavior_sleek'] = {
      * @this Blockly.Block
      */
     getVars: function() {
-        return [this.getFieldValue('VAR')];
+        return [this.getFieldValue('trigger_count')];
     },
     /**
      * Notification that a variable is renaming.
@@ -382,8 +382,8 @@ Blockly.Blocks['behavior_sleek'] = {
      * @this Blockly.Block
      */
     renameVar: function(oldName, newName) {
-        if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
-            this.setFieldValue(newName, 'VAR');
+        if (Blockly.Names.equals(oldName, this.getFieldValue('trigger_count'))) {
+            this.setFieldValue(newName, 'trigger_count');
         }
     },
     /**
@@ -394,10 +394,10 @@ Blockly.Blocks['behavior_sleek'] = {
     customContextMenu: function(options) {
         if (!this.isCollapsed()) {
             var option = { enabled: true };
-            var name = this.getFieldValue('VAR');
+            var name = this.getFieldValue('trigger_count');
             option.text = Blockly.Msg.VARIABLES_SET_CREATE_GET.replace('%1', name);
             var xmlField = goog.dom.createDom('field', null, name);
-            xmlField.setAttribute('name', 'VAR');
+            xmlField.setAttribute('name', 'trigger_count');
             var xmlBlock = goog.dom.createDom('block', null, xmlField);
             xmlBlock.setAttribute('type', 'variables_get');
             option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
@@ -426,7 +426,7 @@ Blockly.Blocks['behavior_sleek'] = {
      * @param {!Element} xmlElement XML storage element.
      * @this Blockly.Block
      */
-    domToMutation: function (xmlElement) {
+    domToMutation: function(xmlElement) {
         var runUntilInput = (xmlElement.getAttribute('run_until') == 'true');
         this.updateShape_(runUntilInput);
     },

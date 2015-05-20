@@ -94,67 +94,6 @@ public class MainProgram
         return ret;
     }
 
-    //private static Dictionary<string, BehaviorInfo> GetBehaviorModules(NetMQSocket socket,
-    //    ICollection<List<BehaviorInfo>> behaviorList)
-    //{
-    //    var ret = new Dictionary<string, BehaviorInfo>();
-
-    //    //behavior_modules
-    //    if (socket != null && behaviorList != null && behaviorList.Count > 0)
-    //    {
-    //        socket.Send("behavior_modules");
-    //        var resp = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
-    //        if (!string.IsNullOrEmpty(resp))
-    //        {
-    //            var modules = JArray.Parse(resp);
-    //            if (modules != null && modules.Count > 0)
-    //            {
-    //                //Console.WriteLine(resp);
-    //                foreach (var module in modules)
-    //                {
-    //                    var moduleName = module.Value<string>("name");
-    //                    var responder = module.SelectToken("$.responder");
-    //                    string host = string.Empty;
-    //                    int port = 0;
-    //                    if (responder != null)
-    //                    {
-    //                        host = responder.Value<string>("Host");
-    //                        port = responder.Value<int>("Port");
-    //                    }
-    //                    var behaviors = module.SelectToken("$.behaviors");
-    //                    foreach (var behavior in behaviors)
-    //                    {
-    //                        string name = behavior.Value<string>("name");
-    //                        foreach (var item in behaviorList)
-    //                        {
-    //                            foreach (var behaviorInfo in item)
-    //                            {
-    //                                if (behaviorInfo.BehaviorName == name)
-    //                                {
-    //                                    behaviorInfo.ModuleName = moduleName;
-    //                                    behaviorInfo.Ip = host;
-    //                                    behaviorInfo.Port = port;
-
-    //                                    if (!ret.ContainsKey(name))
-    //                                    {
-    //                                        ret.Add(name, behaviorInfo);
-    //                                    }
-    //                                }
-    //                            }
-    //                        }
-    //                        //Console.WriteLine("Checking if {0} exists in module supported behaviors");
-    //                        //if (behaviors.Contains(name))
-    //                        //{
-    //                        //    ret.Add(name, module);
-    //                        //}
-    //                    }
-    //                }
-    //            }
-    //        }
-    //    }
-    //    return ret;
-    //}
-
     private static IList<BehaviorInfo> GetBehaviorModules(NetMQSocket socket,
         IList<BehaviorInfo> behaviorList)
     {
@@ -195,11 +134,6 @@ public class MainProgram
                                     Port = port
                                 });
                             }
-                            //Console.WriteLine("Checking if {0} exists in module supported behaviors");
-                            //if (behaviors.Contains(name))
-                            //{
-                            //    ret.Add(name, module);
-                            //}
                         }
                     }
                 }
@@ -242,7 +176,7 @@ public class MainProgram
     }
 
     private static void ScheduleBehaviorExecution(IScheduler scheduler, MotionBasedBehavior behavior,
-        string triggerName,IDictionary<string,object> props )
+        string triggerName, IDictionary<string, object> props)
     {
         Console.WriteLine(@"Behavior Execution for trigger : {0}", triggerName);
         if (behavior != null && behavior.RobotActions.Count > 0 && scheduler != null)
@@ -284,7 +218,7 @@ public class MainProgram
                     {
                         string host = responder.Value<string>("Host");
                         int port = responder.Value<int>("Port");
-                       // Console.WriteLine(@"Host : {0}, Port : {1}", host, port);
+                        // Console.WriteLine(@"Host : {0}, Port : {1}", host, port);
 
                         IJobDetail detail = JobBuilder.Create<SimpleBehaviorTask>()
                             .WithIdentity(jobKey)
@@ -323,7 +257,8 @@ public class MainProgram
                 var contextServer = GetValue(_props, "ContextServer", "tcp://localhost:5800").ToString();
                 if (!string.IsNullOrEmpty(contextServer))
                 {
-                    var triggerBehaviorMap = GetValue(_props, "TriggerBehaviorMap", new Dictionary<string, List<BehaviorInfo>>());
+                    var triggerBehaviorMap = GetValue(_props, "TriggerBehaviorMap",
+                        new Dictionary<string, List<BehaviorInfo>>());
                     var dict = triggerBehaviorMap as Dictionary<string, List<BehaviorInfo>>;
                     if (dict != null && dict.Count > 0)
                     {
@@ -424,16 +359,42 @@ public class MainProgram
                 var contextServer = GetValue(_props, "ContextServer", "tcp://localhost:5800").ToString();
                 if (!string.IsNullOrEmpty(contextServer))
                 {
-                    var triggerBehaviorMap = GetValue(_props, "BehaviorList",new List<MotionBasedBehavior>());
+                    var triggerBehaviorMap = GetValue(_props, "BehaviorList", new List<MotionBasedBehavior>());
                     var list = triggerBehaviorMap as List<MotionBasedBehavior>;
                     if (list != null && list.Count > 0)
                     {
                         foreach (var item in list)
                         {
-                            Console.WriteLine(@"Gesture: {0} -> ", item.Trigger);
-                            foreach (var value in item.RobotActions)
+                            switch (item.BehaviorType)
                             {
-                                Console.WriteLine(@"Action: {0} -> ", value.BehaviorName);
+                                case BehaviorType.Startup:
+                                case BehaviorType.Exit:
+                                    Console.WriteLine(@"Behavior Type: {0} -> ", item.BehaviorType);
+                                    foreach (var value in item.RobotActions)
+                                    {
+                                        Console.WriteLine(@"Action: {0} -> ", value.BehaviorName);
+                                    }
+                                    break;
+                                case BehaviorType.Behavior:
+                                    Console.WriteLine(@"Gesture: {0} count with {1}", item.Trigger, item.TriggerCount);
+                                    Console.WriteLine(@"Startup Actions -> ");
+                                    foreach (var value in item.InitActions)
+                                    {
+                                        Console.WriteLine(@"    Action: {0}", value.BehaviorName);
+                                    }
+                                    Console.WriteLine(@"Cyclic Actions -> ");
+                                    foreach (var value in item.RobotActions)
+                                    {
+                                        Console.WriteLine(@"    Action: {0}", value.BehaviorName);
+                                    }
+                                    Console.WriteLine(@"Exit Actions -> ");
+                                    foreach (var value in item.RobotActions)
+                                    {
+                                        Console.WriteLine(@"    Action: {0}", value.BehaviorName);
+                                    }
+                                    break;
+                                default:
+                                    throw new ArgumentOutOfRangeException();
                             }
                         }
 
@@ -472,12 +433,13 @@ public class MainProgram
                                                     var modules = GetBehaviorModules(socket, behavior.RobotActions);
                                                     if (modules != null && modules.Count > 0)
                                                     {
-                                                        var motionBasedBehavior = behavior.Clone() as MotionBasedBehavior;
+                                                        var motionBasedBehavior =
+                                                            behavior.Clone() as MotionBasedBehavior;
                                                         if (motionBasedBehavior != null)
                                                         {
                                                             motionBasedBehavior.RobotActions = modules;
                                                             ScheduleBehaviorExecution(_scheduler, motionBasedBehavior,
-                                                                behavior.Trigger,_props);
+                                                                behavior.Trigger, _props);
                                                         }
                                                     }
                                                 }

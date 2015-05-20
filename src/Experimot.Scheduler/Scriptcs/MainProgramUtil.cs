@@ -141,6 +141,10 @@ public class MainProgramUtil
                     Enum.TryParse(field.Value, out priority);
                     motionBehavior.Priority = priority;
                 }
+                else if (nameAttribute.Value == "trigger_count")
+                {
+                    motionBehavior.TriggerCount = field.Value;
+                }
                 else if (nameAttribute.Value == "execution")
                 {
                     BehaviorExecutionLifetime execution = BehaviorExecutionLifetime.forever;
