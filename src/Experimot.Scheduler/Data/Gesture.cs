@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Web.Configuration;
 using experimot.msgs;
 using Experimot.Core.Annotations;
 using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
@@ -65,23 +67,87 @@ namespace Experimot.Scheduler.Data
         }
     }
 
+    public enum GestureConfidenceLevels
+    {
+        Low = 75,
+        Average = 80,
+        Good = 85,
+        Better = 90,
+        Best = 95
+    }
+
+    public struct GestureConfidenceData
+    {
+        public int CurrentActiveLapse;
+        public int Count;
+
+        public void Update(bool active, int gesturePeriod)
+        {
+            if (active)
+            {
+                CurrentActiveLapse++;
+                if (CurrentActiveLapse >= gesturePeriod)
+                {
+                    Count++;
+                }
+            }
+            else
+            {
+
+            }
+        }
+    }
+
     public class Gesture : INotifyPropertyChanged
     {
         private string _name;
         private GestureMode _gestureMode;
         private bool _active;
+        private Dictionary<GestureConfidenceLevels, GestureConfidenceData> _confidenceDict;
+        protected const int GesturePeriod = 10;
+        private int _currentLapse;
+
 
         public static Gesture Default(string name, GestureMode mode)
         {
             return new Gesture()
             {
+                _currentLapse = 0,
                 Name = name,
                 Mode = mode,
                 Active = false,
                 Confidence = 0,
                 Count = 0,
-                Progress = 0
+                Progress = 0,
+                _confidenceDict = new Dictionary<GestureConfidenceLevels, GestureConfidenceData>()
+                {
+                    {GestureConfidenceLevels.Low, new GestureConfidenceData()},
+                    {GestureConfidenceLevels.Average, new GestureConfidenceData()},
+                    {GestureConfidenceLevels.Good, new GestureConfidenceData()},
+                    {GestureConfidenceLevels.Better, new GestureConfidenceData()},
+                    {GestureConfidenceLevels.Best, new GestureConfidenceData()},
+                }
             };
+        }
+
+        private bool IsActive(int confidence, GestureConfidenceLevels level)
+        {
+            return confidence >= (int) level;
+        }
+
+        private void UpdateConfidenceLevels(int confidence, int currentLapse)
+        {
+            if (currentLapse > GesturePeriod)
+            {
+                foreach (var gestureConfidenceData in _confidenceDict)
+                {
+                    
+                }
+            }
+            else
+            {
+                
+            }
         }
 
         public void Refresh(GestureDescription trigger)
@@ -93,6 +159,9 @@ namespace Experimot.Scheduler.Data
                 Active = trigger.active;
                 Confidence = trigger.confidence;
                 Progress = trigger.progress;
+                _currentLapse++;
+
+                UpdateConfidenceLevels(Confidence,_currentLapse);
             }
         }
 
