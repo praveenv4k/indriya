@@ -24,7 +24,7 @@ namespace Experimot.Scheduler
         private BindableCollection<GestureModule> _motionModules;
         private BindableCollection<RobotBehaviorModule> _behaviorModules;
         private static readonly ILog Log = LogManager.GetLogger<Context>();
-        private BrowserTabViewModel _browserTabViewModel;
+        //private BrowserTabViewModel _browserTabViewModel;
 
         public Context()
         {
@@ -34,7 +34,7 @@ namespace Experimot.Scheduler
             Objects = new ConcurrentDictionary<string, ManipulatableObject>();
             MotionModules = new BindableCollection<GestureModule>();
             BehaviorModules = new BindableCollection<RobotBehaviorModule>();
-            TabViewModel = new BrowserTabViewModel("http://localhost:8888");
+            //TabViewModel = new BrowserTabViewModel("http://localhost:8888");
         }
 
         [ExpandableObject]
@@ -78,11 +78,11 @@ namespace Experimot.Scheduler
             set { _behaviorModules = value; }
         }
 
-        public BrowserTabViewModel TabViewModel
-        {
-            get { return _browserTabViewModel; }
-            set { _browserTabViewModel = value; }
-        }
+        //public BrowserTabViewModel TabViewModel
+        //{
+        //    get { return _browserTabViewModel; }
+        //    set { _browserTabViewModel = value; }
+        //}
 
         public event PropertyChangedEventHandler PropertyChanged;
 

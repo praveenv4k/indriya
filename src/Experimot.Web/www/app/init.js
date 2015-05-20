@@ -9,7 +9,7 @@
         poller: "../libs/backbone.poller/backbone.poller",
         text: "../libs/requirejs/text",
         slidebars: "../libs/slidebars/slidebars",
-        jsonview: "../libs/jquery-jsonview/jquery-jsonview",
+        jsonview: "../libs/jquery-jsonview/jquery.jsonview",
         blockly: "../libs/google/blockly/blockly_compressed",
         blocks: "../libs/google/blockly/blocks_compressed",
         blockly_msg_en: "../libs/google/blockly/msg/js/en",
