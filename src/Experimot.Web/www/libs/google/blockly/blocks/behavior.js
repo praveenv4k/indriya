@@ -181,140 +181,164 @@ Blockly.Blocks['gesture_count_up'] = {
 
 
 Blockly.Blocks['behavior_sleek'] = {
-    init: function () {
-
-        console.log("Creating Behavior Sleek Block");
-
+    init: function() {
+        var thisBlock = this;
         var nameText = "behavior";
         var name = Blockly.Blocks.behaviors.findLegalName(nameText, this);
         var nameField = new Blockly.FieldTextInput(name, Blockly.Blocks.behaviors.rename);
 
-        var priorityDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.PriorityProperties, function (option) {
+        var priorityDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.PriorityProperties, function(option) {
 
         });
 
-        var executionDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.ExecutionProperties, function (option) {
-
+        var executionDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.ExecutionProperties, function(option) {
+            var runUntilInput = (option == 'until');
+            this.sourceBlock_.updateShape_(runUntilInput);
         });
 
-        var gestureDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.GestureProperties, function (option) {
+        var gestureDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.GestureProperties, function(option) {
             //var trigger = this;
             //console.log(this);
-            console.log("Old Value : " + this.value_ + ", New Value : " + option);
+            //console.log("Old Value : " + this.value_ + ", New Value : " + option);
+
+            var kvp = Blockly.Blocks.behaviors.GestureProperties.filter(function(gesture) { return gesture[1] === option });
+            if (kvp.length > 0) {
+                thisBlock.setFieldValue(kvp[0][0] + 'Count', 'VAR');
+            }
         });
 
-        var confidenceDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.ConfidenceProperties, function (option) {
+        var confidenceDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.ConfidenceProperties, function(option) {
         });
 
         this.setHelpUrl('http://www.example.com/');
         this.setColour(330);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("Behavior Name :")
+            .appendField("Behavior Name : ")
             //.appendField(new Blockly.FieldTextInput("behavior"), "behavior_name")
-            .appendField(nameField, "behavior_name")
-            .appendField("    Priority : ")
-            .appendField(priorityDropdown, "priorities");
+            .appendField(nameField, "behavior_name");
         this.appendDummyInput()
-            .appendField("Execute : ")
-            .appendField(executionDropdown, "execution");
+            .appendField("");
         this.appendDummyInput()
-            .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("Human Motion");
+            .setAlign(Blockly.ALIGN_LEFT)
+            .appendField("Human Motion : ");
         this.appendDummyInput()
             .appendField("When gesture is")
             .appendField(gestureDropdown, "triggers")
             .appendField("with confidence level")
             .appendField(confidenceDropdown, "confidence_levels");
         this.appendDummyInput()
-            .appendField("Gesture Count variable")
+            .appendField("count with")
             .appendField(new Blockly.FieldVariable(null), 'VAR');
-        this.appendDummyInput()
-            .appendField("Init : ");
-        this.appendDummyInput()
-            .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("Init Actions");
-        //.appendField(new Blockly.FieldVariable());
-        this.appendStatementInput("INIT_DO")
-            .appendField("do");
         this.appendDummyInput()
             .appendField("");
         this.appendDummyInput()
+            .appendField("")
+            .appendField("Robot Actions : ");
+        this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("Robot Actions");
+            .appendField("Startup Actions");
+
+        this.appendStatementInput("INIT_DO")
+            .appendField("do");
+        
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_CENTRE)
+            .appendField("Cyclic Actions");
         this.appendStatementInput("DO")
             .appendField("do");
+
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_CENTRE)
+            .appendField("Exit Actions");
+        this.appendStatementInput("EXIT_DO")
+            .appendField("do");
+
+        this.appendDummyInput()
+            .appendField("");
+
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_LEFT)
+            .appendField("Execution Settings : ");
+        this.appendDummyInput()
+            .appendField("With priority ")
+            .appendField(priorityDropdown, "priorities")
+            .appendField(" execute ")
+            .appendField(executionDropdown, "execution");
+
         //this.setPreviousStatement(true, "behavior_sleek");
         //this.setNextStatement(true, "behavior_sleek");
         this.setTooltip('');
+        //this.setInputsInline(true);
+        this.setFieldValue(gestureDropdown.text_ + 'Count', 'VAR');
 
-        var doStatement = this.getInput('INIT_DO');
-        console.log(doStatement);
+        //var doStatement = this.getInput('INIT_DO');
+        //console.log(doStatement);
 
-        
-        if ((doStatement != null || doStatement != undefined) && doStatement.sourceBlock_.childBlocks_.length == 0) {
-            // Get connection of INIT_DO
-            var doConnection = doStatement.connection;
-            //console.log(doConnection.targetConnection);
 
-            var itemBlock = Blockly.Block.obtain(this.workspace, 'gesture_count_up');
-            itemBlock.initSvg();
+        //if ((doStatement != null || doStatement != undefined) && doStatement.sourceBlock_.childBlocks_.length == 0) {
+        //    // Get connection of INIT_DO
+        //    var doConnection = doStatement.connection;
+        //    //console.log(doConnection.targetConnection);
 
-            //var trigger = this.getFieldValue("triggers");
+        //    var itemBlock = Blockly.Block.obtain(this.workspace, 'gesture_count_up');
+        //    itemBlock.initSvg();
 
-            //itemBlock.setFieldValue(gestureDropdown.value_, "GESTURE_NAME");
-            //itemBlock.setFieldValue(gestureDropdown.value_ + 'Count', "VAR");
-            itemBlock.setFieldValue(gestureDropdown.text_, "GESTURE_NAME");
-            itemBlock.setFieldValue(gestureDropdown.text_ + 'Count', "VAR");
+        //    //var trigger = this.getFieldValue("triggers");
 
-            //var allConn = itemBlock.getConnections_(true);
-            //console.log(allConn);
+        //    //itemBlock.setFieldValue(gestureDropdown.value_, "GESTURE_NAME");
+        //    //itemBlock.setFieldValue(gestureDropdown.value_ + 'Count', "VAR");
+        //    itemBlock.setFieldValue(gestureDropdown.text_, "GESTURE_NAME");
+        //    itemBlock.setFieldValue(gestureDropdown.text_ + 'Count', "VAR");
 
-            //console.log(itemBlock);
+        //    //var allConn = itemBlock.getConnections_(true);
+        //    //console.log(allConn);
 
-            if (doConnection.targetConnection == null && itemBlock.previousConnection.targetConnection == null && itemBlock.targetConnection == null && doConnection.targetBlock() == null) {
+        //    //console.log(itemBlock);
 
-                //if (itemBlock.previousConnection) {
-                //    doConnection.connect(itemBlock.previousConnection);
-                //}
+        //    if (doConnection.targetConnection == null && itemBlock.previousConnection.targetConnection == null && itemBlock.targetConnection == null && doConnection.targetBlock() == null) {
 
-                //console.log("Do Statement Connection!");
-                //console.log(doConnection);
-                //console.log("Do Statement Target Connection!");
-                //console.log(doConnection.targetConnection);
-                //console.log("Item Block previous Target Connection!");
-                //console.log(itemBlock.previousConnection.targetConnection);
+        //        //if (itemBlock.previousConnection) {
+        //        //    doConnection.connect(itemBlock.previousConnection);
+        //        //}
 
-                //doConnection.connect(itemBlock.previousConnection);
-                itemBlock.previousConnection.connect(doConnection);
-                //var itemBlock = Blockly.Block.obtain(this.workspace, 'variables_set');
-                //itemBlock.initSvg();
-                //itemBlock.setFieldValue("WaveLeft", "VAR");
-                //console.log(itemBlock);
-                //if (itemBlock.previousConnection) {
-                //    doConnection.connect(itemBlock.previousConnection);
-                //    //
-                //    var numberBlock = Blockly.Block.obtain(this.workspace, 'math_number');
-                //    numberBlock.initSvg();
-                //    console.log(numberBlock);
+        //        //console.log("Do Statement Connection!");
+        //        //console.log(doConnection);
+        //        //console.log("Do Statement Target Connection!");
+        //        //console.log(doConnection.targetConnection);
+        //        //console.log("Item Block previous Target Connection!");
+        //        //console.log(itemBlock.previousConnection.targetConnection);
 
-                //    numberBlock.setParent(itemBlock);
-                //    //itemBlock.childBlocks_.push(numberBlock);
+        //        //doConnection.connect(itemBlock.previousConnection);
+        //        itemBlock.previousConnection.connect(doConnection);
+        //        //var itemBlock = Blockly.Block.obtain(this.workspace, 'variables_set');
+        //        //itemBlock.initSvg();
+        //        //itemBlock.setFieldValue("WaveLeft", "VAR");
+        //        //console.log(itemBlock);
+        //        //if (itemBlock.previousConnection) {
+        //        //    doConnection.connect(itemBlock.previousConnection);
+        //        //    //
+        //        //    var numberBlock = Blockly.Block.obtain(this.workspace, 'math_number');
+        //        //    numberBlock.initSvg();
+        //        //    console.log(numberBlock);
 
-                //    //itemBlock.inputList[0].push(numberBlock);
+        //        //    numberBlock.setParent(itemBlock);
+        //        //    //itemBlock.childBlocks_.push(numberBlock);
 
-                //    itemBlock.inputList[0].connection.connect(numberBlock.previousConnection);
+        //        //    //itemBlock.inputList[0].push(numberBlock);
 
-                //    //var value = itemBlock.getFieldValue('VALUE');
-                //    //if (value == null) {
-                //    //    itemBlock.setFieldValue(numberBlock, "VALUE");
-                //    //    //console.log("Value connection not null!");
-                //    //}
-                //}
-            } else {
-                itemBlock.dispose(false);
-            }
-        }
+        //        //    itemBlock.inputList[0].connection.connect(numberBlock.previousConnection);
+
+        //        //    //var value = itemBlock.getFieldValue('VALUE');
+        //        //    //if (value == null) {
+        //        //    //    itemBlock.setFieldValue(numberBlock, "VALUE");
+        //        //    //    //console.log("Value connection not null!");
+        //        //    //}
+        //        //}
+        //    } else {
+        //        itemBlock.dispose(false);
+        //    }
+        //}
 
         //var statementBlock = new Blockly.Block();
         //statementBlock.initialize(this.workspace, 'variables_get');
@@ -329,18 +353,94 @@ Blockly.Blocks['behavior_sleek'] = {
     getBehaviorDef: function() {
         return [this.getFieldValue('behavior_name')];
     },
-    renameProcedure: function (oldName, newName) {
+    renameProcedure: function(oldName, newName) {
         if (Blockly.Names.equals(oldName, this.getBehaviorCall())) {
             this.setFieldValue(newName, 'behavior_name');
             this.setTooltip(
                 (this.outputConnection ? Blockly.Msg.PROCEDURES_CALLRETURN_TOOLTIP :
-                 Blockly.Msg.PROCEDURES_CALLNORETURN_TOOLTIP)
+                    Blockly.Msg.PROCEDURES_CALLNORETURN_TOOLTIP)
                 .replace('%1', newName));
         }
     },
-    getBehaviorCall: function () {
+    getBehaviorCall: function() {
         // The NAME field is guaranteed to exist, null will never be returned.
         return /** @type {string} */ (this.getFieldValue('behavior_name'));
+    },
+    /**
+     * Return all variables referenced by this block.
+     * @return {!Array.<string>} List of variable names.
+     * @this Blockly.Block
+     */
+    getVars: function() {
+        return [this.getFieldValue('VAR')];
+    },
+    /**
+     * Notification that a variable is renaming.
+     * If the name matches one of this block's variables, rename it.
+     * @param {string} oldName Previous name of variable.
+     * @param {string} newName Renamed variable.
+     * @this Blockly.Block
+     */
+    renameVar: function(oldName, newName) {
+        if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+            this.setFieldValue(newName, 'VAR');
+        }
+    },
+    /**
+     * Add menu option to create getter block for loop variable.
+     * @param {!Array} options List of menu options to add to.
+     * @this Blockly.Block
+     */
+    customContextMenu: function(options) {
+        if (!this.isCollapsed()) {
+            var option = { enabled: true };
+            var name = this.getFieldValue('VAR');
+            option.text = Blockly.Msg.VARIABLES_SET_CREATE_GET.replace('%1', name);
+            var xmlField = goog.dom.createDom('field', null, name);
+            xmlField.setAttribute('name', 'VAR');
+            var xmlBlock = goog.dom.createDom('block', null, xmlField);
+            xmlBlock.setAttribute('type', 'variables_get');
+            option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
+            options.push(option);
+        }
+    },
+    /**
+   * Create XML to represent whether the 'divisorInput' should be present.
+   * @return {Element} XML storage element.
+   * @this Blockly.Block
+   */
+    mutationToDom: function () {
+        var container = document.createElement('mutation');
+        var runUntilInput = (this.getFieldValue('execution') == 'until');
+        container.setAttribute('run_until', runUntilInput);
+        return container;
+    },
+    /**
+     * Parse XML to restore the 'divisorInput'.
+     * @param {!Element} xmlElement XML storage element.
+     * @this Blockly.Block
+     */
+    domToMutation: function (xmlElement) {
+        var runUntilInput = (xmlElement.getAttribute('run_until') == 'true');
+        this.updateShape_(runUntilInput);
+    },
+    /**
+   * Modify this block to have (or not have) an input for 'is divisible by'.
+   * @param {boolean} divisorInput True if this block has a divisor input.
+   * @private
+   * @this Blockly.Block
+   */
+    updateShape_: function(runUntilInput) {
+        // Add or remove a Value Input.
+        var inputExists = this.getInput('RUN_UNTIL');
+        if (runUntilInput) {
+            if (!inputExists) {
+                this.appendValueInput('RUN_UNTIL')
+                    .setCheck('Boolean');
+            }
+        } else if (inputExists) {
+            this.removeInput('RUN_UNTIL');
+        }
     }
 };
 
