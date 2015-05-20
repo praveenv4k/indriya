@@ -137,7 +137,6 @@ namespace Experimot.Scheduler
                         var item = Humans.FirstOrDefault(s => s.Body.TrackingId == key);
                         if (item != null)
                         {
-                            //item.Gestures.CollectionChanged -= GesturesCollectionChanged;
                             Humans.Remove(item);
                             Log.InfoFormat("Removed human: {0}", item.Id);
                         }
@@ -153,7 +152,6 @@ namespace Experimot.Scheduler
                         {
                             Body = kinectBody
                         };
-                        //human.Gestures.CollectionChanged += GesturesCollectionChanged;
                         Humans.Add(human);
                         Log.InfoFormat("Added new human: {0}", human.Id);
                     }
@@ -175,16 +173,13 @@ namespace Experimot.Scheduler
 
        public void Update(GestureTriggers triggers)
         {
-            //Log.Info("Gesture Update");
             if (triggers != null)
             {
                 lock (_object)
                 {
-                    //if
                     var item = _humans.FirstOrDefault(s => s.Body.TrackingId == triggers.id);
                     if (item != null)
                     {
-                        //Log.InfoFormat("Gesture Update: {0} : {1}", triggers.id, triggers.motion.Count);
                         foreach (var trigger in triggers.motion)
                         {
                             var gest = item.Gestures.FirstOrDefault(g => g.Name == trigger.name);
@@ -218,7 +213,7 @@ namespace Experimot.Scheduler
                     foreach (var human in humans.human)
                     {
                         //TODO Need to unify the usage of tracking id across the application
-                        var item = _humans.FirstOrDefault(s => s.Body.TrackingId == human.id-1);
+                        var item = _humans.FirstOrDefault(s => s.Body.TrackingId == human.id);
                         if (item != null)
                         {
                             item.HeadPosition = human.head_position;
