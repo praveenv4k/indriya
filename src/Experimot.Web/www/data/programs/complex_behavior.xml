@@ -45,4 +45,11 @@
       </block>
     </value>
   </block>
+  <block type="behavior_exit" id="48" x="213" y="63">
+    <statement name="DO">
+      <block type="robot_action" id="106">
+        <field name="actions">introduction</field>
+      </block>
+    </statement>
+  </block>
 </xml>

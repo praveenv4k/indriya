@@ -31,6 +31,13 @@ public enum BehaviorExecutionLifetime
     until
 }
 
+public enum BehaviorType
+{
+    Startup,
+    Behavior,
+    Exit
+}
+
 public class MotionBasedBehavior : ICloneable
 {
     public MotionBasedBehavior()
@@ -45,6 +52,7 @@ public class MotionBasedBehavior : ICloneable
     }
 
     public string Name { get; set; }
+    public BehaviorType BehaviorType { get; set; }
     public BehaviorExecutionPriority Priority { get; set; }
     public BehaviorExecutionLifetime ExecutionLifetime { get; set; }
     public string ExecutionEvalExpression { get; set; }
