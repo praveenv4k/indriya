@@ -3,7 +3,7 @@
 goog.provide('Blockly.Blocks.behaviors');
 
 goog.require('Blockly.Blocks');
-
+//goog.require('Blockly.CSharp');
 /**
  * Ensure two identically-named behaviors don't exist.
  * @param {string} name Proposed procedure name.
@@ -409,10 +409,16 @@ Blockly.Blocks['behavior_sleek'] = {
    * @return {Element} XML storage element.
    * @this Blockly.Block
    */
-    mutationToDom: function () {
+    mutationToDom: function() {
         var container = document.createElement('mutation');
         var runUntilInput = (this.getFieldValue('execution') == 'until');
         container.setAttribute('run_until', runUntilInput);
+        if (runUntilInput) {
+            Blockly.CSharp.init(this.workspace);
+            container.setAttribute('run_logic', Blockly.CSharp.valueToCode(this, 'RUN_UNTIL', Blockly.CSharp.ORDER_ATOMIC));
+        } else {
+            container.setAttribute('run_logic', '');
+        }
         return container;
     },
     /**

@@ -24,8 +24,14 @@ public enum BehaviorExecutionPriority
     high
 }
 
+public enum BehaviorExecutionLifetime
+{
+    forever,
+    once,
+    until
+}
 
-public class MotionBasedBehavior: ICloneable
+public class MotionBasedBehavior : ICloneable
 {
     public MotionBasedBehavior()
     {
@@ -33,16 +39,22 @@ public class MotionBasedBehavior: ICloneable
         Trigger = string.Empty;
         Priority = BehaviorExecutionPriority.normal;
 
+        InitActions = new List<BehaviorInfo>();
         RobotActions = new List<BehaviorInfo>();
+        ExitActions = new List<BehaviorInfo>();
     }
 
     public string Name { get; set; }
     public BehaviorExecutionPriority Priority { get; set; }
+    public BehaviorExecutionLifetime ExecutionLifetime { get; set; }
+    public string ExecutionEvalExpression { get; set; }
     public string Trigger { get; set; }
     public int Id { get; set; }
     public int ConfidenceLevel { get; set; }
+    public IList<BehaviorInfo> InitActions { get; set; }
     public IList<BehaviorInfo> RobotActions { get; set; }
-    
+    public IList<BehaviorInfo> ExitActions { get; set; }
+
     public object Clone()
     {
         var cloned = this.MemberwiseClone() as MotionBasedBehavior;

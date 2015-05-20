@@ -7,7 +7,7 @@
     </statement>
   </block>
   <block type="behavior_sleek" id="2" inline="false" x="213" y="213">
-    <mutation run_until="true"></mutation>
+    <mutation run_until="true" run_logic="(WaveLeftCount &lt;= 10)"></mutation>
     <field name="behavior_name">behavior</field>
     <field name="triggers">Greet_Left</field>
     <field name="confidence_levels">80</field>
