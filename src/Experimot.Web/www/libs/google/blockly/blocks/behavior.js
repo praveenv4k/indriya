@@ -108,12 +108,16 @@ Blockly.Blocks.behaviors.ConfidenceProperties =
     ["95%", "95"]
 ];
 
-Blockly.Blocks['gesture_count_up'] = {
+Blockly.Blocks['gesture_count_up_trigger'] = {
     /**
      * Block for 'counting' loop.
      * @this Blockly.Block
      */
-    init: function() {
+    init: function () {
+
+        //var gestureDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.GestureProperties, function (option) {
+        //});
+
         this.setHelpUrl(Blockly.Msg.CONTROLS_FOR_HELPURL);
         this.setColour(Blockly.Blocks.loops.HUE);
         this.appendDummyInput()
@@ -176,9 +180,6 @@ Blockly.Blocks['gesture_count_up'] = {
         }
     }
 };
-
-
-
 
 Blockly.Blocks['behavior_sleek'] = {
     init: function() {
@@ -271,79 +272,8 @@ Blockly.Blocks['behavior_sleek'] = {
         this.setTooltip('');
         //this.setInputsInline(true);
         this.setFieldValue(gestureDropdown.text_ + 'Count', 'trigger_count');
-
-        //var doStatement = this.getInput('INIT_DO');
-        //console.log(doStatement);
-
-
-        //if ((doStatement != null || doStatement != undefined) && doStatement.sourceBlock_.childBlocks_.length == 0) {
-        //    // Get connection of INIT_DO
-        //    var doConnection = doStatement.connection;
-        //    //console.log(doConnection.targetConnection);
-
-        //    var itemBlock = Blockly.Block.obtain(this.workspace, 'gesture_count_up');
-        //    itemBlock.initSvg();
-
-        //    //var trigger = this.getFieldValue("triggers");
-
-        //    //itemBlock.setFieldValue(gestureDropdown.value_, "GESTURE_NAME");
-        //    //itemBlock.setFieldValue(gestureDropdown.value_ + 'Count', "VAR");
-        //    itemBlock.setFieldValue(gestureDropdown.text_, "GESTURE_NAME");
-        //    itemBlock.setFieldValue(gestureDropdown.text_ + 'Count', "VAR");
-
-        //    //var allConn = itemBlock.getConnections_(true);
-        //    //console.log(allConn);
-
-        //    //console.log(itemBlock);
-
-        //    if (doConnection.targetConnection == null && itemBlock.previousConnection.targetConnection == null && itemBlock.targetConnection == null && doConnection.targetBlock() == null) {
-
-        //        //if (itemBlock.previousConnection) {
-        //        //    doConnection.connect(itemBlock.previousConnection);
-        //        //}
-
-        //        //console.log("Do Statement Connection!");
-        //        //console.log(doConnection);
-        //        //console.log("Do Statement Target Connection!");
-        //        //console.log(doConnection.targetConnection);
-        //        //console.log("Item Block previous Target Connection!");
-        //        //console.log(itemBlock.previousConnection.targetConnection);
-
-        //        //doConnection.connect(itemBlock.previousConnection);
-        //        itemBlock.previousConnection.connect(doConnection);
-        //        //var itemBlock = Blockly.Block.obtain(this.workspace, 'variables_set');
-        //        //itemBlock.initSvg();
-        //        //itemBlock.setFieldValue("WaveLeft", "VAR");
-        //        //console.log(itemBlock);
-        //        //if (itemBlock.previousConnection) {
-        //        //    doConnection.connect(itemBlock.previousConnection);
-        //        //    //
-        //        //    var numberBlock = Blockly.Block.obtain(this.workspace, 'math_number');
-        //        //    numberBlock.initSvg();
-        //        //    console.log(numberBlock);
-
-        //        //    numberBlock.setParent(itemBlock);
-        //        //    //itemBlock.childBlocks_.push(numberBlock);
-
-        //        //    //itemBlock.inputList[0].push(numberBlock);
-
-        //        //    itemBlock.inputList[0].connection.connect(numberBlock.previousConnection);
-
-        //        //    //var value = itemBlock.getFieldValue('VALUE');
-        //        //    //if (value == null) {
-        //        //    //    itemBlock.setFieldValue(numberBlock, "VALUE");
-        //        //    //    //console.log("Value connection not null!");
-        //        //    //}
-        //        //}
-        //    } else {
-        //        itemBlock.dispose(false);
-        //    }
-        //}
-
-        //var statementBlock = new Blockly.Block();
-        //statementBlock.initialize(this.workspace, 'variables_get');
-        //console.log(statementBlock);
     },
+
     /**
        * Return the signature of this behavior definition.
        * @return {!Array} Tuple containing Behavior signature:
@@ -545,6 +475,28 @@ Blockly.Blocks['behavior'] = {
     getBehaviorCall: function () {
         // The NAME field is guaranteed to exist, null will never be returned.
         return /** @type {string} */ (this.getFieldValue('NAME'));
+    }
+};
+
+Blockly.Blocks['gesture_trigger'] = {
+    init: function() {
+        var gestureDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.GestureProperties, function(option) {
+        });
+        this.setHelpUrl('http://www.example.com/');
+        this.setColour(20);
+        this.appendDummyInput()
+            .appendField("When");
+        this.appendDummyInput()
+            .appendField(gestureDropdown);
+        this.appendDummyInput()
+            .appendField("count is");
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([["option", "OPTIONNAME"], ["option", "OPTIONNAME"], ["option", "OPTIONNAME"]]), "operators");
+        this.appendValueInput("VAR")
+            .setCheck("Number");
+        this.setInputsInline(true);
+        this.setOutput(true, "Boolean");
+        this.setTooltip('');
     }
 };
 
