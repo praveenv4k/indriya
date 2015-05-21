@@ -40,6 +40,11 @@ public enum BehaviorType
 
 public class MotionBasedBehavior : ICloneable
 {
+    private bool _initActionsComplete;
+    private bool _cyclicActionsComplete;
+    private bool _exitActionsComplete;
+    private bool _executionComplete;
+
     public MotionBasedBehavior()
     {
         Name = string.Empty;
@@ -66,14 +71,37 @@ public class MotionBasedBehavior : ICloneable
     public Guid Guid { get; set; }
     public int ConfidenceLevel { get; set; }
     public IList<BehaviorInfo> InitActions { get; set; }
-    public bool InitActionsComplete { get; set; }
+
+    public bool InitActionsComplete
+    {
+        get { return _initActionsComplete; }
+        set { _initActionsComplete = value; }
+    }
+
     public IList<BehaviorInfo> RobotActions { get; set; }
-    public bool CyclicActionsComplete { get; set; }
+
+    public bool CyclicActionsComplete
+    {
+        get { return _cyclicActionsComplete; }
+        set { _cyclicActionsComplete = value; }
+    }
+
     public IList<BehaviorInfo> ExitActions { get; set; }
-    public bool ExitActionsComplete { get; set; }
+
+    public bool ExitActionsComplete
+    {
+        get { return _exitActionsComplete; }
+        set { _exitActionsComplete = value; }
+    }
+
+    public bool ExecutionComplete
+    {
+        get { return InitActionsComplete & CyclicActionsComplete & ExitActionsComplete; }
+    }
+
     public object Clone()
     {
-        var cloned = this.MemberwiseClone() as MotionBasedBehavior;
-        return cloned;
+        return MemberwiseClone();
     }
+
 }

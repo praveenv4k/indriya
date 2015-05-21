@@ -111,7 +111,10 @@ public class MainProgramUtil
             }
             if (motionBehavior != null)
             {
-                motionBehaviorList.Add(motionBehavior);
+                if (motionBehavior.RobotActions.Count > 0)
+                {
+                    motionBehaviorList.Add(motionBehavior);
+                }
             }
         }
 
