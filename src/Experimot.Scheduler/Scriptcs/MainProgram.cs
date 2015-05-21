@@ -4,21 +4,30 @@ using System.Linq;
 using NetMQ;
 using Newtonsoft.Json.Linq;
 using Quartz;
+using Quartz.Impl.Matchers;
 
 // ReSharper disable once CheckNamespace
-public class MainProgram
+public class MainProgram : IJobListener
 {
     private static volatile bool _requestStop;
     private readonly IDictionary<string, object> _props;
     private readonly IScheduler _scheduler;
     private const int RecvTimeout = 200;
     private const int Period = 200;
+    private readonly object _object = new object();
+    private List<MotionBasedBehavior> _motionBasedBehavior;
+    private string _contextServer;
 
     public MainProgram(IDictionary<string, object> props, IScheduler scheduler)
     {
         _props = props;
         _scheduler = scheduler;
         _requestStop = false;
+
+        if (_scheduler != null)
+        {
+            scheduler.ListenerManager.AddJobListener(this, GroupMatcher<JobKey>.AnyGroup());
+        }
     }
 
     private static object GetValue(IDictionary<string, object> props, string key, object defaultValue)
@@ -175,9 +184,10 @@ public class MainProgram
         }
     }
 
-    private static void ScheduleBehaviorExecution(IScheduler scheduler, MotionBasedBehavior behavior,
+    private static bool ScheduleBehaviorExecution(IScheduler scheduler, MotionBasedBehavior behavior,
         string triggerName, IDictionary<string, object> props)
     {
+        bool ret = false;
         Console.WriteLine(@"Behavior Execution for trigger : {0}", triggerName);
         if (behavior != null && behavior.RobotActions.Count > 0 && scheduler != null)
         {
@@ -198,8 +208,10 @@ public class MainProgram
                 scheduler.ScheduleJob(detail, trigger);
                 Console.WriteLine(@"New job about to be scheduled Job : {0}, Module : {1}", jobKey.Name,
                     jobKey.Group);
+                ret = true;
             }
         }
+        return ret;
     }
 
     private static void ScheduleBehaviorExecution(IScheduler scheduler, JToken behaviorModule, string behaviorName)
@@ -356,113 +368,24 @@ public class MainProgram
         {
             if (_props != null && _props.Count > 0)
             {
-                var contextServer = GetValue(_props, "ContextServer", "tcp://localhost:5800").ToString();
-                if (!string.IsNullOrEmpty(contextServer))
+                _contextServer = GetValue(_props, "ContextServer", "tcp://localhost:5800").ToString();
+                if (!string.IsNullOrEmpty(_contextServer))
                 {
                     var triggerBehaviorMap = GetValue(_props, "BehaviorList", new List<MotionBasedBehavior>());
-                    var list = triggerBehaviorMap as List<MotionBasedBehavior>;
-                    if (list != null && list.Count > 0)
+                    _motionBasedBehavior = triggerBehaviorMap as List<MotionBasedBehavior>;
+                    if (_motionBasedBehavior != null && _motionBasedBehavior.Count > 0)
                     {
-                        foreach (var item in list)
-                        {
-                            switch (item.BehaviorType)
-                            {
-                                case BehaviorType.Startup:
-                                case BehaviorType.Exit:
-                                    Console.WriteLine(@"Behavior Type: {0} -> ", item.BehaviorType);
-                                    foreach (var value in item.RobotActions)
-                                    {
-                                        Console.WriteLine(@"Action: {0} -> ", value.BehaviorName);
-                                    }
-                                    break;
-                                case BehaviorType.Behavior:
-                                    Console.WriteLine(@"Gesture: {0} count with {1}", item.Trigger, item.TriggerCount);
-                                    Console.WriteLine(@"Startup Actions -> ");
-                                    foreach (var value in item.InitActions)
-                                    {
-                                        Console.WriteLine(@"    Action: {0}", value.BehaviorName);
-                                    }
-                                    Console.WriteLine(@"Cyclic Actions -> ");
-                                    foreach (var value in item.RobotActions)
-                                    {
-                                        Console.WriteLine(@"    Action: {0}", value.BehaviorName);
-                                    }
-                                    Console.WriteLine(@"Exit Actions -> ");
-                                    foreach (var value in item.RobotActions)
-                                    {
-                                        Console.WriteLine(@"    Action: {0}", value.BehaviorName);
-                                    }
-                                    break;
-                                default:
-                                    throw new ArgumentOutOfRangeException();
-                            }
-                        }
+                        // Display the Behavior Information
+                        DisplayBehaviorInfo();
 
-                        using (var ctx = NetMQContext.Create())
-                        {
-                            using (var socket = ctx.CreateRequestSocket())
-                            {
-                                socket.Connect(contextServer);
-                                while (!_requestStop)
-                                {
-                                    socket.Send("humans");
-                                    var resp = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
-                                    if (!string.IsNullOrEmpty(resp))
-                                    {
-                                        try
-                                        {
-                                            JArray obj = JArray.Parse(resp);
-                                            //Console.WriteLine(resp);
-                                            var behaviorMap = CheckGestureTrigger(socket, obj, list);
-                                            if (behaviorMap.Count == 0)
-                                            {
-                                                //Console.WriteLine(@"No gesture detected!");
-                                            }
-                                            foreach (var behavior in behaviorMap)
-                                            {
-                                                Console.WriteLine(@"Detected Gesture: {0} -> ", behavior.Trigger);
-                                                foreach (var value in behavior.RobotActions)
-                                                {
-                                                    Console.WriteLine(@"Action: {0} -> ", value.BehaviorName);
-                                                }
-                                            }
-                                            if (behaviorMap.Count > 0)
-                                            {
-                                                foreach (var behavior in behaviorMap)
-                                                {
-                                                    var modules = GetBehaviorModules(socket, behavior.RobotActions);
-                                                    if (modules != null && modules.Count > 0)
-                                                    {
-                                                        var motionBasedBehavior =
-                                                            behavior.Clone() as MotionBasedBehavior;
-                                                        if (motionBasedBehavior != null)
-                                                        {
-                                                            motionBasedBehavior.RobotActions = modules;
-                                                            ScheduleBehaviorExecution(_scheduler, motionBasedBehavior,
-                                                                behavior.Trigger, _props);
-                                                        }
-                                                    }
-                                                }
-                                                //var modules = GetBehaviorModules(socket, behaviorMap.Values);
-                                                //if (modules != null && modules.Count > 0)
-                                                //{
-                                                //    foreach (var module in modules)
-                                                //    {
-                                                //        ScheduleBehaviorExecution(_scheduler, module.Value,
-                                                //            module.Key);
-                                                //    }
-                                                //}
-                                            }
-                                        }
-                                        catch (Exception ex)
-                                        {
-                                            Console.WriteLine(ex.Message);
-                                        }
-                                    }
-                                    System.Threading.Thread.Sleep(Period);
-                                }
-                            }
-                        }
+                        // Execute the Startup Behavior
+                        ExecuteStartupBehaviors();
+
+                        // Execute the Cyclic Behavior
+                        ExecuteCycleBehaviors();
+
+                        // Execute the Exit Behavior
+                        ExecuteExitBehaviors();
                     }
                 }
                 else
@@ -480,5 +403,139 @@ public class MainProgram
             Console.WriteLine(@"Main Program Run exception: {0}", ex.StackTrace);
         }
         Console.WriteLine(@"About to complete main program");
+    }
+
+    private void DisplayBehaviorInfo()
+    {
+        if (_motionBasedBehavior != null && _motionBasedBehavior.Count > 0)
+        {
+            // Display the Behavior program information
+            foreach (var item in _motionBasedBehavior)
+            {
+                switch (item.BehaviorType)
+                {
+                    case BehaviorType.Startup:
+                    case BehaviorType.Exit:
+                        Console.WriteLine(@"Behavior Type: {0} -> ", item.BehaviorType);
+                        foreach (var value in item.RobotActions)
+                        {
+                            Console.WriteLine(@"Action: {0} -> ", value.BehaviorName);
+                        }
+                        break;
+                    case BehaviorType.Behavior:
+                        Console.WriteLine(@"Gesture: {0} count with {1}", item.Trigger, item.TriggerCount);
+                        Console.WriteLine(@"Startup Actions -> ");
+                        foreach (var value in item.InitActions)
+                        {
+                            Console.WriteLine(@"    Action: {0}", value.BehaviorName);
+                        }
+                        Console.WriteLine(@"Cyclic Actions -> ");
+                        foreach (var value in item.RobotActions)
+                        {
+                            Console.WriteLine(@"    Action: {0}", value.BehaviorName);
+                        }
+                        Console.WriteLine(@"Exit Actions -> ");
+                        foreach (var value in item.RobotActions)
+                        {
+                            Console.WriteLine(@"    Action: {0}", value.BehaviorName);
+                        }
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
+    }
+
+    private void ExecuteCycleBehaviors()
+    {
+        using (var ctx = NetMQContext.Create())
+        {
+            using (var socket = ctx.CreateRequestSocket())
+            {
+                socket.Connect(_contextServer);
+                while (!_requestStop)
+                {
+                    socket.Send("humans");
+                    var resp = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
+                    if (!string.IsNullOrEmpty(resp))
+                    {
+                        try
+                        {
+                            JArray obj = JArray.Parse(resp);
+                            lock (_object)
+                            {
+                                var behaviorMap = CheckGestureTrigger(socket, obj, _motionBasedBehavior);
+                                if (behaviorMap.Count == 0)
+                                {
+
+                                }
+                                foreach (var behavior in behaviorMap)
+                                {
+                                    Console.WriteLine(@"Detected Gesture: {0} -> ", behavior.Trigger);
+                                    foreach (var value in behavior.RobotActions)
+                                    {
+                                        Console.WriteLine(@"Action: {0} -> ", value.BehaviorName);
+                                    }
+                                }
+                                if (behaviorMap.Count > 0)
+                                {
+                                    foreach (var behavior in behaviorMap)
+                                    {
+                                        var modules = GetBehaviorModules(socket, behavior.RobotActions);
+                                        if (modules != null && modules.Count > 0)
+                                        {
+                                            var motionBasedBehavior =
+                                                behavior.Clone() as MotionBasedBehavior;
+                                            if (motionBasedBehavior != null)
+                                            {
+                                                motionBasedBehavior.RobotActions = modules;
+                                                bool ret = ScheduleBehaviorExecution(_scheduler, motionBasedBehavior,
+                                                    behavior.Trigger, _props);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                    }
+                    System.Threading.Thread.Sleep(Period);
+                }
+            }
+        }
+    }
+
+    private void ExecuteExitBehaviors()
+    {
+
+    }
+
+    private void ExecuteStartupBehaviors()
+    {
+
+    }
+
+    public void JobToBeExecuted(IJobExecutionContext context)
+    {
+        Console.WriteLine(@"Job to be executed : {0}", context.JobDetail.Key);
+    }
+
+    public void JobExecutionVetoed(IJobExecutionContext context)
+    {
+        Console.WriteLine(@"Job executed vetoed : {0}", context.JobDetail.Key);
+    }
+
+    public void JobWasExecuted(IJobExecutionContext context, JobExecutionException jobException)
+    {
+        Console.WriteLine(@"Job was executed : {0}", context.JobDetail.Key);
+    }
+
+    public string Name
+    {
+        get { return "MainProgram"; }
     }
 }

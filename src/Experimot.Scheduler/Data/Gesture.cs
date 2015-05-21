@@ -74,11 +74,12 @@ namespace Experimot.Scheduler.Data
         Best = 95
     }
 
-    public struct GestureConfidenceData
+    public class GestureConfidenceData
     {
+        public int CurrentActiveLapse { get; set; }
+        public int Count { get; set; }
+
         private readonly GestureConfidenceLevels _level;
-        public int CurrentActiveLapse;
-        public int Count;
         private bool _lastActive;
         private bool _active;
 
@@ -99,19 +100,13 @@ namespace Experimot.Scheduler.Data
             {
                 CurrentActiveLapse++;
             }
-            else
+            if (_lastActive && !_active)
             {
                 if (CurrentActiveLapse >= gesturePeriod)
                 {
                     Count++;
                 }
-                else
-                {
-                    CurrentActiveLapse = 0;
-                }
-            }
-            if (_lastActive && !_active)
-            {
+                CurrentActiveLapse = 0;
                 Console.WriteLine(@"Statistics for level {0}: {1}", _level, Count);
             }
         }
@@ -124,7 +119,6 @@ namespace Experimot.Scheduler.Data
         private bool _active;
         private readonly Dictionary<GestureConfidenceLevels, GestureConfidenceData> _confidenceDict;
         protected const int GesturePeriod = 10;
-        //private int _currentLapse;
 
         public Gesture(string name, GestureMode mode)
         {
@@ -144,28 +138,6 @@ namespace Experimot.Scheduler.Data
                 {GestureConfidenceLevels.Best, new GestureConfidenceData(GestureConfidenceLevels.Best)},
             };
         }
-
-        //public static Gesture Default(string name, GestureMode mode)
-        //{
-        //    return new Gesture(string name, GestureMode mode)
-        //    {
-        //        _currentLapse = 0,
-        //        Name = name,
-        //        Mode = mode,
-        //        Active = false,
-        //        Confidence = 0,
-        //        Count = 0,
-        //        Progress = 0,
-        //        _confidenceDict = new Dictionary<GestureConfidenceLevels, GestureConfidenceData>()
-        //        {
-        //            {GestureConfidenceLevels.Low, new GestureConfidenceData(GestureConfidenceLevels.Low)},
-        //            {GestureConfidenceLevels.Average, new GestureConfidenceData(GestureConfidenceLevels.Average)},
-        //            {GestureConfidenceLevels.Good, new GestureConfidenceData(GestureConfidenceLevels.Good)},
-        //            {GestureConfidenceLevels.Better, new GestureConfidenceData(GestureConfidenceLevels.Better)},
-        //            {GestureConfidenceLevels.Best, new GestureConfidenceData(GestureConfidenceLevels.Best)},
-        //        }
-        //    };
-        //}
 
         private bool IsActive(int confidence, GestureConfidenceLevels level)
         {
@@ -192,7 +164,6 @@ namespace Experimot.Scheduler.Data
                 Active = trigger.active;
                 Confidence = trigger.confidence;
                 Progress = trigger.progress;
-                //_currentLapse++;
 
                 UpdateConfidenceLevels(Confidence);
             }
