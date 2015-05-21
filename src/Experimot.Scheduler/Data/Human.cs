@@ -35,7 +35,7 @@ namespace Experimot.Scheduler.Data
                     {
                         foreach (var gestureDescription in module.Gestures)
                         {
-                            _gestures.Add(Gesture.Default(gestureDescription.Name, gestureDescription.Mode));
+                            _gestures.Add(new Gesture(gestureDescription.Name, gestureDescription.Mode));
                         }
                     }
                 }
