@@ -1,29 +1,44 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="behavior_startup" id="7" x="38" y="13">
+  <block type="behavior_startup" id="1" x="38" y="13">
     <statement name="DO">
-      <block type="robot_action" id="12">
-        <field name="actions">stand</field>
+      <block type="robot_action" id="2">
+        <field name="actions">crouch</field>
       </block>
     </statement>
   </block>
-  <block type="behavior_sleek" id="5" x="38" y="138">
-    <mutation run_until="false" run_logic=""></mutation>
+  <block type="behavior_sleek" id="3" inline="false" x="38" y="138">
+    <mutation run_until="true" run_logic="(WaveRightCount &lt;= 2)"></mutation>
     <field name="behavior_name">behavior</field>
-    <field name="triggers">Greet_Left</field>
-    <field name="confidence_levels">80</field>
-    <field name="trigger_count">WaveLeftCount</field>
+    <field name="triggers">Greet_Right</field>
+    <field name="confidence_levels">95</field>
+    <field name="trigger_count">WaveRightCount</field>
     <field name="priorities">low</field>
-    <field name="execution">forever</field>
+    <field name="execution">until</field>
     <statement name="DO">
-      <block type="robot_action" id="16">
+      <block type="robot_action" id="8">
         <field name="actions">greet</field>
       </block>
     </statement>
+    <value name="RUN_UNTIL">
+      <block type="logic_compare" id="33" inline="true">
+        <field name="OP">LTE</field>
+        <value name="A">
+          <block type="variables_get" id="38">
+            <field name="VAR">WaveRightCount</field>
+          </block>
+        </value>
+        <value name="B">
+          <block type="math_number" id="57">
+            <field name="NUM">2</field>
+          </block>
+        </value>
+      </block>
+    </value>
   </block>
-  <block type="behavior_exit" id="9" x="38" y="563">
+  <block type="behavior_exit" id="5" x="38" y="588">
     <statement name="DO">
-      <block type="robot_action" id="14">
-        <field name="actions">crouch</field>
+      <block type="robot_action" id="6">
+        <field name="actions">stand</field>
       </block>
     </statement>
   </block>

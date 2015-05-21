@@ -459,6 +459,7 @@ public class MainProgram : IJobListener
 
     private void ExecuteCycleBehaviors()
     {
+        Log.Info("Cyclic Behavior Execution start.");
         using (var ctx = NetMQContext.Create())
         {
             using (var socket = ctx.CreateRequestSocket())
@@ -476,11 +477,15 @@ public class MainProgram : IJobListener
                             lock (_object)
                             {
                                 var cyclicBehavior =
-                                    _motionBasedBehaviors.Where(s => s.BehaviorType == BehaviorType.Behavior).ToList();
+                                    _motionBasedBehaviors.Where(s => s.BehaviorType == BehaviorType.Behavior && !s.ExitActionsComplete).ToList();
+                                if (cyclicBehavior.Count == 0)
+                                {
+                                    break;
+                                }
                                 var behaviorMap = CheckGestureTrigger(socket, obj, cyclicBehavior);
                                 if (behaviorMap.Count == 0)
                                 {
-
+                                    
                                 }
                                 foreach (var behavior in behaviorMap)
                                 {
@@ -519,6 +524,7 @@ public class MainProgram : IJobListener
                 }
             }
         }
+        Log.Info("Cyclic Behavior Execution finish.");
     }
 
     private void ExecuteOnetimeBehaviors(BehaviorType type)
@@ -560,11 +566,15 @@ public class MainProgram : IJobListener
         {
             if (motionBasedBehavior.BehaviorType == BehaviorType.Startup)
             {
-                MotionBehaviorTask.SyncExecuteBehavior(_contextServer, motionBasedBehavior.InitActions);
+                Log.Info("Begin Startup Actions!");
+                MotionBehaviorTask.SyncExecuteBehavior(motionBasedBehavior.RobotActions);
+                Log.Info("Finish Startup Actions!");
             }
             else if (motionBasedBehavior.BehaviorType == BehaviorType.Exit)
             {
-                MotionBehaviorTask.SyncExecuteBehavior(_contextServer, motionBasedBehavior.ExitActions);
+                Log.Info("Begin Exit Actions!");
+                MotionBehaviorTask.SyncExecuteBehavior(motionBasedBehavior.RobotActions);
+                Log.Info("Finish Exit Actions!");
             }
         }
     }

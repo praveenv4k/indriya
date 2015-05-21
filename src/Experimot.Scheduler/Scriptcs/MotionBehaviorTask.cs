@@ -95,7 +95,7 @@ public class MotionBehaviorTask : Quartz.IJob
                 // Execute Init actions only once
                 if (!behavior.InitActionsComplete)
                 {
-                    SyncExecuteBehavior(contextServer, behavior.InitActions);
+                    SyncExecuteBehavior(behavior.InitActions);
                     behavior.InitActionsComplete = true;
                 }
 
@@ -115,10 +115,10 @@ public class MotionBehaviorTask : Quartz.IJob
                         var expression = new Expression(behavior.ExecutionEvalExpression);
                         expression.Parameters.Add(behavior.TriggerCountVariable, count);
                         var result = expression.Evaluate();
-                        bool complete = false;
+                        bool complete;
                         if (bool.TryParse(result.ToString(), out complete))
                         {
-                            behavior.CyclicActionsComplete = complete;
+                            behavior.CyclicActionsComplete = !complete;
                         }
                     }
                 }
@@ -163,12 +163,15 @@ public class MotionBehaviorTask : Quartz.IJob
                     {
                         behavior.CyclicActionsComplete = true;
                     }
+                    if (behavior.RobotActions.Count == 0)
+                    {
+                        behavior.CyclicActionsComplete = true;
+                    }
                 }
-
                 // Execute exit actions only once
                 if (behavior.CyclicActionsComplete && !behavior.ExitActionsComplete)
                 {
-                    SyncExecuteBehavior(contextServer, behavior.ExitActions);
+                    SyncExecuteBehavior(behavior.ExitActions);
                     behavior.ExitActionsComplete = true;
                 }
             }
@@ -179,11 +182,11 @@ public class MotionBehaviorTask : Quartz.IJob
         }
     }
 
-    public static void SyncExecuteBehavior(string contextServer, IList<BehaviorInfo> behaviorList)
+    public static void SyncExecuteBehavior(IList<BehaviorInfo> behaviorList)
     {
         try
         {
-            if (!string.IsNullOrEmpty(contextServer) && behaviorList != null)
+            if (behaviorList != null)
             {
 
                 foreach (var behaviorInfo in behaviorList)
