@@ -3,6 +3,7 @@ src/Experimot.Core
 src/Experimot.Core.Msgs
 src/Experimot.Kinect.Perception
 src/Experimot.Kinect.Playback
+src/Experimot.Localization.Logger
 src/Experimot.Scheduler
 src/Experimot.Web/www/app
 src/Experimot.Web/www/index.html
@@ -19,6 +20,8 @@ src/experimot_msgs/proto/node.proto
 src/experimot_msgs/proto/robot_behavior.proto
 src/experimot_msgs/proto/gesture.proto
 src/experimot_msgs/proto/human.proto
+src/experimot_msgs/proto_export.bat
+src/experimot_msgs/msg_export.bat
 src/experimot_msgs_gen
 src/experimot_python_client
 src/experimot_rave
