@@ -433,7 +433,7 @@ public class MainProgram : IJobListener
                         }
                         break;
                     case BehaviorType.Behavior:
-                        Console.WriteLine(@"Gesture: {0} count with {1}", item.Trigger, item.TriggerCount);
+                        Console.WriteLine(@"Gesture: {0} count with {1}", item.Trigger, item.TriggerCountVariable);
                         Console.WriteLine(@"Startup Actions -> ");
                         foreach (var value in item.InitActions)
                         {
@@ -558,7 +558,14 @@ public class MainProgram : IJobListener
         }
         if (motionBasedBehavior != null)
         {
-            MotionBehaviorTask.SyncExecuteBehavior(_contextServer, motionBasedBehavior);
+            if (motionBasedBehavior.BehaviorType == BehaviorType.Startup)
+            {
+                MotionBehaviorTask.SyncExecuteBehavior(_contextServer, motionBasedBehavior.InitActions);
+            }
+            else if (motionBasedBehavior.BehaviorType == BehaviorType.Exit)
+            {
+                MotionBehaviorTask.SyncExecuteBehavior(_contextServer, motionBasedBehavior.ExitActions);
+            }
         }
     }
 
@@ -575,6 +582,20 @@ public class MainProgram : IJobListener
     public void JobWasExecuted(IJobExecutionContext context, JobExecutionException jobException)
     {
         Console.WriteLine(@"Job was executed : {0}", context.JobDetail.Key);
+        var behavior = context.MergedJobDataMap.Get("MotionBasedBehavior") as MotionBasedBehavior;
+        if (behavior != null)
+        {
+            lock (_object)
+            {
+                var mBehavior = _motionBasedBehaviors.FirstOrDefault(s => s.Guid == behavior.Guid);
+                if (mBehavior != null)
+                {
+                    mBehavior.InitActionsComplete = behavior.InitActionsComplete;
+                    mBehavior.CyclicActionsComplete = behavior.CyclicActionsComplete;
+                    mBehavior.ExitActionsComplete = behavior.ExitActionsComplete;
+                }
+            }
+        }
     }
 
     public string Name

@@ -42,6 +42,7 @@ namespace Experimot.Scheduler
             //Tests.Test.TestJsonToProgram(config);
             //MainProgramUtil.ReadBehaviorXmlFile("complex_behavior.xml");
             //MainProgramUtil.ReadBehaviorXmlFile(@"C:\Work\Develop\sdk_2013\experimot\bin\scriptcs\behavior.xml");
+            //Tests.Test.GestureConfidenceDataIterate();
 
             var context = new Context();
             TinyIoCContainer.Current.Register(context);

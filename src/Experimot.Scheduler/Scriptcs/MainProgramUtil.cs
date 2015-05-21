@@ -145,7 +145,7 @@ public class MainProgramUtil
                 }
                 else if (nameAttribute.Value == "trigger_count")
                 {
-                    motionBehavior.TriggerCount = field.Value;
+                    motionBehavior.TriggerCountVariable = field.Value;
                 }
                 else if (nameAttribute.Value == "execution")
                 {
