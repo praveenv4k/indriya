@@ -40,7 +40,8 @@ namespace Experimot.Scheduler
             //Tests.Test.TestJson(JsonConvert.SerializeObject(config));
             //Tests.Test.TestProgramGeneration(config);
             //Tests.Test.TestJsonToProgram(config);
-            MainProgramUtil.ReadBehaviorXmlFile("complex_behavior.xml");
+            //MainProgramUtil.ReadBehaviorXmlFile("complex_behavior.xml");
+            //MainProgramUtil.ReadBehaviorXmlFile(@"C:\Work\Develop\sdk_2013\experimot\bin\scriptcs\behavior.xml");
 
             var context = new Context();
             TinyIoCContainer.Current.Register(context);

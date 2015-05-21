@@ -81,7 +81,7 @@ public class MainProgramUtil
         return scheduler;
     }
 
-    public static void ReadBehaviorXmlFile(string xmlFile)
+    public static List<MotionBasedBehavior> ReadBehaviorXmlFile(string xmlFile)
     {
         var root = XElement.Load(xmlFile);
         //var doc = XmlDocumentUtil.RemoveXmlns(xmlFile);
@@ -116,6 +116,7 @@ public class MainProgramUtil
         }
 
         Console.WriteLine(@"Number of behaviors parsed : {0}", motionBehaviorList.Count);
+        return motionBehaviorList;
     }
 
     public static MotionBasedBehavior GetMotionBasedBehavior(XElement block)
