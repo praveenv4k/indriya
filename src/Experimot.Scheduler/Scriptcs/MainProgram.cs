@@ -5,6 +5,7 @@ using NetMQ;
 using Newtonsoft.Json.Linq;
 using Quartz;
 using Quartz.Impl.Matchers;
+using Common.Logging;
 
 // ReSharper disable once CheckNamespace
 public class MainProgram : IJobListener
@@ -15,8 +16,9 @@ public class MainProgram : IJobListener
     private const int RecvTimeout = 200;
     private const int Period = 200;
     private readonly object _object = new object();
-    private List<MotionBasedBehavior> _motionBasedBehavior;
+    private List<MotionBasedBehavior> _motionBasedBehaviors;
     private string _contextServer;
+    private static readonly ILog Log = LogManager.GetLogger(typeof(MainProgram));
 
     public MainProgram(IDictionary<string, object> props, IScheduler scheduler)
     {
@@ -28,6 +30,8 @@ public class MainProgram : IJobListener
         {
             scheduler.ListenerManager.AddJobListener(this, GroupMatcher<JobKey>.AnyGroup());
         }
+
+        _props.Add("ExecutionCompleteList",new List<Guid>());
     }
 
     private static object GetValue(IDictionary<string, object> props, string key, object defaultValue)
@@ -102,6 +106,8 @@ public class MainProgram : IJobListener
         }
         return ret;
     }
+
+    
 
     private static IList<BehaviorInfo> GetBehaviorModules(NetMQSocket socket,
         IList<BehaviorInfo> behaviorList)
@@ -372,20 +378,20 @@ public class MainProgram : IJobListener
                 if (!string.IsNullOrEmpty(_contextServer))
                 {
                     var triggerBehaviorMap = GetValue(_props, "BehaviorList", new List<MotionBasedBehavior>());
-                    _motionBasedBehavior = triggerBehaviorMap as List<MotionBasedBehavior>;
-                    if (_motionBasedBehavior != null && _motionBasedBehavior.Count > 0)
+                    _motionBasedBehaviors = triggerBehaviorMap as List<MotionBasedBehavior>;
+                    if (_motionBasedBehaviors != null && _motionBasedBehaviors.Count > 0)
                     {
                         // Display the Behavior Information
                         DisplayBehaviorInfo();
 
                         // Execute the Startup Behavior
-                        ExecuteStartupBehaviors();
+                        ExecuteOnetimeBehaviors(BehaviorType.Startup);
 
                         // Execute the Cyclic Behavior
                         ExecuteCycleBehaviors();
 
                         // Execute the Exit Behavior
-                        ExecuteExitBehaviors();
+                        ExecuteOnetimeBehaviors(BehaviorType.Exit);
                     }
                 }
                 else
@@ -407,10 +413,10 @@ public class MainProgram : IJobListener
 
     private void DisplayBehaviorInfo()
     {
-        if (_motionBasedBehavior != null && _motionBasedBehavior.Count > 0)
+        if (_motionBasedBehaviors != null && _motionBasedBehaviors.Count > 0)
         {
             // Display the Behavior program information
-            foreach (var item in _motionBasedBehavior)
+            foreach (var item in _motionBasedBehaviors)
             {
                 switch (item.BehaviorType)
                 {
@@ -465,7 +471,9 @@ public class MainProgram : IJobListener
                             JArray obj = JArray.Parse(resp);
                             lock (_object)
                             {
-                                var behaviorMap = CheckGestureTrigger(socket, obj, _motionBasedBehavior);
+                                var cyclicBehavior =
+                                    _motionBasedBehaviors.Where(s => s.BehaviorType == BehaviorType.Behavior).ToList();
+                                var behaviorMap = CheckGestureTrigger(socket, obj, cyclicBehavior);
                                 if (behaviorMap.Count == 0)
                                 {
 
@@ -509,14 +517,45 @@ public class MainProgram : IJobListener
         }
     }
 
-    private void ExecuteExitBehaviors()
+    private void ExecuteOnetimeBehaviors(BehaviorType type)
     {
+        if (type == BehaviorType.Behavior)
+        {
+            return;
+        }
+        MotionBasedBehavior motionBasedBehavior = null;
+        if (_motionBasedBehaviors != null)
+        {
+            var onetimeBehaviors = _motionBasedBehaviors.FirstOrDefault(s => s.BehaviorType == type);
+            if (onetimeBehaviors != null)
+            {
+                if (!string.IsNullOrEmpty(_contextServer))
+                {
+                    using (var ctx = NetMQContext.Create())
+                    {
+                        using (var socket = ctx.CreateRequestSocket())
+                        {
+                            socket.Connect(_contextServer);
 
-    }
-
-    private void ExecuteStartupBehaviors()
-    {
-
+                            var modules = GetBehaviorModules(socket, onetimeBehaviors.RobotActions);
+                            if (modules != null && modules.Count > 0)
+                            {
+                                motionBasedBehavior =
+                                    onetimeBehaviors.Clone() as MotionBasedBehavior;
+                                if (motionBasedBehavior != null)
+                                {
+                                    motionBasedBehavior.RobotActions = modules;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (motionBasedBehavior != null)
+        {
+            MotionBehaviorTask.SyncExecuteBehavior(_contextServer, motionBasedBehavior);
+        }
     }
 
     public void JobToBeExecuted(IJobExecutionContext context)
