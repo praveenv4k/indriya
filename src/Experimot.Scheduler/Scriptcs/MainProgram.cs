@@ -393,6 +393,10 @@ public class MainProgram : IJobListener
                         // Execute the Exit Behavior
                         ExecuteOnetimeBehaviors(BehaviorType.Exit);
                     }
+                    else
+                    {
+                        
+                    }
                 }
                 else
                 {

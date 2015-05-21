@@ -32,6 +32,60 @@
     return code;
 };
 
+Blockly.CSharp['behavior_startup'] = function (block) {
+    var statements_do = Blockly.CSharp.statementToCode(block, 'DO');
+    // TODO: Assemble Python into code variable.
+
+    var actions = statements_do.split(",");
+    var code = "";
+    var actionFunction = function appendActions(element, index, array) {
+        if (element) {
+            if (element.length) {
+                if (index !== 0) {
+                    code += ", ";
+                }
+                code += "{ name : '" + element.trim() + "' }";
+            }
+        }
+    };
+    code = "{ name : 'startup' , " +
+        "actions: [";
+    actions.forEach(actionFunction);
+    code += "] }";
+
+    //var doStatement = this.getInputTargetBlock('DO');
+    //console.log(doStatement);
+
+    return code;
+};
+
+Blockly.CSharp['behavior_exit'] = function (block) {
+    var statements_do = Blockly.CSharp.statementToCode(block, 'DO');
+    // TODO: Assemble Python into code variable.
+
+    var actions = statements_do.split(",");
+    var code = "";
+    var actionFunction = function appendActions(element, index, array) {
+        if (element) {
+            if (element.length) {
+                if (index !== 0) {
+                    code += ", ";
+                }
+                code += "{ name : '" + element.trim() + "' }";
+            }
+        }
+    };
+    code = "{ name : 'exit' , " +
+        "actions: [";
+    actions.forEach(actionFunction);
+    code += "] }";
+
+    //var doStatement = this.getInputTargetBlock('DO');
+    //console.log(doStatement);
+
+    return code;
+};
+
 Blockly.CSharp['behavior'] = function (block) {
     var text_name = block.getFieldValue('NAME');
     var value_when = Blockly.CSharp.valueToCode(block, 'when', Blockly.CSharp.ORDER_ATOMIC);

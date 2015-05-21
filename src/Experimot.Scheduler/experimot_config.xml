@@ -12,10 +12,10 @@
     <param key="WebServerEnabled" value="true" type="bool"/>
     <param key="WebServerPort" value="8888" type="int"/>
     <param key="WebServerHost" value="http://localhost" type="int"/>
-    <!--<param key="ROBOTIP" value="127.0.0.1" type="string"/>
-    <param key="ROBOTPORT" value="50435" type="int"/>-->
-    <param key="ROBOTIP" value="192.168.11.2" type="string"/>
-    <param key="ROBOTPORT" value="9559" type="int"/>
+    <param key="ROBOTIP" value="127.0.0.1" type="string"/>
+    <param key="ROBOTPORT" value="60749" type="int"/>
+    <!--<param key="ROBOTIP" value="192.168.11.2" type="string"/>
+    <param key="ROBOTPORT" value="9559" type="int"/>-->
     <param key="ContextServerHost" value="tcp://*" type="string"/>
     <param key="ContextClientHost" value="tcp://localhost" type="string"/>
     <param key="ContextServerPort" value="5800" type="int"/>
@@ -200,7 +200,7 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_relative_localize.py</args>
       </process>
     </node>
-    <node enabled="false" name="nao_behavior_manager">
+    <node enabled="true" name="nao_behavior_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>
