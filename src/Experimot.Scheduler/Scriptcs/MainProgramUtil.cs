@@ -124,7 +124,8 @@ public class MainProgramUtil
         {
             return null;
         }
-        var motionBehavior = new MotionBasedBehavior();
+        var motionBehavior = new MotionBasedBehavior {Guid = Guid.NewGuid()};
+
         var fields = LinqXmlUtil.GetElementsAnyNS(block, "field");
         foreach (var field in fields)
         {

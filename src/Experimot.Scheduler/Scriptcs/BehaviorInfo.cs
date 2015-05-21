@@ -59,6 +59,7 @@ public class MotionBasedBehavior : ICloneable
     public string Trigger { get; set; }
     public string TriggerCount { get; set; }
     public int Id { get; set; }
+    public Guid Guid { get; set; }
     public int ConfidenceLevel { get; set; }
     public IList<BehaviorInfo> InitActions { get; set; }
     public IList<BehaviorInfo> RobotActions { get; set; }
