@@ -49,6 +49,10 @@ public class MotionBasedBehavior : ICloneable
         InitActions = new List<BehaviorInfo>();
         RobotActions = new List<BehaviorInfo>();
         ExitActions = new List<BehaviorInfo>();
+
+        InitActionsComplete = false;
+        ExitActionsComplete = false;
+        CyclicActionsComplete = false;
     }
 
     public string Name { get; set; }
@@ -57,14 +61,16 @@ public class MotionBasedBehavior : ICloneable
     public BehaviorExecutionLifetime ExecutionLifetime { get; set; }
     public string ExecutionEvalExpression { get; set; }
     public string Trigger { get; set; }
-    public string TriggerCount { get; set; }
+    public string TriggerCountVariable { get; set; }
     public int Id { get; set; }
     public Guid Guid { get; set; }
     public int ConfidenceLevel { get; set; }
     public IList<BehaviorInfo> InitActions { get; set; }
+    public bool InitActionsComplete { get; set; }
     public IList<BehaviorInfo> RobotActions { get; set; }
+    public bool CyclicActionsComplete { get; set; }
     public IList<BehaviorInfo> ExitActions { get; set; }
-
+    public bool ExitActionsComplete { get; set; }
     public object Clone()
     {
         var cloned = this.MemberwiseClone() as MotionBasedBehavior;

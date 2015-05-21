@@ -79,6 +79,11 @@ namespace Experimot.Scheduler.Data
         public int CurrentActiveLapse { get; set; }
         public int Count { get; set; }
 
+        public int Level
+        {
+            get { return (int) _level; }
+        }
+
         private readonly GestureConfidenceLevels _level;
         private bool _lastActive;
         private bool _active;

@@ -6,6 +6,7 @@ using System.Xml.Linq;
 using Common.Logging;
 using Experimot.Core;
 using Experimot.Core.Util;
+using Experimot.Scheduler.Data;
 using Experimot.Scheduler.Scriptcs;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -79,6 +80,33 @@ namespace Experimot.Scheduler.Tests
                         Log.InfoFormat("Value : {0}", token.Value<string>("value"));
 
                     }
+                }
+            }
+        }
+
+        public static void GestureConfidenceDataIterate()
+        {
+            var gesture = new Gesture("test", GestureMode.Discrete);
+            var str = JsonConvert.SerializeObject(gesture);
+            if (!string.IsNullOrEmpty(str))
+            {
+                JObject obj = JObject.Parse(str);
+                if (obj != null)
+                {
+                    JToken token = obj.SelectToken("$.ConfidenceDict");
+                    foreach (var item in token)
+                    {
+                        if (item.HasValues)
+                        {
+                            var level = item.First.Value<int>("Level");
+
+                            Console.WriteLine(level);
+                        }
+                    }
+                    //if (token != null)
+                    //{
+                    //    //token.Where()
+                    //}
                 }
             }
         }
