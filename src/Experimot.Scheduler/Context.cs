@@ -196,12 +196,12 @@ namespace Experimot.Scheduler
                             {
                                 if (!string.IsNullOrEmpty(trigger.name))
                                 {
-                                    var newGest = new Gesture();
+                                    var newGest = new Gesture(trigger.name, (GestureMode) trigger.type);
                                     newGest.Refresh(trigger);
                                     item.Gestures.Add(newGest);
                                 }
                             }
-                            
+
                         }
                     }
                 }
