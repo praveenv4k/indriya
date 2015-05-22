@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Common.Logging;
 using Experimot.Core;
 using Experimot.Core.Util;
+using Experimot.Scheduler.Data;
 using Experimot.Scheduler.Scriptcs;
 using Experimot.Scheduler.Tasks;
 using Experimot.Scheduler.Web;
@@ -36,13 +37,6 @@ namespace Experimot.Scheduler
 
             var config = experimot_config.LoadFromFile(configFile);
             TinyIoCContainer.Current.Register(config);
-
-            //Tests.Test.TestJson(JsonConvert.SerializeObject(config));
-            //Tests.Test.TestProgramGeneration(config);
-            //Tests.Test.TestJsonToProgram(config);
-            //MainProgramUtil.ReadBehaviorXmlFile("complex_behavior.xml");
-            //MainProgramUtil.ReadBehaviorXmlFile(@"C:\Work\Develop\sdk_2013\experimot\bin\scriptcs\behavior.xml");
-            //Tests.Test.GestureConfidenceDataIterate();
 
             var context = new Context();
             TinyIoCContainer.Current.Register(context);
@@ -416,13 +410,5 @@ namespace Experimot.Scheduler
             }
 
         }
-    }
-
-
-    public enum ExecutionRequest
-    {
-        Start,
-        Pause,
-        Stop
     }
 }

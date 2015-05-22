@@ -10,6 +10,7 @@ namespace Experimot.Scheduler
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            RunTests();
             const string configFile = "experimot_config.xml";
             if (!string.IsNullOrEmpty(configFile))
             {
@@ -27,6 +28,16 @@ namespace Experimot.Scheduler
                 bootStrapper.Shutdown();
             }
             base.OnExit(e);
+        }
+
+        private void RunTests()
+        {
+            //Tests.Test.TestJson(JsonConvert.SerializeObject(config));
+            //Tests.Test.TestProgramGeneration(config);
+            //Tests.Test.TestJsonToProgram(config);
+            //MainProgramUtil.ReadBehaviorXmlFile("complex_behavior.xml");
+            //MainProgramUtil.ReadBehaviorXmlFile(@"C:\Work\Develop\sdk_2013\experimot\bin\scriptcs\behavior.xml");
+            //Tests.Test.GestureConfidenceDataIterate();
         }
     }
 }

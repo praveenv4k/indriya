@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Windows;
 using Experimot.Scheduler.Annotations;
+using Experimot.Scheduler.Data;
 using Experimot.Scheduler.Mvvm;
 using Nancy.TinyIoc;
 

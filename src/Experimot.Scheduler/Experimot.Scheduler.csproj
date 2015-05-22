@@ -151,8 +151,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BootStrapper.cs" />
+    <Compile Include="Data\ExecutionRequest.cs" />
     <Compile Include="Mvvm\BrowserViewModel.cs" />
-    <Compile Include="Context.cs" />
+    <Compile Include="Data\Context.cs" />
     <Compile Include="Data\Behavior.cs" />
     <Compile Include="Data\BehaviorMode.cs" />
     <Compile Include="Data\BehaviorState.cs" />

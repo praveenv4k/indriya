@@ -6,12 +6,10 @@ using System.Runtime.CompilerServices;
 using Caliburn.Micro;
 using experimot.msgs;
 using Experimot.Scheduler.Annotations;
-using Experimot.Scheduler.Data;
-using Human = Experimot.Scheduler.Data.Human;
 using ILog = Common.Logging.ILog;
 using LogManager = Common.Logging.LogManager;
 
-namespace Experimot.Scheduler
+namespace Experimot.Scheduler.Data
 {
     public class Context : INotifyPropertyChanged
     {
