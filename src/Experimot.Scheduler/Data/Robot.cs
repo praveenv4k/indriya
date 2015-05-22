@@ -2,7 +2,6 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Experimot.Core.Annotations;
-using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace Experimot.Scheduler.Data
 {
@@ -86,7 +85,6 @@ namespace Experimot.Scheduler.Data
             }
         }
 
-        [ExpandableObject]
         public Localization Localization
         {
             get { return _localization; }

@@ -2,7 +2,6 @@
 using System.Runtime.CompilerServices;
 using experimot.msgs;
 using Experimot.Core.Annotations;
-using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace Experimot.Scheduler.Data
 {
@@ -23,7 +22,6 @@ namespace Experimot.Scheduler.Data
             }
         }
 
-        [ExpandableObject]
         public Pose Pose
         {
             get { return _pose; }
@@ -35,7 +33,6 @@ namespace Experimot.Scheduler.Data
             }
         }
 
-        [ExpandableObject]
         public Color Color
         {
             get { return _color; }

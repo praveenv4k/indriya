@@ -2,11 +2,9 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using experimot.msgs;
-using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace Experimot.Scheduler.Data
 {
-    [ExpandableObject]
     public class GestureModule : INotifyPropertyChanged
     {
         private string _name;
@@ -30,7 +28,6 @@ namespace Experimot.Scheduler.Data
             }
         }
 
-        [ExpandableObject]
         public ObservableCollection<Gesture> Gestures
         {
             get { return _gestures; }

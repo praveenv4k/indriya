@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using experimot.msgs;
 using Experimot.Core.Annotations;
-using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace Experimot.Scheduler.Data
 {
@@ -33,7 +32,6 @@ namespace Experimot.Scheduler.Data
             }
         }
 
-        [ExpandableObject]
         public Vector3d Position
         {
             get { return _currentPosition; }
@@ -48,7 +46,6 @@ namespace Experimot.Scheduler.Data
             }
         }
 
-        [ExpandableObject]
         public Quaternion Orientation
         {
             get { return _currentOrientation; }

@@ -7,8 +7,6 @@ using Caliburn.Micro;
 using experimot.msgs;
 using Experimot.Scheduler.Annotations;
 using Experimot.Scheduler.Data;
-using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
-using Xceed.Wpf.Toolkit.PropertyGrid.Editors;
 using Human = Experimot.Scheduler.Data.Human;
 using ILog = Common.Logging.ILog;
 using LogManager = Common.Logging.LogManager;
@@ -37,7 +35,6 @@ namespace Experimot.Scheduler
             //TabViewModel = new BrowserTabViewModel("http://localhost:8888");
         }
 
-        [ExpandableObject]
         public Robot Robot
         {
             get { return _robot; }
@@ -49,29 +46,24 @@ namespace Experimot.Scheduler
             }
         }
 
-        //[ExpandableObject]
-        [Editor(typeof (CollectionEditor), typeof (CollectionEditor))]
         public BindableCollection<Human> Humans
         {
             get { return _humans; }
             set { _humans = value; }
         }
 
-        [ExpandableObject]
         public IDictionary<string, ManipulatableObject> Objects
         {
             get { return _objects; }
             set { _objects = value; }
         }
 
-        [ExpandableObject]
         public BindableCollection<GestureModule> MotionModules
         {
             get { return _motionModules; }
             set { _motionModules = value; }
         }
 
-        [ExpandableObject]
         public BindableCollection<RobotBehaviorModule> BehaviorModules
         {
             get { return _behaviorModules; }

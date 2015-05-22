@@ -9,66 +9,76 @@ using System.Windows.Input;
 using CefSharp;
 using CefSharp.Example;
 using CefSharp.Wpf;
-using Experimot.Scheduler.Mvvm;
 
-namespace Experimot.Scheduler
+namespace Experimot.Scheduler.Mvvm
 {
     public class BrowserTabViewModel : INotifyPropertyChanged
     {
-        private string address;
+        private string _address;
+
         public string Address
         {
-            get { return address; }
-            set { PropertyChanged.ChangeAndNotify(ref address, value, () => Address); }
+            get { return _address; }
+            set { PropertyChanged.ChangeAndNotify(ref _address, value, () => Address); }
         }
 
-        private string addressEditable;
+        private string _addressEditable;
+
         public string AddressEditable
         {
-            get { return addressEditable; }
-            set { PropertyChanged.ChangeAndNotify(ref addressEditable, value, () => AddressEditable); }
+            get { return _addressEditable; }
+            set { PropertyChanged.ChangeAndNotify(ref _addressEditable, value, () => AddressEditable); }
         }
 
-        private string outputMessage;
+        private string _outputMessage;
+
         public string OutputMessage
         {
-            get { return outputMessage; }
-            set { PropertyChanged.ChangeAndNotify(ref outputMessage, value, () => OutputMessage); }
+            get { return _outputMessage; }
+            set { PropertyChanged.ChangeAndNotify(ref _outputMessage, value, () => OutputMessage); }
         }
 
-        private string statusMessage;
+        private string _statusMessage;
+
         public string StatusMessage
         {
-            get { return statusMessage; }
-            set { PropertyChanged.ChangeAndNotify(ref statusMessage, value, () => StatusMessage); }
+            get { return _statusMessage; }
+            set { PropertyChanged.ChangeAndNotify(ref _statusMessage, value, () => StatusMessage); }
         }
 
-        private string title;
+        private string _title;
+
         public string Title
         {
-            get { return title; }
-            set { PropertyChanged.ChangeAndNotify(ref title, value, () => Title); }
+            get { return _title; }
+            set { PropertyChanged.ChangeAndNotify(ref _title, value, () => Title); }
         }
 
-        private IWpfWebBrowser webBrowser;
+        private IWpfWebBrowser _webBrowser;
+
         public IWpfWebBrowser WebBrowser
         {
-            get { return webBrowser; }
-            set { PropertyChanged.ChangeAndNotify(ref webBrowser, value, () => WebBrowser); }
+            get { return _webBrowser; }
+            set { PropertyChanged.ChangeAndNotify(ref _webBrowser, value, () => WebBrowser); }
         }
 
-        private object evaluateJavaScriptResult;
+        private object _evaluateJavaScriptResult;
+
         public object EvaluateJavaScriptResult
         {
-            get { return evaluateJavaScriptResult; }
-            set { PropertyChanged.ChangeAndNotify(ref evaluateJavaScriptResult, value, () => EvaluateJavaScriptResult); }
+            get { return _evaluateJavaScriptResult; }
+            set
+            {
+                PropertyChanged.ChangeAndNotify(ref _evaluateJavaScriptResult, value, () => EvaluateJavaScriptResult);
+            }
         }
 
-        private bool showSidebar;
+        private bool _showSidebar;
+
         public bool ShowSidebar
         {
-            get { return showSidebar; }
-            set { PropertyChanged.ChangeAndNotify(ref showSidebar, value, () => ShowSidebar); }
+            get { return _showSidebar; }
+            set { PropertyChanged.ChangeAndNotify(ref _showSidebar, value, () => ShowSidebar); }
         }
 
         public ICommand GoCommand { get; set; }
@@ -86,11 +96,13 @@ namespace Experimot.Scheduler
             GoCommand = new DelegateCommand(Go, () => !String.IsNullOrWhiteSpace(Address));
             HomeCommand = new DelegateCommand(() => AddressEditable = Address = "http://localhost:8888");
             ExecuteJavaScriptCommand = new DelegateCommand<string>(ExecuteJavaScript, s => !String.IsNullOrWhiteSpace(s));
-            EvaluateJavaScriptCommand = new DelegateCommand<string>(EvaluateJavaScript, s => !String.IsNullOrWhiteSpace(s));
+            EvaluateJavaScriptCommand = new DelegateCommand<string>(EvaluateJavaScript,
+                s => !String.IsNullOrWhiteSpace(s));
 
             PropertyChanged += OnPropertyChanged;
 
-            var version = String.Format("Chromium: {0}, CEF: {1}, CefSharp: {2}", Cef.ChromiumVersion, Cef.CefVersion, Cef.CefSharpVersion);
+            var version = String.Format("Chromium: {0}, CEF: {1}, CefSharp: {2}", Cef.ChromiumVersion, Cef.CefVersion,
+                Cef.CefSharpVersion);
             OutputMessage = version;
         }
 
@@ -98,17 +110,21 @@ namespace Experimot.Scheduler
         {
             try
             {
-                var response = await webBrowser.EvaluateScriptAsync(s);
+                var response = await _webBrowser.EvaluateScriptAsync(s);
                 if (response.Success && response.Result is IJavascriptCallback)
                 {
-                    response = await ((IJavascriptCallback)response.Result).ExecuteAsync("This is a callback from EvaluateJavaScript");
+                    response =
+                        await
+                            ((IJavascriptCallback) response.Result).ExecuteAsync(
+                                "This is a callback from EvaluateJavaScript");
                 }
 
                 EvaluateJavaScriptResult = response.Success ? (response.Result ?? "null") : response.Message;
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error while evaluating Javascript: " + e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Error while evaluating Javascript: " + e.Message, "Error", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
             }
         }
 
@@ -116,11 +132,12 @@ namespace Experimot.Scheduler
         {
             try
             {
-                webBrowser.ExecuteScriptAsync(s);
+                _webBrowser.ExecuteScriptAsync(s);
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error while executing Javascript: " + e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Error while executing Javascript: " + e.Message, "Error", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
             }
         }
 
@@ -142,7 +159,11 @@ namespace Experimot.Scheduler
                         // TODO: This is a bit of a hack. It would be nicer/cleaner to give the webBrowser focus in the Go()
                         // TODO: method, but it seems like "something" gets messed up (= doesn't work correctly) if we give it
                         // TODO: focus "too early" in the loading process...
-                        WebBrowser.FrameLoadEnd += delegate { Application.Current.Dispatcher.BeginInvoke((Action)(() => webBrowser.Focus())); };
+                        WebBrowser.FrameLoadEnd +=
+                            delegate
+                            {
+                                Application.Current.Dispatcher.BeginInvoke((Action) (() => _webBrowser.Focus()));
+                            };
                     }
 
                     break;
@@ -166,10 +187,10 @@ namespace Experimot.Scheduler
                 return;
 
             var errorMessage = "<html><body><h2>Failed to load URL " + args.FailedUrl +
-                  " with error " + args.ErrorText + " (" + args.ErrorCode +
-                  ").</h2></body></html>";
+                               " with error " + args.ErrorText + " (" + args.ErrorCode +
+                               ").</h2></body></html>";
 
-            webBrowser.LoadHtml(errorMessage, args.FailedUrl);
+            _webBrowser.LoadHtml(errorMessage, args.FailedUrl);
         }
 
         private void Go()
