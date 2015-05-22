@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using experimot.msgs;
 using Experimot.Core.Annotations;
-using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace Experimot.Scheduler.Data
 {
@@ -33,7 +32,6 @@ namespace Experimot.Scheduler.Data
             get { return _sensorValues; }
         }
 
-        [ExpandableObject]
         public IMU Imu
         {
             get { return _imu; }
@@ -45,7 +43,6 @@ namespace Experimot.Scheduler.Data
             }
         }
 
-        [ExpandableObject]
         public JointValueVector JointValues
         {
             get { return _jointValues; }
