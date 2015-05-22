@@ -13,7 +13,7 @@
     <param key="WebServerPort" value="8888" type="int"/>
     <param key="WebServerHost" value="http://localhost" type="int"/>
     <param key="ROBOTIP" value="127.0.0.1" type="string"/>
-    <param key="ROBOTPORT" value="63050" type="int"/>
+    <param key="ROBOTPORT" value="51406" type="int"/>
     <!--<param key="ROBOTIP" value="192.168.11.2" type="string"/>
     <param key="ROBOTPORT" value="9559" type="int"/>-->
     <param key="ContextServerHost" value="tcp://*" type="string"/>
@@ -25,7 +25,7 @@
     <!-- TODO Define Parameter for Periods of ContextServer, ContextSync, ParameterServer, GesturePeriod-->
   </parameters>
   <nodes>
-    <node enabled="false" name="localization">
+    <node enabled="true" name="localization">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\experimot_localization.exe</path>
@@ -44,6 +44,17 @@
         <param key="tdm_server_cycle" value="40" type="int"/>
         <param key="max_new_marker_error" value="0.08" type="double"/>
         <param key="max_track_error" value="0.2" type="double"/>
+        <param key="flip_image" value="0" type="bool"/>
+        <param key="front_marker_flip_id" value="3" type="int"/>
+        <param key="left_marker_flip_id" value="0" type="int"/>
+        <param key="right_marker_flip_id" value="2" type="int"/>
+        <param key="rear_marker_flip_id" value="1" type="int"/>
+        <param key="top_marker_flip_id" value="5" type="int"/>
+        <param key="front_marker_id" value="7" type="int"/>
+        <param key="left_marker_id" value="0" type="int"/>
+        <param key="right_marker_id" value="13" type="int"/>
+        <param key="rear_marker_id" value="10" type="int"/>
+        <param key="top_marker_id" value="14" type="int"/>
       </parameters>
       <publishers>
         <publish>
@@ -64,7 +75,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="true" name="gesture_recognition">
+    <node enabled="false" name="gesture_recognition">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Perception\Experimot.Kinect.Perception.exe</path>
@@ -200,7 +211,7 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_relative_localize.py</args>
       </process>
     </node>
-    <node enabled="true" name="nao_behavior_manager">
+    <node enabled="false" name="nao_behavior_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>

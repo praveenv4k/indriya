@@ -16,6 +16,8 @@
 
 #include "bullet\Bullet3Common\b3Quaternion.h"
 
+#include "experimot\common\ParameterHelper.h"
+
 using namespace alvar;
 using namespace std;
 
@@ -23,7 +25,7 @@ class MarkerDetection2;
 
 #define PRINT_MSG 0
 
-#define TOP_MARKER_ID 14
+//#define TOP_MARKER_ID 14
 
 #define MATH_PI_4 OpenRAVE::PI/4
 
@@ -38,6 +40,37 @@ public:
 	{
 		max_error = std::numeric_limits<double>::max();
 		init_detection = 0;
+
+		m_nFrontMarkerId = FRONT_MARKER_ID;
+		m_nLeftMarkerId = LEFT_MARKER_ID;
+		m_nRightMarkerId = RIGHT_MARKER_ID;
+		m_nRearMarkerId = REAR_MARKER_ID;
+		m_nTopMarkerId = TOP_MARKER_ID;
+
+		_init();
+	}
+
+	MarkerDetection2(experimot::msgs::NodePtr& pNode){
+		max_error = std::numeric_limits<double>::max();
+		init_detection = 0;
+		m_nCubeSize = ParameterHelper::GetParam<int>(pNode->param(), "cube_size", CUBE_SIZE);
+		m_nMarkerSize = ParameterHelper::GetParam<int>(pNode->param(), "marker_size", MARKER_SIZE);
+		m_strCalibFile = ParameterHelper::GetParam<std::string>(pNode->param(), "calib_file", CALIB_FILE);
+		m_bFlip = ParameterHelper::GetParam<bool>(pNode->param(), "flip_image", false);
+		if (m_bFlip){
+			m_nFrontMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "front_marker_flip_id", FRONT_MARKER_FLIP_ID);
+			m_nLeftMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "left_marker_flip_id", LEFT_MARKER_FLIP_ID);
+			m_nRightMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "right_marker_flip_id", RIGHT_MARKER_FLIP_ID);
+			m_nRearMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "rear_marker_flip_id", REAR_MARKER_FLIP_ID);
+			m_nTopMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "top_marker_flip_id", TOP_MARKER_FLIP_ID);
+		}
+		else{
+			m_nFrontMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "front_marker_id", FRONT_MARKER_ID);
+			m_nLeftMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "left_marker_id", LEFT_MARKER_ID);
+			m_nRightMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "right_marker_id", RIGHT_MARKER_ID);
+			m_nRearMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "rear_marker_id", REAR_MARKER_ID);
+			m_nTopMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "top_marker_id", TOP_MARKER_ID);
+		}
 		_init();
 	}
 
@@ -291,8 +324,9 @@ public:
 		bool showCorners = true;
 		bool visualize = true;
 		static IplImage *rgba;
-		bool flip_image = (image->origin ? true : false);
-		if (flip_image) {
+		//bool flip_image = (image->origin ? true : false);
+		//bool flip_image = true;
+		if (m_bFlip) {
 			cvFlip(image);
 			image->origin = !image->origin;
 		}
@@ -399,7 +433,7 @@ public:
 					Visualize(image, &m_camera, m_nMarkerSize, p_res, CV_RGB(255, 0, 0));
 				}
 			}
-			if (flip_image) {
+			if (m_bFlip) {
 				cvFlip(image);
 				image->origin = !image->origin;
 			}
@@ -425,23 +459,12 @@ private:
 			m_camera.SetRes(width, height);
 			cout << " [Fail]" << endl;
 		}
-
 		Vector rot_z(0, 0, 1);
-
-#if 0
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(7, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI / 2)), Vector())));
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(0, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI)), Vector())));
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(13, Transform(geometry::quatFromAxisAngle(rot_z, 0.0), Vector())));
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(10, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI / 2)), Vector())));
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(14, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI / 2)), Vector())));
-#else
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(7, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI / 2)), Vector())));
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(0, Transform(geometry::quatFromAxisAngle(rot_z, 0.0), Vector())));
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(13, Transform(geometry::quatFromAxisAngle(rot_z, alvar::PI), Vector())));
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(10, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI / 2)), Vector())));
-		//m_MarkerTransformMapping.insert(std::pair<int, Transform>(14, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI / 2)), Vector())));
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(14, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI)), Vector())));
-#endif
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(m_nFrontMarkerId, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI / 2)), Vector()))); // Front
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(m_nLeftMarkerId, Transform(geometry::quatFromAxisAngle(rot_z, 0.0), Vector()))); // Left
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(m_nRightMarkerId, Transform(geometry::quatFromAxisAngle(rot_z, alvar::PI), Vector()))); // Right
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(m_nRearMarkerId, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI / 2)), Vector()))); // Rear
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(m_nTopMarkerId, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI)), Vector()))); // Top
 
 		return ret;
 	}
@@ -449,6 +472,12 @@ private:
 	std::string m_strCalibFile;
 	int m_nMarkerSize;
 	int m_nCubeSize;
+	int m_nFrontMarkerId;
+	int m_nLeftMarkerId;
+	int m_nRightMarkerId;
+	int m_nRearMarkerId;
+	int m_nTopMarkerId;
+	bool m_bFlip;
 	Camera m_camera;
 	double max_error;
 	int init_detection;

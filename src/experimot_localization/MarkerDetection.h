@@ -16,6 +16,8 @@
 
 #include "bullet\Bullet3Common\b3Quaternion.h"
 
+#include "experimot\common\ParameterHelper.h"
+
 using namespace alvar;
 using namespace std;
 
@@ -32,9 +34,33 @@ typedef boost::shared_ptr<MarkerDetection> MarkerDetectionPtr;
 class MarkerDetection{
 
 public:
+
 	MarkerDetection(std::string& calibFile, int markerSize, int cubeSize) :m_strCalibFile(calibFile), m_nMarkerSize(markerSize), m_nCubeSize(cubeSize)
 	{
 		max_error = std::numeric_limits<double>::max();
+
+		m_nFrontMarkerId = FRONT_MARKER_ID;
+		m_nLeftMarkerId = LEFT_MARKER_ID;
+		m_nRightMarkerId = RIGHT_MARKER_ID;
+		m_nRearMarkerId = REAR_MARKER_ID;
+		m_nTopMarkerId = TOP_MARKER_ID;
+
+		_init();
+	}
+
+	MarkerDetection(experimot::msgs::NodePtr& pNode){
+		max_error = std::numeric_limits<double>::max();
+
+		m_nCubeSize = ParameterHelper::GetParam<int>(pNode->param(), "cube_size", CUBE_SIZE);
+		m_nMarkerSize = ParameterHelper::GetParam<int>(pNode->param(), "marker_size", MARKER_SIZE);
+		m_strCalibFile = ParameterHelper::GetParam<std::string>(pNode->param(), "calib_file", CALIB_FILE);
+
+		m_nFrontMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "front_marker_id", FRONT_MARKER_ID);
+		m_nLeftMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "left_marker_id", LEFT_MARKER_ID);
+		m_nRightMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "right_marker_id", RIGHT_MARKER_ID);
+		m_nRearMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "rear_marker_id", REAR_MARKER_ID);
+		m_nTopMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "top_marker_id", TOP_MARKER_ID);
+
 		_init();
 	}
 
@@ -147,7 +173,7 @@ public:
 				double angle1 = q.angle(q1);
 				double angle2 = q.angle(q2);
 
-				
+
 				if (fabs(angle1) < fabs(angle2)){
 					if (fabs(angle1) < MATH_PI_4){
 						outTf = tf1;
@@ -318,12 +344,11 @@ private:
 		m_MarkerTransformMapping.insert(std::pair<int, Transform>(10, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI / 2)), Vector())));
 		m_MarkerTransformMapping.insert(std::pair<int, Transform>(14, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI / 2)), Vector())));
 #else
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(7, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI / 2)), Vector())));
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(0, Transform(geometry::quatFromAxisAngle(rot_z, 0.0), Vector())));
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(13, Transform(geometry::quatFromAxisAngle(rot_z, alvar::PI), Vector())));
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(10, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI / 2)), Vector())));
-		//m_MarkerTransformMapping.insert(std::pair<int, Transform>(14, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI / 2)), Vector())));
-		m_MarkerTransformMapping.insert(std::pair<int, Transform>(14, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI)), Vector())));
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(m_nFrontMarkerId, Transform(geometry::quatFromAxisAngle(rot_z, -(alvar::PI / 2)), Vector()))); // Front
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(m_nLeftMarkerId, Transform(geometry::quatFromAxisAngle(rot_z, 0.0), Vector()))); // Left
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(m_nRightMarkerId, Transform(geometry::quatFromAxisAngle(rot_z, alvar::PI), Vector()))); // Right
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(m_nRearMarkerId, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI / 2)), Vector()))); // Rear
+		m_MarkerTransformMapping.insert(std::pair<int, Transform>(m_nTopMarkerId, Transform(geometry::quatFromAxisAngle(rot_z, (alvar::PI)), Vector()))); // Top
 #endif
 
 		return ret;
@@ -332,6 +357,11 @@ private:
 	std::string m_strCalibFile;
 	int m_nMarkerSize;
 	int m_nCubeSize;
+	int m_nFrontMarkerId;
+	int m_nLeftMarkerId;
+	int m_nRightMarkerId;
+	int m_nRearMarkerId;
+	int m_nTopMarkerId;
 	Camera m_camera;
 	double max_error;
 	std::map<int, Transform> m_MarkerTransformMapping;

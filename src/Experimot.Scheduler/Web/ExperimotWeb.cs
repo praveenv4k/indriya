@@ -35,6 +35,12 @@ namespace Experimot.Scheduler.Web
                     var port = ParameterUtil.Get(_config.parameters, "WebServerPort", 8888);
 
                     var uriStr = string.Format("{0}:{1}", host, port);
+
+                    HostConfiguration hostConfigs = new HostConfiguration()
+                    {
+                        UrlReservations = new UrlReservations() { CreateAutomatically = true }
+                    };
+
                     _host = new NancyHost(new Uri(uriStr), new ExperimotWebBootStrapper());
 
                     _host.Start();
