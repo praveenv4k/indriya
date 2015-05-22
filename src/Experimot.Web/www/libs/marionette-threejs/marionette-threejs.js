@@ -1971,6 +1971,8 @@
                 //});
                 //_this.updateMesh();
             });
+        }else if (this.get('hasSkeleton')) {
+            
         } else {
             if (THREE.hasOwnProperty(this.get('geometryType'))) {
                 this._texture = THREE.ImageUtils.loadTexture(this.get('texture'), THREE.UVMapping, _loaded);

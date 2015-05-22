@@ -84,7 +84,7 @@ The main contribution of this work will be to develop an application independent
 	
 	The localization of humanoid robots is a challenging issue, due to rough odometry estimation, noisy onboard sensing, and the swaying motion caused by walking\cite{Cervera2012}. The Point cloud library\cite{RusuPCL11} which is one of the most widely used 3D perception software library, implements ready to use probabilistic tracking algorithms\cite{RUeda2012}. Studies on robot localization, obstacle mapping, and path planning in multilevel 3D environments by equipping Nao with a consumer-level depth camera has been reported in \cite{Maier2012}. Localization and motion planning in smart home environment using an external Kinect sensor have been proposed in \cite{Cervera2012}. In \cite{choi13_rgb_d_objec_track} a robust particle filter parallelized on a GPU that can track a known 3D object model over a sequence of RGB-D images is proposed. However all these methods are computationally demanding and it could cause overall performance degradation particularly when we want to share the same sensor for both human motion recognition and localization of the robot.  Tracking rectangular fiducial markers using  augmented reality toolkits like ARToolKit\cite{Kato1999} can be interesting if we could embed those markers on the humanoid robot. This is one of the simplest and cheapest solution in terms of the computational power as it can provide position and orientation of the physical markers in real time.\\
 	
-	The users of social robots do not have necessary backgrounds in programming and design of robot behaviors. The main challenge in the behavior design is the ability to define the behavior which can abstract complex data flows from the end user. There exists several flow-chart based visual programming languages\cite{MSRS4},\cite{Choregraphe} which allow non-programmers to create robot applications using a set of pre-built behavioral blocks. These programs are very intuitive and allow the users to realize complex sequence of movements and sequential behaviors. However when it comes to designing reactive behaviors for human-in-the-loop scenarios, the existing visual programming methods increase the cognitive load on the end users. Specialized robot programming techniques like Task description language\cite{Simmons724883}, scripting techniques like Universal Robotic Body Interface(URBI)\cite{Baillie4814281} and ROS\cite{quigley2009ros} have been proposed in the literature. Though these programs provide modular and distributed architecture, support multiple sensors and robots etc., all these tools require high level of skill in robotics and programming to use them. Recently non-domain-specific solution like \emph{Target Drives Means} is proposed in \cite{BerenzTDM2014}, however it lacks an intuitive interface.\\
+	The users of social robots do not have necessary backgrounds in programming and design of robot behaviors. The main challenge in the behavior design is the ability to define the behavior which can abstract complex data flows from the end user. There exists several flow-chart based visual programming languages\cite{MSRS4},\cite{Choregraphe} which allow non-programmers to create robot applications using a set of pre-built behavioral blocks. These programs are very intuitive and allow the users to realize complex sequence of movements and sequential behaviors. However when it comes to designing reactive behaviors for human-in-the-loop scenarios, the existing visual programming methods increase the cognitive load on the end users. Specialized robot programming techniques like Task description language\cite{Simmons724883}, scripting techniques like Universal Robotic Body Interface(URBI)\cite{Baillie4814281} and ROS\cite{quigley2009ros} have been proposed in the literature. Though these programs provide modular and distributed architecture, support multiple sensors and robots etc., all these tools require high level of skill in robotics and programming to use them. Recently non-domain-specific solution like Target-Drives-Means is proposed in \cite{BerenzTDM2014}, however it lacks an intuitive interface.\\
 	
 	Recently there has been lot of efforts to teach programming to children and people without computer science background\cite{Scratch}\cite{Blockly}. These tools are very intuitive and have already been proven to be used by novice programmers to build games and educational applications. The Blockly library\cite{Blockly} from Google offers a complete client side javascript library which could be used for developing custom blocks and code generators as per the application requirements.
 %Hierarchical organization of behaviors and modularity are also being investigated \cite{Jaegeretal},\cite{Baldassarre:2013:CRM:2560111},\cite{hurdus4648045}
@@ -99,7 +99,7 @@ The important components of the system shown in Fig~\ref{fig:architecture} are
 \begin{itemize}
 \item \textbf{User Interface}: The user interface is a web application that runs on any latest web-kit browsers supporting WebGL technology. 
 \begin{itemize}
-\item \emph{Behavior Designer}: The Behavior designer surface could be used by the user to drag and drop the behavior blocks and construct the program using the set of motion capabilities registered by the active motion recognition nodes and the set of robot action capabilities registered by the active robot interface nodes. The behavior described using the designer will be encoded into a declarative XML format and sent to the server when the user request to start the program. The designer offers a full range of capabilities like create/edit/delete/save behavior programs.
+\item \emph{Behavior Designer}: The Behavior designer surface could be used by the user to drag and drop the behavior blocks and construct the program using the set of motion capabilities registered by the active motion recognition nodes and the set of robot action capabilities registered by the active robot interface nodes. The behavior designed using the designer will be encoded into a declarative XML format and sent to the server when the user request to start the program. The designer offers a full range of capabilities like create/edit/delete/save behavior programs.
 \item \emph{Visualization}: The visualization could be used to see the interaction of the human and robot inside a virtual 3D environment.
 \end{itemize}
 \item \textbf{Application Components}
@@ -132,13 +132,42 @@ The important components of the system shown in Fig~\ref{fig:architecture} are
 \label{fig:architecture}
 \end{figure}
 %
+\subsection{Behavior Program}
+%
+The behavior program is structured in a simple way so that it could be easily understood by the end user. The behavior program whose conceptual model shown in Fig.~\ref{fig:program_concept} is composed of
+\begin{itemize}
+\item Startup Block: The start up block will be executed once when the user starts the program. The user can add a set of actions to be performed when the program starts. This block is optional and there cannot be more than once block of this kind in a program.
+\item Behavior Block: The behavior block is composed of
+\begin{itemize}
+\item A trigger that activates this block. The trigger is a human motion gesture parameterized by the gesture confidence value.
+\item The lifetime of each behavior block could be configured to run only once, forever or until a condition is met. 
+\item The priority of the block could be set to low, normal or high and the execution is done based on Fixed-priority pre-emptive scheduling. If a higher priority behavior request to use a resource (i.e. robot) which is being used by a lower priority behavior, the higher priority preempts the lower priority behavior.
+\item Similar to the behavior program level, at each behavior block level as set of startup and exit actions could be set which would be executed only once during the creation and termination respectively. The cyclic actions will be performed each time the trigger condition is met.
+\end{itemize}
+\item Exit Block: The exit block similar to start up block will be executed once when there are the lifetime of all the configured behavior expires. This block is optional as well and there could be only block of this kind in a program.
+\end{itemize}
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.48\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/program_structure.eps}
+\caption[Conceptual Model]{Conceptual Model}
+\label{fig:program_concept}
+\end{subfigure}
+\begin{subfigure}[t]{0.48\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/program_block.png}
+\caption[Block Implementation]{Block Implementation}
+\end{subfigure}
+\caption[Program Structure]{Program Structure}
+\label{fig:program}
+\end{figure}
+%
 \subsection{Workflow}
 %
 Describe the workflow of the operations
 %
 \subsection{Implementation}
 %
-For the implementation
+The entire framework has been implemented using open network communication standards powered by ZeroMQ
 \begin{itemize}
 \item Zero mq for communication
 \item Protobuf for messaging description
@@ -147,7 +176,7 @@ For the implementation
 %
 \section{Experimentatal Setup}
 %
-The software is tested on a 64-bit Intel Core i7-4790 CPU 3.60 Ghz with 8 GB of RAM on a  Microsoft Windows 8.1 operating system. The Kinect for Windows V2 is used as the motion capture system and robot is used is Nao Humanoid V5 powered by latest NaoQi OS V2.3. A set of gestures are created using the Visual Gesture Builder that comes with the Kinect Sdk\cite{Kinect2014}. The process involves capturing the clips of the motions, tagging the clips with the appropriate gestures and training the gesture recognizer. The trained gestures are then exported as a Visual gesture database and integrated with the motion recognition node. Similarly a set of actions of the Nao humanoid robot are developed as python scripts that are being named corresponding to the actions. The Robot interface node is responsible for invoking these actions whenever requested. The python scripts uses Naoqi python sdk which exposes a huge set of API for motion control, sensor data access etc.,
+The software is tested on a 64-bit Intel Core i7 CPU with clock speed 3.60 Ghz and 8 GB of RAM on a  Microsoft Windows 8.1 operating system. The Kinect for Windows V2 is used as the motion capture system and humanoid robot Nao powered by the latest NaoQi OS V2.3 is used. A set of gestures are created using the Visual Gesture Builder that comes with the Kinect Sdk\cite{Kinect2014}. The process involves capturing the clips of the motions, tagging the clips with the appropriate gestures and training the gesture recognizer. The trained gestures are then exported as a Visual gesture database and integrated with the motion recognition node. Similarly a set of actions of the Nao humanoid robot are developed as python scripts that are being named corresponding to the actions. The Robot interface node is responsible for invoking these actions whenever requested. The localization of the humanoid robot is performed by combining the marker detection using Augmented reality toolkit ALVAR\cite{ALVAR} and a simple 2-DOF kinematic model of the robot from torso to the head. The source code of the software is available as open source at \url{https://github.com/praveenv4k/ExPeriMot}
 %
 \section{Conclusions}
 %

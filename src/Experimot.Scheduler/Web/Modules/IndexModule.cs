@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using Common.Logging;
 using Experimot.Core;
@@ -182,6 +183,25 @@ namespace Experimot.Scheduler.Web.Modules
                     
                 }
                 return (Response)HttpStatusCode.NotModified;
+            };
+
+            Get["/visualize/skeleton/list"] = parameters =>
+            {
+                try
+                {
+                    var context = TinyIoCContainer.Current.Resolve<Context>();
+                    if (context != null)
+                    {
+                        var list = new List<object>();
+                        list.AddRange(context.Humans.Select(s => s.Body));
+                        return (Response) JsonConvert.SerializeObject(list);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Log.WarnFormat("Exception: {0}", ex.Message);
+                }
+                return (Response) HttpStatusCode.OK;
             };
 
             Get["/designer/program/list"] = parameters =>

@@ -1,8 +1,8 @@
-﻿define(['app', 'backbone', 'marionette', 'models/robot', 'models/testjointvalues', 'models/JointValues', 'collections/drawables', 'marionette_threejs', 'poller',
+﻿define(['app', 'backbone', 'marionette', 'models/robot', 'models/testjointvalues', 'models/JointValues', 'collections/drawables', 'collections/skeletons', 'marionette_threejs', 'poller',
     'views/programSelectModal',
     'views/saveDialog',
     'collections/programs', 'jsonview'],
-    function (app, backbone, marionette, robot,testJointVals,jointVals, drawables, m3Js,poller,openDialog,saveDialog,programs) {
+    function (app, backbone, marionette, robot,testJointVals,jointVals, drawables,skeletons, m3Js,poller,openDialog,saveDialog,programs) {
         return backbone.Marionette.Controller.extend({
             initialize: function(options) {
                 var _this = this;
@@ -50,6 +50,12 @@
                         pgmName.append(name);
                     });
                 });
+
+                //app.skeleton.constants =
+                //{
+                //    circleRadius: 0.03,
+                //    leafScale: 2.0
+                //};
 
                 app.robot = new robot();
 
@@ -99,7 +105,7 @@
                 //});
                 //app.testjointpoller.start();
 
-
+                // Robot Joint values
                 app.jointVals = new jointVals();
 
                 app.jointpoller = poller.get(app.jointVals, test_joint_options);
@@ -115,8 +121,54 @@
                 });
                 app.jointpoller.start();
 
+
+                //initSkeletonPoller();
+
+                // Human poller
                 app.initHumanPoll = false;
                 app.humanPollError = false;
+            },
+
+            initSkeletonPoller: function () {
+                if (!app.initSkeletonPoller) {
+                    var _this = this;
+                    var globalCh = Backbone.Wreqr.radio.channel('global');
+                    // Human Skeletons
+                    var skeletonPollerOptions = {
+
+                        // default delay is 1000ms
+                        delay: 200,
+
+                        // run after a delayed interval. defaults to false
+                        // can be a boolean `true` to wait `delay` ms before starting or a number to override the wait period
+                        delayed: 3000,
+
+                        // do not stop the poller on error. defaults to false
+                        // `error` event is always fired even with this option on.
+                        continueOnError: false
+
+                        // condition for keeping polling active (when this stops being true, polling will stop)
+                        //condition: function(model) {
+                        //    return model.id === -1;
+                        //}
+                    }
+
+                    app.skeletons = new skeletons();
+
+                    app.skeletonpoller = poller.get(app.skeletons, skeletonPollerOptions);
+                    app.skeletonpoller.on('error', function(data) {
+                        globalCh.vent.trigger("serverCommunication", false);
+                        console.error('Error retrieving skeleton information from server!');
+                    });
+                    app.skeletonpoller.on('success', function(data) {
+                        _this.updateSkeletons(data);
+                    });
+                    app.skeletonpoller.on('complete', function(data) {
+                        console.log("Done !!!");
+                    });
+                    app.skeletonpoller.start();
+                    app.initSkeletonPoller = true;
+                }
             },
 
             setJointVals: function(jointModel) {
@@ -362,9 +414,19 @@
 
 
             createNewDrawable: function(options) {
-
                 var newDrawable = new m3Js.Drawable(options);
                 app.Drawables.add(newDrawable);
+            },
+
+            updateSkeletons: function(skeletonsJsonObject) {
+                if (skeletonsJsonObject != undefined && skeletonsJsonObject.length > 0) {
+                    console.log(skeletonsJsonObject);
+                } else {
+                    var existingSkeletons = app.Drawables.where({ skeleton: true });
+                    if (existingSkeletons.length > 0) {
+                        app.Drawables.remove(existingSkeletons);
+                    }
+                }
             },
 
             pollerOptions: function () {
