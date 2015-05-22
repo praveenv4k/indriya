@@ -21,6 +21,24 @@ typedef boost::recursive_try_mutex RobotPoseInfoMutex;
 typedef std::map<int, Transform>::iterator TransformMapIterator;
 typedef std::map<int, Transform>::const_iterator TransformMapConstIterator;
 
+#define CALIB_FILE			"camera_calibration_kinect_1600.xml"
+#define MARKER_SIZE			55
+#define CUBE_SIZE			64
+#define NEW_MARKER_ERROR	0.8
+#define MARKER_TRACK_ERROR	0.2
+
+#define FRONT_MARKER_ID		7
+#define LEFT_MARKER_ID		0
+#define RIGHT_MARKER_ID		13
+#define REAR_MARKER_ID		10
+#define TOP_MARKER_ID		14
+
+#define FRONT_MARKER_FLIP_ID		3
+#define LEFT_MARKER_FLIP_ID			0
+#define RIGHT_MARKER_FLIP_ID		2
+#define REAR_MARKER_FLIP_ID			1
+#define TOP_MARKER_FLIP_ID			5
+
 class RobotPoseInfo : public boost::enable_shared_from_this < RobotPoseInfo > {
 public:
 	RobotPoseInfo(){

@@ -33,16 +33,9 @@
 
 #define COMM_TIMEOUT		100
 
-#define CALIB_FILE			"camera_calibration_kinect_1600.xml"
-#define MARKER_SIZE			55
-#define CUBE_SIZE			64
-
 #define TDM_ADDRESS			"tcp://*"
 #define TDM_PORT			5700
 #define TDM_TIMEOUT			100
-
-#define NEW_MARKER_ERROR	0.8
-#define MARKER_TRACK_ERROR	0.2
 
 class Localization;
 
@@ -61,9 +54,7 @@ public:
 		m_pNode = pNode;
 
 		if (m_pNode != 0){
-			int cubeSize = ParameterHelper::GetParam<int>(m_pNode->param(), "cube_size", CUBE_SIZE);
-			int markerSize = ParameterHelper::GetParam<int>(m_pNode->param(), "marker_size", MARKER_SIZE);
-			std::string calibFile = ParameterHelper::GetParam<std::string>(m_pNode->param(), "calib_file", CALIB_FILE);
+			
 			int conn_timeout = ParameterHelper::GetParam<int>(m_pNode->param(), "comm_timeout", COMM_TIMEOUT);
 			m_nSensorCycle = ParameterHelper::GetParam<int>(m_pNode->param(), "sensor_process_cycle", 30);
 			m_nRobotCycle = ParameterHelper::GetParam<int>(m_pNode->param(), "robot_listener_cycle", 40);
@@ -75,7 +66,7 @@ public:
 
 			int tdm_port = ParameterHelper::GetParam<int>(m_pNode->param(), "tdm_server_port", TDM_PORT);
 
-			m_pMarkerDetectionPtr = MarkerDetection2Ptr(new MarkerDetection2(calibFile, markerSize, cubeSize));
+			m_pMarkerDetectionPtr = MarkerDetection2Ptr(new MarkerDetection2(pNode));
 
 			//m_pMarkerDetectionKinectPtr = MarkerDetectionKinectPtr(new MarkerDetectionKinect(calibFile, markerSize, cubeSize,fNewMarkerError,fTrackError));
 
