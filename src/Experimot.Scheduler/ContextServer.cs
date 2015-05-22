@@ -3,6 +3,7 @@ using System.Linq;
 using Common.Logging;
 using Experimot.Core;
 using Experimot.Core.Util;
+using Experimot.Scheduler.Data;
 using Nancy.TinyIoc;
 using NetMQ;
 using Newtonsoft.Json;

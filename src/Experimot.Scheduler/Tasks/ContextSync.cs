@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Windows;
 using Common.Logging;
 using Experimot.Core;
+using Experimot.Scheduler.Data;
 using Nancy.TinyIoc;
 using NetMQ;
 using ProtoBuf;

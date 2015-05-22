@@ -1,4 +1,5 @@
-﻿using Nancy.TinyIoc;
+﻿using Experimot.Scheduler.Data;
+using Nancy.TinyIoc;
 
 namespace Experimot.Scheduler.Mvvm
 {
