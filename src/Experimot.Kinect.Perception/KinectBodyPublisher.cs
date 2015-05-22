@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using experimot.msgs;
 using Microsoft.Kinect;
-using ProtoBuf;
 using NetMQ;
+using ProtoBuf;
 using Joint = Microsoft.Kinect.Joint;
 using Quaternion = experimot.msgs.Quaternion;
 
@@ -180,7 +179,7 @@ namespace Experimot.Kinect.Perception
                     }
                     else
                     {
-                        human.orientation = new Quaternion() {w = 1, x = 0, y = 0, z = 0};
+                        human.orientation = new Quaternion {w = 1, x = 0, y = 0, z = 0};
                     }
                     kbodies.Body.Add(kbody);
                     humans.human.Add(human);

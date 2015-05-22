@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.Windows.Data;
+using Common.Logging;
 using Microsoft.Kinect;
 
 namespace Experimot.Kinect.Perception
 {
-    static class GestureNames
+    internal static class GestureNames
     {
         public static readonly string None = "None";
         public static readonly string HandwaveRight = "Greet_Right";
@@ -14,21 +16,20 @@ namespace Experimot.Kinect.Perception
 
     public class CameraSpacePointToStringConverter : IValueConverter
     {
+        private static readonly ILog Log = LogManager.GetLogger<CameraSpacePointToStringConverter>();
+
         public object Convert(object value, Type targetType,
             object parameter, CultureInfo culture)
         {
             string ret = string.Empty;
             try
             {
-                var point = (CameraSpacePoint)value;
-                if (point != null)
-                {
-                    ret = string.Format("X:{0}, Y:{1}, Z:{2}", point.X, point.Y, point.Z);
-                }
+                var point = (CameraSpacePoint) value;
+                ret = string.Format("X:{0}, Y:{1}, Z:{2}", point.X, point.Y, point.Z);
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(ex.Message);
+                Log.Warn(ex.Message);
             }
             return ret;
         }
@@ -48,15 +49,12 @@ namespace Experimot.Kinect.Perception
             string ret = string.Empty;
             try
             {
-                var point = (Vector4)value;
-                if (point != null)
-                {
-                    ret = string.Format("W:{0}, X:{1}, Y:{2}, Z:{3}", point.W, point.X, point.Y, point.Z);
-                }
+                var point = (Vector4) value;
+                ret = string.Format("W:{0}, X:{1}, Y:{2}, Z:{3}", point.W, point.X, point.Y, point.Z);
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(ex.Message);
+                Debug.WriteLine(ex.Message);
             }
             return ret;
         }

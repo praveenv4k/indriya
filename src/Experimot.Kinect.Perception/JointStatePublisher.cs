@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Threading;
+using CsvHelper;
+using experimot.msgs;
 using NetMQ;
+using ProtoBuf;
 
-namespace ExperimotPerception
+namespace Experimot.Kinect.Perception
 {
     public class JointStatePublisher
     {
@@ -16,7 +17,7 @@ namespace ExperimotPerception
         private NetMQSocket _socket;
         private int _port = 5563;
         private DispatcherTimer _timer;
-        private Queue<experimot.msgs.JointValueVector> _jvList;
+        private Queue<JointValueVector> _jvList;
         private string _topic;
         private UTF8Encoding _encoding;
         private Dictionary<int, int> _jointMap;
@@ -25,7 +26,7 @@ namespace ExperimotPerception
         {
             _topic = "RSP";
             _encoding = new UTF8Encoding();
-            _jvList = new Queue<experimot.msgs.JointValueVector>();
+            _jvList = new Queue<JointValueVector>();
 
             _jointMap = new Dictionary<int,int>();
 			_jointMap.Add(0, 1);
@@ -90,7 +91,7 @@ namespace ExperimotPerception
                         _socket.SendMore(_topic);
                         using (var ms = new MemoryStream())
                         {
-                            ProtoBuf.Serializer.Serialize(ms, item);
+                            Serializer.Serialize(ms, item);
                             //_socket.Send(new ZFrame(ms.GetBuffer()));
                             _socket.Send(ms.GetBuffer(),(int)ms.Length);
                         }
@@ -98,7 +99,7 @@ namespace ExperimotPerception
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine(ex.Message);
+                    Debug.WriteLine(ex.Message);
                     noData = true;
                 }
                 finally
@@ -115,7 +116,7 @@ namespace ExperimotPerception
         {
             using (var reader = new StreamReader(path))
             {
-                var factory = new CsvHelper.CsvFactory();
+                var factory = new CsvFactory();
                 var csvParser = factory.CreateParser(reader);
                 var strArray = csvParser.Read();
                 bool first = true;
@@ -125,10 +126,10 @@ namespace ExperimotPerception
                 {
                     if (!first)
                     {
-                        var jv = new experimot.msgs.JointValueVector();
+                        var jv = new JointValueVector();
                         for (int i = startIndex; i < numJoints + startIndex; i++)
                         {
-                            jv.JointValues.Add(new experimot.msgs.JointValue() { id = i - startIndex, value = double.Parse(strArray[_jointMap[i-startIndex]+startIndex]) });
+                            jv.JointValues.Add(new JointValue { id = i - startIndex, value = double.Parse(strArray[_jointMap[i-startIndex]+startIndex]) });
                         }
                         _jvList.Enqueue(jv);
                     }

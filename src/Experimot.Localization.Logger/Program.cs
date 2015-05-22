@@ -46,7 +46,7 @@ namespace Experimot.Localization.Logger
 
     internal class Program
     {
-        private static volatile bool _stopTask = false;
+        private static volatile bool _stopTask;
 
         private static void Main(string[] args)
         {
@@ -87,7 +87,7 @@ namespace Experimot.Localization.Logger
                     }
                     Console.WriteLine("Enter stop to stop logging !");
 
-                    string dummy = Console.ReadLine();
+                    //string dummy = Console.ReadLine();
                     //Console.WriteLine("Received stop !");
                     //if (dummy == "stop")
                     //{
@@ -254,7 +254,7 @@ namespace Experimot.Localization.Logger
             return poseList;
         }
 
-        private static void LogKinectSkeleton(object info)
+        public static void LogKinectSkeleton(object info)
         {
             Console.Write("Sleep for 5 seconds");
             System.Threading.Thread.Sleep(5000);
@@ -276,7 +276,6 @@ namespace Experimot.Localization.Logger
                             socket.Connect(addr);
                             Console.WriteLine("Subscribing to {0}", subscriber.topic);
                             socket.Subscribe(subscriber.topic);
-                            uint id = 1;
                             while (!_stopTask)
                             {
                                 var topic = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, 100));
@@ -291,7 +290,7 @@ namespace Experimot.Localization.Logger
                                             var bodies = Serializer.Deserialize<KinectBodies>(memStream);
                                             using (var file = File.Create("skeleton.bin"))
                                             {
-                                                Serializer.Serialize<KinectBodies>(file, bodies);
+                                                Serializer.Serialize(file, bodies);
                                             }
                                             Console.Write("Written to file");
                                             break;

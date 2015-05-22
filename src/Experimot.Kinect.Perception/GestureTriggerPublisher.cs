@@ -1,12 +1,7 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Windows;
+﻿using System.IO;
 using experimot.msgs;
-using Microsoft.Kinect;
-using Microsoft.Kinect.VisualGestureBuilder;
-using ProtoBuf;
 using NetMQ;
-using Joint = Microsoft.Kinect.Joint;
+using ProtoBuf;
 
 namespace Experimot.Kinect.Perception
 {
@@ -17,32 +12,20 @@ namespace Experimot.Kinect.Perception
     {
         private NetMQContext _ctx;
         private NetMQSocket _socket;
+        private readonly string _host;
         private readonly uint _port;
         private readonly string _topic;
-        private bool _noBodyTracked;
-        private bool _emptyMsgSent;
 
         private static GestureTriggerPublisher _publisher;
 
         public static GestureTriggerPublisher Create(string host, uint port, string topic)
         {
-            if (_publisher == null)
-            {
-                _publisher = new GestureTriggerPublisher(host, port, topic);
-            }
-            return _publisher;
+            return _publisher ?? (_publisher = new GestureTriggerPublisher(host, port, topic));
         }
 
         public static GestureTriggerPublisher Instance
         {
-            get
-            {
-                if (_publisher == null)
-                {
-                    _publisher = new GestureTriggerPublisher();
-                }
-                return _publisher;
-            }
+            get { return _publisher ?? (_publisher = new GestureTriggerPublisher()); }
         }
 
         /// <summary>
@@ -60,8 +43,6 @@ namespace Experimot.Kinect.Perception
             _host = host;
             _port = port;
             _topic = topic;
-            _noBodyTracked = false;
-            _emptyMsgSent = false;
         }
 
         private void InitZmq()
@@ -104,90 +85,6 @@ namespace Experimot.Kinect.Perception
             TerminateZmq();
         }
 
-        /// <summary>
-        /// Handles the body frame data arriving from the sensor
-        /// </summary>
-        //public void UpdateBodyFrame(Body[] bodies)
-        //{
-        //    if (!CanSend) return;
-
-        //    KinectBodies kbodies = new KinectBodies();
-        //    _noBodyTracked = true;
-        //    int penIndex = 0;
-        //    foreach (var body in bodies)
-        //    {
-        //        penIndex++;
-        //        if (body.IsTracked)
-        //        {
-        //            _noBodyTracked = false;
-        //            _emptyMsgSent = false;
-
-        //            var kbody = new KinectBody
-        //            {
-        //                IsTracked = true,
-        //                TrackingId = penIndex - 1,
-        //                JointCount = body.Joints.Count
-        //            };
-
-        //            IReadOnlyDictionary<JointType, Joint> joints = body.Joints;
-
-        //            foreach (JointType jointType in joints.Keys)
-        //            {
-        //                // sometimes the depth(Z) of an inferred joint may show as negative
-        //                // clamp down to 0.1f to prevent coordinatemapper from returning (-Infinity, -Infinity)
-        //                CameraSpacePoint position = joints[jointType].Position;
-        //                if (position.Z < 0)
-        //                {
-        //                    position.Z = KinectBodyHelper.InferredZPositionClamp;
-        //                }
-
-        //                KinectJoint kjoint = new KinectJoint
-        //                {
-        //                    Type = (KinectJoint.JointType) jointType,
-        //                    State = (KinectJoint.TrackingState) joints[jointType].TrackingState,
-        //                    Position = new Vector3d {x = position.X, y = position.Y, z = position.Z}
-        //                };
-        //                var orient = body.JointOrientations[jointType].Orientation;
-        //                kjoint.Orientation = new Quaternion
-        //                {
-        //                    w = orient.W,
-        //                    x = orient.X,
-        //                    y = orient.Y,
-        //                    z = orient.Z
-        //                };
-        //                kbody.Joints.Add(kjoint);
-        //            }
-        //            kbodies.Body.Add(kbody);
-        //        }
-        //        PublishGestureTrigger(kbodies);
-        //    }
-        //    if (_noBodyTracked && !_emptyMsgSent)
-        //    {
-        //        PublishGestureTrigger(kbodies, true);
-        //        _emptyMsgSent = true;
-        //    }
-        //}
-        private const int SendFrequency = 10;
-        private int _sendCount;
-        private readonly string _host;
-
-        private bool CanSend
-        {
-            get
-            {
-                if (_sendCount < SendFrequency)
-                {
-                    _sendCount++;
-                }
-                else
-                {
-                    _sendCount = 0;
-                }
-                return _sendCount == 0;
-            }
-        }
-
-        private bool once = true;
         public void PublishGestureTrigger(GestureTriggers gesture, bool force = false)
         {
             if (gesture != null && gesture.motion.Count > 0 && _socket != null)

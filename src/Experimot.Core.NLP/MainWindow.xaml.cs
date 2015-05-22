@@ -5,7 +5,6 @@ using System.Windows;
 using System.Windows.Documents;
 using edu.stanford.nlp.pipeline;
 using java.io;
-using Console = System.Console;
 
 namespace Experimot.Core.NLP
 {
@@ -27,7 +26,7 @@ namespace Experimot.Core.NLP
         {
             if (_pipeline == null)
             {
-                App.Current.Dispatcher.Invoke(() =>
+                Application.Current.Dispatcher.Invoke(() =>
                 {
                     StatusBarText.Text = "Initializing Stanford Core NLP...";
                 });
@@ -46,14 +45,10 @@ namespace Experimot.Core.NLP
                 Directory.SetCurrentDirectory(jarRoot);
                 _pipeline = new StanfordCoreNLP(props);
                 Directory.SetCurrentDirectory(curDir);
-                App.Current.Dispatcher.Invoke(() =>
+                Application.Current.Dispatcher.Invoke(() =>
                 {
                     StatusBarText.Text = "Completed initialization of Stanford Core NLP...";
                 });
-                return true;
-            }
-            else
-            {
                 return true;
             }
             return false;
