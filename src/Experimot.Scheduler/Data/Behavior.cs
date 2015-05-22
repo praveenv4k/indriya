@@ -4,19 +4,6 @@ using Experimot.Core.Annotations;
 
 namespace Experimot.Scheduler.Data
 {
-    public enum BehaviorMode
-    {
-        Blocking,
-        NonBlocking
-    }
-
-    public enum BehaviorState
-    {
-        Idle,
-        Running,
-        Error
-    }
-
     public class Behavior : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;

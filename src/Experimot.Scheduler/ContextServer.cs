@@ -1,14 +1,11 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
 using Common.Logging;
 using Experimot.Core;
 using Experimot.Core.Util;
 using Nancy.TinyIoc;
 using NetMQ;
-using NetMQ.zmq;
 using Newtonsoft.Json;
-using ProtoBuf;
 
 namespace Experimot.Scheduler
 {
@@ -29,14 +26,12 @@ namespace Experimot.Scheduler
             "robot"
         };
 
-        private const string UNKNOWN_REQUEST = @"Unknown request. Support request : ";
+        private const string UnknownRequest = @"Unknown request. Support request : ";
 
         private bool _startup;
-        private readonly Context _worldCtx;
 
         public ContextServer()
         {
-            _worldCtx = TinyIoCContainer.Current.Resolve<Context>();
             _config = TinyIoCContainer.Current.Resolve<experimot_config>();
         }
 
@@ -147,14 +142,14 @@ namespace Experimot.Scheduler
                         }
                         else
                         {
-                            _socket.Send(UNKNOWN_REQUEST + string.Join(", ", SupportedRequests));
+                            _socket.Send(UnknownRequest + string.Join(", ", SupportedRequests));
                         }
                     }
                 }
                 catch (NetMQException zex)
                 {
                     // If not timeout
-                    if (zex.ErrorCode != ErrorCode.EAGAIN)
+                    if (zex.ErrorCode != ErrorCode.TryAgain)
                     {
                         Log.ErrorFormat(@"ZMQ Exception: {0}", zex.Message);
                     }
