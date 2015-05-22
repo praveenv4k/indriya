@@ -1,11 +1,11 @@
-# ExPeriMot - Experimental Platform for Effective Human Robot Interaction based on Human Motion
+## ExPeriMot - Experimental Platform for Effective Human Robot Interaction based on Human Motion
 
-## About
+### About
 
 - The aim of this master thesis project is to develop an experimental platform for human robot interaction 
 understanding the human motions. Human motion capture is done using kinect for windows v2 sensor.
 
-## Requirements
+### Requirements
 
 - Platform: Windows 8.1 64-bit (x64).
 - Development Tool: Visual Studio 2013, Update 4. Plugin: NuGet Package Manager
@@ -32,17 +32,17 @@ understanding the human motions. Human motion capture is done using kinect for w
 	- Threejs
 	- Underscore
 
-## Build steps
+### Build steps
 
 - Open ExPeriMot.sln
 - Choose the build configuration (Debug/Release)
 - Click Menu->Build->Build Solution
 
-## Configuration Steps
+### Configuration Steps
 
 * TODO
 
 
-## Running the application
+### Running the application
 
 * TODO
