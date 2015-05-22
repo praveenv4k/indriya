@@ -7,12 +7,12 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using CefSharp;
-using CefSharp.Example;
 using CefSharp.Wpf;
 
 namespace Experimot.Scheduler.Mvvm
 {
     public class BrowserTabViewModel : INotifyPropertyChanged
+    //public class BrowserTabViewModel : ViewModelBase
     {
         private string _address;
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq.Expressions;
 
-namespace CefSharp.Example
+namespace Experimot.Scheduler.Mvvm
 {
     public static class PropertyChangedExtensionMethods
     {

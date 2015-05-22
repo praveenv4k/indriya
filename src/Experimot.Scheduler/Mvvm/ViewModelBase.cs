@@ -14,12 +14,12 @@ namespace Experimot.Scheduler.Mvvm
     {
         #region INotifyPropertyChanged
 
-        private PropertyChangedEventHandler propertyChanged;
+        private PropertyChangedEventHandler _propertyChanged;
         /// <inheritdoc/>
         public event PropertyChangedEventHandler PropertyChanged
         {
-            add { if (!IsDisposed) propertyChanged += value; }
-            remove { propertyChanged -= value; }
+            add { if (!IsDisposed) _propertyChanged += value; }
+            remove { _propertyChanged -= value; }
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace Experimot.Scheduler.Mvvm
         /// <param name="e">The <see cref="PropertyChangedEventArgs"/> instance containing the event data.</param>
         protected virtual void OnPropertyChanged<T>(T oldvalue, T newValue, PropertyChangedEventArgs e)
         {
-            var handlers = propertyChanged;
+            var handlers = _propertyChanged;
             if (handlers == null)
             {
                 return;

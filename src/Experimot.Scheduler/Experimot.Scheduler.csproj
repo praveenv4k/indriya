@@ -170,6 +170,7 @@
     <Compile Include="Data\SensorData.cs" />
     <Compile Include="Mvvm\DelegateCommand.cs" />
     <Compile Include="Mvvm\DelegateCommandT.cs" />
+    <Compile Include="Mvvm\MainWindowViewModel.cs" />
     <Compile Include="Mvvm\PropertyChangedExtensionMethods.cs" />
     <Compile Include="Mvvm\ViewModelBase.cs" />
     <Compile Include="ContextServer.cs" />

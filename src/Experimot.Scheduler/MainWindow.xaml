@@ -17,14 +17,14 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="400"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <!--<cefSharp:ChromiumWebBrowser DataContext="{Binding TabViewModel}" Grid.Row="0" Grid.Column="0" x:Name="browser"
+        <cefSharp:ChromiumWebBrowser DataContext="{Binding TabViewModel}" Grid.Row="0" Grid.Column="0" x:Name="browser"
                                   Address="{Binding Address, Mode=TwoWay}"
                                   Title="{Binding Title, Mode=OneWayToSource}"
-                                  AllowDrop="True"
+                                  AllowDrop="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                                   WebBrowser="{Binding WebBrowser, Mode=OneWayToSource}">
             
-        </cefSharp:ChromiumWebBrowser>-->
-        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+        </cefSharp:ChromiumWebBrowser>
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" DataContext="{Binding Context}">
             <TextBlock HorizontalAlignment="Center" FontSize="18">World Description</TextBlock>
             <Expander Header="Robot Information" DataContext="{Binding Robot}" HorizontalAlignment="Stretch" IsExpanded="False">
                 <Grid>
