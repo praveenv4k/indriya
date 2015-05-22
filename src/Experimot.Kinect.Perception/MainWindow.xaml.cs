@@ -111,9 +111,11 @@ namespace Experimot.Kinect.Perception
                 _gestureDetectorList.Add(detector);                
                 
                 // split gesture results across the first two columns of the content grid
-                ContentControl contentControl = new ContentControl();
-                contentControl.Content = _gestureDetectorList[i].GestureResultView;
-                
+                ContentControl contentControl = new ContentControl()
+                {
+                    Content = _gestureDetectorList[i].GestureResultView
+                };
+
                 if (i % 2 == 0)
                 {
                     // Gesture results for bodies: 0, 2, 4

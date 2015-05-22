@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using experimot.msgs;
-using Microsoft.Kinect;
-using ProtoBuf;
 using NetMQ;
-using Joint = Microsoft.Kinect.Joint;
+using ProtoBuf;
 
 namespace Experimot.Kinect.Perception
 {
@@ -17,8 +14,6 @@ namespace Experimot.Kinect.Perception
         private NetMQSocket _socket;
         private readonly uint _port;
         private readonly string _topic;
-        private bool _noBodyTracked;
-        private int _emptyMsgSent;
 
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
@@ -36,8 +31,6 @@ namespace Experimot.Kinect.Perception
             _host = host;
             _port = port;
             _topic = topic;
-            _noBodyTracked = false;
-            _emptyMsgSent = 0;
         }
 
         private void InitZmq()

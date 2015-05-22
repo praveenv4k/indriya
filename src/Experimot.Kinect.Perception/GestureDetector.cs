@@ -6,7 +6,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using Common.Logging;
 using experimot.msgs;
@@ -95,7 +94,7 @@ namespace Experimot.Kinect.Perception
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                Log.Warn(ex.Message);
             }
         }
 

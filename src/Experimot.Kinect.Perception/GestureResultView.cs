@@ -5,12 +5,12 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using experimot.msgs;
 using Microsoft.Kinect;
 
 namespace Experimot.Kinect.Perception
@@ -23,38 +23,38 @@ namespace Experimot.Kinect.Perception
     {
         /// <summary> Image to show when the 'detected' property is true for a tracked body </summary>
         //private readonly ImageSource seatedImage = new BitmapImage(new Uri(@"Images\Seated.png", UriKind.Relative));
-        private readonly ImageSource handwaveLeft = new BitmapImage(new Uri(@"Images\Handwave_Left.png", UriKind.Relative));
-        private readonly ImageSource handwaveRight = new BitmapImage(new Uri(@"Images\Handwave_Right.png", UriKind.Relative));
+        private readonly ImageSource _handwaveLeft = new BitmapImage(new Uri(@"Images\Handwave_Left.png", UriKind.Relative));
+        private readonly ImageSource _handwaveRight = new BitmapImage(new Uri(@"Images\Handwave_Right.png", UriKind.Relative));
 
-        private readonly System.Collections.Generic.Dictionary<string, ImageSource> gestureImageDict = new System.Collections.Generic.Dictionary<string, ImageSource>();
+        private readonly Dictionary<string, ImageSource> _gestureImageDict = new Dictionary<string, ImageSource>();
 
         /// <summary> Image to show when the 'detected' property is false for a tracked body </summary>
         //private readonly ImageSource notSeatedImage = new BitmapImage(new Uri(@"Images\NotSeated.png", UriKind.Relative));
-        private readonly ImageSource handwaveNone = new BitmapImage(new Uri(@"Images\Handwave_None.png", UriKind.Relative));
+        private readonly ImageSource _handwaveNone = new BitmapImage(new Uri(@"Images\Handwave_None.png", UriKind.Relative));
 
         /// <summary> Image to show when the body associated with the GestureResultView object is not being tracked </summary>
-        private readonly ImageSource notTrackedImage = new BitmapImage(new Uri(@"Images\NotTracked.png", UriKind.Relative));
+        private readonly ImageSource _notTrackedImage = new BitmapImage(new Uri(@"Images\NotTracked.png", UriKind.Relative));
 
         /// <summary> Array of brush colors to use for a tracked body; array position corresponds to the body colors used in the KinectBodyView class </summary>
-        private readonly Brush[] trackedColors = new Brush[] { Brushes.Red, Brushes.Orange, Brushes.Green, Brushes.Blue, Brushes.Indigo, Brushes.Violet };
+        private readonly Brush[] _trackedColors = { Brushes.Red, Brushes.Orange, Brushes.Green, Brushes.Blue, Brushes.Indigo, Brushes.Violet };
 
         /// <summary> Brush color to use as background in the UI </summary>
-        private Brush bodyColor = Brushes.Gray;
+        private Brush _bodyColor = Brushes.Gray;
 
         /// <summary> The body index (0-5) associated with the current gesture detector </summary>
-        private int bodyIndex = 0;
+        private int _bodyIndex;
 
         /// <summary> Current confidence value reported by the discrete gesture </summary>
-        private float confidence = 0.0f;
+        private float _confidence;
 
         /// <summary> True, if the discrete gesture is currently being detected </summary>
-        private string detected = GestureNames.None;
+        private string _detected = GestureNames.None;
 
         /// <summary> Image to display in UI which corresponds to tracking/detection state </summary>
-        private ImageSource imageSource = null;
+        private ImageSource _imageSource;
         
         /// <summary> True, if the body is currently being tracked </summary>
-        private bool isTracked = false;
+        private bool _isTracked;
 
         /// <summary>
         /// Initializes a new instance of the GestureResultView class and sets initial property values
@@ -65,15 +65,15 @@ namespace Experimot.Kinect.Perception
         /// <param name="confidence">Confidence value for detection of the 'Seated' gesture</param>
         public GestureResultView(int bodyIndex, bool isTracked, bool detected, float confidence)
         {
-            this.BodyIndex = bodyIndex;
-            this.IsTracked = isTracked;
-            this.Detected = detected ? string.Empty : GestureNames.None;
-            this.Confidence = confidence;
-            this.ImageSource = this.notTrackedImage;
+            BodyIndex = bodyIndex;
+            IsTracked = isTracked;
+            Detected = detected ? string.Empty : GestureNames.None;
+            Confidence = confidence;
+            ImageSource = _notTrackedImage;
 
-            gestureImageDict.Add(GestureNames.None, handwaveNone);
-            gestureImageDict.Add(GestureNames.HandwaveLeft, handwaveLeft);
-            gestureImageDict.Add(GestureNames.HandwaveRight, handwaveRight);
+            _gestureImageDict.Add(GestureNames.None, _handwaveNone);
+            _gestureImageDict.Add(GestureNames.HandwaveLeft, _handwaveLeft);
+            _gestureImageDict.Add(GestureNames.HandwaveRight, _handwaveRight);
         }
 
         /// <summary>
@@ -88,15 +88,15 @@ namespace Experimot.Kinect.Perception
         {
             get
             {
-                return this.bodyIndex;
+                return _bodyIndex;
             }
 
             private set
             {
-                if (this.bodyIndex != value)
+                if (_bodyIndex != value)
                 {
-                    this.bodyIndex = value;
-                    this.NotifyPropertyChanged();
+                    _bodyIndex = value;
+                    NotifyPropertyChanged();
                 }
             }
         }
@@ -108,15 +108,15 @@ namespace Experimot.Kinect.Perception
         {
             get
             {
-                return this.bodyColor;
+                return _bodyColor;
             }
 
             private set
             {
-                if (this.bodyColor != value)
+                if (!Equals(_bodyColor, value))
                 {
-                    this.bodyColor = value;
-                    this.NotifyPropertyChanged();
+                    _bodyColor = value;
+                    NotifyPropertyChanged();
                 }
             }
         }
@@ -128,15 +128,15 @@ namespace Experimot.Kinect.Perception
         {
             get
             {
-                return this.isTracked;
+                return _isTracked;
             }
 
             private set
             {
-                if (this.IsTracked != value)
+                if (IsTracked != value)
                 {
-                    this.isTracked = value;
-                    this.NotifyPropertyChanged();
+                    _isTracked = value;
+                    NotifyPropertyChanged();
                 }
             }
         }
@@ -148,15 +148,15 @@ namespace Experimot.Kinect.Perception
         {
             get
             {
-                return this.detected;
+                return _detected;
             }
 
             private set
             {
-                if (this.detected != value)
+                if (_detected != value)
                 {
-                    this.detected = value;
-                    this.NotifyPropertyChanged();
+                    _detected = value;
+                    NotifyPropertyChanged();
                 }
             }
         }
@@ -168,15 +168,15 @@ namespace Experimot.Kinect.Perception
         {
             get
             {
-                return this.confidence;
+                return _confidence;
             }
 
             private set
             {
-                if (this.confidence != value)
+                if (Math.Abs(_confidence - value) > 1e-6)
                 {
-                    this.confidence = value;
-                    this.NotifyPropertyChanged();
+                    _confidence = value;
+                    NotifyPropertyChanged();
                 }
             }
         }
@@ -188,49 +188,49 @@ namespace Experimot.Kinect.Perception
         {
             get
             {
-                return this.imageSource;
+                return _imageSource;
             }
 
             private set
             {
-                if (this.ImageSource != value)
+                if (!Equals(ImageSource, value))
                 {
-                    this.imageSource = value;
-                    this.NotifyPropertyChanged();
+                    _imageSource = value;
+                    NotifyPropertyChanged();
                 }
             }
         }
 
-        private CameraSpacePoint position;
+        private CameraSpacePoint _position;
         public CameraSpacePoint Position
         {
             get
             {
-                return this.position;
+                return _position;
             }
             set
             {
-                if (this.position != value)
+                if (_position != value)
                 {
-                    this.position = value;
-                    this.NotifyPropertyChanged();
+                    _position = value;
+                    NotifyPropertyChanged();
                 }
             }
         }
 
-        private Vector4 orientation;
+        private Vector4 _orientation;
         public Vector4 Orientation
         {
             get
             {
-                return this.orientation;
+                return _orientation;
             }
             set
             {
-                if (this.orientation != value)
+                if (_orientation != value)
                 {
-                    this.orientation = value;
-                    this.NotifyPropertyChanged();
+                    _orientation = value;
+                    NotifyPropertyChanged();
                 }
             }
         }
@@ -241,34 +241,35 @@ namespace Experimot.Kinect.Perception
         /// <param name="isBodyTrackingIdValid">True, if the body associated with the GestureResultView object is still being tracked</param>
         /// <param name="isGestureDetected">True, if the discrete gesture is currently detected for the associated body</param>
         /// <param name="detectionConfidence">Confidence value for detection of the discrete gesture</param>
+        /// <param name="gestureKey">Gesture unique identifier</param>
         public void UpdateGestureResult(bool isBodyTrackingIdValid, bool isGestureDetected, float detectionConfidence,
             string gestureKey)
         {
             try
             {
-                this.IsTracked = isBodyTrackingIdValid;
-                this.Confidence = 0.0f;
+                IsTracked = isBodyTrackingIdValid;
+                Confidence = 0.0f;
 
-                if (!this.IsTracked)
+                if (!IsTracked)
                 {
-                    this.ImageSource = this.notTrackedImage;
-                    this.Detected = GestureNames.None;
-                    this.BodyColor = Brushes.Gray;
+                    ImageSource = _notTrackedImage;
+                    Detected = GestureNames.None;
+                    BodyColor = Brushes.Gray;
                 }
                 else
                 {
-                    this.BodyColor = this.trackedColors[this.BodyIndex];
+                    BodyColor = _trackedColors[BodyIndex];
 
                     if (isGestureDetected)
                     {
-                        this.Detected = gestureKey;
-                        this.Confidence = detectionConfidence;
-                        this.ImageSource = gestureImageDict[gestureKey];
+                        Detected = gestureKey;
+                        Confidence = detectionConfidence;
+                        ImageSource = _gestureImageDict[gestureKey];
                     }
                     else
                     {
-                        this.Detected = GestureNames.None;
-                        this.ImageSource = gestureImageDict[GestureNames.None];
+                        Detected = GestureNames.None;
+                        ImageSource = _gestureImageDict[GestureNames.None];
                     }
                 }
                 //var gestMsg = new experimot.msgs.GestureTrigger()
@@ -297,9 +298,9 @@ namespace Experimot.Kinect.Perception
         /// <param name="propertyName">Name of property that has changed</param> 
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            if (this.PropertyChanged != null)
+            if (PropertyChanged != null)
             {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }
