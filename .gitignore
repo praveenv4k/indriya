@@ -361,3 +361,7 @@ sympy-plots-for-*.tex/
 *.sav
 /docs/Midterm/videos/Greeting Gestures.mp4
 /docs/Midterm/videos/Openrave application connected to Real nao..mp4
+
+# Web dependencies
+node_modules
+bower_components
