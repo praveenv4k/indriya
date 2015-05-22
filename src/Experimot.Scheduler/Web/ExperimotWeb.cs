@@ -36,10 +36,10 @@ namespace Experimot.Scheduler.Web
 
                     var uriStr = string.Format("{0}:{1}", host, port);
 
-                    HostConfiguration hostConfigs = new HostConfiguration()
-                    {
-                        UrlReservations = new UrlReservations() { CreateAutomatically = true }
-                    };
+                    //HostConfiguration hostConfigs = new HostConfiguration()
+                    //{
+                    //    UrlReservations = new UrlReservations() { CreateAutomatically = true }
+                    //};
 
                     _host = new NancyHost(new Uri(uriStr), new ExperimotWebBootStrapper());
 

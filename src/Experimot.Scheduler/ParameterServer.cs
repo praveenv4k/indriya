@@ -6,7 +6,6 @@ using Experimot.Core;
 using Experimot.Core.Util;
 using Nancy.TinyIoc;
 using NetMQ;
-using NetMQ.zmq;
 using ProtoBuf;
 
 namespace Experimot.Scheduler
@@ -125,7 +124,7 @@ namespace Experimot.Scheduler
                 catch (NetMQException zex)
                 {
                     // If not timeout
-                    if (zex.ErrorCode != ErrorCode.EAGAIN)
+                    if (zex.ErrorCode != ErrorCode.TryAgain)
                     {
                         Log.ErrorFormat(@"ZMQ Exception: {0}", zex.Message);
                     }
