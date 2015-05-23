@@ -102,9 +102,9 @@ The important components of the system shown in Fig~\ref{fig:architecture} are
 \item \emph{Context}: The application context contains the complete description of the world. It contains latest information about all the robots including their location, sensor data and status. It also contains information about all the humans in the environment along with their active motions/gestures as supplied by the motion recognition modules.
 \item \emph{Parameter Server}: The parameter server acts as a central repository for managing the parameters of the system and of the distributed components.
 \item Embedded Web Server: The web server embedded in the application serves the file and data requests from the web client.
-\item \emph{Context Orchestrator}: The orchestrator collect uptodate information about the robot and human in the environment from the perception system and updates the Context.
+\item \emph{Context Orchestrator}: The orchestrator collect uptodate information about the robots and humans in the environment from the perception system and updates the Context.
 \item \emph{Bootstrapper} : The bootstrapper takes care of initializing the system and starting up all the pre-configured nodes. It also takes of starting and stopping the behavior programs when requested by the user. 
-\item Behavior Program : A dynamic component that will be created when the user starts the program he/she designed using the user interface. The declarative description of the behavior is parsed in order to create a memory model. The Behavior program node monitors the action triggers and invokes the corresponding robot actions according to the way it is being described in the program.
+\item \emph{Behavior Program} : A dynamic component that will be created when the user starts the program he/she designed using the user interface. The declarative description of the behavior is parsed in order to create a memory model. The Behavior program node monitors the application context for the motion triggers and invokes the corresponding robot actions according to the way it is being described in the program.
 \end{itemize}
 \item \textbf{Distributed Components} : These are nodes in the system each with a specific goal that can be started/stopped at any time during the entire application life-cycle without affecting the other nodes or the system. All the nodes will communicate with the application using message passing techniques. They can run in any machine inside the network.
 \begin{itemize}
@@ -114,7 +114,7 @@ The important components of the system shown in Fig~\ref{fig:architecture} are
 \end{itemize}
 \item \textbf{User Interface}: The user interface is a web application that runs on any latest web-kit browsers supporting WebGL technology. 
 \begin{itemize}
-\item \emph{Behavior Designer}: The Behavior designer surface could be used by the user to drag and drop the behavior blocks and construct the program using the set of motion capabilities registered by the active motion recognition nodes and the set of robot action capabilities registered by the active robot interface nodes. The behavior designed using the designer will be encoded into a declarative XML format and sent to the server when the user request to start the program. The designer offers a full range of capabilities like create/edit/delete/save behavior programs.
+\item \emph{Behavior Designer}: The Behavior designer surface could be used by the user to drag and drop the behavior blocks and construct the program using the set of motion capabilities registered by the active motion recognition nodes and the set of robot action capabilities registered by the active robot interface nodes. The behavior designed using the designer will be encoded into a declarative XML format and sent to the server when the user request to start the program. The designer offers a full range of capabilities like Create/Edit/Delete/Save behavior programs.
 \item \emph{Visualization}: The visualization could be used to see the interaction of the human and robot inside a virtual 3D environment.
 \end{itemize}
 \end{itemize}
@@ -139,13 +139,14 @@ The behavior program is structured in a simple way so that it could be easily un
 \item Startup Block: The start up block will be executed once when the user starts the program. The user can add a set of actions to be performed when the program starts. This block is optional and there cannot be more than once block of this kind in a program.
 \item Behavior Block: The behavior block is composed of
 \begin{itemize}
-\item A trigger that activates this block. The trigger is a human motion gesture parameterized by the gesture confidence value.
-\item The lifetime of each behavior block could be configured to run only once, forever or until a condition is met. 
-\item The priority of the block could be set to low, normal or high and the execution is done based on Fixed-priority pre-emptive scheduling. If a higher priority behavior request to use a resource (i.e. robot) which is being used by a lower priority behavior, the higher priority preempts the lower priority behavior.
-\item Similar to the behavior program level, at each behavior block level as set of startup and exit actions could be set which would be executed only once during the creation and termination respectively. The cyclic actions will be performed each time the trigger condition is met.
+\item A \textbf{trigger} that activates this block. The trigger is a human motion gesture parameterized by the gesture confidence value.
+\item The \textbf{lifetime} of each behavior block could be configured to run only once, forever or until a condition is met. 
+\item The \textbf{priority} of the block could be set to low, normal or high and the execution is done based on Fixed-priority pre-emptive scheduling. If a higher priority behavior request to use a resource (i.e. robot) which is being used by a lower priority behavior, the higher priority preempts the lower priority behavior.
+\item Similar to the behavior program level, at each behavior block level as set of \textbf{startup} and \textbf{exit} actions could be set which would be executed only once during the creation and termination respectively. The \textbf{cyclic} actions will be performed each time the trigger condition is met.
 \end{itemize}
-\item Exit Block: The exit block similar to start up block will be executed once when there are the lifetime of all the configured behavior expires. This block is optional as well and there could be only block of this kind in a program.
+\item Exit Block: The exit block similar to start up block will be executed once when the lifetime of all the configured behaviors expire. This block is optional as well and there could be only block of this kind in a program.
 \end{itemize}
+The block level implementation of the conceptual model is shown in Fig.~\ref{fig:program_blocks}
 \begin{figure}
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
@@ -156,6 +157,7 @@ The behavior program is structured in a simple way so that it could be easily un
 \begin{subfigure}[t]{0.48\textwidth}
 \includegraphics[width=\textwidth]{../thesis/assets/program_block.png}
 \caption[Block Implementation]{Block Implementation}
+\label{fig:program_blocks}
 \end{subfigure}
 \caption[Program Structure]{Program Structure}
 \label{fig:program}
