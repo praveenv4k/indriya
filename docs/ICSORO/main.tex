@@ -163,24 +163,57 @@ The block level implementation of the conceptual model is shown in Fig.~\ref{fig
 \label{fig:program}
 \end{figure}
 %
-%\subsection{Workflow}
-%
-Describe the workflow of the operations
-%
-%\subsection{Implementation}
-%
-%
 \subsection{Experimentatal Setup}
 %
 The entire framework has been implemented using open network communication standards powered by ZeroMQ\cite{ZeroMQ} and messaging serialization is done using the Google Protocol Buffers\cite{ProtocolBuffers} which is a language-neutral, platform-neutral, extensible mechanism for serializing structured data. The Kinect for Windows is used as the motion capture system. A set of gestures are created using the Visual Gesture Builder that comes with the Kinect Sdk\cite{Kinect2014}. The process involves capturing the clips of the motions, tagging the clips with the appropriate gestures and training the gesture recognizer. The trained gestures are then exported as a Visual gesture database and integrated with the motion recognition node. The humanoid robot Nao powered by the latest NaoQi OS V2.3 is used for evaluating the interaction scenarios created using behavior design interface.  A set of actions of the Nao humanoid robot are developed as python scripts that are being named corresponding to the actions. The Robot interface node is responsible for invoking these actions whenever requested. The localization of the humanoid robot is performed by combining the marker detection using Augmented reality toolkit ALVAR\cite{ALVAR} and a simple 2-DOF kinematic model of the robot from torso to the head. The software is tested on a 64-bit Intel Core i7 CPU with clock speed 3.60 Ghz and 8 GB of RAM on a  Microsoft Windows 8.1 operating system. The source code of the software is available as open source at \url{https://github.com/praveenv4k/ExPeriMot}
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.48\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/program_structure.eps}
+\caption[Conceptual Model]{Conceptual Model}
+\label{fig:scenario1_program}
+\end{subfigure}
+\begin{subfigure}[t]{0.48\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/program_block.png}
+\caption[Block Implementation]{Block Implementation}
+\label{fig:scenario1_setup}
+\end{subfigure}
+\caption[Program Structure]{Program Structure}
+\label{fig:program}
+\end{figure}
 \subsubsection{Scenario 1}
 %
+In this scenario we consider NAO robot as a demonstrator in a museum. The user would like to design this scenario where when a human comes into the vicinity of the robot, the robot would approach him and start introducing the history of the museum. Such a scenario could be easily designed using our behavior interface as shown in Fig~\ref{fig:scenario1_program}
 %
 \subsubsection{Scenario 2}
 %
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.48\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/program_structure.eps}
+\caption[Conceptual Model]{Conceptual Model}
+\label{fig:scenario2_program}
+\end{subfigure}
+\begin{subfigure}[t]{0.48\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/program_block.png}
+\caption[Block Implementation]{Block Implementation}
+\label{fig:scenario2_setup}
+\end{subfigure}
+\caption[Program Structure]{Program Structure}
+\label{fig:program}
+\end{figure}
+A physiotherapist who is in a remote hospital would like to prepare a scenario where he wants the robot to give directions to the patient who is recovering from a fracture of his hand. The exercise includes the robot to interact with the patient and count the number of times he does the exercise as designed by the therapist. A reference implementation of such a scenario using our behavior interface is shown in Fig~\ref{fig:scenario2_program}
 %
 \section{Conclusions}
 %
+\begin{itemize}
+\item Discussions
+\begin{itemize}
+\item Compromise between the simplicity and expressiveness
+\item Not just social robotics but also industrial scenarios
+\item Exploit the smart devices around and integrate to provide more rich interaction experience like personalization, robust estimation of the motion etc., 
+\end{itemize}
+\end{itemize}
 For the moment we have evaluated our system only for the Kinect motion capture system working seamlessly with the Nao humanoid robot for a set of predefined gestures and robot actions. We are planning to develop an extensive database containing commonly encountered gestures and also an extensive set of primitive robot actions. These will be made available to the end user through the intuitive programming interface which could be then used for defining complex motion driven behaviors. Additionally we are also planning to integrate our system to work with other modes of motion recognition like IMU, Accelerometers and Gyroscopes that are available in smart-phones and wearable devices. Similarly we would like to integrate other system with other robots like Pepper which we expect to receive soon.
 %
 \section{Acknowlegdements}
