@@ -530,9 +530,38 @@ Blockly.Blocks['robot_action'] = {
         this.setColour(225);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(new Blockly.FieldDropdown([["Greet", "greet"], ["Crouch", "crouch"], ["Stand", "stand"], ["Wish", "wish"], ["LabIntroduction", "introduction"]]), "actions");
+            .appendField(new Blockly.FieldDropdown([["Greet", "greet"], ["Crouch", "crouch"], ["Stand", "stand"], ["Wish", "wish"], ["LabIntroduction", "introduction"], ["LookAt", "look_at"]]), "actions");
         this.setPreviousStatement(true);
         this.setNextStatement(true, "robot_action");
         this.setTooltip('Robot Action response');
+    }
+};
+
+Blockly.Blocks['approach_action'] = {
+    init: function() {
+        this.setHelpUrl('http://www.example.com/');
+        this.setColour(225);
+        this.appendDummyInput()
+            .appendField("approach human with distance")
+            .appendField(new Blockly.FieldDropdown([["200", "DIST_200"], ["150", "DIST_150"], ["100", "DIST_100"]]), "approach_distance")
+            .appendField("cm");
+        this.setPreviousStatement(true);
+        this.setNextStatement(true, "robot_action");
+        this.setTooltip('Approach a human with a specified distance of separation');
+    }
+};
+
+Blockly.Blocks['animated_say_action'] = {
+    init: function () {
+        this.setHelpUrl('http://www.example.com/');
+        this.setColour(230);
+        this.appendDummyInput()
+            .appendField("say expressively \"")
+            .appendField(new Blockly.FieldTextInput("text"), "SAY_TEXT")
+            .appendField("\"");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setTooltip('Say expressively to the human');
     }
 };

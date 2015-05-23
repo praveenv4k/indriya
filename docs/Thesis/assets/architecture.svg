@@ -442,7 +442,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="321.71102"
+     inkscape:cx="323.13959"
      inkscape:cy="714.70174"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -468,6 +468,13 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="fill:#c8c8c8;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5670"
+       width="110"
+       height="55.714287"
+       x="383.57144"
+       y="272.93362" />
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect5682"
@@ -586,29 +593,29 @@
          y="40.219349" />
     </g>
     <rect
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.90540743;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect3344-1"
        width="115.41519"
        height="54.700905"
        x="263.57809"
-       y="271.58313" />
+       y="273.58313" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        x="320.24332"
-       y="294.50504"
+       y="296.50504"
        id="text4167-6"
        sodipodi:linespacing="125%"><tspan
          rotate="0 0 0 0 0 0 0 0"
          sodipodi:role="line"
          x="320.24332"
-         y="294.50504"
+         y="296.50504"
          style="font-size:17.5px;text-align:center;text-anchor:middle;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
          id="tspan4171-3">Context</tspan><tspan
          rotate="0 0 0 0 0 0 0 0 0 0 0 0 0"
          sodipodi:role="line"
          x="320.24332"
-         y="316.38004"
+         y="318.38004"
          style="font-size:17.5px;text-align:center;text-anchor:middle;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
          id="tspan4236">Orchestrator</tspan></text>
     <path
@@ -622,7 +629,7 @@
        id="path5746"
        inkscape:connector-curvature="0" />
     <rect
-       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.99336261;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect6500"
        width="477.48206"
        height="162.48206"
@@ -634,7 +641,7 @@
        id="path5732-2"
        inkscape:connector-curvature="0" />
     <rect
-       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.99411249;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect8455"
        width="477.93463"
        height="92.934631"
@@ -648,14 +655,14 @@
        x="141.35568"
        y="359.86072" />
     <rect
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.89206797;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect3344-80-1-9"
        width="107.43759"
        height="81.723312"
        x="202.4955"
        y="371.64343" />
     <rect
-       style="fill:#ffffff;fill-opacity:0.97041423;fill-rule:evenodd;stroke:#000000;stroke-width:0.87806731;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#ffffff;fill-opacity:0.97041423;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect3344-80-1-4"
        width="108.1574"
        height="80.300255"
@@ -669,7 +676,7 @@
        x="325.70761"
        y="387.49835" />
     <rect
-       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.99633074;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect8457-4"
        width="480.26672"
        height="74.552345"
@@ -870,14 +877,14 @@
          x="394.96808"
          y="354.13989">TCP/IP</tspan></text>
     <rect
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.90611291;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect3344-80-1-9-7-5"
        width="113.85212"
        height="79.566406"
        x="487.21622"
        y="370.00818" />
     <rect
-       style="fill:#ffffff;fill-opacity:0.97041423;fill-rule:evenodd;stroke:#000000;stroke-width:0.90910459;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#ffffff;fill-opacity:0.97041423;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect3344-80-1-4-8-9"
        width="115.9835"
        height="80.269226"
@@ -980,13 +987,6 @@
          x="241.10951"
          y="458.39792"
          style="font-size:17.5px;text-align:center;text-anchor:middle;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">node</tspan></text>
-    <rect
-       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect5670"
-       width="110"
-       height="55.714287"
-       x="383.57144"
-       y="270.93362" />
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect5686"
