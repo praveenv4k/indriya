@@ -83,7 +83,8 @@ Blockly.Blocks.behaviors.GestureProperties =
 [
     ["WaveLeft", 'Greet_Left'],
     ["WaveRight", 'Greet_Right'],
-    ["Bow", 'Bow']
+    ["Bow", 'Bow'],
+    ["LiftLeftHand", "LiftLeftHand"]
 ];
 
 Blockly.Blocks.behaviors.PriorityProperties =
@@ -506,7 +507,7 @@ Blockly.Blocks['trigger'] = {
         this.setColour(75);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(new Blockly.FieldDropdown([["WaveLeft", "Greet_Left"], ["WaveRight", "Greet_Right"], ["Bow", "Bow"]]), "triggers");
+            .appendField(new Blockly.FieldDropdown([["WaveLeft", "Greet_Left"], ["WaveRight", "Greet_Right"], ["Bow", "Bow"], ["LiftLeftHand", "LiftLeftHand"]]), "triggers");
         this.setOutput(true);
         this.setTooltip('Motion Trigger');
     }
@@ -548,6 +549,19 @@ Blockly.Blocks['approach_action'] = {
         this.setPreviousStatement(true);
         this.setNextStatement(true, "robot_action");
         this.setTooltip('Approach a human with a specified distance of separation');
+    }
+};
+
+Blockly.Blocks['therapy_action'] = {
+    init: function () {
+        this.setHelpUrl('http://www.example.com/');
+        this.setColour(215);
+        this.appendDummyInput()
+            .appendField("Demonstrate therapy exercise ")
+            .appendField(new Blockly.FieldDropdown([["Lifting left hand", "LIFT_LEFT_HAND"], ["Lifting right hand", "LIFT_RIGHT_HAND"], ["Lifting left leg", "LIFT_LEFT_LEG"]]), "therapy_exercise");
+        this.setPreviousStatement(true);
+        this.setNextStatement(true, "robot_action");
+        this.setTooltip('Demonstrate a particular therapy action');
     }
 };
 
