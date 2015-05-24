@@ -169,8 +169,8 @@ The entire framework has been implemented using open network communication stand
 \begin{figure}
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
-\includegraphics[width=\textwidth]{../thesis/assets/program_structure.eps}
-\caption[Conceptual Model]{Conceptual Model}
+\includegraphics[width=\textwidth]{../thesis/assets/scenario1.png}
+\caption[Behavior Program]{Behavior Program}
 \label{fig:scenario1_program}
 \end{subfigure}
 \begin{subfigure}[t]{0.48\textwidth}
@@ -178,20 +178,17 @@ The entire framework has been implemented using open network communication stand
 \caption[Block Implementation]{Block Implementation}
 \label{fig:scenario1_setup}
 \end{subfigure}
-\caption[Program Structure]{Program Structure}
+\caption[Program Structure]{Scenario 1: NAO as demonstrator}
 \label{fig:program}
 \end{figure}
-\subsubsection{Scenario 1}
-%
-In this scenario we consider NAO robot as a demonstrator in a museum. The user would like to design this scenario where when a human comes into the vicinity of the robot, the robot would approach him and start introducing the history of the museum. Such a scenario could be easily designed using our behavior interface as shown in Fig~\ref{fig:scenario1_program}
-%
-\subsubsection{Scenario 2}
-%
+\subsubsection{Scenario 1}%
+The NAO humanoid robot is a demonstrator in a museum. The museum manager would like to design a scenario where when a human comes into the vicinity of the robot and waves his right hand, the robot would approach him and start explaining the history of the museum. Such a scenario could be easily designed using our behavior interface as shown in Fig~\ref{fig:scenario1_program}. The behavior block is configured to execute only once. The set of actions to be performed on observing the gesture trigger include approaching the human keeping a distance of 1.5 m from him/her. Then look at the human, greet first and say expressively the  history of the museum. It could be noticed that it is straight forward and intuitive.%
+\subsubsection{Scenario 2}%
 \begin{figure}
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
-\includegraphics[width=\textwidth]{../thesis/assets/program_structure.eps}
-\caption[Conceptual Model]{Conceptual Model}
+\includegraphics[width=\textwidth]{../thesis/assets/scenario2.png}
+\caption[Behavior Program]{Behavior Program}
 \label{fig:scenario2_program}
 \end{subfigure}
 \begin{subfigure}[t]{0.48\textwidth}
@@ -199,10 +196,10 @@ In this scenario we consider NAO robot as a demonstrator in a museum. The user w
 \caption[Block Implementation]{Block Implementation}
 \label{fig:scenario2_setup}
 \end{subfigure}
-\caption[Program Structure]{Program Structure}
+\caption[Program Structure]{Scenario 2: NAO as therapy facilitator}
 \label{fig:program}
 \end{figure}
-A physiotherapist who is in a remote hospital would like to prepare a scenario where he wants the robot to give directions to the patient who is recovering from a fracture of his hand. The exercise includes the robot to interact with the patient and count the number of times he does the exercise as designed by the therapist. A reference implementation of such a scenario using our behavior interface is shown in Fig~\ref{fig:scenario2_program}
+A physiotherapist who is in a remote hospital would like to prepare an exercise routine for his patient who is recovering from the fracture of his left hand. The therapist wants the service robot in the rehabilitation center to give directions to the patient in an interactive manner and facilitate the process. The exercise includes the robot to give an introduction about the exercise, then interactively report the progress of the exercise and notify the completion. A reference implementation of such a scenario using our behavior interface is shown in Fig~\ref{fig:scenario2_program}. In the startup behavior an introduction about the exercise routine and a demonstration of the same will be performed by the robot. Then each time the patient performs the exercise, the robot notifies the progress of the exercise. Once the exercise routine is completed (say lifting left hand 10 times), the robot gives some closing comments about the routine.
 %
 \section{Conclusions}
 %
