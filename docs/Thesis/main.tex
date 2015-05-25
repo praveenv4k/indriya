@@ -33,6 +33,7 @@
 \usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
 %%%%%%%%%
 \usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{setspace}
 \usepackage{Tabbing}
 \usepackage{fancyhdr}
@@ -53,6 +54,24 @@
 \usepackage{tikz}
 \usepackage[linesnumbered,ruled,vlined]{algorithm2e}
 \usepackage{multirow}
+\usepackage{listings}
+
+
+\lstdefinelanguage{XML}
+{
+  basicstyle=\ttfamily\footnotesize,
+  morestring=[b]",
+  moredelim=[s][\bfseries\color{Maroon}]{<}{\ },
+  moredelim=[s][\bfseries\color{Maroon}]{</}{>},
+  moredelim=[l][\bfseries\color{Maroon}]{/>},
+  moredelim=[l][\bfseries\color{Maroon}]{>},
+  morecomment=[s]{<?}{?>},
+  morecomment=[s]{<!--}{-->},
+  commentstyle=\color{Maroon},
+  stringstyle=\color{blue},
+  identifierstyle=\color{red}
+}
+
 %\usepackage{url}
 %\usepackage{hyperref}
 %%%%%%%%%%
@@ -315,6 +334,10 @@
 \textbf{TCP} & \textbf{T}ransmission \textbf{C}ontrol \textbf{P}rotocol \\
 \textbf{UDP} & \textbf{U}ser \textbf{D}atagram \textbf{P}rotocol \\
 \textbf{IPC} & \textbf{I}nter \textbf{P}rocess \textbf{C}ommunication \\
+\textbf{XML} & E\textbf{X}tensible \textbf{M}arkup \textbf{L}anguage \\
+\textbf{XSD} & \textbf{X}ML \textbf{S}chema \textbf{D}efinition \\
+\textbf{JSON} & \textbf{J}ava\textbf{S}cript \textbf{O}bject \textbf{N}otation \\
+\textbf{CSV} & \textbf{C}omma \textbf{S}eparated \textbf{V}alues \\
 %\textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
 }
 

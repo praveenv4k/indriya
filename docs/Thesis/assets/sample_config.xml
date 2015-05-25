@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<experimot_config xmlns="http://www.tuat.ac.jp/~venture/ExperimotConfig">
+  <parameters>
+    <param key="ROBOTIP" value="127.0.0.1" type="string"/>
+    <param key="ROBOTPORT" value="51406" type="int"/>
+  </parameters>
+  <nodes>
+    <node enabled="true" name="visualization">
+      <process>
+        <path>bin\visualization.exe</path>
+        <args>nao.xml</args>
+      </process>
+      <subscribers>
+        <subscribe>
+          <host>tcp://localhost</host>
+          <port>5500</port>
+          <topic>RJV</topic>
+          <msg_type>JointValueVector</msg_type>
+        </subscribe>
+      </subscribers>
+    </node>
+    <node enabled="true" name="robot_interface">
+      <process>
+        <path>python.exe</path>
+        <args>scripts\robot_interface.py</args>
+      </process>
+      <publishers>
+        <publish>
+          <host>tcp://*</host>
+          <port>5500</port>
+          <topic>RJV</topic>
+          <msg_type>JointValueVector</msg_type>
+        </publish>
+      </publishers>
+    </node>
+  </nodes>
+</experimot_config>
