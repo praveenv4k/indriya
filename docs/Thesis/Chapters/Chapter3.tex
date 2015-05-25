@@ -1,26 +1,12 @@
 % Chapter Template
-
-\chapter{Understanding Human Motion} % Main chapter title
+\chapter{State of the art techniques}
+\section{Human Motion} % Main chapter title
 
 \label{Chapter3} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-\lhead{Chapter 3. \emph{Understanding Human Motions}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
+\lhead{Chapter 3. \emph{State of the art techniques}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
 
  Human motions are rich in information. It conveys to the receiver the emotion, the attitude, the deeds and even the health of the human. Without understanding completely the human motion, it is not possible to achieve a very good interaction system.  Vision based motion capture and analysis has been studied widely and for instance a condensed summary of all the approaches developed during the past two decades until 2000 have been presented by Moeslund et al. in \cite{Moeslund2001231} followed by the study of advancements during the years 2000-2006 in the survey \cite{Moeslund200690}. In the former the authors reviewed more than 130 publications while in the latter a review of over 300 publications was presented. This shows the rapid advancements in the study of the human motion in the recent times. Another work by Ronald Poppe\cite{Poppe20074} on the overview of vision based human motion analysis approached the problem into two discrete problems of modeling and estimation while also discussing the model free approaches to motion analysis. In this chapter an overview of the various approaches for pose estimation from RGB-D data and the gesture recognition are covered.
-%----------------------------------------------------------------------------------------
-%	SECTION 1
-%----------------------------------------------------------------------------------------
-%\section{Human Body models}
-%\label{sec:humanmodel}
-%	The human motion understanding is incomplete without understanding the kinematic model of the human body. Human body is by far the most complex system in terms of its composition. Human body models describe both the kinematic properties of the body (the skeleton), as the shape and appearance(the flesh and skin). Most of the models describe the human body as a kinematic tree, consisting of segments that are linked by joints. Every joint contains a number of degrees of freedom (DOF), indicating in how many directions the joint can move. All DOF in the body model together form the pose representation. These models can be described in either 2D or 3D. 2D models are suitable for motion parallel to the image plane and are sometimes used for gait analysis but are not sufficient for analysis of more complex motions. 3D models most often model segments as rigid, and allow a maximum of three (orthogonal) rotations per joint and for each of the rotations individually, kinematic constraints can be imposed. The number of DOF considered in the literature varies from 10 DOF to as much as 50 DOF. However we would see in the section~\ref{sec:humanpose} that the pose estimation approaches identifies between 16$\sim$25 joints. Some of the most commonly used human kinematic models for motion analysis are shown in Figure~\ref{fig:humkinmodel}. 
-%
-%\begin{figure}[H]
-%\centering
-%\includegraphics[width=0.5\textwidth]{assets/human_kinmodel.png}
-%%\caption{Human shape models with kinematic model. (a) 2D model (Huang et al,IEEE 2002); (b) 3D volumetric model consisting of superquadrics (Kehl et al,Elsevier, 2006); (c) 3D surface model (Carranza et al, ACM, Inc., 2003).}
-%\caption{Human shape models with kinematic model. (a) 2D model (b) 3D volumetric model (c) 3D surface model}
-%\label{fig:humkinmodel}
-%\end{figure}
 \section{Human Pose Estimation}
 \label{sec:humanpose}
   The surveys\cite{Moeslund2001231}\cite{Moeslund200690}\cite{Poppe20074} cited previously have investigated vision based human motion capture and analysis in general, however our particular focus is to use RGB-D sensors (presented in Section~\ref{ssec:rgbd_sensors}) to this purpose. Human pose estimation has traditionally suffered from two main problems
@@ -141,3 +127,488 @@ For{$t$=$1,2,\cdots T$}{
 \Return Strong classifier $H$ such that $H(x)=sign(\sum_{t=1}^{T}\alpha_t\cdot h_t(x))$
  \caption{Adaptive Boosting algorithm}
 \end{algorithm}
+
+\section{Localization of Humanoid Robot} % Main chapter title
+
+%\label{Chapter4} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+%\lhead{Chapter 4. \emph{Localization of Humanoid Robot}} 
+		The localization of humanoid robots is a challenging issue, due to rough odometry estimation, noisy onboard sensing, and the swaying motion caused by walking\cite{Cervera2012}. 
+		 
+		As a prelimnary assumption, the link of the robot are considered \emph{rigid bodies} in which distance between any two given points on it remains constant in time regardless of external forces exerted on it. Rigid body transformation forms the basic components in the pose estimation framework. In the $3D$ operational space represented by the vector space $\Re^3$, a rigid body is represented by \emph{6 degrees of freedom (DOF)}, 3 for the position along each of the coordinate axes (cartesian coordinates) $P = [p_x,p_y,p_z]^{\text{T}}$ and 3 for the orientation $R$. There are different representation for the orientation of the rigid body. They are rotation matrices, euler angles, RPY (roll,pitch,yaw) angles, quaternions. A detailed introduction about rigid body mechanics and various representation of pose of a rigid body can be found in the book by Khalil\cite{Khalil2002}.
+		
+		For most of the humanoid robots the reference frame will be fixed to the torso as is the case for the Nao. So the basic idea is to track the torso of the Nao or any other position with the known transformation from the torso. In this section different techniques that could be effectively used for localization and tracking of the humanoid robot are presented.
+\section{Artificial Marker based approaches}
+	The advancements in the field of augmented reality led to the development of efficient tracking of object poses by employing fiducial markers. Tracking rectangular fiducial markers can be interesting if we could embed those markers on the humanoid robot. This is one of the simplest and cheapest solution in terms of the computational power as it uses simple image processing algorithms. ARToolKit\cite{Kato1999} implements video tracking libraries which can calculate the real camera position and orientation relative to physical markers in real time. Before camera-based 6DOF tracking can be performed, the camera must be calibrated once as a pre-processing step. The perspective projection and the camera distortion parameters obtained during this step will be used later during the tracking initialization phase. During the tracking, as a first step ARToolKit performs a very simple edge detection by thresholding the complete image with a constant value, followed by a search for quadrangles. Resulting areas being either too large or too small are immediately rejected. Next the interior areas of the remaining quadrangles are normalized using a perspective transformation. The resulting sub-images are then checked against the set of known patterns. When a pattern is detected, ARToolKit uses the marker’s edges for a first, coarse pose detection. In the next step the rotation part of the estimated pose is refined iteratively using matrix fitting. The resulting pose matrix defines a transformation from the camera plane to a local coordinate system in the centre of the marker. ARToolKit can combine several co-planar markers into a multi-marker set. From an application point of view this multi-marker set is treated as a single marker and can be tracked as long as one or more markers of this set are visible. Multi-marker tracking increases the computational load but results in considerably more accurate and robust tracking. ARToolKit also gives the possibility for user-defined markers and the libraries could be trained to track those markers in real time.
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{assets/artoolkit.eps}
+\caption[Marker tracking using ARToolKit]{Marker tracking using ARToolKit. {Adapted from \cite{Kato1999}}}
+\label{fig:artoolkit}
+\end{figure}
+\section{Point Cloud based approaches}
+\label{ssec:pcl}
+	The Point Cloud Library (PCL)\cite{RusuPCL11} which is one of the most widely used 3D perception software library, has collection of state-of-the-art algorithms and tools to process 3-D data. The library is open source and licensed under Berkeley Software Distribution (BSD) terms and, therefore, free to use for everyone. Due to this fact the community has ease of access to powerful ready to use algorithms. In this section, different pose recognition techniques using the point clouds are presented.
+\subsection{PCL Pose estimation Pipeline}
+	Point cloud library provides an excellent infrastructure for the object recognition and 6DOF pose estimation pipeline by offering a wide variety of robust local and global features. A list of features available is presented in \cite{PCL2012}. Object recognition based on global/local features almost share the same flow of operations. A glimpse of the pipeline is shown in Figure~\ref{fig:pcl_pipeline}.
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{assets/pcl_pipeline.eps}
+\caption[PCL local and global 3D Pipelines]{PCL local and global 3D Pipelines. {Adapted from \cite{PCL2012}}}
+\label{fig:pcl_pipeline}
+\end{figure}
+Before the PCL system being able to detect the pose of the object, the system has to be trained with the point clouds of the meshes generated by a virtual depth camera. The 3D features of the model are computed and stored to be used during the recognition phase. 
+	The first step in the recognition based on \emph{local descriptors} is \emph{key-point extraction} which detect repeatable and distinct key points from the scene data. After this step, they are associated to a \emph{local description} defined over a local support for determining the subset of neighbouring points around the key point. Once descriptor are computed for the current scene and each model in the library, \emph{matching} will be performed to yield point-to-point correspondences. This is followed by an additional stage called \emph{correspondence grouping} during which correspondence which are not geometrically consistent are discarded. However this step does not guarantee that all remaining correspondences are consistent with unique 6-DOF pose. To this purpose Random Sampling Consensus(RANSAC) is used to remove the outliers. Following this, a least square optimization is performed to obtain the rotation and the translation from exact point correspondences.
+	
+	For recognition based on global descriptors, the first step involves a \emph{segmentation} of the scene to extract the objects in it based on the extraction of a dominant scene plane and euclidean clustering step. During the \emph{description and matching} steps, the shape and geometry of each objects in the scene are described using appropriate global descriptor and represented by one or more histograms. The histogram \emph{matching} is done to those obtained during training stage to retrieve $N$-nearest neighbors using \emph{FLANN (Fast Library for Approximate nearest neighbors)}. An aliging step following this will give a 5-DoF pose since the global descriptors are invariant to roll axis rotation. This rotation could be achieved using \emph{camera roll histogram}.Both the global and local pipelines can undergo an optional \emph{post processing} step by applying Iterated Closest Point (ICP) in order to refine estimated 6-DoF pose. The following step referred to as \emph{hypotheses verification} which aims at reducing false positives(FPs).
+\subsection{PCL Tracking pipeline}
+	Apart from the object recognition and pose estimation pipeline, PCL\cite{RUeda2012} provides a comprehensive algorithmic base for the estimation of 3D object poses using Monte Carlo sampling techniques and for calculating the likelihood using combined weighted metrics for hyperdimensional spaces including cartesian data, colors, and surface normals. PCL also has non-probabilistic tracking algorithms like Pyramidal Kanade Lucas Tomasi(KLT) Tracker in its tracking module. The KLT tracker operates on organized 3D keypoints with color/intensity information. It is an affine tracker that iteratively computes the optical flow to find the best guess for a point $p$ at time $t$ given its location at $t-1$. A list of probabilistic tracking algorithms implemented in PCL is presented in Section~\ref{sssec:prob_solutions} for the purpose of being coherent.
+\section{Probabilistic Approaches}
+\label{ssec:prob_approaches}
+	Probabilistic localization algorithms are variants of the Bayes filter\cite{Thrun2005}. The pose of the robot is represented in a probabilistic manner called the \emph{belief}: ($bel(x_t)$) which is a posterior distribution over the state space. The basic principle behind Bayes filter is that the belief $bel(x_t)$ at time $t$ is calculated from the belief $bel(x_{t-1})$ at time $t-1$ along with the most recent control $u_t$ and the most recent measurement $z_t$. It involves two basic steps: \emph{Control update step} during which the $\overline{bel(x_t)}$ is computed based on the prior assigned to $x_{t-1}$ and the probability that control $u_t$ induces a transition from $x_{t-1}$ to $x_t$, \emph{Measurement update step} during which the hypothetical posterior $\overline{bel(x_t)}$ is multiplied with the probability of seeing an observation $z_t$ given this $x_t$. The recursive computation of belief state can thus be given by
+	\begin{align*}
+	\text{Control update step:}\quad \overline{bel(x_t)} &= \int p(x_t\vert u_t,x_{t-1})\cdot bel(x_{t-1}) dx \\
+	\text{Measurement update step:}\quad {bel(x_t)} &= \eta\cdot p(z_t\vert x_{t})\cdot \overline{bel(x_t)}
+	\end{align*}
+	where $\eta$ is the normalization factor.
+	The straightforward application of Bayes filters to the localization problem is called Markov localization. Markov localization makes use of the \emph{Markov assumption} (The Markov
+assumption postulates that past and future data are independent if one knows the current
+state {$x_t$). Extended Kalman Filter(EKF) based localization is one of the initial developments to be used in non-linear state models. However they suffered problems of uni-modal distribution(gaussian) assumption and failing to solve global localization problem. In the following section, a class of non-parametric localization approach is presented. 
+\subsection{Particle Filter}
+\label{ssec:particlefilter}
+	The particle filter\cite{Thrun2005} is an alternative non parametric implementation of Bayes filter. The key idea of the particle filter is to represent the posterior $bel(x_t)$ by a set of samples drawn from the distribution. Such a representation is approximate, but it is nonparametric, and therefore can represent a much broader space of distributions than, for example, Gaussians. The important components of a particle filter are\\
+\begin{tabular}{r l}
+\centering
+  (Control input,Measurement) & $(u_t,z_t)$ \\ 
+  Sample of Posterior distribution (particles) & $X_t := {x_t}^{[1]},{x_t}^{[2]},\cdots,{x_t}^{[M]}$ \\
+  (Posterior PDF,Likelihood function) & $(p(X_t\vert z_{1:t}),p(z_t \vert {x_t}^{[m]})$ \\
+  Importance Factor of $m^{th}$ particle & ${w_t}^{[m]}$ \\
+\end{tabular}
+	
+	Each particle ${x_t}^{[m]}$ (with $1 \leq m \leq M$) is the concrete instantiation of the state at time $t$, that a hypothesis as to what the true world state may be at $t$. Here $M$ denotes the number of particles in the set $X_t$. The basic intuition behind the particle filter is to approximate the belief $bel(x_t)$ by the set of particles $X_t$ and as a consequence denser a subregion of the state space is populated by samples, the more likely the true state falls in the region.The current state is given by the weighted particle mean 
+\begin{equation}
+E(X_t) = \sum_{m=1}^{M} {w_t}^{[m]}\cdot {x_t}^{[m]}
+\end{equation}
+The basic algorithm of particle filter is shown in \ref{alg:particlefilter}.\\ 
+\begin{algorithm}
+\KwData{$X_{t-1}$, $u_t$, $z_t$}
+\KwResult{$X_t$}
+Init: {$\tilde{X_t}$ = $X_t$ = $\emptyset$ } \;
+ \For{$m$ = $1$ to $M$} { 
+   sample ${x_t}^{[m]} \approx p(x_t \vert u_t,{x_{t-1}}^{[m]}) $ //Hypothetical state computation \;
+   ${w_t}^{[m]} = p(z_t \vert {x_t}^{[m]} )$ //Importance factor computation\;
+   $\tilde{X_t} = \tilde{X_t} + ({x_t}^{[m]},{w_t}^{[m]})$ \;
+ }
+ \For{$m$ = $1$ to $M$} { 
+   draw $i$ with probability $\varpropto$ ${w_t}^{[i]}$ //Importance re-sampling\;
+   add ${x_t}^{[i]}$ to $X_t$ \;
+ }
+ return $X_t$
+ \caption{Basic algorithm of Particle Filter}
+ \label{alg:particlefilter}
+\end{algorithm}
+\subsection{Monte Carlo Localization}
+\label{ssec:montecarlo}
+	Monte-carlo localization (MCL)\cite{Fox99montecarlo} is a version of Markov localization, a family of probabilistic approaches that has been successfully applied to localization problems and it has become one of the most popular localization algorithms in robotics. MCL uses fast sampling techniques to represent the belief and it introduces probabilistic motion and perceptual models into the particle filter framework. Hence it uses the same formalism described in \ref{ssec:particlefilter}.\\  	
+\begin{algorithm}
+\KwData{$X_{t-1}$, $u_t$, $z_t$}
+\KwResult{$X_t$}
+Init: {$\tilde{X_t}$ = $X_t$ = $\emptyset$ } \;
+ \For{$m$ = $1$ to $M$} { 
+   ${x_t}^{[m]} = \text{sample\_motion\_model}(u_t,{x_{t-1}}^{[m]})$ //Hypothetical state computation\;
+   ${w_t}^{[m]} = \text{measurement\_model}(z_t,{x_t}^{[m]},m)$ //Importance factor computation \; 
+   $\tilde{X_t} = \tilde{X_t} + ({x_t}^{[m]},{w_t}^{[m]})$ \;
+ }
+ \For{$m$ = $1$ to $M$} { 
+   draw $i$ with probability $\varpropto$ ${w_t}^{[i]}$ //Importance re-sampling\;
+   add ${x_t}^{[i]}$ to $X_t$ \;
+ }
+ return $X_t$
+ \caption{Monte Carlo Localization}
+ \label{alg:montecarlo}
+\end{algorithm}
+
+	The efficiency of particle filters lies in the way they place computational resources. By sampling in proportion to likelihood, particle filters focus the computational resources on regions with high likelihood, where good approximations are most important. The time complexity of one update of the particle filter algorithm is linear in the number of samples needed for the estimation. The Kullback-Leibler Distance(KLD) adaptive sampling technique proposed in \cite{Fox03adaptingthe} presents an approach to adapt the number of samples over time. The key idea is at each iteration of the particle filter, the number of samples are determined such that, with probability $1-\delta$, the error between the true posterior and the sample-based approximation (maximum likelihood estimate- MLE) is less than $\epsilon$. The distance between the MLE and the true distribution is measured by a non-negative Kullback-Leibler distance which for two distributions $p$ and $q$ is given by
+\begin{equation}
+K(p,q) = \sum_{x} p(x)log{\frac{p(x)}{q(x)}}
+\end{equation}
+
+\subsection{Existing Solutions}
+\label{sssec:prob_solutions}
+	\par The Point cloud library\cite{RUeda2012} introduced in Section~\ref{ssec:pcl} implements ready to use probabilistic tracking algorithms like: the most basic particle filter tracker(\emph{ParticleFilterTracker}), particle filter using OpenMP support(\emph{ParticleFilterOMPTracker}), KLD-adaptive sampling particle filter( \emph{KLDAdaptiveParticleFilterTracker}) and KLD adaptive sampling with OpenMP support ( \emph{KLDAdaptiveParticleFilterOMPTracker}). This could be readily used to track an object of know geometry and this information has to be fed to the PCL through a point cloud mesh of the object.
+	
+	Studies on robot localization, obstacle mapping, and path planning in multilevel 3D environments by equipping Nao with a consumer-level depth camera has been reported in \cite{Maier2012}. This study provides real-time solution while maintaining a 3D environment representation and estimating the robot’s pose in 6D. The 3D environment model in form of an octree based representation containing the static parts of the environment is used. In this representation, the robot estimates its pose using MCL based on acquired depth data. Given the estimated 6D pose of the humanoid and a sequence of depth images, this approach continuously builds a local 3D representation of the current state of the environment containing also non-static obstacles. This learned octree-based representation is then used for real-time planning of collision-free paths. For robust localization while walking, it combines 3D range data from the depth camera located on top of the head, altitude data provided by an inertial measurement unit (IMU) in the chest and odometry data.
+	
+	While \cite{Maier2012} presented an approach wherein a depth camera is fixed to the humanoid robot, in \cite{Cervera2012} localization and motion planning in smart home environment have been proposed. In this study an external depth camera is used for 6D pose estimation and tracking, which is very close to the scenario of this thesis. Once again MCL technique is used for the pose estimation of the torso of the humanoid robot and this information is used for the closed loop navigation control. For the localization, this study used  \emph{KLDAdaptiveParticleFilterOMPTracker} available in Point cloud library. For the purpose of navigation, this study determined the pose error on the plane of walking using the knowledge of estimated pose and the desired pose. The linear velocity of the robot is calculated from the pose error using a proportional gain. The angular velocity is determined adaptively depending on the distance to the target. The localization results of this study proved to be robust compared to the odometry data. However this study did not take into account of collision free navigation planning. 
+	
+	In \cite{choi13_rgb_d_objec_track} a robust particle filter parallelized on a GPU that can track a known 3D object model over a sequence of RGB-D images is proposed. This method proposes to render the 3D object model to be used in the likelihood function so that the object could be tracked inspite of significant pose variations. Unlike PCL object tracking algorithm\cite{RusuPCL11} which maintains only one reference point cloud, this approach uses multiple viewports rendered in GPU with different poses and each particle searches the closest rendering from the viewports and likelihood evaluation is performed by transforming the closest rendered result with the current particle state. Each particle is defined as 6D vector consisting of position and orientation of the object. For the likelihood evaluation, this work exploits the RGB-D data and utilizes the position, normal and color information of the points. Through a set of extensive experiments with both synthetic and real RGB-D sequences, this approach has been proved to be faster and also accurate than the PCL tracking.
+	
+%For the likelihood evaluation, this work exploits the RGB-D data and utilizes the measurement vector of the $i^{th}$ point at $t^{th}$ instant $z_t^{[i]} \in \Re^9$ defined as follows
+%\begin{equation}
+%z_t^{[i]} = ({p_t^{[i]}}^{\text{T}},{n_t^{[i]}}^{\text{T}},{c_t^{[i]}}^{\text{T}})^{\text{T}}
+%\end{equation}
+%where ${p_t^{[i]}}^{\text{T}} \in \Re^3$:Position, ${n_t^{[i]}}^{\text{T}} \in \Re^3$:Normal, ${c_t^{[i]}}^{\text{T}} \in \Re^3$:Color. Additionally the operators to access Position, Normal and Color given the ${z_t}^{[i]}$ are definded as $pt({z_t}^{[i]})=({p_t^{[i]}}^{\text{T}} 1)^{\text{T}} \in \Re^4$, $n({z_t}^{[i]})=({n_t^{[i]}}^{\text{T}} 1)^{\text{T}} \in \Re^4$ and $c({z_t}^{[i]})=(c_t^{[i]}) \in \Re^3$ respectively. 
+%From the current pose hypothesis ${x_t}^{[m]}$ and the rendered object model $M_t$, the likelihood of the scene $z_t$ is defined as 
+%\begin{equation}
+%p(z_t\vert {x_t}^{[m]},M_t) = \prod_{(i,j)\in A} p({z_t}^{[i]}\vert {x_t}^{[m]},{m_t}^{[j]})
+%\end{equation}
+%where $A=\lbrace (i,j)\vert proj(pt({z_t}^{[i]})) = proj(x_t^{m}.pt({m_t}^{[j]})) \rbrace$ is the set of point associations between the scene $z_t$ and the object model $M_t$ and ${z_t}^{[i]},{m_t}^{[j]} \in \Re^9$ are corresponding points in the scene and model respectively. The operator $proj(.)$ computes the 2D image coordinates from the 3D homogenous point coordinates by projecting the point with the known camera intrinsic parameters $K \in \Re^{3\times 3}$. The likelihood of each association $(i,j)$ is then defined by 
+%\begin{align*}
+%p({z_t}^{[i]}\vert {x_t}^{[m]},{m_t}^{[j]}) &= \text{exp}^{-\lambda_e.d_e(pt({z_t}^{[i]}),x_t^{m}.pt({m_t}^{[j]}))}\cdot \\
+%										   &\quad\ \text{exp}^{-\lambda_n.d_n(n({z_t}^{[i]}),x_t^{m}.n({m_t}^{[j]}))}\cdot \\								   &\quad\ \text{exp}^{-\lambda_c.d_c(c({z_t}^{[i]}),x_t^{m}.c({m_t}^{[j]}))}
+%\end{align*}
+%where $d_e(p_1,p_2)$, $d_n(n_1,n_2)$ and $d_c(c_1,c_2)$ are euclidean, normal and color distances.
+%% as shown below
+%%\begin{align*}
+%%d_e(p_1,p_2) &= \begin{cases}
+%%\Vert p_1 - p_2 \Vert &\quad\quad \text{ if } \Vert p_1 - p_2 \Vert \leq \text{ threshold} \\
+%%1					  &\quad\quad \text{ otherwise } \\
+%%\end{cases}\\
+%%d_n(n_1,n_2) &= \frac{cos^{-1}(n_1^{\text{T}}n_2-1)}{\pi} \\
+%%d_c(c_1,c_2) &= \Vert c_1 - c_2 \Vert
+%%\end{align*}
+%%and 
+%$(\lambda_e,\lambda_n,\lambda_c)$ are the parameters that determine the sensitivity of the distances to the likelihood. 
+
+
+
+
+%Since the normals $(n_1,n_2)$ are represented as homogenous coordinates, $1$ has to be subtracted from their inner product. As far as $d_c$ is concerned, HSV color space is considered for $(c_1,c_2)$ due to the invariance to illumination changes.
+
+%\subsubsection{Pose detection using Particle Filter and RGB-D data}
+%\label{ssec:particlegpu}
+% In \cite{choi13_rgb_d_objec_track}, a robust particle filter parallelized on a GPU that can track a known 3D object model $M_t$ over a sequence of RGB-D images is proposed. This method proposes to render the 3D object model to be used in the likelihood function so that the object could be tracked inspite of significant pose variations. The key features of the study include
+%
+%\begin{itemize}
+%\item Unlike traditional methods which employed 2D edges, intensity differences to calculate the importance weight of the particles, this approach uses both photometric(colors) and geometric features (3D points and surface normals) available from RGB-D images and OpenGL rendering.
+%\item It uses the framebuffer object extension (FBO) in OpenGL and the CUDA OpenGL interoperability to reduce the mapping time of the rendering result to CUDA’s memory space.
+%\item Unlike PCL object tracking algorithm\cite{RusuPCL11} which maintains only one reference point cloud, this approach uses multiple viewports rendered in GPU with different poses and each particle searches the closest rendering from the viewports and likelihood evaluation is performed by transforming the closest rendered result with the current particle state.
+%\end{itemize}
+%
+%Each particle $x_t$ is a 6D vector consisting of Position and Orientation $x_t: (P_t,R_t)$ of the object. As described in the previous section~\ref{ssec:particlefilter}, the pose of the object is given by the weighted particle mean. However when we estimate the mean, it should give a valid rotation $R_t \in SO(3)$ as the arithmetic mean $\tilde{R_t}=\frac{1}{M}\sum_{m=1}^{M} {R_t}^{[m]}$ is not usually on the $SO(3)$ group. In order to overcome this problem the desired mean is calculated via the orthogonal projection of the arithmetic mean as
+%
+%\begin{equation}
+%R_t = \begin{cases}
+%VU^{\text{T}}  \quad\quad when \det(\tilde{R}^{\text{T}}) > 0 \\
+%VHU^{\text{T}} \quad\quad otherwise
+%\end{cases}
+%\end{equation}
+%
+%where $U$ and $V$ are estimated via the singular value decomposition of $\tilde{R}^{\text{T}}$ (\textit{i.e} $\tilde{R}^{\text{T}}$ = $U\Sigma V^{\text{T}}$) and $H=diag[1,1,-1]$.
+%
+%For the likelihood evaluation, this work exploits the RGB-D data and utilizes the measurement vector of the $i^{th}$point at $t^{th}$ instant $z_t^{[i]} \in \Re^9$ defined as follows
+%
+%\begin{equation}
+%z_t^{[i]} = ({p_t^{[i]}}^{\text{T}},{n_t^{[i]}}^{\text{T}},{c_t^{[i]}}^{\text{T}})^{\text{T}}
+%\end{equation}
+%
+%where ${p_t^{[i]}}^{\text{T}} \in \Re^3$:Position, ${n_t^{[i]}}^{\text{T}} \in \Re^3$:Normal, ${c_t^{[i]}}^{\text{T}} \in \Re^3$:Color. Additionally the operators to access Position, Normal and Color given the ${z_t}^{[i]}$ are definded as $pt({z_t}^{[i]})=({p_t^{[i]}}^{\text{T}} 1)^{\text{T}} \in \Re^4$, $n({z_t}^{[i]})=({n_t^{[i]}}^{\text{T}} 1)^{\text{T}} \in \Re^4$ and $c({z_t}^{[i]})=(c_t^{[i]}) \in \Re^3$ respectively. 
+%
+%From the current pose hypothesis ${x_t}^{[m]}$ and the rendered object model $M_t$, the likelihood of the scene $z_t$ is defined as 
+%
+%\begin{equation}
+%p(z_t\vert {x_t}^{[m]},M_t) = \prod_{(i,j)\in A} p({z_t}^{[i]}\vert {x_t}^{[m]},{m_t}^{[j]})
+%\end{equation}
+%
+%where $A=\lbrace (i,j)\vert proj(pt({z_t}^{[i]})) = proj(x_t^{m}.pt({m_t}^{[j]})) \rbrace$ is the set of point associations between the scene $z_t$ and the object model $M_t$ and ${z_t}^{[i]},{m_t}^{[j]} \in \Re^9$ are corresponding points in the scene and model respectively. The operator $proj(.)$ computes the 2D image coordinates from the 3D homogenous point coordinates by projecting the point with the known camera intrinsic parameters $K \in \Re^{3\times 3}$. The likelihood of each association $(i,j)$ is then defined by 
+%
+%%\begin{equation}
+%\begin{align*}
+%p({z_t}^{[i]}\vert {x_t}^{[m]},{m_t}^{[j]}) &= \text{exp}^{-\lambda_e.d_e(pt({z_t}^{[i]}),x_t^{m}.pt({m_t}^{[j]}))}\cdot \\
+%										   &\quad\ \text{exp}^{-\lambda_n.d_n(n({z_t}^{[i]}),x_t^{m}.n({m_t}^{[j]}))}\cdot \\								   &\quad\ \text{exp}^{-\lambda_c.d_c(c({z_t}^{[i]}),x_t^{m}.c({m_t}^{[j]}))}
+%\end{align*}
+%
+%where $d_e(p_1,p_2)$, $d_n(n_1,n_2)$ and $d_c(c_1,c_2)$ are euclidean, normal and color distances as shown below
+%
+%\begin{align*}
+%d_e(p_1,p_2) &= \begin{cases}
+%\Vert p_1 - p_2 \Vert &\quad\quad \text{ if } \Vert p_1 - p_2 \Vert \leq \text{ threshold} \\
+%1					  &\quad\quad \text{ otherwise } \\
+%\end{cases}\\
+%d_n(n_1,n_2) &= \frac{cos^{-1}(n_1^{\text{T}}n_2-1)}{\pi} \\
+%d_c(c_1,c_2) &= \Vert c_1 - c_2 \Vert
+%\end{align*}
+%
+%and $(\lambda_e,\lambda_n,\lambda_c)$ are the parameters that determine the sensitivity of the distances to the likelihood. Since the normals $(n_1,n_2)$ are represented as homogenous coordinates, $1$ has to be subtracted from their inner product. As far as $d_c$ is concerned, HSV color space is considered for $(c_1,c_2)$ due to the invariance to illumination changes.
+
+
+\section{Behavioral Frameworks} % Main chapter title
+
+\label{Chapter5} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+
+\lhead{Chapter 5. \emph{Behavioral Frameworks}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
+
+\section{Requirements}
+The users of social robots do not have necessary backgrounds in programming and design of robot behaviors. This lead to the development of several visual programming languages which allow non-programmers to create robot applications. Most of the available visual programming softwares allows to choose among many prebuilt behavioral blocks and connecting them to one another to get the desired flow of action \cite{MSRS4},\cite{Choregraphe}. These programs are very intuitive and allow the users to realize complex sequence of movements and sequential behaviors. But programming dynamic behaviors still remains challenging. This is primarily due to fact that the users have to think about the data flow between various blocks by appropriate connections between them. When it comes to designing complex dynamic behaviors this task becomes very tedious and time consuming. 
+Programming complex dynamic behaviors for small commercial humanoid robots is a complicated task for the inexperienced roboticists\cite{BerenzTDM2014} for the following reasons.
+\begin{itemize}
+\item Synchronizing the data flow between tasks that run at different rates
+\item Ensuring robustness and task continuity in case of unreliable sensory modules
+\item Providing memory infrastructure to manage the existence and positions of detected objects
+\item Organizing the distinct information flow for each detected object from sensory modules to processing modules
+\item Conditional selection of actions and retrying in case of failure. 
+\end{itemize}
+\section{Existing Solutions}
+There are many solutions  proposed in the literature that address the dynamic control problem. For instance Gostai's Universal Robotic Body Interface(URBI)\cite{Baillie4814281} and Task description language (TDL)\cite{Simmons724883} are programming languages developed specifically for robot programming. URBI provides a modern object-oriented scripting language that allows the organization of code into different processes that either run sequentially or in parallel, and it also provides tools for process execution monitoring. In TDL which was developed as a C++ extension, the code is organized into task trees, which encode the hierarchical decomposition of tasks as well as the synchronization of constraints between tasks.
+%Apart from these, a large range of robotic architectures have been proposed, including solutions based on hierarchical control architectures \cite{Firby:1989:AEC:916113}, reactive architectures \citep{Brooks:1991:RLC:106552.106553}, and hybrid systems \citep{arkinetal},\cite{Bonasso},\cite{berra}. 
+More recently, specialized operating systems have been proposed, such as ROS\cite{quigley2009ros}, which organize code into distributed asynchronous modules that exchange data using a data subscription protocol. Hierarchical organization of behaviors and modularity are also being investigated \cite{Jaegeretal},\cite{Baldassarre:2013:CRM:2560111},\cite{hurdus4648045}. These solutions manage the integration and communication between different types of hardware and software and support the implementation of reaction, as well as behavioral specification. However, these programs have been produced by robot developers and are targeted at this community, which means that they are not intended to be used by non-roboticists and a solid background in computer science/robotics is required for their use.
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=\textwidth]{assets/helloworld_cho_dlg_05.png}
+%http://doc.aldebaran.com/2-1/getting_started/helloworld_choregraphe_dialog.html
+\caption{Choreographe Albebaran}
+\label{fig:choreographe}
+\end{subfigure}%
+\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=\textwidth]{assets/MSRD4_VSE2.png}
+%http://www.microsoftstore.com/store/msusa/en_US/pdp/Kinect-for-Windows-v2-Sensor/productID.298810500
+\caption{MSRD Studio 4:Visual Simulation Environment}
+\label{fig:msrd4_vse}
+\end{subfigure}%
+\caption[Visual Programming Tools]{Visual Programming Tools. {Adapted from manufacturer's site}}
+\label{fig:visprog}
+\end{figure}
+\section{Target Drives Means Framework}
+A new non-domain-specific solution called \emph{Target Drives Means (TDM)}( Developed at University of Tsukuba, Artificial Intelligence Laboratory) is proposed in \cite{BerenzTDM2014} taking into account the following requirements. 
+\begin{itemize}
+\item Full support for dynamic actions $\rightarrow$ Management of automatic information flow between sensory and action components, object permanence, action continuity.
+\item Declarative approach and not of flowcharts, which lead to plan composition issues. 
+\item Ability to specify context-specific activation of actions. 
+\item Shorter learning curve. 
+\item Modular design to ensure the efficient reuse
+of components.
+\end{itemize}
+%In order to satisfy the aforementioned requirements, TDM proposes a programming paradigm where actions are not organized in a temporal sequence. Programming is achieved by specifying a collection of behaviors that run in parallel. The proposed approach allows users to design dynamic behaviors by selecting preprogrammed components from an a priori known list and associating them. The logic of the program is not expressed using communication links in a flowchart, but by the use of specialized dynamic components that regulate the activation status and the priorities of the behaviors. 
+%
+%Users can apply TDM to create programs by associating preprogrammed components from an organized library as shown in Figure~\ref{fig:tdm_comp}. There are four types of components:
+%\begin{itemize}
+%\item \emph{Functions} for actions or the handling of sensory data.
+%\item \emph{Conditions} that monitor the activation status of functions.
+%\item \emph{Score calculators} that perform the online evaluation of the execution priority for clusters of functions known as behaviors.
+%\item \emph{Triggers} that link sensing to acting.
+%\end{itemize}
+%
+%The functions, conditions and score calculators are all dynamic components. If the user adds one of these components to a program, the architecture connects it automatically to a central memory called the Internal Model (IM). The components never communicate with each other directly because information exchange occurs via the IM. The IM organizes the information flow between connected components, which makes dynamic control and management of memory of objects a simple task. The priority of execution of the tasks are dynamically controlled using the result of the score calculator associated with each behavior as shown in Figure~\ref{fig:tdm_priority}.
+%
+%\begin{figure}[H]
+%\centering
+%\begin{subfigure}[b]{0.45\textwidth}
+%\includegraphics[width=\textwidth]{assets/tdm_components.eps}
+%\caption{Behavior programming from component library}
+%\label{fig:tdm_comp}
+%\end{subfigure}%
+%\hfill
+%\begin{subfigure}[b]{0.4\textwidth}
+%\includegraphics[width=\textwidth]{assets/tdm_priority.eps}
+%\caption{Behavior coordination and execution}
+%\label{fig:tdm_priority}
+%\end{subfigure}%
+%\caption{TDM primitives and concepts}
+%\label{fig:tdm1}
+%\end{figure}
+%
+%An example of the minimal program using TDM paradigm is shown in Figure~\ref{fig:tdm_example} for the dynamic ball kicking problem. There are two behaviors specified in the example program one of which is the default behavior. There are two functions inside the default behavior which are "Ball detection" function which pushes the position of the ball to the internal model when one is detected. There is also the "Move head left right" function which searches for the presence of the ball. Within a behavior the priority of execution of the functions are controlled by the order in which the functions are arranged in this case "Ball detection" function has higher priority to the "Move head" function. The condition of execution of the functions in default behavior is always true which means that these functions will always be executed once the behavior is activated. Additionally the execution of the default behavior doesn't need external trigger which means the default behavior will always be executed. The score calculator of the default behavior is set to 0 which means that the default behavior will be executed with low priority. Now coming to the "Behavior 1" which performs the actual task of kicking the ball contains three functions "Head Tracking", "Kicking" and "Walking" functions. This behavior will be triggered when a ball is detected. Once the ball is detected, the "Head tracking" function retrieves the position of the ball from the internal model and starts to track it. The "Walking" function instead makes sure that the robot walks towards the ball. These two functions will execute unconditionally once "Behavior 1" is activated. However once the robot comes close to the ball the condition of vicinity will be satisfied and the "Kicking" function will be activated and the robot kicks the ball. 
+%
+%\begin{figure}[H]
+%\centering
+%\begin{subfigure}[b]{0.48\textwidth}
+%\includegraphics[width=\textwidth]{assets/tdm_im.eps}
+%\caption{Information management by IM of TDM}
+%\label{fig:tdm_im}
+%\end{subfigure}%
+%\hfill
+%\begin{subfigure}[b]{0.45\textwidth}
+%\includegraphics[width=\textwidth]{assets/tdm_example.eps}
+%\caption{An example Program in TDM}
+%\label{fig:tdm_example}
+%\end{subfigure}%
+%\caption{TDM Framework \cite{BerenzTDM2014}}
+%\label{fig:tdm2}
+%\end{figure}
+%
+%The communication between components through IM is shown in Figure~\ref{fig:tdm_im}. Now let us see how the IM makes the dynamic behavior control problem easier. The IM organizes the information flows between components. It implements odometry, manages the notion of object permanence, and redirects information based on the trigger components. The IM runs its own process and uses the pull/push communication system, which allows asynchronous exchange of data. The redirection of information from sensing functions to other components is nontrivial if several objects of the same type are detected. As mentioned previously, the detection of several balls implies a risk of incoherent behavior, where the robot will switch constantly between walking toward one ball and walking toward another ball. The IM solves this issue in a transparent manner as follows.
+%\begin{itemize}
+%\item Behaviors are generated at run-time according to triggers, i.e., if two balls are detected, two behaviors are created during runtime.
+%\item Two distinct information flows are enforced between the sensory functionality and the two dynamically created behaviors.
+%\end{itemize}
+%The IM achieves this by processing the information coming from sensory modules through push connections into knowledge about distinct objects, creating and maintaining a scheme representation for each object. In the case of balls:
+%\begin{itemize}
+%\item The IM compares all of the ball schemes pushed by the ball detection function to several dynamically created reference schemes.
+%\item The IM updates the properties of these two reference schemes based on the properties of similar pushed schemes.
+%\item The IM replies to pull requests from the two distinct behaviors with a suitable scheme, thereby enforcing two distinct control
+%loops.
+%\end{itemize}
+%The maintenance of reference schemes that are used as buffers between sensing and acting solves the problems with continuity of action in the context of unreliable sensory modules.
+%At the time of publication of \cite{BerenzTDM2014}, a visual programming software using TDM was not developed however the user studies were done to understand the usability of such a dynamic behavior programming paradigm. The comparison results of TDM and Aldebaran Choreographe for a number of tasks shown in Figure~\ref{fig:tdm_casestudy1} was conducted and a comparison of the programming time required for each of these tasks is shown in Figure~\ref{fig:tdm_casestudy2}. It could be noted that TDM could be effectively used for designing complex dynamic behaviors.
+%
+%\begin{figure}[H]
+%\centering
+%\begin{subfigure}[b]{0.48\textwidth}
+%\includegraphics[width=\textwidth]{assets/tdm_casestudy1.png}
+%\caption{TDM behaviors used for evaluation}
+%\label{fig:tdm_casestudy1}
+%\end{subfigure}%
+%\hfill
+%\begin{subfigure}[b]{0.45\textwidth}
+%\includegraphics[width=\textwidth]{assets/tdm_casestudy2.png}
+%\caption{Programming time for TDM vs Choreographe}
+%\label{fig:tdm_casestudy2}
+%\end{subfigure}%
+%\caption{TDM Usability Study \cite{BerenzTDM2014}}
+%\label{fig:tdm_casestudy}
+%\end{figure}
+In order to satisfy the aforementioned requirements, TDM proposes a programming paradigm where temporal independent dynamic behaviors blocks run in parallel. The logic of the program is not expressed using communication links in a flowchart, but by the use of specialized dynamic components that regulate the activation status and the priorities of the behaviors. There are four types of dynamic components: \emph{Functions} for actions or the handling of sensory data, \emph{Conditions} that monitor the activation status of functions, \emph{Score calculators} that perform the online evaluation of the execution priority of behaviors, \emph{Triggers} that link sensing to acting. The components never communicate with each other directly because information exchange occurs via a specialized centralized memory called \emph{Internal Model(IM)} which takes care of asynchronous information flow (push/pull communication) between connected components, odometry, object permanence, and activation of behaviors through triggers. Figure~\ref{fig:tdm_priority} shows how the behavior prioritization is managed while Figure~\ref{fig:tdm_im} shows the complete architecture of TDM with Internal model. The IM solves the problem of data consistency and information flow if a redundant behavior has to be performed over many objects in the environment by generating the behaviors at run-time according to the trigger. Also it establishes distinct information flow between the sensor module and the behavior module.
+\begin{figure}[H]
+\centering
+%\begin{subfigure}[b]{0.45\textwidth}
+%\includegraphics[width=\textwidth]{assets/tdm_components.eps}
+%\caption{Behavior programming from component library}
+%\label{fig:tdm_comp}
+%\end{subfigure}%
+%\hfill
+\begin{subfigure}[b]{0.45\textwidth}
+\includegraphics[width=\textwidth]{assets/tdm_priority.eps}
+\caption{Behavior coordination and execution}
+\label{fig:tdm_priority}
+\end{subfigure}%
+\hfill
+\begin{subfigure}[b]{0.45\textwidth}
+\includegraphics[width=\textwidth]{assets/tdm_im.eps}
+\caption{Information management by IM of TDM}
+\label{fig:tdm_im}
+\end{subfigure}%
+\caption[Target-drives-means Framework]{TDM Framework. {Adapted from \cite{BerenzTDM2014}}}
+\label{fig:tdm1}
+\end{figure}
+%An example of the minimal program using TDM paradigm is shown in Figure~\ref{fig:tdm_example} for the dynamic ball kicking problem. There are two behaviors specified in the example program one of which is the default behavior. There are two functions inside the default behavior which are "Ball detection" function which pushes the position of the ball to the internal model when one is detected. There is also the "Move head left right" function which searches for the presence of the ball. Within a behavior the priority of execution of the functions are controlled by the order in which the functions are arranged in this case "Ball detection" function has higher priority to the "Move head" function. The condition of execution of the functions in default behavior is always true which means that these functions will always be executed once the behavior is activated. Additionally the execution of the default behavior doesn't need external trigger which means the default behavior will always be executed. The score calculator of the default behavior is set to 0 which means that the default behavior will be executed with low priority. Now coming to the "Behavior 1" which performs the actual task of kicking the ball contains three functions "Head Tracking", "Kicking" and "Walking" functions. This behavior will be triggered when a ball is detected. Once the ball is detected, the "Head tracking" function retrieves the position of the ball from the internal model and starts to track it. The "Walking" function instead makes sure that the robot walks towards the ball. These two functions will execute unconditionally once "Behavior 1" is activated. However once the robot comes close to the ball the condition of vicinity will be satisfied and the "Kicking" function will be activated and the robot kicks the ball. 
+%
+%\begin{figure}[H]
+%\centering
+%\begin{subfigure}[b]{0.48\textwidth}
+%\includegraphics[width=\textwidth]{assets/tdm_im.eps}
+%\caption{Information management by IM of TDM}
+%\label{fig:tdm_im}
+%\end{subfigure}%
+%\hfill
+%\begin{subfigure}[b]{0.45\textwidth}
+%\includegraphics[width=\textwidth]{assets/tdm_example.eps}
+%\caption{An example Program in TDM}
+%\label{fig:tdm_example}
+%\end{subfigure}%
+%\caption{TDM Framework \cite{BerenzTDM2014}}
+%\label{fig:tdm2}
+%\end{figure}
+At the time of publication of \cite{BerenzTDM2014}, a visual programming software using TDM was not developed however the user studies were done to understand the usability of such a dynamic behavior programming paradigm. The comparison results of TDM and Aldebaran Choreographe presented in \cite{BerenzTDM2014} indicates that TDM is appropriate when it comes to designing complex dynamic behaviors.
+% and results are shown in Figure~\ref{fig:tdm_casestudy}. 
+%\begin{figure}[H]
+%\centering
+%\begin{subfigure}[b]{0.48\textwidth}
+%\includegraphics[width=\textwidth]{assets/tdm_casestudy1.png}
+%\caption{TDM behaviors used for evaluation}
+%\label{fig:tdm_casestudy1}
+%\end{subfigure}%
+%\hfill
+%\begin{subfigure}[b]{0.45\textwidth}
+%\includegraphics[width=\textwidth]{assets/tdm_casestudy2.png}
+%\caption{Programming time for TDM vs Choreographe}
+%\label{fig:tdm_casestudy2}
+%\end{subfigure}%
+%\caption{TDM Usability Study \cite{BerenzTDM2014}}
+%\label{fig:tdm_casestudy}
+%\end{figure}
+
+\section{HRI Design and Evaluation} % Main chapter title
+
+\label{Chapter6} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+
+\lhead{Chapter 6. \emph{HRI Design and Evaluation}} 
+	Human-Robot Interaction (HRI) being a rapidly advancing area of research, there is a growing need for strong experimental designs and methods of evaluation. This will bring credibility and validity to scientific research that involves humans as subjects, as recognized in the psychology and social science fields. Some methods of evaluation have been adopted and/or modified from such fields as human-computer interaction, psychology, and social sciences; however, the manner in which a human interacts with a robot is similar but not identical to interactions between a human and a computer or a human interacting with another human. It often has a strong social or emotional component — a difference that poses potential challenges related to the design and evaluation of HRI. As robots are becoming more prevalent, accurate methods to assess how humans respond to robots, how they feel about their interactions with robots, and how they interpret the actions of robots are very important. In this section some of the HRI design and evaluation techniques are presented.
+
+\section{Planning, Design and Data collection}
+A successful human study in HRI requires careful planning and design. In \cite{Bethel2010}, a set of questions  when planning and designing a human study in HRI is presented. They are
+\begin{enumerate}
+\item What type of study will be conducted (within-subjects, between-subjects, mixed-model, etc.)?
+\item How many groups will be in the study?
+\item How many participants per group will be required?
+\item What methods of evaluation will be used (self-assessments, behavioral measures, interviews, psychophysiological measures, task performance, etc.)?
+\item What type of environment and space is required to conduct the study (field, laboratory, virtual, etc.)?
+\item What type of robots will be used?
+\item How many different types of robots will be used?
+\item What type of equipment will be needed (computers, measurement equipment, recording devices, etc.)?
+\item How will contingencies and failures be handled?
+\item What types of tasks will the participants perform or observe (Study Protocol)?
+\item How will participants be recruited for the study?
+\item What type of assistance is needed to conduct the study?
+\end{enumerate}
+	If the HRI designer has the answers to the above questions in hand, then it means half the job is done and it will enable him/her to carry out the HRI experiments without any hurdles. Apart from providing a checklist for planning and design of HRI studies, a list of recommendations for the experimental design and study execution is also provided in \cite{Bethel2010}.
+	
+	Data collection is one of the important steps in the evaluation process. In \cite{Rogers2011} which provides insights into designing interative systems, five key issues in the data gathering has been described. They are 
+\begin{itemize}
+\item \emph{Identifying participants} : Decide who to gather data from
+\item \emph{Relationship with participants} : Establishing a clear and professional relationship
+\item \emph{Setting goals} : Deciding how to analyze data once collected, Informed consent when appropriate
+\item \emph{Triangulation} : Looking at data from more than one perspective
+\item \emph{Pilot studies} : Small trial of main study. 
+\end{itemize}
+Taking into account these issues while experimentation is essential in order to tackle them. 
+
+\section{HRI Evaluation techniques}
+	An extensive review of HRI evaluation methods presented in \cite{Bethel2010} summarises five primary methods of evaluation summarised. They are
+\begin{itemize}
+\item \emph{Self assessments} are among the most commonly used methods of evaluation in HRI studies. It can however be a challenge obtaining validated assessments designed for HRI studies. Self-assessment measures include paper or computer-based psychometric scales, questionnaires, or surveys. With this method, participants provide a personal assessment of how they felt or their motivations related to an object, situation, or interactions.
+\item \emph{Interviews} are closely related to self-assessments and they can be structured in such a way that  the researcher develops a series of questions that can be close-ended or open-ended; however the questions are given in the same order to every participant in the study. The interview can be audio and/or video recorded for evaluation at a later time. It can be a challenge to obtain responses that are reflective of participants’ true behaviors.
+\item \emph{Behavioral Measures} are the second most common method of evaluation in HRI studies, and sometimes are included along with psychophysiological evaluations and participants’ self-assessment responses for obtaining convergent validity. The benefit of behavioral measures is that researchers are able to record the actual behaviors of participants and do not need to rely on participants to report accurately their intended behaviors or preferences.
+\item \emph{Psychophysiology measures} has the primary advantage that participants cannot consciously manipulate the activities of their autonomic nervous system. Also, psychophysiological measures offer a minimally-invasive method that are used to determine the stress levels and responses of participants interacting with technology. Multiple physiological signals (blood pressure (BP), muscular system-electromyography (EMG), brain activity - electroencephalography (EEG) to name a few) could be used to obtain correlations in the results.
+\item \emph{Task performance metrics} are becoming more common in HRI studies, especially in studies where teams are evaluated and/or more than one person is interacting with one or more robots. These metrics are designed to measure how well a person or team performs or completes a task or tasks. This is essential in some HRI studies and should be included with other methods of evaluation such as behavioral and/or self-assessments.
+\end{itemize}
+Each of these methods has advantages and disadvantages. However the study claims that it is possible to overcome these disadvantages by using three or more appropriate methods of evaluation. 
+
+ An effort to identify a set of Common metrics to be used in task-oriented HRI can be found in \cite{Steinfeld2006}. This study proposes a set of metric to evaluate the human-robot team and human-robot interactions and those proposed metrics are shown in Table~\ref{table:hri_metrics}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Common Metrics for task-based HRI}
+\label{table:hri_metrics}
+\begin{tabularx}{400pt}{c*3{X}}
+\toprule
+  \textbf{Common metrics} & \textbf{Sub-metrics} 
+                          & \textbf{Description}
+  \tabularnewline \midrule
+  
+  %\multicolumn{1}{l}{System Performance}  
+  \multirow{4}{*}{System Performance} & Quantitative performance & Quantitative measures assess the
+effectiveness and efficiency of the team at performing a task \\
+                                      & Subjective ratings & Subjective ratings assess the quality
+of the effort \\
+                                      & Utilization of mixed-initiative & Ability of the human-robot team to appropriately regulate who has control initiative 
+                                          \tabularnewline\midrule
+                                          
+  \multirow{4}{*}{Operator Performance} & Situation Awareness (SA) & The degree to which the robot is situation aware. It is critical for effective decision-making \\
+                                      & Workload & Multidimensional workload assessment techniques are useful for relating human perceptions of cognitive load to operator SA \\
+                                      & Accuracy of mental models & Impact of Design affordances, operator expectations and stimulus-response compatibility.
+                                          \tabularnewline\midrule
+  
+  \multirow{4}{*}{Robot Performance} & Self Awareness & The degree to which a robot can accurately
+assess itself \\
+                                      & Human Awareness & The degree to which the robot is aware of humans \\
+                                      & Autonomy & The ability of robots to function independently without human intervention.
+                                          \tabularnewline                                
+                                         
+  										\bottomrule
+\end{tabularx}
+\end{table}
+
+	Bartneck et al.,\cite{Bartneck2009} emphasize the need for standardized measurement tools for human robot interaction. The main contribution of this work is that it presents measurements tools of five key concepts in HRI: anthropomorphism, animacy, likeability, perceived intelligence, and perceived safety. The outcome of the work is basically five consistent questionnaires using semantic differential scales. Moreover the study also reported reliability and validity indicators based on several empirical studies that used these questionnaires. Specifically, this study uses \emph{Cronbach's alpha} to estimate the reliability of the questionnaires. The results presented in the study showed that the developed questionnaires to measure the aspects have sufficient internal consistency reliability. 
+	
+	Young et al.,\cite{Young2011} propose \emph{holistic interaction experience} and introduce a set of three perspectives for exploring social interaction with robots.
+\begin{itemize}
+\item Visceral factors of interaction(P1): It focuses on a person’s biological, visceral, and instinctual involvement in interaction. This includes such things as instinctual frustration, fear, joy, happiness, and so on, on a reactionary level where they are difficult to control.
+\item Social mechanics(P2): It focuses on the higher-level communication and social techniques used in interaction. This includes both the social mechanics that a person uses in communication as well as what they interpret from the robot throughout meaning-building during interaction. Examples range from gestures such as facial expressions and body language, to spoken language, to cultural norms such as personal space and eye-contact rules.
+\item Social Structures(P3): It covers the development of and changes in the social relationships and interaction between two entities, perhaps over a relatively long period of time (longer relative to P1 and P2). P3 considers the changes in or trajectory of P1, P2, as well as how a robot interacts with, understands, and even modifies social structures.
+\end{itemize}
+The study proposes that these three perspectives could be used as concrete tools throughout the evaluation process. 
+
+	Baddoura et al.,\cite{Baddoura2013} explore the human affective state of the familiar during a new or unknown situation as it relates to interacting with a robot. The measurement of the familiar experienced by two humans interacting with a robot and the intensity and adequacy of their response to its proactive social and practical actions is performed. An analysis is done on the participants’ reactions to the robot’s actions, the motion of their arms, and their answers to some parts of a questionnaire designed to measure their experience of the familiar and the robot’s sociability. This study aims at learning more about the familiar state in its relation to a satisfying, efficient and reciprocal HRI by considering a set of hypotheses such as familiarity increases with responsiveness,  behavioral changes affect familiarity, sociability of the robot is proportional to the human responsiveness. The study recorded the \emph{Behavioral measures} of the participants using IMU sensors on their heads and hands in order to measure the intensity of their response during the interaction. Additionally the whole interaction is recorded in order to evaluate the facial response of the participants. This study also used \emph{Self assessments} technique for evaluation in the form a questionnaire (using Likert scale). The statistical analysis performed during the study confirmed almost all the hypotheses except that the change in behavior of the robot did not show significant change in response from the human.
+	
+	All the evaluation techniques rely on the statistical tools for validating the results and generalizing the phenomena. A summary of statistical tools for the data analysis in HRI can be found in Appendix~\ref{AppendixA}.
