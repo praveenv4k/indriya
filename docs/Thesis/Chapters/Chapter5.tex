@@ -58,3 +58,58 @@ The user interface is a web application that runs on any latest web-kit browsers
 \item \emph{Behavior Designer}: The Behavior designer surface could be used by the user to drag and drop the behavior blocks and construct the program using the set of motion capabilities registered by the active motion recognition nodes and the set of robot action capabilities registered by the active robot interface nodes. The behavior designed using the designer will be encoded into a declarative XML format and sent to the server when the user request to start the program. The designer offers a full range of capabilities like Create/Edit/Delete/Save behavior programs.
 \item \emph{Visualization}: The visualization could be used to see the interaction of the human and robot inside a virtual 3D environment.
 \end{itemize}
+
+\begin{algorithm}
+ \KwData{Marker\_size, Cube\_size, MDH\_Params}
+ \KwResult{TORSO\_POSE}
+ \textbf{\emph{Init}}:\;
+ k\_model := INIT\_MDH\_PARAM(MDH\_Params)\;
+ m\_model := MARKER\_MODEL(Marker\_size, Cube\_size)\;
+ \While{True}{
+ 	data = READ\_SENSOR()\;
+ 	marker\_poses = DETECT\_MARKERS(data)\;
+ 	$^{W}{T}_{M}$ = TRANSFORM\_TO\_TOP\_FRAME(marker\_poses, m\_model)\;
+ 	[$head_{yaw}$,$head_{pitch}$] = READ\_JOINT\_VALUES()\;
+ 	$^{T}{T}_{M}$ = COMPUTE\_TOP\_FRAME(k\_model,$head_{yaw}$,$head_{pitch}$)\;
+ 	$^{W}{T}_{T}$ = $^{W}{T}_{M} \times {^{T}{T}_{M}}^{-1}$\;
+ 	TORSO\_POSE = MEDIAN\_FILTER($^{W}{T}_{T}$)\;
+ 	PUBLISH(TORSO\_POSE)\;
+ }
+ %\caption{Localization Algorithm}
+ %\label{alg:localize}
+\end{algorithm}
+
+% Motion recognition
+\begin{algorithm}
+ \KwData{Gesture database}
+ \KwResult{Gesture Triggers}
+ \textbf{\emph{Init}}:\;
+ \quad gestures = READ\_DATABASE() \;
+ \quad REGISTER\_GESTURES(gestures) \;
+ \While{True}{
+ 	skeletons = GET\_SKELETONS() \;
+ 	gesture = DETECT\_GESTURE() \;
+ 	\If{detected}{
+ 	PUBLISH(gesture) \;
+ 	}
+ 	PUBLISH(skeletons) \;
+ }
+ %\caption{Localization Algorithm}
+ %\label{alg:localize}
+\end{algorithm}
+
+% Simulation Node
+\begin{algorithm}
+ \KwData{simulation\_config}
+ \textbf{\emph{Init}}:\;
+ \quad INIT\_SIMULATION\_ENGINE(simulation\_config) \;
+ \quad INIT\_SUBSCRIBERS(simulation\_config) \;
+ \quad LOAD\_ENVIRONMENT(simulation\_config) \; 
+ \While{True}{
+ 	sensors = READ\_SENSOR\_VALUES() \; 
+ 	skeletons = READ\_SKELETON\_DATA() \; 
+ 	RENDER(robot,sensors)
+ }
+ %\caption{Localization Algorithm}
+ %\label{alg:localize}
+\end{algorithm}
