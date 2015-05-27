@@ -13,6 +13,44 @@
 // Note: requires additional types generated from: param.proto
 namespace experimot.msgs
 {
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"BehaviorArguments")]
+  public partial class BehaviorArguments : global::ProtoBuf.IExtensible
+  {
+    public BehaviorArguments() {}
+    
+    private string _name;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"name", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public string name
+    {
+      get { return _name; }
+      set { _name = value; }
+    }
+    private string _value;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"value", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public string value
+    {
+      get { return _value; }
+      set { _value = value; }
+    }
+    private bool _place_holder;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"place_holder", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public bool place_holder
+    {
+      get { return _place_holder; }
+      set { _place_holder = value; }
+    }
+    private string _type;
+    [global::ProtoBuf.ProtoMember(4, IsRequired = true, Name=@"type", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public string type
+    {
+      get { return _type; }
+      set { _type = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"BehaviorDescription")]
   public partial class BehaviorDescription : global::ProtoBuf.IExtensible
   {
@@ -25,15 +63,29 @@ namespace experimot.msgs
       get { return _name; }
       set { _name = value; }
     }
+    private string _function_name;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"function_name", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public string function_name
+    {
+      get { return _function_name; }
+      set { _function_name = value; }
+    }
+    private readonly global::System.Collections.Generic.List<experimot.msgs.BehaviorArguments> _arg = new global::System.Collections.Generic.List<experimot.msgs.BehaviorArguments>();
+    [global::ProtoBuf.ProtoMember(3, Name=@"arg", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<experimot.msgs.BehaviorArguments> arg
+    {
+      get { return _arg; }
+    }
+  
     private experimot.msgs.BehaviorDescription.ExecutionType _type;
-    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::ProtoBuf.ProtoMember(4, IsRequired = true, Name=@"type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     public experimot.msgs.BehaviorDescription.ExecutionType type
     {
       get { return _type; }
       set { _type = value; }
     }
     private experimot.msgs.BehaviorDescription.ExecutionState _state;
-    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"state", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::ProtoBuf.ProtoMember(5, IsRequired = true, Name=@"state", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     public experimot.msgs.BehaviorDescription.ExecutionState state
     {
       get { return _state; }

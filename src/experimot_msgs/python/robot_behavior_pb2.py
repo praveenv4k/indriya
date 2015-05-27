@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='robot_behavior.proto',
   package='experimot.msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x14robot_behavior.proto\x12\x0e\x65xperimot.msgs\x1a\rrequest.proto\x1a\x0eresponse.proto\x1a\x0bparam.proto\"\x8b\x02\n\x13\x42\x65haviorDescription\x12\x0c\n\x04name\x18\x01 \x02(\t\x12?\n\x04type\x18\x02 \x02(\x0e\x32\x31.experimot.msgs.BehaviorDescription.ExecutionType\x12\x41\n\x05state\x18\x03 \x02(\x0e\x32\x32.experimot.msgs.BehaviorDescription.ExecutionState\".\n\rExecutionType\x12\x0c\n\x08\x42locking\x10\x00\x12\x0f\n\x0bNonBlocking\x10\x01\"2\n\x0e\x45xecutionState\x12\x08\n\x04Idle\x10\x00\x12\x0b\n\x07Running\x10\x01\x12\t\n\x05\x45rror\x10\x02\"\x86\x02\n\x13RobotBehaviorModule\x12\x0c\n\x04name\x18\x01 \x02(\t\x12$\n\x05param\x18\x02 \x03(\x0b\x32\x15.experimot.msgs.Param\x12\x36\n\tbehaviors\x18\x03 \x03(\x0b\x32#.experimot.msgs.BehaviorDescription\x12M\n\tresponder\x18\x04 \x01(\x0b\x32:.experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder\x1a\x34\n\x16RobotBehaviorResponder\x12\x0c\n\x04Host\x18\x01 \x02(\t\x12\x0c\n\x04Port\x18\x02 \x02(\x05\"L\n\x14RobotBehaviorModules\x12\x34\n\x07modules\x18\x01 \x03(\x0b\x32#.experimot.msgs.RobotBehaviorModule')
+  serialized_pb=_b('\n\x14robot_behavior.proto\x12\x0e\x65xperimot.msgs\x1a\rrequest.proto\x1a\x0eresponse.proto\x1a\x0bparam.proto\"T\n\x11\x42\x65haviorArguments\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\r\n\x05value\x18\x02 \x02(\t\x12\x14\n\x0cplace_holder\x18\x03 \x02(\x08\x12\x0c\n\x04type\x18\x04 \x02(\t\"\xd2\x02\n\x13\x42\x65haviorDescription\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x15\n\rfunction_name\x18\x02 \x02(\t\x12.\n\x03\x61rg\x18\x03 \x03(\x0b\x32!.experimot.msgs.BehaviorArguments\x12?\n\x04type\x18\x04 \x02(\x0e\x32\x31.experimot.msgs.BehaviorDescription.ExecutionType\x12\x41\n\x05state\x18\x05 \x02(\x0e\x32\x32.experimot.msgs.BehaviorDescription.ExecutionState\".\n\rExecutionType\x12\x0c\n\x08\x42locking\x10\x00\x12\x0f\n\x0bNonBlocking\x10\x01\"2\n\x0e\x45xecutionState\x12\x08\n\x04Idle\x10\x00\x12\x0b\n\x07Running\x10\x01\x12\t\n\x05\x45rror\x10\x02\"\x86\x02\n\x13RobotBehaviorModule\x12\x0c\n\x04name\x18\x01 \x02(\t\x12$\n\x05param\x18\x02 \x03(\x0b\x32\x15.experimot.msgs.Param\x12\x36\n\tbehaviors\x18\x03 \x03(\x0b\x32#.experimot.msgs.BehaviorDescription\x12M\n\tresponder\x18\x04 \x01(\x0b\x32:.experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder\x1a\x34\n\x16RobotBehaviorResponder\x12\x0c\n\x04Host\x18\x01 \x02(\t\x12\x0c\n\x04Port\x18\x02 \x02(\x05\"L\n\x14RobotBehaviorModules\x12\x34\n\x07modules\x18\x01 \x03(\x0b\x32#.experimot.msgs.RobotBehaviorModule')
   ,
   dependencies=[request__pb2.DESCRIPTOR,response__pb2.DESCRIPTOR,param__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -46,8 +46,8 @@ _BEHAVIORDESCRIPTION_EXECUTIONTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=254,
-  serialized_end=300,
+  serialized_start=411,
+  serialized_end=457,
 )
 _sym_db.RegisterEnumDescriptor(_BEHAVIORDESCRIPTION_EXECUTIONTYPE)
 
@@ -72,10 +72,62 @@ _BEHAVIORDESCRIPTION_EXECUTIONSTATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=302,
-  serialized_end=352,
+  serialized_start=459,
+  serialized_end=509,
 )
 _sym_db.RegisterEnumDescriptor(_BEHAVIORDESCRIPTION_EXECUTIONSTATE)
+
+
+_BEHAVIORARGUMENTS = _descriptor.Descriptor(
+  name='BehaviorArguments',
+  full_name='experimot.msgs.BehaviorArguments',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='experimot.msgs.BehaviorArguments.name', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='experimot.msgs.BehaviorArguments.value', index=1,
+      number=2, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='place_holder', full_name='experimot.msgs.BehaviorArguments.place_holder', index=2,
+      number=3, type=8, cpp_type=7, label=2,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='experimot.msgs.BehaviorArguments.type', index=3,
+      number=4, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  #syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=84,
+  serialized_end=168,
+)
 
 
 _BEHAVIORDESCRIPTION = _descriptor.Descriptor(
@@ -93,15 +145,29 @@ _BEHAVIORDESCRIPTION = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='type', full_name='experimot.msgs.BehaviorDescription.type', index=1,
-      number=2, type=14, cpp_type=8, label=2,
+      name='function_name', full_name='experimot.msgs.BehaviorDescription.function_name', index=1,
+      number=2, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='arg', full_name='experimot.msgs.BehaviorDescription.arg', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='experimot.msgs.BehaviorDescription.type', index=3,
+      number=4, type=14, cpp_type=8, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='state', full_name='experimot.msgs.BehaviorDescription.state', index=2,
-      number=3, type=14, cpp_type=8, label=2,
+      name='state', full_name='experimot.msgs.BehaviorDescription.state', index=4,
+      number=5, type=14, cpp_type=8, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -120,8 +186,8 @@ _BEHAVIORDESCRIPTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=85,
-  serialized_end=352,
+  serialized_start=171,
+  serialized_end=509,
 )
 
 
@@ -158,8 +224,8 @@ _ROBOTBEHAVIORMODULE_ROBOTBEHAVIORRESPONDER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=565,
-  serialized_end=617,
+  serialized_start=722,
+  serialized_end=774,
 )
 
 _ROBOTBEHAVIORMODULE = _descriptor.Descriptor(
@@ -209,8 +275,8 @@ _ROBOTBEHAVIORMODULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=355,
-  serialized_end=617,
+  serialized_start=512,
+  serialized_end=774,
 )
 
 
@@ -240,10 +306,11 @@ _ROBOTBEHAVIORMODULES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=619,
-  serialized_end=695,
+  serialized_start=776,
+  serialized_end=852,
 )
 
+_BEHAVIORDESCRIPTION.fields_by_name['arg'].message_type = _BEHAVIORARGUMENTS
 _BEHAVIORDESCRIPTION.fields_by_name['type'].enum_type = _BEHAVIORDESCRIPTION_EXECUTIONTYPE
 _BEHAVIORDESCRIPTION.fields_by_name['state'].enum_type = _BEHAVIORDESCRIPTION_EXECUTIONSTATE
 _BEHAVIORDESCRIPTION_EXECUTIONTYPE.containing_type = _BEHAVIORDESCRIPTION
@@ -253,9 +320,17 @@ _ROBOTBEHAVIORMODULE.fields_by_name['param'].message_type = param__pb2._PARAM
 _ROBOTBEHAVIORMODULE.fields_by_name['behaviors'].message_type = _BEHAVIORDESCRIPTION
 _ROBOTBEHAVIORMODULE.fields_by_name['responder'].message_type = _ROBOTBEHAVIORMODULE_ROBOTBEHAVIORRESPONDER
 _ROBOTBEHAVIORMODULES.fields_by_name['modules'].message_type = _ROBOTBEHAVIORMODULE
+DESCRIPTOR.message_types_by_name['BehaviorArguments'] = _BEHAVIORARGUMENTS
 DESCRIPTOR.message_types_by_name['BehaviorDescription'] = _BEHAVIORDESCRIPTION
 DESCRIPTOR.message_types_by_name['RobotBehaviorModule'] = _ROBOTBEHAVIORMODULE
 DESCRIPTOR.message_types_by_name['RobotBehaviorModules'] = _ROBOTBEHAVIORMODULES
+
+BehaviorArguments = _reflection.GeneratedProtocolMessageType('BehaviorArguments', (_message.Message,), dict(
+  DESCRIPTOR = _BEHAVIORARGUMENTS,
+  __module__ = 'robot_behavior_pb2'
+  # @@protoc_insertion_point(class_scope:experimot.msgs.BehaviorArguments)
+  ))
+_sym_db.RegisterMessage(BehaviorArguments)
 
 BehaviorDescription = _reflection.GeneratedProtocolMessageType('BehaviorDescription', (_message.Message,), dict(
   DESCRIPTOR = _BEHAVIORDESCRIPTION,
