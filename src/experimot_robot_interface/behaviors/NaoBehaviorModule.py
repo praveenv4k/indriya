@@ -169,34 +169,47 @@ class NaoBehaviorModule:
             #print arg_spec.args
             method(params)
 
+    def createArg(self, value, placeHolder=False, type='str'):
+        arg = dict({})
+        arg['value'] = value
+        arg['place_holder'] = placeHolder
+        arg['type'] = type
+        return arg
+
     def getCapabilities(self):
         # action -> function mapping
         installedBehaviors = self.getInstalledBehaviors()
         cap_dict = dict({})
         for insBehavior in installedBehaviors:
-            behaviorStr = insBehavior.replace('.lastUploadedChoregrapheBehavior/','',1);
-            cap_dict[behaviorStr] = {'function':'action_executeBehavior','args':{'name':'Name of the installed behavior'}}
-        cap_dict['Say Expressively']= {'function':'action_sayExpressively','args':{'x':'X coordinate in m','y':'Y coordinate in m','z':'Z coordinate in m','frame':'Frame (World, Torso, Robot)'}}
-        cap_dict['Look At']= {'function':'action_sayExpressively','args':{'lang':'Language','msg':'Text'}}
-        cap_dict['Sit Relax']= {'function':'action_goToPosture','args':{'posture':'Desired Posture'}}
-        cap_dict['LyingBelly']= {'function':'action_goToPosture','args':{'posture':'Desired Posture'}}
-        cap_dict['LyingBack']= {'function':'action_goToPosture','args':{'posture':'Desired Posture'}}
-        cap_dict['Stand']= {'function':'action_goToPosture','args':{'posture':'Desired Posture'}}
-        cap_dict['Crouch']= {'function':'action_goToPosture','args':{'posture':'Desired Posture'}}
-        cap_dict['Sit']= {'function':'action_goToPosture','args':{'posture':'Desired Posture'}}
+            behaviorStr = insBehavior.replace('.lastUploadedChoregrapheBehavior/','',1)
+            cap_dict[behaviorStr] = {'function':'action_executeBehavior','args':{'name':self.createArg(behaviorStr)}}
+
+        cap_dict['Say Expressively']= {'function':'action_sayExpressively',
+                                       'args':{'x':self.createArg(0.0,True,'float'),
+                                               'y':self.createArg(0.0,True,'float'),
+                                               'z':self.createArg(0.0,True,'float'),
+                                               'frame':self.createArg('torso',True)}}
+
+        cap_dict['Look At']= {'function':'action_sayExpressively',
+                              'args':{'lang':self.createArg('English',True),
+                                      'msg':self.createArg('Hello!',True)}}
+
+        standardPostures = ['Sit Relax','LyingBelly','LyingBack','Stand','Crouch','Sit']
+        for standardPosture in standardPostures:
+            cap_dict[standardPosture]= {'function':'action_goToPosture','args':{'posture':self.createArg(standardPosture)}}
+
         return cap_dict
 
-# if __name__ == "__main__":
-#     a = NaoBehaviorModule('127.0.0.1',57105)
-#     msg = 'ありがとうございました。'
-#     say_param = {'lang':'Japanese','msg':msg}
-#
-#     cap = a.getCapabilities()
-#     for i in cap:
-#         print(i)
-#     #msg_encoded = msg.encode('utf-8')
-#     a.executeAction('action_goToPosture',{'posture':'Stand'})
-#     a.executeAction('action_sayExpressively',say_param)
-#     a.executeAction('action_goToPosture',{'posture':'Crouch'})
-#     a.executeAction('action_lookAt',{'x':'0','y':'0.5','z':'0.5','frame':'torso'})
-#     a.executeAction('action_lookAt',{'x':'0','y':'0.0','z':'0.2','frame':'torso'})
+if __name__ == "__main__":
+    a = NaoBehaviorModule('127.0.0.1',57105)
+    msg = 'ありがとうございました。'
+    say_param = {'lang':'Japanese','msg':msg}
+
+    cap = a.getCapabilities()
+    for i in cap:
+        print i, str(cap[i])
+    # a.executeAction('action_goToPosture',{'posture':'Stand'})
+    # a.executeAction('action_sayExpressively',say_param)
+    # a.executeAction('action_goToPosture',{'posture':'Crouch'})
+    # a.executeAction('action_lookAt',{'x':'0','y':'0.5','z':'0.5','frame':'torso'})
+    # a.executeAction('action_lookAt',{'x':'0','y':'0.0','z':'0.2','frame':'torso'})
