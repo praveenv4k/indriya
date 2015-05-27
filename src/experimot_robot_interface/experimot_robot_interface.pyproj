@@ -26,16 +26,22 @@
     <Compile Include="behaviors\albehaviormanager.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="behaviors\aleventtracker_start.py" />
+    <Compile Include="behaviors\alfacetracker_start.py" />
     <Compile Include="behaviors\allandmarkdetection.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="behaviors\allarmtracker_start.py" />
+    <Compile Include="behaviors\alredballtracker_start.py" />
     <Compile Include="behaviors\alrobotposture.py" />
     <Compile Include="behaviors\altts.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="behaviors\behaviormanager.py" />
     <Compile Include="behaviors\hand_wave.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="behaviors\NaoBehaviorModule.py" />
     <Compile Include="JointPublisher.py" />
     <Compile Include="motion_walk.py" />
     <Compile Include="parameter_utils.py">
