@@ -8,6 +8,13 @@ import "request.proto";
 import "response.proto";
 import "param.proto";
 
+message BehaviorArguments{
+	required string name = 1;
+	required string value = 2;
+	required bool place_holder = 3;
+	required string type = 4;
+}
+
 message BehaviorDescription
 {
 	enum ExecutionType
@@ -22,8 +29,10 @@ message BehaviorDescription
         Error = 2;
     }
 	required string name = 1;
-	required ExecutionType type = 2;
-	required ExecutionState state = 3;
+	required string function_name = 2;
+	repeated BehaviorArguments arg = 3;
+	required ExecutionType type = 4;
+	required ExecutionState state = 5;
 }
 
 message RobotBehaviorModule

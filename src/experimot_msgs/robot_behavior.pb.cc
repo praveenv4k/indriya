@@ -21,6 +21,9 @@ namespace msgs {
 
 namespace {
 
+const ::google::protobuf::Descriptor* BehaviorArguments_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  BehaviorArguments_reflection_ = NULL;
 const ::google::protobuf::Descriptor* BehaviorDescription_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   BehaviorDescription_reflection_ = NULL;
@@ -45,9 +48,29 @@ void protobuf_AssignDesc_robot_5fbehavior_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "robot_behavior.proto");
   GOOGLE_CHECK(file != NULL);
-  BehaviorDescription_descriptor_ = file->message_type(0);
-  static const int BehaviorDescription_offsets_[3] = {
+  BehaviorArguments_descriptor_ = file->message_type(0);
+  static const int BehaviorArguments_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BehaviorArguments, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BehaviorArguments, value_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BehaviorArguments, place_holder_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BehaviorArguments, type_),
+  };
+  BehaviorArguments_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      BehaviorArguments_descriptor_,
+      BehaviorArguments::default_instance_,
+      BehaviorArguments_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BehaviorArguments, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(BehaviorArguments),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BehaviorArguments, _internal_metadata_),
+      -1);
+  BehaviorDescription_descriptor_ = file->message_type(1);
+  static const int BehaviorDescription_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BehaviorDescription, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BehaviorDescription, function_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BehaviorDescription, arg_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BehaviorDescription, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BehaviorDescription, state_),
   };
@@ -64,7 +87,7 @@ void protobuf_AssignDesc_robot_5fbehavior_2eproto() {
       -1);
   BehaviorDescription_ExecutionType_descriptor_ = BehaviorDescription_descriptor_->enum_type(0);
   BehaviorDescription_ExecutionState_descriptor_ = BehaviorDescription_descriptor_->enum_type(1);
-  RobotBehaviorModule_descriptor_ = file->message_type(1);
+  RobotBehaviorModule_descriptor_ = file->message_type(2);
   static const int RobotBehaviorModule_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RobotBehaviorModule, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RobotBehaviorModule, param_),
@@ -98,7 +121,7 @@ void protobuf_AssignDesc_robot_5fbehavior_2eproto() {
       sizeof(RobotBehaviorModule_RobotBehaviorResponder),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RobotBehaviorModule_RobotBehaviorResponder, _internal_metadata_),
       -1);
-  RobotBehaviorModules_descriptor_ = file->message_type(2);
+  RobotBehaviorModules_descriptor_ = file->message_type(3);
   static const int RobotBehaviorModules_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RobotBehaviorModules, modules_),
   };
@@ -126,6 +149,8 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      BehaviorArguments_descriptor_, &BehaviorArguments::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       BehaviorDescription_descriptor_, &BehaviorDescription::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       RobotBehaviorModule_descriptor_, &RobotBehaviorModule::default_instance());
@@ -138,6 +163,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_robot_5fbehavior_2eproto() {
+  delete BehaviorArguments::default_instance_;
+  delete BehaviorArguments_reflection_;
   delete BehaviorDescription::default_instance_;
   delete BehaviorDescription_reflection_;
   delete RobotBehaviorModule::default_instance_;
@@ -160,28 +187,34 @@ void protobuf_AddDesc_robot_5fbehavior_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\024robot_behavior.proto\022\016experimot.msgs\032\r"
     "request.proto\032\016response.proto\032\013param.pro"
-    "to\"\213\002\n\023BehaviorDescription\022\014\n\004name\030\001 \002(\t"
-    "\022\?\n\004type\030\002 \002(\01621.experimot.msgs.Behavior"
-    "Description.ExecutionType\022A\n\005state\030\003 \002(\016"
-    "22.experimot.msgs.BehaviorDescription.Ex"
-    "ecutionState\".\n\rExecutionType\022\014\n\010Blockin"
-    "g\020\000\022\017\n\013NonBlocking\020\001\"2\n\016ExecutionState\022\010"
-    "\n\004Idle\020\000\022\013\n\007Running\020\001\022\t\n\005Error\020\002\"\206\002\n\023Rob"
-    "otBehaviorModule\022\014\n\004name\030\001 \002(\t\022$\n\005param\030"
-    "\002 \003(\0132\025.experimot.msgs.Param\0226\n\tbehavior"
-    "s\030\003 \003(\0132#.experimot.msgs.BehaviorDescrip"
-    "tion\022M\n\tresponder\030\004 \001(\0132:.experimot.msgs"
-    ".RobotBehaviorModule.RobotBehaviorRespon"
-    "der\0324\n\026RobotBehaviorResponder\022\014\n\004Host\030\001 "
-    "\002(\t\022\014\n\004Port\030\002 \002(\005\"L\n\024RobotBehaviorModule"
-    "s\0224\n\007modules\030\001 \003(\0132#.experimot.msgs.Robo"
-    "tBehaviorModule", 695);
+    "to\"T\n\021BehaviorArguments\022\014\n\004name\030\001 \002(\t\022\r\n"
+    "\005value\030\002 \002(\t\022\024\n\014place_holder\030\003 \002(\010\022\014\n\004ty"
+    "pe\030\004 \002(\t\"\322\002\n\023BehaviorDescription\022\014\n\004name"
+    "\030\001 \002(\t\022\025\n\rfunction_name\030\002 \002(\t\022.\n\003arg\030\003 \003"
+    "(\0132!.experimot.msgs.BehaviorArguments\022\?\n"
+    "\004type\030\004 \002(\01621.experimot.msgs.BehaviorDes"
+    "cription.ExecutionType\022A\n\005state\030\005 \002(\01622."
+    "experimot.msgs.BehaviorDescription.Execu"
+    "tionState\".\n\rExecutionType\022\014\n\010Blocking\020\000"
+    "\022\017\n\013NonBlocking\020\001\"2\n\016ExecutionState\022\010\n\004I"
+    "dle\020\000\022\013\n\007Running\020\001\022\t\n\005Error\020\002\"\206\002\n\023RobotB"
+    "ehaviorModule\022\014\n\004name\030\001 \002(\t\022$\n\005param\030\002 \003"
+    "(\0132\025.experimot.msgs.Param\0226\n\tbehaviors\030\003"
+    " \003(\0132#.experimot.msgs.BehaviorDescriptio"
+    "n\022M\n\tresponder\030\004 \001(\0132:.experimot.msgs.Ro"
+    "botBehaviorModule.RobotBehaviorResponder"
+    "\0324\n\026RobotBehaviorResponder\022\014\n\004Host\030\001 \002(\t"
+    "\022\014\n\004Port\030\002 \002(\005\"L\n\024RobotBehaviorModules\0224"
+    "\n\007modules\030\001 \003(\0132#.experimot.msgs.RobotBe"
+    "haviorModule", 852);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "robot_behavior.proto", &protobuf_RegisterTypes);
+  BehaviorArguments::default_instance_ = new BehaviorArguments();
   BehaviorDescription::default_instance_ = new BehaviorDescription();
   RobotBehaviorModule::default_instance_ = new RobotBehaviorModule();
   RobotBehaviorModule_RobotBehaviorResponder::default_instance_ = new RobotBehaviorModule_RobotBehaviorResponder();
   RobotBehaviorModules::default_instance_ = new RobotBehaviorModules();
+  BehaviorArguments::default_instance_->InitAsDefaultInstance();
   BehaviorDescription::default_instance_->InitAsDefaultInstance();
   RobotBehaviorModule::default_instance_->InitAsDefaultInstance();
   RobotBehaviorModule_RobotBehaviorResponder::default_instance_->InitAsDefaultInstance();
@@ -205,6 +238,621 @@ static void MergeFromFail(int line) {
 
 }  // namespace
 
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int BehaviorArguments::kNameFieldNumber;
+const int BehaviorArguments::kValueFieldNumber;
+const int BehaviorArguments::kPlaceHolderFieldNumber;
+const int BehaviorArguments::kTypeFieldNumber;
+#endif  // !_MSC_VER
+
+BehaviorArguments::BehaviorArguments()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:experimot.msgs.BehaviorArguments)
+}
+
+void BehaviorArguments::InitAsDefaultInstance() {
+}
+
+BehaviorArguments::BehaviorArguments(const BehaviorArguments& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:experimot.msgs.BehaviorArguments)
+}
+
+void BehaviorArguments::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  value_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  place_holder_ = false;
+  type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+BehaviorArguments::~BehaviorArguments() {
+  // @@protoc_insertion_point(destructor:experimot.msgs.BehaviorArguments)
+  SharedDtor();
+}
+
+void BehaviorArguments::SharedDtor() {
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  value_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  type_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void BehaviorArguments::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* BehaviorArguments::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return BehaviorArguments_descriptor_;
+}
+
+const BehaviorArguments& BehaviorArguments::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_robot_5fbehavior_2eproto();
+  return *default_instance_;
+}
+
+BehaviorArguments* BehaviorArguments::default_instance_ = NULL;
+
+BehaviorArguments* BehaviorArguments::New(::google::protobuf::Arena* arena) const {
+  BehaviorArguments* n = new BehaviorArguments;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void BehaviorArguments::Clear() {
+  if (_has_bits_[0 / 32] & 15) {
+    if (has_name()) {
+      name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+    if (has_value()) {
+      value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+    place_holder_ = false;
+    if (has_type()) {
+      type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool BehaviorArguments::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:experimot.msgs.BehaviorArguments)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string name = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->name().data(), this->name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "experimot.msgs.BehaviorArguments.name");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_value;
+        break;
+      }
+
+      // required string value = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_value:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_value()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->value().data(), this->value().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "experimot.msgs.BehaviorArguments.value");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_place_holder;
+        break;
+      }
+
+      // required bool place_holder = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_place_holder:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &place_holder_)));
+          set_has_place_holder();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(34)) goto parse_type;
+        break;
+      }
+
+      // required string type = 4;
+      case 4: {
+        if (tag == 34) {
+         parse_type:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_type()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->type().data(), this->type().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "experimot.msgs.BehaviorArguments.type");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:experimot.msgs.BehaviorArguments)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:experimot.msgs.BehaviorArguments)
+  return false;
+#undef DO_
+}
+
+void BehaviorArguments::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:experimot.msgs.BehaviorArguments)
+  // required string name = 1;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "experimot.msgs.BehaviorArguments.name");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->name(), output);
+  }
+
+  // required string value = 2;
+  if (has_value()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->value().data(), this->value().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "experimot.msgs.BehaviorArguments.value");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->value(), output);
+  }
+
+  // required bool place_holder = 3;
+  if (has_place_holder()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->place_holder(), output);
+  }
+
+  // required string type = 4;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->type().data(), this->type().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "experimot.msgs.BehaviorArguments.type");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->type(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:experimot.msgs.BehaviorArguments)
+}
+
+::google::protobuf::uint8* BehaviorArguments::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.BehaviorArguments)
+  // required string name = 1;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "experimot.msgs.BehaviorArguments.name");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->name(), target);
+  }
+
+  // required string value = 2;
+  if (has_value()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->value().data(), this->value().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "experimot.msgs.BehaviorArguments.value");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->value(), target);
+  }
+
+  // required bool place_holder = 3;
+  if (has_place_holder()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->place_holder(), target);
+  }
+
+  // required string type = 4;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->type().data(), this->type().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "experimot.msgs.BehaviorArguments.type");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->type(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.BehaviorArguments)
+  return target;
+}
+
+int BehaviorArguments::RequiredFieldsByteSizeFallback() const {
+  int total_size = 0;
+
+  if (has_name()) {
+    // required string name = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->name());
+  }
+
+  if (has_value()) {
+    // required string value = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->value());
+  }
+
+  if (has_place_holder()) {
+    // required bool place_holder = 3;
+    total_size += 1 + 1;
+  }
+
+  if (has_type()) {
+    // required string type = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->type());
+  }
+
+  return total_size;
+}
+int BehaviorArguments::ByteSize() const {
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x0000000f) ^ 0x0000000f) == 0) {  // All required fields are present.
+    // required string name = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->name());
+
+    // required string value = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->value());
+
+    // required bool place_holder = 3;
+    total_size += 1 + 1;
+
+    // required string type = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->type());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void BehaviorArguments::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const BehaviorArguments* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const BehaviorArguments*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void BehaviorArguments::MergeFrom(const BehaviorArguments& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_name()) {
+      set_has_name();
+      name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+    }
+    if (from.has_value()) {
+      set_has_value();
+      value_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.value_);
+    }
+    if (from.has_place_holder()) {
+      set_place_holder(from.place_holder());
+    }
+    if (from.has_type()) {
+      set_has_type();
+      type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.type_);
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void BehaviorArguments::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void BehaviorArguments::CopyFrom(const BehaviorArguments& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BehaviorArguments::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+
+  return true;
+}
+
+void BehaviorArguments::Swap(BehaviorArguments* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void BehaviorArguments::InternalSwap(BehaviorArguments* other) {
+  name_.Swap(&other->name_);
+  value_.Swap(&other->value_);
+  std::swap(place_holder_, other->place_holder_);
+  type_.Swap(&other->type_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata BehaviorArguments::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = BehaviorArguments_descriptor_;
+  metadata.reflection = BehaviorArguments_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// BehaviorArguments
+
+// required string name = 1;
+ bool BehaviorArguments::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+ void BehaviorArguments::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+ void BehaviorArguments::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+ void BehaviorArguments::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+ const ::std::string& BehaviorArguments::name() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorArguments.name)
+  return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void BehaviorArguments::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorArguments.name)
+}
+ void BehaviorArguments::set_name(const char* value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:experimot.msgs.BehaviorArguments.name)
+}
+ void BehaviorArguments::set_name(const char* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.BehaviorArguments.name)
+}
+ ::std::string* BehaviorArguments::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.BehaviorArguments.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* BehaviorArguments::release_name() {
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void BehaviorArguments::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.BehaviorArguments.name)
+}
+
+// required string value = 2;
+ bool BehaviorArguments::has_value() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+ void BehaviorArguments::set_has_value() {
+  _has_bits_[0] |= 0x00000002u;
+}
+ void BehaviorArguments::clear_has_value() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+ void BehaviorArguments::clear_value() {
+  value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_value();
+}
+ const ::std::string& BehaviorArguments::value() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorArguments.value)
+  return value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void BehaviorArguments::set_value(const ::std::string& value) {
+  set_has_value();
+  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorArguments.value)
+}
+ void BehaviorArguments::set_value(const char* value) {
+  set_has_value();
+  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:experimot.msgs.BehaviorArguments.value)
+}
+ void BehaviorArguments::set_value(const char* value, size_t size) {
+  set_has_value();
+  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.BehaviorArguments.value)
+}
+ ::std::string* BehaviorArguments::mutable_value() {
+  set_has_value();
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.BehaviorArguments.value)
+  return value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* BehaviorArguments::release_value() {
+  clear_has_value();
+  return value_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void BehaviorArguments::set_allocated_value(::std::string* value) {
+  if (value != NULL) {
+    set_has_value();
+  } else {
+    clear_has_value();
+  }
+  value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.BehaviorArguments.value)
+}
+
+// required bool place_holder = 3;
+ bool BehaviorArguments::has_place_holder() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+ void BehaviorArguments::set_has_place_holder() {
+  _has_bits_[0] |= 0x00000004u;
+}
+ void BehaviorArguments::clear_has_place_holder() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+ void BehaviorArguments::clear_place_holder() {
+  place_holder_ = false;
+  clear_has_place_holder();
+}
+ bool BehaviorArguments::place_holder() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorArguments.place_holder)
+  return place_holder_;
+}
+ void BehaviorArguments::set_place_holder(bool value) {
+  set_has_place_holder();
+  place_holder_ = value;
+  // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorArguments.place_holder)
+}
+
+// required string type = 4;
+ bool BehaviorArguments::has_type() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+ void BehaviorArguments::set_has_type() {
+  _has_bits_[0] |= 0x00000008u;
+}
+ void BehaviorArguments::clear_has_type() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+ void BehaviorArguments::clear_type() {
+  type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_type();
+}
+ const ::std::string& BehaviorArguments::type() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorArguments.type)
+  return type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void BehaviorArguments::set_type(const ::std::string& value) {
+  set_has_type();
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorArguments.type)
+}
+ void BehaviorArguments::set_type(const char* value) {
+  set_has_type();
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:experimot.msgs.BehaviorArguments.type)
+}
+ void BehaviorArguments::set_type(const char* value, size_t size) {
+  set_has_type();
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.BehaviorArguments.type)
+}
+ ::std::string* BehaviorArguments::mutable_type() {
+  set_has_type();
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.BehaviorArguments.type)
+  return type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* BehaviorArguments::release_type() {
+  clear_has_type();
+  return type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void BehaviorArguments::set_allocated_type(::std::string* type) {
+  if (type != NULL) {
+    set_has_type();
+  } else {
+    clear_has_type();
+  }
+  type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), type);
+  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.BehaviorArguments.type)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
 
@@ -254,6 +902,8 @@ const int BehaviorDescription::ExecutionState_ARRAYSIZE;
 #endif  // _MSC_VER
 #ifndef _MSC_VER
 const int BehaviorDescription::kNameFieldNumber;
+const int BehaviorDescription::kFunctionNameFieldNumber;
+const int BehaviorDescription::kArgFieldNumber;
 const int BehaviorDescription::kTypeFieldNumber;
 const int BehaviorDescription::kStateFieldNumber;
 #endif  // !_MSC_VER
@@ -279,6 +929,7 @@ void BehaviorDescription::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  function_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   type_ = 0;
   state_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -291,6 +942,7 @@ BehaviorDescription::~BehaviorDescription() {
 
 void BehaviorDescription::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  function_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -329,16 +981,20 @@ void BehaviorDescription::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  if (_has_bits_[0 / 32] & 7) {
+  if (_has_bits_[0 / 32] & 27) {
     ZR_(type_, state_);
     if (has_name()) {
       name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+    if (has_function_name()) {
+      function_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
 
 #undef ZR_HELPER_
 #undef ZR_
 
+  arg_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->Clear();
@@ -367,13 +1023,44 @@ bool BehaviorDescription::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_type;
+        if (input->ExpectTag(18)) goto parse_function_name;
         break;
       }
 
-      // required .experimot.msgs.BehaviorDescription.ExecutionType type = 2;
+      // required string function_name = 2;
       case 2: {
-        if (tag == 16) {
+        if (tag == 18) {
+         parse_function_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_function_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->function_name().data(), this->function_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "experimot.msgs.BehaviorDescription.function_name");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_arg;
+        break;
+      }
+
+      // repeated .experimot.msgs.BehaviorArguments arg = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_arg:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_arg()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_arg;
+        if (input->ExpectTag(32)) goto parse_type;
+        break;
+      }
+
+      // required .experimot.msgs.BehaviorDescription.ExecutionType type = 4;
+      case 4: {
+        if (tag == 32) {
          parse_type:
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
@@ -382,18 +1069,18 @@ bool BehaviorDescription::MergePartialFromCodedStream(
           if (::experimot::msgs::BehaviorDescription_ExecutionType_IsValid(value)) {
             set_type(static_cast< ::experimot::msgs::BehaviorDescription_ExecutionType >(value));
           } else {
-            mutable_unknown_fields()->AddVarint(2, value);
+            mutable_unknown_fields()->AddVarint(4, value);
           }
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_state;
+        if (input->ExpectTag(40)) goto parse_state;
         break;
       }
 
-      // required .experimot.msgs.BehaviorDescription.ExecutionState state = 3;
-      case 3: {
-        if (tag == 24) {
+      // required .experimot.msgs.BehaviorDescription.ExecutionState state = 5;
+      case 5: {
+        if (tag == 40) {
          parse_state:
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
@@ -402,7 +1089,7 @@ bool BehaviorDescription::MergePartialFromCodedStream(
           if (::experimot::msgs::BehaviorDescription_ExecutionState_IsValid(value)) {
             set_state(static_cast< ::experimot::msgs::BehaviorDescription_ExecutionState >(value));
           } else {
-            mutable_unknown_fields()->AddVarint(3, value);
+            mutable_unknown_fields()->AddVarint(5, value);
           }
         } else {
           goto handle_unusual;
@@ -446,16 +1133,32 @@ void BehaviorDescription::SerializeWithCachedSizes(
       1, this->name(), output);
   }
 
-  // required .experimot.msgs.BehaviorDescription.ExecutionType type = 2;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      2, this->type(), output);
+  // required string function_name = 2;
+  if (has_function_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->function_name().data(), this->function_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "experimot.msgs.BehaviorDescription.function_name");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->function_name(), output);
   }
 
-  // required .experimot.msgs.BehaviorDescription.ExecutionState state = 3;
+  // repeated .experimot.msgs.BehaviorArguments arg = 3;
+  for (unsigned int i = 0, n = this->arg_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->arg(i), output);
+  }
+
+  // required .experimot.msgs.BehaviorDescription.ExecutionType type = 4;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      4, this->type(), output);
+  }
+
+  // required .experimot.msgs.BehaviorDescription.ExecutionState state = 5;
   if (has_state()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      3, this->state(), output);
+      5, this->state(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -479,16 +1182,34 @@ void BehaviorDescription::SerializeWithCachedSizes(
         1, this->name(), target);
   }
 
-  // required .experimot.msgs.BehaviorDescription.ExecutionType type = 2;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      2, this->type(), target);
+  // required string function_name = 2;
+  if (has_function_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->function_name().data(), this->function_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "experimot.msgs.BehaviorDescription.function_name");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->function_name(), target);
   }
 
-  // required .experimot.msgs.BehaviorDescription.ExecutionState state = 3;
+  // repeated .experimot.msgs.BehaviorArguments arg = 3;
+  for (unsigned int i = 0, n = this->arg_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->arg(i), target);
+  }
+
+  // required .experimot.msgs.BehaviorDescription.ExecutionType type = 4;
+  if (has_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      4, this->type(), target);
+  }
+
+  // required .experimot.msgs.BehaviorDescription.ExecutionState state = 5;
   if (has_state()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      3, this->state(), target);
+      5, this->state(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -509,14 +1230,21 @@ int BehaviorDescription::RequiredFieldsByteSizeFallback() const {
         this->name());
   }
 
+  if (has_function_name()) {
+    // required string function_name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->function_name());
+  }
+
   if (has_type()) {
-    // required .experimot.msgs.BehaviorDescription.ExecutionType type = 2;
+    // required .experimot.msgs.BehaviorDescription.ExecutionType type = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
   }
 
   if (has_state()) {
-    // required .experimot.msgs.BehaviorDescription.ExecutionState state = 3;
+    // required .experimot.msgs.BehaviorDescription.ExecutionState state = 5;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
   }
@@ -526,23 +1254,36 @@ int BehaviorDescription::RequiredFieldsByteSizeFallback() const {
 int BehaviorDescription::ByteSize() const {
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x0000001b) ^ 0x0000001b) == 0) {  // All required fields are present.
     // required string name = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->name());
 
-    // required .experimot.msgs.BehaviorDescription.ExecutionType type = 2;
+    // required string function_name = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->function_name());
+
+    // required .experimot.msgs.BehaviorDescription.ExecutionType type = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
 
-    // required .experimot.msgs.BehaviorDescription.ExecutionState state = 3;
+    // required .experimot.msgs.BehaviorDescription.ExecutionState state = 5;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
+  // repeated .experimot.msgs.BehaviorArguments arg = 3;
+  total_size += 1 * this->arg_size();
+  for (int i = 0; i < this->arg_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->arg(i));
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -568,10 +1309,15 @@ void BehaviorDescription::MergeFrom(const ::google::protobuf::Message& from) {
 
 void BehaviorDescription::MergeFrom(const BehaviorDescription& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  arg_.MergeFrom(from.arg_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_name()) {
       set_has_name();
       name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+    }
+    if (from.has_function_name()) {
+      set_has_function_name();
+      function_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.function_name_);
     }
     if (from.has_type()) {
       set_type(from.type());
@@ -598,8 +1344,9 @@ void BehaviorDescription::CopyFrom(const BehaviorDescription& from) {
 }
 
 bool BehaviorDescription::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+  if ((_has_bits_[0] & 0x0000001b) != 0x0000001b) return false;
 
+  if (!::google::protobuf::internal::AllAreInitialized(this->arg())) return false;
   return true;
 }
 
@@ -609,6 +1356,8 @@ void BehaviorDescription::Swap(BehaviorDescription* other) {
 }
 void BehaviorDescription::InternalSwap(BehaviorDescription* other) {
   name_.Swap(&other->name_);
+  function_name_.Swap(&other->function_name_);
+  arg_.UnsafeArenaSwap(&other->arg_);
   std::swap(type_, other->type_);
   std::swap(state_, other->state_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -680,15 +1429,98 @@ void BehaviorDescription::InternalSwap(BehaviorDescription* other) {
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.BehaviorDescription.name)
 }
 
-// required .experimot.msgs.BehaviorDescription.ExecutionType type = 2;
- bool BehaviorDescription::has_type() const {
+// required string function_name = 2;
+ bool BehaviorDescription::has_function_name() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
- void BehaviorDescription::set_has_type() {
+ void BehaviorDescription::set_has_function_name() {
   _has_bits_[0] |= 0x00000002u;
 }
- void BehaviorDescription::clear_has_type() {
+ void BehaviorDescription::clear_has_function_name() {
   _has_bits_[0] &= ~0x00000002u;
+}
+ void BehaviorDescription::clear_function_name() {
+  function_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_function_name();
+}
+ const ::std::string& BehaviorDescription::function_name() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorDescription.function_name)
+  return function_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void BehaviorDescription::set_function_name(const ::std::string& value) {
+  set_has_function_name();
+  function_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorDescription.function_name)
+}
+ void BehaviorDescription::set_function_name(const char* value) {
+  set_has_function_name();
+  function_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:experimot.msgs.BehaviorDescription.function_name)
+}
+ void BehaviorDescription::set_function_name(const char* value, size_t size) {
+  set_has_function_name();
+  function_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.BehaviorDescription.function_name)
+}
+ ::std::string* BehaviorDescription::mutable_function_name() {
+  set_has_function_name();
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.BehaviorDescription.function_name)
+  return function_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* BehaviorDescription::release_function_name() {
+  clear_has_function_name();
+  return function_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void BehaviorDescription::set_allocated_function_name(::std::string* function_name) {
+  if (function_name != NULL) {
+    set_has_function_name();
+  } else {
+    clear_has_function_name();
+  }
+  function_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), function_name);
+  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.BehaviorDescription.function_name)
+}
+
+// repeated .experimot.msgs.BehaviorArguments arg = 3;
+ int BehaviorDescription::arg_size() const {
+  return arg_.size();
+}
+ void BehaviorDescription::clear_arg() {
+  arg_.Clear();
+}
+ const ::experimot::msgs::BehaviorArguments& BehaviorDescription::arg(int index) const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorDescription.arg)
+  return arg_.Get(index);
+}
+ ::experimot::msgs::BehaviorArguments* BehaviorDescription::mutable_arg(int index) {
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.BehaviorDescription.arg)
+  return arg_.Mutable(index);
+}
+ ::experimot::msgs::BehaviorArguments* BehaviorDescription::add_arg() {
+  // @@protoc_insertion_point(field_add:experimot.msgs.BehaviorDescription.arg)
+  return arg_.Add();
+}
+ const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorArguments >&
+BehaviorDescription::arg() const {
+  // @@protoc_insertion_point(field_list:experimot.msgs.BehaviorDescription.arg)
+  return arg_;
+}
+ ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorArguments >*
+BehaviorDescription::mutable_arg() {
+  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.BehaviorDescription.arg)
+  return &arg_;
+}
+
+// required .experimot.msgs.BehaviorDescription.ExecutionType type = 4;
+ bool BehaviorDescription::has_type() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+ void BehaviorDescription::set_has_type() {
+  _has_bits_[0] |= 0x00000008u;
+}
+ void BehaviorDescription::clear_has_type() {
+  _has_bits_[0] &= ~0x00000008u;
 }
  void BehaviorDescription::clear_type() {
   type_ = 0;
@@ -705,15 +1537,15 @@ void BehaviorDescription::InternalSwap(BehaviorDescription* other) {
   // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorDescription.type)
 }
 
-// required .experimot.msgs.BehaviorDescription.ExecutionState state = 3;
+// required .experimot.msgs.BehaviorDescription.ExecutionState state = 5;
  bool BehaviorDescription::has_state() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
  void BehaviorDescription::set_has_state() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000010u;
 }
  void BehaviorDescription::clear_has_state() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000010u;
 }
  void BehaviorDescription::clear_state() {
   state_ = 0;
@@ -1931,5 +2763,5 @@ RobotBehaviorModules::mutable_modules() {
 }  // namespace msgs
 }  // namespace experimot
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.BehaviorDescription", BehaviorDescription)
+EX_REGISTER_STATIC_MSG("experimot.msgs.BehaviorArguments", BehaviorArguments)
 // @@protoc_insertion_point(global_scope)

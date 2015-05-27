@@ -82,7 +82,6 @@ def register_behaviors(node,parameterServerAddress,behaviors):
 
     port = int(getParam(node,"RequestServerPort", "5590"))
     ip = getParam(node,"RequestClientIP", "*")
-    #behaviorModule.responder = robot_behavior_pb2.RobotBehaviorModule.RobotBehaviorResponder()
 
     behaviorModule.responder.Host = ip
     behaviorModule.responder.Port = port
@@ -91,6 +90,14 @@ def register_behaviors(node,parameterServerAddress,behaviors):
         print "Creating behavior description message", behavior
         desc = behaviorModule.behaviors.add()
         desc.name = behavior
+        desc.function_name = behaviors[behavior]['function']
+        args = behaviors[behavior]['args']
+        for arg in args:
+            desc_arg = desc.arg.add()
+            desc_arg.name = arg
+            desc_arg.place_holder = args[arg]['place_holder']
+            desc_arg.value = str(args[arg]['value'])
+            desc_arg.type = args[arg]['type']
         desc.type = robot_behavior_pb2.BehaviorDescription.Blocking
         desc.state = robot_behavior_pb2.BehaviorDescription.Idle
 

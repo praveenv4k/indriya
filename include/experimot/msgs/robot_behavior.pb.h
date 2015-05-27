@@ -43,6 +43,7 @@ void protobuf_AddDesc_robot_5fbehavior_2eproto();
 void protobuf_AssignDesc_robot_5fbehavior_2eproto();
 void protobuf_ShutdownFile_robot_5fbehavior_2eproto();
 
+class BehaviorArguments;
 class BehaviorDescription;
 class RobotBehaviorModule;
 class RobotBehaviorModule_RobotBehaviorResponder;
@@ -88,6 +89,143 @@ inline bool BehaviorDescription_ExecutionState_Parse(
     BehaviorDescription_ExecutionState_descriptor(), name, value);
 }
 // ===================================================================
+
+class BehaviorArguments : public ::google::protobuf::Message {
+ public:
+  BehaviorArguments();
+  virtual ~BehaviorArguments();
+
+  BehaviorArguments(const BehaviorArguments& from);
+
+  inline BehaviorArguments& operator=(const BehaviorArguments& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BehaviorArguments& default_instance();
+
+  void Swap(BehaviorArguments* other);
+
+  // implements Message ----------------------------------------------
+
+  inline BehaviorArguments* New() const { return New(NULL); }
+
+  BehaviorArguments* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BehaviorArguments& from);
+  void MergeFrom(const BehaviorArguments& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(BehaviorArguments* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string name = 1;
+  bool has_name() const;
+  void clear_name();
+  static const int kNameFieldNumber = 1;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
+
+  // required string value = 2;
+  bool has_value() const;
+  void clear_value();
+  static const int kValueFieldNumber = 2;
+  const ::std::string& value() const;
+  void set_value(const ::std::string& value);
+  void set_value(const char* value);
+  void set_value(const char* value, size_t size);
+  ::std::string* mutable_value();
+  ::std::string* release_value();
+  void set_allocated_value(::std::string* value);
+
+  // required bool place_holder = 3;
+  bool has_place_holder() const;
+  void clear_place_holder();
+  static const int kPlaceHolderFieldNumber = 3;
+  bool place_holder() const;
+  void set_place_holder(bool value);
+
+  // required string type = 4;
+  bool has_type() const;
+  void clear_type();
+  static const int kTypeFieldNumber = 4;
+  const ::std::string& type() const;
+  void set_type(const ::std::string& value);
+  void set_type(const char* value);
+  void set_type(const char* value, size_t size);
+  ::std::string* mutable_type();
+  ::std::string* release_type();
+  void set_allocated_type(::std::string* type);
+
+  // @@protoc_insertion_point(class_scope:experimot.msgs.BehaviorArguments)
+ private:
+  inline void set_has_name();
+  inline void clear_has_name();
+  inline void set_has_value();
+  inline void clear_has_value();
+  inline void set_has_place_holder();
+  inline void clear_has_place_holder();
+  inline void set_has_type();
+  inline void clear_has_type();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::internal::ArenaStringPtr value_;
+  ::google::protobuf::internal::ArenaStringPtr type_;
+  bool place_holder_;
+  friend void  protobuf_AddDesc_robot_5fbehavior_2eproto();
+  friend void protobuf_AssignDesc_robot_5fbehavior_2eproto();
+  friend void protobuf_ShutdownFile_robot_5fbehavior_2eproto();
+
+  void InitAsDefaultInstance();
+  static BehaviorArguments* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class BehaviorDescription : public ::google::protobuf::Message {
  public:
@@ -214,17 +352,41 @@ class BehaviorDescription : public ::google::protobuf::Message {
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // required .experimot.msgs.BehaviorDescription.ExecutionType type = 2;
+  // required string function_name = 2;
+  bool has_function_name() const;
+  void clear_function_name();
+  static const int kFunctionNameFieldNumber = 2;
+  const ::std::string& function_name() const;
+  void set_function_name(const ::std::string& value);
+  void set_function_name(const char* value);
+  void set_function_name(const char* value, size_t size);
+  ::std::string* mutable_function_name();
+  ::std::string* release_function_name();
+  void set_allocated_function_name(::std::string* function_name);
+
+  // repeated .experimot.msgs.BehaviorArguments arg = 3;
+  int arg_size() const;
+  void clear_arg();
+  static const int kArgFieldNumber = 3;
+  const ::experimot::msgs::BehaviorArguments& arg(int index) const;
+  ::experimot::msgs::BehaviorArguments* mutable_arg(int index);
+  ::experimot::msgs::BehaviorArguments* add_arg();
+  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorArguments >&
+      arg() const;
+  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorArguments >*
+      mutable_arg();
+
+  // required .experimot.msgs.BehaviorDescription.ExecutionType type = 4;
   bool has_type() const;
   void clear_type();
-  static const int kTypeFieldNumber = 2;
+  static const int kTypeFieldNumber = 4;
   ::experimot::msgs::BehaviorDescription_ExecutionType type() const;
   void set_type(::experimot::msgs::BehaviorDescription_ExecutionType value);
 
-  // required .experimot.msgs.BehaviorDescription.ExecutionState state = 3;
+  // required .experimot.msgs.BehaviorDescription.ExecutionState state = 5;
   bool has_state() const;
   void clear_state();
-  static const int kStateFieldNumber = 3;
+  static const int kStateFieldNumber = 5;
   ::experimot::msgs::BehaviorDescription_ExecutionState state() const;
   void set_state(::experimot::msgs::BehaviorDescription_ExecutionState value);
 
@@ -232,6 +394,8 @@ class BehaviorDescription : public ::google::protobuf::Message {
  private:
   inline void set_has_name();
   inline void clear_has_name();
+  inline void set_has_function_name();
+  inline void clear_has_function_name();
   inline void set_has_type();
   inline void clear_has_type();
   inline void set_has_state();
@@ -244,6 +408,8 @@ class BehaviorDescription : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::internal::ArenaStringPtr function_name_;
+  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorArguments > arg_;
   int type_;
   int state_;
   friend void  protobuf_AddDesc_robot_5fbehavior_2eproto();
@@ -592,6 +758,193 @@ class RobotBehaviorModules : public ::google::protobuf::Message {
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
+// BehaviorArguments
+
+// required string name = 1;
+inline bool BehaviorArguments::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BehaviorArguments::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BehaviorArguments::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BehaviorArguments::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+inline const ::std::string& BehaviorArguments::name() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorArguments.name)
+  return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void BehaviorArguments::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorArguments.name)
+}
+inline void BehaviorArguments::set_name(const char* value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:experimot.msgs.BehaviorArguments.name)
+}
+inline void BehaviorArguments::set_name(const char* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.BehaviorArguments.name)
+}
+inline ::std::string* BehaviorArguments::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.BehaviorArguments.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* BehaviorArguments::release_name() {
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void BehaviorArguments::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.BehaviorArguments.name)
+}
+
+// required string value = 2;
+inline bool BehaviorArguments::has_value() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void BehaviorArguments::set_has_value() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void BehaviorArguments::clear_has_value() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void BehaviorArguments::clear_value() {
+  value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_value();
+}
+inline const ::std::string& BehaviorArguments::value() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorArguments.value)
+  return value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void BehaviorArguments::set_value(const ::std::string& value) {
+  set_has_value();
+  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorArguments.value)
+}
+inline void BehaviorArguments::set_value(const char* value) {
+  set_has_value();
+  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:experimot.msgs.BehaviorArguments.value)
+}
+inline void BehaviorArguments::set_value(const char* value, size_t size) {
+  set_has_value();
+  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.BehaviorArguments.value)
+}
+inline ::std::string* BehaviorArguments::mutable_value() {
+  set_has_value();
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.BehaviorArguments.value)
+  return value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* BehaviorArguments::release_value() {
+  clear_has_value();
+  return value_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void BehaviorArguments::set_allocated_value(::std::string* value) {
+  if (value != NULL) {
+    set_has_value();
+  } else {
+    clear_has_value();
+  }
+  value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.BehaviorArguments.value)
+}
+
+// required bool place_holder = 3;
+inline bool BehaviorArguments::has_place_holder() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void BehaviorArguments::set_has_place_holder() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void BehaviorArguments::clear_has_place_holder() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void BehaviorArguments::clear_place_holder() {
+  place_holder_ = false;
+  clear_has_place_holder();
+}
+inline bool BehaviorArguments::place_holder() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorArguments.place_holder)
+  return place_holder_;
+}
+inline void BehaviorArguments::set_place_holder(bool value) {
+  set_has_place_holder();
+  place_holder_ = value;
+  // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorArguments.place_holder)
+}
+
+// required string type = 4;
+inline bool BehaviorArguments::has_type() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void BehaviorArguments::set_has_type() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void BehaviorArguments::clear_has_type() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void BehaviorArguments::clear_type() {
+  type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_type();
+}
+inline const ::std::string& BehaviorArguments::type() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorArguments.type)
+  return type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void BehaviorArguments::set_type(const ::std::string& value) {
+  set_has_type();
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorArguments.type)
+}
+inline void BehaviorArguments::set_type(const char* value) {
+  set_has_type();
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:experimot.msgs.BehaviorArguments.type)
+}
+inline void BehaviorArguments::set_type(const char* value, size_t size) {
+  set_has_type();
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.BehaviorArguments.type)
+}
+inline ::std::string* BehaviorArguments::mutable_type() {
+  set_has_type();
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.BehaviorArguments.type)
+  return type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* BehaviorArguments::release_type() {
+  clear_has_type();
+  return type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void BehaviorArguments::set_allocated_type(::std::string* type) {
+  if (type != NULL) {
+    set_has_type();
+  } else {
+    clear_has_type();
+  }
+  type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), type);
+  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.BehaviorArguments.type)
+}
+
+// -------------------------------------------------------------------
+
 // BehaviorDescription
 
 // required string name = 1;
@@ -647,15 +1000,98 @@ inline void BehaviorDescription::set_allocated_name(::std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.BehaviorDescription.name)
 }
 
-// required .experimot.msgs.BehaviorDescription.ExecutionType type = 2;
-inline bool BehaviorDescription::has_type() const {
+// required string function_name = 2;
+inline bool BehaviorDescription::has_function_name() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void BehaviorDescription::set_has_type() {
+inline void BehaviorDescription::set_has_function_name() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void BehaviorDescription::clear_has_type() {
+inline void BehaviorDescription::clear_has_function_name() {
   _has_bits_[0] &= ~0x00000002u;
+}
+inline void BehaviorDescription::clear_function_name() {
+  function_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_function_name();
+}
+inline const ::std::string& BehaviorDescription::function_name() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorDescription.function_name)
+  return function_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void BehaviorDescription::set_function_name(const ::std::string& value) {
+  set_has_function_name();
+  function_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorDescription.function_name)
+}
+inline void BehaviorDescription::set_function_name(const char* value) {
+  set_has_function_name();
+  function_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:experimot.msgs.BehaviorDescription.function_name)
+}
+inline void BehaviorDescription::set_function_name(const char* value, size_t size) {
+  set_has_function_name();
+  function_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.BehaviorDescription.function_name)
+}
+inline ::std::string* BehaviorDescription::mutable_function_name() {
+  set_has_function_name();
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.BehaviorDescription.function_name)
+  return function_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* BehaviorDescription::release_function_name() {
+  clear_has_function_name();
+  return function_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void BehaviorDescription::set_allocated_function_name(::std::string* function_name) {
+  if (function_name != NULL) {
+    set_has_function_name();
+  } else {
+    clear_has_function_name();
+  }
+  function_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), function_name);
+  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.BehaviorDescription.function_name)
+}
+
+// repeated .experimot.msgs.BehaviorArguments arg = 3;
+inline int BehaviorDescription::arg_size() const {
+  return arg_.size();
+}
+inline void BehaviorDescription::clear_arg() {
+  arg_.Clear();
+}
+inline const ::experimot::msgs::BehaviorArguments& BehaviorDescription::arg(int index) const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorDescription.arg)
+  return arg_.Get(index);
+}
+inline ::experimot::msgs::BehaviorArguments* BehaviorDescription::mutable_arg(int index) {
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.BehaviorDescription.arg)
+  return arg_.Mutable(index);
+}
+inline ::experimot::msgs::BehaviorArguments* BehaviorDescription::add_arg() {
+  // @@protoc_insertion_point(field_add:experimot.msgs.BehaviorDescription.arg)
+  return arg_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorArguments >&
+BehaviorDescription::arg() const {
+  // @@protoc_insertion_point(field_list:experimot.msgs.BehaviorDescription.arg)
+  return arg_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorArguments >*
+BehaviorDescription::mutable_arg() {
+  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.BehaviorDescription.arg)
+  return &arg_;
+}
+
+// required .experimot.msgs.BehaviorDescription.ExecutionType type = 4;
+inline bool BehaviorDescription::has_type() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void BehaviorDescription::set_has_type() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void BehaviorDescription::clear_has_type() {
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void BehaviorDescription::clear_type() {
   type_ = 0;
@@ -672,15 +1108,15 @@ inline void BehaviorDescription::set_type(::experimot::msgs::BehaviorDescription
   // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorDescription.type)
 }
 
-// required .experimot.msgs.BehaviorDescription.ExecutionState state = 3;
+// required .experimot.msgs.BehaviorDescription.ExecutionState state = 5;
 inline bool BehaviorDescription::has_state() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void BehaviorDescription::set_has_state() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void BehaviorDescription::clear_has_state() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void BehaviorDescription::clear_state() {
   state_ = 0;
@@ -974,7 +1410,7 @@ RobotBehaviorModules::mutable_modules() {
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::BehaviorDescription> BehaviorDescriptionPtr;
+typedef boost::shared_ptr<experimot::msgs::BehaviorArguments> BehaviorArgumentsPtr;
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace msgs
@@ -999,7 +1435,7 @@ inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::BehaviorDescr
 }  // namespace google
 #endif  // SWIG
 
-typedef const boost::shared_ptr<experimot::msgs::BehaviorDescription const> ConstBehaviorDescriptionPtr;
+typedef const boost::shared_ptr<experimot::msgs::BehaviorArguments const> ConstBehaviorArgumentsPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_robot_5fbehavior_2eproto__INCLUDED
