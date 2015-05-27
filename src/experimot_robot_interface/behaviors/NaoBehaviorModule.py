@@ -117,7 +117,7 @@ class NaoBehaviorModule:
             proxy.setLanguage(language)
 
     def action_executeBehavior(self,params):
-        name = params.get('behaviorName','')
+        name = params.get('name','')
         if name is not '':
             managerProxy = self.getBehaviorProxy()
             self.getBehaviors(managerProxy)
@@ -167,7 +167,10 @@ class NaoBehaviorModule:
         if method is not None:
             arg_spec = inspect.getargspec(method)
             #print arg_spec.args
+            print 'Method', name, "Params", params
             method(params)
+        else:
+            print 'Method', name, "not found!"
 
     def createArg(self, value, placeHolder=False, type='string'):
         arg = dict({})
