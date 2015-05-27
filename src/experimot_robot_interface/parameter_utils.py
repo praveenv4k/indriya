@@ -3,7 +3,7 @@ import zmq
 import node_pb2
 import robot_behavior_pb2
 import sys
-
+import json
 def getNodeParameters(name,parameterServerAddress,timeout):
     try:
         # using with keyword save the life! If not used, the unmanaged resources are getting cleaned up
@@ -74,7 +74,7 @@ def get_behavior_modules(req,ip,port,timeout):
 
     return None
 
-def register_motions(node,parameterServerAddress,motions):
+def register_behaviors(node,parameterServerAddress,behaviors):
     print "Creating behavior module message"
     behaviorModule = robot_behavior_pb2.RobotBehaviorModule()
     behaviorModule.name = node.name
@@ -87,10 +87,10 @@ def register_motions(node,parameterServerAddress,motions):
     behaviorModule.responder.Host = ip
     behaviorModule.responder.Port = port
 
-    for motion in motions:
-        print "Creating behavior description message", motion
+    for behavior in behaviors:
+        print "Creating behavior description message", behavior
         desc = behaviorModule.behaviors.add()
-        desc.name = motion
+        desc.name = behavior
         desc.type = robot_behavior_pb2.BehaviorDescription.Blocking
         desc.state = robot_behavior_pb2.BehaviorDescription.Idle
 
@@ -111,4 +111,4 @@ def register_motions(node,parameterServerAddress,motions):
                 sock.close()
                 print response
     except:
-        print "register_motions : ", sys.exc_info()
+        print "register_behaviors : ", sys.exc_info()
