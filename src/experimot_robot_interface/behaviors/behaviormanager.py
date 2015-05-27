@@ -24,6 +24,33 @@ sys.path.append(dir2)
 import zmq
 # Utils
 import parameter_utils
+# JSON
+import json
+
+def parse_and_execute(behaviorModule,recv_str):
+    ret = True
+    try:
+      if behaviorModule is not None:
+          out = json.loads(recv_str)
+          print "Name" , out["BehaviorName"]
+          print "Function Name" , out["FunctionName"]
+          # Compose Parameter Dictionary
+          paramDict = dict({})
+          params = out['Parameters']
+          for param in params:
+              print param, params[param], params[param]['value']
+              type = params[param]['type']
+              key = str(param.encode('utf-8'))
+              value = str(params[param]['value'].encode('utf-8'))
+              if(type == 'float'):
+                  paramDict[key] = float(value)
+              else:
+                  paramDict[key] = value
+          behaviorModule.executeAction(out["FunctionName"],paramDict)
+    except:
+        ret = False
+        print "Exception occured while execution ", sys.exc_info()
+    return ret
 
 #############################################################################################################
 # Behavior server - A Behavior request/response server
@@ -38,10 +65,10 @@ def behavior_server(behaviorModule,ip,port):
         print("Received request: %s" % behavior)
 
         try:
-            ## TODO Execute the requested action
-            # manager = create_proxy(robot_ip,robot_port)
-            # execute_behavior(manager,behavior)
-            socket.send("Execution successful")
+            response = "Execution successful"
+            if parse_and_execute(behaviorModule,behavior) is not True:
+                response = "Execution Failed"
+            socket.send(response)
         except:
             print "Exception occured while execution ", sys.exc_info()
             socket.send("Execution Failed")
