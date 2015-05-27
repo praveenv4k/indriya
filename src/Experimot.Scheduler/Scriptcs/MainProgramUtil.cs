@@ -86,8 +86,8 @@ public class MainProgramUtil
         var root = XElement.Load(xmlFile);
         //var doc = XmlDocumentUtil.RemoveXmlns(xmlFile);
 
-        var blocks = LinqXmlUtil.GetElementsAnyNS(root, "block");
-        Console.WriteLine(@"Number of behavior blocks : {0}", blocks.Count());
+        var blocks = LinqXmlUtil.GetElementsAnyNS(root, "block").ToList();
+        Console.WriteLine(@"Number of behavior blocks : {0}", blocks.Count);
 
         var motionBehaviorList = new List<MotionBasedBehavior>();
         foreach (var block in blocks)
@@ -259,6 +259,30 @@ public class MainProgramUtil
                             return new BehaviorInfo
                             {
                                 BehaviorName = robotAction.Value
+                            };
+                        }
+                    }
+                }
+            }
+            else if (blockType.Value == "animated_say_action")
+            {
+                var robotActions = LinqXmlUtil.GetElementsAnyNS(behaviorBlock, "field");
+                if (robotActions != null)
+                {
+                    foreach (var robotAction in robotActions)
+                    {
+                        var actionType = robotAction.Attribute("name");
+                        if (actionType.Value == "SAY_TEXT")
+                        {
+                            return new BehaviorInfo
+                            {
+                                BehaviorName = "Say Expressively",
+                                Parameters = new Dictionary<string, object>() { { "msg",new Dictionary<string, object>
+                                {
+                                    {"value", robotAction.Value},
+                                    {"place_holder", true},
+                                    {"type", "string"}
+                                }} }
                             };
                         }
                     }

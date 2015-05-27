@@ -175,6 +175,19 @@ public class MainProgram : IJobListener
                 {
                     if (dict.ContainsKey(item.BehaviorName))
                     {
+                        //ret.Add(dict[item.BehaviorName]);
+                        // Update the values of the parameter list with the once originally parsed from the xml file
+                        foreach (var parameter in item.Parameters)
+                        {
+                            if (!dict[item.BehaviorName].Parameters.ContainsKey(parameter.Key))
+                            {
+                                dict[item.BehaviorName].Parameters.Add(parameter);
+                            }
+                            else
+                            {
+                                dict[item.BehaviorName].Parameters[parameter.Key] = parameter.Value;
+                            }
+                        }
                         ret.Add(dict[item.BehaviorName]);
                     }
                 }

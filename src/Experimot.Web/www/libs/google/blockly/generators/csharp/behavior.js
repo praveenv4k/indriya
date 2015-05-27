@@ -132,6 +132,19 @@ Blockly.CSharp['robot_action'] = function (block) {
     return code;
 };
 
+Blockly.CSharp['animated_say_action'] = function (block) {
+    //return "";
+    var say_msg = block.getFieldValue('SAY_TEXT');
+    //console.log(dropdown_actions);
+    // TODO: Assemble CSharp into code variable.
+    //var code = '\'' + dropdown_actions + '\'';
+    //var code = 'execute_action(' + dropdown_actions + '); \n';
+    var code = 'var msg = ' + say_msg +";";
+    //var code =  dropdown_actions ;
+    //return [code, Blockly.CSharp.ORDER_ATOMIC];
+    return code;
+};
+
 Blockly.CSharp['trigger'] = function (block) {
     var dropdown_triggers = block.getFieldValue('triggers');
     // TODO: Assemble CSharp into code variable.

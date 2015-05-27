@@ -5,6 +5,10 @@ __author__ = 'Praveenkumar VASUDEVAN'
 from naoqi import ALProxy
 import time
 import inspect
+import detectlanguage
+import pycountry
+import os
+import sys
 
 class NaoBehaviorModule:
     def __init__(self, robot_ip, robot_port):
@@ -127,6 +131,18 @@ class NaoBehaviorModule:
     def action_sayExpressively(self,params):
         language = params.get('lang','')
         msg = params.get('msg','')
+        if language is '' and msg is not '':
+            # Try to detect language
+            apiKey = os.environ['LANGUAGE_DETECT_APIKEY']
+            if apiKey is not '':
+                try:
+                    langCode = detectlanguage.simple_detect(msg)
+                    langDetails = pycountry.languages.get(langCode)
+                    language = str(langDetails.name)
+                    print 'Identified Language is ', language
+                except:
+                    print "Exception occured while execution ", sys.exc_info()
+
         if language is not '' and msg is not '':
             proxy = self.getAnimatedSayProxy()
             if proxy is not None:
@@ -187,14 +203,14 @@ class NaoBehaviorModule:
             behaviorStr = insBehavior.replace('.lastUploadedChoregrapheBehavior/','',1)
             cap_dict[behaviorStr] = {'function':'action_executeBehavior','args':{'name':self.createArg(behaviorStr)}}
 
-        cap_dict['Say Expressively']= {'function':'action_sayExpressively',
+        cap_dict['Look At']= {'function':'action_lookAt',
                                        'args':{'x':self.createArg(0.0,True,'float'),
                                                'y':self.createArg(0.0,True,'float'),
                                                'z':self.createArg(0.0,True,'float'),
                                                'frame':self.createArg('torso',True)}}
 
-        cap_dict['Look At']= {'function':'action_sayExpressively',
-                              'args':{'lang':self.createArg('English',True),
+        cap_dict['Say Expressively']= {'function':'action_sayExpressively',
+                              'args':{'lang':self.createArg('',True),
                                       'msg':self.createArg('Hello!',True)}}
 
         standardPostures = ['Sit Relax','LyingBelly','LyingBack','Stand','Crouch','Sit']
