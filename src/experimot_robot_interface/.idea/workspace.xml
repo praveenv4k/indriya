@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03f6965a-39a2-4893-a7b0-c0ae82b1fab2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../include/experimot/msgs/MessageTypes.h" afterPath="$PROJECT_DIR$/../../include/experimot/msgs/MessageTypes.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/MessageTypes.h" afterPath="$PROJECT_DIR$/../experimot_msgs/MessageTypes.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/behaviors/NaoBehaviorModule.py" afterPath="$PROJECT_DIR$/behaviors/NaoBehaviorModule.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/behaviors/behaviormanager.py" afterPath="$PROJECT_DIR$/behaviors/behaviormanager.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parameter_utils.py" afterPath="$PROJECT_DIR$/parameter_utils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/csharp/robot_behavior.cs" afterPath="$PROJECT_DIR$/../experimot_msgs/csharp/robot_behavior.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/robot_behavior.pb.cc" afterPath="$PROJECT_DIR$/../experimot_msgs/robot_behavior.pb.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../include/experimot/msgs/robot_behavior.pb.h" afterPath="$PROJECT_DIR$/../../include/experimot/msgs/robot_behavior.pb.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/robot_behavior.pb.h" afterPath="$PROJECT_DIR$/../experimot_msgs/robot_behavior.pb.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/proto/robot_behavior.proto" afterPath="$PROJECT_DIR$/../experimot_msgs/proto/robot_behavior.proto" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/robot_behavior_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/robot_behavior_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PyScripts.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="NaoBehaviorModule.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NaoBehaviorModule.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/behaviors/NaoBehaviorModule.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7624751" vertical-offset="3613" max-vertical-offset="4182">
-              <caret line="235" column="24" selection-start-line="212" selection-start-column="4" selection-end-line="235" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3570" max-vertical-offset="4148">
+              <caret line="186" column="44" selection-start-line="186" selection-start-column="44" selection-end-line="186" selection-end-column="44" />
               <folding>
                 <element signature="e#85#110#0" expanded="true" />
               </folding>
@@ -51,11 +43,9 @@
       <file leaf-file-name="behaviormanager.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/behaviors/behaviormanager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1615">
-              <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-              <folding>
-                <element signature="e#27#36#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="1148" max-vertical-offset="1649">
+              <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -72,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parameter_utils.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="parameter_utils.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parameter_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1658" max-vertical-offset="2159">
-              <caret line="101" column="59" selection-start-line="101" selection-start-column="59" selection-end-line="101" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.7285429" vertical-offset="1301" max-vertical-offset="2159">
+              <caret line="98" column="52" selection-start-line="98" selection-start-column="52" selection-end-line="98" selection-end-column="52" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -112,8 +102,8 @@
         <option value="$PROJECT_DIR$/behaviors/allandmarkdetection.py" />
         <option value="$PROJECT_DIR$/behaviors/BehaviorModuleBase.py" />
         <option value="$PROJECT_DIR$/behaviors/behaviormanager.py" />
-        <option value="$PROJECT_DIR$/behaviors/NaoBehaviorModule.py" />
         <option value="$PROJECT_DIR$/parameter_utils.py" />
+        <option value="$PROJECT_DIR$/behaviors/NaoBehaviorModule.py" />
       </list>
     </option>
   </component>
@@ -923,16 +913,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/behaviors/behaviormanager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1114" max-vertical-offset="1615">
-          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding>
-            <element signature="e#27#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/behaviors/albehaviormanager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="604" max-vertical-offset="3298">
@@ -943,22 +923,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parameter_utils.py">
+    <entry file="file://$PROJECT_DIR$/behaviors/NaoBehaviorModule.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1658" max-vertical-offset="2159">
-          <caret line="101" column="59" selection-start-line="101" selection-start-column="59" selection-end-line="101" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3570" max-vertical-offset="4148">
+          <caret line="186" column="44" selection-start-line="186" selection-start-column="44" selection-end-line="186" selection-end-column="44" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#85#110#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/behaviors/NaoBehaviorModule.py">
+    <entry file="file://$PROJECT_DIR$/behaviors/behaviormanager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7624751" vertical-offset="3613" max-vertical-offset="4182">
-          <caret line="235" column="24" selection-start-line="212" selection-start-column="4" selection-end-line="235" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="434" max-vertical-offset="1649">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parameter_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7285429" vertical-offset="1301" max-vertical-offset="2159">
+          <caret line="98" column="52" selection-start-line="98" selection-start-column="52" selection-end-line="98" selection-end-column="52" />
           <folding>
-            <element signature="e#85#110#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>

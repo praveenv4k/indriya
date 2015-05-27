@@ -27,8 +27,7 @@ import parameter_utils
 
 #############################################################################################################
 # Behavior server - A Behavior request/response server
-def behavior_server(ip,port,robot_ip,robot_port):
-    module = NaoBehaviorModule.NaoBehaviorModule(robot_ip,robot_port)
+def behavior_server(behaviorModule,ip,port):
     context = zmq.Context()
     socket = context.socket(zmq.REP)
     socket.bind(("%s:%d" % (ip,port)))
@@ -39,9 +38,9 @@ def behavior_server(ip,port,robot_ip,robot_port):
         print("Received request: %s" % behavior)
 
         try:
+            ## TODO Execute the requested action
             # manager = create_proxy(robot_ip,robot_port)
             # execute_behavior(manager,behavior)
-
             socket.send("Execution successful")
         except:
             print "Exception occured while execution ", sys.exc_info()
@@ -74,8 +73,11 @@ if __name__ == "__main__":
               PORT =  int(parameter_utils.getParam(node,"ROBOTPORT", "9559"))
               BEHAVIOR_PORT = int(parameter_utils.getParam(node,"RequestServerPort", "5590"))
               BEHAVIOR_IP = parameter_utils.getParam(node,"RequestServerIP", "*")
-              parameter_utils.register_behaviors(node,paramServer,["crouch","stand","hand_wave","greet","wish","introduction"])
-              thread.start_new_thread(behavior_server,(BEHAVIOR_IP,BEHAVIOR_PORT,ROBOTIP,PORT))
+              module = NaoBehaviorModule.NaoBehaviorModule(ROBOTIP,PORT)
+              behaviors = module.getCapabilities()
+              #parameter_utils.register_behaviors(node,paramServer,["crouch","stand","hand_wave","greet","wish","introduction"])
+              parameter_utils.register_behaviors(node,paramServer,behaviors)
+              thread.start_new_thread(behavior_server,(module,BEHAVIOR_IP,BEHAVIOR_PORT))
       else:
           print "Start locally"
 
