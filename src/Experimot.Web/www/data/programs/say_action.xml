@@ -1,0 +1,23 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_startup" id="3" x="138" y="63">
+    <statement name="DO">
+      <block type="animated_say_action" id="10">
+        <field name="SAY_TEXT">おはようございます。</field>
+        <next>
+          <block type="robot_action" id="15">
+            <field name="actions">crouch</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_sleek" id="5" x="63" y="213">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">behavior</field>
+    <field name="triggers">Greet_Left</field>
+    <field name="confidence_levels">80</field>
+    <field name="trigger_count">WaveLeftCount</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+  </block>
+</xml>

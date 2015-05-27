@@ -42,6 +42,7 @@ def parse_and_execute(behaviorModule,recv_str):
               type = params[param]['type']
               key = str(param.encode('utf-8'))
               value = str(params[param]['value'].encode('utf-8'))
+              #value = params[param]['value']
               if(type == 'float'):
                   paramDict[key] = float(value)
               else:
@@ -80,6 +81,9 @@ def behavior_server(behaviorModule,ip,port):
 
 if __name__ == "__main__":
   try:
+
+      from langdetect import detect
+      print detect(u"Cosa vuoi mangiare?")
       ROBOTIP = "127.0.0.1"
       PORT = 55241
       if (len(sys.argv) >= 3):

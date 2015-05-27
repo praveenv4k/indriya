@@ -570,7 +570,7 @@ Blockly.Blocks['animated_say_action'] = {
         this.setHelpUrl('http://www.example.com/');
         this.setColour(230);
         this.appendDummyInput()
-            .appendField("say expressively \"")
+            .appendField("Say Expressively \"")
             .appendField(new Blockly.FieldTextInput("text"), "SAY_TEXT")
             .appendField("\"");
         this.setInputsInline(true);
