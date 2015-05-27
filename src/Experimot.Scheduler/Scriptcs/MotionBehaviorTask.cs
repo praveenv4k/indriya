@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Common.Logging;
 using NetMQ;
 using NCalc;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 public class MotionBehaviorTask : Quartz.IJob
@@ -148,7 +149,7 @@ public class MotionBehaviorTask : Quartz.IJob
                                 sock.Connect(addr);
                                 Log.InfoFormat("Connected to behavior server: {0}", addr);
 
-                                sock.Send(behaviorName);
+                                sock.Send(JsonConvert.SerializeObject(behaviorInfo));
                                 Log.InfoFormat("Sent behavior execution request: {0}", behaviorName);
 
                                 var reply = sock.ReceiveString();
@@ -207,7 +208,8 @@ public class MotionBehaviorTask : Quartz.IJob
                             sock.Connect(addr);
                             Log.InfoFormat("Connected to behavior server: {0}", addr);
 
-                            sock.Send(behaviorName);
+                            //sock.Send(behaviorName);
+                            sock.Send(JsonConvert.SerializeObject(behaviorInfo));
                             Log.InfoFormat("Sent behavior execution request: {0}", behaviorName);
 
                             var reply = sock.ReceiveString();
