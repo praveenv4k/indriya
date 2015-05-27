@@ -14,6 +14,7 @@ public class BehaviorInfo
     public string Ip { get; set; }
     public int Port { get; set; }
     public string BehaviorName { get; set; }
+    public string FunctionName { get; set; }
     public IDictionary<string, object> Parameters { get; set; } 
 }
 

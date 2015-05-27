@@ -169,7 +169,7 @@ class NaoBehaviorModule:
             #print arg_spec.args
             method(params)
 
-    def createArg(self, value, placeHolder=False, type='str'):
+    def createArg(self, value, placeHolder=False, type='string'):
         arg = dict({})
         arg['value'] = value
         arg['place_holder'] = placeHolder
@@ -200,40 +200,38 @@ class NaoBehaviorModule:
 
         return cap_dict
 
-if __name__ == "__main__":
-    a = NaoBehaviorModule('127.0.0.1',57105)
-    msg = 'ありがとうございました。'
-    say_param = {'lang':'Japanese','msg':msg}
-
-    behaviors = a.getCapabilities()
-    # for i in cap:
-    #     print i, str(cap[i])
-
-    import robot_behavior_pb2
-    behaviorModule = robot_behavior_pb2.RobotBehaviorModule()
-    behaviorModule.name = "dummy"
-
-
-
-    behaviorModule.responder.Host = "ip"
-    behaviorModule.responder.Port = 1000
-
-    for behavior in behaviors:
-        print "Creating behavior description message", behavior
-        desc = behaviorModule.behaviors.add()
-        desc.name = behavior
-        desc.function_name = behaviors[behavior]['function']
-        args = behaviors[behavior]['args']
-        for arg in args:
-            desc_arg = desc.arg.add()
-            desc_arg.name = arg
-            desc_arg.place_holder = args[arg]['place_holder']
-            desc_arg.value = str(args[arg]['value'])
-            desc_arg.type = args[arg]['type']
-        desc.type = robot_behavior_pb2.BehaviorDescription.Blocking
-        desc.state = robot_behavior_pb2.BehaviorDescription.Idle
-
-    print behaviorModule
+# if __name__ == "__main__":
+#     a = NaoBehaviorModule('127.0.0.1',57105)
+#     msg = 'ありがとうございました。'
+#     say_param = {'lang':'Japanese','msg':msg}
+#
+#     behaviors = a.getCapabilities()
+#     # for i in cap:
+#     #     print i, str(cap[i])
+#
+#     import robot_behavior_pb2
+#     behaviorModule = robot_behavior_pb2.RobotBehaviorModule()
+#     behaviorModule.name = "dummy"
+#
+#     behaviorModule.responder.Host = "ip"
+#     behaviorModule.responder.Port = 1000
+#
+#     for behavior in behaviors:
+#         print "Creating behavior description message", behavior
+#         desc = behaviorModule.behaviors.add()
+#         desc.name = behavior
+#         desc.function_name = behaviors[behavior]['function']
+#         args = behaviors[behavior]['args']
+#         for arg in args:
+#             desc_arg = desc.arg.add()
+#             desc_arg.name = arg
+#             desc_arg.place_holder = args[arg]['place_holder']
+#             desc_arg.value = str(args[arg]['value'])
+#             desc_arg.type = args[arg]['type']
+#         desc.type = robot_behavior_pb2.BehaviorDescription.Blocking
+#         desc.state = robot_behavior_pb2.BehaviorDescription.Idle
+#
+#     print behaviorModule
     # a.executeAction('action_goToPosture',{'posture':'Stand'})
     # a.executeAction('action_sayExpressively',say_param)
     # a.executeAction('action_goToPosture',{'posture':'Crouch'})

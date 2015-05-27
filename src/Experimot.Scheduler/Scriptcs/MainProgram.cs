@@ -6,6 +6,7 @@ using Newtonsoft.Json.Linq;
 using Quartz;
 using Quartz.Impl.Matchers;
 using Common.Logging;
+// ReSharper disable LoopCanBeConvertedToQuery
 
 // ReSharper disable once CheckNamespace
 public class MainProgram : IJobListener
@@ -107,7 +108,7 @@ public class MainProgram : IJobListener
         return ret;
     }
 
-    
+
 
     private static IList<BehaviorInfo> GetBehaviorModules(NetMQSocket socket,
         IList<BehaviorInfo> behaviorList)
@@ -140,13 +141,27 @@ public class MainProgram : IJobListener
                         foreach (var behavior in behaviors)
                         {
                             string name = behavior.Value<string>("name");
+                            string functionName = behavior.Value<string>("function_name");
+                            var parameters = new Dictionary<string, object>();
+                            var args = behavior.SelectToken("$.arg");
+                            foreach (var arg in args)
+                            {
+                                parameters.Add(arg.Value<string>("name"), new Dictionary<string, object>
+                                {
+                                    {"value", arg.Value<string>("value")},
+                                    {"place_holder", arg.Value<string>("place_holder")},
+                                    {"type", arg.Value<string>("type")}
+                                });
+                            }
                             if (!dict.ContainsKey(name))
                             {
                                 dict.Add(name, new BehaviorInfo
                                 {
                                     BehaviorName = name,
+                                    FunctionName = functionName,
                                     Ip = host,
-                                    Port = port
+                                    Port = port,
+                                    Parameters = parameters
                                 });
                             }
                         }

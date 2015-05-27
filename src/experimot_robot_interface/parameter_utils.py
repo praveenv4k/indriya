@@ -107,11 +107,11 @@ def register_behaviors(node,parameterServerAddress,behaviors):
         with zmq.Context.instance() as ctx: 
             with ctx.socket(zmq.REQ) as sock:
                 parts = []
-                str = behaviorModule.SerializeToString();
+                module_str = behaviorModule.SerializeToString();
                 sock.connect(parameterServerAddress)
                 parts.append("register_behaviors")
                 parts.append(node.name.encode('utf-8'))
-                parts.append(str)                
+                parts.append(module_str)
                 print "Sending register_motions message", parts
                 sock.send_multipart(parts)
                 response = sock.recv()
