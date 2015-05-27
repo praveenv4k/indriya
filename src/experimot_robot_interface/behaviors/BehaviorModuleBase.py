@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 __author__ = 'Praveenkumar VASUDEVAN'
 
-import sys
 from naoqi import ALProxy
 import time
 import inspect
@@ -28,7 +27,11 @@ class NaoBehaviorModule:
     def getBehaviorProxy(self):
         return  ALProxy("ALBehaviorManager", self.ROBOT_IP, self.ROBOT_PORT)
 
+    def getTrackerProxy(self):
+        return  ALProxy("ALTracker", self.ROBOT_IP, self.ROBOT_PORT)
 
+    def getLandmarkDetectionProxy(self):
+        return  ALProxy("ALLandMarkDetection", self.ROBOT_IP, self.ROBOT_PORT)
 
     def getBehaviors(self,managerProxy):
       ''' Know which behaviors are installed on the robot '''
@@ -107,9 +110,7 @@ class NaoBehaviorModule:
             proxy.setLanguage(language)
 
     def action_executeBehavior(self,params):
-        name = ''
-        if params.has_key('behaviorName'):
-            name = params['behaviorName']
+        name = params.get('behaviorName','')
         if name is not '':
             managerProxy = self.getBehaviorProxy()
             self.getBehaviors(managerProxy)
@@ -117,12 +118,8 @@ class NaoBehaviorModule:
             self.defaultBehaviors(managerProxy, name)
 
     def action_sayExpressively(self,params):
-        language = ''
-        msg = ''
-        if params.has_key('lang'):
-            language = params['lang']
-        if params.has_key('msg'):
-            msg = params['msg']
+        language = params.get('lang','')
+        msg = params.get('msg','')
         if language is not '' and msg is not '':
             proxy = self.getAnimatedSayProxy()
             if proxy is not None:
@@ -132,23 +129,31 @@ class NaoBehaviorModule:
                 proxy.say(msg,configuration)
 
     def action_goToPosture(self,params):
-        posture = ''
-        if params.has_key('posture'):
-            posture = params['posture']
+        posture = params.get('posture','')
         if posture is not '':
             proxy = self.getPostureProxy()
             if proxy is not None:
                 proxy.goToPosture(posture, 1.0)
 
-    def action_installedBehavior(self,params):
-        posture = ''
-        msg = ''
-        if params.has_key('posture'):
-            posture = params['posture']
-        if posture is not '':
-            proxy = self.getPostureProxy()
-            if proxy is not None:
-                proxy.goToPosture(posture, 1.0)
+    def action_lookAt(self,params):
+        x = float(params.get('x',0))
+        y = float(params.get('y',0))
+        z = float(params.get('z',0))
+        frameStr = params.get('frame',0)
+        frame = 0
+        if frameStr == "Torso":
+            frame = 0
+        elif frameStr == "World":
+            frame = 1
+        elif frameStr == "Robot":
+            frame = 2
+
+        maxSpeed = 0.5
+        useWholeBody = False
+
+        proxy = self.getTrackerProxy()
+        if proxy is not None:
+            proxy.lookAt([x, y, z], frame, maxSpeed, useWholeBody)
 
     def executeAction(self,name,params):
         method = getattr(self,name)
@@ -160,7 +165,10 @@ class NaoBehaviorModule:
 if __name__ == "__main__":
     a = NaoBehaviorModule('127.0.0.1',57105)
     msg = 'ありがとうございました。'
+    say_param = {'lang':'Japanese','msg':msg};
     #msg_encoded = msg.encode('utf-8')
     a.executeAction('action_goToPosture',{'posture':'Stand'})
-    a.executeAction('action_sayExpressively',{'lang':'Japanese','msg':msg})
+    a.executeAction('action_sayExpressively',say_param)
     a.executeAction('action_goToPosture',{'posture':'Crouch'})
+    a.executeAction('action_lookAt',{'x':'0','y':'0.5','z':'0.5','frame':'torso'})
+    a.executeAction('action_lookAt',{'x':'0','y':'0.0','z':'0.2','frame':'torso'})

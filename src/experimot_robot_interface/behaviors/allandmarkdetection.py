@@ -6,6 +6,8 @@
 # - We then read this AlMemory value and check whether we get
 #   interesting things.
 import time
+import sys
+import os
 from naoqi import ALProxy
 
 # Replace this with your robot's IP address
@@ -68,7 +70,7 @@ if(val and isinstance(val, list) and len(val) == 2):
       print "mark  ID: %d" % (markExtraInfo[0])
       print "  alpha %.3f - beta %.3f" % (markShapeInfo[1], markShapeInfo[2])
       print "  width %.3f - height %.3f" % (markShapeInfo[3], markShapeInfo[4])
-      except Exception, e:
+  except Exception, e:
       print "Naomarks detected, but it seems getData is invalid. ALValue ="
       print val
       print "Error msg %s" % (str(e))
