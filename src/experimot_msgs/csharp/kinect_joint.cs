@@ -45,6 +45,14 @@ namespace experimot.msgs
       get { return _Orientation; }
       set { _Orientation = value; }
     }
+    private float _Angle = (float)-1000;
+    [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"Angle", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+    [global::System.ComponentModel.DefaultValue((float)-1000)]
+    public float Angle
+    {
+      get { return _Angle; }
+      set { _Angle = value; }
+    }
     [global::ProtoBuf.ProtoContract(Name=@"TrackingState")]
     public enum TrackingState
     {

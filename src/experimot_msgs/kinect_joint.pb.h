@@ -276,6 +276,13 @@ class KinectJoint : public ::google::protobuf::Message {
   ::experimot::msgs::Quaternion* release_orientation();
   void set_allocated_orientation(::experimot::msgs::Quaternion* orientation);
 
+  // optional float Angle = 5 [default = -1000];
+  bool has_angle() const;
+  void clear_angle();
+  static const int kAngleFieldNumber = 5;
+  float angle() const;
+  void set_angle(float value);
+
   // @@protoc_insertion_point(class_scope:experimot.msgs.KinectJoint)
  private:
   inline void set_has_type();
@@ -286,6 +293,8 @@ class KinectJoint : public ::google::protobuf::Message {
   inline void clear_has_position();
   inline void set_has_orientation();
   inline void clear_has_orientation();
+  inline void set_has_angle();
+  inline void clear_has_angle();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -297,6 +306,7 @@ class KinectJoint : public ::google::protobuf::Message {
   int state_;
   ::experimot::msgs::Vector3d* position_;
   ::experimot::msgs::Quaternion* orientation_;
+  float angle_;
   friend void  protobuf_AddDesc_kinect_5fjoint_2eproto();
   friend void protobuf_AssignDesc_kinect_5fjoint_2eproto();
   friend void protobuf_ShutdownFile_kinect_5fjoint_2eproto();
@@ -446,6 +456,30 @@ inline void KinectJoint::set_allocated_orientation(::experimot::msgs::Quaternion
     clear_has_orientation();
   }
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.KinectJoint.Orientation)
+}
+
+// optional float Angle = 5 [default = -1000];
+inline bool KinectJoint::has_angle() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void KinectJoint::set_has_angle() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void KinectJoint::clear_has_angle() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void KinectJoint::clear_angle() {
+  angle_ = -1000;
+  clear_has_angle();
+}
+inline float KinectJoint::angle() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.KinectJoint.Angle)
+  return angle_;
+}
+inline void KinectJoint::set_angle(float value) {
+  set_has_angle();
+  angle_ = value;
+  // @@protoc_insertion_point(field_set:experimot.msgs.KinectJoint.Angle)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

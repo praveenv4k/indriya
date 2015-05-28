@@ -37,11 +37,12 @@ void protobuf_AssignDesc_kinect_5fjoint_2eproto() {
       "kinect_joint.proto");
   GOOGLE_CHECK(file != NULL);
   KinectJoint_descriptor_ = file->message_type(0);
-  static const int KinectJoint_offsets_[4] = {
+  static const int KinectJoint_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KinectJoint, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KinectJoint, state_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KinectJoint, position_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KinectJoint, orientation_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KinectJoint, angle_),
   };
   KinectJoint_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -89,24 +90,25 @@ void protobuf_AddDesc_kinect_5fjoint_2eproto() {
   ::experimot::msgs::protobuf_AddDesc_quaternion_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\022kinect_joint.proto\022\016experimot.msgs\032\016ve"
-    "ctor3d.proto\032\020quaternion.proto\"\235\005\n\013Kinec"
+    "ctor3d.proto\032\020quaternion.proto\"\263\005\n\013Kinec"
     "tJoint\0223\n\004Type\030\001 \002(\0162%.experimot.msgs.Ki"
     "nectJoint.JointType\0228\n\005State\030\002 \002(\0162).exp"
     "erimot.msgs.KinectJoint.TrackingState\022*\n"
     "\010Position\030\003 \002(\0132\030.experimot.msgs.Vector3"
     "d\022/\n\013Orientation\030\004 \002(\0132\032.experimot.msgs."
-    "Quaternion\":\n\rTrackingState\022\016\n\nNotTracke"
-    "d\020\000\022\014\n\010Inferred\020\001\022\013\n\007Tracked\020\002\"\205\003\n\tJoint"
-    "Type\022\r\n\tSpineBase\020\000\022\014\n\010SpineMid\020\001\022\010\n\004Nec"
-    "k\020\002\022\010\n\004Head\020\003\022\020\n\014ShoulderLeft\020\004\022\r\n\tElbow"
-    "Left\020\005\022\r\n\tWristLeft\020\006\022\014\n\010HandLeft\020\007\022\021\n\rS"
-    "houlderRight\020\010\022\016\n\nElbowRight\020\t\022\016\n\nWristR"
-    "ight\020\n\022\r\n\tHandRight\020\013\022\013\n\007HipLeft\020\014\022\014\n\010Kn"
-    "eeLeft\020\r\022\r\n\tAnkleLeft\020\016\022\014\n\010FootLeft\020\017\022\014\n"
-    "\010HipRight\020\020\022\r\n\tKneeRight\020\021\022\016\n\nAnkleRight"
-    "\020\022\022\r\n\tFootRight\020\023\022\021\n\rSpineShoulder\020\024\022\017\n\013"
-    "HandTipLeft\020\025\022\r\n\tThumbLeft\020\026\022\020\n\014HandTipR"
-    "ight\020\027\022\016\n\nThumbRight\020\030", 742);
+    "Quaternion\022\024\n\005Angle\030\005 \001(\002:\005-1000\":\n\rTrac"
+    "kingState\022\016\n\nNotTracked\020\000\022\014\n\010Inferred\020\001\022"
+    "\013\n\007Tracked\020\002\"\205\003\n\tJointType\022\r\n\tSpineBase\020"
+    "\000\022\014\n\010SpineMid\020\001\022\010\n\004Neck\020\002\022\010\n\004Head\020\003\022\020\n\014S"
+    "houlderLeft\020\004\022\r\n\tElbowLeft\020\005\022\r\n\tWristLef"
+    "t\020\006\022\014\n\010HandLeft\020\007\022\021\n\rShoulderRight\020\010\022\016\n\n"
+    "ElbowRight\020\t\022\016\n\nWristRight\020\n\022\r\n\tHandRigh"
+    "t\020\013\022\013\n\007HipLeft\020\014\022\014\n\010KneeLeft\020\r\022\r\n\tAnkleL"
+    "eft\020\016\022\014\n\010FootLeft\020\017\022\014\n\010HipRight\020\020\022\r\n\tKne"
+    "eRight\020\021\022\016\n\nAnkleRight\020\022\022\r\n\tFootRight\020\023\022"
+    "\021\n\rSpineShoulder\020\024\022\017\n\013HandTipLeft\020\025\022\r\n\tT"
+    "humbLeft\020\026\022\020\n\014HandTipRight\020\027\022\016\n\nThumbRig"
+    "ht\020\030", 764);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "kinect_joint.proto", &protobuf_RegisterTypes);
   KinectJoint::default_instance_ = new KinectJoint();
@@ -228,6 +230,7 @@ const int KinectJoint::kTypeFieldNumber;
 const int KinectJoint::kStateFieldNumber;
 const int KinectJoint::kPositionFieldNumber;
 const int KinectJoint::kOrientationFieldNumber;
+const int KinectJoint::kAngleFieldNumber;
 #endif  // !_MSC_VER
 
 KinectJoint::KinectJoint()
@@ -255,6 +258,7 @@ void KinectJoint::SharedCtor() {
   state_ = 0;
   position_ = NULL;
   orientation_ = NULL;
+  angle_ = -1000;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -304,7 +308,7 @@ void KinectJoint::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  if (_has_bits_[0 / 32] & 15) {
+  if (_has_bits_[0 / 32] & 31) {
     ZR_(type_, state_);
     if (has_position()) {
       if (position_ != NULL) position_->::experimot::msgs::Vector3d::Clear();
@@ -312,6 +316,7 @@ void KinectJoint::Clear() {
     if (has_orientation()) {
       if (orientation_ != NULL) orientation_->::experimot::msgs::Quaternion::Clear();
     }
+    angle_ = -1000;
   }
 
 #undef ZR_HELPER_
@@ -394,6 +399,21 @@ bool KinectJoint::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(45)) goto parse_Angle;
+        break;
+      }
+
+      // optional float Angle = 5 [default = -1000];
+      case 5: {
+        if (tag == 45) {
+         parse_Angle:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &angle_)));
+          set_has_angle();
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -447,6 +467,11 @@ void KinectJoint::SerializeWithCachedSizes(
       4, *this->orientation_, output);
   }
 
+  // optional float Angle = 5 [default = -1000];
+  if (has_angle()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(5, this->angle(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -481,6 +506,11 @@ void KinectJoint::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         4, *this->orientation_, target);
+  }
+
+  // optional float Angle = 5 [default = -1000];
+  if (has_angle()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(5, this->angle(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -547,6 +577,11 @@ int KinectJoint::ByteSize() const {
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
+  // optional float Angle = 5 [default = -1000];
+  if (has_angle()) {
+    total_size += 1 + 4;
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -584,6 +619,9 @@ void KinectJoint::MergeFrom(const KinectJoint& from) {
     }
     if (from.has_orientation()) {
       mutable_orientation()->::experimot::msgs::Quaternion::MergeFrom(from.orientation());
+    }
+    if (from.has_angle()) {
+      set_angle(from.angle());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -624,6 +662,7 @@ void KinectJoint::InternalSwap(KinectJoint* other) {
   std::swap(state_, other->state_);
   std::swap(position_, other->position_);
   std::swap(orientation_, other->orientation_);
+  std::swap(angle_, other->angle_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -774,6 +813,30 @@ void KinectJoint::InternalSwap(KinectJoint* other) {
     clear_has_orientation();
   }
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.KinectJoint.Orientation)
+}
+
+// optional float Angle = 5 [default = -1000];
+ bool KinectJoint::has_angle() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+ void KinectJoint::set_has_angle() {
+  _has_bits_[0] |= 0x00000010u;
+}
+ void KinectJoint::clear_has_angle() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+ void KinectJoint::clear_angle() {
+  angle_ = -1000;
+  clear_has_angle();
+}
+ float KinectJoint::angle() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.KinectJoint.Angle)
+  return angle_;
+}
+ void KinectJoint::set_angle(float value) {
+  set_has_angle();
+  angle_ = value;
+  // @@protoc_insertion_point(field_set:experimot.msgs.KinectJoint.Angle)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

@@ -2,10 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03f6965a-39a2-4893-a7b0-c0ae82b1fab2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../docs/Thesis/Chapters/Chapter5.tex" afterPath="$PROJECT_DIR$/../../docs/Thesis/Chapters/Chapter5.tex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../ExPeriMot.sln" afterPath="$PROJECT_DIR$/../../ExPeriMot.sln" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Experimot.Scheduler/Experimot.Scheduler.csproj" afterPath="$PROJECT_DIR$/../Experimot.Scheduler/Experimot.Scheduler.csproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Experimot.Scheduler/experimot_config.xml" afterPath="$PROJECT_DIR$/../Experimot.Scheduler/experimot_config.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/behaviors/imitation_manager.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KinectEx/BodyExtensions.cs" afterPath="$PROJECT_DIR$/../KinectEx/BodyExtensions.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Experimot.Scheduler/ContextServer.cs" afterPath="$PROJECT_DIR$/../Experimot.Scheduler/ContextServer.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Experimot.Kinect.Perception/KinectBodyPublisher.cs" afterPath="$PROJECT_DIR$/../Experimot.Kinect.Perception/KinectBodyPublisher.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../include/experimot/msgs/MessageTypes.h" afterPath="$PROJECT_DIR$/../../include/experimot/msgs/MessageTypes.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/MessageTypes.h" afterPath="$PROJECT_DIR$/../experimot_msgs/MessageTypes.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/behaviors/NaoBehaviorModule.py" afterPath="$PROJECT_DIR$/behaviors/NaoBehaviorModule.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/behaviors/behaviormanager.py" afterPath="$PROJECT_DIR$/behaviors/behaviormanager.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/experimot_robot_interface.pyproj" afterPath="$PROJECT_DIR$/experimot_robot_interface.pyproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/csharp/kinect_joint.cs" afterPath="$PROJECT_DIR$/../experimot_msgs/csharp/kinect_joint.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/kinect_joint.pb.cc" afterPath="$PROJECT_DIR$/../experimot_msgs/kinect_joint.pb.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../include/experimot/msgs/kinect_joint.pb.h" afterPath="$PROJECT_DIR$/../../include/experimot/msgs/kinect_joint.pb.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/kinect_joint.pb.h" afterPath="$PROJECT_DIR$/../experimot_msgs/kinect_joint.pb.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/proto/kinect_joint.proto" afterPath="$PROJECT_DIR$/../experimot_msgs/proto/kinect_joint.proto" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/kinect_joint_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/kinect_joint_pb2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PyScripts.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,8 +44,8 @@
       <file leaf-file-name="NaoBehaviorModule.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/behaviors/NaoBehaviorModule.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2094" max-vertical-offset="4471">
-              <caret line="135" column="57" selection-start-line="135" selection-start-column="12" selection-end-line="135" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1839" max-vertical-offset="4590">
+              <caret line="116" column="23" selection-start-line="116" selection-start-column="23" selection-end-line="116" selection-end-column="23" />
               <folding>
                 <element signature="e#85#110#0" expanded="true" />
               </folding>
@@ -44,8 +56,8 @@
       <file leaf-file-name="behaviormanager.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/behaviors/behaviormanager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="2176">
-              <caret line="43" column="65" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="65" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1841" max-vertical-offset="2176">
+              <caret line="122" column="40" selection-start-line="0" selection-start-column="0" selection-end-line="122" selection-end-column="43" />
               <folding>
                 <element signature="e#27#36#0" expanded="true" />
               </folding>
@@ -53,11 +65,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="almotion_setangles.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="imitation_manager.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/behaviors/imitation_manager.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="2.1313434" vertical-offset="1275" max-vertical-offset="2329">
+              <caret line="124" column="50" selection-start-line="124" selection-start-column="50" selection-end-line="124" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="almotion_setangles.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/behaviors/almotion_setangles.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69552237" vertical-offset="141" max-vertical-offset="748">
-              <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="158" max-vertical-offset="748">
+              <caret line="24" column="58" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="58" />
               <folding>
                 <element signature="e#22#32#0" expanded="true" />
               </folding>
@@ -117,9 +139,10 @@
         <option value="$PROJECT_DIR$/behaviors/allandmarkdetection.py" />
         <option value="$PROJECT_DIR$/behaviors/BehaviorModuleBase.py" />
         <option value="$PROJECT_DIR$/parameter_utils.py" />
-        <option value="$PROJECT_DIR$/behaviors/NaoBehaviorModule.py" />
-        <option value="$PROJECT_DIR$/behaviors/behaviormanager.py" />
         <option value="$PROJECT_DIR$/behaviors/almotion_setangles.py" />
+        <option value="$PROJECT_DIR$/behaviors/behaviormanager.py" />
+        <option value="$PROJECT_DIR$/behaviors/NaoBehaviorModule.py" />
+        <option value="$PROJECT_DIR$/behaviors/imitation_manager.py" />
       </list>
     </option>
   </component>
@@ -481,7 +504,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="122" y="35" width="1417" height="890" extended-state="0" />
+    <frame x="122" y="35" width="1417" height="890" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -549,11 +572,6 @@
           <line>37</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/behaviors/behaviormanager.py</url>
-          <line>85</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -563,13 +581,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/JointPublisher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="429" max-vertical-offset="1241">
-          <caret line="55" column="13" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/datalog.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="8330">
@@ -908,10 +919,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/behaviors/almotion_setangles.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="158" max-vertical-offset="748">
+          <caret line="24" column="58" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="58" />
+          <folding>
+            <element signature="e#22#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/behaviors/NaoBehaviorModule.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2094" max-vertical-offset="4471">
-          <caret line="135" column="57" selection-start-line="135" selection-start-column="12" selection-end-line="135" selection-end-column="57" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1839" max-vertical-offset="4590">
+          <caret line="116" column="23" selection-start-line="116" selection-start-column="23" selection-end-line="116" selection-end-column="23" />
           <folding>
             <element signature="e#85#110#0" expanded="true" />
           </folding>
@@ -920,21 +941,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/behaviors/behaviormanager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="2176">
-          <caret line="43" column="65" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1841" max-vertical-offset="2176">
+          <caret line="122" column="40" selection-start-line="0" selection-start-column="0" selection-end-line="122" selection-end-column="43" />
           <folding>
             <element signature="e#27#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/behaviors/almotion_setangles.py">
+    <entry file="file://$PROJECT_DIR$/behaviors/imitation_manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69552237" vertical-offset="141" max-vertical-offset="748">
-          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-          <folding>
-            <element signature="e#22#32#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="2.1313434" vertical-offset="1275" max-vertical-offset="2329">
+          <caret line="124" column="50" selection-start-line="124" selection-start-column="50" selection-end-line="124" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
