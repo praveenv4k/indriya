@@ -1,4 +1,6 @@
-﻿using System;
+﻿using KinectJoint = experimot.msgs.KinectJoint;
+using KinectBody = experimot.msgs.KinectBody;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Media.Media3D;
@@ -8,6 +10,11 @@ using NetMQ;
 using ProtoBuf;
 using Joint = Microsoft.Kinect.Joint;
 using Quaternion = experimot.msgs.Quaternion;
+#if USE_KINECT_BODIES
+#else
+using KinectEx;
+using KinectEx.Smoothing;
+#endif
 
 namespace Experimot.Kinect.Perception
 {
@@ -87,7 +94,11 @@ namespace Experimot.Kinect.Perception
         /// Handles the body frame data arriving from the sensor
         /// </summary>
         /// <param name="bodies"></param>
+#if USE_KINECT_BODIES
         public void UpdateBodyFrame(Body[] bodies, HumanPosePublisher humanPose)
+#else
+        public void UpdateBodyFrame(SmoothedBodyList<ExponentialSmoother> bodies, HumanPosePublisher humanPose)
+#endif
         {
             if (!CanSend) return;
 
@@ -116,7 +127,7 @@ namespace Experimot.Kinect.Perception
                         JointCount = body.Joints.Count
                     };
 
-                    IReadOnlyDictionary<JointType, Joint> joints = body.Joints;
+                    var joints = body.Joints;
 
                     foreach (JointType jointType in joints.Keys)
                     {

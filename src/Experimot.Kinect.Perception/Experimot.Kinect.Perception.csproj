@@ -175,6 +175,10 @@
       <Project>{35CA8818-7E08-4B4C-A5F3-1F1E5DD0B973}</Project>
       <Name>Experimot.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\KinectEx\KinectEx.csproj">
+      <Project>{b7429d12-b30b-4ada-a23c-6376afb54b80}</Project>
+      <Name>KinectEx</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Handwave_Left.png" />
