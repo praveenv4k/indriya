@@ -32,6 +32,8 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <NuGetPackageImportStamp>e18fd8d2</NuGetPackageImportStamp>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -221,7 +223,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="ClassDiagram1.cd" />
     <None Include="datalog.csv" />
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
@@ -292,9 +293,11 @@ xcopy /i/f/s/y $(SolutionDir)src\Experimot.Scheduler\Scriptcs\*.cs* %25DEV_SDK_R
     <Error Condition="!Exists('..\..\packages\CefSharp.Wpf.39.0.1\build\CefSharp.Wpf.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\CefSharp.Wpf.39.0.1\build\CefSharp.Wpf.props'))" />
     <Error Condition="!Exists('..\..\packages\CefSharp.Common.39.0.1\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\CefSharp.Common.39.0.1\build\CefSharp.Common.props'))" />
     <Error Condition="!Exists('..\..\packages\CefSharp.Common.39.0.1\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\CefSharp.Common.39.0.1\build\CefSharp.Common.targets'))" />
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
   <Import Project="..\..\packages\cef.redist.x64.3.2171.2069\build\cef.redist.x64.targets" Condition="Exists('..\..\packages\cef.redist.x64.3.2171.2069\build\cef.redist.x64.targets')" />
   <Import Project="..\..\packages\CefSharp.Common.39.0.1\build\CefSharp.Common.targets" Condition="Exists('..\..\packages\CefSharp.Common.39.0.1\build\CefSharp.Common.targets')" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
