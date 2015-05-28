@@ -223,6 +223,18 @@
         <param key="RequestServerPort" value="5590" type="int"/>
       </parameters>
     </node>
+    <node enabled="false" name="nao_imitation_manager">
+      <process>
+        <type>executable</type>
+        <path>python.exe</path>
+        <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_robot_interface\behaviors\imitation_manager.py</args>
+      </process>
+      <parameters>
+        <param key="RequestServerIP" value="tcp://*" type="string"/>
+        <param key="RequestClientIP" value="tcp://localhost" type="string"/>
+        <param key="RequestServerPort" value="5590" type="int"/>
+      </parameters>
+    </node>
     <node enabled="false" name="main_program">
       <process>
         <type>executable</type>

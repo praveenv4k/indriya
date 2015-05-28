@@ -114,6 +114,13 @@ class NaoBehaviorModule:
       print "Default behaviors:"
       print names
 
+    def set_jointAngles(self,jointNames,jointValues):
+        proxy = self.getMotionProxy()
+        if proxy is not None:
+            proxy.setStiffnesses("Body", 1.0)
+            fractionMaxSpeed  = 0.2
+            proxy.setAngles(jointNames, jointValues, fractionMaxSpeed)
+
     def set_language(self, language):
         proxy = self.getTextToSpeechProxy()
         lang = proxy.getAvailableLanguages()

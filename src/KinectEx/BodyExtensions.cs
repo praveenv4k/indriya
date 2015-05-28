@@ -166,10 +166,11 @@ namespace KinectEx
             {
                 return body.GetAngleBetween(_bonesAt[jointType][0], _bonesAt[jointType][1], false, true);
             }
-            else
-            {
-                throw new KeyNotFoundException("Joint not found");
-            }
+            return -1000;
+            //else
+            //{
+            //    throw new KeyNotFoundException("Joint not found");
+            //}
         }
 
         /// <summary>

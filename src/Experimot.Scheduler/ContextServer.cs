@@ -21,10 +21,12 @@ namespace Experimot.Scheduler
         private const int RecvTimeout = 50;
 
         private static readonly string[] SupportedRequests = {
-            "human",
+            "human/{0}",
             "behavior_modules",
             "motion_modules",
-            "robot"
+            "robot",
+            "humans",
+            "body/{0}"
         };
 
         private const string UnknownRequest = @"Unknown request. Support request : ";
@@ -92,6 +94,29 @@ namespace Experimot.Scheduler
                                 string json = JsonConvert.SerializeObject(context.Humans);
                                 _socket.Send(json);
                             }
+                        }
+                        else if (req.Contains("body/"))
+                        {
+                            string json = string.Empty;
+                            string[] strArray = req.Split('/');
+                            int id = -1;
+                            if (strArray.Length == 2)
+                            {
+                                int.TryParse(strArray[1], out id);
+                            }
+                            if (id != -1)
+                            {
+                                var context = TinyIoCContainer.Current.Resolve<Context>();
+                                if (context != null)
+                                {
+                                    var human = context.Humans.FirstOrDefault(s => s.Id == id);
+                                    if (human != null)
+                                    {
+                                        json = JsonConvert.SerializeObject(human.Body);
+                                    }
+                                }
+                            }
+                            _socket.Send(json);
                         }
                         else if (req.Contains("human/"))
                         {

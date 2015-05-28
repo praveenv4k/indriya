@@ -154,6 +154,10 @@ namespace Experimot.Kinect.Perception
                             y = orient.Y,
                             z = orient.Z
                         };
+#if USE_KINECT_BODIES
+#else
+                        kjoint.Angle = (float) body.GetAngleAt(jointType);
+#endif
                         kbody.Joints.Add(kjoint);
 
                         if (jointType == JointType.SpineBase || jointType == JointType.ShoulderLeft ||

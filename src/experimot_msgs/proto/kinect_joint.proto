@@ -134,4 +134,5 @@ message KinectJoint
 	required TrackingState State				=	2;
 	required Vector3d Position					=	3;
 	required Quaternion Orientation				=	4;
+	optional float Angle						=   5 [default = -1000];
 }

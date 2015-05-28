@@ -26,6 +26,7 @@ import zmq
 import parameter_utils
 # JSON
 import json
+import math
 
 def parse_and_execute(behaviorModule,recv_str):
     ret = True
@@ -53,26 +54,66 @@ def parse_and_execute(behaviorModule,recv_str):
         print "Exception occured while execution ", sys.exc_info()
     return ret
 
+def human_to_nao(human_angle):
+    human_min = 20
+    human_max = 170
+    nao_min = 3
+    nao_max = 88
+    human_range = human_max - human_min
+    nao_range = nao_max - nao_min
+
+    value = float(human_angle)
+    if value > human_max:
+        value = human_max
+    elif value < human_min:
+        value = human_min
+    # find the scaled version
+    diff = value - human_min
+    #new_value = nao_min + ((diff/human_range)*nao_range)
+    new_value = nao_max - ((diff/human_range)*nao_range)
+    return math.radians(new_value)
+
 #############################################################################################################
 # Behavior server - A Behavior request/response server
-def behavior_server(behaviorModule,ip,port):
+def imitate_client(behaviorModule,ip,port):
     context = zmq.Context()
-    socket = context.socket(zmq.REP)
-    socket.bind(("%s:%d" % (ip,port)))
-    print "Server bound: %s,%d" % (ip,port)
+    socket = context.socket(zmq.REQ)
+    socket.connect(("%s:%d" % (ip,port)))
+    print "Connected to: %s,%d" % (ip,port)
     while True:
         #  Wait for next request from client
-        behavior = socket.recv()
-        print("Received request: %s" % behavior)
-
-        try:
-            response = "Execution successful"
-            if parse_and_execute(behaviorModule,behavior) is not True:
-                response = "Execution Failed"
-            socket.send(response)
-        except:
-            print "Exception occured while execution ", sys.exc_info()
-            socket.send("Execution Failed")
+        socket.send('humans')
+        humansStr = socket.recv()
+        humans = json.loads(humansStr)
+        if len(humans) > 0:
+            human = humans[0]
+            id = int(str(human['Id']).encode('utf-8'))
+            socket.send('body/%d' % id)
+            bodyStr = socket.recv()
+            body = json.loads(bodyStr)
+            joints = body['Joints']
+            
+            if len(joints) > 0 :
+                angles = dict({})
+                for joint in joints:
+                    angle = float(str(joint['Angle']).encode('utf-8'))
+                    type = int(str(joint['Type']).encode('utf-8'))
+                    angles[type] = angle
+                    # Get Elbow Right value
+                    if type is 9:
+                        nao_angle = human_to_nao(angle)
+                        behaviorModule.set_jointAngles(["RElbowRoll"],[nao_angle])
+                        print 'Angle: ', nao_angle
+                #print angles
+                #print '**************************************************'
+        # try:
+        #     response = "Execution successful"
+        #     if parse_and_execute(behaviorModule,behavior) is not True:
+        #         response = "Execution Failed"
+        #     socket.send(response)
+        # except:
+        #     print "Exception occured while execution ", sys.exc_info()
+        #     socket.send("Execution Failed")
 
         #  Do some 'work'
         time.sleep(0.5)
@@ -102,13 +143,13 @@ if __name__ == "__main__":
           if node != None:
               ROBOTIP = parameter_utils.getParam(node,"ROBOTIP", "127.0.0.1")
               PORT =  int(parameter_utils.getParam(node,"ROBOTPORT", "9559"))
-              BEHAVIOR_PORT = int(parameter_utils.getParam(node,"RequestServerPort", "5590"))
-              BEHAVIOR_IP = parameter_utils.getParam(node,"RequestServerIP", "*")
+              CTX_IP = parameter_utils.getParam(node,"ContextClientHost", "tcp://localhost")
+              CTX_PORT = int(parameter_utils.getParam(node,"ContextServerPort", "5800"))
               module = NaoBehaviorModule.NaoBehaviorModule(ROBOTIP,PORT)
               behaviors = module.getCapabilities()
               #parameter_utils.register_behaviors(node,paramServer,["crouch","stand","hand_wave","greet","wish","introduction"])
               parameter_utils.register_behaviors(node,paramServer,behaviors)
-              thread.start_new_thread(behavior_server,(module,BEHAVIOR_IP,BEHAVIOR_PORT))
+              thread.start_new_thread(imitate_client,(module,CTX_IP,CTX_PORT))
       else:
           print "Start locally"
 
