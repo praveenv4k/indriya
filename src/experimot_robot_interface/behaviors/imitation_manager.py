@@ -122,7 +122,8 @@ def imitate_client(behaviorModule,ip,port):
 
 if __name__ == "__main__":
   try:
-
+      msg = "おはようございます！"
+      print msg
       # from langdetect import detect
       # print detect(u"Cosa vuoi mangiare?")
       ROBOTIP = "127.0.0.1"

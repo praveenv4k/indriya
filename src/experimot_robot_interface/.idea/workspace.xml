@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03f6965a-39a2-4893-a7b0-c0ae82b1fab2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/behaviors/imitation_manager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KinectEx/BodyExtensions.cs" afterPath="$PROJECT_DIR$/../KinectEx/BodyExtensions.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Experimot.Scheduler/ContextServer.cs" afterPath="$PROJECT_DIR$/../Experimot.Scheduler/ContextServer.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Experimot.Kinect.Perception/KinectBodyPublisher.cs" afterPath="$PROJECT_DIR$/../Experimot.Kinect.Perception/KinectBodyPublisher.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../include/experimot/msgs/MessageTypes.h" afterPath="$PROJECT_DIR$/../../include/experimot/msgs/MessageTypes.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/MessageTypes.h" afterPath="$PROJECT_DIR$/../experimot_msgs/MessageTypes.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/behaviors/NaoBehaviorModule.py" afterPath="$PROJECT_DIR$/behaviors/NaoBehaviorModule.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/behaviors/behaviormanager.py" afterPath="$PROJECT_DIR$/behaviors/behaviormanager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/experimot_robot_interface.pyproj" afterPath="$PROJECT_DIR$/experimot_robot_interface.pyproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/csharp/kinect_joint.cs" afterPath="$PROJECT_DIR$/../experimot_msgs/csharp/kinect_joint.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/kinect_joint.pb.cc" afterPath="$PROJECT_DIR$/../experimot_msgs/kinect_joint.pb.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../include/experimot/msgs/kinect_joint.pb.h" afterPath="$PROJECT_DIR$/../../include/experimot/msgs/kinect_joint.pb.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/kinect_joint.pb.h" afterPath="$PROJECT_DIR$/../experimot_msgs/kinect_joint.pb.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/proto/kinect_joint.proto" afterPath="$PROJECT_DIR$/../experimot_msgs/proto/kinect_joint.proto" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../experimot_msgs/python/kinect_joint_pb2.py" afterPath="$PROJECT_DIR$/../experimot_msgs/python/kinect_joint_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/behaviors/imitation_manager.py" afterPath="$PROJECT_DIR$/behaviors/imitation_manager.py" />
     </list>
     <ignored path="PyScripts.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,8 +53,8 @@
       <file leaf-file-name="imitation_manager.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/behaviors/imitation_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.1313434" vertical-offset="1275" max-vertical-offset="2329">
-              <caret line="124" column="50" selection-start-line="124" selection-start-column="50" selection-end-line="124" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.40950227" vertical-offset="23" max-vertical-offset="2771">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -249,28 +234,7 @@
       <recent name="C:\Work\Develop\src\github\PyScripts" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.almotion_setangles">
-    <configuration default="false" name="test_dir" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PyScripts" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_dir.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <RunnerSettings RunnerId="PyDebugRunner" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PyDebugRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.imitation_manager">
     <configuration default="false" name="BehaviorModuleBase" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -349,6 +313,25 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="imitation_manager" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/behaviors" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PyScripts" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/behaviors/imitation_manager.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <method />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -474,19 +457,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.test_dir" />
-      <item index="1" class="java.lang.String" itemvalue="Python.BehaviorModuleBase" />
-      <item index="2" class="java.lang.String" itemvalue="Python.NaoBehaviorModule" />
-      <item index="3" class="java.lang.String" itemvalue="Python.behaviormanager" />
-      <item index="4" class="java.lang.String" itemvalue="Python.almotion_setangles" />
+      <item index="0" class="java.lang.String" itemvalue="Python.BehaviorModuleBase" />
+      <item index="1" class="java.lang.String" itemvalue="Python.NaoBehaviorModule" />
+      <item index="2" class="java.lang.String" itemvalue="Python.behaviormanager" />
+      <item index="3" class="java.lang.String" itemvalue="Python.almotion_setangles" />
+      <item index="4" class="java.lang.String" itemvalue="Python.imitation_manager" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.almotion_setangles" />
-        <item index="1" class="java.lang.String" itemvalue="Python.behaviormanager" />
-        <item index="2" class="java.lang.String" itemvalue="Python.NaoBehaviorModule" />
-        <item index="3" class="java.lang.String" itemvalue="Python.BehaviorModuleBase" />
-        <item index="4" class="java.lang.String" itemvalue="Python.test_dir" />
+        <item index="0" class="java.lang.String" itemvalue="Python.imitation_manager" />
+        <item index="1" class="java.lang.String" itemvalue="Python.almotion_setangles" />
+        <item index="2" class="java.lang.String" itemvalue="Python.behaviormanager" />
+        <item index="3" class="java.lang.String" itemvalue="Python.NaoBehaviorModule" />
+        <item index="4" class="java.lang.String" itemvalue="Python.BehaviorModuleBase" />
       </list>
     </recent_temporary>
   </component>
@@ -504,21 +487,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="122" y="35" width="1417" height="890" extended-state="1" />
+    <frame x="122" y="35" width="1417" height="890" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24696645" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.53521127" sideWeight="0.3704497" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39820743" sideWeight="0.3369022" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.53521127" sideWeight="0.62955034" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53521127" sideWeight="0.62955034" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31045407" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39915523" sideWeight="0.6635417" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39820743" sideWeight="0.6630978" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -572,11 +555,21 @@
           <line>37</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/behaviors/imitation_manager.py</url>
+          <line>128</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/behaviors/imitation_manager.py</url>
+          <line>125</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="22" />
+      <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -894,7 +887,7 @@
         <state vertical-scroll-proportion="0.46107784" vertical-offset="126" max-vertical-offset="1105">
           <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -951,8 +944,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/behaviors/imitation_manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.1313434" vertical-offset="1275" max-vertical-offset="2329">
-          <caret line="124" column="50" selection-start-line="124" selection-start-column="50" selection-end-line="124" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.40950227" vertical-offset="23" max-vertical-offset="2771">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
