@@ -203,13 +203,14 @@ namespace Experimot.Kinect.Perception
                 {
                     humanPose.UpdateHumans(humans);
                 }
-                PublishKinectBodies(kbodies);
+                //PublishKinectBodies(kbodies);
             }
-            if (_noBodyTracked && _emptyMsgSent < 5)
-            {
-                PublishKinectBodies(kbodies, true);
-                _emptyMsgSent++;
-            }
+            PublishKinectBodies(kbodies);
+            //if (_noBodyTracked && _emptyMsgSent < 5)
+            //{
+            //    PublishKinectBodies(kbodies, true);
+            //    _emptyMsgSent++;
+            //}
         }
 
         private Quaternion ToQuaternion(Vector3D xAxis, Vector3D yAxis, Vector3D zAxis)
@@ -269,7 +270,7 @@ namespace Experimot.Kinect.Perception
             }
         }
 
-        private void PublishKinectBodies(KinectBodies kbodies, bool force = false)
+        private void PublishKinectBodies(KinectBodies kbodies, bool force = true)
         {
             if (kbodies != null && _socket != null)
             //if (kbodies != null && _socket != null)
