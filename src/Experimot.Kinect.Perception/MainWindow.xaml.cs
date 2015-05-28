@@ -20,6 +20,11 @@ using experimot.msgs;
 using Experimot.Core.Util;
 using Microsoft.Kinect;
 using Joint = Microsoft.Kinect.Joint;
+#if USE_KINECT_BODIES
+#else
+using KinectEx;
+using KinectEx.Smoothing;
+#endif
 
 namespace Experimot.Kinect.Perception
 {
@@ -32,8 +37,11 @@ namespace Experimot.Kinect.Perception
         private KinectSensor _kinectSensor;
         
         /// <summary> Array for the bodies (Kinect will track up to 6 people simultaneously) </summary>
+#if USE_KINECT_BODIES
         private Body[] _bodies;
-
+#else
+        private SmoothedBodyList<ExponentialSmoother> _bodies; 
+#endif
         /// <summary> Reader for body frames </summary>
         private BodyFrameReader _bodyFrameReader;
 
@@ -296,13 +304,21 @@ namespace Experimot.Kinect.Perception
                     if (_bodies == null)
                     {
                         // creates an array of 6 bodies, which is the max number of bodies that Kinect can track simultaneously
+#if USE_KINECT_BODIES
                         _bodies = new Body[bodyFrame.BodyCount];
+#else
+                        _bodies = new SmoothedBodyList<ExponentialSmoother>();
+#endif
                     }
 
                     // The first time GetAndRefreshBodyData is called, Kinect will allocate each Body in the array.
                     // As long as those body objects are not disposed and not set to null in the array,
                     // those body objects will be re-used.
                     bodyFrame.GetAndRefreshBodyData(_bodies);
+#if USE_KINECT_BODIES
+#else
+                    _bodies.MapDepthPositions();
+#endif
                     dataReceived = true;
                 }
             }
@@ -320,10 +336,10 @@ namespace Experimot.Kinect.Perception
                     int maxBodies = _kinectSensor.BodyFrameSource.BodyCount;
                     for (int i = 0; i < maxBodies; ++i)
                     {
-                        Body body = _bodies[i];
+                        var body = _bodies[i];
                         ulong trackingId = body.TrackingId;
-                        Joint torso = body.Joints[JointType.SpineBase];
-                        JointOrientation torsoOrient = body.JointOrientations[JointType.SpineBase];
+                        var torso = body.Joints[JointType.SpineBase];
+                        var torsoOrient = body.JointOrientations[JointType.SpineBase];
 
                         _gestureDetectorList[i].GestureResultView.Position = (torso.TrackingState == TrackingState.Tracked) ? torso.Position : new CameraSpacePoint();
                         _gestureDetectorList[i].GestureResultView.Orientation = (torso.TrackingState == TrackingState.Tracked) ? torsoOrient.Orientation : new Vector4();                            

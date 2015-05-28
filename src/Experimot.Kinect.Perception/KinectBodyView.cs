@@ -9,6 +9,11 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Media;
 using Microsoft.Kinect;
+#if USE_KINECT_BODIES
+#else
+using KinectEx;
+using KinectEx.Smoothing;
+#endif
 
 namespace Experimot.Kinect.Perception
 {
@@ -86,7 +91,11 @@ namespace Experimot.Kinect.Perception
         /// Should be called whenever a new BodyFrameArrivedEvent occurs
         /// </summary>
         /// <param name="bodies">Array of bodies to update</param>
+#if USE_KINECT_BODIES
         public void UpdateBodyFrame(Body[] bodies)
+#else
+        public void UpdateBodyFrame(SmoothedBodyList<ExponentialSmoother> bodies)
+#endif
         {
             if (bodies != null)
             {
@@ -96,7 +105,7 @@ namespace Experimot.Kinect.Perception
                     dc.DrawRectangle(Brushes.Black, null, new Rect(0.0, 0.0, _displayWidth, _displayHeight));
 
                     int penIndex = 0;
-                    foreach (Body body in bodies)
+                    foreach (var body in bodies)
                     {
                         Pen drawPen = KinectBodyHelper.Instance.BodyColors[penIndex++];
 
@@ -104,7 +113,7 @@ namespace Experimot.Kinect.Perception
                         {
                             DrawClippedEdges(body, dc);
 
-                            IReadOnlyDictionary<JointType, Joint> joints = body.Joints;
+                            var joints = body.Joints;
 
                             // convert the joint points to depth (display) space
                             Dictionary<JointType, Point> jointPoints = new Dictionary<JointType, Point>();
@@ -143,8 +152,14 @@ namespace Experimot.Kinect.Perception
         /// <param name="jointPoints">translated positions of joints to draw</param>
         /// <param name="drawingContext">drawing context to draw to</param>
         /// <param name="drawingPen">specifies color to draw a specific body</param>
+#if USE_KINECT_BODIES
         private void DrawBody(IReadOnlyDictionary<JointType, Joint> joints, IDictionary<JointType, Point> jointPoints,
             DrawingContext drawingContext, Pen drawingPen)
+
+#else
+        private void DrawBody(IReadOnlyDictionary<JointType, IJoint> joints, IDictionary<JointType, Point> jointPoints,
+            DrawingContext drawingContext, Pen drawingPen)
+#endif
         {
             // Draw the bones
             foreach (var bone in KinectBodyHelper.Instance.Bones)
@@ -185,11 +200,17 @@ namespace Experimot.Kinect.Perception
         /// <param name="jointType1">second joint of bone to draw</param>
         /// <param name="drawingContext">drawing context to draw to</param>
         /// /// <param name="drawingPen">specifies color to draw a specific bone</param>
+        
+#if USE_KINECT_BODIES
         private void DrawBone(IReadOnlyDictionary<JointType, Joint> joints, IDictionary<JointType, Point> jointPoints,
             JointType jointType0, JointType jointType1, DrawingContext drawingContext, Pen drawingPen)
+#else
+        private void DrawBone(IReadOnlyDictionary<JointType, IJoint> joints, IDictionary<JointType, Point> jointPoints,
+            JointType jointType0, JointType jointType1, DrawingContext drawingContext, Pen drawingPen)
+#endif
         {
-            Joint joint0 = joints[jointType0];
-            Joint joint1 = joints[jointType1];
+            var joint0 = joints[jointType0];
+            var joint1 = joints[jointType1];
 
             // If we can't find either of these joints, exit
             if (joint0.TrackingState == TrackingState.NotTracked ||
@@ -240,7 +261,11 @@ namespace Experimot.Kinect.Perception
         /// </summary>
         /// <param name="body">body to draw clipping information for</param>
         /// <param name="drawingContext">drawing context to draw to</param>
+#if USE_KINECT_BODIES
         private void DrawClippedEdges(Body body, DrawingContext drawingContext)
+#else
+        private void DrawClippedEdges(SmoothedBody<ExponentialSmoother> body, DrawingContext drawingContext)
+#endif
         {
             FrameEdges clippedEdges = body.ClippedEdges;
 
