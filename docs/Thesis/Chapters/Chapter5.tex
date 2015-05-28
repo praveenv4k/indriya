@@ -10,7 +10,7 @@ In this chapter the implementation of various components specific to the experim
 \item \emph{Hardware Layer} is composed of sensors and robots connected to the network. Currently only those sensors that support TCP/IP network communication are considered.
 \item \emph{Distributed Components Layer} is composed of individual processes that could be running across different computers/devices in the network
 \item \emph{Application Components Layer} is the central server of the experimental platform
-\item \emph{User Interface} takes the responsibility of providing useful and intuitive user-interface to the end users.
+\item \emph{User Interface Layer} takes the responsibility of providing useful and intuitive user-interface to the end users.
 \end{itemize}
 The architecture of the system shown in Fig~\ref{fig:architecture}. More finer details of each of the layers are presented in the following Sections~\ref{ssec:app_comp}$\sim$\ref{ssec:ui_comp}.
 \begin{figure}
@@ -22,7 +22,8 @@ The architecture of the system shown in Fig~\ref{fig:architecture}. More finer d
 \section{Application Components}
 \label{ssec:app_comp}
 The application level components are responsible for bootstrapping and maintain the uptodate status of the system. 
-\subsection{Context}: The application context contains the complete description of the world. It contains latest information about
+\subsection{Context}
+The application context contains the complete description of the world. It contains latest information about
 \begin{itemize}
 \item Robot(s): A list of robots in the environment along with their 6D pose, Sensor information like Joint values etc.,
 \item Human(s): A list of humans with their Skeleton Positions and Orientation, Active Gestures/Motions
