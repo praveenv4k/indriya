@@ -59,6 +59,8 @@ namespace Experimot.Kinect.Perception
         private readonly ILog _log = LogManager.GetLogger<MainWindow>();
         private GestureTriggerPublisher _gestPub;
         private HumanPosePublisher _humanPub;
+        private NaoJointPublisher _naoJoints;
+
         /// <summary>
         /// Initializes a new instance of the MainWindow class
         /// </summary>
@@ -66,7 +68,7 @@ namespace Experimot.Kinect.Perception
         {
             // only one sensor is currently supported
             _kinectSensor = KinectSensor.GetDefault();
-            
+
             // set IsAvailableChanged event notifier
             _kinectSensor.IsAvailableChanged += Sensor_IsAvailableChanged;
 
@@ -74,8 +76,9 @@ namespace Experimot.Kinect.Perception
             _kinectSensor.Open();
 
             // set the status text
-            StatusText = _kinectSensor.IsAvailable ? Properties.Resources.RunningStatusText
-                                                            : Properties.Resources.NoSensorStatusText;
+            StatusText = _kinectSensor.IsAvailable
+                ? Properties.Resources.RunningStatusText
+                : Properties.Resources.NoSensorStatusText;
 
             // open the reader for the body frames
             _bodyFrameReader = _kinectSensor.BodyFrameSource.OpenReader();
@@ -116,15 +119,15 @@ namespace Experimot.Kinect.Perception
             {
                 GestureResultView result = new GestureResultView(i, false, false, 0.0f);
                 GestureDetector detector = new GestureDetector(_kinectSensor, result, dbList);
-                _gestureDetectorList.Add(detector);                
-                
+                _gestureDetectorList.Add(detector);
+
                 // split gesture results across the first two columns of the content grid
                 ContentControl contentControl = new ContentControl()
                 {
                     Content = _gestureDetectorList[i].GestureResultView
                 };
 
-                if (i % 2 == 0)
+                if (i%2 == 0)
                 {
                     // Gesture results for bodies: 0, 2, 4
                     Grid.SetColumn(contentControl, 0);
@@ -150,6 +153,10 @@ namespace Experimot.Kinect.Perception
             {
                 _humanPub = new HumanPosePublisher();
             }
+            if (_naoJoints == null)
+            {
+                _naoJoints = new NaoJointPublisher();
+            }
         }
 
         public MainWindow(Node node) : this()
@@ -173,6 +180,18 @@ namespace Experimot.Kinect.Perception
                         if (item.msg_type == "Humans")
                         {
                             _humanPub = new HumanPosePublisher(item.host, item.port, item.topic);
+                        }
+                        if (item.msg_type == "ParamList")
+                        {
+                            string defaultValue = @"nao_joints_h25v50.json";
+                            var fileName = ParameterUtil.Get(_node.param, "nao_joints", defaultValue);
+
+                            var json = App.GetFileString(fileName, App.Options.ParameterServer);
+
+                            defaultValue = @"kinect_nao_map.json";
+                            fileName = ParameterUtil.Get(_node.param, "nao_kinect", defaultValue);
+                            var kinectJson = App.GetFileString(fileName, App.Options.ParameterServer);
+                            _naoJoints = new NaoJointPublisher(item.host, item.port, item.topic, json, kinectJson);
                         }
                         _log.Info("Gesture recognition node initialized from the config file");
                     }

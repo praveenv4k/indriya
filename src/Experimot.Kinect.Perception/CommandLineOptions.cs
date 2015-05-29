@@ -2,7 +2,7 @@ using CommandLine;
 
 namespace Experimot.Kinect.Perception
 {
-    class CommandLineOptions
+    public class CommandLineOptions
     {
         [Option('n', "name", DefaultValue = "gesture_recognition", HelpText = "This is the name of the node!")]
         public string Name { get; set; }

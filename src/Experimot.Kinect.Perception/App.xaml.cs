@@ -19,6 +19,7 @@ namespace Experimot.Kinect.Perception
     public partial class App : Application
     {
         private static readonly ILog Log = LogManager.GetLogger<App>();
+        public static CommandLineOptions Options;
 
         public App()
         {
@@ -33,14 +34,13 @@ namespace Experimot.Kinect.Perception
                 var args = e.Args;
                 if (args.Length > 0)
                 {
-                    var options = new CommandLineOptions();
-                    Parser.Default.ParseArguments(args, options);
-                    info = GetNodeInfo(options.Name, options.ParameterServer);
+                    Options = new CommandLineOptions();
+                    Parser.Default.ParseArguments(args, Options);
+                    info = GetNodeInfo(Options.Name, Options.ParameterServer);
 
                     if (info != null)
                     {
-                        SendMotionRecognitionModuleInfo(info, options.ParameterServer);
-                        var json = GetRobotJsonString(info, options.ParameterServer);
+                        SendMotionRecognitionModuleInfo(info, Options.ParameterServer);
                     }
                 }
             }
@@ -151,18 +151,10 @@ namespace Experimot.Kinect.Perception
             return nodeInfo;
         }
 
-        private static string GetRobotJsonString(Node node, string server, int timeout = 1000)
+        public static string GetFileString(string fileName, string server, int timeout = 1000)
         {
             try
             {
-                if (node == null)
-                {
-                    return string.Empty;
-                }
-
-                const string defaultValue = @"nao_joints_h25v50.json";
-                var fileName = ParameterUtil.Get(node.param, "nao_joints", defaultValue);
-
                 using (var context = NetMQContext.Create())
                 {
                     using (var socket = context.CreateRequestSocket())
