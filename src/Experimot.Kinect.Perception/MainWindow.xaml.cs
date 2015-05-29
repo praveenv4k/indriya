@@ -220,6 +220,10 @@ namespace Experimot.Kinect.Perception
             {
                 _humanPub.Initialize();
             }
+            if (_naoJoints != null)
+            {
+                _naoJoints.Initialize();
+            }
         }
 
         /// <summary>
@@ -354,7 +358,7 @@ namespace Experimot.Kinect.Perception
             {
                 // visualize the new body data
                 _kinectBodyView.UpdateBodyFrame(_bodies);
-                if(_kBodyPub!=null) _kBodyPub.UpdateBodyFrame(_bodies,_humanPub);
+                if(_kBodyPub!=null) _kBodyPub.UpdateBodyFrame(_bodies,_humanPub,_naoJoints);
                 // we may have lost/acquired bodies, so update the corresponding gesture detectors
                 if (_bodies != null)
                 {

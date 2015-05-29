@@ -1,4 +1,5 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -95,6 +96,14 @@ namespace Experimot.Scheduler.Data
             lock (_object)
             {
                 Robot.SensorData = sensorData;
+            }
+        }
+
+        public void Update(ParamList list)
+        {
+            if (list != null)
+            {
+                Console.WriteLine(list.ToString());
             }
         }
 
