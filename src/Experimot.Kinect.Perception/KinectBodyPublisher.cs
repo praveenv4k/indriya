@@ -8,7 +8,6 @@ using experimot.msgs;
 using Microsoft.Kinect;
 using NetMQ;
 using ProtoBuf;
-using Joint = Microsoft.Kinect.Joint;
 using Quaternion = experimot.msgs.Quaternion;
 #if USE_KINECT_BODIES
 #else
@@ -27,8 +26,8 @@ namespace Experimot.Kinect.Perception
         private NetMQSocket _socket;
         private readonly uint _port;
         private readonly string _topic;
-        private bool _noBodyTracked;
-        private int _emptyMsgSent;
+        //private bool _noBodyTracked;
+        //private int _emptyMsgSent;
 
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
@@ -46,8 +45,8 @@ namespace Experimot.Kinect.Perception
             _host = host;
             _port = port;
             _topic = topic;
-            _noBodyTracked = false;
-            _emptyMsgSent = 0;
+            //_noBodyTracked = false;
+            //_emptyMsgSent = 0;
         }
 
         private void InitZmq()
@@ -94,6 +93,7 @@ namespace Experimot.Kinect.Perception
         /// Handles the body frame data arriving from the sensor
         /// </summary>
         /// <param name="bodies"></param>
+        /// <param name="humanPose"></param>
 #if USE_KINECT_BODIES
         public void UpdateBodyFrame(Body[] bodies, HumanPosePublisher humanPose)
 #else
@@ -104,21 +104,20 @@ namespace Experimot.Kinect.Perception
 
             KinectBodies kbodies = new KinectBodies();
             var humans = new Humans();
-            _noBodyTracked = true;
+            //_noBodyTracked = true;
             int penIndex = 0;
             foreach (var body in bodies)
             {
                 penIndex++;
 
-                var human = new Human();
-                human.tracked = body.IsTracked;
+                var human = new Human {tracked = body.IsTracked};
                 var jointPosDict = new Dictionary<JointType, Vector3D>();
                 human.id = penIndex-1;
 
                 if (body.IsTracked)
                 {
-                    _noBodyTracked = false;
-                    _emptyMsgSent = 0;
+                    //_noBodyTracked = false;
+                    //_emptyMsgSent = 0;
 
                     var kbody = new KinectBody
                     {
@@ -201,7 +200,7 @@ namespace Experimot.Kinect.Perception
                 }
                 if (humanPose != null)
                 {
-                    humanPose.UpdateHumans(humans);
+                    humanPose.Update(humans);
                 }
                 //PublishKinectBodies(kbodies);
             }

@@ -82,7 +82,8 @@
         <args></args>
       </process>
       <parameters>
-        <param key="database" type="string" value="Database\experimot.gbd"/>
+        <param key="nao_joints" type="string" value="nao_joints_h25v50.json"/>
+        <param key="database" type="file" value="Database\experimot.gbd"/>
       </parameters>
       <publishers>
         <publish>
@@ -105,6 +106,13 @@
           <topic>HPP</topic>
           <msg_type>Humans</msg_type>
           <name>HumanPosePublisher</name>
+        </publish>
+        <publish>
+          <host>tcp://*</host>
+          <port>5592</port>
+          <topic>NJP</topic><!--Nao Joint Publisher-->
+          <msg_type>ParamList</msg_type>
+          <name>NaoJointPublisher</name>
         </publish>
       </publishers>
     </node>
@@ -234,6 +242,15 @@
         <param key="RequestClientIP" value="tcp://localhost" type="string"/>
         <param key="RequestServerPort" value="5590" type="int"/>
       </parameters>
+      <subscribers>
+        <subscribe>
+          <host>tcp://localhost</host>
+          <port>5592</port>
+          <topic>NJP</topic><!--Nao Joint Publisher-->
+          <msg_type>ParamList</msg_type>
+          <name>NaoJointPublisher</name>
+        </subscribe>
+      </subscribers>
     </node>
     <node enabled="false" name="main_program">
       <process>

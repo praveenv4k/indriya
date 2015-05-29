@@ -11,3 +11,8 @@ message Param
 	required string value = 2;
 	required string dataType = 3;
 }
+
+message ParamList
+{
+	repeated Param param = 1;
+}

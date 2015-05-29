@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='param.proto',
   package='experimot.msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x0bparam.proto\x12\x0e\x65xperimot.msgs\"5\n\x05Param\x12\x0b\n\x03key\x18\x01 \x02(\t\x12\r\n\x05value\x18\x02 \x02(\t\x12\x10\n\x08\x64\x61taType\x18\x03 \x02(\t')
+  serialized_pb=_b('\n\x0bparam.proto\x12\x0e\x65xperimot.msgs\"5\n\x05Param\x12\x0b\n\x03key\x18\x01 \x02(\t\x12\r\n\x05value\x18\x02 \x02(\t\x12\x10\n\x08\x64\x61taType\x18\x03 \x02(\t\"1\n\tParamList\x12$\n\x05param\x18\x01 \x03(\x0b\x32\x15.experimot.msgs.Param')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -70,7 +70,40 @@ _PARAM = _descriptor.Descriptor(
   serialized_end=84,
 )
 
+
+_PARAMLIST = _descriptor.Descriptor(
+  name='ParamList',
+  full_name='experimot.msgs.ParamList',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='param', full_name='experimot.msgs.ParamList.param', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  #syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=86,
+  serialized_end=135,
+)
+
+_PARAMLIST.fields_by_name['param'].message_type = _PARAM
 DESCRIPTOR.message_types_by_name['Param'] = _PARAM
+DESCRIPTOR.message_types_by_name['ParamList'] = _PARAMLIST
 
 Param = _reflection.GeneratedProtocolMessageType('Param', (_message.Message,), dict(
   DESCRIPTOR = _PARAM,
@@ -78,6 +111,13 @@ Param = _reflection.GeneratedProtocolMessageType('Param', (_message.Message,), d
   # @@protoc_insertion_point(class_scope:experimot.msgs.Param)
   ))
 _sym_db.RegisterMessage(Param)
+
+ParamList = _reflection.GeneratedProtocolMessageType('ParamList', (_message.Message,), dict(
+  DESCRIPTOR = _PARAMLIST,
+  __module__ = 'param_pb2'
+  # @@protoc_insertion_point(class_scope:experimot.msgs.ParamList)
+  ))
+_sym_db.RegisterMessage(ParamList)
 
 
 # @@protoc_insertion_point(module_scope)

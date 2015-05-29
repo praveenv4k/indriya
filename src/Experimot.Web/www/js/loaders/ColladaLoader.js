@@ -862,7 +862,7 @@ THREE.ColladaLoader = function () {
 
 		kinematics = {
 
-			joints: kinematicsModel && kinematicsModel.joints,
+		    joints: kinematicsModel && kinematicsModel.joints,
 
 			getJointValue: function( jointIndex ) {
 

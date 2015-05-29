@@ -41,4 +41,21 @@ namespace experimot.msgs
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"ParamList")]
+  public partial class ParamList : global::ProtoBuf.IExtensible
+  {
+    public ParamList() {}
+    
+    private readonly global::System.Collections.Generic.List<experimot.msgs.Param> _param = new global::System.Collections.Generic.List<experimot.msgs.Param>();
+    [global::ProtoBuf.ProtoMember(1, Name=@"param", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<experimot.msgs.Param> param
+    {
+      get { return _param; }
+    }
+  
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
 }

@@ -6,12 +6,12 @@ namespace Experimot.Kinect.Perception
     /// <summary>
     /// Interaction logic for MainWindow
     /// </summary>
-    public class HumanPosePublisher : MessagePublisher<Humans>
+    public class NaoJointPublisher : MessagePublisher<ParamList>
     {
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
         /// </summary>
-        public HumanPosePublisher()
+        public NaoJointPublisher()
             : this("tcp://*", 5571, "HPP")
         {
         }
@@ -19,7 +19,7 @@ namespace Experimot.Kinect.Perception
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
         /// </summary>
-        public HumanPosePublisher(string host, uint port, string topic) : base(host, port, topic)
+        public NaoJointPublisher(string host, uint port, string topic) : base(host, port, topic)
         {
         }
 
@@ -28,9 +28,9 @@ namespace Experimot.Kinect.Perception
         /// </summary>
         /// <param name="msg"></param>
         /// <returns></returns>
-        protected override bool IsValid(Humans msg)
+        protected override bool IsValid(ParamList msg)
         {
-            return msg != null && msg.human.Count > 0;
+            return msg != null && msg.param.Count > 0;
         }
     }
 }
