@@ -1,7 +1,7 @@
-﻿using System;
+﻿using System.Linq;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Windows.Media.Media3D;
 using experimot.msgs;
 using Experimot.Core;
 using Newtonsoft.Json.Linq;
@@ -9,9 +9,9 @@ using Newtonsoft.Json.Linq;
 #if USE_KINECT_BODIES
 #else
 using KinectEx;
-using KinectEx.Smoothing;
 #endif
 
+// ReSharper disable LoopCanBeConvertedToQuery
 
 namespace Experimot.Kinect.Perception
 {
@@ -19,14 +19,13 @@ namespace Experimot.Kinect.Perception
     {
         private MethodInfo _methodInfo;
         private List<object> _args;
-        private bool _invert;
 
         private MethodArg()
         {
             _args = new List<object>();
         }
 
-        public static MethodArg Create(string methodName, string argValues, bool invert)
+        public static MethodArg Create(string methodName, string argValues)
         {
             MethodArg ret = null;
 #if USE_KINECT_BODIES
@@ -46,7 +45,6 @@ namespace Experimot.Kinect.Perception
                 ret = new MethodArg();
                 ret._methodInfo = method;
                 ret._args = arguments;
-                ret._invert = invert;
             }
 #endif
             return ret;
@@ -76,7 +74,13 @@ namespace Experimot.Kinect.Perception
         private double _mid;
         private MethodArg _methodArg;
 
-        public static NaoJoint FromJsonString(JObject jointObj, JObject mapObject)
+        public MethodArg KinectMapMethod
+        {
+            get { return _methodArg; }
+            set { _methodArg = value; }
+        }
+
+        public static NaoJoint FromJsonTokens(JToken jointObj, JToken mapObject)
         {
             NaoJoint ret = null;
             if (jointObj != null)
@@ -98,7 +102,8 @@ namespace Experimot.Kinect.Perception
                         var kinObj = mapObject.SelectToken("$.kinect");
                         if (kinObj != null)
                         {
-                            
+                            ret._methodArg = MethodArg.Create(jointObj.Value<string>("method"),
+                                jointObj.Value<string>("arg"));
                         }
                     }
                 }
@@ -106,7 +111,7 @@ namespace Experimot.Kinect.Perception
             return ret;
         }
 
-        private double ScaleToNao(double humanMin, double humanMax, double humanValue)
+        public double ScaleToNao(double humanMin, double humanMax, double humanValue)
         {
             var humanRange = humanMax - humanMin;
             var naoRange = _max - _min;
@@ -125,7 +130,7 @@ namespace Experimot.Kinect.Perception
     /// </summary>
     public class NaoJointPublisher : MessagePublisher<ParamList>
     {
-
+        private readonly List<NaoJoint> _joints; 
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
         /// </summary>
@@ -139,11 +144,24 @@ namespace Experimot.Kinect.Perception
         /// </summary>
         public NaoJointPublisher(string host, uint port, string topic, string naoJointsJson, string naoKinectJson) : base(host, port, topic)
         {
-            if (!string.IsNullOrEmpty(naoJointsJson))
+            _joints = new List<NaoJoint>();
+            if (!string.IsNullOrEmpty(naoJointsJson) && !string.IsNullOrEmpty(naoKinectJson))
             {
-                var jsonObj = JArray.Parse(naoJointsJson);
-                //var 
+                var naoObj = JArray.Parse(naoJointsJson);
+                var kinectObj = JArray.Parse(naoKinectJson);
+
+                foreach (var naoItem in naoObj)
+                {
+                    var kinectItem =
+                        kinectObj.FirstOrDefault(s => s.Value<string>("sid") == naoItem.Value<string>("sid"));
+                    _joints.Add(NaoJoint.FromJsonTokens(naoItem, kinectItem));
+                }
             }
+        }
+
+        public List<NaoJoint> Joints
+        {
+            get { return _joints; }
         }
 
         /// <summary>
