@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Globalization;
+using KinectEx.Smoothing;
+using System.Windows;
 using System.Linq;
 using System;
 using System.Collections.Generic;
@@ -42,7 +44,7 @@ namespace Experimot.Kinect.Perception
                 foreach (var methodInfo in method)
                 {
                     var parameters = methodInfo.GetParameters().ToList();
-                    if (parameters.Count > 0)
+                    if (parameters.Count > 0 && parameters.Count-1 == vals.Count())
                     {
                         if (parameters[0].ParameterType.Name == "IBody")
                         {
@@ -70,7 +72,10 @@ namespace Experimot.Kinect.Perception
             if (_methodInfo != null)
             {
                 double ret;
-                if (double.TryParse(_methodInfo.Invoke(obj, _args.ToArray()).ToString(), out ret))
+                var newArgs =new List<object>();
+                newArgs.Add(obj);
+                newArgs.AddRange(_args);
+                if (double.TryParse(_methodInfo.Invoke(obj, newArgs.ToArray()).ToString(), out ret))
                 {
                     return ret;
                 }
@@ -86,13 +91,23 @@ namespace Experimot.Kinect.Perception
         private double _min;
         private double _max;
         private double _zero;
-        private double _mid;
+        public double _mid;
         private MethodArg _methodArg;
 
         public MethodArg KinectMapMethod
         {
             get { return _methodArg; }
             set { _methodArg = value; }
+        }
+
+        public double Mid
+        {
+            get { return _mid; }
+        }
+
+        public string Name
+        {
+            get { return _name; }
         }
 
         public static NaoJoint FromJsonTokens(JToken jointObj, JToken mapObject)
@@ -112,13 +127,13 @@ namespace Experimot.Kinect.Perception
                 if (mapObject != null)
                 {
                     var kinect = mapObject.Value<object>("kinect");
-                    if (kinect!=null)
+                    if (kinect != null)
                     {
                         var kinObj = mapObject.SelectToken("$.kinect");
-                        if (kinObj != null)
+                        if (kinObj != null && kinObj.HasValues)
                         {
-                            ret._methodArg = MethodArg.Create(jointObj.Value<string>("method"),
-                                jointObj.Value<string>("arg"));
+                            ret._methodArg = MethodArg.Create(kinObj.Value<string>("method"),
+                                kinObj.Value<string>("arg"));
                         }
                     }
                 }
@@ -145,7 +160,8 @@ namespace Experimot.Kinect.Perception
     /// </summary>
     public class NaoJointPublisher : MessagePublisher<ParamList>
     {
-        private readonly List<NaoJoint> _joints; 
+        private readonly List<NaoJoint> _joints;
+
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
         /// </summary>
@@ -157,7 +173,8 @@ namespace Experimot.Kinect.Perception
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
         /// </summary>
-        public NaoJointPublisher(string host, uint port, string topic, string naoJointsJson, string naoKinectJson) : base(host, port, topic)
+        public NaoJointPublisher(string host, uint port, string topic, string naoJointsJson, string naoKinectJson)
+            : base(host, port, topic)
         {
             _joints = new List<NaoJoint>();
             if (!string.IsNullOrEmpty(naoJointsJson) && !string.IsNullOrEmpty(naoKinectJson))
@@ -187,6 +204,25 @@ namespace Experimot.Kinect.Perception
         protected override bool IsValid(ParamList msg)
         {
             return msg != null && msg.param.Count > 0;
+        }
+
+        public ParamList GetJointValues(SmoothedBody<ExponentialSmoother> body)
+        {
+            var list = new ParamList();
+            if (body != null && _joints != null && _joints.Count > 0)
+            {
+                var validJoints = _joints.Where(s => s.KinectMapMethod != null);
+                foreach (var naoJoint in validJoints)
+                {
+                    var result = naoJoint.KinectMapMethod.Invoke(body, naoJoint.Mid);
+                    list.param.Add(new Param()
+                    {
+                        key = naoJoint.Name,
+                        value = naoJoint.ScaleToNao(20, 170, result).ToString(CultureInfo.InvariantCulture)
+                    });
+                }
+            }
+            return list;
         }
     }
 }

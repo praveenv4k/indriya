@@ -94,15 +94,17 @@ namespace Experimot.Kinect.Perception
         /// </summary>
         /// <param name="bodies"></param>
         /// <param name="humanPose"></param>
+        /// <param name="naoJoints"></param>
 #if USE_KINECT_BODIES
         public void UpdateBodyFrame(Body[] bodies, HumanPosePublisher humanPose)
 #else
-        public void UpdateBodyFrame(SmoothedBodyList<ExponentialSmoother> bodies, HumanPosePublisher humanPose)
+        public void UpdateBodyFrame(SmoothedBodyList<ExponentialSmoother> bodies, HumanPosePublisher humanPose, NaoJointPublisher naoJoints)
 #endif
         {
             if (!CanSend) return;
 
             KinectBodies kbodies = new KinectBodies();
+            ParamList list = null;
             var humans = new Humans();
             //_noBodyTracked = true;
             int penIndex = 0;
@@ -118,6 +120,15 @@ namespace Experimot.Kinect.Perception
                 {
                     //_noBodyTracked = false;
                     //_emptyMsgSent = 0;
+
+                    if (naoJoints != null)
+                    {
+                        list = naoJoints.GetJointValues(body);
+                        if (list.param.Count > 0)
+                        {
+                            naoJoints.Update(list);
+                        }
+                    }
 
                     var kbody = new KinectBody
                     {

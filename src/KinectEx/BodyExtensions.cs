@@ -156,6 +156,13 @@ namespace KinectEx
             return AngleBetween(body.GetVector(boneTypeA, invertBoneA), body.GetVector(boneTypeB, invertBoneB));
         }
 
+        public static double GetAngleBetween(this IBody body,
+                                             BoneTypeEx boneTypeA,
+                                             BoneTypeEx boneTypeB)
+        {
+            return AngleBetween(body.GetVector(boneTypeA), body.GetVector(boneTypeB));
+        }
+
         /// <summary>
         /// Returns the angle (in degrees) between the two bones that
         /// intersect at the specified <c>JointTypeEx</c> value.

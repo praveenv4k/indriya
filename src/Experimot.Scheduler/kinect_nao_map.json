@@ -44,7 +44,7 @@
         "name": "LShoulderPitch",
         "kinect": {
             "method": "GetAngleBetween",
-            "arg": "BoneTypeEx.SpineUpper, BoneTypeEx.ArmUpperLeft",
+            "arg": "SpineUpper, ArmUpperLeft",
             "invert":  true
         }
     },
@@ -53,7 +53,7 @@
         "name": "LShoulderRoll",
         "kinect": {
             "method": "GetAngleAt",
-            "arg": "JointTypeEx.ShoulderLeft",
+            "arg": "ShoulderLeft",
             "invert":  true
         }
     },
@@ -67,7 +67,7 @@
         "name": "LElbowRoll",
         "kinect": {
             "method": "GetAngleAt",
-            "arg": "JointTypeEx.ElbowLeft",
+            "arg": "ElbowLeft",
             "invert":  true
         }
     },
@@ -111,7 +111,7 @@
         "name": "RShoulderPitch",
         "kinect": {
             "method": "GetAngleBetween",
-            "arg": "BoneTypeEx.SpineUpper, BoneTypeEx.ArmUpperRight",
+            "arg": "SpineUpper, ArmUpperRight",
             "invert":  false
         }
     },
@@ -120,7 +120,7 @@
         "name": "RShoulderRoll",
         "kinect": {
             "method": "GetAngleAt",
-            "arg": "JointTypeEx.ShoulderRight",
+            "arg": "ShoulderRight",
             "invert":  false
         }
     },
@@ -134,7 +134,7 @@
         "name": "RElbowRoll",
         "kinect": {
             "method": "GetAngleAt",
-            "arg": "JointTypeEx.ElbowRight",
+            "arg": "ElbowRight",
             "invert":  false
         }
     },

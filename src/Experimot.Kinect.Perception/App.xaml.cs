@@ -32,7 +32,7 @@ namespace Experimot.Kinect.Perception
             try
             {
                 var args = e.Args;
-                if (args.Length > 0)
+                //if (args.Length > 0)
                 {
                     Options = new CommandLineOptions();
                     Parser.Default.ParseArguments(args, Options);
