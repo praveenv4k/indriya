@@ -19,7 +19,7 @@ using Common.Logging;
 using experimot.msgs;
 using Experimot.Core.Util;
 using Microsoft.Kinect;
-using Joint = Microsoft.Kinect.Joint;
+using System;
 #if USE_KINECT_BODIES
 #else
 using KinectEx;
@@ -183,15 +183,22 @@ namespace Experimot.Kinect.Perception
                         }
                         if (item.msg_type == "ParamList")
                         {
-                            string defaultValue = @"nao_joints_h25v50.json";
-                            var fileName = ParameterUtil.Get(_node.param, "nao_joints", defaultValue);
+                            try
+                            {
+                                string defaultValue = @"nao_joints_h25v50.json";
+                                var fileName = ParameterUtil.Get(_node.param, "nao_joints", defaultValue);
 
-                            var json = App.GetFileString(fileName, App.Options.ParameterServer);
+                                var json = App.GetFileString(fileName, App.Options.ParameterServer);
 
-                            defaultValue = @"kinect_nao_map.json";
-                            fileName = ParameterUtil.Get(_node.param, "nao_kinect", defaultValue);
-                            var kinectJson = App.GetFileString(fileName, App.Options.ParameterServer);
-                            _naoJoints = new NaoJointPublisher(item.host, item.port, item.topic, json, kinectJson);
+                                defaultValue = @"kinect_nao_map.json";
+                                fileName = ParameterUtil.Get(_node.param, "nao_kinect", defaultValue);
+                                var kinectJson = App.GetFileString(fileName, App.Options.ParameterServer);
+                                _naoJoints = new NaoJointPublisher(item.host, item.port, item.topic, json, kinectJson);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.StackTrace,ex.Message);
+                            }
                         }
                         _log.Info("Gesture recognition node initialized from the config file");
                     }

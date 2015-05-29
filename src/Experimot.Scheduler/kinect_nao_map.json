@@ -2,42 +2,42 @@
     {
         "sid": "joint0",
         "name": "HeadYaw",
-        "kinect": ""
+        "kinect": null
     },
     {
         "sid": "joint1",
         "name": "HeadPitch",
-        "kinect": ""
+        "kinect": null
     },
     {
         "sid": "joint2",
         "name": "LHipYawPitch",
-        "kinect": ""
+        "kinect": null
     },
     {
         "sid": "joint3",
         "name": "LHipRoll",
-        "kinect": ""
+        "kinect": null
     },
     {
         "sid": "joint4",
         "name": "LHipPitch",
-        "kinect": ""
+        "kinect": null
     },
     {
         "sid": "joint5",
         "name": "LKneePitch",
-        "kinect": ""
+        "kinect": null
     },
     {
         "sid": "joint6",
         "name": "LAnklePitch",
-        "kinect": ""
+        "kinect": null
     },
     {
         "sid": "joint7",
         "name": "LAnkleRoll",
-        "kinect": ""
+        "kinect": null
     },
     {
         "sid": "joint8",
@@ -60,7 +60,7 @@
     {
         "sid": "joint10",
         "name": "LElbowYaw",
-        "kinect": ""
+        "kinect": null
     },
     {
         "sid": "joint11",
@@ -74,37 +74,37 @@
     {
         "sid": "joint12",
         "name": "LWristYaw",
-        "kinect": ""
+        "kinect": null
     },
     {
         "sid": "joint13",
         "name": "LHand",
-        "kinect": ""
+        "kinect": null
     },
     {
         "sid": "joint14",
         "name": "RHipRoll",
-        "kinect": ""
+        "kinect": null
     },
     {
         "sid": "joint15",
         "name": "RHipPitch",
-        "kinect": ""
+        "kinect": null
     },
     {
         "sid": "joint16",
         "name": "RKneePitch",
-        "kinect": ""
+        "kinect": null
     },
     {
         "sid": "joint17",
         "name": "RAnklePitch",
-        "kinect": ""
+        "kinect": null
     },
     {
         "sid": "joint18",
         "name": "RAnkleRoll",
-        "kinect": ""
+        "kinect": null
     },
     {
         "sid": "joint19",
@@ -127,7 +127,7 @@
     {
         "sid": "joint21",
         "name": "RElbowYaw",
-        "kinect": ""
+        "kinect": null
     },
     {
         "sid": "joint22",
@@ -141,11 +141,11 @@
     {
         "sid": "joint23",
         "name": "RWristYaw",
-        "kinect": ""
+        "kinect": null
     },
     {
         "sid": "joint24",
         "name": "RHand",
-        "kinect": ""
+        "kinect": null
     }
     ]
