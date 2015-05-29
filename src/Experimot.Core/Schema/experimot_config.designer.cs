@@ -626,6 +626,9 @@ namespace Experimot.Core
 
         /// <remarks/>
         csv,
+
+        /// <remarks/>
+        file,
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]

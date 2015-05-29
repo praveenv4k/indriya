@@ -240,6 +240,10 @@
     <None Include="Scriptcs\main.csx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="nao_joints_h25v50.json">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="experimot_config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

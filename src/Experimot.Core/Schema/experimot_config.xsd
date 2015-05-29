@@ -29,6 +29,7 @@
       <xs:enumeration value="double" />
       <xs:enumeration value="string" />
       <xs:enumeration value="csv" />
+      <xs:enumeration value="file" />
     </xs:restriction>
   </xs:simpleType>
 

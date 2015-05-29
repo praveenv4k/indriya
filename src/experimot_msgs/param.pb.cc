@@ -24,6 +24,9 @@ namespace {
 const ::google::protobuf::Descriptor* Param_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Param_reflection_ = NULL;
+const ::google::protobuf::Descriptor* ParamList_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  ParamList_reflection_ = NULL;
 
 }  // namespace
 
@@ -51,6 +54,21 @@ void protobuf_AssignDesc_param_2eproto() {
       sizeof(Param),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Param, _internal_metadata_),
       -1);
+  ParamList_descriptor_ = file->message_type(1);
+  static const int ParamList_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ParamList, param_),
+  };
+  ParamList_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      ParamList_descriptor_,
+      ParamList::default_instance_,
+      ParamList_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ParamList, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(ParamList),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ParamList, _internal_metadata_),
+      -1);
 }
 
 namespace {
@@ -65,6 +83,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       Param_descriptor_, &Param::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      ParamList_descriptor_, &ParamList::default_instance());
 }
 
 }  // namespace
@@ -72,6 +92,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void protobuf_ShutdownFile_param_2eproto() {
   delete Param::default_instance_;
   delete Param_reflection_;
+  delete ParamList::default_instance_;
+  delete ParamList_reflection_;
 }
 
 void protobuf_AddDesc_param_2eproto() {
@@ -83,11 +105,14 @@ void protobuf_AddDesc_param_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\013param.proto\022\016experimot.msgs\"5\n\005Param\022\013"
     "\n\003key\030\001 \002(\t\022\r\n\005value\030\002 \002(\t\022\020\n\010dataType\030\003"
-    " \002(\t", 84);
+    " \002(\t\"1\n\tParamList\022$\n\005param\030\001 \003(\0132\025.exper"
+    "imot.msgs.Param", 135);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "param.proto", &protobuf_RegisterTypes);
   Param::default_instance_ = new Param();
+  ParamList::default_instance_ = new ParamList();
   Param::default_instance_->InitAsDefaultInstance();
+  ParamList::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_param_2eproto);
 }
 
@@ -655,6 +680,271 @@ void Param::InternalSwap(Param* other) {
   }
   datatype_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), datatype);
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Param.dataType)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int ParamList::kParamFieldNumber;
+#endif  // !_MSC_VER
+
+ParamList::ParamList()
+  : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:experimot.msgs.ParamList)
+}
+
+void ParamList::InitAsDefaultInstance() {
+}
+
+ParamList::ParamList(const ParamList& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:experimot.msgs.ParamList)
+}
+
+void ParamList::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+ParamList::~ParamList() {
+  // @@protoc_insertion_point(destructor:experimot.msgs.ParamList)
+  SharedDtor();
+}
+
+void ParamList::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void ParamList::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* ParamList::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return ParamList_descriptor_;
+}
+
+const ParamList& ParamList::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_param_2eproto();
+  return *default_instance_;
+}
+
+ParamList* ParamList::default_instance_ = NULL;
+
+ParamList* ParamList::New(::google::protobuf::Arena* arena) const {
+  ParamList* n = new ParamList;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void ParamList::Clear() {
+  param_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool ParamList::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:experimot.msgs.ParamList)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .experimot.msgs.Param param = 1;
+      case 1: {
+        if (tag == 10) {
+         parse_param:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_param()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(10)) goto parse_param;
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:experimot.msgs.ParamList)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:experimot.msgs.ParamList)
+  return false;
+#undef DO_
+}
+
+void ParamList::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:experimot.msgs.ParamList)
+  // repeated .experimot.msgs.Param param = 1;
+  for (unsigned int i = 0, n = this->param_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->param(i), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:experimot.msgs.ParamList)
+}
+
+::google::protobuf::uint8* ParamList::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.ParamList)
+  // repeated .experimot.msgs.Param param = 1;
+  for (unsigned int i = 0, n = this->param_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->param(i), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.ParamList)
+  return target;
+}
+
+int ParamList::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .experimot.msgs.Param param = 1;
+  total_size += 1 * this->param_size();
+  for (int i = 0; i < this->param_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->param(i));
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void ParamList::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const ParamList* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ParamList*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void ParamList::MergeFrom(const ParamList& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  param_.MergeFrom(from.param_);
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void ParamList::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ParamList::CopyFrom(const ParamList& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ParamList::IsInitialized() const {
+
+  if (!::google::protobuf::internal::AllAreInitialized(this->param())) return false;
+  return true;
+}
+
+void ParamList::Swap(ParamList* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void ParamList::InternalSwap(ParamList* other) {
+  param_.UnsafeArenaSwap(&other->param_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata ParamList::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = ParamList_descriptor_;
+  metadata.reflection = ParamList_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// ParamList
+
+// repeated .experimot.msgs.Param param = 1;
+ int ParamList::param_size() const {
+  return param_.size();
+}
+ void ParamList::clear_param() {
+  param_.Clear();
+}
+ const ::experimot::msgs::Param& ParamList::param(int index) const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.ParamList.param)
+  return param_.Get(index);
+}
+ ::experimot::msgs::Param* ParamList::mutable_param(int index) {
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.ParamList.param)
+  return param_.Mutable(index);
+}
+ ::experimot::msgs::Param* ParamList::add_param() {
+  // @@protoc_insertion_point(field_add:experimot.msgs.ParamList.param)
+  return param_.Add();
+}
+ const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+ParamList::param() const {
+  // @@protoc_insertion_point(field_list:experimot.msgs.ParamList.param)
+  return param_;
+}
+ ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+ParamList::mutable_param() {
+  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.ParamList.param)
+  return &param_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

@@ -40,6 +40,7 @@ namespace Experimot.Kinect.Perception
                     if (info != null)
                     {
                         SendMotionRecognitionModuleInfo(info, options.ParameterServer);
+                        var json = GetRobotJsonString(info, options.ParameterServer);
                     }
                 }
             }
@@ -148,6 +149,45 @@ namespace Experimot.Kinect.Perception
                 //MessageBox.Show(ex.StackTrace,"Parameter retrieve");
             }
             return nodeInfo;
+        }
+
+        private static string GetRobotJsonString(Node node, string server, int timeout = 1000)
+        {
+            try
+            {
+                if (node == null)
+                {
+                    return string.Empty;
+                }
+
+                const string defaultValue = @"nao_joints_h25v50.json";
+                var fileName = ParameterUtil.Get(node.param, "nao_joints", defaultValue);
+
+                using (var context = NetMQContext.Create())
+                {
+                    using (var socket = context.CreateRequestSocket())
+                    {
+                        socket.Connect(server);
+                        socket.SendMore("file_request");
+                        socket.Send(fileName);
+                        var msg = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, timeout));
+                        if (msg != null)
+                        {
+                            Log.InfoFormat("File request response: {0}", msg);
+                            return msg;
+                        }
+                        else
+                        {
+                            Log.Info("Message buffer empty!");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.InfoFormat("{1} : {0}", ex.StackTrace, ex.Message);
+            }
+            return string.Empty;
         }
 
         private static void SendMotionRecognitionModuleInfo(Node node, string server, int timeout = 1000)

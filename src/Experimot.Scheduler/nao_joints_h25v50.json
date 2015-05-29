@@ -1,0 +1,427 @@
+﻿[
+  {
+    "sid": "joint0",
+    "name": "HeadYaw",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -119.5000884570504,
+      "max": 119.5000884570504
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": 0
+  },
+  {
+    "sid": "joint1",
+    "name": "HeadPitch",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -38.50001363537469,
+      "max": 29.49999258945972
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": -4.500010522957487
+  },
+  {
+    "sid": "joint2",
+    "name": "LHipYawPitch",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -65.62028331853804,
+      "max": 42.44001520937131
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": -11.590134054583366
+  },
+  {
+    "sid": "joint3",
+    "name": "LHipRoll",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -21.74002409954639,
+      "max": 45.29002187391107
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": 11.774998887182342
+  },
+  {
+    "sid": "joint4",
+    "name": "LHipPitch",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -88.00001479634801,
+      "max": 27.73001136874158
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": -30.135001713803216
+  },
+  {
+    "sid": "joint5",
+    "name": "LKneePitch",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -5.289999001305913,
+      "max": 121.0401990103621
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": 57.87510000452809
+  },
+  {
+    "sid": "joint6",
+    "name": "LAnklePitch",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -68.14989198404064,
+      "max": 52.859997558959
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": -7.644947212540817
+  },
+  {
+    "sid": "joint7",
+    "name": "LAnkleRoll",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -22.79002655490314,
+      "max": 44.0599960793242
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": 10.63498476221053
+  },
+  {
+    "sid": "joint8",
+    "name": "LShoulderPitch",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -119.5000884570504,
+      "max": 119.5000884570504
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": 0
+  },
+  {
+    "sid": "joint9",
+    "name": "LShoulderRoll",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -17.99998479605043,
+      "max": 75.99998673512806
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": 29.000000969538817
+  },
+  {
+    "sid": "joint10",
+    "name": "LElbowYaw",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -119.5000884570504,
+      "max": 119.5000884570504
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": 0
+  },
+  {
+    "sid": "joint11",
+    "name": "LElbowRoll",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -88.50020695149722,
+      "max": -2.00000085715136
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": -45.25010390432429
+  },
+  {
+    "sid": "joint12",
+    "name": "LWristYaw",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -104.5000533805255,
+      "max": 104.5000533805255
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": 0
+  },
+  {
+    "sid": "joint13",
+    "name": "LHand",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": 0,
+      "max": 57.29577951308232
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": 28.64788975654116
+  },
+  {
+    "sid": "joint14",
+    "name": "RHipRoll",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -45.29002187391107,
+      "max": 21.74002409954639
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": -11.774998887182342
+  },
+  {
+    "sid": "joint15",
+    "name": "RHipPitch",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -88.00001479634801,
+      "max": 27.73001136874158
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": -30.135001713803216
+  },
+  {
+    "sid": "joint16",
+    "name": "RKneePitch",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -5.289999001305913,
+      "max": 121.0401990103621
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": 57.87510000452809
+  },
+  {
+    "sid": "joint17",
+    "name": "RAnklePitch",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -67.96998323636956,
+      "max": 53.4000102808698
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": -7.284986477749879
+  },
+  {
+    "sid": "joint18",
+    "name": "RAnkleRoll",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -44.0599960793242,
+      "max": 22.79002655490314
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": -10.63498476221053
+  },
+  {
+    "sid": "joint19",
+    "name": "RShoulderPitch",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -119.5000884570504,
+      "max": 119.5000884570504
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": 0
+  },
+  {
+    "sid": "joint20",
+    "name": "RShoulderRoll",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -75.99998673512806,
+      "max": 17.99998479605043
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": -29.000000969538817
+  },
+  {
+    "sid": "joint21",
+    "name": "RElbowYaw",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -119.5000884570504,
+      "max": 119.5000884570504
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": 0
+  },
+  {
+    "sid": "joint22",
+    "name": "RElbowRoll",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": 2.00000085715136,
+      "max": 88.50020695149722
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": 45.25010390432429
+  },
+  {
+    "sid": "joint23",
+    "name": "RWristYaw",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": -104.5000533805255,
+      "max": 104.5000533805255
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": 0
+  },
+  {
+    "sid": "joint24",
+    "name": "RHand",
+    "axis": {
+      "x": 0,
+      "y": 1,
+      "z": 0
+    },
+    "limits": {
+      "min": 0,
+      "max": 57.29577951308232
+    },
+    "type": "revolute",
+    "static": false,
+    "zeroPosition": 0,
+    "middlePosition": 28.64788975654116
+  }
+]

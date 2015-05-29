@@ -57,30 +57,7 @@ namespace Experimot.Scheduler
                     var req = _socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
                     if (!string.IsNullOrEmpty(req))
                     {
-                        if (!req.Contains("register"))
-                        {
-                            Log.InfoFormat(@"Received request from {0}", req);
-                            var nodeExist = _config.nodes.FirstOrDefault(s => s.name == req);
-                            if (nodeExist != null)
-                            {
-                                var nodeInfo = MessageUtil.XmlToMessageNode(nodeExist);
-                                var globalParams = MessageUtil.XmlToMessageParam(_config.parameters);
-                                foreach (var item in globalParams)
-                                {
-                                    var existParam = nodeInfo.param.FirstOrDefault(s => s.key == item.key);
-                                    if (existParam == null)
-                                    {
-                                        nodeInfo.param.Add(item);
-                                    }
-                                }
-                                using (var ms = new MemoryStream())
-                                {
-                                    Serializer.Serialize(ms, nodeInfo);
-                                    _socket.Send(ms.GetBuffer(), (int) ms.Length);
-                                }
-                            }
-                        }
-                        else // register either motions or behaviors
+                        if (req.Contains("register"))
                         {
                             Log.InfoFormat(@"Registration request {0}", req);
                             var name = _socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
@@ -115,9 +92,37 @@ namespace Experimot.Scheduler
                                     _socket.Send("Registration successful!");
                                 }
                             }
-                            else
+                        }
+                        else if (req.Contains("file_request"))
+                        {
+                            Log.InfoFormat(@"File request {0}", req);
+                            var fileName = _socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
+                            Log.InfoFormat(@"Request for file {0}", fileName);
+                            _socket.Send(File.Exists(fileName)
+                                ? File.ReadAllText(fileName)
+                                : "File not found!");
+                        }
+                        else // Node parameter request
+                        {
+                            Log.InfoFormat(@"Received request from {0}", req);
+                            var nodeExist = _config.nodes.FirstOrDefault(s => s.name == req);
+                            if (nodeExist != null)
                             {
-
+                                var nodeInfo = MessageUtil.XmlToMessageNode(nodeExist);
+                                var globalParams = MessageUtil.XmlToMessageParam(_config.parameters);
+                                foreach (var item in globalParams)
+                                {
+                                    var existParam = nodeInfo.param.FirstOrDefault(s => s.key == item.key);
+                                    if (existParam == null)
+                                    {
+                                        nodeInfo.param.Add(item);
+                                    }
+                                }
+                                using (var ms = new MemoryStream())
+                                {
+                                    Serializer.Serialize(ms, nodeInfo);
+                                    _socket.Send(ms.GetBuffer(), (int) ms.Length);
+                                }
                             }
                         }
                     }

@@ -40,6 +40,7 @@ void protobuf_AssignDesc_param_2eproto();
 void protobuf_ShutdownFile_param_2eproto();
 
 class Param;
+class ParamList;
 
 // ===================================================================
 
@@ -167,6 +168,98 @@ class Param : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Param* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ParamList : public ::google::protobuf::Message {
+ public:
+  ParamList();
+  virtual ~ParamList();
+
+  ParamList(const ParamList& from);
+
+  inline ParamList& operator=(const ParamList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ParamList& default_instance();
+
+  void Swap(ParamList* other);
+
+  // implements Message ----------------------------------------------
+
+  inline ParamList* New() const { return New(NULL); }
+
+  ParamList* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ParamList& from);
+  void MergeFrom(const ParamList& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(ParamList* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .experimot.msgs.Param param = 1;
+  int param_size() const;
+  void clear_param();
+  static const int kParamFieldNumber = 1;
+  const ::experimot::msgs::Param& param(int index) const;
+  ::experimot::msgs::Param* mutable_param(int index);
+  ::experimot::msgs::Param* add_param();
+  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+      param() const;
+  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+      mutable_param();
+
+  // @@protoc_insertion_point(class_scope:experimot.msgs.ParamList)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param > param_;
+  friend void  protobuf_AddDesc_param_2eproto();
+  friend void protobuf_AssignDesc_param_2eproto();
+  friend void protobuf_ShutdownFile_param_2eproto();
+
+  void InitAsDefaultInstance();
+  static ParamList* default_instance_;
 };
 // ===================================================================
 
@@ -333,6 +426,40 @@ inline void Param::set_allocated_datatype(::std::string* datatype) {
   }
   datatype_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), datatype);
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Param.dataType)
+}
+
+// -------------------------------------------------------------------
+
+// ParamList
+
+// repeated .experimot.msgs.Param param = 1;
+inline int ParamList::param_size() const {
+  return param_.size();
+}
+inline void ParamList::clear_param() {
+  param_.Clear();
+}
+inline const ::experimot::msgs::Param& ParamList::param(int index) const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.ParamList.param)
+  return param_.Get(index);
+}
+inline ::experimot::msgs::Param* ParamList::mutable_param(int index) {
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.ParamList.param)
+  return param_.Mutable(index);
+}
+inline ::experimot::msgs::Param* ParamList::add_param() {
+  // @@protoc_insertion_point(field_add:experimot.msgs.ParamList.param)
+  return param_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+ParamList::param() const {
+  // @@protoc_insertion_point(field_list:experimot.msgs.ParamList.param)
+  return param_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+ParamList::mutable_param() {
+  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.ParamList.param)
+  return &param_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

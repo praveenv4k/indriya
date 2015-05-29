@@ -105,6 +105,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="NaoJointPublisher.cs" />
     <Compile Include="HumanPosePublisher.cs" />
     <Compile Include="Triangle.cs" />
     <Page Include="MainWindow.xaml">
