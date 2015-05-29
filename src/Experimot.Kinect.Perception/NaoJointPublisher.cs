@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Windows;
+using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -27,24 +28,38 @@ namespace Experimot.Kinect.Perception
 
         public static MethodArg Create(string methodName, string argValues)
         {
+
             MethodArg ret = null;
 #if USE_KINECT_BODIES
             
 #else
-            var method = typeof (BodyExtensions).GetMethod(methodName);
-            if (method != null)
+            if (!string.IsNullOrEmpty(methodName) && !string.IsNullOrEmpty(argValues))
             {
-                var parameters = method.GetParameters();
+                var methods = typeof (BodyExtensions).GetMethods(
+                    BindingFlags.Static | BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
                 var vals = argValues.Split(',');
-                List<object> arguments = new List<object>();
-                int i = 0;
-                foreach (var parameterInfo in parameters)
+                var method = methods.Where(s => s.Name == methodName);
+                foreach (var methodInfo in method)
                 {
-                    arguments.Add(Convert.ChangeType(vals[i++], parameterInfo.ParameterType));
+                    var parameters = methodInfo.GetParameters().ToList();
+                    if (parameters.Count > 0)
+                    {
+                        if (parameters[0].ParameterType.Name == "IBody")
+                        {
+                            List<object> arguments = new List<object>();
+                            int i = 1;
+                            foreach (var val in vals)
+                            {
+                                var conv = Dynamitey.Dynamic.InvokeConvert(val.Trim(), parameters[i++].ParameterType);
+                                arguments.Add(conv);
+                            }
+                            ret = new MethodArg();
+                            ret._methodInfo = methodInfo;
+                            ret._args = arguments;
+                            break;
+                        }
+                    }
                 }
-                ret = new MethodArg();
-                ret._methodInfo = method;
-                ret._args = arguments;
             }
 #endif
             return ret;
@@ -96,8 +111,8 @@ namespace Experimot.Kinect.Perception
                 };
                 if (mapObject != null)
                 {
-                    var kinect = mapObject.Value<string>("kinect");
-                    if (!string.IsNullOrEmpty(kinect))
+                    var kinect = mapObject.Value<object>("kinect");
+                    if (kinect!=null)
                     {
                         var kinObj = mapObject.SelectToken("$.kinect");
                         if (kinObj != null)
