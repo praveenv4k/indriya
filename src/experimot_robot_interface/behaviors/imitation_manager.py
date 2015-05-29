@@ -120,10 +120,41 @@ def imitate_client(behaviorModule,ip,port):
 
     print "quitting ... "
 
+#############################################################################################################
+# Behavior server - A Behavior request/response server
+import param_pb2
+
+def imitate_subscriber(behaviorModule,ip,port,topic):
+    context = zmq.Context()
+    socket = context.socket(zmq.SUB)
+    socket.connect(("%s:%d" % (ip,port)))
+    socket.setsockopt(zmq.SUBSCRIBE, topic)
+    print "Connected to: %s,%d" % (ip,port)
+    while True:
+        #  Wait for next request from client
+        topic2 = socket.recv()
+        msg = socket.recv()
+        print topic2, msg
+        paramList = param_pb2.ParamList()
+        paramList.ParseFromString(msg)
+        names = []
+        values = []
+        for param in paramList.param:
+            names.append(str(param.key))
+            values.append(float(param.value))
+        if len(names)>0:
+            behaviorModule.set_jointAngles(names,values)
+        #print paramList
+        time.sleep(0.2)
+
+    print "quitting ... "
+
+
 if __name__ == "__main__":
   try:
-      msg = "おはようございます！"
-      print msg
+      #msg = "おはようございます！"
+      #print msg
+
       # from langdetect import detect
       # print detect(u"Cosa vuoi mangiare?")
       ROBOTIP = "127.0.0.1"
@@ -150,7 +181,9 @@ if __name__ == "__main__":
               behaviors = module.getCapabilities()
               #parameter_utils.register_behaviors(node,paramServer,["crouch","stand","hand_wave","greet","wish","introduction"])
               parameter_utils.register_behaviors(node,paramServer,behaviors)
-              thread.start_new_thread(imitate_client,(module,CTX_IP,CTX_PORT))
+              #thread.start_new_thread(imitate_client,(module,CTX_IP,CTX_PORT))
+              subscriber = parameter_utils.getSubscriberInfo(node,'ParamList')
+              thread.start_new_thread(imitate_subscriber,(module,str(subscriber.host),int(subscriber.port),str(subscriber.topic)))
       else:
           print "Start locally"
 
