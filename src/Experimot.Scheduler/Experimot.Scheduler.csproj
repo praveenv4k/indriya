@@ -227,6 +227,10 @@
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="nao_joints_h25v50.json">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -240,7 +244,7 @@
     <None Include="Scriptcs\main.csx" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="nao_joints_h25v50.json">
+    <None Include="kinect_nao_map.json">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

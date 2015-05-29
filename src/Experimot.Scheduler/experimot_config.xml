@@ -82,7 +82,8 @@
         <args></args>
       </process>
       <parameters>
-        <param key="nao_joints" type="string" value="nao_joints_h25v50.json"/>
+        <param key="nao_joints" type="file" value="nao_joints_h25v50.json"/>
+        <param key="nao_kinect" type="file" value="kinect_nao_map.json"/>
         <param key="database" type="file" value="Database\experimot.gbd"/>
       </parameters>
       <publishers>

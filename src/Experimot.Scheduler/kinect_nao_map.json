@@ -1,0 +1,151 @@
+﻿[
+    {
+        "sid": "joint0",
+        "name": "HeadYaw",
+        "kinect": ""
+    },
+    {
+        "sid": "joint1",
+        "name": "HeadPitch",
+        "kinect": ""
+    },
+    {
+        "sid": "joint2",
+        "name": "LHipYawPitch",
+        "kinect": ""
+    },
+    {
+        "sid": "joint3",
+        "name": "LHipRoll",
+        "kinect": ""
+    },
+    {
+        "sid": "joint4",
+        "name": "LHipPitch",
+        "kinect": ""
+    },
+    {
+        "sid": "joint5",
+        "name": "LKneePitch",
+        "kinect": ""
+    },
+    {
+        "sid": "joint6",
+        "name": "LAnklePitch",
+        "kinect": ""
+    },
+    {
+        "sid": "joint7",
+        "name": "LAnkleRoll",
+        "kinect": ""
+    },
+    {
+        "sid": "joint8",
+        "name": "LShoulderPitch",
+        "kinect": {
+            "method": "GetAngleBetween",
+            "arg": "BoneTypeEx.SpineUpper, BoneTypeEx.ArmUpperLeft",
+            "invert":  true
+        }
+    },
+    {
+        "sid": "joint9",
+        "name": "LShoulderRoll",
+        "kinect": {
+            "method": "GetAngleAt",
+            "arg": "JointTypeEx.ShoulderLeft",
+            "invert":  true
+        }
+    },
+    {
+        "sid": "joint10",
+        "name": "LElbowYaw",
+        "kinect": ""
+    },
+    {
+        "sid": "joint11",
+        "name": "LElbowRoll",
+        "kinect": {
+            "method": "GetAngleAt",
+            "arg": "JointTypeEx.ElbowLeft",
+            "invert":  true
+        }
+    },
+    {
+        "sid": "joint12",
+        "name": "LWristYaw",
+        "kinect": ""
+    },
+    {
+        "sid": "joint13",
+        "name": "LHand",
+        "kinect": ""
+    },
+    {
+        "sid": "joint14",
+        "name": "RHipRoll",
+        "kinect": ""
+    },
+    {
+        "sid": "joint15",
+        "name": "RHipPitch",
+        "kinect": ""
+    },
+    {
+        "sid": "joint16",
+        "name": "RKneePitch",
+        "kinect": ""
+    },
+    {
+        "sid": "joint17",
+        "name": "RAnklePitch",
+        "kinect": ""
+    },
+    {
+        "sid": "joint18",
+        "name": "RAnkleRoll",
+        "kinect": ""
+    },
+    {
+        "sid": "joint19",
+        "name": "RShoulderPitch",
+        "kinect": {
+            "method": "GetAngleBetween",
+            "arg": "BoneTypeEx.SpineUpper, BoneTypeEx.ArmUpperRight",
+            "invert":  false
+        }
+    },
+    {
+        "sid": "joint20",
+        "name": "RShoulderRoll",
+        "kinect": {
+            "method": "GetAngleAt",
+            "arg": "JointTypeEx.ShoulderRight",
+            "invert":  false
+        }
+    },
+    {
+        "sid": "joint21",
+        "name": "RElbowYaw",
+        "kinect": ""
+    },
+    {
+        "sid": "joint22",
+        "name": "RElbowRoll",
+        "kinect": {
+            "method": "GetAngleAt",
+            "arg": "JointTypeEx.ElbowRight",
+            "invert":  false
+        }
+    },
+    {
+        "sid": "joint23",
+        "name": "RWristYaw",
+        "kinect": ""
+    },
+    {
+        "sid": "joint24",
+        "name": "RHand",
+        "kinect": ""
+    }
+    ]
