@@ -99,13 +99,13 @@ namespace Experimot.Scheduler.Data
             }
         }
 
-        public void Update(ParamList list)
-        {
-            if (list != null)
-            {
-                Console.WriteLine(list.ToString());
-            }
-        }
+        //public void Update(ParamList list)
+        //{
+        //    if (list != null)
+        //    {
+        //        Console.WriteLine(string.Join(",", list.param.Select(s => s.value).ToList()));
+        //    }
+        //}
 
         public void Update(KinectBodies kinectBodies)
         {
