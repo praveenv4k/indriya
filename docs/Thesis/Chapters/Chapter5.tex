@@ -5,7 +5,7 @@
 \label{Chapter5} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
 \lhead{Chapter 5. \emph{System Implementation}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
-In this chapter the implementation of various components specific to the experimental platform taking advantage of the framework proposed in \ref{Chapter4} is presented. The Software is designed using a layered hierarchical structure. The various layers of the system are
+In this chapter the implementation of various components specific to the experimental platform taking advantage of the framework proposed in \ref{Chapter4} is presented. The software is designed using a layered hierarchical structure. The various layers of the system are
 \begin{itemize}
 \item \emph{Hardware Layer} is composed of sensors and robots connected to the network. Currently only those sensors that support TCP/IP network communication are considered.
 \item \emph{Distributed Components Layer} is composed of individual processes that could be running across different computers/devices in the network
@@ -38,17 +38,133 @@ The data structure of the context is shown in Fig~\ref{fig:system_context}
 \caption[Application Context]{Application Context}
 \label{fig:system_context}
 \end{figure}
-\subsection{Parameter Server}: The parameter server acts as a central repository for managing the parameters of the system and of the distributed components.
-\subsection{Context Orchestrator}: The orchestrator collect uptodate information about the robots and humans in the environment from the perception system and updates the Context. The algorithm used by the Orchestrator to update the context information is shown below.
-
-\subsection{Bootstrapper} : The bootstrapper takes care of initializing the system and starting up all the pre-configured nodes. It also takes of starting and stopping the behavior programs when requested by the user. 
-\subsection{Embedded Web server} : The web server embedded in the application serves the file and data requests from the web client.
-\subsection{Behavior Program} : A dynamic component that will be created when the user starts the program he/she designed using the user interface. The declarative description of the behavior is parsed in order to create a memory model. The Behavior program node monitors the application context for the motion triggers and invokes the corresponding robot actions according to the way it is being described in the program.
+\subsection{Parameter Server} 
+The parameter server acts as a central repository for managing the parameters of the system and of the distributed components. The parameter server is basically desgined as a responder socket which responds to the requests from a remote client. The list of supported request to pull the data from the parameter server is shown in the Table~\ref{table:parameter_server}
+\begin{table}[H]
+\centering
+\small
+\caption{Parameter Server Interface Specification}
+\label{table:parameter_server}
+\begin{tabularx}{400pt}{c*3{X}}
+\toprule
+  \textbf{Request Description} & \textbf{Request Arguments}
+                          & \textbf{Response}
+  \tabularnewline \midrule
+  \multirow{1}{*}{Node Parameters Req} & Name of the node & Node Parameters 
+                                          \tabularnewline\midrule
+                                          
+  \multirow{3}{*}{Motion recognition Module Registration Req} & Name of the node & Registration Status  \\
+                                                     & Motion Module Information &  (Success/Failure)
+                                          \tabularnewline\midrule
+  
+  \multirow{3}{*}{Robot Interface Module Registration Req} & Name of the node & Registration Status  \\
+                                                     & Robot Module Information &   (Success/Failure)
+                                          \tabularnewline\midrule
+  \multirow{1}{*}{File Request} & Name of the file & Contents of the File  
+  										 \tabularnewline                       
+                                         
+  										\bottomrule
+\end{tabularx}
+\end{table}
+\subsection{Context Orchestrator} The orchestrator collect uptodate information about the robots and humans in the environment from the perception system and updates the Context. The algorithm used by the Orchestrator to update the context information is shown below.
+\begin{algorithm}
+ \KwData{(app\_config, context)}
+ \textbf{\emph{Init}}:\\
+ PUBLISHERS = READ\_ALL\_PUBLISHER\_INFO(app\_config)\;
+ SUBSCRIBERS = CREATE\_SUBSCRIBERS(PUBLISHERS)\;
+ \While{run}{
+ 	\ForAll{SUBSCRIBER in SUBSCRIBERS}{ 
+ 		data = RECEIVE\_DATA(SUBSCRIBER,TIME\_OUT)\;
+ 		UPDATE\_CONTEXT(context, data)\;
+ 	}
+ }
+ \caption{Context Synchronization Algorithm}
+ \label{alg:context_sync}
+\end{algorithm}
+\subsection{Embedded Web server}
+The web server embedded in the application serves the file and data requests from the web client. The server side server implements a set of RESTful services which could be accessed from the web clients. The JSON data format which the default standard for modern web interface development has been adopted. The list of RESTful API implemented on the server side is shown in Table~\ref{table:restful_api}
+\begin{table}[H]
+\centering
+\small
+\caption{RESTful API}
+\label{table:restful_api}
+\begin{tabularx}{400pt}{c*4{X}}
+\toprule
+  \textbf{Request Url}  & \textbf{Parameters} & \textbf{Request Type} & \textbf{Description/Response}
+  \tabularnewline \midrule
+  \multirow{1}{*}{/models/{type}/(?$<$all$>$.*)} & File Name & GET & Robot 3D Model Data
+                                          \tabularnewline\midrule
+                                          
+  \multirow{1}{*}{/context}  & - & GET & Current context data  
+  										 \tabularnewline\midrule
+  										 
+  \multirow{1}{*}{/robot}  &  - & GET & Default Robot information  
+  										 \tabularnewline\midrule										 
+  
+  \multirow{2}{*}{/humans} & - & GET  & Information about all the human in the environment  
+                                          \tabularnewline\midrule
+                                          
+  \multirow{2}{*}{/human/{id}} & id - Human Id & GET  & Information about the human with the given id.  
+                                          \tabularnewline\midrule
+                                          
+  \multirow{2}{*}{/jointvals} & - & GET  & Joint values of the default robot  
+                                          \tabularnewline\midrule
+                                          
+  \multirow{3}{*}{/visualize/skeleton/list} & - & GET  & 3D Skeleton positions of all the humans in the environment  
+                                          \tabularnewline\midrule                                        
+       
+  \multirow{3}{*}{/designer/program/list} & - & GET  & List of all the behavior programs stored in the server  
+                                          \tabularnewline                       
+  \multirow{3}{*}{/visualize/skeleton/list} & - & GET  & 3D Skeleton positions of all the humans in the environment  
+                                          \tabularnewline\midrule                                       
+                                          
+  \multirow{3}{*}{/designer/program/startxml} & Behavior Program & POST  & Request the bootstrapper to start the program
+  										 \tabularnewline\midrule   
+  \multirow{3}{*}{/designer/program/save} & File Name & POST  & Request the bootstrapper to start the program\\
+                                          & Behavior Program &  & 
+                                          \tabularnewline\midrule 
+  \multirow{3}{*}{/designer/program/stop} & - & POST  & Request to stop running program if any
+                                          \tabularnewline\midrule                                       
+                                                                                                                         
+  										\bottomrule
+\end{tabularx}
+\end{table}
+\subsection{Behavior Program} 
+A dynamic component that will be created when the user starts the program he/she designed using the user interface. The declarative description of the behavior is parsed in order to create a memory model. The Behavior program node monitors the application context for the motion triggers and invokes the corresponding robot actions according to the way it is being described in the program.
+\subsection{Bootstrapper} 
+The bootstrapper takes care of initializing the system and starting up all the pre-configured nodes. It also takes of starting and stopping the behavior programs when requested by the user. The sequence operations of bootstrapper performs is represented in the algorithm
+\begin{algorithm}
+ \KwData{(app\_config)}
+ \textbf{\emph{Startup}}:\\
+ INIT\_AND\_RUN\_PARAMETERSERVER()\;
+ INIT\_AND\_RUN\_CONTEXTSYNC()\;
+ INIT\_AND\_RUN\_CONTEXTSERVER()\;
+ INIT\_AND\_RUN\_WEBSERVER()\;
+ NODES = GET\_NODES(app\_config)\;
+ PROCESSES = []\;
+ \ForAll{NODE in NODES}{ 
+ 	\If{NODE is ENABLED}{
+ 		PROCESS = CREATE\_PROCESS(NODE)\;
+ 		APPEND(PROCESSES, PROCESS)
+ 	}
+ \quad }
+ \While{run}{
+ 	MONITOR(PROCESSES)
+ }
+ \textbf{\emph{Shutdown}}:\\
+ SHUTDOWN\_WEBSERVER()\; 
+ SHUTDOWN\_CONTEXTSERVER()\;
+ SHUTDOWN\_CONTEXTSYNC()\;
+ SHUTDOWN\_PARAMETERSERVER()\;
+ SHUTDOWN(PROCESSES)
+ \caption{Bootstrapper Algorithm}
+ \label{alg:context_sync}
+\end{algorithm}
 \section{Distributed Components}
 \label{ssec:dist_comp}
 These are nodes in the system each with a specific goal that can be started/stopped at any time during the entire application life-cycle without affecting the other nodes or the system. All the nodes will communicate with the application using message passing techniques. They can run in any machine inside the network.
 
-\subsection{Motion Recognition Node} : A dedicated node that interacts with a motion recognition sensor and sends the detected gestures and motions to the application. Additionally each motion recognition module registers a set of actions/gestures that could be detected with the sensor associated with it.
+\subsection{Motion Recognition Node} A dedicated node that interacts with a motion recognition sensor and sends the detected gestures and motions to the application. Additionally each motion recognition module registers a set of actions/gestures that could be detected with the sensor associated with it.
 % Motion recognition
 \begin{algorithm}
  \KwData{Gesture database}
@@ -68,8 +184,8 @@ These are nodes in the system each with a specific goal that can be started/stop
  %\label{alg:localize}
 \end{algorithm}
 
-\subsection{Robot Interface Node} : A dedicated node that interacts with a specific robot and can invoke a set of actions on it. It also sends periodic update about the Robot status to the application. Moreover it registers a set of actions that could be invoked on the robot associated with it.
-\subsection{Localization Node} : A dedicated node which uses the perception system to resolve and publish the current position of the robot and the human which is very important for interaction.
+\subsection{Robot Interface Node} A dedicated node that interacts with a specific robot and can invoke a set of actions on it. It also sends periodic update about the Robot status to the application. Moreover it registers a set of actions that could be invoked on the robot associated with it.
+\subsection{Localization Node} A dedicated node which uses the perception system to resolve and publish the current position of the robot and the human which is very important for interaction.
 
 \begin{algorithm}
  \KwData{Marker\_size, Cube\_size, MDH\_Params}
@@ -96,8 +212,8 @@ These are nodes in the system each with a specific goal that can be started/stop
 \label{ssec:ui_comp}
 The user interface is a web application that runs on any latest web-kit browsers supporting WebGL technology. 
 
-\subsection{Behavior Designer}: The Behavior designer surface could be used by the user to drag and drop the behavior blocks and construct the program using the set of motion capabilities registered by the active motion recognition nodes and the set of robot action capabilities registered by the active robot interface nodes. The behavior designed using the designer will be encoded into a declarative XML format and sent to the server when the user request to start the program. The designer offers a full range of capabilities like Create/Edit/Delete/Save behavior programs.
-\subsection{Visualization}: The visualization could be used to see the interaction of the human and robot inside a virtual 3D environment.
+\subsection{Behavior Designer} The Behavior designer surface could be used by the user to drag and drop the behavior blocks and construct the program using the set of motion capabilities registered by the active motion recognition nodes and the set of robot action capabilities registered by the active robot interface nodes. The behavior designed using the designer will be encoded into a declarative XML format and sent to the server when the user request to start the program. The designer offers a full range of capabilities like Create/Edit/Delete/Save behavior programs.
+\subsection{Visualization} The visualization could be used to see the interaction of the human and robot inside a virtual 3D environment.
 % Simulation Node
 \begin{algorithm}
  \KwData{simulation\_config}
