@@ -1,0 +1,6 @@
+The final sources, incl. any non-standard fonts;
+A final PDF corresponding exactly to the final sources;
+A Springer copyright form, signed by one author on behalf of all of the other authors of the paper;
+The name and e-mail address of the contact author who will check the proof of the paper;
+A suggestion for an abbreviated running head, if appropriate;
+Information about the correct representation of authors' names, where necessary.
