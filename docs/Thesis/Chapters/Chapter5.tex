@@ -70,8 +70,8 @@ The parameter server acts as a central repository for managing the parameters of
 \begin{algorithm}
  \KwData{(app\_config, context)}
  \textbf{\emph{Init}}:\\
- PUBLISHERS = READ\_ALL\_PUBLISHER\_INFO(app\_config)\;
- SUBSCRIBERS = CREATE\_SUBSCRIBERS(PUBLISHERS)\;
+ \quad PUBLISHERS = READ\_ALL\_PUBLISHER\_INFO(app\_config)\;
+ \quad SUBSCRIBERS = CREATE\_SUBSCRIBERS(PUBLISHERS)\;
  \While{run}{
  	\ForAll{SUBSCRIBER in SUBSCRIBERS}{ 
  		data = RECEIVE\_DATA(SUBSCRIBER,TIME\_OUT)\;
@@ -136,27 +136,27 @@ The bootstrapper takes care of initializing the system and starting up all the p
 \begin{algorithm}
  \KwData{(app\_config)}
  \textbf{\emph{Startup}}:\\
- INIT\_AND\_RUN\_PARAMETERSERVER()\;
- INIT\_AND\_RUN\_CONTEXTSYNC()\;
- INIT\_AND\_RUN\_CONTEXTSERVER()\;
- INIT\_AND\_RUN\_WEBSERVER()\;
- NODES = GET\_NODES(app\_config)\;
- PROCESSES = []\;
+ \quad INIT\_AND\_RUN\_PARAMETERSERVER()\;
+ \quad INIT\_AND\_RUN\_CONTEXTSYNC()\;
+ \quad INIT\_AND\_RUN\_CONTEXTSERVER()\;
+ \quad INIT\_AND\_RUN\_WEBSERVER()\;
+ \quad NODES = GET\_NODES(app\_config)\;
+ \quad PROCESSES = []\;
  \ForAll{NODE in NODES}{ 
  	\If{NODE is ENABLED}{
  		PROCESS = CREATE\_PROCESS(NODE)\;
  		APPEND(PROCESSES, PROCESS)
- 	}
- \quad }
+ 	} 
+ }
  \While{run}{
  	MONITOR(PROCESSES)
  }
  \textbf{\emph{Shutdown}}:\\
- SHUTDOWN\_WEBSERVER()\; 
- SHUTDOWN\_CONTEXTSERVER()\;
- SHUTDOWN\_CONTEXTSYNC()\;
- SHUTDOWN\_PARAMETERSERVER()\;
- SHUTDOWN(PROCESSES)
+ \quad SHUTDOWN\_WEBSERVER()\; 
+ \quad SHUTDOWN\_CONTEXTSERVER()\;
+ \quad SHUTDOWN\_CONTEXTSYNC()\;
+ \quad SHUTDOWN\_PARAMETERSERVER()\;
+ \quad SHUTDOWN(PROCESSES)
  \caption{Bootstrapper Algorithm}
  \label{alg:bootstrapper}
 \end{algorithm}
@@ -167,39 +167,51 @@ These are nodes in the system each with a specific goal that can be started/stop
 \subsection{Motion Recognition Node} A dedicated node that interacts with a motion recognition sensor and sends the detected gestures and motions to the application. Additionally each motion recognition module registers a set of actions/gestures that could be detected with the sensor associated with it. The gesture recognition logic depends on the sensor associated with the gesture recognition module. The gesture recognition workflow of kinect based system in explained in Section~\ref{sssec:kinect_gestures}
 \subsubsection{Kinect Gesture Recognition}
 \label{sssec:kinect_gestures}
-	The Microsoft Kinect system utilizes Adaptive Boosting(adaboost) algorithm\cite{Freund1997119} is used to efficiently detect the gestures. The system involves a training phase in which the desired gestures are captured and tagged. These tagged gestures will be used by a gesture detector trainer which will generate a set of training examples. The training results are stored in files and will be used by the gesture detector to perform per-frame classification of the data. The Visual Gesture Builder (VGB) tool that comes together with Kinect for Windows SDK eases the process of tagging the gestures and creating the gesture database. The work-flow of using the VGB is shown in the Figure~\
+	The Microsoft Kinect system utilizes Adaptive Boosting(adaboost) algorithm \cite{Freund1997119} is used to efficiently detect the gestures. The system involves a training phase in which the desired gestures are captured and tagged. These tagged gestures will be used by a gesture detector trainer which will generate a set of training examples. The training results are stored in files and will be used by the gesture detector to perform per-frame classification of the data. The Visual Gesture Builder (VGB) tool that comes together with Kinect for Windows SDK eases the process of tagging the gestures and creating the gesture database. The work-flow of using the VGB is shown in the Figure~\ref{fig:vgb_workflow}.
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{assets/context_diagram.png}
-\caption[Visual Gesture Builder Work flow]{Visual Gesture Builder Work flow}
+\includegraphics[width=\textwidth]{assets/VisualGestureBuilder.png}
+\caption[Visual Gesture Builder Work flow]{Visual Gesture Builder Work flow \cite{KinectSDK2014}}
 \label{fig:vgb_workflow}
 \end{figure}
 % Motion recognition
 \begin{algorithm}
  \KwData{Gesture database}
  \KwResult{Gesture Triggers}
- \textbf{\emph{Init}}:\;
- \quad gestures = READ\_DATABASE() \;
- \quad REGISTER\_GESTURES(gestures) \;
+ \textbf{\emph{Init}}:\\
+ \quad gestures = READ\_DATABASE()\;
+ \quad REGISTER\_GESTURES(gestures)\;
  \While{True}{
- 	skeletons = GET\_SKELETONS() \;
- 	gesture = DETECT\_GESTURE() \;
- 	\If{detected}{
- 	PUBLISH(gesture) \;
+ 	skeletons = GET\_SKELETONS()\;
+ 	\ForAll{gesture in gestures}{ 
+ 		detected = DETECT\_GESTURE(gesture)\;
+ 		\If{detected}{
+ 			PUBLISH(gesture)\;
+ 		} 
  	}
- 	PUBLISH(skeletons) \;
+ 	PUBLISH(skeletons)\;
  }
  \caption{Kinect Gesture Recognition Module}
  \label{alg:localize}
 \end{algorithm}
-
-\subsection{Robot Interface Node} A dedicated node that interacts with a specific robot and can invoke a set of actions on it. It also sends periodic update about the Robot status to the application. Moreover it registers a set of actions that could be invoked on the robot associated with it.
+The workflow shown in Figure~\ref{fig:vgb_workflow} has been adopted to develop all the gestures needed for the kinect gesture recognition module. The process followed for generating the Left hand wave gesture is shown in the Figure~\ref{fig:gesture_waveleft}
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{assets/gesture_recog_flow.eps}
+\caption[Left hand wave gesture work flow]{Left hand wave gesture work flow}
+\label{fig:gesture_waveleft}
+\end{figure}
+\subsection{Robot Interface Node} 
+	The Robot Interface node is a dedicated node that interacts with a specific robot and can invoke a set of actions on it.  It registers a set of actions that could be invoked on the robot associated with it. The robot interface node sets up a publisher that periodically sends the information about the robot status like joint values, sensor information to the application to keep the context uptodate. Additionally it sets up a responder socket which will wait for action execution request from the remote node. The robot interface node dedicated to Nao humanoid robot is described in Section~\ref{sssec:nao_interface}
+\subsubsection{NAO Robot Interface}
+\label{sssec:nao_interface}
+	
 \subsection{Localization Node} A dedicated node which uses the perception system to resolve and publish the current position of the robot and the human which is very important for interaction.
 
 \begin{algorithm}
  \KwData{Marker\_size, Cube\_size, MDH\_Params}
  \KwResult{TORSO\_POSE}
- \textbf{\emph{Init}}:\;
+ \textbf{\emph{Init}}:\\
  k\_model := INIT\_MDH\_PARAM(MDH\_Params)\;
  m\_model := MARKER\_MODEL(Marker\_size, Cube\_size)\;
  \While{True}{
@@ -226,7 +238,7 @@ The user interface is a web application that runs on any latest web-kit browsers
 % Simulation Node
 \begin{algorithm}
  \KwData{simulation\_config}
- \textbf{\emph{Init}}:\;
+ \textbf{\emph{Init}}:\\
  \quad INIT\_SIMULATION\_ENGINE(simulation\_config) \;
  \quad INIT\_SUBSCRIBERS(simulation\_config) \;
  \quad LOAD\_ENVIRONMENT(simulation\_config) \; 

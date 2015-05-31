@@ -232,7 +232,7 @@
         <param key="RequestServerPort" value="5590" type="int"/>
       </parameters>
     </node>
-    <node enabled="true" name="nao_imitation_manager">
+    <node enabled="false" name="nao_imitation_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>
