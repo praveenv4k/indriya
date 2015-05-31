@@ -7,132 +7,58 @@ package experimot.msgs;
 import "vector3d.proto";
 import "quaternion.proto";
 
+/**
+ * Represents the Kinect skeleton joint data.
+ */
 message KinectJoint
 {
+    /**
+     * Represents the skeleton joint tracking state.
+     */
 	enum TrackingState
 	{
-	// Summary:
-		//     The joint data is not tracked and no data is known about this joint.
-		NotTracked = 0;
-		//
-		// Summary:
-		//     The joint data is inferred and confidence in the position data is lower than
-		//     if it were Tracked.
-		Inferred = 1;
-		//
-		// Summary:
-		//     The joint data is being tracked and the data can be trusted.
-		Tracked = 2;
+		NotTracked = 0;       ////     The joint data is not tracked and no data is known about this joint.
+		Inferred = 1;         ////     The joint data is inferred and confidence in the position data is lower than
+                              ////     if it were Tracked.
+		Tracked = 2;          ////     The joint data is being tracked and the data can be trusted.
 	}
 
-	// Summary:
-    //     The types of joints of a Body.
+    /**
+     * Represents the types of joints of a Body.
+     */
     enum JointType
     {
-        // Summary:
-        //     Base of the spine.
-        SpineBase = 0;
-        //
-        // Summary:
-        //     Middle of the spine.
-        SpineMid = 1;
-        //
-        // Summary:
-        //     Neck.
-        Neck = 2;
-        //
-        // Summary:
-        //     Head.
-        Head = 3;
-        //
-        // Summary:
-        //     Left shoulder.
-        ShoulderLeft = 4;
-        //
-        // Summary:
-        //     Left elbow.
-        ElbowLeft = 5;
-        //
-        // Summary:
-        //     Left wrist.
-        WristLeft = 6;
-        //
-        // Summary:
-        //     Left hand.
-        HandLeft = 7;
-        //
-        // Summary:
-        //     Right shoulder.
-        ShoulderRight = 8;
-        //
-        // Summary:
-        //     Right elbow.
-        ElbowRight = 9;
-        //
-        // Summary:
-        //     Right wrist.
-        WristRight = 10;
-        //
-        // Summary:
-        //     Right hand.
-        HandRight = 11;
-        //
-        // Summary:
-        //     Left hip.
-        HipLeft = 12;
-        //
-        // Summary:
-        //     Left knee.
-        KneeLeft = 13;
-        //
-        // Summary:
-        //     Left ankle.
-        AnkleLeft = 14;
-        //
-        // Summary:
-        //     Left foot.
-        FootLeft = 15;
-        //
-        // Summary:
-        //     Right hip.
-        HipRight = 16;
-        //
-        // Summary:
-        //     Right knee.
-        KneeRight = 17;
-        //
-        // Summary:
-        //     Right ankle.
-        AnkleRight = 18;
-        //
-        // Summary:
-        //     Right foot.
-        FootRight = 19;
-        //
-        // Summary:
-        //     Between the shoulders on the spine.
-        SpineShoulder = 20;
-        //
-        // Summary:
-        //     Tip of the left hand.
-        HandTipLeft = 21;
-        //
-        // Summary:
-        //     Left thumb.
-        ThumbLeft = 22;
-        //
-        // Summary:
-        //     Tip of the right hand.
-        HandTipRight = 23;
-        //
-        // Summary:
-        //     Right thumb.
-        ThumbRight = 24;
+
+        SpineBase = 0;         ///     Base of the spine.
+        SpineMid = 1;          ///     Middle of the spine.
+        Neck = 2;              ///     Neck.
+        Head = 3;              ///     Head.
+        ShoulderLeft = 4;      ///     Left shoulder.
+        ElbowLeft = 5;         ///     Left elbow.
+        WristLeft = 6;         ///     Left wrist.
+        HandLeft = 7;          ///     Left hand.
+        ShoulderRight = 8;     ///     Right shoulder.
+        ElbowRight = 9;        ///     Right elbow.
+        WristRight = 10;       ///     Right wrist.
+        HandRight = 11;        ///     Right hand.
+        HipLeft = 12;          ///     Left hip.
+        KneeLeft = 13;         ///     Left knee.
+        AnkleLeft = 14;        ///     Left ankle.
+        FootLeft = 15;         ///     Left foot.
+        HipRight = 16;         ///     Right hip.
+        KneeRight = 17;        ///     Right knee.
+        AnkleRight = 18;       ///     Right ankle.
+        FootRight = 19;        ///     Right foot.
+        SpineShoulder = 20;    ///     Between the shoulders on the spine.
+        HandTipLeft = 21;      ///     Tip of the left hand.
+        ThumbLeft = 22;        ///     Left thumb.
+        HandTipRight = 23;     ///     Tip of the right hand.
+        ThumbRight = 24;       ///     Right thumb.
     }
 
-	required JointType Type						=   1;
-	required TrackingState State				=	2;
-	required Vector3d Position					=	3;
-	required Quaternion Orientation				=	4;
-	optional float Angle						=   5 [default = -1000];
+	required JointType Type						=   1;                        /// Type of skeleton joint
+	required TrackingState State				=	2;                        /// Tracking state of the joint
+	required Vector3d Position					=	3;                        /// 3D position of the joint
+	required Quaternion Orientation				=	4;                        /// 3D orientation of the joint
+	optional float Angle						=   5 [default = -1000];      /// Angle at the joint
 }
