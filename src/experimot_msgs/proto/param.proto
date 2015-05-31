@@ -5,14 +5,20 @@ package experimot.msgs;
 /// \interface Param
 /// \brief Generic parameter key value pair
 
+/**
+ * Represents the Parameter Data.
+ */
 message Param
 {
-	required string key = 1;
-	required string value = 2;
-	required string dataType = 3;
+	required string key = 1;		/// Unique key (identifier) of the parameter
+	required string value = 2;		/// Parameter value
+	required string dataType = 3;	/// Parameter Datatype (one of bool, int, double, string, csv, file)
 }
 
+/**
+ * Represents the list of Parameters.
+ */
 message ParamList
 {
-	repeated Param param = 1;
+	repeated Param param = 1;		// Parameter list
 }

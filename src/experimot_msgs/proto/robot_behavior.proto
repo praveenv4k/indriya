@@ -4,51 +4,70 @@ package experimot.msgs;
 /// \interface Motion description 
 /// \brief Information about all motions supported by the gesture/motion recognition module
 
-import "request.proto";
-import "response.proto";
 import "param.proto";
 
+/**
+ * Represents the Robot behavior arguments.
+ */
 message BehaviorArguments{
-	required string name = 1;
-	required string value = 2;
-	required bool place_holder = 3;
-	required string type = 4;
+	required string name = 1;			/// Name of the argument
+	required string value = 2;			/// Value of the argument
+	required bool place_holder = 3;		/// True if the value is dynamic otherwise False
+	required string type = 4;			/// Type of the argument (int, double, string)
 }
 
+/**
+ * Represents the Robot behavior description.
+ */
 message BehaviorDescription
 {
+	/**
+	 * Represents the Execution type of the behavior.
+	 */
 	enum ExecutionType
 	{
-		Blocking = 0;
-		NonBlocking = 1;
+		Blocking = 0;		/// Execution is blocking
+		NonBlocking = 1;	/// Execution is non-blocking
 	}
+	/**
+	 * Represents the Execution state of the behavior.
+	 */
 	enum ExecutionState
     {
-        Idle = 0;
-        Running = 1;
-        Error = 2;
+        Idle = 0;			/// Behavior not running
+        Running = 1;		/// Behavior is running
+        Error = 2;			/// Behavior execution is in error state
     }
-	required string name = 1;
-	required string function_name = 2;
-	repeated BehaviorArguments arg = 3;
-	required ExecutionType type = 4;
-	required ExecutionState state = 5;
+	required string name = 1;			/// Name of the behavior
+	required string function_name = 2;	/// Remote procedure name
+	repeated BehaviorArguments arg = 3;	/// List of arguments required to invoke the remote procedure
+	required ExecutionType type = 4;	/// Execution Type of the behavior
+	required ExecutionState state = 5;	/// Execution status of the behavior
 }
 
+/**
+ * Represents the Robot behavior module.
+ */
 message RobotBehaviorModule
 {
+/**
+ * Represents the Behavior module server information.
+ */
   message RobotBehaviorResponder
   {
-	required string Host = 1;
-	required int32 Port = 2;
+	required string Host = 1;		/// Server host
+	required int32 Port = 2;		/// Port
   }
-  required string name  = 1;
-  repeated Param param = 2;
-  repeated BehaviorDescription behaviors = 3;
-  optional RobotBehaviorResponder responder = 4;
+  required string name  = 1;						/// Name of the behavior module
+  repeated Param param = 2;							/// List of parameters of the behavior module
+  repeated BehaviorDescription behaviors = 3;		/// List of description of supported behaviors
+  optional RobotBehaviorResponder responder = 4;	/// Behavior module server information
 }
 
+/**
+ * Represents the List of Robot behavior modules.
+ */
 message RobotBehaviorModules
-{
-  repeated RobotBehaviorModule modules  = 1;
+{	
+  repeated RobotBehaviorModule modules  = 1;		/// List of behavior modules
 }

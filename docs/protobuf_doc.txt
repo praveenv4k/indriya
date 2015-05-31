@@ -1,0 +1,1 @@
+protoc --doc_out=html,index.html:doc --plugin="C:/Work/Develop/tools/Misc/protoc-gen-doc-v0.6-win32/protoc-gen-doc.exe" "C:/Work/Develop/src/github/ExPeriMot/src/experimot_msgs/proto/*.proto"
