@@ -40,25 +40,25 @@ The data structure of the context is shown in Fig~\ref{fig:system_context}
 \end{figure}
 \subsection{Parameter Server} 
 The parameter server acts as a central repository for managing the parameters of the system and of the distributed components. The parameter server is basically desgined as a responder socket which responds to the requests from a remote client. The list of supported request to pull the data from the parameter server is shown in the Table~\ref{table:parameter_server}
-\begin{table}[H]
+\begin{table}
 \centering
 \small
 \caption{Parameter Server Interface Specification}
 \label{table:parameter_server}
-\begin{tabularx}{400pt}{c*3{X}}
+\begin{tabularx}{\linewidth}{c*3{X}}
 \toprule
   \textbf{Request Description} & \textbf{Request Arguments}
                           & \textbf{Response}
   \tabularnewline \midrule
-  \multirow{1}{*}{Node Parameters Req} & Name of the node & Node Parameters 
+  \multirow{1}{*}{Node Parameters req} & Name of the node & Node Parameters 
                                           \tabularnewline\midrule
                                           
-  \multirow{3}{*}{Motion recognition Module Registration Req} & Name of the node & Registration Status  \\
-                                                     & Motion Module Information &  (Success/Failure)
+  \multirow{3}{*}{Motion recognition module registration req} & Name of the node; & Registration Status  \\
+                                                     & Module Information &  (Success/Failure)
                                           \tabularnewline\midrule
   
-  \multirow{3}{*}{Robot Interface Module Registration Req} & Name of the node & Registration Status  \\
-                                                     & Robot Module Information &   (Success/Failure)
+  \multirow{3}{*}{Robot Interface module registration req} & Name of the node; & Registration Status  \\
+                                                     & Module Information &   (Success/Failure)
                                           \tabularnewline\midrule
   \multirow{1}{*}{File Request} & Name of the file & Contents of the File  
   										 \tabularnewline                       
@@ -83,10 +83,10 @@ The parameter server acts as a central repository for managing the parameters of
 \end{algorithm}
 \subsection{Embedded Web server}
 The web server embedded in the application serves the file and data requests from the web client. The server side server implements a set of RESTful services which could be accessed from the web clients. The JSON data format which the default standard for modern web interface development has been adopted. The list of RESTful API implemented on the server side is shown in Table~\ref{table:restful_api}
-\begin{table}[H]
+\begin{table}
 \centering
 \small
-\caption{RESTful API}
+\caption{Embedded Web Server RESTful API}
 \label{table:restful_api}
 \begin{tabularx}{400pt}{c*4{X}}
 \toprule
@@ -114,17 +114,17 @@ The web server embedded in the application serves the file and data requests fro
                                           \tabularnewline\midrule                                        
        
   \multirow{3}{*}{/designer/program/list} & - & GET  & List of all the behavior programs stored in the server  
-                                          \tabularnewline                       
+                                          \tabularnewline\midrule                                                               
   \multirow{3}{*}{/visualize/skeleton/list} & - & GET  & 3D Skeleton positions of all the humans in the environment  
                                           \tabularnewline\midrule                                       
                                           
   \multirow{3}{*}{/designer/program/startxml} & Behavior Program & POST  & Request the bootstrapper to start the program
   										 \tabularnewline\midrule   
-  \multirow{3}{*}{/designer/program/save} & File Name & POST  & Request the bootstrapper to start the program\\
-                                          & Behavior Program &  & 
+  \multirow{3}{*}{/designer/program/save} & File Name & POST  & \\
+                                          & Behavior Program &  & Request the bootstrapper to start the program
                                           \tabularnewline\midrule 
   \multirow{3}{*}{/designer/program/stop} & - & POST  & Request to stop running program if any
-                                          \tabularnewline\midrule                                       
+                                          \tabularnewline
                                                                                                                          
   										\bottomrule
 \end{tabularx}
@@ -132,7 +132,7 @@ The web server embedded in the application serves the file and data requests fro
 \subsection{Behavior Program} 
 A dynamic component that will be created when the user starts the program he/she designed using the user interface. The declarative description of the behavior is parsed in order to create a memory model. The Behavior program node monitors the application context for the motion triggers and invokes the corresponding robot actions according to the way it is being described in the program.
 \subsection{Bootstrapper} 
-The bootstrapper takes care of initializing the system and starting up all the pre-configured nodes. It also takes of starting and stopping the behavior programs when requested by the user. The sequence operations of bootstrapper performs is represented in the algorithm
+The bootstrapper takes care of initializing the system and starting up all the pre-configured nodes. It also takes of starting and stopping the behavior programs when requested by the user. The sequence operations of bootstrapper performs is represented in Algorithm~\ref{alg:bootstrapper}.
 \begin{algorithm}
  \KwData{(app\_config)}
  \textbf{\emph{Startup}}:\\
@@ -158,13 +158,22 @@ The bootstrapper takes care of initializing the system and starting up all the p
  SHUTDOWN\_PARAMETERSERVER()\;
  SHUTDOWN(PROCESSES)
  \caption{Bootstrapper Algorithm}
- \label{alg:context_sync}
+ \label{alg:bootstrapper}
 \end{algorithm}
 \section{Distributed Components}
 \label{ssec:dist_comp}
 These are nodes in the system each with a specific goal that can be started/stopped at any time during the entire application life-cycle without affecting the other nodes or the system. All the nodes will communicate with the application using message passing techniques. They can run in any machine inside the network.
 
-\subsection{Motion Recognition Node} A dedicated node that interacts with a motion recognition sensor and sends the detected gestures and motions to the application. Additionally each motion recognition module registers a set of actions/gestures that could be detected with the sensor associated with it.
+\subsection{Motion Recognition Node} A dedicated node that interacts with a motion recognition sensor and sends the detected gestures and motions to the application. Additionally each motion recognition module registers a set of actions/gestures that could be detected with the sensor associated with it. The gesture recognition logic depends on the sensor associated with the gesture recognition module. The gesture recognition workflow of kinect based system in explained in Section~\ref{sssec:kinect_gestures}
+\subsubsection{Kinect Gesture Recognition}
+\label{sssec:kinect_gestures}
+	The Microsoft Kinect system utilizes Adaptive Boosting(adaboost) algorithm\cite{Freund1997119} is used to efficiently detect the gestures. The system involves a training phase in which the desired gestures are captured and tagged. These tagged gestures will be used by a gesture detector trainer which will generate a set of training examples. The training results are stored in files and will be used by the gesture detector to perform per-frame classification of the data. The Visual Gesture Builder (VGB) tool that comes together with Kinect for Windows SDK eases the process of tagging the gestures and creating the gesture database. The work-flow of using the VGB is shown in the Figure~\
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{assets/context_diagram.png}
+\caption[Visual Gesture Builder Work flow]{Visual Gesture Builder Work flow}
+\label{fig:vgb_workflow}
+\end{figure}
 % Motion recognition
 \begin{algorithm}
  \KwData{Gesture database}
@@ -180,8 +189,8 @@ These are nodes in the system each with a specific goal that can be started/stop
  	}
  	PUBLISH(skeletons) \;
  }
- %\caption{Localization Algorithm}
- %\label{alg:localize}
+ \caption{Kinect Gesture Recognition Module}
+ \label{alg:localize}
 \end{algorithm}
 
 \subsection{Robot Interface Node} A dedicated node that interacts with a specific robot and can invoke a set of actions on it. It also sends periodic update about the Robot status to the application. Moreover it registers a set of actions that could be invoked on the robot associated with it.
