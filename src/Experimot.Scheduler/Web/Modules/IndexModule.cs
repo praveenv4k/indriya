@@ -263,7 +263,6 @@ namespace Experimot.Scheduler.Web.Modules
                             }
                         }
                         Log.InfoFormat("Body  : {0}", result);
-
                     }
                 }
                 return (Response)HttpStatusCode.NotModified;

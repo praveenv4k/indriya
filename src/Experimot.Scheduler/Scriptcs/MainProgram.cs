@@ -473,7 +473,7 @@ public class MainProgram : IJobListener
                             Console.WriteLine(@"    Action: {0}", value.BehaviorName);
                         }
                         Console.WriteLine(@"Exit Actions -> ");
-                        foreach (var value in item.RobotActions)
+                        foreach (var value in item.ExitActions)
                         {
                             Console.WriteLine(@"    Action: {0}", value.BehaviorName);
                         }
