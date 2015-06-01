@@ -59,8 +59,8 @@ namespace Experimot.Kinect.Perception
         private readonly ILog _log = LogManager.GetLogger<MainWindow>();
         private GestureTriggerPublisher _gestPub;
         private HumanPosePublisher _humanPub;
-        private NaoJointPublisher _naoJoints;
-
+        private readonly NaoJointPublisher _naoJoints;
+        private readonly GestureDatabase _database;
         /// <summary>
         /// Initializes a new instance of the MainWindow class
         /// </summary>
@@ -115,10 +115,13 @@ namespace Experimot.Kinect.Perception
                 dbList.Add(defaultValue);
             }
 
+            _database = new GestureDatabase(dbList);
+
             for (int i = 0; i < maxBodies; ++i)
             {
-                GestureResultView result = new GestureResultView(i, false, false, 0.0f);
-                GestureDetector detector = new GestureDetector(_kinectSensor, result, dbList);
+                var imageDict = _database.GestureImageSource;
+                GestureResultView result = new GestureResultView(i, false, false, 0.0f, imageDict);
+                GestureDetector detector = new GestureDetector(_kinectSensor, result, _database);
                 _gestureDetectorList.Add(detector);
 
                 // split gesture results across the first two columns of the content grid

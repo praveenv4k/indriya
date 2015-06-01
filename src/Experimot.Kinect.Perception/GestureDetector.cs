@@ -6,7 +6,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Common.Logging;
 using experimot.msgs;
 using Microsoft.Kinect;
@@ -20,10 +19,6 @@ namespace Experimot.Kinect.Perception
     /// </summary>
     public class GestureDetector : IDisposable
     {
-        /// <summary> Path to the gesture database that was trained with VGB </summary>
-        //private readonly string gestureDatabase = @"Database\Seated.gbd";
-        private readonly List<string> _gesturedbs = new List<string>();
-
         /// <summary> Name of the discrete gesture in the database that we want to track </summary>
         //private readonly string seatedGestureName = "Seated";
         private readonly List<string> _gestures = new List<string>();
@@ -41,8 +36,8 @@ namespace Experimot.Kinect.Perception
         /// </summary>
         /// <param name="kinectSensor">Active sensor to initialize the VisualGestureBuilderFrameSource object with</param>
         /// <param name="gestureResultView">GestureResultView object to store gesture results of a single body to</param>
-        /// <param name="gestureDbs"></param>
-        public GestureDetector(KinectSensor kinectSensor, GestureResultView gestureResultView, IList<string> gestureDbs)
+        /// <param name="database"></param>
+        public GestureDetector(KinectSensor kinectSensor, GestureResultView gestureResultView, GestureDatabase database)
         {
             try
             {
@@ -70,25 +65,14 @@ namespace Experimot.Kinect.Perception
                     _vgbFrameReader.FrameArrived += Reader_GestureFrameArrived;
                 }
 
-                if (gestureDbs != null && gestureDbs.Count > 0)
+                if (database != null)
                 {
-                    _gesturedbs = gestureDbs.ToList();
-                }
+                    _gestures.AddRange(database.GestureNames);
 
-                _gestures.Add(GestureNames.HandwaveLeft);
-                _gestures.Add(GestureNames.HandwaveRight);
-
-                foreach (var db in _gesturedbs)
-                {
-                    using (var database = new VisualGestureBuilderDatabase(db))
+                    foreach (var gesture in database.Gestures)
                     {
-                        //_vgbFrameSource.AddGestures(database.AvailableGestures);
-                        foreach (var gesture in database.AvailableGestures)
-                        {
-                            //_vgbFrameSource.AddGestures(database.AvailableGestures);
-                            _vgbFrameSource.AddGesture(gesture);
-                            _vgbFrameSource.SetIsEnabled(gesture,true);
-                        }
+                        _vgbFrameSource.AddGesture(gesture);
+                        _vgbFrameSource.SetIsEnabled(gesture, true);
                     }
                 }
             }
