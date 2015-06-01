@@ -76,7 +76,7 @@ We propose a light weight interface for designing human motion driven behaviors 
 The important components of the system are shown in Fig~\ref{fig:architecture}
 \begin{figure}
 \centering
-\begin{subfigure}[t]{0.48\textwidth}
+\begin{subfigure}[t]{0.46\textwidth}
 \includegraphics[width=\textwidth]{../thesis/assets/system_setup.eps}
 \caption[System Setup]{System Setup}
 \end{subfigure}
@@ -130,7 +130,7 @@ The behavior program is structured in a simple way so that it could be easily un
 \item \emph{Startup Block}: The start up block will be executed once when the user starts the program. The user can add a set of actions to be performed when the program starts. This block is optional and there cannot be more than one block of this kind in a program.
 \item \emph{Behavior Block}: The behavior block is composed of
 \begin{itemize}
-\item A \textbf{trigger} that activates this block. The trigger is a human motion gesture parameterized by the gesture confidence value.
+\item A \textbf{trigger} that activates this block. The trigger source could be either of human presence/absence, gesture, vicinity of human etc.,
 \item The \textbf{lifetime} of each behavior block could be configured to run only once, forever or until a condition is met. 
 \item The \textbf{priority} of the block could be set to low, normal or high and the execution is done based on Fixed-priority pre-emptive scheduling. If a higher priority behavior request to use a resource (i.e. robot) which is being used by a lower priority behavior, the higher priority preempts the lower priority behavior.
 \item Similar to the behavior program level, at each behavior block level a set of \textbf{startup} and \textbf{exit} actions could be set which would be executed only once during the creation and termination respectively. The \textbf{cyclic} actions will be performed each time the trigger condition is met.
