@@ -21,19 +21,9 @@ namespace Experimot.Kinect.Perception
     /// </summary>
     public sealed class GestureResultView : INotifyPropertyChanged
     {
-        /// <summary> Image to show when the 'detected' property is true for a tracked body </summary>
-        //private readonly ImageSource seatedImage = new BitmapImage(new Uri(@"Images\Seated.png", UriKind.Relative));
-        private readonly ImageSource _handwaveLeft = new BitmapImage(new Uri(@"Images\Handwave_Left.png", UriKind.Relative));
-        private readonly ImageSource _handwaveRight = new BitmapImage(new Uri(@"Images\Handwave_Right.png", UriKind.Relative));
-
-        private readonly Dictionary<string, ImageSource> _gestureImageDict = new Dictionary<string, ImageSource>();
+        private readonly Dictionary<string, ImageSource> _imageDict;
 
         /// <summary> Image to show when the 'detected' property is false for a tracked body </summary>
-        //private readonly ImageSource notSeatedImage = new BitmapImage(new Uri(@"Images\NotSeated.png", UriKind.Relative));
-        private readonly ImageSource _handwaveNone = new BitmapImage(new Uri(@"Images\Handwave_None.png", UriKind.Relative));
-
-        /// <summary> Image to show when the body associated with the GestureResultView object is not being tracked </summary>
-        private readonly ImageSource _notTrackedImage = new BitmapImage(new Uri(@"Images\NotTracked.png", UriKind.Relative));
 
         /// <summary> Array of brush colors to use for a tracked body; array position corresponds to the body colors used in the KinectBodyView class </summary>
         private readonly Brush[] _trackedColors = { Brushes.Red, Brushes.Orange, Brushes.Green, Brushes.Blue, Brushes.Indigo, Brushes.Violet };
@@ -63,17 +53,15 @@ namespace Experimot.Kinect.Perception
         /// <param name="isTracked">True, if the body is currently tracked</param>
         /// <param name="detected">True, if the gesture is currently detected for the associated body</param>
         /// <param name="confidence">Confidence value for detection of the 'Seated' gesture</param>
-        public GestureResultView(int bodyIndex, bool isTracked, bool detected, float confidence)
+        /// <param name="imageDict"></param>
+        public GestureResultView(int bodyIndex, bool isTracked, bool detected, float confidence, Dictionary<string, ImageSource> imageDict)
         {
+            _imageDict = imageDict;
             BodyIndex = bodyIndex;
             IsTracked = isTracked;
             Detected = detected ? string.Empty : GestureNames.None;
             Confidence = confidence;
-            ImageSource = _notTrackedImage;
-
-            _gestureImageDict.Add(GestureNames.None, _handwaveNone);
-            _gestureImageDict.Add(GestureNames.HandwaveLeft, _handwaveLeft);
-            _gestureImageDict.Add(GestureNames.HandwaveRight, _handwaveRight);
+            ImageSource = imageDict[GestureNames.NotTracked];
         }
 
         /// <summary>
@@ -252,7 +240,7 @@ namespace Experimot.Kinect.Perception
 
                 if (!IsTracked)
                 {
-                    ImageSource = _notTrackedImage;
+                    ImageSource = _imageDict[GestureNames.NotTracked];
                     Detected = GestureNames.None;
                     BodyColor = Brushes.Gray;
                 }
@@ -264,12 +252,19 @@ namespace Experimot.Kinect.Perception
                     {
                         Detected = gestureKey;
                         Confidence = detectionConfidence;
-                        ImageSource = _gestureImageDict[gestureKey];
+                        if (_imageDict.ContainsKey(gestureKey))
+                        {
+                            ImageSource = _imageDict[gestureKey];
+                        }
+                        else
+                        {
+                            ImageSource = _imageDict[GestureNames.None];
+                        }
                     }
                     else
                     {
                         Detected = GestureNames.None;
-                        ImageSource = _gestureImageDict[GestureNames.None];
+                        ImageSource = _imageDict[GestureNames.None];
                     }
                 }
                 //var gestMsg = new experimot.msgs.GestureTrigger()
