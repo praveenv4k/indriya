@@ -151,7 +151,6 @@ if __name__ == "__main__":
   try:
       ROBOTIP = "127.0.0.1"
       PORT = 55241
-      #main(ROBOTIP, PORT, "stand")
       if (len(sys.argv) >= 3):
           print sys.argv
           parser = argparse.ArgumentParser(description='Nao Robot Behavior')
