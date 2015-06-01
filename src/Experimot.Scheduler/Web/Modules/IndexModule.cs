@@ -254,11 +254,12 @@ namespace Experimot.Scheduler.Web.Modules
                                 Path.Combine(Environment.ExpandEnvironmentVariables(outputPath), "behavior.xml"), result);
 
                             var bootStrapper = TinyIoCContainer.Current.Resolve<BootStrapper>();
-                            if (bootStrapper != null && !string.IsNullOrEmpty(result))
+                            var context = TinyIoCContainer.Current.Resolve<Context>();
+                            if (bootStrapper != null && !string.IsNullOrEmpty(result) && context != null)
                             {
-                                //bootStrapper.RequestMainProgramGeneration(result);
+                                context.PrepareForNewProgram();
                                 bootStrapper.MainProgramExecutionRequest(ExecutionRequest.Start);
-                                return (Response) HttpStatusCode.OK;
+                                return (Response)HttpStatusCode.OK;
                             }
                         }
                         Log.InfoFormat("Body  : {0}", result);

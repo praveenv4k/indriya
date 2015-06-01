@@ -19,6 +19,11 @@ namespace Experimot.Scheduler.Data
         public GestureConfidenceData(GestureConfidenceLevels level)
         {
             _level = level;
+            Reset();
+        }
+
+        public void Reset()
+        {
             CurrentActiveLapse = 0;
             Count = 0;
             _lastActive = false;

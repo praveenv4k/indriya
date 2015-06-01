@@ -138,17 +138,21 @@ class NaoBehaviorModule:
     def action_sayExpressively(self,params):
         language = params.get('lang','')
         msg = params.get('msg','')
-        if language is '' and msg is not '':
+        #if language is '' and msg is not '':
+        #    # Try to detect language
+        #    apiKey = os.environ['LANGUAGE_DETECT_APIKEY']
+        #    if apiKey is not '':
+        #        try:
+        #            langCode = detectlanguage.simple_detect(msg)
+        #            langDetails = pycountry.languages.get(langCode)
+        #            language = str(langDetails.name)
+        #            print 'Identified Language is ', language
+        #        except:
+        #            print "Exception occured while execution ", sys.exc_info()
+
+        if language is '':
             # Try to detect language
-            apiKey = os.environ['LANGUAGE_DETECT_APIKEY']
-            if apiKey is not '':
-                try:
-                    langCode = detectlanguage.simple_detect(msg)
-                    langDetails = pycountry.languages.get(langCode)
-                    language = str(langDetails.name)
-                    print 'Identified Language is ', language
-                except:
-                    print "Exception occured while execution ", sys.exc_info()
+            language = 'English'
 
         if language is not '' and msg is not '':
             proxy = self.getAnimatedSayProxy()

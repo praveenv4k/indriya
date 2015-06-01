@@ -75,6 +75,20 @@ namespace Experimot.Scheduler.Data
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public void PrepareForNewProgram()
+        {
+            lock (_object)
+            {
+                foreach (var human in Humans)
+                {
+                    foreach (var gesture in human.Gestures)
+                    {
+                        gesture.Reset();
+                    }
+                }
+            }
+        }
+
         public void Update(Pose pose)
         {
             lock (_object)

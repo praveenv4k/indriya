@@ -13,7 +13,7 @@ namespace Experimot.Scheduler.Data
         private GestureMode _gestureMode;
         private bool _active;
         private readonly Dictionary<GestureConfidenceLevels, GestureConfidenceData> _confidenceDict;
-        protected const int GesturePeriod = 10;
+        protected const int GesturePeriod = 2;
 
         public Gesture(string name, GestureMode mode)
         {
@@ -61,6 +61,16 @@ namespace Experimot.Scheduler.Data
                 Progress = trigger.progress;
 
                 UpdateConfidenceLevels(Confidence);
+            }
+        }
+
+        public void Reset()
+        {
+            var enumArray = Enum.GetValues(typeof(GestureConfidenceLevels));
+            foreach (var item in enumArray)
+            {
+                var val = (GestureConfidenceLevels)item;
+                _confidenceDict[val].Reset();
             }
         }
 
