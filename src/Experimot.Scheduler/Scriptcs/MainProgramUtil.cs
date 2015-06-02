@@ -7,6 +7,7 @@ using Common.Logging;
 using NetMQ;
 using Quartz;
 using Quartz.Impl;
+// ReSharper disable LoopCanBeConvertedToQuery
 
 public static class LinqXmlUtil
 {
@@ -239,7 +240,28 @@ public class MainProgramUtil
         return motionBehavior;
     }
 
+    public static KeyValuePair<string, object> CreateBehaviorParameter(string name, object value, bool place_holder,
+        string type)
+    {
+        return new KeyValuePair<string, object>(
+            name, new Dictionary<string, object>
+            {
+                {"value", value},
+                {"place_holder", place_holder},
+                {"type", type}
+            });
+    }
 
+    public static object CreateBehaviorParameterOptions(object value, bool place_holder,
+        string type)
+    {
+        return new Dictionary<string, object>
+        {
+            {"value", value},
+            {"place_holder", place_holder},
+            {"type", type}
+        };
+    }
 
     public static BehaviorInfo GetBehaviorInfo(XElement behaviorBlock)
     {
@@ -277,12 +299,36 @@ public class MainProgramUtil
                             return new BehaviorInfo
                             {
                                 BehaviorName = "Say Expressively",
-                                Parameters = new Dictionary<string, object>() { { "msg",new Dictionary<string, object>
+                                Parameters =
+                                    new Dictionary<string, object>()
+                                    {
+                                        {"msg", CreateBehaviorParameterOptions(robotAction.Value, true, "string")}
+                                    }
+                            };
+                        }
+                    }
+                }
+            }
+            else if (blockType.Value == "approach_action")
+            {
+                var robotActions = LinqXmlUtil.GetElementsAnyNS(behaviorBlock, "field");
+                if (robotActions != null)
+                {
+                    foreach (var robotAction in robotActions)
+                    {
+                        var actionType = robotAction.Attribute("name");
+                        if (actionType.Value == "approach_distance")
+                        {
+                            return new BehaviorInfo
+                            {
+                                BehaviorName = "Move To",
+                                Parameters = new Dictionary<string, object>
                                 {
-                                    {"value", robotAction.Value},
-                                    {"place_holder", true},
-                                    {"type", "string"}
-                                }} }
+                                    {"dist", CreateBehaviorParameterOptions(robotAction.Value, false, "float")},
+                                    {"x", CreateBehaviorParameterOptions(0.5, true, "float")},
+                                    {"y", CreateBehaviorParameterOptions(0.0, true, "float")},
+                                    {"z", CreateBehaviorParameterOptions(0.0, true, "float")}
+                                }
                             };
                         }
                     }

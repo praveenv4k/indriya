@@ -39,13 +39,14 @@ def parse_and_execute(behaviorModule,recv_str):
           params = out['Parameters']
           for param in params:
               print param, params[param], params[param]['value']
-              type = params[param]['type']
+              type = str(params[param]['type'].encode('utf-8'))
               key = str(param.encode('utf-8'))
-              value = str(params[param]['value'].encode('utf-8'))
               #value = params[param]['value']
               if(type == 'float'):
+                  value = float(params[param]['value'])
                   paramDict[key] = float(value)
               else:
+                  value = str(params[param]['value'].encode('utf-8'))
                   paramDict[key] = value
           behaviorModule.executeAction(out["FunctionName"],paramDict)
     except:
