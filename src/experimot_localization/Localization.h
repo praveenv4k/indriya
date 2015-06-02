@@ -72,7 +72,7 @@ public:
 
 			for (int i = 0; i < m_pNode->publisher_size(); i++){
 				auto& pub = m_pNode->publisher(i);
-				if (pub.msg_type() == std::string("Pose")){
+				if (pub.msg_type() == std::string("Pose_V")){
 					m_pTorsoPosePublisherPtr = TorsoPosePublisherPtr(new TorsoPosePublisher(pub.host(), pub.port(), conn_timeout, pub.topic()));
 				}
 			}

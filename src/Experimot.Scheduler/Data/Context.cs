@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -15,7 +14,7 @@ namespace Experimot.Scheduler.Data
     public class Context : INotifyPropertyChanged
     {
         private Robot _robot;
-        private Pose _worldFrame;
+        private readonly Pose _worldFrame = new Pose();
         private BindableCollection<Human> _humans;
         private IDictionary<string, ManipulatableObject> _objects;
         private readonly object _object = new object();
@@ -103,8 +102,8 @@ namespace Experimot.Scheduler.Data
         {
             lock (_object)
             {
-                Robot.Localization.SetPose(pose.pose.FirstOrDefault(s => s.name == "torso_frame"));
-                SetWorldFrame(pose.pose.FirstOrDefault(s => s.name == "world_frame"));
+                Robot.Localization.SetPose(pose.pose.FirstOrDefault(s => s.name == "torso_frame_world"));
+                SetWorldFrame(pose.pose.FirstOrDefault(s => s.name == "world_frame_kinect"));
             }
         }
 
