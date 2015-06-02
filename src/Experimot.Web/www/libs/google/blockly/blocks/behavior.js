@@ -60,7 +60,7 @@ Blockly.Blocks.behaviors.isLegalName = function (name, workspace, opt_exclude) {
  * @return {string} The accepted name.
  * @this {!Blockly.Field}
  */
-Blockly.Blocks.behaviors.rename = function (text) {
+Blockly.Blocks.behaviors.rename = function(text) {
     // Strip leading and trailing whitespace.  Beyond this, all names are legal.
     text = text.replace(/^[\s\xa0]+|[\s\xa0]+$/g, '');
 
@@ -426,7 +426,7 @@ Blockly.Blocks['behavior_exit'] = {
 };
 
 Blockly.Blocks['behavior'] = {
-    init: function () {
+    init: function() {
         var nameText = "behavior";
         var name = Blockly.Blocks.behaviors.findLegalName(nameText, this);
         var nameField = new Blockly.FieldTextInput(name,
@@ -439,7 +439,7 @@ Blockly.Blocks['behavior'] = {
         this.setColour(300);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
-          //.appendField(new Blockly.FieldTextInput("behavior"), "NAME");
+            //.appendField(new Blockly.FieldTextInput("behavior"), "NAME");
             .appendField(nameField, "NAME");
         this.appendValueInput("when")
             .setCheck("trigger")
@@ -464,16 +464,16 @@ Blockly.Blocks['behavior'] = {
     getBehaviorDef: function() {
         return [this.getFieldValue('NAME')];
     },
-    renameProcedure: function (oldName, newName) {
+    renameProcedure: function(oldName, newName) {
         if (Blockly.Names.equals(oldName, this.getBehaviorCall())) {
             this.setFieldValue(newName, 'NAME');
             this.setTooltip(
                 (this.outputConnection ? Blockly.Msg.PROCEDURES_CALLRETURN_TOOLTIP :
-                 Blockly.Msg.PROCEDURES_CALLNORETURN_TOOLTIP)
+                    Blockly.Msg.PROCEDURES_CALLNORETURN_TOOLTIP)
                 .replace('%1', newName));
         }
     },
-    getBehaviorCall: function () {
+    getBehaviorCall: function() {
         // The NAME field is guaranteed to exist, null will never be returned.
         return /** @type {string} */ (this.getFieldValue('NAME'));
     }
@@ -502,7 +502,7 @@ Blockly.Blocks['gesture_trigger'] = {
 };
 
 Blockly.Blocks['trigger'] = {
-    init: function () {
+    init: function() {
         this.setHelpUrl('http://www.example.com/');
         this.setColour(75);
         this.appendDummyInput()
@@ -514,7 +514,7 @@ Blockly.Blocks['trigger'] = {
 };
 
 Blockly.Blocks['priority'] = {
-    init: function () {
+    init: function() {
         this.setHelpUrl('http://www.example.com/');
         this.setColour(100);
         this.appendDummyInput()
@@ -544,8 +544,8 @@ Blockly.Blocks['approach_action'] = {
         this.setColour(225);
         this.appendDummyInput()
             .appendField("approach human with distance")
-            .appendField(new Blockly.FieldDropdown([["200", "DIST_200"], ["150", "DIST_150"], ["100", "DIST_100"]]), "approach_distance")
-            .appendField("cm");
+            .appendField(new Blockly.FieldDropdown([["2.00", 2.00], ["1.50", 1.50], ["1.00", 1.00]]), "approach_distance")
+            .appendField("metres");
         this.setPreviousStatement(true);
         this.setNextStatement(true, "robot_action");
         this.setTooltip('Approach a human with a specified distance of separation');
@@ -553,7 +553,7 @@ Blockly.Blocks['approach_action'] = {
 };
 
 Blockly.Blocks['therapy_action'] = {
-    init: function () {
+    init: function() {
         this.setHelpUrl('http://www.example.com/');
         this.setColour(215);
         this.appendDummyInput()
@@ -566,7 +566,7 @@ Blockly.Blocks['therapy_action'] = {
 };
 
 Blockly.Blocks['animated_say_action'] = {
-    init: function () {
+    init: function() {
         this.setHelpUrl('http://www.example.com/');
         this.setColour(230);
         this.appendDummyInput()

@@ -180,27 +180,33 @@ class NaoBehaviorModule:
         motionProxy.moveInit()
 
     def action_moveTo(self,params):
-        x = float(params.get('x',0.0))
-        y = float(params.get('y',0.0))
-        theta = float(params.get('theta',0.0))
+        #x = float(params.get('x','0.0').encode('utf-8'))
+        #y = float(params.get('y','0.0').encode('utf-8'))
+        #theta = float(params.get('theta','0.0').encode('utf-8'))
+        x = params.get('x',0.0)
+        y = params.get('y',0.0)
+        theta = params.get('theta',0.0)
         self.moveInit()
         proxy = self.getMotionProxy()
         if proxy is not None:
             proxy.move(x,y,theta)
 
     def action_moveToward(self,params):
-        x = float(params.get('x',0.0))
-        y = float(params.get('y',0.0))
-        theta = float(params.get('theta',0.0))
+        #x = float(params.get('x','0.0').encode('utf-8'))
+        #y = float(params.get('y','0.0').encode('utf-8'))
+        #theta = float(params.get('theta','0.0').encode('utf-8'))
+        x = params.get('x',0.0)
+        y = params.get('y',0.0)
+        theta = params.get('theta',0.0)
         self.moveInit()
         proxy = self.getMotionProxy()
         if proxy is not None:
             proxy.moveToward(x,y,theta)
 
     def action_lookAt(self,params):
-        x = float(params.get('x',0))
-        y = float(params.get('y',0))
-        z = float(params.get('z',0))
+        x = params.get('x',0.0)
+        y = params.get('y',0.0)
+        z = params.get('z',0.0)
         frameStr = params.get('frame',0)
         frame = 0
         if frameStr == "Torso":
@@ -247,6 +253,16 @@ class NaoBehaviorModule:
                                                'y':self.createArg(0.0,True,'float'),
                                                'z':self.createArg(0.0,True,'float'),
                                                'frame':self.createArg('torso',True)}}
+
+        cap_dict['Move To']= {'function':'action_moveTo',
+                                       'args':{'x':self.createArg(0.0,True,'float'),
+                                               'y':self.createArg(0.0,True,'float'),
+                                               'z':self.createArg(0.0,True,'float')}}
+
+        cap_dict['Move Toward']= {'function':'action_moveToward',
+                                       'args':{'x':self.createArg(0.0,True,'float'),
+                                               'y':self.createArg(0.0,True,'float'),
+                                               'z':self.createArg(0.0,True,'float')}}
 
         cap_dict['Say Expressively']= {'function':'action_sayExpressively',
                               'args':{'lang':self.createArg('',True),
