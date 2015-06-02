@@ -238,6 +238,24 @@ public:
 		tfm.rot[3] = pose.orientation().z();
 	}
 
+	static void ProtoToRave(const experimot::msgs::Pose_V& poses, const std::string& frameName, OpenRAVE::Transform& tfm){
+		// Set Position
+		for (int i = 0; i < poses.pose_size(); i++){
+			if (poses.pose(i).name() == frameName){
+				const experimot::msgs::Pose pose = poses.pose(i);
+				tfm.trans[0] = pose.position().x() / 1000;
+				tfm.trans[1] = pose.position().y() / 1000;
+				tfm.trans[2] = pose.position().z() / 1000;
+				// Set Orientation
+
+				tfm.rot[0] = pose.orientation().w();
+				tfm.rot[1] = pose.orientation().x();
+				tfm.rot[2] = pose.orientation().y();
+				tfm.rot[3] = pose.orientation().z();
+			}
+		}
+	}
+
 	void Listen(EnvironmentBasePtr penv){
 		while (!done) {
 			zmq::message_t address;
@@ -247,10 +265,10 @@ public:
 			m_pSocket->recv(&data);
 
 			{
-				experimot::msgs::Pose pose;
+				experimot::msgs::Pose_V pose;
 				if (pose.ParseFromArray(data.data(), data.size())){
 					Transform tfm;
-					ProtoToRave(pose, tfm);
+					ProtoToRave(pose, "torso_frame_kinect", tfm);
 					{
 						EnvironmentMutex::scoped_lock lock(penv->GetMutex());
 						RobotBasePtr probot = orMacroGetRobot(penv, 1);
@@ -259,7 +277,6 @@ public:
 						}
 					}
 				}
-
 			}
 		}
 	}
@@ -756,7 +773,7 @@ int main(int argc, char ** argv)
 				if (sub.msg_type() == "JointValueVector"){
 					pRobotListener = RobotStateListenerPtr(new RobotStateListener(sub.host(), sub.port(), sub.topic()));
 				}
-				if (sub.msg_type() == "Pose"){
+				if (sub.msg_type() == "Pose_V"){
 					pTorsoPoseListener = TorsoPoseListenerPtr(new TorsoPoseListener(sub.host(), sub.port(), sub.topic()));
 				}
 				if (sub.msg_type() == "KinectBodies"){

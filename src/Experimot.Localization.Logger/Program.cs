@@ -158,11 +158,18 @@ namespace Experimot.Localization.Logger
                                     {
                                         using (var memStream = new MemoryStream(msg))
                                         {
-                                            var pose = Serializer.Deserialize<Pose>(memStream);
-                                            pose.id = id++;
-                                            pose.name = DateTime.Now.Ticks.ToString();
-                                            Console.Write(".");
-                                            poseList.Add(pose);
+                                            var poses = Serializer.Deserialize<Pose_V>(memStream);
+                                            if (poses != null)
+                                            {
+                                                var pose = poses.pose.FirstOrDefault(s => s.name == "torso_frame_world");
+                                                if (pose != null)
+                                                {
+                                                    pose.id = id++;
+                                                    pose.name = DateTime.Now.Ticks.ToString();
+                                                    Console.Write(".");
+                                                    poseList.Add(pose);
+                                                }
+                                            }
                                         }
                                     }
                                 }
