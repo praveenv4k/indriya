@@ -43,8 +43,13 @@ def parse_and_execute(behaviorModule,recv_str):
               key = str(param.encode('utf-8'))
               #value = params[param]['value']
               if(type == 'float'):
-                  value = float(params[param]['value'])
-                  paramDict[key] = float(value)
+                  valueStr = params[param]['value']
+                  value = 0.0
+                  if isinstance(valueStr,basestring):
+                    value = float(valueStr.encode('utf-8'))
+                  else:
+                    value = float(params[param]['value'])
+                  paramDict[key] = value
               else:
                   value = str(params[param]['value'].encode('utf-8'))
                   paramDict[key] = value

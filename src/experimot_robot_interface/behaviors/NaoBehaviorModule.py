@@ -189,7 +189,7 @@ class NaoBehaviorModule:
         self.moveInit()
         proxy = self.getMotionProxy()
         if proxy is not None:
-            proxy.move(x,y,theta)
+            proxy.moveTo(x,y,theta)
 
     def action_moveToward(self,params):
         #x = float(params.get('x','0.0').encode('utf-8'))

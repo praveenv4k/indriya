@@ -544,7 +544,7 @@ Blockly.Blocks['approach_action'] = {
         this.setColour(225);
         this.appendDummyInput()
             .appendField("approach human with distance")
-            .appendField(new Blockly.FieldDropdown([["2.00", 2.00], ["1.50", 1.50], ["1.00", 1.00]]), "approach_distance")
+            .appendField(new Blockly.FieldDropdown([["2.00", "2.00"], ["1.50", "1.50"], ["1.00", "1.00"]]), "approach_distance")
             .appendField("metres");
         this.setPreviousStatement(true);
         this.setNextStatement(true, "robot_action");
