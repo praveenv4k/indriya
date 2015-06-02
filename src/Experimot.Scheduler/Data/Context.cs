@@ -15,6 +15,7 @@ namespace Experimot.Scheduler.Data
     public class Context : INotifyPropertyChanged
     {
         private Robot _robot;
+        private Pose _worldFrame;
         private BindableCollection<Human> _humans;
         private IDictionary<string, ManipulatableObject> _objects;
         private readonly object _object = new object();
@@ -89,11 +90,21 @@ namespace Experimot.Scheduler.Data
             }
         }
 
-        public void Update(Pose pose)
+        public void SetWorldFrame(Pose pose)
+        {
+            if (pose != null)
+            {
+                _worldFrame.position = pose.position;
+                _worldFrame.orientation = pose.orientation;
+            }
+        }
+
+        public void Update(Pose_V pose)
         {
             lock (_object)
             {
-                Robot.Localization.SetPose(pose);
+                Robot.Localization.SetPose(pose.pose.FirstOrDefault(s => s.name == "torso_frame"));
+                SetWorldFrame(pose.pose.FirstOrDefault(s => s.name == "world_frame"));
             }
         }
 

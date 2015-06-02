@@ -343,6 +343,20 @@ public:
 		return false;
 	}
 
+	void SetMarkerSizesForIds(MarkerDetector<MarkerData>& marker_detector){
+		marker_detector.SetMarkerSizeForId(m_nFrontMarkerId, m_nMarkerSize);
+		marker_detector.SetMarkerSizeForId(m_nLeftMarkerId, m_nMarkerSize);
+		marker_detector.SetMarkerSizeForId(m_nRightMarkerId, m_nMarkerSize);
+		marker_detector.SetMarkerSizeForId(m_nRearMarkerId, m_nMarkerSize);
+		marker_detector.SetMarkerSizeForId(m_nTopMarkerId, m_nMarkerSize);
+		marker_detector.SetMarkerSizeForId(m_nWorldMarkerId, m_nWorldMarkerSize);
+	}
+
+	bool GetWorldTransform(Transform& worldTransform) const{
+		worldTransform = m_WorldTransform;
+		return m_bWorldMarkerExists;
+	}
+
 	bool Videocallback(const Transform& prev_tfm, IplImage *image, Transform& localTfm, Transform& out_tfm, std::vector<double>& q, bool drawTorso = false)
 	{
 		bool ret = false;
@@ -357,7 +371,9 @@ public:
 		}
 
 		static MarkerDetector<MarkerData> marker_detector;
-		marker_detector.SetMarkerSize(m_nMarkerSize); // for marker ids larger than 255, set the content resolution accordingly
+		//marker_detector.SetMarkerSize(m_nMarkerSize); // for marker ids larger than 255, set the content resolution accordingly
+		//marker_detector.SetMarkerSize(m_nWorldMarkerSize); // for marker ids larger than 255, set the content resolution accordingly
+		SetMarkerSizesForIds(marker_detector);
 
 		marker_detector.Detect(image, &m_camera, true, visualize);
 
