@@ -113,6 +113,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GestureDatabase.cs" />
     <Compile Include="NaoJointPublisher.cs" />
     <Compile Include="HumanPosePublisher.cs" />
     <Compile Include="Triangle.cs" />
@@ -180,6 +181,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\external\KinectEx\KinectEx.csproj">
+      <Project>{b7429d12-b30b-4ada-a23c-6376afb54b80}</Project>
+      <Name>KinectEx</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Experimot.Core.Msgs\Experimot.Core.Msgs.csproj">
       <Project>{45e9e170-76b7-4e71-b557-9b131e0c175b}</Project>
       <Name>Experimot.Core.Msgs</Name>
@@ -187,10 +192,6 @@
     <ProjectReference Include="..\Experimot.Core\Experimot.Core.csproj">
       <Project>{35CA8818-7E08-4B4C-A5F3-1F1E5DD0B973}</Project>
       <Name>Experimot.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\KinectEx\KinectEx.csproj">
-      <Project>{b7429d12-b30b-4ada-a23c-6376afb54b80}</Project>
-      <Name>KinectEx</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
