@@ -169,6 +169,34 @@ class NaoBehaviorModule:
             if proxy is not None:
                 proxy.goToPosture(posture, 1.0)
 
+
+    def moveInit(self):
+        # Send NAO to Pose Init
+        postureProxy = self.getPostureProxy()
+        postureProxy.goToPosture("Stand", 0.5)
+
+        # Initialize move process.
+        motionProxy = self.getMotionProxy()
+        motionProxy.moveInit()
+
+    def action_moveTo(self,params):
+        x = float(params.get('x',0.0))
+        y = float(params.get('y',0.0))
+        theta = float(params.get('theta',0.0))
+        self.moveInit()
+        proxy = self.getMotionProxy()
+        if proxy is not None:
+            proxy.move(x,y,theta)
+
+    def action_moveToward(self,params):
+        x = float(params.get('x',0.0))
+        y = float(params.get('y',0.0))
+        theta = float(params.get('theta',0.0))
+        self.moveInit()
+        proxy = self.getMotionProxy()
+        if proxy is not None:
+            proxy.moveToward(x,y,theta)
+
     def action_lookAt(self,params):
         x = float(params.get('x',0))
         y = float(params.get('y',0))
