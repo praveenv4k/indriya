@@ -73,14 +73,14 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Experimot.Web", "http://loc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experimot.Localization.Logger", "src\Experimot.Localization.Logger\Experimot.Localization.Logger.csproj", "{4564F9A2-8646-4DF6-AB4C-370DD25DDD5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectEx", "src\KinectEx\KinectEx.csproj", "{B7429D12-B30B-4ADA-A23C-6376AFB54B80}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C52CC5B8-A48F-49F3-A263-FB2EFD834F94}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectEx", "external\KinectEx\KinectEx.csproj", "{B7429D12-B30B-4ADA-A23C-6376AFB54B80}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -364,21 +364,24 @@ Global
 		{4564F9A2-8646-4DF6-AB4C-370DD25DDD5C}.Release|x86.ActiveCfg = Release|Any CPU
 		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Debug|Win32.ActiveCfg = Debug|x86
+		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Debug|Win32.Build.0 = Debug|x86
 		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Debug|x64.ActiveCfg = Debug|x64
 		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Debug|x64.Build.0 = Debug|x64
-		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Debug|x86.ActiveCfg = Debug|x86
+		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Debug|x86.Build.0 = Debug|x86
 		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Release|Mixed Platforms.Build.0 = Release|x86
 		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Release|Win32.ActiveCfg = Release|x86
 		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Release|Win32.Build.0 = Release|x86
 		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Release|x64.ActiveCfg = Release|x64
 		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Release|x64.Build.0 = Release|x64
-		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Release|x86.ActiveCfg = Release|Any CPU
+		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Release|x86.ActiveCfg = Release|x86
+		{B7429D12-B30B-4ADA-A23C-6376AFB54B80}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
