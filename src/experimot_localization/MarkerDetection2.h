@@ -46,7 +46,11 @@ public:
 		m_nRightMarkerId = RIGHT_MARKER_ID;
 		m_nRearMarkerId = REAR_MARKER_ID;
 		m_nTopMarkerId = TOP_MARKER_ID;
-
+		m_nWorldMarkerId = WORLD_MARKER_ID;
+		m_nWorldMarkerSize = WORLD_MARKER_SIZE;
+		m_nCubeSize = CUBE_SIZE;
+		m_nMarkerSize = MARKER_SIZE;
+		m_strCalibFile = CALIB_FILE;
 		_init();
 	}
 
@@ -55,6 +59,7 @@ public:
 		init_detection = 0;
 		m_nCubeSize = ParameterHelper::GetParam<int>(pNode->param(), "cube_size", CUBE_SIZE);
 		m_nMarkerSize = ParameterHelper::GetParam<int>(pNode->param(), "marker_size", MARKER_SIZE);
+		m_nWorldMarkerSize = ParameterHelper::GetParam<int>(pNode->param(), "world_marker_size", WORLD_MARKER_SIZE);
 		m_strCalibFile = ParameterHelper::GetParam<std::string>(pNode->param(), "calib_file", CALIB_FILE);
 		m_bFlip = ParameterHelper::GetParam<bool>(pNode->param(), "flip_image", false);
 		if (m_bFlip){
@@ -63,6 +68,7 @@ public:
 			m_nRightMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "right_marker_flip_id", RIGHT_MARKER_FLIP_ID);
 			m_nRearMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "rear_marker_flip_id", REAR_MARKER_FLIP_ID);
 			m_nTopMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "top_marker_flip_id", TOP_MARKER_FLIP_ID);
+			m_nWorldMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "world_marker_id", WORLD_MARKER_FLIP_ID);
 		}
 		else{
 			m_nFrontMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "front_marker_id", FRONT_MARKER_ID);
@@ -70,6 +76,7 @@ public:
 			m_nRightMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "right_marker_id", RIGHT_MARKER_ID);
 			m_nRearMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "rear_marker_id", REAR_MARKER_ID);
 			m_nTopMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "top_marker_id", TOP_MARKER_ID);
+			m_nWorldMarkerId = ParameterHelper::GetParam<int>(pNode->param(), "world_marker_id", WORLD_MARKER_ID);
 		}
 		_init();
 	}
@@ -318,6 +325,24 @@ public:
 #endif
 	}
 
+	bool CheckIfValidMarker(int markerId){
+		if (markerId == m_nFrontMarkerId ||
+			markerId == m_nLeftMarkerId ||
+			markerId == m_nRightMarkerId ||
+			markerId == m_nRearMarkerId ||
+			markerId == m_nTopMarkerId){
+			return true;
+		}
+		return false;
+	}
+
+	bool CheckIfWorldMarker(int markerId){
+		if (markerId == m_nWorldMarkerId){
+			return true;
+		}
+		return false;
+	}
+
 	bool Videocallback(const Transform& prev_tfm, IplImage *image, Transform& localTfm, Transform& out_tfm, std::vector<double>& q, bool drawTorso = false)
 	{
 		bool ret = false;
@@ -341,11 +366,11 @@ public:
 		std::map<int, Pose> markerPoses;
 		std::map<int, Transform> markerTfs;
 		if (marker_detector.markers->size() >= 1){
-			init_detection++;
+			
 			//cout << "Marker detected" << endl;
 			for (size_t i = 0; i < marker_detector.markers->size(); i++) {
 				if (i >= 32) break;
-
+				
 				alvar::MarkerData mData = marker_detector.markers->operator[](i);
 				Pose p = mData.pose;
 
@@ -353,7 +378,22 @@ public:
 				int id = mData.GetId();
 
 				cout << "******* ID: " << id << "; Resolution: " << resol << endl;
-
+				if (CheckIfWorldMarker(id)){
+					m_bWorldMarkerExists = true;
+					TransformMatrix world_rave;
+					double world_gl_mat[16];
+					p.GetMatrixGL(world_gl_mat, false);
+					TransformationHelper::OpenGLToOpenRAVE(world_gl_mat, world_rave);
+					m_WorldTransform = Transform(world_rave);
+					Visualize(image, &m_camera, m_nWorldMarkerSize, p, CV_RGB(127, 127, 127));
+					continue;
+				}
+				else{
+					if (!CheckIfValidMarker(id)){
+						continue;
+					}
+				}
+				init_detection++;
 				PointDouble pt1, pt2, pt3, pt4;
 				pt4 = mData.experimot_marker_points_img[0];
 				pt3 = mData.experimot_marker_points_img[resol - 1];
@@ -477,7 +517,11 @@ private:
 	int m_nRightMarkerId;
 	int m_nRearMarkerId;
 	int m_nTopMarkerId;
+	int m_nWorldMarkerId;
+	int m_nWorldMarkerSize;
 	bool m_bFlip;
+	bool m_bWorldMarkerExists;
+	Transform m_WorldTransform;
 	Camera m_camera;
 	double max_error;
 	int init_detection;

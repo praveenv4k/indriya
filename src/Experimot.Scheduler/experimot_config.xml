@@ -55,6 +55,8 @@
         <param key="right_marker_id" value="13" type="int"/>
         <param key="rear_marker_id" value="10" type="int"/>
         <param key="top_marker_id" value="14" type="int"/>
+        <param key="world_marker_id" value="160" type="int"/>
+        <param key="world_marker_size" value="198" type="int"/>
       </parameters>
       <publishers>
         <publish>
