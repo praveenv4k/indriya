@@ -33,11 +33,31 @@ public:
 		}
 	}
 
-	void Publish(Transform& torsoTransform){
+	//void Publish(Transform& torsoTransform){
+	//	try{
+	//		if (m_pSocket != 0 && m_pSocket->connected()){
+	//			experimot::msgs::Pose pose;
+	//			TransformationHelper::RaveToProto(torsoTransform, pose);
+	//			std::string str;
+	//			pose.SerializeToString(&str);
+	//			//pose.PrintDebugString();
+	//			//std::cout << "Mat:  " << TransformMatrix(torsoTransform) << std::endl;
+	//			//std::cout << "Publishing : ( " << pose.position().x() << ", " << pose.position().y() << ", " << pose.position().z() << " )" << std::endl;
+	//			if (s_sendmore(*m_pSocket, m_strPublisherId)){
+	//				s_send(*m_pSocket, str);
+	//			}
+	//		}
+	//	}
+	//	catch (std::exception& ex){
+	//		std::cout << "Publish Transform: " << ex.what() << std::endl;
+	//	}
+	//}
+
+	void Publish(std::map<std::string, Transform>& transforms){
 		try{
 			if (m_pSocket != 0 && m_pSocket->connected()){
-				experimot::msgs::Pose pose;
-				TransformationHelper::RaveToProto(torsoTransform, pose);
+				experimot::msgs::Pose_V pose;
+				TransformationHelper::RaveToProto(transforms, pose);
 				std::string str;
 				pose.SerializeToString(&str);
 				//pose.PrintDebugString();

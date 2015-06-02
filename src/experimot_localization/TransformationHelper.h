@@ -4,6 +4,7 @@
 #include "Pose.h"
 #include <openrave-core.h>
 #include "experimot\msgs\MessageTypes.h"
+#include "experimot\common\Common.h"
 
 using namespace alvar;
 using namespace OpenRAVE;
@@ -117,6 +118,24 @@ public:
 		pose.mutable_orientation()->set_x(tfm.rot[1]);
 		pose.mutable_orientation()->set_y(tfm.rot[2]);
 		pose.mutable_orientation()->set_z(tfm.rot[3]);
+	}
+
+	static void RaveToProto(const std::map<std::string, OpenRAVE::Transform>& tfmMap, experimot::msgs::Pose_V& poseVector){
+		FOREACHC(it, tfmMap){
+			// Set Position
+			if (!it->first.empty()){
+				experimot::msgs::Pose* pose = poseVector.add_pose();
+				pose->set_name(it->first.c_str());
+				pose->mutable_position()->set_x(it->second.trans[0]);
+				pose->mutable_position()->set_y(it->second.trans[1]);
+				pose->mutable_position()->set_z(it->second.trans[2]);
+				// Set Orientation
+				pose->mutable_orientation()->set_w(it->second.rot[0]);
+				pose->mutable_orientation()->set_x(it->second.rot[1]);
+				pose->mutable_orientation()->set_y(it->second.rot[2]);
+				pose->mutable_orientation()->set_z(it->second.rot[3]);
+			}
+		}
 	}
 
 	static void ProtoToRave(const experimot::msgs::Pose& pose, OpenRAVE::Transform& tfm){

@@ -54,7 +54,7 @@ public:
 		m_pNode = pNode;
 
 		if (m_pNode != 0){
-			
+
 			int conn_timeout = ParameterHelper::GetParam<int>(m_pNode->param(), "comm_timeout", COMM_TIMEOUT);
 			m_nSensorCycle = ParameterHelper::GetParam<int>(m_pNode->param(), "sensor_process_cycle", 30);
 			m_nRobotCycle = ParameterHelper::GetParam<int>(m_pNode->param(), "robot_listener_cycle", 40);
@@ -261,9 +261,11 @@ public:
 
 						m_poseFilter.update(boost::posix_time::microsec_clock::local_time());
 						if (!m_poseFilter.isInitialized()){
-							m_poseFilter.initialize(markerTfm, boost::posix_time::microsec_clock::local_time());
+						m_poseFilter.initialize(markerTfm, boost::posix_time::microsec_clock::local_time());
 						}*/
 
+						Transform worldTransform;
+						bool valid = m_pMarkerDetectionPtr->GetWorldTransform(worldTransform);
 						m_pRobotPoseInfoPtr->SetMarkerTransform(markerTfm);
 					}
 					else{
@@ -326,7 +328,7 @@ public:
 
 					// Compute Top marker with respect to camera
 					//out = markerTfm.inverse();
-					
+
 
 #if 0
 					out = markerTfm;
@@ -344,7 +346,7 @@ public:
 
 					m_poseFilter.update(boost::posix_time::microsec_clock::local_time());
 					if (!m_poseFilter.isInitialized()){
-						m_poseFilter.initialize(out, boost::posix_time::microsec_clock::local_time());
+					m_poseFilter.initialize(out, boost::posix_time::microsec_clock::local_time());
 					}*/
 #endif
 				}
@@ -428,7 +430,9 @@ public:
 
 				Transform kinectTfm;
 				ToKinectFrame(torsoTfm, kinectTfm);
-
+				Transform worldTfm, worldTfmKinect;
+				m_pMarkerDetectionPtr->GetWorldTransform(worldTfm);
+				ToKinectFrame(worldTfm, worldTfmKinect);
 #ifdef USE_PARTICLE_FILTER
 				{
 					MarkerParticleFilterMutex::scoped_lock lock2(m_ParticleFilter.GetMutex());
@@ -437,7 +441,7 @@ public:
 					PrintColumnVector(filteredPose);
 				}
 #endif
-		
+
 #if 1
 
 #if 1
@@ -458,7 +462,13 @@ public:
 				Transform torsoTfm;
 				NaoHeadTransformHelper::instance()->GetTorsoTransform(headJoints, markerTfm, torsoTfm);
 #endif
-				m_pTorsoPosePublisherPtr->Publish(kinectTfm);
+				std::map<string, Transform> transforms;
+				transforms.insert(std::pair<string, Transform>("torso_frame_kinect", kinectTfm));
+				transforms.insert(std::pair<string, Transform>("world_frame_kinect", worldTfmKinect));
+				transforms.insert(std::pair<string, Transform>("world_frame", Transform()));
+				Transform torsoWorld = worldTfmKinect.inverse() * kinectTfm;
+				transforms.insert(std::pair<string, Transform>("torso_frame_world", torsoWorld));
+				m_pTorsoPosePublisherPtr->Publish(transforms);
 			}
 		}
 		m_PoseTimer.async_wait(strand_.wrap(boost::bind(&Localization::PublishTransform, this)));

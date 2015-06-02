@@ -85,6 +85,13 @@ public:
 		m_TorsoTransform = pose;
 		m_TorsoInit = true;
 	}
+	const Transform& GetWorldTransform() const{
+		return m_WorldTransform;
+	}
+	void SetWorldTransform(Transform& pose){
+		m_WorldTransform = pose;
+		m_WorldTransformInit = true;
+	}
 	RobotPoseInfoMutex& GetMutex() {
 		return _mutexRobotPoseInfo;
 	}
@@ -93,6 +100,7 @@ public:
 	bool IsTorsoTransformInit() const { return m_TorsoInit; }
 private:
 	Transform m_MarkerTransform;
+	Transform m_WorldTransform;
 	std::map<int,Transform> m_MarkerTransforms;
 	std::vector<dReal> m_JointValueVector;
 	Transform m_TorsoTransform;
@@ -100,6 +108,7 @@ private:
 	bool m_MarkerInit;
 	bool m_JointValuesInit;
 	bool m_TorsoInit;
+	bool m_WorldTransformInit;
 };
 
 #endif
