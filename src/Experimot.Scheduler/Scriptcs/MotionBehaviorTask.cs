@@ -297,8 +297,8 @@ public class MotionBehaviorTask : Quartz.IJob
                     {
                         var m = GetWorldFrameMatrix(worldFrame);
                         var r = GetLocalizationFromRobotJson(robotString);
-                        Log.InfoFormat("Robot Info : {0}", r.ToArray());
-                        Log.InfoFormat("World Frame : {0}", m.ToArray());
+                        Log.InfoFormat("Robot Info : {0}", string.Join(",",r.ToArray()));
+                        Log.InfoFormat("World Frame : {0}", string.Join(",", m.ToArray()));
                     }
                     using (var ctx = NetMQContext.Create())
                     {

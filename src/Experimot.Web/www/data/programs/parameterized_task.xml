@@ -1,0 +1,19 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_startup" id="2" x="38" y="38">
+    <statement name="DO">
+      <block type="robot_action" id="7">
+        <field name="actions">greet</field>
+        <next>
+          <block type="animated_say_action" id="12">
+            <field name="SAY_TEXT">I am going home!</field>
+            <next>
+              <block type="animated_say_action" id="17">
+                <field name="SAY_TEXT">See you tomo!</field>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

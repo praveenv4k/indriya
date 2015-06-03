@@ -108,7 +108,7 @@ public class MainProgram : IJobListener
         return ret;
     }
 
-    private static IList<BehaviorInfo> GetBehaviorModules(NetMQSocket socket,
+    private static IList<BehaviorInfo> GetBehaviorModules2(NetMQSocket socket,
         IList<BehaviorInfo> behaviorList)
     {
         var ret = new List<BehaviorInfo>();
@@ -168,25 +168,94 @@ public class MainProgram : IJobListener
             }
             if (dict.Count > 0)
             {
+
                 // ReSharper disable once LoopCanBeConvertedToQuery
                 foreach (var item in behaviorList)
                 {
+                    Log.InfoFormat("Before : {0}",item.ToString());
                     if (dict.ContainsKey(item.BehaviorName))
                     {
+                        var temp = dict[item.BehaviorName].Clone() as BehaviorInfo;
+                        if (temp != null)
+                        {
+                            foreach (var parameter in item.Parameters)
+                            {
+                                if (!temp.Parameters.ContainsKey(parameter.Key))
+                                {
+                                    temp.Parameters.Add(parameter);
+                                }
+                                else
+                                {
+                                    temp.Parameters[parameter.Key] = parameter.Value;
+                                }
+                            }
+                            Log.InfoFormat("After : {0}", temp.ToString());
+                            ret.Add(temp);
+                        }
+
                         //ret.Add(dict[item.BehaviorName]);
                         // Update the values of the parameter list with the once originally parsed from the xml file
-                        foreach (var parameter in item.Parameters)
+                        //foreach (var parameter in item.Parameters)
+                        //{
+                        //    if (!dict[item.BehaviorName].Parameters.ContainsKey(parameter.Key))
+                        //    {
+                        //        dict[item.BehaviorName].Parameters.Add(parameter);
+                        //    }
+                        //    else
+                        //    {
+                        //        dict[item.BehaviorName].Parameters[parameter.Key] = parameter.Value;
+                        //    }
+                        //}
+                        //ret.Add(dict[item.BehaviorName]);
+                    }
+                }
+            }
+        }
+        return ret;
+    }
+
+    private static IList<BehaviorInfo> GetBehaviorModules(NetMQSocket socket,
+        IList<BehaviorInfo> behaviorList)
+    {
+        var ret = new List<BehaviorInfo>();
+        var dict = new Dictionary<string, BehaviorInfo>();
+        //behavior_modules
+        if (socket != null && behaviorList != null && behaviorList.Count > 0)
+        {
+            ret.AddRange(behaviorList);
+            socket.Send("behavior_modules");
+            var resp = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, RecvTimeout));
+            if (!string.IsNullOrEmpty(resp))
+            {
+                var modules = JArray.Parse(resp);
+                if (modules != null && modules.Count > 0)
+                {
+                    //Console.WriteLine(resp);
+                    foreach (var module in modules)
+                    {
+                        var moduleName = module.Value<string>("name");
+                        var responder = module.SelectToken("$.responder");
+                        string host = string.Empty;
+                        int port = 0;
+                        if (responder != null)
                         {
-                            if (!dict[item.BehaviorName].Parameters.ContainsKey(parameter.Key))
+                            host = responder.Value<string>("Host");
+                            port = responder.Value<int>("Port");
+                        }
+                        var behaviors = module.SelectToken("$.behaviors");
+                        foreach (var behavior in behaviors)
+                        {
+                            string name = behavior.Value<string>("name");
+                            string functionName = behavior.Value<string>("function_name");
+                            var matchingBehaviors = ret.Where(s => s.BehaviorName == name).ToList();
+                            foreach (var matchingBehavior in matchingBehaviors)
                             {
-                                dict[item.BehaviorName].Parameters.Add(parameter);
-                            }
-                            else
-                            {
-                                dict[item.BehaviorName].Parameters[parameter.Key] = parameter.Value;
+                                matchingBehavior.ModuleName = moduleName;
+                                matchingBehavior.FunctionName = functionName;
+                                matchingBehavior.Ip = host;
+                                matchingBehavior.Port = port;
                             }
                         }
-                        ret.Add(dict[item.BehaviorName]);
                     }
                 }
             }
@@ -572,7 +641,7 @@ public class MainProgram : IJobListener
                         using (var socket = ctx.CreateRequestSocket())
                         {
                             socket.Connect(_contextServer);
-
+                            Log.Info("************** Getbehavior Modules ****************");
                             var modules = GetBehaviorModules(socket, onetimeBehaviors.RobotActions);
                             if (modules != null && modules.Count > 0)
                             {
@@ -580,6 +649,10 @@ public class MainProgram : IJobListener
                                     onetimeBehaviors.Clone() as MotionBasedBehavior;
                                 if (motionBasedBehavior != null)
                                 {
+                                    foreach (var behaviorInfo in modules)
+                                    {
+                                        Log.InfoFormat("Before Execution: {0}", behaviorInfo.ToString());
+                                    }
                                     motionBasedBehavior.RobotActions = modules;
                                 }
                             }

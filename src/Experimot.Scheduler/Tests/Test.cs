@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Navigation;
 using System.Xml.Linq;
@@ -119,6 +120,18 @@ namespace Experimot.Scheduler.Tests
                 outputPath = Environment.ExpandEnvironmentVariables(outputPath);
                 var dict = new Dictionary<string, string> {{"Greet_Left", "wave"}};
                 ProgramGenerator.GeneratePrograms(dict, outputPath);
+            }
+        }
+
+        public static void TestReadBehaviorXml(experimot_config config)
+        {
+            var outputPath = ParameterUtil.Get(config.parameters, "MainProgramFilePath", "");
+            if (!string.IsNullOrEmpty(outputPath))
+            {
+                var dir = Path.GetDirectoryName(outputPath);
+                outputPath = Environment.ExpandEnvironmentVariables(dir ?? "");
+                var behaviors = MainProgramUtil.ReadBehaviorXmlFile(System.IO.Path.Combine(outputPath, "behavior.xml"));
+                Console.WriteLine(@"Behaviors  : {0}", behaviors.Count);
             }
         }
 

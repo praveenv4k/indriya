@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Experimot.Core;
 using Nancy.TinyIoc;
 
 namespace Experimot.Scheduler
@@ -10,11 +11,11 @@ namespace Experimot.Scheduler
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            RunTests();
             const string configFile = "experimot_config.xml";
             if (!string.IsNullOrEmpty(configFile))
             {
                 var bootStrapper = new BootStrapper(configFile);
+                RunTests(TinyIoCContainer.Current.Resolve<experimot_config>());
                 bootStrapper.StartUp();
             }
             base.OnStartup(e);
@@ -30,8 +31,9 @@ namespace Experimot.Scheduler
             base.OnExit(e);
         }
 
-        private void RunTests()
+        private void RunTests(experimot_config config)
         {
+            Tests.Test.TestReadBehaviorXml(config);
             //Tests.Test.TestJson(JsonConvert.SerializeObject(config));
             //Tests.Test.TestProgramGeneration(config);
             //Tests.Test.TestJsonToProgram(config);
