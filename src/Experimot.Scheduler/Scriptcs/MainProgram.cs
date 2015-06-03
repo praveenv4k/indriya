@@ -247,6 +247,17 @@ public class MainProgram : IJobListener
                         {
                             string name = behavior.Value<string>("name");
                             string functionName = behavior.Value<string>("function_name");
+                            var args = behavior.SelectToken("$.arg");
+                            var parameters = new Dictionary<string, object>();
+                            foreach (var arg in args)
+                            {
+                                parameters.Add(arg.Value<string>("name"), new Dictionary<string, object>
+                                {
+                                    {"value", arg.Value<string>("value")},
+                                    {"place_holder", arg.Value<string>("place_holder")},
+                                    {"type", arg.Value<string>("type")}
+                                });
+                            }
                             var matchingBehaviors = ret.Where(s => s.BehaviorName == name).ToList();
                             foreach (var matchingBehavior in matchingBehaviors)
                             {
@@ -254,6 +265,13 @@ public class MainProgram : IJobListener
                                 matchingBehavior.FunctionName = functionName;
                                 matchingBehavior.Ip = host;
                                 matchingBehavior.Port = port;
+                                foreach (var parameter in parameters)
+                                {
+                                    if (!matchingBehavior.Parameters.ContainsKey(parameter.Key))
+                                    {
+                                        matchingBehavior.Parameters.Add(parameter);
+                                    }
+                                }
                             }
                         }
                     }
