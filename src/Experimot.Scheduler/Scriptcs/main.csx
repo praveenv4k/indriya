@@ -1,3 +1,4 @@
+#load "Initialize.csx"
 #load "BehaviorInfo.csx"
 #load "SimpleBehaviorTask.csx"
 #load "MotionBehaviorTask.csx"
