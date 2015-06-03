@@ -248,7 +248,6 @@
     <Compile Include="Scriptcs\MainProgramUtil.cs" />
     <Compile Include="Scriptcs\SimpleBehaviorTask.cs" />
     <Compile Include="Scriptcs\MainProgram.cs" />
-    <None Include="Scriptcs\Initialize.csx" />
     <None Include="Scriptcs\main_template.csx" />
     <None Include="Scriptcs\main.csx" />
   </ItemGroup>

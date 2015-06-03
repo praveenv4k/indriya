@@ -1,4 +1,4 @@
-#load "Initialize.csx"
+#r ""System.Runtime.dll"
 #load "BehaviorInfo.csx"
 #load "SimpleBehaviorTask.csx"
 #load "MotionBehaviorTask.csx"

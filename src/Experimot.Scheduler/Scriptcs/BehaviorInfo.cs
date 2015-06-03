@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime;
+using System.Text;
 using Common.Logging;
 using NetMQ;
 
-public class BehaviorInfo
+public class BehaviorInfo: ICloneable
 {
+    private static readonly ILog Log = LogManager.GetLogger(typeof(SimpleBehaviorTask));
     public BehaviorInfo()
     {
         Parameters = new Dictionary<string, object>();
@@ -16,7 +18,30 @@ public class BehaviorInfo
     public int Port { get; set; }
     public string BehaviorName { get; set; }
     public string FunctionName { get; set; }
-    public IDictionary<string, object> Parameters { get; set; } 
+    public IDictionary<string, object> Parameters { get; set; }
+
+    public override string ToString()
+    {
+        var builder = new StringBuilder();
+        builder.Append(string.Format("Name :{0}, Function: {1}", BehaviorName, FunctionName))
+            .AppendLine()
+            .Append(string.Format("Module :{0}, Address: {1}:{2}", ModuleName, Ip, Port))
+            .AppendLine()
+            .Append("Parameters")
+            .AppendLine();
+        foreach (var parameter in Parameters)
+        {
+            var valueDict = parameter.Value as Dictionary<string, object>;
+            builder.Append(string.Format("Key: {0}, Value:{1}", parameter.Key, valueDict!=null?valueDict["value"]:"Emptys"
+                )).AppendLine();
+        }
+        return builder.ToString();
+    }
+
+    public object Clone()
+    {
+        return MemberwiseClone();
+    }
 }
 
 public enum BehaviorExecutionPriority
