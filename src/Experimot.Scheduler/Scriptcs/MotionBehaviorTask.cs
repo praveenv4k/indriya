@@ -1,10 +1,13 @@
 using System;
+using System.Runtime;
 using System.Collections.Generic;
 using Common.Logging;
 using NetMQ;
 using NCalc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SharpDX;
+using SharpDX.Mathematics;
 
 public class MotionBehaviorTask : Quartz.IJob
 {
@@ -67,6 +70,64 @@ public class MotionBehaviorTask : Quartz.IJob
             }
         }
         return robotInfo;
+    }
+
+    public static Matrix GetMatrixFromPose(Quaternion q, Vector3 t)
+    {
+        Matrix m = Matrix.RotationQuaternion(q);
+        m.TranslationVector = t;
+        return m;
+    }
+
+    public static Matrix GetWorldFrameMatrix(string worldFrameJson)
+    {
+        var jObj = JObject.Parse(worldFrameJson);
+        var pos = jObj.SelectToken("$.position");
+        var orient = jObj.SelectToken("$.orientation");
+        var t = new Vector3();
+        var q = Quaternion.Identity;
+        if (pos.HasValues)
+        {
+            t.X = pos.Value<float>("x");
+            t.Y = pos.Value<float>("y");
+            t.Z = pos.Value<float>("z");
+        }
+        if (orient.HasValues)
+        {
+            q.X = pos.Value<float>("x");
+            q.Y = pos.Value<float>("y");
+            q.Z = pos.Value<float>("z");
+            q.W = pos.Value<float>("w");
+        }
+        Matrix m = Matrix.RotationQuaternion(q);
+        m.TranslationVector = t;
+        return m;
+    }
+
+    public static Matrix GetLocalizationFromRobotJson(string robotJson)
+    {
+        var jObj = JObject.Parse(robotJson);
+        var localize = jObj.SelectToken("$.Localization");
+        var pos = localize.SelectToken("$.Position");
+        var orient = localize.SelectToken("$.Orientation");
+        var t = new Vector3();
+        var q = Quaternion.Identity;
+        if (pos.HasValues)
+        {
+            t.X = pos.Value<float>("x");
+            t.Y = pos.Value<float>("y");
+            t.Z = pos.Value<float>("z");
+        }
+        if (orient.HasValues)
+        {
+            q.X = pos.Value<float>("x");
+            q.Y = pos.Value<float>("y");
+            q.Z = pos.Value<float>("z");
+            q.W = pos.Value<float>("w");
+        }
+        Matrix m = Matrix.RotationQuaternion(q);
+        m.TranslationVector = t;
+        return m;
     }
 
     public static string GetWorldFrame(string contextServer)
@@ -230,7 +291,15 @@ public class MotionBehaviorTask : Quartz.IJob
 
                 foreach (var behaviorInfo in behaviorList)
                 {
-                    //var robotString = 
+                    var robotString = GetRobotInfo(contextServer);
+                    var worldFrame = GetWorldFrame(contextServer);
+                    if (!string.IsNullOrEmpty(robotString) && !string.IsNullOrEmpty(worldFrame))
+                    {
+                        var m = GetWorldFrameMatrix(worldFrame);
+                        var r = GetLocalizationFromRobotJson(robotString);
+                        Log.InfoFormat("Robot Info : {0}", r.ToArray());
+                        Log.InfoFormat("World Frame : {0}", m.ToArray());
+                    }
                     using (var ctx = NetMQContext.Create())
                     {
                         using (var sock = ctx.CreateRequestSocket())
