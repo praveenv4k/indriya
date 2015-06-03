@@ -108,8 +108,6 @@ public class MainProgram : IJobListener
         return ret;
     }
 
-
-
     private static IList<BehaviorInfo> GetBehaviorModules(NetMQSocket socket,
         IList<BehaviorInfo> behaviorList)
     {
@@ -595,13 +593,13 @@ public class MainProgram : IJobListener
             if (motionBasedBehavior.BehaviorType == BehaviorType.Startup)
             {
                 Log.Info("Begin Startup Actions!");
-                MotionBehaviorTask.SyncExecuteBehavior(motionBasedBehavior.RobotActions);
+                MotionBehaviorTask.SyncExecuteBehavior(_contextServer, motionBasedBehavior.RobotActions);
                 Log.Info("Finish Startup Actions!");
             }
             else if (motionBasedBehavior.BehaviorType == BehaviorType.Exit)
             {
                 Log.Info("Begin Exit Actions!");
-                MotionBehaviorTask.SyncExecuteBehavior(motionBasedBehavior.RobotActions);
+                MotionBehaviorTask.SyncExecuteBehavior(_contextServer, motionBasedBehavior.RobotActions);
                 Log.Info("Finish Exit Actions!");
             }
         }

@@ -166,6 +166,15 @@ namespace Experimot.Scheduler
                                 _socket.Send(json);
                             }
                         }
+                        else if (req.Contains("world_frame"))
+                        {
+                            var context = TinyIoCContainer.Current.Resolve<Context>();
+                            if (context != null)
+                            {
+                                string json = JsonConvert.SerializeObject(context.WorldFrame);
+                                _socket.Send(json);
+                            }
+                        }
                         else
                         {
                             _socket.Send(UnknownRequest + string.Join(", ", SupportedRequests));

@@ -50,6 +50,44 @@ public class MotionBehaviorTask : Quartz.IJob
         return humanInfo;
     }
 
+    public static string GetRobotInfo(string contextServer)
+    {
+        string robotInfo = string.Empty;
+        if (!string.IsNullOrEmpty(contextServer))
+        {
+            using (var ctx = NetMQContext.Create())
+            {
+                using (var sock = ctx.CreateRequestSocket())
+                {
+                    sock.Connect(contextServer);
+                    Console.WriteLine(@"Getting updated information about the robot");
+                    sock.Send("robot");
+                    robotInfo = sock.ReceiveString();
+                }
+            }
+        }
+        return robotInfo;
+    }
+
+    public static string GetWorldFrame(string contextServer)
+    {
+        string worldFrame = string.Empty;
+        if (!string.IsNullOrEmpty(contextServer))
+        {
+            using (var ctx = NetMQContext.Create())
+            {
+                using (var sock = ctx.CreateRequestSocket())
+                {
+                    sock.Connect(contextServer);
+                    Console.WriteLine(@"Getting the world Frame");
+                    sock.Send("world_frame");
+                    worldFrame = sock.ReceiveString();
+                }
+            }
+        }
+        return worldFrame;
+    }
+
     public static int GestureTriggerCount(string humanStr, string triggerName, int confidence)
     {
         if (!string.IsNullOrEmpty(humanStr))
@@ -96,7 +134,7 @@ public class MotionBehaviorTask : Quartz.IJob
                 // Execute Init actions only once
                 if (!behavior.InitActionsComplete)
                 {
-                    SyncExecuteBehavior(behavior.InitActions);
+                    SyncExecuteBehavior(contextServer, behavior.InitActions);
                     behavior.InitActionsComplete = true;
                 }
 
@@ -172,7 +210,7 @@ public class MotionBehaviorTask : Quartz.IJob
                 // Execute exit actions only once
                 if (behavior.CyclicActionsComplete && !behavior.ExitActionsComplete)
                 {
-                    SyncExecuteBehavior(behavior.ExitActions);
+                    SyncExecuteBehavior(contextServer, behavior.ExitActions);
                     behavior.ExitActionsComplete = true;
                 }
             }
@@ -183,7 +221,7 @@ public class MotionBehaviorTask : Quartz.IJob
         }
     }
 
-    public static void SyncExecuteBehavior(IList<BehaviorInfo> behaviorList)
+    public static void SyncExecuteBehavior(string contextServer, IList<BehaviorInfo> behaviorList)
     {
         try
         {
@@ -192,6 +230,7 @@ public class MotionBehaviorTask : Quartz.IJob
 
                 foreach (var behaviorInfo in behaviorList)
                 {
+                    //var robotString = 
                     using (var ctx = NetMQContext.Create())
                     {
                         using (var sock = ctx.CreateRequestSocket())
