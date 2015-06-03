@@ -14,7 +14,14 @@ namespace Experimot.Scheduler.Data
     public class Context : INotifyPropertyChanged
     {
         private Robot _robot;
-        private readonly Pose _worldFrame = new Pose();
+
+        private readonly Pose _worldFrame = new Pose()
+        {
+            id = 0,
+            name = "WorldFrame",
+            position = new Vector3d() {x = 0, y = 0, z = 0},
+            orientation = new Quaternion() {w = 1, x = 0, y = 0, z = 0}
+        };
         private BindableCollection<Human> _humans;
         private IDictionary<string, ManipulatableObject> _objects;
         private readonly object _object = new object();
@@ -64,6 +71,11 @@ namespace Experimot.Scheduler.Data
         {
             get { return _behaviorModules; }
             set { _behaviorModules = value; }
+        }
+
+        public Pose WorldFrame
+        {
+            get { return _worldFrame; }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

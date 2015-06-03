@@ -76,10 +76,12 @@ namespace Experimot.Localization.Logger
                     Console.WriteLine("Enter 0 for 6D pose and 1 for pose on a plane!");
                     string c = Console.ReadLine();
                     Task<IList<Pose>> logTask = null;
+                    Task<IList<Pose>> humanTask = null;
                     Task<IList<PlanarPoseExt>> logPlanarTask = null;
                     if (c == "0")
                     {
                         logTask = Task.Factory.StartNew(() => LogLocalizationInfo(info));
+                        humanTask = Task.Factory.StartNew(() => LogTorsoInfo(info));
                     }
                     else
                     {
@@ -87,14 +89,15 @@ namespace Experimot.Localization.Logger
                     }
                     Console.WriteLine("Enter stop to stop logging !");
 
-                    //string dummy = Console.ReadLine();
-                    //Console.WriteLine("Received stop !");
-                    //if (dummy == "stop")
-                    //{
-                    _stopTask = true;
+                    string dummy = Console.ReadLine();
+                    Console.WriteLine("Received stop !");
+                    if (dummy == "stop")
+                    {
+                        _stopTask = true;
 
-                    //}
+                    }
                     if (logTask != null) logTask.Wait();
+                    if (humanTask != null) humanTask.Wait();
                     if (logPlanarTask != null) logPlanarTask.Wait(new TimeSpan(0, 0, 5));
                     Console.WriteLine("Enter the file name to which the data has to be saved");
                     string fileName = Console.ReadLine();
@@ -115,6 +118,16 @@ namespace Experimot.Localization.Logger
                             }
 
                         }
+                        if (humanTask != null)
+                        {
+                            using (var writer = File.CreateText(fileName + "human"))
+                            {
+                                using (var csv = new CsvWriter(writer))
+                                {
+                                    csv.WriteRecords(humanTask.Result);
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -128,11 +141,11 @@ namespace Experimot.Localization.Logger
 
         private static IList<Pose> LogLocalizationInfo(object info)
         {
-            IList<Pose> poseList = new List<Pose>();
+            List<Pose> poseList = new List<Pose>();
             Node nodeInfo = info as Node;
             if (nodeInfo != null)
             {
-                Subscribe subscriber = nodeInfo.subscriber.FirstOrDefault(subscribe => subscribe.msg_type == "Pose");
+                Subscribe subscriber = nodeInfo.subscriber.FirstOrDefault(subscribe => subscribe.msg_type == "Pose_V");
                 if (subscriber != null)
                 {
                     Console.WriteLine("Creating context");
@@ -161,14 +174,79 @@ namespace Experimot.Localization.Logger
                                             var poses = Serializer.Deserialize<Pose_V>(memStream);
                                             if (poses != null)
                                             {
-                                                var pose = poses.pose.FirstOrDefault(s => s.name == "torso_frame_world");
-                                                if (pose != null)
+                                                poseList.AddRange(poses.pose);
+                                                Console.Write(".");
+                                                //var pose = poses.pose.FirstOrDefault(s => s.name == "torso_frame_world");
+                                                //if (pose != null)
+                                                //{
+                                                //    pose.id = id++;
+                                                //    pose.name = DateTime.Now.Ticks.ToString();
+                                                //    Console.Write(".");
+                                                //    poseList.Add(pose);
+                                                //}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        System.Threading.Thread.Sleep(50);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No valid publisher of Pose");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Node info empty");
+            }
+            Console.WriteLine("Completing the logging task");
+            return poseList;
+        }
+
+        private static IList<Pose> LogTorsoInfo(object info)
+        {
+            List<Pose> poseList = new List<Pose>();
+            Node nodeInfo = info as Node;
+            if (nodeInfo != null)
+            {
+                Subscribe subscriber = nodeInfo.subscriber.FirstOrDefault(subscribe => subscribe.msg_type == "Humans");
+                if (subscriber != null)
+                {
+                    Console.WriteLine("Creating context");
+                    using (var context = NetMQContext.Create())
+                    {
+                        Console.WriteLine("Creating socket");
+                        using (var socket = context.CreateSubscriberSocket())
+                        {
+                            var addr = string.Format("{0}:{1}", subscriber.host, subscriber.port);
+                            Console.WriteLine("Connecting to {0}", addr);
+                            socket.Connect(addr);
+                            Console.WriteLine("Subscribing to {0}", subscriber.topic);
+                            socket.Subscribe(subscriber.topic);
+                            uint id = 1;
+                            while (!_stopTask)
+                            {
+                                var topic = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, 100));
+                                if (topic != null)
+                                {
+                                    byte[] msg = socket.Receive();
+                                    if (msg != null)
+                                    {
+                                        using (var memStream = new MemoryStream(msg))
+                                        {
+                                            var humans = Serializer.Deserialize<Humans>(memStream);
+                                            foreach (var human in humans.human)
+                                            {
+                                                var pose = new Pose()
                                                 {
-                                                    pose.id = id++;
-                                                    pose.name = DateTime.Now.Ticks.ToString();
-                                                    Console.Write(".");
-                                                    poseList.Add(pose);
-                                                }
+                                                    id = (uint) human.id,
+                                                    position = human.torso_position,
+                                                    orientation = human.orientation
+                                                };
+                                                poseList.Add(pose);
                                             }
                                         }
                                     }

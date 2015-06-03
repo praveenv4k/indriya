@@ -119,7 +119,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="true" name="simulation">
+    <node enabled="false" name="simulation">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\experimot_rave.exe</path>
@@ -169,7 +169,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false" name="localization_logger">
+    <node enabled="true" name="localization_logger">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Localization.Logger\Experimot.Localization.Logger.exe</path>
@@ -185,6 +185,13 @@
           <topic>TPP</topic>
           <msg_type>Pose_V</msg_type>
           <name>TorsoPoseListener</name>
+        </subscribe>
+        <subscribe>
+          <host>tcp://localhost</host>
+          <port>5571</port>
+          <topic>HPP</topic>
+          <msg_type>Humans</msg_type>
+          <name>HumanPosePublisher</name>
         </subscribe>
         <subscribe>
           <host>tcp://localhost</host>
