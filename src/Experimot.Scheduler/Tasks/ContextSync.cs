@@ -191,7 +191,7 @@ namespace Experimot.Scheduler.Tasks
                                     MethodInfo method = typeof (Serializer).GetMethod("Deserialize");
                                     MethodInfo generic = method.MakeGenericMethod(delegateInfo.ArgType);
                                     var ret = generic.Invoke(null, new object[] {memStream});
-                                    App.Current.Dispatcher.Invoke((Action)delegate // <--- HERE
+                                    App.Current.Dispatcher.Invoke(delegate // <--- HERE
                                     {
                                         delegateInfo.DelegateType.DynamicInvoke(new object[] { ret });
                                     });

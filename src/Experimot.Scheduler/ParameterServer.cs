@@ -71,7 +71,10 @@ namespace Experimot.Scheduler
                                 {
                                     if (_worldCtx != null)
                                     {
-                                        _worldCtx.RegisterMotionRecognitionModule(motionModule);
+                                        App.Current.Dispatcher.Invoke(delegate // <--- HERE
+                                        {
+                                            _worldCtx.RegisterMotionRecognitionModule(motionModule);
+                                        });
                                     }
                                     Log.InfoFormat(@"Module name: {0}", motionModule.name);
                                     _socket.Send("Registration successful!");
@@ -86,7 +89,10 @@ namespace Experimot.Scheduler
                                 {
                                     if (_worldCtx != null)
                                     {
-                                        _worldCtx.RegisterRobotBehaviorModule(behaviorModule);
+                                        App.Current.Dispatcher.Invoke(delegate // <--- HERE
+                                        {
+                                            _worldCtx.RegisterRobotBehaviorModule(behaviorModule);
+                                        });
                                     }
                                     Log.InfoFormat(@"Module name: {0}", behaviorModule.name);
                                     _socket.Send("Registration successful!");
