@@ -237,15 +237,25 @@ public class MotionBehaviorTask : Quartz.IJob
                         {
                             if (behaviorInfo.BehaviorName == "Say Expressively")
                             {
-                                var msg = behaviorInfo.Parameters.TryGetAndReturn("msg") as string;
-                                var arg = behaviorInfo.Parameters.TryGetAndReturn("arg") as string;
+                                var msg = string.Empty;
+                                var arg = string.Empty;
+                                var msgDict = behaviorInfo.Parameters.TryGetAndReturn("msg") as Dictionary<string,object>;
+                                var argDict = behaviorInfo.Parameters.TryGetAndReturn("arg") as Dictionary<string, object>;
+                                if (msgDict != null && argDict != null)
+                                {
+                                    msg = msgDict.TryGetAndReturn("value") as string;
+                                    arg = argDict.TryGetAndReturn("value") as string;
+                                }
+                                Log.InfoFormat("Msg: {0}, Arg: {1}", msg, arg);
                                 if (!string.IsNullOrEmpty(msg) && !string.IsNullOrEmpty(arg))
                                 {
-                                    if (arg == behavior.Trigger)
+                                    var newMsg = string.Empty;
+                                    if (arg == behavior.TriggerCountVariable)
                                     {
-                                        var newMsg = string.Format(msg, count);
+                                        newMsg = string.Format(msg, count);
                                         behaviorInfo.Parameters["msg"] = newMsg;
                                     }
+                                    Log.InfoFormat("New Msg: {0}", newMsg);
                                 }
                             }
                         }

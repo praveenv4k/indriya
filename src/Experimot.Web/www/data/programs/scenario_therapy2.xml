@@ -1,0 +1,50 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_simple" id="9" inline="false" x="113" y="113">
+    <mutation run_until="true" run_logic="(LiftLeftHandCount &lt;= 2)"></mutation>
+    <field name="behavior_name">behavior</field>
+    <field name="triggers">LiftHand_Left</field>
+    <field name="confidence_levels">95</field>
+    <field name="trigger_count">LiftLeftHandCount</field>
+    <field name="priorities">normal</field>
+    <field name="execution">until</field>
+    <statement name="DO">
+      <block type="animated_say_action_arg" id="10" inline="true">
+        <mutation say_arg="LiftLeftHandCount"></mutation>
+        <field name="PREFIX_TEXT">You completed the exercise</field>
+        <field name="SUFFIX_TEXT">times !</field>
+        <value name="ARG_NAME">
+          <block type="variables_get" id="11">
+            <field name="VAR">LiftLeftHandCount</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <value name="RUN_UNTIL">
+      <block type="logic_compare" id="12" inline="true">
+        <field name="OP">LTE</field>
+        <value name="A">
+          <block type="variables_get" id="13">
+            <field name="VAR">LiftLeftHandCount</field>
+          </block>
+        </value>
+        <value name="B">
+          <block type="math_number" id="14">
+            <field name="NUM">2</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="behavior_exit" id="15" x="213" y="663">
+    <statement name="DO">
+      <block type="animated_say_action" id="16">
+        <field name="SAY_TEXT">You did a great job today!</field>
+        <next>
+          <block type="animated_say_action" id="17">
+            <field name="SAY_TEXT">I am looking forward to guide you next time!</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
