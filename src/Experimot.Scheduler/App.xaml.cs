@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using Experimot.Core;
 using Nancy.TinyIoc;
 
@@ -33,7 +34,7 @@ namespace Experimot.Scheduler
 
         private void RunTests(experimot_config config)
         {
-            Tests.Test.TestReadBehaviorXml(config);
+            //Tests.Test.TestReadBehaviorXml(config);
             //Tests.Test.TestJson(JsonConvert.SerializeObject(config));
             //Tests.Test.TestProgramGeneration(config);
             //Tests.Test.TestJsonToProgram(config);
