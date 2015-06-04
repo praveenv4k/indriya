@@ -309,6 +309,24 @@ public class MainProgramUtil
                     }
                 }
             }
+            else if (blockType.Value == "therapy_action")
+            {
+                var robotActions = LinqXmlUtil.GetElementsAnyNS(behaviorBlock, "field");
+                if (robotActions != null)
+                {
+                    foreach (var robotAction in robotActions)
+                    {
+                        var actionType = robotAction.Attribute("name");
+                        if (actionType.Value == "therapy_exercise")
+                        {
+                            return new BehaviorInfo
+                            {
+                                BehaviorName = robotAction.Value
+                            };
+                        }
+                    }
+                }
+            }
             else if (blockType.Value == "animated_say_action_arg")
             {
                 var robotActions = LinqXmlUtil.GetElementsAnyNS(behaviorBlock, "field");

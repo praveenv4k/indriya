@@ -242,6 +242,13 @@ Blockly.CSharp['approach_action'] = function (block) {
     return code;
 };
 
+Blockly.CSharp['therapy_action'] = function(block) {
+    var therapyName = block.getFieldValue('therapy_exercise');
+    var code = 'var therapy_action = ' + therapyName + ';\n';
+    code += 'do_action(therapy_action);\n';
+    return code;
+};
+
 Blockly.CSharp['trigger'] = function (block) {
     var dropdown_triggers = block.getFieldValue('triggers');
     // TODO: Assemble CSharp into code variable.
