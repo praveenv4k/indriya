@@ -34,7 +34,7 @@ namespace Experimot.Scheduler
 
         private void RunTests(experimot_config config)
         {
-            //Tests.Test.TestReadBehaviorXml(config);
+            Tests.Test.TestReadBehaviorXml(config);
             //Tests.Test.TestJson(JsonConvert.SerializeObject(config));
             //Tests.Test.TestProgramGeneration(config);
             //Tests.Test.TestJsonToProgram(config);
