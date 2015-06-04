@@ -95,10 +95,10 @@ public class MotionBehaviorTask : Quartz.IJob
         }
         if (orient.HasValues)
         {
-            q.X = pos.Value<float>("x");
-            q.Y = pos.Value<float>("y");
-            q.Z = pos.Value<float>("z");
-            q.W = pos.Value<float>("w");
+            q.X = orient.Value<float>("x");
+            q.Y = orient.Value<float>("y");
+            q.Z = orient.Value<float>("z");
+            q.W = orient.Value<float>("w");
         }
         Matrix m = Matrix.RotationQuaternion(q);
         m.TranslationVector = t;
@@ -121,10 +121,10 @@ public class MotionBehaviorTask : Quartz.IJob
         }
         if (orient.HasValues)
         {
-            q.X = pos.Value<float>("x");
-            q.Y = pos.Value<float>("y");
-            q.Z = pos.Value<float>("z");
-            q.W = pos.Value<float>("w");
+            q.X = orient.Value<float>("x");
+            q.Y = orient.Value<float>("y");
+            q.Z = orient.Value<float>("z");
+            q.W = orient.Value<float>("w");
         }
         Matrix m = Matrix.RotationQuaternion(q);
         m.TranslationVector = t;
@@ -203,6 +203,8 @@ public class MotionBehaviorTask : Quartz.IJob
                 // Evaluate Expression
                 string humanInfo = GetHumanInfo(contextServer, behavior.Id);
                 var count = GestureTriggerCount(humanInfo, behavior.Trigger, behavior.ConfidenceLevel);
+                // Increment count once
+                count = count + 1;
                 if (!string.IsNullOrEmpty(humanInfo))
                 {
                     Console.WriteLine(humanInfo);

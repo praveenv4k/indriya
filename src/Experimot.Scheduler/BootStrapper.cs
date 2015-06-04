@@ -22,13 +22,39 @@ namespace Experimot.Scheduler
 {
     internal class BootStrapper
     {
+        /// <summary>
+        /// Startup flag
+        /// </summary>
         private bool _startup;
+        /// <summary>
+        /// Shutdown flag
+        /// </summary>
         private bool _shutdown;
+        /// <summary>
+        /// Logger
+        /// </summary>
         private static readonly ILog Log = LogManager.GetLogger(typeof (BootStrapper));
+        /// <summary>
+        /// List of processes
+        /// </summary>
         private readonly IList<Process> _processes;
+        /// <summary>
+        /// List of async task
+        /// </summary>
         private readonly IList<Task> _tasks;
+        /// <summary>
+        /// Thread synchronization flag
+        /// </summary>
         private volatile bool _shouldStop;
+        /// <summary>
+        /// Main program process
+        /// </summary>
+        private Process _mainProgramProcess;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="configFile">Configuration XML File</param>
         public BootStrapper(string configFile)
         {
             RegisterTypes();
@@ -70,6 +96,10 @@ namespace Experimot.Scheduler
             InitializeScheduler();
         }
 
+        /// <summary>
+        /// Parameter server task
+        /// </summary>
+        /// <param name="arg">An instance of the ParameterServer</param>
         private void RunParameterServer(object arg)
         {
             try
@@ -94,6 +124,10 @@ namespace Experimot.Scheduler
             }
         }
 
+        /// <summary>
+        /// Context Server task
+        /// </summary>
+        /// <param name="arg">An instance of ContextServer</param>
         private void RunContextServer(object arg)
         {
             try
@@ -118,6 +152,11 @@ namespace Experimot.Scheduler
             }
         }
 
+
+        /// <summary>
+        /// Web server task
+        /// </summary>
+        /// <param name="arg">An instance of the ExperimotWeb</param>
         private void RunExperimotServer(object arg)
         {
             try
@@ -140,6 +179,10 @@ namespace Experimot.Scheduler
             }
         }
 
+        /// <summary>
+        /// Context Synchronization task
+        /// </summary>
+        /// <param name="arg">An instance of the ContextSync</param>
         private void RunContextSync(object arg)
         {
             try
@@ -162,6 +205,9 @@ namespace Experimot.Scheduler
             }
         }
 
+        /// <summary>
+        /// Register the types into the IOC Container
+        /// </summary>
         private void RegisterTypes()
         {
             TinyIoCContainer.Current.Register<BootStrapper>().AsSingleton();
@@ -173,6 +219,9 @@ namespace Experimot.Scheduler
             TinyIoCContainer.Current.Register<ExperimotWeb>().AsSingleton();
         }
 
+        /// <summary>
+        /// Initialize the Job Scheduler
+        /// </summary>
         private void InitializeScheduler()
         {
             // our properties that enable XML configuration plugin
@@ -192,6 +241,9 @@ namespace Experimot.Scheduler
             scheduler.ListenerManager.AddJobListener(new JobListenerImpl(), GroupMatcher<JobKey>.AnyGroup());
         }
 
+        /// <summary>
+        /// Startup the processes configured in the configuration XML
+        /// </summary>
         public void StartUp()
         {
             var config = TinyIoCContainer.Current.Resolve<experimot_config>();
@@ -245,7 +297,7 @@ namespace Experimot.Scheduler
                                 myProcess.Start();
                                 Log.InfoFormat("Started Process : {0} {1}", exeFile, args);
                                 _processes.Add(myProcess);
-                                myProcess.Exited += myProcess_Exited;
+                                myProcess.Exited += ProcessExited;
                                 Thread.Sleep(200);
                                 //break;
                             }
@@ -266,7 +318,12 @@ namespace Experimot.Scheduler
             }
         }
 
-        private void myProcess_Exited(object sender, EventArgs e)
+        /// <summary>
+        /// Process Exited Event handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ProcessExited(object sender, EventArgs e)
         {
             var process = sender as Process;
             if (process != null)
@@ -275,6 +332,9 @@ namespace Experimot.Scheduler
             }
         }
 
+        /// <summary>
+        /// Shutdown the initialized processes and tasks
+        /// </summary>
         public void Shutdown()
         {
             try
@@ -328,6 +388,10 @@ namespace Experimot.Scheduler
             }
         }
 
+        /// <summary>
+        /// Request the main program generation
+        /// </summary>
+        /// <param name="jsonString"></param>
         public void RequestMainProgramGeneration(string jsonString)
         {
             var config = TinyIoCContainer.Current.Resolve<experimot_config>();
@@ -339,6 +403,10 @@ namespace Experimot.Scheduler
             }
         }
 
+        /// <summary>
+        /// Request main program generation
+        /// </summary>
+        /// <param name="map"></param>
         public void RequestMainProgramGeneration(IDictionary<string, string> map)
         {
             var config = TinyIoCContainer.Current.Resolve<experimot_config>();
@@ -352,8 +420,10 @@ namespace Experimot.Scheduler
             }
         }
 
-        private Process _mainProgramProcess;
-
+        /// <summary>
+        /// Main program execution request
+        /// </summary>
+        /// <param name="request"></param>
         public void MainProgramExecutionRequest(ExecutionRequest request)
         {
             var config = TinyIoCContainer.Current.Resolve<experimot_config>();
