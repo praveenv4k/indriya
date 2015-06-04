@@ -83,8 +83,8 @@ Blockly.Blocks.behaviors.GestureProperties =
 [
     ["WaveLeft", 'Greet_Left'],
     ["WaveRight", 'Greet_Right'],
-    ["Bow", 'Bow'],
-    ["LiftLeftHand", "LiftLeftHand"]
+    ["LiftLeftHand", "LiftHand_Left"],
+    ["LiftRightHand", "LiftHand_Right"]
 ];
 
 Blockly.Blocks.behaviors.PriorityProperties =
@@ -777,11 +777,11 @@ Blockly.Blocks['animated_say_action_arg'] = {
     mutationToDom: function() {
         var container = document.createElement('mutation');
         //var argName = this.getInput('ARG_NAME');
-        if (argName != undefined) {
+        //if (argName != undefined) {
             Blockly.CSharp.init(this.workspace);
             //container.setAttribute('say_arg', argName);
             container.setAttribute('say_arg', Blockly.CSharp.valueToCode(this, 'ARG_NAME', Blockly.CSharp.ORDER_ATOMIC));
-        }
+        //}
         return container;
     },
     /**
