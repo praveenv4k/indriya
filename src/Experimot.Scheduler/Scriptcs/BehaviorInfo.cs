@@ -19,6 +19,7 @@ public class BehaviorInfo: ICloneable
     public string BehaviorName { get; set; }
     public string FunctionName { get; set; }
     public IDictionary<string, object> Parameters { get; set; }
+    public string ExecutionEvalExpression { get; set; }
 
     public override string ToString()
     {

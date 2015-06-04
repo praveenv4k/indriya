@@ -211,6 +211,23 @@ Blockly.CSharp['animated_say_action'] = function (block) {
     return code;
 };
 
+Blockly.CSharp['animated_say_action_arg'] = function(block) {
+    //return "";
+    var arg_name = Blockly.CSharp.valueToCode(this, 'ARG_NAME', Blockly.CSharp.ORDER_ATOMIC);
+    var prefix_msg = block.getFieldValue('PREFIX_TEXT');
+    var suffix_msg = block.getFieldValue('SUFFIX_TEXT');
+    //console.log(dropdown_actions);
+    // TODO: Assemble CSharp into code variable.
+    //var code = '\'' + dropdown_actions + '\'';
+    //var code = 'execute_action(' + dropdown_actions + '); \n';
+    var code = 'var msg = \"' + prefix_msg + ' {0} ' + suffix_msg + '\";\n';
+    code += 'var text = string.Format(msg,' + arg_name + ');\n';
+    code += 'animated_say(text);\n';
+    //var code =  dropdown_actions ;
+    //return [code, Blockly.CSharp.ORDER_ATOMIC];
+    return code;
+};
+
 Blockly.CSharp['approach_action'] = function (block) {
     //return "";
     var distance = block.getFieldValue('approach_distance');
