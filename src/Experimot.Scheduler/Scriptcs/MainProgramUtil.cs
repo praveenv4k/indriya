@@ -95,7 +95,7 @@ public class MainProgramUtil
         {
             var type = block.Attribute("type");
             MotionBasedBehavior motionBehavior = null;
-            if (type.Value == "behavior_sleek")
+            if (type.Value == "behavior_sleek" || type.Value == "behavior_simple")
             {
                 motionBehavior = GetMotionBasedBehavior(block);
                 motionBehavior.BehaviorType = BehaviorType.Behavior;

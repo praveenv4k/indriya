@@ -17,13 +17,13 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="400"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <cefSharp:ChromiumWebBrowser DataContext="{Binding TabViewModel}" Grid.Row="0" Grid.Column="0" x:Name="browser"
+        <!--<cefSharp:ChromiumWebBrowser DataContext="{Binding TabViewModel}" Grid.Row="0" Grid.Column="0" x:Name="browser"
                                   Address="{Binding Address, Mode=TwoWay}"
                                   Title="{Binding Title, Mode=OneWayToSource}"
                                   AllowDrop="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                                   WebBrowser="{Binding WebBrowser, Mode=OneWayToSource}">
             
-        </cefSharp:ChromiumWebBrowser>
+        </cefSharp:ChromiumWebBrowser>-->
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" DataContext="{Binding Context}">
             <TextBlock HorizontalAlignment="Center" FontSize="18">World Description</TextBlock>
             <Expander Header="Robot Information" DataContext="{Binding Robot}" HorizontalAlignment="Stretch" IsExpanded="False">
@@ -83,10 +83,46 @@
             </Expander>
             <Expander Header="Object Information" DataContext="{Binding Robot}" HorizontalAlignment="Stretch" IsExpanded="False">
             </Expander>
-            <StackPanel Orientation="Horizontal" Margin="5">
+            <Expander Header="Motion Modules" HorizontalAlignment="Stretch" IsExpanded="False">
+                <ItemsControl ItemsSource="{Binding MotionModules}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="DimGray" BorderThickness="2" CornerRadius="2">
+                                <Grid Margin="0,0,0,5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock HorizontalAlignment="Center" Text="{Binding Name}" Grid.Row="0" />
+                                    <DataGrid ItemsSource="{Binding Gestures}" Grid.Row="1" IsReadOnly="True"></DataGrid>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Expander>
+            <Expander Header="Behavior Modules" HorizontalAlignment="Stretch" IsExpanded="False">
+                <ItemsControl ItemsSource="{Binding BehaviorModules}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="DimGray" BorderThickness="2" CornerRadius="2">
+                                <Grid Margin="0,0,0,5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock HorizontalAlignment="Center" Text="{Binding name}" Grid.Row="0" />
+                                    <DataGrid ItemsSource="{Binding behaviors}" Grid.Row="1" IsReadOnly="True"></DataGrid>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Expander>
+            <!--<StackPanel Orientation="Horizontal" Margin="5">
                 <Button Height="35" Width="100" Margin="5" Click="ProgramRun">Run</Button>
                 <Button Height="35" Width="100" Margin="5" Click="ProgramStop">Stop</Button>
-            </StackPanel>
+            </StackPanel>-->
         </StackPanel>
         <RichTextBox x:Name="textBox" Grid.Row="1" Grid.ColumnSpan="2">
             
