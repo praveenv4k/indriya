@@ -309,6 +309,49 @@ public class MainProgramUtil
                     }
                 }
             }
+            else if (blockType.Value == "animated_say_action_arg")
+            {
+                var robotActions = LinqXmlUtil.GetElementsAnyNS(behaviorBlock, "field");
+                if (robotActions != null)
+                {
+                    var prefix = string.Empty;
+                    var suffix = string.Empty;
+                    var arg = string.Empty;
+                    foreach (var robotAction in robotActions)
+                    {
+                        var actionType = robotAction.Attribute("name");
+                        if (actionType.Value == "PREFIX_TEXT")
+                        {
+                            prefix = robotAction.Value;
+                        }
+                        if (actionType.Value == "SUFFIX_TEXT")
+                        {
+                            suffix = robotAction.Value;
+                        }
+                    }
+                    var mutationBlock = LinqXmlUtil.GetElementsAnyNS(behaviorBlock, "mutation").ToList();
+                    if (mutationBlock.Count > 0)
+                    {
+                        var mutation = mutationBlock[0];
+                        var runLogicAttr = mutation.Attribute("say_arg");
+                        if (runLogicAttr != null)
+                        {
+                            arg = runLogicAttr.Value;
+                        }
+                    }
+                    var msg = string.Concat(prefix, " {0} ", suffix);
+                    return new BehaviorInfo
+                    {
+                        BehaviorName = "Say Expressively",
+                        Parameters =
+                            new Dictionary<string, object>()
+                            {
+                                {"msg", CreateBehaviorParameterOptions(msg, true, "string")},
+                                {"arg", CreateBehaviorParameterOptions(arg, true, "string")}
+                            }
+                    };
+                }
+            }
             else if (blockType.Value == "approach_action")
             {
                 var robotActions = LinqXmlUtil.GetElementsAnyNS(behaviorBlock, "field");

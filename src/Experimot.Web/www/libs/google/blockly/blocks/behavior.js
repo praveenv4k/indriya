@@ -752,3 +752,55 @@ Blockly.Blocks['animated_say_action'] = {
         this.setTooltip('Say expressively to the human');
     }
 };
+
+Blockly.Blocks['animated_say_action_arg'] = {
+    init: function() {
+        this.setHelpUrl('http://www.example.com/');
+        this.setColour(120);
+        this.appendDummyInput()
+            .appendField("Say Expressively")
+            .appendField(new Blockly.FieldTextInput("default"), "PREFIX_TEXT");
+        this.appendValueInput("ARG_NAME")
+            .setCheck(["String", "Number"]);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldTextInput("!"), "SUFFIX_TEXT");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setTooltip('');
+    },
+    /**
+      * Create XML to represent whether the 'divisorInput' should be present.
+      * @return {Element} XML storage element.
+      * @this Blockly.Block
+      */
+    mutationToDom: function() {
+        var container = document.createElement('mutation');
+        //var argName = this.getInput('ARG_NAME');
+        if (argName != undefined) {
+            Blockly.CSharp.init(this.workspace);
+            //container.setAttribute('say_arg', argName);
+            container.setAttribute('say_arg', Blockly.CSharp.valueToCode(this, 'ARG_NAME', Blockly.CSharp.ORDER_ATOMIC));
+        }
+        return container;
+    },
+    /**
+     * Parse XML to restore the 'divisorInput'.
+     * @param {!Element} xmlElement XML storage element.
+     * @this Blockly.Block
+     */
+    domToMutation: function(xmlElement) {
+        //var runUntilInput = (xmlElement.getAttribute('run_until') == 'true');
+        //this.updateShape_(runUntilInput);
+    },
+    /**
+    * Modify this block to have (or not have) an input for 'is divisible by'.
+    * @param {boolean} divisorInput True if this block has a divisor input.
+    * @private
+    * @this Blockly.Block
+    */
+    updateShape_: function(runUntilInput) {
+        // Add or remove a Value Input.
+        
+    }
+};
