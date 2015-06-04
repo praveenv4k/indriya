@@ -225,8 +225,10 @@ public class MotionBehaviorTask : Quartz.IJob
                 }
                 if (!behavior.CyclicActionsComplete)
                 {
-                    foreach (var behaviorInfo in behavior.RobotActions)
+                    foreach (var behaviorItem in behavior.RobotActions)
                     {
+                        var behaviorInfo = behaviorItem.Clone() as BehaviorInfo;
+
                         // Before executing each action get the latest information about the human
                         humanInfo = GetHumanInfo(contextServer, behavior.Id);
                         if (!string.IsNullOrEmpty(humanInfo))
@@ -256,7 +258,7 @@ public class MotionBehaviorTask : Quartz.IJob
                                         if (msgDict != null) msgDict["value"] = newMsg;
                                         //behaviorInfo.Parameters["msg"] = newMsg;
                                     }
-                                    Log.InfoFormat("New Msg: {0}", newMsg);
+                                    Log.InfoFormat("New Msg: {0}, Count : {1}", newMsg, count);
                                 }
                             }
                         }
