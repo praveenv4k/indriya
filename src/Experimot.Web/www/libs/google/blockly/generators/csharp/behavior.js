@@ -52,6 +52,37 @@
     return code;
 };
 
+
+Blockly.CSharp['behavior_simple'] = function (block) {
+    var text_behavior_name = block.getFieldValue('behavior_name');
+    var dropdown_triggers = block.getFieldValue('triggers');
+    var count_variable = block.getFieldValue('trigger_count');
+    var dropdown_confidence_levels = block.getFieldValue('confidence_levels');
+    var statements_do = Blockly.CSharp.statementToCode(block, 'DO');
+    var dropdown_priorities = block.getFieldValue('priorities');
+    var execution = block.getFieldValue('execution');
+    // TODO: Assemble Python into code variable.
+    var inputExists = block.getInput('RUN_UNTIL');
+    var execute_logic = undefined;
+    if (inputExists) {
+        execute_logic = Blockly.CSharp.valueToCode(this, 'RUN_UNTIL', Blockly.CSharp.ORDER_ATOMIC);
+    }
+    var code = 'function ' + text_behavior_name + '(){\n';
+    code += 'register_trigger(\"' + dropdown_triggers + '\", ' + dropdown_confidence_levels + ');\n';
+    code += 'register_trigger_count(\"' + dropdown_triggers + '\", \"' + count_variable + '\");\n';
+    code += 'set_priority(\"' + dropdown_priorities + '\");\n';
+    if (execute_logic != undefined) {
+        code += 'while(evaluate_execution(\"' + execution + '\",\"' + execute_logic + '\")){\n';
+    } else {
+        code += 'while(evaluate_execution(\"' + execution + '\")){\n';
+    }
+    code += statements_do;
+    code += '}\n';
+    code += '}\n';
+
+    return code;
+};
+
 Blockly.CSharp['behavior_startup'] = function (block) {
     var statements_do = Blockly.CSharp.statementToCode(block, 'DO');
     // TODO: Assemble Python into code variable.
