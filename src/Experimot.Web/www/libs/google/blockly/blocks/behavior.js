@@ -680,7 +680,7 @@ Blockly.Blocks['trigger'] = {
         this.setColour(75);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(new Blockly.FieldDropdown([["WaveLeft", "Greet_Left"], ["WaveRight", "Greet_Right"], ["Bow", "Bow"], ["LiftLeftHand", "LiftLeftHand"]]), "triggers");
+            .appendField(new Blockly.FieldDropdown([["WaveLeft", "Greet_Left"], ["WaveRight", "Greet_Right"], ["LiftLeftHand", "LiftHand_Left"], ["LiftRightHand", "LiftHand_Right"]]), "triggers");
         this.setOutput(true);
         this.setTooltip('Motion Trigger');
     }
@@ -731,7 +731,7 @@ Blockly.Blocks['therapy_action'] = {
         this.setColour(215);
         this.appendDummyInput()
             .appendField("Demonstrate therapy exercise ")
-            .appendField(new Blockly.FieldDropdown([["Lifting left hand", "LIFT_LEFT_HAND"], ["Lifting right hand", "LIFT_RIGHT_HAND"], ["Lifting left leg", "LIFT_LEFT_LEG"]]), "therapy_exercise");
+            .appendField(new Blockly.FieldDropdown([["Lifting left hand", "liftLeftHand"], ["Lifting right hand", "liftRightHand"]]), "therapy_exercise");
         this.setPreviousStatement(true);
         this.setNextStatement(true, "robot_action");
         this.setTooltip('Demonstrate a particular therapy action');
