@@ -357,7 +357,7 @@ public class MainProgramUtil
                             arg = runLogicAttr.Value;
                         }
                     }
-                    var msg = string.Concat(prefix, " {0} ", suffix);
+                    var msg = string.Concat(prefix, " {{0}} ", suffix);
                     return new BehaviorInfo
                     {
                         BehaviorName = "Say Expressively",
