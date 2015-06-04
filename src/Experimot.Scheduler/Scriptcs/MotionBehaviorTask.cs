@@ -253,7 +253,8 @@ public class MotionBehaviorTask : Quartz.IJob
                                     if (arg == behavior.TriggerCountVariable)
                                     {
                                         newMsg = string.Format(msg, count);
-                                        behaviorInfo.Parameters["msg"] = newMsg;
+                                        if (msgDict != null) msgDict["value"] = newMsg;
+                                        //behaviorInfo.Parameters["msg"] = newMsg;
                                     }
                                     Log.InfoFormat("New Msg: {0}", newMsg);
                                 }
