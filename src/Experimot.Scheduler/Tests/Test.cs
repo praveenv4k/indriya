@@ -132,6 +132,28 @@ namespace Experimot.Scheduler.Tests
                 outputPath = Environment.ExpandEnvironmentVariables(dir ?? "");
                 var behaviors = MainProgramUtil.ReadBehaviorXmlFile(System.IO.Path.Combine(outputPath, "behavior.xml"));
                 Console.WriteLine(@"Behaviors  : {0}", behaviors.Count);
+                if (behaviors.Count > 0)
+                {
+                    var motionBehavior = behaviors[0];
+                    if (motionBehavior.RobotActions.Count > 0)
+                    {
+                        var behavior = motionBehavior.RobotActions[0];
+                        var cloned = (BehaviorInfo)behavior.Clone();
+                        if (cloned.Parameters.Count > 0)
+                        {
+                            string key = cloned.Parameters.Keys.FirstOrDefault();
+                            if (!string.IsNullOrEmpty(key))
+                            {
+                                var param = cloned.Parameters[key] as Dictionary<string, object>;
+                                if (param != null)
+                                {
+                                    param["value"] = "New value";
+                                    Console.WriteLine("Value : {0}", cloned.Parameters[key]);
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 
