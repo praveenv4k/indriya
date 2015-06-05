@@ -1,38 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-//using System.Runtime;
-//using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using Common.Logging;
 
-//public static class DeepCopyHelper
-//{
-//    public static T DeepCopy<T>(T target)
-//    {
 
-//        T result;
-//        BinaryFormatter b = new BinaryFormatter();
-
-//        MemoryStream mem = new MemoryStream();
-
-//        try
-//        {
-//            b.Serialize(mem, target);
-//            mem.Position = 0;
-//            result = (T)b.Deserialize(mem);
-//        }
-//        finally
-//        {
-//            mem.Close();
-//        }
-
-//        return result;
-
-//    }
-//}
-
-//[Serializable()]
 public class BehaviorInfo : ICloneable
 {
     private static readonly ILog Log = LogManager.GetLogger(typeof (BehaviorInfo));

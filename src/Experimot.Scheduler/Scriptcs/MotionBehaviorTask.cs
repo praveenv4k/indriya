@@ -209,22 +209,6 @@ public class MotionBehaviorTask : Quartz.IJob
                 {
                     //Log.Info(humanInfo);
                 }
-                if (behavior.ExecutionLifetime == BehaviorExecutionLifetime.until)
-                {
-                    if (!string.IsNullOrEmpty(behavior.ExecutionEvalExpression) &&
-                        !string.IsNullOrEmpty(behavior.TriggerCountVariable))
-                    {
-                        // Evaluating Termination condition
-                        var expression = new Expression(behavior.ExecutionEvalExpression);
-                        expression.Parameters.Add(behavior.TriggerCountVariable, count);
-                        var result = expression.Evaluate();
-                        bool complete;
-                        if (bool.TryParse(result.ToString(), out complete))
-                        {
-                            behavior.CyclicActionsComplete = !complete;
-                        }
-                    }
-                }
                 if (!behavior.CyclicActionsComplete)
                 {
                     foreach (var behaviorItem in behavior.RobotActions)
@@ -276,6 +260,22 @@ public class MotionBehaviorTask : Quartz.IJob
                     if (behavior.RobotActions.Count == 0)
                     {
                         behavior.CyclicActionsComplete = true;
+                    }
+                    if (behavior.ExecutionLifetime == BehaviorExecutionLifetime.until)
+                    {
+                        if (!string.IsNullOrEmpty(behavior.ExecutionEvalExpression) &&
+                            !string.IsNullOrEmpty(behavior.TriggerCountVariable))
+                        {
+                            // Evaluating Termination condition
+                            var expression = new Expression(behavior.ExecutionEvalExpression);
+                            expression.Parameters.Add(behavior.TriggerCountVariable, count + 1);
+                            var result = expression.Evaluate();
+                            bool complete;
+                            if (bool.TryParse(result.ToString(), out complete))
+                            {
+                                behavior.CyclicActionsComplete = !complete;
+                            }
+                        }
                     }
                 }
                 // Execute exit actions only once

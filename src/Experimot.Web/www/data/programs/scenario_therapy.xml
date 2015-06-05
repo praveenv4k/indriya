@@ -37,7 +37,7 @@
     </statement>
   </block>
   <block type="behavior_simple" id="9" inline="false" x="213" y="313">
-    <mutation run_until="true" run_logic="(LiftLeftHandCount &lt;= 10)"></mutation>
+    <mutation run_until="true" run_logic="(LiftLeftHandCount &lt;= 5)"></mutation>
     <field name="behavior_name">behavior</field>
     <field name="triggers">LiftHand_Left</field>
     <field name="confidence_levels">95</field>
@@ -50,7 +50,7 @@
         <field name="PREFIX_TEXT">You completed the exercise</field>
         <field name="SUFFIX_TEXT">times !</field>
         <value name="ARG_NAME">
-          <block type="variables_get" id="22">
+          <block type="variables_get" id="11">
             <field name="VAR">LiftLeftHandCount</field>
           </block>
         </value>
@@ -60,13 +60,13 @@
       <block type="logic_compare" id="12" inline="true">
         <field name="OP">LTE</field>
         <value name="A">
-          <block type="variables_get" id="30">
+          <block type="variables_get" id="13">
             <field name="VAR">LiftLeftHandCount</field>
           </block>
         </value>
         <value name="B">
           <block type="math_number" id="14">
-            <field name="NUM">10</field>
+            <field name="NUM">5</field>
           </block>
         </value>
       </block>
