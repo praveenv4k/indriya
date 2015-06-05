@@ -1,26 +1,31 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
   <block type="behavior_startup" id="1" x="213" y="13">
     <statement name="DO">
-      <block type="animated_say_action" id="2">
-        <field name="SAY_TEXT">Hello! I am Nao!</field>
+      <block type="robot_action" id="24">
+        <field name="actions">stand</field>
         <next>
-          <block type="animated_say_action" id="3">
-            <field name="SAY_TEXT">The doctor asked me to guide your therapy today!</field>
+          <block type="animated_say_action" id="2">
+            <field name="SAY_TEXT">Hello! I am Nao!</field>
             <next>
-              <block type="animated_say_action" id="4">
-                <field name="SAY_TEXT">At first I will show you the exercise routine</field>
+              <block type="animated_say_action" id="3">
+                <field name="SAY_TEXT">The doctor asked me to guide your therapy today!</field>
                 <next>
-                  <block type="therapy_action" id="5">
-                    <field name="therapy_exercise">liftLeftHand</field>
+                  <block type="animated_say_action" id="4">
+                    <field name="SAY_TEXT">At first I will show you the exercise routine</field>
                     <next>
-                      <block type="animated_say_action" id="6">
-                        <field name="SAY_TEXT">Please do this routine 10 times</field>
+                      <block type="therapy_action" id="5">
+                        <field name="therapy_exercise">liftLeftHand</field>
                         <next>
-                          <block type="animated_say_action" id="7">
-                            <field name="SAY_TEXT">I will count for you!</field>
+                          <block type="animated_say_action" id="6">
+                            <field name="SAY_TEXT">Please do this routine 5 times</field>
                             <next>
-                              <block type="animated_say_action" id="8">
-                                <field name="SAY_TEXT">Make yourself comfortable and start doing the routine slowly</field>
+                              <block type="animated_say_action" id="7">
+                                <field name="SAY_TEXT">I will count for you!</field>
+                                <next>
+                                  <block type="animated_say_action" id="8">
+                                    <field name="SAY_TEXT">Make yourself comfortable and start doing the routine slowly</field>
+                                  </block>
+                                </next>
                               </block>
                             </next>
                           </block>
@@ -79,6 +84,11 @@
         <next>
           <block type="animated_say_action" id="17">
             <field name="SAY_TEXT">I am looking forward to guide you next time!</field>
+            <next>
+              <block type="animated_say_action" id="18">
+                <field name="SAY_TEXT">Thank you and have a nice day!</field>
+              </block>
+            </next>
           </block>
         </next>
       </block>
