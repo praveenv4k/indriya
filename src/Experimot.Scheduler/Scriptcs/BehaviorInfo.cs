@@ -1,38 +1,38 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime;
-using System.Runtime.Serialization.Formatters.Binary;
+//using System.Runtime;
+//using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using Common.Logging;
 
-public static class DeepCopyHelper
-{
-    public static T DeepCopy<T>(T target)
-    {
+//public static class DeepCopyHelper
+//{
+//    public static T DeepCopy<T>(T target)
+//    {
 
-        T result;
-        BinaryFormatter b = new BinaryFormatter();
+//        T result;
+//        BinaryFormatter b = new BinaryFormatter();
 
-        MemoryStream mem = new MemoryStream();
+//        MemoryStream mem = new MemoryStream();
 
-        try
-        {
-            b.Serialize(mem, target);
-            mem.Position = 0;
-            result = (T)b.Deserialize(mem);
-        }
-        finally
-        {
-            mem.Close();
-        }
+//        try
+//        {
+//            b.Serialize(mem, target);
+//            mem.Position = 0;
+//            result = (T)b.Deserialize(mem);
+//        }
+//        finally
+//        {
+//            mem.Close();
+//        }
 
-        return result;
+//        return result;
 
-    }
-}
+//    }
+//}
 
-[Serializable()]
+//[Serializable()]
 public class BehaviorInfo : ICloneable
 {
     private static readonly ILog Log = LogManager.GetLogger(typeof (BehaviorInfo));
@@ -71,9 +71,32 @@ public class BehaviorInfo : ICloneable
 
     public object Clone()
     {
-        //var newObject = (BehaviorInfo) this.MemberwiseClone();
-        //return newObject;
-        return DeepCopyHelper.DeepCopy(this);
+        //var newObject = (BehaviorInfo)this.MemberwiseClone();
+        var newObject = new BehaviorInfo()
+        {
+            ModuleName = ModuleName,
+            Ip = Ip,
+            Port = Port,
+            BehaviorName = BehaviorName,
+            FunctionName = FunctionName,
+            Parameters = new Dictionary<string, object>(),
+            ExecutionEvalExpression = ExecutionEvalExpression
+        };
+        foreach (var parameter in Parameters)
+        {
+            var value = parameter.Value as Dictionary<string, object>;
+            var parameterDict = new Dictionary<string, object>();
+            if (value != null)
+            {
+                foreach (var o in value)
+                {
+                    parameterDict.Add(o.Key, o.Value.ToString());
+                }
+            }
+            newObject.Parameters.Add(parameter.Key, parameterDict);
+        }
+        return newObject;
+        //return DeepCopyHelper.DeepCopy(this);
     }
 }
 
@@ -161,21 +184,21 @@ public class MotionBasedBehavior : ICloneable
     public object Clone()
     {
         var newObject = (MotionBasedBehavior) MemberwiseClone();
-        newObject.InitActions.Clear();
-        newObject.ExitActions.Clear();
-        newObject.RobotActions.Clear();
-        foreach (var behaviorInfo in InitActions)
-        {
-            newObject.InitActions.Add((BehaviorInfo) behaviorInfo.Clone());
-        }
-        foreach (var behaviorInfo in ExitActions)
-        {
-            newObject.ExitActions.Add((BehaviorInfo) behaviorInfo.Clone());
-        }
-        foreach (var behaviorInfo in RobotActions)
-        {
-            newObject.RobotActions.Add((BehaviorInfo) behaviorInfo.Clone());
-        }
+        //newObject.InitActions.Clear();
+        //newObject.ExitActions.Clear();
+        //newObject.RobotActions.Clear();
+        //foreach (var behaviorInfo in InitActions)
+        //{
+        //    newObject.InitActions.Add((BehaviorInfo) behaviorInfo.Clone());
+        //}
+        //foreach (var behaviorInfo in ExitActions)
+        //{
+        //    newObject.ExitActions.Add((BehaviorInfo) behaviorInfo.Clone());
+        //}
+        //foreach (var behaviorInfo in RobotActions)
+        //{
+        //    newObject.RobotActions.Add((BehaviorInfo) behaviorInfo.Clone());
+        //}
         return newObject;
     }
 }
