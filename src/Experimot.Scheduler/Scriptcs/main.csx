@@ -1,4 +1,5 @@
-#r ""System.Runtime.dll"
+#r "System.Runtime.dll"
+#r "System.Runtime.Serialization.dll"
 #load "BehaviorInfo.csx"
 #load "SimpleBehaviorTask.csx"
 #load "MotionBehaviorTask.csx"
