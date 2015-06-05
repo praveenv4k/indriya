@@ -22,13 +22,13 @@ public class MotionBehaviorTask : Quartz.IJob
             var contextServer = context.MergedJobDataMap.Get("ContextServer") as string;
             if (behavior != null)
             {
-                Console.WriteLine(@"------------- Task Details --------------");
-                Console.WriteLine(@"Behavior Name : {0}", behavior.Name);
-                Console.WriteLine(@"Human Id : {0}", behavior.Id);
-                Console.WriteLine(@"Trigger Name : {0}", behavior.Trigger);
-                Console.WriteLine(@"Confidence Level : {0}", behavior.ConfidenceLevel);
-                Console.WriteLine(@"Priority : {0}", behavior.Priority);
-                Console.WriteLine(@"-----------------------------------------");
+                Log.Info(@"------------- Task Details --------------");
+                Log.InfoFormat(@"Behavior Name : {0}", behavior.Name);
+                Log.InfoFormat(@"Human Id : {0}", behavior.Id);
+                Log.InfoFormat(@"Trigger Name : {0}", behavior.Trigger);
+                Log.InfoFormat(@"Confidence Level : {0}", behavior.ConfidenceLevel);
+                Log.InfoFormat(@"Priority : {0}", behavior.Priority);
+                Log.Info(@"-----------------------------------------");
                 SyncExecuteBehavior(contextServer, behavior);
             }
         }
@@ -44,7 +44,7 @@ public class MotionBehaviorTask : Quartz.IJob
                 using (var sock = ctx.CreateRequestSocket())
                 {
                     sock.Connect(contextServer);
-                    Console.WriteLine(@"Getting updated information about the human : {0}",
+                    Log.InfoFormat(@"Getting updated information about the human : {0}",
                         id);
                     sock.Send(string.Format("human/{0}", id));
                     humanInfo = sock.ReceiveString();
@@ -64,7 +64,7 @@ public class MotionBehaviorTask : Quartz.IJob
                 using (var sock = ctx.CreateRequestSocket())
                 {
                     sock.Connect(contextServer);
-                    Console.WriteLine(@"Getting updated information about the robot");
+                    Log.InfoFormat(@"Getting updated information about the robot");
                     sock.Send("robot");
                     robotInfo = sock.ReceiveString();
                 }
@@ -141,7 +141,7 @@ public class MotionBehaviorTask : Quartz.IJob
                 using (var sock = ctx.CreateRequestSocket())
                 {
                     sock.Connect(contextServer);
-                    Console.WriteLine(@"Getting the world Frame");
+                    Log.InfoFormat(@"Getting the world Frame");
                     sock.Send("world_frame");
                     worldFrame = sock.ReceiveString();
                 }
@@ -207,7 +207,7 @@ public class MotionBehaviorTask : Quartz.IJob
                 count = count + 1;
                 if (!string.IsNullOrEmpty(humanInfo))
                 {
-                    Console.WriteLine(humanInfo);
+                    //Log.Info(humanInfo);
                 }
                 if (behavior.ExecutionLifetime == BehaviorExecutionLifetime.until)
                 {
@@ -230,15 +230,15 @@ public class MotionBehaviorTask : Quartz.IJob
                     foreach (var behaviorItem in behavior.RobotActions)
                     {
                         var behaviorInfo = behaviorItem.Clone() as BehaviorInfo;
-
                         // Before executing each action get the latest information about the human
                         humanInfo = GetHumanInfo(contextServer, behavior.Id);
                         if (!string.IsNullOrEmpty(humanInfo))
                         {
-                            Console.WriteLine(humanInfo);
+                            //Log.Info(humanInfo);
                         }
                         if (behaviorInfo != null)
                         {
+                            Log.InfoFormat("Behavior Detail: {0}", behaviorInfo.ToString());
                             if (behaviorInfo.BehaviorName == "Say Expressively")
                             {
                                 var msg = string.Empty;
@@ -263,8 +263,8 @@ public class MotionBehaviorTask : Quartz.IJob
                                     Log.InfoFormat("New Msg: {0}, Count : {1}", newMsg, count);
                                 }
                             }
+                            SyncExecuteBehavior(behaviorInfo);
                         }
-                        SyncExecuteBehavior(behaviorInfo);
                     }
                 }
                 if (behavior.BehaviorType == BehaviorType.Behavior)
@@ -352,7 +352,7 @@ public class MotionBehaviorTask : Quartz.IJob
         }
         catch (Exception ex)
         {
-            Log.ErrorFormat("Simple behavior error : {0}", ex.Message);
+            Log.ErrorFormat("Motion Behavior Task error : {0}", ex.Message);
         }
     }
 }

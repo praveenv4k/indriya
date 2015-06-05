@@ -1,13 +1,42 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using Common.Logging;
-using NetMQ;
 
-public class BehaviorInfo: ICloneable
+public static class DeepCopyHelper
 {
-    private static readonly ILog Log = LogManager.GetLogger(typeof(SimpleBehaviorTask));
+    public static T DeepCopy<T>(T target)
+    {
+
+        T result;
+        BinaryFormatter b = new BinaryFormatter();
+
+        MemoryStream mem = new MemoryStream();
+
+        try
+        {
+            b.Serialize(mem, target);
+            mem.Position = 0;
+            result = (T)b.Deserialize(mem);
+        }
+        finally
+        {
+            mem.Close();
+        }
+
+        return result;
+
+    }
+}
+
+[Serializable()]
+public class BehaviorInfo : ICloneable
+{
+    private static readonly ILog Log = LogManager.GetLogger(typeof (BehaviorInfo));
+
     public BehaviorInfo()
     {
         Parameters = new Dictionary<string, object>();
@@ -33,7 +62,8 @@ public class BehaviorInfo: ICloneable
         foreach (var parameter in Parameters)
         {
             var valueDict = parameter.Value as Dictionary<string, object>;
-            builder.Append(string.Format("Key: {0}, Value:{1}", parameter.Key, valueDict!=null?valueDict["value"]:"Emptys"
+            builder.Append(string.Format("Key: {0}, Value:{1}", parameter.Key,
+                valueDict != null ? valueDict["value"] : "Empty"
                 )).AppendLine();
         }
         return builder.ToString();
@@ -41,7 +71,9 @@ public class BehaviorInfo: ICloneable
 
     public object Clone()
     {
-        return MemberwiseClone();
+        //var newObject = (BehaviorInfo) this.MemberwiseClone();
+        //return newObject;
+        return DeepCopyHelper.DeepCopy(this);
     }
 }
 
@@ -66,6 +98,7 @@ public enum BehaviorType
     Exit
 }
 
+[Serializable()]
 public class MotionBasedBehavior : ICloneable
 {
     private bool _initActionsComplete;
@@ -99,6 +132,8 @@ public class MotionBasedBehavior : ICloneable
     public Guid Guid { get; set; }
     public int ConfidenceLevel { get; set; }
     public IList<BehaviorInfo> InitActions { get; set; }
+    public IList<BehaviorInfo> RobotActions { get; set; }
+    public IList<BehaviorInfo> ExitActions { get; set; }
 
     public bool InitActionsComplete
     {
@@ -106,15 +141,11 @@ public class MotionBasedBehavior : ICloneable
         set { _initActionsComplete = value; }
     }
 
-    public IList<BehaviorInfo> RobotActions { get; set; }
-
     public bool CyclicActionsComplete
     {
         get { return _cyclicActionsComplete; }
         set { _cyclicActionsComplete = value; }
     }
-
-    public IList<BehaviorInfo> ExitActions { get; set; }
 
     public bool ExitActionsComplete
     {
@@ -129,7 +160,22 @@ public class MotionBasedBehavior : ICloneable
 
     public object Clone()
     {
-        return MemberwiseClone();
+        var newObject = (MotionBasedBehavior) MemberwiseClone();
+        newObject.InitActions.Clear();
+        newObject.ExitActions.Clear();
+        newObject.RobotActions.Clear();
+        foreach (var behaviorInfo in InitActions)
+        {
+            newObject.InitActions.Add((BehaviorInfo) behaviorInfo.Clone());
+        }
+        foreach (var behaviorInfo in ExitActions)
+        {
+            newObject.ExitActions.Add((BehaviorInfo) behaviorInfo.Clone());
+        }
+        foreach (var behaviorInfo in RobotActions)
+        {
+            newObject.RobotActions.Add((BehaviorInfo) behaviorInfo.Clone());
+        }
+        return newObject;
     }
-
 }
