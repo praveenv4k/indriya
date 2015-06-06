@@ -191,6 +191,7 @@ namespace Experimot.Kinect.Perception
                         jointPosDict.ContainsKey(JointType.ShoulderRight) && jointPosDict.ContainsKey(JointType.Head) &&
                         jointPosDict.ContainsKey(JointType.SpineShoulder))
                     {
+#if USE_Z_FRONT
                         var tri = new Triangle(jointPosDict[JointType.SpineBase], jointPosDict[JointType.ShoulderLeft],
                             jointPosDict[JointType.ShoulderRight]);
                         var zAxis = tri.Normal(); // Z Axis
@@ -201,6 +202,29 @@ namespace Experimot.Kinect.Perception
                         xAxis.Normalize();
 
                         human.orientation = ToQuaternion(xAxis, yAxis, zAxis);
+#else
+                        var tri = new Triangle(jointPosDict[JointType.SpineBase], jointPosDict[JointType.ShoulderLeft],
+                            jointPosDict[JointType.ShoulderRight]);
+                        var xAxis = tri.Normal(); // Z Axis
+                        var midPt = jointPosDict[JointType.SpineShoulder];
+                        var zAxis = (midPt - jointPosDict[JointType.SpineBase]);
+                        zAxis.Normalize();
+                        var yAxis = Vector3D.CrossProduct(zAxis, xAxis);
+                        yAxis.Normalize();
+
+                        //human.orientation = ToQuaternion(xAxis, yAxis, zAxis);
+                        //var spineBase = jointPosDict[JointType.SpineBase];
+                        //var tri = new Triangle(spineBase, jointPosDict[JointType.ShoulderLeft],
+                        //    jointPosDict[JointType.ShoulderRight]);
+                        //var xAxis = tri.Normal(); // Z Axis
+                        //var zAxis = spineBase + new Vector3D(spineBase.X, spineBase.Y, spineBase.Z + 0.5);
+                        //zAxis.Normalize();
+                        
+                        //var yAxis = Vector3D.CrossProduct(zAxis, xAxis);
+                        //yAxis.Normalize();
+
+                        human.orientation = ToQuaternion(xAxis, yAxis, zAxis);
+#endif
                     }
                     else
                     {
