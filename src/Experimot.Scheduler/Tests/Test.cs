@@ -127,31 +127,88 @@ namespace Experimot.Scheduler.Tests
         public static void TestSharpDxMatrixRotation()
         {
             // Human Torso
+            // 0.4264857172966,0.482540011405945,2.79593229293823,-0.436887833085438,0.553701125621802,0.36664267310498,0.606726655954306
             var q = new Quaternion
             {
-                W = 0.734643474f,
-                X = -0.418618727f,
-                Y = 0.403053236f,
-                Z = 0.350150562f
+                W = 0.606726655954306f,
+                X = -0.436887833085438f,
+                Y = 0.553701125621802f,
+                Z = 0.36664267310498f
             };
             //-0.418618727	0.403053236	0.350150562	0.734643474
-
+            //world_frame_kinect,0,251.437573434929,-735.386669475668,2164.29300194067,0.496099710464478,-0.641970217227936,-0.461962938308716,-0.358258932828903
+            //torso_frame_kinect,0,-162.226432126277,-510.568576421518,2058.52739944453,-0.725971817970276,0.322613894939423,0.246974587440491,0.554877161979675
+            //torso_frame_world,0,131.927854697293,393.702612672757,245.855610297709,-0.00544274205055237,0.0278509132097885,0.473493447583182,-0.880340081041494
+            //world_frame,0,0,0,0,0,0,0,1
             var world = new Quaternion()
             {
-                X = 0.581853449f,
-                Y = -0.628241062f,
-                Z = -0.380186468f,
-                W = -0.349596947f
+                X = 0.496099710464478f,
+                Y = -0.641970217227936f,
+                Z = -0.461962938308716f,
+                W = -0.358258932828903f
             };
 
-            var mat = MotionBehaviorTask.GetMatrixFromPose(q, new Vector3(0, 0, 0));
-            var world_mat = MotionBehaviorTask.GetMatrixFromPose(world, new Vector3(0, 0, 0));
+            var robot = new Quaternion()
+            {
+                X = -0.725971817970276f,
+                Y = 0.322613894939423f,
+                Z = 0.246974587440491f,
+                W = 0.554877161979675f
+            };
 
-            world_mat.Invert();
-            var hWorld = world_mat*mat;
-            Console.WriteLine(@"Torso Mat : {0}", string.Join(", ", mat.ToArray()));
-            Console.WriteLine(@"World Mat : {0}", string.Join(", ", world_mat.ToArray()));
-            Console.WriteLine(@"Human wrt World : {0}", string.Join(", ", hWorld.ToArray()));
+            
+            var humanmat = MotionBehaviorTask.GetMatrixFromPose(q,
+                new Vector3(0,0,0));
+            var worldMat = MotionBehaviorTask.GetMatrixFromPose(world,
+                new Vector3(0, 0, 0));
+            var robotMat = MotionBehaviorTask.GetMatrixFromPose(robot,
+                new Vector3(0, 0, 0));
+
+            worldMat.Invert();
+            var hWorld = worldMat*humanmat;
+            var hRobot = worldMat*robotMat;
+
+            var hWorldQ = Quaternion.RotationMatrix(hWorld);
+            var hRobotQ = Quaternion.RotationMatrix(hRobot);
+
+            var hWorldYaw = GetYaw(hWorldQ);
+            var hRobotYaw = GetYaw(hRobotQ);
+            //Console.WriteLine(@"Torso Mat : {0}", string.Join(", ", mat.ToArray()));
+            //Console.WriteLine(@"World Mat : {0}", string.Join(", ", world_mat.ToArray()));
+            //Console.WriteLine(@"Human wrt World : {0}", string.Join(", ", hWorld.ToArray()));
+            Console.WriteLine(@"Human Torso Mat : {0}", humanmat);
+            Console.WriteLine(@"Robot Torso Mat : {0}", robotMat);
+            Console.WriteLine(@"World Frame wrt kinect Mat : {0}", worldMat);
+            Console.WriteLine(@"Human wrt World : {0}, ZAngle:{3}, Axis: {1}, Angle: {2}", hWorld, hWorldQ.Axis,
+                hWorldQ.Angle, MathUtil.RadiansToDegrees(hWorldYaw));
+            Console.WriteLine(@"Robot wrt World : {0}, ZAngle:{3}, Axis: {1}, Angle: {2}", hRobot, hRobotQ.Axis,
+                hRobotQ.Angle, MathUtil.RadiansToDegrees(hRobotYaw));
+
+            var humanTrans = MotionBehaviorTask.GetMatrixFromPose(Quaternion.Identity,
+                new Vector3(0.4264857172966f, 0.482540011405945f, 2.79593229293823f));
+            var worldTrans = MotionBehaviorTask.GetMatrixFromPose(Quaternion.Identity,
+                new Vector3(0.251437573434929f, -0.735386669475668f, 2.16429300194067f));
+            var robotTrans = MotionBehaviorTask.GetMatrixFromPose(Quaternion.Identity,
+                new Vector3(-0.162226432126277f, -0.510568576421518f, 2.05852739944453f));
+
+            worldTrans.Invert();
+            hWorld.Invert();
+            hRobot.Invert();
+            var hTrans = hWorld*humanTrans;
+            var rTrans = hRobot*robotTrans;
+
+            Console.Write(@"Human : {0}, Robot: {1}", hTrans.TranslationVector, rTrans.TranslationVector);
+            // 2D transform matrix
+            //var hTransWorld = 
+        }
+
+        public static float GetYaw(Quaternion q)
+        {
+            //var yaw = Math.Atan2(2.0*(q.Y*q.Z + q.W*q.X),
+            //    q.W*q.W - q.X*q.X - q.Y*q.Y + q.Z*q.Z);
+            var yaw = Math.Atan2(2.0*(q.Y*q.W - q.X*q.Z),
+                1 - 2*q.Y*q.Y - 2*q.Z*q.Z);
+            return (float)yaw;
         }
 
         public static void TestReadBehaviorXml(experimot_config config)
