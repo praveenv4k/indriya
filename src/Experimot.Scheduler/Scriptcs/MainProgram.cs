@@ -19,6 +19,7 @@ public class MainProgram : IJobListener
     private readonly object _object = new object();
     private List<MotionBasedBehavior> _motionBasedBehaviors;
     private string _contextServer;
+    private const string HumanDetected = "HumanDetected";
     private static readonly ILog Log = LogManager.GetLogger(typeof(MainProgram));
 
     public MainProgram(IDictionary<string, object> props, IScheduler scheduler)
@@ -54,6 +55,7 @@ public class MainProgram : IJobListener
         var ret = new Dictionary<string, List<BehaviorInfo>>();
         if (humanArray != null && socket != null && humanArray.Count > 0)
         {
+            bool humanDetectedServed = false;
             foreach (var human in humanArray)
             {
                 var gestures = human.SelectToken("$.Gestures");
@@ -70,6 +72,19 @@ public class MainProgram : IJobListener
                             Console.WriteLine(@"Name : {0}, Confidence: {1}", name, confidence);
                         }
                     }
+                    if (!humanDetectedServed)
+                    {
+                        humanDetectedServed = true;
+                        // Human Detected Gesture
+                        if (gestBehaviorMap.ContainsKey(HumanDetected))
+                        {
+                            if (!ret.ContainsKey(HumanDetected))
+                            {
+                                ret.Add(name, gestBehaviorMap[name]);
+                                Console.WriteLine(@"Name : {0}", name);
+                            }
+                        }
+                    }
 
                 }
             }
@@ -83,6 +98,7 @@ public class MainProgram : IJobListener
         var ret = new List<MotionBasedBehavior>();
         if (humanArray != null && socket != null && humanArray.Count > 0)
         {
+            bool humanDetectedServed = false;
             foreach (var human in humanArray)
             {
                 var gestures = human.SelectToken("$.Gestures");
@@ -101,7 +117,18 @@ public class MainProgram : IJobListener
                             Console.WriteLine(@"Name : {0}, Confidence: {1}", name, confidence);
                         }
                     }
-
+                    if (!humanDetectedServed)
+                    {
+                        humanDetectedServed = true;
+                        // Human Detected Gesture
+                        var behavior = gestBehaviorMap.FirstOrDefault(s => s.Trigger == HumanDetected);
+                        if (behavior != null)
+                        {
+                            behavior.Id = human.Value<int>("Id");
+                            ret.Add(behavior);
+                            Console.WriteLine(@"Name : {0}", HumanDetected);
+                        }
+                    }
                 }
             }
         }

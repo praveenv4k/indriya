@@ -95,7 +95,7 @@ public class MainProgramUtil
         {
             var type = block.Attribute("type");
             MotionBasedBehavior motionBehavior = null;
-            if (type.Value == "behavior_sleek" || type.Value == "behavior_simple")
+            if (type.Value == "behavior_sleek" || type.Value == "behavior_simple" || type.Value == "behavior_simple_count")
             {
                 motionBehavior = GetMotionBasedBehavior(block);
                 motionBehavior.BehaviorType = BehaviorType.Behavior;
@@ -231,12 +231,6 @@ public class MainProgramUtil
                 }
             }
         }
-        // Check cloning
-        //var temp = motionBehavior.Clone() as MotionBasedBehavior;
-        //if (temp != null)
-        //{
-
-        //}
         return motionBehavior;
     }
 

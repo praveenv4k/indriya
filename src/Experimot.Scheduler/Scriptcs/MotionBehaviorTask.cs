@@ -235,7 +235,7 @@ public class MotionBehaviorTask : Quartz.IJob
                                     arg = argDict.TryGetAndReturn("value") as string;
                                 }
                                 Log.InfoFormat("Msg: {0}, Arg: {1}", msg, arg);
-                                if (!string.IsNullOrEmpty(msg) && !string.IsNullOrEmpty(arg))
+                                if (!string.IsNullOrEmpty(msg) && !string.IsNullOrEmpty(arg) && !string.IsNullOrEmpty(behavior.TriggerCountVariable))
                                 {
                                     var newMsg = string.Empty;
                                     if (arg == behavior.TriggerCountVariable)
