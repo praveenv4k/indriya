@@ -1,0 +1,39 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_startup" id="1" x="113" y="63">
+    <statement name="DO">
+      <block type="animated_say_action" id="4">
+        <field name="SAY_TEXT">Hello! I am NAO! Welcome to Edo-Tokyo museum.</field>
+        <next>
+          <block type="animated_say_action" id="5">
+            <field name="SAY_TEXT">The Edo-Tokyo Museum is a museum of the history of Tokyo during the Edo period.</field>
+            <next>
+              <block type="animated_say_action" id="6">
+                <field name="SAY_TEXT">It was established in 1993.</field>
+                <next>
+                  <block type="animated_say_action" id="7">
+                    <field name="SAY_TEXT">It has the life-size replica of the Nihonbashi, which was the bridge leading into Edo.</field>
+                    <next>
+                      <block type="animated_say_action" id="8">
+                        <field name="SAY_TEXT">It also has scale models of towns and buildings from the Edo, Meiji and Showa periods.</field>
+                        <next>
+                          <block type="animated_say_action" id="9">
+                            <field name="SAY_TEXT">The museum was designed by Kiyonori Kikutake.</field>
+                            <next>
+                              <block type="animated_say_action" id="10">
+                                <field name="SAY_TEXT">I hope you will enjoy your visit to Edo-Tokyo Museum.</field>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
