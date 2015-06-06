@@ -1,5 +1,5 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="behavior_simple" id="1" inline="false" x="113" y="113">
+  <block type="behavior_simple_count" id="1" inline="false" x="113" y="113">
     <mutation run_until="true" run_logic="(LiftLeftHandCount &lt; 5)"></mutation>
     <field name="behavior_name">behavior</field>
     <field name="triggers">LiftHand_Left</field>
