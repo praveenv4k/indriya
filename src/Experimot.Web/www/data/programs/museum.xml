@@ -27,6 +27,11 @@
                                     <next>
                                       <block type="animated_say_action" id="41">
                                         <field name="SAY_TEXT">I hope you will enjoy your visit to Edo-Tokyo Museum.</field>
+										<next>
+										  <block type="animated_say_action" id="42">
+											<field name="SAY_TEXT">Have a nice day!</field>
+										  </block>
+										</next>
                                       </block>
                                     </next>
                                   </block>

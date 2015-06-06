@@ -41,7 +41,7 @@
       </block>
     </statement>
   </block>
-  <block type="behavior_simple" id="9" inline="false" x="213" y="313">
+  <block type="behavior_simple_count" id="9" inline="false" x="213" y="313">
     <mutation run_until="true" run_logic="(LiftLeftHandCount &lt;= 5)"></mutation>
     <field name="behavior_name">behavior</field>
     <field name="triggers">LiftHand_Left</field>
