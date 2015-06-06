@@ -12,6 +12,7 @@ using Experimot.Scheduler.Scriptcs;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Quartz.Util;
+using SharpDX;
 
 namespace Experimot.Scheduler.Tests
 {
@@ -121,6 +122,36 @@ namespace Experimot.Scheduler.Tests
                 var dict = new Dictionary<string, string> {{"Greet_Left", "wave"}};
                 ProgramGenerator.GeneratePrograms(dict, outputPath);
             }
+        }
+
+        public static void TestSharpDxMatrixRotation()
+        {
+            // Human Torso
+            var q = new Quaternion
+            {
+                W = 0.734643474f,
+                X = -0.418618727f,
+                Y = 0.403053236f,
+                Z = 0.350150562f
+            };
+            //-0.418618727	0.403053236	0.350150562	0.734643474
+
+            var world = new Quaternion()
+            {
+                X = 0.581853449f,
+                Y = -0.628241062f,
+                Z = -0.380186468f,
+                W = -0.349596947f
+            };
+
+            var mat = MotionBehaviorTask.GetMatrixFromPose(q, new Vector3(0, 0, 0));
+            var world_mat = MotionBehaviorTask.GetMatrixFromPose(world, new Vector3(0, 0, 0));
+
+            world_mat.Invert();
+            var hWorld = world_mat*mat;
+            Console.WriteLine(@"Torso Mat : {0}", string.Join(", ", mat.ToArray()));
+            Console.WriteLine(@"World Mat : {0}", string.Join(", ", world_mat.ToArray()));
+            Console.WriteLine(@"Human wrt World : {0}", string.Join(", ", hWorld.ToArray()));
         }
 
         public static void TestReadBehaviorXml(experimot_config config)

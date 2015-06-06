@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Xml.Linq;
 using Common.Logging;
 using NetMQ;
@@ -209,7 +210,10 @@ public class MainProgramUtil
                     var behaviorInfo = GetBehaviorInfo(tempBlock);
                     if (behaviorInfo != null)
                     {
-                        tempList.Add(behaviorInfo);
+                        foreach (var info in behaviorInfo)
+                        {
+                            tempList.Add(info);
+                        }
                         var nextBlock = LinqXmlUtil.GetElementsAnyNS(tempBlock, "next");
                         while (nextBlock != null && nextBlock.Any())
                         {
@@ -217,7 +221,10 @@ public class MainProgramUtil
                             if (childBlock != null)
                             {
                                 behaviorInfo = GetBehaviorInfo(childBlock);
-                                tempList.Add(behaviorInfo);
+                                foreach (var info in behaviorInfo)
+                                {
+                                    tempList.Add(info);
+                                }
                                 Console.WriteLine(childBlock);
                                 nextBlock = LinqXmlUtil.GetElementsAnyNS(childBlock, "next");
                                 Console.WriteLine(nextBlock);
@@ -257,8 +264,9 @@ public class MainProgramUtil
         };
     }
 
-    public static BehaviorInfo GetBehaviorInfo(XElement behaviorBlock)
+    public static IList<BehaviorInfo> GetBehaviorInfo(XElement behaviorBlock)
     {
+        var behaviorInfo = new List<BehaviorInfo>();
         if (behaviorBlock != null)
         {
             var blockType = behaviorBlock.Attribute("type");
@@ -272,10 +280,11 @@ public class MainProgramUtil
                         var actionType = robotAction.Attribute("name");
                         if (actionType.Value == "actions")
                         {
-                            return new BehaviorInfo
+                            behaviorInfo.Add(new BehaviorInfo
                             {
                                 BehaviorName = robotAction.Value
-                            };
+                            });
+                            break;
                         }
                     }
                 }
@@ -290,7 +299,7 @@ public class MainProgramUtil
                         var actionType = robotAction.Attribute("name");
                         if (actionType.Value == "SAY_TEXT")
                         {
-                            return new BehaviorInfo
+                            behaviorInfo.Add(new BehaviorInfo
                             {
                                 BehaviorName = "Say Expressively",
                                 Parameters =
@@ -298,7 +307,8 @@ public class MainProgramUtil
                                     {
                                         {"msg", CreateBehaviorParameterOptions(robotAction.Value, true, "string")}
                                     }
-                            };
+                            });
+                            break;
                         }
                     }
                 }
@@ -313,10 +323,11 @@ public class MainProgramUtil
                         var actionType = robotAction.Attribute("name");
                         if (actionType.Value == "therapy_exercise")
                         {
-                            return new BehaviorInfo
+                            behaviorInfo.Add(new BehaviorInfo
                             {
                                 BehaviorName = robotAction.Value
-                            };
+                            });
+                            break;
                         }
                     }
                 }
@@ -352,7 +363,7 @@ public class MainProgramUtil
                         }
                     }
                     var msg = string.Concat(prefix, " {0} ", suffix);
-                    return new BehaviorInfo
+                    behaviorInfo.Add(new BehaviorInfo
                     {
                         BehaviorName = "Say Expressively",
                         Parameters =
@@ -361,7 +372,7 @@ public class MainProgramUtil
                                 {"msg", CreateBehaviorParameterOptions(msg, true, "string")},
                                 {"arg", CreateBehaviorParameterOptions(arg, true, "string")}
                             }
-                    };
+                    });
                 }
             }
             else if (blockType.Value == "approach_action")
@@ -374,22 +385,35 @@ public class MainProgramUtil
                         var actionType = robotAction.Attribute("name");
                         if (actionType.Value == "approach_distance")
                         {
-                            return new BehaviorInfo
+                            behaviorInfo.Add(new BehaviorInfo
                             {
                                 BehaviorName = "Move To",
                                 Parameters = new Dictionary<string, object>
                                 {
+                                    {"rotation", CreateBehaviorParameterOptions("1", false, "float")},
                                     {"dist", CreateBehaviorParameterOptions(robotAction.Value, false, "float")},
-                                    {"x", CreateBehaviorParameterOptions(0.5, true, "float")},
+                                    {"x", CreateBehaviorParameterOptions(0.0, true, "float")},
                                     {"y", CreateBehaviorParameterOptions(0.0, true, "float")},
-                                    {"z", CreateBehaviorParameterOptions(0.0, true, "float")}
+                                    {"theta", CreateBehaviorParameterOptions(Math.PI/4, true, "float")}
                                 }
-                            };
+                            });
+                            behaviorInfo.Add(new BehaviorInfo
+                            {
+                                BehaviorName = "Move To",
+                                Parameters = new Dictionary<string, object>
+                                {
+                                    {"translation", CreateBehaviorParameterOptions("1", false, "float")},
+                                    {"dist", CreateBehaviorParameterOptions(robotAction.Value, false, "float")},
+                                    {"x", CreateBehaviorParameterOptions(0.2, true, "float")},
+                                    {"y", CreateBehaviorParameterOptions(0.0, true, "float")},
+                                    {"theta", CreateBehaviorParameterOptions(0.0, true, "float")}
+                                }
+                            });
                         }
                     }
                 }
             }
         }
-        return null;
+        return behaviorInfo;
     }
 }
