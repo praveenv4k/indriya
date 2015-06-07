@@ -1,0 +1,16 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_simple_count" id="9" x="38" y="88">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">behavior</field>
+    <field name="triggers">Greet_Left</field>
+    <field name="confidence_levels">90</field>
+    <field name="trigger_count">WaveLeftCount</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <statement name="DO">
+      <block type="approach_action" id="15">
+        <field name="approach_distance">2.00</field>
+      </block>
+    </statement>
+  </block>
+</xml>

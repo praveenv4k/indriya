@@ -114,7 +114,7 @@ namespace Experimot.Scheduler.Data
         {
             lock (_object)
             {
-                Robot.Localization.SetPose(pose.pose.FirstOrDefault(s => s.name == "torso_frame_world"));
+                Robot.Localization.SetPose(pose.pose.FirstOrDefault(s => s.name == "torso_frame_kinect"));
                 SetWorldFrame(pose.pose.FirstOrDefault(s => s.name == "world_frame_kinect"));
             }
         }

@@ -87,13 +87,13 @@ public class MotionBehaviorTask : Quartz.IJob
         var orient = jObj.SelectToken("$.orientation");
         var t = new Vector3();
         var q = Quaternion.Identity;
-        if (pos.HasValues)
+        if (pos != null && pos.HasValues)
         {
             t.X = pos.Value<float>("x");
             t.Y = pos.Value<float>("y");
             t.Z = pos.Value<float>("z");
         }
-        if (orient.HasValues)
+        if (orient != null && orient.HasValues)
         {
             q.X = orient.Value<float>("x");
             q.Y = orient.Value<float>("y");
@@ -113,13 +113,13 @@ public class MotionBehaviorTask : Quartz.IJob
         var orient = localize.SelectToken("$.Orientation");
         var t = new Vector3();
         var q = Quaternion.Identity;
-        if (pos.HasValues)
+        if (pos != null && pos.HasValues)
         {
             t.X = pos.Value<float>("x");
             t.Y = pos.Value<float>("y");
             t.Z = pos.Value<float>("z");
         }
-        if (orient.HasValues)
+        if (orient != null && orient.HasValues)
         {
             q.X = orient.Value<float>("x");
             q.Y = orient.Value<float>("y");
@@ -129,6 +129,99 @@ public class MotionBehaviorTask : Quartz.IJob
         Matrix m = Matrix.RotationQuaternion(q);
         m.TranslationVector = t;
         return m;
+    }
+
+    public static void GetWorldFrameMatrix(string worldFrameJson, out Vector3 translation, out Matrix3x3 rotation)
+    {
+        translation = new Vector3(0, 0, 0);
+        rotation = Matrix3x3.Identity;
+
+        var jObj = JObject.Parse(worldFrameJson);
+        var pos = jObj.SelectToken("$.position");
+        var orient = jObj.SelectToken("$.orientation");
+        if (pos != null && pos.HasValues)
+        {
+            translation.X = pos.Value<float>("x");
+            translation.Y = pos.Value<float>("y");
+            translation.Z = pos.Value<float>("z");
+        }
+        if (orient != null && orient.HasValues)
+        {
+            Quaternion q = new Quaternion
+            {
+                X = orient.Value<float>("x"),
+                Y = orient.Value<float>("y"),
+                Z = orient.Value<float>("z"),
+                W = orient.Value<float>("w")
+            };
+            rotation = Matrix3x3.RotationQuaternion(q);
+        }
+    }
+
+    public static void GetLocalizationFromRobotJson(string robotJson, out Vector3 translation, out Matrix3x3 rotation)
+    {
+        translation = new Vector3(0, 0, 0);
+        rotation = Matrix3x3.Identity;
+
+        var jObj = JObject.Parse(robotJson);
+        var localize = jObj.SelectToken("$.Localization");
+        var pos = localize.SelectToken("$.Position");
+        var orient = localize.SelectToken("$.Orientation");
+        if (pos != null && pos.HasValues)
+        {
+            translation.X = pos.Value<float>("x");
+            translation.Y = pos.Value<float>("y");
+            translation.Z = pos.Value<float>("z");
+        }
+        if (orient != null && orient.HasValues)
+        {
+            Quaternion q = new Quaternion
+            {
+                X = orient.Value<float>("x"),
+                Y = orient.Value<float>("y"),
+                Z = orient.Value<float>("z"),
+                W = orient.Value<float>("w")
+            };
+            rotation = Matrix3x3.RotationQuaternion(q);
+        }
+    }
+
+    public static void GetHumanPoseFromJson(string humanInfo, out Vector3 translation, out Matrix3x3 rotation)
+    {
+        translation = new Vector3(0, 0, 0);
+        rotation = Matrix3x3.Identity;
+
+        var jObj = JObject.Parse(humanInfo);
+        var pos = jObj.SelectToken("$.TorsoPosition");
+        var orient = jObj.SelectToken("$.TorsoOrientation");
+
+        if (pos != null && pos.HasValues)
+        {
+            translation.X = pos.Value<float>("x");
+            translation.Y = pos.Value<float>("y");
+            translation.Z = pos.Value<float>("z");
+        }
+        if (orient != null && orient.HasValues)
+        {
+            var q = Quaternion.Identity;
+            // Check NaN
+            var x = orient.Value<float>("x");
+            if (float.IsNaN(x))
+            {
+
+            }
+            else
+            {
+                q = new Quaternion
+                {
+                    X = orient.Value<float>("x"),
+                    Y = orient.Value<float>("y"),
+                    Z = orient.Value<float>("z"),
+                    W = orient.Value<float>("w")
+                };
+            }
+            rotation = Matrix3x3.RotationQuaternion(q);
+        }
     }
 
     public static string GetWorldFrame(string contextServer)
@@ -227,15 +320,18 @@ public class MotionBehaviorTask : Quartz.IJob
                             {
                                 var msg = string.Empty;
                                 var arg = string.Empty;
-                                var msgDict = behaviorInfo.Parameters.TryGetAndReturn("msg") as Dictionary<string,object>;
-                                var argDict = behaviorInfo.Parameters.TryGetAndReturn("arg") as Dictionary<string, object>;
+                                var msgDict =
+                                    behaviorInfo.Parameters.TryGetAndReturn("msg") as Dictionary<string, object>;
+                                var argDict =
+                                    behaviorInfo.Parameters.TryGetAndReturn("arg") as Dictionary<string, object>;
                                 if (msgDict != null && argDict != null)
                                 {
                                     msg = msgDict.TryGetAndReturn("value") as string;
                                     arg = argDict.TryGetAndReturn("value") as string;
                                 }
                                 Log.InfoFormat("Msg: {0}, Arg: {1}", msg, arg);
-                                if (!string.IsNullOrEmpty(msg) && !string.IsNullOrEmpty(arg) && !string.IsNullOrEmpty(behavior.TriggerCountVariable))
+                                if (!string.IsNullOrEmpty(msg) && !string.IsNullOrEmpty(arg) &&
+                                    !string.IsNullOrEmpty(behavior.TriggerCountVariable))
                                 {
                                     var newMsg = string.Empty;
                                     if (arg == behavior.TriggerCountVariable)
@@ -245,6 +341,94 @@ public class MotionBehaviorTask : Quartz.IJob
                                         //behaviorInfo.Parameters["msg"] = newMsg;
                                     }
                                     Log.InfoFormat("New Msg: {0}, Count : {1}", newMsg, count);
+                                }
+                            }
+                            if (behaviorInfo.BehaviorName == "Move To")
+                            {
+                                var humanDict =
+                                    behaviorInfo.Parameters.TryGetAndReturn("human") as Dictionary<string, object>;
+                                var rotDict =
+                                    behaviorInfo.Parameters.TryGetAndReturn("rotation") as Dictionary<string, object>;
+                                if (humanDict != null && rotDict != null)
+                                {
+                                    float isHuman, isRotation;
+                                    if (float.TryParse(humanDict.TryGetAndReturn("value").ToString(), out isHuman) &&
+                                        float.TryParse(rotDict.TryGetAndReturn("value").ToString(), out isRotation))
+                                    {
+                                        if (isHuman > 0 && isRotation > 0)
+                                        {
+                                            // Get Robot String
+                                            var robotString = GetRobotInfo(contextServer);
+
+                                            // Get World String
+                                            var worldFrame = GetWorldFrame(contextServer);
+
+                                            Matrix3x3 robotRot;
+                                            Matrix3x3 worldRot;
+                                            Matrix3x3 humanRot;
+
+                                            Vector3 robotTrans;
+                                            Vector3 worldTrans;
+                                            Vector3 humanTrans;
+
+                                            // Get the transformation from the JSON strings
+                                            GetHumanPoseFromJson(humanInfo, out humanTrans, out humanRot);
+                                            GetLocalizationFromRobotJson(robotString, out robotTrans, out robotRot);
+                                            GetWorldFrameMatrix(worldFrame, out worldTrans, out worldRot);
+
+                                            // Compute the displacement of Robot and Human wrt to world frame
+                                            worldRot.Invert();
+
+                                            var hDisp =
+                                                new Vector3(Vector3.Dot(worldRot.Column1, humanTrans),
+                                                    Vector3.Dot(worldRot.Column2, humanTrans),
+                                                    Vector3.Dot(worldRot.Column3, humanTrans)) -
+                                                new Vector3(Vector3.Dot(worldRot.Column1, worldTrans),
+                                                    Vector3.Dot(worldRot.Column2, worldTrans),
+                                                    Vector3.Dot(worldRot.Column3, worldTrans));
+
+                                            var rDisp =
+                                                new Vector3(Vector3.Dot(worldRot.Column1, robotTrans),
+                                                    Vector3.Dot(worldRot.Column2, robotTrans),
+                                                    Vector3.Dot(worldRot.Column3, robotTrans)) -
+                                                new Vector3(Vector3.Dot(worldRot.Column1, worldTrans),
+                                                    Vector3.Dot(worldRot.Column2, worldTrans),
+                                                    Vector3.Dot(worldRot.Column3, worldTrans));
+
+                                            // We get the unit vector from Robot pointing towards human
+                                            var toHumanVec = new Vector2(hDisp.X, hDisp.Y) -
+                                                             new Vector2(rDisp.X, rDisp.Y);
+                                            toHumanVec.Normalize();
+                                            // Next we would like to align the X-Axis of the robot with that of this unit vector
+                                            var yUnit = Vector2.UnitY;
+                                            // Now we find the angle of rotation needed to do this alignment
+                                            var angle = Math.Acos(Vector2.Dot(toHumanVec, yUnit));
+
+                                            // Update the values of X,Y,Theta
+                                            var xDict =
+                                                behaviorInfo.Parameters.TryGetAndReturn("x") as
+                                                    Dictionary<string, object>;
+                                            var yDict =
+                                                behaviorInfo.Parameters.TryGetAndReturn("y") as
+                                                    Dictionary<string, object>;
+                                            var thetaDict =
+                                                behaviorInfo.Parameters.TryGetAndReturn("theta") as
+                                                    Dictionary<string, object>;
+
+                                            if (xDict != null)
+                                            {
+                                                xDict["value"] = 0.0f;
+                                            }
+                                            if (yDict != null)
+                                            {
+                                                yDict["value"] = 0.0f;
+                                            }
+                                            if (thetaDict != null)
+                                            {
+                                                thetaDict["value"] = angle;
+                                            }
+                                        }
+                                    }
                                 }
                             }
                             SyncExecuteBehavior(behaviorInfo);
@@ -289,6 +473,7 @@ public class MotionBehaviorTask : Quartz.IJob
         catch (Exception ex)
         {
             Log.ErrorFormat("Simple behavior error : {0}", ex.Message);
+            Log.ErrorFormat("Simple behavior stack_trace : {0}", ex.StackTrace);
         }
     }
 
@@ -301,15 +486,15 @@ public class MotionBehaviorTask : Quartz.IJob
 
                 foreach (var behaviorInfo in behaviorList)
                 {
-                    var robotString = GetRobotInfo(contextServer);
-                    var worldFrame = GetWorldFrame(contextServer);
-                    if (!string.IsNullOrEmpty(robotString) && !string.IsNullOrEmpty(worldFrame))
-                    {
-                        var m = GetWorldFrameMatrix(worldFrame);
-                        var r = GetLocalizationFromRobotJson(robotString);
-                        Log.InfoFormat("Robot Info : {0}", string.Join(",", r.ToArray()));
-                        Log.InfoFormat("World Frame : {0}", string.Join(",", m.ToArray()));
-                    }
+                    //var robotString = GetRobotInfo(contextServer);
+                    //var worldFrame = GetWorldFrame(contextServer);
+                    //if (!string.IsNullOrEmpty(robotString) && !string.IsNullOrEmpty(worldFrame))
+                    //{
+                    //    var m = GetWorldFrameMatrix(worldFrame);
+                    //    var r = GetLocalizationFromRobotJson(robotString);
+                    //    Log.InfoFormat("Robot Info : {0}", string.Join(",", r.ToArray()));
+                    //    Log.InfoFormat("World Frame : {0}", string.Join(",", m.ToArray()));
+                    //}
                     SyncExecuteBehavior(behaviorInfo);
                 }
 
