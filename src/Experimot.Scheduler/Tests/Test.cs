@@ -196,10 +196,14 @@ namespace Experimot.Scheduler.Tests
             var xUnit = Vector2.UnitX;
             // Now we find the angle of rotation needed to do this alignment
             var angle = Math.Acos(Vector2.Dot(toHumanVec,Vector2.UnitY));
+            angle = MotionBehaviorTask.AngleBetween(xUnit, toHumanVec);
+            angle = MotionBehaviorTask.AngleBetween(Vector2.UnitY, toHumanVec);
+
+            var relAngle = MotionBehaviorTask.GetRelativeAngle(xUnit, toHumanVec);
 
 
-            Console.WriteLine(@"Robot: {0}, Human: {1}, Angle: {2}", rDisp, hDisp,
-                MathUtil.RadiansToDegrees((float) angle));
+            Console.WriteLine(@"Robot: {0}, Human: {1}, Angle: {2}, Relative Angle: {3}", rDisp, hDisp,
+                MathUtil.RadiansToDegrees((float)angle), MathUtil.RadiansToDegrees((float)relAngle));
 
             worldMat.Invert();
             var hWorld = worldMat*humanmat;

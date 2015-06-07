@@ -400,19 +400,19 @@ public class MainProgramUtil
                                 }
                             });
                             // Pure translation
-                            //behaviorInfo.Add(new BehaviorInfo
-                            //{
-                            //    BehaviorName = "Track People",
-                            //    Parameters = new Dictionary<string, object>
-                            //    {
-                            //        {"translation", CreateBehaviorParameterOptions("1", false, "float")},
-                            //        {"human", CreateBehaviorParameterOptions("1", false, "float")},
-                            //        {"dist", CreateBehaviorParameterOptions(robotAction.Value, false, "float")},
-                            //        {"x", CreateBehaviorParameterOptions(robotAction.Value, true, "float")},
-                            //        {"y", CreateBehaviorParameterOptions(0.0, true, "float")},
-                            //        {"theta", CreateBehaviorParameterOptions(0.0, true, "float")}
-                            //    }
-                            //});
+                            behaviorInfo.Add(new BehaviorInfo
+                            {
+                                BehaviorName = "Track People",
+                                Parameters = new Dictionary<string, object>
+                                {
+                                    {"translation", CreateBehaviorParameterOptions("1", false, "float")},
+                                    {"human", CreateBehaviorParameterOptions("1", false, "float")},
+                                    {"dist", CreateBehaviorParameterOptions(robotAction.Value, false, "float")},
+                                    {"x", CreateBehaviorParameterOptions(robotAction.Value, true, "float")},
+                                    {"y", CreateBehaviorParameterOptions(0.0, true, "float")},
+                                    {"theta", CreateBehaviorParameterOptions(0.0, true, "float")}
+                                }
+                            });
                         }
                     }
                 }
