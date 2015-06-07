@@ -152,6 +152,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="Images\None.png" />
     <Resource Include="Images\Greet_Left.png" />
     <Resource Include="Images\Greet_Right.png" />
     <Resource Include="Images\Handwave_Left.jpg" />

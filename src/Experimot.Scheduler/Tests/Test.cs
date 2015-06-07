@@ -194,12 +194,13 @@ namespace Experimot.Scheduler.Tests
             toHumanVec.Normalize();
             // Next we would like to align the X-Axis of the robot with that of this unit vector
             var xUnit = Vector2.UnitX;
+            var yUnit = Vector2.UnitX;
             // Now we find the angle of rotation needed to do this alignment
             var angle = Math.Acos(Vector2.Dot(toHumanVec,Vector2.UnitY));
             angle = MotionBehaviorTask.AngleBetween(xUnit, toHumanVec);
             angle = MotionBehaviorTask.AngleBetween(Vector2.UnitY, toHumanVec);
 
-            var relAngle = MotionBehaviorTask.GetRelativeAngle(xUnit, toHumanVec);
+            var relAngle = MotionBehaviorTask.GetRelativeAngle(yUnit, toHumanVec);
 
 
             Console.WriteLine(@"Robot: {0}, Human: {1}, Angle: {2}, Relative Angle: {3}", rDisp, hDisp,

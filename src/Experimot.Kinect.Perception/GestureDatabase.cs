@@ -34,7 +34,7 @@ namespace Experimot.Kinect.Perception
                 }
             }
             _gestureImageDict.Add(Perception.GestureNames.None,
-                new BitmapImage(new Uri(@"Images\Handwave_None.png", UriKind.Relative)));
+                new BitmapImage(new Uri(@"Images\None.png", UriKind.Relative)));
             _gestureImageDict.Add(Perception.GestureNames.NotTracked,
                 new BitmapImage(new Uri(@"Images\NotTracked.png", UriKind.Relative)));
         }

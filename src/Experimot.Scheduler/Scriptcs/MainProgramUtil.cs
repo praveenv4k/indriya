@@ -391,6 +391,7 @@ public class MainProgramUtil
                                 BehaviorName = "Move To",
                                 Parameters = new Dictionary<string, object>
                                 {
+                                    {"translation", CreateBehaviorParameterOptions("0", false, "float")},
                                     {"rotation", CreateBehaviorParameterOptions("1", false, "float")},
                                     {"human", CreateBehaviorParameterOptions("1", false, "float")},
                                     {"dist", CreateBehaviorParameterOptions(robotAction.Value, false, "float")},
@@ -399,13 +400,30 @@ public class MainProgramUtil
                                     {"theta", CreateBehaviorParameterOptions(0.0, true, "float")}
                                 }
                             });
+
                             // Pure translation
+
+                            //behaviorInfo.Add(new BehaviorInfo
+                            //{
+                            //    BehaviorName = "Track People",
+                            //    Parameters = new Dictionary<string, object>
+                            //    {
+                            //        {"translation", CreateBehaviorParameterOptions("1", false, "float")},
+                            //        {"human", CreateBehaviorParameterOptions("1", false, "float")},
+                            //        {"dist", CreateBehaviorParameterOptions(robotAction.Value, false, "float")},
+                            //        {"x", CreateBehaviorParameterOptions(robotAction.Value, true, "float")},
+                            //        {"y", CreateBehaviorParameterOptions(0.0, true, "float")},
+                            //        {"theta", CreateBehaviorParameterOptions(0.0, true, "float")}
+                            //    }
+                            //});
+
                             behaviorInfo.Add(new BehaviorInfo
                             {
-                                BehaviorName = "Track People",
+                                BehaviorName = "Move To",
                                 Parameters = new Dictionary<string, object>
                                 {
                                     {"translation", CreateBehaviorParameterOptions("1", false, "float")},
+                                    {"rotation", CreateBehaviorParameterOptions("0", false, "float")},
                                     {"human", CreateBehaviorParameterOptions("1", false, "float")},
                                     {"dist", CreateBehaviorParameterOptions(robotAction.Value, false, "float")},
                                     {"x", CreateBehaviorParameterOptions(robotAction.Value, true, "float")},

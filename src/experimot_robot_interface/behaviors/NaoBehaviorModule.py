@@ -78,9 +78,9 @@ class NaoBehaviorModule:
         print "Behavior not found."
         return
 
-      names = managerProxy.getRunningBehaviors()
-      print "Running behaviors:"
-      print names
+      #names = managerProxy.getRunningBehaviors()
+      #print "Running behaviors:"
+      #print names
 
       # Stop the behavior.
       while (managerProxy.isBehaviorRunning(behaviorName)):
@@ -92,9 +92,9 @@ class NaoBehaviorModule:
       else:
         print "Behavior is already stopped."
 
-      names = managerProxy.getRunningBehaviors()
-      print "Running behaviors:"
-      print names
+      #names = managerProxy.getRunningBehaviors()
+      #print "Running behaviors:"
+      #print names
 
     def defaultBehaviors(self,managerProxy, behaviorName):
       ''' Set a behavior as default and remove it from default behavior. '''
@@ -135,9 +135,9 @@ class NaoBehaviorModule:
         name = params.get('name','')
         if name is not '':
             managerProxy = self.getBehaviorProxy()
-            self.getBehaviors(managerProxy)
+            #self.getBehaviors(managerProxy)
             self.launchAndStopBehavior(managerProxy, name)
-            self.defaultBehaviors(managerProxy, name)
+            #self.defaultBehaviors(managerProxy, name)
 
     def action_sayExpressively(self,params):
         language = params.get('lang','')

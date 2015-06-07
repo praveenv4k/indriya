@@ -1,0 +1,21 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_simple_count" id="12" x="88" y="63">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">behavior</field>
+    <field name="triggers">Greet_Left</field>
+    <field name="confidence_levels">95</field>
+    <field name="trigger_count">WaveLeftCount</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <statement name="DO">
+      <block type="approach_action" id="13">
+        <field name="approach_distance">1.50</field>
+        <next>
+          <block type="robot_action" id="14">
+            <field name="actions">wish</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

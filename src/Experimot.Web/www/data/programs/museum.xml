@@ -1,5 +1,5 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="behavior_simple_count" id="41" x="63" y="13">
+  <block type="behavior_simple_count" id="70" x="38" y="438">
     <mutation run_until="false" run_logic=""></mutation>
     <field name="behavior_name">behavior</field>
     <field name="triggers">Greet_Left</field>
@@ -8,32 +8,37 @@
     <field name="priorities">low</field>
     <field name="execution">once</field>
     <statement name="DO">
-      <block type="approach_action" id="23">
+      <block type="approach_action" id="57">
         <field name="approach_distance">1.50</field>
         <next>
-          <block type="robot_action" id="24">
-            <field name="actions">greet</field>
+          <block type="robot_action" id="58">
+            <field name="actions">wish</field>
             <next>
-              <block type="animated_say_action" id="25">
-                <field name="SAY_TEXT">Welcome to Edo Tokyo museum.</field>
+              <block type="animated_say_action" id="59">
+                <field name="SAY_TEXT">Hello! I am NAO! Welcome to Edo-Tokyo museum.</field>
                 <next>
-                  <block type="animated_say_action" id="26">
-                    <field name="SAY_TEXT">The Edo Tokyo Museum is a museum of the history of Tokyo during the Edo period.</field>
+                  <block type="animated_say_action" id="60">
+                    <field name="SAY_TEXT">The Edo-Tokyo Museum is a museum of the history of Tokyo during the Edo period.</field>
                     <next>
-                      <block type="animated_say_action" id="27">
+                      <block type="animated_say_action" id="61">
                         <field name="SAY_TEXT">It was established in 1993.</field>
                         <next>
-                          <block type="animated_say_action" id="28">
+                          <block type="animated_say_action" id="62">
                             <field name="SAY_TEXT">It has the life-size replica of the Nihonbashi, which was the bridge leading into Edo.</field>
                             <next>
-                              <block type="animated_say_action" id="29">
-                                <field name="SAY_TEXT">It also has models of towns and buildings from the Edo, Meiji and Showa periods.</field>
+                              <block type="animated_say_action" id="63">
+                                <field name="SAY_TEXT">It also has scale models of towns and buildings from the Edo, Meiji and Showa periods.</field>
                                 <next>
-                                  <block type="animated_say_action" id="31">
-                                    <field name="SAY_TEXT">I hope you will enjoy your visit to Edo Tokyo Museum.</field>
+                                  <block type="animated_say_action" id="64">
+                                    <field name="SAY_TEXT">The museum was designed by Kiyonori Kikutake.</field>
                                     <next>
-                                      <block type="animated_say_action" id="32">
-                                        <field name="SAY_TEXT">Have a nice day!</field>
+                                      <block type="animated_say_action" id="65">
+                                        <field name="SAY_TEXT">I hope you will enjoy your visit to Edo-Tokyo Museum.</field>
+                                        <next>
+                                          <block type="animated_say_action" id="66">
+                                            <field name="SAY_TEXT">Have a nice day!</field>
+                                          </block>
+                                        </next>
                                       </block>
                                     </next>
                                   </block>
