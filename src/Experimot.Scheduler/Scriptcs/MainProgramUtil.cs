@@ -396,23 +396,23 @@ public class MainProgramUtil
                                     {"dist", CreateBehaviorParameterOptions(robotAction.Value, false, "float")},
                                     {"x", CreateBehaviorParameterOptions(0.0, true, "float")},
                                     {"y", CreateBehaviorParameterOptions(0.0, true, "float")},
-                                    {"theta", CreateBehaviorParameterOptions(Math.PI/4, true, "float")}
-                                }
-                            });
-                            // Pure translation
-                            behaviorInfo.Add(new BehaviorInfo
-                            {
-                                BehaviorName = "Track People",
-                                Parameters = new Dictionary<string, object>
-                                {
-                                    {"translation", CreateBehaviorParameterOptions("1", false, "float")},
-                                    {"human", CreateBehaviorParameterOptions("1", false, "float")},
-                                    {"dist", CreateBehaviorParameterOptions(robotAction.Value, false, "float")},
-                                    {"x", CreateBehaviorParameterOptions(robotAction.Value, true, "float")},
-                                    {"y", CreateBehaviorParameterOptions(0.0, true, "float")},
                                     {"theta", CreateBehaviorParameterOptions(0.0, true, "float")}
                                 }
                             });
+                            // Pure translation
+                            //behaviorInfo.Add(new BehaviorInfo
+                            //{
+                            //    BehaviorName = "Track People",
+                            //    Parameters = new Dictionary<string, object>
+                            //    {
+                            //        {"translation", CreateBehaviorParameterOptions("1", false, "float")},
+                            //        {"human", CreateBehaviorParameterOptions("1", false, "float")},
+                            //        {"dist", CreateBehaviorParameterOptions(robotAction.Value, false, "float")},
+                            //        {"x", CreateBehaviorParameterOptions(robotAction.Value, true, "float")},
+                            //        {"y", CreateBehaviorParameterOptions(0.0, true, "float")},
+                            //        {"theta", CreateBehaviorParameterOptions(0.0, true, "float")}
+                            //    }
+                            //});
                         }
                     }
                 }

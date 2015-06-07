@@ -164,6 +164,43 @@ namespace Experimot.Scheduler.Tests
             var robotMat = MotionBehaviorTask.GetMatrixFromPose(robot,
                 new Vector3(0, 0, 0));
 
+            var humanRot =  Matrix3x3.RotationQuaternion(q);
+            var worldRot =  Matrix3x3.RotationQuaternion(world);
+            var robotRot = Matrix3x3.RotationQuaternion(robot);
+
+            var humanVec = 
+                new Vector3(0.4264857172966f, 0.482540011405945f, 2.79593229293823f);
+            var worldVec = 
+                new Vector3(0.251437573434929f, -0.735386669475668f, 2.16429300194067f);
+            var robotVec = 
+                new Vector3(-0.162226432126277f, -0.510568576421518f, 2.05852739944453f);
+
+            worldRot.Invert();
+
+            var hDisp =
+                new Vector3(Vector3.Dot(worldRot.Column1, humanVec), Vector3.Dot(worldRot.Column2, humanVec),
+                    Vector3.Dot(worldRot.Column3, humanVec)) -
+                new Vector3(Vector3.Dot(worldRot.Column1, worldVec), Vector3.Dot(worldRot.Column2, worldVec),
+                    Vector3.Dot(worldRot.Column3, worldVec));
+
+            var rDisp =
+                new Vector3(Vector3.Dot(worldRot.Column1, robotVec), Vector3.Dot(worldRot.Column2, robotVec),
+                    Vector3.Dot(worldRot.Column3, robotVec)) -
+                new Vector3(Vector3.Dot(worldRot.Column1, worldVec), Vector3.Dot(worldRot.Column2, worldVec),
+                    Vector3.Dot(worldRot.Column3, worldVec));
+
+            // We get the unit vector from Robot pointing towards human
+            var toHumanVec = new Vector2(hDisp.X, hDisp.Y) - new Vector2(rDisp.X, rDisp.Y);
+            toHumanVec.Normalize();
+            // Next we would like to align the X-Axis of the robot with that of this unit vector
+            var xUnit = Vector2.UnitX;
+            // Now we find the angle of rotation needed to do this alignment
+            var angle = Math.Acos(Vector2.Dot(toHumanVec,Vector2.UnitY));
+
+
+            Console.WriteLine(@"Robot: {0}, Human: {1}, Angle: {2}", rDisp, hDisp,
+                MathUtil.RadiansToDegrees((float) angle));
+
             worldMat.Invert();
             var hWorld = worldMat*humanmat;
             var hRobot = worldMat*robotMat;
@@ -171,8 +208,8 @@ namespace Experimot.Scheduler.Tests
             var hWorldQ = Quaternion.RotationMatrix(hWorld);
             var hRobotQ = Quaternion.RotationMatrix(hRobot);
 
-            var hWorldYaw = GetYaw(hWorldQ);
-            var hRobotYaw = GetYaw(hRobotQ);
+            var hWorldYaw = GetHeading(hWorldQ);
+            var hRobotYaw = GetHeading(hRobotQ);
             //Console.WriteLine(@"Torso Mat : {0}", string.Join(", ", mat.ToArray()));
             //Console.WriteLine(@"World Mat : {0}", string.Join(", ", world_mat.ToArray()));
             //Console.WriteLine(@"Human wrt World : {0}", string.Join(", ", hWorld.ToArray()));
@@ -202,7 +239,7 @@ namespace Experimot.Scheduler.Tests
             //var hTransWorld = 
         }
 
-        public static float GetYaw(Quaternion q)
+        public static float GetHeading(Quaternion q)
         {
             //var yaw = Math.Atan2(2.0*(q.Y*q.Z + q.W*q.X),
             //    q.W*q.W - q.X*q.X - q.Y*q.Y + q.Z*q.Z);
