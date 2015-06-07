@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Runtime;
 using System.Collections.Generic;
 using Common.Logging;
@@ -131,10 +131,11 @@ public class MotionBehaviorTask : Quartz.IJob
         return m;
     }
 
-    public static void GetWorldFrameMatrix(string worldFrameJson, out Vector3 translation, out Matrix3x3 rotation)
+    public static void GetWorldFrameMatrix(string worldFrameJson, out Vector3 translation, out Matrix3x3 rotation, out Quaternion q)
     {
         translation = new Vector3(0, 0, 0);
         rotation = Matrix3x3.Identity;
+        q = Quaternion.Identity;
 
         var jObj = JObject.Parse(worldFrameJson);
         var pos = jObj.SelectToken("$.position");
@@ -147,7 +148,7 @@ public class MotionBehaviorTask : Quartz.IJob
         }
         if (orient != null && orient.HasValues)
         {
-            Quaternion q = new Quaternion
+            q = new Quaternion
             {
                 X = orient.Value<float>("x"),
                 Y = orient.Value<float>("y"),
@@ -158,10 +159,11 @@ public class MotionBehaviorTask : Quartz.IJob
         }
     }
 
-    public static void GetLocalizationFromRobotJson(string robotJson, out Vector3 translation, out Matrix3x3 rotation)
+    public static void GetLocalizationFromRobotJson(string robotJson, out Vector3 translation, out Matrix3x3 rotation, out Quaternion q)
     {
         translation = new Vector3(0, 0, 0);
         rotation = Matrix3x3.Identity;
+        q = Quaternion.Identity;
 
         var jObj = JObject.Parse(robotJson);
         var localize = jObj.SelectToken("$.Localization");
@@ -175,7 +177,7 @@ public class MotionBehaviorTask : Quartz.IJob
         }
         if (orient != null && orient.HasValues)
         {
-            Quaternion q = new Quaternion
+            q = new Quaternion
             {
                 X = orient.Value<float>("x"),
                 Y = orient.Value<float>("y"),
@@ -186,10 +188,11 @@ public class MotionBehaviorTask : Quartz.IJob
         }
     }
 
-    public static void GetHumanPoseFromJson(string humanInfo, out Vector3 translation, out Matrix3x3 rotation)
+    public static void GetHumanPoseFromJson(string humanInfo, out Vector3 translation, out Matrix3x3 rotation, out Quaternion q)
     {
         translation = new Vector3(0, 0, 0);
         rotation = Matrix3x3.Identity;
+        q = Quaternion.Identity;
 
         var jObj = JObject.Parse(humanInfo);
         var pos = jObj.SelectToken("$.TorsoPosition");
@@ -203,7 +206,6 @@ public class MotionBehaviorTask : Quartz.IJob
         }
         if (orient != null && orient.HasValues)
         {
-            var q = Quaternion.Identity;
             // Check NaN
             var x = orient.Value<float>("x");
             if (float.IsNaN(x))
@@ -278,6 +280,56 @@ public class MotionBehaviorTask : Quartz.IJob
             }
         }
         return 0;
+    }
+
+    public static double AngleBetween(Vector2 vector1, Vector2 vector2)
+    {
+        vector1.Normalize();
+        vector2.Normalize();
+
+        double ratio = Vector2.Dot(vector1, vector2);
+
+        double theta;
+
+        if (ratio < 0)
+        {
+            theta = Math.PI - 2.0*Math.Asin((-vector1 - vector2).Length()/2.0);
+        }
+        else
+        {
+            theta = 2.0*Math.Asin((vector1 - vector2).Length()/2.0);
+        }
+
+        return theta;
+    }
+
+
+    public static double GetRelativeAngle(Vector2 v1, Vector2 v2)
+    {
+        // Note : http://www.euclideanspace.com/maths/algebra/vectors/angleBetween/issues/index.htm
+        // It is useful to keep in mind that:
+        // 1. We can always add or subtract 360° (or in radians 2π) to any angle without changing the angle it represents 
+        //    (because after 360° we get back to where we started ). 
+        //    In most implementations atan2 will return a value between +π and -π but if we want a value between 0 and 2π then we could add 2π to negative values.
+        // 2. If atan2 returns a value between +π and -π then 
+        //    atan2(v2.y,v2.x) - atan2(v1.y,v1.x)
+        //    could return a value between +2π and -2π so if it is above +π we might want to subtract 2π and if it is below -π we might want to add 2π.
+        // 3. If we are facing in direction 1 and we want to rotate to face in direction 2 we could rotate clockwise or anti-clockwise. 
+        //    So a rotation of pi/2 in the clockwise direction is the same as in the anti-clockwise direction 3pi/4. 
+        //    So we need to be clear if we always want to rotate in a clockwise direction or if we want to rotate clockwise or anti-clockwise depending on which is the smaller angle.
+        var angle = Math.Atan2(v2.Y, v2.X) - Math.Atan2(v1.Y, v1.X);
+        if (angle > Math.PI) angle -= Math.PI*2;
+        if (angle < -Math.PI) angle += Math.PI*2;
+        return angle;
+    }
+
+    public static float GetHeading(Quaternion q)
+    {
+        //var yaw = Math.Atan2(2.0*(q.Y*q.Z + q.W*q.X),
+        //    q.W*q.W - q.X*q.X - q.Y*q.Y + q.Z*q.Z);
+        var yaw = Math.Atan2(2.0 * (q.Y * q.W - q.X * q.Z),
+            1 - 2 * q.Y * q.Y - 2 * q.Z * q.Z);
+        return (float)yaw;
     }
 
     public static void SyncExecuteBehavior(string contextServer, MotionBasedBehavior behavior)
@@ -367,14 +419,35 @@ public class MotionBehaviorTask : Quartz.IJob
                                             Matrix3x3 worldRot;
                                             Matrix3x3 humanRot;
 
+                                            Quaternion robotQ;
+                                            Quaternion worldQ;
+                                            Quaternion humanQ;
+
                                             Vector3 robotTrans;
                                             Vector3 worldTrans;
                                             Vector3 humanTrans;
 
                                             // Get the transformation from the JSON strings
-                                            GetHumanPoseFromJson(humanInfo, out humanTrans, out humanRot);
-                                            GetLocalizationFromRobotJson(robotString, out robotTrans, out robotRot);
-                                            GetWorldFrameMatrix(worldFrame, out worldTrans, out worldRot);
+                                            GetHumanPoseFromJson(humanInfo, out humanTrans, out humanRot, out humanQ);
+                                            GetLocalizationFromRobotJson(robotString, out robotTrans, out robotRot, out robotQ);
+                                            GetWorldFrameMatrix(worldFrame, out worldTrans, out worldRot, out worldQ);
+
+                                            var humanMat = GetMatrixFromPose(humanQ,
+                                                            new Vector3(0, 0, 0));
+                                            var worldMat = GetMatrixFromPose(worldQ,
+                                                new Vector3(0, 0, 0));
+                                            var robotMat = GetMatrixFromPose(robotQ,
+                                                new Vector3(0, 0, 0));
+
+                                            worldMat.Invert();
+                                            var hWorld = worldMat * humanMat;
+                                            var hRobot = worldMat * robotMat;
+
+                                            var hWorldQ = Quaternion.RotationMatrix(hWorld);
+                                            var rWorldQ = Quaternion.RotationMatrix(hRobot);
+
+                                            var hWorldYaw = GetHeading(hWorldQ);
+                                            var rWorldYaw = GetHeading(rWorldQ);
 
                                             // Compute the displacement of Robot and Human wrt to world frame
                                             worldRot.Invert();
@@ -401,12 +474,13 @@ public class MotionBehaviorTask : Quartz.IJob
                                             toHumanVec.Normalize();
                                             // Next we would like to align the X-Axis of the robot with that of this unit vector
                                             var yUnit = Vector2.UnitY;
+                                            var xUnit = Vector2.UnitX;
                                             // Now we find the angle of rotation needed to do this alignment
-                                            var angle = Math.Acos(Vector2.Dot(toHumanVec, yUnit));
+                                            //var angle = Math.Acos(Vector2.Dot(toHumanVec, yUnit));
+                                            var angle = GetRelativeAngle(xUnit + rWorldYaw, toHumanVec);
 
                                             // Update the values of X,Y,Theta
-                                            var xDict =
-                                                behaviorInfo.Parameters.TryGetAndReturn("x") as
+                                            var xDict = behaviorInfo.Parameters.TryGetAndReturn("x") as
                                                     Dictionary<string, object>;
                                             var yDict =
                                                 behaviorInfo.Parameters.TryGetAndReturn("y") as
@@ -414,6 +488,9 @@ public class MotionBehaviorTask : Quartz.IJob
                                             var thetaDict =
                                                 behaviorInfo.Parameters.TryGetAndReturn("theta") as
                                                     Dictionary<string, object>;
+
+                                            Log.InfoFormat("Move To Rotation Angle : {0}",
+                                                MathUtil.RadiansToDegrees((float) angle));
 
                                             if (xDict != null)
                                             {
