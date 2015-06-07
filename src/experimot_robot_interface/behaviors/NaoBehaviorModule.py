@@ -9,6 +9,7 @@ import detectlanguage
 import pycountry
 import os
 import sys
+import PeopleTracker
 
 class NaoBehaviorModule:
     def __init__(self, robot_ip, robot_port):
@@ -33,6 +34,9 @@ class NaoBehaviorModule:
 
     def getTrackerProxy(self):
         return  ALProxy("ALTracker", self.ROBOT_IP, self.ROBOT_PORT)
+
+    def getMemoryProxy(self):
+        return  ALProxy("ALMemory", self.ROBOT_IP, self.ROBOT_PORT)
 
     def getLandmarkDetectionProxy(self):
         return  ALProxy("ALLandMarkDetection", self.ROBOT_IP, self.ROBOT_PORT)
@@ -179,6 +183,32 @@ class NaoBehaviorModule:
         motionProxy = self.getMotionProxy()
         motionProxy.moveInit()
 
+    def action_trackPeople(self,params):
+        x = params.get('x',0.0)
+        y = params.get('y',0.0)
+        theta = params.get('theta',0.0)
+        self.moveInit()
+        #proxy = self.getMotionProxy()
+        memory = self.getMemoryProxy()
+        tracker = self.getTrackerProxy()
+        if memory is not None and tracker is not None:
+            people = PeopleTracker.PeopleTracker(tracker,memory,x,y,theta)
+            people.start()
+            
+            # 1 minute timeout
+            timeout = time.time() + 60*1;
+
+            while True:
+                time.sleep(1)
+                if people.getTargetReached() or people.getTargetLost():
+                    break;
+                if time.time() > timeout:
+                    # Timeout reached
+                    print "Tracker Time out reached"
+                    break;
+
+            people.stop()
+
     def action_moveTo(self,params):
         #x = float(params.get('x','0.0').encode('utf-8'))
         #y = float(params.get('y','0.0').encode('utf-8'))
@@ -257,7 +287,12 @@ class NaoBehaviorModule:
         cap_dict['Move To']= {'function':'action_moveTo',
                                        'args':{'x':self.createArg(0.0,True,'float'),
                                                'y':self.createArg(0.0,True,'float'),
-                                               'z':self.createArg(0.0,True,'float')}}
+                                               'theta':self.createArg(0.0,True,'float')}}
+
+        cap_dict['Track People']= {'function':'action_trackPeople',
+                                       'args':{'x':self.createArg(0.0,True,'float'),
+                                               'y':self.createArg(0.0,True,'float'),
+                                               'theta':self.createArg(0.0,True,'float')}}
 
         cap_dict['Move Toward']= {'function':'action_moveToward',
                                        'args':{'x':self.createArg(0.0,True,'float'),

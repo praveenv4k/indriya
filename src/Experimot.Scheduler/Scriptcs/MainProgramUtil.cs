@@ -385,26 +385,30 @@ public class MainProgramUtil
                         var actionType = robotAction.Attribute("name");
                         if (actionType.Value == "approach_distance")
                         {
+                            // Pure rotation
                             behaviorInfo.Add(new BehaviorInfo
                             {
                                 BehaviorName = "Move To",
                                 Parameters = new Dictionary<string, object>
                                 {
                                     {"rotation", CreateBehaviorParameterOptions("1", false, "float")},
+                                    {"human", CreateBehaviorParameterOptions("1", false, "float")},
                                     {"dist", CreateBehaviorParameterOptions(robotAction.Value, false, "float")},
                                     {"x", CreateBehaviorParameterOptions(0.0, true, "float")},
                                     {"y", CreateBehaviorParameterOptions(0.0, true, "float")},
                                     {"theta", CreateBehaviorParameterOptions(Math.PI/4, true, "float")}
                                 }
                             });
+                            // Pure translation
                             behaviorInfo.Add(new BehaviorInfo
                             {
-                                BehaviorName = "Move To",
+                                BehaviorName = "Track People",
                                 Parameters = new Dictionary<string, object>
                                 {
                                     {"translation", CreateBehaviorParameterOptions("1", false, "float")},
+                                    {"human", CreateBehaviorParameterOptions("1", false, "float")},
                                     {"dist", CreateBehaviorParameterOptions(robotAction.Value, false, "float")},
-                                    {"x", CreateBehaviorParameterOptions(0.2, true, "float")},
+                                    {"x", CreateBehaviorParameterOptions(robotAction.Value, true, "float")},
                                     {"y", CreateBehaviorParameterOptions(0.0, true, "float")},
                                     {"theta", CreateBehaviorParameterOptions(0.0, true, "float")}
                                 }
