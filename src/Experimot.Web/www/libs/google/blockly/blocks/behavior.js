@@ -690,8 +690,8 @@ Blockly.Blocks['behavior_startup'] = {
             .appendField("Behavior Name :")
             //.appendField(new Blockly.FieldTextInput("behavior"), "behavior_name")
             .appendField(nameText);
-        this.appendDummyInput()
-            .appendField("");
+        //this.appendDummyInput()
+        //    .appendField("");
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
             .appendField("Robot Actions");
@@ -712,8 +712,8 @@ Blockly.Blocks['behavior_exit'] = {
             .appendField("Behavior Name :")
             //.appendField(new Blockly.FieldTextInput("behavior"), "behavior_name")
             .appendField(nameText);
-        this.appendDummyInput()
-            .appendField("");
+        //this.appendDummyInput()
+        //    .appendField("");
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
             .appendField("Robot Actions");
