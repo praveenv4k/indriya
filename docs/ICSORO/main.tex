@@ -138,7 +138,7 @@ The behavior program is structured in a simple way so that it could be easily un
 \end{itemize}
 
 \subsection{Experimental Setup}
-	The entire framework has been implemented using open network communication standards powered by ZeroMQ \cite{ZeroMQ} and message serialization using the Google's protocol buffers \cite{ProtocolBuffers}. The kinect for windows V2 is used as the motion capture system and a set of gestures are created using the visual gesture builder that comes with the kinect sdk \cite{Kinect2014}. The process involves capturing the clips of the motions, tagging the clips with the appropriate gestures and training the gesture recognizer. The trained gestures are then exported as a visual gesture database and integrated with the motion recognition node. The humanoid robot NAO powered by the latest NaoQi OS V2.1.3 is used for evaluating the interaction scenarios.  A set of actions of the NAO humanoid robot are developed as python scripts. The localization of the humanoid robot is performed by combining the marker detection using augmented reality toolkit ALVAR \cite{ALVAR} and a simple 2-DOF kinematic model of the robot from the torso to the head. The software is tested on a 64-bit Intel Core i7 CPU with clock speed 3.60 Ghz and 8 GB of RAM on a Microsoft Windows 8.1 operating system. The source code of the software is available as open source at \url{https://github.com/praveenv4k/ICSORO-2015}
+	The entire framework has been implemented using open network communication standards powered by ZeroMQ \cite{ZeroMQ} and message serialization using the Google's protocol buffers \cite{ProtocolBuffers}. The kinect for windows V2 is used as the motion capture system. A set of gestures are created using the visual gesture builder that comes with kinect sdk \cite{Kinect2014}. The process involves capturing the clips of the motions, tagging the clips with the appropriate gestures and training the gesture recognizer. The trained gestures are then exported as a visual gesture database and integrated with the motion recognition node. The humanoid robot NAO powered by the latest NaoQi OS V2.1.3 is used for evaluating the interaction scenarios.  A set of actions of the NAO humanoid robot are developed as python scripts. The localization of the humanoid robot is performed by combining the marker detection using augmented reality toolkit ALVAR \cite{ALVAR} and a simple 2-DOF kinematic model of the robot from the torso to the head. The software is tested on a 64-bit Intel Core i7 CPU with clock speed 3.60 Ghz and 8 GB of RAM on a Microsoft Windows 8.1 operating system. The source code of the software is available as open source at \url{https://github.com/praveenv4k/ICSORO-2015}
 \subsection{Example Scenarios}
 \begin{figure}
 \centering
@@ -156,7 +156,7 @@ The behavior program is structured in a simple way so that it could be easily un
 \label{fig:scenarios_setup}
 \end{figure}
 	In this section we describe two scenarios to demonstrate how our behavior design system could be used for realistic cases which would be otherwise extremely difficult to realize using existing methods for a novice programmer.
-\subsubsection{NAO as a demonstrator}%
+\subsubsection{NAO as a demonstrator}
 \begin{figure}
 \centering
 \begin{subfigure}[t]{0.49\textwidth}
@@ -172,54 +172,21 @@ The behavior program is structured in a simple way so that it could be easily un
 \caption[NAO as a demonstrator]{NAO as a demonstrator}
 \label{fig:scenarios}
 \end{figure}
-%\begin{figure}
-%\centering
-%\includegraphics[width=0.5\textwidth]{../thesis/assets/scenario_museum_choregraphe2.png}
-%\caption[NAO as demonstrator]{NAO as demonstrator scenario designed in Choregraphe}
-%\label{fig:scenario1_program_choregraphe}
-%\end{figure}
-%\begin{figure}
-%\centering
-%\begin{subfigure}[t]{0.5\textwidth}
-%\includegraphics[width=\textwidth]{../thesis/assets/scenario1.png}
-%\caption[NAO as demonstrator]{NAO as demonstrator}
-%\label{fig:scenario1_program}
-%\end{subfigure}
-%
-%\begin{subfigure}[t]{0.7\textwidth}
-%\includegraphics[width=\textwidth]{../thesis/assets/scenario2.png}
-%\caption[NAO as therapy facilitator]{NAO as therapy facilitator}
-%\label{fig:scenario2_program}
-%\end{subfigure}
-%\caption[Example Scenarios]{Example Scenarios}
-%\label{fig:scenarios}
-%\end{figure}
-The NAO humanoid robot is a demonstrator in a museum. The museum manager would like to design a scenario where when a visitor comes into the vicinity of the robot, the robot would approach him/her and start explaining the history of the museum. We would like to use this scenario to compare the expressiveness and intuitiveness of behavior description with Choregraphe \cite{NaoRobot} shown in Fig~\ref{fig:scenario1_program_choregraphe} and with our interface shown in Fig~\ref{fig:scenario1_program}. The first striking difference is Choregraphe uses a familiar flow chart based programming model and it has a huge library of primitive blocks to build complex motion patterns. Our interface instead uses the intuitive visual programming paradigm traditionally used for learning programming. The dataflow between the various components in the flow chart based systems gives lot of flexibility however not so easy for a beginner to start with. 
-	The data flow for this scenario is not straight forward when designed using choregraphe. As could be noticed from the figure, at first the Robot first keeps looking for people in its vicinity at the cost of its power. Once it it detects it stops looking for people and start tracking the people by keeping a fixed distance with the person. Once the target is reached, this block has to be stopped and now the robot actually start explaining the history of the museum.
-	Using our behavior interface, the definition of this scenario is straight forward. The framework equipped with kinect sensor takes care of the detection of people and giving the relative localization. Once the person is detected, the robot is driven towards the person. After coming into the proximity of the person, the robot starts explaining the history of museum.
- Such a scenario could be easily designed using our behavior interface as shown in Fig~\ref{fig:scenario1_program}. The behavior block is configured to execute only once. The set of actions to be performed on observing the gesture trigger includes approaching the human keeping a distance of 1.5 m from him/her. Then look at the human, greet first and say expressively the  history of the museum. It could be noticed that it is straight forward and intuitive.%
+	The NAO humanoid robot is a demonstrator in a museum. The museum manager would like to design a scenario where when a visitor comes into the vicinity of the robot, the robot would approach him/her and start explaining the history of the museum. We would like to use this scenario to compare the expressiveness and intuitiveness of behavior description with Choregraphe \cite{NaoRobot} shown in Fig~\ref{fig:scenario1_program_choregraphe} and with our interface shown in Fig~\ref{fig:scenario1_program}.
+	
+	Though Choregraphe uses a familiar flow chart based programming model and has a huge library of primitive blocks to build complex motion patterns, the data flow for this scenario is not straight forward when designed using choregraphe. As could be noticed from Fig~\ref{fig:scenario1_program_choregraphe}, at first the robot first keeps looking for people in its vicinity at the cost of its power. Once it detects a person, it stops looking for people and start approaching (tracking) the person until a fixed distance with the person is reached. After this the tracking block has to be stopped and now the robot actually start explaining the history of the museum.
+	
+	Using our behavior interface, the definition of this scenario is straight forward as shown in Fig~\ref{fig:scenario1_program}. The framework equipped with kinect sensor takes care of the detection of people and giving the relative localization of the robot and human. Once the person is detected or a configured gesture trigger arrives, the behavior program retrieves the dynamic position of the robot and of the human. Using this information, the robot is driven towards the person. After coming into the proximity of the person, the robot starts explaining the history of museum. From the user perspective, the design of the behavior is intuitive and he/she can just focus on the scenario rather than thinking about the details of the data flow.
+	
 \subsubsection{Scenario 2: NAO as a therapy facilitator}%
-%\begin{figure}
-%\centering
-%\begin{subfigure}[t]{0.48\textwidth}
-%\includegraphics[width=\textwidth]{../thesis/assets/scenario2.png}
-%\caption[Behavior Program]{Behavior Program}
-%\label{fig:scenario2_program}
-%\end{subfigure}
-%\begin{subfigure}[t]{0.48\textwidth}
-%\includegraphics[width=\textwidth]{../thesis/assets/scenario_therapy.png}
-%\caption[Experiment Setup]{Experiment Setup}
-%\label{fig:scenario2_setup}
-%\end{subfigure}
-%\caption[NAO as therapy facilitator]{NAO as therapy facilitator}
-%\label{fig:scenarios}
-%\end{figure}
 \begin{figure}
 \includegraphics[width=\textwidth]{../thesis/assets/scenario2_horizontal.png}
 \caption[NAO as therapy facilitator]{NAO as therapy facilitator}
 \label{fig:scenario2_program}
 \end{figure}
-A physiotherapist who is in a remote hospital would like to prepare an exercise routine for his patient who is recovering from the fracture of his left hand. The therapist wants the service robot in the rehabilitation center to give directions to the patient in an interactive manner and facilitate the process. The exercise includes the robot to give an introduction about the exercise, then to interactively report the progress of the exercise and to notify the completion. A reference implementation of such a scenario using our behavior interface is shown in Fig~\ref{fig:scenario2_program}. In the startup behavior an introduction about the exercise routine and a demonstration of the same will be performed by the robot. Then each time the patient performs the exercise, the robot notifies the progress of the exercise. Once the exercise routine is completed (say lifting left hand 10 times), the robot gives some closing comments about the routine.
+	A physiotherapist who is in a remote hospital would like to prepare an exercise routine for his patient who is recovering from the fracture of his left hand. The therapist wants the service robot in the rehabilitation center to give directions to the patient in an interactive manner and facilitate the process. The exercise includes the robot to give an introduction about the exercise, then to interactively report the progress of the exercise and to notify the completion. 
+	
+	This scenario cannot be realized using choregraphe since the NAO robot does not include gesture recognition system. A reference implementation of such a scenario using our behavior interface is shown in Fig~\ref{fig:scenario2_program}. In the startup behavior an introduction about the exercise routine and a demonstration of the same is performed by the robot. Then at each time the patient performs the exercise, the robot notifies the progress of the exercise. Once the exercise routine is completed (say lifting left hand 5 times), the robot gives some closing comments about the routine. The experiment setup of this scenario is shown in Fig~\ref{fig:scenario2_setup}
 \section{Conclusion}
 The abundance of smart devices and sensors in the smart home and public environments provide rich information about the human motions. This information could be used for an immersive and personalized human robot interaction experience. The people from interdisciplinary fields wanting to develop a rich interaction scenario find it difficult to use the existing technology as it requires strong background in programming. Any new programming paradigm designed for such purposes should find a correct balance between simplicity and expressiveness which was the main motivation behind our proposal. We believe that our proposal could be used for studying various aspects of HRI such as efficiency of the system, cooperativeness, social acceptance etc., There exist some open questions and challenges to be addressed however. The preliminary challenges are to find a set of all possible human motions that could be understood from the sensors distributed around in the environment and to identify all possible actions a robot could perform to interact with human in a social interaction scenario. The next question is to find the spectrum of interaction scenarios this kind of programming interface could cover. It is also extremely important to evaluate the usability of the system by making statistical analysis collected on a set of participants and naive users.
 \section{Prospective work}
