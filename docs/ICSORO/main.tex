@@ -125,22 +125,36 @@ The important components of the system are shown in Fig~\ref{fig:architecture}
 \caption[Program Structure]{Program Structure}
 \label{fig:program}
 \end{figure}
-The behavior program is structured in a simple way so that it could be easily understood by the end user. The behavior program whose conceptual model shown in Fig.~\ref{fig:program_concept} is composed of:
+The behavior program is structured in a simple way so that it could be easily understood by the end user. The conceptual model of behavior program is shown in Fig.~\ref{fig:program_concept} and the block level implementation is shown in Fig.~\ref{fig:program_blocks}. The behavior program is composed of:
 \begin{itemize}
-\item \emph{Startup Block}: The start up block will be executed once when the user starts the program. The user can add a set of actions to be performed when the program starts. This block is optional and there cannot be more than one block of this kind in a program.
+\item \emph{Start-up and Exit Blocks}: The start-up block will be executed once when the user starts the program. The user can add a set of actions to be performed when the program starts. Similarly the exit block will be executed once when the lifetime of all the configured behavior blocks expire Both these blocks are optional and there cannot be more than one start-up and exit blocks in a program.
 \item \emph{Behavior Block}: The behavior block is composed of
 \begin{itemize}
 \item A \textbf{trigger} that activates this block. The trigger source could be either of human presence/absence, gesture, vicinity of human etc.,
 \item The \textbf{lifetime} of each behavior block could be configured to run only once, forever or until a condition is met. 
-\item The \textbf{priority} of the block could be set to low, normal or high and the execution is done based on Fixed-priority pre-emptive scheduling. If a higher priority behavior request to use a resource (i.e. robot) which is being used by a lower priority behavior, the higher priority preempts the lower priority behavior.
+\item The \textbf{priority} of the block could be set to low, normal or high and the execution is done based on Fixed-priority pre-emptive scheduling.
 \item Similar to the behavior program level, at each behavior block level a set of \textbf{startup} and \textbf{exit} actions could be set which would be executed only once during the creation and termination respectively. The \textbf{cyclic} actions will be performed each time the trigger condition is met.
 \end{itemize}
-\item \emph{Exit Block}: The exit block similar to start up block will be executed once when the lifetime of all the configured behavior blocks expire. This block is optional as well and there could be only block of this kind in a program.
 \end{itemize}
-The block level implementation of the conceptual model is shown in Fig.~\ref{fig:program_blocks}
+
 \subsection{Experimental Setup}
 	The entire framework has been implemented using open network communication standards powered by ZeroMQ \cite{ZeroMQ} and message serialization using the Google's protocol buffers \cite{ProtocolBuffers}. The kinect for windows V2 is used as the motion capture system and a set of gestures are created using the visual gesture builder that comes with the kinect sdk \cite{Kinect2014}. The process involves capturing the clips of the motions, tagging the clips with the appropriate gestures and training the gesture recognizer. The trained gestures are then exported as a visual gesture database and integrated with the motion recognition node. The humanoid robot NAO powered by the latest NaoQi OS V2.1.3 is used for evaluating the interaction scenarios.  A set of actions of the NAO humanoid robot are developed as python scripts. The localization of the humanoid robot is performed by combining the marker detection using augmented reality toolkit ALVAR \cite{ALVAR} and a simple 2-DOF kinematic model of the robot from the torso to the head. The software is tested on a 64-bit Intel Core i7 CPU with clock speed 3.60 Ghz and 8 GB of RAM on a Microsoft Windows 8.1 operating system. The source code of the software is available as open source at \url{https://github.com/praveenv4k/ICSORO-2015}
 \subsection{Example Scenarios}
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.49\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/scenario_museum.png}
+\caption[Experiment Setup 1]{NAO as demonstrator}
+\label{fig:scenario1_setup}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/scenario_therapy.png}
+\caption[Experiment Setup 2]{NAO therapy facilitator}
+\label{fig:scenario2_setup}
+\end{subfigure}
+\caption[Experiment Setup]{Experiment Setup}
+\label{fig:scenarios_setup}
+\end{figure}
 	In this section we describe two scenarios to demonstrate how our behavior design system could be used for realistic cases which would be otherwise extremely difficult to realize using existing methods for a novice programmer.
 \subsubsection{NAO as a demonstrator}%
 \begin{figure}
@@ -201,19 +215,9 @@ The NAO humanoid robot is a demonstrator in a museum. The museum manager would l
 %\label{fig:scenarios}
 %\end{figure}
 \begin{figure}
-\centering
-\begin{subfigure}[t]{0.49\textwidth}
-\includegraphics[width=\textwidth]{../thesis/assets/scenario_museum.png}
-\caption[Experiment Setup 1]{NAO as demonstrator}
+\includegraphics[width=\textwidth]{../thesis/assets/scenario2_horizontal.png}
+\caption[NAO as therapy facilitator]{NAO as therapy facilitator}
 \label{fig:scenario2_program}
-\end{subfigure}
-\begin{subfigure}[t]{0.49\textwidth}
-\includegraphics[width=\textwidth]{../thesis/assets/scenario_therapy2.png}
-\caption[Experiment Setup 2]{NAO therapy facilitator}
-\label{fig:scenario2_setup}
-\end{subfigure}
-\caption[Experiment Setup]{Experiment Setup}
-\label{fig:scenarios_setup}
 \end{figure}
 A physiotherapist who is in a remote hospital would like to prepare an exercise routine for his patient who is recovering from the fracture of his left hand. The therapist wants the service robot in the rehabilitation center to give directions to the patient in an interactive manner and facilitate the process. The exercise includes the robot to give an introduction about the exercise, then to interactively report the progress of the exercise and to notify the completion. A reference implementation of such a scenario using our behavior interface is shown in Fig~\ref{fig:scenario2_program}. In the startup behavior an introduction about the exercise routine and a demonstration of the same will be performed by the robot. Then each time the patient performs the exercise, the robot notifies the progress of the exercise. Once the exercise routine is completed (say lifting left hand 10 times), the robot gives some closing comments about the routine.
 \section{Conclusion}
@@ -224,81 +228,4 @@ The abundance of smart devices and sensors in the smart home and public environm
 		We would like to thank the members of GVLab at Tokyo University of Agriculture and Technology for helping us arranging the resources and participating in the experimentation. This work has been supported by Student Exchange Support Program of Japan Student Services Organization （JASSO）.
 \bibliographystyle{plain}
 \bibliography{../Thesis/Bibliography}
-%\begin{thebibliography}{4}
-%\bibitem{ASKNao}
-%Aldebaran, ASKNao: Autism solution for kids Nao, \url{https://asknao.aldebaran.com}, Accessed: 2014-12-12.
-%
-%\bibitem{Choregraphe}
-%Aldebaran, Choregraphe software, \url{http://www.aldebaranrobotics.com/en/Discover-NAO/Software/choregraphe.html}, Accessed: 2014-11-20.
-%
-%\bibitem{NaoTheRobot}
-%Aldebaran, Nao humanoid robot, \url{https://www.aldebaran.com/en/humanoid-robot/nao-robot}, Accessed: 2014-11-15.
-%
-%\bibitem{PepperTheRobot}
-%Aldebaran, Pepper humanoid robot, \url{https://www.aldebaran.com/en/a-robots/who-is-pepper}, Accessed: 2015-05-02.
-%
-%\bibitem{ProjectRomeo}
-%Aldebaran, Project romeo, \url{http://projetromeo.com/en/scenario}, Accessed: 2015-04-20.
-%
-%\bibitem{Scratch}
-%Lifelong Kindergarten~Group at~the MIT Media~Lab, Scratch, \url{https://scratch.mit.edu/}, Accessed: 2015-05-15.
-%
-%\bibitem{Baillie4814281}
-%J.~C. Baillie: Urbi 2: Introduction to concurrent real-time programming. In {\em Proceedings of the Third International Workshop on Software Development and Integration in Robotics}. IEEE ICRA, May 2008.
-%
-%\bibitem{BerenzTDM2014}
-%Vincent Berenz and Kenji Suzuki: Targets-drives-means: {A} declarative approach to dynamic behavior specification with higher usability. {\em Robotics and Autonomous Systems}, 62(4):545--555, 2014.
-%
-%\bibitem{Cervera2012}
-%Enric Cervera, Amine~Abou Moughlbay, and Philippe Martinet: Localization and navigation of an assistive humanoid robot in a smart environment. In {\em IEEE International Workshop on Assistance and Service Robotics in a Human Environment}, 2012.
-%
-%\bibitem{Dautenhahn2007}
-%Kerstin Dautenhahn: Methodology and themes of human-robot interaction: A growing research field. {\em International Journal of Advanced Robotic Systems, Vedran Kordic, Aleksandar Lazinica and Munir Merdan (Ed.)}, 2007.
-%
-%\bibitem{Goodrich:2007:HIS:1348099.1348100}
-%Michael~A. Goodrich and Alan~C. Schultz: Human-robot interaction: {A} survey. {\em Foundations and Trends in Human-Computer Interaction}, 1(3):203--275, 2007.
-%
-%\bibitem{Blockly}
-%Google Blockly, \url{https://developers.google.com/blockly/}, Accessed: 2015-04-31.
-%
-%\bibitem{ProtocolBuffers}
-%Google Protocol buffers, \url{http://zeromq.org/}, Accessed: 2015-03-05.
-%
-%\bibitem{KinectCV2013}
-%J.~Han, L.~Shao, D.~Xu, and J.~Shotton: Enhanced computer vision with Microsoft Kinect sensor: A review. {\em IEEE Trans. Cybernetics}, 43(5), October 2013.
-%
-%\bibitem{ZeroMQ}
-%ZeroMQ, \url{http://zeromq.org/}, Accessed: 2015-02-25.
-%
-%\bibitem{Kinect2014}
-%Microsoft Kinect for Windows, \url{http://www.microsoft.com/en-us/kinectforwindows/}, Accessed: 2014-11-20.
-%
-%\bibitem{Maier2012}
-%Daniel Maier, Armin Hornung, and Maren Bennewitz: Real-time navigation in 3d environments based on depth camera data, In {\em 12th {IEEE-RAS} International Conference on Humanoid Robots (Humanoids 2012), Osaka, Japan, November 29 - Dec. 1, 2012}, pages 692--697, 2012.
-%
-%\bibitem{Moeslund200690}
-%Thomas~B. Moeslund, Adrian Hilton, and Volker Krüger: A survey of advances in vision-based human motion capture and analysis. {\em Computer Vision and Image Understanding}, 104(2–3):90 -- 126, 2006. Special Issue on Modeling People: Vision-based understanding of a person’s shape, appearance, movement and behaviour.
-%
-%\bibitem{ALVAR}
-%ALVAR - A library for virtual and augmented reality, \url{www.vtt.fi/multimedia/alvar.html}, Accessed: 2015-02-20.
-%
-%\bibitem{Poppe20074}
-%Ronald Poppe: Vision-based human motion analysis: An overview. {\em Computer Vision and Image Understanding}, 108(1–2):4 -- 18, 2007. Special Issue on Vision for Human-Computer Interaction.
-%
-%\bibitem{quigley2009ros}
-%Morgan Quigley, Ken Conley, Brian Gerkey, Josh Faust, Tully Foote, Jeremy Leibs, Rob Wheeler, and Andrew~Y Ng: ROS: an open-source Robot Operating System. {\em ICRA workshop on open source software}, 3(3.2):5, 2009.
-%
-%\bibitem{RusuPCL11}
-%Radu~Bogdan Rusu and Steve Cousins: 3D is here: Point Cloud Library {(PCL)}. In {\em {IEEE} International Conference on Robotics and Automation, {ICRA} 2011, Shanghai, China, 9-13 May 2011}, 2011.
-%
-%\bibitem{Shotton2013}
-%Jamie Shotton, Ross Girshick, Andrew Fitzgibbon, Toby Sharp, Mat Cook, Mark Finocchio, Richard Moore, Pushmeet Kohli, Antonio Criminisi, Alex Kipman, and Andrew Blake: Efficient human pose estimation from single depth images. {\em IEEE Transactions on Pattern Analysis and Machine Intelligence}, 35(12):2821--2840, 2013.
-%
-%\bibitem{Simmons724883}
-%Reid~G. Simmons and David Apfelbaum: A task description language for robot control. In {\em Proceedings 1998 {IEEE/RSJ} International Conference on Intelligent Robots and Systems. Innovations in Theory, Practice and Applications, October 13-17, 1998, Victoria, BC, Canada}, pages 1931--1937, 1998.
-%
-%\bibitem{Yan2014}
-%Haibin Yan, Jr. Ang, Marcelo~H., and Aun~Neow Poo: A survey on perception methods for human–robot interaction in social robots. {\em International Journal of Social Robotics}, 6(1):85--119, 2014.
-%
-%\end{thebibliography}
 \end{document}
