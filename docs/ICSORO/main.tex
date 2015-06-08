@@ -96,7 +96,7 @@ The important components of the system are shown in Fig~\ref{fig:architecture}
 \item \emph{Parameter Server}: The parameter server acts as a central repository for managing the parameters of the system and of the distributed components.
 \item \emph{Embedded Web Server}: The web server embedded in the application serves the file and data requests from the web client.
 \item \emph{Context Orchestrator}: The orchestrator collect uptodate information about the robots and humans in the environment from the perception system and updates the Context.
-\item \emph{Behavior Program Node} : A dynamic component that will be created when the user starts the program he/she designed using the user interface. The declarative description of the behavior described in Section~\ref{ssec:behavior_program} is parsed in order to create a memory model. The Behavior program node monitors the application context for the motion triggers and invokes the corresponding robot actions according to the way it is being described in the program.
+\item \emph{Behavior Program} : A dynamic component that will be created when the user starts the program he/she designed using the user interface. The declarative description of the behavior described in Section~\ref{ssec:behavior_program} is parsed in order to create a memory model. The Behavior program node monitors the application context for the motion triggers and invokes the corresponding robot actions according to the way it is being described in the program.
 \end{itemize}
 \item \textbf{Distributed Components} : These are nodes in the system each with a specific goal that can be started/stopped at any time during the entire application life-cycle without affecting the other nodes or the system. All the nodes will communicate with the application using message passing techniques. They can run in any machine inside the network.
 \begin{itemize}
@@ -141,7 +141,7 @@ The behavior program is structured in a simple way so that it could be easily un
 \end{itemize}
 The block level implementation of the conceptual model is shown in Fig.~\ref{fig:program_blocks}
 \subsection{Experimental Setup}
-The entire framework has been implemented using open network communication standards powered by ZeroMQ \cite{ZeroMQ} and message serialization using the Google Protocol Buffers \cite{ProtocolBuffers}. The Kinect for Windows is used as the motion capture system and a set of gestures are created using the Visual Gesture Builder that comes with the Kinect Sdk \cite{Kinect2014}. The process involves capturing the clips of the motions, tagging the clips with the appropriate gestures and training the gesture recognizer. The trained gestures are then exported as a Visual gesture database and integrated with the motion recognition node. The humanoid robot NAO powered by the latest NaoQi OS V2.1.3 is used for evaluating the interaction scenarios created using behavior design interface.  A set of actions of the Nao humanoid robot are developed as python scripts that are being named corresponding to the actions. The localization of the humanoid robot is performed by combining the marker detection using Augmented reality toolkit ALVAR \cite{ALVAR} and a simple 2-DOF kinematic model of the robot from the torso to the head. The software is tested on a 64-bit Intel Core i7 CPU with clock speed 3.60 Ghz and 8 GB of RAM on a  Microsoft Windows 8.1 operating system. The source code of the software is available as open source at \url{https://github.com/praveenv4k/ICSORO-2015}
+	The entire framework has been implemented using open network communication standards powered by ZeroMQ \cite{ZeroMQ} and message serialization using the Google's protocol buffers \cite{ProtocolBuffers}. The kinect for windows V2 is used as the motion capture system and a set of gestures are created using the visual gesture builder that comes with the kinect sdk \cite{Kinect2014}. The process involves capturing the clips of the motions, tagging the clips with the appropriate gestures and training the gesture recognizer. The trained gestures are then exported as a visual gesture database and integrated with the motion recognition node. The humanoid robot NAO powered by the latest NaoQi OS V2.1.3 is used for evaluating the interaction scenarios.  A set of actions of the NAO humanoid robot are developed as python scripts. The localization of the humanoid robot is performed by combining the marker detection using augmented reality toolkit ALVAR \cite{ALVAR} and a simple 2-DOF kinematic model of the robot from the torso to the head. The software is tested on a 64-bit Intel Core i7 CPU with clock speed 3.60 Ghz and 8 GB of RAM on a Microsoft Windows 8.1 operating system. The source code of the software is available as open source at \url{https://github.com/praveenv4k/ICSORO-2015}
 \subsection{Example Scenarios}
 	In this section we describe two scenarios to demonstrate how our behavior design system could be used for realistic cases which would be otherwise extremely difficult to realize using existing methods for a novice programmer.
 \subsubsection{Scenario 1: NAO as a demonstrator}%
@@ -172,21 +172,21 @@ The NAO humanoid robot is a demonstrator in a museum. The museum manager would l
 	Using our behavior interface, the definition of this scenario is straight forward. The framework equipped with kinect sensor takes care of the detection of people and giving the relative localization. Once the person is detected, the robot is driven towards the person. After coming into the proximity of the person, the robot starts explaining the history of museum.
  Such a scenario could be easily designed using our behavior interface as shown in Fig~\ref{fig:scenario1_program}. The behavior block is configured to execute only once. The set of actions to be performed on observing the gesture trigger includes approaching the human keeping a distance of 1.5 m from him/her. Then look at the human, greet first and say expressively the  history of the museum. It could be noticed that it is straight forward and intuitive.%
 \subsubsection{Scenario 2: NAO as a therapy facilitator}%
-\begin{figure}
-\centering
-\begin{subfigure}[t]{0.48\textwidth}
-\includegraphics[width=\textwidth]{../thesis/assets/scenario2.png}
-\caption[Behavior Program]{Behavior Program}
-\label{fig:scenario2_program}
-\end{subfigure}
-\begin{subfigure}[t]{0.48\textwidth}
-\includegraphics[width=\textwidth]{../thesis/assets/scenario_therapy.png}
-\caption[Experiment Setup]{Experiment Setup}
-\label{fig:scenario2_setup}
-\end{subfigure}
-\caption[NAO as therapy facilitator]{NAO as therapy facilitator}
-\label{fig:scenarios}
-\end{figure}
+%\begin{figure}
+%\centering
+%\begin{subfigure}[t]{0.48\textwidth}
+%\includegraphics[width=\textwidth]{../thesis/assets/scenario2.png}
+%\caption[Behavior Program]{Behavior Program}
+%\label{fig:scenario2_program}
+%\end{subfigure}
+%\begin{subfigure}[t]{0.48\textwidth}
+%\includegraphics[width=\textwidth]{../thesis/assets/scenario_therapy.png}
+%\caption[Experiment Setup]{Experiment Setup}
+%\label{fig:scenario2_setup}
+%\end{subfigure}
+%\caption[NAO as therapy facilitator]{NAO as therapy facilitator}
+%\label{fig:scenarios}
+%\end{figure}
 \begin{figure}
 \centering
 \begin{subfigure}[t]{0.49\textwidth}
