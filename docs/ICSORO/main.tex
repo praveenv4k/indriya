@@ -35,9 +35,10 @@ Associate Professor, Tokyo University of Agriculture and Technology, Japan\\
 \keywords{human robot interaction, motion recognition, robot behaviors, kinect, nao}
 \end{abstract}
 \section{Introduction}
-The richness and diversity of Human Robot Interaction (HRI) has been described in \cite{Dautenhahn2007} as ``HRI is a challenging research field at the intersection of psychology, cognitive science, social sciences, artificial intelligence, computer science, robotics, engineering and human-computer interaction". Goodrich in his extensive survey \cite{Goodrich:2007:HIS:1348099.1348100} proposed two main types of HRI namely remote interaction and proximate interaction. The latter is particularly important where the humans and the robots are co-located. Proximate interaction has gained importance due to the successful encounters of putting robots to work with human beings. It has led to the development of a new class of robots called social robots. Yan et al. \cite{Yan2014} define ``A social robot is a robot which can execute designated tasks and the necessary condition turning a robot into a social robot is the ability to interact with humans by adhering to certain social cues and rules.''
+The richness and diversity of Human Robot Interaction (HRI) has been described in \cite{dautenhahn2007methodology} as ``HRI is a challenging research field at the intersection of psychology, cognitive science, social sciences, artificial intelligence, computer science, robotics, engineering and human-computer interaction". Goodrich in his extensive survey \cite{goodrich2007human} proposed two main types of HRI namely remote interaction and proximate interaction. The latter is particularly important where the humans and the robots are co-located. Proximate interaction has gained importance due to the successful encounters of putting robots to work with human beings. It has led to the development of a new class of robots called social robots. Yan et al. \cite{yan2014survey} define ``A social robot is a robot which can execute designated tasks and the necessary condition turning a robot into a social robot is the ability to interact with humans by adhering to certain social cues and rules.''
 
-	Social robots already entered the human spaces as shown as entertainers \cite{NaoTheRobot}, educators \cite{NaoTheRobot}, caring agents \cite{ASKNao} and personal assistants \cite{ProjectRomeo}\cite{PepperTheRobot}. The design and the development of interaction systems need to be approached in a systematic manner wherein the robots should be able to understand the human motions and intentions in order to interact in a better way. To make it possible it is necessary to develop robotic systems with essential perceptual ability for efficient and natural interaction. Most often the on-board sensors on the robots fail to satisfy this demanding requirement due to various constraints like space, power and computational requirements. Hence consideration of augmenting exteroceptive sensors that are commonly available in the smart home/public environments is important.
+%	Social robots already entered the human spaces as shown as entertainers \cite{NaoTheRobot}, educators \cite{NaoTheRobot}, caring agents \cite{ASKNao} and personal assistants \cite{Aldebaran}\cite{PepperTheRobot}. The design and the development of interaction systems need to be approached in a systematic manner wherein the robots should be able to understand the human motions and intentions in order to interact in a better way. To make it possible it is necessary to develop robotic systems with essential perceptual ability for efficient and natural interaction. Most often the on-board sensors on the robots fail to satisfy this demanding requirement due to various constraints like space, power and computational requirements. Hence consideration of augmenting exteroceptive sensors that are commonly available in the smart home/public environments is important.
+	Social robots already entered the human spaces as shown as entertainers, educators, caring agents and personal assistants \cite{Aldebaran}. The design and the development of interaction systems need to be approached in a systematic manner wherein the robots should be able to understand the human motions and intentions in order to interact in a better way. To make it possible it is necessary to develop robotic systems with essential perceptual ability for efficient and natural interaction. Most often the on-board sensors on the robots fail to satisfy this demanding requirement due to various constraints like space, power and computational requirements. Hence consideration of augmenting exteroceptive sensors that are commonly available in the smart home/public environments is important.
 	
 %\begin{figure}
 %\centering
@@ -63,13 +64,13 @@ The richness and diversity of Human Robot Interaction (HRI) has been described i
 %\end{figure}
 	Another important aspect in HRI is the fact that the users of such systems are from diverse backgrounds. People study various aspects such as robot ethics, social acceptance, liveliness, cultural influence etc., from various perspectives like sociology, psychology, humanities and so on. So the tools needed to design behaviors of a social robot should be intuitive and user friendly.  With increased availability of social robots and cost effective motion recognition sensors, we could still observe a huge void which inhibits the exploitation of available technology for designing human motion driven robot behaviors.
 
-	The main contribution of this work is to develop an application independent experimental platform wherein a social robot is augmented with essential perceptual ability to understand human motions. The behavior design of such a social robot is made possible by an easy to use behavior design interface. The resulting experimental platform could be used by people from interdisciplinary fields to design the interaction between social robots and humans. Although our behavior design framework could accommodate variety of robots and sensors, we present the scenarios targeted for the NAO \cite{NaoTheRobot} humanoid robot and commercially available kinect \cite{Kinect2014} RGB-D cameras for localization and gesture recognition. 
+	The main contribution of this work is to develop an application independent experimental platform wherein a social robot is augmented with essential perceptual ability to understand human motions. The behavior design of such a social robot is made possible by an easy to use behavior design interface. The resulting experimental platform could be used by people from interdisciplinary fields to design the interaction between social robots and humans. Although our behavior design framework could accommodate variety of robots and sensors, we present the scenarios targeted for the NAO \cite{NaoRobot} humanoid robot and commercially available kinect \cite{Kinect2014} RGB-D cameras for localization and gesture recognition. 
 \section{Related work}
-	Vision based motion capture and analysis systems have been one of the first class citizens in the human motion capture and analysis. It has been studied widely and a summary of all the approaches developed during the past three decades has been presented in the surveys \cite{Moeslund200690}\cite{Poppe20074}. Vision based human pose estimation has traditionally suffered from the requirement to adopt an initialization pose and losing track after a few frames. These problems have been addressed by the approaches proposed by Xbox \cite{Kinect2014} team which are capable of accurate skeleton tracking using single depth images \cite{Shotton2013}. Understanding of human motion is not complete if the action of the human could not be inferred. In the survey by Microsoft research team \cite{KinectCV2013}, a background study on various algorithms used for human activity analysis is presented. Recently data-driven machine learning approaches have proven to be successful with recognition accuracy as high as 94.9\% \cite{Kinect2014}.
+	Vision based motion capture and analysis systems have been one of the first class citizens in the human motion capture and analysis. It has been studied widely and a summary of all the approaches developed during the past three decades has been presented in the surveys \cite{moeslund2006survey}\cite{poppe2007vision}. Vision based human pose estimation has traditionally suffered from the requirement to adopt an initialization pose and losing track after a few frames. These problems have been addressed by the approaches proposed by Xbox \cite{Kinect2014} team which are capable of accurate skeleton tracking using single depth images \cite{shotton2013efficient}. Understanding of human motion is not complete if the action of the human could not be inferred. In the survey by Microsoft research team \cite{han2013enhanced}, a background study on various algorithms used for human activity analysis is presented. Recently data-driven machine learning approaches have proven to be successful with recognition accuracy as high as 94.9\% \cite{Kinect2014}.
 	
-	The localization of humanoid robots is a challenging issue, due to rough odometry estimation, noisy onboard sensing, and the swaying motion caused by walking \cite{Cervera2012}. The Point cloud library \cite{RusuPCL11} implements ready to use probabilistic tracking algorithms. Studies on robot localization, obstacle mapping, and path planning by equipping NAO with a consumer-level depth camera have been reported in \cite{Maier2012}. Localization and motion planning in smart home environment using an external kinect sensor have been proposed in \cite{Cervera2012}. These methods are computationally demanding and it could cause overall performance degradation particularly when one wants to share the same sensor for both human motion recognition and localization of the robot. Tracking rectangular fiducial markers using augmented reality tool-kits like ALVAR \cite{ALVAR} can be interesting if one could embed those markers on the humanoid robot. This is one of the simplest and cheapest solutions in terms of computational power as it can provide position and orientation of the physical markers in real time.
+	The localization of humanoid robots is a challenging issue, due to rough odometry estimation, noisy onboard sensing, and the swaying motion caused by walking \cite{cervera2012localization}. The Point cloud library \cite{rusu20113d} implements ready to use probabilistic tracking algorithms. Studies on robot localization, obstacle mapping, and path planning by equipping NAO with a consumer-level depth camera have been reported in \cite{maier2012real}. Localization and motion planning in smart home environment using an external kinect sensor have been proposed in \cite{cervera2012localization}. These methods are computationally demanding and it could cause overall performance degradation particularly when one wants to share the same sensor for both human motion recognition and localization of the robot. Tracking rectangular fiducial markers using augmented reality tool-kits like ALVAR \cite{ALVAR} can be interesting if one could embed those markers on the humanoid robot. This is one of the simplest and cheapest solutions in terms of computational power as it can provide position and orientation of the physical markers in real time.
 	
-	The users of social robots do not have necessarily backgrounds in programming and design of robot behaviors. The main challenge in the behavior design is the ability to define the behavior which can abstract complex data flows from the end user. There exists flow-chart based visual programming languages \cite{Choregraphe} which allow non-programmers to create robot applications using a set of pre-built behavioral blocks. These programs are very intuitive but when it comes to designing reactive behaviors for human-in-the-loop scenarios, the existing visual programming methods increase the cognitive load on the end users. Specialized robot programming techniques like Task description language \cite{Simmons724883} and middlewares like ROS \cite{quigley2009ros} have been proposed in the literature. Though these programs provide modular and distributed architecture, support multiple sensors and robots etc., all these tools require high level of skill in robotics and programming. Recently non-domain-specific solution like Target-Drives-Means is proposed in \cite{BerenzTDM2014}, however it lacks an intuitive interface.
+	The users of social robots do not have necessarily backgrounds in programming and design of robot behaviors. The main challenge in the behavior design is the ability to define the behavior which can abstract complex data flows from the end user. There exists flow-chart based visual programming languages \cite{NaoRobot} which allow non-programmers to create robot applications using a set of pre-built behavioral blocks. These programs are very intuitive but when it comes to designing reactive behaviors for human-in-the-loop scenarios, the existing visual programming methods increase the cognitive load on the end users. Specialized robot programming techniques like Task description language \cite{simmons1998task} and middlewares like ROS \cite{quigley2009ros} have been proposed in the literature. Though these programs provide modular and distributed architecture, support multiple sensors and robots etc., all these tools require high level of skill in robotics and programming. Recently non-domain-specific solution like Target-Drives-Means is proposed in \cite{berenz2014targets}, however it lacks an intuitive interface.
 	
 	Nowadays there has been a lot of efforts to teach programming to children and people without computer science background \cite{Scratch}\cite{Blockly}. These tools are very intuitive and have already been proven to be used by novice programmers to build games and educational applications. The Blockly library \cite{Blockly} from Google offers a complete client side JavaScript library which could be used for developing custom blocks and code generators as per the application requirements.
 \section{Motion Driven Behavior Interface}
@@ -148,7 +149,7 @@ The block level implementation of the conceptual model is shown in Fig.~\ref{fig
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{../thesis/assets/scenario_museum_choregraphe.png}
-\caption[NAO as demonstrator]{NAO as demonstrator}
+\caption[NAO as demonstrator]{NAO as demonstrator scenario designed in Choregraphe}
 \label{fig:scenario1_program_choregraphe}
 \end{figure}
 \begin{figure}
@@ -167,7 +168,7 @@ The block level implementation of the conceptual model is shown in Fig.~\ref{fig
 \caption[Example Scenarios]{Example Scenarios}
 \label{fig:scenarios}
 \end{figure}
-The NAO humanoid robot is a demonstrator in a museum. The museum manager would like to design a scenario where when a visitor comes into the vicinity of the robot, the robot would approach him/her and start explaining the history of the museum. We would like to use this scenario to compare the expressiveness and intuitiveness of behavior description with Choregraphe \cite{Choregraphe} shown in Fig~\ref{fig:scenario1_program_choregraphe} and with our interface shown in Fig~\ref{fig:scenario1_program}. The first striking difference is Choregraphe uses a familiar flow chart based programming model and it has a huge library of primitive blocks to build complex motion patterns. Our interface instead uses the intuitive visual programming paradigm traditionally used for learning programming. The dataflow between the various components in the flow chart based systems gives lot of flexibility however not so easy for a beginner to start with. 
+The NAO humanoid robot is a demonstrator in a museum. The museum manager would like to design a scenario where when a visitor comes into the vicinity of the robot, the robot would approach him/her and start explaining the history of the museum. We would like to use this scenario to compare the expressiveness and intuitiveness of behavior description with Choregraphe \cite{NaoRobot} shown in Fig~\ref{fig:scenario1_program_choregraphe} and with our interface shown in Fig~\ref{fig:scenario1_program}. The first striking difference is Choregraphe uses a familiar flow chart based programming model and it has a huge library of primitive blocks to build complex motion patterns. Our interface instead uses the intuitive visual programming paradigm traditionally used for learning programming. The dataflow between the various components in the flow chart based systems gives lot of flexibility however not so easy for a beginner to start with. 
 	The data flow for this scenario is not straight forward when designed using choregraphe. As could be noticed from the figure, at first the Robot first keeps looking for people in its vicinity at the cost of its power. Once it it detects it stops looking for people and start tracking the people by keeping a fixed distance with the person. Once the target is reached, this block has to be stopped and now the robot actually start explaining the history of the museum.
 	Using our behavior interface, the definition of this scenario is straight forward. The framework equipped with kinect sensor takes care of the detection of people and giving the relative localization. Once the person is detected, the robot is driven towards the person. After coming into the proximity of the person, the robot starts explaining the history of museum.
  Such a scenario could be easily designed using our behavior interface as shown in Fig~\ref{fig:scenario1_program}. The behavior block is configured to execute only once. The set of actions to be performed on observing the gesture trigger includes approaching the human keeping a distance of 1.5 m from him/her. Then look at the human, greet first and say expressively the  history of the museum. It could be noticed that it is straight forward and intuitive.%
@@ -209,83 +210,83 @@ The abundance of smart devices and sensors in the smart home and public environm
 	This is a work in progress and for the moment we have evaluated our system only for the kinect motion capture system working seamlessly with the NAO humanoid robot for a set of predefined gestures and robot actions. We are planning to develop an extensive database containing commonly encountered gestures and also an extensive set of primitive robot actions. These will be made available to the end user through the intuitive programming interface which could be then used for defining complex motion driven behaviors. Additionally we are also planning to integrate our system to work with other modes of motion recognition like inertial measurement units (IMU), accelerometers and gyroscopes that are available in smart-phones and wearable devices. Similarly we would like to integrate other system with other robots like Pepper and Turtlebot which we expect to receive soon.
 \section{Acknowledgments}
 		We would like to thank the members of GVLab at Tokyo University of Agriculture and Technology for helping us arranging the resources to realize this work and participating in the experimentation. This work has been supported by Student Exchange Support Program of Japan Student Services Organization （JASSO）.
-%\bibliographystyle{plain}
-%\bibliography{../Thesis/Bibliography}
-\begin{thebibliography}{4}
-\bibitem{ASKNao}
-Aldebaran, ASKNao: Autism solution for kids Nao, \url{https://asknao.aldebaran.com}, Accessed: 2014-12-12.
-
-\bibitem{Choregraphe}
-Aldebaran, Choregraphe software, \url{http://www.aldebaranrobotics.com/en/Discover-NAO/Software/choregraphe.html}, Accessed: 2014-11-20.
-
-\bibitem{NaoTheRobot}
-Aldebaran, Nao humanoid robot, \url{https://www.aldebaran.com/en/humanoid-robot/nao-robot}, Accessed: 2014-11-15.
-
-\bibitem{PepperTheRobot}
-Aldebaran, Pepper humanoid robot, \url{https://www.aldebaran.com/en/a-robots/who-is-pepper}, Accessed: 2015-05-02.
-
-\bibitem{ProjectRomeo}
-Aldebaran, Project romeo, \url{http://projetromeo.com/en/scenario}, Accessed: 2015-04-20.
-
-\bibitem{Scratch}
-Lifelong Kindergarten~Group at~the MIT Media~Lab, Scratch, \url{https://scratch.mit.edu/}, Accessed: 2015-05-15.
-
-\bibitem{Baillie4814281}
-J.~C. Baillie: Urbi 2: Introduction to concurrent real-time programming. In {\em Proceedings of the Third International Workshop on Software Development and Integration in Robotics}. IEEE ICRA, May 2008.
-
-\bibitem{BerenzTDM2014}
-Vincent Berenz and Kenji Suzuki: Targets-drives-means: {A} declarative approach to dynamic behavior specification with higher usability. {\em Robotics and Autonomous Systems}, 62(4):545--555, 2014.
-
-\bibitem{Cervera2012}
-Enric Cervera, Amine~Abou Moughlbay, and Philippe Martinet: Localization and navigation of an assistive humanoid robot in a smart environment. In {\em IEEE International Workshop on Assistance and Service Robotics in a Human Environment}, 2012.
-
-\bibitem{Dautenhahn2007}
-Kerstin Dautenhahn: Methodology and themes of human-robot interaction: A growing research field. {\em International Journal of Advanced Robotic Systems, Vedran Kordic, Aleksandar Lazinica and Munir Merdan (Ed.)}, 2007.
-
-\bibitem{Goodrich:2007:HIS:1348099.1348100}
-Michael~A. Goodrich and Alan~C. Schultz: Human-robot interaction: {A} survey. {\em Foundations and Trends in Human-Computer Interaction}, 1(3):203--275, 2007.
-
-\bibitem{Blockly}
-Google Blockly, \url{https://developers.google.com/blockly/}, Accessed: 2015-04-31.
-
-\bibitem{ProtocolBuffers}
-Google Protocol buffers, \url{http://zeromq.org/}, Accessed: 2015-03-05.
-
-\bibitem{KinectCV2013}
-J.~Han, L.~Shao, D.~Xu, and J.~Shotton: Enhanced computer vision with Microsoft Kinect sensor: A review. {\em IEEE Trans. Cybernetics}, 43(5), October 2013.
-
-\bibitem{ZeroMQ}
-ZeroMQ, \url{http://zeromq.org/}, Accessed: 2015-02-25.
-
-\bibitem{Kinect2014}
-Microsoft Kinect for Windows, \url{http://www.microsoft.com/en-us/kinectforwindows/}, Accessed: 2014-11-20.
-
-\bibitem{Maier2012}
-Daniel Maier, Armin Hornung, and Maren Bennewitz: Real-time navigation in 3d environments based on depth camera data, In {\em 12th {IEEE-RAS} International Conference on Humanoid Robots (Humanoids 2012), Osaka, Japan, November 29 - Dec. 1, 2012}, pages 692--697, 2012.
-
-\bibitem{Moeslund200690}
-Thomas~B. Moeslund, Adrian Hilton, and Volker Krüger: A survey of advances in vision-based human motion capture and analysis. {\em Computer Vision and Image Understanding}, 104(2–3):90 -- 126, 2006. Special Issue on Modeling People: Vision-based understanding of a person’s shape, appearance, movement and behaviour.
-
-\bibitem{ALVAR}
-ALVAR - A library for virtual and augmented reality, \url{www.vtt.fi/multimedia/alvar.html}, Accessed: 2015-02-20.
-
-\bibitem{Poppe20074}
-Ronald Poppe: Vision-based human motion analysis: An overview. {\em Computer Vision and Image Understanding}, 108(1–2):4 -- 18, 2007. Special Issue on Vision for Human-Computer Interaction.
-
-\bibitem{quigley2009ros}
-Morgan Quigley, Ken Conley, Brian Gerkey, Josh Faust, Tully Foote, Jeremy Leibs, Rob Wheeler, and Andrew~Y Ng: ROS: an open-source Robot Operating System. {\em ICRA workshop on open source software}, 3(3.2):5, 2009.
-
-\bibitem{RusuPCL11}
-Radu~Bogdan Rusu and Steve Cousins: 3D is here: Point Cloud Library {(PCL)}. In {\em {IEEE} International Conference on Robotics and Automation, {ICRA} 2011, Shanghai, China, 9-13 May 2011}, 2011.
-
-\bibitem{Shotton2013}
-Jamie Shotton, Ross Girshick, Andrew Fitzgibbon, Toby Sharp, Mat Cook, Mark Finocchio, Richard Moore, Pushmeet Kohli, Antonio Criminisi, Alex Kipman, and Andrew Blake: Efficient human pose estimation from single depth images. {\em IEEE Transactions on Pattern Analysis and Machine Intelligence}, 35(12):2821--2840, 2013.
-
-\bibitem{Simmons724883}
-Reid~G. Simmons and David Apfelbaum: A task description language for robot control. In {\em Proceedings 1998 {IEEE/RSJ} International Conference on Intelligent Robots and Systems. Innovations in Theory, Practice and Applications, October 13-17, 1998, Victoria, BC, Canada}, pages 1931--1937, 1998.
-
-\bibitem{Yan2014}
-Haibin Yan, Jr. Ang, Marcelo~H., and Aun~Neow Poo: A survey on perception methods for human–robot interaction in social robots. {\em International Journal of Social Robotics}, 6(1):85--119, 2014.
-
-\end{thebibliography}
+\bibliographystyle{plain}
+\bibliography{../Thesis/Bibliography}
+%\begin{thebibliography}{4}
+%\bibitem{ASKNao}
+%Aldebaran, ASKNao: Autism solution for kids Nao, \url{https://asknao.aldebaran.com}, Accessed: 2014-12-12.
+%
+%\bibitem{Choregraphe}
+%Aldebaran, Choregraphe software, \url{http://www.aldebaranrobotics.com/en/Discover-NAO/Software/choregraphe.html}, Accessed: 2014-11-20.
+%
+%\bibitem{NaoTheRobot}
+%Aldebaran, Nao humanoid robot, \url{https://www.aldebaran.com/en/humanoid-robot/nao-robot}, Accessed: 2014-11-15.
+%
+%\bibitem{PepperTheRobot}
+%Aldebaran, Pepper humanoid robot, \url{https://www.aldebaran.com/en/a-robots/who-is-pepper}, Accessed: 2015-05-02.
+%
+%\bibitem{ProjectRomeo}
+%Aldebaran, Project romeo, \url{http://projetromeo.com/en/scenario}, Accessed: 2015-04-20.
+%
+%\bibitem{Scratch}
+%Lifelong Kindergarten~Group at~the MIT Media~Lab, Scratch, \url{https://scratch.mit.edu/}, Accessed: 2015-05-15.
+%
+%\bibitem{Baillie4814281}
+%J.~C. Baillie: Urbi 2: Introduction to concurrent real-time programming. In {\em Proceedings of the Third International Workshop on Software Development and Integration in Robotics}. IEEE ICRA, May 2008.
+%
+%\bibitem{BerenzTDM2014}
+%Vincent Berenz and Kenji Suzuki: Targets-drives-means: {A} declarative approach to dynamic behavior specification with higher usability. {\em Robotics and Autonomous Systems}, 62(4):545--555, 2014.
+%
+%\bibitem{Cervera2012}
+%Enric Cervera, Amine~Abou Moughlbay, and Philippe Martinet: Localization and navigation of an assistive humanoid robot in a smart environment. In {\em IEEE International Workshop on Assistance and Service Robotics in a Human Environment}, 2012.
+%
+%\bibitem{Dautenhahn2007}
+%Kerstin Dautenhahn: Methodology and themes of human-robot interaction: A growing research field. {\em International Journal of Advanced Robotic Systems, Vedran Kordic, Aleksandar Lazinica and Munir Merdan (Ed.)}, 2007.
+%
+%\bibitem{Goodrich:2007:HIS:1348099.1348100}
+%Michael~A. Goodrich and Alan~C. Schultz: Human-robot interaction: {A} survey. {\em Foundations and Trends in Human-Computer Interaction}, 1(3):203--275, 2007.
+%
+%\bibitem{Blockly}
+%Google Blockly, \url{https://developers.google.com/blockly/}, Accessed: 2015-04-31.
+%
+%\bibitem{ProtocolBuffers}
+%Google Protocol buffers, \url{http://zeromq.org/}, Accessed: 2015-03-05.
+%
+%\bibitem{KinectCV2013}
+%J.~Han, L.~Shao, D.~Xu, and J.~Shotton: Enhanced computer vision with Microsoft Kinect sensor: A review. {\em IEEE Trans. Cybernetics}, 43(5), October 2013.
+%
+%\bibitem{ZeroMQ}
+%ZeroMQ, \url{http://zeromq.org/}, Accessed: 2015-02-25.
+%
+%\bibitem{Kinect2014}
+%Microsoft Kinect for Windows, \url{http://www.microsoft.com/en-us/kinectforwindows/}, Accessed: 2014-11-20.
+%
+%\bibitem{Maier2012}
+%Daniel Maier, Armin Hornung, and Maren Bennewitz: Real-time navigation in 3d environments based on depth camera data, In {\em 12th {IEEE-RAS} International Conference on Humanoid Robots (Humanoids 2012), Osaka, Japan, November 29 - Dec. 1, 2012}, pages 692--697, 2012.
+%
+%\bibitem{Moeslund200690}
+%Thomas~B. Moeslund, Adrian Hilton, and Volker Krüger: A survey of advances in vision-based human motion capture and analysis. {\em Computer Vision and Image Understanding}, 104(2–3):90 -- 126, 2006. Special Issue on Modeling People: Vision-based understanding of a person’s shape, appearance, movement and behaviour.
+%
+%\bibitem{ALVAR}
+%ALVAR - A library for virtual and augmented reality, \url{www.vtt.fi/multimedia/alvar.html}, Accessed: 2015-02-20.
+%
+%\bibitem{Poppe20074}
+%Ronald Poppe: Vision-based human motion analysis: An overview. {\em Computer Vision and Image Understanding}, 108(1–2):4 -- 18, 2007. Special Issue on Vision for Human-Computer Interaction.
+%
+%\bibitem{quigley2009ros}
+%Morgan Quigley, Ken Conley, Brian Gerkey, Josh Faust, Tully Foote, Jeremy Leibs, Rob Wheeler, and Andrew~Y Ng: ROS: an open-source Robot Operating System. {\em ICRA workshop on open source software}, 3(3.2):5, 2009.
+%
+%\bibitem{RusuPCL11}
+%Radu~Bogdan Rusu and Steve Cousins: 3D is here: Point Cloud Library {(PCL)}. In {\em {IEEE} International Conference on Robotics and Automation, {ICRA} 2011, Shanghai, China, 9-13 May 2011}, 2011.
+%
+%\bibitem{Shotton2013}
+%Jamie Shotton, Ross Girshick, Andrew Fitzgibbon, Toby Sharp, Mat Cook, Mark Finocchio, Richard Moore, Pushmeet Kohli, Antonio Criminisi, Alex Kipman, and Andrew Blake: Efficient human pose estimation from single depth images. {\em IEEE Transactions on Pattern Analysis and Machine Intelligence}, 35(12):2821--2840, 2013.
+%
+%\bibitem{Simmons724883}
+%Reid~G. Simmons and David Apfelbaum: A task description language for robot control. In {\em Proceedings 1998 {IEEE/RSJ} International Conference on Intelligent Robots and Systems. Innovations in Theory, Practice and Applications, October 13-17, 1998, Victoria, BC, Canada}, pages 1931--1937, 1998.
+%
+%\bibitem{Yan2014}
+%Haibin Yan, Jr. Ang, Marcelo~H., and Aun~Neow Poo: A survey on perception methods for human–robot interaction in social robots. {\em International Journal of Social Robotics}, 6(1):85--119, 2014.
+%
+%\end{thebibliography}
 \end{document}
