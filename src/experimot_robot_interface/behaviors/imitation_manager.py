@@ -193,6 +193,6 @@ if __name__ == "__main__":
       while 1:
         pass
   except:
-      print "Exception occured : ", sys.exc_info()
+      print "Exception occurred : ", sys.exc_info()
     
   raw_input("Press enter to continue ... ")
