@@ -126,6 +126,9 @@
         <args></args>
       </process>
       <parameters>
+        <param key="ConfidenceThreshold" type="double" value="0.60"/>
+        <param key="DegreesInRightAngle" type="int" value="90"/>
+        <param key="DisplacementAmount" type="int" value="60"/>
       </parameters>
     </node>
     <node enabled="false" name="simulation">

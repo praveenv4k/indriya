@@ -30,7 +30,7 @@ namespace Experimot.Kinect.Speech
         private SpeechRecognitionEngine _speechEngine;
 
         // Speech utterance confidence below which we treat speech as if it hadn't been heard
-        private readonly double _confidenceThreshold = 0.3;
+        private readonly double _confidenceThreshold = 0.6;
 
         // Number of degrees in a right angle.
         private readonly int _degreesInRightAngle = 90;
@@ -86,18 +86,6 @@ namespace Experimot.Kinect.Speech
 
                             // Load the grammar file
                             var g = new Grammar(_grammarFile);
-                            //var directions = new Choices();
-                            //directions.Add(new SemanticResultValue("red", "RED"));
-                            //directions.Add(new SemanticResultValue("green", "GREEN"));
-                            //directions.Add(new SemanticResultValue("yellow", "YELLOW"));
-                            //directions.Add(new SemanticResultValue("white", "WHITE"));
-                            //directions.Add(new SemanticResultValue("blue", "BLUE"));
-                            //directions.Add(new SemanticResultValue("orange", "ORANGE"));
-
-                            //var gb = new GrammarBuilder { Culture = ri.Culture };
-                            //gb.Append(directions);
-
-                            //var g = new Grammar(gb);
                             _speechEngine.LoadGrammar(g);
 
                             // Subscribe to events
@@ -135,7 +123,7 @@ namespace Experimot.Kinect.Speech
 
         private void SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            Console.WriteLine("Speech recognized");
+            Console.WriteLine("Speech recognized: {0}",e.Result.Confidence);
             if (e.Result.Confidence >= _confidenceThreshold)
             {
                 Console.WriteLine(e.Result.Semantics.Value.ToString());
