@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Common.Logging;
+using experimot.msgs;
+using Experimot.Core.Util;
 using Microsoft.Kinect;
 using Microsoft.Speech.AudioFormat;
 using Microsoft.Speech.Recognition;
 
-namespace Experimot.Core.Speech
+namespace Experimot.Kinect.Speech
 {
     internal class KinectSpeechRecognition
     {
@@ -28,26 +30,40 @@ namespace Experimot.Core.Speech
         private SpeechRecognitionEngine _speechEngine;
 
         // Speech utterance confidence below which we treat speech as if it hadn't been heard
-        private const double ConfidenceThreshold = 0.3;
+        private readonly double _confidenceThreshold = 0.3;
 
         // Number of degrees in a right angle.
-        private const int DegreesInRightAngle = 90;
+        private readonly int _degreesInRightAngle = 90;
 
         // Number of pixels turtle should move forwards or backwards each time.
-        private const int DisplacementAmount = 60;
+        private readonly int _displacementAmount = 60;
 
+        private readonly string _grammarFile = "SpeechGrammar.xml";
 
-        public bool Initialize(string grammarFile)
+        public KinectSpeechRecognition(Node node)
+        {
+            if (node != null)
+            {
+                _confidenceThreshold = ParameterUtil.Get(node.param, "ConfidenceThreshold", _confidenceThreshold);
+                _degreesInRightAngle = ParameterUtil.Get(node.param, "DegreesInRightAngle", _degreesInRightAngle);
+                _displacementAmount = ParameterUtil.Get(node.param, "DisplacementAmount", _displacementAmount);
+                _grammarFile = ParameterUtil.Get(node.param, "GrammarFile", _grammarFile);
+            }
+        }
+
+        public bool Initialize()
         {
             try
             {
-                if (_kinectSensor == null && !string.IsNullOrEmpty(grammarFile))
+                if (_kinectSensor == null && !string.IsNullOrEmpty(_grammarFile) && System.IO.File.Exists(_grammarFile))
                 {
                     _kinectSensor = KinectSensor.GetDefault();
                     if (_kinectSensor != null)
                     {
                         // open the sensor
                         _kinectSensor.Open();
+
+                        Console.WriteLine("Sensor Opened");
 
                         // grab the audio stream
                         IReadOnlyList<AudioBeam> audioBeamList = _kinectSensor.AudioSource.AudioBeams;
@@ -56,15 +72,32 @@ namespace Experimot.Core.Speech
                         // create the convert stream
                         _convertStream = new KinectAudioStream(audioStream);
 
+                        Console.WriteLine("Stream created");
+
                         var ri = TryGetKinectRecognizer();
 
                         if (ri != null)
                         {
+                            Console.WriteLine("Kinect recognizer exists");
                             // Create instance of the speech engine
                             _speechEngine = new SpeechRecognitionEngine(ri.Id);
 
+                            Console.WriteLine("Sppech Engine created");
+
                             // Load the grammar file
-                            var g = new Grammar(grammarFile);
+                            var g = new Grammar(_grammarFile);
+                            //var directions = new Choices();
+                            //directions.Add(new SemanticResultValue("red", "RED"));
+                            //directions.Add(new SemanticResultValue("green", "GREEN"));
+                            //directions.Add(new SemanticResultValue("yellow", "YELLOW"));
+                            //directions.Add(new SemanticResultValue("white", "WHITE"));
+                            //directions.Add(new SemanticResultValue("blue", "BLUE"));
+                            //directions.Add(new SemanticResultValue("orange", "ORANGE"));
+
+                            //var gb = new GrammarBuilder { Culture = ri.Culture };
+                            //gb.Append(directions);
+
+                            //var g = new Grammar(gb);
                             _speechEngine.LoadGrammar(g);
 
                             // Subscribe to events
@@ -82,6 +115,8 @@ namespace Experimot.Core.Speech
                                 _convertStream,
                                 new SpeechAudioFormatInfo(EncodingFormat.Pcm, 16000, 16, 1, 32000, 2, null));
                             _speechEngine.RecognizeAsync(RecognizeMode.Multiple);
+
+                            Console.WriteLine("Started recognizing");
                         }
                     }
                 }
@@ -100,7 +135,8 @@ namespace Experimot.Core.Speech
 
         private void SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            if (e.Result.Confidence >= ConfidenceThreshold)
+            Console.WriteLine("Speech recognized");
+            if (e.Result.Confidence >= _confidenceThreshold)
             {
                 Console.WriteLine(e.Result.Semantics.Value.ToString());
             }
@@ -125,6 +161,7 @@ namespace Experimot.Core.Speech
                 _kinectSensor.Close();
                 _kinectSensor = null;
             }
+            Console.WriteLine("Kinect Speech Recognition terminated");
         }
 
         public static RecognizerInfo TryGetKinectRecognizer()

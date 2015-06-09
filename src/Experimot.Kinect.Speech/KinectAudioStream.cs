@@ -8,7 +8,7 @@ using System;
 using System.IO;
 using System.Threading;
 
-namespace Experimot.Core.Speech
+namespace Experimot.Kinect.Speech
 {
     /// <summary>
     /// Wrapper Stream Class to Support 32->16bit conversion and support Speech call to Seek
