@@ -127,13 +127,13 @@ namespace Experimot.Core.Speech
         public override int Read(byte[] buffer, int offset, int count)
         {
             // Kinect gives 32-bit float samples. Speech asks for 16-bit integer samples.
-            const int sampleSizeRatio = sizeof(float) / sizeof(short); // = 2. 
+            const int sampleSizeRatio = sizeof (float)/sizeof (short); // = 2. 
 
             // Speech reads at high frequency - allow some wait period between reads (in msec)
             const int sleepDuration = 50;
 
             // Allocate buffer for receiving 32-bit float from Kinect
-            int readcount = count * sampleSizeRatio;
+            int readcount = count*sampleSizeRatio;
             byte[] kinectBuffer = new byte[readcount];
 
             int bytesremaining = readcount;
@@ -158,10 +158,10 @@ namespace Experimot.Core.Speech
             }
 
             // Convert each float audio sample to short
-            for (int i = 0; i < count / sizeof(short); i++)
+            for (int i = 0; i < count/sizeof (short); i++)
             {
                 // Extract a single 32-bit IEEE value from the byte array
-                float sample = BitConverter.ToSingle(kinectBuffer, i * sizeof(float));
+                float sample = BitConverter.ToSingle(kinectBuffer, i*sizeof (float));
 
                 // Make sure it is in the range [-1, +1]
                 if (sample > 1.0f)
@@ -175,11 +175,11 @@ namespace Experimot.Core.Speech
 
                 // Scale float to the range (short.MinValue, short.MaxValue] and then 
                 // convert to 16-bit signed with proper rounding
-                short convertedSample = Convert.ToInt16(sample * short.MaxValue);
+                short convertedSample = Convert.ToInt16(sample*short.MaxValue);
 
                 // Place the resulting 16-bit sample in the output byte array
                 byte[] local = BitConverter.GetBytes(convertedSample);
-                Buffer.BlockCopy(local, 0, buffer, offset + (i * sizeof(short)), sizeof(short));
+                Buffer.BlockCopy(local, 0, buffer, offset + (i*sizeof (short)), sizeof (short));
             }
 
             return count;
