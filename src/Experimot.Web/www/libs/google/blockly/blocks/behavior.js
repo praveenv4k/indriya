@@ -777,6 +777,42 @@ Blockly.Blocks['behavior'] = {
     }
 };
 
+Blockly.Blocks['behavior_composable'] = {
+    init: function () {
+        this.setHelpUrl('http://www.example.com/');
+        this.setColour(210);
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Behavior Name")
+            .appendField(new Blockly.FieldTextInput("default"), "behavior_name");
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Execution Priority")
+            .appendField(new Blockly.FieldDropdown([["low", "LOW"], ["normal", "NORMAL"], ["high", "HIGH"]]), "priorities");
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Execute")
+            .appendField(new Blockly.FieldDropdown([["once", "ONCE"], ["forever", "FOREVER"], ["until", "UNTIL"]]), "execution");
+        this.appendValueInput("trigger")
+            .setCheck("Boolean")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("trigger");
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_CENTRE)
+            .appendField("Init block");
+        this.appendStatementInput("INIT_DO");
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_CENTRE)
+            .appendField("Cyclic block");
+        this.appendStatementInput("DO");
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_CENTRE)
+            .appendField("Exit block");
+        this.appendStatementInput("EXIT_DO");
+        this.setTooltip('');
+    }
+};
+
 Blockly.Blocks['gesture_trigger'] = {
     init: function() {
         var gestureDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.GestureProperties, function(option) {
