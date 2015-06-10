@@ -5,9 +5,9 @@
 \usepackage[style=base]{caption}
 \usepackage{subcaption}
 \captionsetup{compatibility=false}
-\title{An intuitive interface for designing social behaviors based on human motions}
+\title{Indriya: An intuitive interface for designing social behaviors based on human motions}
 %
-\titlerunning{ExPriMot}  % abbreviated title (for running head)
+\titlerunning{ExPeriMot}  % abbreviated title (for running head)
 %                                     also used for the TOC unless
 %                                     \toctitle is used
 %
@@ -18,15 +18,15 @@
 %%%% list of authors for the TOC (use if author list has to be modified)
 \tocauthor{Praveenkumar Vasudevan, Gentiane Venture}
 %
-\institute{Graduate Student, \'{E}cole Centrale de Nantes, Nantes, France,\\
+\institute{\'{E}cole Centrale de Nantes, France,\\
 \email{praveenv4k@gmail.com}
 \and
-Associate Professor, Tokyo University of Agriculture and Technology, Japan\\
+Tokyo University of Agriculture and Technology, Japan\\
 \email{venture@cc.tuat.ac.jp}}
 \begin{document}
 \maketitle   
 \begin{abstract}
-	Humans interacting with intelligent robots has been seen as a potential game changer of the future. In scenarios where robots coexist with humans in a social environment, understanding not only verbal communication, but also non-verbal communication is extremely inevitable. The non-verbal communication carries information such as intention, emotion and health of a human, that adds value to the way robots participate in an interaction. Additionally, the people who design interaction scenarios are from diverse fields who do not essentially have the required robot programming skills. In this paper we propose an easy to use and intuitive programming interface which gives the power to design robot behaviors taking into account human motions. We propose a distributed architecture which gives the capability to plug and play multi-modal motion recognition systems and diverse class of robots. We present results of NAO humanoid robot performing actions understanding human motions using Kinect motion recognition system.
+	Humans interacting with intelligent robots has been seen as a potential game changer of the future. In scenarios where robots coexist with humans in a social environment, understanding not only verbal communication, but also non-verbal communication is extremely inevitable. The non-verbal communication carries information such as intention, emotion and health of a human, that adds value to the way robots participate in an interaction. Additionally, the people who design interaction scenarios are from diverse fields who do not essentially have the required robot programming skills. In this paper we propose an easy to use and intuitive programming interface which gives the power to design robot behaviors taking into account human motions. We propose a distributed system namely Indriya which gives the capability to plug and play multi-modal motion recognition systems and diverse class of robots. We present results of NAO humanoid robot performing actions understanding human motions using Kinect motion recognition system.
 \keywords{human robot interaction, motion recognition, robot behaviors, kinect, nao}
 \end{abstract}
 \section{Introduction}
@@ -36,7 +36,7 @@ Associate Professor, Tokyo University of Agriculture and Technology, Japan\\
 
 	Another important aspect in HRI is the fact that the users of such systems are from diverse backgrounds. People study various aspects such as robot ethics, social acceptance, liveliness, cultural influence etc., from various perspectives like sociology, psychology, humanities and so on. So the tools needed to design behaviors of a social robot should be intuitive and user friendly.  With increased availability of social robots and cost effective motion recognition sensors, we could still observe a huge void which inhibits the exploitation of available technology for designing human motion driven robot behaviors.
 
-	The main contribution of this work is to develop an application independent experimental platform wherein a social robot is augmented with essential perceptual ability to understand human motions. The behavior design of such a social robot is made possible by an easy to use behavior design interface. The resulting experimental platform could be used by people from interdisciplinary fields to design the interaction between social robots and humans. Although our behavior design framework could accommodate variety of robots and sensors, we present the scenarios targeted for the NAO \cite{NaoRobot} humanoid robot and commercially available Kinect \cite{Kinect2014} RGB-D camera for localization and gesture recognition. 
+	The main contribution of this work is an application independent experimental platform: Indriya, wherein a social robot is augmented with essential perceptual ability to understand human motions. The behavior design of such a social robot is made possible by an easy to use behavior design interface. The resulting experimental platform could be used by people from interdisciplinary fields to design the interaction between social robots and humans. Although our behavior design framework could accommodate variety of robots and sensors, we present the scenarios targeted for the NAO \cite{NaoRobot} humanoid robot and commercially available Kinect \cite{Kinect2014} RGB-D camera for localization and gesture recognition. 
 \section{Related work}
 \quad Vision based motion capture and analysis systems have been one of the first class citizens in the human motion capture and analysis. It has been studied widely and a summary of all the approaches developed during the past decade has been presented in the surveys \cite{moeslund2006survey}\cite{poppe2007vision}. Vision based human pose estimation has traditionally suffered from the requirement to adopt an initialization pose and losing track after a few frames. These problems have been addressed by the approaches proposed by Xbox team \cite{Kinect2014} which are capable of accurately tracking human skeletons using single depth images \cite{shotton2013efficient}. Understanding of human motion is not complete if the action of the human could not be inferred. In the survey by Microsoft research team \cite{han2013enhanced}, a background study on various algorithms used for human activity analysis is presented. Recently data-driven machine learning approaches have proven to be successful with recognition accuracy as high as 94.9\% \cite{Kinect2014}.
 	

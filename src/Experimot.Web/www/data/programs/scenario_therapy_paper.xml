@@ -7,22 +7,22 @@
           <block type="animated_say_action" id="3">
             <field name="SAY_TEXT">Hello! I am Nao!.</field>
             <next>
-              <block type="animated_say_action" id="4">
+              <block type="animated_say_action" id="18">
                 <field name="SAY_TEXT">The doctor asked me to guide your therapy today!</field>
                 <next>
-                  <block type="animated_say_action" id="5">
+                  <block type="animated_say_action" id="4">
                     <field name="SAY_TEXT">At first I will show you the exercise routine</field>
                     <next>
-                      <block type="therapy_action" id="6">
+                      <block type="therapy_action" id="5">
                         <field name="therapy_exercise">liftLeftHand</field>
                         <next>
-                          <block type="animated_say_action" id="7">
+                          <block type="animated_say_action" id="6">
                             <field name="SAY_TEXT">Please do this routine 5 times. I will count for you!</field>
                             <next>
-                              <block type="animated_say_action" id="8">
+                              <block type="animated_say_action" id="7">
                                 <field name="SAY_TEXT">Make yourself comfortable.</field>
                                 <next>
-                                  <block type="animated_say_action" id="9">
+                                  <block type="animated_say_action" id="19">
                                     <field name="SAY_TEXT">Start doing the routine slowly</field>
                                   </block>
                                 </next>
@@ -41,7 +41,7 @@
       </block>
     </statement>
   </block>
-  <block type="behavior_simple_count" id="10" inline="false" x="188" y="288">
+  <block type="behavior_simple_count" id="8" inline="false" x="738" y="13">
     <mutation run_until="true" run_logic="(LiftLeftHandCount &lt;= 5)"></mutation>
     <field name="behavior_name">behavior</field>
     <field name="triggers">LiftHand_Left</field>
@@ -50,42 +50,42 @@
     <field name="priorities">normal</field>
     <field name="execution">until</field>
     <statement name="DO">
-      <block type="animated_say_action_arg" id="11" inline="true">
+      <block type="animated_say_action_arg" id="9" inline="true">
         <mutation say_arg="LiftLeftHandCount"></mutation>
         <field name="PREFIX_TEXT">You completed the exercise</field>
         <field name="SUFFIX_TEXT">times !</field>
         <value name="ARG_NAME">
-          <block type="variables_get" id="12">
+          <block type="variables_get" id="10">
             <field name="VAR">LiftLeftHandCount</field>
           </block>
         </value>
       </block>
     </statement>
     <value name="RUN_UNTIL">
-      <block type="logic_compare" id="13" inline="true">
+      <block type="logic_compare" id="11" inline="true">
         <field name="OP">LTE</field>
         <value name="A">
-          <block type="variables_get" id="14">
+          <block type="variables_get" id="12">
             <field name="VAR">LiftLeftHandCount</field>
           </block>
         </value>
         <value name="B">
-          <block type="math_number" id="15">
+          <block type="math_number" id="13">
             <field name="NUM">5</field>
           </block>
         </value>
       </block>
     </value>
   </block>
-  <block type="behavior_exit" id="16" x="188" y="638">
+  <block type="behavior_exit" id="14" x="188" y="288">
     <statement name="DO">
-      <block type="animated_say_action" id="17">
+      <block type="animated_say_action" id="15">
         <field name="SAY_TEXT">You did a great job today!</field>
         <next>
-          <block type="animated_say_action" id="18">
+          <block type="animated_say_action" id="16">
             <field name="SAY_TEXT">I am looking forward to guide you next time!</field>
             <next>
-              <block type="animated_say_action" id="19">
+              <block type="animated_say_action" id="17">
                 <field name="SAY_TEXT">Thank you and have a nice day!</field>
               </block>
             </next>
