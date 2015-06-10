@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="03f6965a-39a2-4893-a7b0-c0ae82b1fab2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../ExPeriMot.sln" afterPath="$PROJECT_DIR$/../../ExPeriMot.sln" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Experimot.Kinect.Speech/Experimot.Kinect.Speech.csproj" afterPath="$PROJECT_DIR$/../Experimot.Kinect.Speech/Experimot.Kinect.Speech.csproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Experimot.Kinect.Speech/KinectAudioStream.cs" afterPath="$PROJECT_DIR$/../Experimot.Kinect.Speech/KinectAudioStream.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Experimot.Kinect.Speech/KinectSpeechRecognition.cs" afterPath="$PROJECT_DIR$/../Experimot.Kinect.Speech/KinectSpeechRecognition.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Experimot.Kinect.Speech/Program.cs" afterPath="$PROJECT_DIR$/../Experimot.Kinect.Speech/Program.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Experimot.Scheduler/experimot_config.xml" afterPath="$PROJECT_DIR$/../Experimot.Scheduler/experimot_config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/behaviors/imitation_manager.py" afterPath="$PROJECT_DIR$/behaviors/imitation_manager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Experimot.Kinect.Speech/packages.config" afterPath="$PROJECT_DIR$/../Experimot.Kinect.Speech/packages.config" />
-    </list>
+    <list default="true" id="03f6965a-39a2-4893-a7b0-c0ae82b1fab2" name="Default" comment="" />
     <ignored path="PyScripts.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,14 +24,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="NaoBehaviorModule.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NaoBehaviorModule.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/behaviors/NaoBehaviorModule.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1907" max-vertical-offset="6001">
-              <caret line="120" column="23" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="23" />
-              <folding>
-                <element signature="e#85#110#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.68552035" vertical-offset="1788" max-vertical-offset="5882">
+              <caret line="130" column="28" selection-start-line="130" selection-start-column="28" selection-end-line="130" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -48,7 +37,7 @@
       <file leaf-file-name="behaviormanager.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/behaviors/behaviormanager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1943" max-vertical-offset="2278">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1836" max-vertical-offset="2278">
               <caret line="128" column="40" selection-start-line="0" selection-start-column="0" selection-end-line="128" selection-end-column="43" />
               <folding>
                 <element signature="e#27#36#0" expanded="true" />
@@ -57,10 +46,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="imitation_manager.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="imitation_manager.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/behaviors/imitation_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.1538463" vertical-offset="2278" max-vertical-offset="3332">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2278" max-vertical-offset="3332">
               <caret line="197" column="43" selection-start-line="197" selection-start-column="43" selection-end-line="197" selection-end-column="43" />
               <folding />
             </state>
@@ -476,8 +465,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="122" y="35" width="1417" height="890" extended-state="1" />
-    <editor active="true" />
+    <frame x="122" y="35" width="1417" height="890" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24696645" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -911,13 +900,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/behaviors/NaoBehaviorModule.py">
+    <entry file="file://$PROJECT_DIR$/behaviors/imitation_manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1907" max-vertical-offset="6001">
-          <caret line="120" column="23" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="23" />
-          <folding>
-            <element signature="e#85#110#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="2278" max-vertical-offset="3332">
+          <caret line="197" column="43" selection-start-line="197" selection-start-column="43" selection-end-line="197" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -931,10 +918,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/behaviors/imitation_manager.py">
+    <entry file="file://$PROJECT_DIR$/behaviors/NaoBehaviorModule.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.1538463" vertical-offset="2278" max-vertical-offset="3332">
-          <caret line="197" column="43" selection-start-line="197" selection-start-column="43" selection-end-line="197" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.68552035" vertical-offset="1788" max-vertical-offset="5882">
+          <caret line="130" column="28" selection-start-line="130" selection-start-column="28" selection-end-line="130" selection-end-column="28" />
           <folding />
         </state>
       </provider>
