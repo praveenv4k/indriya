@@ -27,7 +27,7 @@ Tokyo University of Agriculture and Technology, Japan\\
 \maketitle   
 \begin{abstract}
 	Humans interacting with intelligent robots has been seen as a potential game changer of the future. In scenarios where robots coexist with humans in a social environment, understanding not only verbal communication, but also non-verbal communication is extremely inevitable. The non-verbal communication carries information such as intention, emotion and health of a human, that adds value to the way robots participate in an interaction. Additionally, the people who design interaction scenarios are from diverse fields who do not essentially have the required robot programming skills. In this paper we propose an easy to use and intuitive programming interface which gives the power to design robot behaviors taking into account human motions. We propose a distributed system namely Indriya which gives the capability to plug and play multi-modal motion recognition systems and diverse class of robots. We present results of NAO humanoid robot performing actions understanding human motions using Kinect motion recognition system.
-\keywords{human robot interaction, motion recognition, robot behaviors, kinect, nao}
+\keywords{human robot interaction, motion recognition, robot behaviors, kinect, nao, motion driven behaviors}
 \end{abstract}
 \section{Introduction}
 \quad The richness and diversity of Human Robot Interaction (HRI) has been described in \cite{dautenhahn2007methodology} as ``HRI is a challenging research field at the intersection of psychology, cognitive science, social sciences, artificial intelligence, computer science, robotics, engineering and human-computer interaction". Goodrich in his extensive survey \cite{goodrich2007human} proposed two main types of HRI namely remote interaction and proximate interaction. The latter is particularly important where the humans and the robots are co-located. Proximate interaction has gained importance due to the successful encounters of putting robots to work with human beings. It has led to the development of a new class of robots called social robots. Yan et al. \cite{yan2014survey} define ``A social robot is a robot which can execute designated tasks and the necessary condition turning a robot into a social robot is the ability to interact with humans by adhering to certain social cues and rules.''
@@ -60,7 +60,7 @@ The principal components of the architecture are
 \includegraphics[width=\textwidth]{../thesis/assets/architecture.eps}
 \caption[System Architecture]{Architecture}
 \end{subfigure}
-\caption[System Architecture]{Motion Driven behavior interface}
+\caption[System Architecture]{Indriya behavior interface}
 \label{fig:architecture}
 \end{figure}
 \begin{itemize}
@@ -98,7 +98,7 @@ The principal components of the architecture are
 \caption[Block Implementation]{Block Implementation}
 \label{fig:program_blocks}
 \end{subfigure}
-\caption[Program Structure]{Program Structure}
+\caption[Program Structure]{Behavior program structure}
 \label{fig:program}
 \end{figure}
 The behavior program is structured in a simple way so that it could be easily understood by the end user. The conceptual model of behavior program is shown in Fig.~\ref{fig:program_concept} and the block level implementation is shown in Fig.~\ref{fig:program_blocks}. The behavior program is composed of:
@@ -119,19 +119,19 @@ The behavior program is structured in a simple way so that it could be easily un
 \centering
 \begin{subfigure}[t]{0.49\textwidth}
 \includegraphics[width=\textwidth]{../thesis/assets/scenario_museum.png}
-\caption[Experiment Setup 1]{NAO as a museum guide}
+\caption[Experiment Setup 1]{NAO as museum guide}
 \label{fig:scenario1_setup}
 \end{subfigure}
 \begin{subfigure}[t]{0.49\textwidth}
 \includegraphics[width=\textwidth]{../thesis/assets/scenario_therapy.png}
-\caption[Experiment Setup 2]{NAO therapy facilitator}
+\caption[Experiment Setup 2]{NAO as therapy facilitator}
 \label{fig:scenario2_setup}
 \end{subfigure}
 \caption[Experiment Setup]{Experiment Setup}
 \label{fig:scenarios_setup}
 \end{figure}
 	In this section we describe two scenarios to demonstrate how our behavior design system could be used for realistic cases which would be otherwise extremely difficult to realize using existing methods for a novice programmer.
-\subsubsection{NAO as a museum guide: }
+\subsubsection{NAO as museum guide: }
 \begin{figure}
 \centering
 \begin{subfigure}[t]{0.49\textwidth}
@@ -152,7 +152,7 @@ The behavior program is structured in a simple way so that it could be easily un
 	Though Choregraphe uses a familiar flow-chart based programming model and has a huge library of primitive blocks to build complex motion patterns, the data flow for this scenario is not straight forward. As could be noticed from Fig~\ref{fig:scenario1_program_choregraphe}, at first the robot keeps looking for people in its vicinity at the cost of its power. Once it detects a person, it stops looking for people and start approaching (tracking) the person until a fixed distance with the person is reached. After this the tracking block has to be stopped and now the robot will actually start explaining the history of the museum.
 	
 	Using our behavior interface, the definition of this scenario is straightforward as shown in Fig~\ref{fig:scenario1_program}. The framework equipped with Kinect sensor takes care of the detection of people and gives the relative localization of the robot and human. Once the person is detected or a configured gesture trigger arrives, the behavior program retrieves the dynamic position of the robot and of the human. Using this information, the robot is driven towards the person. After coming into the proximity of the person, the robot starts explaining the history of museum. From the user perspective, the design of the behavior is intuitive and he/she can just focus on the scenario rather than thinking about the details of the data flow. The experiment setup for this scenario is shown in Fig~\ref{fig:scenario1_setup}.
-\subsubsection{NAO as a therapy facilitator:}%
+\subsubsection{NAO as therapy facilitator:}%
 \begin{figure}
 \includegraphics[width=\textwidth]{../thesis/assets/scenario2_horizontal.png}
 \caption[NAO as therapy facilitator]{NAO as therapy facilitator}
@@ -166,7 +166,7 @@ The behavior program is structured in a simple way so that it could be easily un
 \section{Prospective work}
 \quad This is a work in progress and for the moment we have evaluated our system for the Kinect motion capture system working seamlessly with the NAO humanoid robot for a set of predefined gestures and robot actions. We are planning to develop an extensive database containing commonly encountered gestures and also an extensive set of primitive robot actions. Additionally we are also planning to integrate our system to work with other modes of motion recognition like inertial measurement units (IMU), accelerometers and gyroscopes that are available in smart-phones and wearable devices. Similarly we are planning to integrate our system with other robots like Turtlebot and Pepper which we expect to receive soon.
 \section{Acknowledgments}
-		We would like to thank the members of GVLab at Tokyo University of Agriculture and Technology for helping us arranging the resources and participating in the experimentation. This work has been supported by Student Exchange Support Program of Japan Student Services Organization （JASSO）.
+		We would like to thank the members of GVLab at Tokyo University of Agriculture and Technology for helping us arranging the resources and participating in the experimentation. This work has been supported by Student Exchange Support Program of Japan Student Services Organization (JASSO).
 \bibliographystyle{plain}
 \bibliography{../Thesis/Bibliography}
 \end{document}
