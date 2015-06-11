@@ -10,8 +10,7 @@
     <Grid>
         <Grid.Resources>
             <DataTemplate x:Key="titleText">
-                <Border Style="{StaticResource RacePitBorderStyle}" Height="24">
-                    <TextBlock Text="{Binding}" 
+                <TextBlock Text="{Binding}" 
                         Margin="4 0"
                         VerticalAlignment="Center"
                         Foreground="White"
@@ -23,7 +22,6 @@
                         AncestorType={x:Type Expander}},
                         Path=ActualWidth}"
                         TextWrapping="Wrap"/>
-                </Border>
             </DataTemplate>
         </Grid.Resources>
         <Grid.RowDefinitions>
@@ -74,12 +72,7 @@
                 </Grid>
             </Expander>
             <!--<Expander Header="{Binding Humans.Count, StringFormat='Human Information - Count: {0}'}" HorizontalAlignment="Stretch" IsExpanded="False" >-->
-            <Expander HorizontalAlignment="Stretch" IsExpanded="False" >
-                <Expander.HeaderTemplate>
-                        <DataTemplate>
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding Humans.Count, StringFormat='Human Information - {0}'}"/>
-                        </DataTemplate>
-                    </Expander.HeaderTemplate>
+                <Expander HorizontalAlignment="Stretch" IsExpanded="False" HeaderTemplate="{StaticResource titleText}" Header="Human Information">
                     <ItemsControl ItemsSource="{Binding Humans}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
