@@ -1,0 +1,42 @@
+﻿<grammar version="1.0" xml:lang="ja-jp" root="rootRule" tag-format="semantics/1.0-literals" xmlns="http://www.w3.org/2001/06/grammar">
+  <rule id="rootRule">
+    <one-of>
+      <item>
+        <tag>はい</tag>
+        <one-of>
+          <item> はい </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>いいえ</tag>
+        <one-of>
+          <item> いいえ </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>たって</tag>
+        <one-of>
+          <item> たって </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>すわって</tag>
+        <one-of>
+          <item> すわって </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>青い</tag>
+        <one-of>
+          <item> 青い </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>赤い</tag>
+        <one-of>
+          <item> 赤い </item>
+        </one-of>
+      </item>
+    </one-of>
+  </rule>
+</grammar>

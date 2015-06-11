@@ -23,6 +23,7 @@ namespace Experimot.Scheduler
         private static readonly string[] SupportedRequests = {
             "human/{0}",
             "behavior_modules",
+            "behavior_module/{0}",
             "motion_modules",
             "robot",
             "humans",
@@ -147,6 +148,26 @@ namespace Experimot.Scheduler
                                 string json = JsonConvert.SerializeObject(context.BehaviorModules);
                                 _socket.Send(json);
                             }
+                        }
+                        else if (req.Contains("behavior_module/"))
+                        {
+                            string json = string.Empty;
+                            string[] strArray = req.Split('/');
+                            string id = string.Empty;
+                            if (strArray.Length == 2)
+                            {
+                                id = strArray[1];
+                            }
+                            if (!string.IsNullOrEmpty(id))
+                            {
+                                var context = TinyIoCContainer.Current.Resolve<Context>();
+                                if (context != null)
+                                {
+                                    var human = context.BehaviorModules.FirstOrDefault(s => s.name == id);
+                                    json = JsonConvert.SerializeObject(human);
+                                }
+                            }
+                            _socket.Send(json);
                         }
                         else if (req.Contains("motion_modules"))
                         {

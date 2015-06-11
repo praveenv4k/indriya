@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using CommandLine;
 using experimot.msgs;
@@ -24,6 +25,10 @@ namespace Experimot.Kinect.Speech
 
         private static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.Unicode;
+            var str = "あかい";
+            Console.WriteLine(str);
+            
             Node info = null;
             try
             {

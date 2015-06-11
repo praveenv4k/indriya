@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.InteropServices;
 using Common.Logging;
 using experimot.msgs;
@@ -38,7 +39,9 @@ namespace Experimot.Kinect.Speech
         // Number of pixels turtle should move forwards or backwards each time.
         private readonly int _displacementAmount = 60;
 
-        private readonly string _grammarFile = "SpeechGrammar.xml";
+        //private readonly string _grammarFile = "SpeechGrammar.xml";
+        private readonly string _grammarFile = "SpeechGrammar_ja-JP.xml";
+        private const string Language = "ja-JP";
 
         public KinectSpeechRecognition(Node node)
         {
@@ -126,7 +129,7 @@ namespace Experimot.Kinect.Speech
             Console.WriteLine("Speech recognized: {0}",e.Result.Confidence);
             if (e.Result.Confidence >= _confidenceThreshold)
             {
-                Console.WriteLine(e.Result.Semantics.Value.ToString());
+                Console.WriteLine(string.Format(new CultureInfo(Language), "{0}", e.Result.Semantics.Value));
             }
         }
 
@@ -174,7 +177,7 @@ namespace Experimot.Kinect.Speech
                     string value;
                     recognizer.AdditionalInfo.TryGetValue("Kinect", out value);
                     if ("True".Equals(value, StringComparison.OrdinalIgnoreCase) &&
-                        "en-US".Equals(recognizer.Culture.Name, StringComparison.OrdinalIgnoreCase))
+                        Language.Equals(recognizer.Culture.Name, StringComparison.OrdinalIgnoreCase))
                     {
                         return recognizer;
                     }
