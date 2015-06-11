@@ -8,6 +8,24 @@
              
         Title="Experimot" Height="768" Width="1024" FontSize="14">
     <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="titleText">
+                <Border Style="{StaticResource RacePitBorderStyle}" Height="24">
+                    <TextBlock Text="{Binding}" 
+                        Margin="4 0"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        FontSize="11" 
+                        FontWeight="Normal"
+                        Width="{Binding
+                        RelativeSource={RelativeSource
+                        Mode=FindAncestor,
+                        AncestorType={x:Type Expander}},
+                        Path=ActualWidth}"
+                        TextWrapping="Wrap"/>
+                </Border>
+            </DataTemplate>
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="250"></RowDefinition>
@@ -24,7 +42,9 @@
                                   WebBrowser="{Binding WebBrowser, Mode=OneWayToSource}">
             
         </cefSharp:ChromiumWebBrowser>-->
-        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" DataContext="{Binding Context}">
+        <ScrollViewer HorizontalAlignment="Stretch"
+		      VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="1">
+        <StackPanel  Orientation="Vertical" DataContext="{Binding Context}">
             <TextBlock HorizontalAlignment="Center" FontSize="18">World Description</TextBlock>
             <Expander Header="Robot Information" DataContext="{Binding Robot}" HorizontalAlignment="Stretch" IsExpanded="False">
                 <Grid>
@@ -53,8 +73,14 @@
                     
                 </Grid>
             </Expander>
-            <Expander Header="{Binding Humans.Count, StringFormat='Human Information - Count: {0}'}" HorizontalAlignment="Stretch" IsExpanded="False" >
-                <ItemsControl ItemsSource="{Binding Humans}">
+            <!--<Expander Header="{Binding Humans.Count, StringFormat='Human Information - Count: {0}'}" HorizontalAlignment="Stretch" IsExpanded="False" >-->
+            <Expander HorizontalAlignment="Stretch" IsExpanded="False" >
+                <Expander.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding Humans.Count, StringFormat='Human Information - {0}'}"/>
+                        </DataTemplate>
+                    </Expander.HeaderTemplate>
+                    <ItemsControl ItemsSource="{Binding Humans}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Border BorderBrush="DimGray" BorderThickness="2" CornerRadius="2">
@@ -64,7 +90,7 @@
                                         <RowDefinition></RowDefinition>
                                     </Grid.RowDefinitions>
                                     <TextBlock HorizontalAlignment="Center" Text="{Binding Id, StringFormat='Human - {0}'}" Grid.Row="0" />
-                                    <DataGrid ItemsSource="{Binding Gestures}" Grid.Row="1" IsReadOnly="True"></DataGrid>
+                                    <DataGrid ItemsSource="{Binding Gestures}" Grid.Row="1" IsReadOnly="True" VerticalScrollBarVisibility="Auto"></DataGrid>
                                     <!--<ItemsControl ItemsSource="{Binding Gestures}" Grid.Row="1">
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
@@ -94,7 +120,7 @@
                                         <RowDefinition></RowDefinition>
                                     </Grid.RowDefinitions>
                                     <TextBlock HorizontalAlignment="Center" Text="{Binding Name}" Grid.Row="0" />
-                                    <DataGrid ItemsSource="{Binding Gestures}" Grid.Row="1" IsReadOnly="True"></DataGrid>
+                                    <DataGrid ItemsSource="{Binding Gestures}" Grid.Row="1" IsReadOnly="True" VerticalScrollBarVisibility="Auto"></DataGrid>
                                 </Grid>
                             </Border>
                         </DataTemplate>
@@ -124,6 +150,7 @@
                 <Button Height="35" Width="100" Margin="5" Click="ProgramStop">Stop</Button>
             </StackPanel>-->
         </StackPanel>
+        </ScrollViewer>
         <RichTextBox x:Name="textBox" Grid.Row="1" Grid.ColumnSpan="2">
             
         </RichTextBox>
