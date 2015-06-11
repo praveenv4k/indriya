@@ -88,6 +88,17 @@ Blockly.Blocks.behaviors.GestureProperties =
     ["LiftRightHand", "LiftHand_Right"]
 ];
 
+Blockly.Blocks.behaviors.VoiceProperties =
+[
+    ["RED", 'Red'],
+    ["GREEN", 'Green'],
+    ["BLUE", 'Blue'],
+    ["STOP", "Stop"],
+    ["START", "Start"],
+    ["SIT", "Sit"],
+    ["STAND", "Stand"]
+];
+
 Blockly.Blocks.behaviors.PriorityProperties =
 [
     ["Low", 'low'],
@@ -836,14 +847,47 @@ Blockly.Blocks['gesture_trigger'] = {
 };
 
 Blockly.Blocks['trigger'] = {
-    init: function() {
+    init: function () {
+        var gestureDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.GestureProperties, function (option) {
+        });
         this.setHelpUrl('http://www.example.com/');
         this.setColour(75);
         this.appendDummyInput()
+            .appendField("Gesture : ");
+        this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(new Blockly.FieldDropdown([["WaveLeft", "Greet_Left"], ["WaveRight", "Greet_Right"], ["LiftLeftHand", "LiftHand_Left"], ["LiftRightHand", "LiftHand_Right"]]), "triggers");
-        this.setOutput(true);
+            .appendField(gestureDropdown, "MOTION_TRIGGER");
+        this.setOutput(true, "Boolean");
         this.setTooltip('Motion Trigger');
+    }
+};
+
+Blockly.Blocks['voice_trigger'] = {
+    init: function () {
+        var voiceDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.VoiceProperties, function (option) {
+        });
+        this.setHelpUrl('http://www.example.com/');
+        this.setColour(75);
+        this.appendDummyInput()
+            .appendField("Voice command : ");
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField(voiceDropdown, "VOICE_TRIGGER");
+        this.setOutput(true, "Boolean");
+        this.setTooltip('Voice Trigger');
+    }
+};
+
+Blockly.Blocks['voice_trigger2'] = {
+    init: function () {
+        this.setHelpUrl('http://www.example.com/');
+        this.setColour(290);
+        this.appendDummyInput()
+            .appendField("Voice command : ");
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldTextInput("YES"), "VOICE_TRIGGER");
+        this.setOutput(true, "String");
+        this.setTooltip('Voice Trigger');
     }
 };
 
