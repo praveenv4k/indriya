@@ -247,6 +247,19 @@ public class ComposableBehavior
     }
 }
 
+public enum BehaviorTriggerType
+{
+    Gesture,
+    Voice,
+    Tactile,
+    Olfactory,
+    Other
+}
+
+public class BehaviorTrigger
+{
+    public BehaviorTriggerType Trigger { get; set; }
+}
 
 public class BehaviorTemplate
 {
@@ -289,6 +302,24 @@ public class BehaviorTemplate
             _behavior.ExitActionsComplete = true;
         }
         return _behavior.ExitActionsComplete;
+    }
+}
+
+public class SpeechRecognitionModule
+{
+    public string WaitForVoiceResponse(IEnumerable<string> choices)
+    {
+        if (choices != null)
+        {
+            //TODO Get voice response for speech recognition
+            //culture.CompareInfo.IndexOf(paragraph, word, CompareOptions.IgnoreCase) 
+            var dummy = string.Empty;
+            if (choices.Contains(dummy))
+            {
+                return dummy;
+            }
+        }
+        return string.Empty;
     }
 }
 

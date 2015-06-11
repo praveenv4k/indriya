@@ -1,25 +1,44 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="behavior_composable" id="5" inline="false" x="63" y="113">
+  <block type="behavior_composable" id="7" inline="false" x="63" y="113">
     <field name="behavior_name">default</field>
     <field name="priorities">LOW</field>
     <field name="execution">ONCE</field>
     <value name="trigger">
-      <block type="voice_trigger" id="17">
+      <block type="voice_trigger" id="8">
         <field name="VOICE_TRIGGER">Red</field>
       </block>
     </value>
     <statement name="INIT_DO">
-      <block type="animated_say_action" id="11">
+      <block type="animated_say_action" id="9">
         <field name="SAY_TEXT">text</field>
+        <next>
+          <block type="variables_set" id="14" inline="true">
+            <field name="VAR">response</field>
+            <value name="VALUE">
+              <block type="wait_voice_response" id="19" inline="true">
+                <value name="choice1">
+                  <block type="text" id="30">
+                    <field name="TEXT">YES</field>
+                  </block>
+                </value>
+                <value name="choice2">
+                  <block type="text" id="32">
+                    <field name="TEXT">NO</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </next>
       </block>
     </statement>
     <statement name="DO">
-      <block type="animated_say_action" id="12">
+      <block type="animated_say_action" id="10">
         <field name="SAY_TEXT">text</field>
       </block>
     </statement>
     <statement name="EXIT_DO">
-      <block type="animated_say_action" id="13">
+      <block type="animated_say_action" id="11">
         <field name="SAY_TEXT">text</field>
       </block>
     </statement>
