@@ -1,0 +1,61 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_composable" id="6" inline="false" x="313" y="138">
+    <field name="behavior_name">default</field>
+    <field name="priorities">LOW</field>
+    <field name="execution">ONCE</field>
+    <value name="trigger">
+      <block type="voice_trigger2" id="10">
+        <field name="VOICE_TRIGGER">YES</field>
+      </block>
+    </value>
+    <statement name="INIT_DO">
+      <block type="variables_set" id="20" inline="true">
+        <field name="VAR">item</field>
+        <value name="VALUE">
+          <block type="wait_voice_response" id="17" inline="true">
+            <value name="CHOICE1">
+              <block type="text" id="22">
+                <field name="TEXT">はい</field>
+              </block>
+            </value>
+            <value name="CHOICE2">
+              <block type="text" id="24">
+                <field name="TEXT">いいえ</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="28" inline="false">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="logic_compare" id="38" inline="true">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="variables_get" id="31">
+                    <field name="VAR">item</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="text" id="40">
+                    <field name="TEXT">いいえ</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="robot_action" id="46">
+                <field name="actions">greet</field>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="robot_action" id="53">
+                <field name="actions">stand</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

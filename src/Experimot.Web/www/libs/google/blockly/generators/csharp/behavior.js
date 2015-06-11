@@ -236,6 +236,17 @@ Blockly.CSharp['voice_trigger2'] = function (block) {
     return [code, Blockly.CSharp.ORDER_ATOMIC];
 };
 
+Blockly.CSharp['wait_voice_response'] = function (block) {
+    //executeLogic = Blockly.CSharp.valueToCode(this, 'RUN_UNTIL', Blockly.CSharp.ORDER_ATOMIC);
+    var valueChoice1 = Blockly.CSharp.valueToCode(block, 'CHOICE1', Blockly.CSharp.ORDER_ATOMIC);
+    var valueChoice2 = Blockly.CSharp.valueToCode(block, 'CHOICE2', Blockly.CSharp.ORDER_ATOMIC);
+
+    var code = 'SpeechRecognitionModule.WaitForVoiceResponse(new[] {' + valueChoice1 + ',' + valueChoice2 + '}; );';
+
+    //return [code, Blockly.CSharp.ORDER_NONE];
+    return [code, Blockly.CSharp.ORDER_ATOMIC];
+};
+
 Blockly.CSharp['priority'] = function (block) {
     var priority = block.getFieldValue('priorities');
     var code = 'set_priority(\"' + priority + '\");\n';

@@ -224,7 +224,7 @@ Blockly.Blocks['behavior_sleek'] = {
         var confidenceDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.ConfidenceProperties, function(option) {
         });
 
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(330);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
@@ -416,7 +416,7 @@ Blockly.Blocks['behavior_simple'] = {
             }
         });
 
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(330);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
@@ -543,7 +543,7 @@ Blockly.Blocks['behavior_simple_count'] = {
         var confidenceDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.ConfidenceProperties, function (option) {
         });
 
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(330);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
@@ -694,15 +694,11 @@ Blockly.Blocks['behavior_startup'] = {
     init: function() {
         var nameText = "Startup Behavior";
 
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(200);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("Behavior Name :")
-            //.appendField(new Blockly.FieldTextInput("behavior"), "behavior_name")
             .appendField(nameText);
-        //this.appendDummyInput()
-        //    .appendField("");
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
             .appendField("Robot Actions");
@@ -716,15 +712,11 @@ Blockly.Blocks['behavior_exit'] = {
     init: function() {
         var nameText = "Exit Behavior";
 
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(400);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("Behavior Name :")
-            //.appendField(new Blockly.FieldTextInput("behavior"), "behavior_name")
             .appendField(nameText);
-        //this.appendDummyInput()
-        //    .appendField("");
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
             .appendField("Robot Actions");
@@ -744,7 +736,7 @@ Blockly.Blocks['behavior'] = {
         if (name !== nameText) {
             console.log("Resolved name : " + name);
         }
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(300);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -790,7 +782,7 @@ Blockly.Blocks['behavior'] = {
 
 Blockly.Blocks['behavior_composable'] = {
     init: function () {
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(210);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -828,7 +820,7 @@ Blockly.Blocks['gesture_trigger'] = {
     init: function() {
         var gestureDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.GestureProperties, function(option) {
         });
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(20);
         this.appendDummyInput()
             .appendField("When");
@@ -850,7 +842,7 @@ Blockly.Blocks['trigger'] = {
     init: function () {
         var gestureDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.GestureProperties, function (option) {
         });
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(75);
         this.appendDummyInput()
             .appendField("Gesture : ");
@@ -858,6 +850,7 @@ Blockly.Blocks['trigger'] = {
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField(gestureDropdown, "MOTION_TRIGGER");
         this.setOutput(true, "Boolean");
+        this.setInputsInline(true);
         this.setTooltip('Motion Trigger');
     }
 };
@@ -866,7 +859,7 @@ Blockly.Blocks['voice_trigger'] = {
     init: function () {
         var voiceDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.VoiceProperties, function (option) {
         });
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(75);
         this.appendDummyInput()
             .appendField("Voice command : ");
@@ -881,7 +874,7 @@ Blockly.Blocks['voice_trigger'] = {
 
 Blockly.Blocks['voice_trigger2'] = {
     init: function () {
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(290);
         this.appendDummyInput()
             .appendField("Voice command : ");
@@ -895,7 +888,7 @@ Blockly.Blocks['voice_trigger2'] = {
 
 Blockly.Blocks['priority'] = {
     init: function() {
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(100);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -905,9 +898,27 @@ Blockly.Blocks['priority'] = {
     }
 };
 
+Blockly.Blocks['wait_voice_response'] = {
+    init: function () {
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setColour(290);
+        this.appendDummyInput()
+            .appendField("Wait for voice response: ");
+        this.appendValueInput("CHOICE1")
+            .setCheck("String")
+            .appendField("Choice 1");
+        this.appendValueInput("CHOICE2")
+            .setCheck("String")
+            .appendField("Choice 2");
+        this.setInputsInline(true);
+        this.setOutput(true, "String");
+        this.setTooltip('');
+    }
+};
+
 Blockly.Blocks['robot_action'] = {
     init: function() {
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(225);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -920,7 +931,7 @@ Blockly.Blocks['robot_action'] = {
 
 Blockly.Blocks['approach_action'] = {
     init: function() {
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(225);
         this.appendDummyInput()
             .appendField("approach human with distance")
@@ -934,7 +945,7 @@ Blockly.Blocks['approach_action'] = {
 
 Blockly.Blocks['therapy_action'] = {
     init: function() {
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(215);
         this.appendDummyInput()
             .appendField("Demonstrate therapy exercise ")
@@ -947,7 +958,7 @@ Blockly.Blocks['therapy_action'] = {
 
 Blockly.Blocks['animated_say_action'] = {
     init: function() {
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(230);
         this.appendDummyInput()
             .appendField("Say Expressively \"")
@@ -962,7 +973,7 @@ Blockly.Blocks['animated_say_action'] = {
 
 Blockly.Blocks['animated_say_action_arg'] = {
     init: function() {
-        this.setHelpUrl('http://www.example.com/');
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(120);
         this.appendDummyInput()
             .appendField("Say Expressively")
