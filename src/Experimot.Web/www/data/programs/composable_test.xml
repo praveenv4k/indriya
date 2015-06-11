@@ -1,0 +1,27 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_composable" id="5" inline="false" x="63" y="113">
+    <field name="behavior_name">default</field>
+    <field name="priorities">LOW</field>
+    <field name="execution">ONCE</field>
+    <value name="trigger">
+      <block type="voice_trigger" id="17">
+        <field name="VOICE_TRIGGER">Red</field>
+      </block>
+    </value>
+    <statement name="INIT_DO">
+      <block type="animated_say_action" id="11">
+        <field name="SAY_TEXT">text</field>
+      </block>
+    </statement>
+    <statement name="DO">
+      <block type="animated_say_action" id="12">
+        <field name="SAY_TEXT">text</field>
+      </block>
+    </statement>
+    <statement name="EXIT_DO">
+      <block type="animated_say_action" id="13">
+        <field name="SAY_TEXT">text</field>
+      </block>
+    </statement>
+  </block>
+</xml>

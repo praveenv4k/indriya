@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Common.Logging;
 
@@ -172,4 +173,158 @@ public class MotionBasedBehavior : ICloneable
         //}
         return newObject;
     }
+}
+
+public class TriggerBasedBehavior : MotionBasedBehavior
+{
+    public string InitBlock { get; set; }
+    public string CyclicBlock { get; set; }
+    public string ExitBlock { get; set; }
+}
+
+public class ComposableBehavior
+{
+    private readonly TriggerBasedBehavior _behaviorInfo;
+
+    public ComposableBehavior()
+    {
+        _behaviorInfo = new TriggerBasedBehavior();
+    }
+
+    public static ComposableBehavior Create(string name)
+    {
+        return new ComposableBehavior();
+    }
+
+    public void SetTrigger(string triggerType, string trigger)
+    {
+        _behaviorInfo.Trigger = trigger;
+        Console.WriteLine(@"Setting trigger : {0}", trigger);
+    }
+
+    public void SetPriority(string priority)
+    {
+        BehaviorExecutionPriority p;
+        Enum.TryParse(priority, true, out p);
+        _behaviorInfo.Priority = p;
+        Console.WriteLine(@"Setting priority : {0}", priority);
+    }
+
+    public void RegisterInitBlock(string init)
+    {
+        _behaviorInfo.InitBlock = init;
+        Console.WriteLine(@"Setting Init : {0}", init);
+    }
+
+    public void RegisterCyclicBlock(string cyclic)
+    {
+        _behaviorInfo.InitBlock = cyclic;
+        Console.WriteLine(@"Setting Cyclic : {0}", cyclic);
+    }
+
+    public void RegisterExitBlock(string exit)
+    {
+        _behaviorInfo.InitBlock = exit;
+        Console.WriteLine(@"Setting Exit : {0}", exit);
+    }
+
+    public static void Run(ComposableBehavior behavior)
+    {
+        
+    }
+
+    public static void ComposableBehaviorTest()
+    {
+        var behavior = ComposableBehavior.Create(@"default");
+        behavior.SetTrigger("VOICE", "Red");
+        behavior.SetPriority(@"LOW");
+        // Init Block
+        behavior.RegisterInitBlock(@"  Console.WriteLine(""init text"");");
+        // Cyclic Block
+        behavior.RegisterCyclicBlock(@"Console.WriteLine(""cyclic text"");");
+        // Exit Block
+        behavior.RegisterExitBlock(@"  Console.WriteLine(""exit text"");");
+    }
+}
+
+
+public class BehaviorTemplate
+{
+    private TriggerBasedBehavior _behavior;
+
+    public BehaviorTemplate()
+    {
+        _behavior = new TriggerBasedBehavior();
+    }
+
+    public string ActiveResource { get; set; }
+
+    public bool ExecuteInit(IBehaviorExecutionContext context)
+    {
+        if (!_behavior.InitActionsComplete)
+        {
+            // INIT_BLOCK
+            // INIT_BLOCK_HERE
+            _behavior.InitActionsComplete = true;
+        }
+        return _behavior.InitActionsComplete;
+    }
+
+    public bool ExecuteCyclic(IBehaviorExecutionContext context)
+    {
+        if (!_behavior.CyclicActionsComplete)
+        {
+            // CYCLIC_BLOCK
+            // CYCLIC_BLOCK_HERE
+        }
+        return _behavior.CyclicActionsComplete;
+    }
+
+    public bool ExecuteExit(IBehaviorExecutionContext context)
+    {
+        if (!_behavior.ExitActionsComplete)
+        {
+            // EXIT_BLOCK
+            // EXIT_BLOCK_HERE
+            _behavior.ExitActionsComplete = true;
+        }
+        return _behavior.ExitActionsComplete;
+    }
+}
+
+public class NaoBehaviorModule
+{
+    private static bool _canExecute;
+
+    public string Name { get; private set; }
+
+    public NaoBehaviorModule(Dictionary<string, string> parameters)
+    {
+        var name = parameters.FirstOrDefault(s => s.Key == "NaoBehaviorModule");
+        Name = !string.IsNullOrEmpty(name.Value) ? name.Value : "nao_behavior_manager";
+    }
+
+    public static NaoBehaviorModule Create(string contextServer, int port)
+    {
+        return new NaoBehaviorModule(null);
+    }
+
+    public static void Execute(string function, params object[] args)
+    {
+        _canExecute = false;
+    }
+
+    public static bool CanExecute()
+    {
+        return _canExecute;
+    }
+
+    public static bool GetModuleInfo()
+    {
+        return false;
+    }
+}
+
+public interface IBehaviorExecutionContext
+{
 }

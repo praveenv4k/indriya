@@ -14,6 +14,7 @@
     <param key="WebServerHost" value="http://localhost" type="int"/>
     <param key="ROBOTIP" value="127.0.0.1" type="string"/>
     <param key="ROBOTPORT" value="51787" type="int"/>
+    <param key="NaoBehaviorModule" value="nao_behavior_manager" type="string"/>
     <!--<param key="ROBOTIP" value="192.168.11.3" type="string"/>
     <param key="ROBOTPORT" value="9559" type="int"/>-->
     <param key="ContextServerHost" value="tcp://*" type="string"/>
@@ -119,7 +120,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="false" name="speech_recognition">
+    <node enabled="true" name="speech_recognition">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Speech\Experimot.Kinect.Speech.exe</path>

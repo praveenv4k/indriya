@@ -874,6 +874,7 @@ Blockly.Blocks['voice_trigger'] = {
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField(voiceDropdown, "VOICE_TRIGGER");
         this.setOutput(true, "Boolean");
+        this.setInputsInline(true);
         this.setTooltip('Voice Trigger');
     }
 };
@@ -886,7 +887,8 @@ Blockly.Blocks['voice_trigger2'] = {
             .appendField("Voice command : ");
         this.appendDummyInput()
             .appendField(new Blockly.FieldTextInput("YES"), "VOICE_TRIGGER");
-        this.setOutput(true, "String");
+        this.setOutput(true, "Boolean");
+        this.setInputsInline(true);
         this.setTooltip('Voice Trigger');
     }
 };
