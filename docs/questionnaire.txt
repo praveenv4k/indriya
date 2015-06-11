@@ -1,0 +1,23 @@
+Background
+
+1. Rate your programming skill on a scale of 1-10?
+
+2. Do you have a background in robotics?
+
+3. Were you able to program robots before?
+
+Usability
+
+4. Was the interface familiar?
+
+5. Did it take a lot of time to learn to use the interface?
+
+6. Were you able to create the scenario you wanted to?
+
+Execution
+
+7. Was the scenario executed as you expected?
+
+8. Did the robot exhibit social behavior?
+
+9. Did your gestures/motions understand by the robot as expected?
