@@ -165,18 +165,7 @@ K(p,q) = \sum_{x} p(x)log{\frac{p(x)}{q(x)}}
 	In \cite{choi2013rgb} a robust particle filter parallelized on a GPU that can track a known 3D object model over a sequence of RGB-D images is proposed. This method proposes to render the 3D object model to be used in the likelihood function so that the object could be tracked inspite of significant pose variations. Unlike PCL object tracking algorithm\cite{rusu20113d} which maintains only one reference point cloud, this approach uses multiple viewports rendered in GPU with different poses and each particle searches the closest rendering from the viewports and likelihood evaluation is performed by transforming the closest rendered result with the current particle state. Each particle is defined as 6D vector consisting of position and orientation of the object. For the likelihood evaluation, this work exploits the RGB-D data and utilizes the position, normal and color information of the points. Through a set of extensive experiments with both synthetic and real RGB-D sequences, this approach has been proved to be faster and also accurate than the PCL tracking.
 	
 \section{Behavioral Frameworks} % Main chapter title
-The users of social robots do not have necessary backgrounds in programming and design of robot behaviors. This lead to the development of several visual programming languages which allow non-programmers to create robot applications. Most of the available visual programming softwares allows to choose among many prebuilt behavioral blocks and connecting them to one another to get the desired flow of action \cite{MSRS4},\cite{Choregraphe}. These programs are very intuitive and allow the users to realize complex sequence of movements and sequential behaviors. But programming dynamic behaviors still remains challenging. This is primarily due to fact that the users have to think about the data flow between various blocks by appropriate connections between them. When it comes to designing complex dynamic behaviors this task becomes very tedious and time consuming. 
-Programming complex dynamic behaviors for small commercial humanoid robots is a complicated task for the inexperienced roboticists\cite{berenz2014targets} for the following reasons.
-\begin{itemize}
-\item Synchronizing the data flow between tasks that run at different rates
-\item Ensuring robustness and task continuity in case of unreliable sensory modules
-\item Providing memory infrastructure to manage the existence and positions of detected objects
-\item Organizing the distinct information flow for each detected object from sensory modules to processing modules
-\item Conditional selection of actions and retrying in case of failure. 
-\end{itemize}
-\subsection{Existing Solutions}
-There are many solutions  proposed in the literature that address the dynamic control problem. For instance Gostai's Universal Robotic Body Interface(URBI)\cite{baillie2008urbi} and Task description language (TDL)\cite{simmons1998task} are programming languages developed specifically for robot programming. URBI provides a modern object-oriented scripting language that allows the organization of code into different processes that either run sequentially or in parallel, and it also provides tools for process execution monitoring. In TDL which was developed as a C++ extension, the code is organized into task trees, which encode the hierarchical decomposition of tasks as well as the synchronization of constraints between tasks.
-More recently, specialized operating systems have been proposed, such as ROS\cite{quigley2009ros}, which organize code into distributed asynchronous modules that exchange data using a data subscription protocol. Hierarchical organization of behaviors and modularity are also being investigated \cite{jaeger1998dual},\cite{Baldassarre:2013:CRM:2560111},\cite{hurdus2008behavioral}. These solutions manage the integration and communication between different types of hardware and software and support the implementation of reaction, as well as behavioral specification. However, these programs have been produced by robot developers and are targeted at this community, which means that they are not intended to be used by non-roboticists and a solid background in computer science/robotics is required for their use.
+The users of social robots do not have necessary backgrounds in programming and design of robot behaviors. This lead to the development of several visual programming languages which allow non-programmers to create robot applications. Most of the available visual programming softwares allows to choose among many prebuilt behavioral blocks and connecting them to one another to get the desired flow of action \cite{MSRS4},\cite{Choregraphe}. These programs are very intuitive and allow the users to realize complex sequence of movements and sequential behaviors. But programming dynamic behaviors still remains challenging. This is primarily due to fact that the users have to think about the data flow between various blocks by appropriate connections between them. When it comes to designing complex dynamic behaviors this task becomes very tedious and time consuming.  Programming complex dynamic behaviors for small commercial humanoid robots is a complicated task for the inexperienced roboticists \cite{berenz2014targets} for the reasons such as synchronizing the data flows, conditional selection of actions, ensuring robustness and task continuity etc., There are many solutions  proposed in the literature that address the dynamic control problem. For instance Gostai's Universal Robotic Body Interface(URBI) \cite{baillie2008urbi} and Task description language (TDL) \cite{simmons1998task} are programming languages developed specifically for robot programming. URBI provides a modern object-oriented scripting language that allows the organization of code into different processes that either run sequentially or in parallel, and it also provides tools for process execution monitoring. In TDL which was developed as a C++ extension, the code is organized into task trees, which encode the hierarchical decomposition of tasks as well as the synchronization of constraints between tasks. More recently, specialized operating systems have been proposed, such as ROS \cite{quigley2009ros}, which organize code into distributed asynchronous modules that exchange data using a data subscription protocol. Hierarchical organization of behaviors and modularity are also being investigated \cite{jaeger1998dual} \cite{Baldassarre:2013:CRM:2560111} \cite{hurdus2008behavioral}. These solutions manage the integration and communication between different types of hardware and software and support the implementation of reaction, as well as behavioral specification. However, these programs have been produced by robot developers and are targeted at this community, which means that they are not intended to be used by non-roboticists and a solid background in computer science/robotics is required for their use.
 \begin{figure}[H]
 \centering
 \begin{subfigure}[b]{0.5\textwidth}
@@ -194,57 +183,21 @@ More recently, specialized operating systems have been proposed, such as ROS\cit
 \caption[Visual Programming Tools]{Visual Programming Tools. {Adapted from manufacturer's site}}
 \label{fig:visprog}
 \end{figure}
-\subsection{Target Drives Means Framework}
-A new non-domain-specific solution called \emph{Target Drives Means (TDM)}( Developed at University of Tsukuba, Artificial Intelligence Laboratory) is proposed in \cite{berenz2014targets} taking into account the following requirements. 
-\begin{itemize}
-\item Full support for dynamic actions $\rightarrow$ Management of automatic information flow between sensory and action components, object permanence, action continuity.
-\item Declarative approach and not of flowcharts, which lead to plan composition issues. 
-\item Ability to specify context-specific activation of actions. 
-\item Shorter learning curve. 
-\item Modular design to ensure the efficient reuse
-of components.
-\end{itemize}
-In order to satisfy the aforementioned requirements, TDM proposes a programming paradigm where temporal independent dynamic behaviors blocks run in parallel. The logic of the program is not expressed using communication links in a flowchart, but by the use of specialized dynamic components that regulate the activation status and the priorities of the behaviors. There are four types of dynamic components: \emph{Functions} for actions or the handling of sensory data, \emph{Conditions} that monitor the activation status of functions, \emph{Score calculators} that perform the online evaluation of the execution priority of behaviors, \emph{Triggers} that link sensing to acting. The components never communicate with each other directly because information exchange occurs via a specialized centralized memory called \emph{Internal Model(IM)} which takes care of asynchronous information flow (push/pull communication) between connected components, odometry, object permanence, and activation of behaviors through triggers. Figure~\ref{fig:tdm_priority} shows how the behavior prioritization is managed while Figure~\ref{fig:tdm_im} shows the complete architecture of TDM with Internal model. The IM solves the problem of data consistency and information flow if a redundant behavior has to be performed over many objects in the environment by generating the behaviors at run-time according to the trigger. Also it establishes distinct information flow between the sensor module and the behavior module.
+A new non-domain-specific solution called \emph{Target Drives Means (TDM)} shown in Figure~\ref{fig:tdm_im} is proposed in \cite{berenz2014targets} taking into account the following requirements. TDM proposes a programming paradigm where temporal independent dynamic behaviors blocks run in parallel. The logic of the program is not expressed using communication links in a flowchart, but by the use of specialized dynamic components that regulate the activation status and the priorities of the behaviors. THe information exchange occurs via a specialized centralized memory called \emph{Internal Model(IM)} which takes care of asynchronous information flow (push/pull communication) between connected components, odometry, object permanence, and activation of behaviors through triggers. 
 \begin{figure}[H]
 \centering
-\begin{subfigure}[b]{0.45\textwidth}
-\includegraphics[width=\textwidth]{assets/tdm_priority.eps}
-\caption{Behavior coordination and execution}
-\label{fig:tdm_priority}
-\end{subfigure}%
-\hfill
-\begin{subfigure}[b]{0.45\textwidth}
-\includegraphics[width=\textwidth]{assets/tdm_im.eps}
-\caption{Information management by IM of TDM}
+\includegraphics[width=0.5\textwidth]{assets/tdm_im.eps}
 \label{fig:tdm_im}
-\end{subfigure}%
 \caption[Target-drives-means Framework]{TDM Framework. {Adapted from \cite{berenz2014targets}}}
-\label{fig:tdm1}
 \end{figure}
-At the time of publication of \cite{berenz2014targets}, a visual programming software using TDM was not developed however the user studies were done to understand the usability of such a dynamic behavior programming paradigm. The comparison results of TDM and Aldebaran Choreographe presented in \cite{berenz2014targets} indicates that TDM is appropriate when it comes to designing complex dynamic behaviors.
+The comparison results of TDM and Aldebaran Choreographe presented in \cite{berenz2014targets} indicates that TDM is appropriate when it comes to designing complex dynamic behaviors. However there does not exist an intuitive interface for the behavior design yet and the framework is also not open and protected by intellectual property.
 
 \section{HRI Design and Evaluation} % Main chapter title
-Human-Robot Interaction (HRI) being a rapidly advancing area of research, there is a growing need for strong experimental designs and methods of evaluation. This will bring credibility and validity to scientific research that involves humans as subjects, as recognized in the psychology and social science fields. Some methods of evaluation have been adopted and/or modified from such fields as human-computer interaction, psychology, and social sciences; however, the manner in which a human interacts with a robot is similar but not identical to interactions between a human and a computer or a human interacting with another human. It often has a strong social or emotional component — a difference that poses potential challenges related to the design and evaluation of HRI. As robots are becoming more prevalent, accurate methods to assess how humans respond to robots, how they feel about their interactions with robots, and how they interpret the actions of robots are very important. In this section some of the HRI design and evaluation techniques are presented.
-
-\subsection{Planning, Design and Data collection}
-A successful human study in HRI requires careful planning and design. In \cite{bethel2010review}, a set of questions  when planning and designing a human study in HRI is presented. They are
-\begin{enumerate}
-\item What type of study will be conducted (within-subjects, between-subjects, mixed-model, etc.)?
-\item How many groups will be in the study?
-\item How many participants per group will be required?
-\item What methods of evaluation will be used (self-assessments, behavioral measures, interviews, psychophysiological measures, task performance, etc.)?
-\item What type of environment and space is required to conduct the study (field, laboratory, virtual, etc.)?
-\item What type of robots will be used?
-\item How many different types of robots will be used?
-\item What type of equipment will be needed (computers, measurement equipment, recording devices, etc.)?
-\item How will contingencies and failures be handled?
-\item What types of tasks will the participants perform or observe (Study Protocol)?
-\item How will participants be recruited for the study?
-\item What type of assistance is needed to conduct the study?
-\end{enumerate}
-	If the HRI designer has the answers to the above questions in hand, then it means half the job is done and it will enable him/her to carry out the HRI experiments without any hurdles. Apart from providing a checklist for planning and design of HRI studies, a list of recommendations for the experimental design and study execution is also provided in \cite{bethel2010review}.
+Human-Robot Interaction (HRI) being a rapidly advancing area of research, there is a growing need for strong experimental designs and methods of evaluation. This will bring credibility and validity to scientific research that involves humans as subjects, as recognized in the psychology and social science fields. Some methods of evaluation have been adopted and/or modified from such fields as human-computer interaction, psychology, and social sciences; however, the manner in which a human interacts with a robot is similar but not identical to interactions between a human and a computer or a human interacting with another human. It often has a strong social or emotional component — a difference that poses potential challenges related to the design and evaluation of HRI. As robots are becoming more prevalent, accurate methods to assess how humans respond to robots, how they feel about their interactions with robots, and how they interpret the actions of robots are very important. 
+%\subparagraph{Planning, Design and Data collection}
+A successful human study in HRI requires careful planning and design. In \cite{bethel2010review}, a set of questions when planning and designing a human study in HRI is presented. Apart from providing a checklist for planning and design of HRI studies, a list of recommendations for the experimental design and study execution is also provided in \cite{bethel2010review}.
 	
-	Data collection is one of the important steps in the evaluation process. In \cite{Rogers2011} which provides insights into designing interative systems, five key issues in the data gathering has been described. They are 
+Data collection is one of the important steps in the evaluation process. In \cite{Rogers2011} which provides insights into designing interative systems, five key issues in the data gathering has been described. They are 
 \begin{itemize}
 \item \emph{Identifying participants} : Decide who to gather data from
 \item \emph{Relationship with participants} : Establishing a clear and professional relationship
@@ -252,21 +205,7 @@ A successful human study in HRI requires careful planning and design. In \cite{b
 \item \emph{Triangulation} : Looking at data from more than one perspective
 \item \emph{Pilot studies} : Small trial of main study. 
 \end{itemize}
-Taking into account these issues while experimentation is essential in order to tackle them. 
-
-\subsection{HRI Evaluation techniques}
-	An extensive review of HRI evaluation methods presented in \cite{bethel2010review} summarises five primary methods of evaluation summarised. They are
-\begin{itemize}
-\item \emph{Self assessments} are among the most commonly used methods of evaluation in HRI studies. It can however be a challenge obtaining validated assessments designed for HRI studies. Self-assessment measures include paper or computer-based psychometric scales, questionnaires, or surveys. With this method, participants provide a personal assessment of how they felt or their motivations related to an object, situation, or interactions.
-\item \emph{Interviews} are closely related to self-assessments and they can be structured in such a way that  the researcher develops a series of questions that can be close-ended or open-ended; however the questions are given in the same order to every participant in the study. The interview can be audio and/or video recorded for evaluation at a later time. It can be a challenge to obtain responses that are reflective of participants’ true behaviors.
-\item \emph{Behavioral Measures} are the second most common method of evaluation in HRI studies, and sometimes are included along with psychophysiological evaluations and participants’ self-assessment responses for obtaining convergent validity. The benefit of behavioral measures is that researchers are able to record the actual behaviors of participants and do not need to rely on participants to report accurately their intended behaviors or preferences.
-\item \emph{Psychophysiology measures} has the primary advantage that participants cannot consciously manipulate the activities of their autonomic nervous system. Also, psychophysiological measures offer a minimally-invasive method that are used to determine the stress levels and responses of participants interacting with technology. Multiple physiological signals (blood pressure (BP), muscular system-electromyography (EMG), brain activity - electroencephalography (EEG) to name a few) could be used to obtain correlations in the results.
-\item \emph{Task performance metrics} are becoming more common in HRI studies, especially in studies where teams are evaluated and/or more than one person is interacting with one or more robots. These metrics are designed to measure how well a person or team performs or completes a task or tasks. This is essential in some HRI studies and should be included with other methods of evaluation such as behavioral and/or self-assessments.
-\end{itemize}
-Each of these methods has advantages and disadvantages. However the study claims that it is possible to overcome these disadvantages by using three or more appropriate methods of evaluation. 
-
- An effort to identify a set of Common metrics to be used in task-oriented HRI can be found in \cite{Steinfeld2006}. This study proposes a set of metric to evaluate the human-robot team and human-robot interactions and those proposed metrics are shown in Table~\ref{table:hri_metrics}
-
+An extensive review of HRI evaluation methods presented in \cite{bethel2010review} summarises five primary methods such as \emph{Self assessments}, \emph{Interviews}, \emph{Behavioral Measures}, \emph{Psychophysiology measures}, \emph{Task performance metrics}. Each of these methods has advantages and disadvantages. However the study claims that it is possible to overcome these disadvantages by using three or more appropriate methods of evaluation. An effort to identify a set of common metrics to be used in task-oriented HRI can be found in \cite{Steinfeld2006}. This study proposes a set of metric to evaluate the human-robot team and human-robot interactions and those proposed metrics are shown in Table~\ref{table:hri_metrics}
 \begin{table}[H]
 \centering
 \small
@@ -278,7 +217,6 @@ Each of these methods has advantages and disadvantages. However the study claims
                           & \textbf{Description}
   \tabularnewline \midrule
   
-  %\multicolumn{1}{l}{System Performance}  
   \multirow{4}{*}{System Performance} & Quantitative performance & Quantitative measures assess the
 effectiveness and efficiency of the team at performing a task \\
                                       & Subjective ratings & Subjective ratings assess the quality
@@ -300,17 +238,4 @@ assess itself \\
   										\bottomrule
 \end{tabularx}
 \end{table}
-
-	Bartneck et al.,\cite{bartneck2009measurement} emphasize the need for standardized measurement tools for human robot interaction. The main contribution of this work is that it presents measurements tools of five key concepts in HRI: anthropomorphism, animacy, likeability, perceived intelligence, and perceived safety. The outcome of the work is basically five consistent questionnaires using semantic differential scales. Moreover the study also reported reliability and validity indicators based on several empirical studies that used these questionnaires. Specifically, this study uses \emph{Cronbach's alpha} to estimate the reliability of the questionnaires. The results presented in the study showed that the developed questionnaires to measure the aspects have sufficient internal consistency reliability. 
-	
-	Young et al.,\cite{young2011evaluating} propose \emph{holistic interaction experience} and introduce a set of three perspectives for exploring social interaction with robots.
-\begin{itemize}
-\item Visceral factors of interaction(P1): It focuses on a person’s biological, visceral, and instinctual involvement in interaction. This includes such things as instinctual frustration, fear, joy, happiness, and so on, on a reactionary level where they are difficult to control.
-\item Social mechanics(P2): It focuses on the higher-level communication and social techniques used in interaction. This includes both the social mechanics that a person uses in communication as well as what they interpret from the robot throughout meaning-building during interaction. Examples range from gestures such as facial expressions and body language, to spoken language, to cultural norms such as personal space and eye-contact rules.
-\item Social Structures(P3): It covers the development of and changes in the social relationships and interaction between two entities, perhaps over a relatively long period of time (longer relative to P1 and P2). P3 considers the changes in or trajectory of P1, P2, as well as how a robot interacts with, understands, and even modifies social structures.
-\end{itemize}
-The study proposes that these three perspectives could be used as concrete tools throughout the evaluation process. 
-
-	Baddoura et al.,\cite{Baddoura2013} explore the human affective state of the familiar during a new or unknown situation as it relates to interacting with a robot. The measurement of the familiar experienced by two humans interacting with a robot and the intensity and adequacy of their response to its proactive social and practical actions is performed. An analysis is done on the participants’ reactions to the robot’s actions, the motion of their arms, and their answers to some parts of a questionnaire designed to measure their experience of the familiar and the robot’s sociability. This study aims at learning more about the familiar state in its relation to a satisfying, efficient and reciprocal HRI by considering a set of hypotheses such as familiarity increases with responsiveness,  behavioral changes affect familiarity, sociability of the robot is proportional to the human responsiveness. The study recorded the \emph{Behavioral measures} of the participants using IMU sensors on their heads and hands in order to measure the intensity of their response during the interaction. Additionally the whole interaction is recorded in order to evaluate the facial response of the participants. This study also used \emph{Self assessments} technique for evaluation in the form a questionnaire (using Likert scale). The statistical analysis performed during the study confirmed almost all the hypotheses except that the change in behavior of the robot did not show significant change in response from the human.
-	
-	All the evaluation techniques rely on the statistical tools for validating the results and generalizing the phenomena. A summary of statistical tools for the data analysis in HRI can be found in Appendix~\ref{AppendixA}.
+Bartneck et al.,\cite{bartneck2009measurement} emphasize the need for standardized measurement tools for human robot interaction. The main contribution of this work is that it presents measurements tools of five key concepts in HRI: anthropomorphism, animacy, likeability, perceived intelligence, and perceived safety. The outcome of the work is basically five consistent questionnaires using semantic differential scales. Moreover the study also reported reliability and validity indicators based on several empirical studies that used these questionnaires. Specifically, this study uses \emph{Cronbach's alpha} to estimate the reliability of the questionnaires. The results presented in the study showed that the developed questionnaires to measure the aspects have sufficient internal consistency reliability. All the evaluation techniques rely on the statistical tools for validating the results and generalizing the phenomena. A summary of statistical tools for the data analysis in HRI can be found in Appendix~\ref{AppendixA}.
