@@ -4,10 +4,12 @@ package experimot.msgs;
 /// \interface Vector3d 
 /// \brief Message for a vector3 double
 
-
+/**
+ * Represents a 3D vector
+ */
 message Vector3d
 {
-  required double x = 2;
-  required double y = 3;
-  required double z = 4;
+  required double x = 2;		/// x coordinate
+  required double y = 3;		/// y coordinate
+  required double z = 4;		/// z coordinate
 }

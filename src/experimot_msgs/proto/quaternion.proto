@@ -4,13 +4,15 @@ package experimot.msgs;
 /// \interface Quaternion
 /// \brief A message for a quaternion
 
-
+/**
+ * Represents a Quaternion (axis,angle) => (w = cos(angle/2), [x,y,z] = axis* sin(angle/2))
+ */
 message Quaternion
 {
-  required double x = 2;
-  required double y = 3;
-  required double z = 4;
-  required double w = 5;
+  required double x = 2;		/// x = axis_x * sin(angle/2)
+  required double y = 3;		/// y = axis_y * sin(angle/2)
+  required double z = 4;	    /// z = axis_z * sin(angle/2)
+  required double w = 5;		/// w = cos(angle/2)
 }
 
 

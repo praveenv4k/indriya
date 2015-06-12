@@ -6,41 +6,59 @@ package experimot.msgs;
 
 import "param.proto";
 
+/**
+ * Represents a gesture description
+ */
 message GestureDescription
 {
+	/**
+	 * Represents gesture type
+	 */
 	enum GestureType
 	{
-		None = 0;
-		Discrete = 1;
-		Continuous = 2;
+		None = 0;		/// No gesture
+		Discrete = 1;	/// Discrete gesture 
+		Continuous = 2;	/// Continuous gesture
 	}
-	required string name = 1;
-	required GestureType type = 2;
-	optional bool active = 3;
-	optional int32 progress = 4;
-	optional int32 confidence = 5;
+	required string name = 1;			/// Name of the gesture
+	required GestureType type = 2;		/// Type of gesture/motion
+	optional bool active = 3;			/// Active status of gesture
+	optional int32 progress = 4;		/// Gesture progress
+	optional int32 confidence = 5;		/// Gesture recognition confidence
 }
 
+/**
+ * Represents a gesture recognition module
+ */
 message GestureRecognitionModule
 {
-  required string name  = 1;
-  repeated Param params = 2;
-  repeated GestureDescription motions = 3;
+  required string name  = 1;				/// Module name
+  repeated Param params = 2;				/// Module parameters
+  repeated GestureDescription motions = 3;	/// List of gestures recognition capabilities of this module
 }
 
+/**
+ * Represents a gesture recognition modules
+ */
 message GestureRecognitionModules
 {
-  repeated GestureRecognitionModule modules  = 1;
+  repeated GestureRecognitionModule modules  = 1;		/// Gesture recognition module list
 }
 
+/**
+ * Represents a gesture trigger
+ */
 message GestureTrigger
 {
-  required int32 id = 1;
-  required GestureDescription motion = 2;
+  required int32 id = 1;					/// Trigger Identifier
+  required GestureDescription motion = 2;	/// Recognized gesture
 }
 
+/**
+ * Represents a gesture triggers
+ */
 message GestureTriggers
 {
-  required int32 id = 1;
-  repeated GestureDescription motion = 2;
+  required int32 id = 1;						/// Identifier
+  repeated GestureDescription motion = 2;		/// Recognized gestures
 }
