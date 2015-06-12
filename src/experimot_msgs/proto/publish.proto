@@ -4,11 +4,13 @@ package experimot.msgs;
 /// \interface Publish
 /// \brief Message that contains information about a publisher of data
 
-
+/**
+ * Represents a message publisher
+ */
 message Publish
 {
-  required string topic    = 1;
-  required string msg_type = 2;
-  required string host     = 3;
-  required uint32 port     = 4;
+  required string topic    = 1;			/// Publisher topic
+  required string msg_type = 2;			/// Message type
+  required string host     = 3;			/// Host address
+  required uint32 port     = 4;			/// Host port
 }

@@ -10,10 +10,13 @@ import "publish.proto";
 import "subscribe.proto";
 import "param.proto";
 
+/**
+ * Represents information of a distributed node
+ */
 message Node
 {
-  required string name = 1;
-  repeated Param param = 2;
-  repeated Publish publisher = 3;
-  repeated Subscribe subscriber = 4;
+  required string name = 1;				/// Name of the node
+  repeated Param param = 2;				/// Node parameters
+  repeated Publish publisher = 3;		/// List of message publishers
+  repeated Subscribe subscriber = 4;	/// List of message subscribers
 }

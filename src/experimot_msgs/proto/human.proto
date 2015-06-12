@@ -7,16 +7,22 @@ package experimot.msgs;
 import "vector3d.proto";
 import "quaternion.proto";
 
+/**
+ * Represents information about a human
+ */
 message Human
 {
-	required int32 id = 1;
-	required bool tracked = 2;
-	required Vector3d torso_position = 3;
-	required Vector3d head_position = 4;
-	required Quaternion orientation = 5;	
+	required int32 id = 1;					/// Unique identifier
+	required bool tracked = 2;				/// True if tracked
+	required Vector3d torso_position = 3;	/// Position the torso
+	required Vector3d head_position = 4;	/// Position of the head
+	required Quaternion orientation = 5;	/// Torso orientation
 }
 
+/**
+ * Represents a list of human
+ */
 message Humans
 {
-	repeated Human human = 1;
+	repeated Human human = 1;				/// List of human
 }

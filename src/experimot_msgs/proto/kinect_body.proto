@@ -5,150 +5,104 @@ package experimot.msgs;
 /// \brief Message for creating KinectBody
 
 import "vector2d.proto";
-//import "quaternion.proto";
 import "kinect_joint.proto";
 
+/**
+ * Represents a body
+ */
 message KinectBody
 {
-
- enum Activity
+	/**
+	 * Represents human engagement
+	 */
+	enum Activity
     {
-        // Summary:
-        //     Left eye closed.
-        EyeLeftClosed = 0;
-        //
-        // Summary:
-        //     Right eye closed.
-        EyeRightClosed = 1;
-        //
-        // Summary:
-        //     Mouth open.
-        MouthOpen = 2;
-        //
-        // Summary:
-        //     Mouth moved.
-        MouthMoved = 3;
-        //
-        // Summary:
-        //     Looking away.
-        LookingAway = 4;
+        EyeLeftClosed = 0;         ///     Left eye closed.
+        EyeRightClosed = 1;        ///     Right eye closed.
+        MouthOpen = 2;             ///     Mouth open.
+        MouthMoved = 3;            ///     Mouth moved.
+        LookingAway = 4;           ///     Looking away.
     }
 
+	/**
+	 * Represents the appearance of the human
+	 */
 	 enum Appearance
     {
-        // Summary:
-        //     Wearing glasses.
-        WearingGlasses = 0;
+        WearingGlasses = 0;        ///     Wearing glasses.
     }
 
- enum DetectionResult
+	/**
+	 * Represents the gesture recognition result
+	 */
+	enum DetectionResult
     {
-        // Summary:
-        //     Undetermined detection.
-        Unknown = 0;
-        //
-        // Summary:
-        //     Not detected.
-        No = 1;
-        //
-        // Summary:
-        //     Maybe detected.
-        Maybe = 2;
-        //
-        // Summary:
-        //     Is detected.
-        Yes = 3;
+        Unknown = 0;        ///     Undetermined detection.
+        No = 1;             ///     Not detected.
+        Maybe = 2;          ///     Maybe detected.
+        Yes = 3;            ///     Is detected.
     }
 
+	/**
+	 * Possible occlusion edges
+	 */
     enum FrameEdges
     {
-        // Summary:
-        //     No frame edges.
-        None = 0;
-        //
-        // Summary:
-        //     Right frame edge.
-        Right = 1;
-        //
-        // Summary:
-        //     Left frame edge.
-        Left = 2;
-        //
-        // Summary:
-        //     Top frame edge.
-        Top = 4;
-        //
-        // Summary:
-        //     Bottom frame edge.
-        Bottom = 8;
+        None = 0;          ///     No frame edges.
+        Right = 1;         ///     Right frame edge.
+        Left = 2;          ///     Left frame edge.
+        Top = 4;           ///     Top frame edge.
+        Bottom = 8;        ///     Bottom frame edge.
     }
 
-	// Summary:
-    //     The expression a body may have.
+	/**
+     *     The expression a body may have.
+	 */
     enum Expression
     {
-        // Summary:
-        //     Neutral expression.
-        Neutral = 0;
-        //
-        // Summary:
-        //     Happy expression.
-        Happy = 1;
+        Neutral = 0;      ///     Neutral expression.
+        Happy = 1;        ///     Happy expression.
     }
 
+	/**
+	 * Represents tracking confidence
+	 */
     enum TrackingConfidence
     {
-        // Summary:
-        //     Low confidence.
-        Low = 0;
-        //
-        // Summary:
-        //     High confidence.
-        High = 1;
+        Low = 0;         ///     Low confidence.
+        High = 1;        ///     High confidence.
     }
 
-	// Summary:
-    //     The state of a hand of a body.
+	/**
+	 * The state of a hand of a body.
+	 */
     enum HandState
     {
-        // Summary:
-        //     Undetermined hand state.
-        HS_Unknown = 0;
-        //
-        // Summary:
-        //     Hand not tracked.
-        HS_NotTracked = 1;
-        //
-        // Summary:
-        //     Open hand.
-        HS_Open = 2;
-        //
-        // Summary:
-        //     Closed hand.
-        HS_Closed = 3;
-        //
-        // Summary:
-        //     Lasso (pointer) hand.
-        HS_Lasso = 4;
+        HS_Unknown = 0;       ///     Undetermined hand state.
+        HS_NotTracked = 1;    ///     Hand not tracked.
+        HS_Open = 2;          ///     Open hand.
+        HS_Closed = 3;        ///     Closed hand.
+        HS_Lasso = 4;         ///     Lasso (pointer) hand.
     }
 
-	required int32 TrackingId							=	1;
-	required bool IsTracked								=	2;
-	required int32 JointCount							=	3;
-	//required map<int32, KinectJoint> JointPositionMap			=	4;
-	//required map<int32, Quaternion> JointOrientationMap			=	5;
-	repeated KinectJoint Joints							 =	4;
-	optional FrameEdges ClippedEdges					=	5;
-	optional TrackingConfidence HandLeftConfidence		=	6;
-	optional HandState HandLeftState					=	7;
-	optional TrackingConfidence HandRightConfidence		=	8;
-	optional HandState HandRightState					=	9;
-	optional bool IsRestricted							=	10;
-	optional Vector2d Lean								=	11;
-	optional int32 LeanTrackingState					=	12;
+	required int32 TrackingId							=	1;			/// Human Tracking Identifier
+	required bool IsTracked								=	2;			/// True if skeleton tracked
+	required int32 JointCount							=	3;			/// Number of joints in the skeletoon
+	repeated KinectJoint Joints							 =	4;			/// List of joints
+	optional FrameEdges ClippedEdges					=	5;			/// Occluded edge
+	optional TrackingConfidence HandLeftConfidence		=	6;			/// Left hand tracking confidence
+	optional HandState HandLeftState					=	7;			/// Left hand state (open/closed/lasso)
+	optional TrackingConfidence HandRightConfidence		=	8;			/// Right hand tracking confidence
+	optional HandState HandRightState					=	9;			/// Right hand state (open/closed/lasso)
+	optional bool IsRestricted							=	10;			/// Restricted skeleton
+	optional Vector2d Lean								=	11;			/// Lean point
+	optional int32 LeanTrackingState					=	12;			/// Lean tracking state
 }
 
+/**
+ * Represents a list of kinect bodies
+ */
 message KinectBodies
 {
-	repeated KinectBody Body = 1;
+	repeated KinectBody Body = 1;										/// List of kinect bodies
 }

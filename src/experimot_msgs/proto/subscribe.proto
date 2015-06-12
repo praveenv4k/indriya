@@ -4,14 +4,16 @@ package experimot.msgs;
 /// \interface Subscribe
 /// \brief A message for subscription data
 
-
+/**
+ * Represents a message subscriber
+ */
 message Subscribe
 {
-  required string topic    = 1;
-  required string host     = 2;
-  required uint32 port     = 3;
-  required string msg_type = 4;
-  optional bool latching   = 5 [default=false];
+  required string topic    = 1;						/// Subscribed topic
+  required string host     = 2;						/// Host address
+  required uint32 port     = 3;						/// Host port	
+  required string msg_type = 4;						/// Message type
+  optional bool latching   = 5 [default=false];		/// Latching enabled
 }
 
 

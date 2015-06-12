@@ -4,11 +4,13 @@ package experimot.msgs;
 /// \interface Vector2d 
 /// \brief Message for a vector2 double
 
-
+/**
+ * Represents a 2D vector
+ */
 message Vector2d
 {
-  required double x = 1;
-  required double y = 2;
+  required double x = 1;	/// X coordinate
+  required double y = 2;	/// Y coordinate
 }
 
 
