@@ -1,0 +1,1341 @@
+% Appendix Template
+
+\chapter{Message API} % Main appendix title
+
+\label{AppendixC} % Change X to a consecutive letter; for referencing this appendix elsewhere, use \ref{AppendixX}
+
+\lhead{Appendix C. \emph{Platform Message API}} % Change X to a consecutive letter; this is for the header on each page - perhaps a shortened title
+
+The message are describes using the Google Protocol buffer format and the message definitions are stored in the \emph{proto} files which will be consumed by the code generators to generate the code in the desired programming language (one of C++, Python, Java, C\#). Although some of the primitive message definitions are imported from the Gazebo framework (which also uses Protocol buffers for message serialization), a lot of custom message types are defined for the Indriya framework. The Message API is listed in this Appendix.
+
+\section{Protocol Documentation}\label{protocol-documentation}
+
+\subsection{Table of Contents}\label{table-of-contents}
+
+\begin{itemize}
+%\tightlist
+\item
+  \hyperref[gesture.proto]{gesture.proto}
+\item
+  \hyperref[experimot.msgs.GestureDescription]{GestureDescription}
+\item
+  \hyperref[experimot.msgs.GestureRecognitionModule]{GestureRecognitionModule}
+\item
+  \hyperref[experimot.msgs.GestureRecognitionModules]{GestureRecognitionModules}
+\item
+  \hyperref[experimot.msgs.GestureTrigger]{GestureTrigger}
+\item
+  \hyperref[experimot.msgs.GestureTriggers]{GestureTriggers}
+\item
+  \hyperref[experimot.msgs.GestureDescription.GestureType]{GestureDescription.GestureType}
+\item
+  \hyperref[scalar-value-types]{Scalar Value Types}
+\end{itemize}
+
+Top
+
+\hyperdef{}{gesture.proto}{\subsection{gesture.proto}\label{gesture.proto}}
+
+ \#\#\# GestureDescription Represents a gesture description
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+name & string & required & Name of the gesture\tabularnewline
+type & GestureDescription.GestureType & required & Type of
+gesture/motion\tabularnewline
+active & bool & optional & Active status of gesture\tabularnewline
+progress & int32 & optional & Gesture progress\tabularnewline
+confidence & int32 & optional & Gesture recognition
+confidence\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# GestureRecognitionModule Represents a gesture recognition module
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+name & string & required & Module name\tabularnewline
+params & Param & repeated & Module parameters\tabularnewline
+motions & GestureDescription & repeated & List of gestures recognition
+capabilities of this module\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# GestureRecognitionModules Represents a gesture recognition
+modules
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+modules & GestureRecognitionModule & repeated & Gesture recognition
+module list\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# GestureTrigger Represents a gesture trigger
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+id & int32 & required & Trigger Identifier\tabularnewline
+motion & GestureDescription & required & Recognized
+gesture\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# GestureTriggers Represents a gesture triggers
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+id & int32 & required & Identifier\tabularnewline
+motion & GestureDescription & repeated & Recognized
+gestures\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# GestureDescription.GestureType Represents gesture type
+
+\begin{longtable}[c]{@{}lll@{}}
+\toprule
+Name & Number & Description\tabularnewline
+\midrule
+\endhead
+None & 0 & No gesture\tabularnewline
+Discrete & 1 & Discrete gesture\tabularnewline
+Continuous & 2 & Continuous gesture\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\# Scalar Value Types
+
+\begin{longtable}[c]{@{}lllll@{}}
+\toprule
+.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
+\midrule
+\endhead
+double & & double & double & float\tabularnewline
+float & & float & float & float\tabularnewline
+int32 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint32
+instead. & int32 & int & int\tabularnewline
+int64 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint64
+instead. & int64 & long & int/long\tabularnewline
+uint32 & Uses variable-length encoding. & uint32 & int &
+int/long\tabularnewline
+uint64 & Uses variable-length encoding. & uint64 & long &
+int/long\tabularnewline
+sint32 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int32s. & int32 & int &
+int\tabularnewline
+sint64 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int64s. & int64 & long
+& int/long\tabularnewline
+fixed32 & Always four bytes. More efficient than uint32 if values are
+often greater than 2\^{}28. & uint32 & int & int\tabularnewline
+fixed64 & Always eight bytes. More efficient than uint64 if values are
+often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
+sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
+sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
+bool & & bool & boolean & boolean\tabularnewline
+string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
+& string & String & str/unicode\tabularnewline
+bytes & May contain any arbitrary sequence of bytes. & string &
+ByteString & str\tabularnewline
+\bottomrule
+\end{longtable}
+\section{Protocol Documentation}\label{protocol-documentation}
+
+\subsection{Table of Contents}\label{table-of-contents}
+
+\begin{itemize}
+%\tightlist
+\item
+  \hyperref[human.proto]{human.proto}
+\item
+  \hyperref[experimot.msgs.Human]{Human}
+\item
+  \hyperref[experimot.msgs.Humans]{Humans}
+\item
+  \hyperref[scalar-value-types]{Scalar Value Types}
+\end{itemize}
+
+Top
+
+\hyperdef{}{human.proto}{\subsection{human.proto}\label{human.proto}}
+
+ \#\#\# Human Represents information about a human
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+id & int32 & required & Unique identifier\tabularnewline
+tracked & bool & required & True if tracked\tabularnewline
+torso\_position & Vector3d & required & Position the
+torso\tabularnewline
+head\_position & Vector3d & required & Position of the
+head\tabularnewline
+orientation & Quaternion & required & Torso orientation\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# Humans Represents a list of human
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+human & Human & repeated & List of human\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\# Scalar Value Types
+
+\begin{longtable}[c]{@{}lllll@{}}
+\toprule
+.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
+\midrule
+\endhead
+double & & double & double & float\tabularnewline
+float & & float & float & float\tabularnewline
+int32 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint32
+instead. & int32 & int & int\tabularnewline
+int64 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint64
+instead. & int64 & long & int/long\tabularnewline
+uint32 & Uses variable-length encoding. & uint32 & int &
+int/long\tabularnewline
+uint64 & Uses variable-length encoding. & uint64 & long &
+int/long\tabularnewline
+sint32 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int32s. & int32 & int &
+int\tabularnewline
+sint64 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int64s. & int64 & long
+& int/long\tabularnewline
+fixed32 & Always four bytes. More efficient than uint32 if values are
+often greater than 2\^{}28. & uint32 & int & int\tabularnewline
+fixed64 & Always eight bytes. More efficient than uint64 if values are
+often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
+sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
+sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
+bool & & bool & boolean & boolean\tabularnewline
+string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
+& string & String & str/unicode\tabularnewline
+bytes & May contain any arbitrary sequence of bytes. & string &
+ByteString & str\tabularnewline
+\bottomrule
+\end{longtable}
+\section{Protocol Documentation}\label{protocol-documentation}
+
+\subsection{Table of Contents}\label{table-of-contents}
+
+\begin{itemize}
+%\tightlist
+\item
+  \hyperref[jointux5fvalueux5fmap.proto]{joint\_value\_map.proto}
+\item
+  \hyperref[experimot.msgs.JointValue]{JointValue}
+\item
+  \hyperref[experimot.msgs.JointValueVector]{JointValueVector}
+\item
+  \hyperref[scalar-value-types]{Scalar Value Types}
+\end{itemize}
+
+Top
+
+\hyperdef{}{jointux5fvalueux5fmap.proto}{\subsection{joint\_value\_map.proto}\label{jointux5fvalueux5fmap.proto}}
+
+ \#\#\# JointValue Represents the Joint value.
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+id & int32 & required & Joint Identifier\tabularnewline
+value & double & required & Joint value\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# JointValueVector Represents the list of joint values.
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+JointValues & JointValue & repeated & List of joints\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\# Scalar Value Types
+
+\begin{longtable}[c]{@{}lllll@{}}
+\toprule
+.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
+\midrule
+\endhead
+double & & double & double & float\tabularnewline
+float & & float & float & float\tabularnewline
+int32 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint32
+instead. & int32 & int & int\tabularnewline
+int64 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint64
+instead. & int64 & long & int/long\tabularnewline
+uint32 & Uses variable-length encoding. & uint32 & int &
+int/long\tabularnewline
+uint64 & Uses variable-length encoding. & uint64 & long &
+int/long\tabularnewline
+sint32 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int32s. & int32 & int &
+int\tabularnewline
+sint64 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int64s. & int64 & long
+& int/long\tabularnewline
+fixed32 & Always four bytes. More efficient than uint32 if values are
+often greater than 2\^{}28. & uint32 & int & int\tabularnewline
+fixed64 & Always eight bytes. More efficient than uint64 if values are
+often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
+sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
+sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
+bool & & bool & boolean & boolean\tabularnewline
+string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
+& string & String & str/unicode\tabularnewline
+bytes & May contain any arbitrary sequence of bytes. & string &
+ByteString & str\tabularnewline
+\bottomrule
+\end{longtable}
+\section{Protocol Documentation}\label{protocol-documentation}
+
+\subsection{Table of Contents}\label{table-of-contents}
+
+\begin{itemize}
+%\tightlist
+\item
+  \hyperref[kinectux5fbody.proto]{kinect\_body.proto}
+\item
+  \hyperref[experimot.msgs.KinectBodies]{KinectBodies}
+\item
+  \hyperref[experimot.msgs.KinectBody]{KinectBody}
+\item
+  \hyperref[experimot.msgs.KinectBody.Activity]{KinectBody.Activity}
+\item
+  \hyperref[experimot.msgs.KinectBody.Appearance]{KinectBody.Appearance}
+\item
+  \hyperref[experimot.msgs.KinectBody.DetectionResult]{KinectBody.DetectionResult}
+\item
+  \hyperref[experimot.msgs.KinectBody.Expression]{KinectBody.Expression}
+\item
+  \hyperref[experimot.msgs.KinectBody.FrameEdges]{KinectBody.FrameEdges}
+\item
+  \hyperref[experimot.msgs.KinectBody.HandState]{KinectBody.HandState}
+\item
+  \hyperref[experimot.msgs.KinectBody.TrackingConfidence]{KinectBody.TrackingConfidence}
+\item
+  \hyperref[scalar-value-types]{Scalar Value Types}
+\end{itemize}
+
+Top
+
+\hyperdef{}{kinectux5fbody.proto}{\subsection{kinect\_body.proto}\label{kinectux5fbody.proto}}
+
+ \#\#\# KinectBodies Represents a list of kinect bodies
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+Body & KinectBody & repeated & List of kinect bodies\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# KinectBody Represents a body
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+TrackingId & int32 & required & Human Tracking Identifier\tabularnewline
+IsTracked & bool & required & True if skeleton tracked\tabularnewline
+JointCount & int32 & required & Number of joints in the
+skeletoon\tabularnewline
+Joints & KinectJoint & repeated & List of joints\tabularnewline
+ClippedEdges & KinectBody.FrameEdges & optional & Occluded
+edge\tabularnewline
+HandLeftConfidence & KinectBody.TrackingConfidence & optional & Left
+hand tracking confidence\tabularnewline
+HandLeftState & KinectBody.HandState & optional & Left hand state
+(open/closed/lasso)\tabularnewline
+HandRightConfidence & KinectBody.TrackingConfidence & optional & Right
+hand tracking confidence\tabularnewline
+HandRightState & KinectBody.HandState & optional & Right hand state
+(open/closed/lasso)\tabularnewline
+IsRestricted & bool & optional & Restricted skeleton\tabularnewline
+Lean & Vector2d & optional & Lean point\tabularnewline
+LeanTrackingState & int32 & optional & Lean tracking
+state\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# KinectBody.Activity Represents human engagement
+
+\begin{longtable}[c]{@{}lll@{}}
+\toprule
+Name & Number & Description\tabularnewline
+\midrule
+\endhead
+EyeLeftClosed & 0 & Left eye closed.\tabularnewline
+EyeRightClosed & 1 & Right eye closed.\tabularnewline
+MouthOpen & 2 & Mouth open.\tabularnewline
+MouthMoved & 3 & Mouth moved.\tabularnewline
+LookingAway & 4 & Looking away.\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# KinectBody.Appearance Represents the appearance of the human
+
+\begin{longtable}[c]{@{}lll@{}}
+\toprule
+Name & Number & Description\tabularnewline
+\midrule
+\endhead
+WearingGlasses & 0 & Wearing glasses.\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# KinectBody.DetectionResult Represents the gesture recognition
+result
+
+\begin{longtable}[c]{@{}lll@{}}
+\toprule
+Name & Number & Description\tabularnewline
+\midrule
+\endhead
+Unknown & 0 & Undetermined detection.\tabularnewline
+No & 1 & Not detected.\tabularnewline
+Maybe & 2 & Maybe detected.\tabularnewline
+Yes & 3 & Is detected.\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# KinectBody.Expression The expression a body may have.
+
+\begin{longtable}[c]{@{}lll@{}}
+\toprule
+Name & Number & Description\tabularnewline
+\midrule
+\endhead
+Neutral & 0 & Neutral expression.\tabularnewline
+Happy & 1 & Happy expression.\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# KinectBody.FrameEdges Possible occlusion edges
+
+\begin{longtable}[c]{@{}lll@{}}
+\toprule
+Name & Number & Description\tabularnewline
+\midrule
+\endhead
+None & 0 & No frame edges.\tabularnewline
+Right & 1 & Right frame edge.\tabularnewline
+Left & 2 & Left frame edge.\tabularnewline
+Top & 4 & Top frame edge.\tabularnewline
+Bottom & 8 & Bottom frame edge.\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# KinectBody.HandState The state of a hand of a body.
+
+\begin{longtable}[c]{@{}lll@{}}
+\toprule
+Name & Number & Description\tabularnewline
+\midrule
+\endhead
+HS\_Unknown & 0 & Undetermined hand state.\tabularnewline
+HS\_NotTracked & 1 & Hand not tracked.\tabularnewline
+HS\_Open & 2 & Open hand.\tabularnewline
+HS\_Closed & 3 & Closed hand.\tabularnewline
+HS\_Lasso & 4 & Lasso (pointer) hand.\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# KinectBody.TrackingConfidence Represents tracking confidence
+
+\begin{longtable}[c]{@{}lll@{}}
+\toprule
+Name & Number & Description\tabularnewline
+\midrule
+\endhead
+Low & 0 & Low confidence.\tabularnewline
+High & 1 & High confidence.\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\# Scalar Value Types
+
+\begin{longtable}[c]{@{}lllll@{}}
+\toprule
+.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
+\midrule
+\endhead
+double & & double & double & float\tabularnewline
+float & & float & float & float\tabularnewline
+int32 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint32
+instead. & int32 & int & int\tabularnewline
+int64 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint64
+instead. & int64 & long & int/long\tabularnewline
+uint32 & Uses variable-length encoding. & uint32 & int &
+int/long\tabularnewline
+uint64 & Uses variable-length encoding. & uint64 & long &
+int/long\tabularnewline
+sint32 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int32s. & int32 & int &
+int\tabularnewline
+sint64 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int64s. & int64 & long
+& int/long\tabularnewline
+fixed32 & Always four bytes. More efficient than uint32 if values are
+often greater than 2\^{}28. & uint32 & int & int\tabularnewline
+fixed64 & Always eight bytes. More efficient than uint64 if values are
+often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
+sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
+sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
+bool & & bool & boolean & boolean\tabularnewline
+string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
+& string & String & str/unicode\tabularnewline
+bytes & May contain any arbitrary sequence of bytes. & string &
+ByteString & str\tabularnewline
+\bottomrule
+\end{longtable}
+\section{Protocol Documentation}\label{protocol-documentation}
+
+\subsection{Table of Contents}\label{table-of-contents}
+
+\begin{itemize}
+%\tightlist
+\item
+  \hyperref[kinectux5fjoint.proto]{kinect\_joint.proto}
+\item
+  \hyperref[experimot.msgs.KinectJoint]{KinectJoint}
+\item
+  \hyperref[experimot.msgs.KinectJoint.JointType]{KinectJoint.JointType}
+\item
+  \hyperref[experimot.msgs.KinectJoint.TrackingState]{KinectJoint.TrackingState}
+\item
+  \hyperref[scalar-value-types]{Scalar Value Types}
+\end{itemize}
+
+Top
+
+\hyperdef{}{kinectux5fjoint.proto}{\subsection{kinect\_joint.proto}\label{kinectux5fjoint.proto}}
+
+ \#\#\# KinectJoint Represents the Kinect skeleton joint data.
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+Type & KinectJoint.JointType & required & Type of skeleton
+joint\tabularnewline
+State & KinectJoint.TrackingState & required & Tracking state of the
+joint\tabularnewline
+Position & Vector3d & required & 3D position of the joint\tabularnewline
+Orientation & Quaternion & required & 3D orientation of the
+joint\tabularnewline
+Angle & float & optional & Angle at the joint\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# KinectJoint.JointType Represents the types of joints of a Body.
+
+\begin{longtable}[c]{@{}lll@{}}
+\toprule
+Name & Number & Description\tabularnewline
+\midrule
+\endhead
+SpineBase & 0 & Base of the spine.\tabularnewline
+SpineMid & 1 & Middle of the spine.\tabularnewline
+Neck & 2 & Neck.\tabularnewline
+Head & 3 & Head.\tabularnewline
+ShoulderLeft & 4 & Left shoulder.\tabularnewline
+ElbowLeft & 5 & Left elbow.\tabularnewline
+WristLeft & 6 & Left wrist.\tabularnewline
+HandLeft & 7 & Left hand.\tabularnewline
+ShoulderRight & 8 & Right shoulder.\tabularnewline
+ElbowRight & 9 & Right elbow.\tabularnewline
+WristRight & 10 & Right wrist.\tabularnewline
+HandRight & 11 & Right hand.\tabularnewline
+HipLeft & 12 & Left hip.\tabularnewline
+KneeLeft & 13 & Left knee.\tabularnewline
+AnkleLeft & 14 & Left ankle.\tabularnewline
+FootLeft & 15 & Left foot.\tabularnewline
+HipRight & 16 & Right hip.\tabularnewline
+KneeRight & 17 & Right knee.\tabularnewline
+AnkleRight & 18 & Right ankle.\tabularnewline
+FootRight & 19 & Right foot.\tabularnewline
+SpineShoulder & 20 & Between the shoulders on the spine.\tabularnewline
+HandTipLeft & 21 & Tip of the left hand.\tabularnewline
+ThumbLeft & 22 & Left thumb.\tabularnewline
+HandTipRight & 23 & Tip of the right hand.\tabularnewline
+ThumbRight & 24 & Right thumb.\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# KinectJoint.TrackingState Represents the skeleton joint tracking
+state.
+
+\begin{longtable}[c]{@{}lll@{}}
+\toprule
+Name & Number & Description\tabularnewline
+\midrule
+\endhead
+NotTracked & 0 & / The joint data is not tracked and no data is known
+about this joint.\tabularnewline
+Inferred & 1 & / The joint data is inferred and confidence in the
+position data is lower than\tabularnewline
+Tracked & 2 & / if it were Tracked./ The joint data is being tracked and
+the data can be trusted.\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\# Scalar Value Types
+
+\begin{longtable}[c]{@{}lllll@{}}
+\toprule
+.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
+\midrule
+\endhead
+double & & double & double & float\tabularnewline
+float & & float & float & float\tabularnewline
+int32 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint32
+instead. & int32 & int & int\tabularnewline
+int64 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint64
+instead. & int64 & long & int/long\tabularnewline
+uint32 & Uses variable-length encoding. & uint32 & int &
+int/long\tabularnewline
+uint64 & Uses variable-length encoding. & uint64 & long &
+int/long\tabularnewline
+sint32 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int32s. & int32 & int &
+int\tabularnewline
+sint64 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int64s. & int64 & long
+& int/long\tabularnewline
+fixed32 & Always four bytes. More efficient than uint32 if values are
+often greater than 2\^{}28. & uint32 & int & int\tabularnewline
+fixed64 & Always eight bytes. More efficient than uint64 if values are
+often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
+sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
+sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
+bool & & bool & boolean & boolean\tabularnewline
+string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
+& string & String & str/unicode\tabularnewline
+bytes & May contain any arbitrary sequence of bytes. & string &
+ByteString & str\tabularnewline
+\bottomrule
+\end{longtable}
+\section{Protocol Documentation}\label{protocol-documentation}
+
+\subsection{Table of Contents}\label{table-of-contents}
+
+\begin{itemize}
+%\tightlist
+\item
+  \hyperref[node.proto]{node.proto}
+\item
+  \hyperref[experimot.msgs.Node]{Node}
+\item
+  \hyperref[scalar-value-types]{Scalar Value Types}
+\end{itemize}
+
+Top
+
+\hyperdef{}{node.proto}{\subsection{node.proto}\label{node.proto}}
+
+ \#\#\# Node Represents information of a distributed node
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+name & string & required & Name of the node\tabularnewline
+param & Param & repeated & Node parameters\tabularnewline
+publisher & Publish & repeated & List of message
+publishers\tabularnewline
+subscriber & Subscribe & repeated & List of message
+subscribers\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\# Scalar Value Types
+
+\begin{longtable}[c]{@{}lllll@{}}
+\toprule
+.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
+\midrule
+\endhead
+double & & double & double & float\tabularnewline
+float & & float & float & float\tabularnewline
+int32 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint32
+instead. & int32 & int & int\tabularnewline
+int64 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint64
+instead. & int64 & long & int/long\tabularnewline
+uint32 & Uses variable-length encoding. & uint32 & int &
+int/long\tabularnewline
+uint64 & Uses variable-length encoding. & uint64 & long &
+int/long\tabularnewline
+sint32 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int32s. & int32 & int &
+int\tabularnewline
+sint64 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int64s. & int64 & long
+& int/long\tabularnewline
+fixed32 & Always four bytes. More efficient than uint32 if values are
+often greater than 2\^{}28. & uint32 & int & int\tabularnewline
+fixed64 & Always eight bytes. More efficient than uint64 if values are
+often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
+sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
+sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
+bool & & bool & boolean & boolean\tabularnewline
+string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
+& string & String & str/unicode\tabularnewline
+bytes & May contain any arbitrary sequence of bytes. & string &
+ByteString & str\tabularnewline
+\bottomrule
+\end{longtable}
+\section{Protocol Documentation}\label{protocol-documentation}
+
+\subsection{Table of Contents}\label{table-of-contents}
+
+\begin{itemize}
+%\tightlist
+\item
+  \hyperref[param.proto]{param.proto}
+\item
+  \hyperref[experimot.msgs.Param]{Param}
+\item
+  \hyperref[experimot.msgs.ParamList]{ParamList}
+\item
+  \hyperref[scalar-value-types]{Scalar Value Types}
+\end{itemize}
+
+Top
+
+\hyperdef{}{param.proto}{\subsection{param.proto}\label{param.proto}}
+
+ \#\#\# Param Represents the Parameter Data.
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+key & string & required & Unique key (identifier) of the
+parameter\tabularnewline
+value & string & required & Parameter value\tabularnewline
+dataType & string & required & Parameter Datatype (one of bool, int,
+double, string, csv, file)\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# ParamList Represents the list of Parameters.
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+param & Param & repeated &\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\# Scalar Value Types
+
+\begin{longtable}[c]{@{}lllll@{}}
+\toprule
+.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
+\midrule
+\endhead
+double & & double & double & float\tabularnewline
+float & & float & float & float\tabularnewline
+int32 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint32
+instead. & int32 & int & int\tabularnewline
+int64 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint64
+instead. & int64 & long & int/long\tabularnewline
+uint32 & Uses variable-length encoding. & uint32 & int &
+int/long\tabularnewline
+uint64 & Uses variable-length encoding. & uint64 & long &
+int/long\tabularnewline
+sint32 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int32s. & int32 & int &
+int\tabularnewline
+sint64 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int64s. & int64 & long
+& int/long\tabularnewline
+fixed32 & Always four bytes. More efficient than uint32 if values are
+often greater than 2\^{}28. & uint32 & int & int\tabularnewline
+fixed64 & Always eight bytes. More efficient than uint64 if values are
+often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
+sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
+sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
+bool & & bool & boolean & boolean\tabularnewline
+string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
+& string & String & str/unicode\tabularnewline
+bytes & May contain any arbitrary sequence of bytes. & string &
+ByteString & str\tabularnewline
+\bottomrule
+\end{longtable}
+\section{Protocol Documentation}\label{protocol-documentation}
+
+\subsection{Table of Contents}\label{table-of-contents}
+
+\begin{itemize}
+%\tightlist
+\item
+  \hyperref[publish.proto]{publish.proto}
+\item
+  \hyperref[experimot.msgs.Publish]{Publish}
+\item
+  \hyperref[scalar-value-types]{Scalar Value Types}
+\end{itemize}
+
+Top
+
+\hyperdef{}{publish.proto}{\subsection{publish.proto}\label{publish.proto}}
+
+ \#\#\# Publish Represents a message publisher
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+topic & string & required & Publisher topic\tabularnewline
+msg\_type & string & required & Message type\tabularnewline
+host & string & required & Host address\tabularnewline
+port & uint32 & required & Host port\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\# Scalar Value Types
+
+\begin{longtable}[c]{@{}lllll@{}}
+\toprule
+.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
+\midrule
+\endhead
+double & & double & double & float\tabularnewline
+float & & float & float & float\tabularnewline
+int32 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint32
+instead. & int32 & int & int\tabularnewline
+int64 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint64
+instead. & int64 & long & int/long\tabularnewline
+uint32 & Uses variable-length encoding. & uint32 & int &
+int/long\tabularnewline
+uint64 & Uses variable-length encoding. & uint64 & long &
+int/long\tabularnewline
+sint32 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int32s. & int32 & int &
+int\tabularnewline
+sint64 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int64s. & int64 & long
+& int/long\tabularnewline
+fixed32 & Always four bytes. More efficient than uint32 if values are
+often greater than 2\^{}28. & uint32 & int & int\tabularnewline
+fixed64 & Always eight bytes. More efficient than uint64 if values are
+often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
+sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
+sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
+bool & & bool & boolean & boolean\tabularnewline
+string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
+& string & String & str/unicode\tabularnewline
+bytes & May contain any arbitrary sequence of bytes. & string &
+ByteString & str\tabularnewline
+\bottomrule
+\end{longtable}
+\section{Protocol Documentation}\label{protocol-documentation}
+
+\subsection{Table of Contents}\label{table-of-contents}
+
+\begin{itemize}
+%\tightlist
+\item
+  \hyperref[quaternion.proto]{quaternion.proto}
+\item
+  \hyperref[experimot.msgs.Quaternion]{Quaternion}
+\item
+  \hyperref[scalar-value-types]{Scalar Value Types}
+\end{itemize}
+
+Top
+
+\hyperdef{}{quaternion.proto}{\subsection{quaternion.proto}\label{quaternion.proto}}
+
+ \#\#\# Quaternion Represents a Quaternion (axis,angle) =\textgreater{}
+(w = cos(angle/2), {[}x,y,z{]} = axis* sin(angle/2))
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+x & double & required & x = axis\_x * sin(angle/2)\tabularnewline
+y & double & required & y = axis\_y * sin(angle/2)\tabularnewline
+z & double & required & z = axis\_z * sin(angle/2)\tabularnewline
+w & double & required & w = cos(angle/2)\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\# Scalar Value Types
+
+\begin{longtable}[c]{@{}lllll@{}}
+\toprule
+.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
+\midrule
+\endhead
+double & & double & double & float\tabularnewline
+float & & float & float & float\tabularnewline
+int32 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint32
+instead. & int32 & int & int\tabularnewline
+int64 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint64
+instead. & int64 & long & int/long\tabularnewline
+uint32 & Uses variable-length encoding. & uint32 & int &
+int/long\tabularnewline
+uint64 & Uses variable-length encoding. & uint64 & long &
+int/long\tabularnewline
+sint32 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int32s. & int32 & int &
+int\tabularnewline
+sint64 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int64s. & int64 & long
+& int/long\tabularnewline
+fixed32 & Always four bytes. More efficient than uint32 if values are
+often greater than 2\^{}28. & uint32 & int & int\tabularnewline
+fixed64 & Always eight bytes. More efficient than uint64 if values are
+often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
+sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
+sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
+bool & & bool & boolean & boolean\tabularnewline
+string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
+& string & String & str/unicode\tabularnewline
+bytes & May contain any arbitrary sequence of bytes. & string &
+ByteString & str\tabularnewline
+\bottomrule
+\end{longtable}
+\section{Protocol Documentation}\label{protocol-documentation}
+
+\subsection{Table of Contents}\label{table-of-contents}
+
+\begin{itemize}
+%\tightlist
+\item
+  \hyperref[robotux5fbehavior.proto]{robot\_behavior.proto}
+\item
+  \hyperref[experimot.msgs.BehaviorArguments]{BehaviorArguments}
+\item
+  \hyperref[experimot.msgs.BehaviorDescription]{BehaviorDescription}
+\item
+  \hyperref[experimot.msgs.RobotBehaviorModule]{RobotBehaviorModule}
+\item
+  \hyperref[experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder]{RobotBehaviorModule.RobotBehaviorResponder}
+\item
+  \hyperref[experimot.msgs.RobotBehaviorModules]{RobotBehaviorModules}
+\item
+  \hyperref[experimot.msgs.BehaviorDescription.ExecutionState]{BehaviorDescription.ExecutionState}
+\item
+  \hyperref[experimot.msgs.BehaviorDescription.ExecutionType]{BehaviorDescription.ExecutionType}
+\item
+  \hyperref[scalar-value-types]{Scalar Value Types}
+\end{itemize}
+
+Top
+
+\hyperdef{}{robotux5fbehavior.proto}{\subsection{robot\_behavior.proto}\label{robotux5fbehavior.proto}}
+
+ \#\#\# BehaviorArguments Represents the Robot behavior arguments.
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+name & string & required & Name of the argument\tabularnewline
+value & string & required & Value of the argument\tabularnewline
+place\_holder & bool & required & True if the value is dynamic otherwise
+False\tabularnewline
+type & string & required & Type of the argument (int, double,
+string)\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# BehaviorDescription Represents the Robot behavior description.
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+name & string & required & Name of the behavior\tabularnewline
+function\_name & string & required & Remote procedure
+name\tabularnewline
+arg & BehaviorArguments & repeated & List of arguments required to
+invoke the remote procedure\tabularnewline
+type & BehaviorDescription.ExecutionType & required & Execution Type of
+the behavior\tabularnewline
+state & BehaviorDescription.ExecutionState & required & Execution status
+of the behavior\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# RobotBehaviorModule Represents the Robot behavior module.
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+name & string & required & Name of the behavior module\tabularnewline
+param & Param & repeated & List of parameters of the behavior
+module\tabularnewline
+behaviors & BehaviorDescription & repeated & List of description of
+supported behaviors\tabularnewline
+responder & RobotBehaviorModule.RobotBehaviorResponder & optional &
+Behavior module server information\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# RobotBehaviorModule.RobotBehaviorResponder Represents the
+Behavior module server information.
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+Host & string & required & Server host\tabularnewline
+Port & int32 & required & Port\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# RobotBehaviorModules Represents the List of Robot behavior
+modules.
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+modules & RobotBehaviorModule & repeated & List of behavior
+modules\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# BehaviorDescription.ExecutionState Represents the Execution
+state of the behavior.
+
+\begin{longtable}[c]{@{}lll@{}}
+\toprule
+Name & Number & Description\tabularnewline
+\midrule
+\endhead
+Idle & 0 & Behavior not running\tabularnewline
+Running & 1 & Behavior is running\tabularnewline
+Error & 2 & Behavior execution is in error state\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\#\# BehaviorDescription.ExecutionType Represents the Execution type
+of the behavior.
+
+\begin{longtable}[c]{@{}lll@{}}
+\toprule
+Name & Number & Description\tabularnewline
+\midrule
+\endhead
+Blocking & 0 & Execution is blocking\tabularnewline
+NonBlocking & 1 & Execution is non-blocking\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\# Scalar Value Types
+
+\begin{longtable}[c]{@{}lllll@{}}
+\toprule
+.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
+\midrule
+\endhead
+double & & double & double & float\tabularnewline
+float & & float & float & float\tabularnewline
+int32 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint32
+instead. & int32 & int & int\tabularnewline
+int64 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint64
+instead. & int64 & long & int/long\tabularnewline
+uint32 & Uses variable-length encoding. & uint32 & int &
+int/long\tabularnewline
+uint64 & Uses variable-length encoding. & uint64 & long &
+int/long\tabularnewline
+sint32 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int32s. & int32 & int &
+int\tabularnewline
+sint64 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int64s. & int64 & long
+& int/long\tabularnewline
+fixed32 & Always four bytes. More efficient than uint32 if values are
+often greater than 2\^{}28. & uint32 & int & int\tabularnewline
+fixed64 & Always eight bytes. More efficient than uint64 if values are
+often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
+sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
+sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
+bool & & bool & boolean & boolean\tabularnewline
+string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
+& string & String & str/unicode\tabularnewline
+bytes & May contain any arbitrary sequence of bytes. & string &
+ByteString & str\tabularnewline
+\bottomrule
+\end{longtable}
+\section{Protocol Documentation}\label{protocol-documentation}
+
+\subsection{Table of Contents}\label{table-of-contents}
+
+\begin{itemize}
+%\tightlist
+\item
+  \hyperref[subscribe.proto]{subscribe.proto}
+\item
+  \hyperref[experimot.msgs.Subscribe]{Subscribe}
+\item
+  \hyperref[scalar-value-types]{Scalar Value Types}
+\end{itemize}
+
+Top
+
+\hyperdef{}{subscribe.proto}{\subsection{subscribe.proto}\label{subscribe.proto}}
+
+ \#\#\# Subscribe Represents a message subscriber
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+topic & string & required & Subscribed topic\tabularnewline
+host & string & required & Host address\tabularnewline
+port & uint32 & required & Host port\tabularnewline
+msg\_type & string & required & Message type\tabularnewline
+latching & bool & optional & Latching enabled\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\# Scalar Value Types
+
+\begin{longtable}[c]{@{}lllll@{}}
+\toprule
+.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
+\midrule
+\endhead
+double & & double & double & float\tabularnewline
+float & & float & float & float\tabularnewline
+int32 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint32
+instead. & int32 & int & int\tabularnewline
+int64 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint64
+instead. & int64 & long & int/long\tabularnewline
+uint32 & Uses variable-length encoding. & uint32 & int &
+int/long\tabularnewline
+uint64 & Uses variable-length encoding. & uint64 & long &
+int/long\tabularnewline
+sint32 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int32s. & int32 & int &
+int\tabularnewline
+sint64 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int64s. & int64 & long
+& int/long\tabularnewline
+fixed32 & Always four bytes. More efficient than uint32 if values are
+often greater than 2\^{}28. & uint32 & int & int\tabularnewline
+fixed64 & Always eight bytes. More efficient than uint64 if values are
+often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
+sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
+sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
+bool & & bool & boolean & boolean\tabularnewline
+string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
+& string & String & str/unicode\tabularnewline
+bytes & May contain any arbitrary sequence of bytes. & string &
+ByteString & str\tabularnewline
+\bottomrule
+\end{longtable}
+\section{Protocol Documentation}\label{protocol-documentation}
+
+\subsection{Table of Contents}\label{table-of-contents}
+
+\begin{itemize}
+%\tightlist
+\item
+  \hyperref[vector2d.proto]{vector2d.proto}
+\item
+  \hyperref[experimot.msgs.Vector2d]{Vector2d}
+\item
+  \hyperref[scalar-value-types]{Scalar Value Types}
+\end{itemize}
+
+Top
+
+\hyperdef{}{vector2d.proto}{\subsection{vector2d.proto}\label{vector2d.proto}}
+
+ \#\#\# Vector2d Represents a 2D vector
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+x & double & required & X coordinate\tabularnewline
+y & double & required & Y coordinate\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\# Scalar Value Types
+
+\begin{longtable}[c]{@{}lllll@{}}
+\toprule
+.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
+\midrule
+\endhead
+double & & double & double & float\tabularnewline
+float & & float & float & float\tabularnewline
+int32 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint32
+instead. & int32 & int & int\tabularnewline
+int64 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint64
+instead. & int64 & long & int/long\tabularnewline
+uint32 & Uses variable-length encoding. & uint32 & int &
+int/long\tabularnewline
+uint64 & Uses variable-length encoding. & uint64 & long &
+int/long\tabularnewline
+sint32 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int32s. & int32 & int &
+int\tabularnewline
+sint64 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int64s. & int64 & long
+& int/long\tabularnewline
+fixed32 & Always four bytes. More efficient than uint32 if values are
+often greater than 2\^{}28. & uint32 & int & int\tabularnewline
+fixed64 & Always eight bytes. More efficient than uint64 if values are
+often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
+sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
+sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
+bool & & bool & boolean & boolean\tabularnewline
+string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
+& string & String & str/unicode\tabularnewline
+bytes & May contain any arbitrary sequence of bytes. & string &
+ByteString & str\tabularnewline
+\bottomrule
+\end{longtable}
+\section{Protocol Documentation}\label{protocol-documentation}
+
+\subsection{Table of Contents}\label{table-of-contents}
+
+\begin{itemize}
+%\tightlist
+\item
+  \hyperref[vector3d.proto]{vector3d.proto}
+\item
+  \hyperref[experimot.msgs.Vector3d]{Vector3d}
+\item
+  \hyperref[scalar-value-types]{Scalar Value Types}
+\end{itemize}
+
+Top
+
+\hyperdef{}{vector3d.proto}{\subsection{vector3d.proto}\label{vector3d.proto}}
+
+ \#\#\# Vector3d Represents a 3D vector
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+Field & Type & Label & Description\tabularnewline
+\midrule
+\endhead
+x & double & required & x coordinate\tabularnewline
+y & double & required & y coordinate\tabularnewline
+z & double & required & z coordinate\tabularnewline
+\bottomrule
+\end{longtable}
+
+ \#\# Scalar Value Types
+
+\begin{longtable}[c]{@{}lllll@{}}
+\toprule
+.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
+\midrule
+\endhead
+double & & double & double & float\tabularnewline
+float & & float & float & float\tabularnewline
+int32 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint32
+instead. & int32 & int & int\tabularnewline
+int64 & Uses variable-length encoding. Inefficient for encoding negative
+numbers -- if your field is likely to have negative values, use sint64
+instead. & int64 & long & int/long\tabularnewline
+uint32 & Uses variable-length encoding. & uint32 & int &
+int/long\tabularnewline
+uint64 & Uses variable-length encoding. & uint64 & long &
+int/long\tabularnewline
+sint32 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int32s. & int32 & int &
+int\tabularnewline
+sint64 & Uses variable-length encoding. Signed int value. These more
+efficiently encode negative numbers than regular int64s. & int64 & long
+& int/long\tabularnewline
+fixed32 & Always four bytes. More efficient than uint32 if values are
+often greater than 2\^{}28. & uint32 & int & int\tabularnewline
+fixed64 & Always eight bytes. More efficient than uint64 if values are
+often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
+sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
+sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
+bool & & bool & boolean & boolean\tabularnewline
+string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
+& string & String & str/unicode\tabularnewline
+bytes & May contain any arbitrary sequence of bytes. & string &
+ByteString & str\tabularnewline
+\bottomrule
+\end{longtable}
