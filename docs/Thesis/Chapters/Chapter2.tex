@@ -122,8 +122,6 @@ Our choice of perception system should satisfy the following requirements
 \begin{landscape}
 \Centering
 \small
-%\tabcolsep=0pt\def\arraystretch{1.3}
-%\begin{tabularx}{560pt}{c|*6{>{\Centering}X}}
 \begin{table}
 \scriptsize
 \caption{Comparative analysis on RGB-D sensors}
@@ -137,8 +135,6 @@ Our choice of perception system should satisfy the following requirements
                          & \textbf{Creative Sens3D\footnotemark[4]} 
                          &  \textbf{DepthSense$^{\regmark}$325\footnotemark[5]} 
   \tabularnewline \midrule
-  
-  %\multicolumn{1}{l}{Viewing Angle- FOV}  & Vertical $43^{\circ}$; Horizontal $57^{\circ}$
   \multicolumn{1}{l}{Field of View}       & Vertical $43^{\circ}$; Horizontal $57^{\circ}$  
                                           & Vertical $60^{\circ}$; Horizontal $70^{\circ}$ 
                                           & Vertical $45^{\circ}$; Horizontal $58^{\circ}$; Diagonal $70^{\circ}$
@@ -154,26 +150,23 @@ Our choice of perception system should satisfy the following requirements
   										 & No
   										 & No 
   										 \tabularnewline\midrule
-  										 
-  %\multicolumn{1}{l}{Skeleton Joints defined} & 20, 2 skeloton
   \multicolumn{1}{l}{Skeleton Joints}     & 20, 2 skeloton
   										 & 25, 6 skeleton
   										 & - 
   										 & - 
   										 & - 
   										 & - 
-  										 \tabularnewline\midrule										 
-  
+  										 \tabularnewline\midrule			
   		 
   \multicolumn{1}{l}{Range (m)}           & Min: 0.4; Max $\approx$ 4.5 
   										 & Min: 0.5; Max $\approx$ 4.5
   										 & Min: 0.8; Max: 3.5
-  										 & Min: 0.4; Max: 3.5  %Infrared structured light projector, Uniform infrared LEDs
-  										 & Min: 0.5 cm; Max: 3.25 m % Laser, 3D depth sensor
+  										 & Min: 0.4; Max: 3.5  
+  										 & Min: 0.5 cm; Max: 3.25 m 
   										 & Min: 0.15 $\sim$ 1; Max: 1.5 $\sim$ 4.0 
   										 \tabularnewline\midrule
   										 										 
-  %(Depth and color stream)
+
   \multicolumn{1}{l}{Frame rate }         & RGB: 640x480, 30 FPS, 4:3; Depth: 320x420
   										 & RGB: 1920x1080, 30 FPS, 16:9; Depth: 512x424
   										 & RGB: 1280x1024, Depth: 640x480 (30 fps), 320x240 (60 fps)
@@ -190,9 +183,8 @@ Our choice of perception system should satisfy the following requirements
   										 & USB 2.0
   										 \tabularnewline\midrule	
   
-  \multicolumn{1}{l}{OS}                  & Win 7, Win 8
+  \multicolumn{1}{l}{OS}                 & Win 7, Win 8
   										 & Win 8
-  										 %& Win XP,Vista,7,8; Ubuntu 10.10, Android(by request)
   										 & Win XP,Vista,7,8; Ubuntu, Android
   										 & iOS, Android, Win
   										 & Win 32/64: XP,Vista,7,8;
@@ -200,7 +192,7 @@ Our choice of perception system should satisfy the following requirements
   										 \tabularnewline\midrule	
   										 										 								
   
-  \multicolumn{1}{l}{SDK}                 & Kinect for Windows V1.x SDK(C++/C\#)
+  \multicolumn{1}{l}{SDK}                & Kinect for Windows V1.x SDK(C++/C\#)
   										 & Kinect for Windows V2 SDK(C++/C\#)
   										 & OpenNI SDK (C++ / C\# /JAVA)
   										 & Structure Framework(iOS), OpenNI(C++)
@@ -208,32 +200,14 @@ Our choice of perception system should satisfy the following requirements
   										 & The Interface is You (iisu) Framework, Intel PC SDK (C++/C\#)
   										 \tabularnewline\midrule	
   										 
-%  \multicolumn{1}{l}{Audio Format}        &  16 KHz, 24-bit Mono PCM
-%  										 &  48 KHz, 24-bit Mono PCM
-%  										 &  -
-%  										 &  - 
-%  										 & 47 
-%  										 & 4 
-%  										 \tabularnewline\midrule
-  										 
-  \multicolumn{1}{l}{Audio Input}        &  Microphone array-4, 16 KHz, Mono PCM, 24 bit ADC, Echo cancellation        											and noise suppression 
+ \multicolumn{1}{l}{Audio Input}        &  Microphone array-4, 16 KHz, Mono PCM, 24 bit ADC, Echo cancellation        											and noise suppression 
   										&  Microphone array-4, 48 KHz, Mono PCM, 24 bit ADC, Echo cancellation        											and noise suppression 
   										&  2 - Microphones 
   										&  - 
   										&  Dual array microphone 
   										& 2 built-in microphone
   										\tabularnewline
-  										%\midrule
-%  										 										 				 				  \multicolumn{1}{l}{Accelerometer}      &  2G/4G/8G accelerometer 
-%  										& - 
-%  										&  -
-%  										&  7 
-%  										& 47 
-%  										& 3 axis accelerometer
-%  										\tabularnewline
   										\bottomrule
-%\caption{Comparative analysis on RGB-D sensors}
-%\label{table:rgbd_sensors}
 \end{tabularx}
 \end{table}
 \footnotetext[1]{\url{http://www.microsoft.com/en-us/kinectforwindows/}}

@@ -130,8 +130,6 @@ For{$t$=$1,2,\cdots T$}{
 
 \section{Localization of Humanoid Robot} % Main chapter title
 
-%\label{Chapter4} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
-%\lhead{Chapter 4. \emph{Localization of Humanoid Robot}} 
 		The localization of humanoid robots is a challenging issue, due to rough odometry estimation, noisy onboard sensing, and the swaying motion caused by walking \cite{cervera2012localization}. 
 		 
 		As a prelimnary assumption, the link of the robot are considered \emph{rigid bodies} in which distance between any two given points on it remains constant in time regardless of external forces exerted on it. Rigid body transformation forms the basic components in the pose estimation framework. In the $3D$ operational space represented by the vector space $\Re^3$, a rigid body is represented by \emph{6 degrees of freedom (DOF)}, 3 for the position along each of the coordinate axes (cartesian coordinates) $P = [p_x,p_y,p_z]^{\text{T}}$ and 3 for the orientation $R$. There are different representation for the orientation of the rigid body. They are rotation matrices, euler angles, RPY (roll,pitch,yaw) angles, quaternions. A detailed introduction about rigid body mechanics and various representation of pose of a rigid body can be found in the book by Khalil\cite{khalil2004modeling}.
@@ -333,10 +331,6 @@ K(p,q) = \sum_{x} p(x)log{\frac{p(x)}{q(x)}}
 
 \section{Behavioral Frameworks} % Main chapter title
 
-\label{Chapter5} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
-
-\lhead{Chapter 5. \emph{Behavioral Frameworks}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
-
 \section{Requirements}
 The users of social robots do not have necessary backgrounds in programming and design of robot behaviors. This lead to the development of several visual programming languages which allow non-programmers to create robot applications. Most of the available visual programming softwares allows to choose among many prebuilt behavioral blocks and connecting them to one another to get the desired flow of action \cite{MSRS4},\cite{Choregraphe}. These programs are very intuitive and allow the users to realize complex sequence of movements and sequential behaviors. But programming dynamic behaviors still remains challenging. This is primarily due to fact that the users have to think about the data flow between various blocks by appropriate connections between them. When it comes to designing complex dynamic behaviors this task becomes very tedious and time consuming. 
 Programming complex dynamic behaviors for small commercial humanoid robots is a complicated task for the inexperienced roboticists\cite{berenz2014targets} for the following reasons.
@@ -519,9 +513,6 @@ At the time of publication of \cite{berenz2014targets}, a visual programming sof
 
 \section{HRI Design and Evaluation} % Main chapter title
 
-\label{Chapter6} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
-
-\lhead{Chapter 6. \emph{HRI Design and Evaluation}} 
 	Human-Robot Interaction (HRI) being a rapidly advancing area of research, there is a growing need for strong experimental designs and methods of evaluation. This will bring credibility and validity to scientific research that involves humans as subjects, as recognized in the psychology and social science fields. Some methods of evaluation have been adopted and/or modified from such fields as human-computer interaction, psychology, and social sciences; however, the manner in which a human interacts with a robot is similar but not identical to interactions between a human and a computer or a human interacting with another human. It often has a strong social or emotional component — a difference that poses potential challenges related to the design and evaluation of HRI. As robots are becoming more prevalent, accurate methods to assess how humans respond to robots, how they feel about their interactions with robots, and how they interpret the actions of robots are very important. In this section some of the HRI design and evaluation techniques are presented.
 
 \section{Planning, Design and Data collection}
