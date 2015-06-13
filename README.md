@@ -45,4 +45,7 @@ understanding the human motions. Human motion capture is done using kinect for w
 
 ### Running the application
 
-* TODO
+* Configure the IP address of the robot in the experimot_config.xml (ROBOTIP and ROBOTPORT)
+* Run the application Experimot.Scheduler.exe
+* Open the browser and go to http://IP_ADDRESS_OF_MACHINE:8888
+* The behavior can be designed from the "Design" tab of the web application and press RUN to run the behavior
