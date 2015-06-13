@@ -1,4 +1,4 @@
-## ExPeriMot - Experimental Platform for Effective Human Robot Interaction based on Human Motion
+## Indriya - An experimental Platform for Human Robot Interaction based on Human Motions
 
 ### About
 
