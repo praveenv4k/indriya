@@ -49,3 +49,4 @@ understanding the human motions. Human motion capture is done using kinect for w
 * Run the application Experimot.Scheduler.exe
 * Open the browser and go to http://IP_ADDRESS_OF_MACHINE:8888
 * The behavior can be designed from the "Design" tab of the web application and press RUN to run the behavior
+* The interaction between the robot and human can be visualized in a virtual environment in the "Visualize" tab
