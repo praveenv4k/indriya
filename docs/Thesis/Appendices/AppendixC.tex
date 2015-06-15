@@ -8,37 +8,13 @@
 
 The message are describes using the Google Protocol buffer format and the message definitions are stored in the \emph{proto} files which will be consumed by the code generators to generate the code in the desired programming language (one of C++, Python, Java, C\#). Although some of the primitive message definitions are imported from the Gazebo framework (which also uses Protocol buffers for message serialization), a lot of custom message types are defined for the Indriya framework. The Message API is listed in this Appendix.
 
-\section{Protocol Documentation}\label{protocol-documentation}
+\section{Message Type}\label{protocol-documentation}
 
-\subsection{Table of Contents}\label{table-of-contents}
-
-\begin{itemize}
-%\tightlist
-\item
-  \hyperref[gesture.proto]{gesture.proto}
-\item
-  \hyperref[experimot.msgs.GestureDescription]{GestureDescription}
-\item
-  \hyperref[experimot.msgs.GestureRecognitionModule]{GestureRecognitionModule}
-\item
-  \hyperref[experimot.msgs.GestureRecognitionModules]{GestureRecognitionModules}
-\item
-  \hyperref[experimot.msgs.GestureTrigger]{GestureTrigger}
-\item
-  \hyperref[experimot.msgs.GestureTriggers]{GestureTriggers}
-\item
-  \hyperref[experimot.msgs.GestureDescription.GestureType]{GestureDescription.GestureType}
-\item
-  \hyperref[scalar-value-types]{Scalar Value Types}
-\end{itemize}
-
-Top
-
-\hyperdef{}{gesture.proto}{\subsection{gesture.proto}\label{gesture.proto}}
+\subsection{Gesture}\label{gesture.proto}
 
  \#\#\# GestureDescription Represents a gesture description
 
-\begin{longtable}[c]{@{}llll@{}}
+\begin{longtable}{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
 \midrule
@@ -119,63 +95,7 @@ Continuous & 2 & Continuous gesture\tabularnewline
 \bottomrule
 \end{longtable}
 
- \#\# Scalar Value Types
-
-\begin{longtable}[c]{@{}lllll@{}}
-\toprule
-.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
-\midrule
-\endhead
-double & & double & double & float\tabularnewline
-float & & float & float & float\tabularnewline
-int32 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint32
-instead. & int32 & int & int\tabularnewline
-int64 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint64
-instead. & int64 & long & int/long\tabularnewline
-uint32 & Uses variable-length encoding. & uint32 & int &
-int/long\tabularnewline
-uint64 & Uses variable-length encoding. & uint64 & long &
-int/long\tabularnewline
-sint32 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int32s. & int32 & int &
-int\tabularnewline
-sint64 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int64s. & int64 & long
-& int/long\tabularnewline
-fixed32 & Always four bytes. More efficient than uint32 if values are
-often greater than 2\^{}28. & uint32 & int & int\tabularnewline
-fixed64 & Always eight bytes. More efficient than uint64 if values are
-often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
-sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
-sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
-bool & & bool & boolean & boolean\tabularnewline
-string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
-& string & String & str/unicode\tabularnewline
-bytes & May contain any arbitrary sequence of bytes. & string &
-ByteString & str\tabularnewline
-\bottomrule
-\end{longtable}
-\section{Protocol Documentation}\label{protocol-documentation}
-
-\subsection{Table of Contents}\label{table-of-contents}
-
-\begin{itemize}
-%\tightlist
-\item
-  \hyperref[human.proto]{human.proto}
-\item
-  \hyperref[experimot.msgs.Human]{Human}
-\item
-  \hyperref[experimot.msgs.Humans]{Humans}
-\item
-  \hyperref[scalar-value-types]{Scalar Value Types}
-\end{itemize}
-
-Top
-
-\hyperdef{}{human.proto}{\subsection{human.proto}\label{human.proto}}
+ \subsection{Human}\label{human.proto}
 
  \#\#\# Human Represents information about a human
 
@@ -205,63 +125,7 @@ human & Human & repeated & List of human\tabularnewline
 \bottomrule
 \end{longtable}
 
- \#\# Scalar Value Types
-
-\begin{longtable}[c]{@{}lllll@{}}
-\toprule
-.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
-\midrule
-\endhead
-double & & double & double & float\tabularnewline
-float & & float & float & float\tabularnewline
-int32 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint32
-instead. & int32 & int & int\tabularnewline
-int64 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint64
-instead. & int64 & long & int/long\tabularnewline
-uint32 & Uses variable-length encoding. & uint32 & int &
-int/long\tabularnewline
-uint64 & Uses variable-length encoding. & uint64 & long &
-int/long\tabularnewline
-sint32 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int32s. & int32 & int &
-int\tabularnewline
-sint64 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int64s. & int64 & long
-& int/long\tabularnewline
-fixed32 & Always four bytes. More efficient than uint32 if values are
-often greater than 2\^{}28. & uint32 & int & int\tabularnewline
-fixed64 & Always eight bytes. More efficient than uint64 if values are
-often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
-sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
-sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
-bool & & bool & boolean & boolean\tabularnewline
-string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
-& string & String & str/unicode\tabularnewline
-bytes & May contain any arbitrary sequence of bytes. & string &
-ByteString & str\tabularnewline
-\bottomrule
-\end{longtable}
-\section{Protocol Documentation}\label{protocol-documentation}
-
-\subsection{Table of Contents}\label{table-of-contents}
-
-\begin{itemize}
-%\tightlist
-\item
-  \hyperref[jointux5fvalueux5fmap.proto]{joint\_value\_map.proto}
-\item
-  \hyperref[experimot.msgs.JointValue]{JointValue}
-\item
-  \hyperref[experimot.msgs.JointValueVector]{JointValueVector}
-\item
-  \hyperref[scalar-value-types]{Scalar Value Types}
-\end{itemize}
-
-Top
-
-\hyperdef{}{jointux5fvalueux5fmap.proto}{\subsection{joint\_value\_map.proto}\label{jointux5fvalueux5fmap.proto}}
+\subsection{Joint Value}\label{jointux5fvalueux5fmap.proto}
 
  \#\#\# JointValue Represents the Joint value.
 
@@ -286,77 +150,7 @@ JointValues & JointValue & repeated & List of joints\tabularnewline
 \bottomrule
 \end{longtable}
 
- \#\# Scalar Value Types
-
-\begin{longtable}[c]{@{}lllll@{}}
-\toprule
-.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
-\midrule
-\endhead
-double & & double & double & float\tabularnewline
-float & & float & float & float\tabularnewline
-int32 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint32
-instead. & int32 & int & int\tabularnewline
-int64 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint64
-instead. & int64 & long & int/long\tabularnewline
-uint32 & Uses variable-length encoding. & uint32 & int &
-int/long\tabularnewline
-uint64 & Uses variable-length encoding. & uint64 & long &
-int/long\tabularnewline
-sint32 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int32s. & int32 & int &
-int\tabularnewline
-sint64 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int64s. & int64 & long
-& int/long\tabularnewline
-fixed32 & Always four bytes. More efficient than uint32 if values are
-often greater than 2\^{}28. & uint32 & int & int\tabularnewline
-fixed64 & Always eight bytes. More efficient than uint64 if values are
-often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
-sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
-sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
-bool & & bool & boolean & boolean\tabularnewline
-string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
-& string & String & str/unicode\tabularnewline
-bytes & May contain any arbitrary sequence of bytes. & string &
-ByteString & str\tabularnewline
-\bottomrule
-\end{longtable}
-\section{Protocol Documentation}\label{protocol-documentation}
-
-\subsection{Table of Contents}\label{table-of-contents}
-
-\begin{itemize}
-%\tightlist
-\item
-  \hyperref[kinectux5fbody.proto]{kinect\_body.proto}
-\item
-  \hyperref[experimot.msgs.KinectBodies]{KinectBodies}
-\item
-  \hyperref[experimot.msgs.KinectBody]{KinectBody}
-\item
-  \hyperref[experimot.msgs.KinectBody.Activity]{KinectBody.Activity}
-\item
-  \hyperref[experimot.msgs.KinectBody.Appearance]{KinectBody.Appearance}
-\item
-  \hyperref[experimot.msgs.KinectBody.DetectionResult]{KinectBody.DetectionResult}
-\item
-  \hyperref[experimot.msgs.KinectBody.Expression]{KinectBody.Expression}
-\item
-  \hyperref[experimot.msgs.KinectBody.FrameEdges]{KinectBody.FrameEdges}
-\item
-  \hyperref[experimot.msgs.KinectBody.HandState]{KinectBody.HandState}
-\item
-  \hyperref[experimot.msgs.KinectBody.TrackingConfidence]{KinectBody.TrackingConfidence}
-\item
-  \hyperref[scalar-value-types]{Scalar Value Types}
-\end{itemize}
-
-Top
-
-\hyperdef{}{kinectux5fbody.proto}{\subsection{kinect\_body.proto}\label{kinectux5fbody.proto}}
+ \subsection{Kinect Body}\label{kinectux5fbody.proto}
 
  \#\#\# KinectBodies Represents a list of kinect bodies
 
@@ -493,65 +287,7 @@ High & 1 & High confidence.\tabularnewline
 \bottomrule
 \end{longtable}
 
- \#\# Scalar Value Types
-
-\begin{longtable}[c]{@{}lllll@{}}
-\toprule
-.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
-\midrule
-\endhead
-double & & double & double & float\tabularnewline
-float & & float & float & float\tabularnewline
-int32 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint32
-instead. & int32 & int & int\tabularnewline
-int64 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint64
-instead. & int64 & long & int/long\tabularnewline
-uint32 & Uses variable-length encoding. & uint32 & int &
-int/long\tabularnewline
-uint64 & Uses variable-length encoding. & uint64 & long &
-int/long\tabularnewline
-sint32 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int32s. & int32 & int &
-int\tabularnewline
-sint64 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int64s. & int64 & long
-& int/long\tabularnewline
-fixed32 & Always four bytes. More efficient than uint32 if values are
-often greater than 2\^{}28. & uint32 & int & int\tabularnewline
-fixed64 & Always eight bytes. More efficient than uint64 if values are
-often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
-sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
-sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
-bool & & bool & boolean & boolean\tabularnewline
-string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
-& string & String & str/unicode\tabularnewline
-bytes & May contain any arbitrary sequence of bytes. & string &
-ByteString & str\tabularnewline
-\bottomrule
-\end{longtable}
-\section{Protocol Documentation}\label{protocol-documentation}
-
-\subsection{Table of Contents}\label{table-of-contents}
-
-\begin{itemize}
-%\tightlist
-\item
-  \hyperref[kinectux5fjoint.proto]{kinect\_joint.proto}
-\item
-  \hyperref[experimot.msgs.KinectJoint]{KinectJoint}
-\item
-  \hyperref[experimot.msgs.KinectJoint.JointType]{KinectJoint.JointType}
-\item
-  \hyperref[experimot.msgs.KinectJoint.TrackingState]{KinectJoint.TrackingState}
-\item
-  \hyperref[scalar-value-types]{Scalar Value Types}
-\end{itemize}
-
-Top
-
-\hyperdef{}{kinectux5fjoint.proto}{\subsection{kinect\_joint.proto}\label{kinectux5fjoint.proto}}
+\subsection{Kinect Joint}\label{kinectux5fjoint.proto}
 
  \#\#\# KinectJoint Represents the Kinect skeleton joint data.
 
@@ -623,61 +359,7 @@ the data can be trusted.\tabularnewline
 \bottomrule
 \end{longtable}
 
- \#\# Scalar Value Types
-
-\begin{longtable}[c]{@{}lllll@{}}
-\toprule
-.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
-\midrule
-\endhead
-double & & double & double & float\tabularnewline
-float & & float & float & float\tabularnewline
-int32 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint32
-instead. & int32 & int & int\tabularnewline
-int64 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint64
-instead. & int64 & long & int/long\tabularnewline
-uint32 & Uses variable-length encoding. & uint32 & int &
-int/long\tabularnewline
-uint64 & Uses variable-length encoding. & uint64 & long &
-int/long\tabularnewline
-sint32 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int32s. & int32 & int &
-int\tabularnewline
-sint64 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int64s. & int64 & long
-& int/long\tabularnewline
-fixed32 & Always four bytes. More efficient than uint32 if values are
-often greater than 2\^{}28. & uint32 & int & int\tabularnewline
-fixed64 & Always eight bytes. More efficient than uint64 if values are
-often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
-sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
-sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
-bool & & bool & boolean & boolean\tabularnewline
-string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
-& string & String & str/unicode\tabularnewline
-bytes & May contain any arbitrary sequence of bytes. & string &
-ByteString & str\tabularnewline
-\bottomrule
-\end{longtable}
-\section{Protocol Documentation}\label{protocol-documentation}
-
-\subsection{Table of Contents}\label{table-of-contents}
-
-\begin{itemize}
-%\tightlist
-\item
-  \hyperref[node.proto]{node.proto}
-\item
-  \hyperref[experimot.msgs.Node]{Node}
-\item
-  \hyperref[scalar-value-types]{Scalar Value Types}
-\end{itemize}
-
-Top
-
-\hyperdef{}{node.proto}{\subsection{node.proto}\label{node.proto}}
+\subsection{Node}\label{node.proto}
 
  \#\#\# Node Represents information of a distributed node
 
@@ -695,63 +377,7 @@ subscribers\tabularnewline
 \bottomrule
 \end{longtable}
 
- \#\# Scalar Value Types
-
-\begin{longtable}[c]{@{}lllll@{}}
-\toprule
-.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
-\midrule
-\endhead
-double & & double & double & float\tabularnewline
-float & & float & float & float\tabularnewline
-int32 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint32
-instead. & int32 & int & int\tabularnewline
-int64 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint64
-instead. & int64 & long & int/long\tabularnewline
-uint32 & Uses variable-length encoding. & uint32 & int &
-int/long\tabularnewline
-uint64 & Uses variable-length encoding. & uint64 & long &
-int/long\tabularnewline
-sint32 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int32s. & int32 & int &
-int\tabularnewline
-sint64 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int64s. & int64 & long
-& int/long\tabularnewline
-fixed32 & Always four bytes. More efficient than uint32 if values are
-often greater than 2\^{}28. & uint32 & int & int\tabularnewline
-fixed64 & Always eight bytes. More efficient than uint64 if values are
-often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
-sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
-sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
-bool & & bool & boolean & boolean\tabularnewline
-string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
-& string & String & str/unicode\tabularnewline
-bytes & May contain any arbitrary sequence of bytes. & string &
-ByteString & str\tabularnewline
-\bottomrule
-\end{longtable}
-\section{Protocol Documentation}\label{protocol-documentation}
-
-\subsection{Table of Contents}\label{table-of-contents}
-
-\begin{itemize}
-%\tightlist
-\item
-  \hyperref[param.proto]{param.proto}
-\item
-  \hyperref[experimot.msgs.Param]{Param}
-\item
-  \hyperref[experimot.msgs.ParamList]{ParamList}
-\item
-  \hyperref[scalar-value-types]{Scalar Value Types}
-\end{itemize}
-
-Top
-
-\hyperdef{}{param.proto}{\subsection{param.proto}\label{param.proto}}
+ \subsection{Param}\label{param.proto}
 
  \#\#\# Param Represents the Parameter Data.
 
@@ -779,61 +405,7 @@ param & Param & repeated &\tabularnewline
 \bottomrule
 \end{longtable}
 
- \#\# Scalar Value Types
-
-\begin{longtable}[c]{@{}lllll@{}}
-\toprule
-.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
-\midrule
-\endhead
-double & & double & double & float\tabularnewline
-float & & float & float & float\tabularnewline
-int32 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint32
-instead. & int32 & int & int\tabularnewline
-int64 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint64
-instead. & int64 & long & int/long\tabularnewline
-uint32 & Uses variable-length encoding. & uint32 & int &
-int/long\tabularnewline
-uint64 & Uses variable-length encoding. & uint64 & long &
-int/long\tabularnewline
-sint32 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int32s. & int32 & int &
-int\tabularnewline
-sint64 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int64s. & int64 & long
-& int/long\tabularnewline
-fixed32 & Always four bytes. More efficient than uint32 if values are
-often greater than 2\^{}28. & uint32 & int & int\tabularnewline
-fixed64 & Always eight bytes. More efficient than uint64 if values are
-often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
-sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
-sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
-bool & & bool & boolean & boolean\tabularnewline
-string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
-& string & String & str/unicode\tabularnewline
-bytes & May contain any arbitrary sequence of bytes. & string &
-ByteString & str\tabularnewline
-\bottomrule
-\end{longtable}
-\section{Protocol Documentation}\label{protocol-documentation}
-
-\subsection{Table of Contents}\label{table-of-contents}
-
-\begin{itemize}
-%\tightlist
-\item
-  \hyperref[publish.proto]{publish.proto}
-\item
-  \hyperref[experimot.msgs.Publish]{Publish}
-\item
-  \hyperref[scalar-value-types]{Scalar Value Types}
-\end{itemize}
-
-Top
-
-\hyperdef{}{publish.proto}{\subsection{publish.proto}\label{publish.proto}}
+\subsection{Publisher}\label{publish.proto}
 
  \#\#\# Publish Represents a message publisher
 
@@ -849,61 +421,7 @@ port & uint32 & required & Host port\tabularnewline
 \bottomrule
 \end{longtable}
 
- \#\# Scalar Value Types
-
-\begin{longtable}[c]{@{}lllll@{}}
-\toprule
-.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
-\midrule
-\endhead
-double & & double & double & float\tabularnewline
-float & & float & float & float\tabularnewline
-int32 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint32
-instead. & int32 & int & int\tabularnewline
-int64 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint64
-instead. & int64 & long & int/long\tabularnewline
-uint32 & Uses variable-length encoding. & uint32 & int &
-int/long\tabularnewline
-uint64 & Uses variable-length encoding. & uint64 & long &
-int/long\tabularnewline
-sint32 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int32s. & int32 & int &
-int\tabularnewline
-sint64 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int64s. & int64 & long
-& int/long\tabularnewline
-fixed32 & Always four bytes. More efficient than uint32 if values are
-often greater than 2\^{}28. & uint32 & int & int\tabularnewline
-fixed64 & Always eight bytes. More efficient than uint64 if values are
-often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
-sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
-sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
-bool & & bool & boolean & boolean\tabularnewline
-string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
-& string & String & str/unicode\tabularnewline
-bytes & May contain any arbitrary sequence of bytes. & string &
-ByteString & str\tabularnewline
-\bottomrule
-\end{longtable}
-\section{Protocol Documentation}\label{protocol-documentation}
-
-\subsection{Table of Contents}\label{table-of-contents}
-
-\begin{itemize}
-%\tightlist
-\item
-  \hyperref[quaternion.proto]{quaternion.proto}
-\item
-  \hyperref[experimot.msgs.Quaternion]{Quaternion}
-\item
-  \hyperref[scalar-value-types]{Scalar Value Types}
-\end{itemize}
-
-Top
-
-\hyperdef{}{quaternion.proto}{\subsection{quaternion.proto}\label{quaternion.proto}}
+\subsection{Quaternion}\label{quaternion.proto}
 
  \#\#\# Quaternion Represents a Quaternion (axis,angle) =\textgreater{}
 (w = cos(angle/2), {[}x,y,z{]} = axis* sin(angle/2))
@@ -920,73 +438,7 @@ w & double & required & w = cos(angle/2)\tabularnewline
 \bottomrule
 \end{longtable}
 
- \#\# Scalar Value Types
-
-\begin{longtable}[c]{@{}lllll@{}}
-\toprule
-.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
-\midrule
-\endhead
-double & & double & double & float\tabularnewline
-float & & float & float & float\tabularnewline
-int32 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint32
-instead. & int32 & int & int\tabularnewline
-int64 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint64
-instead. & int64 & long & int/long\tabularnewline
-uint32 & Uses variable-length encoding. & uint32 & int &
-int/long\tabularnewline
-uint64 & Uses variable-length encoding. & uint64 & long &
-int/long\tabularnewline
-sint32 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int32s. & int32 & int &
-int\tabularnewline
-sint64 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int64s. & int64 & long
-& int/long\tabularnewline
-fixed32 & Always four bytes. More efficient than uint32 if values are
-often greater than 2\^{}28. & uint32 & int & int\tabularnewline
-fixed64 & Always eight bytes. More efficient than uint64 if values are
-often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
-sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
-sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
-bool & & bool & boolean & boolean\tabularnewline
-string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
-& string & String & str/unicode\tabularnewline
-bytes & May contain any arbitrary sequence of bytes. & string &
-ByteString & str\tabularnewline
-\bottomrule
-\end{longtable}
-\section{Protocol Documentation}\label{protocol-documentation}
-
-\subsection{Table of Contents}\label{table-of-contents}
-
-\begin{itemize}
-%\tightlist
-\item
-  \hyperref[robotux5fbehavior.proto]{robot\_behavior.proto}
-\item
-  \hyperref[experimot.msgs.BehaviorArguments]{BehaviorArguments}
-\item
-  \hyperref[experimot.msgs.BehaviorDescription]{BehaviorDescription}
-\item
-  \hyperref[experimot.msgs.RobotBehaviorModule]{RobotBehaviorModule}
-\item
-  \hyperref[experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder]{RobotBehaviorModule.RobotBehaviorResponder}
-\item
-  \hyperref[experimot.msgs.RobotBehaviorModules]{RobotBehaviorModules}
-\item
-  \hyperref[experimot.msgs.BehaviorDescription.ExecutionState]{BehaviorDescription.ExecutionState}
-\item
-  \hyperref[experimot.msgs.BehaviorDescription.ExecutionType]{BehaviorDescription.ExecutionType}
-\item
-  \hyperref[scalar-value-types]{Scalar Value Types}
-\end{itemize}
-
-Top
-
-\hyperdef{}{robotux5fbehavior.proto}{\subsection{robot\_behavior.proto}\label{robotux5fbehavior.proto}}
+\subsection{Robot Behavior}\label{robotux5fbehavior.proto}
 
  \#\#\# BehaviorArguments Represents the Robot behavior arguments.
 
@@ -1093,61 +545,7 @@ NonBlocking & 1 & Execution is non-blocking\tabularnewline
 \bottomrule
 \end{longtable}
 
- \#\# Scalar Value Types
-
-\begin{longtable}[c]{@{}lllll@{}}
-\toprule
-.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
-\midrule
-\endhead
-double & & double & double & float\tabularnewline
-float & & float & float & float\tabularnewline
-int32 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint32
-instead. & int32 & int & int\tabularnewline
-int64 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint64
-instead. & int64 & long & int/long\tabularnewline
-uint32 & Uses variable-length encoding. & uint32 & int &
-int/long\tabularnewline
-uint64 & Uses variable-length encoding. & uint64 & long &
-int/long\tabularnewline
-sint32 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int32s. & int32 & int &
-int\tabularnewline
-sint64 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int64s. & int64 & long
-& int/long\tabularnewline
-fixed32 & Always four bytes. More efficient than uint32 if values are
-often greater than 2\^{}28. & uint32 & int & int\tabularnewline
-fixed64 & Always eight bytes. More efficient than uint64 if values are
-often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
-sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
-sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
-bool & & bool & boolean & boolean\tabularnewline
-string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
-& string & String & str/unicode\tabularnewline
-bytes & May contain any arbitrary sequence of bytes. & string &
-ByteString & str\tabularnewline
-\bottomrule
-\end{longtable}
-\section{Protocol Documentation}\label{protocol-documentation}
-
-\subsection{Table of Contents}\label{table-of-contents}
-
-\begin{itemize}
-%\tightlist
-\item
-  \hyperref[subscribe.proto]{subscribe.proto}
-\item
-  \hyperref[experimot.msgs.Subscribe]{Subscribe}
-\item
-  \hyperref[scalar-value-types]{Scalar Value Types}
-\end{itemize}
-
-Top
-
-\hyperdef{}{subscribe.proto}{\subsection{subscribe.proto}\label{subscribe.proto}}
+\subsection{Subscriber}\label{subscribe.proto}
 
  \#\#\# Subscribe Represents a message subscriber
 
@@ -1164,61 +562,7 @@ latching & bool & optional & Latching enabled\tabularnewline
 \bottomrule
 \end{longtable}
 
- \#\# Scalar Value Types
-
-\begin{longtable}[c]{@{}lllll@{}}
-\toprule
-.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
-\midrule
-\endhead
-double & & double & double & float\tabularnewline
-float & & float & float & float\tabularnewline
-int32 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint32
-instead. & int32 & int & int\tabularnewline
-int64 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint64
-instead. & int64 & long & int/long\tabularnewline
-uint32 & Uses variable-length encoding. & uint32 & int &
-int/long\tabularnewline
-uint64 & Uses variable-length encoding. & uint64 & long &
-int/long\tabularnewline
-sint32 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int32s. & int32 & int &
-int\tabularnewline
-sint64 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int64s. & int64 & long
-& int/long\tabularnewline
-fixed32 & Always four bytes. More efficient than uint32 if values are
-often greater than 2\^{}28. & uint32 & int & int\tabularnewline
-fixed64 & Always eight bytes. More efficient than uint64 if values are
-often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
-sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
-sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
-bool & & bool & boolean & boolean\tabularnewline
-string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
-& string & String & str/unicode\tabularnewline
-bytes & May contain any arbitrary sequence of bytes. & string &
-ByteString & str\tabularnewline
-\bottomrule
-\end{longtable}
-\section{Protocol Documentation}\label{protocol-documentation}
-
-\subsection{Table of Contents}\label{table-of-contents}
-
-\begin{itemize}
-%\tightlist
-\item
-  \hyperref[vector2d.proto]{vector2d.proto}
-\item
-  \hyperref[experimot.msgs.Vector2d]{Vector2d}
-\item
-  \hyperref[scalar-value-types]{Scalar Value Types}
-\end{itemize}
-
-Top
-
-\hyperdef{}{vector2d.proto}{\subsection{vector2d.proto}\label{vector2d.proto}}
+\subsection{Vector 2d}\label{vector2d.proto}
 
  \#\#\# Vector2d Represents a 2D vector
 
@@ -1232,61 +576,7 @@ y & double & required & Y coordinate\tabularnewline
 \bottomrule
 \end{longtable}
 
- \#\# Scalar Value Types
-
-\begin{longtable}[c]{@{}lllll@{}}
-\toprule
-.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
-\midrule
-\endhead
-double & & double & double & float\tabularnewline
-float & & float & float & float\tabularnewline
-int32 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint32
-instead. & int32 & int & int\tabularnewline
-int64 & Uses variable-length encoding. Inefficient for encoding negative
-numbers -- if your field is likely to have negative values, use sint64
-instead. & int64 & long & int/long\tabularnewline
-uint32 & Uses variable-length encoding. & uint32 & int &
-int/long\tabularnewline
-uint64 & Uses variable-length encoding. & uint64 & long &
-int/long\tabularnewline
-sint32 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int32s. & int32 & int &
-int\tabularnewline
-sint64 & Uses variable-length encoding. Signed int value. These more
-efficiently encode negative numbers than regular int64s. & int64 & long
-& int/long\tabularnewline
-fixed32 & Always four bytes. More efficient than uint32 if values are
-often greater than 2\^{}28. & uint32 & int & int\tabularnewline
-fixed64 & Always eight bytes. More efficient than uint64 if values are
-often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
-sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
-sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
-bool & & bool & boolean & boolean\tabularnewline
-string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
-& string & String & str/unicode\tabularnewline
-bytes & May contain any arbitrary sequence of bytes. & string &
-ByteString & str\tabularnewline
-\bottomrule
-\end{longtable}
-\section{Protocol Documentation}\label{protocol-documentation}
-
-\subsection{Table of Contents}\label{table-of-contents}
-
-\begin{itemize}
-%\tightlist
-\item
-  \hyperref[vector3d.proto]{vector3d.proto}
-\item
-  \hyperref[experimot.msgs.Vector3d]{Vector3d}
-\item
-  \hyperref[scalar-value-types]{Scalar Value Types}
-\end{itemize}
-
-Top
-
-\hyperdef{}{vector3d.proto}{\subsection{vector3d.proto}\label{vector3d.proto}}
+\subsection{Vector 3d}\label{vector3d.proto}
 
  \#\#\# Vector3d Represents a 3D vector
 
