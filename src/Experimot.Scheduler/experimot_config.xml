@@ -293,6 +293,7 @@
       </process>
       <parameters>
         <param key="BehaviorManagerName" value="nao_behavior_manager" type="string"/>
+        <param key="NaoBehaviorModule" value="nao_behavior_manager" type="string"/>
       </parameters>
     </node>
   </nodes>
