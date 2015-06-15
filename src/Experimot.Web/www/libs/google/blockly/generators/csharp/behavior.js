@@ -1,4 +1,50 @@
-﻿function generateUUID() {
+﻿//Blockly.CSharp.BehaviorTemplate = "\
+//public class BehaviorTemplate\
+//{\
+//    private TriggerBasedBehavior _behavior;\
+//\
+//    public BehaviorTemplate()\
+//    {\
+//        _behavior = new TriggerBasedBehavior();\
+//    }\
+//\
+//    public string ActiveResource { get; set; }\
+//\
+//    public bool ExecuteInit(IBehaviorExecutionContext context)\
+//    {\
+//        if (!_behavior.InitActionsComplete)\
+//        {\
+//            // INIT_BLOCK\
+//            // INIT_BLOCK_HERE\
+//            _behavior.InitActionsComplete = true;\
+//        }\
+//        return _behavior.InitActionsComplete;\
+//    }\
+//\
+//    public bool ExecuteCyclic(IBehaviorExecutionContext context)\
+//    {\
+//        if (!_behavior.CyclicActionsComplete)\
+//        {\
+//            // CYCLIC_BLOCK\
+//            // CYCLIC_BLOCK_HERE\
+//        }\
+//        return _behavior.CyclicActionsComplete;\
+//    }\
+//\
+//    public bool ExecuteExit(IBehaviorExecutionContext context)\
+//    {\
+//        if (!_behavior.ExitActionsComplete)\
+//        {\
+//            // EXIT_BLOCK\
+//            // EXIT_BLOCK_HERE\
+//            _behavior.ExitActionsComplete = true;\
+//        }\
+//        return _behavior.ExitActionsComplete;\
+//    }\
+//}\
+//*/}";
+
+function generateUUID() {
     var d = new Date().getTime();
     var uuid = 'xxxxxxxx_xxxx_xxxx_yxxx_xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
         var r = (d + Math.random() * 16) % 16 | 0;
@@ -64,6 +110,10 @@ Blockly.CSharp['behavior_simple'] = function(block) {
     code += statementsDo;
     code += '}\n';
     code += '}\n';
+
+    $.get('data/templates/BehaviorTemplate.txt', function (data) {
+        console.log(data); //will alert the template code
+    });
 
     return code;
 };
@@ -174,6 +224,7 @@ Blockly.CSharp['behavior'] = function (block) {
 Blockly.CSharp['robot_action'] = function (block) {
     var dropdownActions = block.getFieldValue('actions');
     var code = 'do_action(""' + dropdownActions + '"");\n';
+    console.log(Blockly.CSharp.BehaviorTemplate);
     return code;
 };
 
