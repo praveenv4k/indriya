@@ -327,7 +327,7 @@ public class NaoBehaviorModule
 {
     private static bool _canExecute;
 
-    public string Name { get; private set; }
+    public string Name = "NaoBehaviorModule";
 
     public NaoBehaviorModule(Dictionary<string, string> parameters)
     {
@@ -354,6 +354,11 @@ public class NaoBehaviorModule
     {
         return false;
     }
+}
+
+public class BehaviorModules
+{
+    
 }
 
 public interface IBehaviorExecutionContext
