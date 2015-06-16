@@ -27,7 +27,8 @@ namespace Experimot.Scheduler
             "motion_modules",
             "robot",
             "humans",
-            "body/{0}"
+            "body/{0}",
+            "voice_command"
         };
 
         private const string UnknownRequest = @"Unknown request. Support request : ";
@@ -193,6 +194,15 @@ namespace Experimot.Scheduler
                             if (context != null)
                             {
                                 string json = JsonConvert.SerializeObject(context.WorldFrame);
+                                _socket.Send(json);
+                            }
+                        }
+                        else if (req.Contains("voice_command"))
+                        {
+                            var context = TinyIoCContainer.Current.Resolve<Context>();
+                            if (context != null)
+                            {
+                                string json = JsonConvert.SerializeObject(context.VoiceCommandManager);
                                 _socket.Send(json);
                             }
                         }

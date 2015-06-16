@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Runtime.InteropServices;
 using Common.Logging;
 using experimot.msgs;
@@ -40,17 +41,51 @@ namespace Experimot.Kinect.Speech
         private readonly int _displacementAmount = 60;
 
         //private readonly string _grammarFile = "SpeechGrammar.xml";
+        private readonly string _grammarFileBase = "SpeechGrammar";
         private readonly string _grammarFile = "SpeechGrammar_ja-JP.xml";
-        private const string Language = "ja-JP";
+        private readonly string _language = "Japanese";
+
+        private readonly VoiceCommandPublisher _voiceCommandPublisher;
+        private readonly string _culture = "ja-JP";
+        private readonly string _fallbackLanguage = "English";
+        private readonly string _fallbackCulture = "en-US";
 
         public KinectSpeechRecognition(Node node)
         {
             if (node != null)
             {
+                //<param key="ConfidenceThreshold" type="double" value="0.60"/>
+                //<param key="DegreesInRightAngle" type="int" value="90"/>
+                //<param key="DisplacementAmount" type="int" value="60"/>
+                //<param key="GrammarFileBase" type="string" value="SpeechGrammar"/>
+                //<param key="Language" type="string" value="Japanese"/>
+                //<param key="Culture" type="string" value="ja-JP"/>
+                //<param key="FallbackLanguage" type="string" value="English"/>
+                //<param key="FallbackCulture" type="string" value="en-US"/>
+
                 _confidenceThreshold = ParameterUtil.Get(node.param, "ConfidenceThreshold", _confidenceThreshold);
                 _degreesInRightAngle = ParameterUtil.Get(node.param, "DegreesInRightAngle", _degreesInRightAngle);
                 _displacementAmount = ParameterUtil.Get(node.param, "DisplacementAmount", _displacementAmount);
-                _grammarFile = ParameterUtil.Get(node.param, "GrammarFile", _grammarFile);
+                _grammarFileBase = ParameterUtil.Get(node.param, "GrammarFileBase", _grammarFileBase);
+                _language = ParameterUtil.Get(node.param, "Language", _language);
+                _culture = ParameterUtil.Get(node.param, "Culture", _culture);
+                _fallbackLanguage = ParameterUtil.Get(node.param, "FallbackLanguage", _fallbackLanguage);
+                _fallbackCulture = ParameterUtil.Get(node.param, "FallbackCulture", _fallbackCulture);
+
+                _grammarFile = string.Concat(_grammarFileBase, "_", _culture, ".xml");
+
+                if (node.publisher != null)
+                {
+                    var vcp = node.publisher.FirstOrDefault(s => s.msg_type == "VoiceCommandDescription");
+                    if (vcp != null)
+                    {
+                        _voiceCommandPublisher = new VoiceCommandPublisher(vcp.host, vcp.port, vcp.topic);
+                    }
+                }
+            }
+            if (_voiceCommandPublisher == null)
+            {
+                _voiceCommandPublisher = new VoiceCommandPublisher();
             }
         }
 
@@ -107,6 +142,10 @@ namespace Experimot.Kinect.Speech
                                 new SpeechAudioFormatInfo(EncodingFormat.Pcm, 16000, 16, 1, 32000, 2, null));
                             _speechEngine.RecognizeAsync(RecognizeMode.Multiple);
 
+                            if (_voiceCommandPublisher != null)
+                            {
+                                _voiceCommandPublisher.Initialize();
+                            }
                             Console.WriteLine("Started recognizing");
                         }
                     }
@@ -126,15 +165,31 @@ namespace Experimot.Kinect.Speech
 
         private void SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            Console.WriteLine("Speech recognized: {0}",e.Result.Confidence);
+            Console.WriteLine("Speech recognized: {0}", e.Result.Confidence);
             if (e.Result.Confidence >= _confidenceThreshold)
             {
-                Console.WriteLine(string.Format(new CultureInfo(Language), "{0}", e.Result.Semantics.Value));
+                var value = string.Format(new CultureInfo(_culture), "{0}", e.Result.Semantics.Value);
+                Console.WriteLine(value);
+                if (_voiceCommandPublisher != null)
+                {
+                    _voiceCommandPublisher.Update(new VoiceCommandDescription
+                    {
+                        active = true,
+                        command = value,
+                        confidence = (int) (e.Result.Confidence*100),
+                        language = _language
+                    });
+                }
             }
         }
 
         public void Terminate()
         {
+            if (_voiceCommandPublisher != null)
+            {
+                _voiceCommandPublisher.Terminate();
+            }
+
             if (_convertStream != null)
             {
                 _convertStream.SpeechActive = false;
@@ -155,7 +210,7 @@ namespace Experimot.Kinect.Speech
             Console.WriteLine("Kinect Speech Recognition terminated");
         }
 
-        public static RecognizerInfo TryGetKinectRecognizer()
+        public RecognizerInfo TryGetKinectRecognizer()
         {
             IEnumerable<RecognizerInfo> recognizers = null;
 
@@ -177,7 +232,7 @@ namespace Experimot.Kinect.Speech
                     string value;
                     recognizer.AdditionalInfo.TryGetValue("Kinect", out value);
                     if ("True".Equals(value, StringComparison.OrdinalIgnoreCase) &&
-                        Language.Equals(recognizer.Culture.Name, StringComparison.OrdinalIgnoreCase))
+                        _language.Equals(recognizer.Culture.Name, StringComparison.OrdinalIgnoreCase))
                     {
                         return recognizer;
                     }

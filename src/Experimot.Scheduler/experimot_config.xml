@@ -130,6 +130,11 @@
         <param key="ConfidenceThreshold" type="double" value="0.60"/>
         <param key="DegreesInRightAngle" type="int" value="90"/>
         <param key="DisplacementAmount" type="int" value="60"/>
+        <param key="GrammarFileBase" type="string" value="SpeechGrammar"/>
+        <param key="Language" type="string" value="Japanese"/>
+        <param key="Culture" type="string" value="ja-JP"/>
+        <param key="FallbackLanguage" type="string" value="English"/>
+        <param key="FallbackCulture" type="string" value="en-US"/>
       </parameters>
       <publishers>
         <publish>
