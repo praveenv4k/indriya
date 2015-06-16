@@ -1,7 +1,19 @@
+using System;
+using NCalc;
+
 public interface IBehaviorTemplate
 {
     
 }
+
+public class TriggerResult
+{
+    public bool HumanInLoop { get; set; }
+    public int HumanId { get; set; }
+}
+
+public delegate bool CheckTriggerDelegate(IBehaviorExecutionContext context, out TriggerResult result);
+public delegate bool CheckLifetimeDelegate(IBehaviorExecutionContext context);
 
 public class BehaviorTemplate: IBehaviorTemplate
 {
@@ -11,15 +23,96 @@ public class BehaviorTemplate: IBehaviorTemplate
     public string ExecutionEvalExpression { get; set; }
     public string Trigger { get; set; }
     public int Id { get; set; }
+    public string Uid { get; set; }
     private static bool _initActionsComplete;
     private static bool _cyclicActionsComplete;
     private static bool _exitActionsComplete;
+    private static CheckTriggerDelegate _triggerDelegate;
+    private readonly CheckLifetimeDelegate _checkLifetimeDelegate;
 
     public BehaviorTemplate()
     {
+        // SET_UID
+
+        // SET_PRIORITY
         // SET_PRIORITY_HERE
-        // SET_TRIGGER_HERE
-        // SET_EXECUTIONTIME_HERE
+
+        // SET_TRIGGER
+        // The trigger delegate should not access any member variables
+        TriggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
+        {
+            result = new TriggerResult();
+            if (ctx != null)
+            {
+                // SET_TRIGGER_HERE
+            }
+            return false;
+        };
+
+        // SET_EXECUTION_LIFETIME
+        // SET_EXECUTION_LIFETIME_HERE
+
+        _checkLifetimeDelegate = CheckExecution;
+    }
+
+    private void something()
+    {
+        // Gesture trigger
+        TriggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
+        {
+            result = new TriggerResult();
+            if (ctx != null)
+            {
+                var gestureInfo = ctx.GetGestureInfo("");
+                if (gestureInfo.Active && gestureInfo.Confidence > 90)
+                {
+                    result.HumanId = gestureInfo.HumanId;
+                    result.HumanInLoop = true;
+                    return true;
+                }
+            }
+            return false;
+        };
+
+        // Voice Trigger
+        TriggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
+        {
+            result = new TriggerResult();
+            if (ctx != null)
+            {
+                var voiceCommand = ctx.GetVoiceCommand("");
+                if (voiceCommand.Active && voiceCommand.Confidence > 70)
+                {
+                    return true;
+                }
+            }
+            return false;
+        };
+    }
+
+    public bool CheckExecution(IBehaviorExecutionContext context)
+    {
+        if (ExecutionLifetime == BehaviorExecutionLifetime.forever)
+        {
+        }
+        else if (ExecutionLifetime == BehaviorExecutionLifetime.once)
+        {
+            if (ExecutionComplete)
+            {
+                return false;
+            }
+        }
+        else if (ExecutionLifetime == BehaviorExecutionLifetime.until && !string.IsNullOrEmpty(ExecutionEvalExpression))
+        {
+            var expression = new Expression(ExecutionEvalExpression);
+            var result = expression.Evaluate();
+            bool complete;
+            if (bool.TryParse(result.ToString(), out complete))
+            {
+                return !complete;
+            }
+        }
+        return true;
     }
 
     public string ActiveResource { get; set; }
@@ -45,6 +138,17 @@ public class BehaviorTemplate: IBehaviorTemplate
     public bool ExecutionComplete
     {
         get { return InitActionsComplete & CyclicActionsComplete & ExitActionsComplete; }
+    }
+
+    public static CheckTriggerDelegate TriggerDelegate
+    {
+        get { return _triggerDelegate; }
+        private set { _triggerDelegate = value; }
+    }
+
+    public CheckLifetimeDelegate LifetimeDelegate
+    {
+        get { return _checkLifetimeDelegate; }
     }
 
     public bool ExecuteInit(IBehaviorExecutionContext context)

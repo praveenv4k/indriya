@@ -120,6 +120,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
     {
         var ret = new GestureInfo
         {
+            HumanId = -1,
             Active = false,
             Confidence = 0,
             Name = gestureName
@@ -138,6 +139,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
                     {
                         continue;
                     }
+                    ret.HumanId = human.Value<int>("Id");
                     ret.Active = gesture.Value<bool>("Active");
                     ret.Confidence = gesture.Value<int>("Confidence");
                 }

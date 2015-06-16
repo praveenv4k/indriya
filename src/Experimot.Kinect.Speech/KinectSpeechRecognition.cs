@@ -232,7 +232,7 @@ namespace Experimot.Kinect.Speech
                     string value;
                     recognizer.AdditionalInfo.TryGetValue("Kinect", out value);
                     if ("True".Equals(value, StringComparison.OrdinalIgnoreCase) &&
-                        _language.Equals(recognizer.Culture.Name, StringComparison.OrdinalIgnoreCase))
+                        _culture.Equals(recognizer.Culture.Name, StringComparison.OrdinalIgnoreCase))
                     {
                         return recognizer;
                     }
