@@ -131,6 +131,15 @@
         <param key="DegreesInRightAngle" type="int" value="90"/>
         <param key="DisplacementAmount" type="int" value="60"/>
       </parameters>
+      <publishers>
+        <publish>
+          <host>tcp://*</host>
+          <port>5593</port>
+          <topic>VRP</topic><!--Voice Recognition Publisher-->
+          <msg_type>VoiceCommandDescription</msg_type>
+          <name>VoiceCommandPublisher</name>
+        </publish>
+      </publishers>
     </node>
     <node enabled="false" name="simulation">
       <process>
@@ -179,6 +188,14 @@
           <topic>HPP</topic>
           <msg_type>Humans</msg_type>
           <name>HumanPosePublisher</name>
+        </subscribe>
+        <subscribe>
+          <host>tcp://localhost</host>
+          <port>5593</port>
+          <topic>VRP</topic>
+          <!--Voice Recognition Publisher-->
+          <msg_type>VoiceCommandDescription</msg_type>
+          <name>VoiceCommandPublisher</name>
         </subscribe>
       </subscribers>
     </node>

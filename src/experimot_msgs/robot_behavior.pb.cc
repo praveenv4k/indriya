@@ -181,32 +181,29 @@ void protobuf_AddDesc_robot_5fbehavior_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_request_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_response_2eproto();
   ::experimot::msgs::protobuf_AddDesc_param_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\024robot_behavior.proto\022\016experimot.msgs\032\r"
-    "request.proto\032\016response.proto\032\013param.pro"
-    "to\"T\n\021BehaviorArguments\022\014\n\004name\030\001 \002(\t\022\r\n"
-    "\005value\030\002 \002(\t\022\024\n\014place_holder\030\003 \002(\010\022\014\n\004ty"
-    "pe\030\004 \002(\t\"\322\002\n\023BehaviorDescription\022\014\n\004name"
-    "\030\001 \002(\t\022\025\n\rfunction_name\030\002 \002(\t\022.\n\003arg\030\003 \003"
-    "(\0132!.experimot.msgs.BehaviorArguments\022\?\n"
-    "\004type\030\004 \002(\01621.experimot.msgs.BehaviorDes"
-    "cription.ExecutionType\022A\n\005state\030\005 \002(\01622."
-    "experimot.msgs.BehaviorDescription.Execu"
-    "tionState\".\n\rExecutionType\022\014\n\010Blocking\020\000"
-    "\022\017\n\013NonBlocking\020\001\"2\n\016ExecutionState\022\010\n\004I"
-    "dle\020\000\022\013\n\007Running\020\001\022\t\n\005Error\020\002\"\206\002\n\023RobotB"
-    "ehaviorModule\022\014\n\004name\030\001 \002(\t\022$\n\005param\030\002 \003"
-    "(\0132\025.experimot.msgs.Param\0226\n\tbehaviors\030\003"
-    " \003(\0132#.experimot.msgs.BehaviorDescriptio"
-    "n\022M\n\tresponder\030\004 \001(\0132:.experimot.msgs.Ro"
-    "botBehaviorModule.RobotBehaviorResponder"
-    "\0324\n\026RobotBehaviorResponder\022\014\n\004Host\030\001 \002(\t"
-    "\022\014\n\004Port\030\002 \002(\005\"L\n\024RobotBehaviorModules\0224"
-    "\n\007modules\030\001 \003(\0132#.experimot.msgs.RobotBe"
-    "haviorModule", 852);
+    "\n\024robot_behavior.proto\022\016experimot.msgs\032\013"
+    "param.proto\"T\n\021BehaviorArguments\022\014\n\004name"
+    "\030\001 \002(\t\022\r\n\005value\030\002 \002(\t\022\024\n\014place_holder\030\003 "
+    "\002(\010\022\014\n\004type\030\004 \002(\t\"\322\002\n\023BehaviorDescriptio"
+    "n\022\014\n\004name\030\001 \002(\t\022\025\n\rfunction_name\030\002 \002(\t\022."
+    "\n\003arg\030\003 \003(\0132!.experimot.msgs.BehaviorArg"
+    "uments\022\?\n\004type\030\004 \002(\01621.experimot.msgs.Be"
+    "haviorDescription.ExecutionType\022A\n\005state"
+    "\030\005 \002(\01622.experimot.msgs.BehaviorDescript"
+    "ion.ExecutionState\".\n\rExecutionType\022\014\n\010B"
+    "locking\020\000\022\017\n\013NonBlocking\020\001\"2\n\016ExecutionS"
+    "tate\022\010\n\004Idle\020\000\022\013\n\007Running\020\001\022\t\n\005Error\020\002\"\206"
+    "\002\n\023RobotBehaviorModule\022\014\n\004name\030\001 \002(\t\022$\n\005"
+    "param\030\002 \003(\0132\025.experimot.msgs.Param\0226\n\tbe"
+    "haviors\030\003 \003(\0132#.experimot.msgs.BehaviorD"
+    "escription\022M\n\tresponder\030\004 \001(\0132:.experimo"
+    "t.msgs.RobotBehaviorModule.RobotBehavior"
+    "Responder\0324\n\026RobotBehaviorResponder\022\014\n\004H"
+    "ost\030\001 \002(\t\022\014\n\004Port\030\002 \002(\005\"L\n\024RobotBehavior"
+    "Modules\0224\n\007modules\030\001 \003(\0132#.experimot.msg"
+    "s.RobotBehaviorModule", 821);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "robot_behavior.proto", &protobuf_RegisterTypes);
   BehaviorArguments::default_instance_ = new BehaviorArguments();
