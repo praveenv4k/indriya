@@ -203,6 +203,7 @@
     <None Include="proto\vector2d.proto" />
     <None Include="proto\vector3d.proto" />
     <None Include="proto\visual.proto" />
+    <None Include="proto\voice.proto" />
     <None Include="proto\wireless_node.proto" />
     <None Include="proto\wireless_nodes.proto" />
     <None Include="proto\world_control.proto" />
@@ -326,6 +327,7 @@
     <ClCompile Include="vector2d.pb.cc" />
     <ClCompile Include="vector3d.pb.cc" />
     <ClCompile Include="visual.pb.cc" />
+    <ClCompile Include="voice.pb.cc" />
     <ClCompile Include="wireless_node.pb.cc" />
     <ClCompile Include="wireless_nodes.pb.cc" />
     <ClCompile Include="world_control.pb.cc" />
@@ -439,6 +441,7 @@
     <ClInclude Include="vector2d.pb.h" />
     <ClInclude Include="vector3d.pb.h" />
     <ClInclude Include="visual.pb.h" />
+    <ClInclude Include="voice.pb.h" />
     <ClInclude Include="wireless_node.pb.h" />
     <ClInclude Include="wireless_nodes.pb.h" />
     <ClInclude Include="world_control.pb.h" />

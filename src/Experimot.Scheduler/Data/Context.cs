@@ -81,6 +81,11 @@ namespace Experimot.Scheduler.Data
             get { return _worldFrame; }
         }
 
+        public VoiceCommandManager VoiceCommandManager
+        {
+            get { return _voiceCommandManager; }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
@@ -135,6 +140,23 @@ namespace Experimot.Scheduler.Data
             lock (_object)
             {
                 Robot.SensorData = sensorData;
+            }
+        }
+
+        public void Update(VoiceCommandDescription command)
+        {
+            lock (_object)
+            {
+                if (VoiceCommandManager != null)
+                {
+                    VoiceCommandManager.Update(new VoiceCommand
+                    {
+                        Active = command.active,
+                        Command = command.command,
+                        Confidence = command.confidence,
+                        Language = command.language
+                    });
+                }
             }
         }
 

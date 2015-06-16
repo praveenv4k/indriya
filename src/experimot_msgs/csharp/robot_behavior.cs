@@ -8,8 +8,6 @@
 //------------------------------------------------------------------------------
 
 // Generated from: proto/robot_behavior.proto
-// Note: requires additional types generated from: request.proto
-// Note: requires additional types generated from: response.proto
 // Note: requires additional types generated from: param.proto
 namespace experimot.msgs
 {

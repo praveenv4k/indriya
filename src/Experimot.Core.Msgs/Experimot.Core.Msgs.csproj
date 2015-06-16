@@ -375,6 +375,9 @@
     <Compile Include="..\experimot_msgs\csharp\visual.cs">
       <Link>visual.cs</Link>
     </Compile>
+    <Compile Include="..\experimot_msgs\csharp\voice.cs">
+      <Link>voice.cs</Link>
+    </Compile>
     <Compile Include="..\experimot_msgs\csharp\wireless_node.cs">
       <Link>wireless_node.cs</Link>
     </Compile>

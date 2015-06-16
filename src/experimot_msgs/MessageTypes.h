@@ -1,7 +1,7 @@
 // Automatically generated! DO NOT EDIT!!! 
 // Experimot Message Header Files 
 // Created on  
-// Fri 05/29/2015 12:05:09.93  
+// Tue 06/16/2015 17:06:09.45  
 #include "axis.pb.h"  
 #include "boxgeom.pb.h"  
 #include "camerasensor.pb.h"  
@@ -104,6 +104,7 @@
 #include "vector2d.pb.h"  
 #include "vector3d.pb.h"  
 #include "visual.pb.h"  
+#include "voice.pb.h"  
 #include "wireless_node.pb.h"  
 #include "wireless_nodes.pb.h"  
 #include "world_control.pb.h"  

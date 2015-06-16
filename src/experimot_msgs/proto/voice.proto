@@ -1,0 +1,36 @@
+package experimot.msgs;
+
+/// \ingroup experimot_msgs
+/// \interface Motion description 
+/// \brief Information about all motions supported by the gesture/motion recognition module
+
+import "param.proto";
+
+/**
+ * Represents a gesture description
+ */
+message VoiceCommandDescription
+{
+	required string command = 1;	    /// Voice Command
+	optional bool active = 2;			/// Active status of gesture
+	optional int32 confidence = 3;		/// Gesture recognition confidence
+	optional string language = 4;		/// Language
+}
+
+/**
+ * Represents a gesture recognition module
+ */
+message VoiceRecognitionModule
+{
+  required string name  = 1;				        /// Module name
+  repeated Param params = 2;				        /// Module parameters
+  repeated VoiceCommandDescription commands = 3;	/// List of voice commands recognition capabilities of this module
+}
+
+/**
+ * Represents a gesture recognition modules
+ */
+message VoiceRecognitionModules
+{
+  repeated VoiceRecognitionModule modules  = 1;		/// Voice recognition module list
+}
