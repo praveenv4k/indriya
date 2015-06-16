@@ -1,48 +1,11 @@
-﻿//Blockly.CSharp.BehaviorTemplate = "\
-//public class BehaviorTemplate\
-//{\
-//    private TriggerBasedBehavior _behavior;\
-//\
-//    public BehaviorTemplate()\
-//    {\
-//        _behavior = new TriggerBasedBehavior();\
-//    }\
-//\
-//    public string ActiveResource { get; set; }\
-//\
-//    public bool ExecuteInit(IBehaviorExecutionContext context)\
-//    {\
-//        if (!_behavior.InitActionsComplete)\
-//        {\
-//            // INIT_BLOCK\
-//            // INIT_BLOCK_HERE\
-//            _behavior.InitActionsComplete = true;\
-//        }\
-//        return _behavior.InitActionsComplete;\
-//    }\
-//\
-//    public bool ExecuteCyclic(IBehaviorExecutionContext context)\
-//    {\
-//        if (!_behavior.CyclicActionsComplete)\
-//        {\
-//            // CYCLIC_BLOCK\
-//            // CYCLIC_BLOCK_HERE\
-//        }\
-//        return _behavior.CyclicActionsComplete;\
-//    }\
-//\
-//    public bool ExecuteExit(IBehaviorExecutionContext context)\
-//    {\
-//        if (!_behavior.ExitActionsComplete)\
-//        {\
-//            // EXIT_BLOCK\
-//            // EXIT_BLOCK_HERE\
-//            _behavior.ExitActionsComplete = true;\
-//        }\
-//        return _behavior.ExitActionsComplete;\
-//    }\
-//}\
-//*/}";
+﻿function getURL(url) {
+    return $.ajax({
+        type: "GET",
+        url: url,
+        cache: false,
+        async: false
+    }).responseText;
+}
 
 function generateUUID() {
     var d = new Date().getTime();
@@ -111,9 +74,11 @@ Blockly.CSharp['behavior_simple'] = function(block) {
     code += '}\n';
     code += '}\n';
 
-    $.get('data/templates/BehaviorTemplate.txt', function (data) {
-        console.log(data); //will alert the template code
-    });
+    var template = getURL('data/templates/BehaviorTemplate.txt');
+    console.log(template);
+    //$.get('data/templates/BehaviorTemplate.txt', function (data) {
+    //    console.log(data); //will alert the template code
+    //});
 
     return code;
 };
@@ -156,7 +121,18 @@ Blockly.CSharp['behavior_composable'] = function(block) {
     //code += exitDo;
     code += 'behavior.RegisterExitBlock(@\"' + exitDo + '\");\n';
     code += '}\n';
-    return code;
+
+    var template = getURL('data/templates/BehaviorTemplate.cs');
+    console.log(template);
+
+    var className = 'Behavior_' + guid;
+    var replaced = template.replace('// INIT_BLOCK_HERE', initDo);
+    var replaced2 = replaced.replace('// CYCLIC_BLOCK_HERE', statementsDo);
+    var replaced3 = replaced2.replace('// EXIT_BLOCK_HERE', exitDo);
+    var replaced4 = replaced3.replace('class BehaviorTemplate', 'class ' + className);
+    return replaced4;
+
+    //return code;
 };
 
 Blockly.CSharp['behavior_simple_count'] = function(block) {
@@ -194,7 +170,18 @@ Blockly.CSharp['behavior_startup'] = function (block) {
     var code = 'function behavior_startup(){\n';
     code += statementsDo;
     code += '}\n';
-    return code;
+
+    $.get('data/templates/StartupBehaviorTemplate.cs', function (data) {
+        console.log(data); //will alert the template code
+
+    });
+
+    var template = getURL('data/templates/StartupBehaviorTemplate.cs');
+    console.log(template);
+
+    var replaced = template.replace('// STARTUP_BLOCK_HERE', statementsDo);
+
+    return replaced;
 };
 
 Blockly.CSharp['behavior_exit'] = function (block) {
@@ -202,7 +189,13 @@ Blockly.CSharp['behavior_exit'] = function (block) {
     var code = 'function behavior_exit(){\n';
     code += statementsDo;
     code += '}\n';
-    return code;
+
+    var template = getURL('data/templates/ExitBehaviorTemplate.cs');
+    console.log(template);
+
+    var replaced = template.replace('// EXIT_BLOCK_HERE', statementsDo);
+
+    return replaced;
 };
 
 Blockly.CSharp['behavior'] = function (block) {
