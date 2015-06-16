@@ -98,6 +98,24 @@ namespace Experimot.Scheduler
                                     _socket.Send("Registration successful!");
                                 }
                             }
+                            else if (req.Contains("speech"))
+                            {
+                                var behaviorModule =
+                                    ReceiveAndParseGestureDescription<experimot.msgs.VoiceRecognitionModule>(_socket,
+                                        RecvTimeout);
+                                if (behaviorModule != null)
+                                {
+                                    if (_worldCtx != null)
+                                    {
+                                        App.Current.Dispatcher.Invoke(delegate // <--- HERE
+                                        {
+                                            _worldCtx.RegisterVoiceRecognitionModule(behaviorModule);
+                                        });
+                                    }
+                                    Log.InfoFormat(@"Module name: {0}", behaviorModule.name);
+                                    _socket.Send("Registration successful!");
+                                }
+                            }
                         }
                         else if (req.Contains("file_request"))
                         {

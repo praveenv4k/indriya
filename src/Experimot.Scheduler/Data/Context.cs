@@ -27,6 +27,7 @@ namespace Experimot.Scheduler.Data
         private IDictionary<string, ManipulatableObject> _objects;
         private readonly object _object = new object();
         private BindableCollection<GestureModule> _motionModules;
+        private BindableCollection<VoiceRecognitionModule> _voiceModules;
         private BindableCollection<RobotBehaviorModule> _behaviorModules;
         private static readonly ILog Log = LogManager.GetLogger<Context>();
         private readonly VoiceCommandManager _voiceCommandManager;
@@ -39,6 +40,7 @@ namespace Experimot.Scheduler.Data
             Objects = new ConcurrentDictionary<string, ManipulatableObject>();
             MotionModules = new BindableCollection<GestureModule>();
             BehaviorModules = new BindableCollection<RobotBehaviorModule>();
+            VoiceRecognitionModules = new BindableCollection<VoiceRecognitionModule>();
         }
 
         public Robot Robot
@@ -74,6 +76,12 @@ namespace Experimot.Scheduler.Data
         {
             get { return _behaviorModules; }
             set { _behaviorModules = value; }
+        }
+
+        public BindableCollection<VoiceRecognitionModule> VoiceRecognitionModules
+        {
+            get { return _voiceModules; }
+            set { _voiceModules = value; }
         }
 
         public Pose WorldFrame
@@ -294,6 +302,25 @@ namespace Experimot.Scheduler.Data
                     else
                     {
                         regMod = new GestureModule(module);
+                    }
+                }
+            }
+        }
+
+        public void RegisterVoiceRecognitionModule(VoiceRecognitionModule module)
+        {
+            if (module != null && !string.IsNullOrEmpty(module.name))
+            {
+                lock (_object)
+                {
+                    var regMod = _voiceModules.FirstOrDefault(s => s.name == module.name);
+                    if (regMod == null)
+                    {
+                        _voiceModules.Add(module);
+                    }
+                    else
+                    {
+                        regMod = module;
                     }
                 }
             }
