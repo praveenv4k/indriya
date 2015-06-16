@@ -333,6 +333,7 @@ public class BehaviorModuleHelper
 
 public struct GestureInfo
 {
+    public int HumanId;
     public string Name;
     public bool Active;
     public int Confidence;

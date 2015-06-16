@@ -17,6 +17,11 @@ function generateUUID() {
     return uuid;
 };
 
+function generateUniqueVarName() {
+    var uid = generateUUID();
+    return 'var_' + uid;
+};
+
 Blockly.CSharp['behavior_sleek'] = function (block) {
     var name = block.getFieldValue('behavior_name');
     var dropdownTriggers = block.getFieldValue('triggers');
@@ -99,6 +104,7 @@ Blockly.CSharp['behavior_composable'] = function(block) {
         executeLogic = Blockly.CSharp.valueToCode(this, 'RUN_UNTIL', Blockly.CSharp.ORDER_ATOMIC);
     }
     var guid = generateUUID();
+    var priority = 'Priority = BehaviorExecutionPriority.' + dropdownPriorities + '\n;';
     //var code = 'function ' + textBehaviorName + '(){\n';
     var code = 'public static void ' + guid + '(){\n';
     code += 'var behavior = ComposableBehavior.Create(@\"' + textBehaviorName + '\");\n';
@@ -109,8 +115,10 @@ Blockly.CSharp['behavior_composable'] = function(block) {
     code += 'behavior.RegisterInitBlock(@\"' + initDo + '\");\n';
     code += '// Cyclic Block \n';
     var cyclic = '';
+    var lifeTime = 'ExecutionLifetime = BehaviorExecutionLifetime.' + execution + ';\n';
     if (executeLogic != undefined) {
         cyclic += 'while(EvaluateExecution(\"' + execution + '\",\"' + executeLogic + '\")){\n';
+        lifeTime += executeLogic + ';\n';
     } else {
         cyclic += 'while(EvaluateExecution(\""' + execution + '\"")){\n';
     }
@@ -129,8 +137,14 @@ Blockly.CSharp['behavior_composable'] = function(block) {
     var replaced = template.replace('// INIT_BLOCK_HERE', initDo);
     var replaced2 = replaced.replace('// CYCLIC_BLOCK_HERE', statementsDo);
     var replaced3 = replaced2.replace('// EXIT_BLOCK_HERE', exitDo);
-    var replaced4 = replaced3.replace('class BehaviorTemplate', 'class ' + className);
-    return replaced4;
+    var replaced4 = replaced3.replace('BehaviorTemplate', className);
+
+    var replaced5 = replaced4.replace('// SET_PRIORITY_HERE', priority);
+    var replaced6 = replaced5.replace('// SET_TRIGGER_HERE', trigger);
+    var replaced7 = replaced6.replace('// SET_TRIGGER_HERE', lifeTime);
+    var uid = 'Uid = \"' + guid + '\";\n';
+    var replaced8 = replaced7.replace('// SET_UID', guid);
+    return replaced8;
 
     //return code;
 };
@@ -218,11 +232,11 @@ Blockly.CSharp['robot_action'] = function (block) {
     var dropdownActions = block.getFieldValue('actions');
     var code = 'do_action(""' + dropdownActions + '"");\n';
     
-    var newVarName = generateUUID();
+    var newVarName = generateUniqueVarName();
     var behavior = 'var ' + newVarName +
         '= new BehaviorInfo' +
         '{' +
-        'BehaviorName = ' + dropdownActions +
+        'BehaviorName = \"' + dropdownActions + '\"' +
         '};\n';
 
     var genCode = behavior + '\n';
@@ -238,7 +252,7 @@ Blockly.CSharp['animated_say_action'] = function(block) {
     //code += 'animated_say(' + name + ');\n';
     var code = 'animated_say(""' + sayMsg + '"");\n';
 
-    var newVarName = generateUUID();
+    var newVarName = generateUniqueVarName();
     var behavior = 'var ' + newVarName +
         '= new BehaviorInfo' +
         '{' +
@@ -267,7 +281,7 @@ Blockly.CSharp['animated_say_action_arg'] = function(block) {
     var text = 'string.Format(' + '""' + prefixMsg + ' {0} ' + suffixMsg + '""' + ',' + argName + ')';
     var code = 'animated_say(' + text + ');\n';
 
-    var newVarName = generateUUID();
+    var newVarName = generateUniqueVarName();
     var behavior = 'var ' + newVarName +
         '= new BehaviorInfo' +
         '{' +
@@ -294,7 +308,7 @@ Blockly.CSharp['approach_action'] = function(block) {
     var code = 'approach_action(""' + distance + '"");\n';
 
     // Pure rotation
-    var newVarName1 = generateUUID();
+    var newVarName1 = generateUniqueVarName();
     var behavior1 = 'var ' + newVarName1 +
         '= new BehaviorInfo' +
         '{' +
@@ -311,7 +325,7 @@ Blockly.CSharp['approach_action'] = function(block) {
         '}' +
         '};\n';
 
-    var newVarName2 = generateUUID();
+    var newVarName2 = generateUniqueVarName();
     var behavior2 = 'var ' + newVarName2 +
         '= new BehaviorInfo' +
         '{' +
@@ -343,11 +357,11 @@ Blockly.CSharp['therapy_action'] = function(block) {
     //code += 'do_action(therapy_action);\n';
     var code = 'do_action(""' + therapyName + '"");\n';
 
-    var newVarName = generateUUID();
+    var newVarName = generateUniqueVarName();
     var behavior = 'var ' + newVarName +
         '= new BehaviorInfo' +
         '{' +
-        'BehaviorName = ' + therapyName +
+        'BehaviorName = \"' + therapyName + '\"' +
         '};\n';
 
     var genCode = behavior + '\n';
@@ -360,21 +374,51 @@ Blockly.CSharp['therapy_action'] = function(block) {
 Blockly.CSharp['trigger'] = function (block) {
     var trigger = block.getFieldValue('MOTION_TRIGGER');
     var code = 'behavior.SetTrigger(' + '""MOTION"", ' + '""' + trigger + '"");\n';
-    return [code, Blockly.CSharp.ORDER_ATOMIC];
+
+    // Structure
+//    TriggerDelegate = delegate(IBehaviorExecutionContext ctx)
+//    {
+//            if (ctx != null)
+//    {
+//        // SET_TRIGGER_HERE
+//    }
+//    return false;
+//      };
+
+    var genCode = 'var gestureInfo = ctx.GetGestureInfo(\"' + trigger + '\");\n' +
+        'if (gestureInfo.Active && gestureInfo.Confidence > 90)\n' +
+        '{\n' +
+        'result.HumanId = gestureInfo.HumanId;\n' +
+        'result.HumanInLoop = true;\n' +
+        'return true;\n' +
+        '}\n';
+    return [genCode, Blockly.CSharp.ORDER_ATOMIC];
 };
 
 Blockly.CSharp['voice_trigger'] = function (block) {
     var trigger = block.getFieldValue('VOICE_TRIGGER');
     //var code = 'behavior.set_voice_trigger(\"' + trigger + '\");\n';
     var code = 'behavior.SetTrigger(' + '"VOICE", ' + '"' + trigger + '");\n';
-    return [code, Blockly.CSharp.ORDER_ATOMIC];
+
+    var genCode = 'var gestureInfo = ctx.GetVoiceCommand(\"' + trigger + '\");\n' +
+        'if (voiceCommand.Active && voiceCommand.Confidence > 70)\n' +
+        '{\n' +
+        'return true;\n' +
+        '}\n';
+    return [genCode, Blockly.CSharp.ORDER_ATOMIC];
 };
 
 Blockly.CSharp['voice_trigger2'] = function (block) {
     var trigger = block.getFieldValue('VOICE_TRIGGER');
     //var code = 'set_voice_trigger(\"' + trigger + '\");\n';
     var code = 'behavior.SetTrigger(' + '"VOICE", ' + '"' + trigger + '");\n';
-    return [code, Blockly.CSharp.ORDER_ATOMIC];
+
+    var genCode = 'var gestureInfo = ctx.GetVoiceCommand(\"' + trigger + '\");\n' +
+        'if (voiceCommand.Active && voiceCommand.Confidence > 70)\n' +
+        '{\n' +
+        'return true;\n' +
+        '}\n';
+    return [genCode, Blockly.CSharp.ORDER_ATOMIC];
 };
 
 Blockly.CSharp['wait_voice_response'] = function (block) {
