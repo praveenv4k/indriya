@@ -162,6 +162,7 @@
     </ApplicationDefinition>
     <Compile Include="BootStrapper.cs" />
     <Compile Include="Data\ExecutionRequest.cs" />
+    <Compile Include="Data\VoiceCommand.cs" />
     <Compile Include="Mvvm\BrowserViewModel.cs" />
     <Compile Include="Data\Context.cs" />
     <Compile Include="Data\Behavior.cs" />
@@ -185,9 +186,12 @@
     <Compile Include="Mvvm\PropertyChangedExtensionMethods.cs" />
     <Compile Include="Mvvm\ViewModelBase.cs" />
     <Compile Include="ContextServer.cs" />
+    <Compile Include="Scriptcs\BehaviorExecutionContext.cs" />
+    <Compile Include="Scriptcs\BehaviorExecutionEngine.cs" />
     <Compile Include="Scriptcs\BehaviorInfo.cs" />
     <Compile Include="Scriptcs\BehaviorTemplate.cs" />
     <Compile Include="Scriptcs\ExitBehaviorTemplate.cs" />
+    <Compile Include="Scriptcs\IBehaviorExecutionContext.cs" />
     <Compile Include="Scriptcs\IExecuteOnceBehavior.cs" />
     <Compile Include="Scriptcs\ProgramGenerator.cs" />
     <Compile Include="Scriptcs\ChainBehaviorTask.cs" />

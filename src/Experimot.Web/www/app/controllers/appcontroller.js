@@ -44,10 +44,15 @@
                 globalCh.vent.on("saveProgram", function(name) {
                     app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
                     var xmlText = Blockly.Xml.domToPrettyText(app.codeXmlDom);
+                    app.code = Blockly.CSharp.workspaceToCode(app.workspace); // C# code generation
+                    var csFile = name.replace('xml', 'cs');
                     $.post("/designer/program/save", { "name": name, "value": xmlText }, function(data) {
                         console.log("Program save successful: " + name);
                         var pgmName = $("#program-name").empty();
                         pgmName.append(name);
+                    });
+                    $.post("/designer/program/save", { "name": csFile, "value": app.code }, function (data) {
+                        console.log("CS Program save successful: " + name);
                     });
                 });
 
@@ -403,11 +408,13 @@
                     .click(function () {
                         app.code = Blockly.CSharp.workspaceToCode(app.workspace); // C# code generation
                         console.log(app.code);
-                        var blocks = app.workspace.getAllBlocks();
-                        // Iterate through every block and check the name.
-                        for (var x = 0; x < blocks.length; x++) {
-                            console.log(blocks[x]);
-                        }
+
+                        //var blocks = app.workspace.getAllBlocks();
+                        //// Iterate through every block and check the name.
+                        //for (var x = 0; x < blocks.length; x++) {
+                        //    console.log(blocks[x]);
+                        //}
+
                         //_this.clearWorkspace();
                 });
             },

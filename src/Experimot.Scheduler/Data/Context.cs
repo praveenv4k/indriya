@@ -29,11 +29,13 @@ namespace Experimot.Scheduler.Data
         private BindableCollection<GestureModule> _motionModules;
         private BindableCollection<RobotBehaviorModule> _behaviorModules;
         private static readonly ILog Log = LogManager.GetLogger<Context>();
+        private readonly VoiceCommandManager _voiceCommandManager;
 
         public Context()
         {
             Humans = new BindableCollection<Human>();
             Robot = new Robot();
+            _voiceCommandManager = new VoiceCommandManager();
             Objects = new ConcurrentDictionary<string, ManipulatableObject>();
             MotionModules = new BindableCollection<GestureModule>();
             BehaviorModules = new BindableCollection<RobotBehaviorModule>();
