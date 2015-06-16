@@ -1,23 +1,21 @@
 using System.Collections.Generic;
+using System.Reflection;
 
 public class BehaviorExecutionEngine
 {
-    public static BehaviorExecutionContext Context { get; set; }
-    public static Dictionary<string, object> Triggers = new Dictionary<string, object>();
+    private readonly BehaviorExecutionContext _context;
 
-    public static void RegisterTrigger(string name, object del)
+    public BehaviorExecutionContext Context
     {
-        if (!Triggers.ContainsKey(name))
-        {
-            Triggers.Add(name, del);
-        }
-        else
-        {
-            Triggers[name] = del;
-        }
+        get { return _context; }
     }
 
-    public static void Run()
+    public BehaviorExecutionEngine(BehaviorExecutionContext context)
+    {
+        _context = context;
+    }
+
+    public void Run()
     {
 
     }

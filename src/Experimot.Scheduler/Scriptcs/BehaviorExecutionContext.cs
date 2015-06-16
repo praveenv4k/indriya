@@ -6,7 +6,7 @@ using SharpDX;
 
 public class BehaviorExecutionContext : IBehaviorExecutionContext
 {
-    private static readonly ILog Log = LogManager.GetLogger(typeof(BehaviorInfo));
+    private static readonly ILog Log = LogManager.GetLogger(typeof(BehaviorExecutionContext));
 
     public string ContextServer { get; set; }
 
@@ -118,6 +118,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
 
     public GestureInfo GetGestureInfo(string gestureName)
     {
+        
         var ret = new GestureInfo
         {
             HumanId = -1,

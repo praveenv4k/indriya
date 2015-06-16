@@ -782,6 +782,16 @@ Blockly.Blocks['behavior'] = {
 
 Blockly.Blocks['behavior_composable'] = {
     init: function () {
+
+        var priorityDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.PriorityProperties, function (option) {
+
+        });
+
+        var executionDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.ExecutionProperties, function (option) {
+            //var runUntilInput = (option == 'until');
+            //this.sourceBlock_.updateShape_(runUntilInput);
+        });
+
         this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(210);
         this.appendDummyInput()
@@ -791,11 +801,11 @@ Blockly.Blocks['behavior_composable'] = {
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("Execution Priority")
-            .appendField(new Blockly.FieldDropdown([["low", "LOW"], ["normal", "NORMAL"], ["high", "HIGH"]]), "priorities");
+            .appendField(priorityDropdown, "priorities");
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("Execute")
-            .appendField(new Blockly.FieldDropdown([["once", "ONCE"], ["forever", "FOREVER"], ["until", "UNTIL"]]), "execution");
+            .appendField(executionDropdown, "execution");
         this.appendValueInput("trigger")
             .setCheck("Boolean")
             .setAlign(Blockly.ALIGN_RIGHT)

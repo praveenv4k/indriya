@@ -196,6 +196,7 @@
     <Compile Include="Scriptcs\ProgramGenerator.cs" />
     <Compile Include="Scriptcs\ChainBehaviorTask.cs" />
     <Compile Include="Scriptcs\MotionBehaviorTask.cs" />
+    <Compile Include="Scriptcs\SampleProgram.cs" />
     <Compile Include="Scriptcs\StartupBehaviorTemplate.cs" />
     <Compile Include="Tasks\JobListener.cs" />
     <Compile Include="ParameterServer.cs" />
@@ -256,6 +257,7 @@
     <Compile Include="Scriptcs\MainProgramUtil.cs" />
     <Compile Include="Scriptcs\SimpleBehaviorTask.cs" />
     <Compile Include="Scriptcs\MainProgram.cs" />
+    <None Include="Scriptcs\main_program.csx" />
     <None Include="Scriptcs\main_template.csx" />
     <None Include="Scriptcs\main.csx" />
   </ItemGroup>

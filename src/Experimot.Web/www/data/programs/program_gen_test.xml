@@ -1,39 +1,44 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="behavior_startup" id="2" x="88" y="38">
+  <block type="behavior_startup" id="1" x="88" y="38">
     <statement name="DO">
-      <block type="robot_action" id="15">
+      <block type="robot_action" id="2">
         <field name="actions">greet</field>
       </block>
     </statement>
   </block>
-  <block type="behavior_composable" id="9" inline="false" x="238" y="38">
+  <block type="behavior_composable" id="3" inline="false" x="238" y="38">
     <field name="behavior_name">default</field>
     <field name="priorities">LOW</field>
     <field name="execution">ONCE</field>
+    <value name="trigger">
+      <block type="trigger" id="13">
+        <field name="MOTION_TRIGGER">Greet_Left</field>
+      </block>
+    </value>
     <statement name="INIT_DO">
-      <block type="robot_action" id="16">
+      <block type="robot_action" id="4">
         <field name="actions">greet</field>
       </block>
     </statement>
     <statement name="DO">
-      <block type="robot_action" id="17">
+      <block type="robot_action" id="5">
         <field name="actions">greet</field>
         <next>
-          <block type="animated_say_action" id="25">
+          <block type="animated_say_action" id="6">
             <field name="SAY_TEXT">text</field>
           </block>
         </next>
       </block>
     </statement>
     <statement name="EXIT_DO">
-      <block type="robot_action" id="18">
+      <block type="robot_action" id="7">
         <field name="actions">greet</field>
       </block>
     </statement>
   </block>
-  <block type="behavior_exit" id="4" x="88" y="138">
+  <block type="behavior_exit" id="8" x="88" y="138">
     <statement name="DO">
-      <block type="robot_action" id="19">
+      <block type="robot_action" id="9">
         <field name="actions">greet</field>
       </block>
     </statement>

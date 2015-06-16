@@ -345,3 +345,17 @@ public struct VoiceCommandInfo
     public bool Active;
     public int Confidence;
 }
+
+public interface ITriggerBehavior
+{
+    CheckTriggerDelegate TriggerDelegate { get; }
+}
+
+public class TriggerResult
+{
+    public bool HumanInLoop { get; set; }
+    public int HumanId { get; set; }
+}
+
+public delegate bool CheckTriggerDelegate(IBehaviorExecutionContext context, out TriggerResult result);
+public delegate bool CheckLifetimeDelegate(IBehaviorExecutionContext context);
