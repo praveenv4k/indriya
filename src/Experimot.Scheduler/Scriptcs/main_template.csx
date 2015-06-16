@@ -1,4 +1,5 @@
 #r "System.Runtime.dll"
+#load "IBehaviorExecutionContext.csx"
 #load "BehaviorInfo.csx"
 #load "SimpleBehaviorTask.csx"
 #load "MotionBehaviorTask.csx"
@@ -56,6 +57,8 @@ else
 					};
 
 		Task.WaitAll(tasks.ToArray());
+
+		scheduler.Shutdown();
 	}
 	catch(Exception ex){
 		Console.WriteLine("Exception occured : {0}", ex.StackTrace);

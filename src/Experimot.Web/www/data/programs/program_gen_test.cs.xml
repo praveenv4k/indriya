@@ -1,7 +1,18 @@
+public class StartupBehavior : IExecuteOnceBehavior
+{
+    public void Execute(IBehaviorExecutionContext context)
+    {
+        // STARTUP_BLOCK
+          var var_72db3eb7_6a4a_d4af_9393_9139c68fa619= new BehaviorInfo{BehaviorName = "greet"};
+
+  BehaviorModuleHelper.Execute(context, var_72db3eb7_6a4a_d4af_9393_9139c68fa619);
+
+    }
+}
 using System;
 using NCalc;
 
-public class BehaviorTemplate: IBehaviorTemplate
+public class Behavior_642fe815_05bc_4db3_b570_152ebfae28c9: IBehavior_642fe815_05bc_4db3_b570_152ebfae28c9
 {
     public string Name { get; set; }
     public BehaviorExecutionPriority Priority { get; set; }
@@ -16,12 +27,14 @@ public class BehaviorTemplate: IBehaviorTemplate
     private static CheckTriggerDelegate _triggerDelegate;
     private readonly CheckLifetimeDelegate _checkLifetimeDelegate;
 
-    public BehaviorTemplate()
+    public Behavior_642fe815_05bc_4db3_b570_152ebfae28c9()
     {
-        // SET_UID
+        Uid = "642fe815_05bc_4db3_b570_152ebfae28c9";
+
 
         // SET_PRIORITY
-        // SET_PRIORITY_HERE
+        Priority = BehaviorExecutionPriority.LOW
+;
 
         // SET_TRIGGER
         // The trigger delegate should not access any member variables
@@ -30,13 +43,21 @@ public class BehaviorTemplate: IBehaviorTemplate
             result = new TriggerResult();
             if (ctx != null)
             {
-                // SET_TRIGGER_HERE
+                var gestureInfo = ctx.GetGestureInfo("Greet_Left");
+if (gestureInfo.Active && gestureInfo.Confidence > 90)
+{
+result.HumanId = gestureInfo.HumanId;
+result.HumanInLoop = true;
+return true;
+}
+
             }
             return false;
         };
 
         // SET_EXECUTION_LIFETIME
-        // SET_EXECUTION_LIFETIME_HERE
+        ExecutionLifetime = BehaviorExecutionLifetime.ONCE;
+
 
         _checkLifetimeDelegate = CheckExecution;
     }
@@ -141,7 +162,10 @@ public class BehaviorTemplate: IBehaviorTemplate
         if (!InitActionsComplete)
         {
             // INIT_BLOCK
-            // INIT_BLOCK_HERE
+              var var_196b0f0f_add4_78ce_a458_e266976aefec= new BehaviorInfo{BehaviorName = "greet"};
+
+  BehaviorModuleHelper.Execute(context, var_196b0f0f_add4_78ce_a458_e266976aefec);
+
             InitActionsComplete = true;
         }
         return InitActionsComplete;
@@ -152,7 +176,13 @@ public class BehaviorTemplate: IBehaviorTemplate
         if (!CyclicActionsComplete && InitActionsComplete)
         {
             // CYCLIC_BLOCK
-            // CYCLIC_BLOCK_HERE
+              var var_4061265f_925c_afba_964d_0c1590c3e75c= new BehaviorInfo{BehaviorName = "greet"};
+
+  BehaviorModuleHelper.Execute(context, var_4061265f_925c_afba_964d_0c1590c3e75c);
+  var var_c1886b66_a104_a0b4_8e17_deac46963e25= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions(text, true, "string")}}};
+
+  BehaviorModuleHelper.Execute(context, var_c1886b66_a104_a0b4_8e17_deac46963e25);
+
         }
         return CyclicActionsComplete;
     }
@@ -162,7 +192,10 @@ public class BehaviorTemplate: IBehaviorTemplate
         if (!ExitActionsComplete && CyclicActionsComplete)
         {
             // EXIT_BLOCK
-            // EXIT_BLOCK_HERE
+              var var_cd6bf2de_ff03_4490_babb_91ee9208065a= new BehaviorInfo{BehaviorName = "greet"};
+
+  BehaviorModuleHelper.Execute(context, var_cd6bf2de_ff03_4490_babb_91ee9208065a);
+
             ExitActionsComplete = true;
         }
         return ExitActionsComplete;
@@ -174,5 +207,16 @@ public class BehaviorTemplate: IBehaviorTemplate
         ExecuteCyclic(context);
         ExecuteExit(context);
         return ExecutionComplete;
+    }
+}
+public class ExitBehavior : IExecuteOnceBehavior
+{
+    public void Execute(IBehaviorExecutionContext context)
+    {
+        // EXIT_BLOCK
+          var var_7dc60783_86e9_5230_a181_dd27d9473965= new BehaviorInfo{BehaviorName = "greet"};
+
+  BehaviorModuleHelper.Execute(context, var_7dc60783_86e9_5230_a181_dd27d9473965);
+
     }
 }

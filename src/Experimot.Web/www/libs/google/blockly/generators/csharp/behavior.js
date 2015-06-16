@@ -22,6 +22,10 @@ function generateUniqueVarName() {
     return 'var_' + uid;
 };
 
+function replaceAll(find, replace, str) {
+    return str.replace(new RegExp(find, 'g'), replace);
+}
+
 Blockly.CSharp['behavior_sleek'] = function (block) {
     var name = block.getFieldValue('behavior_name');
     var dropdownTriggers = block.getFieldValue('triggers');
@@ -79,8 +83,8 @@ Blockly.CSharp['behavior_simple'] = function(block) {
     code += '}\n';
     code += '}\n';
 
-    var template = getURL('data/templates/BehaviorTemplate.txt');
-    console.log(template);
+    //var template = getURL('data/templates/BehaviorTemplate.txt');
+    //console.log(template);
     //$.get('data/templates/BehaviorTemplate.txt', function (data) {
     //    console.log(data); //will alert the template code
     //});
@@ -131,19 +135,19 @@ Blockly.CSharp['behavior_composable'] = function(block) {
     code += '}\n';
 
     var template = getURL('data/templates/BehaviorTemplate.cs');
-    console.log(template);
+    //console.log(template);
 
     var className = 'Behavior_' + guid;
     var replaced = template.replace('// INIT_BLOCK_HERE', initDo);
     var replaced2 = replaced.replace('// CYCLIC_BLOCK_HERE', statementsDo);
     var replaced3 = replaced2.replace('// EXIT_BLOCK_HERE', exitDo);
-    var replaced4 = replaced3.replace('BehaviorTemplate', className);
+    var replaced4 = replaceAll('BehaviorTemplate', className, replaced3);
 
     var replaced5 = replaced4.replace('// SET_PRIORITY_HERE', priority);
     var replaced6 = replaced5.replace('// SET_TRIGGER_HERE', trigger);
-    var replaced7 = replaced6.replace('// SET_TRIGGER_HERE', lifeTime);
+    var replaced7 = replaced6.replace('// SET_EXECUTION_LIFETIME_HERE', lifeTime);
     var uid = 'Uid = \"' + guid + '\";\n';
-    var replaced8 = replaced7.replace('// SET_UID', guid);
+    var replaced8 = replaced7.replace('// SET_UID', uid);
     return replaced8;
 
     //return code;
@@ -185,17 +189,13 @@ Blockly.CSharp['behavior_startup'] = function (block) {
     code += statementsDo;
     code += '}\n';
 
-    $.get('data/templates/StartupBehaviorTemplate.cs', function (data) {
-        console.log(data); //will alert the template code
-
-    });
-
     var template = getURL('data/templates/StartupBehaviorTemplate.cs');
-    console.log(template);
+    //console.log(template);
 
     var replaced = template.replace('// STARTUP_BLOCK_HERE', statementsDo);
+    var replaced2 = replaced.replace('StartupBehaviorTemplate', 'StartupBehavior');
 
-    return replaced;
+    return replaced2;
 };
 
 Blockly.CSharp['behavior_exit'] = function (block) {
@@ -205,11 +205,13 @@ Blockly.CSharp['behavior_exit'] = function (block) {
     code += '}\n';
 
     var template = getURL('data/templates/ExitBehaviorTemplate.cs');
-    console.log(template);
+    //console.log(template);
+
 
     var replaced = template.replace('// EXIT_BLOCK_HERE', statementsDo);
+    var replaced2 = replaced.replace('ExitBehaviorTemplate', 'ExitBehavior');
 
-    return replaced;
+    return replaced2;
 };
 
 Blockly.CSharp['behavior'] = function (block) {
@@ -242,7 +244,6 @@ Blockly.CSharp['robot_action'] = function (block) {
     var genCode = behavior + '\n';
     genCode += 'BehaviorModuleHelper.Execute(context, ' + newVarName + ');\n';
     return genCode;
-    return code;
 };
 
 Blockly.CSharp['animated_say_action'] = function(block) {
@@ -259,15 +260,13 @@ Blockly.CSharp['animated_say_action'] = function(block) {
         'BehaviorName = "Say Expressively",' +
         'Parameters = new Dictionary<string, object>' +
         '{' +
-        '{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + sayMsg + ', true, "string")}' +
+        '{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions(\"' + sayMsg + '\", true, "string")}' +
         '}' +
         '};\n';
 
     var genCode = behavior + '\n';
     genCode += 'BehaviorModuleHelper.Execute(context, ' + newVarName + ');\n';
     return genCode;
-
-    return code;
 };
 
 Blockly.CSharp['animated_say_action_arg'] = function(block) {
@@ -288,7 +287,7 @@ Blockly.CSharp['animated_say_action_arg'] = function(block) {
         'BehaviorName = "Say Expressively",' +
         'Parameters = new Dictionary<string, object>' +
         '{' +
-        '{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + prefixMsg + ' {0} ' + suffixMsg + ', true, "string")},' +
+        '{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions(\"' + prefixMsg + ' {0} ' + suffixMsg + '\", true, "string")},' +
         '{"arg", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + argName + ', true, "string")}' +
         '}' +
         '};\n';
@@ -296,8 +295,6 @@ Blockly.CSharp['animated_say_action_arg'] = function(block) {
     var genCode = behavior + '\n';
     genCode += 'BehaviorModuleHelper.Execute(context, ' + newVarName + ');\n';
     return genCode;
-
-    return code;
 };
 
 Blockly.CSharp['approach_action'] = function(block) {
@@ -347,8 +344,6 @@ Blockly.CSharp['approach_action'] = function(block) {
     genCode += behavior2 + '\n';
     genCode += 'BehaviorModuleHelper.Execute(context, ' + newVarName2 + ');\n';
     return genCode;
-
-    return code;
 };
 
 Blockly.CSharp['therapy_action'] = function(block) {
@@ -367,8 +362,6 @@ Blockly.CSharp['therapy_action'] = function(block) {
     var genCode = behavior + '\n';
     genCode += 'BehaviorModuleHelper.Execute(context, ' + newVarName + ');\n';
     return genCode;
-
-    return code;
 };
 
 Blockly.CSharp['trigger'] = function (block) {

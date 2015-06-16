@@ -1,21 +1,8 @@
 using System;
+using System.Collections.Generic;
 using NCalc;
 
-public interface IBehaviorTemplate
-{
-    
-}
-
-public class TriggerResult
-{
-    public bool HumanInLoop { get; set; }
-    public int HumanId { get; set; }
-}
-
-public delegate bool CheckTriggerDelegate(IBehaviorExecutionContext context, out TriggerResult result);
-public delegate bool CheckLifetimeDelegate(IBehaviorExecutionContext context);
-
-public class BehaviorTemplate: IBehaviorTemplate
+public class BehaviorTemplate: ITriggerBehavior
 {
     public string Name { get; set; }
     public BehaviorExecutionPriority Priority { get; set; }
@@ -39,7 +26,7 @@ public class BehaviorTemplate: IBehaviorTemplate
 
         // SET_TRIGGER
         // The trigger delegate should not access any member variables
-        TriggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
+        _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
         {
             result = new TriggerResult();
             if (ctx != null)
@@ -55,10 +42,10 @@ public class BehaviorTemplate: IBehaviorTemplate
         _checkLifetimeDelegate = CheckExecution;
     }
 
-    private void something()
+    private void SampleTriggerSetting()
     {
         // Gesture trigger
-        TriggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
+        _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
         {
             result = new TriggerResult();
             if (ctx != null)
@@ -75,7 +62,7 @@ public class BehaviorTemplate: IBehaviorTemplate
         };
 
         // Voice Trigger
-        TriggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
+        _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
         {
             result = new TriggerResult();
             if (ctx != null)
@@ -140,10 +127,9 @@ public class BehaviorTemplate: IBehaviorTemplate
         get { return InitActionsComplete & CyclicActionsComplete & ExitActionsComplete; }
     }
 
-    public static CheckTriggerDelegate TriggerDelegate
+    public CheckTriggerDelegate TriggerDelegate
     {
         get { return _triggerDelegate; }
-        private set { _triggerDelegate = value; }
     }
 
     public CheckLifetimeDelegate LifetimeDelegate

@@ -1,10 +1,14 @@
 #r "System.Runtime.dll"
 #load "IBehaviorExecutionContext.csx"
+#load "IExecuteOnceBehavior.csx"
 #load "BehaviorInfo.csx"
 #load "SimpleBehaviorTask.csx"
 #load "MotionBehaviorTask.csx"
 #load "MainProgramUtil.csx"
 #load "MainProgram.csx"
+#load "BehaviorExecutionContext.csx"
+#load "BehaviorExecutionEngine2.csx"
+#load "SampleProgram.csx"
 
 using System;
 using NetMQ;
@@ -32,28 +36,17 @@ else
 		var resp = MainProgramUtil.GetNodeInfo("node_"+node_name,context_server);
 		Console.WriteLine(resp);
 
-		var dict = new Dictionary<string,object>();
-		dict.Add("ContextServer",context_server);
+		var context = new BehaviorExecutionContext();
+		context.ContextServer = context_server;
 
-		var motionBehaviors = MainProgramUtil.ReadBehaviorXmlFile("behavior.xml");
-		foreach (var motionBehavior in motionBehaviors)
-		{
-			Console.WriteLine(@"Motion Behavior : {0}, Trigger : {1}, Confidence: {2}, Priority: {3}",
-				motionBehavior.Name, motionBehavior.Trigger, motionBehavior.ConfidenceLevel, motionBehavior.Priority);
-			foreach (var behaviorInfo in motionBehavior.RobotActions)
-			{
-				Console.WriteLine(@"	-> Action Name : {0}", behaviorInfo.BehaviorName);
-			}
-		}
-
-		dict.Add("BehaviorList",motionBehaviors);
 		var scheduler = MainProgramUtil.GetScheduler();
 		scheduler.Start();
 
-		var main = new MainProgram(dict,scheduler);
+		var engine = new BehaviorExecutionEngine(context);
+
 		var tasks = new List<Task>
 					{
-						Task.Factory.StartNew(() => main.RunBehaviors())
+						Task.Factory.StartNew(() => engine.Run())
 					};
 
 		Task.WaitAll(tasks.ToArray());
