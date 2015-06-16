@@ -85,7 +85,7 @@ namespace Experimot.Kinect.Speech
                             // Create instance of the speech engine
                             _speechEngine = new SpeechRecognitionEngine(ri.Id);
 
-                            Console.WriteLine("Sppech Engine created");
+                            Console.WriteLine("Speech Engine created");
 
                             // Load the grammar file
                             var g = new Grammar(_grammarFile);

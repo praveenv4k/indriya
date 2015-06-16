@@ -217,7 +217,17 @@ Blockly.CSharp['behavior'] = function (block) {
 Blockly.CSharp['robot_action'] = function (block) {
     var dropdownActions = block.getFieldValue('actions');
     var code = 'do_action(""' + dropdownActions + '"");\n';
-    console.log(Blockly.CSharp.BehaviorTemplate);
+    
+    var newVarName = generateUUID();
+    var behavior = 'var ' + newVarName +
+        '= new BehaviorInfo' +
+        '{' +
+        'BehaviorName = ' + dropdownActions +
+        '};\n';
+
+    var genCode = behavior + '\n';
+    genCode += 'BehaviorModuleHelper.Execute(context, ' + newVarName + ');\n';
+    return genCode;
     return code;
 };
 
@@ -227,6 +237,22 @@ Blockly.CSharp['animated_say_action'] = function(block) {
     //var code = 'var ' + name + ' = \"' + sayMsg + '\";\n';
     //code += 'animated_say(' + name + ');\n';
     var code = 'animated_say(""' + sayMsg + '"");\n';
+
+    var newVarName = generateUUID();
+    var behavior = 'var ' + newVarName +
+        '= new BehaviorInfo' +
+        '{' +
+        'BehaviorName = "Say Expressively",' +
+        'Parameters = new Dictionary<string, object>' +
+        '{' +
+        '{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + sayMsg + ', true, "string")}' +
+        '}' +
+        '};\n';
+
+    var genCode = behavior + '\n';
+    genCode += 'BehaviorModuleHelper.Execute(context, ' + newVarName + ');\n';
+    return genCode;
+
     return code;
 };
 
@@ -240,6 +266,23 @@ Blockly.CSharp['animated_say_action_arg'] = function(block) {
     //code += 'animated_say(text);\n';
     var text = 'string.Format(' + '""' + prefixMsg + ' {0} ' + suffixMsg + '""' + ',' + argName + ')';
     var code = 'animated_say(' + text + ');\n';
+
+    var newVarName = generateUUID();
+    var behavior = 'var ' + newVarName +
+        '= new BehaviorInfo' +
+        '{' +
+        'BehaviorName = "Say Expressively",' +
+        'Parameters = new Dictionary<string, object>' +
+        '{' +
+        '{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + prefixMsg + ' {0} ' + suffixMsg + ', true, "string")},' +
+        '{"arg", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + argName + ', true, "string")}' +
+        '}' +
+        '};\n';
+
+    var genCode = behavior + '\n';
+    genCode += 'BehaviorModuleHelper.Execute(context, ' + newVarName + ');\n';
+    return genCode;
+
     return code;
 };
 
@@ -249,6 +292,48 @@ Blockly.CSharp['approach_action'] = function(block) {
     //code += 'approach(approach_distance);\n';
 
     var code = 'approach_action(""' + distance + '"");\n';
+
+    // Pure rotation
+    var newVarName1 = generateUUID();
+    var behavior1 = 'var ' + newVarName1 +
+        '= new BehaviorInfo' +
+        '{' +
+        'BehaviorName = "Move To",' +
+        'Parameters = new Dictionary<string, object>' +
+        '{' +
+        '{"translation", BehaviorModuleHelper.CreateBehaviorParameterOptions("0", false, "float")},' +
+        '{"rotation", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},' +
+        '{"human", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},' +
+        '{"dist", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + distance + ', false, "float")},' +
+        '{"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")},' +
+        '{"y", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")},' +
+        '{"theta", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")}' +
+        '}' +
+        '};\n';
+
+    var newVarName2 = generateUUID();
+    var behavior2 = 'var ' + newVarName2 +
+        '= new BehaviorInfo' +
+        '{' +
+        'BehaviorName = "Move To",' +
+        'Parameters = new Dictionary<string, object>' +
+        '{' +
+        '{"translation", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},' +
+        '{"rotation", BehaviorModuleHelper.CreateBehaviorParameterOptions("0", false, "float")},' +
+        '{"human", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},' +
+        '{"dist", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + distance + ', false, "float")},' +
+        '{"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + distance + ', true, "float")},' +
+        '{"y", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")},' +
+        '{"theta", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")}' +
+        '}' +
+        '};\n';
+
+    var genCode = behavior1 + '\n';
+    genCode += 'BehaviorModuleHelper.Execute(context, ' + newVarName1 + ');\n';
+    genCode += behavior2 + '\n';
+    genCode += 'BehaviorModuleHelper.Execute(context, ' + newVarName2 + ');\n';
+    return genCode;
+
     return code;
 };
 
@@ -257,6 +342,18 @@ Blockly.CSharp['therapy_action'] = function(block) {
     //var code = 'var therapy_action = \"' + therapyName + '\";\n';
     //code += 'do_action(therapy_action);\n';
     var code = 'do_action(""' + therapyName + '"");\n';
+
+    var newVarName = generateUUID();
+    var behavior = 'var ' + newVarName +
+        '= new BehaviorInfo' +
+        '{' +
+        'BehaviorName = ' + therapyName +
+        '};\n';
+
+    var genCode = behavior + '\n';
+    genCode += 'BehaviorModuleHelper.Execute(context, ' + newVarName + ');\n';
+    return genCode;
+
     return code;
 };
 

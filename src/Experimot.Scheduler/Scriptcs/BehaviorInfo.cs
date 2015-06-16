@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Common.Logging;
-using Experimot.Core.Annotations;
 
 
 public class BehaviorInfo : ICloneable
@@ -313,11 +312,35 @@ public class NaoBehaviorModule
     }
 }
 
-public class BehaviorModules
+public class BehaviorModuleHelper
 {
-    
+    public static void Execute(IBehaviorExecutionContext context, BehaviorInfo info)
+    {
+
+    }
+
+    public static object CreateBehaviorParameterOptions(object value, bool placeHolder,
+        string type)
+    {
+        return new Dictionary<string, object>
+        {
+            {"value", value},
+            {"place_holder", placeHolder},
+            {"type", type}
+        };
+    }
 }
 
-public interface IBehaviorExecutionContext
+public struct GestureInfo
 {
+    public string Name;
+    public bool Active;
+    public int Confidence;
+}
+
+public struct VoiceCommandInfo
+{
+    public string Name;
+    public bool Active;
+    public int Confidence;
 }
