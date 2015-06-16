@@ -186,9 +186,13 @@
     <Compile Include="Mvvm\ViewModelBase.cs" />
     <Compile Include="ContextServer.cs" />
     <Compile Include="Scriptcs\BehaviorInfo.cs" />
+    <Compile Include="Scriptcs\BehaviorTemplate.cs" />
+    <Compile Include="Scriptcs\ExitBehaviorTemplate.cs" />
+    <Compile Include="Scriptcs\IExecuteOnceBehavior.cs" />
     <Compile Include="Scriptcs\ProgramGenerator.cs" />
     <Compile Include="Scriptcs\ChainBehaviorTask.cs" />
     <Compile Include="Scriptcs\MotionBehaviorTask.cs" />
+    <Compile Include="Scriptcs\StartupBehaviorTemplate.cs" />
     <Compile Include="Tasks\JobListener.cs" />
     <Compile Include="ParameterServer.cs" />
     <Compile Include="Properties\Annotations.cs" />
