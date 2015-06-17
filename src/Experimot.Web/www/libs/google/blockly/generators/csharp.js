@@ -61,6 +61,7 @@ Blockly.CSharp.init = function(workspace) {
 
     var defvars = [];
     var variables = Blockly.Variables.allVariables(workspace);
+      console.log(variables);
     for (var x = 0; x < variables.length; x++) {
       defvars[x] = 'dynamic ' +
           Blockly.CSharp.variableDB_.getName(variables[x],
