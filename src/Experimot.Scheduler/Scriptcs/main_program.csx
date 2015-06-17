@@ -8,7 +8,7 @@
 #load "MainProgram.csx"
 #load "BehaviorExecutionTask.csx"
 #load "BehaviorExecutionContext.csx"
-#load "SampleProgram.csx"
+#load "GeneratedProgram.csx"
 #load "BehaviorExecutionEngine.csx"
 
 

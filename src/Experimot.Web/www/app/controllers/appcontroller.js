@@ -51,7 +51,7 @@
                         var pgmName = $("#program-name").empty();
                         pgmName.append(name);
                     });
-                    $.post("/designer/program/save", { "name": csFile, "value": app.code }, function(data) {
+                    $.post("/designer/program/savecs", { "name": csFile, "value": app.code }, function(data) {
                         console.log("CS Program save successful: " + name);
                     });
                 });
@@ -305,11 +305,14 @@
                                 //$.post("/designer/program/start", app.code, function (data) {
                                 //    console.log("Program Sent & Started: " + data);
                                 //});
-                                console.log(app.code);
+                                //console.log(app.code);
 
                                 app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
                                 var xmlText = Blockly.Xml.domToPrettyText(app.codeXmlDom);
-                                $.post("/designer/program/startxml", xmlText, function(data) {
+                                //$.post("/designer/program/startxml", xmlText, function(data) {
+                                //    console.log("Program Sent & Started: " + data);
+                                //});
+                                $.post("/designer/program/startcs", app.code, function (data) {
                                     console.log("Program Sent & Started: " + data);
                                 });
 
@@ -353,10 +356,10 @@
                                 });
                                 console.log(app.code);
 
-                                app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
-                                var xmlText = Blockly.Xml.domToPrettyText(app.codeXmlDom);
-                                console.log(xmlText);
-                                console.log(app.code);
+                                //app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
+                                //var xmlText = Blockly.Xml.domToPrettyText(app.codeXmlDom);
+                                //console.log(xmlText);
+                                //console.log(app.code);
                             }
                         }
                     });
@@ -427,8 +430,8 @@
                         }
                     })
                     .click(function () {
-                        app.code = _this.generateCSharpCode(); // C# code generation
-                        console.log(app.code);
+                        //app.code = _this.generateCSharpCode(); // C# code generation
+                        //console.log(app.code);
 
                         //var blocks = app.workspace.getAllBlocks();
                         //// Iterate through every block and check the name.
@@ -436,7 +439,7 @@
                         //    console.log(blocks[x]);
                         //}
 
-                        //_this.clearWorkspace();
+                        _this.clearWorkspace();
                 });
             },
 
