@@ -225,7 +225,7 @@ public class ExitBehavior : IExecuteOnceBehavior
     public void Execute(IBehaviorExecutionContext context)
     {
         // EXIT_BLOCK
-        var var_033ba942_6049_9176_bfcf_4e9391bee757 = new BehaviorInfo { BehaviorName = "greet" };
+        var var_033ba942_6049_9176_bfcf_4e9391bee757 = new BehaviorInfo { BehaviorName = "stand" };
 
         BehaviorModuleHelper.Execute(context, var_033ba942_6049_9176_bfcf_4e9391bee757);
 

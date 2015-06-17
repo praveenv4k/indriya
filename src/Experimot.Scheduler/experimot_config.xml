@@ -264,7 +264,7 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_relative_localize.py</args>
       </process>
     </node>
-    <node enabled="false" name="nao_behavior_manager">
+    <node enabled="true" name="nao_behavior_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>
