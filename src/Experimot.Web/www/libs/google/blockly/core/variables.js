@@ -76,6 +76,74 @@ Blockly.Variables.allVariables = function(root) {
   return variableList;
 };
 
+Blockly.Variables.allIntVariables = function (root) {
+    var blocks;
+    if (root.getDescendants) {
+        // Root is Block.
+        blocks = root.getDescendants();
+    } else if (root.getAllBlocks) {
+        // Root is Workspace.
+        blocks = root.getAllBlocks();
+    } else {
+        throw 'Not Block or Workspace: ' + root;
+    }
+    var variableHash = Object.create(null);
+    // Iterate through every block and add each variable to the hash.
+    for (var x = 0; x < blocks.length; x++) {
+        var func = blocks[x].getIntVars;
+        if (func) {
+            var blockVariables = func.call(blocks[x]);
+            for (var y = 0; y < blockVariables.length; y++) {
+                var varName = blockVariables[y];
+                // Variable name may be null if the block is only half-built.
+                if (varName) {
+                    variableHash[varName.toLowerCase()] = varName;
+                }
+            }
+        }
+    }
+    // Flatten the hash into a list.
+    var variableList = [];
+    for (var name in variableHash) {
+        variableList.push(variableHash[name]);
+    }
+    return variableList;
+};
+
+Blockly.Variables.allStrVariables = function (root) {
+    var blocks;
+    if (root.getDescendants) {
+        // Root is Block.
+        blocks = root.getDescendants();
+    } else if (root.getAllBlocks) {
+        // Root is Workspace.
+        blocks = root.getAllBlocks();
+    } else {
+        throw 'Not Block or Workspace: ' + root;
+    }
+    var variableHash = Object.create(null);
+    // Iterate through every block and add each variable to the hash.
+    for (var x = 0; x < blocks.length; x++) {
+        var func = blocks[x].getStrVars;
+        if (func) {
+            var blockVariables = func.call(blocks[x]);
+            for (var y = 0; y < blockVariables.length; y++) {
+                var varName = blockVariables[y];
+                // Variable name may be null if the block is only half-built.
+                if (varName) {
+                    variableHash[varName.toLowerCase()] = varName;
+                }
+            }
+        }
+    }
+    // Flatten the hash into a list.
+    var variableList = [];
+    for (var name in variableHash) {
+        variableList.push(variableHash[name]);
+    }
+    return variableList;
+};
+
 /**
  * Find all instances of the specified variable and rename them.
  * @param {string} oldName Variable to rename.

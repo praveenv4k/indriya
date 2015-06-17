@@ -281,6 +281,9 @@ Blockly.Blocks['math_change'] = {
   getVars: function() {
     return [this.getFieldValue('VAR')];
   },
+  getIntVars: function() {
+      return [this.getFieldValue('VAR')];
+  },
   /**
    * Notification that a variable is renaming.
    * If the name matches one of this block's variables, rename it.
