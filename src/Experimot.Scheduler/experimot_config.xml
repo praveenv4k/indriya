@@ -13,7 +13,7 @@
     <param key="WebServerPort" value="8888" type="int"/>
     <param key="WebServerHost" value="http://localhost" type="int"/>
     <param key="ROBOTIP" value="127.0.0.1" type="string"/>
-    <param key="ROBOTPORT" value="50975" type="int"/>
+    <param key="ROBOTPORT" value="57291" type="int"/>
     <param key="NaoBehaviorModule" value="nao_behavior_manager" type="string"/>
     <!--<param key="ROBOTIP" value="192.168.11.3" type="string"/>
     <param key="ROBOTPORT" value="9559" type="int"/>-->

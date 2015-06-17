@@ -281,18 +281,21 @@ Blockly.CSharp['animated_say_action_arg'] = function(block) {
     var code = 'animated_say(' + text + ');\n';
 
     var newVarName = generateUniqueVarName();
+    var msgText = generateUniqueVarName();
+    var msg = 'var ' + msgText + '= string.Format(\"' + prefixMsg + ' {0} ' + suffixMsg + '\",' + argName + ');\n';
     var behavior = 'var ' + newVarName +
         '= new BehaviorInfo' +
         '{' +
         'BehaviorName = "Say Expressively",' +
         'Parameters = new Dictionary<string, object>' +
         '{' +
-        '{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions(\"' + prefixMsg + ' {0} ' + suffixMsg + '\", true, "string")},' +
-        '{"arg", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + argName + ', true, "string")}' +
+        '{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + msgText + ', true, "string")},' +
+        //'{"arg", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + argName + ', true, "string")}' +
         '}' +
         '};\n';
 
-    var genCode = behavior + '\n';
+    var genCode = msg;
+    genCode += behavior + '\n';
     genCode += 'BehaviorModuleHelper.Execute(context, ' + newVarName + ');\n';
     return genCode;
 };
