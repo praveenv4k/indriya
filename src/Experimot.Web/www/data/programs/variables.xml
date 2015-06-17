@@ -1,0 +1,37 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_composable" id="117" inline="false" x="413" y="188">
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <statement name="INIT_DO">
+      <block type="int_variables_set" id="122" inline="true">
+        <field name="VAR">item</field>
+        <value name="VALUE">
+          <block type="math_number" id="141">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <statement name="DO">
+      <block type="int_variables_set" id="142" inline="true">
+        <field name="VAR">item</field>
+        <value name="VALUE">
+          <block type="math_arithmetic" id="162" inline="true">
+            <field name="OP">ADD</field>
+            <value name="A">
+              <block type="int_variables_get" id="167">
+                <field name="VAR">item</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="186">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>
