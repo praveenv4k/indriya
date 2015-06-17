@@ -1,78 +1,68 @@
-public class BehaviorTemplate: ITriggerBehavior
+public class BehaviorTemplate : ITriggerBehavior
 {
     public string Name { get; set; }
-    public static BehaviorExecutionPriority Priority { get; set; }
-    public static BehaviorExecutionLifetime ExecutionLifetime { get; set; }
+
+    protected static BehaviorExecutionPriority Priority;
+
+    public static BehaviorExecutionPriority GetPriority()
+    {
+        // SET_PRIORITY
+        // SET_PRIORITY_HERE
+        return Priority;
+    }
+
+    protected static BehaviorExecutionLifetime ExecutionLifetime;
+
+    public static BehaviorExecutionLifetime GetExecutionLifetime()
+    {
+        // SET_EXECUTION_LIFETIME
+        // SET_EXECUTION_LIFETIME_HERE
+        return ExecutionLifetime;
+    }
+
     public static string ExecutionEvalExpression { get; set; }
     public int Id { get; set; }
     public static string Uid { get; set; }
     private static bool _initActionsComplete;
     private static bool _cyclicActionsComplete;
     private static bool _exitActionsComplete;
-    private static CheckTriggerDelegate _triggerDelegate;
-    private static CheckLifetimeDelegate _checkLifetimeDelegate;
 
-    public BehaviorTemplate()
-    {
-        // SET_UID
+    //private void SampleTriggerSetting()
+    //{
+    //    // Gesture trigger
+    //    _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
+    //    {
+    //        result = new TriggerResult();
+    //        if (ctx != null)
+    //        {
+    //            var gestureInfo = ctx.GetGestureInfo("");
+    //            if (gestureInfo.Active && gestureInfo.Confidence > 90)
+    //            {
+    //                result.HumanId = gestureInfo.HumanId;
+    //                result.HumanInLoop = true;
+    //                return true;
+    //            }
+    //        }
+    //        return false;
+    //    };
 
-        // SET_PRIORITY
-        // SET_PRIORITY_HERE
+    //    // Voice Trigger
+    //    _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
+    //    {
+    //        result = new TriggerResult();
+    //        if (ctx != null)
+    //        {
+    //            var voiceCommand = ctx.GetVoiceCommand("");
+    //            if (voiceCommand.Active && voiceCommand.Confidence > 70)
+    //            {
+    //                return true;
+    //            }
+    //        }
+    //        return false;
+    //    };
+    //}
 
-        // SET_TRIGGER
-        // The trigger delegate should not access any member variables
-        _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
-        {
-            result = new TriggerResult();
-            if (ctx != null)
-            {
-                // SET_TRIGGER_HERE
-            }
-            return false;
-        };
-
-        // SET_EXECUTION_LIFETIME
-        // SET_EXECUTION_LIFETIME_HERE
-
-        _checkLifetimeDelegate = CheckExecution;
-    }
-
-    private void SampleTriggerSetting()
-    {
-        // Gesture trigger
-        _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
-        {
-            result = new TriggerResult();
-            if (ctx != null)
-            {
-                var gestureInfo = ctx.GetGestureInfo("");
-                if (gestureInfo.Active && gestureInfo.Confidence > 90)
-                {
-                    result.HumanId = gestureInfo.HumanId;
-                    result.HumanInLoop = true;
-                    return true;
-                }
-            }
-            return false;
-        };
-
-        // Voice Trigger
-        _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
-        {
-            result = new TriggerResult();
-            if (ctx != null)
-            {
-                var voiceCommand = ctx.GetVoiceCommand("");
-                if (voiceCommand.Active && voiceCommand.Confidence > 70)
-                {
-                    return true;
-                }
-            }
-            return false;
-        };
-    }
-
-    public bool CheckExecution(IBehaviorExecutionContext context)
+    public static bool CheckExecution(IBehaviorExecutionContext context)
     {
         if (ExecutionLifetime == BehaviorExecutionLifetime.forever)
         {
@@ -95,6 +85,16 @@ public class BehaviorTemplate: ITriggerBehavior
             }
         }
         return true;
+    }
+
+    public static bool CheckTrigger(IBehaviorExecutionContext ctx, out TriggerResult result)
+    {
+        result = new TriggerResult();
+        if (ctx != null)
+        {
+            // SET_TRIGGER_HERE
+        }
+        return false;
     }
 
     public string ActiveResource { get; set; }
@@ -122,15 +122,15 @@ public class BehaviorTemplate: ITriggerBehavior
         get { return InitActionsComplete & CyclicActionsComplete & ExitActionsComplete; }
     }
 
-    public static CheckTriggerDelegate TriggerDelegate
-    {
-        get { return _triggerDelegate; }
-    }
+    //public static CheckTriggerDelegate TriggerDelegate
+    //{
+    //    get { return _triggerDelegate; }
+    //}
 
-    public static CheckLifetimeDelegate LifetimeDelegate
-    {
-        get { return _checkLifetimeDelegate; }
-    }
+    //public static CheckLifetimeDelegate LifetimeDelegate
+    //{
+    //    get { return CheckLifetimeDelegate; }
+    //}
 
     public bool ExecuteInit(IBehaviorExecutionContext context)
     {
