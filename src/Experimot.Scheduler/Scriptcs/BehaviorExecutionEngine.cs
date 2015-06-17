@@ -48,6 +48,7 @@ public class BehaviorExecutionEngine
             // Check Startup behavior exists
             if (startupType != null)
             {
+                Log.InfoFormat("{0} Exists", blockName);
                 // Check Execute method exists
                 var execMethodInfo = startupType.GetMethod("Execute");
                 if (execMethodInfo != null)
@@ -68,6 +69,32 @@ public class BehaviorExecutionEngine
         }
     }
 
+    public object InvokeStaticMethod(Type typeName, string methodName, params object[] parameters)
+    {
+        if (typeName != null && !string.IsNullOrEmpty(methodName))
+        {
+            MethodInfo staticMethodInfo = typeName.GetMethod(methodName);
+            if (staticMethodInfo!=null && staticMethodInfo.IsStatic)
+            {
+                return staticMethodInfo.Invoke(null, parameters);
+            }
+        }
+        return null;
+    }
+
+    public object InvokeStaticProperty(Type typeName, string propName, params object[] parameters)
+    {
+        if (typeName != null && !string.IsNullOrEmpty(propName))
+        {
+            var staticPropertyInfo = typeName.GetProperty(propName, BindingFlags.Static);
+            if (staticPropertyInfo != null)
+            {
+                return staticPropertyInfo.GetValue(null);
+            }
+        }
+        return null;
+    }
+
     public void Run()
     {
         Log.Info(@"Running ...");
@@ -75,8 +102,11 @@ public class BehaviorExecutionEngine
         // Startup Behavior Execution
         ExecuteInitExitBlock("StartupBehavior");
 
+        // Cyclic Behavior Execution
+        var cyclicBehaviors = GetTypes(typeof (ITriggerBehavior));
+        Log.InfoFormat(@"Cyclic Behaviors : \n {0}", string.Join("\n", cyclicBehaviors.Select(s => s.Name)));
 
-        // Startup Behavior Execution
+        // Exit Behavior Execution
         ExecuteInitExitBlock("ExitBehavior");
     }
 

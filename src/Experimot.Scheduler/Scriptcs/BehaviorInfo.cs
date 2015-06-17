@@ -356,7 +356,8 @@ public struct VoiceCommandInfo
 
 public interface ITriggerBehavior
 {
-    CheckTriggerDelegate TriggerDelegate { get; }
+    string Name { get; }
+    //CheckTriggerDelegate TriggerDelegate { get; }
 }
 
 public class TriggerResult
