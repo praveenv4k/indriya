@@ -9,97 +9,79 @@ public class StartupBehavior : IExecuteOnceBehavior
     public void Execute(IBehaviorExecutionContext context)
     {
         // STARTUP_BLOCK
-          var var_47fa9a3b_b591_cd07_8e32_a5dfee921ad0= new BehaviorInfo{BehaviorName = "greet"};
+          var var_c587591e_eedd_bbc0_8313_0c8df3742b8c= new BehaviorInfo{BehaviorName = "greet"};
 
-  BehaviorModuleHelper.Execute(context, var_47fa9a3b_b591_cd07_8e32_a5dfee921ad0);
+  BehaviorModuleHelper.Execute(context, var_c587591e_eedd_bbc0_8313_0c8df3742b8c);
 
     }
 }
-public class Behavior_752da8d5_ea40_4e80_ba03_7a4c803d396a: ITriggerBehavior
+public class Behavior_8ac710b4_8108_e7c5_84e0_ce74cfc20f6c : ITriggerBehavior
 {
     public string Name { get; set; }
-    public static BehaviorExecutionPriority Priority { get; set; }
-    public static BehaviorExecutionLifetime ExecutionLifetime { get; set; }
+
+    protected static BehaviorExecutionPriority Priority;
+
+    public static BehaviorExecutionPriority GetPriority()
+    {
+        // SET_PRIORITY
+        Priority = BehaviorExecutionPriority.low
+;
+        return Priority;
+    }
+
+    protected static BehaviorExecutionLifetime ExecutionLifetime;
+
+    public static BehaviorExecutionLifetime GetExecutionLifetime()
+    {
+        // SET_EXECUTION_LIFETIME
+        ExecutionLifetime = BehaviorExecutionLifetime.forever;
+
+        return ExecutionLifetime;
+    }
+
     public static string ExecutionEvalExpression { get; set; }
     public int Id { get; set; }
     public static string Uid { get; set; }
     private static bool _initActionsComplete;
     private static bool _cyclicActionsComplete;
     private static bool _exitActionsComplete;
-    private static CheckTriggerDelegate _triggerDelegate;
-    private static CheckLifetimeDelegate _checkLifetimeDelegate;
 
-    public Behavior_752da8d5_ea40_4e80_ba03_7a4c803d396a()
-    {
-        Uid = "752da8d5_ea40_4e80_ba03_7a4c803d396a";
+    //private void SampleTriggerSetting()
+    //{
+    //    // Gesture trigger
+    //    _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
+    //    {
+    //        result = new TriggerResult();
+    //        if (ctx != null)
+    //        {
+    //            var gestureInfo = ctx.GetGestureInfo("");
+    //            if (gestureInfo.Active && gestureInfo.Confidence > 90)
+    //            {
+    //                result.HumanId = gestureInfo.HumanId;
+    //                result.HumanInLoop = true;
+    //                return true;
+    //            }
+    //        }
+    //        return false;
+    //    };
 
+    //    // Voice Trigger
+    //    _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
+    //    {
+    //        result = new TriggerResult();
+    //        if (ctx != null)
+    //        {
+    //            var voiceCommand = ctx.GetVoiceCommand("");
+    //            if (voiceCommand.Active && voiceCommand.Confidence > 70)
+    //            {
+    //                return true;
+    //            }
+    //        }
+    //        return false;
+    //    };
+    //}
 
-        // SET_PRIORITY
-        Priority = BehaviorExecutionPriority.low
-;
-
-        // SET_TRIGGER
-        // The trigger delegate should not access any member variables
-        _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
-        {
-            result = new TriggerResult();
-            if (ctx != null)
-            {
-                var gestureInfo = ctx.GetGestureInfo("Greet_Left");
-if (gestureInfo.Active && gestureInfo.Confidence > 90)
-{
-result.HumanId = gestureInfo.HumanId;
-result.HumanInLoop = true;
-return true;
-}
-
-            }
-            return false;
-        };
-
-        // SET_EXECUTION_LIFETIME
-        ExecutionLifetime = BehaviorExecutionLifetime.forever;
-
-
-        _checkLifetimeDelegate = CheckExecution;
-    }
-
-    private void SampleTriggerSetting()
-    {
-        // Gesture trigger
-        _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
-        {
-            result = new TriggerResult();
-            if (ctx != null)
-            {
-                var gestureInfo = ctx.GetGestureInfo("");
-                if (gestureInfo.Active && gestureInfo.Confidence > 90)
-                {
-                    result.HumanId = gestureInfo.HumanId;
-                    result.HumanInLoop = true;
-                    return true;
-                }
-            }
-            return false;
-        };
-
-        // Voice Trigger
-        _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
-        {
-            result = new TriggerResult();
-            if (ctx != null)
-            {
-                var voiceCommand = ctx.GetVoiceCommand("");
-                if (voiceCommand.Active && voiceCommand.Confidence > 70)
-                {
-                    return true;
-                }
-            }
-            return false;
-        };
-    }
-
-    public bool CheckExecution(IBehaviorExecutionContext context)
+    public static bool CheckExecution(IBehaviorExecutionContext context)
     {
         if (ExecutionLifetime == BehaviorExecutionLifetime.forever)
         {
@@ -122,6 +104,23 @@ return true;
             }
         }
         return true;
+    }
+
+    public static bool CheckTrigger(IBehaviorExecutionContext ctx, out TriggerResult result)
+    {
+        result = new TriggerResult();
+        if (ctx != null)
+        {
+            var gestureInfo = ctx.GetGestureInfo("Greet_Left");
+if (gestureInfo.Active && gestureInfo.Confidence > 90)
+{
+result.HumanId = gestureInfo.HumanId;
+result.HumanInLoop = true;
+return true;
+}
+
+        }
+        return false;
     }
 
     public string ActiveResource { get; set; }
@@ -149,24 +148,24 @@ return true;
         get { return InitActionsComplete & CyclicActionsComplete & ExitActionsComplete; }
     }
 
-    public static CheckTriggerDelegate TriggerDelegate
-    {
-        get { return _triggerDelegate; }
-    }
+    //public static CheckTriggerDelegate TriggerDelegate
+    //{
+    //    get { return _triggerDelegate; }
+    //}
 
-    public static CheckLifetimeDelegate LifetimeDelegate
-    {
-        get { return _checkLifetimeDelegate; }
-    }
+    //public static CheckLifetimeDelegate LifetimeDelegate
+    //{
+    //    get { return CheckLifetimeDelegate; }
+    //}
 
     public bool ExecuteInit(IBehaviorExecutionContext context)
     {
         if (!InitActionsComplete)
         {
             // INIT_BLOCK
-              var var_f4441218_e11a_2677_98e3_58b6283f43b6= new BehaviorInfo{BehaviorName = "greet"};
+              var var_0cef8664_cd37_1dda_ab0a_3c92391dcc6a= new BehaviorInfo{BehaviorName = "greet"};
 
-  BehaviorModuleHelper.Execute(context, var_f4441218_e11a_2677_98e3_58b6283f43b6);
+  BehaviorModuleHelper.Execute(context, var_0cef8664_cd37_1dda_ab0a_3c92391dcc6a);
 
             InitActionsComplete = true;
         }
@@ -178,9 +177,9 @@ return true;
         if (!CyclicActionsComplete && InitActionsComplete)
         {
             // CYCLIC_BLOCK
-              var var_365aaf59_10c4_6856_9acb_4ebaf643b303= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("text", true, "string")}}};
+              var var_09e0d5b1_5b21_1869_83cc_2c2adb90d728= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("text", true, "string")}}};
 
-  BehaviorModuleHelper.Execute(context, var_365aaf59_10c4_6856_9acb_4ebaf643b303);
+  BehaviorModuleHelper.Execute(context, var_09e0d5b1_5b21_1869_83cc_2c2adb90d728);
 
         }
         return CyclicActionsComplete;
@@ -191,9 +190,9 @@ return true;
         if (!ExitActionsComplete && CyclicActionsComplete)
         {
             // EXIT_BLOCK
-              var var_5b6081c5_7b13_5759_bda7_8825e22a1ee7= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("text", true, "string")}}};
+              var var_61228976_78a1_079e_9be9_39c0bce2c6b5= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("text", true, "string")}}};
 
-  BehaviorModuleHelper.Execute(context, var_5b6081c5_7b13_5759_bda7_8825e22a1ee7);
+  BehaviorModuleHelper.Execute(context, var_61228976_78a1_079e_9be9_39c0bce2c6b5);
 
             ExitActionsComplete = true;
         }
@@ -213,97 +212,79 @@ public class ExitBehavior : IExecuteOnceBehavior
     public void Execute(IBehaviorExecutionContext context)
     {
         // EXIT_BLOCK
-          var var_46800d03_64bf_819d_98b7_10bd8e87557d= new BehaviorInfo{BehaviorName = "greet"};
+          var var_4db527dd_2590_84cd_a30b_b503b1f69004= new BehaviorInfo{BehaviorName = "greet"};
 
-  BehaviorModuleHelper.Execute(context, var_46800d03_64bf_819d_98b7_10bd8e87557d);
+  BehaviorModuleHelper.Execute(context, var_4db527dd_2590_84cd_a30b_b503b1f69004);
 
     }
 }
-public class Behavior_9598143a_3b94_6c60_8d4a_ee7d3ec9c7eb: ITriggerBehavior
+public class Behavior_f7c79595_564e_8032_9724_2cd296e29025 : ITriggerBehavior
 {
     public string Name { get; set; }
-    public static BehaviorExecutionPriority Priority { get; set; }
-    public static BehaviorExecutionLifetime ExecutionLifetime { get; set; }
+
+    protected static BehaviorExecutionPriority Priority;
+
+    public static BehaviorExecutionPriority GetPriority()
+    {
+        // SET_PRIORITY
+        Priority = BehaviorExecutionPriority.normal
+;
+        return Priority;
+    }
+
+    protected static BehaviorExecutionLifetime ExecutionLifetime;
+
+    public static BehaviorExecutionLifetime GetExecutionLifetime()
+    {
+        // SET_EXECUTION_LIFETIME
+        ExecutionLifetime = BehaviorExecutionLifetime.forever;
+
+        return ExecutionLifetime;
+    }
+
     public static string ExecutionEvalExpression { get; set; }
     public int Id { get; set; }
     public static string Uid { get; set; }
     private static bool _initActionsComplete;
     private static bool _cyclicActionsComplete;
     private static bool _exitActionsComplete;
-    private static CheckTriggerDelegate _triggerDelegate;
-    private static CheckLifetimeDelegate _checkLifetimeDelegate;
 
-    public Behavior_9598143a_3b94_6c60_8d4a_ee7d3ec9c7eb()
-    {
-        Uid = "9598143a_3b94_6c60_8d4a_ee7d3ec9c7eb";
+    //private void SampleTriggerSetting()
+    //{
+    //    // Gesture trigger
+    //    _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
+    //    {
+    //        result = new TriggerResult();
+    //        if (ctx != null)
+    //        {
+    //            var gestureInfo = ctx.GetGestureInfo("");
+    //            if (gestureInfo.Active && gestureInfo.Confidence > 90)
+    //            {
+    //                result.HumanId = gestureInfo.HumanId;
+    //                result.HumanInLoop = true;
+    //                return true;
+    //            }
+    //        }
+    //        return false;
+    //    };
 
+    //    // Voice Trigger
+    //    _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
+    //    {
+    //        result = new TriggerResult();
+    //        if (ctx != null)
+    //        {
+    //            var voiceCommand = ctx.GetVoiceCommand("");
+    //            if (voiceCommand.Active && voiceCommand.Confidence > 70)
+    //            {
+    //                return true;
+    //            }
+    //        }
+    //        return false;
+    //    };
+    //}
 
-        // SET_PRIORITY
-        Priority = BehaviorExecutionPriority.normal
-;
-
-        // SET_TRIGGER
-        // The trigger delegate should not access any member variables
-        _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
-        {
-            result = new TriggerResult();
-            if (ctx != null)
-            {
-                var gestureInfo = ctx.GetGestureInfo("Greet_Right");
-if (gestureInfo.Active && gestureInfo.Confidence > 90)
-{
-result.HumanId = gestureInfo.HumanId;
-result.HumanInLoop = true;
-return true;
-}
-
-            }
-            return false;
-        };
-
-        // SET_EXECUTION_LIFETIME
-        ExecutionLifetime = BehaviorExecutionLifetime.forever;
-
-
-        _checkLifetimeDelegate = CheckExecution;
-    }
-
-    private void SampleTriggerSetting()
-    {
-        // Gesture trigger
-        _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
-        {
-            result = new TriggerResult();
-            if (ctx != null)
-            {
-                var gestureInfo = ctx.GetGestureInfo("");
-                if (gestureInfo.Active && gestureInfo.Confidence > 90)
-                {
-                    result.HumanId = gestureInfo.HumanId;
-                    result.HumanInLoop = true;
-                    return true;
-                }
-            }
-            return false;
-        };
-
-        // Voice Trigger
-        _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
-        {
-            result = new TriggerResult();
-            if (ctx != null)
-            {
-                var voiceCommand = ctx.GetVoiceCommand("");
-                if (voiceCommand.Active && voiceCommand.Confidence > 70)
-                {
-                    return true;
-                }
-            }
-            return false;
-        };
-    }
-
-    public bool CheckExecution(IBehaviorExecutionContext context)
+    public static bool CheckExecution(IBehaviorExecutionContext context)
     {
         if (ExecutionLifetime == BehaviorExecutionLifetime.forever)
         {
@@ -326,6 +307,23 @@ return true;
             }
         }
         return true;
+    }
+
+    public static bool CheckTrigger(IBehaviorExecutionContext ctx, out TriggerResult result)
+    {
+        result = new TriggerResult();
+        if (ctx != null)
+        {
+            var gestureInfo = ctx.GetGestureInfo("Greet_Right");
+if (gestureInfo.Active && gestureInfo.Confidence > 90)
+{
+result.HumanId = gestureInfo.HumanId;
+result.HumanInLoop = true;
+return true;
+}
+
+        }
+        return false;
     }
 
     public string ActiveResource { get; set; }
@@ -353,24 +351,24 @@ return true;
         get { return InitActionsComplete & CyclicActionsComplete & ExitActionsComplete; }
     }
 
-    public static CheckTriggerDelegate TriggerDelegate
-    {
-        get { return _triggerDelegate; }
-    }
+    //public static CheckTriggerDelegate TriggerDelegate
+    //{
+    //    get { return _triggerDelegate; }
+    //}
 
-    public static CheckLifetimeDelegate LifetimeDelegate
-    {
-        get { return _checkLifetimeDelegate; }
-    }
+    //public static CheckLifetimeDelegate LifetimeDelegate
+    //{
+    //    get { return CheckLifetimeDelegate; }
+    //}
 
     public bool ExecuteInit(IBehaviorExecutionContext context)
     {
         if (!InitActionsComplete)
         {
             // INIT_BLOCK
-              var var_9cb50daa_e417_4525_8cc8_344c0b1b86e2= new BehaviorInfo{BehaviorName = "crouch"};
+              var var_4575df13_fa4b_2e95_9dd0_caaeaef7c29b= new BehaviorInfo{BehaviorName = "crouch"};
 
-  BehaviorModuleHelper.Execute(context, var_9cb50daa_e417_4525_8cc8_344c0b1b86e2);
+  BehaviorModuleHelper.Execute(context, var_4575df13_fa4b_2e95_9dd0_caaeaef7c29b);
 
             InitActionsComplete = true;
         }
@@ -382,9 +380,9 @@ return true;
         if (!CyclicActionsComplete && InitActionsComplete)
         {
             // CYCLIC_BLOCK
-              var var_9f18334c_a343_d5ab_b793_bffa1fc16270= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("text", true, "string")}}};
+              var var_f966495e_dcf8_cdb6_b323_8663540016b7= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("text", true, "string")}}};
 
-  BehaviorModuleHelper.Execute(context, var_9f18334c_a343_d5ab_b793_bffa1fc16270);
+  BehaviorModuleHelper.Execute(context, var_f966495e_dcf8_cdb6_b323_8663540016b7);
 
         }
         return CyclicActionsComplete;
@@ -395,9 +393,9 @@ return true;
         if (!ExitActionsComplete && CyclicActionsComplete)
         {
             // EXIT_BLOCK
-              var var_31c878bd_da36_bf47_99ae_163f09553e53= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("bye", true, "string")}}};
+              var var_f7a9b15f_51b1_c740_82fd_5c61f5d17120= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("bye", true, "string")}}};
 
-  BehaviorModuleHelper.Execute(context, var_31c878bd_da36_bf47_99ae_163f09553e53);
+  BehaviorModuleHelper.Execute(context, var_f7a9b15f_51b1_c740_82fd_5c61f5d17120);
 
             ExitActionsComplete = true;
         }
@@ -412,89 +410,73 @@ return true;
         return ExecutionComplete;
     }
 }
-public class Behavior_e9272626_fdf9_c8ab_881b_5285a4ad1023: ITriggerBehavior
+public class Behavior_be17dc77_79be_d575_8c21_c6618911ca49 : ITriggerBehavior
 {
     public string Name { get; set; }
-    public static BehaviorExecutionPriority Priority { get; set; }
-    public static BehaviorExecutionLifetime ExecutionLifetime { get; set; }
+
+    protected static BehaviorExecutionPriority Priority;
+
+    public static BehaviorExecutionPriority GetPriority()
+    {
+        // SET_PRIORITY
+        Priority = BehaviorExecutionPriority.high
+;
+        return Priority;
+    }
+
+    protected static BehaviorExecutionLifetime ExecutionLifetime;
+
+    public static BehaviorExecutionLifetime GetExecutionLifetime()
+    {
+        // SET_EXECUTION_LIFETIME
+        ExecutionLifetime = BehaviorExecutionLifetime.once;
+
+        return ExecutionLifetime;
+    }
+
     public static string ExecutionEvalExpression { get; set; }
     public int Id { get; set; }
     public static string Uid { get; set; }
     private static bool _initActionsComplete;
     private static bool _cyclicActionsComplete;
     private static bool _exitActionsComplete;
-    private static CheckTriggerDelegate _triggerDelegate;
-    private static CheckLifetimeDelegate _checkLifetimeDelegate;
 
-    public Behavior_e9272626_fdf9_c8ab_881b_5285a4ad1023()
-    {
-        Uid = "e9272626_fdf9_c8ab_881b_5285a4ad1023";
+    //private void SampleTriggerSetting()
+    //{
+    //    // Gesture trigger
+    //    _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
+    //    {
+    //        result = new TriggerResult();
+    //        if (ctx != null)
+    //        {
+    //            var gestureInfo = ctx.GetGestureInfo("");
+    //            if (gestureInfo.Active && gestureInfo.Confidence > 90)
+    //            {
+    //                result.HumanId = gestureInfo.HumanId;
+    //                result.HumanInLoop = true;
+    //                return true;
+    //            }
+    //        }
+    //        return false;
+    //    };
 
+    //    // Voice Trigger
+    //    _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
+    //    {
+    //        result = new TriggerResult();
+    //        if (ctx != null)
+    //        {
+    //            var voiceCommand = ctx.GetVoiceCommand("");
+    //            if (voiceCommand.Active && voiceCommand.Confidence > 70)
+    //            {
+    //                return true;
+    //            }
+    //        }
+    //        return false;
+    //    };
+    //}
 
-        // SET_PRIORITY
-        Priority = BehaviorExecutionPriority.high
-;
-
-        // SET_TRIGGER
-        // The trigger delegate should not access any member variables
-        _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
-        {
-            result = new TriggerResult();
-            if (ctx != null)
-            {
-                var gestureInfo = ctx.GetVoiceCommand("Stop");
-if (voiceCommand.Active && voiceCommand.Confidence > 70)
-{
-return true;
-}
-
-            }
-            return false;
-        };
-
-        // SET_EXECUTION_LIFETIME
-        ExecutionLifetime = BehaviorExecutionLifetime.once;
-
-
-        _checkLifetimeDelegate = CheckExecution;
-    }
-
-    private void SampleTriggerSetting()
-    {
-        // Gesture trigger
-        _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
-        {
-            result = new TriggerResult();
-            if (ctx != null)
-            {
-                var gestureInfo = ctx.GetGestureInfo("");
-                if (gestureInfo.Active && gestureInfo.Confidence > 90)
-                {
-                    result.HumanId = gestureInfo.HumanId;
-                    result.HumanInLoop = true;
-                    return true;
-                }
-            }
-            return false;
-        };
-
-        // Voice Trigger
-        _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
-        {
-            result = new TriggerResult();
-            if (ctx != null)
-            {
-                var voiceCommand = ctx.GetVoiceCommand("");
-                if (voiceCommand.Active && voiceCommand.Confidence > 70)
-                {
-                    return true;
-                }
-            }
-            return false;
-        };
-    }
-
-    public bool CheckExecution(IBehaviorExecutionContext context)
+    public static bool CheckExecution(IBehaviorExecutionContext context)
     {
         if (ExecutionLifetime == BehaviorExecutionLifetime.forever)
         {
@@ -517,6 +499,21 @@ return true;
             }
         }
         return true;
+    }
+
+    public static bool CheckTrigger(IBehaviorExecutionContext ctx, out TriggerResult result)
+    {
+        result = new TriggerResult();
+        if (ctx != null)
+        {
+            var voiceCommand = ctx.GetVoiceCommand("Stop");
+if (voiceCommand.Active && voiceCommand.Confidence > 70)
+{
+return true;
+}
+
+        }
+        return false;
     }
 
     public string ActiveResource { get; set; }
@@ -544,24 +541,24 @@ return true;
         get { return InitActionsComplete & CyclicActionsComplete & ExitActionsComplete; }
     }
 
-    public static CheckTriggerDelegate TriggerDelegate
-    {
-        get { return _triggerDelegate; }
-    }
+    //public static CheckTriggerDelegate TriggerDelegate
+    //{
+    //    get { return _triggerDelegate; }
+    //}
 
-    public static CheckLifetimeDelegate LifetimeDelegate
-    {
-        get { return _checkLifetimeDelegate; }
-    }
+    //public static CheckLifetimeDelegate LifetimeDelegate
+    //{
+    //    get { return CheckLifetimeDelegate; }
+    //}
 
     public bool ExecuteInit(IBehaviorExecutionContext context)
     {
         if (!InitActionsComplete)
         {
             // INIT_BLOCK
-              var var_2b4c68a5_eee5_1764_85da_f28d5d06bbc7= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("I will stop now!", true, "string")}}};
+              var var_184dbc0d_1c55_6c5d_9430_b4a5ae6f1698= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("I will stop now!", true, "string")}}};
 
-  BehaviorModuleHelper.Execute(context, var_2b4c68a5_eee5_1764_85da_f28d5d06bbc7);
+  BehaviorModuleHelper.Execute(context, var_184dbc0d_1c55_6c5d_9430_b4a5ae6f1698);
 
             InitActionsComplete = true;
         }
@@ -573,9 +570,9 @@ return true;
         if (!CyclicActionsComplete && InitActionsComplete)
         {
             // CYCLIC_BLOCK
-              var var_be50873a_8e50_3c5f_8d33_6b45138104b5= new BehaviorInfo{BehaviorName = "crouch"};
+              var var_7a455741_cc3d_9490_8d46_5245ac44888e= new BehaviorInfo{BehaviorName = "crouch"};
 
-  BehaviorModuleHelper.Execute(context, var_be50873a_8e50_3c5f_8d33_6b45138104b5);
+  BehaviorModuleHelper.Execute(context, var_7a455741_cc3d_9490_8d46_5245ac44888e);
 
         }
         return CyclicActionsComplete;
@@ -586,9 +583,9 @@ return true;
         if (!ExitActionsComplete && CyclicActionsComplete)
         {
             // EXIT_BLOCK
-              var var_e4345253_94c4_58b4_980c_9a2441f92a2d= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("bye", true, "string")}}};
+              var var_3b7114c7_917d_be56_acd1_1c2ccb92ba68= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("bye", true, "string")}}};
 
-  BehaviorModuleHelper.Execute(context, var_e4345253_94c4_58b4_980c_9a2441f92a2d);
+  BehaviorModuleHelper.Execute(context, var_3b7114c7_917d_be56_acd1_1c2ccb92ba68);
 
             ExitActionsComplete = true;
         }

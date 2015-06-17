@@ -82,17 +82,37 @@ public class BehaviorExecutionEngine
         return null;
     }
 
-    public object InvokeStaticProperty(Type typeName, string propName, params object[] parameters)
+    public object InvokeStaticProperty(Type typeName, string propName)
     {
         if (typeName != null && !string.IsNullOrEmpty(propName))
         {
-            var staticPropertyInfo = typeName.GetProperty(propName, BindingFlags.Static);
+            var staticPropertyInfo = typeName.GetProperty(propName);
             if (staticPropertyInfo != null)
             {
                 return staticPropertyInfo.GetValue(null);
             }
         }
         return null;
+    }
+
+    private int GetBehaviorPriority(Type behaviorType)
+    {
+        var priorityObject = InvokeStaticMethod(behaviorType, "GetPriority");
+        var ret = BehaviorExecutionPriority.low;
+        
+        if (priorityObject != null)
+        {
+            if (Enum.TryParse(priorityObject.ToString(), true, out ret))
+            {
+                Log.InfoFormat("Priority Parsed properly : {1} - {0}", priorityObject, ret);
+            }
+        }
+        return (int)ret;
+    }
+
+    private IList<Type> SortByPriority(IList<Type> cyclicBehaviors)
+    {
+        return cyclicBehaviors.OrderByDescending(GetBehaviorPriority).ToList();
     }
 
     public void Run()
@@ -105,6 +125,9 @@ public class BehaviorExecutionEngine
         // Cyclic Behavior Execution
         var cyclicBehaviors = GetTypes(typeof (ITriggerBehavior));
         Log.InfoFormat(@"Cyclic Behaviors : \n {0}", string.Join("\n", cyclicBehaviors.Select(s => s.Name)));
+
+        var sortedList = SortByPriority(cyclicBehaviors);
+        Log.InfoFormat(@"Cyclic Behaviors : \n {0}", string.Join("\n", sortedList.Select(s => s.Name)));
 
         // Exit Behavior Execution
         ExecuteInitExitBlock("ExitBehavior");
