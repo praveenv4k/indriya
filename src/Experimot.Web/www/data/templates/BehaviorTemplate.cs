@@ -71,30 +71,30 @@ public class BehaviorTemplate : ITriggerBehavior
     //    };
     //}
 
-    public static bool CheckExecution(IBehaviorExecutionContext context)
-    {
-        if (ExecutionLifetime == BehaviorExecutionLifetime.forever)
-        {
-        }
-        else if (ExecutionLifetime == BehaviorExecutionLifetime.once)
-        {
-            if (ExecutionComplete)
-            {
-                return false;
-            }
-        }
-        else if (ExecutionLifetime == BehaviorExecutionLifetime.until && !string.IsNullOrEmpty(ExecutionEvalExpression))
-        {
-            var expression = new Expression(ExecutionEvalExpression);
-            var result = expression.Evaluate();
-            bool complete;
-            if (bool.TryParse(result.ToString(), out complete))
-            {
-                return !complete;
-            }
-        }
-        return true;
-    }
+    //public static bool CheckExecution(IBehaviorExecutionContext context)
+    //{
+    //    if (ExecutionLifetime == BehaviorExecutionLifetime.forever)
+    //    {
+    //    }
+    //    else if (ExecutionLifetime == BehaviorExecutionLifetime.once)
+    //    {
+    //        if (ExecutionComplete)
+    //        {
+    //            return false;
+    //        }
+    //    }
+    //    else if (ExecutionLifetime == BehaviorExecutionLifetime.until && !string.IsNullOrEmpty(ExecutionEvalExpression))
+    //    {
+    //        var expression = new Expression(ExecutionEvalExpression);
+    //        var result = expression.Evaluate();
+    //        bool complete;
+    //        if (bool.TryParse(result.ToString(), out complete))
+    //        {
+    //            return !complete;
+    //        }
+    //    }
+    //    return true;
+    //}
 
     public static TriggerResult CheckTrigger(IBehaviorExecutionContext ctx)
     {
@@ -131,16 +131,6 @@ public class BehaviorTemplate : ITriggerBehavior
         get { return InitActionsComplete & CyclicActionsComplete & ExitActionsComplete; }
     }
 
-    //public static CheckTriggerDelegate TriggerDelegate
-    //{
-    //    get { return _triggerDelegate; }
-    //}
-
-    //public static CheckLifetimeDelegate LifetimeDelegate
-    //{
-    //    get { return CheckLifetimeDelegate; }
-    //}
-
     public bool ExecuteInit(IBehaviorExecutionContext context)
     {
         if (!InitActionsComplete)
@@ -158,6 +148,21 @@ public class BehaviorTemplate : ITriggerBehavior
         {
             // CYCLIC_BLOCK
             // CYCLIC_BLOCK_HERE
+
+            if (ExecutionLifetime == BehaviorExecutionLifetime.once)
+            {
+                CyclicActionsComplete = true;
+            }
+            else if (ExecutionLifetime == BehaviorExecutionLifetime.until && !string.IsNullOrEmpty(ExecutionEvalExpression))
+            {
+                var expression = new Expression(ExecutionEvalExpression);
+                var result = expression.Evaluate();
+                bool complete;
+                if (bool.TryParse(result.ToString(), out complete))
+                {
+                }
+                CyclicActionsComplete = complete;
+            }
         }
         return CyclicActionsComplete;
     }
@@ -178,6 +183,8 @@ public class BehaviorTemplate : ITriggerBehavior
         ExecuteInit(context);
         ExecuteCyclic(context);
         ExecuteExit(context);
+        Console.WriteLine(@"Init : {0}, Cyclic: {1}, Exit: {2}", InitActionsComplete, CyclicActionsComplete,
+            ExitActionsComplete);
         return ExecutionComplete;
     }
 }
