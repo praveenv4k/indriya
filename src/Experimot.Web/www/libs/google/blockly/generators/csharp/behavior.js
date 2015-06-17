@@ -108,7 +108,7 @@ Blockly.CSharp['behavior_composable'] = function(block) {
         executeLogic = Blockly.CSharp.valueToCode(this, 'RUN_UNTIL', Blockly.CSharp.ORDER_ATOMIC);
     }
     var guid = generateUUID();
-    var priority = 'Priority = BehaviorExecutionPriority.' + dropdownPriorities + '\n;';
+    var priority = 'Priority = BehaviorExecutionPriority.' + dropdownPriorities + ';\n';
     //var code = 'function ' + textBehaviorName + '(){\n';
     var code = 'public static void ' + guid + '(){\n';
     code += 'var behavior = ComposableBehavior.Create(@\"' + textBehaviorName + '\");\n';
@@ -147,7 +147,7 @@ Blockly.CSharp['behavior_composable'] = function(block) {
     var replaced6 = replaced5.replace('// SET_TRIGGER_HERE', trigger);
     var replaced7 = replaced6.replace('// SET_EXECUTION_LIFETIME_HERE', lifeTime);
     var uid = 'Uid = \"' + guid + '\";\n';
-    var replaced8 = replaced7.replace('// SET_UID', uid);
+    var replaced8 = replaced7.replace('// SET_UID_HERE', uid);
     return replaced8;
 
     //return code;
@@ -383,7 +383,7 @@ Blockly.CSharp['trigger'] = function (block) {
         '{\n' +
         'result.HumanId = gestureInfo.HumanId;\n' +
         'result.HumanInLoop = true;\n' +
-        'return true;\n' +
+        'result.Active = true;\n' +
         '}\n';
     return [genCode, Blockly.CSharp.ORDER_ATOMIC];
 };
@@ -396,7 +396,7 @@ Blockly.CSharp['voice_trigger'] = function (block) {
     var genCode = 'var voiceCommand = ctx.GetVoiceCommand(\"' + trigger + '\");\n' +
         'if (voiceCommand.Active && voiceCommand.Confidence > 70)\n' +
         '{\n' +
-        'return true;\n' +
+        'result.Active = true;\n' +
         '}\n';
     return [genCode, Blockly.CSharp.ORDER_ATOMIC];
 };
@@ -409,7 +409,7 @@ Blockly.CSharp['voice_trigger2'] = function (block) {
     var genCode = 'var gestureInfo = ctx.GetVoiceCommand(\"' + trigger + '\");\n' +
         'if (voiceCommand.Active && voiceCommand.Confidence > 70)\n' +
         '{\n' +
-        'return true;\n' +
+        'result.Active = true;\n' +
         '}\n';
     return [genCode, Blockly.CSharp.ORDER_ATOMIC];
 };

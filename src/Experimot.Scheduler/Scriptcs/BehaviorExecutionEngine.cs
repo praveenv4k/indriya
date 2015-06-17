@@ -3,20 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Common.Logging;
+using Quartz;
 
 public class BehaviorExecutionEngine
 {
     private static readonly ILog Log = LogManager.GetLogger(typeof (BehaviorExecutionEngine));
     private readonly BehaviorExecutionContext _context;
+    private readonly IScheduler _scheduler;
+    private const int Period = 200;
 
     public BehaviorExecutionContext Context
     {
         get { return _context; }
     }
 
-    public BehaviorExecutionEngine(BehaviorExecutionContext context)
+    public IScheduler Scheduler
+    {
+        get { return _scheduler; }
+    }
+
+    public BehaviorExecutionEngine(BehaviorExecutionContext context, IScheduler scheduler)
     {
         _context = context;
+        _scheduler = scheduler;
     }
 
     public static void DisplayLoadedTypes()
@@ -115,6 +124,103 @@ public class BehaviorExecutionEngine
         return cyclicBehaviors.OrderByDescending(GetBehaviorPriority).ToList();
     }
 
+    private bool CheckExecutionComplete(IList<Type> cyclicBehaviors)
+    {
+        if (cyclicBehaviors != null)
+        {
+            bool ret = true;
+            // ReSharper disable once LoopCanBeConvertedToQuery
+            foreach (var cyclicBehavior in cyclicBehaviors)
+            {
+                ret &= CheckExecutionComplete(cyclicBehavior);
+            }
+            return ret;
+        }
+        return false;
+    }
+
+    private bool InvokeBooleanProperty(Type cyclicBehavior, string methodName)
+    {
+        var priorityObject = InvokeStaticProperty(cyclicBehavior, methodName);
+        var ret = false;
+
+        if (priorityObject != null)
+        {
+            if (bool.TryParse(priorityObject.ToString(), out ret))
+            {
+            }
+        }
+        return ret;
+    }
+
+    private T InvokeGenericMethod<T>(Type cyclicBehavior, string methodName, params object[] parameters) where T: class 
+    {
+        var returnObject = InvokeStaticMethod(cyclicBehavior, methodName, parameters);
+        return returnObject as T;
+    }
+
+    private bool CheckExecutionComplete(Type cyclicBehavior)
+    {
+        return InvokeBooleanProperty(cyclicBehavior, "ExecutionComplete");
+    }
+
+    private TriggerResult CheckTrigger(Type cyclicBehavior)
+    {
+        return InvokeGenericMethod<TriggerResult>(cyclicBehavior, "CheckTrigger", Context);
+    }
+
+    public void ExecuteCyclicBehavior()
+    {
+        try
+        {
+            var cyclicBehaviors = GetTypes(typeof (ITriggerBehavior));
+            Log.InfoFormat(@"Cyclic Behaviors : \n {0}", string.Join("\n", cyclicBehaviors.Select(s => s.Name)));
+
+            // Sort the behaviors based on the priority
+            var sortedList = SortByPriority(cyclicBehaviors);
+            Log.InfoFormat(@"Cyclic Behaviors : \n {0}", string.Join("\n", sortedList.Select(s => s.Name)));
+
+            // ReSharper disable once LoopVariableIsNeverChangedInsideLoop
+            while (!CheckExecutionComplete(sortedList))
+            {
+                foreach (var type in sortedList)
+                {
+                    var result = CheckTrigger(type);
+                    if (result != null)
+                    {
+                        if (result.Active)
+                        {
+                            string uid = InvokeGenericMethod<string>(type, "GetUid");
+                            if (!string.IsNullOrEmpty(uid) && Scheduler != null)
+                            {
+                                var jobKey = JobKey.Create(string.Format("Task_{0}", uid), uid);
+                                if (!Scheduler.CheckExists(jobKey))
+                                {
+                                    IJobDetail detail = JobBuilder.Create<BehaviorExecutionTask>()
+                                        .WithIdentity(jobKey)
+                                        .Build();
+                                    detail.JobDataMap.Add("BehaviorType", type);
+                                    detail.JobDataMap.Add("ExecutionContext", Context);
+
+                                    ITrigger trigger = TriggerBuilder.Create().ForJob(detail).StartNow().Build();
+                                    Scheduler.ScheduleJob(detail, trigger);
+                                    Console.WriteLine(@"New job about to be scheduled Job : {0}, Module : {1}",
+                                        jobKey.Name,
+                                        jobKey.Group);
+                                }
+                            }
+                        }
+                    }
+                }
+                System.Threading.Thread.Sleep(Period);
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.ErrorFormat("Message : {0} ; StackTrace: {1}", ex.Message, ex.StackTrace);
+        }
+    }
+
     public void Run()
     {
         Log.Info(@"Running ...");
@@ -123,11 +229,7 @@ public class BehaviorExecutionEngine
         ExecuteInitExitBlock("StartupBehavior");
 
         // Cyclic Behavior Execution
-        var cyclicBehaviors = GetTypes(typeof (ITriggerBehavior));
-        Log.InfoFormat(@"Cyclic Behaviors : \n {0}", string.Join("\n", cyclicBehaviors.Select(s => s.Name)));
-
-        var sortedList = SortByPriority(cyclicBehaviors);
-        Log.InfoFormat(@"Cyclic Behaviors : \n {0}", string.Join("\n", sortedList.Select(s => s.Name)));
+        ExecuteCyclicBehavior();
 
         // Exit Behavior Execution
         ExecuteInitExitBlock("ExitBehavior");

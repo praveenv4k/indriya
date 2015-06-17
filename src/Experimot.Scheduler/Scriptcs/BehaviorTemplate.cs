@@ -26,7 +26,16 @@ public class BehaviorTemplate : ITriggerBehavior
 
     public static string ExecutionEvalExpression { get; set; }
     public int Id { get; set; }
-    public static string Uid { get; set; }
+
+    protected static string Uid;
+
+    public static string GetUid()
+    {
+        // SET_UID
+        // SET_UID_HERE
+        return Uid;
+    }
+
     private static bool _initActionsComplete;
     private static bool _cyclicActionsComplete;
     private static bool _exitActionsComplete;
@@ -91,14 +100,14 @@ public class BehaviorTemplate : ITriggerBehavior
         return true;
     }
 
-    public static bool CheckTrigger(IBehaviorExecutionContext ctx, out TriggerResult result)
+    public static TriggerResult CheckTrigger(IBehaviorExecutionContext ctx)
     {
-        result = new TriggerResult();
+        var result = new TriggerResult {Active = false};
         if (ctx != null)
         {
             // SET_TRIGGER_HERE
         }
-        return false;
+        return result;
     }
 
     public string ActiveResource { get; set; }
