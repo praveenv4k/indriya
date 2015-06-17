@@ -321,12 +321,10 @@ public class BehaviorModuleHelper
         if (context != null && info != null)
         {
             Log.InfoFormat("Behavior Execution : {0} - {1}", info.BehaviorName, info.FunctionName);
-        }
-    }
 
-    public static void UpdateBehaviorResponderInfo(BehaviorInfo info)
-    {
-        
+            context.UpdateBehaviorResponderInfo(info);
+            context.SyncExecuteBehavior(info);
+        }
     }
 
     public static object CreateBehaviorParameterOptions(object value, bool placeHolder,

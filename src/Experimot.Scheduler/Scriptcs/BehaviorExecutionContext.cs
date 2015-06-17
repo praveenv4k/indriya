@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Common.Logging;
 using NetMQ;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SharpDX;
 
@@ -9,7 +10,7 @@ using SharpDX;
 public class BehaviorExecutionContext : IBehaviorExecutionContext
 {
     private static readonly ILog Log = LogManager.GetLogger(typeof(BehaviorExecutionContext));
-    private const int RecvTimeout = 100;
+    private const int RecvTimeout = 200;
 
     public string ContextServer { get; set; }
 
@@ -21,6 +22,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
             using (var socket = ctx.CreateRequestSocket())
             {
                 socket.Connect(contextServer);
+                socket.Send(reqName);
                 resp = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, timeout));
             }
         }
@@ -32,6 +34,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
         if (info != null && !string.IsNullOrEmpty(info.BehaviorName))
         {
             var resp = GetContextJsonString(ContextServer, RecvTimeout, "behavior_modules");
+            Log.InfoFormat("Context: {1}, Behavior Modules  : {0}", resp, ContextServer);
             if (!string.IsNullOrEmpty(resp))
             {
                 var modules = JArray.Parse(resp);
@@ -85,6 +88,41 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
                     }
                 }
             }
+        }
+    }
+
+    public void SyncExecuteBehavior(BehaviorInfo behaviorInfo)
+    {
+        try
+        {
+            using (var ctx = NetMQContext.Create())
+            {
+                using (var sock = ctx.CreateRequestSocket())
+                {
+                    var ip = behaviorInfo.Ip;
+                    var port = behaviorInfo.Port;
+                    var behaviorName = behaviorInfo.BehaviorName;
+                    var moduleName = behaviorInfo.ModuleName;
+
+                    var addr = string.Format("{0}:{1}", ip, port);
+                    Log.InfoFormat("Connecting to behavior server - Module: {0}, Address: {1}",
+                        moduleName, addr);
+
+                    sock.Connect(addr);
+                    Log.InfoFormat("Connected to behavior server: {0}", addr);
+
+                    //sock.Send(behaviorName);
+                    sock.Send(JsonConvert.SerializeObject(behaviorInfo));
+                    Log.InfoFormat("Sent behavior execution request: {0}", behaviorName);
+
+                    var reply = sock.ReceiveString();
+                    Log.InfoFormat("Behavior execution response: {0}", reply);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.ErrorFormat("Motion Behavior Task error : {0}", ex.Message);
         }
     }
 
