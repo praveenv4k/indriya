@@ -188,6 +188,7 @@
     <Compile Include="ContextServer.cs" />
     <Compile Include="Scriptcs\BehaviorExecutionContext.cs" />
     <Compile Include="Scriptcs\BehaviorExecutionEngine.cs" />
+    <Compile Include="Scriptcs\BehaviorExecutionTask.cs" />
     <Compile Include="Scriptcs\BehaviorInfo.cs" />
     <Compile Include="Scriptcs\BehaviorTemplate.cs" />
     <Compile Include="Scriptcs\ExitBehaviorTemplate.cs" />

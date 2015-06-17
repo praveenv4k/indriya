@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using NCalc;
 
@@ -9,9 +9,9 @@ public class StartupBehavior : IExecuteOnceBehavior
     public void Execute(IBehaviorExecutionContext context)
     {
         // STARTUP_BLOCK
-        var var_2a7fdb8d_353f_9f6b_9fe8_0c8b21499a52 = new BehaviorInfo { BehaviorName = "greet" };
+          var var_2a7fdb8d_353f_9f6b_9fe8_0c8b21499a52= new BehaviorInfo{BehaviorName = "greet"};
 
-        BehaviorModuleHelper.Execute(context, var_2a7fdb8d_353f_9f6b_9fe8_0c8b21499a52);
+  BehaviorModuleHelper.Execute(context, var_2a7fdb8d_353f_9f6b_9fe8_0c8b21499a52);
 
     }
 }
@@ -20,9 +20,9 @@ public class ExitBehavior : IExecuteOnceBehavior
     public void Execute(IBehaviorExecutionContext context)
     {
         // EXIT_BLOCK
-        var var_92ed8b39_cd08_da73_87e0_d3ec12eaf5d3 = new BehaviorInfo { BehaviorName = "greet" };
+          var var_92ed8b39_cd08_da73_87e0_d3ec12eaf5d3= new BehaviorInfo{BehaviorName = "greet"};
 
-        BehaviorModuleHelper.Execute(context, var_92ed8b39_cd08_da73_87e0_d3ec12eaf5d3);
+  BehaviorModuleHelper.Execute(context, var_92ed8b39_cd08_da73_87e0_d3ec12eaf5d3);
 
     }
 }
@@ -129,16 +129,16 @@ public class Behavior_d105a1fc_df96_09e0_aa60_e93eb56a4982 : ITriggerBehavior
 
     public static TriggerResult CheckTrigger(IBehaviorExecutionContext ctx)
     {
-        var result = new TriggerResult { Active = false };
+        var result = new TriggerResult {Active = false};
         if (ctx != null)
         {
             var gestureInfo = ctx.GetGestureInfo("Greet_Left");
-            if (gestureInfo.Active && gestureInfo.Confidence > 90)
-            {
-                result.HumanId = gestureInfo.HumanId;
-                result.HumanInLoop = true;
-                result.Active = true;
-            }
+if (gestureInfo.Active && gestureInfo.Confidence > 90)
+{
+result.HumanId = gestureInfo.HumanId;
+result.HumanInLoop = true;
+return true;
+}
 
         }
         return result;
@@ -184,9 +184,9 @@ public class Behavior_d105a1fc_df96_09e0_aa60_e93eb56a4982 : ITriggerBehavior
         if (!InitActionsComplete)
         {
             // INIT_BLOCK
-            var var_be3e4671_25da_2ae9_a20e_17f8eddd4dc8 = new BehaviorInfo { BehaviorName = "greet" };
+              var var_be3e4671_25da_2ae9_a20e_17f8eddd4dc8= new BehaviorInfo{BehaviorName = "greet"};
 
-            BehaviorModuleHelper.Execute(context, var_be3e4671_25da_2ae9_a20e_17f8eddd4dc8);
+  BehaviorModuleHelper.Execute(context, var_be3e4671_25da_2ae9_a20e_17f8eddd4dc8);
 
             InitActionsComplete = true;
         }
@@ -198,9 +198,9 @@ public class Behavior_d105a1fc_df96_09e0_aa60_e93eb56a4982 : ITriggerBehavior
         if (!CyclicActionsComplete && InitActionsComplete)
         {
             // CYCLIC_BLOCK
-            var var_bce5f762_c843_4abb_8ff3_8534c4a8e247 = new BehaviorInfo { BehaviorName = "Say Expressively", Parameters = new Dictionary<string, object> { { "msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("text", true, "string") } } };
+              var var_bce5f762_c843_4abb_8ff3_8534c4a8e247= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("text", true, "string")}}};
 
-            BehaviorModuleHelper.Execute(context, var_bce5f762_c843_4abb_8ff3_8534c4a8e247);
+  BehaviorModuleHelper.Execute(context, var_bce5f762_c843_4abb_8ff3_8534c4a8e247);
 
         }
         return CyclicActionsComplete;
@@ -211,9 +211,9 @@ public class Behavior_d105a1fc_df96_09e0_aa60_e93eb56a4982 : ITriggerBehavior
         if (!ExitActionsComplete && CyclicActionsComplete)
         {
             // EXIT_BLOCK
-            var var_4b3252c9_6018_dfbb_a829_b9503b8ec9f9 = new BehaviorInfo { BehaviorName = "Say Expressively", Parameters = new Dictionary<string, object> { { "msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("text", true, "string") } } };
+              var var_4b3252c9_6018_dfbb_a829_b9503b8ec9f9= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("text", true, "string")}}};
 
-            BehaviorModuleHelper.Execute(context, var_4b3252c9_6018_dfbb_a829_b9503b8ec9f9);
+  BehaviorModuleHelper.Execute(context, var_4b3252c9_6018_dfbb_a829_b9503b8ec9f9);
 
             ExitActionsComplete = true;
         }

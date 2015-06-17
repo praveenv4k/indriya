@@ -6,6 +6,7 @@
 #load "MotionBehaviorTask.csx"
 #load "MainProgramUtil.csx"
 #load "MainProgram.csx"
+#load "BehaviorExecutionTask.csx"
 #load "BehaviorExecutionContext.csx"
 #load "SampleProgram.csx"
 #load "BehaviorExecutionEngine.csx"
@@ -43,7 +44,7 @@ else
 		var scheduler = MainProgramUtil.GetScheduler();
 		scheduler.Start();
 
-		var engine = new BehaviorExecutionEngine(context);
+		var engine = new BehaviorExecutionEngine(context, scheduler);
 
 		var tasks = new List<Task>
 					{

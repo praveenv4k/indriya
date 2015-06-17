@@ -362,6 +362,7 @@ public interface ITriggerBehavior
 
 public class TriggerResult
 {
+    public bool Active { get; set; }
     public bool HumanInLoop { get; set; }
     public int HumanId { get; set; }
 }
