@@ -1,8 +1,19 @@
+using System;
+using NCalc;
+
 public class BehaviorTemplate : ITriggerBehavior
 {
     public string Name { get; set; }
 
     protected static BehaviorExecutionPriority Priority;
+
+    public BehaviorTemplate()
+    {
+        GetPriority();
+        GetExecutionLifetime();
+        GetUid();
+        GetExecutionEvalExpression();
+    }
 
     public static BehaviorExecutionPriority GetPriority()
     {
@@ -20,7 +31,15 @@ public class BehaviorTemplate : ITriggerBehavior
         return ExecutionLifetime;
     }
 
-    public static string ExecutionEvalExpression { get; set; }
+    protected static string ExecutionEvalExpression { get; set; }
+
+    public static string GetExecutionEvalExpression()
+    {
+        // SET_EXEC_EVAL
+        // SET_EXEC_EVAL_HERE
+        return ExecutionEvalExpression;
+    }
+
     public int Id { get; set; }
 
     protected static string Uid;
@@ -153,7 +172,8 @@ public class BehaviorTemplate : ITriggerBehavior
             {
                 CyclicActionsComplete = true;
             }
-            else if (ExecutionLifetime == BehaviorExecutionLifetime.until && !string.IsNullOrEmpty(ExecutionEvalExpression))
+            else if (ExecutionLifetime == BehaviorExecutionLifetime.until &&
+                     !string.IsNullOrEmpty(ExecutionEvalExpression))
             {
                 var expression = new Expression(ExecutionEvalExpression);
                 var result = expression.Evaluate();
@@ -183,8 +203,9 @@ public class BehaviorTemplate : ITriggerBehavior
         ExecuteInit(context);
         ExecuteCyclic(context);
         ExecuteExit(context);
-        Console.WriteLine(@"Init : {0}, Cyclic: {1}, Exit: {2}", InitActionsComplete, CyclicActionsComplete,
-            ExitActionsComplete);
+        Console.WriteLine(@"Lifetime: {3} Init : {0}, Cyclic: {1}, Exit: {2}", InitActionsComplete,
+            CyclicActionsComplete,
+            ExitActionsComplete, ExecutionLifetime);
         return ExecutionComplete;
     }
 }

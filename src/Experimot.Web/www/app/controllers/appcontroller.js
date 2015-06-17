@@ -203,7 +203,7 @@
 
             generateCSharpCode: function() {
                 var code = Blockly.CSharp.workspaceToCode(app.workspace);
-                var template = this.getFileAjax('data/templates/Namespaces.cs');
+                var template = this.getFileAjax('data/templates/NamespacesTemplate.cs');
 
                 var newCode = this.replaceAllInstances('// MAIN_PROGRAM_HERE', code, template);
                 return newCode;
