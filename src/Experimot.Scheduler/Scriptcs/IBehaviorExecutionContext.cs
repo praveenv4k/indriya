@@ -5,6 +5,7 @@ public interface IBehaviorExecutionContext
     void GetNearestHuman(out int id, out double distance);
     void GetRelativePose(int id, out double dx, out double dy, out double dTheta);
     bool CheckHumanProximity(double threshold, out int id);
+    void UpdateBehaviorResponderInfo(BehaviorInfo info);
     GestureInfo GetGestureInfo(string gestureName);
     VoiceCommandInfo GetVoiceCommand(string voiceCommand);
 }

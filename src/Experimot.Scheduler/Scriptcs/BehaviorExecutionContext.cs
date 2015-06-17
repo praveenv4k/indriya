@@ -1,12 +1,15 @@
 using System;
+using System.Collections.Generic;
 using Common.Logging;
 using NetMQ;
 using Newtonsoft.Json.Linq;
 using SharpDX;
 
+// ReSharper disable once CheckNamespace
 public class BehaviorExecutionContext : IBehaviorExecutionContext
 {
     private static readonly ILog Log = LogManager.GetLogger(typeof(BehaviorExecutionContext));
+    private const int RecvTimeout = 100;
 
     public string ContextServer { get; set; }
 
@@ -24,9 +27,70 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
         return resp;
     }
 
+    public void UpdateBehaviorResponderInfo(BehaviorInfo info)
+    {
+        if (info != null && !string.IsNullOrEmpty(info.BehaviorName))
+        {
+            var resp = GetContextJsonString(ContextServer, RecvTimeout, "behavior_modules");
+            if (!string.IsNullOrEmpty(resp))
+            {
+                var modules = JArray.Parse(resp);
+                if (modules != null && modules.Count > 0)
+                {
+                    foreach (var module in modules)
+                    {
+                        var moduleName = module.Value<string>("name");
+                        var responder = module.SelectToken("$.responder");
+                        string host = string.Empty;
+                        int port = 0;
+                        if (responder != null)
+                        {
+                            host = responder.Value<string>("Host");
+                            port = responder.Value<int>("Port");
+                        }
+                        var behaviors = module.SelectToken("$.behaviors");
+                        foreach (var behavior in behaviors)
+                        {
+                            string name = behavior.Value<string>("name");
+                            string functionName = behavior.Value<string>("function_name");
+                            var args = behavior.SelectToken("$.arg");
+                            var parameters = new Dictionary<string, object>();
+                            // ReSharper disable once LoopCanBeConvertedToQuery
+                            foreach (var arg in args)
+                            {
+                                parameters.Add(arg.Value<string>("name"), new Dictionary<string, object>
+                                {
+                                    {"value", arg.Value<string>("value")},
+                                    {"place_holder", arg.Value<string>("place_holder")},
+                                    {"type", arg.Value<string>("type")}
+                                });
+                            }
+                            if (info.BehaviorName == name)
+                            {
+                                var matchingBehavior = info;
+                                matchingBehavior.ModuleName = moduleName;
+                                matchingBehavior.FunctionName = functionName;
+                                matchingBehavior.Ip = host;
+                                matchingBehavior.Port = port;
+                                foreach (var parameter in parameters)
+                                {
+                                    if (!matchingBehavior.Parameters.ContainsKey(parameter.Key))
+                                    {
+                                        matchingBehavior.Parameters.Add(parameter);
+                                    }
+                                }
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     public bool GetHumanExists()
     {
-        var humansStr = GetContextJsonString(ContextServer, 100, "humans");
+        var humansStr = GetContextJsonString(ContextServer, RecvTimeout, "humans");
         if (!string.IsNullOrEmpty(humansStr))
         {
             var humans = JArray.Parse(humansStr);
@@ -40,9 +104,9 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
         id = -1;
         distance = double.PositiveInfinity;
 
-        var humansStr = GetContextJsonString(ContextServer, 100, "humans");
-        var robotStr = GetContextJsonString(ContextServer, 100, "robot");
-        var worldFrameStr = GetContextJsonString(ContextServer, 100, "world_frame");
+        var humansStr = GetContextJsonString(ContextServer, RecvTimeout, "humans");
+        var robotStr = GetContextJsonString(ContextServer, RecvTimeout, "robot");
+        var worldFrameStr = GetContextJsonString(ContextServer, RecvTimeout, "world_frame");
         if (!string.IsNullOrEmpty(humansStr) && !string.IsNullOrEmpty(robotStr) && !string.IsNullOrEmpty(worldFrameStr))
         {
             var humans = JArray.Parse(humansStr);
@@ -126,7 +190,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
             Confidence = 0,
             Name = gestureName
         };
-        var humanStr = GetContextJsonString(ContextServer, 100, "humans");
+        var humanStr = GetContextJsonString(ContextServer, RecvTimeout, "humans");
         if (!string.IsNullOrEmpty(humanStr))
         {
             var humanArray = JArray.Parse(humanStr);
@@ -157,7 +221,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
             Confidence = 0,
             Name = voiceCommand
         };
-        var humanStr = GetContextJsonString(ContextServer, 100, "voice_command");
+        var humanStr = GetContextJsonString(ContextServer, RecvTimeout, "voice_command");
         if (!string.IsNullOrEmpty(humanStr))
         {
             var humanArray = JArray.Parse(humanStr);

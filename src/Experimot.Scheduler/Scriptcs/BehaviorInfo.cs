@@ -314,9 +314,19 @@ public class NaoBehaviorModule
 
 public class BehaviorModuleHelper
 {
+    private static readonly ILog Log = LogManager.GetLogger(typeof(BehaviorModuleHelper));
+
     public static void Execute(IBehaviorExecutionContext context, BehaviorInfo info)
     {
+        if (context != null && info != null)
+        {
+            Log.InfoFormat("Behavior Execution : {0} - {1}", info.BehaviorName, info.FunctionName);
+        }
+    }
 
+    public static void UpdateBehaviorResponderInfo(BehaviorInfo info)
+    {
+        
     }
 
     public static object CreateBehaviorParameterOptions(object value, bool placeHolder,
