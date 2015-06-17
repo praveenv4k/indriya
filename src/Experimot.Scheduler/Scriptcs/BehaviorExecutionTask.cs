@@ -3,7 +3,7 @@ using System;
 
 public class BehaviorExecutionTask : Quartz.IJob
 {
-    private static readonly ILog Log = LogManager.GetLogger(typeof(BehaviorExecutionTask));
+    private static readonly ILog Log = LogManager.GetLogger(typeof (BehaviorExecutionTask));
 
     public void Execute(Quartz.IJobExecutionContext context)
     {
@@ -23,7 +23,11 @@ public class BehaviorExecutionTask : Quartz.IJob
                         Log.Info(@"------------- Task Details --------------");
                         Log.InfoFormat(@"Behavior type Name : {0}", behaviorType.Name);
                         // Invoke the execute method
-                        execMethodInfo.Invoke(startupInstance, new object[] {execContext});
+                        var result = execMethodInfo.Invoke(startupInstance, new object[] {execContext});
+                        if (result != null)
+                        {
+                            Log.InfoFormat(@"Execution result : {0}", result);
+                        }
                     }
                 }
             }
