@@ -197,7 +197,7 @@
     <Compile Include="Scriptcs\ProgramGenerator.cs" />
     <Compile Include="Scriptcs\ChainBehaviorTask.cs" />
     <Compile Include="Scriptcs\MotionBehaviorTask.cs" />
-    <Compile Include="Scriptcs\SampleProgram.cs" />
+    <Compile Include="Scriptcs\GeneratedProgram.cs" />
     <Compile Include="Scriptcs\StartupBehaviorTemplate.cs" />
     <Compile Include="Tasks\JobListener.cs" />
     <Compile Include="ParameterServer.cs" />

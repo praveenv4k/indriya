@@ -9,9 +9,9 @@ public class StartupBehavior : IExecuteOnceBehavior
     public void Execute(IBehaviorExecutionContext context)
     {
         // STARTUP_BLOCK
-          var var_2a7fdb8d_353f_9f6b_9fe8_0c8b21499a52= new BehaviorInfo{BehaviorName = "greet"};
+          var var_9467e767_f95d_2c2f_92ff_913cbc9f7dd0= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Hi", true, "string")}}};
 
-  BehaviorModuleHelper.Execute(context, var_2a7fdb8d_353f_9f6b_9fe8_0c8b21499a52);
+  BehaviorModuleHelper.Execute(context, var_9467e767_f95d_2c2f_92ff_913cbc9f7dd0);
 
     }
 }
@@ -20,13 +20,13 @@ public class ExitBehavior : IExecuteOnceBehavior
     public void Execute(IBehaviorExecutionContext context)
     {
         // EXIT_BLOCK
-          var var_92ed8b39_cd08_da73_87e0_d3ec12eaf5d3= new BehaviorInfo{BehaviorName = "greet"};
+          var var_f5571a48_d7ca_0f5a_b063_5ab35dd600d5= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Bye", true, "string")}}};
 
-  BehaviorModuleHelper.Execute(context, var_92ed8b39_cd08_da73_87e0_d3ec12eaf5d3);
+  BehaviorModuleHelper.Execute(context, var_f5571a48_d7ca_0f5a_b063_5ab35dd600d5);
 
     }
 }
-public class Behavior_d105a1fc_df96_09e0_aa60_e93eb56a4982 : ITriggerBehavior
+public class Behavior_8f281303_8e33_92a3_989f_928d91576374 : ITriggerBehavior
 {
     public string Name { get; set; }
 
@@ -35,8 +35,8 @@ public class Behavior_d105a1fc_df96_09e0_aa60_e93eb56a4982 : ITriggerBehavior
     public static BehaviorExecutionPriority GetPriority()
     {
         // SET_PRIORITY
-        Priority = BehaviorExecutionPriority.low
-;
+        Priority = BehaviorExecutionPriority.low;
+
         return Priority;
     }
 
@@ -45,7 +45,7 @@ public class Behavior_d105a1fc_df96_09e0_aa60_e93eb56a4982 : ITriggerBehavior
     public static BehaviorExecutionLifetime GetExecutionLifetime()
     {
         // SET_EXECUTION_LIFETIME
-        ExecutionLifetime = BehaviorExecutionLifetime.forever;
+        ExecutionLifetime = BehaviorExecutionLifetime.once;
 
         return ExecutionLifetime;
     }
@@ -57,9 +57,9 @@ public class Behavior_d105a1fc_df96_09e0_aa60_e93eb56a4982 : ITriggerBehavior
 
     public static string GetUid()
     {
-        Uid = "d105a1fc_df96_09e0_aa60_e93eb56a4982";
+        // SET_UID
+        Uid = "8f281303_8e33_92a3_989f_928d91576374";
 
-        // SET_UID_HERE
         return Uid;
     }
 
@@ -137,7 +137,7 @@ if (gestureInfo.Active && gestureInfo.Confidence > 90)
 {
 result.HumanId = gestureInfo.HumanId;
 result.HumanInLoop = true;
-return true;
+result.Active = true;
 }
 
         }
@@ -184,10 +184,7 @@ return true;
         if (!InitActionsComplete)
         {
             // INIT_BLOCK
-              var var_be3e4671_25da_2ae9_a20e_17f8eddd4dc8= new BehaviorInfo{BehaviorName = "greet"};
-
-  BehaviorModuleHelper.Execute(context, var_be3e4671_25da_2ae9_a20e_17f8eddd4dc8);
-
+            
             InitActionsComplete = true;
         }
         return InitActionsComplete;
@@ -198,9 +195,9 @@ return true;
         if (!CyclicActionsComplete && InitActionsComplete)
         {
             // CYCLIC_BLOCK
-              var var_bce5f762_c843_4abb_8ff3_8534c4a8e247= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("text", true, "string")}}};
+              var var_88f8162e_51fb_4aac_ace9_ffe1189f3627= new BehaviorInfo{BehaviorName = "wish"};
 
-  BehaviorModuleHelper.Execute(context, var_bce5f762_c843_4abb_8ff3_8534c4a8e247);
+  BehaviorModuleHelper.Execute(context, var_88f8162e_51fb_4aac_ace9_ffe1189f3627);
 
         }
         return CyclicActionsComplete;
@@ -211,10 +208,7 @@ return true;
         if (!ExitActionsComplete && CyclicActionsComplete)
         {
             // EXIT_BLOCK
-              var var_4b3252c9_6018_dfbb_a829_b9503b8ec9f9= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("text", true, "string")}}};
-
-  BehaviorModuleHelper.Execute(context, var_4b3252c9_6018_dfbb_a829_b9503b8ec9f9);
-
+            
             ExitActionsComplete = true;
         }
         return ExitActionsComplete;

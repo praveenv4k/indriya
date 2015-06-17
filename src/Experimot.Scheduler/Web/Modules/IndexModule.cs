@@ -268,6 +268,36 @@ namespace Experimot.Scheduler.Web.Modules
                 return (Response)HttpStatusCode.NotModified;
             };
 
+            Post["/designer/program/startcs"] = parameters =>
+            {
+                Log.InfoFormat("POST  : {0}", Request.Url);
+                if (Request.Body != null)
+                {
+                    using (var reader = new StreamReader(Request.Body))
+                    {
+                        string result = reader.ReadToEnd();
+                        var config = TinyIoCContainer.Current.Resolve<experimot_config>();
+                        var outputPath = ParameterUtil.Get(config.parameters, "MainProgramFolder", "");
+                        if (!string.IsNullOrEmpty(outputPath))
+                        {
+                            File.WriteAllText(
+                                Path.Combine(Environment.ExpandEnvironmentVariables(outputPath), "GeneratedProgram.csx"), result);
+
+                            var bootStrapper = TinyIoCContainer.Current.Resolve<BootStrapper>();
+                            var context = TinyIoCContainer.Current.Resolve<Context>();
+                            if (bootStrapper != null && !string.IsNullOrEmpty(result) && context != null)
+                            {
+                                context.PrepareForNewProgram();
+                                bootStrapper.MainProgramExecutionRequest(ExecutionRequest.Start);
+                                return (Response)HttpStatusCode.OK;
+                            }
+                        }
+                        Log.InfoFormat("Body  : {0}", result);
+                    }
+                }
+                return (Response)HttpStatusCode.NotModified;
+            };
+
             Post["/designer/program/save"] = parameters =>
             {
                 Log.InfoFormat("POST  : {0}", Request.Url);
@@ -314,6 +344,54 @@ namespace Experimot.Scheduler.Web.Modules
 
                 }
                 return (Response) HttpStatusCode.NotModified;
+            };
+
+            Post["/designer/program/savecs"] = parameters =>
+            {
+                Log.InfoFormat("POST  : {0}", Request.Url);
+                if (Request.Body != null)
+                {
+                    if (Request.Form != null)
+                    {
+                        Log.Info(Request.Form);
+                        var dynDict = Request.Form as DynamicDictionary;
+                        if (dynDict != null)
+                        {
+
+                            var name = string.Empty;
+                            if (dynDict.ContainsKey("name"))
+                            {
+                                name = dynDict["name"];
+                                Log.InfoFormat("Name  : {0}", name);
+                            }
+
+                            if (!string.IsNullOrEmpty(name) && dynDict.ContainsKey("value"))
+                            {
+                                if (!name.Contains(".xml"))
+                                {
+                                    name = string.Concat(name, ".xml");
+                                }
+
+                                var value = dynDict["value"];
+                                Log.InfoFormat("Value  : {0}", value);
+                                if (!string.IsNullOrEmpty(value))
+                                {
+                                    var programsFolder = Path.Combine(WebRoot, "data", "programs_cs");
+                                    if (Directory.Exists(programsFolder))
+                                    {
+                                        File.WriteAllText(Path.Combine(programsFolder, name), value);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    return (Response)HttpStatusCode.OK;
+                }
+                else
+                {
+
+                }
+                return (Response)HttpStatusCode.NotModified;
             };
 
             Post["/designer/program/stop"] = parameters =>
