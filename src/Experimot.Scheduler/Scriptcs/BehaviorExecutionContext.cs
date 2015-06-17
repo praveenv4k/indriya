@@ -34,7 +34,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
         if (info != null && !string.IsNullOrEmpty(info.BehaviorName))
         {
             var resp = GetContextJsonString(ContextServer, RecvTimeout, "behavior_modules");
-            Log.InfoFormat("Context: {1}, Behavior Modules  : {0}", resp, ContextServer);
+            //Log.InfoFormat("Context: {1}, Behavior Modules  : {0}", resp, ContextServer);
             if (!string.IsNullOrEmpty(resp))
             {
                 var modules = JArray.Parse(resp);
