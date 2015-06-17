@@ -6,40 +6,85 @@
       </block>
     </statement>
   </block>
-  <block type="behavior_composable" id="3" inline="false" x="238" y="38">
+  <block type="behavior_composable" id="27" inline="false" x="313" y="38">
     <field name="behavior_name">default</field>
-    <field name="priorities">LOW</field>
-    <field name="execution">ONCE</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
     <value name="trigger">
-      <block type="trigger" id="13">
+      <block type="trigger" id="31">
         <field name="MOTION_TRIGGER">Greet_Left</field>
       </block>
     </value>
     <statement name="INIT_DO">
-      <block type="robot_action" id="4">
+      <block type="robot_action" id="41">
         <field name="actions">greet</field>
       </block>
     </statement>
     <statement name="DO">
-      <block type="robot_action" id="5">
-        <field name="actions">greet</field>
-        <next>
-          <block type="animated_say_action" id="6">
-            <field name="SAY_TEXT">text</field>
-          </block>
-        </next>
+      <block type="animated_say_action" id="47">
+        <field name="SAY_TEXT">text</field>
       </block>
     </statement>
     <statement name="EXIT_DO">
-      <block type="robot_action" id="7">
+      <block type="animated_say_action" id="53">
+        <field name="SAY_TEXT">text</field>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_exit" id="15" x="88" y="138">
+    <statement name="DO">
+      <block type="robot_action" id="16">
         <field name="actions">greet</field>
       </block>
     </statement>
   </block>
-  <block type="behavior_exit" id="8" x="88" y="138">
+  <block type="behavior_composable" id="54" inline="false" x="63" y="313">
+    <field name="behavior_name">default</field>
+    <field name="priorities">normal</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="trigger" id="55">
+        <field name="MOTION_TRIGGER">Greet_Right</field>
+      </block>
+    </value>
+    <statement name="INIT_DO">
+      <block type="robot_action" id="56">
+        <field name="actions">crouch</field>
+      </block>
+    </statement>
     <statement name="DO">
-      <block type="robot_action" id="9">
-        <field name="actions">greet</field>
+      <block type="animated_say_action" id="57">
+        <field name="SAY_TEXT">text</field>
+      </block>
+    </statement>
+    <statement name="EXIT_DO">
+      <block type="animated_say_action" id="58">
+        <field name="SAY_TEXT">bye</field>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable" id="59" inline="false" x="538" y="313">
+    <field name="behavior_name">default</field>
+    <field name="priorities">high</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="voice_trigger" id="76">
+        <field name="VOICE_TRIGGER">Stop</field>
+      </block>
+    </value>
+    <statement name="INIT_DO">
+      <block type="animated_say_action" id="77">
+        <field name="SAY_TEXT">I will stop now!</field>
+      </block>
+    </statement>
+    <statement name="DO">
+      <block type="robot_action" id="78">
+        <field name="actions">crouch</field>
+      </block>
+    </statement>
+    <statement name="EXIT_DO">
+      <block type="animated_say_action" id="63">
+        <field name="SAY_TEXT">bye</field>
       </block>
     </statement>
   </block>
