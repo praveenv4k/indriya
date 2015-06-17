@@ -1,20 +1,16 @@
-using System;
-using NCalc;
-
-public class BehaviorTemplate: IBehaviorTemplate
+public class BehaviorTemplate: ITriggerBehavior
 {
     public string Name { get; set; }
-    public BehaviorExecutionPriority Priority { get; set; }
-    public BehaviorExecutionLifetime ExecutionLifetime { get; set; }
-    public string ExecutionEvalExpression { get; set; }
-    public string Trigger { get; set; }
+    public static BehaviorExecutionPriority Priority { get; set; }
+    public static BehaviorExecutionLifetime ExecutionLifetime { get; set; }
+    public static string ExecutionEvalExpression { get; set; }
     public int Id { get; set; }
-    public string Uid { get; set; }
+    public static string Uid { get; set; }
     private static bool _initActionsComplete;
     private static bool _cyclicActionsComplete;
     private static bool _exitActionsComplete;
     private static CheckTriggerDelegate _triggerDelegate;
-    private readonly CheckLifetimeDelegate _checkLifetimeDelegate;
+    private static CheckLifetimeDelegate _checkLifetimeDelegate;
 
     public BehaviorTemplate()
     {
@@ -103,35 +99,35 @@ public class BehaviorTemplate: IBehaviorTemplate
 
     public string ActiveResource { get; set; }
 
-    public bool InitActionsComplete
+    public static bool InitActionsComplete
     {
         get { return _initActionsComplete; }
         set { _initActionsComplete = value; }
     }
 
-    public bool CyclicActionsComplete
+    public static bool CyclicActionsComplete
     {
         get { return _cyclicActionsComplete; }
         set { _cyclicActionsComplete = value; }
     }
 
-    public bool ExitActionsComplete
+    public static bool ExitActionsComplete
     {
         get { return _exitActionsComplete; }
         set { _exitActionsComplete = value; }
     }
 
-    public bool ExecutionComplete
+    public static bool ExecutionComplete
     {
         get { return InitActionsComplete & CyclicActionsComplete & ExitActionsComplete; }
     }
 
-    public CheckTriggerDelegate TriggerDelegate
+    public static CheckTriggerDelegate TriggerDelegate
     {
         get { return _triggerDelegate; }
     }
 
-    public CheckLifetimeDelegate LifetimeDelegate
+    public static CheckLifetimeDelegate LifetimeDelegate
     {
         get { return _checkLifetimeDelegate; }
     }

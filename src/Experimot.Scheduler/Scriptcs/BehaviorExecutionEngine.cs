@@ -21,10 +21,10 @@ public class BehaviorExecutionEngine
 
     public static void DisplayLoadedTypes()
     {
-        var types = Assembly.GetAssembly(typeof (StartupBehavior)).GetTypes().ToList();
-        Log.InfoFormat(@"Loaded Types : {0}", string.Join("\n", types.Select(s => s.Name)));
+        //var types = Assembly.GetAssembly(typeof (StartupBehavior)).GetTypes().ToList();
+        //Log.InfoFormat(@"Loaded Types : {0}", string.Join("\n", types.Select(s => s.Name)));
 
-        types = Assembly.GetCallingAssembly().GetTypes().ToList();
+        var types = Assembly.GetCallingAssembly().GetTypes().ToList();
         Log.InfoFormat(@"Calling assembly Types : {0}", string.Join("\n", types.Select(s => s.Name)));
 
         types = Assembly.GetExecutingAssembly().GetTypes().ToList();

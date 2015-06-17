@@ -393,7 +393,7 @@ Blockly.CSharp['voice_trigger'] = function (block) {
     //var code = 'behavior.set_voice_trigger(\"' + trigger + '\");\n';
     var code = 'behavior.SetTrigger(' + '"VOICE", ' + '"' + trigger + '");\n';
 
-    var genCode = 'var gestureInfo = ctx.GetVoiceCommand(\"' + trigger + '\");\n' +
+    var genCode = 'var voiceCommand = ctx.GetVoiceCommand(\"' + trigger + '\");\n' +
         'if (voiceCommand.Active && voiceCommand.Confidence > 70)\n' +
         '{\n' +
         'return true;\n' +

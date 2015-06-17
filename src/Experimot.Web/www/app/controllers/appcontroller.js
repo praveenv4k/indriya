@@ -44,14 +44,14 @@
                 globalCh.vent.on("saveProgram", function(name) {
                     app.codeXmlDom = Blockly.Xml.workspaceToDom(app.workspace);
                     var xmlText = Blockly.Xml.domToPrettyText(app.codeXmlDom);
-                    app.code = Blockly.CSharp.workspaceToCode(app.workspace); // C# code generation
+                    app.code = _this.generateCSharpCode(); // C# code generation
                     var csFile = name.replace('xml', 'cs');
                     $.post("/designer/program/save", { "name": name, "value": xmlText }, function(data) {
                         console.log("Program save successful: " + name);
                         var pgmName = $("#program-name").empty();
                         pgmName.append(name);
                     });
-                    $.post("/designer/program/save", { "name": csFile, "value": app.code }, function (data) {
+                    $.post("/designer/program/save", { "name": csFile, "value": app.code }, function(data) {
                         console.log("CS Program save successful: " + name);
                     });
                 });
@@ -134,7 +134,7 @@
                 app.humanPollError = false;
             },
 
-            initSkeletonPoller: function () {
+            initSkeletonPoller: function() {
                 if (!app.initSkeletonPoller) {
                     var _this = this;
                     var globalCh = Backbone.Wreqr.radio.channel('global');
@@ -179,13 +179,34 @@
             setJointVals: function(jointModel) {
                 if (jointModel != undefined && app.kinematics != undefined) {
                     for (var i = 0; i < 25; i++) {
-                        app.kinematics.setJointValue(i, this.degrees(jointModel.get(i)),false);
+                        app.kinematics.setJointValue(i, this.degrees(jointModel.get(i)), false);
                     }
                 }
             },
 
             degrees: function(radians) {
-                return radians * 180 / Math.PI;        
+                return radians * 180 / Math.PI;
+            },
+
+            getFileAjax: function(url) {
+                return $.ajax({
+                    type: "GET",
+                    url: url,
+                    cache: false,
+                    async: false
+                }).responseText;
+            },
+
+            replaceAllInstances: function(find, replace, str) {
+                return str.replace(new RegExp(find, 'g'), replace);
+            },
+
+            generateCSharpCode: function() {
+                var code = Blockly.CSharp.workspaceToCode(app.workspace);
+                var template = this.getFileAjax('data/templates/Namespaces.cs');
+
+                var newCode = this.replaceAllInstances('// MAIN_PROGRAM_HERE', code, template);
+                return newCode;
             },
 
             index: function() {
@@ -280,7 +301,7 @@
                         if ($(this).text() === "RUN") {
                             var programEmpty = _this.checkProgramEmpty();
                             if (programEmpty === false) {
-                                app.code = Blockly.CSharp.workspaceToCode(app.workspace); // C# code generation
+                                app.code = _this.generateCSharpCode(); // C# code generation
                                 //$.post("/designer/program/start", app.code, function (data) {
                                 //    console.log("Program Sent & Started: " + data);
                                 //});
@@ -326,7 +347,7 @@
                             var programEmpty = _this.checkProgramEmpty();
                             if (programEmpty === false) {
                                 //app.code = Blockly.Python.workspaceToCode(app.workspace);
-                                app.code = Blockly.CSharp.workspaceToCode(app.workspace); // C# code generation
+                                app.code = _this.generateCSharpCode(); // C# code generation
                                 $.post("/designer/program/code", app.code, function(data) {
                                     console.log("Sent Program: " + data);
                                 });
@@ -406,7 +427,7 @@
                         }
                     })
                     .click(function () {
-                        app.code = Blockly.CSharp.workspaceToCode(app.workspace); // C# code generation
+                        app.code = _this.generateCSharpCode(); // C# code generation
                         console.log(app.code);
 
                         //var blocks = app.workspace.getAllBlocks();
