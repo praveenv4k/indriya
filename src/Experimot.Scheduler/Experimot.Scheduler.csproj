@@ -190,6 +190,7 @@
     <Compile Include="Scriptcs\BehaviorExecutionEngine.cs" />
     <Compile Include="Scriptcs\BehaviorExecutionTask.cs" />
     <Compile Include="Scriptcs\BehaviorInfo.cs" />
+    <Compile Include="Scriptcs\NamespacesTemplate.cs" />
     <Compile Include="Scriptcs\BehaviorTemplate.cs" />
     <Compile Include="Scriptcs\ExitBehaviorTemplate.cs" />
     <Compile Include="Scriptcs\IBehaviorExecutionContext.cs" />
@@ -308,7 +309,8 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /i/f/s/y $(SolutionDir)src\experimot_robot_interface\*.py %25DEV_SDK_ROOT%25\experimot\scripts\experimot_robot_interface\
-xcopy /i/f/s/y $(SolutionDir)src\Experimot.Scheduler\Scriptcs\*.cs* %25DEV_SDK_ROOT%25\experimot\bin\Scriptcs\*.csx</PostBuildEvent>
+xcopy /i/f/s/y $(SolutionDir)src\Experimot.Scheduler\Scriptcs\*.cs* %25DEV_SDK_ROOT%25\experimot\bin\Scriptcs\*.csx
+xcopy /i/f/s/y $(SolutionDir)src\Experimot.Scheduler\Scriptcs\*Template.cs* %25WEB_ROOT%25\data\templates\*.cs</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\..\packages\cef.redist.x86.3.2171.2069\build\cef.redist.x86.targets" Condition="Exists('..\..\packages\cef.redist.x86.3.2171.2069\build\cef.redist.x86.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
