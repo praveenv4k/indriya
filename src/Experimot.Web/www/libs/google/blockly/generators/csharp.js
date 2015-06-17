@@ -70,14 +70,14 @@ Blockly.CSharp.init = function(workspace) {
     variables = Blockly.Variables.allIntVariables(workspace);
     console.log(variables);
     for (var x = 0; x < variables.length; x++) {
-        defvars[x] = 'double ' +
+        defvars[x] = 'static double ' +
             Blockly.CSharp.variableDB_.getName(variables[x],
             Blockly.Variables.NAME_TYPE) + ';';
     }
     variables = Blockly.Variables.allStrVariables(workspace);
     console.log(variables);
     for (var x = 0; x < variables.length; x++) {
-        defvars[x] = 'string ' +
+        defvars[x] = 'static string ' +
             Blockly.CSharp.variableDB_.getName(variables[x],
             Blockly.Variables.NAME_TYPE) + ';';
     }
