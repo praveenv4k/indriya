@@ -1,14 +1,19 @@
+// ReSharper disable RedundantUsingDirective
+using System;
+using System.Collections.Generic;
+
+// Main Behavior Program
 
 using System;
 using NetMQ.zmq;
 
-public class BehaviorTemplate : ITriggerBehavior
+public class Behavior_c8e88a19_2926_69cf_aac1_28ccf5f4a3e7 : ITriggerBehavior
 {
     public string Name { get; set; }
 
     protected static BehaviorExecutionPriority Priority;
 
-    public BehaviorTemplate()
+    public Behavior_c8e88a19_2926_69cf_aac1_28ccf5f4a3e7()
     {
         GetPriority();
         GetExecutionLifetime();
@@ -18,7 +23,8 @@ public class BehaviorTemplate : ITriggerBehavior
     public static BehaviorExecutionPriority GetPriority()
     {
         // SET_PRIORITY
-        // SET_PRIORITY_HERE
+        Priority = BehaviorExecutionPriority.low;
+
         return Priority;
     }
 
@@ -27,7 +33,8 @@ public class BehaviorTemplate : ITriggerBehavior
     public static BehaviorExecutionLifetime GetExecutionLifetime()
     {
         // SET_EXECUTION_LIFETIME
-        // SET_EXECUTION_LIFETIME_HERE
+        ExecutionLifetime = BehaviorExecutionLifetime.forever;
+
         return ExecutionLifetime;
     }
 
@@ -38,7 +45,8 @@ public class BehaviorTemplate : ITriggerBehavior
     public static string GetUid()
     {
         // SET_UID
-        // SET_UID_HERE
+        Uid = "c8e88a19_2926_69cf_aac1_28ccf5f4a3e7";
+
         return Uid;
     }
 
@@ -51,7 +59,15 @@ public class BehaviorTemplate : ITriggerBehavior
         var result = new TriggerResult {Active = false};
         if (ctx != null)
         {
-            // SET_TRIGGER_HERE
+            var gestureInfo = ctx.GetGestureInfo("Greet_Left");
+if (gestureInfo.Active && gestureInfo.Confidence > 90)
+{
+Console.WriteLine("Gesture trigger received : {0} - {1}", gestureInfo.Name, gestureInfo.Confidence);
+result.HumanId = gestureInfo.HumanId;
+result.HumanInLoop = true;
+result.Active = true;
+}
+
         }
         return result;
     }
@@ -122,7 +138,7 @@ public class BehaviorTemplate : ITriggerBehavior
         if (!InitActionsComplete)
         {
             // INIT_BLOCK
-            // INIT_BLOCK_HERE
+            
             InitActionsComplete = true;
         }
         return InitActionsComplete;
@@ -133,7 +149,32 @@ public class BehaviorTemplate : ITriggerBehavior
         if (!CyclicActionsComplete && InitActionsComplete)
         {
             // CYCLIC_BLOCK
-            // CYCLIC_BLOCK_HERE
+              while (true)
+  {
+  var var_c8659342_f278_26c9_88aa_d54833694066 = context.GetVoiceCommand();
+  if (var_c8659342_f278_26c9_88aa_d54833694066.Active && var_c8659342_f278_26c9_88aa_d54833694066.Confidence > 0)
+  {
+  string var_0738b8eb_ce10_1fbb_a5e0_ee0d8d13e176 = var_c8659342_f278_26c9_88aa_d54833694066.Name;
+  string var_7a215e57_402e_ff4c_a028_307b9cc7eb0a = "YES";
+  string var_2cd3bdf7_5826_7d48_89b2_3709ba11ac59 = "NO";
+  if (String.Compare(var_7a215e57_402e_ff4c_a028_307b9cc7eb0a, var_0738b8eb_ce10_1fbb_a5e0_ee0d8d13e176, StringComparison.OrdinalIgnoreCase)==0)
+  {
+    var var_92435315_0109_873c_8b79_b38559bf68a2= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("You said yes!", true, "string")}}};
+
+    BehaviorModuleHelper.Execute(context, var_92435315_0109_873c_8b79_b38559bf68a2);
+
+  break;
+  }
+  if (String.Compare(var_2cd3bdf7_5826_7d48_89b2_3709ba11ac59, var_0738b8eb_ce10_1fbb_a5e0_ee0d8d13e176, StringComparison.OrdinalIgnoreCase)==0)
+  {
+    var var_e9a2ce61_3f98_346b_92b7_6efc57e990bb= new BehaviorInfo{BehaviorName = "Say Expressively",Parameters = new Dictionary<string, object>{{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("You said no!", true, "string")}}};
+
+    BehaviorModuleHelper.Execute(context, var_e9a2ce61_3f98_346b_92b7_6efc57e990bb);
+
+  break;
+  }
+  }
+  }
 
             if (ExecutionLifetime == BehaviorExecutionLifetime.once)
             {
@@ -153,7 +194,7 @@ public class BehaviorTemplate : ITriggerBehavior
         if (!ExitActionsComplete && CyclicActionsComplete)
         {
             // EXIT_BLOCK
-            // EXIT_BLOCK_HERE
+            
             ExitActionsComplete = true;
         }
         return ExitActionsComplete;

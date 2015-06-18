@@ -1,0 +1,29 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_composable" id="1" inline="false" x="63" y="63">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="trigger" id="8">
+        <field name="MOTION_TRIGGER">Greet_Left</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="wait_voice_response" id="2">
+        <field name="CHOICE1">YES</field>
+        <field name="CHOICE2">NO</field>
+        <statement name="DO_CHOICE1">
+          <block type="animated_say_action" id="3">
+            <field name="SAY_TEXT">You said yes!</field>
+          </block>
+        </statement>
+        <statement name="DO_CHOICE2">
+          <block type="animated_say_action" id="4">
+            <field name="SAY_TEXT">You said no!</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

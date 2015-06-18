@@ -961,17 +961,18 @@ Blockly.Blocks['priority'] = {
 Blockly.Blocks['wait_voice_response'] = {
     init: function () {
         this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
-        this.setColour(290);
+        this.setColour(195);
         this.appendDummyInput()
-            .appendField("Wait for voice response: ");
-        this.appendValueInput("CHOICE1")
-            .setCheck("String")
-            .appendField("Choice 1");
-        this.appendValueInput("CHOICE2")
-            .setCheck("String")
-            .appendField("Choice 2");
+            .appendField("Wait Voice response");
+        this.appendStatementInput("DO_CHOICE1")
+            .appendField("Choice 1: ")
+            .appendField(new Blockly.FieldTextInput("YES"), "CHOICE1");
+        this.appendStatementInput("DO_CHOICE2")
+            .appendField("Choice 2: ")
+            .appendField(new Blockly.FieldTextInput("NO"), "CHOICE2");
         this.setInputsInline(true);
-        this.setOutput(true, "String");
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
         this.setTooltip('');
     }
 };

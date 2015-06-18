@@ -1,25 +1,23 @@
 ﻿// ReSharper disable RedundantUsingDirective
 using System;
 using System.Collections.Generic;
-using NCalc;
 
 // Main Behavior Program
 
 using System;
-using NCalc;
+using NetMQ.zmq;
 
-public class Behavior_a9740d35_5bcb_37d2_b258_868b50d0b01b : ITriggerBehavior
+public class Behavior_20883956_6d3d_d340_a8d8_376167488600 : ITriggerBehavior
 {
     public string Name { get; set; }
 
     protected static BehaviorExecutionPriority Priority;
 
-    public Behavior_a9740d35_5bcb_37d2_b258_868b50d0b01b()
+    public Behavior_20883956_6d3d_d340_a8d8_376167488600()
     {
         GetPriority();
         GetExecutionLifetime();
         GetUid();
-        GetExecutionEvalExpression();
     }
 
     public static BehaviorExecutionPriority GetPriority()
@@ -40,15 +38,6 @@ public class Behavior_a9740d35_5bcb_37d2_b258_868b50d0b01b : ITriggerBehavior
         return ExecutionLifetime;
     }
 
-    protected static string ExecutionEvalExpression { get; set; }
-
-    public static string GetExecutionEvalExpression()
-    {
-        // SET_EXEC_EVAL
-        // SET_EXEC_EVAL_HERE
-        return ExecutionEvalExpression;
-    }
-
     public int Id { get; set; }
 
     protected static string Uid;
@@ -56,7 +45,7 @@ public class Behavior_a9740d35_5bcb_37d2_b258_868b50d0b01b : ITriggerBehavior
     public static string GetUid()
     {
         // SET_UID
-        Uid = "a9740d35_5bcb_37d2_b258_868b50d0b01b";
+        Uid = "20883956_6d3d_d340_a8d8_376167488600";
 
         return Uid;
     }
@@ -65,79 +54,24 @@ public class Behavior_a9740d35_5bcb_37d2_b258_868b50d0b01b : ITriggerBehavior
     private static bool _cyclicActionsComplete;
     private static bool _exitActionsComplete;
 
-    //private void SampleTriggerSetting()
-    //{
-    //    // Gesture trigger
-    //    _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
-    //    {
-    //        result = new TriggerResult();
-    //        if (ctx != null)
-    //        {
-    //            var gestureInfo = ctx.GetGestureInfo("");
-    //            if (gestureInfo.Active && gestureInfo.Confidence > 90)
-    //            {
-    //                result.HumanId = gestureInfo.HumanId;
-    //                result.HumanInLoop = true;
-    //                return true;
-    //            }
-    //        }
-    //        return false;
-    //    };
-
-    //    // Voice Trigger
-    //    _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
-    //    {
-    //        result = new TriggerResult();
-    //        if (ctx != null)
-    //        {
-    //            var voiceCommand = ctx.GetVoiceCommand("");
-    //            if (voiceCommand.Active && voiceCommand.Confidence > 70)
-    //            {
-    //                return true;
-    //            }
-    //        }
-    //        return false;
-    //    };
-    //}
-
-    //public static bool CheckExecution(IBehaviorExecutionContext context)
-    //{
-    //    if (ExecutionLifetime == BehaviorExecutionLifetime.forever)
-    //    {
-    //    }
-    //    else if (ExecutionLifetime == BehaviorExecutionLifetime.once)
-    //    {
-    //        if (ExecutionComplete)
-    //        {
-    //            return false;
-    //        }
-    //    }
-    //    else if (ExecutionLifetime == BehaviorExecutionLifetime.until && !string.IsNullOrEmpty(ExecutionEvalExpression))
-    //    {
-    //        var expression = new Expression(ExecutionEvalExpression);
-    //        var result = expression.Evaluate();
-    //        bool complete;
-    //        if (bool.TryParse(result.ToString(), out complete))
-    //        {
-    //            return !complete;
-    //        }
-    //    }
-    //    return true;
-    //}
-
     public static TriggerResult CheckTrigger(IBehaviorExecutionContext ctx)
     {
         var result = new TriggerResult { Active = false };
         if (ctx != null)
         {
-            var voiceCommand = ctx.GetVoiceCommand("Stop");
-            if (voiceCommand.Active && voiceCommand.Confidence > 70)
-            {
-                result.Active = true;
-            }
 
         }
         return result;
+    }
+
+    public bool ExecutionUntil(IBehaviorExecutionContext ctx)
+    {
+        if (ctx != null)
+        {
+            // EXECUTE_UNTIL
+            // EXECUTE_UNTIL_HERE
+        }
+        return true;
     }
 
     public string ActiveResource { get; set; }
@@ -165,6 +99,32 @@ public class Behavior_a9740d35_5bcb_37d2_b258_868b50d0b01b : ITriggerBehavior
         get { return InitActionsComplete & CyclicActionsComplete & ExitActionsComplete; }
     }
 
+    //public static void VoiceChoices(IBehaviorExecutionContext context)
+    //{
+    //    if (context != null)
+    //    {
+    //        while (true)
+    //        {
+    //            var voiceChoicesResponse = context.GetVoiceCommand();
+    //            if (voiceChoicesResponse.Active && voiceChoicesResponse.Confidence > 0)
+    //            {
+    //                string dummyVar1;
+    //                string dummyVar2;
+    //                if (String.Compare(dummyVar1, voiceChoicesResponse.Name, StringComparison.OrdinalIgnoreCase))
+    //                {
+    //                    // DO_CHOICE1_HERE
+    //                    break;
+    //                }
+    //                if (String.Compare(dummyVar2, voiceChoicesResponse.Name, StringComparison.OrdinalIgnoreCase))
+    //                {
+    //                    // DO_CHOICE2_HERE
+    //                    break;
+    //                }
+    //            }
+    //        }
+    //    }
+    //}
+
     public bool ExecuteInit(IBehaviorExecutionContext context)
     {
         if (!InitActionsComplete)
@@ -181,25 +141,70 @@ public class Behavior_a9740d35_5bcb_37d2_b258_868b50d0b01b : ITriggerBehavior
         if (!CyclicActionsComplete && InitActionsComplete)
         {
             // CYCLIC_BLOCK
-            var var_a994e930_3b29_3d3d_8bd4_d1ea3508f88f = new BehaviorInfo { BehaviorName = "Say Expressively", Parameters = new Dictionary<string, object> { { "msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Stop command received! I will stop now!", true, "string") } } };
+            while (true)
+            {
+                var var_fea8a8d8_9880_a1f2_abe1_d59380d60f13 = context.GetVoiceCommand();
+                if (var_fea8a8d8_9880_a1f2_abe1_d59380d60f13.Active &&
+                    var_fea8a8d8_9880_a1f2_abe1_d59380d60f13.Confidence > 0)
+                {
+                    string var_69cee829_8c79_7027_be42_1aadb31fccf8 = var_fea8a8d8_9880_a1f2_abe1_d59380d60f13.Name;
+                    string var_98c4457c_0681_d379_99e0_dea541d5bb87 = "YES";
+                    string var_1b3b1847_4ec5_2093_81fc_912e3b185169 = "NO";
+                    if (
+                        String.Compare(var_98c4457c_0681_d379_99e0_dea541d5bb87,
+                            var_69cee829_8c79_7027_be42_1aadb31fccf8, StringComparison.OrdinalIgnoreCase) == 0)
+                    {
+                        var var_69cd4db0_4a88_4352_a165_9e17b4555f68 = new BehaviorInfo
+                        {
+                            BehaviorName = "Say Expressively",
+                            Parameters =
+                                new Dictionary<string, object>
+                                {
+                                    {
+                                        "msg",
+                                        BehaviorModuleHelper.CreateBehaviorParameterOptions("You said yes!", true,
+                                            "string")
+                                    }
+                                }
+                        };
 
-            BehaviorModuleHelper.Execute(context, var_a994e930_3b29_3d3d_8bd4_d1ea3508f88f);
+                        BehaviorModuleHelper.Execute(context, var_69cd4db0_4a88_4352_a165_9e17b4555f68);
 
+                        break;
+                    }
+                    if (
+                        String.Compare(var_1b3b1847_4ec5_2093_81fc_912e3b185169,
+                            var_69cee829_8c79_7027_be42_1aadb31fccf8, StringComparison.OrdinalIgnoreCase) == 0)
+                    {
+                        var var_0aef8516_5f5a_783a_ad61_669a6ff5dcd4 = new BehaviorInfo
+                        {
+                            BehaviorName = "Say Expressively",
+                            Parameters =
+                                new Dictionary<string, object>
+                                {
+                                    {
+                                        "msg",
+                                        BehaviorModuleHelper.CreateBehaviorParameterOptions("You said no!", true,
+                                            "string")
+                                    }
+                                }
+                        };
+
+                        BehaviorModuleHelper.Execute(context, var_0aef8516_5f5a_783a_ad61_669a6ff5dcd4);
+
+                        break;
+                    }
+                }
+            }
 
             if (ExecutionLifetime == BehaviorExecutionLifetime.once)
             {
                 CyclicActionsComplete = true;
             }
-            else if (ExecutionLifetime == BehaviorExecutionLifetime.until &&
-                     !string.IsNullOrEmpty(ExecutionEvalExpression))
+            else if (ExecutionLifetime == BehaviorExecutionLifetime.until)
             {
-                var expression = new Expression(ExecutionEvalExpression);
-                var result = expression.Evaluate();
-                bool complete;
-                if (bool.TryParse(result.ToString(), out complete))
-                {
-                }
-                CyclicActionsComplete = complete;
+                var complete = ExecutionUntil(context);
+                CyclicActionsComplete = !complete;
             }
         }
         return CyclicActionsComplete;
@@ -221,7 +226,7 @@ public class Behavior_a9740d35_5bcb_37d2_b258_868b50d0b01b : ITriggerBehavior
         ExecuteInit(context);
         ExecuteCyclic(context);
         ExecuteExit(context);
-        Console.WriteLine(@"Lifetime: {3} Init : {0}, Cyclic: {1}, Exit: {2}", InitActionsComplete,
+        System.Console.WriteLine(@"Lifetime: {3} Init : {0}, Cyclic: {1}, Exit: {2}", InitActionsComplete,
             CyclicActionsComplete,
             ExitActionsComplete, ExecutionLifetime);
         return ExecutionComplete;

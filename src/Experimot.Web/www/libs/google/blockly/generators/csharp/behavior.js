@@ -422,15 +422,37 @@ Blockly.CSharp['voice_trigger2'] = function (block) {
     return [genCode, Blockly.CSharp.ORDER_ATOMIC];
 };
 
-Blockly.CSharp['wait_voice_response'] = function (block) {
-    //executeLogic = Blockly.CSharp.valueToCode(this, 'RUN_UNTIL', Blockly.CSharp.ORDER_ATOMIC);
-    var valueChoice1 = Blockly.CSharp.valueToCode(block, 'CHOICE1', Blockly.CSharp.ORDER_ATOMIC);
-    var valueChoice2 = Blockly.CSharp.valueToCode(block, 'CHOICE2', Blockly.CSharp.ORDER_ATOMIC);
-
-    var code = 'SpeechRecognitionModule.WaitForVoiceResponse(new[] {' + valueChoice1 + ',' + valueChoice2 + '}; );';
-
-    //return [code, Blockly.CSharp.ORDER_NONE];
-    return [code, Blockly.CSharp.ORDER_ATOMIC];
+Blockly.CSharp['wait_voice_response'] = function(block) {
+    var statements_do_choice1 = Blockly.CSharp.statementToCode(block, 'DO_CHOICE1');
+    var statements_do_choice2 = Blockly.CSharp.statementToCode(block, 'DO_CHOICE2');
+    var text_choice2 = block.getFieldValue('CHOICE2');
+    var text_choice1 = block.getFieldValue('CHOICE1');
+    var code = [];
+    var varName = generateUniqueVarName();
+    var commandVarName = generateUniqueVarName();
+    var choice1VarName = generateUniqueVarName();
+    var choice2VarName = generateUniqueVarName();
+    code.push('while (true)');
+    code.push('{');
+    code.push('var ' + varName + ' = context.GetVoiceCommand();');
+    code.push('if (' + varName + '.Active && ' + varName + '.Confidence > 0)');
+    code.push('{');
+    code.push('string ' + commandVarName + ' = ' + varName + '.Name;');
+    code.push('string ' + choice1VarName + ' = \"' + text_choice1 + '\";');
+    code.push('string ' + choice2VarName + ' = \"' + text_choice2 + '\";');
+    code.push('if (String.Compare(' + choice1VarName + ', ' + commandVarName + ', StringComparison.OrdinalIgnoreCase)==0)');
+    code.push('{');
+    code.push(statements_do_choice1);
+    code.push('break;');
+    code.push('}');
+    code.push('if (String.Compare(' + choice2VarName + ', ' + commandVarName + ', StringComparison.OrdinalIgnoreCase)==0)');
+    code.push('{');
+    code.push(statements_do_choice2);
+    code.push('break;');
+    code.push('}');
+    code.push('}');
+    code.push('}');
+    return code.join('\n');
 };
 
 Blockly.CSharp['priority'] = function (block) {

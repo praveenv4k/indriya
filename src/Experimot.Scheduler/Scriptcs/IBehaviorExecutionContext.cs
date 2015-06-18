@@ -9,4 +9,5 @@ public interface IBehaviorExecutionContext
     void SyncExecuteBehavior(BehaviorInfo behaviorInfo);
     GestureInfo GetGestureInfo(string gestureName);
     VoiceCommandInfo GetVoiceCommand(string voiceCommand);
+    VoiceCommandInfo GetVoiceCommand();
 }
