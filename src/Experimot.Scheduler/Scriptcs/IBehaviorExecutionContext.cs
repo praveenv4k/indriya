@@ -7,6 +7,7 @@ public interface IBehaviorExecutionContext
     bool CheckHumanProximity(double threshold, out int id);
     void UpdateBehaviorResponderInfo(BehaviorInfo info);
     void SyncExecuteBehavior(BehaviorInfo behaviorInfo);
+    bool RefreshApproachParameters(BehaviorInfo behaviorInfo, TriggerResult trigger);
     GestureInfo GetGestureInfo(string gestureName);
     VoiceCommandInfo GetVoiceCommand(string voiceCommand);
     VoiceCommandInfo GetVoiceCommand();

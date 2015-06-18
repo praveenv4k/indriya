@@ -337,9 +337,14 @@ Blockly.CSharp['approach_action'] = function(block) {
         '};\n';
 
     var genCode = behavior1 + '\n';
-    genCode += 'BehaviorModuleHelper.Execute(context, ' + newVarName1 + ');\n';
+    genCode += 'if (context.RefreshApproachParameters(' + newVarName1 + ', trigger)) {\n' +
+                        'BehaviorModuleHelper.Execute(context, ' + newVarName1 + ');\n' +
+                '}\n';
     genCode += behavior2 + '\n';
-    genCode += 'BehaviorModuleHelper.Execute(context, ' + newVarName2 + ');\n';
+    genCode += 'if (context.RefreshApproachParameters(' + newVarName2 + ', trigger)) {\n' +
+                        'BehaviorModuleHelper.Execute(context, ' + newVarName2 + ');\n' +
+                '}\n';
+
     return genCode;
 };
 
@@ -366,16 +371,16 @@ Blockly.CSharp['trigger'] = function (block) {
     var code = 'behavior.SetTrigger(' + '""MOTION"", ' + '""' + trigger + '"");\n';
 
     // Structure
-//    TriggerDelegate = delegate(IBehaviorExecutionContext ctx)
+//    TriggerDelegate = delegate(IBehaviorExecutionContext context)
 //    {
-//            if (ctx != null)
+//            if (context != null)
 //    {
 //        // SET_TRIGGER_HERE
 //    }
 //    return false;
 //      };
 
-    var genCode = 'var gestureInfo = ctx.GetGestureInfo(\"' + trigger + '\");\n' +
+    var genCode = 'var gestureInfo = context.GetGestureInfo(\"' + trigger + '\");\n' +
         'if (gestureInfo.Active && gestureInfo.Confidence > 90)\n' +
         '{\n' +
         'Console.WriteLine("Gesture trigger received : {0} - {1}", gestureInfo.Name, gestureInfo.Confidence);\n' +
@@ -391,7 +396,7 @@ Blockly.CSharp['voice_trigger'] = function (block) {
     //var code = 'behavior.set_voice_trigger(\"' + trigger + '\");\n';
     var code = 'behavior.SetTrigger(' + '"VOICE", ' + '"' + trigger + '");\n';
 
-    var genCode = 'var voiceCommand = ctx.GetVoiceCommand(\"' + trigger + '\");\n' +
+    var genCode = 'var voiceCommand = context.GetVoiceCommand(\"' + trigger + '\");\n' +
         'if (voiceCommand.Active && voiceCommand.Confidence > 80)\n' +
         '{\n' +
         'Console.WriteLine("Voice trigger received : {0} - {1}", voiceCommand.Name, voiceCommand.Confidence);\n' +
@@ -405,7 +410,7 @@ Blockly.CSharp['voice_trigger2'] = function (block) {
     //var code = 'set_voice_trigger(\"' + trigger + '\");\n';
     var code = 'behavior.SetTrigger(' + '"VOICE", ' + '"' + trigger + '");\n';
 
-    var genCode = 'var gestureInfo = ctx.GetVoiceCommand(\"' + trigger + '\");\n' +
+    var genCode = 'var gestureInfo = context.GetVoiceCommand(\"' + trigger + '\");\n' +
         'if (voiceCommand.Active && voiceCommand.Confidence > 80)\n' +
         '{\n' +
         'Console.WriteLine("Voice trigger received : {0} - {1}", voiceCommand.Name, voiceCommand.Confidence);\n' +

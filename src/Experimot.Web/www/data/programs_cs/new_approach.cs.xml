@@ -1,11 +1,17 @@
+// ReSharper disable RedundantUsingDirective
+using System;
+using System.Collections.Generic;
+
+// Main Behavior Program
+
 // ReSharper disable CheckNamespace
-public class BehaviorTemplate : ITriggerBehavior
+public class Behavior_ee9e5695_82bb_212b_bc52_a0aa524941f8 : ITriggerBehavior
 {
     public string Name { get; set; }
 
     protected static BehaviorExecutionPriority Priority;
 
-    public BehaviorTemplate()
+    public Behavior_ee9e5695_82bb_212b_bc52_a0aa524941f8()
     {
         GetPriority();
         GetExecutionLifetime();
@@ -15,7 +21,8 @@ public class BehaviorTemplate : ITriggerBehavior
     public static BehaviorExecutionPriority GetPriority()
     {
         // SET_PRIORITY
-        // SET_PRIORITY_HERE
+        Priority = BehaviorExecutionPriority.low;
+
         return Priority;
     }
 
@@ -24,7 +31,8 @@ public class BehaviorTemplate : ITriggerBehavior
     public static BehaviorExecutionLifetime GetExecutionLifetime()
     {
         // SET_EXECUTION_LIFETIME
-        // SET_EXECUTION_LIFETIME_HERE
+        ExecutionLifetime = BehaviorExecutionLifetime.forever;
+
         return ExecutionLifetime;
     }
 
@@ -35,7 +43,8 @@ public class BehaviorTemplate : ITriggerBehavior
     public static string GetUid()
     {
         // SET_UID
-        // SET_UID_HERE
+        Uid = "ee9e5695_82bb_212b_bc52_a0aa524941f8";
+
         return Uid;
     }
 
@@ -48,7 +57,15 @@ public class BehaviorTemplate : ITriggerBehavior
         var result = new TriggerResult {Active = false};
         if (context != null)
         {
-            // SET_TRIGGER_HERE
+            var gestureInfo = context.GetGestureInfo("Greet_Left");
+if (gestureInfo.Active && gestureInfo.Confidence > 90)
+{
+Console.WriteLine("Gesture trigger received : {0} - {1}", gestureInfo.Name, gestureInfo.Confidence);
+result.HumanId = gestureInfo.HumanId;
+result.HumanInLoop = true;
+result.Active = true;
+}
+
         }
         return result;
     }
@@ -93,7 +110,7 @@ public class BehaviorTemplate : ITriggerBehavior
         if (!InitActionsComplete)
         {
             // INIT_BLOCK
-            // INIT_BLOCK_HERE
+            
             InitActionsComplete = true;
         }
         return InitActionsComplete;
@@ -104,7 +121,17 @@ public class BehaviorTemplate : ITriggerBehavior
         if (!CyclicActionsComplete && InitActionsComplete)
         {
             // CYCLIC_BLOCK
-            // CYCLIC_BLOCK_HERE
+              var var_7b0be6a6_7718_8295_bb12_c1505fbe7fa1= new BehaviorInfo{BehaviorName = "Move To",Parameters = new Dictionary<string, object>{{"translation", BehaviorModuleHelper.CreateBehaviorParameterOptions("0", false, "float")},{"rotation", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},{"human", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},{"dist", BehaviorModuleHelper.CreateBehaviorParameterOptions(2.00, false, "float")},{"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")},{"y", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")},{"theta", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")}}};
+
+  if (context.RefreshApproachParameters(var_7b0be6a6_7718_8295_bb12_c1505fbe7fa1, trigger)) {
+  BehaviorModuleHelper.Execute(context, var_7b0be6a6_7718_8295_bb12_c1505fbe7fa1);
+  }
+  var var_7713eb17_09b1_6797_89ee_4a16071410ea= new BehaviorInfo{BehaviorName = "Move To",Parameters = new Dictionary<string, object>{{"translation", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},{"rotation", BehaviorModuleHelper.CreateBehaviorParameterOptions("0", false, "float")},{"human", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},{"dist", BehaviorModuleHelper.CreateBehaviorParameterOptions(2.00, false, "float")},{"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(2.00, true, "float")},{"y", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")},{"theta", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")}}};
+
+  if (context.RefreshApproachParameters(var_7713eb17_09b1_6797_89ee_4a16071410ea, trigger)) {
+  BehaviorModuleHelper.Execute(context, var_7713eb17_09b1_6797_89ee_4a16071410ea);
+  }
+
             
             if (ExecutionLifetime == BehaviorExecutionLifetime.once)
             {
@@ -124,7 +151,7 @@ public class BehaviorTemplate : ITriggerBehavior
         if (!ExitActionsComplete && CyclicActionsComplete)
         {
             // EXIT_BLOCK
-            // EXIT_BLOCK_HERE
+            
             ExitActionsComplete = true;
         }
         return ExitActionsComplete;

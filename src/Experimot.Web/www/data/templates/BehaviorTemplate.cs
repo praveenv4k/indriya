@@ -43,19 +43,19 @@ public class BehaviorTemplate : ITriggerBehavior
     private static bool _cyclicActionsComplete;
     private static bool _exitActionsComplete;
 
-    public static TriggerResult CheckTrigger(IBehaviorExecutionContext ctx)
+    public static TriggerResult CheckTrigger(IBehaviorExecutionContext context)
     {
         var result = new TriggerResult {Active = false};
-        if (ctx != null)
+        if (context != null)
         {
             // SET_TRIGGER_HERE
         }
         return result;
     }
 
-    public bool ExecutionUntil(IBehaviorExecutionContext ctx)
+    public bool ExecutionUntil(IBehaviorExecutionContext context)
     {
-        if (ctx != null)
+        if (context != null)
         {
             // EXECUTE_UNTIL
             // EXECUTE_UNTIL_HERE
@@ -105,7 +105,7 @@ public class BehaviorTemplate : ITriggerBehavior
         {
             // CYCLIC_BLOCK
             // CYCLIC_BLOCK_HERE
-
+            
             if (ExecutionLifetime == BehaviorExecutionLifetime.once)
             {
                 CyclicActionsComplete = true;
