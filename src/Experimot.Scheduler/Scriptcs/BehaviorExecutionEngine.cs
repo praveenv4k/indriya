@@ -201,7 +201,7 @@ public class BehaviorExecutionEngine
                                         .Build();
                                     detail.JobDataMap.Add("BehaviorType", type);
                                     detail.JobDataMap.Add("ExecutionContext", Context);
-
+                                    detail.JobDataMap.Add("TriggerResult", result);
                                     ITrigger trigger = TriggerBuilder.Create().ForJob(detail).StartNow().Build();
                                     Scheduler.ScheduleJob(detail, trigger);
                                     Console.WriteLine(@"New job about to be scheduled Job : {0}, Module : {1}",

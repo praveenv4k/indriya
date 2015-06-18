@@ -1,9 +1,10 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Common.Logging;
 using NetMQ;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Quartz.Util;
 using SharpDX;
 
 // ReSharper disable once CheckNamespace
@@ -330,6 +331,277 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
             }
         }
         return ret;
+    }
+
+    public bool RefreshApproachParameters(BehaviorInfo behaviorInfo, TriggerResult trigger)
+    {
+        bool ret = false;
+        if (behaviorInfo != null && trigger != null && trigger.HumanInLoop)
+        {
+            if (behaviorInfo.BehaviorName == "Move To")
+            {
+                var humanDict =
+                    behaviorInfo.Parameters.TryGetAndReturn("human") as Dictionary<string, object>;
+                var rotDict =
+                    behaviorInfo.Parameters.TryGetAndReturn("rotation") as Dictionary<string, object>;
+                var transDict =
+                    behaviorInfo.Parameters.TryGetAndReturn("translation") as Dictionary<string, object>;
+                var distDict =
+                    behaviorInfo.Parameters.TryGetAndReturn("dist") as Dictionary<string, object>;
+                float isHuman, isRotation, isTranslation;
+                float.TryParse(humanDict.TryGetAndReturn("value").ToString(), out isHuman);
+                float.TryParse(transDict.TryGetAndReturn("value").ToString(), out isTranslation);
+                float.TryParse(rotDict.TryGetAndReturn("value").ToString(), out isRotation);
+
+                // Get Robot String
+                var robotString = GetContextJsonString(ContextServer, RecvTimeout, "robot");
+
+                // Get World String
+                var worldFrame = GetContextJsonString(ContextServer, RecvTimeout, "world_frame");
+
+
+                var humanInfo = GetContextJsonString(ContextServer, RecvTimeout,
+                    string.Format("human/{0}", trigger.HumanId));
+                if (isHuman > 0 && isRotation > 0)
+                {
+
+                    Matrix3x3 robotRot;
+                    Matrix3x3 worldRot;
+                    Matrix3x3 humanRot;
+
+                    Quaternion robotQ;
+                    Quaternion worldQ;
+                    Quaternion humanQ;
+
+                    Vector3 robotTrans;
+                    Vector3 worldTrans;
+                    Vector3 humanTrans;
+
+                    // Get the transformation from the JSON strings
+                    GetHumanPoseFromJson(humanInfo, out humanTrans, out humanRot, out humanQ);
+                    GetLocalizationFromRobotJson(robotString, out robotTrans, out robotRot,
+                        out robotQ);
+                    GetWorldFrameMatrix(worldFrame, out worldTrans, out worldRot, out worldQ);
+
+                    var humanMat = GetMatrixFromPose(humanQ,
+                        new Vector3(0, 0, 0));
+                    var worldMat = GetMatrixFromPose(worldQ,
+                        new Vector3(0, 0, 0));
+                    var robotMat = GetMatrixFromPose(robotQ,
+                        new Vector3(0, 0, 0));
+
+                    worldMat.Invert();
+                    var hWorld = worldMat*humanMat;
+                    var hRobot = worldMat*robotMat;
+
+                    var hWorldQ = Quaternion.RotationMatrix(hWorld);
+                    var rWorldQ = Quaternion.RotationMatrix(hRobot);
+
+                    var hWorldYaw = GetHeading(hWorldQ);
+                    var rWorldYaw = GetHeading(rWorldQ);
+
+                    // Compute the displacement of Robot and Human wrt to world frame
+                    worldRot.Invert();
+
+                    var hDisp =
+                        new Vector3(Vector3.Dot(worldRot.Column1, humanTrans),
+                            Vector3.Dot(worldRot.Column2, humanTrans),
+                            Vector3.Dot(worldRot.Column3, humanTrans)) -
+                        new Vector3(Vector3.Dot(worldRot.Column1, worldTrans),
+                            Vector3.Dot(worldRot.Column2, worldTrans),
+                            Vector3.Dot(worldRot.Column3, worldTrans));
+
+                    var rDisp =
+                        new Vector3(Vector3.Dot(worldRot.Column1, robotTrans),
+                            Vector3.Dot(worldRot.Column2, robotTrans),
+                            Vector3.Dot(worldRot.Column3, robotTrans)) -
+                        new Vector3(Vector3.Dot(worldRot.Column1, worldTrans),
+                            Vector3.Dot(worldRot.Column2, worldTrans),
+                            Vector3.Dot(worldRot.Column3, worldTrans));
+
+                    // We get the unit vector from Robot pointing towards human
+                    var toHumanVec = new Vector2(hDisp.X, hDisp.Y) -
+                                     new Vector2(rDisp.X, rDisp.Y);
+                    toHumanVec.Normalize();
+                    // Next we would like to align the X-Axis of the robot with that of this unit vector
+                    var yUnit = Vector2.UnitY;
+                    var xUnit = Vector2.UnitX;
+                    // Now we find the angle of rotation needed to do this alignment
+                    //var angle = Math.Acos(Vector2.Dot(toHumanVec, yUnit));
+                    var angle = GetRelativeAngle(xUnit, toHumanVec);
+                    if (rWorldYaw > 0)
+                        angle += rWorldYaw;
+                    else
+                        angle -= rWorldYaw;
+                    // Update the values of X,Y,Theta
+                    var xDict = behaviorInfo.Parameters.TryGetAndReturn("x") as
+                        Dictionary<string, object>;
+                    var yDict =
+                        behaviorInfo.Parameters.TryGetAndReturn("y") as
+                            Dictionary<string, object>;
+                    var thetaDict =
+                        behaviorInfo.Parameters.TryGetAndReturn("theta") as
+                            Dictionary<string, object>;
+
+                    Log.InfoFormat("Move To Rotation Angle : {0}",
+                        MathUtil.RadiansToDegrees((float) angle));
+
+                    if (xDict != null)
+                    {
+                        xDict["value"] = 0.0f;
+                    }
+                    if (yDict != null)
+                    {
+                        yDict["value"] = 0.0f;
+                    }
+                    if (thetaDict != null)
+                    {
+                        thetaDict["value"] = angle;
+                    }
+                    ret = true;
+                }
+                else if (isHuman > 0 && isTranslation > 0)
+                {
+                    Matrix3x3 robotRot;
+                    Matrix3x3 worldRot;
+                    Matrix3x3 humanRot;
+
+                    Quaternion robotQ;
+                    Quaternion worldQ;
+                    Quaternion humanQ;
+
+                    Vector3 robotTrans;
+                    Vector3 worldTrans;
+                    Vector3 humanTrans;
+
+                    // Get the transformation from the JSON strings
+                    GetHumanPoseFromJson(humanInfo, out humanTrans, out humanRot, out humanQ);
+                    GetLocalizationFromRobotJson(robotString, out robotTrans, out robotRot,
+                        out robotQ);
+                    GetWorldFrameMatrix(worldFrame, out worldTrans, out worldRot, out worldQ);
+
+                    var humanMat = GetMatrixFromPose(humanQ,
+                        new Vector3(0, 0, 0));
+                    var worldMat = GetMatrixFromPose(worldQ,
+                        new Vector3(0, 0, 0));
+                    var robotMat = GetMatrixFromPose(robotQ,
+                        new Vector3(0, 0, 0));
+
+                    worldMat.Invert();
+                    var hWorld = worldMat*humanMat;
+                    var hRobot = worldMat*robotMat;
+
+                    var hWorldQ = Quaternion.RotationMatrix(hWorld);
+                    var rWorldQ = Quaternion.RotationMatrix(hRobot);
+
+                    var hWorldYaw = GetHeading(hWorldQ);
+                    var rWorldYaw = GetHeading(rWorldQ);
+
+                    // Compute the displacement of Robot and Human wrt to world frame
+                    worldRot.Invert();
+
+                    var hDisp =
+                        new Vector3(Vector3.Dot(worldRot.Column1, humanTrans),
+                            Vector3.Dot(worldRot.Column2, humanTrans),
+                            Vector3.Dot(worldRot.Column3, humanTrans)) -
+                        new Vector3(Vector3.Dot(worldRot.Column1, worldTrans),
+                            Vector3.Dot(worldRot.Column2, worldTrans),
+                            Vector3.Dot(worldRot.Column3, worldTrans));
+
+                    var rDisp =
+                        new Vector3(Vector3.Dot(worldRot.Column1, robotTrans),
+                            Vector3.Dot(worldRot.Column2, robotTrans),
+                            Vector3.Dot(worldRot.Column3, robotTrans)) -
+                        new Vector3(Vector3.Dot(worldRot.Column1, worldTrans),
+                            Vector3.Dot(worldRot.Column2, worldTrans),
+                            Vector3.Dot(worldRot.Column3, worldTrans));
+
+                    // We get the unit vector from Robot pointing towards human
+                    var toHumanVec = new Vector2(hDisp.X, hDisp.Y) -
+                                     new Vector2(rDisp.X, rDisp.Y);
+                    var distance = toHumanVec.Length();
+                    var threshold = distance;
+                    if (distDict != null)
+                    {
+                        float.TryParse(humanDict.TryGetAndReturn("value").ToString(),
+                            out threshold);
+                    }
+
+                    var residual = 0.0f;
+                    if (distance > threshold)
+                    {
+                        residual = distance - threshold;
+                    }
+
+                    // Unit Vector
+                    toHumanVec.Normalize();
+                    //var residualVector = toHumanVec*residual;
+                    var residualVector = Vector2.UnitX*residual;
+
+                    // Update the values of X,Y,Theta
+                    var xDict = behaviorInfo.Parameters.TryGetAndReturn("x") as
+                        Dictionary<string, object>;
+                    var yDict =
+                        behaviorInfo.Parameters.TryGetAndReturn("y") as
+                            Dictionary<string, object>;
+                    var thetaDict =
+                        behaviorInfo.Parameters.TryGetAndReturn("theta") as
+                            Dictionary<string, object>;
+
+                    Log.InfoFormat("Move To X : {0}, Y:{1}", residualVector.X, residualVector.Y);
+
+                    if (xDict != null)
+                    {
+                        xDict["value"] = 0.75*residualVector.X;
+                    }
+                    if (yDict != null)
+                    {
+                        yDict["value"] = 0.75*residualVector.Y;
+                    }
+                    if (thetaDict != null)
+                    {
+                        thetaDict["value"] = 0.0f;
+                    }
+                    ret = true;
+                }
+            }
+        }
+        return ret;
+    }
+
+    public static Matrix GetMatrixFromPose(Quaternion q, Vector3 t)
+    {
+        Matrix m = Matrix.RotationQuaternion(q);
+        m.TranslationVector = t;
+        return m;
+    }
+
+    public static float GetHeading(Quaternion q)
+    {
+        //var yaw = Math.Atan2(2.0*(q.Y*q.Z + q.W*q.X),
+        //    q.W*q.W - q.X*q.X - q.Y*q.Y + q.Z*q.Z);
+        var yaw = Math.Atan2(2.0 * (q.Y * q.W - q.X * q.Z),
+            1 - 2 * q.Y * q.Y - 2 * q.Z * q.Z);
+        return (float)yaw;
+    }
+
+    public static double GetRelativeAngle(Vector2 v1, Vector2 v2)
+    {
+        // Note : http://www.euclideanspace.com/maths/algebra/vectors/angleBetween/issues/index.htm
+        // It is useful to keep in mind that:
+        // 1. We can always add or subtract 360° (or in radians 2π) to any angle without changing the angle it represents 
+        //    (because after 360° we get back to where we started ). 
+        //    In most implementations atan2 will return a value between +π and -π but if we want a value between 0 and 2π then we could add 2π to negative values.
+        // 2. If atan2 returns a value between +π and -π then 
+        //    atan2(v2.y,v2.x) - atan2(v1.y,v1.x)
+        //    could return a value between +2π and -2π so if it is above +π we might want to subtract 2π and if it is below -π we might want to add 2π.
+        // 3. If we are facing in direction 1 and we want to rotate to face in direction 2 we could rotate clockwise or anti-clockwise. 
+        //    So a rotation of pi/2 in the clockwise direction is the same as in the anti-clockwise direction 3pi/4. 
+        //    So we need to be clear if we always want to rotate in a clockwise direction or if we want to rotate clockwise or anti-clockwise depending on which is the smaller angle.
+        var angle = Math.Atan2(v2.Y, v2.X) - Math.Atan2(v1.Y, v1.X);
+        if (angle > Math.PI) angle -= Math.PI * 2;
+        if (angle < -Math.PI) angle += Math.PI * 2;
+        return angle;
     }
 
     public static void GetWorldFrameMatrix(string worldFrameJson, out Vector3 translation, out Matrix3x3 rotation, out Quaternion q)

@@ -83,12 +83,6 @@ Blockly.CSharp['behavior_simple'] = function(block) {
     code += '}\n';
     code += '}\n';
 
-    //var template = getURL('data/templates/BehaviorTemplate.txt');
-    //console.log(template);
-    //$.get('data/templates/BehaviorTemplate.txt', function (data) {
-    //    console.log(data); //will alert the template code
-    //});
-
     return code;
 };
 
@@ -207,8 +201,6 @@ Blockly.CSharp['behavior_exit'] = function (block) {
     code += '}\n';
 
     var template = getURL('data/templates/ExitBehaviorTemplate.cs');
-    //console.log(template);
-
 
     var replaced = template.replace('// EXIT_BLOCK_HERE', statementsDo);
     var replaced2 = replaced.replace('ExitBehaviorTemplate', 'ExitBehavior');

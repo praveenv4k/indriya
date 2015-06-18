@@ -13,6 +13,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Quartz.Util;
 using SharpDX;
+// ReSharper disable FunctionComplexityOverflow
 
 namespace Experimot.Scheduler.Tests
 {
@@ -147,19 +148,6 @@ namespace Experimot.Scheduler.Tests
                 var dict = new Dictionary<string, string> {{"Greet_Left", "wave"}};
                 ProgramGenerator.GeneratePrograms(dict, outputPath);
             }
-        }
-
-        public static void ComposableBehaviorTest()
-        {
-            var behavior = ComposableBehavior.Create(@"default");
-            behavior.SetTrigger("VOICE", "Red");
-            behavior.SetPriority(@"LOW");
-            // Init Block
-            behavior.RegisterInitBlock(@"  animated_say(""text"");");
-            // Cyclic Block
-            behavior.RegisterCyclicBlock(@"while(EvaluateExecution(""ONCE"")){animated_say(""text"");}");
-            // Exit Block
-            behavior.RegisterExitBlock(@"  animated_say(""text"");");
         }
 
         public static void TestSharpDxMatrixRotation()
