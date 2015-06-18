@@ -2,6 +2,24 @@
   <rule id="rootRule">
     <one-of>
       <item>
+        <tag>YES</tag>
+        <one-of>
+          <item> yes </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>NO</tag>
+        <one-of>
+          <item> no </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>STOP</tag>
+        <one-of>
+          <item> stop </item>
+        </one-of>
+      </item>
+      <item>
         <tag>WHITE</tag>
         <one-of>
           <item> whites </item>

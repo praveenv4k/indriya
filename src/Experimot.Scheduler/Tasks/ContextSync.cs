@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Windows;
 using Common.Logging;
 using Experimot.Core;
+using Experimot.Core.Util;
 using Experimot.Scheduler.Data;
 using Nancy.TinyIoc;
 using NetMQ;
@@ -32,6 +33,7 @@ namespace Experimot.Scheduler.Tasks
 
         private readonly IDictionary<string, DelegateInfo> _delegateDict;
         private bool _disposed;
+        private readonly int _interval=100;
 
         public ContextSync()
         {
@@ -41,7 +43,7 @@ namespace Experimot.Scheduler.Tasks
             _publishers = new List<socket>();
             _delegateDict = new Dictionary<string, DelegateInfo>();
 
-
+            _interval = ParameterUtil.Get(config.parameters, "ContextSyncInterval", _interval);
             var msgTypes = GetMessageTypes(MessageNamespace);
 
             var subDict = new Dictionary<string, socket>();
@@ -111,6 +113,11 @@ namespace Experimot.Scheduler.Tasks
                 }
             }
             InitZmq();
+        }
+
+        public int Interval
+        {
+            get { return _interval; }
         }
 
         private void InitZmq()

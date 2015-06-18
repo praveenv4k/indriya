@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='voice.proto',
   package='experimot.msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x0bvoice.proto\x12\x0e\x65xperimot.msgs\x1a\x0bparam.proto\"`\n\x17VoiceCommandDescription\x12\x0f\n\x07\x63ommand\x18\x01 \x02(\t\x12\x0e\n\x06\x61\x63tive\x18\x02 \x01(\x08\x12\x12\n\nconfidence\x18\x03 \x01(\x05\x12\x10\n\x08language\x18\x04 \x01(\t\"\x88\x01\n\x16VoiceRecognitionModule\x12\x0c\n\x04name\x18\x01 \x02(\t\x12%\n\x06params\x18\x02 \x03(\x0b\x32\x15.experimot.msgs.Param\x12\x39\n\x08\x63ommands\x18\x03 \x03(\x0b\x32\'.experimot.msgs.VoiceCommandDescription\"R\n\x17VoiceRecognitionModules\x12\x37\n\x07modules\x18\x01 \x03(\x0b\x32&.experimot.msgs.VoiceRecognitionModule')
+  serialized_pb=_b('\n\x0bvoice.proto\x12\x0e\x65xperimot.msgs\x1a\x0bparam.proto\"u\n\x17VoiceCommandDescription\x12\x0f\n\x07\x63ommand\x18\x01 \x02(\t\x12\x0e\n\x06\x61\x63tive\x18\x02 \x01(\x08\x12\x12\n\nconfidence\x18\x03 \x01(\x05\x12\x10\n\x08language\x18\x04 \x01(\t\x12\x13\n\x0btriggeredAt\x18\x05 \x01(\t\"\x88\x01\n\x16VoiceRecognitionModule\x12\x0c\n\x04name\x18\x01 \x02(\t\x12%\n\x06params\x18\x02 \x03(\x0b\x32\x15.experimot.msgs.Param\x12\x39\n\x08\x63ommands\x18\x03 \x03(\x0b\x32\'.experimot.msgs.VoiceCommandDescription\"R\n\x17VoiceRecognitionModules\x12\x37\n\x07modules\x18\x01 \x03(\x0b\x32&.experimot.msgs.VoiceRecognitionModule')
   ,
   dependencies=[param__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -63,6 +63,13 @@ _VOICECOMMANDDESCRIPTION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='triggeredAt', full_name='experimot.msgs.VoiceCommandDescription.triggeredAt', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -76,7 +83,7 @@ _VOICECOMMANDDESCRIPTION = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=44,
-  serialized_end=140,
+  serialized_end=161,
 )
 
 
@@ -120,8 +127,8 @@ _VOICERECOGNITIONMODULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=143,
-  serialized_end=279,
+  serialized_start=164,
+  serialized_end=300,
 )
 
 
@@ -151,8 +158,8 @@ _VOICERECOGNITIONMODULES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=281,
-  serialized_end=363,
+  serialized_start=302,
+  serialized_end=384,
 )
 
 _VOICERECOGNITIONMODULE.fields_by_name['params'].message_type = param__pb2._PARAM

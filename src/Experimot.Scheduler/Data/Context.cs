@@ -157,24 +157,11 @@ namespace Experimot.Scheduler.Data
             {
                 if (VoiceCommandManager != null)
                 {
-                    VoiceCommandManager.Update(new VoiceCommand
-                    {
-                        Active = command.active,
-                        Command = command.command,
-                        Confidence = command.confidence,
-                        Language = command.language
-                    });
+                    //Log.InfoFormat("Updating the voice commands");
+                    VoiceCommandManager.Update(command);
                 }
             }
         }
-
-        //public void Update(ParamList list)
-        //{
-        //    if (list != null)
-        //    {
-        //        Console.WriteLine(string.Join(",", list.param.Select(s => s.value).ToList()));
-        //    }
-        //}
 
         public void Update(KinectBodies kinectBodies)
         {

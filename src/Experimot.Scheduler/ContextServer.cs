@@ -34,10 +34,17 @@ namespace Experimot.Scheduler
         private const string UnknownRequest = @"Unknown request. Support request : ";
 
         private bool _startup;
+        private readonly int _interval = 40;
 
         public ContextServer()
         {
             _config = TinyIoCContainer.Current.Resolve<experimot_config>();
+            _interval = ParameterUtil.Get(_config.parameters, "ContextServerInterval", _interval);
+        }
+
+        public int Interval
+        {
+            get { return _interval; }
         }
 
         public void Start()

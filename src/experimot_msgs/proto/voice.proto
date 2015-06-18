@@ -15,6 +15,7 @@ message VoiceCommandDescription
 	optional bool active = 2;			/// Active status of gesture
 	optional int32 confidence = 3;		/// Gesture recognition confidence
 	optional string language = 4;		/// Language
+	optional string triggeredAt = 5;	/// Triggered DateTime in string format ("yyyy/MM/dd HH:mm:ss.fff")
 }
 
 /**

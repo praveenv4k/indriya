@@ -148,6 +148,18 @@ class VoiceCommandDescription : public ::google::protobuf::Message {
   ::std::string* release_language();
   void set_allocated_language(::std::string* language);
 
+  // optional string triggeredAt = 5;
+  bool has_triggeredat() const;
+  void clear_triggeredat();
+  static const int kTriggeredAtFieldNumber = 5;
+  const ::std::string& triggeredat() const;
+  void set_triggeredat(const ::std::string& value);
+  void set_triggeredat(const char* value);
+  void set_triggeredat(const char* value, size_t size);
+  ::std::string* mutable_triggeredat();
+  ::std::string* release_triggeredat();
+  void set_allocated_triggeredat(::std::string* triggeredat);
+
   // @@protoc_insertion_point(class_scope:experimot.msgs.VoiceCommandDescription)
  private:
   inline void set_has_command();
@@ -158,6 +170,8 @@ class VoiceCommandDescription : public ::google::protobuf::Message {
   inline void clear_has_confidence();
   inline void set_has_language();
   inline void clear_has_language();
+  inline void set_has_triggeredat();
+  inline void clear_has_triggeredat();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
@@ -166,6 +180,7 @@ class VoiceCommandDescription : public ::google::protobuf::Message {
   bool active_;
   ::google::protobuf::int32 confidence_;
   ::google::protobuf::internal::ArenaStringPtr language_;
+  ::google::protobuf::internal::ArenaStringPtr triggeredat_;
   friend void  protobuf_AddDesc_voice_2eproto();
   friend void protobuf_AssignDesc_voice_2eproto();
   friend void protobuf_ShutdownFile_voice_2eproto();
@@ -545,6 +560,59 @@ inline void VoiceCommandDescription::set_allocated_language(::std::string* langu
   }
   language_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), language);
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.VoiceCommandDescription.language)
+}
+
+// optional string triggeredAt = 5;
+inline bool VoiceCommandDescription::has_triggeredat() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void VoiceCommandDescription::set_has_triggeredat() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void VoiceCommandDescription::clear_has_triggeredat() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void VoiceCommandDescription::clear_triggeredat() {
+  triggeredat_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_triggeredat();
+}
+inline const ::std::string& VoiceCommandDescription::triggeredat() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.VoiceCommandDescription.triggeredAt)
+  return triggeredat_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void VoiceCommandDescription::set_triggeredat(const ::std::string& value) {
+  set_has_triggeredat();
+  triggeredat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:experimot.msgs.VoiceCommandDescription.triggeredAt)
+}
+inline void VoiceCommandDescription::set_triggeredat(const char* value) {
+  set_has_triggeredat();
+  triggeredat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:experimot.msgs.VoiceCommandDescription.triggeredAt)
+}
+inline void VoiceCommandDescription::set_triggeredat(const char* value, size_t size) {
+  set_has_triggeredat();
+  triggeredat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.VoiceCommandDescription.triggeredAt)
+}
+inline ::std::string* VoiceCommandDescription::mutable_triggeredat() {
+  set_has_triggeredat();
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.VoiceCommandDescription.triggeredAt)
+  return triggeredat_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* VoiceCommandDescription::release_triggeredat() {
+  clear_has_triggeredat();
+  return triggeredat_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void VoiceCommandDescription::set_allocated_triggeredat(::std::string* triggeredat) {
+  if (triggeredat != NULL) {
+    set_has_triggeredat();
+  } else {
+    clear_has_triggeredat();
+  }
+  triggeredat_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), triggeredat);
+  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.VoiceCommandDescription.triggeredAt)
 }
 
 // -------------------------------------------------------------------

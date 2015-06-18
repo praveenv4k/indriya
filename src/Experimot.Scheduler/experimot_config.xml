@@ -8,19 +8,21 @@
     <param key="ParameterServerHost" value="tcp://*" type="string"/>
     <param key="ParameterClientHost" value="tcp://localhost" type="string"/>
     <param key="ParameterServerPort" value="5560" type="int"/>
-    <param key="ParameterServerInterval" value="10" type="int"/>
+    <param key="ParameterServerInterval" value="40" type="int"/>
     <param key="WebServerEnabled" value="true" type="bool"/>
     <param key="WebServerPort" value="8888" type="int"/>
     <param key="WebServerHost" value="http://localhost" type="int"/>
     <param key="ROBOTIP" value="127.0.0.1" type="string"/>
     <param key="ROBOTPORT" value="57291" type="int"/>
     <param key="NaoBehaviorModule" value="nao_behavior_manager" type="string"/>
+    <param key="DateTimeFormatString" value="yyyy/MM/dd HH:mm:ss.fff" type="string"/>
     <!--<param key="ROBOTIP" value="192.168.11.3" type="string"/>
     <param key="ROBOTPORT" value="9559" type="int"/>-->
     <param key="ContextServerHost" value="tcp://*" type="string"/>
     <param key="ContextClientHost" value="tcp://localhost" type="string"/>
     <param key="ContextServerPort" value="5800" type="int"/>
-    <param key="ContextServerInterval" value="10" type="int"/>
+    <param key="ContextServerInterval" value="40" type="int"/>
+    <param key="ContextSyncInterval" value="80" type="int"/>
     <param key="MainProgramFilePath" value="%DEV_SDK_ROOT%\experimot\bin\scriptcs\main.csx" type="string"/>
     <param key="MainProgramFolder" value="%DEV_SDK_ROOT%\experimot\bin\scriptcs\" type="string"/>
     <!-- TODO Define Parameter for Periods of ContextServer, ContextSync, ParameterServer, GesturePeriod-->
@@ -78,7 +80,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="true" name="gesture_recognition">
+    <node enabled="false" name="gesture_recognition">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Perception\Experimot.Kinect.Perception.exe</path>
@@ -120,7 +122,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="false" name="speech_recognition">
+    <node enabled="true" name="speech_recognition">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Speech\Experimot.Kinect.Speech.exe</path>
@@ -131,8 +133,8 @@
         <param key="DegreesInRightAngle" type="int" value="90"/>
         <param key="DisplacementAmount" type="int" value="60"/>
         <param key="GrammarFileBase" type="string" value="SpeechGrammar"/>
-        <param key="Language" type="string" value="Japanese"/>
-        <param key="Culture" type="string" value="ja-JP"/>
+        <param key="Language" type="string" value="English"/>
+        <param key="Culture" type="string" value="en-US"/>
         <param key="FallbackLanguage" type="string" value="English"/>
         <param key="FallbackCulture" type="string" value="en-US"/>
       </parameters>
@@ -264,7 +266,7 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_relative_localize.py</args>
       </process>
     </node>
-    <node enabled="true" name="nao_behavior_manager">
+    <node enabled="false" name="nao_behavior_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>

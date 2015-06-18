@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using NetMQ;
 using ProtoBuf;
 
@@ -80,7 +81,7 @@ namespace Experimot.Core
             return false;
         }
 
-        private const int SendFrequency = 2;
+        protected int SendFrequency = 2;
         private int _sendCount;
         private readonly string _host;
 
@@ -104,6 +105,7 @@ namespace Experimot.Core
         {
             if (msg != null && _socket != null)
             {
+                //Console.WriteLine("Will publish msg type : {0}", typeof(T).Name);
                 if (force || IsValid(msg))
                 {
                     _socket.SendMore(_topic);
@@ -112,6 +114,7 @@ namespace Experimot.Core
                     {
                         Serializer.Serialize(ms, msg);
                         _socket.Send(ms.GetBuffer(), (int) ms.Length);
+                        //Console.WriteLine("Published msg type : {0}", typeof (T).Name);
                     }
                 }
             }

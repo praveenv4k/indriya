@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using Common.Logging;
 using experimot.msgs;
 using Experimot.Core.Util;
@@ -49,11 +50,15 @@ namespace Experimot.Kinect.Speech
         private readonly string _culture = "ja-JP";
         private readonly string _fallbackLanguage = "English";
         private readonly string _fallbackCulture = "en-US";
+        private readonly string _dateTimeFormatString = "yyyy/MM/dd HH:mm:ss.fff";
+        private SpeechCommand _speechCommand;
+        private Task _speechCommandTask;
 
         public KinectSpeechRecognition(Node node)
         {
             if (node != null)
             {
+                
                 //<param key="ConfidenceThreshold" type="double" value="0.60"/>
                 //<param key="DegreesInRightAngle" type="int" value="90"/>
                 //<param key="DisplacementAmount" type="int" value="60"/>
@@ -71,7 +76,7 @@ namespace Experimot.Kinect.Speech
                 _culture = ParameterUtil.Get(node.param, "Culture", _culture);
                 _fallbackLanguage = ParameterUtil.Get(node.param, "FallbackLanguage", _fallbackLanguage);
                 _fallbackCulture = ParameterUtil.Get(node.param, "FallbackCulture", _fallbackCulture);
-
+                _dateTimeFormatString = ParameterUtil.Get(node.param, "DateTimeFormatString", _dateTimeFormatString);
                 _grammarFile = string.Concat(_grammarFileBase, "_", _culture, ".xml");
 
                 if (node.publisher != null)
@@ -80,6 +85,7 @@ namespace Experimot.Kinect.Speech
                     if (vcp != null)
                     {
                         _voiceCommandPublisher = new VoiceCommandPublisher(vcp.host, vcp.port, vcp.topic);
+                        Console.WriteLine(@"Created Voice command publisher : {0}, {1}, {2}", vcp.host, vcp.port, vcp.topic);
                     }
                 }
             }
@@ -126,6 +132,8 @@ namespace Experimot.Kinect.Speech
                             var g = new Grammar(_grammarFile);
                             _speechEngine.LoadGrammar(g);
 
+                            Console.WriteLine("Loaded Grammar File : {0}", _grammarFile);
+
                             // Subscribe to events
                             _speechEngine.SpeechRecognized += SpeechRecognized;
                             _speechEngine.SpeechRecognitionRejected += SpeechRejected;
@@ -146,6 +154,10 @@ namespace Experimot.Kinect.Speech
                             {
                                 _voiceCommandPublisher.Initialize();
                             }
+
+                            _speechCommand = new SpeechCommand(_voiceCommandPublisher);
+                            _speechCommandTask = Task.Factory.StartNew(() => _speechCommand.Run(200));
+
                             Console.WriteLine("Started recognizing");
                         }
                     }
@@ -172,19 +184,40 @@ namespace Experimot.Kinect.Speech
                 Console.WriteLine(value);
                 if (_voiceCommandPublisher != null)
                 {
-                    _voiceCommandPublisher.Update(new VoiceCommandDescription
+                    Console.WriteLine("Publishing recognized voice command: {0}", e.Result.Confidence);
+                    //_voiceCommandPublisher.Update(new VoiceCommandDescription
+                    //{
+                    //    active = true,
+                    //    command = value,
+                    //    confidence = (int) (e.Result.Confidence*100),
+                    //    language = _language,
+                    //    triggeredAt = DateTime.Now.ToString(_dateTimeFormatString)
+                    //});
+                    if (_speechCommand != null)
                     {
-                        active = true,
-                        command = value,
-                        confidence = (int) (e.Result.Confidence*100),
-                        language = _language
-                    });
+                        _speechCommand.Update(new VoiceCommandDescription
+                        {
+                            active = true,
+                            command = value,
+                            confidence = (int) (e.Result.Confidence*100),
+                            language = _language,
+                            triggeredAt = DateTime.Now.ToString(_dateTimeFormatString)
+                        });
+                    }
                 }
             }
         }
 
         public void Terminate()
         {
+            if (_speechCommand != null)
+            {
+                _speechCommand.Stop = true;
+            }
+            if (_speechCommandTask != null)
+            {
+                _speechCommandTask.Wait();
+            }
             if (_voiceCommandPublisher != null)
             {
                 _voiceCommandPublisher.Terminate();

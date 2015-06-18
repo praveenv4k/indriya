@@ -20,7 +20,7 @@ namespace Experimot.Scheduler
         private static readonly ILog Log = LogManager.GetLogger(typeof (ParameterServer));
 
         private const int RecvTimeout = 50;
-
+        private readonly int _interval = 40;
         private bool _startup;
         private readonly Context _worldCtx;
 
@@ -28,6 +28,12 @@ namespace Experimot.Scheduler
         {
             _worldCtx = TinyIoCContainer.Current.Resolve<Context>();
             _config = TinyIoCContainer.Current.Resolve<experimot_config>();
+            _interval = ParameterUtil.Get(_config.parameters, "ParameterServerInterval", _interval);
+        }
+
+        public int Interval
+        {
+            get { return _interval; }
         }
 
         public void Start()
