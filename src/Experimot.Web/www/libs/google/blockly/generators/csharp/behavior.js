@@ -249,13 +249,13 @@ Blockly.CSharp['animated_say_action'] = function(block) {
 
     var newVarName = generateUniqueVarName();
     var behavior = 'var ' + newVarName +
-        '= new BehaviorInfo' +
-        '{' +
-        'BehaviorName = "Say Expressively",' +
-        'Parameters = new Dictionary<string, object>' +
-        '{' +
-        '{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions(\"' + sayMsg + '\", true, "string")}' +
-        '}' +
+        '= new BehaviorInfo\n' +
+        '{\n' +
+        'BehaviorName = "Say Expressively",\n' +
+        'Parameters = new Dictionary<string, object>\n' +
+        '{\n' +
+        '{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions(\"' + sayMsg + '\", true, "string")}\n' +
+        '}\n' +
         '};\n';
 
     var genCode = behavior + '\n';
@@ -278,14 +278,14 @@ Blockly.CSharp['animated_say_action_arg'] = function(block) {
     var msgText = generateUniqueVarName();
     var msg = 'var ' + msgText + '= string.Format(\"' + prefixMsg + ' {0} ' + suffixMsg + '\",' + argName + ');\n';
     var behavior = 'var ' + newVarName +
-        '= new BehaviorInfo' +
-        '{' +
-        'BehaviorName = "Say Expressively",' +
-        'Parameters = new Dictionary<string, object>' +
-        '{' +
-        '{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + msgText + ', true, "string")},' +
+        '= new BehaviorInfo\n' +
+        '{\n' +
+        'BehaviorName = "Say Expressively",\n' +
+        'Parameters = new Dictionary<string, object>\n' +
+        '{\n' +
+        '{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + msgText + ', true, "string")},\n' +
         //'{"arg", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + argName + ', true, "string")}' +
-        '}' +
+        '}\n' +
         '};\n';
 
     var genCode = msg;
@@ -304,36 +304,36 @@ Blockly.CSharp['approach_action'] = function(block) {
     // Pure rotation
     var newVarName1 = generateUniqueVarName();
     var behavior1 = 'var ' + newVarName1 +
-        '= new BehaviorInfo' +
-        '{' +
-        'BehaviorName = "Move To",' +
-        'Parameters = new Dictionary<string, object>' +
-        '{' +
-        '{"translation", BehaviorModuleHelper.CreateBehaviorParameterOptions("0", false, "float")},' +
-        '{"rotation", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},' +
-        '{"human", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},' +
-        '{"dist", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + distance + ', false, "float")},' +
-        '{"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")},' +
-        '{"y", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")},' +
-        '{"theta", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")}' +
-        '}' +
+        '= new BehaviorInfo\n' +
+        '{\n' +
+        'BehaviorName = "Move To",\n' +
+        'Parameters = new Dictionary<string, object>\n' +
+        '{\n' +
+        '{"translation", BehaviorModuleHelper.CreateBehaviorParameterOptions("0", false, "float")},\n' +
+        '{"rotation", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},\n' +
+        '{"human", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},\n' +
+        '{"dist", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + distance + ', false, "float")},\n' +
+        '{"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")},\n' +
+        '{"y", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")},\n' +
+        '{"theta", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")}\n' +
+        '}\n' +
         '};\n';
 
     var newVarName2 = generateUniqueVarName();
     var behavior2 = 'var ' + newVarName2 +
-        '= new BehaviorInfo' +
-        '{' +
-        'BehaviorName = "Move To",' +
-        'Parameters = new Dictionary<string, object>' +
-        '{' +
-        '{"translation", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},' +
-        '{"rotation", BehaviorModuleHelper.CreateBehaviorParameterOptions("0", false, "float")},' +
-        '{"human", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},' +
-        '{"dist", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + distance + ', false, "float")},' +
-        '{"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + distance + ', true, "float")},' +
-        '{"y", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")},' +
-        '{"theta", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")}' +
-        '}' +
+        '= new BehaviorInfo\n' +
+        '{\n' +
+        'BehaviorName = "Move To",\n' +
+        'Parameters = new Dictionary<string, object>\n' +
+        '{\n' +
+        '{"translation", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},\n' +
+        '{"rotation", BehaviorModuleHelper.CreateBehaviorParameterOptions("0", false, "float")},\n' +
+        '{"human", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},\n' +
+        '{"dist", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + distance + ', false, "float")},\n' +
+        '{"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + distance + ', true, "float")},\n' +
+        '{"y", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")},\n' +
+        '{"theta", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")}\n' +
+        '}\n' +
         '};\n';
 
     var genCode = behavior1 + '\n';
