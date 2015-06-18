@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -112,7 +113,7 @@ namespace Experimot.Scheduler
                     while (!_shouldStop)
                     {
                         server.Run();
-                        Thread.Sleep(40);
+                        Thread.Sleep(server.Interval);
                     }
                     server.Shutdown();
                 }
@@ -140,7 +141,7 @@ namespace Experimot.Scheduler
                     while (!_shouldStop)
                     {
                         server.Run();
-                        Thread.Sleep(40);
+                        Thread.Sleep(server.Interval);
                     }
                     server.Shutdown();
                 }
@@ -194,7 +195,7 @@ namespace Experimot.Scheduler
                     while (!_shouldStop)
                     {
                         sync.Update(100);
-                        Thread.Sleep(200);
+                        Thread.Sleep(sync.Interval);
                     }
                 }
                 Log.Info("Context sync Completed");

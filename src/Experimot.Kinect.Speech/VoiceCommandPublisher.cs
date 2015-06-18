@@ -12,11 +12,13 @@ namespace Experimot.Kinect.Speech
     {
         public VoiceCommandPublisher(string host, uint port, string topic) : base(host, port, topic)
         {
+            SendFrequency = 0;
         }
 
         public VoiceCommandPublisher()
             : this("tcp://*", 5593, "VRP")
         {
+            SendFrequency = 0;
         }
     }
 }

@@ -47,6 +47,14 @@ namespace experimot.msgs
       get { return _language; }
       set { _language = value; }
     }
+    private string _triggeredAt = "";
+    [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"triggeredAt", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue("")]
+    public string triggeredAt
+    {
+      get { return _triggeredAt; }
+      set { _triggeredAt = value; }
+    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }

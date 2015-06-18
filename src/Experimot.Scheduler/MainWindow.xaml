@@ -102,6 +102,14 @@
             </Expander>
             <Expander Header="Object Information" DataContext="{Binding Robot}" HorizontalAlignment="Stretch" IsExpanded="False">
             </Expander>
+            <Expander Header="Speech Recognition" DataContext="{Binding VoiceCommandManager}" HorizontalAlignment="Stretch" IsExpanded="False">
+                    <StackPanel DataContext="{Binding Current}">
+                        <TextBlock HorizontalAlignment="Stretch" Text="{Binding Command, StringFormat='Command - {0}'}"></TextBlock>
+                        <TextBlock HorizontalAlignment="Stretch" Text="{Binding Active, StringFormat='Active - {0}'}"></TextBlock>
+                        <TextBlock HorizontalAlignment="Stretch" Text="{Binding Confidence, StringFormat='Confidence - {0}'}"></TextBlock>
+                        <TextBlock HorizontalAlignment="Stretch" Text="{Binding Language, StringFormat='Language - {0}'}"></TextBlock>
+                    </StackPanel>
+                </Expander>
             <Expander Header="Motion Modules" HorizontalAlignment="Stretch" IsExpanded="False">
                 <ItemsControl ItemsSource="{Binding MotionModules}">
                     <ItemsControl.ItemTemplate>

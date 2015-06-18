@@ -41,11 +41,12 @@ void protobuf_AssignDesc_voice_2eproto() {
       "voice.proto");
   GOOGLE_CHECK(file != NULL);
   VoiceCommandDescription_descriptor_ = file->message_type(0);
-  static const int VoiceCommandDescription_offsets_[4] = {
+  static const int VoiceCommandDescription_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VoiceCommandDescription, command_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VoiceCommandDescription, active_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VoiceCommandDescription, confidence_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VoiceCommandDescription, language_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VoiceCommandDescription, triggeredat_),
   };
   VoiceCommandDescription_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -130,15 +131,15 @@ void protobuf_AddDesc_voice_2eproto() {
   ::experimot::msgs::protobuf_AddDesc_param_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\013voice.proto\022\016experimot.msgs\032\013param.pro"
-    "to\"`\n\027VoiceCommandDescription\022\017\n\007command"
+    "to\"u\n\027VoiceCommandDescription\022\017\n\007command"
     "\030\001 \002(\t\022\016\n\006active\030\002 \001(\010\022\022\n\nconfidence\030\003 \001"
-    "(\005\022\020\n\010language\030\004 \001(\t\"\210\001\n\026VoiceRecognitio"
-    "nModule\022\014\n\004name\030\001 \002(\t\022%\n\006params\030\002 \003(\0132\025."
-    "experimot.msgs.Param\0229\n\010commands\030\003 \003(\0132\'"
-    ".experimot.msgs.VoiceCommandDescription\""
-    "R\n\027VoiceRecognitionModules\0227\n\007modules\030\001 "
-    "\003(\0132&.experimot.msgs.VoiceRecognitionMod"
-    "ule", 363);
+    "(\005\022\020\n\010language\030\004 \001(\t\022\023\n\013triggeredAt\030\005 \001("
+    "\t\"\210\001\n\026VoiceRecognitionModule\022\014\n\004name\030\001 \002"
+    "(\t\022%\n\006params\030\002 \003(\0132\025.experimot.msgs.Para"
+    "m\0229\n\010commands\030\003 \003(\0132\'.experimot.msgs.Voi"
+    "ceCommandDescription\"R\n\027VoiceRecognition"
+    "Modules\0227\n\007modules\030\001 \003(\0132&.experimot.msg"
+    "s.VoiceRecognitionModule", 384);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "voice.proto", &protobuf_RegisterTypes);
   VoiceCommandDescription::default_instance_ = new VoiceCommandDescription();
@@ -174,6 +175,7 @@ const int VoiceCommandDescription::kCommandFieldNumber;
 const int VoiceCommandDescription::kActiveFieldNumber;
 const int VoiceCommandDescription::kConfidenceFieldNumber;
 const int VoiceCommandDescription::kLanguageFieldNumber;
+const int VoiceCommandDescription::kTriggeredAtFieldNumber;
 #endif  // !_MSC_VER
 
 VoiceCommandDescription::VoiceCommandDescription()
@@ -200,6 +202,7 @@ void VoiceCommandDescription::SharedCtor() {
   active_ = false;
   confidence_ = 0;
   language_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  triggeredat_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -211,6 +214,7 @@ VoiceCommandDescription::~VoiceCommandDescription() {
 void VoiceCommandDescription::SharedDtor() {
   command_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   language_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  triggeredat_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -249,13 +253,16 @@ void VoiceCommandDescription::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  if (_has_bits_[0 / 32] & 15) {
+  if (_has_bits_[0 / 32] & 31) {
     ZR_(active_, confidence_);
     if (has_command()) {
       command_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_language()) {
       language_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+    if (has_triggeredat()) {
+      triggeredat_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
 
@@ -337,6 +344,23 @@ bool VoiceCommandDescription::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(42)) goto parse_triggeredAt;
+        break;
+      }
+
+      // optional string triggeredAt = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_triggeredAt:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_triggeredat()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->triggeredat().data(), this->triggeredat().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "experimot.msgs.VoiceCommandDescription.triggeredAt");
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -396,6 +420,16 @@ void VoiceCommandDescription::SerializeWithCachedSizes(
       4, this->language(), output);
   }
 
+  // optional string triggeredAt = 5;
+  if (has_triggeredat()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->triggeredat().data(), this->triggeredat().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "experimot.msgs.VoiceCommandDescription.triggeredAt");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->triggeredat(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -438,6 +472,17 @@ void VoiceCommandDescription::SerializeWithCachedSizes(
         4, this->language(), target);
   }
 
+  // optional string triggeredAt = 5;
+  if (has_triggeredat()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->triggeredat().data(), this->triggeredat().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "experimot.msgs.VoiceCommandDescription.triggeredAt");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->triggeredat(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -455,7 +500,7 @@ int VoiceCommandDescription::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->command());
   }
-  if (_has_bits_[1 / 32] & 14) {
+  if (_has_bits_[1 / 32] & 30) {
     // optional bool active = 2;
     if (has_active()) {
       total_size += 1 + 1;
@@ -473,6 +518,13 @@ int VoiceCommandDescription::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->language());
+    }
+
+    // optional string triggeredAt = 5;
+    if (has_triggeredat()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->triggeredat());
     }
 
   }
@@ -516,6 +568,10 @@ void VoiceCommandDescription::MergeFrom(const VoiceCommandDescription& from) {
       set_has_language();
       language_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.language_);
     }
+    if (from.has_triggeredat()) {
+      set_has_triggeredat();
+      triggeredat_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.triggeredat_);
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -549,6 +605,7 @@ void VoiceCommandDescription::InternalSwap(VoiceCommandDescription* other) {
   std::swap(active_, other->active_);
   std::swap(confidence_, other->confidence_);
   language_.Swap(&other->language_);
+  triggeredat_.Swap(&other->triggeredat_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -717,6 +774,59 @@ void VoiceCommandDescription::InternalSwap(VoiceCommandDescription* other) {
   }
   language_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), language);
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.VoiceCommandDescription.language)
+}
+
+// optional string triggeredAt = 5;
+ bool VoiceCommandDescription::has_triggeredat() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+ void VoiceCommandDescription::set_has_triggeredat() {
+  _has_bits_[0] |= 0x00000010u;
+}
+ void VoiceCommandDescription::clear_has_triggeredat() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+ void VoiceCommandDescription::clear_triggeredat() {
+  triggeredat_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_triggeredat();
+}
+ const ::std::string& VoiceCommandDescription::triggeredat() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.VoiceCommandDescription.triggeredAt)
+  return triggeredat_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void VoiceCommandDescription::set_triggeredat(const ::std::string& value) {
+  set_has_triggeredat();
+  triggeredat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:experimot.msgs.VoiceCommandDescription.triggeredAt)
+}
+ void VoiceCommandDescription::set_triggeredat(const char* value) {
+  set_has_triggeredat();
+  triggeredat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:experimot.msgs.VoiceCommandDescription.triggeredAt)
+}
+ void VoiceCommandDescription::set_triggeredat(const char* value, size_t size) {
+  set_has_triggeredat();
+  triggeredat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.VoiceCommandDescription.triggeredAt)
+}
+ ::std::string* VoiceCommandDescription::mutable_triggeredat() {
+  set_has_triggeredat();
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.VoiceCommandDescription.triggeredAt)
+  return triggeredat_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* VoiceCommandDescription::release_triggeredat() {
+  clear_has_triggeredat();
+  return triggeredat_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void VoiceCommandDescription::set_allocated_triggeredat(::std::string* triggeredat) {
+  if (triggeredat != NULL) {
+    set_has_triggeredat();
+  } else {
+    clear_has_triggeredat();
+  }
+  triggeredat_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), triggeredat);
+  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.VoiceCommandDescription.triggeredAt)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
