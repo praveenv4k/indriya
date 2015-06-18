@@ -20,6 +20,12 @@
         </one-of>
       </item>
       <item>
+        <tag>START</tag>
+        <one-of>
+          <item> start </item>
+        </one-of>
+      </item>
+      <item>
         <tag>WHITE</tag>
         <one-of>
           <item> whites </item>

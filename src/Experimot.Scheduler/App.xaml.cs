@@ -34,7 +34,8 @@ namespace Experimot.Scheduler
 
         private void RunTests(experimot_config config)
         {
-            Tests.Test.ComposableBehaviorTest();
+            Tests.Test.TestVoiceCommandJson();
+            //Tests.Test.ComposableBehaviorTest();
             //Tests.Test.TestSharpDxMatrixRotation();
             //Tests.Test.TestReadBehaviorXml(config);
             //Tests.Test.TestJson(JsonConvert.SerializeObject(config));
