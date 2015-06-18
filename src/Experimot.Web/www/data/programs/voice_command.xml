@@ -1,0 +1,32 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_composable" id="1" inline="false" x="38" y="13">
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="voice_trigger" id="2">
+        <field name="VOICE_TRIGGER">STOP</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="3">
+        <field name="SAY_TEXT">Stop command received! I will stop now!</field>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable" id="4" inline="false" x="38" y="288">
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="voice_trigger" id="5">
+        <field name="VOICE_TRIGGER">START</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="6">
+        <field name="SAY_TEXT">Start command received! I will start now!</field>
+      </block>
+    </statement>
+  </block>
+</xml>

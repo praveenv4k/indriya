@@ -259,22 +259,31 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
             Confidence = 0,
             Name = voiceCommand
         };
-        var humanStr = GetContextJsonString(ContextServer, RecvTimeout, "voice_command");
-        if (!string.IsNullOrEmpty(humanStr))
+        var voiceCommandStr = GetContextJsonString(ContextServer, RecvTimeout, "voice_command");
+        if (!string.IsNullOrEmpty(voiceCommandStr))
         {
-            var humanArray = JArray.Parse(humanStr);
-            foreach (var human in humanArray)
+            var voiceCommandObj = JObject.Parse(voiceCommandStr);
+            if (voiceCommandObj != null)
             {
-                var gestures = human.SelectToken("$.Gestures");
-                foreach (var gesture in gestures)
+                var current = voiceCommandObj.SelectToken("$.Current");
+                if (current != null && current.HasValues)
                 {
-                    string name = gesture.Value<string>("Name");
-                    if (name != voiceCommand)
+                    var command = current.Value<string>("Command");
+                    var confidence = current.Value<int>("Confidence");
+                    var triggerAt = current.Value<DateTime>("TriggerAt");
+                    var now = DateTime.Now;
+                    var span = now - triggerAt;
+                    if (span > new TimeSpan(0, 0, 0, 1))
                     {
-                        continue;
                     }
-                    ret.Active = gesture.Value<bool>("Active");
-                    ret.Confidence = gesture.Value<int>("Confidence");
+                    else
+                    {
+                        if (String.Compare(command, voiceCommand, StringComparison.OrdinalIgnoreCase) == 0)
+                        {
+                            ret.Active = true;
+                            ret.Confidence = confidence;
+                        }
+                    }
                 }
             }
         }

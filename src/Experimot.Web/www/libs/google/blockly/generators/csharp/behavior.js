@@ -384,6 +384,7 @@ Blockly.CSharp['trigger'] = function (block) {
     var genCode = 'var gestureInfo = ctx.GetGestureInfo(\"' + trigger + '\");\n' +
         'if (gestureInfo.Active && gestureInfo.Confidence > 90)\n' +
         '{\n' +
+        'Console.WriteLine("Gesture trigger received : {0} - {1}", gestureInfo.Name, gestureInfo.Confidence);\n' +
         'result.HumanId = gestureInfo.HumanId;\n' +
         'result.HumanInLoop = true;\n' +
         'result.Active = true;\n' +
@@ -397,8 +398,9 @@ Blockly.CSharp['voice_trigger'] = function (block) {
     var code = 'behavior.SetTrigger(' + '"VOICE", ' + '"' + trigger + '");\n';
 
     var genCode = 'var voiceCommand = ctx.GetVoiceCommand(\"' + trigger + '\");\n' +
-        'if (voiceCommand.Active && voiceCommand.Confidence > 70)\n' +
+        'if (voiceCommand.Active && voiceCommand.Confidence > 80)\n' +
         '{\n' +
+        'Console.WriteLine("Voice trigger received : {0} - {1}", voiceCommand.Name, voiceCommand.Confidence);\n' +
         'result.Active = true;\n' +
         '}\n';
     return [genCode, Blockly.CSharp.ORDER_ATOMIC];
@@ -410,8 +412,9 @@ Blockly.CSharp['voice_trigger2'] = function (block) {
     var code = 'behavior.SetTrigger(' + '"VOICE", ' + '"' + trigger + '");\n';
 
     var genCode = 'var gestureInfo = ctx.GetVoiceCommand(\"' + trigger + '\");\n' +
-        'if (voiceCommand.Active && voiceCommand.Confidence > 70)\n' +
+        'if (voiceCommand.Active && voiceCommand.Confidence > 80)\n' +
         '{\n' +
+        'Console.WriteLine("Voice trigger received : {0} - {1}", voiceCommand.Name, voiceCommand.Confidence);\n' +
         'result.Active = true;\n' +
         '}\n';
     return [genCode, Blockly.CSharp.ORDER_ATOMIC];

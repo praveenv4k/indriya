@@ -86,6 +86,31 @@ namespace Experimot.Scheduler.Tests
             }
         }
 
+        public static void TestVoiceCommandJson()
+        {
+            var vcm = new VoiceCommandManager();
+            var voiceCommandStr = JsonConvert.SerializeObject(vcm);
+            if (!string.IsNullOrEmpty(voiceCommandStr))
+            {
+                var voiceCommandObj = JObject.Parse(voiceCommandStr);
+                if (voiceCommandObj != null)
+                {
+                    var current = voiceCommandObj.SelectToken("$.Current");
+                    if (current != null && current.HasValues)
+                    {
+                        var command = current.Value<string>("Command");
+                        var confidence = current.Value<int>("Confidence");
+                        var triggerAt = current.Value<DateTime>("TriggerAt");
+                        Console.WriteLine(@"Confidence : {0}, Triggerat : {1}", confidence, triggerAt);
+                        if (String.Compare(command, "", StringComparison.OrdinalIgnoreCase) == 0)
+                        {
+                            
+                        }
+                    }
+                }
+            }
+        }
+
         public static void GestureConfidenceDataIterate()
         {
             var gesture = new Gesture("test", GestureMode.Discrete);

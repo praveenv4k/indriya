@@ -90,13 +90,15 @@ Blockly.Blocks.behaviors.GestureProperties =
 
 Blockly.Blocks.behaviors.VoiceProperties =
 [
-    ["RED", 'Red'],
-    ["GREEN", 'Green'],
-    ["BLUE", 'Blue'],
-    ["STOP", "Stop"],
-    ["START", "Start"],
-    ["SIT", "Sit"],
-    ["STAND", "Stand"]
+    ["RED", 'RED'],
+    ["GREEN", 'GREEN'],
+    ["BLUE", 'BLUE'],
+    ["STOP", "STOP"],
+    ["START", "START"],
+    ["SIT", "SIT"],
+    ["STAND", "STAND"],
+    ["YES", "YES"],
+    ["NO", "NO"]
 ];
 
 Blockly.Blocks.behaviors.PriorityProperties =
