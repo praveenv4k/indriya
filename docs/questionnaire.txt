@@ -1,4 +1,8 @@
-Background
+Questionnaire:
+
+ For the moment I have categorized the questions like shown below. Help me with other perspectives we can frame the questions
+
+a) Background
 
 1. Rate your programming skill on a scale of 1-10?
 
@@ -6,7 +10,7 @@ Background
 
 3. Were you able to program robots before?
 
-Usability
+b) Usability
 
 4. Was the interface familiar?
 
@@ -14,10 +18,23 @@ Usability
 
 6. Were you able to create the scenario you wanted to?
 
-Execution
+c) Execution
 
 7. Was the scenario executed as you expected?
 
 8. Did the robot exhibit social behavior?
 
 9. Did your gestures/motions understand by the robot as expected?
+
+
+Scenarios:
+
+These are some of the scenarios I was thinking. If would like to do atleast 5 among these. What do you think?
+Museum scenario
+Threapy scenario
+Entertain a child
+Take care of an elderly person
+Waiter scenario
+Hotel receptionist
+Your scenario
+Identify a scenario given program
