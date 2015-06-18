@@ -290,6 +290,48 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
         return ret;
     }
 
+    public VoiceCommandInfo GetVoiceCommand()
+    {
+        var ret = new VoiceCommandInfo
+        {
+            Active = false,
+            Confidence = 0
+        };
+        var voiceCommandStr = GetContextJsonString(ContextServer, RecvTimeout, "voice_command");
+        if (!string.IsNullOrEmpty(voiceCommandStr))
+        {
+            var voiceCommandObj = JObject.Parse(voiceCommandStr);
+            if (voiceCommandObj != null)
+            {
+                var current = voiceCommandObj.SelectToken("$.Current");
+                if (current != null && current.HasValues)
+                {
+                    var command = current.Value<string>("Command");
+                    var active = current.Value<bool>("Active");
+                    var confidence = current.Value<int>("Confidence");
+                    var triggerAt = current.Value<DateTime>("TriggerAt");
+                    var now = DateTime.Now;
+                    var span = now - triggerAt;
+                    if (span > new TimeSpan(0, 0, 0, 1))
+                    {
+                    }
+                    else
+                    {
+                        ret.Active = active;
+                        ret.Confidence = confidence;
+                        ret.Name = command;
+                        //if (String.Compare(command, voiceCommand, StringComparison.OrdinalIgnoreCase) == 0)
+                        //{
+                        //    ret.Active = true;
+                        //    ret.Confidence = confidence;
+                        //}
+                    }
+                }
+            }
+        }
+        return ret;
+    }
+
     public static void GetWorldFrameMatrix(string worldFrameJson, out Vector3 translation, out Matrix3x3 rotation, out Quaternion q)
     {
         translation = new Vector3(0, 0, 0);

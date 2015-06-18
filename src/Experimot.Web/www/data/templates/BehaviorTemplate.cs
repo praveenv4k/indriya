@@ -1,4 +1,7 @@
 
+using System;
+using NetMQ.zmq;
+
 public class BehaviorTemplate : ITriggerBehavior
 {
     public string Name { get; set; }
@@ -87,6 +90,32 @@ public class BehaviorTemplate : ITriggerBehavior
     {
         get { return InitActionsComplete & CyclicActionsComplete & ExitActionsComplete; }
     }
+
+    //public static void VoiceChoices(IBehaviorExecutionContext context)
+    //{
+    //    if (context != null)
+    //    {
+    //        while (true)
+    //        {
+    //            var voiceChoicesResponse = context.GetVoiceCommand();
+    //            if (voiceChoicesResponse.Active && voiceChoicesResponse.Confidence > 0)
+    //            {
+    //                string dummyVar1;
+    //                string dummyVar2;
+    //                if (String.Compare(dummyVar1, voiceChoicesResponse.Name, StringComparison.OrdinalIgnoreCase))
+    //                {
+    //                    // DO_CHOICE1_HERE
+    //                    break;
+    //                }
+    //                if (String.Compare(dummyVar2, voiceChoicesResponse.Name, StringComparison.OrdinalIgnoreCase))
+    //                {
+    //                    // DO_CHOICE2_HERE
+    //                    break;
+    //                }
+    //            }
+    //        }
+    //    }
+    //}
 
     public bool ExecuteInit(IBehaviorExecutionContext context)
     {
