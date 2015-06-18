@@ -96,9 +96,7 @@ Blockly.Blocks.behaviors.VoiceProperties =
     ["STOP", "STOP"],
     ["START", "START"],
     ["SIT", "SIT"],
-    ["STAND", "STAND"],
-    ["YES", "YES"],
-    ["NO", "NO"]
+    ["STAND", "STAND"]
 ];
 
 Blockly.Blocks.behaviors.PriorityProperties =
