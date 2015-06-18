@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Navigation;
 using System.Xml.Linq;
 using Common.Logging;
@@ -85,6 +86,45 @@ namespace Experimot.Scheduler.Tests
                     }
                 }
             }
+        }
+
+        public static void ExecuteParallel()
+        {
+            var list = new List<Task>();
+            int a = 10, b = 20;
+            Action<int, int> taskAction1 = delegate(int a1, int b1)
+            {
+                Console.WriteLine("StartTask1 : {0}", DateTime.Now);
+                System.Threading.Thread.Sleep(2000);
+                Console.WriteLine("EndTask1 : {0}", DateTime.Now);
+                Console.WriteLine("{0}, {1}", a1, b1);
+            };
+            Action<int, int> taskAction2 = delegate(int a1, int b1)
+            {
+                Console.WriteLine("StartTask2: {0}", DateTime.Now);
+                System.Threading.Thread.Sleep(5000);
+                Console.WriteLine("EndTask2: {0}", DateTime.Now);
+                Console.WriteLine("{0}, {1}", a1, b1);
+            };
+            Action taskAction3 = delegate
+            {
+                Console.WriteLine("StartTask2: {0}", DateTime.Now);
+                System.Threading.Thread.Sleep(5000);
+                Console.WriteLine("EndTask2: {0}", DateTime.Now);
+            };
+
+            Action taskAction4 = delegate
+            {
+                Console.WriteLine("StartTask2: {0}", DateTime.Now);
+                System.Threading.Thread.Sleep(5000);
+                Console.WriteLine("EndTask2: {0}", DateTime.Now);
+            };
+
+            list.Add(Task.Factory.StartNew(() => taskAction1(a, b)));
+            list.Add(Task.Factory.StartNew(() => taskAction2(a, b)));
+            list.Add(Task.Factory.StartNew(() => taskAction3));
+            list.Add(Task.Factory.StartNew(() => taskAction4));
+            Task.WaitAll(list.ToArray());
         }
 
         public static void TestVoiceCommandJson()

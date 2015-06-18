@@ -1081,3 +1081,17 @@ Blockly.Blocks['animated_say_action_arg'] = {
         
     }
 };
+
+Blockly.Blocks['parallel_execute'] = {
+    init: function () {
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setColour(20);
+        this.appendStatementInput("BRANCH1")
+            .appendField("ROBOT1 DO");
+        this.appendStatementInput("BRANCH2")
+            .appendField("ROBOT2 DO");
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setTooltip('');
+    }
+};

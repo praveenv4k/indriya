@@ -1,0 +1,18 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_startup" id="5" x="163" y="88">
+    <statement name="DO">
+      <block type="parallel_execute" id="7">
+        <statement name="BRANCH1">
+          <block type="robot_action" id="16">
+            <field name="actions">crouch</field>
+          </block>
+        </statement>
+        <statement name="BRANCH2">
+          <block type="robot_action" id="22">
+            <field name="actions">stand</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>
