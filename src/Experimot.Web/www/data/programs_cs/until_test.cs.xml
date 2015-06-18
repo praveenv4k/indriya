@@ -1,11 +1,20 @@
+// ReSharper disable RedundantUsingDirective
+using System;
+using System.Collections.Generic;
 
-public class BehaviorTemplate : ITriggerBehavior
+// Main Behavior Program
+
+static double item;
+
+
+
+public class Behavior_84658513_d446_4cd4_bffb_56df33def22f : ITriggerBehavior
 {
     public string Name { get; set; }
 
     protected static BehaviorExecutionPriority Priority;
 
-    public BehaviorTemplate()
+    public Behavior_84658513_d446_4cd4_bffb_56df33def22f()
     {
         GetPriority();
         GetExecutionLifetime();
@@ -15,7 +24,8 @@ public class BehaviorTemplate : ITriggerBehavior
     public static BehaviorExecutionPriority GetPriority()
     {
         // SET_PRIORITY
-        // SET_PRIORITY_HERE
+        Priority = BehaviorExecutionPriority.low;
+
         return Priority;
     }
 
@@ -24,7 +34,8 @@ public class BehaviorTemplate : ITriggerBehavior
     public static BehaviorExecutionLifetime GetExecutionLifetime()
     {
         // SET_EXECUTION_LIFETIME
-        // SET_EXECUTION_LIFETIME_HERE
+        ExecutionLifetime = BehaviorExecutionLifetime.until;
+
         return ExecutionLifetime;
     }
 
@@ -35,7 +46,8 @@ public class BehaviorTemplate : ITriggerBehavior
     public static string GetUid()
     {
         // SET_UID
-        // SET_UID_HERE
+        Uid = "84658513_d446_4cd4_bffb_56df33def22f";
+
         return Uid;
     }
 
@@ -48,7 +60,15 @@ public class BehaviorTemplate : ITriggerBehavior
         var result = new TriggerResult {Active = false};
         if (ctx != null)
         {
-            // SET_TRIGGER_HERE
+            var gestureInfo = ctx.GetGestureInfo("Greet_Left");
+if (gestureInfo.Active && gestureInfo.Confidence > 90)
+{
+Console.WriteLine("Gesture trigger received : {0} - {1}", gestureInfo.Name, gestureInfo.Confidence);
+result.HumanId = gestureInfo.HumanId;
+result.HumanInLoop = true;
+result.Active = true;
+}
+
         }
         return result;
     }
@@ -58,7 +78,7 @@ public class BehaviorTemplate : ITriggerBehavior
         if (ctx != null)
         {
             // EXECUTE_UNTIL
-            // EXECUTE_UNTIL_HERE
+            return (item < 5);
         }
         return true;
     }
@@ -93,7 +113,8 @@ public class BehaviorTemplate : ITriggerBehavior
         if (!InitActionsComplete)
         {
             // INIT_BLOCK
-            // INIT_BLOCK_HERE
+              item = 0;
+
             InitActionsComplete = true;
         }
         return InitActionsComplete;
@@ -104,7 +125,8 @@ public class BehaviorTemplate : ITriggerBehavior
         if (!CyclicActionsComplete && InitActionsComplete)
         {
             // CYCLIC_BLOCK
-            // CYCLIC_BLOCK_HERE
+              item = (item.GetType().Name == "Double" ? item : 0.0) + 1;
+
 
             if (ExecutionLifetime == BehaviorExecutionLifetime.once)
             {
@@ -124,7 +146,7 @@ public class BehaviorTemplate : ITriggerBehavior
         if (!ExitActionsComplete && CyclicActionsComplete)
         {
             // EXIT_BLOCK
-            // EXIT_BLOCK_HERE
+            
             ExitActionsComplete = true;
         }
         return ExitActionsComplete;

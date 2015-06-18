@@ -16,7 +16,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
 
     public static string GetContextJsonString(string contextServer,int timeout, string reqName)
     {
-        var resp = string.Empty;
+        string resp;
         using (var ctx = NetMQContext.Create())
         {
             using (var socket = ctx.CreateRequestSocket())
