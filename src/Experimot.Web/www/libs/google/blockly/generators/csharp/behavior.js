@@ -457,3 +457,48 @@ Blockly.CSharp['priority'] = function (block) {
     var code = 'set_priority(\"' + priority + '\");\n';
     return [code, Blockly.CSharp.ORDER_ATOMIC];
 };
+
+Blockly.CSharp['parallel_execute'] = function(block) {
+    var statements_branch1 = Blockly.CSharp.statementToCode(block, 'BRANCH1');
+    var statements_branch2 = Blockly.CSharp.statementToCode(block, 'BRANCH2');
+    // TODO: Assemble JavaScript into code variable.
+    var code = [];
+    //var list = new List<Task>();
+    //Action taskAction3 = delegate
+    //{
+    //    Console.WriteLine("StartTask2: {0}", DateTime.Now);
+    //    System.Threading.Thread.Sleep(5000);
+    //    Console.WriteLine("EndTask2: {0}", DateTime.Now);
+    //};
+
+    //Action taskAction4 = delegate
+    //{
+    //    Console.WriteLine("StartTask2: {0}", DateTime.Now);
+    //    System.Threading.Thread.Sleep(5000);
+    //    Console.WriteLine("EndTask2: {0}", DateTime.Now);
+    //};
+
+    //list.Add(Task.Factory.StartNew(() => taskAction3));
+    //list.Add(Task.Factory.StartNew(() => taskAction4));
+    //Task.WaitAll(list.ToArray());
+    var listVarName = generateUniqueVarName();
+    var action1Name = generateUniqueVarName();
+    var action2Name = generateUniqueVarName();
+
+
+    code.push('var ' + listVarName + ' = new List<Task>();');
+    code.push('Action ' + action1Name + ' = delegate');
+    code.push('{');
+    code.push(statements_branch1);
+    code.push('};');
+
+    code.push('Action ' + action2Name + ' = delegate');
+    code.push('{');
+    code.push(statements_branch2);
+    code.push('};');
+
+    code.push(listVarName + '.Add(Task.Factory.StartNew(() => ' + action1Name + '));');
+    code.push(listVarName + '.Add(Task.Factory.StartNew(() => ' + action2Name + '));');
+    code.push('Task.WaitAll(' + listVarName + '.ToArray());');
+    return code.join('\n');
+};
