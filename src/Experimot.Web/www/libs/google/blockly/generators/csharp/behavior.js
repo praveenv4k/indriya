@@ -435,7 +435,7 @@ Blockly.CSharp['wait_voice_response'] = function(block) {
     code.push('while (true)');
     code.push('{');
     code.push('var ' + varName + ' = context.GetVoiceCommand();');
-    code.push('if (' + varName + '.Active && ' + varName + '.Confidence > 0)');
+    code.push('if (' + varName + '.Active && ' + varName + '.Confidence > 80)');
     code.push('{');
     code.push('string ' + commandVarName + ' = ' + varName + '.Name;');
     code.push('string ' + choice1VarName + ' = \"' + text_choice1 + '\";');
