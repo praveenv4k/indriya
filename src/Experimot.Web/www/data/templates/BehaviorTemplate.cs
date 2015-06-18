@@ -1,5 +1,3 @@
-using System;
-using NCalc;
 
 public class BehaviorTemplate : ITriggerBehavior
 {
@@ -12,7 +10,6 @@ public class BehaviorTemplate : ITriggerBehavior
         GetPriority();
         GetExecutionLifetime();
         GetUid();
-        GetExecutionEvalExpression();
     }
 
     public static BehaviorExecutionPriority GetPriority()
@@ -31,15 +28,6 @@ public class BehaviorTemplate : ITriggerBehavior
         return ExecutionLifetime;
     }
 
-    protected static string ExecutionEvalExpression { get; set; }
-
-    public static string GetExecutionEvalExpression()
-    {
-        // SET_EXEC_EVAL
-        // SET_EXEC_EVAL_HERE
-        return ExecutionEvalExpression;
-    }
-
     public int Id { get; set; }
 
     protected static string Uid;
@@ -55,66 +43,6 @@ public class BehaviorTemplate : ITriggerBehavior
     private static bool _cyclicActionsComplete;
     private static bool _exitActionsComplete;
 
-    //private void SampleTriggerSetting()
-    //{
-    //    // Gesture trigger
-    //    _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
-    //    {
-    //        result = new TriggerResult();
-    //        if (ctx != null)
-    //        {
-    //            var gestureInfo = ctx.GetGestureInfo("");
-    //            if (gestureInfo.Active && gestureInfo.Confidence > 90)
-    //            {
-    //                result.HumanId = gestureInfo.HumanId;
-    //                result.HumanInLoop = true;
-    //                return true;
-    //            }
-    //        }
-    //        return false;
-    //    };
-
-    //    // Voice Trigger
-    //    _triggerDelegate = delegate(IBehaviorExecutionContext ctx, out TriggerResult result)
-    //    {
-    //        result = new TriggerResult();
-    //        if (ctx != null)
-    //        {
-    //            var voiceCommand = ctx.GetVoiceCommand("");
-    //            if (voiceCommand.Active && voiceCommand.Confidence > 70)
-    //            {
-    //                return true;
-    //            }
-    //        }
-    //        return false;
-    //    };
-    //}
-
-    //public static bool CheckExecution(IBehaviorExecutionContext context)
-    //{
-    //    if (ExecutionLifetime == BehaviorExecutionLifetime.forever)
-    //    {
-    //    }
-    //    else if (ExecutionLifetime == BehaviorExecutionLifetime.once)
-    //    {
-    //        if (ExecutionComplete)
-    //        {
-    //            return false;
-    //        }
-    //    }
-    //    else if (ExecutionLifetime == BehaviorExecutionLifetime.until && !string.IsNullOrEmpty(ExecutionEvalExpression))
-    //    {
-    //        var expression = new Expression(ExecutionEvalExpression);
-    //        var result = expression.Evaluate();
-    //        bool complete;
-    //        if (bool.TryParse(result.ToString(), out complete))
-    //        {
-    //            return !complete;
-    //        }
-    //    }
-    //    return true;
-    //}
-
     public static TriggerResult CheckTrigger(IBehaviorExecutionContext ctx)
     {
         var result = new TriggerResult {Active = false};
@@ -123,6 +51,16 @@ public class BehaviorTemplate : ITriggerBehavior
             // SET_TRIGGER_HERE
         }
         return result;
+    }
+
+    public bool ExecutionUntil(IBehaviorExecutionContext ctx)
+    {
+        if (ctx != null)
+        {
+            // EXECUTE_UNTIL
+            // EXECUTE_UNTIL_HERE
+        }
+        return true;
     }
 
     public string ActiveResource { get; set; }
@@ -172,16 +110,10 @@ public class BehaviorTemplate : ITriggerBehavior
             {
                 CyclicActionsComplete = true;
             }
-            else if (ExecutionLifetime == BehaviorExecutionLifetime.until &&
-                     !string.IsNullOrEmpty(ExecutionEvalExpression))
+            else if (ExecutionLifetime == BehaviorExecutionLifetime.until)
             {
-                var expression = new Expression(ExecutionEvalExpression);
-                var result = expression.Evaluate();
-                bool complete;
-                if (bool.TryParse(result.ToString(), out complete))
-                {
-                }
-                CyclicActionsComplete = complete;
+                var complete = ExecutionUntil(context);
+                CyclicActionsComplete = !complete;
             }
         }
         return CyclicActionsComplete;
@@ -203,7 +135,7 @@ public class BehaviorTemplate : ITriggerBehavior
         ExecuteInit(context);
         ExecuteCyclic(context);
         ExecuteExit(context);
-        Console.WriteLine(@"Lifetime: {3} Init : {0}, Cyclic: {1}, Exit: {2}", InitActionsComplete,
+        System.Console.WriteLine(@"Lifetime: {3} Init : {0}, Cyclic: {1}, Exit: {2}", InitActionsComplete,
             CyclicActionsComplete,
             ExitActionsComplete, ExecutionLifetime);
         return ExecutionComplete;

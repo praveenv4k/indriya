@@ -1,0 +1,48 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_composable" id="1" inline="false" x="88" y="63">
+    <mutation run_until="true" run_logic="(item &lt; 5)"></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">until</field>
+    <value name="trigger">
+      <block type="trigger" id="2">
+        <field name="MOTION_TRIGGER">Greet_Left</field>
+      </block>
+    </value>
+    <statement name="INIT_DO">
+      <block type="variables_set" id="3" inline="true">
+        <field name="VAR">item</field>
+        <value name="VALUE">
+          <block type="math_number" id="4">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <statement name="DO">
+      <block type="math_change" id="5" inline="true">
+        <field name="VAR">item</field>
+        <value name="DELTA">
+          <block type="math_number" id="6">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <value name="RUN_UNTIL">
+      <block type="logic_compare" id="7" inline="true">
+        <field name="OP">LT</field>
+        <value name="A">
+          <block type="variables_get" id="8">
+            <field name="VAR">item</field>
+          </block>
+        </value>
+        <value name="B">
+          <block type="math_number" id="9">
+            <field name="NUM">5</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+</xml>

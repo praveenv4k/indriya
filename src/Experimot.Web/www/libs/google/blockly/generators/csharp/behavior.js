@@ -122,7 +122,7 @@ Blockly.CSharp['behavior_composable'] = function(block) {
     var lifeTime = 'ExecutionLifetime = BehaviorExecutionLifetime.' + execution + ';\n';
     if (executeLogic != undefined) {
         cyclic += 'while(EvaluateExecution(\"' + execution + '\",\"' + executeLogic + '\")){\n';
-        lifeTime += executeLogic + ';\n';
+        //lifeTime += executeLogic + ';\n';
     } else {
         cyclic += 'while(EvaluateExecution(\""' + execution + '\"")){\n';
     }
@@ -142,12 +142,14 @@ Blockly.CSharp['behavior_composable'] = function(block) {
     var replaced2 = replaced.replace('// CYCLIC_BLOCK_HERE', statementsDo);
     var replaced3 = replaced2.replace('// EXIT_BLOCK_HERE', exitDo);
     var replaced4 = replaceAll('BehaviorTemplate', className, replaced3);
-
     var replaced5 = replaced4.replace('// SET_PRIORITY_HERE', priority);
     var replaced6 = replaced5.replace('// SET_TRIGGER_HERE', trigger);
     var replaced7 = replaced6.replace('// SET_EXECUTION_LIFETIME_HERE', lifeTime);
     var uid = 'Uid = \"' + guid + '\";\n';
     var replaced8 = replaced7.replace('// SET_UID_HERE', uid);
+    if (executeLogic != undefined) {
+        replaced8 = replaced8.replace('// EXECUTE_UNTIL_HERE', 'return '+ executeLogic + ';');
+    }
     return replaced8;
 
     //return code;
