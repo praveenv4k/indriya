@@ -1,7 +1,4 @@
-
-using System;
-using NetMQ.zmq;
-
+// ReSharper disable CheckNamespace
 public class BehaviorTemplate : ITriggerBehavior
 {
     public string Name { get; set; }
@@ -91,33 +88,7 @@ public class BehaviorTemplate : ITriggerBehavior
         get { return InitActionsComplete & CyclicActionsComplete & ExitActionsComplete; }
     }
 
-    //public static void VoiceChoices(IBehaviorExecutionContext context)
-    //{
-    //    if (context != null)
-    //    {
-    //        while (true)
-    //        {
-    //            var voiceChoicesResponse = context.GetVoiceCommand();
-    //            if (voiceChoicesResponse.Active && voiceChoicesResponse.Confidence > 0)
-    //            {
-    //                string dummyVar1;
-    //                string dummyVar2;
-    //                if (String.Compare(dummyVar1, voiceChoicesResponse.Name, StringComparison.OrdinalIgnoreCase))
-    //                {
-    //                    // DO_CHOICE1_HERE
-    //                    break;
-    //                }
-    //                if (String.Compare(dummyVar2, voiceChoicesResponse.Name, StringComparison.OrdinalIgnoreCase))
-    //                {
-    //                    // DO_CHOICE2_HERE
-    //                    break;
-    //                }
-    //            }
-    //        }
-    //    }
-    //}
-
-    public bool ExecuteInit(IBehaviorExecutionContext context)
+    public bool ExecuteInit(IBehaviorExecutionContext context, TriggerResult trigger)
     {
         if (!InitActionsComplete)
         {
@@ -128,7 +99,7 @@ public class BehaviorTemplate : ITriggerBehavior
         return InitActionsComplete;
     }
 
-    public bool ExecuteCyclic(IBehaviorExecutionContext context)
+    public bool ExecuteCyclic(IBehaviorExecutionContext context, TriggerResult trigger)
     {
         if (!CyclicActionsComplete && InitActionsComplete)
         {
@@ -148,7 +119,7 @@ public class BehaviorTemplate : ITriggerBehavior
         return CyclicActionsComplete;
     }
 
-    public bool ExecuteExit(IBehaviorExecutionContext context)
+    public bool ExecuteExit(IBehaviorExecutionContext context, TriggerResult trigger)
     {
         if (!ExitActionsComplete && CyclicActionsComplete)
         {
@@ -159,11 +130,11 @@ public class BehaviorTemplate : ITriggerBehavior
         return ExitActionsComplete;
     }
 
-    public bool Execute(IBehaviorExecutionContext context)
+    public bool Execute(IBehaviorExecutionContext context, TriggerResult trigger)
     {
-        ExecuteInit(context);
-        ExecuteCyclic(context);
-        ExecuteExit(context);
+        ExecuteInit(context, trigger);
+        ExecuteCyclic(context, trigger);
+        ExecuteExit(context, trigger);
         System.Console.WriteLine(@"Lifetime: {3} Init : {0}, Cyclic: {1}, Exit: {2}", InitActionsComplete,
             CyclicActionsComplete,
             ExitActionsComplete, ExecutionLifetime);

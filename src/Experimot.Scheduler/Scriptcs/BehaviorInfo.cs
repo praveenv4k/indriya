@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Common.Logging;
+// ReSharper disable CheckNamespace
 
 
 public class BehaviorInfo : ICloneable
 {
-    private static readonly ILog Log = LogManager.GetLogger(typeof (BehaviorInfo));
+    //private static readonly ILog Log = LogManager.GetLogger(typeof (BehaviorInfo));
 
     public BehaviorInfo()
     {
@@ -44,7 +45,7 @@ public class BehaviorInfo : ICloneable
     public object Clone()
     {
         //var newObject = (BehaviorInfo)this.MemberwiseClone();
-        var newObject = new BehaviorInfo()
+        var newObject = new BehaviorInfo
         {
             ModuleName = ModuleName,
             Ip = Ip,
@@ -81,8 +82,8 @@ public enum BehaviorExecutionPriority
 
 public enum BehaviorExecutionLifetime
 {
-    forever,
     once,
+    forever,
     until
 }
 
@@ -156,21 +157,6 @@ public class MotionBasedBehavior : ICloneable
     public object Clone()
     {
         var newObject = (MotionBasedBehavior) MemberwiseClone();
-        //newObject.InitActions.Clear();
-        //newObject.ExitActions.Clear();
-        //newObject.RobotActions.Clear();
-        //foreach (var behaviorInfo in InitActions)
-        //{
-        //    newObject.InitActions.Add((BehaviorInfo) behaviorInfo.Clone());
-        //}
-        //foreach (var behaviorInfo in ExitActions)
-        //{
-        //    newObject.ExitActions.Add((BehaviorInfo) behaviorInfo.Clone());
-        //}
-        //foreach (var behaviorInfo in RobotActions)
-        //{
-        //    newObject.RobotActions.Add((BehaviorInfo) behaviorInfo.Clone());
-        //}
         return newObject;
     }
 }
@@ -180,71 +166,6 @@ public class TriggerBasedBehavior : MotionBasedBehavior
     public string InitBlock { get; set; }
     public string CyclicBlock { get; set; }
     public string ExitBlock { get; set; }
-}
-
-public class ComposableBehavior
-{
-    private readonly TriggerBasedBehavior _behaviorInfo;
-
-    public ComposableBehavior()
-    {
-        _behaviorInfo = new TriggerBasedBehavior();
-    }
-
-    public static ComposableBehavior Create(string name)
-    {
-        return new ComposableBehavior();
-    }
-
-    public void SetTrigger(string triggerType, string trigger)
-    {
-        _behaviorInfo.Trigger = trigger;
-        Console.WriteLine(@"Setting trigger : {0}", trigger);
-    }
-
-    public void SetPriority(string priority)
-    {
-        BehaviorExecutionPriority p;
-        Enum.TryParse(priority, true, out p);
-        _behaviorInfo.Priority = p;
-        Console.WriteLine(@"Setting priority : {0}", priority);
-    }
-
-    public void RegisterInitBlock(string init)
-    {
-        _behaviorInfo.InitBlock = init;
-        Console.WriteLine(@"Setting Init : {0}", init);
-    }
-
-    public void RegisterCyclicBlock(string cyclic)
-    {
-        _behaviorInfo.InitBlock = cyclic;
-        Console.WriteLine(@"Setting Cyclic : {0}", cyclic);
-    }
-
-    public void RegisterExitBlock(string exit)
-    {
-        _behaviorInfo.InitBlock = exit;
-        Console.WriteLine(@"Setting Exit : {0}", exit);
-    }
-
-    public static void Run(ComposableBehavior behavior)
-    {
-        
-    }
-
-    public static void ComposableBehaviorTest()
-    {
-        var behavior = ComposableBehavior.Create(@"default");
-        behavior.SetTrigger("VOICE", "Red");
-        behavior.SetPriority(@"LOW");
-        // Init Block
-        behavior.RegisterInitBlock(@"  Console.WriteLine(""init text"");");
-        // Cyclic Block
-        behavior.RegisterCyclicBlock(@"Console.WriteLine(""cyclic text"");");
-        // Exit Block
-        behavior.RegisterExitBlock(@"  Console.WriteLine(""exit text"");");
-    }
 }
 
 public enum BehaviorTriggerType
