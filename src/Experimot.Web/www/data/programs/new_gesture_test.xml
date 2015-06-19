@@ -1,0 +1,25 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_startup" id="140" x="313" y="38">
+    <statement name="DO">
+      <block type="robot_action" id="146">
+        <field name="actions">stand</field>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable" id="62" inline="false" x="313" y="163">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="trigger" id="85">
+        <field name="MOTION_TRIGGER">LiftHand_Left</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="robot_action" id="79">
+        <field name="actions">wish</field>
+      </block>
+    </statement>
+  </block>
+</xml>
