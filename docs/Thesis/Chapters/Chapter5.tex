@@ -15,7 +15,7 @@ In this chapter the implementation of various components specific to the experim
 The architecture of the system shown in Fig~\ref{fig:architecture}. More finer details of each of the layers are presented in the following Sections~\ref{ssec:app_comp}$\sim$\ref{ssec:ui_comp}.
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{assets/architecture.eps}
+\includegraphics[width=0.7\textwidth]{assets/architecture.eps}
 \caption[System Architecture]{System Architecture}
 \label{fig:architecture}
 \end{figure}
@@ -129,8 +129,7 @@ The web server embedded in the application serves the file and data requests fro
   										\bottomrule
 \end{tabularx}
 \end{table}
-\subsection{Behavior Program} 
-A dynamic component that will be created when the user starts the program he/she designed using the user interface. The declarative description of the behavior is parsed in order to create a memory model. The Behavior program node monitors the application context for the motion triggers and invokes the corresponding robot actions according to the way it is being described in the program.
+
 \subsection{Bootstrapper} 
 The bootstrapper takes care of initializing the system and starting up all the pre-configured nodes. It also takes of starting and stopping the behavior programs when requested by the user. The sequence operations of bootstrapper performs is represented in Algorithm~\ref{alg:bootstrapper}.
 \begin{algorithm}
@@ -170,7 +169,7 @@ These are nodes in the system each with a specific goal that can be started/stop
 	The Microsoft Kinect system utilizes Adaptive Boosting(adaboost) algorithm \cite{freund1997decision} is used to efficiently detect the gestures. The system involves a training phase in which the desired gestures are captured and tagged. These tagged gestures will be used by a gesture detector trainer which will generate a set of training examples. The training results are stored in files and will be used by the gesture detector to perform per-frame classification of the data. The Visual Gesture Builder (VGB) tool that comes together with Kinect for Windows SDK eases the process of tagging the gestures and creating the gesture database. The work-flow of using the VGB is shown in the Figure~\ref{fig:vgb_workflow}.
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{assets/VisualGestureBuilder.png}
+\includegraphics[width=0.8\textwidth]{assets/VisualGestureBuilder.png}
 \caption[Visual Gesture Builder Work flow]{Visual Gesture Builder Work flow \cite{KinectSDK2014}}
 \label{fig:vgb_workflow}
 \end{figure}
@@ -228,6 +227,36 @@ The workflow shown in Figure~\ref{fig:vgb_workflow} has been adopted to develop 
  %\label{alg:localize}
 \end{algorithm}
 
+\section{Behavior Program} 
+\label{ssec:behavior_program}
+A dynamic component that will be created when the user starts the program he/she designed using the user interface. The declarative description of the behavior is parsed in order to create a memory model. The Behavior program node monitors the application context for the motion triggers and invokes the corresponding robot actions according to the way it is being described in the program.
+
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.48\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/program_structure.eps}
+\caption[Conceptual Model]{Conceptual Model}
+\label{fig:program_concept}
+\end{subfigure}
+\begin{subfigure}[t]{0.48\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/program_block.png}
+\caption[Block Implementation]{Block Implementation}
+\label{fig:program_blocks}
+\end{subfigure}
+\caption[Program Structure]{Behavior program structure}
+\label{fig:program}
+\end{figure}
+The behavior program is structured in a simple way so that it could be easily understood by the end user. The conceptual model of behavior program is shown in Fig.~\ref{fig:program_concept} and the block level implementation is shown in Fig.~\ref{fig:program_blocks}. The behavior program is composed of:
+\begin{itemize}
+\item \emph{Start-up and Exit Blocks}: The start-up block will be executed once when the user starts the program. The user can add a set of actions to be performed when the program starts. Similarly the exit block will be executed once when the lifetime of all the configured behavior blocks expire.  Both these blocks are optional and there cannot be more than one start-up and exit blocks in a program.
+\item \emph{Behavior Block}: The behavior block is composed of
+\begin{itemize}
+\item A \textbf{trigger} that activates this block. The trigger source could be either of human presence/absence, gesture, vicinity of human, verbal command etc.,
+\item The \textbf{lifetime} of each behavior block could be configured to run only once, forever or until a condition is met. 
+\item The \textbf{priority} of the block could be set to low, normal or high and the execution is done based on fixed-priority pre-emptive scheduling.
+\item Similar to the behavior program level, at each behavior block level a set of \textbf{startup} and \textbf{exit} actions could be set which would be executed only once during the creation and termination respectively. The \textbf{cyclic} actions will be performed each time the trigger condition is met.
+\end{itemize}
+\end{itemize}
 
 \section{User Interface}
 \label{ssec:ui_comp}

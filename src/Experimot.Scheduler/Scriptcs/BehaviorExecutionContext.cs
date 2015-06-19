@@ -221,7 +221,6 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
 
     public GestureInfo GetGestureInfo(string gestureName)
     {
-        
         var ret = new GestureInfo
         {
             HumanId = -1,
@@ -249,6 +248,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
                 }
             }
         }
+        //Console.WriteLine(@"GetGestureInfo : {0}, Confidence : {1}", gestureName, ret.Confidence);
         return ret;
     }
 
