@@ -7,13 +7,9 @@
 \lhead{Appendix C. \emph{Platform Message API}} % Change X to a consecutive letter; this is for the header on each page - perhaps a shortened title
 
 The message are describes using the Google Protocol buffer format and the message definitions are stored in the \emph{proto} files which will be consumed by the code generators to generate the code in the desired programming language (one of C++, Python, Java, C\#). Although some of the primitive message definitions are imported from the Gazebo framework (which also uses Protocol buffers for message serialization), a lot of custom message types are defined for the Indriya framework. The Message API is listed in this Appendix.
-
 \section{Message Type}\label{protocol-documentation}
-
 \subsection{Gesture}\label{gesture.proto}
-
- \#\#\# GestureDescription Represents a gesture description
-
+\subsubsection*{GestureDescription} Represents a gesture description
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -28,9 +24,7 @@ confidence & int32 & optional & Gesture recognition
 confidence\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# GestureRecognitionModule Represents a gesture recognition module
-
+\subsubsection*{GestureRecognitionModule} Represents a gesture recognition module
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -42,10 +36,7 @@ motions & GestureDescription & repeated & List of gestures recognition
 capabilities of this module\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# GestureRecognitionModules Represents a gesture recognition
-modules
-
+ \subsubsection*{GestureRecognitionModules} Represents a gesture recognition modules
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -55,9 +46,7 @@ modules & GestureRecognitionModule & repeated & Gesture recognition
 module list\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# GestureTrigger Represents a gesture trigger
-
+ \subsubsection*{GestureTrigger} Represents a gesture trigger
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -68,9 +57,7 @@ motion & GestureDescription & required & Recognized
 gesture\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# GestureTriggers Represents a gesture triggers
-
+\subsubsection*{GestureTriggers} Represents a list of gesture trigger
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -81,9 +68,7 @@ motion & GestureDescription & repeated & Recognized
 gestures\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# GestureDescription.GestureType Represents gesture type
-
+ \subsubsection*{GestureDescription.GestureType} Represents gesture type
 \begin{longtable}[l]{@{}lll@{}}
 \toprule
 Name & Number & Description\tabularnewline
@@ -94,11 +79,8 @@ Discrete & 1 & Discrete gesture\tabularnewline
 Continuous & 2 & Continuous gesture\tabularnewline
 \bottomrule
 \end{longtable}
-
- \subsection{Human}\label{human.proto}
-
- \#\#\# Human Represents information about a human
-
+\subsection{Human}\label{human.proto}
+\subsubsection*{Human} Represents information about a human
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -113,9 +95,7 @@ head\tabularnewline
 orientation & Quaternion & required & Torso orientation\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# Humans Represents a list of human
-
+\subsubsection*{Humans} Represents a list of human
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -124,11 +104,8 @@ Field & Type & Label & Description\tabularnewline
 human & Human & repeated & List of human\tabularnewline
 \bottomrule
 \end{longtable}
-
 \subsection{Joint Value}\label{jointux5fvalueux5fmap.proto}
-
- \#\#\# JointValue Represents the Joint value.
-
+\subsubsection*{JointValue} Represents the Joint value.
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -138,9 +115,7 @@ id & int32 & required & Joint Identifier\tabularnewline
 value & double & required & Joint value\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# JointValueVector Represents the list of joint values.
-
+\subsubsection*{JointValueVector} Represents the list of joint values.
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -149,11 +124,8 @@ Field & Type & Label & Description\tabularnewline
 JointValues & JointValue & repeated & List of joints\tabularnewline
 \bottomrule
 \end{longtable}
-
- \subsection{Kinect Body}\label{kinectux5fbody.proto}
-
- \#\#\# KinectBodies Represents a list of kinect bodies
-
+\subsection{Kinect Body}\label{kinectux5fbody.proto}
+\subsubsection*{KinectBodies} Represents a list of kinect body
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -162,9 +134,7 @@ Field & Type & Label & Description\tabularnewline
 Body & KinectBody & repeated & List of kinect bodies\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# KinectBody Represents a body
-
+\subsubsection*{KinectBody} Represents a body
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -191,9 +161,7 @@ LeanTrackingState & int32 & optional & Lean tracking
 state\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# KinectBody.Activity Represents human engagement
-
+\subsubsection*{KinectBody.Activity} Represents human engagement
 \begin{longtable}[l]{@{}lll@{}}
 \toprule
 Name & Number & Description\tabularnewline
@@ -206,9 +174,7 @@ MouthMoved & 3 & Mouth moved.\tabularnewline
 LookingAway & 4 & Looking away.\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# KinectBody.Appearance Represents the appearance of the human
-
+\subsubsection*{KinectBody.Appearance} Represents the appearance of the human
 \begin{longtable}[l]{@{}lll@{}}
 \toprule
 Name & Number & Description\tabularnewline
@@ -217,10 +183,7 @@ Name & Number & Description\tabularnewline
 WearingGlasses & 0 & Wearing glasses.\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# KinectBody.DetectionResult Represents the gesture recognition
-result
-
+\subsubsection*{KinectBody.DetectionResult} Represents the gesture recognition result
 \begin{longtable}[l]{@{}lll@{}}
 \toprule
 Name & Number & Description\tabularnewline
@@ -232,9 +195,7 @@ Maybe & 2 & Maybe detected.\tabularnewline
 Yes & 3 & Is detected.\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# KinectBody.Expression The expression a body may have.
-
+\subsubsection*{KinectBody.Expression} The expression a body may have.
 \begin{longtable}[l]{@{}lll@{}}
 \toprule
 Name & Number & Description\tabularnewline
@@ -244,9 +205,7 @@ Neutral & 0 & Neutral expression.\tabularnewline
 Happy & 1 & Happy expression.\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# KinectBody.FrameEdges Possible occlusion edges
-
+\subsubsection*{KinectBody.FrameEdges} Possible occlusion edges
 \begin{longtable}[l]{@{}lll@{}}
 \toprule
 Name & Number & Description\tabularnewline
@@ -259,9 +218,7 @@ Top & 4 & Top frame edge.\tabularnewline
 Bottom & 8 & Bottom frame edge.\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# KinectBody.HandState The state of a hand of a body.
-
+\subsubsection*{KinectBody.HandState} The state of a hand of a body.
 \begin{longtable}[l]{@{}lll@{}}
 \toprule
 Name & Number & Description\tabularnewline
@@ -274,9 +231,7 @@ HS\_Closed & 3 & Closed hand.\tabularnewline
 HS\_Lasso & 4 & Lasso (pointer) hand.\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# KinectBody.TrackingConfidence Represents tracking confidence
-
+\subsubsection*{KinectBody.TrackingConfidence} Represents tracking confidence
 \begin{longtable}[l]{@{}lll@{}}
 \toprule
 Name & Number & Description\tabularnewline
@@ -286,11 +241,8 @@ Low & 0 & Low confidence.\tabularnewline
 High & 1 & High confidence.\tabularnewline
 \bottomrule
 \end{longtable}
-
 \subsection{Kinect Joint}\label{kinectux5fjoint.proto}
-
- \#\#\# KinectJoint Represents the Kinect skeleton joint data.
-
+\subsubsection*{KinectJoint} Represents the Kinect skeleton joint data.
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -306,9 +258,7 @@ joint\tabularnewline
 Angle & float & optional & Angle at the joint\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# KinectJoint.JointType Represents the types of joints of a Body.
-
+\subsubsection*{KinectJoint.JointType} Represents the types of joints of a Body.
 \begin{longtable}[l]{@{}lll@{}}
 \toprule
 Name & Number & Description\tabularnewline
@@ -341,10 +291,7 @@ HandTipRight & 23 & Tip of the right hand.\tabularnewline
 ThumbRight & 24 & Right thumb.\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# KinectJoint.TrackingState Represents the skeleton joint tracking
-state.
-
+\subsubsection*{KinectJoint.TrackingState} Represents the skeleton joint tracking state.
 \begin{longtable}[l]{@{}lll@{}}
 \toprule
 Name & Number & Description\tabularnewline
@@ -358,11 +305,8 @@ Tracked & 2 & / if it were Tracked./ The joint data is being tracked and
 the data can be trusted.\tabularnewline
 \bottomrule
 \end{longtable}
-
 \subsection{Node}\label{node.proto}
-
- \#\#\# Node Represents information of a distributed node
-
+\subsubsection*{Node} Represents information of a distributed node
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -376,11 +320,8 @@ subscriber & Subscribe & repeated & List of message
 subscribers\tabularnewline
 \bottomrule
 \end{longtable}
-
- \subsection{Param}\label{param.proto}
-
- \#\#\# Param Represents the Parameter Data.
-
+\subsection{Param}\label{param.proto}
+\subsubsection*{Param} Represents the Parameter Data.
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -393,9 +334,7 @@ dataType & string & required & Parameter Datatype (one of bool, int,
 double, string, csv, file)\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# ParamList Represents the list of Parameters.
-
+\subsubsection*{ParamList} Represents the list of Parameters.
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -404,11 +343,8 @@ Field & Type & Label & Description\tabularnewline
 param & Param & repeated &\tabularnewline
 \bottomrule
 \end{longtable}
-
 \subsection{Publisher}\label{publish.proto}
-
- \#\#\# Publish Represents a message publisher
-
+\subsubsection*{Publish} Represents a message publisher
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -420,12 +356,8 @@ host & string & required & Host address\tabularnewline
 port & uint32 & required & Host port\tabularnewline
 \bottomrule
 \end{longtable}
-
 \subsection{Quaternion}\label{quaternion.proto}
-
- \#\#\# Quaternion Represents a Quaternion (axis,angle) =\textgreater{}
-(w = cos(angle/2), {[}x,y,z{]} = axis* sin(angle/2))
-
+\subsubsection*{Quaternion} Represents a Quaternion (axis,angle) =\textgreater{}(w = cos(angle/2), {[}x,y,z{]} = axis* sin(angle/2))
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -437,11 +369,8 @@ z & double & required & z = axis\_z * sin(angle/2)\tabularnewline
 w & double & required & w = cos(angle/2)\tabularnewline
 \bottomrule
 \end{longtable}
-
 \subsection{Robot Behavior}\label{robotux5fbehavior.proto}
-
- \#\#\# BehaviorArguments Represents the Robot behavior arguments.
-
+\subsubsection*{BehaviorArguments} Represents the Robot behavior arguments.
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -455,9 +384,7 @@ type & string & required & Type of the argument (int, double,
 string)\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# BehaviorDescription Represents the Robot behavior description.
-
+\subsubsection*{BehaviorDescription} Represents the Robot behavior description.
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -474,9 +401,7 @@ state & BehaviorDescription.ExecutionState & required & Execution status
 of the behavior\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# RobotBehaviorModule Represents the Robot behavior module.
-
+\subsubsection*{RobotBehaviorModule} Represents the Robot behavior module.
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -491,10 +416,7 @@ responder & RobotBehaviorModule.RobotBehaviorResponder & optional &
 Behavior module server information\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# RobotBehaviorModule.RobotBehaviorResponder Represents the
-Behavior module server information.
-
+\subsubsection*{RobotBehaviorModule.RobotBehaviorResponder} Represents the Behavior module's server information.
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -504,10 +426,7 @@ Host & string & required & Server host\tabularnewline
 Port & int32 & required & Port\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# RobotBehaviorModules Represents the List of Robot behavior
-modules.
-
+\subsubsection*{RobotBehaviorModules} Represents the List of Robot behavior modules.
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -517,10 +436,7 @@ modules & RobotBehaviorModule & repeated & List of behavior
 modules\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# BehaviorDescription.ExecutionState Represents the Execution
-state of the behavior.
-
+\subsubsection*{BehaviorDescription.ExecutionState} Represents the Execution state of the behavior.
 \begin{longtable}[l]{@{}lll@{}}
 \toprule
 Name & Number & Description\tabularnewline
@@ -531,10 +447,7 @@ Running & 1 & Behavior is running\tabularnewline
 Error & 2 & Behavior execution is in error state\tabularnewline
 \bottomrule
 \end{longtable}
-
- \#\#\# BehaviorDescription.ExecutionType Represents the Execution type
-of the behavior.
-
+\subsubsection*{BehaviorDescription.ExecutionType} Represents the Execution type of the behavior.
 \begin{longtable}[l]{@{}lll@{}}
 \toprule
 Name & Number & Description\tabularnewline
@@ -544,11 +457,8 @@ Blocking & 0 & Execution is blocking\tabularnewline
 NonBlocking & 1 & Execution is non-blocking\tabularnewline
 \bottomrule
 \end{longtable}
-
 \subsection{Subscriber}\label{subscribe.proto}
-
- \#\#\# Subscribe Represents a message subscriber
-
+\subsubsection*{Subscribe} Represents a message subscriber
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -561,11 +471,8 @@ msg\_type & string & required & Message type\tabularnewline
 latching & bool & optional & Latching enabled\tabularnewline
 \bottomrule
 \end{longtable}
-
 \subsection{Vector 2d}\label{vector2d.proto}
-
- \#\#\# Vector2d Represents a 2D vector
-
+\subsubsection*{Vector2d} Represents a 2D vector
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -575,11 +482,8 @@ x & double & required & X coordinate\tabularnewline
 y & double & required & Y coordinate\tabularnewline
 \bottomrule
 \end{longtable}
-
 \subsection{Vector 3d}\label{vector3d.proto}
-
- \#\#\# Vector3d Represents a 3D vector
-
+\subsubsection*{Vector3d} Represents a 3D vector
 \begin{longtable}[l]{@{}llll@{}}
 \toprule
 Field & Type & Label & Description\tabularnewline
@@ -595,35 +499,23 @@ z & double & required & z coordinate\tabularnewline
 
 \begin{longtable}[l]{@{}lllll@{}}
 \toprule
-.proto Type & Notes & C++ Type & Java Type & Python Type\tabularnewline
+.proto Type  & C++ Type & Java Type & Python Type\tabularnewline
 \midrule
 \endhead
-double & & double & double & float\tabularnewline
-float & & float & float & float\tabularnewline
-int32 & Uses variable-length encoding. Inefficient for encoding negative
-numbers
-instead. & int32 & int & int\tabularnewline
-int64 & Uses variable-length encoding. Inefficient for encoding negative
-numbers
-instead. & int64 & long & int/long\tabularnewline
-uint32 & Uses variable-length encoding. & uint32 & int &
-int/long\tabularnewline
-uint64 & Uses variable-length encoding. & uint64 & long &
-int/long\tabularnewline
-sint32 & Uses variable-length encoding. Signed int value. & int32 & int &
-int\tabularnewline
-sint64 & Uses variable-length encoding. Signed int value. & int64 & long
-& int/long\tabularnewline
-fixed32 & Always four bytes. More efficient than uint32 if values are
-often greater than 2\^{}28. & uint32 & int & int\tabularnewline
-fixed64 & Always eight bytes. More efficient than uint64 if values are
-often greater than 2\^{}56. & uint64 & long & int/long\tabularnewline
-sfixed32 & Always four bytes. & int32 & int & int\tabularnewline
-sfixed64 & Always eight bytes. & int64 & long & int/long\tabularnewline
-bool & & bool & boolean & boolean\tabularnewline
-string & A string must always contain UTF-8 encoded or 7-bit ASCII text.
-& string & String & str/unicode\tabularnewline
-bytes & May contain any arbitrary sequence of bytes. & string &
-ByteString & str\tabularnewline
+double & double & double & float\tabularnewline
+float & float & float & float\tabularnewline
+int32 & int32 & int & int\tabularnewline
+int64 & int64 & long & int/long\tabularnewline
+uint32 & uint32 & int & int/long\tabularnewline
+uint64 & uint64 & long & int/long\tabularnewline
+sint32 & int32 & int & int\tabularnewline
+sint64 & int64 & long & int/long\tabularnewline
+fixed32 & uint32 & int & int\tabularnewline
+fixed64 & uint64 & long & int/long\tabularnewline
+sfixed32 & int32 & int & int\tabularnewline
+sfixed64 & int64 & long & int/long\tabularnewline
+bool & bool & boolean & boolean\tabularnewline
+string & string & String & str/unicode\tabularnewline
+bytes & string & ByteString & str\tabularnewline
 \bottomrule
 \end{longtable}
