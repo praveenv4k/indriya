@@ -3,18 +3,18 @@
 \chapter{Conclusion} % Main chapter title
 \label{Chapter7} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 \lhead{Chapter 7. \emph{Conclusion}} 
-\section{Research Plan}
+\section{Project Summary}
 In this section a description of the research plan and research schedule are presented.
-\subsection{Proposed Architecture}
+\subsection{System specification}
  After studying the available state of the art techniques, an initial (may subject to change) architecture of the experimental platform is proposed. The proposed system specification is shown in Table~\ref{table:system} and the system architecture is shown in the Figure~\ref{fig:architecture}.
 \begin{table}
 \centering
 \footnotesize
-\caption{Proposed System Specification}
+\caption{System Specification}
 \label{table:system}
 \begin{tabularx}{\textwidth}{X X X}
 \toprule
-  \multirow{2}{*}{Hardware} & Humanoid Robot & Nao \\
+  \multirow{2}{*}{Hardware} & Supported Robots & Nao, Pepper, Turtlebot \\
                             & Sensor & Kinect for Windows V2 \\
                             & PC & 64-bit (x64) processor, min 4GB Memory, Physical dual-core 3.1 GHz or more,USB 3.0 controller, DX11 capable graphics adapter\\
                                           \toprule                                       
@@ -22,16 +22,11 @@ In this section a description of the research plan and research schedule are pre
                             & Development Tools & Microsoft Visual Studio, Choreographe, Kinect Studio, Gesture builder \\
                             & Programming Languages & C++, C\# \\
                             & Source control & Github \\
-                            & Software libraries & Kinect for Windows SDK 2.0, Point Cloud Library 1.7.2, TDM library 
+                            & Software libraries & Kinect for Windows SDK 2.0, Point Cloud Library 1.7.2, OpenCV
                                           \tabularnewline\toprule
 \end{tabularx}
 \end{table}
-%\begin{figure}
-%\centering
-%\includegraphics[width=0.9\textwidth]{assets/SystemArchitecture.pdf}
-%\caption{Proposed architecture of the experimental platform}
-%\label{fig:architecture}
-%\end{figure}
+
 The Kinect SDK will be used for the skeleton tracking of human using the RGB-D information acquired from the sensor. The Gesture recognition library will be used in order to recognize the gesture of the tracked skeletons. If additional gestures will be needed for the experimental scenario, they will be captured and tagged using the \emph{Gesture builder} that accompanies the Kinect SDK. In order to track the position of the Nao, a particle filter tracker (\emph{KLDAdaptiveParticleFilterOMPTracker}) available in point cloud library will be used. In case if the tracker is heavier to run beside the skeleton tracking of Kinect (since the kinect tracking is resource consuming), pose tracking using \emph{ARToolKit} will be tried out. All the heavy data processing will be done by a powerful computer which will be called \emph{Interaction Manager}. 
 
 The human motion tracking and nao pose tracking would be implemented as TDM components which would be able to pull/push information from/to the Internal model provided by the TDM architecture. For instance, Nao robot's pose would be continuosly pushed to the IM and other blocks which are responsible to command Nao to move to a particular position could pull the pose information from the IM. Also triggers like \emph{Human detected}, \emph{Object Detected} will be implemented which could be used to activate behavioral blocks as needed. The NaoQi middleware already exposes APIs to perform data communication using SOAP protocol. An example component library and a simple \emph{Human greeting} behavior using the "to be" implemented function and trigger blocks is shown in Figure~\ref{fig:program}. The details about the sensor$\Leftrightarrow$robot data communication will be taken care by the individual function by interacting with the internal model. For instance in the example program proposed, the default behavior just embeds functions to track the human and Nao. The default program updates their information to the internal model. The actual \emph{Human Greet} behavior embeds \emph{Approach Human function}: which gets the position of the Human from the internal model and move towards him, \emph{Greet Human function}: which pulls the position of the Nao robot from the internal model and when it is close enough to human, it will greet human by bowing (\emph{Japanese style greeting}). Thanks to the TDM framework, it will take care of the object permanence and say this simple program could be used irrespective of the number of persons to greet.
@@ -43,19 +38,59 @@ The human motion tracking and nao pose tracking would be implemented as TDM comp
 \end{figure}	
 	The depicted TDM program is just an initial proposal of how the outcome of the work will look like. Once the component library is created, more complex dynamic behavior could be created. The current idea is to design a scenario in which Nao acts as a receptionist and evaluate the interaction using questionnaires and online logging of expression of human. Data analysis will be done using the statistical tools.
 \subsection{Research Schedule}
-	The research will be carried out in GVLab affiliated to Tokyo University of Agriculture and Technology (TUAT) in Japan under the guidance of Prof.Gentiane Venture. The proposed schedule of the thesis is from \emph{16/02/2015} $\sim$ \emph{18/08/2015}. A more detailed schedule is shown in Figure~\ref{fig:schedule}.
+	The research is carried out in GVLab at Tokyo University of Agriculture and Technology (TUAT) in Japan. The research is funded by Japan Student Support Organisation (JASSO). The proposed schedule of the thesis is from \emph{16/02/2015} $\sim$ \emph{18/08/2015}. A more detailed schedule is shown in Figure~\ref{fig:schedule}.
 	
-\clearpage
-\begin{landscape}
+\subsection{Project Statistics}
+
+\begin{table}[h!]
+  \begin{center}
+    \caption{Project Code Statistics}
+    \label{table:code_stats}
+    \pgfplotstabletypeset[
+      columns = {language,comment,code},
+      multicolumn names, % allows to have multicolumn names
+      col sep=comma, % the seperator in our .csv file
+      %display columns/0/.style={
+      %    column name=$Files$, % name of first column
+      %    column type={S},string type
+      %},  % use siunitx for formatting
+      %display columns/0/.style={
+      %    column name=$Files$,
+      %    string type
+      %},  % use siunitx for formatting
+      display columns/0/.style={
+        column name=$Language$,
+        string type
+      },
+      %display columns/1/.style={
+      %  column name=$Blank$,
+      %  string type
+      %},
+      display columns/1/.style={
+        column name=$Comment$,
+        string type
+      },
+      display columns/2/.style={
+        column name=$Code$,
+        string type
+      },
+      every head row/.style={
+        before row={\toprule}, % have a rule at top
+        after row={
+          %\si{\ampere} & \si{\volt}\\ % the units seperated by &
+          \midrule} % rule under units
+      },
+      every last row/.style={after row=\bottomrule}, % rule at bottom
+    ]{assets/cloc_code_statistics.csv} % filename/path to file
+  \end{center}
+\end{table}
+
 \begin{figure}
 \centering
-\includegraphics[width=\hsize]{assets/schedule.png}
-\caption{Master Thesis tentative schedule}
-\label{fig:schedule}
-\end{figure}
-\end{landscape}
-%\section{Experimentation Plan}
-
+\includegraphics[width=0.8\textwidth]{assets/code_statistics.png}
+\caption{Code Statistics}
+\label{fig:program}
+\end{figure}  
 \section{Conclusion} % Main chapter title
 	Human Robot Interaction is a complex interdisciplinary problem that needs expertise in various fields like human computer interaction, psychology, biomechanics, humanoid robotics etc., Social robots have become very common in the recent days and they find useful applications in entertainment, education, autism treatment and elderly care. 
 	

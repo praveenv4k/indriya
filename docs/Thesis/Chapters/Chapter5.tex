@@ -246,6 +246,9 @@ A dynamic component that will be created when the user starts the program he/she
 \caption[Program Structure]{Behavior program structure}
 \label{fig:program}
 \end{figure}
+
+
+\subsection{Conceptual Model}
 The behavior program is structured in a simple way so that it could be easily understood by the end user. The conceptual model of behavior program is shown in Fig.~\ref{fig:program_concept} and the block level implementation is shown in Fig.~\ref{fig:program_blocks}. The behavior program is composed of:
 \begin{itemize}
 \item \emph{Start-up and Exit Blocks}: The start-up block will be executed once when the user starts the program. The user can add a set of actions to be performed when the program starts. Similarly the exit block will be executed once when the lifetime of all the configured behavior blocks expire.  Both these blocks are optional and there cannot be more than one start-up and exit blocks in a program.
@@ -257,6 +260,10 @@ The behavior program is structured in a simple way so that it could be easily un
 \item Similar to the behavior program level, at each behavior block level a set of \textbf{startup} and \textbf{exit} actions could be set which would be executed only once during the creation and termination respectively. The \textbf{cyclic} actions will be performed each time the trigger condition is met.
 \end{itemize}
 \end{itemize}
+
+\subsection{Block Level implementation}
+
+\subsection{Code Generation and Execution}
 
 \section{User Interface}
 \label{ssec:ui_comp}

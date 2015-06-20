@@ -1,8 +1,10 @@
 include/experimot/common
 src/Experimot.Core
 src/Experimot.Core.Msgs
+src/Experimot.Core.NLP
 src/Experimot.Kinect.Perception
 src/Experimot.Kinect.Playback
+src/Experimot.Kinect.Speech
 src/Experimot.Localization.Logger
 src/Experimot.Scheduler
 src/Experimot.Web/www/app
@@ -20,6 +22,7 @@ src/experimot_msgs/proto/node.proto
 src/experimot_msgs/proto/robot_behavior.proto
 src/experimot_msgs/proto/gesture.proto
 src/experimot_msgs/proto/human.proto
+src/experimot_msgs/proto/voice.proto
 src/experimot_msgs/proto_export.bat
 src/experimot_msgs/msg_export.bat
 src/experimot_msgs_gen

@@ -82,3 +82,48 @@ In order to demonstrate how the framework described so far could be used for dev
 And finally we can define a configuration file which contains the parameters and start up information needed by the application to start up these nodes. A sample configuration file for this scenario is shown in Listing~\ref{lst:sample_config}
 
 \lstinputlisting[caption=Sample XML Configuration File,label={lst:sample_config},language=XML]{assets/sample_config.xml}
+
+\section{UI Design}
+
+\subsection{Google Blockly}
+Blockly is a library for building visual programming editors. It allows users to write programs by plugging blocks together. Developers can integrate the Blockly editor into their own web applications to create a great UI for novice users. It is being used by hundreds of projects as a visual editor. The main features of the Blockly library are as follows
+
+\begin{itemize}
+\item Open source and Web-based, no Flash.
+\item 100\% client-side.
+\item Only 150 KB compressed.
+\item Chrome, Firefox, Safari, Opera, IE.
+\item Android and iOS support.
+\item Support for Variables, functions, arrays etc.,
+\item Syntax errors are impossible.
+\item Basic type checking.
+\item Extendible with custom blocks.
+\item Export as JS, Python, and more.
+%\item Execute code step-by-step.
+%\item Translated to 40+ languages.
+%\item RTL for Arabic and Hebrew.
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{assets/blockly_sample.png}
+\caption[Blockly sample program]{Blockly sample program}
+\label{fig:blockly_sample}
+\end{figure}
+
+Fig~\ref{fig:blockly_sample} shows a simple program that could be created with blockly. Then Blockly would generate the corresponding code in JavaScript, Python, PHP, Dart, or some other language.
+
+\begin{verbatim}
+if (Count > 256) {
+  Count = 0;
+  alert("Game Over");
+}
+\end{verbatim}
+
+The application can then execute the code as desired. From the application developer's point of view, Blockly is basically a textarea into which the user types syntactically perfect code.  Blockly makes it completely impossible to make a syntax error. There are no unbalanced parentheses, no unescaped strings, no missing semicolons. Blockly allows novice programmers to concentrate on the logic.
+
+Additionally, many non-programmers find a blank screen with a blinking cursor to be daunting. Even seasoned programmers can benefit by starting a script with Blockly. If one is writing a quick script using an unfamiliar API (such as office suite automation) it can take a long time to learn that API. With Blockly one can plug the blocks together for a first draft, then switch to the generated code to keep going. 
+
+Blockly makes it easy to create custom blocks and code generation which simplifies the task of developers to create domain specific programming language interface for novice users.
+
+\subsection{Web Frameworks}
