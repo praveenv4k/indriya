@@ -1,0 +1,15 @@
+files,language,blank,comment,code,"http://cloc.sourceforge.net v 1.62  T=0.48 s (542.2 files/s, 84000.3 lines/s)"
+104,C#,1724,2340,13083
+35,C/C++ Header,946,872,5023
+28,Python,877,1550,2735
+14,C++,385,491,2023
+21,Javascript,268,521,1803
+8,MSBuild script,0,56,1765
+14,XML,15,54,1545
+2,JSON,0,0,578
+3,XSD,39,9,478
+8,XAML,20,27,297
+7,HTML,12,76,232
+11,ASP.Net,0,0,123
+1,YAML,0,2,115
+3,DOS Batch,6,13,23
