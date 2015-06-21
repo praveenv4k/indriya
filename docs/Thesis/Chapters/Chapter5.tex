@@ -251,23 +251,58 @@ A dynamic component that will be created when the user starts the program he/she
 \subsection{Conceptual Model}
 The behavior program is structured in a simple way so that it could be easily understood by the end user. The conceptual model of behavior program is shown in Fig.~\ref{fig:program_concept} and the block level implementation is shown in Fig.~\ref{fig:program_blocks}. The behavior program is composed of:
 \begin{itemize}
-\item \emph{Start-up and Exit Blocks}: The start-up block will be executed once when the user starts the program. The user can add a set of actions to be performed when the program starts. Similarly the exit block will be executed once when the lifetime of all the configured behavior blocks expire.  Both these blocks are optional and there cannot be more than one start-up and exit blocks in a program.
-\item \emph{Behavior Block}: The behavior block is composed of
-\begin{itemize}
-\item A \textbf{trigger} that activates this block. The trigger source could be either of human presence/absence, gesture, vicinity of human, verbal command etc.,
-\item The \textbf{lifetime} of each behavior block could be configured to run only once, forever or until a condition is met. 
-\item The \textbf{priority} of the block could be set to low, normal or high and the execution is done based on fixed-priority pre-emptive scheduling.
-\item Similar to the behavior program level, at each behavior block level a set of \textbf{startup} and \textbf{exit} actions could be set which would be executed only once during the creation and termination respectively. The \textbf{cyclic} actions will be performed each time the trigger condition is met.
-\end{itemize}
+\item \emph{Start-up Block}: The start-up block will be executed once when the user starts the program. The user can add a set of actions to be performed when the program starts. The start-up block is optional and there cannot be more than one start-up block in the program
+\item \emph{Behavior Block}: The behavior block is the core component of the behavior program. The block could be activated by the interaction between the human and the robot. There could be many behavior blocks in a program. The properties/attributes of a behavior block is shown in Table~\ref{table:behavior_block}.
+\begin{table}[H]
+\centering
+\small
+\caption{Behavior block properties}
+\label{table:behavior_block}
+\begin{tabularx}{400pt}{|X|X|}
+\hline
+  \textbf{Property} & \textbf{Description}
+  \tabularnewline \hline
+  
+  \multirow{1}{*}{Trigger} & The signal that activates the behavior block. The trigger source could be either of human presence/absence, motion gesture, vicinity of human, verbal command or any boolean edge trigger.
+                                          \tabularnewline\hline
+                                          
+  \multirow{1}{*}{Lifetime} & The lifespan of the behavior block. \begin{itemize}
+                                                                      \item Once: The block will be executed only once.
+                                                                      \item Forever: The block will be executed forever each time trigger condition is met.
+                                                                      \item Until: The block will be executed until a condition is met
+                                                                   \end{itemize}
+                                          \tabularnewline\hline
+  
+  \multirow{1}{*}{Priority} & The priority of the block could be Low, Normal or High and the behavior execution is scheduled based on fixed-priority preemptive scheduling. There is not dynamic priority allocation as the concept could be confusing for naive users.
+                                          \tabularnewline\hline
+
+  \multirow{1}{*}{Startup} & Tasks/actions to be performed once when the block is initialized
+                                          \tabularnewline\hline
+
+  \multirow{1}{*}{Cyclic} & Tasks/actions to be performed each time the trigger condition is met
+                                          \tabularnewline\hline
+  
+  \multirow{1}{*}{Exit} &  Tasks/actions to be performed once when the lifetime of the block expires
+                                          \tabularnewline                                                                       
+                      \hline
+\end{tabularx}
+\end{table}
+\item \emph{Exit Block}: The exit block will be executed once when the lifetime of all the configured behavior blocks expire. Like the startup block there could be only one exit block in the program.
 \end{itemize}
 
 \subsection{Block Level implementation}
+The visual blocks corresponding to each of the startup, behavior and exit blocks. The complex programs could be composed by putting together these blocks. 
 
 \subsection{Code Generation and Execution}
 
 \section{User Interface}
 \label{ssec:ui_comp}
-The user interface is a web application that runs on any latest web-kit browsers supporting WebGL technology. 
+The user interface is a web application that runs on any latest web-kit browsers supporting HTML5, CSS3 and WebGL technologies. The list of libraries and components used to build the web interface has been described in Section~\ref{sec:ui_design}. In this section the various screens in the developed user interface has been described. The UI is composed of tabbed interface consisting of 3 main components.
+\begin{itemize}
+\item Design
+\item Visualize
+\item Monitor
+\end{itemize}
 
 \subsection{Behavior Designer} The Behavior designer surface could be used by the user to drag and drop the behavior blocks and construct the program using the set of motion capabilities registered by the active motion recognition nodes and the set of robot action capabilities registered by the active robot interface nodes. The behavior designed using the designer will be encoded into a declarative XML format and sent to the server when the user request to start the program. The designer offers a full range of capabilities like Create/Edit/Delete/Save behavior programs.
 \subsection{Visualization} The visualization could be used to see the interaction of the human and robot inside a virtual 3D environment.
