@@ -291,7 +291,24 @@ The behavior program is structured in a simple way so that it could be easily un
 \end{itemize}
 
 \subsection{Block Level implementation}
-The visual blocks corresponding to each of the startup, behavior and exit blocks. The complex programs could be composed by putting together these blocks. 
+The visual blocks corresponding to each of the startup, behavior and exit blocks are implemented. The complex programs could be composed by putting together these blocks. The startup and exit blocks are shown in Fig~\ref{fig:blocks_init}. As could be seen from the figure, the blocks are quite simple making it possible to put the list of statements consisting of initialization and termination logic of the program. 
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.48\textwidth}
+\includegraphics[width=0.8\textwidth]{../thesis/assets/blocks_startup.png}
+\caption[Startup block]{Startup block}
+\label{fig:program_concept}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.48\textwidth}
+\includegraphics[width=0.8\textwidth]{../thesis/assets/blocks_exit.png}
+\caption[Exit block]{Exit block}
+\label{fig:program_blocks}
+\end{subfigure}
+\caption[Startup and Exit blocks]{Startup and Exit blocks}
+\label{fig:blocks_init}
+\end{figure}
+The behavior block is designed in such a way that it 
 
 \subsection{Code Generation and Execution}
 
