@@ -251,12 +251,12 @@ A dynamic component that will be created when the user starts the program he/she
 \subsection{Conceptual Model}
 The behavior program is structured in a simple way so that it could be easily understood by the end user. The conceptual model of behavior program is shown in Fig.~\ref{fig:program_concept} and the block level implementation is shown in Fig.~\ref{fig:program_blocks}. The behavior program is composed of:
 \begin{itemize}
-\item \emph{Start-up Block}: The start-up block will be executed once when the user starts the program. The user can add a set of actions to be performed when the program starts. The start-up block is optional and there cannot be more than one start-up block in the program
+\item \emph{Startup block}: The startup block will be executed once when the user starts the program. The user can add a set of actions to be performed when the program starts. The start-up block is optional and there cannot be more than one start-up block in the program
 \item \emph{Behavior Block}: The behavior block is the core component of the behavior program. The block could be activated by the interaction between the human and the robot. There could be many behavior blocks in a program. The properties/attributes of a behavior block is shown in Table~\ref{table:behavior_block}.
 \begin{table}[H]
 \centering
 \small
-\caption{Behavior block properties}
+\caption{Trigger Behavior block properties}
 \label{table:behavior_block}
 \begin{tabularx}{400pt}{|X|X|}
 \hline
@@ -287,20 +287,19 @@ The behavior program is structured in a simple way so that it could be easily un
                       \hline
 \end{tabularx}
 \end{table}
-\item \emph{Exit Block}: The exit block will be executed once when the lifetime of all the configured behavior blocks expire. Like the startup block there could be only one exit block in the program.
+\item \emph{Exit block}: The exit block will be executed once when the lifetime of all the configured behavior blocks expire. Like the startup block there could be only one exit block in the program.
 \end{itemize}
 
 \subsection{Block Level implementation}
 The visual blocks corresponding to each of the startup, behavior and exit blocks are implemented. The complex programs could be composed by putting together these blocks. The startup and exit blocks are shown in Fig~\ref{fig:blocks_init}. As could be seen from the figure, the blocks are quite simple making it possible to put the list of statements consisting of initialization and termination logic of the program. 
 \begin{figure}
 \centering
-\begin{subfigure}[t]{0.48\textwidth}
+\begin{subfigure}[t]{0.4\textwidth}
 \includegraphics[width=0.8\textwidth]{../thesis/assets/blocks_startup.png}
 \caption[Startup block]{Startup block}
 \label{fig:program_concept}
 \end{subfigure}
-\hfill
-\begin{subfigure}[t]{0.48\textwidth}
+\begin{subfigure}[t]{0.4\textwidth}
 \includegraphics[width=0.8\textwidth]{../thesis/assets/blocks_exit.png}
 \caption[Exit block]{Exit block}
 \label{fig:program_blocks}
@@ -308,8 +307,22 @@ The visual blocks corresponding to each of the startup, behavior and exit blocks
 \caption[Startup and Exit blocks]{Startup and Exit blocks}
 \label{fig:blocks_init}
 \end{figure}
-The behavior block is designed in such a way that it 
-
+The trigger behavior block is designed in such a way that it incorporates the conceptual model and at the same time easier for the end user to understand and use it. The trigger behavior block is shown in Fig~\ref{fig:blocks_trigger}. The visual design provides ability to compose the blocks by putting an external boolean trigger, choose priority and lifetime from the combo box interface, add startup,cyclic and exit statements etc., The block interface is reactive in the sense that for instance when the lifetime of the block is switched from \emph{Once/Forever} to \emph{Until}, a new input appears in the block where the user can add the condition to stop the block.
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.45\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/blocks_behavior1.png}
+\caption[Behavior1]{Priority: Low , Execute: Once}
+\label{fig:program_concept}
+\end{subfigure}
+\begin{subfigure}[t]{0.45\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/blocks_behavior2.png}
+\caption[Behavior2]{Priority: High , Execute: Until}
+\label{fig:program_blocks}
+\end{subfigure}
+\caption[Trigger Behavior block]{Trigger Behavior block}
+\label{fig:blocks_trigger}
+\end{figure}
 \subsection{Code Generation and Execution}
 
 \section{User Interface}
@@ -320,6 +333,29 @@ The user interface is a web application that runs on any latest web-kit browsers
 \item Visualize
 \item Monitor
 \end{itemize}
+
+\begin{tikzpicture}
+    \node [anchor=east] (main) at (-1,5.2) {\Large Main Tabs};
+    \node [anchor=east] (cmd) at (-1,4.3) {\Large Design command};
+    \node [anchor=east] (toolbox) at (-1,2.5) {\Large Toolbox};
+    \node [anchor=east] (name) at (-1,1.5) {\Large Program name};
+    \node [anchor=east] (surface) at (-1,0.5) {\Large Design Surface};
+    \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.8\textwidth]{ui_designer.png}};
+    \begin{scope}[x={(image.south east)},y={(image.north west)}]
+        %\draw[red,ultra thick,rounded corners] (0.62,0.65) rectangle (0.78,0.75);
+        \draw[red,ultra thick,rounded corners] (0,0.93) rectangle (0.22,0.99);
+        \draw[red,ultra thick,rounded corners] (0,0.89) rectangle (0.25,0.84);
+        \draw[green,ultra thick,rounded corners] (0,0.825) rectangle (0.23,0.01);
+        \draw[yellow,ultra thick,rounded corners] (0.4,0.87) rectangle (0.6,0.93);
+        \draw[blue,ultra thick,rounded corners] (0.235,0.825) rectangle (0.97,0.01);
+
+        \draw [-latex, ultra thick, red] (main) to[out=0, in=-120] (0.01,0.96);
+        \draw [-latex, ultra thick, red] (cmd) to[out=0, in=-120] (0.01,0.89);
+        \draw [-latex, ultra thick, green] (toolbox) to[out=0, in=-120] (0.05,0.5);
+        \draw [-latex, ultra thick, yellow] (name) to[out=0, in=-120] (0.5,0.87);
+        \draw [-latex, ultra thick, blue] (surface) to[out=0, in=-120] (0.5,0.5);
+    \end{scope}
+\end{tikzpicture}
 
 \subsection{Behavior Designer} The Behavior designer surface could be used by the user to drag and drop the behavior blocks and construct the program using the set of motion capabilities registered by the active motion recognition nodes and the set of robot action capabilities registered by the active robot interface nodes. The behavior designed using the designer will be encoded into a declarative XML format and sent to the server when the user request to start the program. The designer offers a full range of capabilities like Create/Edit/Delete/Save behavior programs.
 \subsection{Visualization} The visualization could be used to see the interaction of the human and robot inside a virtual 3D environment.
