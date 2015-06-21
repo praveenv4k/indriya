@@ -83,47 +83,48 @@ And finally we can define a configuration file which contains the parameters and
 
 \lstinputlisting[caption=Sample XML Configuration File,label={lst:sample_config},language=XML]{assets/sample_config.xml}
 
-\section{UI Design}
+\section{User Interface Design}
 
-\subsection{Google Blockly}
-Blockly is a library for building visual programming editors. It allows users to write programs by plugging blocks together. Developers can integrate the Blockly editor into their own web applications to create a great UI for novice users. It is being used by hundreds of projects as a visual editor. The main features of the Blockly library are as follows
+The applications targeted for naive users should be designed carefully in order to abstract the complex architecture details and reduce the number of steps the user has to follow in order to do what he/she desires. Hence obviously terminal based command interfaces are not suitable since they may be daunting even for intermediate programmers. A simple and intuitive user interface is inevitable under such scenarios where visual programming techniques come into the picture. Additionally the application hosting the user interface could be a native application targeted to any particular operating system say Windows, Linux, OSX, iOS, Android etc., This will once again restrict the usage requiring the user to have that particular OS installed in their device. The web applications come handy which could tackle all the aforesaid bottlenecks. Hence for the experimental platform, an user interface which is based on latest web standards (HTML5, CSS3, WebGL etc.,) is proposed. It is perfectly suited for smart environments which adopts ``Bring your own device'' policy. In this section the libraries that have been used for building up the user interface is explained.
+
+\subsection{Web Frameworks}
+
+\subsection{Blockly: Visual Programming Editor}
+Blockly \cite{Blockly} is a library for building visual programming editors. It allows users to write programs by plugging blocks together. Developers can integrate the blockly editor into their own web applications to create a great UI for novice users. It is being used by hundreds of projects as a visual editor. The main features of the Blockly library are as follows
 
 \begin{itemize}
-\item Open source and Web-based, no Flash.
-\item 100\% client-side.
-\item Only 150 KB compressed.
-\item Chrome, Firefox, Safari, Opera, IE.
+\item Compact, Open source and Web-based, no Flash.
+\item Supports a wide range of web browsers: Google Chrome, Firefox, Safari, Opera, IE.
 \item Android and iOS support.
 \item Support for Variables, functions, arrays etc.,
 \item Syntax errors are impossible.
 \item Basic type checking.
 \item Extendible with custom blocks.
-\item Export as JS, Python, and more.
-%\item Execute code step-by-step.
-%\item Translated to 40+ languages.
-%\item RTL for Arabic and Hebrew.
+\item Code generation API available for Javascript, Python, and more.
 \end{itemize}
 
-\begin{figure}
-\centering
-\includegraphics[width=0.5\textwidth]{assets/blockly_sample.png}
-\caption[Blockly sample program]{Blockly sample program}
+\begin{figure}[H]
+%\centering
+\begin{subfigure}[h]{0.48\textwidth}
+\includegraphics[width=\textwidth]{assets/blockly_sample.png}
+\caption[Visual Program]{Visual Program}
 \label{fig:blockly_sample}
+\end{subfigure}
+\hfill
+\begin{subfigure}[h]{0.48\textwidth}
+\lstinputlisting[language=Python]{assets/blockly_sample.txt}
+\caption[Generated code]{Generated code}
+\label{fig:blockly_sample_code}
+\end{subfigure}
+\caption[Google Blockly editor]{Google Blockly editor}
+\label{fig:pseudo_nodes}
 \end{figure}
 
-Fig~\ref{fig:blockly_sample} shows a simple program that could be created with blockly. Then Blockly would generate the corresponding code in JavaScript, Python, PHP, Dart, or some other language.
-
-\begin{verbatim}
-if (Count > 256) {
-  Count = 0;
-  alert("Game Over");
-}
-\end{verbatim}
+Fig~\ref{fig:blockly_sample} shows a simple program that could be created with blockly. Then Blockly provides API to generate the corresponding code in JavaScript, Python, PHP, Dart, or some other language. For instance the Python code corresponding to the sample visual program is shown in Fig~\ref{fig:blockly_sample_code}
 
 The application can then execute the code as desired. From the application developer's point of view, Blockly is basically a textarea into which the user types syntactically perfect code.  Blockly makes it completely impossible to make a syntax error. There are no unbalanced parentheses, no unescaped strings, no missing semicolons. Blockly allows novice programmers to concentrate on the logic.
 
-Additionally, many non-programmers find a blank screen with a blinking cursor to be daunting. Even seasoned programmers can benefit by starting a script with Blockly. If one is writing a quick script using an unfamiliar API (such as office suite automation) it can take a long time to learn that API. With Blockly one can plug the blocks together for a first draft, then switch to the generated code to keep going. 
+Additionally, many non-programmers find a blank screen with a blinking cursor to be daunting. Even seasoned programmers can benefit by starting a script with Blockly. Blockly makes it easy to create custom blocks and code generation which simplifies the task of developers to create application specific programming language interface for novice users. All these advantages makes Blockly ideal fit for creating robot behavior programs by novice programmers.
 
-Blockly makes it easy to create custom blocks and code generation which simplifies the task of developers to create domain specific programming language interface for novice users.
+\subsection{ThreeJS: WebGL based 3D renderer}
 
-\subsection{Web Frameworks}
