@@ -334,13 +334,15 @@ The user interface is a web application that runs on any latest web-kit browsers
 \item Monitor
 \end{itemize}
 
+\begin{figure}
+\centering
 \begin{tikzpicture}
-    \node [anchor=east] (main) at (-1,5.2) {\Large Main Tabs};
-    \node [anchor=east] (cmd) at (-1,4.3) {\Large Design command};
-    \node [anchor=east] (toolbox) at (-1,2.5) {\Large Toolbox};
-    \node [anchor=east] (name) at (-1,1.5) {\Large Program name};
-    \node [anchor=east] (surface) at (-1,0.5) {\Large Design Surface};
-    \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.8\textwidth]{ui_designer.png}};
+    \node [anchor=north] (main) at (1.5,9.5) {\Large Main Tabs};
+    \node [anchor=north] (cmd) at (5,9.5) {\Large Designer commands};
+    \node [anchor=south] (toolbox) at (1.5,-1) {\Large Toolbox};
+    \node [anchor=north] (name) at (10,9.5) {\Large Program name};
+    \node [anchor=south] (surface) at (8,-1) {\Large Designer Surface};
+    \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=\textwidth]{ui_designer.png}};
     \begin{scope}[x={(image.south east)},y={(image.north west)}]
         %\draw[red,ultra thick,rounded corners] (0.62,0.65) rectangle (0.78,0.75);
         \draw[red,ultra thick,rounded corners] (0,0.93) rectangle (0.22,0.99);
@@ -349,13 +351,21 @@ The user interface is a web application that runs on any latest web-kit browsers
         \draw[yellow,ultra thick,rounded corners] (0.4,0.87) rectangle (0.6,0.93);
         \draw[blue,ultra thick,rounded corners] (0.235,0.825) rectangle (0.97,0.01);
 
-        \draw [-latex, ultra thick, red] (main) to[out=0, in=-120] (0.01,0.96);
-        \draw [-latex, ultra thick, red] (cmd) to[out=0, in=-120] (0.01,0.89);
-        \draw [-latex, ultra thick, green] (toolbox) to[out=0, in=-120] (0.05,0.5);
-        \draw [-latex, ultra thick, yellow] (name) to[out=0, in=-120] (0.5,0.87);
-        \draw [-latex, ultra thick, blue] (surface) to[out=0, in=-120] (0.5,0.5);
+        % \draw [-latex, ultra thick, red] (main) to[out=0, in=-120] (0.01,0.96);
+        % \draw [-latex, ultra thick, red] (cmd) to[out=0, in=-120] (0.01,0.89);
+        % \draw [-latex, ultra thick, green] (toolbox) to[out=0, in=-120] (0.05,0.5);
+        % \draw [-latex, ultra thick, yellow] (name) to[out=0, in=-120] (0.5,0.87);
+        % \draw [-latex, ultra thick, blue] (surface) to[out=0, in=-120] (0.5,0.5);
+        \draw [-stealth, line width=3pt, red] (main) -- ++ (-0.0,-0.15);
+        \draw [-stealth, line width=3pt, red] (cmd) -- ++ (-0.12,-0.24);
+        \draw [-stealth, line width=3pt, green] (toolbox) -- ++ (0,0.5);
+        \draw [-stealth, line width=3pt, yellow] (name) -- ++ (-0.1,-0.19);
+        \draw [-stealth, line width=3pt, blue] (surface) -- ++ (0,0.5);
     \end{scope}
 \end{tikzpicture}
+    \caption[Behavior designer]{Behavior designer}
+    \label{fig:behavior_designer}
+\end{figure}
 
 \subsection{Behavior Designer} The Behavior designer surface could be used by the user to drag and drop the behavior blocks and construct the program using the set of motion capabilities registered by the active motion recognition nodes and the set of robot action capabilities registered by the active robot interface nodes. The behavior designed using the designer will be encoded into a declarative XML format and sent to the server when the user request to start the program. The designer offers a full range of capabilities like Create/Edit/Delete/Save behavior programs.
 \subsection{Visualization} The visualization could be used to see the interaction of the human and robot inside a virtual 3D environment.
