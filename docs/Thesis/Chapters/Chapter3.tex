@@ -62,7 +62,8 @@ The goal of this approach is to output the 3D locations of the human body parts 
 \caption[HMM motion modeling]{HMM motion modeling. {Adapted from \cite{aoki2013segmentation}}}
 \label{fig:hmm}
 \end{figure}
-In the publication by Microsoft research \cite{han2013enhanced}, a background study on various algortihms used for human activity analysis is presented. Recently \cite{KinectSDK2014} data-driven machine learning approaches like neural networks, Support vector machines, clustering, decision trees and bayesian networks are being exploited to this purpose. In \cite{KinectSDK2014}, an AdaBoost (Adaptive Boosting) algorithm \cite{freund1997decision} which is one of the top 10 data mining algorithms, is used to efficiently detect the gestures. The system involves a training phase in which the desired gestures are captured and tagged. These tagged gestures will be used by a gesture detector trainer which will generate a set of training examples $S=\lbrace \lbrace x_n,y_n \rbrace,\ n=1,\cdots,N \vert x_n\in X,y_n\in Y, X=\text{skeleton},Y=\lbrace -1,+1 \rbrace\rbrace$, associated data and set of weak classifiers $h_t$ and it learns the confidence $\alpha_t$ for $h_t$. The training results are stored in files and will be used by the gesture detector to perform per-frame classification of the data using $(h_t,\alpha_t)$. This approach has been proved to be robust with accuracy as high as 94.9\%. The gesture recognition module that comes with Kinect system already implements Adaboost based gesture detector for detecting the discrete gestures. For detecting more complex continuous gestures it uses RFRProgress detector, which is a detection technology that produces an analog or continuous result. It uses the Random Forest Regression (RFR) machine learning algorithm to determine the progress of a gesture performed by a user. It uses tagging models that are represented by analog signals that occur during a gesture. The RFRProgress is a context-based detector, meaning that the progress detection is only valid when a user is performing a gesture. Progress detection is enabled when a discrete gesture (AdaBoostTrigger) is detected.
+% In the publication by Microsoft research \cite{han2013enhanced}, a background study on various algortihms used for human activity analysis is presented. Recently \cite{KinectSDK2014} data-driven machine learning approaches like neural networks, Support vector machines, clustering, decision trees and bayesian networks are being exploited to this purpose. In \cite{KinectSDK2014}, an AdaBoost (Adaptive Boosting) algorithm \cite{freund1997decision} which is one of the top 10 data mining algorithms, is used to efficiently detect the gestures. The system involves a training phase in which the desired gestures are captured and tagged. These tagged gestures will be used by a gesture detector trainer which will generate a set of training examples $S=\lbrace \lbrace x_n,y_n \rbrace,\ n=1,\cdots,N \vert x_n\in X,y_n\in Y, X=\text{skeleton},Y=\lbrace -1,+1 \rbrace\rbrace$, associated data and set of weak classifiers $h_t$ and it learns the confidence $\alpha_t$ for $h_t$. The training results are stored in files and will be used by the gesture detector to perform per-frame classification of the data using $(h_t,\alpha_t)$. This approach has been proved to be robust with accuracy as high as 94.9\%. The gesture recognition module that comes with Kinect system already implements Adaboost based gesture detector for detecting the discrete gestures. For detecting more complex continuous gestures it uses RFRProgress detector, which is a detection technology that produces an analog or continuous result. It uses the Random Forest Regression (RFR) machine learning algorithm to determine the progress of a gesture performed by a user. It uses tagging models that are represented by analog signals that occur during a gesture. The RFRProgress is a context-based detector, meaning that the progress detection is only valid when a user is performing a gesture. Progress detection is enabled when a discrete gesture (AdaBoostTrigger) is detected.
+In the publication by Microsoft research \cite{han2013enhanced}, a background study on various algortihms used for human activity analysis is presented. Recently \cite{KinectSDK2014} data-driven machine learning approaches like neural networks, Support vector machines, clustering, decision trees and bayesian networks are being exploited to this purpose. In \cite{KinectSDK2014}, an AdaBoost (Adaptive Boosting) algorithm \cite{freund1997decision} which is one of the top 10 data mining algorithms, is used to efficiently detect the gestures. The system involves a training phase in which the desired gestures are captured and tagged. These tagged gestures will be used by a gesture detector trainer which will generate a set of training examples, associated data and set of weak classifiers and it learns a confidence value for each of the weak classifiers. The training results are stored in files and will be used by the gesture detector to perform per-frame classification of the data. This approach has been proved to be robust with accuracy as high as 94.9\%. The gesture recognition module that comes with Kinect system already implements Adaboost based gesture detector for detecting the discrete gestures. For detecting more complex continuous gestures it uses RFRProgress detector, which is a detection technology that produces an analog or continuous result. It uses the Random Forest Regression (RFR) machine learning algorithm to determine the progress of a gesture performed by a user. It uses tagging models that are represented by analog signals that occur during a gesture. The RFRProgress is a context-based detector, meaning that the progress detection is only valid when a user is performing a gesture. Progress detection is enabled when a discrete gesture (AdaBoostTrigger) is detected.
 
 \section{Localization of Humanoid Robot} % Main chapter title
 The localization of humanoid robots is a challenging issue, due to rough odometry estimation, noisy onboard sensing, and the swaying motion caused by walking \cite{cervera2012localization}. As a prelimnary assumption, the link of the robot are considered \emph{rigid bodies} in which distance between any two given points on it remains constant in time regardless of external forces exerted on it. Rigid body transformation forms the basic components in the pose estimation framework. In the $3D$ operational space represented by the vector space $\Re^3$, a rigid body is represented by \emph{6 degrees of freedom (DOF)}, 3 for the position along each of the coordinate axes (cartesian coordinates) $P = [p_x,p_y,p_z]^{\text{T}}$ and 3 for the orientation $R$. There are different representation for the orientation of the rigid body. They are rotation matrices, euler angles, RPY (roll,pitch,yaw) angles, quaternions. A detailed introduction about rigid body mechanics and various representation of pose of a rigid body can be found in the book by Khalil et al., \cite{khalil2004modeling}. For most of the humanoid robots the reference frame will be fixed to the torso as is the case for the Nao. So the basic idea is to track the torso of the Nao or any other position with the known transformation from the torso. In this section different techniques that could be effectively used for localization and tracking of the humanoid robot are presented.
@@ -79,16 +80,16 @@ The advancements in the field of augmented reality led to the development of eff
 \label{ssec:pcl}
 The Point Cloud Library (PCL) \cite{rusu20113d} which is one of the most widely used 3D perception software library, has collection of state-of-the-art algorithms and tools to process 3-D data. 
 	Point cloud library provides an excellent infrastructure for the object recognition and 6-DOF pose estimation pipeline by offering a wide variety of robust local and global features. A list of features available is presented in \cite{aldoma2012point}. Object recognition based on global/local features almost share the same flow of operations. 
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{assets/pcl_pipeline.eps}
-\caption[PCL local and global 3D Pipelines]{PCL local and global 3D Pipelines. {Adapted from \cite{aldoma2012point}}}
-\label{fig:pcl_pipeline}
-\end{figure}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=1\textwidth]{assets/pcl_pipeline.eps}
+% \caption[PCL local and global 3D Pipelines]{PCL local and global 3D Pipelines. {Adapted from \cite{aldoma2012point}}}
+% \label{fig:pcl_pipeline}
+% \end{figure}
 The pose of an object of known geometry is computed with the point clouds of the meshes generated by a virtual depth camera. The 3D features known as descriptors of the model are computed and stored to be used during the recognition phase.  During the recognition, at first descriptors (local or global) are computed followed by segmentation and correspondence matching with all the known models in the database. This is followed by an correspondence grouping using Random Sampling Consensus (RANSAC) to remove the outliers. Following this, a least square optimization is performed to obtain the rotation and the translation from exact point correspondences. Both the global and local pipelines can undergo an optional \emph{post processing} step by applying Iterated Closest Point (ICP) in order to refine estimated 6-DoF pose.
 
 Apart from the object recognition and pose estimation pipeline, PCL provides a comprehensive algorithmic base for the tracking of 3D objects using Monte Carlo sampling techniques \cite{RUeda2012} and for calculating the likelihood using combined weighted metrics for hyperdimensional spaces including cartesian data, colors, and surface normals. PCL also has non-probabilistic tracking algorithms like Pyramidal Kanade Lucas Tomasi (KLT) Tracker in its tracking module. The KLT tracker operates on organized 3D keypoints with color/intensity information. A list of probabilistic tracking algorithms implemented in PCL is presented in Section~\ref{sssec:prob_solutions} for the purpose of being coherent.
-\subsection{Probabilistic Approaches}
+\subsection{Probabilistic approaches}
 \label{ssec:prob_approaches}
 Probabilistic localization algorithms are variants of the Bayes filter \cite{thrun2005probabilistic}. The pose of the robot is represented in a probabilistic manner called the \emph{belief}: ($bel(x_t)$) which is a posterior distribution over the state space. The basic principle behind Bayes filter is that the belief $bel(x_t)$ at time $t$ is calculated from the belief $bel(x_{t-1})$ at time $t-1$ along with the most recent control $u_t$ and the most recent measurement $z_t$. It involves two basic steps: \emph{Control update step} during which the $\overline{bel(x_t)}$ is computed based on the prior assigned to $x_{t-1}$ and the probability that control $u_t$ induces a transition from $x_{t-1}$ to $x_t$, \emph{Measurement update step} during which the hypothetical posterior $\overline{bel(x_t)}$ is multiplied with the probability of seeing an observation $z_t$ given this $x_t$. The recursive computation of belief state can thus be given by
 \begin{align*}
@@ -97,53 +98,52 @@ Probabilistic localization algorithms are variants of the Bayes filter \cite{thr
 \end{align*}
 where $\eta$ is the normalization factor. The straightforward application of Bayes filters to the localization problem is called Markov localization. Markov localization makes use of the \emph{Markov assumption} (The Markov assumption postulates that past and future data are independent if one knows the current state {$x_t$). Extended Kalman Filter(EKF) based localization is one of the initial developments to be used in non-linear state models. However they suffered problems of uni-modal distribution(gaussian) assumption and failing to solve global localization problem. 
 
-The particle filter \cite{thrun2005probabilistic} is an alternative non parametric implementation of Bayes filter. The key idea of the particle filter is to represent the posterior $bel(x_t)$ by a set of samples drawn from the distribution. Such a representation is approximate, but it is nonparametric, and therefore can represent a much broader space of distributions than, for example, Gaussians. The important steps of particle filter is sampling of the state space resulting in a set of $(M)$ particles, computing the importance factor $(w_t)$ of each of those particles $(x_t)$ based on strength of observation $(z_t)$ that could be observed from them and followed by re-sampling of the particles based on their importance factor. The basic intuition behind the particle filter is to approximate the belief $bel(x_t)$ by the set of particles $X_t$ and as a consequence denser a subregion of the state space is populated by samples, the more likely the true state falls in the region.The current state is given by the weighted particle mean 
-\begin{equation}
-E(X_t) = \sum_{m=1}^{M} {w_t}^{[m]}\cdot {x_t}^{[m]}
-\end{equation}
-
+The particle filter \cite{thrun2005probabilistic} is an alternative non-parametric implementation of bayes filter. The key idea of the particle filter is to represent the posterior $bel(x_t)$ by a set of samples drawn from the distribution. Such a representation is approximate, but it is nonparametric, and therefore can represent a much broader space of distributions than, for example, Gaussians. 
+% The important steps of particle filter is sampling of the state space resulting in a set of $(M)$ particles, computing the importance factor $(w_t)$ of each of those particles $(x_t)$ based on strength of observation $(z_t)$ that could be observed from them and followed by re-sampling of the particles based on their importance factor. The basic intuition behind the particle filter is to approximate the belief $bel(x_t)$ by the set of particles $X_t$ and as a consequence denser a subregion of the state space is populated by samples, the more likely the true state falls in the region.The current state is given by the weighted particle mean 
+% \begin{equation}
+% E(X_t) = \sum_{m=1}^{M} {w_t}^{[m]}\cdot {x_t}^{[m]}
+% \end{equation}
 Monte-carlo localization (MCL) \cite{fox1999monte} is a version of Markov localization, a family of probabilistic approaches that has been successfully applied to localization problems and it has become one of the most popular localization algorithms in robotics. MCL uses fast sampling techniques to represent the belief and it introduces probabilistic motion and perceptual models into the particle filter framework. The efficiency of particle filters lies in the way they place computational resources. By sampling in proportion to likelihood, particle filters focus the computational resources on regions with high likelihood, where good approximations are most important. The time complexity of one update of the particle filter algorithm is linear in the number of samples needed for the estimation. The Kullback-Leibler Distance(KLD) adaptive sampling technique proposed in \cite{fox2003adapting} presents an approach to adapt the number of samples over time. 
 
-\subsection{Existing Solutions}
-\label{sssec:prob_solutions}
-	\par The Point cloud library \cite{RUeda2012} introduced in Section~\ref{ssec:pcl} implements ready to use probabilistic tracking algorithms like: the most basic particle filter tracker(\emph{ParticleFilterTracker}), particle filter using OpenMP support(\emph{ParticleFilterOMPTracker}), KLD-adaptive sampling particle filter( \emph{KLDAdaptiveParticleFilterTracker}) and KLD adaptive sampling with OpenMP support ( \emph{KLDAdaptiveParticleFilterOMPTracker}). This could be readily used to track an object of know geometry and this information has to be fed to the PCL through a point cloud mesh of the object.
+% \subsection{Existing Solutions}
+% \label{sssec:prob_solutions}
+	% \par The Point cloud library \cite{RUeda2012} introduced in Section~\ref{ssec:pcl} implements ready to use probabilistic tracking algorithms like: the most basic particle filter tracker(\emph{ParticleFilterTracker}), particle filter using OpenMP support(\emph{ParticleFilterOMPTracker}), KLD-adaptive sampling particle filter( \emph{KLDAdaptiveParticleFilterTracker}) and KLD adaptive sampling with OpenMP support ( \emph{KLDAdaptiveParticleFilterOMPTracker}). This could be readily used to track an object of know geometry and this information has to be fed to the PCL through a point cloud mesh of the object.
 	
-	Studies on robot localization, obstacle mapping, and path planning in multilevel 3D environments by equipping Nao with a consumer-level depth camera has been reported in \cite{maier2012real}. This study provides real-time solution while maintaining a 3D environment representation and estimating the robot’s pose in 6D. The 3D environment model in form of an octree based representation containing the static parts of the environment is used. In this representation, the robot estimates its pose using MCL based on acquired depth data. Given the estimated 6D pose of the humanoid and a sequence of depth images, this approach continuously builds a local 3D representation of the current state of the environment containing also non-static obstacles. This learned octree-based representation is then used for real-time planning of collision-free paths. For robust localization while walking, it combines 3D range data from the depth camera located on top of the head, altitude data provided by an inertial measurement unit (IMU) in the chest and odometry data.
+Studies on robot localization, obstacle mapping, and path planning in multilevel 3D environments by equipping Nao with a consumer-level depth camera have been reported in \cite{maier2012real}. This study provides real-time solution while maintaining a 3D environment representation and estimating the robot’s pose in 6D. The 3D environment model in form of an octree based representation containing the static parts of the environment is used. In this representation, the robot estimates its pose using MCL based on acquired depth data. Given the estimated 6D pose of the humanoid and a sequence of depth images, this approach continuously builds a local 3D representation of the current state of the environment containing also non-static obstacles. This learned octree-based representation is then used for real-time planning of collision-free paths. For robust localization while walking, it combines 3D range data from the depth camera located on top of the head, altitude data provided by an inertial measurement unit (IMU) in the chest and odometry data.
 	
-	While \cite{maier2012real} presented an approach wherein a depth camera is fixed to the humanoid robot, in \cite{cervera2012localization} localization and motion planning in smart home environment have been proposed. In this study an external depth camera is used for 6D pose estimation and tracking, which is very close to the scenario of this thesis. Once again MCL technique is used for the pose estimation of the torso of the humanoid robot and this information is used for the closed loop navigation control. For the localization, this study used  \emph{KLDAdaptiveParticleFilterOMPTracker} available in Point cloud library. For the purpose of navigation, this study determined the pose error on the plane of walking using the knowledge of estimated pose and the desired pose. The linear velocity of the robot is calculated from the pose error using a proportional gain. The angular velocity is determined adaptively depending on the distance to the target. The localization results of this study proved to be robust compared to the odometry data. However this study did not take into account of collision free navigation planning. 
+While \cite{maier2012real} presented an approach wherein a depth camera is fixed to the humanoid robot, in \cite{cervera2012localization} localization and motion planning in smart home environment have been proposed. In this study an external depth camera is used for 6D pose estimation and tracking, which is very close to the scenario of this thesis. Once again MCL technique is used for the pose estimation of the torso of the humanoid robot and this information is used for the closed loop navigation control. For the localization, this study used  \emph{KLDAdaptiveParticleFilterOMPTracker} available in Point cloud library. For the purpose of navigation, this study determined the pose error on the plane of walking using the knowledge of estimated pose and the desired pose. The linear velocity of the robot is calculated from the pose error using a proportional gain. The angular velocity is determined adaptively depending on the distance to the target. The localization results of this study proved to be robust compared to the odometry data. However this study did not take into account of collision free navigation planning. 
 	
-	In \cite{choi2013rgb} a robust particle filter parallelized on a GPU that can track a known 3D object model over a sequence of RGB-D images is proposed. This method proposes to render the 3D object model to be used in the likelihood function so that the object could be tracked inspite of significant pose variations. Unlike PCL object tracking algorithm \cite{rusu20113d} which maintains only one reference point cloud, this approach uses multiple viewports rendered in GPU with different poses and each particle searches the closest rendering from the viewports and likelihood evaluation is performed by transforming the closest rendered result with the current particle state. Each particle is defined as 6D vector consisting of position and orientation of the object. For the likelihood evaluation, this work exploits the RGB-D data and utilizes the position, normal and color information of the points. Through a set of extensive experiments with both synthetic and real RGB-D sequences, this approach has been proved to be faster and also accurate than the PCL tracking.
+In \cite{choi2013rgb} a robust particle filter parallelized on a GPU that can track a known 3D object model over a sequence of RGB-D images is proposed. This method proposes to render the 3D object model to be used in the likelihood function so that the object could be tracked inspite of significant pose variations. Unlike PCL object tracking algorithm \cite{rusu20113d} which maintains only one reference point cloud, this approach uses multiple viewports rendered in GPU with different poses and each particle searches the closest rendering from the viewports and likelihood evaluation is performed by transforming the closest rendered result with the current particle state. Each particle is defined as 6D vector consisting of position and orientation of the object. For the likelihood evaluation, this work exploits the RGB-D data and utilizes the position, normal and color information of the points. Through a set of extensive experiments with both synthetic and real RGB-D sequences, this approach has been proved to be faster and also accurate than the PCL tracking.
 	
 \section{Behavioral Frameworks} % Main chapter title
 The users of social robots do not have necessary backgrounds in programming and design of robot behaviors. This lead to the development of several visual programming languages which allow non-programmers to create robot applications. Most of the available visual programming softwares allows to choose among many prebuilt behavioral blocks and connecting them to one another to get the desired flow of action \cite{MSRS4} \cite{Choregraphe}. These programs are very intuitive and allow the users to realize complex sequence of movements and sequential behaviors. But programming dynamic behaviors still remains challenging. This is primarily due to fact that the users have to think about the data flow between various blocks by appropriate connections between them. When it comes to designing complex dynamic behaviors this task becomes very tedious and time consuming.  Programming complex dynamic behaviors for small commercial humanoid robots is a complicated task for the inexperienced roboticists \cite{berenz2014targets} for the reasons such as synchronizing the data flows, conditional selection of actions, ensuring robustness and task continuity etc., There are many solutions  proposed in the literature that address the dynamic control problem. For instance Gostai's Universal Robotic Body Interface(URBI) \cite{baillie2008urbi} and Task description language (TDL) \cite{simmons1998task} are programming languages developed specifically for robot programming. URBI provides a modern object-oriented scripting language that allows the organization of code into different processes that either run sequentially or in parallel, and it also provides tools for process execution monitoring. In TDL which was developed as a C++ extension, the code is organized into task trees, which encode the hierarchical decomposition of tasks as well as the synchronization of constraints between tasks. More recently, specialized operating systems have been proposed, such as ROS \cite{quigley2009ros}, which organize code into distributed asynchronous modules that exchange data using a data subscription protocol. Hierarchical organization of behaviors and modularity are also being investigated \cite{jaeger1998dual} \cite{Baldassarre:2013:CRM:2560111} \cite{hurdus2008behavioral}. These solutions manage the integration and communication between different types of hardware and software and support the implementation of reaction, as well as behavioral specification. However, these programs have been produced by robot developers and are targeted at this community, which means that they are not intended to be used by non-roboticists and a solid background in computer science/robotics is required for their use.
-\begin{figure}[H]
-\centering
-\begin{subfigure}[b]{0.5\textwidth}
-\includegraphics[width=\textwidth]{assets/helloworld_cho_dlg_05.png}
-%http://doc.aldebaran.com/2-1/getting_started/helloworld_choregraphe_dialog.html
-\caption{Choreographe Albebaran}
-\label{fig:choreographe}
-\end{subfigure}%
-\begin{subfigure}[b]{0.5\textwidth}
-\includegraphics[width=\textwidth]{assets/MSRD4_VSE2.png}
-%http://www.microsoftstore.com/store/msusa/en_US/pdp/Kinect-for-Windows-v2-Sensor/productID.298810500
-\caption{MSRD Studio 4:Visual Simulation Environment}
-\label{fig:msrd4_vse}
-\end{subfigure}%
-\caption[Visual Programming Tools]{Visual Programming Tools. {Adapted from manufacturer's site}}
-\label{fig:visprog}
-\end{figure}
-A new non-domain-specific solution called \emph{Target Drives Means (TDM)} shown in Figure~\ref{fig:tdm_im} is proposed in \cite{berenz2014targets} taking into account the following requirements. TDM proposes a programming paradigm where temporal independent dynamic behaviors blocks run in parallel. The logic of the program is not expressed using communication links in a flowchart, but by the use of specialized dynamic components that regulate the activation status and the priorities of the behaviors. THe information exchange occurs via a specialized centralized memory called \emph{Internal Model(IM)} which takes care of asynchronous information flow (push/pull communication) between connected components, odometry, object permanence, and activation of behaviors through triggers. 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.5\textwidth]{assets/tdm_im.eps}
-\caption[Target-drives-means Framework]{TDM Framework. {Adapted from \cite{berenz2014targets}}}
-\label{fig:tdm_im}
-\end{figure}
-The comparison results of TDM and Aldebaran Choreographe presented in \cite{berenz2014targets} indicates that TDM is appropriate when it comes to designing complex dynamic behaviors. However there does not exist an intuitive interface for the behavior design yet and the framework is also not open and protected by intellectual property.
+% \begin{figure}[H]
+% \centering
+% \begin{subfigure}[b]{0.5\textwidth}
+% \includegraphics[width=\textwidth]{assets/helloworld_cho_dlg_05.png}
+% %http://doc.aldebaran.com/2-1/getting_started/helloworld_choregraphe_dialog.html
+% \caption{Choreographe Albebaran}
+% \label{fig:choreographe}
+% \end{subfigure}%
+% \begin{subfigure}[b]{0.5\textwidth}
+% \includegraphics[width=\textwidth]{assets/MSRD4_VSE2.png}
+% %http://www.microsoftstore.com/store/msusa/en_US/pdp/Kinect-for-Windows-v2-Sensor/productID.298810500
+% \caption{MSRD Studio 4:Visual Simulation Environment}
+% \label{fig:msrd4_vse}
+% \end{subfigure}%
+% \caption[Visual Programming Tools]{Visual Programming Tools. {Adapted from manufacturer's site}}
+% \label{fig:visprog}
+% \end{figure}
+A non-domain-specific solution called \emph{Targets-Drives-Means (TDM)} is proposed in \cite{berenz2014targets} taking into account the aforementioned needs. TDM proposes a programming paradigm where temporal independent dynamic behaviors blocks run in parallel. The logic of the program is not expressed using communication links in a flowchart, but by the use of specialized dynamic components that regulate the activation status and the priorities of the behaviors. The information exchange occurs via a specialized centralized memory called \emph{Internal Model(IM)} which takes care of asynchronous information flow (push/pull communication) between connected components, odometry, object permanence, and activation of behaviors through triggers. However there does not exist an intuitive interface for the behavior design yet. Moreover the information from the authors indicate that this framework will be copyrighted and will not be open.
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.5\textwidth]{assets/tdm_im.eps}
+% \caption[Target-drives-means Framework]{TDM Framework. {Adapted from \cite{berenz2014targets}}}
+% \label{fig:tdm_im}
+% \end{figure}
 
 \section{HRI Design and Evaluation} % Main chapter title
-Human-Robot Interaction (HRI) being a rapidly advancing area of research, there is a growing need for strong experimental designs and methods of evaluation. This will bring credibility and validity to scientific research that involves humans as subjects, as recognized in the psychology and social science fields. Some methods of evaluation have been adopted and/or modified from such fields as human-computer interaction, psychology, and social sciences; however, the manner in which a human interacts with a robot is similar but not identical to interactions between a human and a computer or a human interacting with another human. It often has a strong social or emotional component — a difference that poses potential challenges related to the design and evaluation of HRI. As robots are becoming more prevalent, accurate methods to assess how humans respond to robots, how they feel about their interactions with robots, and how they interpret the actions of robots are very important. 
+Human-Robot Interaction (HRI) being a rapidly advancing area of research, there is a growing need for strong experimental designs and methods of evaluation. This will bring credibility and validity to scientific research that involves humans as subjects, as recognized in the psychology and social science fields. Some methods of evaluation have been adopted and/or modified from such fields as human-computer interaction, psychology, and social sciences; however, the manner in which a human interacts with a robot is similar but not identical to interactions between a human and a computer or a human interacting with another human. It often has a strong social or emotional component - a difference that poses potential challenges related to the design and evaluation of HRI. As robots are becoming more prevalent, accurate methods to assess how humans respond to robots, how they feel about their interactions with robots, and how they interpret the actions of robots are very important. 
 %\subparagraph{Planning, Design and Data collection}
 A successful human study in HRI requires careful planning and design. In \cite{bethel2010review}, a set of questions when planning and designing a human study in HRI is presented. Apart from providing a checklist for planning and design of HRI studies, a list of recommendations for the experimental design and study execution is also provided in \cite{bethel2010review}.
 	
@@ -155,11 +155,12 @@ Data collection is one of the important steps in the evaluation process. In \cit
 \item \emph{Triangulation} : Looking at data from more than one perspective
 \item \emph{Pilot studies} : Small trial of main study. 
 \end{itemize}
-An extensive review of HRI evaluation methods presented in \cite{bethel2010review} summarises five primary methods such as \emph{Self assessments}, \emph{Interviews}, \emph{Behavioral Measures}, \emph{Psychophysiology measures}, \emph{Task performance metrics}. Each of these methods has advantages and disadvantages. However the study claims that it is possible to overcome these disadvantages by using three or more appropriate methods of evaluation. An effort to identify a set of common metrics to be used in task-oriented HRI can be found in \cite{Steinfeld2006}. This study proposes a set of metric to evaluate the human-robot team and human-robot interactions and those proposed metrics are shown in Table~\ref{table:hri_metrics}
+
+An extensive review of HRI evaluation methods presented in \cite{bethel2010review} summarises five primary methods such as \emph{Self assessments}, \emph{Interviews}, \emph{Behavioral measures}, \emph{Psychophysiology measures} and \emph{Task performance metrics}. Each of these methods has advantages and disadvantages. However the study claims that it is possible to overcome these disadvantages by using three or more appropriate methods of evaluation. An effort to identify a set of common metrics to be used in task-oriented HRI can be found in \cite{Steinfeld2006}. This study proposes a set of metric to evaluate the human-robot team and human-robot interactions and those proposed metrics are shown in Table~\ref{table:hri_metrics}
 \begin{table}[H]
 \centering
 \small
-\caption{Common Metrics for task-based HRI}
+\caption{Common metrics for task-based HRI}
 \label{table:hri_metrics}
 \begin{tabularx}{400pt}{c*3{X}}
 \toprule
@@ -167,20 +168,17 @@ An extensive review of HRI evaluation methods presented in \cite{bethel2010revie
                           & \textbf{Description}
   \tabularnewline \midrule
   
-  \multirow{4}{*}{System Performance} & Quantitative performance & Quantitative measures assess the
-effectiveness and efficiency of the team at performing a task \\
-                                      & Subjective ratings & Subjective ratings assess the quality
-of the effort \\
-                                      & Utilization of mixed-initiative & Ability of the human-robot team to appropriately regulate who has control initiative 
+  \multirow{4}{*}{System Performance} & Quantitative performance & Assess the effectiveness and efficiency at performing a task. \\
+                                      & Subjective ratings & Assess the quality of the effort. \\
+                                      & Utilization of mixed-initiative & Ability of the human-robot team to appropriately regulate who has control initiative. 
                                           \tabularnewline\midrule
                                           
-  \multirow{4}{*}{Operator Performance} & Situation Awareness (SA) & The degree to which the robot is situation aware. It is critical for effective decision-making \\
-                                      & Workload & Multidimensional workload assessment techniques are useful for relating human perceptions of cognitive load to operator SA \\
-                                      & Accuracy of mental models & Impact of Design affordances, operator expectations and stimulus-response compatibility.
+  \multirow{4}{*}{Operator Performance} & Situation Awareness (SA) & The degree to which the robot is situation aware. \\
+                                        & Workload & Relating human perceptions of cognitive load to operator SA \\
+                                        & Accuracy of mental models & Impact of Design affordances, operator expectations and stimulus-response compatibility.
                                           \tabularnewline\midrule
   
-  \multirow{4}{*}{Robot Performance} & Self Awareness & The degree to which a robot can accurately
-assess itself \\
+  \multirow{4}{*}{Robot Performance}  & Self Awareness & The degree to which a robot can accurately assess itself \\
                                       & Human Awareness & The degree to which the robot is aware of humans \\
                                       & Autonomy & The ability of robots to function independently without human intervention.
                                           \tabularnewline                                
@@ -189,3 +187,35 @@ assess itself \\
 \end{tabularx}
 \end{table}
 Bartneck et al., \cite{bartneck2009measurement} emphasize the need for standardized measurement tools for human robot interaction. The main contribution of this work is that it presents measurements tools of five key concepts in HRI: anthropomorphism, animacy, likeability, perceived intelligence, and perceived safety. The outcome of the work is basically five consistent questionnaires using semantic differential scales. Moreover the study also reported reliability and validity indicators based on several empirical studies that used these questionnaires. Specifically, this study uses \emph{Cronbach's alpha} to estimate the reliability of the questionnaires. The results presented in the study showed that the developed questionnaires to measure the aspects have sufficient internal consistency reliability. All the evaluation techniques rely on the statistical tools for validating the results and generalizing the phenomena. A summary of statistical tools for the data analysis in HRI can be found in Appendix~\ref{AppendixA}.
+
+
+\section{Summary}
+
+In this chapter a review of the literature which are most relevant to this thesis research is presented. The literature review helped to identify the appropriate techniques that could be used in the development of experimental platform. The key decisions made are shown in the Table~\ref{table:review_decisions}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Identified techniques from state-of-the-art}
+\label{table:review_decisions}
+\begin{tabularx}{400pt}{|X|X|}
+\hline
+  \textbf{Problem to be addressed} & \textbf{Identified solution}
+  \tabularnewline \hline
+  
+  \multirow{1}{*}{Human motion understanding} & The Kinect SDK \cite{KinectSDK2014} will suffice the human skeleton tracking. The Visual gesture builder tool that is shipped with Kinect SDK could be used for gesture creation and recogntion
+                                          \tabularnewline\hline
+                                          
+  \multirow{1}{*}{Localization of humanoid robot} & The artificial marker based approaches seems to be the cheapest solution since we will be sharing the same sensor for motion recogntion as well. The ALVAR marker tracking library \cite{ALVAR} will be used for localization of the robot. 
+                                          \tabularnewline\hline
+  
+  \multirow{1}{*}{Application infrastructure} & It has been decided to develop a proprietary application infrastructure as existing solutions like ROS \cite{quigley2009ros} is not cross-platform and the Kinect sensor drivers for Linux are not mature enough at the time of this writing.
+                                          \tabularnewline\hline
+
+  \multirow{1}{*}{Behavior framework} & It has also been decided to develop a behavior design and execution framework as the existing solutions are not complete and they do not offer an end-to-end solution for naive users wanting to design HRI scenarios.
+                                          \tabularnewline\hline
+
+  \multirow{1}{*}{HRI evaluation} & The \emph{Self-assessment} techniques will be adopted and data collection will be done on a set of identified participants. Statistical analysis will be performed on the collected data.
+                                          \tabularnewline\hline
+\end{tabularx}
+\end{table}
