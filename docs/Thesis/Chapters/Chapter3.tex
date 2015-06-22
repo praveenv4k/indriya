@@ -95,65 +95,14 @@ Probabilistic localization algorithms are variants of the Bayes filter \cite{thr
 \text{Control update step:}\quad \overline{bel(x_t)} &= \int p(x_t\vert u_t,x_{t-1})\cdot bel(x_{t-1}) dx \\
 \text{Measurement update step:}\quad {bel(x_t)} &= \eta\cdot p(z_t\vert x_{t})\cdot \overline{bel(x_t)}
 \end{align*}
-where $\eta$ is the normalization factor. The straightforward application of Bayes filters to the localization problem is called Markov localization. Markov localization makes use of the \emph{Markov assumption} (The Markov assumption postulates that past and future data are independent if one knows the current state {$x_t$). Extended Kalman Filter(EKF) based localization is one of the initial developments to be used in non-linear state models. However they suffered problems of uni-modal distribution(gaussian) assumption and failing to solve global localization problem. In the following section, a class of non-parametric localization approach is presented. 
-\subsubsection{Particle Filter}
-\label{ssec:particlefilter}
-	The particle filter \cite{thrun2005probabilistic} is an alternative non parametric implementation of Bayes filter. The key idea of the particle filter is to represent the posterior $bel(x_t)$ by a set of samples drawn from the distribution. Such a representation is approximate, but it is nonparametric, and therefore can represent a much broader space of distributions than, for example, Gaussians. The important components of a particle filter are\\
-\begin{tabular}{r l}
-\centering
-  (Control input,Measurement) & $(u_t,z_t)$ \\ 
-  Sample of Posterior distribution (particles) & $X_t := {x_t}^{[1]},{x_t}^{[2]},\cdots,{x_t}^{[M]}$ \\
-  (Posterior PDF,Likelihood function) & $(p(X_t\vert z_{1:t}),p(z_t \vert {x_t}^{[m]})$ \\
-  Importance Factor of $m^{th}$ particle & ${w_t}^{[m]}$ \\
-\end{tabular}
-	
-	Each particle ${x_t}^{[m]}$ (with $1 \leq m \leq M$) is the concrete instantiation of the state at time $t$, that a hypothesis as to what the true world state may be at $t$. Here $M$ denotes the number of particles in the set $X_t$. The basic intuition behind the particle filter is to approximate the belief $bel(x_t)$ by the set of particles $X_t$ and as a consequence denser a subregion of the state space is populated by samples, the more likely the true state falls in the region.The current state is given by the weighted particle mean 
+where $\eta$ is the normalization factor. The straightforward application of Bayes filters to the localization problem is called Markov localization. Markov localization makes use of the \emph{Markov assumption} (The Markov assumption postulates that past and future data are independent if one knows the current state {$x_t$). Extended Kalman Filter(EKF) based localization is one of the initial developments to be used in non-linear state models. However they suffered problems of uni-modal distribution(gaussian) assumption and failing to solve global localization problem. 
+
+The particle filter \cite{thrun2005probabilistic} is an alternative non parametric implementation of Bayes filter. The key idea of the particle filter is to represent the posterior $bel(x_t)$ by a set of samples drawn from the distribution. Such a representation is approximate, but it is nonparametric, and therefore can represent a much broader space of distributions than, for example, Gaussians. The important steps of particle filter is sampling of the state space resulting in a set of $(M)$ particles, computing the importance factor $(w_t)$ of each of those particles $(x_t)$ based on strength of observation $(z_t)$ that could be observed from them and followed by re-sampling of the particles based on their importance factor. The basic intuition behind the particle filter is to approximate the belief $bel(x_t)$ by the set of particles $X_t$ and as a consequence denser a subregion of the state space is populated by samples, the more likely the true state falls in the region.The current state is given by the weighted particle mean 
 \begin{equation}
 E(X_t) = \sum_{m=1}^{M} {w_t}^{[m]}\cdot {x_t}^{[m]}
 \end{equation}
-The basic algorithm of particle filter is shown in \ref{alg:particlefilter}.\\ 
-\begin{algorithm}
-\KwData{$X_{t-1}$, $u_t$, $z_t$}
-\KwResult{$X_t$}
-Init: {$\tilde{X_t}$ = $X_t$ = $\emptyset$ } \;
- \For{$m$ = $1$ to $M$} { 
-   sample ${x_t}^{[m]} \approx p(x_t \vert u_t,{x_{t-1}}^{[m]}) $ //Hypothetical state computation \;
-   ${w_t}^{[m]} = p(z_t \vert {x_t}^{[m]} )$ //Importance factor computation\;
-   $\tilde{X_t} = \tilde{X_t} + ({x_t}^{[m]},{w_t}^{[m]})$ \;
- }
- \For{$m$ = $1$ to $M$} { 
-   draw $i$ with probability $\varpropto$ ${w_t}^{[i]}$ //Importance re-sampling\;
-   add ${x_t}^{[i]}$ to $X_t$ \;
- }
- return $X_t$
- \caption{Basic algorithm of Particle Filter}
- \label{alg:particlefilter}
-\end{algorithm}
-\subsubsection{Monte Carlo Localization}
-\label{ssec:montecarlo}
-	Monte-carlo localization (MCL) \cite{fox1999monte} is a version of Markov localization, a family of probabilistic approaches that has been successfully applied to localization problems and it has become one of the most popular localization algorithms in robotics. MCL uses fast sampling techniques to represent the belief and it introduces probabilistic motion and perceptual models into the particle filter framework. Hence it uses the same formalism described in \ref{ssec:particlefilter}.\\  	
-\begin{algorithm}
-\KwData{$X_{t-1}$, $u_t$, $z_t$}
-\KwResult{$X_t$}
-Init: {$\tilde{X_t}$ = $X_t$ = $\emptyset$ } \;
- \For{$m$ = $1$ to $M$} { 
-   ${x_t}^{[m]} = \text{sample\_motion\_model}(u_t,{x_{t-1}}^{[m]})$ //Hypothetical state computation\;
-   ${w_t}^{[m]} = \text{measurement\_model}(z_t,{x_t}^{[m]},m)$ //Importance factor computation \; 
-   $\tilde{X_t} = \tilde{X_t} + ({x_t}^{[m]},{w_t}^{[m]})$ \;
- }
- \For{$m$ = $1$ to $M$} { 
-   draw $i$ with probability $\varpropto$ ${w_t}^{[i]}$ //Importance re-sampling\;
-   add ${x_t}^{[i]}$ to $X_t$ \;
- }
- return $X_t$
- \caption{Monte Carlo Localization}
- \label{alg:montecarlo}
-\end{algorithm}
 
-	The efficiency of particle filters lies in the way they place computational resources. By sampling in proportion to likelihood, particle filters focus the computational resources on regions with high likelihood, where good approximations are most important. The time complexity of one update of the particle filter algorithm is linear in the number of samples needed for the estimation. The Kullback-Leibler Distance(KLD) adaptive sampling technique proposed in \cite{fox2003adapting} presents an approach to adapt the number of samples over time. The key idea is at each iteration of the particle filter, the number of samples are determined such that, with probability $1-\delta$, the error between the true posterior and the sample-based approximation (maximum likelihood estimate- MLE) is less than $\epsilon$. The distance between the MLE and the true distribution is measured by a non-negative Kullback-Leibler distance which for two distributions $p$ and $q$ is given by
-\begin{equation}
-K(p,q) = \sum_{x} p(x)log{\frac{p(x)}{q(x)}}
-\end{equation}
+Monte-carlo localization (MCL) \cite{fox1999monte} is a version of Markov localization, a family of probabilistic approaches that has been successfully applied to localization problems and it has become one of the most popular localization algorithms in robotics. MCL uses fast sampling techniques to represent the belief and it introduces probabilistic motion and perceptual models into the particle filter framework. The efficiency of particle filters lies in the way they place computational resources. By sampling in proportion to likelihood, particle filters focus the computational resources on regions with high likelihood, where good approximations are most important. The time complexity of one update of the particle filter algorithm is linear in the number of samples needed for the estimation. The Kullback-Leibler Distance(KLD) adaptive sampling technique proposed in \cite{fox2003adapting} presents an approach to adapt the number of samples over time. 
 
 \subsection{Existing Solutions}
 \label{sssec:prob_solutions}
