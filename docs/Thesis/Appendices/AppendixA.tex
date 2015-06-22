@@ -1,7 +1,11 @@
 % Appendix A
 
-\chapter{Statistical Tools} % Main appendix title
-\label{AppendixA} % For referencing this appendix elsewhere, use \ref{AppendixA}
+\chapter{Appendices}
+\label{AppendixA}
+
+\section{Statistical Tools} % Main appendix title
+\label{appendix:stat_tools}
+ % For referencing this appendix elsewhere, use \ref{AppendixA}
 \lhead{Appendix A. \emph{Statistical Tools}} % This is for the header on each page - perhaps a shortened title
 	A summary of the most commonly used statistical tools in HRI are presented below.
 \begin{enumerate}
@@ -39,3 +43,104 @@ t &= \frac{\mu_X-\mu_Y}{\sigma_{\mu_X-\mu_Y}} \quad \text{where} \quad \sigma_{\
 \end{align*}
 where ${\sigma_X}^2,{\sigma_{Y_i}}^2$ are the variances of total test scores and that of $i^{th}$ test score respectively. Cronbach's alpha will generally increase as the intercorrelations among test items increase, and is thus known as an internal consistency estimate of reliability of test scores.
 \end{enumerate}
+
+\clearpage
+\begin{landscape}
+\small
+\section{Consumer RGB-D Sensors} % Main appendix title
+\label{appendix:rgbd_sensors}
+\centering
+\begin{table}[H]
+\scriptsize
+\caption{Comparative analysis on RGB-D sensors}
+\label{table:rgbd_sensors}
+\begin{tabularx}{600pt}{c*6{X}}
+\toprule
+  \textbf{Specification} & \textbf{KinectV1\footnotemark[1]} 
+                         & \textbf{KinectV2\footnotemark[1]} 
+                         & \textbf{Asus-Xtion Pro\footnotemark[2]} 
+                         & \textbf{Structure Sensor\footnotemark[3]}
+                         & \textbf{Creative Sens3D\footnotemark[4]} 
+                         &  \textbf{DepthSense$^{\regmark}$325\footnotemark[5]} 
+  \tabularnewline \midrule
+  \multicolumn{1}{l}{Field of View}       & Vertical $43^{\circ}$; Horizontal $57^{\circ}$  
+                                          & Vertical $60^{\circ}$; Horizontal $70^{\circ}$ 
+                                          & Vertical $45^{\circ}$; Horizontal $58^{\circ}$; Diagonal $70^{\circ}$
+                                          & Vertical $45^{\circ}$; Horizontal $58^{\circ}$ 
+                                          & $74^{\circ}$
+                                          & Vertical $58^{\circ}$; Horizontal $74^{\circ}$; Diagonal $87^{\circ}$
+                                          \tabularnewline\midrule
+                                          
+  \multicolumn{1}{l}{Tilt Motor}          & Yes
+  										 & No (Manual)
+  										 & No 
+  										 & No 
+  										 & No
+  										 & No 
+  										 \tabularnewline\midrule
+  \multicolumn{1}{l}{Skeleton Joints}     & 20, 2 skeloton
+  										 & 25, 6 skeleton
+  										 & - 
+  										 & - 
+  										 & - 
+  										 & - 
+  										 \tabularnewline\midrule			
+  		 
+  \multicolumn{1}{l}{Range (m)}           & Min: 0.4; Max $\approx$ 4.5 
+  										 & Min: 0.5; Max $\approx$ 4.5
+  										 & Min: 0.8; Max: 3.5
+  										 & Min: 0.4; Max: 3.5  
+  										 & Min: 0.5 cm; Max: 3.25 m 
+  										 & Min: 0.15 $\sim$ 1; Max: 1.5 $\sim$ 4.0 
+  										 \tabularnewline\midrule
+  										 										 
+
+  \multicolumn{1}{l}{Frame rate }         & RGB: 640x480, 30 FPS, 4:3; Depth: 320x420
+  										 & RGB: 1920x1080, 30 FPS, 16:9; Depth: 512x424
+  										 & RGB: 1280x1024, Depth: 640x480 (30 fps), 320x240 (60 fps)
+  										 & RGB: 640x480 (30 fps), 320x240 (60 fps)
+  										 & RGB: 1280x720 (30 fps), Depth: 320x240 (30 fps)
+  										 & RGB: 1280x720 (30 fps), Depth: 320x240 (30 fps)
+  										 \tabularnewline\midrule
+  										 
+  \multicolumn{1}{l}{Interface}           & USB 2.0
+  										 & USB 3.0
+  										 & USB 2.0/3.0 
+  										 & USB 2.0
+  										 & USB 2.0
+  										 & USB 2.0
+  										 \tabularnewline\midrule	
+  
+  \multicolumn{1}{l}{OS}                 & Win 7, Win 8
+  										 & Win 8
+  										 & Win XP,Vista,7,8; Ubuntu, Android
+  										 & iOS, Android, Win
+  										 & Win 32/64: XP,Vista,7,8;
+  										 & Win 32/64: 7,8; 
+  										 \tabularnewline\midrule	
+  										 										 								
+  
+  \multicolumn{1}{l}{SDK}                & Kinect for Windows V1.x SDK (C++/C\#)
+  										 & Kinect for Windows V2 SDK (C++/C\#)
+  										 & OpenNI SDK (C++ / C\# /JAVA)
+  										 & Structure SDK (iOS), OpenNI (C++)
+  										 & Intel perceptual computing (PC) SDK 
+  										 & The Interface is You (iisu) Framework, Intel PC SDK (C++/C\#)
+  										 \tabularnewline\midrule	
+  										 
+ \multicolumn{1}{l}{Audio Input}        &  Microphone array-4%, 16 KHz, Mono PCM, 24 bit ADC%, Echo cancellation and noise suppression 
+  										&  Microphone array-4%, 48 KHz, Mono PCM, 24 bit ADC%, Echo cancellation and noise suppression 
+  										&  2 - Microphones 
+  										&  - 
+  										&  Dual array microphone 
+  										&  2 built-in microphone
+  										\tabularnewline
+  										\bottomrule
+\end{tabularx}
+\end{table}
+\footnotetext[1]{\url{http://www.microsoft.com/en-us/kinectforwindows/}}
+\footnotetext[2]{\url{http://www.asus.com/Multimedia/Xtion_PRO_LIVE/specifications/}}
+\footnotetext[3]{\url{http://structure.io/developers}}
+\footnotetext[4]{\url{http://fr.creative.com/p/web-cameras/creative-senz3d}}
+\footnotetext[5]{\url{http://www.softkinetic.com/Store/ProductID/6}}
+\end{landscape}

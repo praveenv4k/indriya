@@ -296,11 +296,11 @@
 \lhead{\emph{Contents}} % Set the left side page header to "Contents"
 \tableofcontents % Write out the Table of Contents
 
-\lhead{\emph{List of Figures}} % Set the left side page header to "List of Figures"
-\listoffigures % Write out the List of Figures
-
-\lhead{\emph{List of Tables}} % Set the left side page header to "List of Tables"
-\listoftables % Write out the List of Tables
+%\lhead{\emph{List of Figures}} % Set the left side page header to "List of Figures"
+%\listoffigures % Write out the List of Figures
+%
+%\lhead{\emph{List of Tables}} % Set the left side page header to "List of Tables"
+%\listoftables % Write out the List of Tables
 
 %----------------------------------------------------------------------------------------
 %	ABBREVIATIONS
@@ -355,15 +355,15 @@
 %	PHYSICAL CONSTANTS/OTHER DEFINITIONS
 %----------------------------------------------------------------------------------------
 
-\clearpage % Start a new page
-
-\lhead{\emph{Physical Constants}} % Set the left side page header to "Physical Constants"
-
-\listofconstants{lrcl} % Include a list of Physical Constants (a four column table)
-{
-PI & $\pi$ & $=$ & $3.14159265359$ (exact)\\
-%% Constant Name & Symbol & = & Constant Value (with units) \\
-}
+%\clearpage % Start a new page
+%
+%\lhead{\emph{Physical Constants}} % Set the left side page header to "Physical Constants"
+%
+%\listofconstants{lrcl} % Include a list of Physical Constants (a four column table)
+%{
+%PI & $\pi$ & $=$ & $3.14159265359$ (exact)\\
+%%% Constant Name & Symbol & = & Constant Value (with units) \\
+%}
 
 %----------------------------------------------------------------------------------------
 %	SYMBOLS
@@ -416,18 +416,20 @@ $\omega$ & angular frequency & rads$^{-1}$ \\
 % Uncomment the lines as you write the chapters
 
 \input{Chapters/Chapter1}
-\input{Chapters/Chapter2} 
+%\input{Chapters/Chapter2} 
 \input{Chapters/Chapter3}
 \input{Chapters/Chapter4} 
 \input{Chapters/Chapter5} 
 \input{Chapters/Chapter6} 
 \input{Chapters/Chapter7} 
 %\input{Chapters/Chapter8} 
+
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES
 %----------------------------------------------------------------------------------------
 
-\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+%\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+\addtocontents{toc}
 
 \appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
 
@@ -436,9 +438,17 @@ $\omega$ & angular frequency & rads$^{-1}$ \\
 
 \input{Appendices/AppendixA}
 %\input{Appendices/AppendixB}
-\input{Appendices/AppendixC}
+%\input{Appendices/AppendixC}
 
-\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+%\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+\clearpage
+\lhead{\emph{List of Figures}} % Set the left side page header to "List of Figures"
+\listoffigures % Write out the List of Figures
+
+\lhead{\emph{List of Tables}} % Set the left side page header to "List of Tables"
+\listoftables % Write out the List of Tables
+
+\addtocontents{toc} % Add a gap in the Contents, for aesthetics
 
 \backmatter
 
