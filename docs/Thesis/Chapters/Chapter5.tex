@@ -292,7 +292,7 @@ The behavior program is structured in a simple way so that it could be easily un
 
 \subsection{Block Level implementation}
 The visual blocks corresponding to each of the startup, behavior and exit blocks are implemented. The complex programs could be composed by putting together these blocks. The startup and exit blocks are shown in Fig~\ref{fig:blocks_init}. As could be seen from the figure, the blocks are quite simple making it possible to put the list of statements consisting of initialization and termination logic of the program. 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \begin{subfigure}[t]{0.4\textwidth}
 \includegraphics[width=0.8\textwidth]{../thesis/assets/blocks_startup.png}
@@ -308,7 +308,7 @@ The visual blocks corresponding to each of the startup, behavior and exit blocks
 \label{fig:blocks_init}
 \end{figure}
 The trigger behavior block is designed in such a way that it incorporates the conceptual model and at the same time easier for the end user to understand and use it. The trigger behavior block is shown in Fig~\ref{fig:blocks_trigger}. The visual design provides ability to compose the blocks by putting an external boolean trigger, choose priority and lifetime from the combo box interface, add startup,cyclic and exit statements etc., The block interface is reactive in the sense that for instance when the lifetime of the block is switched from \emph{Once/Forever} to \emph{Until}, a new input appears in the block where the user can add the condition to stop the block.
-\begin{figure}
+\begin{figure}[H]
 \centering
 \begin{subfigure}[t]{0.45\textwidth}
 \includegraphics[width=\textwidth]{../thesis/assets/blocks_behavior1.png}
@@ -327,14 +327,16 @@ The trigger behavior block is designed in such a way that it incorporates the co
 
 \section{User Interface}
 \label{ssec:ui_comp}
-The user interface is a web application that runs on any latest web-kit browsers supporting HTML5, CSS3 and WebGL technologies. The list of libraries and components used to build the web interface has been described in Section~\ref{sec:ui_design}. In this section the various screens in the developed user interface has been described. The UI is composed of tabbed interface consisting of 3 main components.
+The user interface is a web application that runs on any latest web-kit browsers supporting HTML5, CSS3 and WebGL technologies. The list of libraries and components used to build the web interface has been described in Section~\ref{sec:ui_design}. In this section the various screens in the developed user interface has been described. The UI is composed of tabbed interface consisting of 3 main components as shown in Fig~\ref{fig:behavior_designer}.
 \begin{itemize}
-\item Design
-\item Visualize
-\item Monitor
+\item Design: To design the behavior
+\item Visualize: To visualize the interaction
+\item Monitor: To visualize the human and robot information
 \end{itemize}
 
-\begin{figure}
+\subsection{Behavior Designer} The Behavior designer surface could be used by the user to drag and drop the behavior blocks and construct the program using the set of motion capabilities registered by the active motion recognition nodes and the set of robot action capabilities registered by the active robot interface nodes. The behavior designer is shown in Fig~\ref{fig:behavior_designer}.
+
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}
     \node [anchor=north] (main) at (1.5,9.5) {\Large Main Tabs};
@@ -367,7 +369,12 @@ The user interface is a web application that runs on any latest web-kit browsers
     \label{fig:behavior_designer}
 \end{figure}
 
-\subsection{Behavior Designer} The Behavior designer surface could be used by the user to drag and drop the behavior blocks and construct the program using the set of motion capabilities registered by the active motion recognition nodes and the set of robot action capabilities registered by the active robot interface nodes. The behavior designed using the designer will be encoded into a declarative XML format and sent to the server when the user request to start the program. The designer offers a full range of capabilities like Create/Edit/Delete/Save behavior programs.
+The behavior designer is the core component of the user interface. The designer is composed of 
+\begin{itemize}
+\item The command panel is composed of Designer command buttons like Open/Save/Clear/Run which makes it easy to perform operations like Creating a new program, Saving the program to the server, Clear the workspace and Running the active behavior program
+\item The toolbox contains the collection of blocks categorized as per their functionlities.
+\end{itemize}
+
 \subsection{Visualization} The visualization could be used to see the interaction of the human and robot inside a virtual 3D environment.
 % Simulation Node
 \begin{algorithm}
