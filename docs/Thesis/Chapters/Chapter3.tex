@@ -9,7 +9,8 @@
 
 \section{Humanoid Robot}
 
-NAO\cite{NaoTheRobot} is a humanoid robot developed in the year 2006 by Albebaran Robotics, the company which has proved itself in the development of interactive social robots. The intended scenarios include reception, assistance, home care, entertainment and even autism therapy. Nao has become a standard in academic world for research and education. In 2013, Aldebaran launched \emph{Autism Solution for Kids}\cite{ASKNao} initiative which offers a new teaching approach to teachers and children with autism. Clearly Nao is one of most sold (about 5000) humanoid robots worldwide. Therefore developing HRI solutions targeting Nao will definitely attract huge audience which in turn will help to receive more technical inputs and contribution for solving the problem under study.
+NAO \cite{NaoTheRobot} is a humanoid robot developed in the year 2006 by Albebaran Robotics, the company which has proved itself in the development of interactive social robots. The intended scenarios include reception, assistance, home care, entertainment and even autism therapy. Nao has become a standard in academic world for research and education. In 2013, Aldebaran launched \emph{Autism Solution for Kids} \cite{ASKNao} initiative which offers a new teaching approach to teachers and children with autism. The technical specifications of the robot is shown in Fig~\ref{table:nao_spec}
+% Clearly Nao is one of most sold (about 5000) humanoid robots worldwide. Therefore developing HRI solutions targeting Nao will definitely attract huge audience which in turn will help to receive more technical inputs and contribution for solving the problem under study.
 \begin{figure}
 \centering
 \begin{subfigure}[b]{0.8\textwidth}
@@ -29,7 +30,39 @@ NAO\cite{NaoTheRobot} is a humanoid robot developed in the year 2006 by Albebara
 \label{fig:naorobot}
 \end{figure}%
 
-	 NAO is a programmable, 58 cm tall robot with 25 DOF whose key elements are electric motors and actuators. As far as the NAO's motion is considered, its walking uses a simple dynamic model (Linear inverted pendulum) and quadratic programming and is stabilized using the feedback from the joint sensor. NAO sees using two 1220 p cameras, which can capture up to 30 FPS. The first camera, located on NAO’s forehead, scans the horizon, while the second located at mouth level scans the immediate surroundings. NAO contains a set of algorithms for detecting and recognizing faces and shapes. It is possible to develop user-modules to interace with OpenCV library and exploit the power of the algorithms that ships with OpenCV. NAO has the ability to localize the sound source based on an approach known as “Time Difference of Arrival". The difference in the arrival of sound at each of NAO’s four microphones (Interaural time difference) is computed to determine the location of the emitting source. Besides cameras and microphones, NAO has capacitive sensors positioned on top of its head in three sections and its hands with the help of which information can be also communicated through touch. NAO is equipped with two SONAR channels for obstacle detection (range 5cm$\sim$3m). It currently supports Wi-Fi (bgn) and Ethernet and it also has infrared transceivers that allow connection to objects in the environment. It is powered with Intel atom CPU that runs a linux kernel and support Aldebaran's NAOqi middleware, a cross platform distributed environment. Aldebaran also provides Choregraphe\cite{pot2009choregraphe} which is a visual programming tool for designing behaviors and it is a specific module of NaoQi running on development computer. Choregraphe gives access in a very intuitive way to all the functions provided by NaoQi. NaoQi provides Python and URBI\cite{baillie2008urbi} interpreters. NaoQi makes it possible sequential, parallel or event-based execution of behaviors through its powerful command framework.
+\begin{table}
+\centering
+%\small
+\caption{NAO humanoid platform technical specifications}
+\label{table:nao_spec}
+    \begin{tabular}{ | l | p{12cm} |}
+    \hline
+    \textbf{Category} & \textbf{Specification} \\
+   \hline
+  Version & NAO V50 H25 \\
+                                          \hline
+  Hardware & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item Body: 58 cm tall, 25 DOF composed of electric motors and actuators
+  							\item Sensors: two cameras, four directional microphones, sonar rangefinder, two IR emitters and receivers, one inertial board, nine tactile sensors and eight pressure sensors
+  							\item Communication devices: Voice synthesizer, LED lights, and 2 high-fidelity speakers
+  							\item CPU: Intel ATOM 1.6ghz CPU 
+  							\item Connectivity ; Ethernet and Wi-Fi
+  							\item Power: 48.6-watt-hour battery that provides NAO with 1.5 or more hours of autonomy, depending on usage \end{itemize} \\
+                                          \hline
+                                          
+  Motion  & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item Cartesian and Joint control. \item Omnidirectional walking, Whole body motion and Fall Manager \end{itemize} \\
+                                          \hline
+  
+  Vision & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item Track, learn \& recognize images and faces. \item OpenCV support \end{itemize} \\
+                                          \hline
+
+  Audio & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item Sound Source Localization, Speech/Speaker recognition. \item Supports 19 languages.\end{itemize} \\
+                                          \hline
+  Software & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item OS: Linux kernel and supports NAOqi middleware
+  							\item Tools: Choregraphe \cite{pot2009choregraphe} for designing behaviors
+  							\item SDKs: C++/Python SDK for application developers \end{itemize} \\
+                                          \hline
+    \end{tabular}
+\end{table}
 
 \section{Human motion capture}
 Human motion capture has been mainly developed to be used in medical, ergonomics, sports, robotics and other applications. Optical motion capture is one of the traditional ways of capturing the human motion (System like VICON$^{\regmark}$ have been deployed to aquire the \emph{MOCAP} data). However the main difficulty in the traditional optical motion capture system is the neccessity to equip the subject/actor with \emph{reflective markers}. The system itself is huge, expensive to setup and has to be calibrated before using. Since the markers move relative to the skin, there is possibility of noisy measurements due to skin artifacts. Another important point to be noted is that such a huge system is not suitable for practical HRI scenarios. However \emph{MOCAP} data acts as the ground truth for most of the motion capture systems which especially use machine learning techniques.
@@ -58,7 +91,7 @@ Other devices which are commonly used to capture the kinematic information are \
 \caption[Kinect for Windows V2]{Kinect for Windows V2. {Adopted from manufacturer's site}}
 \label{fig:rgbd_sensors}
 \end{figure}
-	Among the available sensors shown in Table~\ref{table:rgbd_sensors} in Appendix~\ref{AppendixA}, Kinect V2\cite{Kinect2014} sensor has promising specifications and price. The Kinect comes with a powerful SDK\cite{KinectSDK2014} capable of performing skeleton tracking of upto 6 people (25 joints each) simultaneously out of the box. It also comes with the face detection, expression detection, gesture recognition and thumb tracking. The Kinect studio software can record the sensor data, play back and it is also possible to build gestures and train the sensor to detect when it sees them later using the Gesture builder. Though the Kinect V2 sensor works well with the Microsoft ecosystem, cross platform support is still a concern and open-source efforts in porting Kinect V2 can be found in
+	Among the available sensors shown in Table~\ref{table:rgbd_sensors} in Appendix~\ref{AppendixA}, Kinect V2 \cite{Kinect2014} sensor has promising specifications and price. The Kinect comes with a powerful SDK \cite{KinectSDK2014} capable of performing skeleton tracking of upto 6 people (25 joints each) simultaneously out of the box. It also comes with the face detection, expression detection, gesture recognition and thumb tracking. The Kinect studio software can record the sensor data, play back and it is also possible to build gestures and train the sensor to detect when it sees them later using the Gesture builder. Though the Kinect V2 sensor works well with the Microsoft ecosystem, cross platform support is still a concern and open-source efforts in porting Kinect V2 can be found in
 \begin{itemize}
 \item Kinect One (Kinect v2) in ROS: \url{https://github.com/code-iai/iai_kinect2}
 \item OpenNI tracker : \url{http://wiki.ros.org/openni_tracker}
