@@ -221,7 +221,48 @@ The Nao robot interface makes use of the NaoQi python SDK which provides API for
 \subsection{Localization Node} A dedicated node which uses the perception system to resolve and publish the current position of the robot and the human 
 
 \subsubsection{NAO Robot localization}
-The fiducial marker based approach is used in order to localize the robot in the field of view of the Kinect sensor. The ALVAR \cite{ALVAR} toolkit is used for marker detection purpose which relies on OpenCV library for image processing. The OpenCV library cannot directly read the image streams from Kinect sensor. So a OpenCV compatible driver is created to read the RGB image streams which could be used for marker detection. 
+The fiducial marker based approach is used in order to localize the robot in the field of view of the Kinect sensor. The ALVAR \cite{ALVAR} toolkit is used for marker detection purpose which relies on OpenCV library for image processing. The OpenCV library cannot directly read the image streams from Kinect sensor. So a OpenCV compatible driver is created to read the RGB image streams which could be used for marker detection. The first step in the marker detection is to calibrate the camera in order to get its intrinsic parameters. A set of supported markers of known identifiers are chosen and a cube of known geometry is created. The cube is designed in such a way that at any instant atleast one of the markers will be detected if the robot is in the field of view and detectable region. The cube is mounted on the head of NAO robot since it will avoid the problem of occlusion in most cases. However since the head of the NAO has 2 DOF which will result in the movement of mounted cube even if the robot itself does not move. In order to overcome this problem, a kinematic model of the NAO humanoid robot parameterized using Modified Denavit Hartenberg (MDH) \cite{khalil2004modeling} parameters is used. The MDH parameter from the torso to top of the head of NAO is shown in Table~\ref{table:nao_mdh}.
+
+\begin{table}[H]
+\centering
+\small
+\caption{MDH parameters from Torso to top of head}
+\label{table:nao_mdh}
+% \begin{tabular}{|l|l|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{3cm}|}
+\begin{tabular}{|l|l|c|c|c|c|p{3cm}|}
+\hline
+  \textbf{$i$}  & \textbf{$j$}  & \textbf{$\alpha_j$ (rad)} & \textbf{$d_j$ (mm)} & \textbf{$\theta_j$ (rad)} & \textbf{$r_j$ (mm)} & \textbf{Joint Description}
+  \tabularnewline \hline
+  - & 0 & 0 & 0 & 0 & 0 & Torso/Base
+                                          \tabularnewline\hline
+                                          
+  0 & 1 & 0 & 0 & $\theta_1$ & 126.50 & Head Yaw
+                                          \tabularnewline\hline
+                       
+  1 & 2 & $-\frac{\pi}{2}$ & 0 & $\theta_2$ & 0 & Head Pitch
+                                          \tabularnewline\hline                    
+  
+  2 & 3 & $\frac{\pi}{2}$ & 0 & 0 & 110.00 & Head Tip
+                                          \tabularnewline\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.48\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/localization_arch.png}
+\caption[Conceptual Model]{Conceptual Model}
+\label{fig:program_concept}
+\end{subfigure}
+\begin{subfigure}[t]{0.48\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/localization_frames.png}
+\caption[Block Implementation]{Block Implementation}
+\label{fig:program_blocks}
+\end{subfigure}
+\caption[Program Structure]{Behavior program structure}
+\label{fig:nao_localization}
+\end{figure}
+
 \begin{algorithm}
  \KwData{Marker\_size, Cube\_size, MDH\_Params}
  \KwResult{TORSO\_POSE}
