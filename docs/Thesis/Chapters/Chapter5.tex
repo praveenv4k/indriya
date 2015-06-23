@@ -134,14 +134,15 @@ The web server embedded in the application serves the file and data requests fro
 
 \subsection*{Bootstrapper} 
 The bootstrapper takes care of initializing the system and starting up all the pre-configured nodes. The configuration information of the nodes is specified using the XML configuration file described in Section~\ref{sec:config_file}. It also takes of starting and stopping the behavior programs when requested by the user. The sequence operations of bootstrapper performs is represented in Algorithm~\ref{alg:bootstrapper}.
+
 \begin{algorithm}[H]
- \KwData{(app\_config)}
+ \KwData{(XML Config File)}
  \textbf{\emph{Startup}}:\\
  \quad INIT\_AND\_RUN\_PARAMETERSERVER()\;
  \quad INIT\_AND\_RUN\_CONTEXTSYNC()\;
  \quad INIT\_AND\_RUN\_CONTEXTSERVER()\;
  \quad INIT\_AND\_RUN\_WEBSERVER()\;
- \quad NODES = GET\_NODES(app\_config)\;
+ \quad NODES = GET\_NODES(XML Config File)\;
  \quad PROCESSES = []\;
  \ForAll{NODE in NODES}{ 
  	\If{NODE is ENABLED}{
@@ -168,47 +169,59 @@ These are nodes in the system each with a specific goal that can be started/stop
 \subsection{Motion Recognition Node} A dedicated node that interacts with a motion recognition sensor and sends the detected gestures and motions to the application. Additionally each motion recognition module registers a set of actions/gestures that could be detected with the sensor associated with it. The gesture recognition logic depends on the sensor associated with the gesture recognition module. The gesture recognition workflow of kinect based system in explained in Section~\ref{sssec:kinect_gestures}
 \subsubsection{Kinect Gesture Recognition}
 \label{sssec:kinect_gestures}
-	The Microsoft Kinect system utilizes Adaptive Boosting(adaboost) algorithm \cite{freund1997decision} is used to efficiently detect the gestures. The system involves a training phase in which the desired gestures are captured and tagged. These tagged gestures will be used by a gesture detector trainer which will generate a set of training examples. The training results are stored in files and will be used by the gesture detector to perform per-frame classification of the data. The Visual Gesture Builder (VGB) tool that comes together with Kinect for Windows SDK eases the process of tagging the gestures and creating the gesture database. The work-flow of using the VGB is shown in the Figure~\ref{fig:vgb_workflow}.
-\begin{figure}
+	The Microsoft Kinect system utilizes Adaptive Boosting(adaboost) algorithm \cite{freund1997decision} to efficiently detect the gestures. The system involves a training phase during which the desired gestures are captured and tagged. These tagged gestures will be used by a gesture detector trainer which will generate a set of training examples. The training results are stored in files and will be used by the gesture detector to perform per-frame classification of the data. The Visual Gesture Builder (VGB) tool that comes together with Kinect for Windows SDK eases the process of tagging the gestures, evaluating the gesture recognition and creating the gesture database. The work-flow of using the VGB is shown in the Figure~\ref{fig:vgb_workflow}.
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{assets/VisualGestureBuilder.png}
 \caption[Visual Gesture Builder Work flow]{Visual Gesture Builder Work flow \cite{KinectSDK2014}}
 \label{fig:vgb_workflow}
 \end{figure}
 % Motion recognition
-\begin{algorithm}
+The workflow shown in Figure~\ref{fig:vgb_workflow} has been adopted to develop all the gestures needed for the kinect gesture recognition module. The process followed for generating the Left hand wave gesture is shown in the Figure~\ref{fig:gesture_waveleft}. As shown in the figure at first the clips are captured using the Kinect studio tool and  stored as \textbf{XEF} files. The clips are then imported in the visual gesture builder. The imported clips could be traversed and the tagging is done (i.e at each frame it is possible to specify if that particular frame is part of the gesture of interest or not). This process could be repeated on one or more imported clips. The tagged clips are built in order to generate a set of weak classifiers and learn confidence values for each of those classifiers. Once the training process is complete, the trained classifier could be evaluated over a set of test clips using a live preview as shown in step 3 in the figure. When the results are satisfactory, the training data could be exported as a database saved as \textbf{VGD} (Visual Gesture Database) format.
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{assets/gesture_recog_flow.eps}
+\caption[Left hand wave gesture work flow]{Left hand wave gesture work flow}
+\label{fig:gesture_waveleft}
+\end{figure}
+The database is imported into the gesture recognition module and the responsibility of this module is to notify any interested subscribers when a gesture is recognized. Additionally this module also publishes information about the skeletons of the humans in view. The algorithm of this module is shown in Algorithm~\ref{alg:gesture_recognize}
+
+\begin{algorithm}[H]
  \KwData{Gesture database}
  \KwResult{Gesture Triggers}
  \textbf{\emph{Init}}:\\
  \quad gestures = READ\_DATABASE()\;
  \quad REGISTER\_GESTURES(gestures)\;
  \While{True}{
- 	skeletons = GET\_SKELETONS()\;
- 	\ForAll{gesture in gestures}{ 
- 		detected = DETECT\_GESTURE(gesture)\;
- 		\If{detected}{
- 			PUBLISH(gesture)\;
- 		} 
- 	}
- 	PUBLISH(skeletons)\;
+  skeletons = GET\_SKELETONS()\;
+  \ForAll{gesture in gestures}{ 
+    detected = DETECT\_GESTURE(gesture)\;
+    \If{detected}{
+      PUBLISH(gesture)\;
+    } 
+  }
+  PUBLISH(skeletons)\;
  }
  \caption{Kinect Gesture Recognition Module}
- \label{alg:localize}
+ \label{alg:gesture_recognize}
 \end{algorithm}
-The workflow shown in Figure~\ref{fig:vgb_workflow} has been adopted to develop all the gestures needed for the kinect gesture recognition module. The process followed for generating the Left hand wave gesture is shown in the Figure~\ref{fig:gesture_waveleft}
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{assets/gesture_recog_flow.eps}
-\caption[Left hand wave gesture work flow]{Left hand wave gesture work flow}
-\label{fig:gesture_waveleft}
-\end{figure}
-\subsection{Robot Interface Node} 
-	The Robot Interface node is a dedicated node that interacts with a specific robot and can invoke a set of actions on it.  It registers a set of actions that could be invoked on the robot associated with it. The robot interface node sets up a publisher that periodically sends the information about the robot status like joint values, sensor information to the application to keep the context uptodate. Additionally it sets up a responder socket which will wait for action execution request from the remote node. The robot interface node dedicated to Nao humanoid robot is described in Section~\ref{sssec:nao_interface}
+\subsection{Robot interface node} 
+The Robot interface node is a dedicated node that interacts with a specific robot and can invoke a set of actions on it.  It registers a set of actions that could be invoked on the robot associated with it. The robot interface node sets up a publisher that periodically sends the information about the robot status like joint values, sensor information to the application to keep the context uptodate. Additionally it sets up a responder socket which will wait for action execution request from the remote node. The robot interface node dedicated to Nao humanoid robot is described in Section~\ref{sssec:nao_interface}
 \subsubsection{NAO Robot Interface}
 \label{sssec:nao_interface}
-	
-\subsection{Localization Node} A dedicated node which uses the perception system to resolve and publish the current position of the robot and the human which is very important for interaction.
+The Nao robot interface makes use of the NaoQi python SDK which provides API for accessing various functionalities of the robot such as joint/cartesian control, memory access, motion, speech, object/face/people detection and tracking, behavior invocation etc., A set of necessary functions are implemented in the NaoBehaviorModule and they are registered to the application when the node is started up. The control flow is shown in Figure~\ref{fig:nao_interface}.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{assets/NaoBehaviorModule.eps}
+\caption[NAO Robot Interface]{NAO Robot Interface}
+\label{fig:nao_interface}
+\end{figure}
+
+\subsection{Localization Node} A dedicated node which uses the perception system to resolve and publish the current position of the robot and the human 
+
+\subsubsection{NAO Robot localization}
+The fiducial marker based approach is used in order to localize the robot in the field of view of the Kinect sensor. The ALVAR \cite{ALVAR} toolkit is used for marker detection purpose which relies on OpenCV library for image processing. The OpenCV library cannot directly read the image streams from Kinect sensor. So a OpenCV compatible driver is created to read the RGB image streams which could be used for marker detection. 
 \begin{algorithm}
  \KwData{Marker\_size, Cube\_size, MDH\_Params}
  \KwResult{TORSO\_POSE}
