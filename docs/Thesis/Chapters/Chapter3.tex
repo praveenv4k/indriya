@@ -4,33 +4,26 @@
 \label{Chapter3} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
 \lhead{Chapter 3. \emph{State of the art techniques}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
-
-  Research in any field is a continuous process. It is meaningless to propose altogether new approaches ruling out the techniques proposed in the literature. Hence a careful study of the state-of-the-art techniques is necessary. It will give a clarity of the approaches that could be incorporated, improved or improvised in the research study of interest. The experimental platform that is being aimed in this thesis is largely an integration of various available techniques which makes literature review even more crucial. This chapter discusses the various methods and techniques proposed in the literature for addressing the problems described in Section~\ref{sec:problem_statement}.
-
+ Research in any field is a continuous process. It is meaningless to propose altogether new approaches ruling out the techniques proposed in the literature. Hence a careful study of the state-of-the-art techniques is necessary. It will give a clarity of the approaches that could be incorporated, improved or improvised in the research study of interest. The experimental platform that is being aimed in this thesis is largely an integration of various available techniques which makes literature review even more crucial. This chapter discusses the various methods and techniques proposed in the literature for addressing the problems described in Section~\ref{sec:problem_statement}.
 \section{Humanoid Robot}
-
-NAO \cite{NaoTheRobot} is a humanoid robot developed in the year 2006 by Albebaran Robotics, the company which has proved itself in the development of interactive social robots. The intended scenarios include reception, assistance, home care, entertainment and even autism therapy. Nao has become a standard in academic world for research and education. In 2013, Aldebaran launched \emph{Autism Solution for Kids} \cite{ASKNao} initiative which offers a new teaching approach to teachers and children with autism. The technical specifications of the robot is shown in Fig~\ref{table:nao_spec}
-% Clearly Nao is one of most sold (about 5000) humanoid robots worldwide. Therefore developing HRI solutions targeting Nao will definitely attract huge audience which in turn will help to receive more technical inputs and contribution for solving the problem under study.
-\begin{figure}
+NAO \cite{NaoTheRobot} is a humanoid robot developed in the year 2006 by Albebaran Robotics, the company which has proved itself in the development of interactive social robots.
+\begin{figure}[H]
 \centering
-\begin{subfigure}[b]{0.8\textwidth}
-\includegraphics[width=\textwidth]{assets/nao_hardware_jointname.jpg}
-\caption{Joints}
+\begin{subfigure}[b]{0.25\textwidth}
+\includegraphics[width=\textwidth]{assets/nao_image1.jpg}
+\caption{Robot appearance}
 \label{fig:naojoint}
 \end{subfigure}
-\begin{subfigure}[b]{0.3\textwidth}
+\begin{subfigure}[b]{0.25\textwidth}
 \includegraphics[width=\textwidth]{assets/hardware_inertialunit1.png}
-%http://www.microsoftstore.com/store/msusa/en_US/pdp/Kinect-for-Windows/productID.253769800
 \caption{Torso reference frame}
 \label{fig:naoreference}
 \end{subfigure}
-%\includegraphics[width=\textwidth]{assets/nao_hardware_jointname.jpg}
-%\includegraphics[width=0.2\textwidth]{assets/nao_image1.jpg}
 \caption[NAO Humanoid Robot]{NAO Humanoid Robot. {Adopted from \cite{NaoTheRobot}}}
 \label{fig:naorobot}
 \end{figure}%
-
-\begin{table}
+The intended scenarios include reception, assistance, home care, entertainment and even autism therapy. Nao has become a standard in academic world for research and education. In 2013, Aldebaran launched \emph{Autism Solution for Kids} \cite{ASKNao} initiative which offers a new teaching approach to teachers and children with autism. The technical specifications of the robot is shown in Fig~\ref{table:nao_spec}
+\begin{table}[H]
 \centering
 %\small
 \caption{NAO humanoid platform technical specifications}
@@ -65,38 +58,25 @@ NAO \cite{NaoTheRobot} is a humanoid robot developed in the year 2006 by Albebar
 \end{table}
 
 \section{Human motion capture}
-Human motion capture has been mainly developed to be used in medical, ergonomics, sports, robotics and other applications. Optical motion capture is one of the traditional ways of capturing the human motion (System like VICON$^{\regmark}$ have been deployed to aquire the \emph{MOCAP} data). However the main difficulty in the traditional optical motion capture system is the neccessity to equip the subject/actor with \emph{reflective markers}. The system itself is huge, expensive to setup and has to be calibrated before using. Since the markers move relative to the skin, there is possibility of noisy measurements due to skin artifacts. Another important point to be noted is that such a huge system is not suitable for practical HRI scenarios. However \emph{MOCAP} data acts as the ground truth for most of the motion capture systems which especially use machine learning techniques.
+Human motion capture has been mainly developed to be used in medical, ergonomics, sports, robotics and other applications. Optical motion capture is one of the traditional ways of capturing the human motion (System like VICON$^{\regmark}$ have been deployed to aquire the \emph{MOCAP} data). However the main difficulty in the traditional optical motion capture system is the neccessity to equip the subject/actor with \emph{reflective markers}. The system itself is huge, expensive to setup and has to be calibrated before using. It suffers due to skin artifacts and not suitable for practical HRI scenarios. 
 	
-Other devices which are commonly used to capture the kinematic information are \emph{Accelerometers} and \emph{Inertial Measurement Unit(IMU)}. There are studies of understanding the human motion using IMU\cite{aoki2013segmentation} in which the human motion (arm only) is captured from IMU sensor and commercially available Wii$^{\regmark}$ remote. This work extended the motion segmentation based on joint angles acquired using the motion capture system to the angular velocity data obtained from the IMU sensors. Though 80\% auto segmentation of human motion has been reported in the work, the complete understanding of the human motion requires lot of IMU sensors to be installed on the human body which will make the human motions more constrained. Again the IMU sensors cannot satisfy all the requirements we have for our perception system.
-\subsection{RGB-D Sensors}
-\label{ssec:rgbd_sensors}
-	The RGB-D cameras provide a convincing solution which satisfy all the above requirements. Thanks to the advancements in the gaming industry, it accelerated the development of interaction systems and thus one can now get access to a wide variety of RGB-D cameras that are cheaper and easily available. RGB-D cameras\cite{ren2013change} are active sensors that provide high resolution dense color and depth information at real time frame rates. General-purpose robot perception usually relies on either traditional optical cameras or laser rangefinders, each having advantages and disadvantages. Cameras are fundamentally limited by the loss of 3-D structure in the 3-D or two-dimensional (2-D) projection and by their dependency on lighting conditions. It is possible to recover 3-D structures from images but such a process requires high-quality images, is computationally demanding. On the other hand, laser rangefinders allow much more robust sensing at long range but they are bulky and expensive and typically provide depth only at sparse scanlines. The RGB-D cameras combine the strengths of optical cameras and laser range finders enable a complete perception solution.
-\begin{figure}
+Other devices which are commonly used to capture the kinematic information are \emph{Accelerometers} and \emph{Inertial Measurement Unit(IMU)}. There are studies on understanding the human motion using IMU \cite{aoki2013segmentation} in which the human motion (arm only) is captured from IMU sensor and commercially available Wii$^{\regmark}$ remote. The complete understanding of the human motion requires lot of IMU sensors to be attached on the human body which will make the human motions more constrained. 
+
+General-purpose robot perception usually relies on either traditional optical cameras or laser rangefinders, each having advantages and disadvantages. Cameras are fundamentally limited by the loss of 3-D structure in the 3-D or two-dimensional (2-D) projection and by their dependency on lighting conditions. The laser rangefinders allow much more robust sensing at long range but they are bulky and expensive.  
+
+The RGB-D cameras combining the strengths of optical cameras and laser range finders enable a complete perception solution. RGB-D cameras\cite{ren2013change} are active sensors that provide high resolution dense color and depth information at real time frame rates. To reliably measure depth, RGB-D cameras use active sensing techniques, based on projected texture stereo, structured light, or time of flight. Unlike traditional stereo rigs, RGB-D sensors do not suffer calibration problems as both the projector and IR camera exhibit low distortion. The external correspondence between the camera and the projector is determined by a factory calibration. Moreover the rigid mount ensures that the devices do not have to be recalibrated during use.
+\begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{assets/rgbd_activestereo.png}
-\caption[Active Stereo Approach]{Active Stereo Approach. {Adopted from \cite{ren2013change}}}
-\label{fig:rgbd_activestereo}
+%\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=0.5\textwidth]{assets/kinectv2_parts.png}
+%\caption{Kinect for Windows V2}
+\label{fig:kinectv2}
+%\end{subfigure}%
+\caption[Kinect for Windows V2]{Kinect for Windows V2. {Adopted from manufacturer's site}}
+%\label{fig:rgbd_sensors}
 \end{figure}
 
-	To reliably measure depth, RGB-D cameras use active sensing techniques, based on projected texture stereo, structured light, or time of flight. The technology from PrimeSense, used in the Microsoft Kinect V1\cite{Kinect2014} and Asus Xtion, depends on structured light, which projects a known IR pattern into the environment and uses the stereo principle to triangulate and compute depth. Latest Kinect V2 uses time-of-flight principle of measuring phase shift in an RF carrier.
-	 
-	Active stereo approaches solve the problems of depth estimation using stereo cameras by projecting a pattern, effectively painting the scene with a texture that is largely independent of the ambient lighting. Figure~\ref{fig:rgbd_activestereo} shows the basics of structured light stereo. One of the two cameras is replaced by an IR projector. The IR camera knows the locally unique projection pattern and how the pattern shifts with distance, so a local search can determine the shift (disparity) and depth can be computed through triangulation. Unlike traditional stereo rigs, RGB-D sensors do not suffer calibration problems as both the projector and IR camera exhibit low distortion. The external correspondence between the camera and the projector is determined by a factory calibration. Moreover the rigid mount ensures that the devices do not have to be recalibrated during use.
-\begin{figure}
-\centering
-\begin{subfigure}[b]{0.5\textwidth}
-\includegraphics[width=\textwidth]{assets/kinectv2_2.png}
-\caption{Kinect for Windows V2}
-\label{fig:kinectv2}
-\end{subfigure}%
-\caption[Kinect for Windows V2]{Kinect for Windows V2. {Adopted from manufacturer's site}}
-\label{fig:rgbd_sensors}
-\end{figure}
-	Among the available sensors shown in Table~\ref{table:rgbd_sensors} in Appendix~\ref{AppendixA}, Kinect V2 \cite{Kinect2014} sensor has promising specifications and price. The Kinect comes with a powerful SDK \cite{KinectSDK2014} capable of performing skeleton tracking of upto 6 people (25 joints each) simultaneously out of the box. It also comes with the face detection, expression detection, gesture recognition and thumb tracking. The Kinect studio software can record the sensor data, play back and it is also possible to build gestures and train the sensor to detect when it sees them later using the Gesture builder. Though the Kinect V2 sensor works well with the Microsoft ecosystem, cross platform support is still a concern and open-source efforts in porting Kinect V2 can be found in
-\begin{itemize}
-\item Kinect One (Kinect v2) in ROS: \url{https://github.com/code-iai/iai_kinect2}
-\item OpenNI tracker : \url{http://wiki.ros.org/openni_tracker}
-\item OpenNI2 : \url{https://github.com/occipital/openni2}
-\end{itemize}
+A list of depth sensors available in the market along with their technical specification is shown in Table~\ref{table:rgbd_sensors} in Appendix~\ref{AppendixA}. Among them the Microsoft Kinect V2 \cite{Kinect2014} sensor has promising specifications and price. The Kinect comes with a powerful SDK \cite{KinectSDK2014} capable of performing skeleton tracking of upto 6 people (25 joints each) simultaneously out of the box. It also comes with the face detection, expression detection, gesture recognition and hand tracking. The Kinect studio software can record the sensor data and play back. It is also possible to build gestures and train the sensor to detect when it sees them later using the Visual gesture builder. 
 
 \section{Human Motion Understanding} % Main chapter title
  Human motions are rich in information. It conveys to the receiver the emotion, the attitude, the deeds and even the health of the human. Without understanding completely the human motion, it is not possible to achieve a very good HRI system.  Vision based motion capture and analysis has been studied widely and a condensed summary of all the approaches developed during the past two decades until 2000 have been presented by Moeslund et al. in \cite{Moeslund2001231} followed by the study of advancements during the years 2000-2006 in the survey \cite{Moeslund200690}. In the former the authors reviewed more than 130 publications while in the latter a review of over 300 publications was presented. This shows the rapid advancements in the study of the human motion in the recent times. Another work by Ronald Poppe \cite{Poppe20074} on the overview of vision based human motion analysis approached the problem into two discrete problems of modeling and estimation while also discussing the model free approaches to motion analysis. In this section an overview of the various approaches for pose estimation from RGB-D data and the gesture recognition are covered.
