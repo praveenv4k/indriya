@@ -5,11 +5,11 @@
 \label{Chapter5} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
 \lhead{Chapter 5. \emph{System Implementation}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
-In this chapter the implementation of various components specific to the experimental platform taking advantage of the framework proposed in \ref{Chapter4} is presented. The software is designed using a layered hierarchical structure. The various layers of the system are
+The software framework proposed and introduced in \ref{Chapter4} has been exploited to develop the experimental platform. In this chapter the software architecture of the experimental platform is presented. Apart from the architecture itself, specific implementation details of each of the components in the system is also described in this chapter.  The software is designed using a hierarchical structure. The main layers of the system are
 \begin{itemize}
 \item \emph{Hardware Layer} is composed of sensors and robots connected to the network. Currently only those sensors that support TCP/IP network communication are considered.
 \item \emph{Distributed Components Layer} is composed of individual processes that could be running across different computers/devices in the network
-\item \emph{Application Components Layer} is the central server of the experimental platform
+\item \emph{Application Components Layer} is the central server of the experimental platform which contains the backend processing units for the application to run as a whole.
 \item \emph{User Interface Layer} takes the responsibility of providing useful and intuitive user-interface to the end users.
 \end{itemize}
 The architecture of the system shown in Fig~\ref{fig:architecture}. More finer details of each of the layers are presented in the following Sections~\ref{ssec:app_comp}$\sim$\ref{ssec:ui_comp}.
@@ -22,7 +22,7 @@ The architecture of the system shown in Fig~\ref{fig:architecture}. More finer d
 \section{Application Components}
 \label{ssec:app_comp}
 The application level components are responsible for bootstrapping and maintain the uptodate status of the system. 
-\subsection{Context}
+\subsection*{Context}
 The application context contains the complete description of the world. It contains latest information about
 \begin{itemize}
 \item Robot(s): A list of robots in the environment along with their 6D pose, Sensor information like Joint values etc.,
@@ -38,36 +38,42 @@ The data structure of the context is shown in Fig~\ref{fig:system_context}
 \caption[Application Context]{Application Context}
 \label{fig:system_context}
 \end{figure}
-\subsection{Parameter Server} 
-The parameter server acts as a central repository for managing the parameters of the system and of the distributed components. The parameter server is basically desgined as a responder socket which responds to the requests from a remote client. The list of supported request to pull the data from the parameter server is shown in the Table~\ref{table:parameter_server}
-\begin{table}
+\subsection*{Parameter Server} 
+The parameter server acts as a central repository for managing the parameters of the system and of the distributed components. The parameter server is basically designed as a responder socket which responds to the requests from a remote client. The list of supported request to pull the data from the parameter server is shown in the Table~\ref{table:parameter_server}
+\begin{table}[H]
 \centering
 \small
 \caption{Parameter Server Interface Specification}
 \label{table:parameter_server}
-\begin{tabularx}{\linewidth}{c*3{X}}
-\toprule
-  \textbf{Request Description} & \textbf{Request Arguments}
-                          & \textbf{Response}
-  \tabularnewline \midrule
-  \multirow{1}{*}{Node Parameters req} & Name of the node & Node Parameters 
-                                          \tabularnewline\midrule
+\begin{tabular}{| p{3.3cm} | p{7.4cm} | p{2.8cm} |}
+\hline
+  \textbf{Request Description} & \textbf{Request Arguments} & \textbf{Response}
+  \tabularnewline \hline
+  Node Parameters request & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] 
+                                                  \item Name of the node: string
+                                                  \end{itemize} & Node Parameters 
+                                          \tabularnewline\hline
                                           
-  \multirow{3}{*}{Motion recognition module registration req} & Name of the node; & Registration Status  \\
-                                                     & Module Information &  (Success/Failure)
-                                          \tabularnewline\midrule
+  Motion recognition module registration request &  \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] 
+                                                  \item Name of the node: string
+                                                  \item Module Information: GestureRecognitionModule
+                                                \end{itemize} & Registration Status  (Success/Failure)
+                                          \tabularnewline\hline
   
-  \multirow{3}{*}{Robot Interface module registration req} & Name of the node; & Registration Status  \\
-                                                     & Module Information &   (Success/Failure)
-                                          \tabularnewline\midrule
-  \multirow{1}{*}{File Request} & Name of the file & Contents of the File  
-  										 \tabularnewline                       
-                                         
-  										\bottomrule
-\end{tabularx}
+  Robot Interface module registration request & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] 
+                                                \item Name of the node: string
+                                                \item Module Information: RobotBehaviorModule 
+                                            \end{itemize} & Registration Status  (Success/Failure)
+                                          \tabularnewline\hline
+  File Request & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] 
+                                                  \item Name of the file
+                                                  \end{itemize} & Contents of the File  
+  										 \tabularnewline\hline
+\end{tabular}
 \end{table}
-\subsection{Context Orchestrator} The orchestrator collect uptodate information about the robots and humans in the environment from the perception system and updates the Context. The algorithm used by the Orchestrator to update the context information is shown below.
-\begin{algorithm}
+\subsection*{Context Orchestrator} The orchestrator collect uptodate information about the robots and humans in the environment from the perception system and updates the Context. The algorithm used by the orchestrator to update the context information is shown below.
+
+\begin{algorithm}[H]
  \KwData{(app\_config, context)}
  \textbf{\emph{Init}}:\\
  \quad PUBLISHERS = READ\_ALL\_PUBLISHER\_INFO(app\_config)\;
@@ -81,58 +87,54 @@ The parameter server acts as a central repository for managing the parameters of
  \caption{Context Synchronization Algorithm}
  \label{alg:context_sync}
 \end{algorithm}
-\subsection{Embedded Web server}
-The web server embedded in the application serves the file and data requests from the web client. The server side server implements a set of RESTful services which could be accessed from the web clients. The JSON data format which the default standard for modern web interface development has been adopted. The list of RESTful API implemented on the server side is shown in Table~\ref{table:restful_api}
-\begin{table}
+\subsection*{Embedded Web server}
+The web server embedded in the application serves the file and data requests from the web client. The server side server implements a set of RESTful services which could be accessed from the web clients. The JSON data format which is the default standard for modern web interface development has been used as data exchange format between the server and the web clients. The list of RESTful API implemented on the server side is shown in Table~\ref{table:restful_api}
+\begin{table}[H]
 \centering
 \small
 \caption{Embedded Web Server RESTful API}
 \label{table:restful_api}
-\begin{tabularx}{400pt}{c*4{X}}
-\toprule
+\begin{tabular}{|l|p{2.8cm}|p{1.2cm}|p{5.5cm}|}
+\hline
   \textbf{Request Url}  & \textbf{Parameters} & \textbf{Request Type} & \textbf{Description/Response}
-  \tabularnewline \midrule
-  \multirow{1}{*}{/models/{type}/(?$<$all$>$.*)} & File Name & GET & Robot 3D Model Data
-                                          \tabularnewline\midrule
+  \tabularnewline \hline
+  /models/{type}/(?$<$all$>$.*) & File Name & GET & Robot 3D Model Data
+                                          \tabularnewline\hline
                                           
-  \multirow{1}{*}{/context}  & - & GET & Current context data  
-  										 \tabularnewline\midrule
+  /context  & - & GET & Current context data  
+  										                    \tabularnewline\hline
   										 
-  \multirow{1}{*}{/robot}  &  - & GET & Default Robot information  
-  										 \tabularnewline\midrule										 
+  /robot  &  - & GET & Default Robot information  
+  										                    \tabularnewline\hline										 
   
-  \multirow{2}{*}{/humans} & - & GET  & Information about all the human in the environment  
-                                          \tabularnewline\midrule
+  /humans & - & GET  & Information about all the human in the environment  
+                                          \tabularnewline\hline
                                           
-  \multirow{2}{*}{/human/{id}} & id - Human Id & GET  & Information about the human with the given id.  
-                                          \tabularnewline\midrule
+  /human/\{id\} & id - Human Id & GET  & Information about the human with the given id.  
+                                          \tabularnewline\hline
                                           
-  \multirow{2}{*}{/jointvals} & - & GET  & Joint values of the default robot  
-                                          \tabularnewline\midrule
+  /jointvals & - & GET  & Joint values of the default robot  
+                                          \tabularnewline\hline
                                           
-  \multirow{3}{*}{/visualize/skeleton/list} & - & GET  & 3D Skeleton positions of all the humans in the environment  
-                                          \tabularnewline\midrule                                        
+  /visualize/skeleton/list & - & GET  & 3D Skeleton positions of all the humans in the environment  
+                                          \tabularnewline\hline                                        
        
-  \multirow{3}{*}{/designer/program/list} & - & GET  & List of all the behavior programs stored in the server  
-                                          \tabularnewline\midrule                                                               
-  \multirow{3}{*}{/visualize/skeleton/list} & - & GET  & 3D Skeleton positions of all the humans in the environment  
-                                          \tabularnewline\midrule                                       
+  /designer/program/list & - & GET  & List of all the behavior programs stored in the server  
+                                          \tabularnewline\hline                                                               
                                           
-  \multirow{3}{*}{/designer/program/startxml} & Behavior Program & POST  & Request the bootstrapper to start the program
-  										 \tabularnewline\midrule   
-  \multirow{3}{*}{/designer/program/save} & File Name & POST  & \\
-                                          & Behavior Program &  & Request the bootstrapper to start the program
-                                          \tabularnewline\midrule 
-  \multirow{3}{*}{/designer/program/stop} & - & POST  & Request to stop running program if any
-                                          \tabularnewline
-                                                                                                                         
-  										\bottomrule
-\end{tabularx}
+  /designer/program/start & Behavior Program & POST  & Request the bootstrapper to start the program
+  										                    \tabularnewline\hline   
+
+  /designer/program/save & File Name, Behavior Program & POST  & Request the bootstrapper to start the program
+                                          \tabularnewline\hline 
+  /designer/program/stop & - & POST  & Request to stop running program if any
+                                          \tabularnewline\hline
+\end{tabular}
 \end{table}
 
-\subsection{Bootstrapper} 
-The bootstrapper takes care of initializing the system and starting up all the pre-configured nodes. It also takes of starting and stopping the behavior programs when requested by the user. The sequence operations of bootstrapper performs is represented in Algorithm~\ref{alg:bootstrapper}.
-\begin{algorithm}
+\subsection*{Bootstrapper} 
+The bootstrapper takes care of initializing the system and starting up all the pre-configured nodes. The configuration information of the nodes is specified using the XML configuration file described in Section~\ref{sec:config_file}. It also takes of starting and stopping the behavior programs when requested by the user. The sequence operations of bootstrapper performs is represented in Algorithm~\ref{alg:bootstrapper}.
+\begin{algorithm}[H]
  \KwData{(app\_config)}
  \textbf{\emph{Startup}}:\\
  \quad INIT\_AND\_RUN\_PARAMETERSERVER()\;

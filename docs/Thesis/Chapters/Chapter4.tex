@@ -5,7 +5,7 @@
 \label{Chapter4} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
 \lhead{Chapter 4. \emph{Software Framework}} 
-		The ROS \cite{quigley2009ros} is the de facto standard used for any robotics related research in the recent times. However it is officially supported only for the Ubuntu distribution which makes it unavailable to the people who work with sensors that are being supported say only for Microsoft Windows Platform (i.e Kinect for Windows v2). Hence a distributed architecture which is not specific to any operating system or programming language is proposed which uses open network communication standards and transparent message passing using structured data. In this chapter the design philosophy of the software framework and core components of the system are explained.
+The ROS \cite{quigley2009ros} is the de facto standard used for any robotics related research in the recent times. However it is officially supported only for the Ubuntu distribution which makes it unavailable to the people who work with sensors that are being supported say only for Microsoft Windows Platform (i.e Kinect for Windows v2). Hence a distributed architecture which is not specific to any operating system or programming language is proposed which uses open network communication standards and transparent message passing using structured data. In this chapter the design philosophy of the software framework and core components of the system are explained.
 		
 \section{Framework Design}		
 	The system contains nodes/processes which can be running in the same computer or might be running anywhere in the network. The order of start and stop of these nodes essentially do not matter.
@@ -42,6 +42,7 @@
 \label{fig:protobuf}
 \end{figure}
 \subsection{Configuration File}
+\label{sec:config_file}
 	An XML configuration file to manage the nodes and system/node level parameters is proposed. The format of the XML file is designed using XML schema definition (XSD) language. The schema representation is shown in the Fig~\ref{fig:config_xsd}. The important strongly typed components of the schema are
 	\begin{itemize}
 	\item Parameters: These are the global parameters composed of key, value and type of the parameter. The supported types are boolean, integer, double, string and comma separated values(CSV). 
