@@ -250,37 +250,53 @@ The fiducial marker based approach is used in order to localize the robot in the
 \begin{figure}
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
-\includegraphics[width=\textwidth]{../thesis/assets/localization_arch.png}
-\caption[Conceptual Model]{Conceptual Model}
-\label{fig:program_concept}
+\includegraphics[width=\textwidth]{../thesis/assets/localization_concept.png}
+\caption[Modeling]{Coordinate Frames}
+\label{fig:localize_frames}
 \end{subfigure}
 \begin{subfigure}[t]{0.48\textwidth}
 \includegraphics[width=\textwidth]{../thesis/assets/localization_frames.png}
-\caption[Block Implementation]{Block Implementation}
-\label{fig:program_blocks}
+\caption[Actual setup]{Actual setup}
+\label{fig:localize_setup}
 \end{subfigure}
-\caption[Program Structure]{Behavior program structure}
+\caption[NAO robot localization]{NAO robot localization}
 \label{fig:nao_localization}
 \end{figure}
 
+\subparagraph{Modeling}
+For computing the absolute pose of the torso frame of the robot with respect to the world frame, the coordinate frames shown in Figure~\ref{fig:nao_localization} is used. 
+
+\begin{tabular}{r l}
+\centering
+  Kinect Frame & $F_K$ \\ 
+  Marker Frame & $F_M$ \\ 
+  Torso Frame & $F_T$ \\ 
+  World Frame & $F_W$ \\ 
+  Transformation Matrices  & ($^{K}T_M$,$^{T}T_M$,$^{K}T_W$,$^{W}T_T$) \\
+\end{tabular}
+
+The algorithm for the computation given the marker parameters, calibration information of the camera, MDH parameters (Table~\ref{table:nao_mdh}) and the joint values ($\theta_1,\theta_2$) at each time instant is shown in Algorithm~\ref{alg:localize}.
+
 \begin{algorithm}
- \KwData{Marker\_size, Cube\_size, MDH\_Params}
+ \KwData{marker\_size, cube\_size, MDH\_Params}
  \KwResult{TORSO\_POSE}
  \textbf{\emph{Init}}:\\
- k\_model := INIT\_MDH\_PARAM(MDH\_Params)\;
- m\_model := MARKER\_MODEL(Marker\_size, Cube\_size)\;
+ g\_model := INIT\_GEOM\_MODEL(MDH\_Params)\;
+ m\_model := MARKER\_MODEL(marker\_size, cube\_size)\;
  \While{True}{
  	data = READ\_SENSOR()\;
- 	marker\_poses = DETECT\_MARKERS(data)\;
- 	$^{W}{T}_{M}$ = TRANSFORM\_TO\_TOP\_FRAME(marker\_poses, m\_model)\;
- 	[$head_{yaw}$,$head_{pitch}$] = READ\_JOINT\_VALUES()\;
- 	$^{T}{T}_{M}$ = COMPUTE\_TOP\_FRAME(k\_model,$head_{yaw}$,$head_{pitch}$)\;
- 	$^{W}{T}_{T}$ = $^{W}{T}_{M} \times {^{T}{T}_{M}}^{-1}$\;
+  [$\theta_1$,$\theta_2$] = READ\_JOINT\_VALUES()\;
+ 	marker\_poses = DETECT\_CUBE\_MARKERS(data)\;
+  $^{K}T_W$ = DETECT\_WORLD\_MARKER(data)\;
+ 	$^{K}{T}_{M}$ = TRANSFORM\_TO\_TOP\_FRAME(marker\_poses, m\_model)\;
+ 	$^{T}{T}_{M}$ = COMPUTE\_TOP\_FRAME(g\_model,$\theta_1$,$\theta_2$)\;
+ 	$^{K}{T}_{T}$ = $^{K}{T}_{M}$ $\times$ ${^{T}{T}_{M}}^{-1}$\;
+  $^{W}{T}_{T}$ = ${^{K}{T}_{W}}^{-1}$ $\times$ ${^{K}{T}_{T}}$\;
  	TORSO\_POSE = MEDIAN\_FILTER($^{W}{T}_{T}$)\;
  	PUBLISH(TORSO\_POSE)\;
  }
- %\caption{Localization Algorithm}
- %\label{alg:localize}
+ \caption{Localization Algorithm}
+ \label{alg:localize}
 \end{algorithm}
 
 \section{Behavior Program} 

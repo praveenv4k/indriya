@@ -376,18 +376,30 @@
 
 \listofnomenclature{lll} % Include a list of Symbols (a three column table)
 {
-$a$ & Link distance & m \\
-$\theta$ & Joint angle & rad \\
-$\alpha$ & Angle between link i and j & rad \\
-$d$ & distance & m \\
-$P$ & Position & $[x,\ y,\ z]^T$ \\
-$R$ & Rotation &  \\
-$T$ & Transformation &  \\
+$\Re$ & Real number & \\
+%$a$ & Link distance & m \\
+%$\theta$ & Joint angle & rad \\
+%$\alpha$ & Angle between link i and j & rad \\
+%$d$ & distance & m \\
+$P$ & Cartesian Position $\in$ $\Re_{3\times 1}$ &  \\
+$R$ & Rotation matrix $\in$ $\Re_{3\times 3}$ &  \\
+$T$ & Transformation matrix $\begin{pmatrix}
+  R & P \\
+  0_{3\times 1} & 1
+ \end{pmatrix} $ $\in$ $\Re_{4\times 4}$
+% \begin{array}{c|c}
+%  $R$ & $P$ \\
+%  \hline
+%  $0_{3\times 1}$ & 1
+% \end{array} 
+ &  \\
+$F_A$ & Frame A & \\
+$^{i}T_j$ & Transformation Matrix for $F_j$ w.r.t $F_i$ & \\
 % Symbol & Name & Unit \\
 
 & & \\ % Gap to separate the Roman symbols from the Greek
 
-$\omega$ & angular frequency & rads$^{-1}$ \\
+%$\omega$ & angular frequency & rads$^{-1}$ \\
 % Symbol & Name & Unit \\
 }
 
