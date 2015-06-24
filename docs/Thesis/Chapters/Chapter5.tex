@@ -399,7 +399,11 @@ The trigger behavior block is designed in such a way that it incorporates the co
 \label{fig:blocks_trigger}
 \end{figure}
 The block interface is reactive in the sense that for instance when the lifetime of the block is switched from \emph{Once/Forever} to \emph{Until}, a new input appears in the block where the user can add the condition to stop the block.
+
+\textbf{TODO: } Describe all the blocks (Triggers/Actions) developed.
+
 \subsection{Code Generation and Execution}
+The next step in the behavior program design flow is to generate the executable code from the blocks and execute them. The surface on which the program is designed, is called the \emph{workspace}. Each blocks developed as part of the platform has an associated code generation module. So when the user decides to run a program, as a first step all the blocks in the workspace are iterated and code is generated. The blockly editor supports code generation for programming languages like JS, Python and Dart. However a special code generator that could generate C\# code from the blocks has been. This is because most of the platform is written in C\# and there are loads of goodies that comes with the .NET framework. Traditionally there is a need to compile the C\# code and generate binaries when one wants to execute it. Thanks to the latest compiler technologies and tools like ScriptCS \cite{ScriptCS}, it is now possible to run the C\# code like scripts. This is exploited in the experimental platform to dynamically generate the code and run.
 
 \section{User Interface}
 \label{ssec:ui_comp}
