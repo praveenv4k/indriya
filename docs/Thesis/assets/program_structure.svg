@@ -41,7 +41,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="380.2602"
+     inkscape:cx="235.2602"
      inkscape:cy="716.3961"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -59,7 +59,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -68,23 +68,26 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.0253011;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect5130"
-       width="292.83185"
-       height="233.54613"
-       x="183.58408"
-       y="171.66057"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.051;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect8155"
+       width="295"
+       height="237.85715"
+       x="182.14285"
+       y="166.64792" />
     <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.02538216;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect5128"
-       width="297.83176"
-       height="232.83176"
-       x="169.29842"
-       y="178.80347"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.051;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect8153"
+       width="297.85715"
+       height="232.85715"
+       x="171.42857"
+       y="177.3622" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.04799676;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect8151"
+       width="297.86014"
+       height="232.14586"
+       x="163.14136"
+       y="185.075" />
     <g
        id="g5083"
        transform="translate(10,-4)"
@@ -122,15 +125,15 @@
       <text
          sodipodi:linespacing="125%"
          id="text4160"
-         y="132.79079"
-         x="200.85713"
+         y="130.64793"
+         x="188.71428"
          style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
            id="tspan4164"
-           y="132.79079"
-           x="200.85713"
+           y="130.64793"
+           x="188.71428"
            sodipodi:role="line"
-           style="font-size:15px">Startup Block</tspan></text>
+           style="font-size:15px">Startup behavior</tspan></text>
       <text
          sodipodi:linespacing="125%"
          id="text4168"
@@ -215,7 +218,7 @@
            y="463.43362"
            x="212.42857"
            sodipodi:role="line"
-           style="font-size:15px">Exit Block</tspan></text>
+           style="font-size:15px">Exit behavior</tspan></text>
       <text
          sodipodi:linespacing="125%"
          id="text4168-5"
@@ -264,15 +267,6 @@
          x="177.85715"
          id="tspan5062"
          sodipodi:role="line" /></text>
-    <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.05137825;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect4251"
-       width="297.80576"
-       height="232.80576"
-       x="158.0257"
-       y="184.38791"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
     <g
        id="g5055"
        transform="translate(53.571429,37.857143)"
@@ -522,14 +516,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="254.28572"
+       x="231.42857"
        y="200.93362"
        id="text5132"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5134"
-         x="254.28572"
+         x="231.42857"
          y="200.93362"
-         style="font-size:15px">Behavior Block</tspan></text>
+         style="font-size:15px">Trigger behavior Block</tspan></text>
   </g>
 </svg>

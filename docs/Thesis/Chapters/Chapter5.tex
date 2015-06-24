@@ -13,12 +13,28 @@ The software framework proposed and introduced in \ref{Chapter4} has been exploi
 \item \emph{User Interface Layer} takes the responsibility of providing useful and intuitive user-interface to the end users.
 \end{itemize}
 The architecture of the system shown in Fig~\ref{fig:architecture}. More finer details of each of the layers are presented in the following Sections~\ref{ssec:app_comp}$\sim$\ref{ssec:ui_comp}.
+
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{assets/architecture.eps}
-\caption[System Architecture]{System Architecture}
+\begin{subfigure}[t]{0.48\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/system_setup.eps}
+\caption[System setup]{System setup}
+\label{fig:localize_frames}
+\end{subfigure}
+\begin{subfigure}[t]{0.48\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/architecture.eps}
+\caption[Software architecture]{Software architecture}
 \label{fig:architecture}
+\end{subfigure}
+\caption[Experimental platform]{Experimental platform}
+\label{fig:nao_localization}
 \end{figure}
+% \begin{figure}
+% \centering
+% \includegraphics[width=0.7\textwidth]{assets/architecture.eps}
+% \caption[System Architecture]{System Architecture}
+% \label{fig:architecture}
+% \end{figure}
 \section{Application Components}
 \label{ssec:app_comp}
 The application level components are responsible for bootstrapping and maintain the uptodate status of the system. 
@@ -250,7 +266,7 @@ The fiducial marker based approach is used in order to localize the robot in the
 \begin{figure}
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
-\includegraphics[width=\textwidth]{../thesis/assets/localization_concept.png}
+\includegraphics[width=\textwidth]{../thesis/assets/localization_concept2.eps}
 \caption[Modeling]{Coordinate Frames}
 \label{fig:localize_frames}
 \end{subfigure}
@@ -302,29 +318,17 @@ The algorithm for the computation given the marker parameters, calibration infor
 \section{Behavior Program} 
 \label{ssec:behavior_program}
 A dynamic component that will be created when the user starts the program he/she designed using the user interface. The declarative description of the behavior is parsed in order to create a memory model. The Behavior program node monitors the application context for the motion triggers and invokes the corresponding robot actions according to the way it is being described in the program.
-
 \begin{figure}
 \centering
-\begin{subfigure}[t]{0.48\textwidth}
-\includegraphics[width=\textwidth]{../thesis/assets/program_structure.eps}
-\caption[Conceptual Model]{Conceptual Model}
+\includegraphics[width=0.4\textwidth]{../thesis/assets/program_structure.eps}
+\caption[Behavior Program - Conceptual Model]{Behavior Program - Conceptual Model}
 \label{fig:program_concept}
-\end{subfigure}
-\begin{subfigure}[t]{0.48\textwidth}
-\includegraphics[width=\textwidth]{../thesis/assets/program_block.png}
-\caption[Block Implementation]{Block Implementation}
-\label{fig:program_blocks}
-\end{subfigure}
-\caption[Program Structure]{Behavior program structure}
-\label{fig:program}
 \end{figure}
-
-
 \subsection{Conceptual Model}
-The behavior program is structured in a simple way so that it could be easily understood by the end user. The conceptual model of behavior program is shown in Fig.~\ref{fig:program_concept} and the block level implementation is shown in Fig.~\ref{fig:program_blocks}. The behavior program is composed of:
+The behavior program is structured in a simple way so that it could be easily understood by the end user. The conceptual model of behavior program is shown in Fig.~\ref{fig:program_concept}. The behavior program is composed of:
 \begin{itemize}
-\item \emph{Startup block}: The startup block will be executed once when the user starts the program. The user can add a set of actions to be performed when the program starts. The start-up block is optional and there cannot be more than one start-up block in the program
-\item \emph{Behavior Block}: The behavior block is the core component of the behavior program. The block could be activated by the interaction between the human and the robot. There could be many behavior blocks in a program. The properties/attributes of a behavior block is shown in Table~\ref{table:behavior_block}.
+\item \emph{Startup behavior}: The startup block will be executed once when the user starts the program. The user can add a set of actions to be performed when the program starts. The start-up block is optional and there cannot be more than one start-up block in the program
+\item \emph{Trigger behavior}: The behavior block is the core component of the behavior program. The block could be activated by the interaction between the human and the robot. There could be many behavior blocks in a program. The properties/attributes of a behavior block is shown in Table~\ref{table:behavior_block}.
 \begin{table}[H]
 \centering
 \small
@@ -359,42 +363,42 @@ The behavior program is structured in a simple way so that it could be easily un
                       \hline
 \end{tabular}
 \end{table}
-\item \emph{Exit block}: The exit block will be executed once when the lifetime of all the configured behavior blocks expire. Like the startup block there could be only one exit block in the program.
+\item \emph{Exit behavior}: The exit block will be executed once when the lifetime of all the configured behavior blocks expire. Like the startup block there could be only one exit block in the program.
 \end{itemize}
-
-\subsection{Block Level implementation}
-The visual blocks corresponding to each of the startup, behavior and exit blocks are implemented. The complex programs could be composed by putting together these blocks. The startup and exit blocks are shown in Fig~\ref{fig:blocks_init}. As could be seen from the figure, the blocks are quite simple making it possible to put the list of statements consisting of initialization and termination logic of the program. 
+\subsection{Block level implementation}
+The visual blocks corresponding to each of the startup, trigger and exit behaviors are implemented. The complex programs could be composed by putting together these blocks. The startup and exit blocks are shown in Fig~\ref{fig:blocks_init}. As could be seen from the figure, the blocks are quite simple making it possible to put the list of statements consisting of initialization and termination logic of the program. 
 \begin{figure}[H]
 \centering
-\begin{subfigure}[t]{0.4\textwidth}
-\includegraphics[width=0.8\textwidth]{../thesis/assets/blocks_startup.png}
+\begin{subfigure}[t]{0.28\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/blocks_startup.png}
 \caption[Startup block]{Startup block}
 \label{fig:program_concept}
 \end{subfigure}
-\begin{subfigure}[t]{0.4\textwidth}
-\includegraphics[width=0.8\textwidth]{../thesis/assets/blocks_exit.png}
+\begin{subfigure}[t]{0.28\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/blocks_exit.png}
 \caption[Exit block]{Exit block}
 \label{fig:program_blocks}
 \end{subfigure}
-\caption[Startup and Exit blocks]{Startup and Exit blocks}
+\caption[Startup and Exit behaviors]{Startup and Exit behaviors}
 \label{fig:blocks_init}
 \end{figure}
-The trigger behavior block is designed in such a way that it incorporates the conceptual model and at the same time easier for the end user to understand and use it. The trigger behavior block is shown in Fig~\ref{fig:blocks_trigger}. The visual design provides ability to compose the blocks by putting an external boolean trigger, choose priority and lifetime from the combo box interface, add startup,cyclic and exit statements etc., The block interface is reactive in the sense that for instance when the lifetime of the block is switched from \emph{Once/Forever} to \emph{Until}, a new input appears in the block where the user can add the condition to stop the block.
+The trigger behavior block is designed in such a way that it incorporates the conceptual model and at the same time easier for the end user to understand and use it. The trigger behavior block is shown in Fig~\ref{fig:blocks_trigger}. The visual design provides ability to compose the blocks by putting an external boolean trigger, choose priority and lifetime from the combo box interface, add startup,cyclic and exit statements etc.,
 \begin{figure}[H]
 \centering
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.38\textwidth}
 \includegraphics[width=\textwidth]{../thesis/assets/blocks_behavior1.png}
-\caption[Behavior1]{Priority: Low , Execute: Once}
+\caption[Example 1]{Priority: Low, Execute: Once}
 \label{fig:program_concept}
 \end{subfigure}
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.38\textwidth}
 \includegraphics[width=\textwidth]{../thesis/assets/blocks_behavior2.png}
-\caption[Behavior2]{Priority: High , Execute: Until}
+\caption[Example 2]{Priority: High, Execute: Until}
 \label{fig:program_blocks}
 \end{subfigure}
-\caption[Trigger Behavior block]{Trigger Behavior block}
+\caption[Trigger behavior]{Trigger behavior}
 \label{fig:blocks_trigger}
 \end{figure}
+The block interface is reactive in the sense that for instance when the lifetime of the block is switched from \emph{Once/Forever} to \emph{Until}, a new input appears in the block where the user can add the condition to stop the block.
 \subsection{Code Generation and Execution}
 
 \section{User Interface}
