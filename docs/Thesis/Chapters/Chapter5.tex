@@ -188,7 +188,7 @@ These are nodes in the system each with a specific goal that can be started/stop
 	The Microsoft Kinect system utilizes Adaptive Boosting(adaboost) algorithm \cite{freund1997decision} to efficiently detect the gestures. The system involves a training phase during which the desired gestures are captured and tagged. These tagged gestures will be used by a gesture detector trainer which will generate a set of training examples. The training results are stored in files and will be used by the gesture detector to perform per-frame classification of the data. The Visual Gesture Builder (VGB) tool that comes together with Kinect for Windows SDK eases the process of tagging the gestures, evaluating the gesture recognition and creating the gesture database. The work-flow of using the VGB is shown in the Figure~\ref{fig:vgb_workflow}.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{assets/VisualGestureBuilder.png}
+\includegraphics[width=0.8\textwidth]{assets/vgb_flow.eps}
 \caption[Visual Gesture Builder Work flow]{Visual Gesture Builder Work flow \cite{KinectSDK2014}}
 \label{fig:vgb_workflow}
 \end{figure}
@@ -404,6 +404,47 @@ The block interface is reactive in the sense that for instance when the lifetime
 
 \subsection{Code Generation and Execution}
 The next step in the behavior program design flow is to generate the executable code from the blocks and execute them. The surface on which the program is designed, is called the \emph{workspace}. Each blocks developed as part of the platform has an associated code generation module. So when the user decides to run a program, as a first step all the blocks in the workspace are iterated and code is generated. The blockly editor supports code generation for programming languages like JS, Python and Dart. However a special code generator that could generate C\# code from the blocks has been. This is because most of the platform is written in C\# and there are loads of goodies that comes with the .NET framework. Traditionally there is a need to compile the C\# code and generate binaries when one wants to execute it. Thanks to the latest compiler technologies and tools like ScriptCS \cite{ScriptCS}, it is now possible to run the C\# code like scripts. This is exploited in the experimental platform to dynamically generate the code and run.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{../thesis/assets/execution_flow.eps}
+\caption[Behavior program - Execution flow]{Behavior program - Execution flow}
+\label{fig:program_execution}
+\end{figure}
+ The execution flow of the behavior program is shown in Figure~\ref{fig:program_execution}. The generated behavior program is consumed by a \emph{Behavior execution engine} which dynamically identifies the configured behavior blocks. The main functionality of the behavior execution engine is to check if the trigger condition of the behavior blocks is met and once the condition is met, the execution of the corresponding behavior is scheduled on a separate CPU thread. The behavior program accesses the uptodate information about the environment through the interface namely the \emph{Behavior execution context} which acts as a proxy to the \emph{Application context}. The algorithm of the behavior execution by the engine is shown in Algorithm~\ref{alg:behavior_engine}.
+
+\begin{algorithm}[H]
+ \KwData{program : Behavior program}
+ startup := STARTUP\_BEHAVIORS(program)\;
+ exit := EXIT\_BEHAVIORS(program)\;
+ triggered := TRIGGER\_BEHAVIORS(program)\;
+ sorted := SORT\_PRIORITY(triggered)\;
+ \If{startup}{
+  EXECUTE\_BEHAVIOR(startup)\;
+ }
+ \While{behavior lifetime}{
+  \ForAll{behavior in sorted}{
+    \If{behavior not complete}{
+      \If{CHECK\_TRIGGER(behavior)}{
+        current = GET\_ACTIVE\_TASK()\;
+        priority1 = PRIORITY(behavior)\;
+        priority2 = PRIORITY(current)\;  
+        \If{priority1 $>$ priority2}{
+          DO\_PREMEPTION(current)\;
+          SCHEDULE\_TASK(behavior)\;
+        }
+        \ElseIf{no active task}{
+          SCHEDULE\_TASK(behavior)\;
+        }
+      }
+    }
+  }
+ }
+ \If{exit}{
+  EXECUTE\_BEHAVIOR(exit)\;
+ }
+ \caption{Behavior execution algorithm}
+ \label{alg:behavior_engine}
+\end{algorithm}
 
 \section{User Interface}
 \label{ssec:ui_comp}
@@ -414,7 +455,7 @@ The user interface is a web application that runs on any latest web-kit browsers
 \item Monitor: To visualize the human and robot information
 \end{itemize}
 
-\subsection{Behavior Designer} The Behavior designer surface could be used by the user to drag and drop the behavior blocks and construct the program using the set of motion capabilities registered by the active motion recognition nodes and the set of robot action capabilities registered by the active robot interface nodes. The behavior designer is shown in Fig~\ref{fig:behavior_designer}.
+\subsection*{Behavior Designer} The Behavior designer surface could be used by the user to drag and drop the behavior blocks. The behavior designer is shown in Fig~\ref{fig:behavior_designer}.
 
 \begin{figure}[H]
 \centering
@@ -451,11 +492,12 @@ The user interface is a web application that runs on any latest web-kit browsers
 
 The behavior designer is the core component of the user interface. The designer is composed of 
 \begin{itemize}
-\item The command panel is composed of Designer command buttons like Open/Save/Clear/Run which makes it easy to perform operations like Creating a new program, Saving the program to the server, Clear the workspace and Running the active behavior program
-\item The toolbox contains the collection of blocks categorized as per their functionlities.
+\item Designer command panel : It contains command buttons like Open/Save/Clear/Run which makes it easy to perform operations like creating a new program, saving the program to the server, Clear the workspace and Running the active behavior program
+\item Toolbox : It contains behavior, action and trigger blocks needed to realize the behavior program. It also contains the standard logical blocks that comes with Blockly editor.
+\item Designer surface: The designer surface is the playground where the user can create behavior program by dropping in blocks from the toolbox.
 \end{itemize}
 
-\subsection{Visualization} The visualization could be used to see the interaction of the human and robot inside a virtual 3D environment.
+\subsection*{Visualization} The visualization could be used to see the interaction of the human and robot inside a virtual 3D environment.
 % Simulation Node
 \begin{algorithm}
  \KwData{simulation\_config}
@@ -472,6 +514,7 @@ The behavior designer is the core component of the user interface. The designer 
  %\label{alg:localize}
 \end{algorithm}
 
-\subsection{Monitor}
+\subsection*{Monitor}
+The monitor screen shows the current content of the application context in a tree view. This is mainly developed for debugging purpose.
 
 \section{Summary}
