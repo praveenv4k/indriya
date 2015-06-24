@@ -218,7 +218,7 @@ The Nao robot interface makes use of the NaoQi python SDK which provides API for
 \label{fig:nao_interface}
 \end{figure}
 
-\subsection{Localization Node} A dedicated node which uses the perception system to resolve and publish the current position of the robot and the human 
+\subsection{Localization Node} A dedicated node which uses the perception system to resolve and publish the current position of the robot.
 
 \subsubsection{NAO Robot localization}
 The fiducial marker based approach is used in order to localize the robot in the field of view of the Kinect sensor. The ALVAR \cite{ALVAR} toolkit is used for marker detection purpose which relies on OpenCV library for image processing. The OpenCV library cannot directly read the image streams from Kinect sensor and hence a OpenCV compatible driver is implemented to read the RGB image streams. The first step in the marker detection is to calibrate the camera in order to get its intrinsic parameters and the calibration parameters are stored in an XML file. A set of supported markers of known identifiers are chosen and a cube of known geometry is created. The cube is designed in such a way that at any instant atleast one of the markers will be detected if the robot is in the detectable range of the camera. The cube is mounted on the head of NAO robot since it will avoid the problem of occlusion in most cases. However since the head of the NAO has 2 DOF which will result in the movement of mounted cube even if the robot itself does not move. In order to overcome this problem, a kinematic model of the NAO humanoid robot from torso frame to tip of the head frame parameterized using Modified Denavit Hartenberg (MDH) \cite{khalil2004modeling} parameters is used. The MDH parameters are shown in Table~\ref{table:nao_mdh}.
@@ -284,7 +284,7 @@ The algorithm for the computation given the marker parameters, calibration infor
  g\_model := INIT\_GEOM\_MODEL(MDH\_Params)\;
  m\_model := MARKER\_MODEL(marker\_size, cube\_size)\;
  \While{True}{
- 	data = READ\_SENSOR()\;
+ 	data = READ\_RGB\_STREAM()\;
   [$\theta_1$,$\theta_2$] = READ\_JOINT\_VALUES()\;
  	marker\_poses = DETECT\_CUBE\_MARKERS(data)\;
   $^{K}T_W$ = DETECT\_WORLD\_MARKER(data)\;
