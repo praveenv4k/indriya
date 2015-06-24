@@ -221,7 +221,7 @@ The Nao robot interface makes use of the NaoQi python SDK which provides API for
 \subsection{Localization Node} A dedicated node which uses the perception system to resolve and publish the current position of the robot and the human 
 
 \subsubsection{NAO Robot localization}
-The fiducial marker based approach is used in order to localize the robot in the field of view of the Kinect sensor. The ALVAR \cite{ALVAR} toolkit is used for marker detection purpose which relies on OpenCV library for image processing. The OpenCV library cannot directly read the image streams from Kinect sensor. So a OpenCV compatible driver is created to read the RGB image streams which could be used for marker detection. The first step in the marker detection is to calibrate the camera in order to get its intrinsic parameters. A set of supported markers of known identifiers are chosen and a cube of known geometry is created. The cube is designed in such a way that at any instant atleast one of the markers will be detected if the robot is in the field of view and detectable region. The cube is mounted on the head of NAO robot since it will avoid the problem of occlusion in most cases. However since the head of the NAO has 2 DOF which will result in the movement of mounted cube even if the robot itself does not move. In order to overcome this problem, a kinematic model of the NAO humanoid robot parameterized using Modified Denavit Hartenberg (MDH) \cite{khalil2004modeling} parameters is used. The MDH parameter from the torso to top of the head of NAO is shown in Table~\ref{table:nao_mdh}.
+The fiducial marker based approach is used in order to localize the robot in the field of view of the Kinect sensor. The ALVAR \cite{ALVAR} toolkit is used for marker detection purpose which relies on OpenCV library for image processing. The OpenCV library cannot directly read the image streams from Kinect sensor and hence a OpenCV compatible driver is implemented to read the RGB image streams. The first step in the marker detection is to calibrate the camera in order to get its intrinsic parameters and the calibration parameters are stored in an XML file. A set of supported markers of known identifiers are chosen and a cube of known geometry is created. The cube is designed in such a way that at any instant atleast one of the markers will be detected if the robot is in the detectable range of the camera. The cube is mounted on the head of NAO robot since it will avoid the problem of occlusion in most cases. However since the head of the NAO has 2 DOF which will result in the movement of mounted cube even if the robot itself does not move. In order to overcome this problem, a kinematic model of the NAO humanoid robot from torso frame to tip of the head frame parameterized using Modified Denavit Hartenberg (MDH) \cite{khalil2004modeling} parameters is used. The MDH parameters are shown in Table~\ref{table:nao_mdh}.
 
 \begin{table}[H]
 \centering
@@ -229,9 +229,9 @@ The fiducial marker based approach is used in order to localize the robot in the
 \caption{MDH parameters from Torso to top of head}
 \label{table:nao_mdh}
 % \begin{tabular}{|l|l|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{3cm}|}
-\begin{tabular}{|l|l|c|c|c|c|p{3cm}|}
+\begin{tabular}{|l|l|c|c|c|c|p{2cm}|}
 \hline
-  \textbf{$i$}  & \textbf{$j$}  & \textbf{$\alpha_j$ (rad)} & \textbf{$d_j$ (mm)} & \textbf{$\theta_j$ (rad)} & \textbf{$r_j$ (mm)} & \textbf{Joint Description}
+  \textbf{$i$}  & \textbf{$j$}  & \textbf{$\alpha_j$ (rad)} & \textbf{$d_j$ (mm)} & \textbf{$\theta_j$ (rad)} & \textbf{$r_j$ (mm)} & \textbf{Description}
   \tabularnewline \hline
   - & 0 & 0 & 0 & 0 & 0 & Torso/Base
                                           \tabularnewline\hline
@@ -314,34 +314,34 @@ The behavior program is structured in a simple way so that it could be easily un
 \small
 \caption{Trigger Behavior block properties}
 \label{table:behavior_block}
-\begin{tabularx}{400pt}{|X|X|}
+\begin{tabular}{|l|p{11cm}|}
 \hline
   \textbf{Property} & \textbf{Description}
   \tabularnewline \hline
   
-  \multirow{1}{*}{Trigger} & The signal that activates the behavior block. The trigger source could be either of human presence/absence, motion gesture, vicinity of human, verbal command or any boolean edge trigger.
+  Trigger & The signal that activates the behavior block. The trigger source could be either of human presence/absence, motion gesture, vicinity of human, verbal command or any boolean edge trigger.
                                           \tabularnewline\hline
                                           
-  \multirow{1}{*}{Lifetime} & The lifespan of the behavior block. \begin{itemize}
+  Lifetime & The lifespan of the behavior block. \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}]
                                                                       \item Once: The block will be executed only once.
                                                                       \item Forever: The block will be executed forever each time trigger condition is met.
                                                                       \item Until: The block will be executed until a condition is met
                                                                    \end{itemize}
                                           \tabularnewline\hline
   
-  \multirow{1}{*}{Priority} & The priority of the block could be Low, Normal or High and the behavior execution is scheduled based on fixed-priority preemptive scheduling. There is not dynamic priority allocation as the concept could be confusing for naive users.
+  Priority & The priority of the block could be Low, Normal or High and the behavior execution is scheduled based on fixed-priority preemptive scheduling. There is not dynamic priority allocation as the concept could be confusing for naive users.
                                           \tabularnewline\hline
 
-  \multirow{1}{*}{Startup} & Tasks/actions to be performed once when the block is initialized
+  Startup & Tasks/actions to be performed once when the block is initialized
                                           \tabularnewline\hline
 
-  \multirow{1}{*}{Cyclic} & Tasks/actions to be performed each time the trigger condition is met
+  Cyclic & Tasks/actions to be performed each time the trigger condition is met
                                           \tabularnewline\hline
   
-  \multirow{1}{*}{Exit} &  Tasks/actions to be performed once when the lifetime of the block expires
+  Exit &  Tasks/actions to be performed once when the lifetime of the block expires
                                           \tabularnewline                                                                       
                       \hline
-\end{tabularx}
+\end{tabular}
 \end{table}
 \item \emph{Exit block}: The exit block will be executed once when the lifetime of all the configured behavior blocks expire. Like the startup block there could be only one exit block in the program.
 \end{itemize}
