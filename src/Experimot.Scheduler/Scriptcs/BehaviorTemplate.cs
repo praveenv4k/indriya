@@ -49,7 +49,8 @@ public class BehaviorTemplate : ITriggerBehavior
     public static TriggerResult CheckTrigger(IBehaviorExecutionContext context)
     {
         var result = new TriggerResult {Active = false};
-        if (context != null)
+
+        if (context != null && !ExecutionComplete)
         {
             // SET_TRIGGER_HERE
         }
