@@ -8,6 +8,25 @@ using Quartz.Util;
 using SharpDX;
 
 // ReSharper disable once CheckNamespace
+public static class RobotStatusString
+{
+    public const string StsRun = "RUN";
+    public const string StsRunReady = "RUN_READY";
+    public const string StsWaitArg = "WAIT_ARG";
+    public const string StsIdle = "IDLE";
+    public const string StsErr = "ERR";
+    public const string StsUnknown = "UNKNOWN";
+}
+
+public static class RobotCommandString
+{
+    public const string CmdStartReq = "START_REQ";
+    public const string CmdRunReq = "RUN_REQ";
+    public const string CmdStsReq = "STS_REQ";
+    public const string CmdStopReq = "STOP_REQ";
+    public const string CmdResetReq = "RESET_REQ";
+}
+
 public class BehaviorExecutionContext : IBehaviorExecutionContext
 {
     private static readonly ILog Log = LogManager.GetLogger(typeof(BehaviorExecutionContext));
@@ -95,6 +114,120 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
     }
 
     public void SyncExecuteBehavior(BehaviorInfo behaviorInfo)
+    {
+        try
+        {
+            using (var ctx = NetMQContext.Create())
+            {
+                using (var sock = ctx.CreateRequestSocket())
+                {
+                    var ip = behaviorInfo.Ip;
+                    var port = behaviorInfo.Port;
+                    var behaviorName = behaviorInfo.BehaviorName;
+                    var moduleName = behaviorInfo.ModuleName;
+                    string resp_msg = string.Empty;
+                    var addr = string.Format("{0}:{1}", ip, port);
+                    Log.InfoFormat("Connecting to behavior server - Module: {0}, Address: {1}",
+                        moduleName, addr);
+
+                    sock.Connect(addr);
+                    Log.InfoFormat("Connected to behavior server: {0}", addr);
+
+                    int state = 0;
+                    while (true)
+                    {
+                        bool cancel;
+                        lock (_object)
+                        {
+                            cancel = CancelRequest;
+                        }
+                        if (cancel)
+                        {
+                            sock.Send(RobotCommandString.CmdStopReq);
+                            state = 99;
+                        }
+                        switch (state)
+                        {
+                            case 0:
+                                sock.Send(RobotCommandString.CmdStartReq);
+                                state = 99;
+                                continue;
+                            case 1:
+                                sock.Send(JsonConvert.SerializeObject(behaviorInfo));
+                                state = 99;
+                                continue;
+                            case 2:
+                                sock.Send(RobotCommandString.CmdRunReq);
+                                state = 99;
+                                continue;
+                            case 3:
+                                sock.Send(RobotCommandString.CmdStsReq);
+                                state = 99;
+                                continue;
+                            case 4:
+                                sock.Send(RobotCommandString.CmdResetReq);
+                                state = 99;
+                                continue;
+                            case 99:
+                                var str = sock.ReceiveString();
+                                var jObj = JObject.Parse(str);
+                                if (jObj != null && jObj.HasValues)
+                                {
+                                    var resp = jObj.Value<string>("resp");
+                                    var msg = jObj.Value<string>("msg");
+                                    if (resp_msg != msg)
+                                    {
+                                        resp_msg = msg;
+                                        Log.InfoFormat("Behavior Module: status - {1} , response message - {0}",
+                                            resp_msg, resp);
+                                    }
+                                    if (!string.IsNullOrEmpty(resp))
+                                    {
+                                        if (resp == RobotStatusString.StsWaitArg)
+                                        {
+                                            state = 1;
+                                        }
+                                        else if (resp == RobotStatusString.StsRunReady)
+                                        {
+                                            state = 2;
+                                        }
+                                        else if (resp == RobotStatusString.StsRun)
+                                        {
+                                            state = 3;
+                                        }
+                                        else if (resp == RobotStatusString.StsErr)
+                                        {
+                                            state = 4;
+                                        }
+                                        else if (resp == RobotStatusString.StsIdle)
+                                        {
+                                            state = -1;
+                                        }
+                                    }
+                                }
+                                continue;
+                            default:
+                                break;
+                        }
+                        System.Threading.Thread.Sleep(100);
+                    }
+
+                    ////sock.Send(behaviorName);
+                    //sock.Send(JsonConvert.SerializeObject(behaviorInfo));
+                    //Log.InfoFormat("Sent behavior execution request: {0}", behaviorName);
+
+                    //var reply = sock.ReceiveString();
+                    //Log.InfoFormat("Behavior execution response: {0}", reply);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.ErrorFormat("Motion Behavior Task error : {0}", ex.Message);
+        }
+    }
+
+    public void SyncExecuteBehavior2(BehaviorInfo behaviorInfo)
     {
         try
         {

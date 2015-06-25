@@ -14,10 +14,10 @@
     <param key="WebServerHost" value="http://localhost" type="int"/>
     <param key="NaoBehaviorModule" value="nao_behavior_manager" type="string"/>
     <param key="DateTimeFormatString" value="yyyy/MM/dd HH:mm:ss.fff" type="string"/>
-    <!--<param key="ROBOTIP" value="127.0.0.1" type="string"/>
-    <param key="ROBOTPORT" value="64625" type="int"/>-->
-    <param key="ROBOTIP" value="192.168.11.2" type="string"/>
-    <param key="ROBOTPORT" value="9559" type="int"/>
+    <param key="ROBOTIP" value="127.0.0.1" type="string"/>
+    <param key="ROBOTPORT" value="53612" type="int"/>
+    <!--<param key="ROBOTIP" value="192.168.11.2" type="string"/>
+    <param key="ROBOTPORT" value="9559" type="int"/>-->
     <param key="ContextServerHost" value="tcp://*" type="string"/>
     <param key="ContextClientHost" value="tcp://localhost" type="string"/>
     <param key="ContextServerPort" value="5800" type="int"/>
@@ -80,7 +80,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="true" name="gesture_recognition">
+    <node enabled="false" name="gesture_recognition">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Perception\Experimot.Kinect.Perception.exe</path>
@@ -122,7 +122,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="true" name="speech_recognition">
+    <node enabled="false" name="speech_recognition">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Speech\Experimot.Kinect.Speech.exe</path>
