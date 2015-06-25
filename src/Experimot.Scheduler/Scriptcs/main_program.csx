@@ -38,13 +38,13 @@ else
 		var resp = MainProgramUtil.GetNodeInfo("node_"+node_name,context_server);
 		Console.WriteLine(resp);
 
-		var context = new BehaviorExecutionContext();
-		context.ContextServer = context_server;
+		//var context = new BehaviorExecutionContext();
+		//context.ContextServer = context_server;
 
 		var scheduler = MainProgramUtil.GetScheduler();
 		scheduler.Start();
 
-		var engine = new BehaviorExecutionEngine(context, scheduler);
+		var engine = new BehaviorExecutionEngine(context_server, scheduler);
 
 		var tasks = new List<Task>
 					{

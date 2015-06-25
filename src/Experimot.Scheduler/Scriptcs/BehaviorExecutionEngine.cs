@@ -4,17 +4,19 @@ using System.Linq;
 using System.Reflection;
 using Common.Logging;
 using Quartz;
+// ReSharper disable CheckNamespace
+// ReSharper disable FunctionComplexityOverflow
 
 public class BehaviorExecutionEngine
 {
     private static readonly ILog Log = LogManager.GetLogger(typeof (BehaviorExecutionEngine));
-    private readonly BehaviorExecutionContext _context;
+    private readonly string _contextServer;
     private readonly IScheduler _scheduler;
     private const int Period = 200;
 
-    public BehaviorExecutionContext Context
+    public string ContextServer
     {
-        get { return _context; }
+        get { return _contextServer; }
     }
 
     public IScheduler Scheduler
@@ -22,9 +24,15 @@ public class BehaviorExecutionEngine
         get { return _scheduler; }
     }
 
-    public BehaviorExecutionEngine(BehaviorExecutionContext context, IScheduler scheduler)
+    //public BehaviorExecutionEngine(BehaviorExecutionContext context, IScheduler scheduler)
+    //{
+    //    _context = context;
+    //    _scheduler = scheduler;
+    //}
+
+    public BehaviorExecutionEngine(string contextServer, IScheduler scheduler)
     {
-        _context = context;
+        _contextServer = contextServer;
         _scheduler = scheduler;
     }
 
@@ -67,7 +75,8 @@ public class BehaviorExecutionEngine
                     if (startupInstance != null)
                     {
                         // Invoke the execute method
-                        execMethodInfo.Invoke(startupInstance, new object[] {_context});
+                        execMethodInfo.Invoke(startupInstance,
+                            new object[] {new BehaviorExecutionContext(_contextServer)});
                     }
                 }
             }
@@ -83,7 +92,7 @@ public class BehaviorExecutionEngine
         if (typeName != null && !string.IsNullOrEmpty(methodName))
         {
             MethodInfo staticMethodInfo = typeName.GetMethod(methodName);
-            if (staticMethodInfo!=null && staticMethodInfo.IsStatic)
+            if (staticMethodInfo != null && staticMethodInfo.IsStatic)
             {
                 return staticMethodInfo.Invoke(null, parameters);
             }
@@ -108,7 +117,7 @@ public class BehaviorExecutionEngine
     {
         var priorityObject = InvokeStaticMethod(behaviorType, "GetPriority");
         var ret = BehaviorExecutionPriority.low;
-        
+
         if (priorityObject != null)
         {
             if (Enum.TryParse(priorityObject.ToString(), true, out ret))
@@ -116,7 +125,7 @@ public class BehaviorExecutionEngine
                 Log.InfoFormat("Priority Parsed properly : {1} - {0}", priorityObject, ret);
             }
         }
-        return (int)ret;
+        return (int) ret;
     }
 
     private IList<Type> SortByPriority(IList<Type> cyclicBehaviors)
@@ -153,7 +162,7 @@ public class BehaviorExecutionEngine
         return ret;
     }
 
-    private T InvokeGenericMethod<T>(Type cyclicBehavior, string methodName, params object[] parameters) where T: class 
+    private T InvokeGenericMethod<T>(Type cyclicBehavior, string methodName, params object[] parameters) where T : class
     {
         var returnObject = InvokeStaticMethod(cyclicBehavior, methodName, parameters);
         return returnObject as T;
@@ -166,7 +175,8 @@ public class BehaviorExecutionEngine
 
     private TriggerResult CheckTrigger(Type cyclicBehavior)
     {
-        return InvokeGenericMethod<TriggerResult>(cyclicBehavior, "CheckTrigger", Context);
+        return InvokeGenericMethod<TriggerResult>(cyclicBehavior, "CheckTrigger",
+            new BehaviorExecutionContext(_contextServer));
     }
 
     public void ExecuteCyclicBehavior()
@@ -205,7 +215,8 @@ public class BehaviorExecutionEngine
                                             .WithIdentity(jobKey)
                                             .Build();
                                         detail.JobDataMap.Add("BehaviorType", type);
-                                        detail.JobDataMap.Add("ExecutionContext", Context);
+                                        detail.JobDataMap.Add("ExecutionContext",
+                                            new BehaviorExecutionContext(_contextServer));
                                         detail.JobDataMap.Add("TriggerResult", result);
                                         ITrigger trigger = TriggerBuilder.Create().ForJob(detail).StartNow().Build();
                                         Scheduler.ScheduleJob(detail, trigger);
@@ -215,26 +226,30 @@ public class BehaviorExecutionEngine
                                     }
                                     else
                                     {
-                                        var activeJob = activeJobs.FirstOrDefault();
-                                        if (activeJob != null)
+                                        foreach (var activeJob in activeJobs)
                                         {
-                                            object activeType;
-                                            activeJob.JobDetail.JobDataMap.TryGetValue("BehaviorType", out activeType);
-                                            var activeBehavior = activeType as Type;
-                                            if (activeBehavior != null)
+                                            if (activeJob != null)
                                             {
-                                                int current = GetBehaviorPriority(type);
-                                                int active = GetBehaviorPriority(activeBehavior);
-                                                // If the incoming behavior has high priority than the active job
-                                                if (current > active)
+                                                object activeType;
+                                                activeJob.JobDetail.JobDataMap.TryGetValue("BehaviorType",
+                                                    out activeType);
+                                                var activeBehavior = activeType as Type;
+                                                if (activeBehavior != null)
                                                 {
-                                                    // Preemption action
-                                                    object execContextObject;
-                                                    activeJob.JobDetail.JobDataMap.TryGetValue("ExecutionContext", out execContextObject);
-                                                    var execContext = execContextObject as BehaviorExecutionContext;
-                                                    if (execContext != null)
+                                                    int current = GetBehaviorPriority(type);
+                                                    int active = GetBehaviorPriority(activeBehavior);
+                                                    // If the incoming behavior has high priority than the active job
+                                                    if (current > active)
                                                     {
-                                                        execContext.CancelRequest = true;
+                                                        // Preemption action
+                                                        object execContextObject;
+                                                        activeJob.JobDetail.JobDataMap.TryGetValue("ExecutionContext",
+                                                            out execContextObject);
+                                                        var execContext = execContextObject as BehaviorExecutionContext;
+                                                        if (execContext != null)
+                                                        {
+                                                            execContext.CancelRequest = true;
+                                                        }
                                                     }
                                                 }
                                             }
