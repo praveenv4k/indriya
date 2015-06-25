@@ -151,6 +151,7 @@ def behavior_server2(behaviorModule,ip,port):
     state = STATE_IDLE
     param = None
     current = []
+    prev_req = None
     context = zmq.Context()
     socket = context.socket(zmq.REP)
     socket.bind(("%s:%d" % (ip,port)))
@@ -159,12 +160,35 @@ def behavior_server2(behaviorModule,ip,port):
         #  Wait for next request from client
         try:
             req = socket.recv(zmq.NOBLOCK)
-            print("Received request: %s" % req)
+            #print("Received request: %s" % req)
 
-            # TODO: Handle stop here itself
+            if(prev_req != req):
+                print("Received request: %s" % req)
+                prev_req = req
 
             resp = None
             msg = None
+
+            # TODO: Handle stop here itself
+            if (req == CMD_STOP_REQ):
+                id = -1
+                proxy = None
+                if len(current) == 2:
+                    id = current[0]
+                    proxy = current[1]
+                else:
+                    state = STATE_ERR
+                    msg = "No active action running in the robot"
+
+                if proxy is not None and id is not -1:
+                    if proxy.isRunning(id):
+                        proxy.stop(id)
+                        state = STATE_IDLE
+                        msg = "Idle"
+                    else:
+                        state = STATE_IDLE
+                        msg = "Idle"
+
 
             if(state == STATE_IDLE):
                 if param is not None:
@@ -172,6 +196,7 @@ def behavior_server2(behaviorModule,ip,port):
                 if(req == CMD_START_REQ):
                     state = STATE_WAIT_ARG
                     msg = "Waiting for arguments"
+
             elif(state== STATE_WAIT_ARG):
                 try:
                     param = json.loads(req)
@@ -195,6 +220,7 @@ def behavior_server2(behaviorModule,ip,port):
                     else:
                         state = STATE_ERR
                         msg = "Invalid arguments"
+
             elif(state== STATE_RUN):
                 id = -1
                 proxy = None
@@ -214,6 +240,7 @@ def behavior_server2(behaviorModule,ip,port):
                     else:
                         state = STATE_IDLE
                         msg = "Idle"
+
             elif(state==STS_ERR):
                 if(req == CMD_RESET_REQ):
                     state = STATE_IDLE
@@ -231,28 +258,12 @@ def behavior_server2(behaviorModule,ip,port):
                 #print "Message not ready", e.errno
                 pass
         #  Do some 'work'
-        time.sleep(0.2)
+        time.sleep(0.1)
 
     print "quitting ... "
 
-#############################################################################################################
-# State machine
-#def state_machine(behaviorModule):
-#    if behaviorModule is not None:
-#        print "valid module exists ... "
-#        proxy = None
-#        if state is 0: # Idle state
-#            if cmd_arrived:
-#                state=state+1
-#        if state is 1: # Command Arrived State
-#            if cmd_arrived:
-#                if cmd_args is not None:
-#                    state= state+1
-#    print "quitting ... "
-
 if __name__ == "__main__":
   try:
-
       # from langdetect import detect
       # print detect(u"Cosa vuoi mangiare?")
       ROBOTIP = "127.0.0.1"
