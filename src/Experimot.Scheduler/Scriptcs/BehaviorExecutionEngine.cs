@@ -7,7 +7,7 @@ using Quartz;
 // ReSharper disable CheckNamespace
 // ReSharper disable FunctionComplexityOverflow
 
-public class BehaviorExecutionEngine
+public class BehaviorExecutionEngine:IJobListener
 {
     private static readonly ILog Log = LogManager.GetLogger(typeof (BehaviorExecutionEngine));
     private readonly string _contextServer;
@@ -254,6 +254,39 @@ public class BehaviorExecutionEngine
                                                 }
                                             }
                                         }
+                                        var currentTime = DateTime.Now;
+                                        bool noActiveJob = false;
+                                        while ((DateTime.Now - currentTime) < new TimeSpan(0, 0, 0, 1))
+                                        {
+                                            var jobs = Scheduler.GetCurrentlyExecutingJobs();
+                                            if (jobs.Count == 0)
+                                            {
+                                                noActiveJob = true;
+                                                break;
+                                            }
+                                            System.Threading.Thread.Sleep(100);
+                                        }
+                                        if (noActiveJob)
+                                        {
+                                            Log.InfoFormat("All active jobs are premepted");
+
+                                            IJobDetail detail = JobBuilder.Create<BehaviorExecutionTask>()
+                                                .WithIdentity(jobKey)
+                                                .Build();
+                                            detail.JobDataMap.Add("BehaviorType", type);
+                                            detail.JobDataMap.Add("ExecutionContext",
+                                                new BehaviorExecutionContext(_contextServer));
+                                            detail.JobDataMap.Add("TriggerResult", result);
+                                            ITrigger trigger = TriggerBuilder.Create().ForJob(detail).StartNow().Build();
+                                            Scheduler.ScheduleJob(detail, trigger);
+                                            Console.WriteLine(@"New job about to be scheduled Job : {0}, Module : {1}",
+                                                jobKey.Name,
+                                                jobKey.Group);
+                                        }
+                                        else
+                                        {
+                                            Log.InfoFormat("Cannot premept the active jobs");
+                                        }
                                     }
                                 }
                             }
@@ -293,5 +326,25 @@ public class BehaviorExecutionEngine
     {
         return Assembly.GetExecutingAssembly().GetTypes()
             .Where(t => t.IsClass && interfaceType.IsAssignableFrom(t)).ToList();
+    }
+
+    public void JobToBeExecuted(IJobExecutionContext context)
+    {
+        Log.InfoFormat("Job to be executed : {0}", context.JobDetail.Key.Name);
+    }
+
+    public void JobExecutionVetoed(IJobExecutionContext context)
+    {
+        Log.InfoFormat("Job to be vetoed : {0}", context.JobDetail.Key.Name);
+    }
+
+    public void JobWasExecuted(IJobExecutionContext context, JobExecutionException jobException)
+    {
+        Log.InfoFormat("Job Executed : {0}", context.JobDetail.Key.Name);
+    }
+
+    public string Name
+    {
+        get { return "BehaviorExecutionEngine"; }
     }
 }

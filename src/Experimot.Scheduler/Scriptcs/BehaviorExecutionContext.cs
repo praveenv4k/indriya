@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Quartz.Util;
 using SharpDX;
+// ReSharper disable FunctionComplexityOverflow
 
 // ReSharper disable once CheckNamespace
 public static class RobotStatusString
@@ -124,7 +125,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
 
     public void SyncExecuteBehavior(BehaviorInfo behaviorInfo)
     {
-        try
+        //try
         {
             using (var ctx = NetMQContext.Create())
             {
@@ -142,19 +143,34 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
                     sock.Connect(addr);
                     Log.InfoFormat("Connected to behavior server: {0}", addr);
 
+                    bool canceled = false;
                     int state = 0;
                     while (true)
                     {
+                        System.Threading.Thread.Sleep(100);
                         bool cancel;
                         lock (_object)
                         {
                             cancel = CancelRequest;
+                            CancelRequest = false;
                         }
                         if (cancel)
                         {
+                            Log.Info("Cancel received");
                             sock.Send(RobotCommandString.CmdStopReq);
+                            Log.Info("Cancel sent");
+                            canceled = true;
                             state = 99;
                         }
+                        if (state == -1)
+                        {
+                            if (canceled)
+                            {
+                                throw new BehaviorCanceledException("Behavior canceled");
+                            }
+                            break;
+                        }
+
                         switch (state)
                         {
                             case 0:
@@ -216,19 +232,14 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
                                 }
                                 continue;
                         }
-                        if (state == -1)
-                        {
-                            break;
-                        }
-                        System.Threading.Thread.Sleep(100);
                     }
                 }
             }
         }
-        catch (Exception ex)
-        {
-            Log.ErrorFormat("Motion Behavior Task error : {0}", ex.Message);
-        }
+        //catch (Exception ex)
+        //{
+        //    Log.ErrorFormat("Motion Behavior Task error : {0}", ex.Message);
+        //}
     }
 
     public void SyncExecuteBehavior2(BehaviorInfo behaviorInfo)

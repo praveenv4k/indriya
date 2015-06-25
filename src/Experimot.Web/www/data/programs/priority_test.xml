@@ -1,0 +1,63 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_composable" id="2" inline="false" x="38" y="13">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="trigger" id="8">
+        <field name="MOTION_TRIGGER">Greet_Left</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="controls_repeat_ext" id="31" inline="true">
+        <value name="TIMES">
+          <block type="math_number" id="32">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="robot_action" id="22">
+            <field name="actions">stand</field>
+            <next>
+              <block type="robot_action" id="33">
+                <field name="actions">crouch</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable" id="35" inline="false" x="38" y="363">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">high</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="trigger" id="39">
+        <field name="MOTION_TRIGGER">Greet_Right</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="48">
+        <field name="SAY_TEXT">Got waveright command</field>
+        <next>
+          <block type="animated_say_action" id="49">
+            <field name="SAY_TEXT">I am going to stop</field>
+            <next>
+              <block type="animated_say_action" id="50">
+                <field name="SAY_TEXT">I am repeating</field>
+                <next>
+                  <block type="animated_say_action" id="51">
+                    <field name="SAY_TEXT">I am going to stop</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

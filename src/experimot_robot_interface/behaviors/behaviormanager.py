@@ -33,7 +33,6 @@ stop_arrived = False
 reset_arrived = False
 cmd_args = None
 
-
 CMD_START_REQ = "START_REQ"
 CMD_RUN_REQ   = "RUN_REQ"
 CMD_STS_REQ   = "STS_REQ"
@@ -45,13 +44,15 @@ STS_RUN_READY = "RUN_READY"
 STS_WAIT_ARG  = "WAIT_ARG"
 STS_IDLE      = "IDLE"
 STS_ERR       = "ERR"
+STS_STOP      = "STOP"
 STS_UNKNOWN   = "UNKNOWN"
 
-STATE_IDLE = 0
-STATE_WAIT_ARG = 1
-STATE_RUN = 2
+STATE_IDLE      = 0
+STATE_WAIT_ARG  = 1
+STATE_RUN       = 2
 STATE_RUN_READY = 3
-STATE_ERR = 4
+STATE_ERR       = 4
+STATE_STOP      = 5
 
 def sts_from_state(state):
     if state == STATE_IDLE:
@@ -183,6 +184,13 @@ def behavior_server2(behaviorModule,ip,port):
                 if proxy is not None and id is not -1:
                     if proxy.isRunning(id):
                         proxy.stop(id)
+                        waitTime = 0
+                        while proxy.isRunning(id):
+                            print "Waiting for execution completion!", waitTime
+                            time.sleep(0.1)
+                            waitTime = waitTime + 0.1
+                            if waitTime > 1:
+                                print "Timeout"
                         state = STATE_IDLE
                         msg = "Idle"
                     else:
