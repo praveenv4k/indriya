@@ -29,12 +29,21 @@ public static class RobotCommandString
 
 public class BehaviorExecutionContext : IBehaviorExecutionContext
 {
+    private readonly string _contextServer;
     private static readonly ILog Log = LogManager.GetLogger(typeof(BehaviorExecutionContext));
     private bool _cancelRequest;
     private readonly object _object = new object();
     private const int RecvTimeout = 200;
 
-    public string ContextServer { get; set; }
+    public string ContextServer
+    {
+        get { return _contextServer; }
+    }
+
+    public BehaviorExecutionContext(string contextServer)
+    {
+        _contextServer = contextServer;
+    }
 
     public static string GetContextJsonString(string contextServer,int timeout, string reqName)
     {
@@ -123,9 +132,9 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
                 {
                     var ip = behaviorInfo.Ip;
                     var port = behaviorInfo.Port;
-                    var behaviorName = behaviorInfo.BehaviorName;
+                    //var behaviorName = behaviorInfo.BehaviorName;
                     var moduleName = behaviorInfo.ModuleName;
-                    string resp_msg = string.Empty;
+                    string respMsg = string.Empty;
                     var addr = string.Format("{0}:{1}", ip, port);
                     Log.InfoFormat("Connecting to behavior server - Module: {0}, Address: {1}",
                         moduleName, addr);
@@ -175,11 +184,11 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
                                 {
                                     var resp = jObj.Value<string>("resp");
                                     var msg = jObj.Value<string>("msg");
-                                    if (resp_msg != msg)
+                                    if (respMsg != msg)
                                     {
-                                        resp_msg = msg;
+                                        respMsg = msg;
                                         Log.InfoFormat("Behavior Module: status - {1} , response message - {0}",
-                                            resp_msg, resp);
+                                            respMsg, resp);
                                     }
                                     if (!string.IsNullOrEmpty(resp))
                                     {
@@ -206,8 +215,6 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
                                     }
                                 }
                                 continue;
-                            default:
-                                break;
                         }
                         if (state == -1)
                         {
