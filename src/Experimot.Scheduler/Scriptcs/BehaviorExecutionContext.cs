@@ -11,6 +11,8 @@ using SharpDX;
 public class BehaviorExecutionContext : IBehaviorExecutionContext
 {
     private static readonly ILog Log = LogManager.GetLogger(typeof(BehaviorExecutionContext));
+    private bool _cancelRequest;
+    private readonly object _object = new object();
     private const int RecvTimeout = 200;
 
     public string ContextServer { get; set; }
@@ -567,6 +569,26 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
             }
         }
         return ret;
+    }
+
+    public bool CancelRequest
+    {
+        get
+        {
+            bool ret;
+            lock (_object)
+            {
+                ret = _cancelRequest;
+            }
+            return ret;
+        }
+        set
+        {
+            lock (_object)
+            {
+                _cancelRequest = value;
+            }
+        }
     }
 
     public static Matrix GetMatrixFromPose(Quaternion q, Vector3 t)

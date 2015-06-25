@@ -196,17 +196,50 @@ public class BehaviorExecutionEngine
                                 var jobKey = JobKey.Create(string.Format("Task_{0}", uid), uid);
                                 if (!Scheduler.CheckExists(jobKey))
                                 {
-                                    IJobDetail detail = JobBuilder.Create<BehaviorExecutionTask>()
-                                        .WithIdentity(jobKey)
-                                        .Build();
-                                    detail.JobDataMap.Add("BehaviorType", type);
-                                    detail.JobDataMap.Add("ExecutionContext", Context);
-                                    detail.JobDataMap.Add("TriggerResult", result);
-                                    ITrigger trigger = TriggerBuilder.Create().ForJob(detail).StartNow().Build();
-                                    Scheduler.ScheduleJob(detail, trigger);
-                                    Console.WriteLine(@"New job about to be scheduled Job : {0}, Module : {1}",
-                                        jobKey.Name,
-                                        jobKey.Group);
+                                    var activeJobs = Scheduler.GetCurrentlyExecutingJobs();
+
+                                    // No active jobs so we can just schedule the incoming request
+                                    if (activeJobs.Count == 0)
+                                    {
+                                        IJobDetail detail = JobBuilder.Create<BehaviorExecutionTask>()
+                                            .WithIdentity(jobKey)
+                                            .Build();
+                                        detail.JobDataMap.Add("BehaviorType", type);
+                                        detail.JobDataMap.Add("ExecutionContext", Context);
+                                        detail.JobDataMap.Add("TriggerResult", result);
+                                        ITrigger trigger = TriggerBuilder.Create().ForJob(detail).StartNow().Build();
+                                        Scheduler.ScheduleJob(detail, trigger);
+                                        Console.WriteLine(@"New job about to be scheduled Job : {0}, Module : {1}",
+                                            jobKey.Name,
+                                            jobKey.Group);
+                                    }
+                                    else
+                                    {
+                                        var activeJob = activeJobs.FirstOrDefault();
+                                        if (activeJob != null)
+                                        {
+                                            object activeType;
+                                            activeJob.JobDetail.JobDataMap.TryGetValue("BehaviorType", out activeType);
+                                            var activeBehavior = activeType as Type;
+                                            if (activeBehavior != null)
+                                            {
+                                                int current = GetBehaviorPriority(type);
+                                                int active = GetBehaviorPriority(activeBehavior);
+                                                // If the incoming behavior has high priority than the active job
+                                                if (current > active)
+                                                {
+                                                    // Preemption action
+                                                    object execContextObject;
+                                                    activeJob.JobDetail.JobDataMap.TryGetValue("ExecutionContext", out execContextObject);
+                                                    var execContext = execContextObject as BehaviorExecutionContext;
+                                                    if (execContext != null)
+                                                    {
+                                                        execContext.CancelRequest = true;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }

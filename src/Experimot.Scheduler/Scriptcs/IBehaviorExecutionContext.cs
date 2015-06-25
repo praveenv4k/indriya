@@ -8,7 +8,26 @@ public interface IBehaviorExecutionContext
     void UpdateBehaviorResponderInfo(BehaviorInfo info);
     void SyncExecuteBehavior(BehaviorInfo behaviorInfo);
     bool RefreshApproachParameters(BehaviorInfo behaviorInfo, TriggerResult trigger);
+    bool CancelRequest { get; set; }
     GestureInfo GetGestureInfo(string gestureName);
     VoiceCommandInfo GetVoiceCommand(string voiceCommand);
     VoiceCommandInfo GetVoiceCommand();
+}
+
+public class BehaviorCanceledException : System.Exception
+{
+    public BehaviorCanceledException()
+    {
+
+    }
+
+    public BehaviorCanceledException(string message) : base(message)
+    {
+
+    }
+
+    public BehaviorCanceledException(string message, System.Exception inner) : base(message, inner)
+    {
+
+    }
 }

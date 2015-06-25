@@ -1,4 +1,7 @@
 // ReSharper disable CheckNamespace
+
+using System;
+
 public class BehaviorTemplate : ITriggerBehavior
 {
     public string Name { get; set; }
@@ -105,7 +108,7 @@ public class BehaviorTemplate : ITriggerBehavior
         {
             // CYCLIC_BLOCK
             // CYCLIC_BLOCK_HERE
-            
+
             if (ExecutionLifetime == BehaviorExecutionLifetime.once)
             {
                 CyclicActionsComplete = true;
@@ -132,12 +135,19 @@ public class BehaviorTemplate : ITriggerBehavior
 
     public bool Execute(IBehaviorExecutionContext context, TriggerResult trigger)
     {
-        ExecuteInit(context, trigger);
-        ExecuteCyclic(context, trigger);
-        ExecuteExit(context, trigger);
-        System.Console.WriteLine(@"Lifetime: {3} Init : {0}, Cyclic: {1}, Exit: {2}", InitActionsComplete,
-            CyclicActionsComplete,
-            ExitActionsComplete, ExecutionLifetime);
+        try
+        {
+            ExecuteInit(context, trigger);
+            ExecuteCyclic(context, trigger);
+            ExecuteExit(context, trigger);
+            System.Console.WriteLine(@"Lifetime: {3} Init : {0}, Cyclic: {1}, Exit: {2}", InitActionsComplete,
+                CyclicActionsComplete,
+                ExitActionsComplete, ExecutionLifetime);
+        }
+        catch (BehaviorCanceledException ex)
+        {
+            Console.WriteLine(@"Execution canceled : {0}, {1} ,{2}", GetUid(), ex.Message, ex.StackTrace);
+        }
         return ExecutionComplete;
     }
 }
