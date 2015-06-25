@@ -209,6 +209,10 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
                             default:
                                 break;
                         }
+                        if (state == -1)
+                        {
+                            break;
+                        }
                         System.Threading.Thread.Sleep(100);
                     }
 

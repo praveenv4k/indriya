@@ -74,6 +74,9 @@ def parse_and_execute(behaviorModule,recv_str):
       if behaviorModule is not None:
           out = json.loads(recv_str)
           ret = parse_and_execute_json(behaviorModule,out)
+    except:
+      ret = []
+      print "Exception occured while execution ", sys.exc_info()
     return ret
 
 def parse_and_execute_json(behaviorModule,json_obj):
@@ -163,57 +166,57 @@ def behavior_server2(behaviorModule,ip,port):
             resp = None
             msg = None
 
-            if(state == STS_IDLE):
+            if(state == STATE_IDLE):
                 if param is not None:
                     param = None
                 if(req == CMD_START_REQ):
-                    state = STS_WAIT_ARG
+                    state = STATE_WAIT_ARG
                     msg = "Waiting for arguments"
-            elif(state== STS_WAIT_ARG):
+            elif(state== STATE_WAIT_ARG):
                 try:
                     param = json.loads(req)
-                    state = STS_RUN_READY
+                    state = STATE_RUN_READY
                     msg = "Ready to run"
                 except:
                     print "Unexpected request", req
                     state = STS_ERR
                     msg = "Unexpected request. Expecting arguments"
 
-            elif(state== STS_RUN_READY):
+            elif(state== STATE_RUN_READY):
                 if(req == CMD_RUN_REQ):
                     if param is not None:
                         current = parse_and_execute_json(behaviorModule,param)
                         if len(current) == 0:
-                            state = STS_ERR
+                            state = STATE_ERR
                             msg = "Run init failed"
                         else:
-                            state = STS_RUN
+                            state = STATE_RUN
                             msg = "Running"
                     else:
-                        state = STS_ERR
+                        state = STATE_ERR
                         msg = "Invalid arguments"
-            elif(state== STS_RUN):
+            elif(state== STATE_RUN):
                 id = -1
                 proxy = None
                 if len(current) == 2:
                     id = current[0]
                     proxy = current[1]
                 else:
-                    state = STS_ERR
+                    state = STATE_ERR
                     msg = "No active action running in the robot"
 
                 if proxy is not None and id is not -1:
                     if proxy.isRunning(id):
                         if(req == CMD_STOP_REQ):
                             proxy.stop(id)
-                            state = STS_IDLE
+                            state = STATE_IDLE
                             msg = "Idle"
                     else:
-                        state = STS_IDLE
+                        state = STATE_IDLE
                         msg = "Idle"
             elif(state==STS_ERR):
                 if(req == CMD_RESET_REQ):
-                    state = STS_IDLE
+                    state = STATE_IDLE
                     msg = "Idle"
 
             resp = sts_from_state(state)
