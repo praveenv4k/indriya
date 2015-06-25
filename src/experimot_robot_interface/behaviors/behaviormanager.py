@@ -27,11 +27,60 @@ import parameter_utils
 # JSON
 import json
 
+state = 0
+cmd_arrived = False
+stop_arrived = False
+reset_arrived = False
+cmd_args = None
+
+
+CMD_START_REQ = "START_REQ"
+CMD_RUN_REQ   = "RUN_REQ"
+CMD_STS_REQ   = "STS_REQ"
+CMD_STOP_REQ  = "STOP_REQ"
+CMD_RESET_REQ  = "RESET_REQ"
+
+STS_RUN       = "RUN" 
+STS_RUN_READY = "RUN_READY" 
+STS_WAIT_ARG  = "WAIT_ARG"
+STS_IDLE      = "IDLE"
+STS_ERR       = "ERR"
+STS_UNKNOWN   = "UNKNOWN"
+
+STATE_IDLE = 0
+STATE_WAIT_ARG = 1
+STATE_RUN = 2
+STATE_RUN_READY = 3
+STATE_ERR = 4
+
+def sts_from_state(state):
+    if state == STATE_IDLE:
+        return STS_IDLE
+    if state == STATE_WAIT_ARG:
+        return STS_WAIT_ARG
+    if state == STATE_RUN:
+        return STS_RUN
+    if state == STATE_RUN_READY:
+        return STS_RUN_READY
+    if state == STATE_ERR:
+        return STS_ERR
+    if state == STATE_STOP:
+        return STS_STOP
+    return STS_UNKNOWN
+
 def parse_and_execute(behaviorModule,recv_str):
-    ret = True
+    ret = []
     try:
       if behaviorModule is not None:
           out = json.loads(recv_str)
+          ret = parse_and_execute_json(behaviorModule,out)
+    return ret
+
+def parse_and_execute_json(behaviorModule,json_obj):
+    ret = []
+    try:
+      if behaviorModule is not None:
+          out = json_obj
           print "Name" , out["BehaviorName"]
           print "Function Name" , out["FunctionName"]
           # Compose Parameter Dictionary
@@ -53,9 +102,9 @@ def parse_and_execute(behaviorModule,recv_str):
               else:
                   value = str(params[param]['value'].encode('utf-8'))
                   paramDict[key] = value
-          behaviorModule.executeAction(out["FunctionName"],paramDict)
+          ret = behaviorModule.executeAction(out["FunctionName"],paramDict)
     except:
-        ret = False
+        ret = []
         print "Exception occured while execution ", sys.exc_info()
     return ret
 
@@ -68,22 +117,135 @@ def behavior_server(behaviorModule,ip,port):
     print "Server bound: %s,%d" % (ip,port)
     while True:
         #  Wait for next request from client
-        behavior = socket.recv()
-        print("Received request: %s" % behavior)
-
         try:
-            response = "Execution successful"
-            if parse_and_execute(behaviorModule,behavior) is not True:
-                response = "Execution Failed"
-            socket.send(response)
-        except:
-            print "Exception occured while execution ", sys.exc_info()
-            socket.send("Execution Failed")
+            behavior = socket.recv(zmq.NOBLOCK)
+            print("Received request: %s" % behavior)
 
+            try:
+                response = "Execution successful"
+                ret = parse_and_execute(behaviorModule,behavior)
+                if len(ret) == 0:
+                    response = "Execution Failed"
+                else:
+                    print ret
+                socket.send(response)
+            except:
+                print "Exception occured while execution ", sys.exc_info()
+                socket.send("Execution Failed")
+
+        except zmq.ZMQError as e:
+            if e.errno == zmq.EAGAIN:
+                #print "Message not ready", e.errno
+                pass
         #  Do some 'work'
         time.sleep(0.5)
 
     print "quitting ... "
+
+#############################################################################################################
+# Behavior server - A Behavior request/response server
+def behavior_server2(behaviorModule,ip,port):
+    state = STATE_IDLE
+    param = None
+    current = []
+    context = zmq.Context()
+    socket = context.socket(zmq.REP)
+    socket.bind(("%s:%d" % (ip,port)))
+    print "Server bound: %s,%d" % (ip,port)
+    while True:
+        #  Wait for next request from client
+        try:
+            req = socket.recv(zmq.NOBLOCK)
+            print("Received request: %s" % req)
+
+            # TODO: Handle stop here itself
+
+            resp = None
+            msg = None
+
+            if(state == STS_IDLE):
+                if param is not None:
+                    param = None
+                if(req == CMD_START_REQ):
+                    state = STS_WAIT_ARG
+                    msg = "Waiting for arguments"
+            elif(state== STS_WAIT_ARG):
+                try:
+                    param = json.loads(req)
+                    state = STS_RUN_READY
+                    msg = "Ready to run"
+                except:
+                    print "Unexpected request", req
+                    state = STS_ERR
+                    msg = "Unexpected request. Expecting arguments"
+
+            elif(state== STS_RUN_READY):
+                if(req == CMD_RUN_REQ):
+                    if param is not None:
+                        current = parse_and_execute_json(behaviorModule,param)
+                        if len(current) == 0:
+                            state = STS_ERR
+                            msg = "Run init failed"
+                        else:
+                            state = STS_RUN
+                            msg = "Running"
+                    else:
+                        state = STS_ERR
+                        msg = "Invalid arguments"
+            elif(state== STS_RUN):
+                id = -1
+                proxy = None
+                if len(current) == 2:
+                    id = current[0]
+                    proxy = current[1]
+                else:
+                    state = STS_ERR
+                    msg = "No active action running in the robot"
+
+                if proxy is not None and id is not -1:
+                    if proxy.isRunning(id):
+                        if(req == CMD_STOP_REQ):
+                            proxy.stop(id)
+                            state = STS_IDLE
+                            msg = "Idle"
+                    else:
+                        state = STS_IDLE
+                        msg = "Idle"
+            elif(state==STS_ERR):
+                if(req == CMD_RESET_REQ):
+                    state = STS_IDLE
+                    msg = "Idle"
+
+            resp = sts_from_state(state)
+            data = {}
+            data['resp'] = resp
+            data['msg'] = msg
+            json_data = json.dumps(data)
+            socket.send(json_data)
+
+        except zmq.ZMQError as e:
+            if e.errno == zmq.EAGAIN:
+                #print "Message not ready", e.errno
+                pass
+        #  Do some 'work'
+        time.sleep(0.2)
+
+    print "quitting ... "
+
+#############################################################################################################
+# State machine
+#def state_machine(behaviorModule):
+#    if behaviorModule is not None:
+#        print "valid module exists ... "
+#        proxy = None
+#        if state is 0: # Idle state
+#            if cmd_arrived:
+#                state=state+1
+#        if state is 1: # Command Arrived State
+#            if cmd_arrived:
+#                if cmd_args is not None:
+#                    state= state+1
+#    print "quitting ... "
 
 if __name__ == "__main__":
   try:
@@ -114,7 +276,7 @@ if __name__ == "__main__":
               behaviors = module.getCapabilities()
               #parameter_utils.register_behaviors(node,paramServer,["crouch","stand","hand_wave","greet","wish","introduction"])
               parameter_utils.register_behaviors(node,paramServer,behaviors)
-              thread.start_new_thread(behavior_server,(module,BEHAVIOR_IP,BEHAVIOR_PORT))
+              thread.start_new_thread(behavior_server2,(module,BEHAVIOR_IP,BEHAVIOR_PORT))
       else:
           print "Start locally"
 

@@ -30,5 +30,6 @@ while tts.isRunning(id):
     waitTime = waitTime + 0.1
     if waitTime > 1:
         tts.stop(id)
+        #ALProxy.stop(id)
 
 print "Execution complete!"

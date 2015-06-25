@@ -69,28 +69,29 @@ class NaoBehaviorModule:
         if (not managerProxy.isBehaviorRunning(behaviorName)):
           # Launch behavior. This is a blocking call, use post if you do not
           # want to wait for the behavior to finish.
-          managerProxy.post.runBehavior(behaviorName)
+          return managerProxy.post.runBehavior(behaviorName)
           time.sleep(1)
         else:
           print "Behavior is already running."
 
       else:
         print "Behavior not found."
-        return
+      
+      return -1
 
       #names = managerProxy.getRunningBehaviors()
       #print "Running behaviors:"
       #print names
 
       # Stop the behavior.
-      while (managerProxy.isBehaviorRunning(behaviorName)):
-        time.sleep(1.0)
+      #while (managerProxy.isBehaviorRunning(behaviorName)):
+      #  time.sleep(1.0)
 
-      if (managerProxy.isBehaviorRunning(behaviorName)):
-        managerProxy.stopBehavior(behaviorName)
-        time.sleep(1.0)
-      else:
-        print "Behavior is already stopped."
+      #if (managerProxy.isBehaviorRunning(behaviorName)):
+      #  managerProxy.stopBehavior(behaviorName)
+      #  time.sleep(1.0)
+      #else:
+      #  print "Behavior is already stopped."
 
       #names = managerProxy.getRunningBehaviors()
       #print "Running behaviors:"
@@ -136,8 +137,10 @@ class NaoBehaviorModule:
         if name is not '':
             managerProxy = self.getBehaviorProxy()
             #self.getBehaviors(managerProxy)
-            self.launchAndStopBehavior(managerProxy, name)
+            id = self.launchAndStopBehavior(managerProxy, name)
+            return [id,managerProxy]
             #self.defaultBehaviors(managerProxy, name)
+        return []
 
     def action_sayExpressively(self,params):
         language = params.get('lang','')
@@ -164,15 +167,18 @@ class NaoBehaviorModule:
                 self.set_language(language)
                 # set the local configuration
                 configuration = {"bodyLanguageMode":"contextual"}
-                proxy.say(msg,configuration)
+                id= proxy.post.say(msg,configuration)
+                return [id,proxy]
+        return []
 
     def action_goToPosture(self,params):
         posture = params.get('posture','')
         if posture is not '':
             proxy = self.getPostureProxy()
             if proxy is not None:
-                proxy.goToPosture(posture, 1.0)
-
+                id = proxy.post.goToPosture(posture, 1.0)
+                return [id,proxy]
+        return []
 
     def moveInit(self):
         # Send NAO to Pose Init
@@ -219,7 +225,9 @@ class NaoBehaviorModule:
         self.moveInit()
         proxy = self.getMotionProxy()
         if proxy is not None:
-            proxy.moveTo(x,y,theta)
+            id = proxy.post.moveTo(x,y,theta)
+            return [id,proxy]
+        return []
 
     def action_moveToward(self,params):
         #x = float(params.get('x','0.0').encode('utf-8'))
@@ -231,7 +239,9 @@ class NaoBehaviorModule:
         self.moveInit()
         proxy = self.getMotionProxy()
         if proxy is not None:
-            proxy.moveToward(x,y,theta)
+            id = proxy.post.moveToward(x,y,theta)
+            return [id,proxy]
+        return []
 
     def action_lookAt(self,params):
         x = params.get('x',0.0)
@@ -251,7 +261,9 @@ class NaoBehaviorModule:
 
         proxy = self.getTrackerProxy()
         if proxy is not None:
-            proxy.lookAt([x, y, z], frame, maxSpeed, useWholeBody)
+            id = proxy.post.lookAt([x, y, z], frame, maxSpeed, useWholeBody)
+            return [id,proxy]
+        return []
 
     def executeAction(self,name,params):
         method = getattr(self,name)
@@ -259,9 +271,10 @@ class NaoBehaviorModule:
             arg_spec = inspect.getargspec(method)
             #print arg_spec.args
             print 'Method', name, "Params", params
-            method(params)
+            return method(params)
         else:
             print 'Method', name, "not found!"
+        return []
 
     def createArg(self, value, placeHolder=False, type='string'):
         arg = dict({})
