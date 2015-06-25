@@ -215,13 +215,6 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
                         }
                         System.Threading.Thread.Sleep(100);
                     }
-
-                    ////sock.Send(behaviorName);
-                    //sock.Send(JsonConvert.SerializeObject(behaviorInfo));
-                    //Log.InfoFormat("Sent behavior execution request: {0}", behaviorName);
-
-                    //var reply = sock.ReceiveString();
-                    //Log.InfoFormat("Behavior execution response: {0}", reply);
                 }
             }
         }
