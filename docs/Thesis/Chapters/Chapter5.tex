@@ -223,6 +223,46 @@ The database is imported into the gesture recognition module and the responsibil
 \end{algorithm}
 \subsection{Robot interface node} 
 The Robot interface node is a dedicated node that interacts with a specific robot and can invoke a set of actions on it.  It registers a set of actions that could be invoked on the robot associated with it. The robot interface node sets up a publisher that periodically sends the information about the robot status like joint values, sensor information to the application to keep the context uptodate. Additionally it sets up a responder socket which will wait for action execution request from the remote node. The robot interface node dedicated to Nao humanoid robot is described in Section~\ref{sssec:nao_interface}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[->,shorten >=1pt,auto,node distance=4cm,thick]
+%\tikzstyle{every state}=[fill=gray,draw=none,text=black]
+\tikzstyle{every state}=[circle,minimum size=1.5cm,text=black]
+\node[initial,state] (A) {$idle$};
+\node[state] (B) [above right of=A] {$wait$};
+\node[state] (C) [below right of=B] {$error$};
+\node[state] (D) [above right of=C] {$ready$};
+\node[state] (E) [below right of=C] {$run$};
+\node[state] (F) [below right of=A] {$stop$};
+\path 
+(A) edge [bend right] node {\textbf{start\_req}} (B)
+    %edge [loop below] node {} (A)
+    
+(B) edge node {\textbf{on\_args}} (D)
+    edge [left,bend left] node {\textbf{on\_err}} (C)
+    %edge [loop above] node {} (B)
+    
+(C) edge node {\textbf{reset}} (A)
+    %edge [loop above] node {1,0,R} (C)
+    
+(D) edge [bend left] node {\textbf{run\_req}} (E)
+  edge [right,bend right] node {\textbf{on\_err}} (C)
+  %edge [loop above] node {1,1,R} (E)
+
+(E) edge [bend left=70] node {\textbf{task\_fin}} (A)
+    edge node {\textbf{stop\_req}} (F)
+    edge [right,bend left] node {\textbf{on\_err}} (C)
+    
+(F) edge [left,bend right] node {\textbf{on\_err}} (C)
+    edge  [bend right] node {\textbf{stopped}} (A)  
+    %edge [loop below] node {1,0,R} (E)
+;
+\end{tikzpicture}
+\caption[Finite state machine of robot interface node]{Finite state machine of robot interface node}
+\label{fig:robot_fsm}
+\end{figure}
+
 \subsubsection{NAO Robot Interface}
 \label{sssec:nao_interface}
 The Nao robot interface makes use of the NaoQi python SDK which provides API for accessing various functionalities of the robot such as joint/cartesian control, memory access, motion, speech, object/face/people detection and tracking, behavior invocation etc., A set of necessary functions are implemented in the NaoBehaviorModule and they are registered to the application when the node is started up. The control flow is shown in Figure~\ref{fig:nao_interface}.
@@ -233,6 +273,65 @@ The Nao robot interface makes use of the NaoQi python SDK which provides API for
 \caption[NAO Robot Interface]{NAO Robot Interface}
 \label{fig:nao_interface}
 \end{figure}
+
+% \begin{center}
+% \begin{tikzpicture}[scale=0.2]
+% \tikzstyle{every node}+=[inner sep=0pt]
+% \draw [black] (55.7,-14.6) circle (3);
+% \draw (55.7,-14.6) node {$WAIT\_ARG$};
+% \draw [black] (35.2,-3.8) circle (3);
+% \draw (35.2,-3.8) node {$IDLE$};
+% \draw [black] (35.2,-3.8) circle (2.4);
+% \draw [black] (55.7,-38.7) circle (3);
+% \draw (55.7,-38.7) node {$RUN\_READY$};
+% \draw [black] (32.9,-48.5) circle (3);
+% \draw (32.9,-48.5) node {$RUN$};
+% \draw [black] (28.9,-25.4) circle (3);
+% \draw (28.9,-25.4) node {$STOP$};
+% \draw [black] (44.7,-25.4) circle (3);
+% \draw (44.7,-25.4) node {$ERROR$};
+% \draw [black] (57.005,-17.299) arc (22.31081:-22.31081:24.631);
+% \fill [black] (57,-36) -- (57.77,-35.45) -- (56.85,-35.07);
+% \draw (59.35,-26.65) node [right] {$ON\_ARGS$};
+% \draw [black] (38.197,-3.731) arc (87.25861:37.17824:21.184);
+% \fill [black] (54.06,-12.09) -- (53.98,-11.15) -- (53.18,-11.75);
+% \draw (53.19,-5.63) node [above] {$START\_REQ$};
+% \draw [black] (33.218,-51.471) arc (33.84033:-254.15967:2.25);
+% \draw (25.82,-55.47) node [below] {$RUNNING$};
+% \fill [black] (30.73,-50.56) -- (29.79,-50.59) -- (30.35,-51.42);
+% \draw [black] (29.936,-48.053) arc (-102.41345:-263.47757:22.391);
+% \fill [black] (32.21,-3.94) -- (31.35,-3.53) -- (31.47,-4.53);
+% \draw (11.81,-25.01) node [left] {$TASK\_FIN$};
+% \draw [black] (32.39,-45.54) -- (29.41,-28.36);
+% \fill [black] (29.41,-28.36) -- (29.06,-29.23) -- (30.04,-29.06);
+% \draw (30.18,-37.19) node [left] {$STOP\_REQ$};
+% \draw [black] (27.383,-27.975) arc (-2.77501:-290.77501:2.25);
+% \draw (22.64,-30.42) node [left] {$STOPPING$};
+% \fill [black] (25.93,-25.76) -- (25.16,-25.22) -- (25.11,-26.22);
+% \draw [black] (29.74,-22.52) -- (34.36,-6.68);
+% \fill [black] (34.36,-6.68) -- (33.66,-7.31) -- (34.62,-7.59);
+% \draw (31.28,-14.02) node [left] {$STOPPED$};
+% \draw [black] (54.018,-41.181) arc (-38.28052:-95.20104:20.74);
+% \fill [black] (35.86,-48.99) -- (36.61,-49.56) -- (36.7,-48.56);
+% \draw (50.89,-47.95) node [below] {$RUN\_REQ$};
+% \draw [black] (53.79,-36.39) -- (46.61,-27.71);
+% \fill [black] (46.61,-27.71) -- (46.74,-28.65) -- (47.51,-28.01);
+% \draw (50.75,-30.62) node [right] {$ON\_ERR$};
+% \draw [black] (53.56,-16.7) -- (46.84,-23.3);
+% \fill [black] (46.84,-23.3) -- (47.76,-23.09) -- (47.06,-22.38);
+% \draw (45.79,-19.52) node [above] {$ON\_ERR$};
+% \draw [black] (31.9,-25.4) -- (41.7,-25.4);
+% \fill [black] (41.7,-25.4) -- (40.9,-24.9) -- (40.9,-25.9);
+% \draw (36.8,-25.9) node [below] {$ON\_ERR$};
+% \draw [black] (43.49,-22.65) -- (36.41,-6.55);
+% \fill [black] (36.41,-6.55) -- (36.27,-7.48) -- (37.19,-7.08);
+% \draw (40.68,-13.62) node [right] {$RESET$};
+% \draw [black] (34.26,-45.83) -- (43.34,-28.07);
+% \fill [black] (43.34,-28.07) -- (42.53,-28.56) -- (43.42,-29.01);
+% \draw (39.49,-38.08) node [right] {$ON\_ERR$};
+% \end{tikzpicture}
+% \end{center}
+
 
 \subsection{Localization Node} A dedicated node which uses the perception system to resolve and publish the current position of the robot.
 
