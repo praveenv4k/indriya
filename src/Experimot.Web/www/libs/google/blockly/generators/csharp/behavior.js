@@ -468,6 +468,18 @@ Blockly.CSharp['priority'] = function (block) {
     return [code, Blockly.CSharp.ORDER_ATOMIC];
 };
 
+Blockly.CSharp['sleep_for'] = function (block) {
+    var duration = block.getFieldValue('SLEEP_FOR');
+    var code = 'System.Threading.Thread.Sleep(' + duration + ');\n';
+    return code;
+};
+
+Blockly.CSharp['debug_print'] = function (block) {
+    var debugStr = block.getFieldValue('DEBUG_STRING');
+    var code = 'System.Console.WriteLine(\"' + debugStr + '\");\n';
+    return code;
+};
+
 Blockly.CSharp['parallel_execute'] = function(block) {
     var statements_branch1 = Blockly.CSharp.statementToCode(block, 'BRANCH1');
     var statements_branch2 = Blockly.CSharp.statementToCode(block, 'BRANCH2');
@@ -497,18 +509,19 @@ Blockly.CSharp['parallel_execute'] = function(block) {
 
 
     code.push('var ' + listVarName + ' = new List<Task>();');
-    code.push('Action ' + action1Name + ' = delegate');
+    code.push('var ' + action1Name + ' = new Action( () => ');
     code.push('{');
     code.push(statements_branch1);
-    code.push('};');
+    code.push('});');
 
-    code.push('Action ' + action2Name + ' = delegate');
+    code.push('var ' + action2Name + ' = new Action( () => ');
     code.push('{');
     code.push(statements_branch2);
-    code.push('};');
+    code.push('});');
 
-    code.push(listVarName + '.Add(Task.Factory.StartNew(() => ' + action1Name + '));');
-    code.push(listVarName + '.Add(Task.Factory.StartNew(() => ' + action2Name + '));');
+    code.push(listVarName + '.Add(Task.Run(' + action1Name + '));');
+    code.push(listVarName + '.Add(Task.Run(' + action2Name + '));');
     code.push('Task.WaitAll(' + listVarName + '.ToArray());');
+    code.push('System.Console.WriteLine("Parallel action execution complete");');
     return code.join('\n');
 };

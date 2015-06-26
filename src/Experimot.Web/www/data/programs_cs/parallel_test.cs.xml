@@ -1,6 +1,7 @@
 // ReSharper disable RedundantUsingDirective
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 // Main Behavior Program
 
@@ -9,23 +10,28 @@ public class StartupBehavior : IExecuteOnceBehavior
     public void Execute(IBehaviorExecutionContext context)
     {
         // STARTUP_BLOCK
-          var var_4495aec6_ed6c_d2bb_ba3e_9cf75bf3b819 = new List<Task>();
-  Action var_8651350f_2d81_66e5_9ae9_0b2153fca023 = delegate
+          System.Console.WriteLine("Startup behavior started");
+  var var_bc4fc27a_a03e_f6b8_baf2_15dabf01dd05 = new List<Task>();
+  var var_db5f4db4_b932_f6f2_8fe0_97011a931be1 = new Action(
   {
-    var var_008c6942_22a0_4ae5_b1d0_d53910fa2db9= new BehaviorInfo{BehaviorName = "crouch"};
+    System.Console.WriteLine("Task 1 started");
+    var var_58b60a9f_d18f_9e0a_9e44_7b006c7e0868= new BehaviorInfo{BehaviorName = "introduction",RobotName = "Hiro"};
 
-    BehaviorModuleHelper.Execute(context, var_008c6942_22a0_4ae5_b1d0_d53910fa2db9);
+    BehaviorModuleHelper.Execute(context, var_58b60a9f_d18f_9e0a_9e44_7b006c7e0868);
+    System.Console.WriteLine("Task 1 completed");
 
-  };
-  Action var_d48566be_44a0_8f8a_93d0_0f19a13e10c7 = delegate
+  });
+  var var_f251feee_4cfa_6b96_baa1_1175c426b4f9 = new Action(
   {
-    var var_2e9c831d_fce9_03c0_b5dc_dc835539b67d= new BehaviorInfo{BehaviorName = "stand"};
+    System.Console.WriteLine("Task 2 started");
+    System.Threading.Thread.Sleep(10000);
+    System.Console.WriteLine("Task 2 completed");
 
-    BehaviorModuleHelper.Execute(context, var_2e9c831d_fce9_03c0_b5dc_dc835539b67d);
+  });
+  var_bc4fc27a_a03e_f6b8_baf2_15dabf01dd05.Add(Task.Run(var_db5f4db4_b932_f6f2_8fe0_97011a931be1));
+  var_bc4fc27a_a03e_f6b8_baf2_15dabf01dd05.Add(Task.Run(var_f251feee_4cfa_6b96_baa1_1175c426b4f9));
+  Task.WaitAll(var_bc4fc27a_a03e_f6b8_baf2_15dabf01dd05.ToArray());
+  System.Console.WriteLine("Parallel action execution complete")System.Console.WriteLine("Startup behavior ended");
 
-  };
-  var_4495aec6_ed6c_d2bb_ba3e_9cf75bf3b819.Add(Task.Factory.StartNew(() => var_8651350f_2d81_66e5_9ae9_0b2153fca023));
-  var_4495aec6_ed6c_d2bb_ba3e_9cf75bf3b819.Add(Task.Factory.StartNew(() => var_d48566be_44a0_8f8a_93d0_0f19a13e10c7));
-  Task.WaitAll(var_4495aec6_ed6c_d2bb_ba3e_9cf75bf3b819.ToArray());
     }
 }
