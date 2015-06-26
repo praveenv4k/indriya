@@ -148,6 +148,18 @@ namespace Experimot.Scheduler
                                         nodeInfo.param.Add(item);
                                     }
                                 }
+                                var globalRefs = nodeInfo.param.Where(s => s.value.StartsWith("$", StringComparison.OrdinalIgnoreCase)).ToList();
+                                for (int i = 0; i < globalRefs.Count; i++)
+                                {
+                                    var param = globalRefs[i];
+                                    var paramName = param.value.TrimStart('$');
+                                    var gParamExist = nodeInfo.param.FirstOrDefault(s => s.key == paramName);
+                                    if (gParamExist != null)
+                                    {
+                                        param.value = gParamExist.value;
+                                        param.dataType = gParamExist.dataType;
+                                    }
+                                }
                                 using (var ms = new MemoryStream())
                                 {
                                     Serializer.Serialize(ms, nodeInfo);
