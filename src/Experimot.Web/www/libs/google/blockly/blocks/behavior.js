@@ -88,6 +88,12 @@ Blockly.Blocks.behaviors.GestureProperties =
     ["LiftRightHand", "LiftHand_Right"]
 ];
 
+Blockly.Blocks.behaviors.Robots =
+[
+    ["Hiro", 'Hiro'],
+    ["Taro", 'Taro']
+];
+
 Blockly.Blocks.behaviors.VoiceProperties =
 [
     ["RED", 'RED'],
@@ -982,7 +988,13 @@ Blockly.Blocks['robot_action'] = {
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField(new Blockly.FieldDropdown([["Greet", "greet"], ["Crouch", "crouch"], ["Stand", "stand"], ["Wish", "wish"], ["LabIntroduction", "introduction"], ["LookAt", "look_at"]]), "actions");
+        var robots = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.Robots, function (option) {
+        });
+        this.appendDummyInput()
+            .appendField(" with robot: ")
+            .appendField(robots, "ROBOT");
         this.setPreviousStatement(true);
+        this.setInputsInline(true);
         this.setNextStatement(true, "robot_action");
         this.setTooltip('Robot Action response');
     }
@@ -996,6 +1008,12 @@ Blockly.Blocks['approach_action'] = {
             .appendField("approach human with distance")
             .appendField(new Blockly.FieldDropdown([["2.00", "2.00"], ["1.50", "1.50"], ["1.00", "1.00"]]), "approach_distance")
             .appendField("metres");
+        var robots = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.Robots, function (option) {
+        });
+        this.appendDummyInput()
+            .appendField("with robot: ")
+            .appendField(robots, "ROBOT");
+        this.setInputsInline(true);
         this.setPreviousStatement(true);
         this.setNextStatement(true, "robot_action");
         this.setTooltip('Approach a human with a specified distance of separation');
@@ -1009,6 +1027,12 @@ Blockly.Blocks['therapy_action'] = {
         this.appendDummyInput()
             .appendField("Demonstrate therapy exercise ")
             .appendField(new Blockly.FieldDropdown([["Lifting left hand", "liftLeftHand"], ["Lifting right hand", "liftRightHand"]]), "therapy_exercise");
+        var robots = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.Robots, function (option) {
+        });
+        this.appendDummyInput()
+            .appendField("with robot: ")
+            .appendField(robots, "ROBOT");
+        this.setInputsInline(true);
         this.setPreviousStatement(true);
         this.setNextStatement(true, "robot_action");
         this.setTooltip('Demonstrate a particular therapy action');
@@ -1023,6 +1047,11 @@ Blockly.Blocks['animated_say_action'] = {
             .appendField("Say Expressively \"")
             .appendField(new Blockly.FieldTextInput("text"), "SAY_TEXT")
             .appendField("\"");
+        var robots = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.Robots, function (option) {
+        });
+        this.appendDummyInput()
+            .appendField("with robot: ")
+            .appendField(robots, "ROBOT");
         this.setInputsInline(true);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
@@ -1041,6 +1070,11 @@ Blockly.Blocks['animated_say_action_arg'] = {
             .setCheck(["String", "Number"]);
         this.appendDummyInput()
             .appendField(new Blockly.FieldTextInput("!"), "SUFFIX_TEXT");
+        var robots = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.Robots, function (option) {
+        });
+        this.appendDummyInput()
+            .appendField("with robot: ")
+            .appendField(robots, "ROBOT");
         this.setInputsInline(true);
         this.setPreviousStatement(true);
         this.setNextStatement(true);

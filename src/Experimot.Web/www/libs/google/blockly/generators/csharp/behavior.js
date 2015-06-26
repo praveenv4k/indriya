@@ -226,13 +226,15 @@ Blockly.CSharp['behavior'] = function (block) {
 
 Blockly.CSharp['robot_action'] = function (block) {
     var dropdownActions = block.getFieldValue('actions');
+    var robotName = block.getFieldValue('ROBOT');
     var code = 'do_action(""' + dropdownActions + '"");\n';
     
     var newVarName = generateUniqueVarName();
     var behavior = 'var ' + newVarName +
         '= new BehaviorInfo' +
         '{' +
-        'BehaviorName = \"' + dropdownActions + '\"' +
+        'BehaviorName = \"' + dropdownActions + '\",' +
+        'RobotName = \"' + robotName + '\"' +
         '};\n';
 
     var genCode = behavior + '\n';
@@ -242,6 +244,7 @@ Blockly.CSharp['robot_action'] = function (block) {
 
 Blockly.CSharp['animated_say_action'] = function(block) {
     var sayMsg = block.getFieldValue('SAY_TEXT');
+    var robotName = block.getFieldValue('ROBOT');
     //var name = Blockly.Variables.generateUniqueName(block.workspace);
     //var code = 'var ' + name + ' = \"' + sayMsg + '\";\n';
     //code += 'animated_say(' + name + ');\n';
@@ -252,6 +255,7 @@ Blockly.CSharp['animated_say_action'] = function(block) {
         '= new BehaviorInfo\n' +
         '{\n' +
         'BehaviorName = "Say Expressively",\n' +
+        'RobotName = \"' + robotName + '\",' +
         'Parameters = new Dictionary<string, object>\n' +
         '{\n' +
         '{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions(\"' + sayMsg + '\", true, "string")}\n' +
@@ -268,6 +272,7 @@ Blockly.CSharp['animated_say_action_arg'] = function(block) {
     var argName = Blockly.CSharp.valueToCode(this, 'ARG_NAME', Blockly.CSharp.ORDER_ATOMIC);
     var prefixMsg = block.getFieldValue('PREFIX_TEXT');
     var suffixMsg = block.getFieldValue('SUFFIX_TEXT');
+    var robotName = block.getFieldValue('ROBOT');
     //var code = 'var msg = \"' + prefixMsg + ' {0} ' + suffixMsg + '\";\n';
     //code += 'var text = string.Format(msg,' + argName + ');\n';
     //code += 'animated_say(text);\n';
@@ -281,6 +286,7 @@ Blockly.CSharp['animated_say_action_arg'] = function(block) {
         '= new BehaviorInfo\n' +
         '{\n' +
         'BehaviorName = "Say Expressively",\n' +
+        'RobotName = \"' + robotName + '\",' +
         'Parameters = new Dictionary<string, object>\n' +
         '{\n' +
         '{"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + msgText + ', true, "string")},\n' +
@@ -298,7 +304,7 @@ Blockly.CSharp['approach_action'] = function(block) {
     var distance = block.getFieldValue('approach_distance');
     //var code = 'var approach_distance = ' + distance + ';\n';
     //code += 'approach(approach_distance);\n';
-
+    var robotName = block.getFieldValue('ROBOT');
     var code = 'approach_action(""' + distance + '"");\n';
 
     // Pure rotation
@@ -307,6 +313,7 @@ Blockly.CSharp['approach_action'] = function(block) {
         '= new BehaviorInfo\n' +
         '{\n' +
         'BehaviorName = "Move To",\n' +
+        'RobotName = \"' + robotName + '\",' +
         'Parameters = new Dictionary<string, object>\n' +
         '{\n' +
         '{"translation", BehaviorModuleHelper.CreateBehaviorParameterOptions("0", false, "float")},\n' +
@@ -324,6 +331,7 @@ Blockly.CSharp['approach_action'] = function(block) {
         '= new BehaviorInfo\n' +
         '{\n' +
         'BehaviorName = "Move To",\n' +
+        'RobotName = \"' + robotName + '\",' +
         'Parameters = new Dictionary<string, object>\n' +
         '{\n' +
         '{"translation", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},\n' +
@@ -350,6 +358,7 @@ Blockly.CSharp['approach_action'] = function(block) {
 
 Blockly.CSharp['therapy_action'] = function(block) {
     var therapyName = block.getFieldValue('therapy_exercise');
+    var robotName = block.getFieldValue('ROBOT');
     //var code = 'var therapy_action = \"' + therapyName + '\";\n';
     //code += 'do_action(therapy_action);\n';
     var code = 'do_action(""' + therapyName + '"");\n';
@@ -358,7 +367,8 @@ Blockly.CSharp['therapy_action'] = function(block) {
     var behavior = 'var ' + newVarName +
         '= new BehaviorInfo' +
         '{' +
-        'BehaviorName = \"' + therapyName + '\"' +
+        'BehaviorName = \"' + therapyName + '\",' +
+        'RobotName = \"' + robotName + '\"' +
         '};\n';
 
     var genCode = behavior + '\n';

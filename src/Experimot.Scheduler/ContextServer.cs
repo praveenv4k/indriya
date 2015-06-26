@@ -24,6 +24,7 @@ namespace Experimot.Scheduler
             "human/{0}",
             "behavior_modules",
             "behavior_module/{0}",
+            "behavior_module/robot/{0}",
             "motion_modules",
             "robot",
             "humans",
@@ -65,6 +66,7 @@ namespace Experimot.Scheduler
             }
         }
 
+        // Note: Dont use Console.WriteLine() in runloop. As the timeouts are critical
         public void Run()
         {
             if (_socket != null && _config != null)
@@ -159,20 +161,47 @@ namespace Experimot.Scheduler
                         }
                         else if (req.Contains("behavior_module/"))
                         {
+                            
                             string json = string.Empty;
-                            string[] strArray = req.Split('/');
-                            string id = string.Empty;
-                            if (strArray.Length == 2)
+                            if (req.Contains("behavior_module/robot/"))
                             {
-                                id = strArray[1];
-                            }
-                            if (!string.IsNullOrEmpty(id))
-                            {
-                                var context = TinyIoCContainer.Current.Resolve<Context>();
-                                if (context != null)
+                                //Console.WriteLine(req);
+                                string[] strArray = req.Split('/');
+                                string id = string.Empty;
+                                if (strArray.Length == 3)
                                 {
-                                    var human = context.BehaviorModules.FirstOrDefault(s => s.name == id);
-                                    json = JsonConvert.SerializeObject(human);
+                                    id = strArray[2];
+                                }
+                                if (!string.IsNullOrEmpty(id))
+                                {
+                                    var context = TinyIoCContainer.Current.Resolve<Context>();
+                                    if (context != null)
+                                    {
+                                        var robotModule =
+                                            context.BehaviorModules.FirstOrDefault(
+                                                s =>
+                                                    string.Compare(s.robot, id, StringComparison.OrdinalIgnoreCase) == 0);
+                                        json = JsonConvert.SerializeObject(robotModule);
+                                        //Console.WriteLine(json);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                string[] strArray = req.Split('/');
+                                string id = string.Empty;
+                                if (strArray.Length == 2)
+                                {
+                                    id = strArray[1];
+                                }
+                                if (!string.IsNullOrEmpty(id))
+                                {
+                                    var context = TinyIoCContainer.Current.Resolve<Context>();
+                                    if (context != null)
+                                    {
+                                        var human = context.BehaviorModules.FirstOrDefault(s => s.name == id);
+                                        json = JsonConvert.SerializeObject(human);
+                                    }
                                 }
                             }
                             _socket.Send(json);

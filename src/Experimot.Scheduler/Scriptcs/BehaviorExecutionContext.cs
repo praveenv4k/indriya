@@ -34,7 +34,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
     private static readonly ILog Log = LogManager.GetLogger(typeof(BehaviorExecutionContext));
     private bool _cancelRequest;
     private readonly object _object = new object();
-    private const int RecvTimeout = 200;
+    private const int RecvTimeout = 500;
 
     public string ContextServer
     {
@@ -63,6 +63,70 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
 
     public void UpdateBehaviorResponderInfo(BehaviorInfo info)
     {
+        if (info != null && !string.IsNullOrEmpty(info.BehaviorName) && !string.IsNullOrEmpty(info.RobotName))
+        {
+            Log.InfoFormat("Getting runtime information for {0} : {1}", info.BehaviorName, info.RobotName);
+            var resp = GetContextJsonString(ContextServer, RecvTimeout,
+                string.Format("behavior_module/robot/{0}", info.RobotName));
+            Log.InfoFormat("Context: {1}, Behavior Modules  : {0}", resp, ContextServer);
+            if (!string.IsNullOrEmpty(resp))
+            {
+                var module = JObject.Parse(resp);
+                //if (modules != null && modules.Count > 0)
+                if (module != null)
+                {
+                    Log.InfoFormat("Module not null");
+                    var moduleName = module.Value<string>("name");
+                    var responder = module.SelectToken("$.responder");
+                    string host = string.Empty;
+                    int port = 0;
+                    if (responder != null)
+                    {
+                        host = responder.Value<string>("Host");
+                        port = responder.Value<int>("Port");
+                    }
+                    var behaviors = module.SelectToken("$.behaviors");
+                    foreach (var behavior in behaviors)
+                    {
+                        string name = behavior.Value<string>("name");
+                        string functionName = behavior.Value<string>("function_name");
+                        var args = behavior.SelectToken("$.arg");
+                        if (info.BehaviorName == name)
+                        {
+                            var parameters = new Dictionary<string, object>();
+                            // ReSharper disable once LoopCanBeConvertedToQuery
+                            foreach (var arg in args)
+                            {
+                                parameters.Add(arg.Value<string>("name"), new Dictionary<string, object>
+                                {
+                                    {"value", arg.Value<string>("value")},
+                                    {"place_holder", arg.Value<string>("place_holder")},
+                                    {"type", arg.Value<string>("type")}
+                                });
+                            }
+
+                            var matchingBehavior = info;
+                            matchingBehavior.ModuleName = moduleName;
+                            matchingBehavior.FunctionName = functionName;
+                            matchingBehavior.Ip = host;
+                            matchingBehavior.Port = port;
+                            foreach (var parameter in parameters)
+                            {
+                                if (!matchingBehavior.Parameters.ContainsKey(parameter.Key))
+                                {
+                                    matchingBehavior.Parameters.Add(parameter);
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void UpdateBehaviorResponderInfo2(BehaviorInfo info)
+    {
         if (info != null && !string.IsNullOrEmpty(info.BehaviorName))
         {
             var resp = GetContextJsonString(ContextServer, RecvTimeout, "behavior_modules");
@@ -75,46 +139,51 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
                     foreach (var module in modules)
                     {
                         var moduleName = module.Value<string>("name");
-                        var responder = module.SelectToken("$.responder");
-                        string host = string.Empty;
-                        int port = 0;
-                        if (responder != null)
+                        string robot = module.Value<string>("robot");
+                        if (info.RobotName == robot)
                         {
-                            host = responder.Value<string>("Host");
-                            port = responder.Value<int>("Port");
-                        }
-                        var behaviors = module.SelectToken("$.behaviors");
-                        foreach (var behavior in behaviors)
-                        {
-                            string name = behavior.Value<string>("name");
-                            string functionName = behavior.Value<string>("function_name");
-                            var args = behavior.SelectToken("$.arg");
-                            var parameters = new Dictionary<string, object>();
-                            // ReSharper disable once LoopCanBeConvertedToQuery
-                            foreach (var arg in args)
+                            var responder = module.SelectToken("$.responder");
+                            string host = string.Empty;
+                            int port = 0;
+                            if (responder != null)
                             {
-                                parameters.Add(arg.Value<string>("name"), new Dictionary<string, object>
-                                {
-                                    {"value", arg.Value<string>("value")},
-                                    {"place_holder", arg.Value<string>("place_holder")},
-                                    {"type", arg.Value<string>("type")}
-                                });
+                                host = responder.Value<string>("Host");
+                                port = responder.Value<int>("Port");
                             }
-                            if (info.BehaviorName == name)
+                            var behaviors = module.SelectToken("$.behaviors");
+                            foreach (var behavior in behaviors)
                             {
-                                var matchingBehavior = info;
-                                matchingBehavior.ModuleName = moduleName;
-                                matchingBehavior.FunctionName = functionName;
-                                matchingBehavior.Ip = host;
-                                matchingBehavior.Port = port;
-                                foreach (var parameter in parameters)
+                                string name = behavior.Value<string>("name");
+                                string functionName = behavior.Value<string>("function_name");
+                                var args = behavior.SelectToken("$.arg");
+                                if (info.BehaviorName == name)
                                 {
-                                    if (!matchingBehavior.Parameters.ContainsKey(parameter.Key))
+                                    var parameters = new Dictionary<string, object>();
+                                    // ReSharper disable once LoopCanBeConvertedToQuery
+                                    foreach (var arg in args)
                                     {
-                                        matchingBehavior.Parameters.Add(parameter);
+                                        parameters.Add(arg.Value<string>("name"), new Dictionary<string, object>
+                                        {
+                                            {"value", arg.Value<string>("value")},
+                                            {"place_holder", arg.Value<string>("place_holder")},
+                                            {"type", arg.Value<string>("type")}
+                                        });
                                     }
+
+                                    var matchingBehavior = info;
+                                    matchingBehavior.ModuleName = moduleName;
+                                    matchingBehavior.FunctionName = functionName;
+                                    matchingBehavior.Ip = host;
+                                    matchingBehavior.Port = port;
+                                    foreach (var parameter in parameters)
+                                    {
+                                        if (!matchingBehavior.Parameters.ContainsKey(parameter.Key))
+                                        {
+                                            matchingBehavior.Parameters.Add(parameter);
+                                        }
+                                    }
+                                    break;
                                 }
-                                break;
                             }
                         }
                     }

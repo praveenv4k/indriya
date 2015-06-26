@@ -134,15 +134,19 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Border BorderBrush="DimGray" BorderThickness="2" CornerRadius="2">
-                                <Grid Margin="0,0,0,5">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <TextBlock HorizontalAlignment="Center" Text="{Binding name}" Grid.Row="0" />
-                                    <DataGrid ItemsSource="{Binding behaviors}" Grid.Row="1" IsReadOnly="True"></DataGrid>
-                                </Grid>
-                            </Border>
+                                    <Grid Margin="0,0,0,5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <StackPanel Orientation="Horizontal" Grid.Row="0">
+                                            <TextBlock HorizontalAlignment="Right" Text="{Binding name}"  />
+                                            <TextBlock HorizontalAlignment="Left" Text="{Binding robot}"  />
+                                        </StackPanel>
+
+                                        <DataGrid ItemsSource="{Binding behaviors}" Grid.Row="1" IsReadOnly="True"></DataGrid>
+                                    </Grid>
+                                </Border>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
