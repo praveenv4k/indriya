@@ -604,10 +604,22 @@ class RobotBehaviorModule : public ::google::protobuf::Message {
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // repeated .experimot.msgs.Param param = 2;
+  // required string robot = 2;
+  bool has_robot() const;
+  void clear_robot();
+  static const int kRobotFieldNumber = 2;
+  const ::std::string& robot() const;
+  void set_robot(const ::std::string& value);
+  void set_robot(const char* value);
+  void set_robot(const char* value, size_t size);
+  ::std::string* mutable_robot();
+  ::std::string* release_robot();
+  void set_allocated_robot(::std::string* robot);
+
+  // repeated .experimot.msgs.Param param = 3;
   int param_size() const;
   void clear_param();
-  static const int kParamFieldNumber = 2;
+  static const int kParamFieldNumber = 3;
   const ::experimot::msgs::Param& param(int index) const;
   ::experimot::msgs::Param* mutable_param(int index);
   ::experimot::msgs::Param* add_param();
@@ -616,10 +628,10 @@ class RobotBehaviorModule : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
       mutable_param();
 
-  // repeated .experimot.msgs.BehaviorDescription behaviors = 3;
+  // repeated .experimot.msgs.BehaviorDescription behaviors = 4;
   int behaviors_size() const;
   void clear_behaviors();
-  static const int kBehaviorsFieldNumber = 3;
+  static const int kBehaviorsFieldNumber = 4;
   const ::experimot::msgs::BehaviorDescription& behaviors(int index) const;
   ::experimot::msgs::BehaviorDescription* mutable_behaviors(int index);
   ::experimot::msgs::BehaviorDescription* add_behaviors();
@@ -628,10 +640,10 @@ class RobotBehaviorModule : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorDescription >*
       mutable_behaviors();
 
-  // optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 4;
+  // optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 5;
   bool has_responder() const;
   void clear_responder();
-  static const int kResponderFieldNumber = 4;
+  static const int kResponderFieldNumber = 5;
   const ::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder& responder() const;
   ::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder* mutable_responder();
   ::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder* release_responder();
@@ -641,13 +653,19 @@ class RobotBehaviorModule : public ::google::protobuf::Message {
  private:
   inline void set_has_name();
   inline void clear_has_name();
+  inline void set_has_robot();
+  inline void clear_has_robot();
   inline void set_has_responder();
   inline void clear_has_responder();
+
+  // helper for ByteSize()
+  int RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::internal::ArenaStringPtr robot_;
   ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param > param_;
   ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorDescription > behaviors_;
   ::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder* responder_;
@@ -1269,7 +1287,60 @@ inline void RobotBehaviorModule::set_allocated_name(::std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:experimot.msgs.RobotBehaviorModule.name)
 }
 
-// repeated .experimot.msgs.Param param = 2;
+// required string robot = 2;
+inline bool RobotBehaviorModule::has_robot() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void RobotBehaviorModule::set_has_robot() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void RobotBehaviorModule::clear_has_robot() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void RobotBehaviorModule::clear_robot() {
+  robot_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_robot();
+}
+inline const ::std::string& RobotBehaviorModule::robot() const {
+  // @@protoc_insertion_point(field_get:experimot.msgs.RobotBehaviorModule.robot)
+  return robot_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void RobotBehaviorModule::set_robot(const ::std::string& value) {
+  set_has_robot();
+  robot_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:experimot.msgs.RobotBehaviorModule.robot)
+}
+inline void RobotBehaviorModule::set_robot(const char* value) {
+  set_has_robot();
+  robot_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:experimot.msgs.RobotBehaviorModule.robot)
+}
+inline void RobotBehaviorModule::set_robot(const char* value, size_t size) {
+  set_has_robot();
+  robot_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.RobotBehaviorModule.robot)
+}
+inline ::std::string* RobotBehaviorModule::mutable_robot() {
+  set_has_robot();
+  // @@protoc_insertion_point(field_mutable:experimot.msgs.RobotBehaviorModule.robot)
+  return robot_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* RobotBehaviorModule::release_robot() {
+  clear_has_robot();
+  return robot_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void RobotBehaviorModule::set_allocated_robot(::std::string* robot) {
+  if (robot != NULL) {
+    set_has_robot();
+  } else {
+    clear_has_robot();
+  }
+  robot_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), robot);
+  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.RobotBehaviorModule.robot)
+}
+
+// repeated .experimot.msgs.Param param = 3;
 inline int RobotBehaviorModule::param_size() const {
   return param_.size();
 }
@@ -1299,7 +1370,7 @@ RobotBehaviorModule::mutable_param() {
   return &param_;
 }
 
-// repeated .experimot.msgs.BehaviorDescription behaviors = 3;
+// repeated .experimot.msgs.BehaviorDescription behaviors = 4;
 inline int RobotBehaviorModule::behaviors_size() const {
   return behaviors_.size();
 }
@@ -1329,15 +1400,15 @@ RobotBehaviorModule::mutable_behaviors() {
   return &behaviors_;
 }
 
-// optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 4;
+// optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 5;
 inline bool RobotBehaviorModule::has_responder() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void RobotBehaviorModule::set_has_responder() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void RobotBehaviorModule::clear_has_responder() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void RobotBehaviorModule::clear_responder() {
   if (responder_ != NULL) responder_->::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder::Clear();

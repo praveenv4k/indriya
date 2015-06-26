@@ -74,11 +74,11 @@ def get_behavior_modules(req,ip,port,timeout):
 
     return None
 
-def register_behaviors(node,parameterServerAddress,behaviors):
+def register_behaviors(node,robot,parameterServerAddress,behaviors):
     print "Creating behavior module message"
     behaviorModule = robot_behavior_pb2.RobotBehaviorModule()
     behaviorModule.name = node.name
-
+    behaviorModule.robot = robot
 
     port = int(getParam(node,"RequestServerPort", "5590"))
     ip = getParam(node,"RequestClientIP", "*")

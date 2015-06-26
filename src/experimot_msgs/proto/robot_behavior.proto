@@ -59,9 +59,10 @@ message RobotBehaviorModule
 	required int32 Port = 2;		/// Port
   }
   required string name  = 1;						/// Name of the behavior module
-  repeated Param param = 2;							/// List of parameters of the behavior module
-  repeated BehaviorDescription behaviors = 3;		/// List of description of supported behaviors
-  optional RobotBehaviorResponder responder = 4;	/// Behavior module server information
+  required string robot = 2;						/// Name of the associated robot
+  repeated Param param  = 3;						/// List of parameters of the behavior module
+  repeated BehaviorDescription behaviors = 4;		/// List of description of supported behaviors
+  optional RobotBehaviorResponder responder = 5;	/// Behavior module server information
 }
 
 /**

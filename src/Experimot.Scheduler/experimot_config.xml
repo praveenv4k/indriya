@@ -248,8 +248,8 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_robot_interface\ReadJointValues.py</args>
       </process>
       <parameters>
-        <!--<param key="ROBOTIP" value="192.168.11.2" type="string"/>
-        <param key="PORT" value="9559" type="int"/>-->
+        <param key="ROBOTIP" value="$NAO-A-ROBOTIP" type="string"/>
+        <param key="ROBOTPORT" value="$NAO-A-ROBOTPORT" type="string"/>
       </parameters>
       <publishers>
         <publish>
@@ -277,6 +277,7 @@
       <parameters>
         <param key="ROBOTIP" value="$NAO-A-ROBOTIP" type="string"/>
         <param key="ROBOTPORT" value="$NAO-A-ROBOTPORT" type="string"/>
+        <param key="ROBOTNAME" value="Hiro" type="string"/>
         <param key="RequestServerIP" value="tcp://*" type="string"/>
         <param key="RequestClientIP" value="tcp://localhost" type="string"/>
         <param key="RequestServerPort" value="5590" type="int"/>
@@ -289,6 +290,8 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_robot_interface\behaviors\imitation_manager.py</args>
       </process>
       <parameters>
+        <param key="ROBOTIP" value="$NAO-A-ROBOTIP" type="string"/>
+        <param key="ROBOTPORT" value="$NAO-A-ROBOTPORT" type="string"/>
         <param key="RequestServerIP" value="tcp://*" type="string"/>
         <param key="RequestClientIP" value="tcp://localhost" type="string"/>
         <param key="RequestServerPort" value="5590" type="int"/>

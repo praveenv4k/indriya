@@ -131,22 +131,29 @@ namespace experimot.msgs
       get { return _name; }
       set { _name = value; }
     }
+    private string _robot;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"robot", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public string robot
+    {
+      get { return _robot; }
+      set { _robot = value; }
+    }
     private readonly global::System.Collections.Generic.List<experimot.msgs.Param> _param = new global::System.Collections.Generic.List<experimot.msgs.Param>();
-    [global::ProtoBuf.ProtoMember(2, Name=@"param", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::ProtoBuf.ProtoMember(3, Name=@"param", DataFormat = global::ProtoBuf.DataFormat.Default)]
     public global::System.Collections.Generic.List<experimot.msgs.Param> param
     {
       get { return _param; }
     }
   
     private readonly global::System.Collections.Generic.List<experimot.msgs.BehaviorDescription> _behaviors = new global::System.Collections.Generic.List<experimot.msgs.BehaviorDescription>();
-    [global::ProtoBuf.ProtoMember(3, Name=@"behaviors", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::ProtoBuf.ProtoMember(4, Name=@"behaviors", DataFormat = global::ProtoBuf.DataFormat.Default)]
     public global::System.Collections.Generic.List<experimot.msgs.BehaviorDescription> behaviors
     {
       get { return _behaviors; }
     }
   
     private experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder _responder = null;
-    [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"responder", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"responder", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
     public experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder
     {

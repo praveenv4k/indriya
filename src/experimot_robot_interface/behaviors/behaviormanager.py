@@ -303,10 +303,11 @@ if __name__ == "__main__":
               PORT =  int(parameter_utils.getParam(node,"ROBOTPORT", "9559"))
               BEHAVIOR_PORT = int(parameter_utils.getParam(node,"RequestServerPort", "5590"))
               BEHAVIOR_IP = parameter_utils.getParam(node,"RequestServerIP", "*")
+              ROBOTNAME = parameter_utils.getParam(node,"ROBOTNAME", "ROBOTX")
               module = NaoBehaviorModule.NaoBehaviorModule(ROBOTIP,PORT)
               behaviors = module.getCapabilities()
               #parameter_utils.register_behaviors(node,paramServer,["crouch","stand","hand_wave","greet","wish","introduction"])
-              parameter_utils.register_behaviors(node,paramServer,behaviors)
+              parameter_utils.register_behaviors(node,ROBOTNAME,paramServer,behaviors)
               thread.start_new_thread(behavior_server2,(module,BEHAVIOR_IP,BEHAVIOR_PORT))
       else:
           print "Start locally"
