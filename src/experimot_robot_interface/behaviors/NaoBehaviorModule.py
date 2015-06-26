@@ -183,8 +183,8 @@ class NaoBehaviorModule:
     def moveInit(self):
         # Send NAO to Pose Init
         postureProxy = self.getPostureProxy()
-        postureProxy.goToPosture("Stand", 0.5)
 
+        postureProxy.goToPosture("Stand", 0.5)
         # Initialize move process.
         motionProxy = self.getMotionProxy()
         motionProxy.moveInit()

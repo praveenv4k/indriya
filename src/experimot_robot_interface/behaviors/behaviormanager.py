@@ -1,4 +1,7 @@
-# -*- encoding: UTF-8 -*- 
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+__author__ = 'Praveenkumar VASUDEVAN'
+ 
 import os
 import sys
 import time
@@ -183,6 +186,12 @@ def behavior_server2(behaviorModule,ip,port):
 
                 if proxy is not None and id is not -1:
                     if proxy.isRunning(id):
+                        # if the proxy is a ALBehaviorProxy we just invoke stopAllBehaviors
+                        stopAllBehaviors = getattr(proxy,"stopAllBehaviors")
+                        if stopAllBehaviors is not None:
+                            print stopAllBehaviors
+                            stopAllBehaviors()
+                            
                         proxy.stop(id)
                         waitTime = 0
                         while proxy.isRunning(id):
