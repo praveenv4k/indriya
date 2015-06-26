@@ -256,7 +256,8 @@ public class BehaviorExecutionEngine:IJobListener
                                         }
                                         var currentTime = DateTime.Now;
                                         bool noActiveJob = false;
-                                        while ((DateTime.Now - currentTime) < new TimeSpan(0, 0, 0, 1))
+                                        //while ((DateTime.Now - currentTime) < new TimeSpan(0, 0, 0, 1))
+                                        while ((DateTime.Now - currentTime) < new TimeSpan(0, 0, 0, 60))
                                         {
                                             var jobs = Scheduler.GetCurrentlyExecutingJobs();
                                             if (jobs.Count == 0)
