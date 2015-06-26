@@ -1129,3 +1129,31 @@ Blockly.Blocks['parallel_execute'] = {
         this.setTooltip('');
     }
 };
+
+Blockly.Blocks['sleep_for'] = {
+    init: function () {
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setColour(20);
+        this.appendDummyInput()
+            .appendField("Sleep for ")
+            .appendField(new Blockly.FieldTextInput("1000"), "SLEEP_FOR");
+        this.appendDummyInput()
+            .appendField(" milliseconds");
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setTooltip('');
+    }
+};
+
+Blockly.Blocks['debug_print'] = {
+    init: function () {
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setColour(20);
+        this.appendDummyInput()
+            .appendField("Console print ")
+            .appendField(new Blockly.FieldTextInput("This is a debug string"), "DEBUG_STRING");
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setTooltip('');
+    }
+};

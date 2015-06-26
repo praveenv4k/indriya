@@ -1,17 +1,48 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="behavior_startup" id="5" x="163" y="88">
+  <block type="behavior_startup" id="1" x="238" y="63">
     <statement name="DO">
-      <block type="parallel_execute" id="7">
-        <statement name="BRANCH1">
-          <block type="robot_action" id="16">
-            <field name="actions">crouch</field>
+      <block type="debug_print" id="2">
+        <field name="DEBUG_STRING">Startup behavior started</field>
+        <next>
+          <block type="parallel_execute" id="3">
+            <statement name="BRANCH1">
+              <block type="debug_print" id="4">
+                <field name="DEBUG_STRING">Task 1 started</field>
+                <next>
+                  <block type="robot_action" id="5">
+                    <field name="actions">introduction</field>
+                    <field name="ROBOT">Hiro</field>
+                    <next>
+                      <block type="debug_print" id="6">
+                        <field name="DEBUG_STRING">Task 1 completed</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <statement name="BRANCH2">
+              <block type="debug_print" id="7">
+                <field name="DEBUG_STRING">Task 2 started</field>
+                <next>
+                  <block type="sleep_for" id="8">
+                    <field name="SLEEP_FOR">10000</field>
+                    <next>
+                      <block type="debug_print" id="9">
+                        <field name="DEBUG_STRING">Task 2 completed</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="debug_print" id="10">
+                <field name="DEBUG_STRING">Startup behavior ended</field>
+              </block>
+            </next>
           </block>
-        </statement>
-        <statement name="BRANCH2">
-          <block type="robot_action" id="22">
-            <field name="actions">stand</field>
-          </block>
-        </statement>
+        </next>
       </block>
     </statement>
   </block>
