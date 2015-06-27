@@ -390,7 +390,8 @@ Blockly.CSharp['trigger'] = function (block) {
 //    return false;
 //      };
 
-    var genCode = 'var gestureInfo = context.GetGestureInfo(\"' + trigger + '\");\n' +
+    var genCode = 'var gestureInfoList = context.GetGestureInfoList(\"' + trigger + '\");\n' +
+        'var gestureInfo = gestureInfoList.FirstOrDefault(s=>s.Confidence > 90);\n'+
         'if (gestureInfo.Active && gestureInfo.Confidence > 90)\n' +
         '{\n' +
         'Console.WriteLine("Gesture trigger received : {0} - {1}", gestureInfo.Name, gestureInfo.Confidence);\n' +

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public interface IBehaviorExecutionContext
 {
     string ContextServer { get; }
@@ -10,6 +12,7 @@ public interface IBehaviorExecutionContext
     bool RefreshApproachParameters(BehaviorInfo behaviorInfo, TriggerResult trigger);
     bool CancelRequest { get; set; }
     GestureInfo GetGestureInfo(string gestureName);
+    List<GestureInfo> GetGestureInfoList(string gestureName);
     VoiceCommandInfo GetVoiceCommand(string voiceCommand);
     VoiceCommandInfo GetVoiceCommand();
 }

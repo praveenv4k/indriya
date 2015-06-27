@@ -17,8 +17,11 @@
     
     <!--<param key="NAO-A-ROBOTIP" value="127.0.0.1" type="string"/>
     <param key="NAO-A-ROBOTPORT" value="52417" type="int"/>-->
-    <param key="NAO-A-ROBOTIP" value="192.168.11.4" type="string"/>
+    <param key="NAO-A-ROBOTIP" value="192.168.11.51" type="string"/>
     <param key="NAO-A-ROBOTPORT" value="9559" type="int"/>
+
+    <param key="NAO-B-ROBOTIP" value="192.168.11.50" type="string"/>
+    <param key="NAO-B-ROBOTPORT" value="9559" type="int"/>
     
     <param key="ContextServerHost" value="tcp://*" type="string"/>
     <param key="ContextClientHost" value="tcp://localhost" type="string"/>
@@ -281,6 +284,21 @@
         <param key="RequestServerIP" value="tcp://*" type="string"/>
         <param key="RequestClientIP" value="tcp://localhost" type="string"/>
         <param key="RequestServerPort" value="5590" type="int"/>
+      </parameters>
+    </node>
+    <node enabled="true" name="nao_behavior_manager2">
+      <process>
+        <type>executable</type>
+        <path>python.exe</path>
+        <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_robot_interface\behaviors\behaviormanager.py</args>
+      </process>
+      <parameters>
+        <param key="ROBOTIP" value="$NAO-B-ROBOTIP" type="string"/>
+        <param key="ROBOTPORT" value="$NAO-B-ROBOTPORT" type="string"/>
+        <param key="ROBOTNAME" value="Taro" type="string"/>
+        <param key="RequestServerIP" value="tcp://*" type="string"/>
+        <param key="RequestClientIP" value="tcp://localhost" type="string"/>
+        <param key="RequestServerPort" value="5591" type="int"/>
       </parameters>
     </node>
     <node enabled="false" name="nao_imitation_manager">
