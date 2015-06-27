@@ -1,27 +1,29 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="behavior_composable" id="2" inline="false" x="38" y="13">
+  <block type="behavior_composable" id="24" inline="false" x="38" y="13">
     <mutation run_until="false" run_logic=""></mutation>
     <field name="behavior_name">default</field>
     <field name="priorities">low</field>
     <field name="execution">forever</field>
     <value name="trigger">
-      <block type="trigger" id="8">
+      <block type="trigger" id="25">
         <field name="MOTION_TRIGGER">Greet_Left</field>
       </block>
     </value>
     <statement name="DO">
-      <block type="controls_repeat_ext" id="31" inline="true">
+      <block type="controls_repeat_ext" id="26" inline="true">
         <value name="TIMES">
-          <block type="math_number" id="32">
-            <field name="NUM">10</field>
+          <block type="math_number" id="27">
+            <field name="NUM">3</field>
           </block>
         </value>
         <statement name="DO">
-          <block type="robot_action" id="22">
+          <block type="robot_action" id="28">
             <field name="actions">stand</field>
+            <field name="ROBOT">Hiro</field>
             <next>
-              <block type="robot_action" id="33">
+              <block type="robot_action" id="29">
                 <field name="actions">crouch</field>
+                <field name="ROBOT">Hiro</field>
               </block>
             </next>
           </block>
@@ -29,28 +31,32 @@
       </block>
     </statement>
   </block>
-  <block type="behavior_composable" id="35" inline="false" x="38" y="363">
+  <block type="behavior_composable" id="30" inline="false" x="38" y="363">
     <mutation run_until="false" run_logic=""></mutation>
     <field name="behavior_name">default</field>
     <field name="priorities">high</field>
-    <field name="execution">once</field>
+    <field name="execution">forever</field>
     <value name="trigger">
-      <block type="trigger" id="39">
+      <block type="trigger" id="31">
         <field name="MOTION_TRIGGER">Greet_Right</field>
       </block>
     </value>
     <statement name="DO">
-      <block type="animated_say_action" id="48">
+      <block type="animated_say_action" id="32">
         <field name="SAY_TEXT">Got waveright command</field>
+        <field name="ROBOT">Hiro</field>
         <next>
-          <block type="animated_say_action" id="49">
+          <block type="animated_say_action" id="33">
             <field name="SAY_TEXT">I am going to stop</field>
+            <field name="ROBOT">Hiro</field>
             <next>
-              <block type="animated_say_action" id="50">
+              <block type="animated_say_action" id="34">
                 <field name="SAY_TEXT">I am repeating</field>
+                <field name="ROBOT">Hiro</field>
                 <next>
-                  <block type="animated_say_action" id="51">
+                  <block type="animated_say_action" id="35">
                     <field name="SAY_TEXT">I am going to stop</field>
+                    <field name="ROBOT">Hiro</field>
                   </block>
                 </next>
               </block>
