@@ -1,0 +1,43 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_composable" id="71" inline="false" x="438" y="113">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="trigger" id="134">
+        <field name="MOTION_TRIGGER">Greet_Left</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="robot_action" id="83">
+        <field name="actions">introduction</field>
+        <field name="ROBOT">Hiro</field>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable" id="85" inline="false" x="438" y="388">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">high</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="voice_trigger" id="100">
+        <field name="VOICE_TRIGGER">STOP</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="99">
+        <field name="SAY_TEXT">I am going to stop.</field>
+        <field name="ROBOT">Hiro</field>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_exit" id="124" x="438" y="663">
+    <statement name="DO">
+      <block type="robot_rest_action" id="116">
+        <field name="ROBOT">Hiro</field>
+      </block>
+    </statement>
+  </block>
+</xml>

@@ -1059,6 +1059,23 @@ Blockly.Blocks['animated_say_action'] = {
     }
 };
 
+Blockly.Blocks['robot_rest_action'] = {
+    init: function () {
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setColour(230);
+        this.appendDummyInput()
+            .appendField("Rest ");
+        var robots = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.Robots, function (option) {
+        });
+        this.appendDummyInput()
+            .appendField(robots, "ROBOT");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setTooltip('Say expressively to the human');
+    }
+};
+
 Blockly.Blocks['animated_say_action_arg'] = {
     init: function() {
         this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');

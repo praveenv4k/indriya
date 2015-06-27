@@ -1,0 +1,53 @@
+// ReSharper disable RedundantUsingDirective
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+// Main Behavior Program
+
+public class StartupBehavior : IExecuteOnceBehavior
+{
+    public void Execute(IBehaviorExecutionContext context)
+    {
+        // STARTUP_BLOCK
+          var var_28f980ab_5802_860e_a21e_1e1ad3a0c601 = new List<Task>();
+  var var_f56ecd75_0800_729b_8267_3aba8bc56166 = new Action( () =>
+  {
+    var var_0313198b_02ab_b45f_8b3e_414d595806cc= new BehaviorInfo{BehaviorName = "stand",RobotName = "Hiro"};
+
+    BehaviorModuleHelper.Execute(context, var_0313198b_02ab_b45f_8b3e_414d595806cc);
+    var var_ac8d8d51_8e12_b454_b72f_f1f9d9c8b9af= new BehaviorInfo{BehaviorName = "wish",RobotName = "Hiro"};
+
+    BehaviorModuleHelper.Execute(context, var_ac8d8d51_8e12_b454_b72f_f1f9d9c8b9af);
+    var var_e9e95d38_3239_1439_9cc5_842cde4fd845= new BehaviorInfo
+    {
+    BehaviorName = "Take Rest",
+    RobotName = "Hiro",Parameters = new Dictionary<string, object>()
+    };
+
+    BehaviorModuleHelper.Execute(context, var_e9e95d38_3239_1439_9cc5_842cde4fd845);
+
+  });
+  var var_1ec5569a_8acd_2401_8af6_217fc2133d70 = new Action( () =>
+  {
+    var var_5ab8caac_ae25_e450_9e9b_383ae0a2ef50= new BehaviorInfo{BehaviorName = "stand",RobotName = "Taro"};
+
+    BehaviorModuleHelper.Execute(context, var_5ab8caac_ae25_e450_9e9b_383ae0a2ef50);
+    var var_d15996a5_96b4_ca9f_9886_ff17daf1a304= new BehaviorInfo{BehaviorName = "wish",RobotName = "Taro"};
+
+    BehaviorModuleHelper.Execute(context, var_d15996a5_96b4_ca9f_9886_ff17daf1a304);
+    var var_64dad063_6455_13c5_adcc_7ce7a3bbd3d1= new BehaviorInfo
+    {
+    BehaviorName = "Take Rest",
+    RobotName = "Taro",Parameters = new Dictionary<string, object>()
+    };
+
+    BehaviorModuleHelper.Execute(context, var_64dad063_6455_13c5_adcc_7ce7a3bbd3d1);
+
+  });
+  var_28f980ab_5802_860e_a21e_1e1ad3a0c601.Add(Task.Run(var_f56ecd75_0800_729b_8267_3aba8bc56166));
+  var_28f980ab_5802_860e_a21e_1e1ad3a0c601.Add(Task.Run(var_1ec5569a_8acd_2401_8af6_217fc2133d70));
+  Task.WaitAll(var_28f980ab_5802_860e_a21e_1e1ad3a0c601.ToArray());
+  System.Console.WriteLine("Parallel action execution complete");
+    }
+}

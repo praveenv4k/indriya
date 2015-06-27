@@ -127,7 +127,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="false" name="speech_recognition">
+    <node enabled="true" name="speech_recognition">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Speech\Experimot.Kinect.Speech.exe</path>

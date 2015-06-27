@@ -1,0 +1,42 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_startup" id="2" x="288" y="163">
+    <statement name="DO">
+      <block type="parallel_execute" id="6">
+        <statement name="BRANCH1">
+          <block type="robot_action" id="16">
+            <field name="actions">stand</field>
+            <field name="ROBOT">Hiro</field>
+            <next>
+              <block type="robot_action" id="32">
+                <field name="actions">wish</field>
+                <field name="ROBOT">Hiro</field>
+                <next>
+                  <block type="robot_rest_action" id="23">
+                    <field name="ROBOT">Hiro</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="BRANCH2">
+          <block type="robot_action" id="24">
+            <field name="actions">stand</field>
+            <field name="ROBOT">Taro</field>
+            <next>
+              <block type="robot_action" id="39">
+                <field name="actions">wish</field>
+                <field name="ROBOT">Taro</field>
+                <next>
+                  <block type="robot_rest_action" id="25">
+                    <field name="ROBOT">Taro</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

@@ -229,6 +229,13 @@ class NaoBehaviorModule:
             return [id,proxy]
         return []
 
+    def action_rest(self,params):
+        proxy = self.getMotionProxy()
+        if proxy is not None:
+            id = proxy.post.rest()
+            return [id,proxy]
+        return []
+
     def action_moveToward(self,params):
         #x = float(params.get('x','0.0').encode('utf-8'))
         #y = float(params.get('y','0.0').encode('utf-8'))
@@ -311,6 +318,9 @@ class NaoBehaviorModule:
                                        'args':{'x':self.createArg(0.0,True,'float'),
                                                'y':self.createArg(0.0,True,'float'),
                                                'z':self.createArg(0.0,True,'float')}}
+
+        cap_dict['Take Rest']= {'function':'action_rest',
+                                       'args':{'val':self.createArg(0.0,False,'float')}}
 
         cap_dict['Say Expressively']= {'function':'action_sayExpressively',
                               'args':{'lang':self.createArg('',True),
