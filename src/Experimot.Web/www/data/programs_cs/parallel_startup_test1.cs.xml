@@ -1,0 +1,53 @@
+// ReSharper disable RedundantUsingDirective
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+// Main Behavior Program
+
+public class StartupBehavior : IExecuteOnceBehavior
+{
+    public void Execute(IBehaviorExecutionContext context)
+    {
+        // STARTUP_BLOCK
+          var var_a0616db2_4b4e_4973_b039_a41ecd964123 = new List<Task>();
+  var var_53a4cd61_7aea_19ee_bd54_1b1b8809368c = new Action( () =>
+  {
+    var var_24774157_6f00_6166_aaef_55d4931731c0= new BehaviorInfo{BehaviorName = "greet",RobotName = "Hiro"};
+
+    BehaviorModuleHelper.Execute(context, var_24774157_6f00_6166_aaef_55d4931731c0);
+
+  });
+  var var_a18aa9cf_6044_2079_b495_eae37480848c = new Action( () =>
+  {
+    var var_17ba56f4_ca9d_c090_a685_4b8e0e243905= new BehaviorInfo{BehaviorName = "greet",RobotName = "Taro"};
+
+    BehaviorModuleHelper.Execute(context, var_17ba56f4_ca9d_c090_a685_4b8e0e243905);
+
+  });
+  var_a0616db2_4b4e_4973_b039_a41ecd964123.Add(Task.Run(var_53a4cd61_7aea_19ee_bd54_1b1b8809368c));
+  var_a0616db2_4b4e_4973_b039_a41ecd964123.Add(Task.Run(var_a18aa9cf_6044_2079_b495_eae37480848c));
+  Task.WaitAll(var_a0616db2_4b4e_4973_b039_a41ecd964123.ToArray());
+  System.Console.WriteLine("Parallel action execution complete");var var_8559d3e3_8d0d_7ec0_a90d_9bf6b0165b2e= new BehaviorInfo
+  {
+  BehaviorName = "Say Expressively",
+  RobotName = "Hiro",Parameters = new Dictionary<string, object>
+  {
+  {"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Hello Taro! How are you?", true, "string")}
+  }
+  };
+
+  BehaviorModuleHelper.Execute(context, var_8559d3e3_8d0d_7ec0_a90d_9bf6b0165b2e);
+  var var_ee8463e5_e653_d118_a659_757bca483b56= new BehaviorInfo
+  {
+  BehaviorName = "Say Expressively",
+  RobotName = "Taro",Parameters = new Dictionary<string, object>
+  {
+  {"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Hi Hiro! I am fine. How do you do?", true, "string")}
+  }
+  };
+
+  BehaviorModuleHelper.Execute(context, var_ee8463e5_e653_d118_a659_757bca483b56);
+
+    }
+}
