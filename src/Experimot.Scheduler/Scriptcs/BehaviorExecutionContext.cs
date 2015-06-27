@@ -7,6 +7,7 @@ using Newtonsoft.Json.Linq;
 using Quartz.Util;
 using SharpDX;
 // ReSharper disable FunctionComplexityOverflow
+// ReSharper disable LoopCanBeConvertedToQuery
 
 // ReSharper disable once CheckNamespace
 public static class RobotStatusString
@@ -68,7 +69,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
             Log.InfoFormat("Getting runtime information for {0} : {1}", info.BehaviorName, info.RobotName);
             var resp = GetContextJsonString(ContextServer, RecvTimeout,
                 string.Format("behavior_module/robot/{0}", info.RobotName));
-            Log.InfoFormat("Context: {1}, Behavior Modules  : {0}", resp, ContextServer);
+            //Log.InfoFormat("Context: {1}, Behavior Modules  : {0}", resp, ContextServer);
             if (!string.IsNullOrEmpty(resp))
             {
                 var module = JObject.Parse(resp);
@@ -117,6 +118,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
                                     matchingBehavior.Parameters.Add(parameter);
                                 }
                             }
+                            Log.InfoFormat("Obtained the responder info: {0}:{1}", host, port);
                             break;
                         }
                     }
@@ -464,6 +466,37 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
                     ret.HumanId = human.Value<int>("Id");
                     ret.Active = gesture.Value<bool>("Active");
                     ret.Confidence = gesture.Value<int>("Confidence");
+                }
+            }
+        }
+        //Console.WriteLine(@"GetGestureInfo : {0}, Confidence : {1}", gestureName, ret.Confidence);
+        return ret;
+    }
+
+    public List<GestureInfo> GetGestureInfoList(string gestureName)
+    {
+        var ret = new List<GestureInfo>();
+        var humanStr = GetContextJsonString(ContextServer, RecvTimeout, "humans");
+        if (!string.IsNullOrEmpty(humanStr))
+        {
+            var humanArray = JArray.Parse(humanStr);
+            foreach (var human in humanArray)
+            {
+                var gestures = human.SelectToken("$.Gestures");
+                foreach (var gesture in gestures)
+                {
+                    string name = gesture.Value<string>("Name");
+                    if (name != gestureName)
+                    {
+                        continue;
+                    }
+                    ret.Add(new GestureInfo
+                    {
+                        Name = gestureName,
+                        HumanId = human.Value<int>("Id"),
+                        Active = gesture.Value<bool>("Active"),
+                        Confidence = gesture.Value<int>("Confidence")
+                    });
                 }
             }
         }

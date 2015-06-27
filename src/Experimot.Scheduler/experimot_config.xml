@@ -15,10 +15,10 @@
     <param key="NaoBehaviorModule" value="nao_behavior_manager" type="string"/>
     <param key="DateTimeFormatString" value="yyyy/MM/dd HH:mm:ss.fff" type="string"/>
     
-    <param key="NAO-A-ROBOTIP" value="127.0.0.1" type="string"/>
-    <param key="NAO-A-ROBOTPORT" value="52417" type="int"/>
-    <!--<param key="NAO-A-ROBOTIP" value="192.168.11.2" type="string"/>
-    <param key="NAO-A-ROBOTPORT" value="9559" type="int"/>-->
+    <!--<param key="NAO-A-ROBOTIP" value="127.0.0.1" type="string"/>
+    <param key="NAO-A-ROBOTPORT" value="52417" type="int"/>-->
+    <param key="NAO-A-ROBOTIP" value="192.168.11.4" type="string"/>
+    <param key="NAO-A-ROBOTPORT" value="9559" type="int"/>
     
     <param key="ContextServerHost" value="tcp://*" type="string"/>
     <param key="ContextClientHost" value="tcp://localhost" type="string"/>
