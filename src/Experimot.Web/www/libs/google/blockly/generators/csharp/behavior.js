@@ -267,6 +267,23 @@ Blockly.CSharp['animated_say_action'] = function(block) {
     return genCode;
 };
 
+Blockly.CSharp['robot_rest_action'] = function (block) {
+    var robotName = block.getFieldValue('ROBOT');
+
+    var newVarName = generateUniqueVarName();
+    var behavior = 'var ' + newVarName +
+        '= new BehaviorInfo\n' +
+        '{\n' +
+        'BehaviorName = "Take Rest",\n' +
+        'RobotName = \"' + robotName + '\",' +
+        'Parameters = new Dictionary<string, object>()\n' +
+        '};\n';
+
+    var genCode = behavior + '\n';
+    genCode += 'BehaviorModuleHelper.Execute(context, ' + newVarName + ');\n';
+    return genCode;
+};
+
 Blockly.CSharp['animated_say_action_arg'] = function(block) {
     //return "";
     var argName = Blockly.CSharp.valueToCode(this, 'ARG_NAME', Blockly.CSharp.ORDER_ATOMIC);
