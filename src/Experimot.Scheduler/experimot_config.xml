@@ -12,6 +12,7 @@
     <param key="WebServerEnabled" value="true" type="bool"/>
     <param key="WebServerPort" value="8888" type="int"/>
     <param key="WebServerHost" value="http://localhost" type="int"/>
+    <!--<param key="WebServerHost" value="http://*" type="int"/>-->
     <param key="NaoBehaviorModule" value="nao_behavior_manager" type="string"/>
     <param key="DateTimeFormatString" value="yyyy/MM/dd HH:mm:ss.fff" type="string"/>
     
@@ -271,7 +272,7 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_relative_localize.py</args>
       </process>
     </node>
-    <node enabled="true" name="nao_behavior_manager">
+    <node enabled="false" name="hiro_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>
@@ -286,7 +287,7 @@
         <param key="RequestServerPort" value="5590" type="int"/>
       </parameters>
     </node>
-    <node enabled="true" name="nao_behavior_manager2">
+    <node enabled="false" name="taro_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>

@@ -1,0 +1,22 @@
+<node enabled="true" name="hiro_node">
+  <process type=executable>
+	<path>python.exe</path>
+	<args>naobehaviormanager.py</args>
+  </process>
+  <parameters>
+	<param key="ROBOTIP" value="192.168.11.50" type="string"/>
+	<param key="ROBOTPORT" value="9559" type="string"/>
+	<param key="ROBOTNAME" value="Hiro" type="string"/>
+  </parameters>
+</node>
+<node enabled="true" name="taro_node">
+  <process type=executable>
+	<path>python.exe</path>
+	<args>naobehaviormanager.py</args>
+  </process>
+  <parameters>
+	<param key="ROBOTIP" value="192.168.11.51" type="string"/>
+	<param key="ROBOTPORT" value="9559" type="string"/>
+	<param key="ROBOTNAME" value="Taro" type="string"/>
+  </parameters>
+</node>
