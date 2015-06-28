@@ -1,123 +1,293 @@
 % Chapter Template
+\chapter{State of the art techniques}
 
-\chapter{System Components} % Main chapter title
+\label{Chapter3} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-\label{Chapter2} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
-
-\lhead{Chapter 2. \emph{System Components}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
-
-%----------------------------------------------------------------------------------------
-%	SECTION 1
-%----------------------------------------------------------------------------------------
+\lhead{Chapter 3. \emph{State of the art techniques}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
+ Research in any field is a continuous process. It is meaningless to propose altogether new approaches ruling out the techniques proposed in the literature. Hence a careful study of the state-of-the-art techniques is necessary. It will give a clarity of the approaches that could be incorporated, improved or improvised in the research study of interest. The experimental platform that is being aimed in this thesis is largely an integration of various available techniques which makes literature review even more crucial. This chapter discusses the various methods and techniques proposed in the literature for addressing the problems described in Section~\ref{sec:problem_statement}.
 \section{Humanoid Robot}
-
-NAO\cite{NaoTheRobot} is a humanoid robot developed in the year 2006 by Albebaran Robotics, the company which has proved itself in the development of interactive social robots. The intended scenarios include reception, assistance, home care, entertainment and even autism therapy. Nao has become a standard in academic world for research and education. In 2013, Aldebaran launched \emph{Autism Solution for Kids}\cite{ASKNao} initiative which offers a new teaching approach to teachers and children with autism. Clearly Nao is one of most sold (about 5000) humanoid robots worldwide. Therefore developing HRI solutions targeting Nao will definitely attract huge audience which in turn will help to receive more technical inputs and contribution for solving the problem under study.
-\begin{figure}
+NAO \cite{NaoTheRobot} is a humanoid robot developed in the year 2006 by Albebaran Robotics, the company which has proved itself in the development of interactive social robots.
+\begin{figure}[H]
 \centering
-\begin{subfigure}[b]{0.8\textwidth}
-\includegraphics[width=\textwidth]{assets/nao_hardware_jointname.jpg}
-\caption{Joints}
+\begin{subfigure}[b]{0.25\textwidth}
+\includegraphics[width=\textwidth]{assets/nao_image1.jpg}
+\caption{Robot appearance}
 \label{fig:naojoint}
 \end{subfigure}
-\begin{subfigure}[b]{0.3\textwidth}
+\begin{subfigure}[b]{0.25\textwidth}
 \includegraphics[width=\textwidth]{assets/hardware_inertialunit1.png}
-%http://www.microsoftstore.com/store/msusa/en_US/pdp/Kinect-for-Windows/productID.253769800
 \caption{Torso reference frame}
 \label{fig:naoreference}
 \end{subfigure}
-%\includegraphics[width=\textwidth]{assets/nao_hardware_jointname.jpg}
-%\includegraphics[width=0.2\textwidth]{assets/nao_image1.jpg}
 \caption[NAO Humanoid Robot]{NAO Humanoid Robot. {Adopted from \cite{NaoTheRobot}}}
 \label{fig:naorobot}
 \end{figure}%
+The intended scenarios include reception, assistance, home care, entertainment and even autism therapy. Nao has become a standard in academic world for research and education. In 2013, Aldebaran launched \emph{Autism Solution for Kids} \cite{ASKNao} initiative which offers a new teaching approach to teachers and children with autism. The technical specifications of the robot is shown in Fig~\ref{table:nao_spec}
+\begin{table}[H]
+\centering
+\small
+\caption{NAO humanoid platform technical specifications}
+\label{table:nao_spec}
+    \begin{tabular}{ | l | p{12cm} |}
+    \hline
+    \textbf{Category} & \textbf{Specification} \\
+   \hline
+  Version & NAO V50 H25 \\
+                                          \hline
+  Hardware & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item Body: 58 cm tall, 25 DOF composed of electric motors and actuators
+  							\item Sensors: two cameras, four directional microphones, sonar rangefinder, two IR emitters and receivers, one inertial board, nine tactile sensors and eight pressure sensors
+  							\item Communication devices: Voice synthesizer, LED lights, and 2 high-fidelity speakers
+  							\item CPU: Intel ATOM 1.6ghz CPU 
+  							\item Connectivity ; Ethernet and Wi-Fi
+  							\item Power: 48.6-watt-hour battery that provides NAO with 1.5 or more hours of autonomy, depending on usage \end{itemize} \\
+                                          \hline
+                                          
+  Motion  & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item Cartesian and Joint control. \item Omnidirectional walking, Whole body motion and Fall Manager \end{itemize} \\
+                                          \hline
+  
+  Vision & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item Track, learn \& recognize images and faces. \item OpenCV support \end{itemize} \\
+                                          \hline
 
-	 NAO is a programmable, 58 cm tall robot with 25 DOF whose key elements are electric motors and actuators. As far as the NAO's motion is considered, its walking uses a simple dynamic model (Linear inverted pendulum) and quadratic programming and is stabilized using the feedback from the joint sensor. NAO sees using two 1220 p cameras, which can capture up to 30 FPS. The first camera, located on NAO’s forehead, scans the horizon, while the second located at mouth level scans the immediate surroundings. NAO contains a set of algorithms for detecting and recognizing faces and shapes. It is possible to develop user-modules to interace with OpenCV library and exploit the power of the algorithms that ships with OpenCV. NAO has the ability to localize the sound source based on an approach known as “Time Difference of Arrival". The difference in the arrival of sound at each of NAO’s four microphones (Interaural time difference) is computed to determine the location of the emitting source. Besides cameras and microphones, NAO has capacitive sensors positioned on top of its head in three sections and its hands with the help of which information can be also communicated through touch. NAO is equipped with two SONAR channels for obstacle detection (range 5cm$\sim$3m). It currently supports Wi-Fi (bgn) and Ethernet and it also has infrared transceivers that allow connection to objects in the environment. It is powered with Intel atom CPU that runs a linux kernel and support Aldebaran's NAOqi middleware, a cross platform distributed environment. Aldebaran also provides Choregraphe\cite{pot2009choregraphe} which is a visual programming tool for designing behaviors and it is a specific module of NaoQi running on development computer. Choregraphe gives access in a very intuitive way to all the functions provided by NaoQi. NaoQi provides Python and URBI\cite{baillie2008urbi} interpreters. NaoQi makes it possible sequential, parallel or event-based execution of behaviors through its powerful command framework.
+  Audio & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item Sound Source Localization, Speech/Speaker recognition. \item Supports 19 languages.\end{itemize} \\
+                                          \hline
+  Software & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item OS: Linux kernel and supports NAOqi middleware
+  							\item Tools: Choregraphe \cite{pot2009choregraphe} for designing behaviors
+  							\item SDKs: C++/Python SDK for application developers \end{itemize} \\
+                                          \hline
+    \end{tabular}
+\end{table}
+
 \section{Human motion capture}
-\label{sec:motion_capture}
-\begin{figure}
-\centering
-\includegraphics[width=1\textwidth]{assets/hri_perception.eps}
-\caption[Perception in Human Robot interaction]{Perception in Human Robot interaction. {Adopted from \cite{yan2014survey}}}
-\label{fig:hri_perception}
-\end{figure}
-	For human-robot interaction, perception is one of the most important capabilities. We can see from the Figure~\ref{fig:hri_perception} that the perception systems plays a major role in HRI as it acts as a communication channel between the social robots and the outside environment. There have been recent surveys on perception methods for human-robot Interaction in the context of social robots\cite{yan2014survey}. This study made an extensive survey on the perception system available in almost all the existing social robots. Moreover it also presented techniques used for the semantic understanding in each of the social robots considered. This study acts as a knowledge base for the HRI designers to make a choice of perception method that matches their requirements. In this section we describe the perception system requirments and possible solutions.
-\subsection{Requirements}
-	There are four major classes of signals captured by a social robot. They are visual, audio, tactile and range sensors based signals. These information are collected by cameras, microphones, tactile sensors and range finders\cite{yan2014survey}. Depending on the task requirements, robots are equipped with one or many of these sensors and the sensors could be proprioceptive or exteroceptive. 
-Our choice of perception system should satisfy the following requirements
-\begin{itemize}
-\item Precise 6-D localization of Nao and Human(s) in the environment; For the 6D pose estimation we could use standalone or a combination of the following onboard sensors: Cameras, IMUs and Odometry sensors. However onboard sensors are erroneous.
-\item Sensor data should facilitate the possibility of understanding human motions. For understanding complex human motions, the available on-board sensors and computing power are not enough. So we have to consider some exteroceptive sensors that satisfy this requirement. 
-\item Practical for a social interaction scenario, cheap, and reliable.
-\end{itemize}
-\subsection{Existing Solutions}
-	Human motion capture has been mainly developed to be used in medical, ergonomics, sports, robotics and other applications. Optical motion capture is one of the traditional ways of capturing the human motion (System like VICON$^{\regmark}$ have been deployed to aquire the \emph{MOCAP} data). However the main difficulty in the traditional optical motion capture system is the neccessity to equip the subject/actor with \emph{reflective markers}. The system itself is huge, expensive to setup and has to be calibrated before using. Since the markers move relative to the skin, there is possibility of noisy measurements due to skin artifacts. Another important point to be noted is that such a huge system is not suitable for practical HRI scenarios. However \emph{MOCAP} data acts as the ground truth for most of the motion capture systems which especially use machine learning techniques.
+Human motion capture has been mainly developed to be used in medical, ergonomics, sports, robotics and other applications. Optical motion capture is one of the traditional ways of capturing the human motion (System like VICON$^{\regmark}$ have been deployed to aquire the \emph{MOCAP} data). However the main difficulty in the traditional optical motion capture system is the neccessity to equip the subject/actor with \emph{reflective markers}. The system itself is huge, expensive to setup and has to be calibrated before using. It suffers due to skin artifacts and not suitable for practical HRI scenarios. 
 	
-	Other devices which are commonly used to capture the kinematic information are \emph{Accelerometers} and \emph{Inertial Measurement Unit(IMU)}. There are studies of understanding the human motion using IMU\cite{aoki2013segmentation} in which the human motion (arm only) is captured from IMU sensor and commercially available Wii$^{\regmark}$ remote. This work extended the motion segmentation based on joint angles acquired using the motion capture system to the angular velocity data obtained from the IMU sensors. Though 80\% auto segmentation of human motion has been reported in the work, the complete understanding of the human motion requires lot of IMU sensors to be installed on the human body which will make the human motions more constrained. Again the IMU sensors cannot satisfy all the requirements we have for our perception system.
-\subsection{RGB-D Sensors}
-\label{ssec:rgbd_sensors}
-	The RGB-D cameras provide a convincing solution which satisfy all the above requirements. Thanks to the advancements in the gaming industry, it accelerated the development of interaction systems and thus one can now get access to a wide variety of RGB-D cameras that are cheaper and easily available. RGB-D cameras\cite{ren2013change} are active sensors that provide high resolution dense color and depth information at real time frame rates. General-purpose robot perception usually relies on either traditional optical cameras or laser rangefinders, each having advantages and disadvantages. Cameras are fundamentally limited by the loss of 3-D structure in the 3-D or two-dimensional (2-D) projection and by their dependency on lighting conditions. It is possible to recover 3-D structures from images but such a process requires high-quality images, is computationally demanding. On the other hand, laser rangefinders allow much more robust sensing at long range but they are bulky and expensive and typically provide depth only at sparse scanlines. The RGB-D cameras combine the strengths of optical cameras and laser range finders enable a complete perception solution.
-\begin{figure}
-\centering
-\includegraphics[width=0.5\textwidth]{assets/rgbd_activestereo.png}
-\caption[Active Stereo Approach]{Active Stereo Approach. {Adopted from \cite{ren2013change}}}
-\label{fig:rgbd_activestereo}
-\end{figure}
+Other devices which are commonly used to capture the kinematic information are \emph{Accelerometers} and \emph{Inertial Measurement Unit(IMU)}. There are studies on understanding the human motion using IMU \cite{aoki2013segmentation} in which the human motion (arm only) is captured from IMU sensor and commercially available Wii$^{\regmark}$ remote. The complete understanding of the human motion requires lot of IMU sensors to be attached on the human body which will make the human motions more constrained. 
 
-	To reliably measure depth, RGB-D cameras use active sensing techniques, based on projected texture stereo, structured light, or time of flight. The technology from PrimeSense, used in the Microsoft Kinect V1\cite{Kinect2014} and Asus Xtion, depends on structured light, which projects a known IR pattern into the environment and uses the stereo principle to triangulate and compute depth. Latest Kinect V2 uses time-of-flight principle of measuring phase shift in an RF carrier.
-	 
-	Active stereo approaches solve the problems of depth estimation using stereo cameras by projecting a pattern, effectively painting the scene with a texture that is largely independent of the ambient lighting. Figure~\ref{fig:rgbd_activestereo} shows the basics of structured light stereo. One of the two cameras is replaced by an IR projector. The IR camera knows the locally unique projection pattern and how the pattern shifts with distance, so a local search can determine the shift (disparity) and depth can be computed through triangulation. Unlike traditional stereo rigs, RGB-D sensors do not suffer calibration problems as both the projector and IR camera exhibit low distortion. The external correspondence between the camera and the projector is determined by a factory calibration. Moreover the rigid mount ensures that the devices do not have to be recalibrated during use.
-	
-	 A glimpse of the readily available consumer RGB-D sensors are shown in Figure~\ref{fig:rgbd_sensors} and a study on the different available RGB-D cameras has been presented in the Table~\ref{table:rgbd_sensors}.
-\begin{figure}
+General-purpose robot perception usually relies on either traditional optical cameras or laser rangefinders, each having advantages and disadvantages. Cameras are fundamentally limited by the loss of 3-D structure in the 3-D or two-dimensional (2-D) projection and by their dependency on lighting conditions. The laser rangefinders allow much more robust sensing at long range but they are bulky and expensive.  
+
+The RGB-D cameras combining the strengths of optical cameras and laser range finders enable a complete perception solution. RGB-D cameras\cite{ren2013change} are active sensors that provide high resolution dense color and depth information at real time frame rates. To reliably measure depth, RGB-D cameras use active sensing techniques, based on projected texture stereo, structured light, or time of flight. Unlike traditional stereo rigs, RGB-D sensors do not suffer calibration problems as both the projector and IR camera exhibit low distortion. The external correspondence between the camera and the projector is determined by a factory calibration. Moreover the rigid mount ensures that the devices do not have to be recalibrated during use.
+\begin{figure}[H]
 \centering
-\begin{subfigure}[b]{0.33\textwidth}
-\includegraphics[width=\textwidth]{assets/kinectv1.jpg}
-%http://www.microsoftstore.com/store/msusa/en_US/pdp/Kinect-for-Windows/productID.253769800
-\caption{Kinect for Windows V1}
-\label{fig:kinectv1}
-\end{subfigure}%
-\begin{subfigure}[b]{0.33\textwidth}
-\includegraphics[width=\textwidth]{assets/kinectv2_2.png}
-%http://www.microsoftstore.com/store/msusa/en_US/pdp/Kinect-for-Windows-v2-Sensor/productID.298810500
-\caption{Kinect for Windows V2}
+%\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=0.5\textwidth]{assets/kinectv2_parts.eps}
+%\caption{Kinect for Windows V2}
 \label{fig:kinectv2}
-\end{subfigure}%
-\begin{subfigure}[b]{0.33\textwidth}
-\includegraphics[width=\textwidth]{assets/asus_xtion.jpg}
-%http://www.asus.com/Multimedia/Xtion_PRO_LIVE/
-\caption{Asus Xtion PRO Live}
-\label{fig:asus_xtion}
-\end{subfigure}
-
-\begin{subfigure}[b]{0.33\textwidth}
-\includegraphics[width=\textwidth]{assets/structure_sensor.jpg}
-%http://www.microsoftstore.com/store/msusa/en_US/pdp/Kinect-for-Windows/productID.253769800
-\caption{Structure Sensor}
-\label{fig:structuresensor}
-\end{subfigure}%
-\begin{subfigure}[b]{0.33\textwidth}
-\includegraphics[width=\textwidth]{assets/creative_senz3d.png}
-%http://www.microsoftstore.com/store/msusa/en_US/pdp/Kinect-for-Windows-v2-Sensor/productID.298810500
-\caption{Creative Sens3D}
-\label{fig:creative_senz3d}
-\end{subfigure}%
-\begin{subfigure}[b]{0.33\textwidth}
-\includegraphics[width=\textwidth]{assets/depthsense_DS311.jpg}
-%http://www.asus.com/Multimedia/Xtion_PRO_LIVE/
-\caption{Depthsense DS$^{\regmark}$325}
-\label{fig:depthsense}
-\end{subfigure}
-\caption[Consumer RGB-D sensors]{Consumer RGB-D sensors. {Adopted from manufacturer's site}}
-\label{fig:rgbd_sensors}
-%http://pressreleases.triplepointpr.com/2012/01/09/softkinetic-debuts-ultra-short-range-drivers-for-gesture-recognition-cameras-at-ces/
+%\end{subfigure}%
+\caption[Kinect for Windows V2]{Kinect for Windows V2. {Adopted from manufacturer's site}}
+%\label{fig:rgbd_sensors}
 \end{figure}
-	Among the available sensors shown in Table~\ref{table:rgbd_sensors}, Kinect V2\cite{Kinect2014} sensor has promising specifications and price. The Kinect comes with a powerful SDK\cite{KinectSDK2014} capable of performing skeleton tracking of upto 6 people (25 joints each) simultaneously out of the box. It also comes with the face detection, expression detection, gesture recognition and thumb tracking. The Kinect studio software can record the sensor data, play back and it is also possible to build gestures and train the sensor to detect when it sees them later using the Gesture builder. Though the Kinect V2 sensor works well with the Microsoft ecosystem, cross platform support is still a concern and open-source efforts in porting Kinect V2 can be found in
-\begin{itemize}
-\item Kinect One (Kinect v2) in ROS: \url{https://github.com/code-iai/iai_kinect2}
-\item OpenNI tracker : \url{http://wiki.ros.org/openni_tracker}
-\item OpenNI2 : \url{https://github.com/occipital/openni2}
-\end{itemize}
 
+A list of depth sensors available in the market along with their technical specification is shown in Table~\ref{table:rgbd_sensors} in Appendix~\ref{AppendixA}. Among them the Microsoft Kinect V2 \cite{Kinect2014} sensor has promising specifications and price. The Kinect comes with a powerful SDK \cite{KinectSDK2014} capable of performing skeleton tracking of upto 6 people (25 joints each) simultaneously out of the box. It also comes with the face detection, expression detection, gesture recognition and hand tracking. The Kinect studio software can record the sensor data and play back. It is also possible to build gestures and train the sensor to detect when it sees them later using the Visual gesture builder. 
+
+\section{Human Motion Understanding} % Main chapter title
+ Human motions are rich in information. It conveys to the receiver the emotion, the attitude, the deeds and even the health of the human. Without understanding completely the human motion, it is not possible to achieve a very good HRI system.  Vision based motion capture and analysis has been studied widely and a condensed summary of all the approaches developed during the past two decades until 2000 have been presented by Moeslund et al. in \cite{Moeslund2001231} followed by the study of advancements during the years 2000-2006 in the survey \cite{Moeslund200690}. Another work by Ronald Poppe \cite{Poppe20074} on the overview of vision based human motion analysis approached the problem into two discrete problems of modeling and estimation.
+\subsection{Human Pose Estimation}
+\label{sec:humanpose}
+The surveys \cite{Moeslund2001231}\cite{Moeslund200690}\cite{Poppe20074} cited previously have investigated vision based human motion capture and analysis in general, however our particular focus is to use RGB-D sensors to this purpose. Human pose estimation has traditionally suffered from two main problems
+\begin{itemize}
+\item Necessary to adopt an initialization pose.
+\item Losing track after a few frames.
+\end{itemize}
+So alternative techniques which do not require to adopt an initialization pose and estimate pose from single depth images is proposed by Shotton et al., \cite{shotton2013real} \cite{shotton2013efficient}. The studies propose two approaches shown in Figure~\ref{fig:kinect_pose} namely \emph{Body Part Classification (BPC)} and \emph{Offset Joint Regression (OJR)} for human pose estimation which are capable of accurately predicting the 3D positions of body joints using single depth images without using any temporal information. The two methods also share their use of a very large, realistic, synthetic training corpus, generated by rendering depth images of humans. The synthetic data is used to train deep random forests \cite{breiman2001random}, that can naturally handle a full range of human body shapes undergoing general body motions, self-occlusions, and poses cropped by the image frame. By using simple depth pixel comparison features, and parallelizable decision forests, both approaches could run in realtime on consumer hardware even without tracking a full body model. This is crucial in HRI because there are scenarios in which the human might be sitting and there will be lot of occlusions. The key point in these algorithms is that they do background subtraction before the actual processing.
+\begin{figure}[H]
+\centering
+% \begin{subfigure}[b]{0.35\textwidth}
+% \includegraphics[width=\textwidth]{assets/forest.png}
+% \caption{Randomized Decision Forests}
+% \label{fig:decision_forests}
+% \end{subfigure}
+% \begin{subfigure}[b]{0.35\textwidth}
+\includegraphics[width=0.4\textwidth]{assets/kinect_approaches.png}
+% \caption{Human Pose estimation}
+%\label{fig:kinect_pose}
+%\end{subfigure}
+\caption[Human pose estimation using single depth images]{Pose estimation using single depth images. {Adopted from \cite{shotton2013efficient}}}
+\label{fig:kinect_pose}
+\end{figure} 
+% \subparagraph{Body Part Classification} % (fold)
+% \label{subp:bpc} 
+% The first approach employs an intermediate body parts representation, designed so that an accurate per-pixel classification of the parts will localize the joints of the body. It transforms the pose estimation problem into one that can be readily solved by classification algorithms. For the classification, \emph{31} body parts are defined: LU/RU/LW/RW head, neck, L/R shoulder, LU/RU/LW/RW arm, L/R elbow, L/R wrist, L/R hand, LU/RU/LW/RW torso, LU/RU/LW/RW leg, L/R knee, L/R ankle, and L/R foot (Left, Right, Upper, Lower). The classification forest used for Body Part Classification (BPC) uses a probability mass function(PMF) - $p_l(c)$ over body parts $c$ as the prediction model. The classification forest helps achieve the per-pixel classification by storing a distribution $p_l(c)$ over the discrete body parts $c$ at each leaf $l$. For a given input pixel $u$, the tree is descended to reach leaf $l = l(u)$ and the distribution $p_l(c)$ is retrieved. The distributions are averaged together for all trees in the forest to give the final classification as
+% \begin{equation}
+% p(c\vert \textbf{u}) = \frac{1}{T}\sum_{l\in L(\textbf{u})} p_l(c)
+% \label{eqn:bpc_dist}
+% \end{equation}
+% Where $p_l(c)$ is PMF at the leaf node corresponding to body part $c$, $u$ is input pixel and $T$ is number of decision trees. The image space predictions are next re-projected into world space. The re-projection function is denoted as $x(u) = (x(u); y(u); z(u))^\text{T}$. Conveniently, the known $z(u)$ from the calibrated depth camera allows to compute $x(u)$ and $y(u)$ trivially. The body parts inherently lie on the surface of the body, thus a learned per-joint vector ${\zeta_j} = (0,0,\zeta_j)^\text{T}$ is used to push back the re-projected pixel surface positions into the world to better align with the interior joint position: $x_j(u) = x(u) + {\zeta_j}$. 
+% \subparagraph{Offset Joint Regression} % (fold)
+% \label{subp:ojr}  
+% The second approach presented in \cite{shotton2013efficient} directly regresses the positions of body joints. The ground truth labels required for this approach are simply the ground truth 3D joint positions which are recorded during the mesh skinning process. In this approach \emph{16} body joints are defined: head, neck, L/R shoulder, L/R elbow, L/R wrist, L/R hand, L/R knee, L/R ankle, and L/R foot. The regression forest used for Offset Joint Regression (OJR) uses a set of weighted relative votes $V_{lj}$ for each joint $j$. At each leaf node $l$ a distribution over the relative 3D offset from the re-projected pixel coordinate $x(u)$ to each body joint $j$ of interest is stored. Each pixel can thus potentially cast votes to all joints in the body, and unlike BPC, these votes may differ in all world space coordinates and thus directly predict interior rather than surface positions. The distribution at the leaf node is represented using a \emph{small} set of 3D \emph{relative vote} vectors $\Delta_{ljk} \in \Re^3$. The subscript $l$ denotes the leaf node, $j$ denotes a body joint and $k \in \lbrace 1,...,K \rbrace$ denotes the maximum number of relative votes allowed. A confidence weight $w_{ljk}$ is associated with each vote and it is critical for the accuracy. The set of relative votes for joint $j$ at the node $l$ is denoted as $V_{lj}={{\lbrace (\Delta_{ljk},w_{ljk}) \rbrace}^K}_{k=1}$. In order to improve the speed, $N_{sub}$ samples could be obtained from ${X_j}^{OJR}$ by either random sampling or picking top $N_{sub}$ samples from it. 
+%\subsubsection{Estimation using both Depth and RGB image}
+
+Unlike the approaches used in the Kinect SDK, the approach presented in \cite{buys2014adaptable} uses both the depth and color (RGB-D) data for human body detection and pose estimation using a customizable human kinematic model. Other merits include the requirement of less training data and open source nature of this approach. This method makes use of iterative refinement technique in order to estimate the pose of multiple people among clutter and occlusion. The algorithm developed as part of this work has been implemented as part of the PCL \cite{rusu20113d} library under the name \emph{People's library}.
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=\textwidth]{assets/adaptable_system_rgbd.png}
+% \caption[Adaptable system for human body detection and pose estimation]{Adaptable system for human body detection \& pose estimation. {Adapted from \cite{buys2014adaptable}}}
+% \label{fig:adaptable_rgbd}
+% \end{figure}
+% The goal of this approach is to output the 3D locations of the human body parts that are predefined in a kinematic model using the data received from an RGB-D sensor. The higher level process flow diagram of the system is shown in Figure~\ref{fig:adaptable_rgbd}. To start with, for a single depth map frame, per-pixel labeling is done using the similar approach described in \cite{shotton2013real}. However the principal difference is that no \emph{background subtraction} or fixed-pose initialization step before pixel labeling. A body part proposal step is performed on the initial noisy result, which results in a more robot part estimates. Using the statistical inference of the part estimates, a search for feasible kinematic trees is conducted during the kinematic tree search step. This result in the person detections and noisy skeletonization. In order to improve the obtained estimate, a second iteration of per-pixel body part labeling, body part proposal and kinematic tree search is performed. An appearance model is estimated online for segmentation refinement step. The noisy initial estimate obtained during the first iteration is used as a seed for color and depth-based segmentation that retrieves missing body parts and better localizes existing parts. This process can be used for multiple people among clutter and occlusion. This algorithm has been implemented as part of the PCL \cite{rusu20113d} library under the name \emph{People's library}.
+
+\subsection{Human action recognition}
+Understanding of human motion is not complete if the gesture of the human could not be understood. Hidden Markov models (HMM) which had been widely used for speech recognition \cite{rabiner1989tutorial} also inspired to be used for the gesture recognition applications. The HMM model is generated for each motion primitives and Viterbi algorithm is used to find the optimum sequence of the states given a set of observations. During the recognition step a likelihood function is used on the segmented motion pattern against each HMM and the motion primitive corresponding to HMM with large likelihood is selected.
+% as shown in Figure~\ref{fig:hmm}. 
+% Auto segmentation of arm motion and recognition of motion patterns using angular velocity data obtained by IMU sensors and the Wii remote using HMM has been demostrated in \cite{aoki2013segmentation}. 
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.3\textwidth]{assets/HMM.png}
+% \caption[HMM motion modeling]{HMM motion modeling. {Adapted from \cite{aoki2013segmentation}}}
+% \label{fig:hmm}
+% \end{figure}
+% In the publication by Microsoft research \cite{han2013enhanced}, a background study on various algortihms used for human activity analysis is presented. Recently \cite{KinectSDK2014} data-driven machine learning approaches like neural networks, Support vector machines, clustering, decision trees and bayesian networks are being exploited to this purpose. In \cite{KinectSDK2014}, an AdaBoost (Adaptive Boosting) algorithm \cite{freund1997decision} which is one of the top 10 data mining algorithms, is used to efficiently detect the gestures. The system involves a training phase in which the desired gestures are captured and tagged. These tagged gestures will be used by a gesture detector trainer which will generate a set of training examples $S=\lbrace \lbrace x_n,y_n \rbrace,\ n=1,\cdots,N \vert x_n\in X,y_n\in Y, X=\text{skeleton},Y=\lbrace -1,+1 \rbrace\rbrace$, associated data and set of weak classifiers $h_t$ and it learns the confidence $\alpha_t$ for $h_t$. The training results are stored in files and will be used by the gesture detector to perform per-frame classification of the data using $(h_t,\alpha_t)$. This approach has been proved to be robust with accuracy as high as 94.9\%. The gesture recognition module that comes with Kinect system already implements Adaboost based gesture detector for detecting the discrete gestures. For detecting more complex continuous gestures it uses RFRProgress detector, which is a detection technology that produces an analog or continuous result. It uses the Random Forest Regression (RFR) machine learning algorithm to determine the progress of a gesture performed by a user. It uses tagging models that are represented by analog signals that occur during a gesture. The RFRProgress is a context-based detector, meaning that the progress detection is only valid when a user is performing a gesture. Progress detection is enabled when a discrete gesture (AdaBoostTrigger) is detected.
+
+In the publication by Microsoft research \cite{han2013enhanced}, a background study on various algortihms used for human activity analysis is presented. Recently \cite{KinectSDK2014} data-driven machine learning approaches like neural networks, Support vector machines, clustering, decision trees and bayesian networks are being exploited to this purpose. In \cite{KinectSDK2014}, an AdaBoost (Adaptive Boosting) algorithm \cite{freund1997decision} which is one of the top 10 data mining algorithms, is used to efficiently detect the gestures. The system involves a training phase in which the desired gestures are captured and tagged. These tagged gestures will be used by a gesture detector trainer which will generate a set of training examples, associated data and set of weak classifiers and it learns a confidence value for each of the weak classifiers. The training results are stored in files and will be used by the gesture detector to perform per-frame classification of the data. This approach has been proved to be robust with accuracy as high as 94.9\%. For detecting more complex continuous gestures it uses RFRProgress detector, which is a detection technology that produces an analog or continuous result. It uses the Random Forest Regression (RFR) machine learning algorithm to determine the progress of a gesture performed by a user. It uses tagging models that are represented by analog signals that occur during a gesture. The RFRProgress is a context-based detector, meaning that the progress detection is only valid when a user is performing a gesture. Progress detection is enabled when a discrete gesture (AdaBoostTrigger) is detected.
+
+\section{Localization of Humanoid Robot} % Main chapter title
+The localization of humanoid robots is a challenging issue, due to rough odometry estimation, noisy onboard sensing, and the swaying motion caused by walking \cite{cervera2012localization}. For most of the humanoid robots the reference frame will be fixed to the torso as is the case for the Nao. So the basic idea is to track the torso of the Nao or any other position with the known transformation from the torso. In this section different techniques that could be effectively used for localization and tracking of the humanoid robot are presented.
+
+\subsection{Artificial Marker based approaches}
+Tracking rectangular fiducial markers can be interesting if one could embed those markers on the humanoid robot. This is one of the simplest and cheapest solution in terms of the computational power as it uses simple image processing algorithms. ARToolKit \cite{kato1999marker} implements video tracking libraries which can calculate the real camera position and orientation relative to physical markers in real time. Before camera-based 6DOF tracking can be performed, the camera must be calibrated once as a pre-processing step. The perspective projection and the camera distortion parameters obtained during this step will be used later during the tracking initialization phase. The marker detection algorithms perform simple edge detection followed by a search for quadrangles of known dimension in the incoming image frame. The resulting sub-images are then checked against the set of known patterns. When a pattern is detected, ARToolKit uses the marker’s edges for a first, coarse pose detection. In the next step the rotation part of the estimated pose is refined iteratively using matrix fitting. The resulting pose matrix defines a transformation from the camera plane to a local coordinate system in the centre of the marker.
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{assets/artoolkit.eps}
+\caption[Marker tracking using ARToolKit]{Marker tracking using ARToolKit. {Adapted from \cite{kato1999marker}}}
+\label{fig:artoolkit}
+\end{figure}
+\subsection{Point Cloud based approaches}
+\label{ssec:pcl}
+The Point Cloud Library (PCL) \cite{rusu20113d} which is one of the most widely used 3D perception software library, has collection of state-of-the-art algorithms and tools to process 3-D data. Point cloud library provides an excellent infrastructure for the object recognition and 6-DOF pose estimation pipeline by offering a wide variety of robust local and global features \cite{aldoma2012point}. 
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=1\textwidth]{assets/pcl_pipeline.eps}
+% \caption[PCL local and global 3D Pipelines]{PCL local and global 3D Pipelines. {Adapted from \cite{aldoma2012point}}}
+% \label{fig:pcl_pipeline}
+% \end{figure}
+The computation of pose of an object of known geometry requires the point clouds of the meshes to begin with. The 3D features known as descriptors of the model are computed and stored to be used during the recognition phase.  During the recognition, at first descriptors (local or global) of the incoming point cloud from sensor are computed followed by segmentation and correspondence matching with all the known models in the database. This is followed by an correspondence grouping using Random Sampling Consensus (RANSAC) to remove the outliers. Following this, a least square optimization is performed to obtain the rotation and the translation from exact point correspondences. Both the global and local pipelines can undergo an optional \emph{post processing} step by applying Iterated Closest Point (ICP) in order to refine estimated 6-DoF pose.
+
+Apart from the object recognition and pose estimation pipeline, PCL provides a comprehensive algorithmic base for the tracking of 3D objects using Monte Carlo sampling techniques \cite{RUeda2012} and for calculating the likelihood using combined weighted metrics for hyperdimensional spaces including cartesian data, colors, and surface normals. PCL also has non-probabilistic tracking algorithms like Pyramidal Kanade Lucas Tomasi (KLT) Tracker in its tracking module. The KLT tracker operates on organized 3D keypoints with color/intensity information.
+\subsection{Probabilistic approaches}
+\label{ssec:prob_approaches}
+Probabilistic localization algorithms are variants of the Bayes filter \cite{thrun2005probabilistic}. The pose of the robot is represented in a probabilistic manner called the \emph{belief}: ($bel(x_t)$) which is a posterior distribution over the state space. The basic principle behind Bayes filter is that the belief $bel(x_t)$ at time $t$ is calculated from the belief $bel(x_{t-1})$ at time $t-1$ along with the most recent control $u_t$ and the most recent measurement $z_t$. It involves two basic steps: \emph{Control update step} during which the $\overline{bel(x_t)}$ is computed based on the prior assigned to $x_{t-1}$ and the probability that control $u_t$ induces a transition from $x_{t-1}$ to $x_t$, \emph{Measurement update step} during which the hypothetical posterior $\overline{bel(x_t)}$ is multiplied with the probability of seeing an observation $z_t$ given this $x_t$. The recursive computation of belief state can thus be given by
+\begin{align*}
+\text{Control update step:}\quad \overline{bel(x_t)} &= \int p(x_t\vert u_t,x_{t-1})\cdot bel(x_{t-1}) dx \\
+\text{Measurement update step:}\quad {bel(x_t)} &= \eta\cdot p(z_t\vert x_{t})\cdot \overline{bel(x_t)}
+\end{align*}
+where $\eta$ is the normalization factor. The Bayes filter forms the basis of Markov localization algorithms. Extended Kalman Filter(EKF) based localization is one of the initial developments to be used in non-linear state models. However they suffered problems of uni-modal distribution(gaussian) assumption and failing to solve global localization problem. The particle filter \cite{thrun2005probabilistic} is an alternative non-parametric implementation of bayes filter. The key idea of the particle filter is to represent the posterior $bel(x_t)$ by a set of samples drawn from the distribution. Such a representation is approximate, but it is nonparametric, and therefore can represent a much broader space of distributions than, for example, Gaussians. 
+% The important steps of particle filter is sampling of the state space resulting in a set of $(M)$ particles, computing the importance factor $(w_t)$ of each of those particles $(x_t)$ based on strength of observation $(z_t)$ that could be observed from them and followed by re-sampling of the particles based on their importance factor. The basic intuition behind the particle filter is to approximate the belief $bel(x_t)$ by the set of particles $X_t$ and as a consequence denser a subregion of the state space is populated by samples, the more likely the true state falls in the region.The current state is given by the weighted particle mean 
+% \begin{equation}
+% E(X_t) = \sum_{m=1}^{M} {w_t}^{[m]}\cdot {x_t}^{[m]}
+% \end{equation}
+Monte-carlo localization (MCL) \cite{fox1999monte} is a version of Markov localization that uses fast sampling techniques to represent the belief and it introduces probabilistic motion and perceptual models into the particle filter framework. The efficiency of particle filters lies in the way they place computational resources. By sampling in proportion to likelihood, particle filters focus the computational resources on regions with high likelihood, where good approximations are most important. The time complexity of one update of the particle filter algorithm is linear in the number of samples needed for the estimation. 
+%The Kullback-Leibler Distance(KLD) adaptive sampling technique proposed in \cite{fox2003adapting} presents an approach to adapt the number of samples over time. 
+% \subsection{Existing Solutions}
+% \label{sssec:prob_solutions}
+	% \par The Point cloud library \cite{RUeda2012} introduced in Section~\ref{ssec:pcl} implements ready to use probabilistic tracking algorithms like: the most basic particle filter tracker(\emph{ParticleFilterTracker}), particle filter using OpenMP support(\emph{ParticleFilterOMPTracker}), KLD-adaptive sampling particle filter( \emph{KLDAdaptiveParticleFilterTracker}) and KLD adaptive sampling with OpenMP support ( \emph{KLDAdaptiveParticleFilterOMPTracker}). This could be readily used to track an object of know geometry and this information has to be fed to the PCL through a point cloud mesh of the object.
+	
+Studies on robot localization, obstacle mapping, and path planning in multilevel 3D environments by equipping Nao with a consumer-level depth camera have been reported in \cite{maier2012real}. This study provides real-time solution while maintaining a 3D environment representation and estimating the robot’s pose in 6D. The 3D environment model in form of an octree based representation containing the static parts of the environment is used. In this representation, the robot estimates its pose using MCL based on acquired depth data. Given the estimated 6D pose of the humanoid and a sequence of depth images, this approach continuously builds a local 3D representation of the current state of the environment containing also non-static obstacles. This learned octree-based representation is then used for real-time planning of collision-free paths. 
+	
+While \cite{maier2012real} presented an approach wherein a depth camera is fixed to the humanoid robot, in \cite{cervera2012localization} localization and motion planning in smart home environment have been proposed. In this study an external depth camera is used for 6D pose estimation and tracking, which is very close to the scenario of this thesis. Once again MCL technique is used for the pose estimation of the torso of the humanoid robot and this information is used for the closed loop navigation control. For the purpose of navigation, this study determined the pose error on the plane of walking using the knowledge of estimated pose and the desired pose. 
+	
+In \cite{choi2013rgb} a robust particle filter parallelized on a GPU that can track a known 3D object model over a sequence of RGB-D images is proposed. This method proposes to render the 3D object model to be used in the likelihood function so that the object could be tracked inspite of significant pose variations. Unlike PCL object tracking algorithm \cite{rusu20113d} which maintains only one reference point cloud, this approach uses multiple viewports rendered in GPU with different poses and each particle searches the closest rendering from the viewports and likelihood evaluation is performed by transforming the closest rendered result with the current particle state. This approach has been proved to be faster and also accurate than the PCL tracking. However the implementation of this algorithm is not open.
+	
+\section{Behavioral Frameworks} % Main chapter title
+The users of social robots do not have necessary backgrounds in programming and design of robot behaviors. This lead to the development of several visual programming languages which allow non-programmers to create robot applications. Most of the available visual programming softwares allows to choose among many prebuilt behavioral blocks and connecting them to one another to get the desired flow of action \cite{MSRS4} \cite{Choregraphe}. These programs are very intuitive and allow the users to realize complex sequence of movements and sequential behaviors. But programming dynamic behaviors still remains challenging. This is primarily due to fact that the users have to think about the data flow between various blocks by appropriate connections between them. When it comes to designing complex dynamic behaviors this task becomes very tedious and time consuming. There are many solutions proposed in the literature that address the dynamic control problem. For instance Gostai's Universal Robotic Body Interface(URBI) \cite{baillie2008urbi} and Task description language (TDL) \cite{simmons1998task} are programming languages developed specifically for robot programming. URBI provides a modern object-oriented scripting language that allows the organization of code into different processes that either run sequentially or in parallel, and it also provides tools for process execution monitoring. In TDL which was developed as a C++ extension, the code is organized into task trees, which encode the hierarchical decomposition of tasks as well as the synchronization of constraints between tasks. More recently, specialized operating systems have been proposed, such as ROS \cite{quigley2009ros}, which organize code into distributed asynchronous modules that exchange data using a data subscription protocol. These solutions manage the integration and communication between different types of hardware and software and support the implementation of reaction, as well as behavioral specification. However, these programs have been produced by robot developers and are targeted at this community, which means that they are not intended to be used by non-roboticists and a solid background in computer science/robotics is required for their use.
+% \begin{figure}[H]
+% \centering
+% \begin{subfigure}[b]{0.5\textwidth}
+% \includegraphics[width=\textwidth]{assets/helloworld_cho_dlg_05.png}
+% %http://doc.aldebaran.com/2-1/getting_started/helloworld_choregraphe_dialog.html
+% \caption{Choreographe Albebaran}
+% \label{fig:choreographe}
+% \end{subfigure}%
+% \begin{subfigure}[b]{0.5\textwidth}
+% \includegraphics[width=\textwidth]{assets/MSRD4_VSE2.png}
+% %http://www.microsoftstore.com/store/msusa/en_US/pdp/Kinect-for-Windows-v2-Sensor/productID.298810500
+% \caption{MSRD Studio 4:Visual Simulation Environment}
+% \label{fig:msrd4_vse}
+% \end{subfigure}%
+% \caption[Visual Programming Tools]{Visual Programming Tools. {Adapted from manufacturer's site}}
+% \label{fig:visprog}
+% \end{figure}
+A non-domain-specific solution called \emph{Targets-Drives-Means (TDM)} is proposed in \cite{berenz2014targets} taking into account the aforementioned needs. TDM proposes a programming paradigm where temporal independent dynamic behaviors blocks run in parallel. The logic of the program is not expressed using communication links in a flowchart, but by the use of specialized dynamic components that regulate the activation status and the priorities of the behaviors. However there does not exist an intuitive interface for the behavior design yet and this framework is not open.
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.5\textwidth]{assets/tdm_im.eps}
+% \caption[Target-drives-means Framework]{TDM Framework. {Adapted from \cite{berenz2014targets}}}
+% \label{fig:tdm_im}
+% \end{figure}
+\section{HRI Design and Evaluation} % Main chapter title
+Human-Robot Interaction (HRI) being a rapidly advancing area of research, there is a growing need for strong experimental designs and methods of evaluation. This will bring credibility and validity to scientific research that involves humans as subjects, as recognized in the psychology and social science fields. As robots are becoming more prevalent, accurate methods to assess how humans respond to robots, how they feel about their interactions with robots, and how they interpret the actions of robots are very important. 
+
+%\subparagraph{Planning, Design and Data collection}
+A successful human study in HRI requires careful planning and design. In \cite{bethel2010review}, a set of questions when planning and designing a human study in HRI is presented. Apart from providing a checklist for planning and design of HRI studies, a list of recommendations for the experimental design and study execution is also provided in \cite{bethel2010review}.
+	
+Data collection is one of the important steps in the evaluation process. In \cite{Rogers2011} an insight of the design process of an interative system is presented. It discusses five key issues in the data gathering such as identifying participants, relationship with participants, setting goals, triangulation and importance of conducting pilot studies.
+% \begin{itemize}
+% \item \emph{Identifying participants} : Decide who to gather data from
+% \item \emph{Relationship with participants} : Establishing a clear and professional relationship
+% \item \emph{Setting goals} : Deciding how to analyze data once collected, Informed consent when appropriate
+% \item \emph{Triangulation} : Looking at data from more than one perspective
+% \item \emph{Pilot studies} : Small trial of main study. 
+% \end{itemize}
+
+An extensive review of HRI evaluation methods presented in \cite{bethel2010review} summarises five primary methods such as \emph{Self assessments}, \emph{Interviews}, \emph{Behavioral measures}, \emph{Psychophysiology measures} and \emph{Task performance metrics}. Each of these methods has advantages and disadvantages. However the study claims that it is possible to overcome these disadvantages by using three or more appropriate methods of evaluation. An effort to identify a set of common metrics to be used in task-oriented HRI can be found in \cite{Steinfeld2006}. This study proposes a set of metrics to evaluate the user, robot and the team (human-robot) performances.
+%  the human-robot team and human-robot interactions and those proposed metrics are shown in Table~\ref{table:hri_metrics}
+% \begin{table}[H]
+% \centering
+% \small
+% \caption{Common metrics for task-based HRI}
+% \label{table:hri_metrics}
+% \begin{tabularx}{400pt}{c*3{X}}
+% \toprule
+%   \textbf{Common metrics} & \textbf{Sub-metrics} 
+%                           & \textbf{Description}
+%   \tabularnewline \midrule
+  
+%   \multirow{4}{*}{System Performance} & Quantitative performance & Assess the effectiveness and efficiency at performing a task. \\
+%                                       & Subjective ratings & Assess the quality of the effort. \\
+%                                       & Utilization of mixed-initiative & Ability of the human-robot team to appropriately regulate who has control initiative. 
+%                                           \tabularnewline\midrule
+                                          
+%   \multirow{4}{*}{Operator Performance} & Situation Awareness (SA) & The degree to which the robot is situation aware. \\
+%                                         & Workload & Relating human perceptions of cognitive load to operator SA \\
+%                                         & Accuracy of mental models & Impact of Design affordances, operator expectations and stimulus-response compatibility.
+%                                           \tabularnewline\midrule
+  
+%   \multirow{4}{*}{Robot Performance}  & Self Awareness & The degree to which a robot can accurately assess itself \\
+%                                       & Human Awareness & The degree to which the robot is aware of humans \\
+%                                       & Autonomy & The ability of robots to function independently without human intervention.
+%                                           \tabularnewline                                
+                                         
+%   										\bottomrule
+% \end{tabularx}
+% \end{table}
+Bartneck et al., \cite{bartneck2009measurement} emphasize the need for standardized measurement tools for human robot interaction. This work presents measurements tools in the form of questionnaires for five key concepts in HRI: anthropomorphism, animacy, likeability, perceived intelligence, and perceived safety. All the evaluation techniques rely on the statistical tools for validating the results and generalizing the phenomena. A summary of statistical tools for the data analysis in HRI can be found in Appendix~\ref{AppendixA}.
 
 
 \section{Summary}
+
+In this chapter a review of the literature which are most relevant to this thesis research is presented. The literature review helped to identify the appropriate techniques that could be used in the development of experimental platform. The key decisions made are shown in the Table~\ref{table:review_decisions}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Identified techniques from state-of-the-art}
+\label{table:review_decisions}
+\begin{tabular}{ | l | p{10cm} |}
+\hline
+  \textbf{Problem to be addressed} & \textbf{Identified solution}
+  \tabularnewline \hline
+  
+  Human motion understanding & The Kinect SDK \cite{KinectSDK2014} will suffice the human skeleton tracking. The Visual gesture builder tool that is shipped with Kinect SDK could be used for gesture creation and recogntion
+                                          \tabularnewline\hline
+                                          
+  Localization of humanoid robot & The artificial marker based approaches seems to be the cheapest solution since we will be sharing the same sensor for motion recogntion as well. The ALVAR marker tracking library \cite{ALVAR} will be used to this purpose. 
+                                          \tabularnewline\hline
+  
+  Application infrastructure & It has been decided to develop a \emph{proprietary application infrastructure} as existing solutions like ROS \cite{quigley2009ros} is not cross-platform and the Kinect sensor drivers for Linux are not mature enough at the time of this writing.
+                                          \tabularnewline\hline
+
+  Behavior framework & It has also been decided to develop a \emph{new behavior design and execution framework} as the existing solutions are not complete and they do not offer an end-to-end solution for naive users wanting to design HRI scenarios.
+                                          \tabularnewline\hline
+
+  HRI evaluation & The \emph{Self-assessment} techniques will be adopted and data collection will be done on a set of identified participants. Statistical analysis will be performed on the collected data.
+                                          \tabularnewline\hline
+\end{tabular}
+\end{table}
