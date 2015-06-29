@@ -5,82 +5,10 @@
 
 \lhead{Chapter 2. \emph{State of the art techniques}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
  Research in any field is a continuous process. It is meaningless to propose altogether new approaches ruling out the techniques proposed in the literature. Hence a careful study of the state-of-the-art techniques is necessary. It will give a clarity of the approaches that could be incorporated, improved or improvised in the research study of interest. The experimental platform that is being aimed in this thesis is largely an integration of various available techniques which makes literature review even more crucial. This chapter discusses the various methods and techniques proposed in the literature for addressing the problems described in Section~\ref{sec:problem_statement}.
-\section{Humanoid Robot}
-NAO \cite{NaoTheRobot} is a humanoid robot developed in the year 2006 by Albebaran Robotics, the company which has proved itself in the development of interactive social robots.
-\begin{figure}[H]
-\centering
-\begin{subfigure}[b]{0.25\textwidth}
-\includegraphics[width=\textwidth]{assets/nao_image1.jpg}
-\caption{Robot appearance}
-\label{fig:naojoint}
-\end{subfigure}
-\begin{subfigure}[b]{0.25\textwidth}
-\includegraphics[width=\textwidth]{assets/hardware_inertialunit1.png}
-\caption{Torso reference frame}
-\label{fig:naoreference}
-\end{subfigure}
-\caption[NAO Humanoid Robot]{NAO Humanoid Robot. {Adopted from \cite{NaoTheRobot}}}
-\label{fig:naorobot}
-\end{figure}%
-The intended scenarios include reception, assistance, home care, entertainment and even autism therapy. Nao has become a standard in academic world for research and education. In 2013, Aldebaran launched \emph{Autism Solution for Kids} \cite{ASKNao} initiative which offers a new teaching approach to teachers and children with autism. The technical specifications of the robot is shown in Fig~\ref{table:nao_spec}
-\begin{table}[H]
-\centering
-\small
-\caption{NAO humanoid platform technical specifications}
-\label{table:nao_spec}
-    \begin{tabular}{ | l | p{12cm} |}
-    \hline
-    \textbf{Category} & \textbf{Specification} \\
-   \hline
-  Version & NAO V50 H25 \\
-                                          \hline
-  Hardware & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item Body: 58 cm tall, 25 DOF composed of electric motors and actuators
-  							\item Sensors: two cameras, four directional microphones, sonar rangefinder, two IR emitters and receivers, one inertial board, nine tactile sensors and eight pressure sensors
-  							\item Communication devices: Voice synthesizer, LED lights, and 2 high-fidelity speakers
-  							\item CPU: Intel ATOM 1.6ghz CPU 
-  							\item Connectivity ; Ethernet and Wi-Fi
-  							\item Power: 48.6-watt-hour battery that provides NAO with 1.5 or more hours of autonomy, depending on usage \end{itemize} \\
-                                          \hline
-                                          
-  Motion  & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item Cartesian and Joint control. \item Omnidirectional walking, Whole body motion and Fall Manager \end{itemize} \\
-                                          \hline
-  
-  Vision & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item Track, learn \& recognize images and faces. \item OpenCV support \end{itemize} \\
-                                          \hline
 
-  Audio & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item Sound Source Localization, Speech/Speaker recognition. \item Supports 19 languages.\end{itemize} \\
-                                          \hline
-  Software & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item OS: Linux kernel and supports NAOqi middleware
-  							\item Tools: Choregraphe \cite{pot2009choregraphe} for designing behaviors
-  							\item SDKs: C++/Python SDK for application developers \end{itemize} \\
-                                          \hline
-    \end{tabular}
-\end{table}
-
-\section{Human motion capture}
-Human motion capture has been mainly developed to be used in medical, ergonomics, sports, robotics and other applications. Optical motion capture is one of the traditional ways of capturing the human motion (System like VICON$^{\regmark}$ have been deployed to aquire the \emph{MOCAP} data). However the main difficulty in the traditional optical motion capture system is the neccessity to equip the subject/actor with \emph{reflective markers}. The system itself is huge, expensive to setup and has to be calibrated before using. It suffers due to skin artifacts and not suitable for practical HRI scenarios. 
-	
-Other devices which are commonly used to capture the kinematic information are \emph{Accelerometers} and \emph{Inertial Measurement Unit(IMU)}. There are studies on understanding the human motion using IMU \cite{aoki2013segmentation} in which the human motion (arm only) is captured from IMU sensor and commercially available Wii$^{\regmark}$ remote. The complete understanding of the human motion requires lot of IMU sensors to be attached on the human body which will make the human motions more constrained. 
-
-General-purpose robot perception usually relies on either traditional optical cameras or laser rangefinders, each having advantages and disadvantages. Cameras are fundamentally limited by the loss of 3-D structure in the 3-D or two-dimensional (2-D) projection and by their dependency on lighting conditions. The laser rangefinders allow much more robust sensing at long range but they are bulky and expensive.  
-
-The RGB-D cameras combining the strengths of optical cameras and laser range finders enable a complete perception solution. RGB-D cameras\cite{ren2013change} are active sensors that provide high resolution dense color and depth information at real time frame rates. To reliably measure depth, RGB-D cameras use active sensing techniques, based on projected texture stereo, structured light, or time of flight. Unlike traditional stereo rigs, RGB-D sensors do not suffer calibration problems as both the projector and IR camera exhibit low distortion. The external correspondence between the camera and the projector is determined by a factory calibration. Moreover the rigid mount ensures that the devices do not have to be recalibrated during use.
-\begin{figure}[H]
-\centering
-%\begin{subfigure}[b]{0.5\textwidth}
-\includegraphics[width=0.5\textwidth]{assets/kinectv2_parts.eps}
-%\caption{Kinect for Windows V2}
-\label{fig:kinectv2}
-%\end{subfigure}%
-\caption[Kinect for Windows V2]{Kinect for Windows V2. {Adopted from manufacturer's site}}
-%\label{fig:rgbd_sensors}
-\end{figure}
-
-A list of depth sensors available in the market along with their technical specification is shown in Table~\ref{table:rgbd_sensors} in Appendix~\ref{AppendixA}. Among them the Microsoft Kinect V2 \cite{Kinect2014} sensor has promising specifications and price. The Kinect comes with a powerful SDK \cite{KinectSDK2014} capable of performing skeleton tracking of upto 6 people (25 joints each) simultaneously out of the box. It also comes with the face detection, expression detection, gesture recognition and hand tracking. The Kinect studio software can record the sensor data and play back. It is also possible to build gestures and train the sensor to detect when it sees them later using the Visual gesture builder. 
-
-\section{Human Motion Understanding} % Main chapter title
+\section{Human behavior understanding} % Main chapter title
  Human motions are rich in information. It conveys to the receiver the emotion, the attitude, the deeds and even the health of the human. Without understanding completely the human motion, it is not possible to achieve a very good HRI system.  Vision based motion capture and analysis has been studied widely and a condensed summary of all the approaches developed during the past two decades until 2000 have been presented by Moeslund et al. in \cite{Moeslund2001231} followed by the study of advancements during the years 2000-2006 in the survey \cite{Moeslund200690}. Another work by Ronald Poppe \cite{Poppe20074} on the overview of vision based human motion analysis approached the problem into two discrete problems of modeling and estimation.
-\subsection{Human Pose Estimation}
+\subsection{Human pose estimation}
 \label{sec:humanpose}
 The surveys \cite{Moeslund2001231}\cite{Moeslund200690}\cite{Poppe20074} cited previously have investigated vision based human motion capture and analysis in general, however our particular focus is to use RGB-D sensors to this purpose. Human pose estimation has traditionally suffered from two main problems
 \begin{itemize}
@@ -139,10 +67,10 @@ Understanding of human motion is not complete if the gesture of the human could 
 
 In the publication by Microsoft research \cite{han2013enhanced}, a background study on various algortihms used for human activity analysis is presented. Recently \cite{KinectSDK2014} data-driven machine learning approaches like neural networks, Support vector machines, clustering, decision trees and bayesian networks are being exploited to this purpose. In \cite{KinectSDK2014}, an AdaBoost (Adaptive Boosting) algorithm \cite{freund1997decision} which is one of the top 10 data mining algorithms, is used to efficiently detect the gestures. The system involves a training phase in which the desired gestures are captured and tagged. These tagged gestures will be used by a gesture detector trainer which will generate a set of training examples, associated data and set of weak classifiers and it learns a confidence value for each of the weak classifiers. The training results are stored in files and will be used by the gesture detector to perform per-frame classification of the data. This approach has been proved to be robust with accuracy as high as 94.9\%. For detecting more complex continuous gestures it uses RFRProgress detector, which is a detection technology that produces an analog or continuous result. It uses the Random Forest Regression (RFR) machine learning algorithm to determine the progress of a gesture performed by a user. It uses tagging models that are represented by analog signals that occur during a gesture. The RFRProgress is a context-based detector, meaning that the progress detection is only valid when a user is performing a gesture. Progress detection is enabled when a discrete gesture (AdaBoostTrigger) is detected.
 
-\section{Localization of Humanoid Robot} % Main chapter title
+\section{Localization of humanoid robot} % Main chapter title
 The localization of humanoid robots is a challenging issue, due to rough odometry estimation, noisy onboard sensing, and the swaying motion caused by walking \cite{cervera2012localization}. For most of the humanoid robots the reference frame will be fixed to the torso as is the case for the Nao. So the basic idea is to track the torso of the Nao or any other position with the known transformation from the torso. In this section different techniques that could be effectively used for localization and tracking of the humanoid robot are presented.
 
-\subsection{Artificial Marker based approaches}
+\subsection{Artificial marker based approaches}
 Tracking rectangular fiducial markers can be interesting if one could embed those markers on the humanoid robot. This is one of the simplest and cheapest solution in terms of the computational power as it uses simple image processing algorithms. ARToolKit \cite{kato1999marker} implements video tracking libraries which can calculate the real camera position and orientation relative to physical markers in real time. Before camera-based 6DOF tracking can be performed, the camera must be calibrated once as a pre-processing step. The perspective projection and the camera distortion parameters obtained during this step will be used later during the tracking initialization phase. The marker detection algorithms perform simple edge detection followed by a search for quadrangles of known dimension in the incoming image frame. The resulting sub-images are then checked against the set of known patterns. When a pattern is detected, ARToolKit uses the marker’s edges for a first, coarse pose detection. In the next step the rotation part of the estimated pose is refined iteratively using matrix fitting. The resulting pose matrix defines a transformation from the camera plane to a local coordinate system in the centre of the marker.
 \begin{figure}[H]
 \centering

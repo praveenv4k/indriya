@@ -22,7 +22,7 @@
 	
 	The main contribution of this thesis will be to develop an application independent experimental platform wherein a social robot will be equipped with essential perceptual ability to understand human motions. The behavior design of such a social robot will be made possible by efficient behavioral framework. The experimental platform will be used to design and evaluate the interaction between the social robot and the human.	
 
-\section{Problem Statement}
+\section{Problem statements}
 \label{sec:problem_statement}
 	Human Robot interaction in social context has been studied rigorously due to the potential applications foreseen. For an effective interaction, the robot has to understand precisely its environment especially the human actions and deeds. The main focus of this study will be to understand the non-verbal aspect of the interaction (i.e., visual but not auditory). For visual understanding of human intention/motion the robot has to be equipped with exceptional perception system. Due to the various considerations like portability, on board processing capability and power consumption, most often the choice of on-board sensors is compromised. Eventually the precision of the sensor information from the onboard sensors are not enough for complete understanding of human motions. In such cases there is a need to use exteroceptive sensors which are practical to be used in a social scenario while at the same time powerful enough to satisfy the requirements. This problem boils down to \emph{Selection of Sensors} which are cheap, powerful and have sufficient tools for development. Moreover it requires the study on \emph{Human motion understanding} and \emph{Localization/Tracking} of humanoid robot.
 	
@@ -40,21 +40,88 @@
 \end{figure}% 
 
 \section{System requirements}
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{assets/hri_perception.eps}
-\caption[Perception in Human Robot interaction]{Perception in Human Robot interaction. {Adopted from \cite{yan2014survey}}}
-\label{fig:hri_perception}
-\end{figure}
-For human-robot interaction, perception is one of the most important capabilities. We can see from the Figure~\ref{fig:hri_perception} that the perception systems plays a major role in HRI as it acts as a communication channel between the social robots and the outside environment. There have been recent surveys on perception methods for human-robot Interaction in the context of social robots \cite{yan2014survey}. This study made an extensive survey on the perception system available in almost all the existing social robots. 
-There are four major classes of signals captured by a social robot. They are visual, audio, tactile and range sensors based signals. These information are collected by cameras, microphones, tactile sensors and range finders\cite{yan2014survey}. Depending on the task requirements, robots are equipped with one or many of these sensors and the sensors could be proprioceptive or exteroceptive. 
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=1\textwidth]{assets/hri_perception.eps}
+% \caption[Perception in Human Robot interaction]{Perception in Human Robot interaction. {Adopted from \cite{yan2014survey}}}
+% \label{fig:hri_perception}
+% \end{figure}
+For human-robot interaction, perception is one of the most important capabilities. There have been recent surveys on perception methods for human-robot Interaction in the context of social robots \cite{yan2014survey}. There are four major classes of signals captured by a social robot. They are visual, audio, tactile and range sensors based signals. Depending on the task requirements, robots are equipped with one or many of these sensors and the sensors could be proprioceptive or exteroceptive. 
 Our choice of perception system should satisfy the following requirements
 \begin{itemize}
 \item Precise 6-D localization of the robot and human(s) in the environment; For the 6D pose estimation we could use standalone or a combination of the following onboard sensors: Cameras, IMUs and Odometry sensors. However onboard sensors are erroneous.
-\item Sensor data should facilitate the possibility of understanding human behaviors. For understanding complex human behaviors, the available on-board sensors and computing power are not enough. So we have to consider some exteroceptive sensors that satisfy this requirement. 
+\item Sensor data should facilitate the possibility of understanding human behaviors especially gestures and speech. For understanding complex human behaviors, the available on-board sensors and computing power are not enough. So we have to consider some exteroceptive sensors that satisfy this requirement. 
 \item Practical for a social interaction scenario, cheap, and reliable.
 \end{itemize}
-We also need a very good humanoid robotics platform for evaluating the effectiveness of the system. It will be an added advantage if the chosen robotics platform is capable of exhibiting social behaviors and has already been accepted by a huge community of researchers and end-users.
+
+\subsection{Perception system}
+We are basically interested in capturing the human motion and speech. Microphones do not impose much contraints as it is ubiquitous these days and hence speech could be easuly captured. As far as human motions are concerned, Optical motion capture is one of the traditional ways of capturing them (System like VICON$^{\regmark}$ has been deployed to aquire the \emph{MOCAP} data). The system itself is huge, expensive to setup, need to equip the subject with reflective markers, suffers due to skin artifacts and has to be calibrated before using. Other devices which are commonly used to capture the kinematic information are \emph{Accelerometers} and \emph{Inertial Measurement Unit(IMU)}. The complete understanding of the human motion requires lot of such sensors to be attached on the human body which will make the human motions more constrained. 
+
+Monocular cameras and laser rangefinders could be used for understanding human motions however each of them has advantages and disadvantages. The RGB-D cameras combining the strengths of optical cameras and laser range finders enable a complete perception solution. RGB-D cameras\cite{ren2013change} are active sensors that provide high resolution dense color and depth information at real time frame rates.
+\begin{figure}[H]
+\centering
+%\begin{subfigure}[b]{0.5\textwidth}
+\includegraphics[width=0.5\textwidth]{assets/kinectv2_parts.eps}
+%\caption{Kinect for Windows V2}
+\label{fig:kinectv2}
+%\end{subfigure}%
+\caption[Kinect for Windows V2]{Kinect for Windows V2. {Adopted from manufacturer's site}}
+%\label{fig:rgbd_sensors}
+\end{figure}
+
+A list of depth sensors available in the market along with their technical specification is shown in Table~\ref{table:rgbd_sensors} in Appendix~\ref{AppendixA}. Among them the Microsoft Kinect V2 \cite{Kinect2014} sensor has promising specifications and price. The Kinect comes with a powerful SDK \cite{KinectSDK2014} capable of performing skeleton tracking of upto 6 people (25 joints each) simultaneously out of the box. It also comes with the face detection, expression detection, gesture recognition and hand tracking. Additionally it has a microphone array which could be used for speech recognition using the Microsoft Speech SDK. It is also possible to build complex gestures using the Visual gesture builder and train the sensor to detect when it sees them later. 
+
+\subsection{Humanoid robot}
+Apart from a good perception system, we also need a very good humanoid robotics platform for evaluating the effectiveness of the system. It will be an added advantage if the chosen robotics platform is capable of exhibiting social behaviors and has already been accepted by a huge community of researchers and end-users. In recent times, the Nao humanoid robot \cite{NaoTheRobot} has been showing tremendous potential for its use in HRI studies. The robot NAO was developed in the year 2006 by Albebaran Robotics, the company which has proved itself in the development of interactive social robots.
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{0.25\textwidth}
+\includegraphics[width=\textwidth]{assets/nao_image1.jpg}
+\caption{Robot appearance}
+\label{fig:naojoint}
+\end{subfigure}
+\begin{subfigure}[b]{0.25\textwidth}
+\includegraphics[width=\textwidth]{assets/hardware_inertialunit1.png}
+\caption{Torso reference frame}
+\label{fig:naoreference}
+\end{subfigure}
+\caption[NAO Humanoid Robot]{NAO Humanoid Robot. {Adopted from \cite{NaoTheRobot}}}
+\label{fig:naorobot}
+\end{figure}%
+The intended scenarios include reception, assistance, home care, entertainment and even autism therapy. The technical specifications of the robot is shown in Fig~\ref{table:nao_spec}
+\begin{table}[H]
+\centering
+\small
+\caption{NAO humanoid platform technical specifications}
+\label{table:nao_spec}
+    \begin{tabular}{ | l | p{12cm} |}
+    \hline
+    \textbf{Category} & \textbf{Specification} \\
+   \hline
+  Version & NAO V50 H25 \\
+                                          \hline
+  Hardware & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item Body: 58 cm tall, 25 DOF composed of electric motors and actuators
+  							\item Sensors: two cameras, four directional microphones, sonar rangefinder, two IR emitters and receivers, one inertial board, nine tactile sensors and eight pressure sensors
+  							\item Communication devices: Voice synthesizer, LED lights, and 2 high-fidelity speakers
+  							\item CPU: Intel ATOM 1.6ghz CPU 
+  							\item Connectivity ; Ethernet and Wi-Fi
+  							\item Power: 48.6-watt-hour battery that provides NAO with 1.5 or more hours of autonomy, depending on usage \end{itemize} \\
+                                          \hline
+                                          
+  Motion  & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item Cartesian and Joint control. \item Omnidirectional walking, Whole body motion and Fall Manager \end{itemize} \\
+                                          \hline
+  
+  Vision & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item Track, learn \& recognize images and faces. \item OpenCV support \end{itemize} \\
+                                          \hline
+
+  Audio & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item Sound Source Localization, Speech/Speaker recognition. \item Supports 19 languages.\end{itemize} \\
+                                          \hline
+  Software & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] \item OS: Linux kernel and supports NAOqi middleware
+  							\item Tools: Choregraphe \cite{pot2009choregraphe} for designing behaviors
+  							\item SDKs: C++/Python SDK for application developers \end{itemize} \\
+                                          \hline
+    \end{tabular}
+\end{table}
 
 \section{Main contributions}
 \label{sec:contributions}
