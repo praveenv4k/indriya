@@ -168,9 +168,12 @@ class NaoBehaviorModule:
         #        except:
         #            print "Exception occured while execution ", sys.exc_info()
 
-        if (language is '') or (self.language is None):
+        if (language is '') and (self.language is None):
             # Try to detect language
             language = 'English'
+        else:
+            if self.language is not None:
+                language = self.language
 
         if language is not '' and msg is not '':
             proxy = self.getAnimatedSayProxy()

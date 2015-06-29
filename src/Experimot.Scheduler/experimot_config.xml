@@ -17,7 +17,7 @@
     <param key="DateTimeFormatString" value="yyyy/MM/dd HH:mm:ss.fff" type="string"/>
     
     <param key="NAO-A-ROBOTIP" value="127.0.0.1" type="string"/>
-    <param key="NAO-A-ROBOTPORT" value="61549" type="int"/>
+    <param key="NAO-A-ROBOTPORT" value="52721" type="int"/>
     <!--<param key="NAO-A-ROBOTIP" value="192.168.11.51" type="string"/>
     <param key="NAO-A-ROBOTPORT" value="9559" type="int"/>-->
 
