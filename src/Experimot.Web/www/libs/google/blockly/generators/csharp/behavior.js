@@ -149,6 +149,40 @@ Blockly.CSharp['behavior_composable'] = function(block) {
     //return code;
 };
 
+Blockly.CSharp['behavior_composable_simple'] = function(block) {
+    var textBehaviorName = block.getFieldValue('behavior_name');
+    var trigger = Blockly.CSharp.valueToCode(this, 'trigger', Blockly.CSharp.ORDER_ATOMIC);
+    var statementsDo = Blockly.CSharp.statementToCode(block, 'DO');
+
+    var dropdownPriorities = block.getFieldValue('priorities');
+    var execution = block.getFieldValue('execution');
+
+    var inputExists = block.getInput('RUN_UNTIL');
+    var executeLogic = undefined;
+    if (inputExists) {
+        executeLogic = Blockly.CSharp.valueToCode(this, 'RUN_UNTIL', Blockly.CSharp.ORDER_ATOMIC);
+    }
+    var lifeTime = 'ExecutionLifetime = BehaviorExecutionLifetime.' + execution + ';\n';
+
+    var guid = generateUUID();
+    var priority = 'Priority = BehaviorExecutionPriority.' + dropdownPriorities + ';\n';
+
+    var template = getURL('data/templates/BehaviorTemplate.cs');
+
+    var className = 'Behavior_' + guid;
+    var replaced = template.replace('// CYCLIC_BLOCK_HERE', statementsDo);
+    var replaced4 = replaceAll('BehaviorTemplate', className, replaced);
+    var replaced5 = replaced4.replace('// SET_PRIORITY_HERE', priority);
+    var replaced6 = replaced5.replace('// SET_TRIGGER_HERE', trigger);
+    var replaced7 = replaced6.replace('// SET_EXECUTION_LIFETIME_HERE', lifeTime);
+    var uid = 'Uid = \"' + guid + '\";\n';
+    var replaced8 = replaced7.replace('// SET_UID_HERE', uid);
+    if (executeLogic != undefined) {
+        replaced8 = replaced8.replace('// EXECUTE_UNTIL_HERE', 'return ' + executeLogic + ';');
+    }
+    return replaced8;
+};
+
 Blockly.CSharp['behavior_simple_count'] = function(block) {
     var textBehaviorName = block.getFieldValue('behavior_name');
     var dropdownTriggers = block.getFieldValue('triggers');

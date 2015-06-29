@@ -1,0 +1,154 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_startup" id="41" x="163" y="38">
+    <statement name="DO">
+      <block type="robot_action" id="48">
+        <field name="actions">stand</field>
+        <field name="ROBOT">Hiro</field>
+        <next>
+          <block type="animated_say_action" id="57">
+            <field name="SAY_TEXT">Hello! I am Nao!</field>
+            <field name="ROBOT">Hiro</field>
+            <next>
+              <block type="animated_say_action" id="58">
+                <field name="SAY_TEXT">The doctor asked me to guide your therapy today!</field>
+                <field name="ROBOT">Hiro</field>
+                <next>
+                  <block type="animated_say_action" id="59">
+                    <field name="SAY_TEXT">At first I will demonstrate the exercise routine</field>
+                    <field name="ROBOT">Hiro</field>
+                    <next>
+                      <block type="therapy_action" id="66">
+                        <field name="therapy_exercise">liftLeftHand</field>
+                        <field name="ROBOT">Hiro</field>
+                        <next>
+                          <block type="animated_say_action" id="67">
+                            <field name="SAY_TEXT">Please do this exercise five times. I will count for you!</field>
+                            <field name="ROBOT">Hiro</field>
+                            <next>
+                              <block type="animated_say_action" id="68">
+                                <field name="SAY_TEXT">Make yourself comfortable</field>
+                                <field name="ROBOT">Hiro</field>
+                                <next>
+                                  <block type="animated_say_action" id="69">
+                                    <field name="SAY_TEXT">Start doing the routine slowly</field>
+                                    <field name="ROBOT">Hiro</field>
+                                    <next>
+                                      <block type="variables_set" id="84" inline="true">
+                                        <field name="VAR">count</field>
+                                        <value name="VALUE">
+                                          <block type="math_number" id="89">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="74" inline="false" x="163" y="363">
+    <mutation run_until="true" run_logic="(count &lt;= 5)"></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">until</field>
+    <value name="trigger">
+      <block type="trigger" id="81">
+        <field name="MOTION_TRIGGER">LiftHand_Left</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="controls_if" id="97" inline="false">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id="109" inline="true">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="114">
+                <field name="VAR">count</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="119">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="animated_say_action_arg" id="132" inline="true">
+            <mutation say_arg="count"></mutation>
+            <field name="PREFIX_TEXT">You have completed the exercise</field>
+            <field name="SUFFIX_TEXT"> time!</field>
+            <field name="ROBOT">Hiro</field>
+            <value name="ARG_NAME">
+              <block type="variables_get" id="133">
+                <field name="VAR">count</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="animated_say_action_arg" id="134" inline="true">
+            <mutation say_arg="count"></mutation>
+            <field name="PREFIX_TEXT">You have completed the exercise</field>
+            <field name="SUFFIX_TEXT"> times!</field>
+            <field name="ROBOT">Hiro</field>
+            <value name="ARG_NAME">
+              <block type="variables_get" id="135">
+                <field name="VAR">count</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="RUN_UNTIL">
+      <block type="logic_compare" id="153" inline="true">
+        <field name="OP">LTE</field>
+        <value name="A">
+          <block type="variables_get" id="154">
+            <field name="VAR">count</field>
+          </block>
+        </value>
+        <value name="B">
+          <block type="math_number" id="159">
+            <field name="NUM">5</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="behavior_exit" id="162" x="163" y="688">
+    <statement name="DO">
+      <block type="animated_say_action" id="176">
+        <field name="SAY_TEXT">You did a great job today!</field>
+        <field name="ROBOT">Hiro</field>
+        <next>
+          <block type="animated_say_action" id="177">
+            <field name="SAY_TEXT">I am looking forward to guide you next time.</field>
+            <field name="ROBOT">Hiro</field>
+            <next>
+              <block type="animated_say_action" id="178">
+                <field name="SAY_TEXT">Thank you and have a nice day!</field>
+                <field name="ROBOT">Hiro</field>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

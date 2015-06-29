@@ -880,6 +880,91 @@ Blockly.Blocks['behavior_composable'] = {
     }
 };
 
+Blockly.Blocks['behavior_composable_simple'] = {
+    init: function () {
+
+        var priorityDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.PriorityProperties, function (option) {
+
+        });
+
+        var executionDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.ExecutionProperties, function (option) {
+            var runUntilInput = (option == 'until');
+            this.sourceBlock_.updateShape_(runUntilInput);
+        });
+
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setColour(210);
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Behavior Name")
+            .appendField(new Blockly.FieldTextInput("default"), "behavior_name");
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Execution Priority")
+            .appendField(priorityDropdown, "priorities");
+        this.appendValueInput("trigger")
+            .setCheck("Boolean")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("trigger");
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_CENTRE)
+            .appendField("Robot actions");
+        this.appendStatementInput("DO");
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Execute")
+            .appendField(executionDropdown, "execution");
+
+        this.setTooltip('');
+    },
+    /**
+  * Create XML to represent whether the 'divisorInput' should be present.
+  * @return {Element} XML storage element.
+  * @this Blockly.Block
+  */
+    mutationToDom: function () {
+        var container = document.createElement('mutation');
+        var runUntilInput = (this.getFieldValue('execution') == 'until');
+        container.setAttribute('run_until', runUntilInput);
+        if (runUntilInput) {
+            Blockly.CSharp.init(this.workspace);
+            container.setAttribute('run_logic', Blockly.CSharp.valueToCode(this, 'RUN_UNTIL', Blockly.CSharp.ORDER_ATOMIC));
+        } else {
+            container.setAttribute('run_logic', '');
+        }
+        return container;
+    },
+    /**
+     * Parse XML to restore the 'divisorInput'.
+     * @param {!Element} xmlElement XML storage element.
+     * @this Blockly.Block
+     */
+    domToMutation: function (xmlElement) {
+        var runUntilInput = (xmlElement.getAttribute('run_until') == 'true');
+        this.updateShape_(runUntilInput);
+    },
+    /**
+   * Modify this block to have (or not have) an input for 'is divisible by'.
+   * @param {boolean} divisorInput True if this block has a divisor input.
+   * @private
+   * @this Blockly.Block
+   */
+    updateShape_: function (runUntilInput) {
+        // Add or remove a Value Input.
+        var inputExists = this.getInput('RUN_UNTIL');
+        if (runUntilInput) {
+            if (!inputExists) {
+                this.appendValueInput('RUN_UNTIL')
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField("Execute until condition")
+                    .setCheck('Boolean');
+            }
+        } else if (inputExists) {
+            this.removeInput('RUN_UNTIL');
+        }
+    }
+};
+
 Blockly.Blocks['gesture_trigger'] = {
     init: function() {
         var gestureDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.GestureProperties, function(option) {
