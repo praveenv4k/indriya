@@ -88,6 +88,29 @@ Blockly.Blocks.behaviors.GestureProperties =
     ["LiftRightHand", "LiftHand_Right"]
 ];
 
+Blockly.Blocks.behaviors.Languages =
+[
+    ["English", 'English'],
+    ["Japanese", 'Japanese'],
+    ["French", 'French'],
+    ["Italian", "Italian"],
+    ["Chinese", "Chinese"],
+    ["Spanish", "Spanish"]
+];
+
+Blockly.Blocks.behaviors.StandardBehaviors =
+[
+    ["Greet", "greet"],
+    ["LyingBelly", 'LyingBelly'],
+    ["Sit Relax", 'Sit Relax'],
+    ["Stand", 'Stand'],
+    ["Crouch", "Crouch"],
+    ["LyingBack", "LyingBack"],
+    ["Sit", "Sit"],
+    ["LabIntroduction", "LabIntroduction"],
+    ["Dance", "Dance"]
+];
+
 Blockly.Blocks.behaviors.Robots =
 [
     ["Hiro", 'Hiro'],
@@ -1067,12 +1090,15 @@ Blockly.Blocks['wait_voice_response'] = {
 };
 
 Blockly.Blocks['robot_action'] = {
-    init: function() {
+    init: function () {
+        var standardBehaviors = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.StandardBehaviors, function (option) {
+        });
+
         this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(225);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(new Blockly.FieldDropdown([["Greet", "greet"], ["Crouch", "crouch"], ["Stand", "stand"], ["Wish", "wish"], ["LabIntroduction", "introduction"], ["LookAt", "look_at"]]), "actions");
+            .appendField(standardBehaviors, "actions");
         var robots = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.Robots, function (option) {
         });
         this.appendDummyInput()
@@ -1082,6 +1108,28 @@ Blockly.Blocks['robot_action'] = {
         this.setInputsInline(true);
         this.setNextStatement(true, "robot_action");
         this.setTooltip('Robot Action response');
+    }
+};
+
+Blockly.Blocks['set_language'] = {
+    init: function () {
+        var languages = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.Languages, function (option) {
+        });
+
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setColour(225);
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField(languages, "language");
+        var robots = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.Robots, function (option) {
+        });
+        this.appendDummyInput()
+            .appendField(" for robot: ")
+            .appendField(robots, "ROBOT");
+        this.setPreviousStatement(true);
+        this.setInputsInline(true);
+        this.setNextStatement(true, "robot_action");
+        this.setTooltip('Set the robot spoken language');
     }
 };
 

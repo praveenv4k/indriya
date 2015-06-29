@@ -16,6 +16,7 @@ class NaoBehaviorModule:
         self.data = []
         self.ROBOT_IP = robot_ip
         self.ROBOT_PORT = robot_port
+        self.language = None
 
     def getPostureProxy(self):
         return ALProxy("ALRobotPosture", self.ROBOT_IP, self.ROBOT_PORT)
@@ -132,6 +133,16 @@ class NaoBehaviorModule:
         if language in lang:
             proxy.setLanguage(language)
 
+    def action_setLanguage(self, params):
+        language = params.get('lang','')
+        proxy = self.getTextToSpeechProxy()
+        languages = proxy.getAvailableLanguages()
+        if language in languages:
+            self.language = language
+            id = proxy.post.setLanguage(language)
+            return [id,proxy]
+        return []
+
     def action_executeBehavior(self,params):
         name = params.get('name','')
         if name is not '':
@@ -157,7 +168,7 @@ class NaoBehaviorModule:
         #        except:
         #            print "Exception occured while execution ", sys.exc_info()
 
-        if language is '':
+        if (language is '') or (self.language is None):
             # Try to detect language
             language = 'English'
 
@@ -321,6 +332,9 @@ class NaoBehaviorModule:
 
         cap_dict['Take Rest']= {'function':'action_rest',
                                        'args':{'val':self.createArg(0.0,False,'float')}}
+
+        cap_dict['Set Language']= {'function':'action_setLanguage',
+                                       'args':{'lang':self.createArg(0.0,True,'string')}}
 
         cap_dict['Say Expressively']= {'function':'action_sayExpressively',
                               'args':{'lang':self.createArg('',True),
