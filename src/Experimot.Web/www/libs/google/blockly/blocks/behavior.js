@@ -1085,6 +1085,47 @@ Blockly.Blocks['robot_action'] = {
     }
 };
 
+Blockly.Blocks['turn_action'] = {
+    init: function () {
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setColour(225);
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Turn ")
+            .appendField(new Blockly.FieldDropdown([["Left", "left"], ["Right", "right"], ["Around", "around"]]), "actions");
+        var robots = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.Robots, function (option) {
+        });
+        this.appendDummyInput()
+            .appendField(" with robot: ")
+            .appendField(robots, "ROBOT");
+        this.setPreviousStatement(true);
+        this.setInputsInline(true);
+        this.setNextStatement(true, "robot_action");
+        this.setTooltip('Robot Action response');
+    }
+};
+
+Blockly.Blocks['move_action'] = {
+    init: function () {
+        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setColour(225);
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Move ")
+            .appendField(new Blockly.FieldTextInput("0.5"), "distance")
+            .appendField("metres");
+        var robots = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.Robots, function (option) {
+        });
+        this.appendDummyInput()
+            .appendField(" with robot: ")
+            .appendField(robots, "ROBOT");
+        this.setPreviousStatement(true);
+        this.setInputsInline(true);
+        this.setNextStatement(true, "robot_action");
+        this.setTooltip('Robot Action response');
+    }
+};
+
 Blockly.Blocks['approach_action'] = {
     init: function() {
         this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');

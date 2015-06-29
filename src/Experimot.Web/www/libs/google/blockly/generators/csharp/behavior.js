@@ -407,6 +407,73 @@ Blockly.CSharp['approach_action'] = function(block) {
     return genCode;
 };
 
+Blockly.CSharp['turn_action'] = function (block) {
+    var direction = block.getFieldValue('actions');
+    var angle = 0;
+    if (direction === 'left') {
+        angle = Math.PI / 2;
+    }else if (direction === 'right') {
+        angle = -Math.PI / 2;
+    }else if (direction === 'around') {
+        angle = Math.PI;
+    }
+
+    var robotName = block.getFieldValue('ROBOT');
+
+    // Pure rotation
+    var newVarName1 = generateUniqueVarName();
+    var behavior1 = 'var ' + newVarName1 +
+        '= new BehaviorInfo\n' +
+        '{\n' +
+        'BehaviorName = "Move To",\n' +
+        'RobotName = \"' + robotName + '\",' +
+        'Parameters = new Dictionary<string, object>\n' +
+        '{\n' +
+        '{"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, false, "float")},\n' +
+        '{"y", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, false, "float")},\n' +
+        '{"theta", BehaviorModuleHelper.CreateBehaviorParameterOptions('+angle+', false, "float")}\n' +
+        '}\n' +
+        '};\n';
+
+
+    var genCode = behavior1 + '\n';
+    genCode += 'BehaviorModuleHelper.Execute(context, ' + newVarName1 + ');\n';
+
+    return genCode;
+};
+
+Blockly.CSharp['move_action'] = function(block) {
+    var value = block.getFieldValue('distance');
+
+    var robotName = block.getFieldValue('ROBOT');
+
+    var dist = parseFloat(value);
+    var genCode = '';
+    if (!isNaN(dist)) {
+        // Pure translation
+        var newVarName1 = generateUniqueVarName();
+        var behavior1 = 'var ' + newVarName1 +
+            '= new BehaviorInfo\n' +
+            '{\n' +
+            'BehaviorName = "Move To",\n' +
+            'RobotName = \"' + robotName + '\",' +
+            'Parameters = new Dictionary<string, object>\n' +
+            '{\n' +
+            '{"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + dist + ', false, "float")},\n' +
+            '{"y", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, false, "float")},\n' +
+            '{"theta", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, false, "float")}\n' +
+            '}\n' +
+            '};\n';
+        genCode = behavior1 + '\n';
+        genCode += 'BehaviorModuleHelper.Execute(context, ' + newVarName1 + ');\n';
+    } else {
+        alert('Move action: distance should be a number');
+    }
+
+
+    return genCode;
+};
+
 Blockly.CSharp['therapy_action'] = function(block) {
     var therapyName = block.getFieldValue('therapy_exercise');
     var robotName = block.getFieldValue('ROBOT');
