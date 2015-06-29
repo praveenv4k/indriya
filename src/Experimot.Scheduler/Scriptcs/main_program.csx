@@ -56,7 +56,7 @@ else
 		scheduler.Shutdown();
 	}
 	catch(Exception ex){
-		Console.WriteLine("Exception occured : {0}", ex.StackTrace);
+		Console.WriteLine("Exception occured : {0} - {1}",ex.Message, ex.StackTrace);
 	}
 	Console.WriteLine("Program Terminating ... ");
 	Console.WriteLine("Press any key to continue ...");

@@ -1,11 +1,21 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using Common.Logging;
+using CsvHelper;
 using Quartz;
 // ReSharper disable CheckNamespace
 // ReSharper disable FunctionComplexityOverflow
+
+public class ProgramAnalytics
+{
+    public string Name { get; set; }
+    public DateTime StartTime { get; set; }
+    public DateTime FinishTime { get; set; }
+    public TimeSpan Duration { get; set; }
+}
 
 public class BehaviorExecutionEngine:IJobListener
 {
@@ -305,7 +315,21 @@ public class BehaviorExecutionEngine:IJobListener
 
     public void Run()
     {
+        var dir = Directory.GetCurrentDirectory();
+        var logFolder = Path.Combine(dir, "log");
+        if (!Directory.Exists(logFolder))
+        {
+            Directory.CreateDirectory(logFolder);
+        }
+        var programBackup = Path.Combine(logFolder, "programs");
+        if (!Directory.Exists(programBackup))
+        {
+            Directory.CreateDirectory(programBackup);
+        }
+
         Log.Info(@"Running ...");
+
+        var start = DateTime.Now;
 
         // Startup Behavior Execution
         ExecuteInitExitBlock("StartupBehavior");
@@ -315,6 +339,45 @@ public class BehaviorExecutionEngine:IJobListener
 
         // Exit Behavior Execution
         ExecuteInitExitBlock("ExitBehavior");
+
+        var end = DateTime.Now;
+
+        Log.Info("Program Analytics");
+        Log.InfoFormat("Current directory : {0}", dir);
+        Log.InfoFormat("Start Time: {0}", start);
+        Log.InfoFormat("Finish Time: {0}", end);
+        Log.InfoFormat("Duration : {0}", end - start);
+
+        var fileName = Path.Combine(dir, "GeneratedProgram.csx");
+        if (File.Exists(fileName))
+        {
+            try
+            {
+                var dstName = start.ToString("yyyyMMddHHmmss");
+
+                File.Copy(fileName, Path.Combine(programBackup, string.Concat(dstName, ".csx")));
+
+                var analytics = new ProgramAnalytics
+                {
+                    Name = dstName,
+                    StartTime = start,
+                    FinishTime = end,
+                    Duration = end - start
+                };
+
+                using (var writer = File.AppendText(Path.Combine(logFolder, "ProgramAnalytics.csv")))
+                {
+                    using (var csv = new CsvWriter(writer))
+                    {
+                        csv.WriteRecord(analytics);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.InfoFormat("Exception Message: {0}, StackTrace: {1}", ex.Message, ex.StackTrace);
+            }
+        }
     }
 
     public static IList<Type> GetTypes(string className)
