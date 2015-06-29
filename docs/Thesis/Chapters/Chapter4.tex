@@ -59,9 +59,9 @@ The parameter server acts as a central repository for managing the parameters of
 \begin{table}[H]
 \centering
 \small
-\caption{Parameter Server Interface Specification}
+\caption{Parameter server interface specification}
 \label{table:parameter_server}
-\begin{tabular}{| p{3.3cm} | p{7.4cm} | p{2.8cm} |}
+\begin{tabular}{| p{3.1cm} | p{7.4cm} | p{2.8cm} |}
 \hline
   \textbf{Request Description} & \textbf{Request Arguments} & \textbf{Response}
   \tabularnewline \hline
@@ -222,8 +222,7 @@ The database is imported into the gesture recognition module and the responsibil
  \label{alg:gesture_recognize}
 \end{algorithm}
 \subsection{Robot interface node} 
-The Robot interface node is a dedicated node that interacts with a specific robot and can invoke a set of actions on it.  It registers a set of actions that could be invoked on the robot associated with it. The robot interface node sets up a publisher that periodically sends the information about the robot status like joint values, sensor information to the application to keep the context uptodate. Additionally it sets up a responder socket which will wait for action execution request from the remote node. The robot interface node dedicated to Nao humanoid robot is described in Section~\ref{sssec:nao_interface}
-
+The Robot interface node is a dedicated node that interacts with a specific robot and can invoke a set of actions on it.  It registers a set of actions that could be invoked on the robot associated with it. The robot interface node sets up a publisher that periodically sends the information about the robot status like joint values, sensor information to the application to keep the context uptodate. Additionally it sets up a responder socket which will wait for action execution request from the remote node. 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[->,shorten >=1pt,auto,node distance=4cm,thick]
@@ -236,44 +235,63 @@ The Robot interface node is a dedicated node that interacts with a specific robo
 \node[state] (E) [below right of=C] {$run$};
 \node[state] (F) [below right of=A] {$stop$};
 \path 
-(A) edge [bend right] node {\textbf{start\_req}} (B)
+(A) edge [bend right] node {\textbf{on\_start\_req}} (B)
     %edge [loop below] node {} (A)
     
 (B) edge node {\textbf{on\_args}} (D)
     edge [left,bend left] node {\textbf{on\_err}} (C)
     %edge [loop above] node {} (B)
     
-(C) edge node {\textbf{reset}} (A)
+(C) edge node {\textbf{on\_reset}} (A)
     %edge [loop above] node {1,0,R} (C)
     
-(D) edge [bend left] node {\textbf{run\_req}} (E)
+(D) edge [bend left] node {\textbf{on\_run\_req}} (E)
   edge [right,bend right] node {\textbf{on\_err}} (C)
   %edge [loop above] node {1,1,R} (E)
 
-(E) edge [bend left=70] node {\textbf{task\_fin}} (A)
-    edge node {\textbf{stop\_req}} (F)
+(E) edge [bend left=70] node {\textbf{on\_task\_fin}} (A)
+    edge node {\textbf{on\_stop\_req}} (F)
     edge [right,bend left] node {\textbf{on\_err}} (C)
     
 (F) edge [left,bend right] node {\textbf{on\_err}} (C)
-    edge  [bend right] node {\textbf{stopped}} (A)  
+    edge  [bend right] node {\textbf{on\_stopped}} (A)  
     %edge [loop below] node {1,0,R} (E)
 ;
 \end{tikzpicture}
 \caption[Finite state machine of robot interface node]{Finite state machine of robot interface node}
 \label{fig:robot_fsm}
 \end{figure}
-
+The robot interface node implements a Finite state machine (Figure~\ref{fig:robot_fsm}) in order appropriately streamline the data/status management with the remote caller node. The states of the FSM are
+\begin{itemize}
+\item \emph{idle:} The robot is ready to receive new execution request.
+\item \emph{wait:} The node is waiting for the action execution arguments.
+\item \emph{error:} The node/robot has encountered an error during execution.
+\item \emph{ready:} The robot is waiting for the run trigger.
+\item \emph{run:} The robot is executing the requested task.
+\item \emph{stop:} The robot is stopping execution
+\end{itemize}
+Each of the above states has a self loop when waiting for the state transition trigger. It is not shown in the figure for brevity. The events that causes the state transition in the FSM are
+\begin{itemize}
+\item \emph{on\_start\_req:} Received start execution request
+\item \emph{on\_args:} Received task execution arguments.
+\item \emph{on\_run\_req:} Received run task request.
+\item \emph{on\_task\_fin:} Task execution completed
+\item \emph{on\_stop\_req:} Received stop execution request. This is served with high priority.
+\item \emph{on\_stopped:} The task stop operation completed
+\item \emph{on\_reset:} Received error reset request
+\item \emph{on\_err:} An error occured during the execution
+\end{itemize}
+The robot interface node dedicated to Nao humanoid robot is described in Section~\ref{sssec:nao_interface}
 \subsubsection{NAO Robot Interface}
 \label{sssec:nao_interface}
 The Nao robot interface makes use of the NaoQi python SDK which provides API for accessing various functionalities of the robot such as joint/cartesian control, memory access, motion, speech, object/face/people detection and tracking, behavior invocation etc., A set of necessary functions are implemented in the NaoBehaviorModule and they are registered to the application when the node is started up. The control flow is shown in Figure~\ref{fig:nao_interface}.
-
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\textwidth]{assets/NaoBehaviorModule.eps}
 \caption[NAO Robot Interface]{NAO Robot Interface}
 \label{fig:nao_interface}
 \end{figure}
-
+The visual representation of a set of action blocks developed for Nao humanoid robot is illustrated in Section~\ref{sec:block_impl}
 % \begin{center}
 % \begin{tikzpicture}[scale=0.2]
 % \tikzstyle{every node}+=[inner sep=0pt]
@@ -331,13 +349,9 @@ The Nao robot interface makes use of the NaoQi python SDK which provides API for
 % \draw (39.49,-38.08) node [right] {$ON\_ERR$};
 % \end{tikzpicture}
 % \end{center}
-
-
 \subsection{Localization Node} A dedicated node which uses the perception system to resolve and publish the current position of the robot.
-
 \subsubsection{NAO Robot localization}
 The fiducial marker based approach is used in order to localize the robot in the field of view of the Kinect sensor. The ALVAR \cite{ALVAR} toolkit is used for marker detection purpose which relies on OpenCV library for image processing. The OpenCV library cannot directly read the image streams from Kinect sensor and hence a OpenCV compatible driver is implemented to read the RGB image streams. The first step in the marker detection is to calibrate the camera in order to get its intrinsic parameters and the calibration parameters are stored in an XML file. A set of supported markers of known identifiers are chosen and a cube of known geometry is created. The cube is designed in such a way that at any instant atleast one of the markers will be detected if the robot is in the detectable range of the camera. The cube is mounted on the head of NAO robot since it will avoid the problem of occlusion in most cases. However since the head of the NAO has 2 DOF which will result in the movement of mounted cube even if the robot itself does not move. In order to overcome this problem, a kinematic model of the NAO humanoid robot from torso frame to tip of the head frame parameterized using Modified Denavit Hartenberg (MDH) \cite{khalil2004modeling} parameters is used. The MDH parameters are shown in Table~\ref{table:nao_mdh}.
-
 \begin{table}[H]
 \centering
 \small
@@ -377,10 +391,8 @@ The fiducial marker based approach is used in order to localize the robot in the
 \caption[NAO robot localization]{NAO robot localization}
 \label{fig:nao_localization}
 \end{figure}
-
 \subparagraph{Modeling}
 For computing the absolute pose of the torso frame of the robot with respect to the world frame, the coordinate frames shown in Figure~\ref{fig:nao_localization} is used. 
-
 \begin{tabular}{r l}
 \centering
   Kinect Frame & $F_K$ \\ 
@@ -389,9 +401,7 @@ For computing the absolute pose of the torso frame of the robot with respect to 
   World Frame & $F_W$ \\ 
   Transformation Matrices  & ($^{K}T_M$,$^{T}T_M$,$^{K}T_W$,$^{W}T_T$) \\
 \end{tabular}
-
 The algorithm for the computation given the marker parameters, calibration information of the camera, MDH parameters (Table~\ref{table:nao_mdh}) and the joint values ($\theta_1,\theta_2$) at each time instant is shown in Algorithm~\ref{alg:localize}.
-
 \begin{algorithm}
  \KwData{marker\_size, cube\_size, MDH\_Params}
  \KwResult{TORSO\_POSE}
@@ -413,7 +423,6 @@ The algorithm for the computation given the marker parameters, calibration infor
  \caption{Localization Algorithm}
  \label{alg:localize}
 \end{algorithm}
-
 \section{Behavior Program} 
 \label{ssec:behavior_program}
 A dynamic component that will be created when the user starts the program he/she designed using the user interface. The declarative description of the behavior is parsed in order to create a memory model. The Behavior program node monitors the application context for the motion triggers and invokes the corresponding robot actions according to the way it is being described in the program.
@@ -465,6 +474,7 @@ The behavior program is structured in a simple way so that it could be easily un
 \item \emph{Exit behavior}: The exit block will be executed once when the lifetime of all the configured behavior blocks expire. Like the startup block there could be only one exit block in the program.
 \end{itemize}
 \subsection{Block level implementation}
+\label{sec:block_impl}
 The visual blocks corresponding to each of the startup, trigger and exit behaviors are implemented. The complex programs could be composed by putting together these blocks. The startup and exit blocks are shown in Fig~\ref{fig:blocks_init}. As could be seen from the figure, the blocks are quite simple making it possible to put the list of statements consisting of initialization and termination logic of the program. 
 \begin{figure}[H]
 \centering
