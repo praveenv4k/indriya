@@ -1,0 +1,73 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_composable_simple" id="3" inline="false" x="63" y="38">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">normal</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="trigger" id="7">
+        <field name="MOTION_TRIGGER">Greet_Left</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="approach_action" id="17">
+        <field name="approach_distance">1.50</field>
+        <field name="ROBOT">Hiro</field>
+        <next>
+          <block type="robot_action" id="25">
+            <field name="actions">wish</field>
+            <field name="ROBOT">Hiro</field>
+            <next>
+              <block type="animated_say_action" id="32">
+                <field name="SAY_TEXT">I am Nao! Welcome to Edo-Tokyo museum.</field>
+                <field name="ROBOT">Hiro</field>
+                <next>
+                  <block type="animated_say_action" id="33">
+                    <field name="SAY_TEXT">The Edo-Tokyo museum is a museum of the history of Tokyo during the Edo period</field>
+                    <field name="ROBOT">Hiro</field>
+                    <next>
+                      <block type="animated_say_action" id="34">
+                        <field name="SAY_TEXT">It was established in 1993</field>
+                        <field name="ROBOT">Hiro</field>
+                        <next>
+                          <block type="animated_say_action" id="35">
+                            <field name="SAY_TEXT">It has lifetime replica of the Nihonbashi, which was the bridge leading into Edo</field>
+                            <field name="ROBOT">Hiro</field>
+                            <next>
+                              <block type="animated_say_action" id="36">
+                                <field name="SAY_TEXT">It also has scaled down models of towns and building from the Edo, Meiji and Showa periods</field>
+                                <field name="ROBOT">Hiro</field>
+                                <next>
+                                  <block type="animated_say_action" id="37">
+                                    <field name="SAY_TEXT">The museum was designed by Kiyonori Kikutake</field>
+                                    <field name="ROBOT">Hiro</field>
+                                    <next>
+                                      <block type="animated_say_action" id="38">
+                                        <field name="SAY_TEXT">I hope you will enjoy your visit to Edo-Tokyo museum</field>
+                                        <field name="ROBOT">Hiro</field>
+                                        <next>
+                                          <block type="animated_say_action" id="39">
+                                            <field name="SAY_TEXT">Have a nice day!</field>
+                                            <field name="ROBOT">Hiro</field>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
