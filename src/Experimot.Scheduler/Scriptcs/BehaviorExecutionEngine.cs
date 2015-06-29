@@ -12,7 +12,7 @@ public class BehaviorExecutionEngine:IJobListener
     private static readonly ILog Log = LogManager.GetLogger(typeof (BehaviorExecutionEngine));
     private readonly string _contextServer;
     private readonly IScheduler _scheduler;
-    private const int Period = 200;
+    private const int Period = 50;
 
     public string ContextServer
     {

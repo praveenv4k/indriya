@@ -215,12 +215,8 @@ Blockly.CSharp['behavior_simple_count'] = function(block) {
 
 Blockly.CSharp['behavior_startup'] = function (block) {
     var statementsDo = Blockly.CSharp.statementToCode(block, 'DO');
-    var code = 'function behavior_startup(){\n';
-    code += statementsDo;
-    code += '}\n';
 
     var template = getURL('data/templates/StartupBehaviorTemplate.cs');
-    //console.log(template);
 
     var replaced = template.replace('// STARTUP_BLOCK_HERE', statementsDo);
     var replaced2 = replaced.replace('StartupBehaviorTemplate', 'StartupBehavior');
@@ -230,9 +226,6 @@ Blockly.CSharp['behavior_startup'] = function (block) {
 
 Blockly.CSharp['behavior_exit'] = function (block) {
     var statementsDo = Blockly.CSharp.statementToCode(block, 'DO');
-    var code = 'function behavior_exit(){\n';
-    code += statementsDo;
-    code += '}\n';
 
     var template = getURL('data/templates/ExitBehaviorTemplate.cs');
 
@@ -261,7 +254,6 @@ Blockly.CSharp['behavior'] = function (block) {
 Blockly.CSharp['robot_action'] = function (block) {
     var dropdownActions = block.getFieldValue('actions');
     var robotName = block.getFieldValue('ROBOT');
-    var code = 'do_action(""' + dropdownActions + '"");\n';
     
     var newVarName = generateUniqueVarName();
     var behavior = 'var ' + newVarName +
@@ -279,10 +271,6 @@ Blockly.CSharp['robot_action'] = function (block) {
 Blockly.CSharp['animated_say_action'] = function(block) {
     var sayMsg = block.getFieldValue('SAY_TEXT');
     var robotName = block.getFieldValue('ROBOT');
-    //var name = Blockly.Variables.generateUniqueName(block.workspace);
-    //var code = 'var ' + name + ' = \"' + sayMsg + '\";\n';
-    //code += 'animated_say(' + name + ');\n';
-    var code = 'animated_say(""' + sayMsg + '"");\n';
 
     var newVarName = generateUniqueVarName();
     var behavior = 'var ' + newVarName +
@@ -469,17 +457,12 @@ Blockly.CSharp['move_action'] = function(block) {
     } else {
         alert('Move action: distance should be a number');
     }
-
-
     return genCode;
 };
 
 Blockly.CSharp['therapy_action'] = function(block) {
     var therapyName = block.getFieldValue('therapy_exercise');
     var robotName = block.getFieldValue('ROBOT');
-    //var code = 'var therapy_action = \"' + therapyName + '\";\n';
-    //code += 'do_action(therapy_action);\n';
-    var code = 'do_action(""' + therapyName + '"");\n';
 
     var newVarName = generateUniqueVarName();
     var behavior = 'var ' + newVarName +
@@ -496,17 +479,6 @@ Blockly.CSharp['therapy_action'] = function(block) {
 
 Blockly.CSharp['trigger'] = function (block) {
     var trigger = block.getFieldValue('MOTION_TRIGGER');
-    var code = 'behavior.SetTrigger(' + '""MOTION"", ' + '""' + trigger + '"");\n';
-
-    // Structure
-//    TriggerDelegate = delegate(IBehaviorExecutionContext context)
-//    {
-//            if (context != null)
-//    {
-//        // SET_TRIGGER_HERE
-//    }
-//    return false;
-//      };
 
     var genCode = 'var gestureInfoList = context.GetGestureInfoList(\"' + trigger + '\");\n' +
         'var gestureInfo = gestureInfoList.FirstOrDefault(s=>s.Confidence > 90);\n'+
@@ -522,8 +494,6 @@ Blockly.CSharp['trigger'] = function (block) {
 
 Blockly.CSharp['voice_trigger'] = function (block) {
     var trigger = block.getFieldValue('VOICE_TRIGGER');
-    //var code = 'behavior.set_voice_trigger(\"' + trigger + '\");\n';
-    var code = 'behavior.SetTrigger(' + '"VOICE", ' + '"' + trigger + '");\n';
 
     var genCode = 'var voiceCommand = context.GetVoiceCommand(\"' + trigger + '\");\n' +
         'if (voiceCommand.Active && voiceCommand.Confidence > 80)\n' +
@@ -536,8 +506,6 @@ Blockly.CSharp['voice_trigger'] = function (block) {
 
 Blockly.CSharp['voice_trigger2'] = function (block) {
     var trigger = block.getFieldValue('VOICE_TRIGGER');
-    //var code = 'set_voice_trigger(\"' + trigger + '\");\n';
-    var code = 'behavior.SetTrigger(' + '"VOICE", ' + '"' + trigger + '");\n';
 
     var genCode = 'var gestureInfo = context.GetVoiceCommand(\"' + trigger + '\");\n' +
         'if (voiceCommand.Active && voiceCommand.Confidence > 80)\n' +
@@ -604,28 +572,9 @@ Blockly.CSharp['parallel_execute'] = function(block) {
     var statements_branch2 = Blockly.CSharp.statementToCode(block, 'BRANCH2');
     // TODO: Assemble JavaScript into code variable.
     var code = [];
-    //var list = new List<Task>();
-    //Action taskAction3 = delegate
-    //{
-    //    Console.WriteLine("StartTask2: {0}", DateTime.Now);
-    //    System.Threading.Thread.Sleep(5000);
-    //    Console.WriteLine("EndTask2: {0}", DateTime.Now);
-    //};
-
-    //Action taskAction4 = delegate
-    //{
-    //    Console.WriteLine("StartTask2: {0}", DateTime.Now);
-    //    System.Threading.Thread.Sleep(5000);
-    //    Console.WriteLine("EndTask2: {0}", DateTime.Now);
-    //};
-
-    //list.Add(Task.Factory.StartNew(() => taskAction3));
-    //list.Add(Task.Factory.StartNew(() => taskAction4));
-    //Task.WaitAll(list.ToArray());
     var listVarName = generateUniqueVarName();
     var action1Name = generateUniqueVarName();
     var action2Name = generateUniqueVarName();
-
 
     code.push('var ' + listVarName + ' = new List<Task>();');
     code.push('var ' + action1Name + ' = new Action( () => ');

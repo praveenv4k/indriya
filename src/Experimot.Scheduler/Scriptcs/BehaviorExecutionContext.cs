@@ -36,6 +36,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
     private bool _cancelRequest;
     private readonly object _object = new object();
     private const int RecvTimeout = 500;
+    private const int FsmPeriod = 50;
 
     public string ContextServer
     {
@@ -216,9 +217,14 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
 
                     bool canceled = false;
                     int state = 0;
+                    int loopCount = 0;
                     while (true)
                     {
-                        System.Threading.Thread.Sleep(100);
+                        if (loopCount > 0)
+                        {
+                            System.Threading.Thread.Sleep(FsmPeriod);
+                        }
+                        loopCount++;
                         bool cancel;
                         lock (_object)
                         {
