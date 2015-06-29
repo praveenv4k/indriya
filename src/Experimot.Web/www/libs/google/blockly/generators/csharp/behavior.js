@@ -277,7 +277,7 @@ Blockly.CSharp['set_language'] = function (block) {
         '= new BehaviorInfo' +
         '{' +
         'BehaviorName = \"' + 'Set Language' + '\",' +
-        'RobotName = \"' + robotName + '\"' +
+        'RobotName = \"' + robotName + '\",' +
         'Parameters = new Dictionary<string, object>\n' +
         '{\n' +
         '{"lang", BehaviorModuleHelper.CreateBehaviorParameterOptions(\"' + language + '\", true, "string")}\n' +

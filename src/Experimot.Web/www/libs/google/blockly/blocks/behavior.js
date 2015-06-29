@@ -100,7 +100,7 @@ Blockly.Blocks.behaviors.Languages =
 
 Blockly.Blocks.behaviors.StandardBehaviors =
 [
-    ["Greet", "greet"],
+    ["Greet", "Greet"],
     ["LyingBelly", 'LyingBelly'],
     ["Sit Relax", 'Sit Relax'],
     ["Stand", 'Stand'],
@@ -1120,6 +1120,7 @@ Blockly.Blocks['set_language'] = {
         this.setColour(225);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Set Language ")
             .appendField(languages, "language");
         var robots = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.Robots, function (option) {
         });
