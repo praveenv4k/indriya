@@ -268,6 +268,27 @@ Blockly.CSharp['robot_action'] = function (block) {
     return genCode;
 };
 
+Blockly.CSharp['set_language'] = function (block) {
+    var language = block.getFieldValue('language');
+    var robotName = block.getFieldValue('ROBOT');
+
+    var newVarName = generateUniqueVarName();
+    var behavior = 'var ' + newVarName +
+        '= new BehaviorInfo' +
+        '{' +
+        'BehaviorName = \"' + 'Set Language' + '\",' +
+        'RobotName = \"' + robotName + '\"' +
+        'Parameters = new Dictionary<string, object>\n' +
+        '{\n' +
+        '{"lang", BehaviorModuleHelper.CreateBehaviorParameterOptions(\"' + language + '\", true, "string")}\n' +
+        '}\n' +
+        '};\n';
+
+    var genCode = behavior + '\n';
+    genCode += 'BehaviorModuleHelper.Execute(context, ' + newVarName + ');\n';
+    return genCode;
+};
+
 Blockly.CSharp['animated_say_action'] = function(block) {
     var sayMsg = block.getFieldValue('SAY_TEXT');
     var robotName = block.getFieldValue('ROBOT');
