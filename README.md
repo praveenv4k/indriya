@@ -1,4 +1,4 @@
-## Indriya - An experimental Platform for Human Robot Interaction based on Human Motions
+## Indriya - An experimental Platform for Human Robot Interaction based on human behaviors
 
 ### About
 
