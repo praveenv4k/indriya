@@ -9,25 +9,24 @@ The software framework proposed and introduced in \ref{Chapter4} has been exploi
 \begin{itemize}
 \item \emph{Hardware Layer} is composed of sensors and robots connected to the network. Currently only those sensors that support TCP/IP network communication are considered.
 \item \emph{Distributed Components Layer} is composed of individual processes that could be running across different computers/devices in the network
-\item \emph{Application Components Layer} is the central server of the experimental platform which contains the backend processing units for the application to run as a whole.
+\item \emph{Application Components Layer} is the central server of the Indriya platform which contains the backend processing units for the application to run as a whole.
 \item \emph{User Interface Layer} takes the responsibility of providing useful and intuitive user-interface to the end users.
 \end{itemize}
-The architecture of the system shown in Fig~\ref{fig:architecture}. More finer details of each of the layers are presented in the following Sections~\ref{ssec:app_comp}$\sim$\ref{ssec:ui_comp}.
-
+The architecture of the complete system is shown in Figure~\ref{fig:indriya_arch}. More finer details of each of the layers are presented in the following Sections~\ref{ssec:app_comp}$\sim$\ref{ssec:ui_comp}.
 \begin{figure}
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
 \includegraphics[width=\textwidth]{../thesis/assets/system_setup.eps}
 \caption[System setup]{System setup}
-\label{fig:localize_frames}
+\label{fig:system_setup}
 \end{subfigure}
 \begin{subfigure}[t]{0.48\textwidth}
 \includegraphics[width=\textwidth]{../thesis/assets/architecture.eps}
 \caption[Software architecture]{Software architecture}
 \label{fig:architecture}
 \end{subfigure}
-\caption[Experimental platform]{Experimental platform}
-\label{fig:nao_localization}
+\caption[Indriya architecture]{Indriya architecture}
+\label{fig:indriya_arch}
 \end{figure}
 % \begin{figure}
 % \centering
@@ -38,16 +37,17 @@ The architecture of the system shown in Fig~\ref{fig:architecture}. More finer d
 \section{Application Components}
 \label{ssec:app_comp}
 The application level components are responsible for bootstrapping and maintain the uptodate status of the system. 
-\subsection*{Context}
+\subsection*{Application Context}
 The application context contains the complete description of the world. It contains latest information about
-\begin{itemize}
-\item Robot(s): A list of robots in the environment along with their 6D pose, Sensor information like Joint values etc.,
-\item Human(s): A list of humans with their Skeleton Positions and Orientation, Active Gestures/Motions
-\item Object(s): A list of manipulable objects in the environment along with their properties like description, color etc.,
+\begin{itemize}[leftmargin={1cm},topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] 
+\item Robots: A list of robots in the environment along with their 6D pose, Sensor information like Joint values etc.,
+\item Humans: A list of humans with their Skeleton Positions and Orientation, Active Gestures/Motions
+\item Objects: A list of manipulable objects in the environment along with their properties like description, color etc.,
 \item Gesture Modules : A set of gesture recognition modules registered in the system that can actively provide information about the gestures of the humans in the environment.
+\item Speech Modules : A set of speech recognition modules registered in the system that can actively provide information about human voice commands.
 \item Robot Behavior Modules: A set of robot behavior execution modules registered in the system.
 \end{itemize}
-The data structure of the context is shown in Fig~\ref{fig:system_context}
+The schematic representation of data structure of the context is shown in Fig~\ref{fig:system_context}
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{assets/context_diagram.png}
@@ -55,7 +55,7 @@ The data structure of the context is shown in Fig~\ref{fig:system_context}
 \label{fig:system_context}
 \end{figure}
 \subsection*{Parameter Server} 
-The parameter server acts as a central repository for managing the parameters of the system and of the distributed components. The parameter server is basically designed as a responder socket which responds to the requests from a remote client. The list of supported request to pull the data from the parameter server is shown in the Table~\ref{table:parameter_server}
+The parameter server acts as a central repository for managing the parameters of the system and of the distributed components. The parameter server is basically designed as a responder socket which responds to the requests from a remote client. The list of supported request to pull the data from the parameter server as shown in the Table~\ref{table:parameter_server}
 \begin{table}[H]
 \centering
 \small
@@ -87,7 +87,7 @@ The parameter server acts as a central repository for managing the parameters of
   										 \tabularnewline\hline
 \end{tabular}
 \end{table}
-\subsection*{Context Orchestrator} The orchestrator collect uptodate information about the robots and humans in the environment from the perception system and updates the Context. The algorithm used by the orchestrator to update the context information is shown below.
+\subsection*{Context orchestrator} The orchestrator collect uptodate information about the robots and humans in the environment from the perception system and updates the Application context. The algorithm used by the orchestrator to update the context information is shown below.
 
 \begin{algorithm}[H]
  \KwData{(app\_config, context)}
@@ -100,11 +100,11 @@ The parameter server acts as a central repository for managing the parameters of
  		UPDATE\_CONTEXT(context, data)\;
  	}
  }
- \caption{Context Synchronization Algorithm}
+ \caption{Context synchronization algorithm}
  \label{alg:context_sync}
 \end{algorithm}
-\subsection*{Embedded Web server}
-The web server embedded in the application serves the file and data requests from the web client. The server side server implements a set of RESTful services which could be accessed from the web clients. The JSON data format which is the default standard for modern web interface development has been used as data exchange format between the server and the web clients. The list of RESTful API implemented on the server side is shown in Table~\ref{table:restful_api}
+\subsection*{Embedded web server}
+The web server embedded in the application is responsible for data and file transaction between the Indriya system and the web client. The server side implements a set of RESTful services which could be accessed from the web clients. The JSON data format which is the default standard for modern web application development has been used as data exchange format between the server and the web clients. The list of RESTful API implemented on the server side is shown in Table~\ref{table:restful_api}
 \begin{table}[H]
 \centering
 \small
@@ -147,9 +147,8 @@ The web server embedded in the application serves the file and data requests fro
                                           \tabularnewline\hline
 \end{tabular}
 \end{table}
-
 \subsection*{Bootstrapper} 
-The bootstrapper takes care of initializing the system and starting up all the pre-configured nodes. The configuration information of the nodes is specified using the XML configuration file described in Section~\ref{sec:config_file}. It also takes of starting and stopping the behavior programs when requested by the user. The sequence operations of bootstrapper performs is represented in Algorithm~\ref{alg:bootstrapper}.
+The bootstrapper takes care of initializing the system and starting up all the pre-configured nodes. The configuration information of the nodes is specified using the XML configuration file described in Section~\ref{sec:config_file}. It also takes of starting and stopping the behavior programs when requested by the user. The sequence operations of bootstrapper performs is described in Algorithm~\ref{alg:bootstrapper}.
 
 \begin{algorithm}[H]
  \KwData{(XML Config File)}
@@ -181,18 +180,16 @@ The bootstrapper takes care of initializing the system and starting up all the p
 \section{Distributed Components}
 \label{ssec:dist_comp}
 These are nodes in the system each with a specific goal that can be started/stopped at any time during the entire application life-cycle without affecting the other nodes or the system. All the nodes will communicate with the application using message passing techniques. They can run in any machine inside the network.
-
 \subsection{Motion Recognition Node} A dedicated node that interacts with a motion recognition sensor and sends the detected gestures and motions to the application. Additionally each motion recognition module registers a set of actions/gestures that could be detected with the sensor associated with it. The gesture recognition logic depends on the sensor associated with the gesture recognition module. The gesture recognition workflow of kinect based system in explained in Section~\ref{sssec:kinect_gestures}
 \subsubsection{Kinect Gesture Recognition}
 \label{sssec:kinect_gestures}
-	The Microsoft Kinect system utilizes Adaptive Boosting(adaboost) algorithm \cite{freund1997decision} to efficiently detect the gestures. The system involves a training phase during which the desired gestures are captured and tagged. These tagged gestures will be used by a gesture detector trainer which will generate a set of training examples. The training results are stored in files and will be used by the gesture detector to perform per-frame classification of the data. The Visual Gesture Builder (VGB) tool that comes together with Kinect for Windows SDK eases the process of tagging the gestures, evaluating the gesture recognition and creating the gesture database. The work-flow of using the VGB is shown in the Figure~\ref{fig:vgb_workflow}.
+The Kinect gesture recognition system involves a training phase during which the desired gestures are captured and tagged. These tagged gestures will be used by a gesture detector trainer which will generate a set of training examples. The training results are stored in files and will be used by the gesture detector to perform per-frame classification of the data. The Visual Gesture Builder (VGB) tool that comes together with Kinect for Windows SDK eases the process of tagging the gestures, evaluating the gesture recognition and creating the gesture database. The work-flow of using the VGB is shown in the Figure~\ref{fig:vgb_workflow}.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{assets/vgb_flow.eps}
 \caption[Visual Gesture Builder Work flow]{Visual Gesture Builder Work flow \cite{KinectSDK2014}}
 \label{fig:vgb_workflow}
 \end{figure}
-% Motion recognition
 The workflow shown in Figure~\ref{fig:vgb_workflow} has been adopted to develop all the gestures needed for the kinect gesture recognition module. The process followed for generating the Left hand wave gesture is shown in the Figure~\ref{fig:gesture_waveleft}. As shown in the figure at first the clips are captured using the Kinect studio tool and  stored as \textbf{XEF} files. The clips are then imported in the visual gesture builder. The imported clips could be traversed and the tagging is done (i.e at each frame it is possible to specify if that particular frame is part of the gesture of interest or not). This process could be repeated on one or more imported clips. The tagged clips are built in order to generate a set of weak classifiers and learn confidence values for each of those classifiers. Once the training process is complete, the trained classifier could be evaluated over a set of test clips using a live preview as shown in step 3 in the figure. When the results are satisfactory, the training data could be exported as a database saved as \textbf{VGD} (Visual Gesture Database) format.
 \begin{figure}[H]
 \centering
@@ -218,11 +215,41 @@ The database is imported into the gesture recognition module and the responsibil
   }
   PUBLISH(skeletons)\;
  }
- \caption{Kinect Gesture Recognition Module}
+ \caption{Kinect Gesture recognition module}
  \label{alg:gesture_recognize}
 \end{algorithm}
+\subsection{Speech recognition node}
+The Nao humanoid robot already comes with an inbuilt speech recognition and sythesis ability. Since Indriya system is designed to support different robots, it has been decided not to use already existing speech capabilities of Nao robot. Instead the Microsoft speech platform 11 is used for recognizing the speech input. The Kinect for Windows SDK includes a custom acoustical model that is optimized for the Kinect's microphone array and supports recognition of several languages. The grammar files for some commonly used commands like START, STOP, SIT, STAND, WAVE etc., were created to used for the actual interaction scenarios. The speech recognition module algorithm is shown in Algorithm~\ref{alg:speech_recognize}.
+
+\begin{algorithm}[H]
+ \KwData{language}
+ \KwResult{Speech Triggers}
+ \textbf{\emph{Init}}:\\
+ \quad grammar = LOAD\_GRAMMAR(language)\;
+ \quad recognizer = LOAD\_RECOGNIZER(language)\;
+ \quad INIT\_SPEECH\_ENGINE(recognizer, grammar)\;
+ \quad REGISTER\_SPEECH\_MODULE(grammar)\;
+ \While{True}{
+    \If{recognized}{
+      PUBLISH(recognized\_command)\;
+    } 
+ }
+ \caption{Kinect speech recognition module}
+ \label{alg:speech_recognize}
+\end{algorithm}
+
 \subsection{Robot interface node} 
 The Robot interface node is a dedicated node that interacts with a specific robot and can invoke a set of actions on it.  It registers a set of actions that could be invoked on the robot associated with it. The robot interface node sets up a publisher that periodically sends the information about the robot status like joint values, sensor information to the application to keep the context uptodate. Additionally it sets up a responder socket which will wait for action execution request from the remote node. 
+
+The robot interface node implements a Finite state machine (Figure~\ref{fig:robot_fsm}) in order appropriately streamline the data/status management with the remote caller node. The states of the FSM are
+\begin{itemize}[leftmargin={1cm},topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] 
+\item \emph{idle:} The robot is ready to receive new execution request.
+\item \emph{wait:} The node is waiting for the action execution arguments.
+\item \emph{error:} The node/robot has encountered an error during execution.
+\item \emph{ready:} The robot is waiting for the run trigger.
+\item \emph{run:} The robot is executing the requested task.
+\item \emph{stop:} The robot is stopping execution
+\end{itemize}
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[->,shorten >=1pt,auto,node distance=4cm,thick]
@@ -261,17 +288,8 @@ The Robot interface node is a dedicated node that interacts with a specific robo
 \caption[Finite state machine of robot interface node]{Finite state machine of robot interface node}
 \label{fig:robot_fsm}
 \end{figure}
-The robot interface node implements a Finite state machine (Figure~\ref{fig:robot_fsm}) in order appropriately streamline the data/status management with the remote caller node. The states of the FSM are
-\begin{itemize}
-\item \emph{idle:} The robot is ready to receive new execution request.
-\item \emph{wait:} The node is waiting for the action execution arguments.
-\item \emph{error:} The node/robot has encountered an error during execution.
-\item \emph{ready:} The robot is waiting for the run trigger.
-\item \emph{run:} The robot is executing the requested task.
-\item \emph{stop:} The robot is stopping execution
-\end{itemize}
 Each of the above states has a self loop when waiting for the state transition trigger. It is not shown in the figure for brevity. The events that causes the state transition in the FSM are
-\begin{itemize}
+\begin{itemize}[leftmargin={1cm},topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] 
 \item \emph{on\_start\_req:} Received start execution request
 \item \emph{on\_args:} Received task execution arguments.
 \item \emph{on\_run\_req:} Received run task request.
@@ -282,7 +300,7 @@ Each of the above states has a self loop when waiting for the state transition t
 \item \emph{on\_err:} An error occured during the execution
 \end{itemize}
 The robot interface node dedicated to Nao humanoid robot is described in Section~\ref{sssec:nao_interface}
-\subsubsection{NAO Robot Interface}
+\subsubsection{NAO robot interface}
 \label{sssec:nao_interface}
 The Nao robot interface makes use of the NaoQi python SDK which provides API for accessing various functionalities of the robot such as joint/cartesian control, memory access, motion, speech, object/face/people detection and tracking, behavior invocation etc., A set of necessary functions are implemented in the NaoBehaviorModule and they are registered to the application when the node is started up. The control flow is shown in Figure~\ref{fig:nao_interface}.
 \begin{figure}[H]
@@ -349,8 +367,8 @@ The visual representation of a set of action blocks developed for Nao humanoid r
 % \draw (39.49,-38.08) node [right] {$ON\_ERR$};
 % \end{tikzpicture}
 % \end{center}
-\subsection{Localization Node} A dedicated node which uses the perception system to resolve and publish the current position of the robot.
-\subsubsection{NAO Robot localization}
+\subsection{Localization node} A dedicated node which uses the perception system to resolve and publish the current position of the robot.
+\subsubsection{NAO robot localization}
 The fiducial marker based approach is used in order to localize the robot in the field of view of the Kinect sensor. The ALVAR \cite{ALVAR} toolkit is used for marker detection purpose which relies on OpenCV library for image processing. The OpenCV library cannot directly read the image streams from Kinect sensor and hence a OpenCV compatible driver is implemented to read the RGB image streams. The first step in the marker detection is to calibrate the camera in order to get its intrinsic parameters and the calibration parameters are stored in an XML file. A set of supported markers of known identifiers are chosen and a cube of known geometry is created. The cube is designed in such a way that at any instant atleast one of the markers will be detected if the robot is in the detectable range of the camera. The cube is mounted on the head of NAO robot since it will avoid the problem of occlusion in most cases. However since the head of the NAO has 2 DOF which will result in the movement of mounted cube even if the robot itself does not move. In order to overcome this problem, a kinematic model of the NAO humanoid robot from torso frame to tip of the head frame parameterized using Modified Denavit Hartenberg (MDH) \cite{khalil2004modeling} parameters is used. The MDH parameters are shown in Table~\ref{table:nao_mdh}.
 \begin{table}[H]
 \centering
@@ -376,7 +394,19 @@ The fiducial marker based approach is used in order to localize the robot in the
 \end{tabular}
 \end{table}
 
-\begin{figure}
+\subparagraph{Modeling}
+For computing the absolute pose of the torso frame of the robot with respect to the world frame, the coordinate frames shown in Figure~\ref{fig:nao_localization} is used.
+
+\begin{tabular}{r l}
+\centering
+  Kinect Frame & $F_K$ \\ 
+  Marker Frame & $F_M$ \\ 
+  Torso Frame & $F_T$ \\ 
+  World Frame & $F_W$ \\ 
+  Transformation Matrices  & ($^{K}T_M$,$^{T}T_M$,$^{K}T_W$,$^{W}T_T$) \\
+\end{tabular}
+
+\begin{figure}[H]
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
 \includegraphics[width=\textwidth]{../thesis/assets/localization_concept2.eps}
@@ -391,18 +421,10 @@ The fiducial marker based approach is used in order to localize the robot in the
 \caption[NAO robot localization]{NAO robot localization}
 \label{fig:nao_localization}
 \end{figure}
-\subparagraph{Modeling}
-For computing the absolute pose of the torso frame of the robot with respect to the world frame, the coordinate frames shown in Figure~\ref{fig:nao_localization} is used. 
-\begin{tabular}{r l}
-\centering
-  Kinect Frame & $F_K$ \\ 
-  Marker Frame & $F_M$ \\ 
-  Torso Frame & $F_T$ \\ 
-  World Frame & $F_W$ \\ 
-  Transformation Matrices  & ($^{K}T_M$,$^{T}T_M$,$^{K}T_W$,$^{W}T_T$) \\
-\end{tabular}
+
 The algorithm for the computation given the marker parameters, calibration information of the camera, MDH parameters (Table~\ref{table:nao_mdh}) and the joint values ($\theta_1,\theta_2$) at each time instant is shown in Algorithm~\ref{alg:localize}.
-\begin{algorithm}
+
+\begin{algorithm}[H]
  \KwData{marker\_size, cube\_size, MDH\_Params}
  \KwResult{TORSO\_POSE}
  \textbf{\emph{Init}}:\\
@@ -420,10 +442,10 @@ The algorithm for the computation given the marker parameters, calibration infor
  	TORSO\_POSE = MEDIAN\_FILTER($^{W}{T}_{T}$)\;
  	PUBLISH(TORSO\_POSE)\;
  }
- \caption{Localization Algorithm}
+ \caption{Localization algorithm}
  \label{alg:localize}
 \end{algorithm}
-\section{Behavior Program} 
+\section{Behavior program} 
 \label{ssec:behavior_program}
 A dynamic component that will be created when the user starts the program he/she designed using the user interface. The declarative description of the behavior is parsed in order to create a memory model. The Behavior program node monitors the application context for the motion triggers and invokes the corresponding robot actions according to the way it is being described in the program.
 \begin{figure}
@@ -432,15 +454,15 @@ A dynamic component that will be created when the user starts the program he/she
 \caption[Behavior Program - Conceptual Model]{Behavior Program - Conceptual Model}
 \label{fig:program_concept}
 \end{figure}
-\subsection{Conceptual Model}
-The behavior program is structured in a simple way so that it could be easily understood by the end user. The conceptual model of behavior program is shown in Fig.~\ref{fig:program_concept}. The behavior program is composed of:
+\subsection{Conceptual model}
+The behavior program is structured in a simple way so that it could be easily understood by the end user. The conceptual model of behavior program is shown in Figure~\ref{fig:program_concept}. The behavior program is composed of:
 \begin{itemize}
 \item \emph{Startup behavior}: The startup block will be executed once when the user starts the program. The user can add a set of actions to be performed when the program starts. The start-up block is optional and there cannot be more than one start-up block in the program
 \item \emph{Trigger behavior}: The behavior block is the core component of the behavior program. The block could be activated by the interaction between the human and the robot. There could be many behavior blocks in a program. The properties/attributes of a behavior block is shown in Table~\ref{table:behavior_block}.
 \begin{table}[H]
 \centering
 \small
-\caption{Trigger Behavior block properties}
+\caption{Trigger behavior block properties}
 \label{table:behavior_block}
 \begin{tabular}{|l|p{11cm}|}
 \hline
@@ -481,12 +503,12 @@ The visual blocks corresponding to each of the startup, trigger and exit behavio
 \begin{subfigure}[t]{0.28\textwidth}
 \includegraphics[width=\textwidth]{../thesis/assets/blocks_startup.png}
 \caption[Startup block]{Startup block}
-\label{fig:program_concept}
+\label{fig:startup_block}
 \end{subfigure}
 \begin{subfigure}[t]{0.28\textwidth}
 \includegraphics[width=\textwidth]{../thesis/assets/blocks_exit.png}
 \caption[Exit block]{Exit block}
-\label{fig:program_blocks}
+\label{fig:exit_block}
 \end{subfigure}
 \caption[Startup and Exit behaviors]{Startup and Exit behaviors}
 \label{fig:blocks_init}
@@ -497,12 +519,12 @@ The trigger behavior block is designed in such a way that it incorporates the co
 \begin{subfigure}[t]{0.38\textwidth}
 \includegraphics[width=\textwidth]{../thesis/assets/blocks_behavior1.png}
 \caption[Example 1]{Priority: Low, Execute: Once}
-\label{fig:program_concept}
+\label{fig:trigger_block1}
 \end{subfigure}
 \begin{subfigure}[t]{0.38\textwidth}
 \includegraphics[width=\textwidth]{../thesis/assets/blocks_behavior2.png}
 \caption[Example 2]{Priority: High, Execute: Until}
-\label{fig:program_blocks}
+\label{fig:trigger_block2}
 \end{subfigure}
 \caption[Trigger behavior]{Trigger behavior}
 \label{fig:blocks_trigger}
@@ -511,7 +533,7 @@ The block interface is reactive in the sense that for instance when the lifetime
 
 \textbf{TODO: } Describe all the blocks (Triggers/Actions) developed.
 
-\subsection{Code Generation and Execution}
+\subsection{Code generation and execution}
 The next step in the behavior program design flow is to generate the executable code from the blocks and execute them. The surface on which the program is designed, is called the \emph{workspace}. Each blocks developed as part of the platform has an associated code generation module. So when the user decides to run a program, as a first step all the blocks in the workspace are iterated and code is generated. The blockly editor supports code generation for programming languages like JS, Python and Dart. However a special code generator that could generate C\# code from the blocks has been. This is because most of the platform is written in C\# and there are loads of goodies that comes with the .NET framework. Traditionally there is a need to compile the C\# code and generate binaries when one wants to execute it. Thanks to the latest compiler technologies and tools like ScriptCS \cite{ScriptCS}, it is now possible to run the C\# code like scripts. This is exploited in the experimental platform to dynamically generate the code and run.
 \begin{figure}[H]
 \centering
