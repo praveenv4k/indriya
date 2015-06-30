@@ -1,61 +1,61 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="behavior_startup" id="36" x="313" y="-37">
+  <block type="behavior_startup" id="1" x="263" y="-37">
     <statement name="DO">
-      <block type="parallel_execute" id="93">
+      <block type="parallel_execute" id="2">
         <statement name="BRANCH1">
-          <block type="robot_action" id="102">
-            <field name="actions">greet</field>
+          <block type="robot_action" id="3">
+            <field name="actions">Greet</field>
             <field name="ROBOT">Hiro</field>
           </block>
         </statement>
         <statement name="BRANCH2">
-          <block type="robot_action" id="103">
-            <field name="actions">greet</field>
+          <block type="robot_action" id="4">
+            <field name="actions">Greet</field>
             <field name="ROBOT">Taro</field>
           </block>
         </statement>
         <next>
-          <block type="animated_say_action" id="45">
+          <block type="animated_say_action" id="5">
             <field name="SAY_TEXT">I am Hiro</field>
             <field name="ROBOT">Hiro</field>
             <next>
-              <block type="animated_say_action" id="63">
+              <block type="animated_say_action" id="6">
                 <field name="SAY_TEXT">And I am Taro</field>
                 <field name="ROBOT">Taro</field>
                 <next>
-                  <block type="animated_say_action" id="112">
+                  <block type="animated_say_action" id="7">
                     <field name="SAY_TEXT">We want to introduce Indriya system. Taro, you want to start?</field>
                     <field name="ROBOT">Hiro</field>
                     <next>
-                      <block type="animated_say_action" id="113">
+                      <block type="animated_say_action" id="8">
                         <field name="SAY_TEXT">Yes sure.</field>
                         <field name="ROBOT">Taro</field>
                         <next>
-                          <block type="animated_say_action" id="114">
+                          <block type="animated_say_action" id="9">
                             <field name="SAY_TEXT">Indriya helps to design interaction scenario based on human behaviors</field>
                             <field name="ROBOT">Taro</field>
                             <next>
-                              <block type="animated_say_action" id="115">
+                              <block type="animated_say_action" id="10">
                                 <field name="SAY_TEXT">That's right! You can design program to respond to a gesture</field>
                                 <field name="ROBOT">Hiro</field>
                                 <next>
-                                  <block type="animated_say_action" id="116">
+                                  <block type="animated_say_action" id="11">
                                     <field name="SAY_TEXT">And also to a voice command from the user</field>
                                     <field name="ROBOT">Taro</field>
                                     <next>
-                                      <block type="animated_say_action" id="117">
+                                      <block type="animated_say_action" id="12">
                                         <field name="SAY_TEXT">You can also program two robots operate in parallel</field>
                                         <field name="ROBOT">Hiro</field>
                                         <next>
-                                          <block type="animated_say_action" id="118">
+                                          <block type="animated_say_action" id="13">
                                             <field name="SAY_TEXT">And finally you can design behaviors with priority</field>
                                             <field name="ROBOT">Taro</field>
                                             <next>
-                                              <block type="animated_say_action" id="119">
+                                              <block type="animated_say_action" id="14">
                                                 <field name="SAY_TEXT">If you want both of us to dance together, wave your right or left hand</field>
                                                 <field name="ROBOT">Hiro</field>
                                                 <next>
-                                                  <block type="animated_say_action" id="120">
+                                                  <block type="animated_say_action" id="15">
                                                     <field name="SAY_TEXT">If you want to interrupt at any time, say STOP loudly</field>
                                                     <field name="ROBOT">Taro</field>
                                                   </block>
@@ -83,87 +83,33 @@
       </block>
     </statement>
   </block>
-  <block type="behavior_composable_simple" id="123" inline="false" x="313" y="413">
-    <mutation run_until="false" run_logic=""></mutation>
-    <field name="behavior_name">default</field>
-    <field name="priorities">low</field>
-    <field name="execution">forever</field>
-    <value name="trigger">
-      <block type="trigger" id="134">
-        <field name="MOTION_TRIGGER">Greet_Left</field>
-      </block>
-    </value>
-    <statement name="DO">
-      <block type="parallel_execute" id="135">
-        <statement name="BRANCH1">
-          <block type="robot_action" id="136">
-            <field name="actions">greet</field>
-            <field name="ROBOT">Hiro</field>
-          </block>
-        </statement>
-        <statement name="BRANCH2">
-          <block type="robot_action" id="137">
-            <field name="actions">greet</field>
-            <field name="ROBOT">Taro</field>
-          </block>
-        </statement>
-      </block>
-    </statement>
-  </block>
-  <block type="behavior_composable_simple" id="138" inline="false" x="688" y="413">
-    <mutation run_until="false" run_logic=""></mutation>
-    <field name="behavior_name">default</field>
-    <field name="priorities">low</field>
-    <field name="execution">forever</field>
-    <value name="trigger">
-      <block type="trigger" id="139">
-        <field name="MOTION_TRIGGER">Greet_Right</field>
-      </block>
-    </value>
-    <statement name="DO">
-      <block type="parallel_execute" id="140">
-        <statement name="BRANCH1">
-          <block type="robot_action" id="141">
-            <field name="actions">greet</field>
-            <field name="ROBOT">Hiro</field>
-          </block>
-        </statement>
-        <statement name="BRANCH2">
-          <block type="robot_action" id="142">
-            <field name="actions">greet</field>
-            <field name="ROBOT">Taro</field>
-          </block>
-        </statement>
-      </block>
-    </statement>
-  </block>
-  <block type="behavior_composable_simple" id="145" inline="false" x="313" y="663">
+  <block type="behavior_composable_simple" id="26" inline="false" x="263" y="413">
     <mutation run_until="false" run_logic=""></mutation>
     <field name="behavior_name">default</field>
     <field name="priorities">high</field>
     <field name="execution">forever</field>
     <value name="trigger">
-      <block type="voice_trigger" id="172">
+      <block type="voice_trigger" id="27">
         <field name="VOICE_TRIGGER">STOP</field>
       </block>
     </value>
     <statement name="DO">
-      <block type="animated_say_action" id="185">
-        <field name="SAY_TEXT">Taro, we received a high priority command.</field>
+      <block type="animated_say_action" id="28">
+        <field name="SAY_TEXT">Taro, we received a stop command.</field>
         <field name="ROBOT">Hiro</field>
         <next>
-          <block type="animated_say_action" id="186">
-            <field name="SAY_TEXT">Yes, I have heard it as well. Let us go to rest position</field>
+          <block type="animated_say_action" id="29">
+            <field name="SAY_TEXT">Yes, Let us go to rest position</field>
             <field name="ROBOT">Taro</field>
             <next>
-              <block type="parallel_execute" id="187">
+              <block type="parallel_execute" id="30">
                 <statement name="BRANCH1">
-                  <block type="robot_rest_action" id="198">
+                  <block type="robot_rest_action" id="31">
                     <field name="ROBOT">Hiro</field>
                   </block>
                 </statement>
                 <statement name="BRANCH2">
-                  <block type="robot_rest_action" id="199">
+                  <block type="robot_rest_action" id="32">
                     <field name="ROBOT">Taro</field>
                   </block>
                 </statement>
@@ -171,6 +117,43 @@
             </next>
           </block>
         </next>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="21" inline="false" x="463" y="663">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="logic_operation" id="42" inline="true">
+        <field name="OP">OR</field>
+        <value name="A">
+          <block type="trigger" id="22">
+            <field name="MOTION_TRIGGER">Greet_Right</field>
+          </block>
+        </value>
+        <value name="B">
+          <block type="trigger" id="17">
+            <field name="MOTION_TRIGGER">Greet_Left</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="parallel_execute" id="23">
+        <statement name="BRANCH1">
+          <block type="robot_action" id="24">
+            <field name="actions">Dance</field>
+            <field name="ROBOT">Hiro</field>
+          </block>
+        </statement>
+        <statement name="BRANCH2">
+          <block type="robot_action" id="25">
+            <field name="actions">Dance</field>
+            <field name="ROBOT">Taro</field>
+          </block>
+        </statement>
       </block>
     </statement>
   </block>
