@@ -9,7 +9,7 @@ The ROS \cite{quigley2009ros} is the de facto standard used for any robotics rel
 \section{Framework design}		
 The system contains nodes/processes which can be running in the same computer or might be running anywhere in the network. The order of starting and termination of these nodes essentially do not matter.
 \subsection{Communication protocol}	
-The nodes communicate with each other as shown in Figure~\ref{fig:framework} using either of inproc/IPC/TCP/UDP protocols depending on its location and to whom it wants to communicate with. The communication between the nodes is established using ZeroMQ \cite{ZeroMQ} library which has a variety of advantages any modern application would require. The important features are support for
+The nodes communicate with each other as shown in Fig.~\ref{fig:framework} using either of inproc/IPC/TCP/UDP protocols depending on its location and to whom it wants to communicate with. The communication between the nodes is established using ZeroMQ \cite{ZeroMQ} library which has a variety of advantages any modern application would require. The important features are support for
 \begin{itemize}[leftmargin={1cm},topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] 
 \item Multiple programming languages and cross platform
 \item Messaging using inproc, IPC, TCP, UDP protocols
@@ -24,7 +24,7 @@ ZeroMQ comes with the low-level C API. High-level bindings exist in 40+ language
 \label{fig:framework}
 \end{figure}
 \subsection{Message format}
-The nodes communicate with each other using structured data formatted using the Google protocol buffers \cite{ProtocolBuffers}. Protocol buffers are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data. It could be thought of as XML format, but smaller, faster, and simpler. The data could be structured once as per the requirement, then the special generated source code could be integrated with the application to easily write and read structured data to and from a variety of data streams and using a variety of languages – Java, C++, C\# or Python. The message is defined in a file with extension *.proto which will be consumed by the code generator to generate code for a specific language. A sample proto file is shown in Figure~\ref{fig:protobuf_def} and the code generation principle is shown in Figure~\ref{fig:protobuf_codegen}
+The nodes communicate with each other using structured data formatted using the Google protocol buffers \cite{ProtocolBuffers}. Protocol buffers are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data. It could be thought of as XML format, but smaller, faster, and simpler. The data could be structured once as per the requirement, then the special generated source code could be integrated with the application to easily write and read structured data to and from a variety of data streams and using a variety of languages – Java, C++, C\# or Python. The message is defined in a file with extension *.proto which will be consumed by the code generator to generate code for a specific language. A sample proto file is shown in Fig.~\ref{fig:protobuf_def} and the code generation principle is shown in Fig.~\ref{fig:protobuf_codegen}
 \begin{figure}[H]
 \centering
 \begin{subfigure}[t]{0.4\textwidth}
@@ -42,7 +42,7 @@ The nodes communicate with each other using structured data formatted using the 
 \end{figure}
 \subsection{Configuration file}
 \label{sec:config_file}
-An XML configuration file to manage the nodes and system/node level parameters is proposed. The format of the XML file is designed using XML schema definition (XSD) language. The schema representation is shown in the Figure~\ref{fig:config_xsd}. 
+An XML configuration file to manage the nodes and system/node level parameters is proposed. The format of the XML file is designed using XML schema definition (XSD) language. The schema representation is shown in the Fig.~\ref{fig:config_xsd}. 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{assets/xsd_config.eps}
@@ -64,7 +64,7 @@ The important strongly typed components of the schema are
 \end{itemize}
 \end{itemize}
 % \subsection{An example usage of the framework}
-% In order to demonstrate how the framework described so far could be used for developing a distributed application, a sample application scenario is considered. A \emph{robot\_interace\_node} node reads the joint values of the robot and publishes them over a topic \textbf{RJV} (robot joint values). Another node namely \emph{visualization\_node} subscribes to the topic \textbf{RJV} and each time it receives the new joint values updates the joint position of the robot being shown by the visualization engine. The pseudo-code of these nodes are shown in Figure~\ref{fig:node_a} and Figure~\ref{fig:node_b} respectively.
+% In order to demonstrate how the framework described so far could be used for developing a distributed application, a sample application scenario is considered. A \emph{robot\_interace\_node} node reads the joint values of the robot and publishes them over a topic \textbf{RJV} (robot joint values). Another node namely \emph{visualization\_node} subscribes to the topic \textbf{RJV} and each time it receives the new joint values updates the joint position of the robot being shown by the visualization engine. The pseudo-code of these nodes are shown in Fig.~\ref{fig:node_a} and Fig.~\ref{fig:node_b} respectively.
 % \begin{figure}[H]
 % %\centering
 % \begin{subfigure}[t]{0.48\textwidth}
@@ -85,7 +85,7 @@ The important strongly typed components of the schema are
 \section{User interface design}
 \label{sec:ui_design}
 The applications targeted for naive users should be designed carefully in order to abstract the complex architecture details and reduce the number of steps the user has to follow in order to do what he/she desires. Hence obviously terminal based command interfaces are not suitable since they may be daunting even for intermediate programmers. A simple and intuitive user interface is inevitable under such scenarios where visual programming techniques come into the picture. Additionally the application hosting the user interface could be a native application targeted to any particular operating system say Windows, Linux, OSX, iOS, Android etc., which might require the user to have that particular OS installed in their device. The web applications come handy which could tackle all the aforesaid bottlenecks. Hence for the Indriya platform, an user interface which is built on latest web standards (HTML5, CSS3, WebGL etc.,) is proposed. It is perfectly suited for smart environments which adopts ``Bring your own device'' policy. In this section the libraries that have been used for building up the user interface is explained.
-\subsection{Web Frameworks}
+\subsection{Web frameworks}
 The web revolution has led to the development of wide variety of libraries and frameworks in order to make the application creation way simpler than ever before. The user interface has been strengthed by a number of libraries and a summary of the libraries used is described below.
 \begin{itemize}[leftmargin={1cm},topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] 
 \item \emph{Three.js}: Three.js is a JavaScript 3D library that offers a wide range of features for creating and displaying 3D computer graphics on a web browser in an intuitive manner using JavaScript without having to deal with the complexity of a WebGL low-level API. It is also suitable for mobile and desktop environment. This makes it ideal for hosting virtual 3D environments and display simulation of human robot interaction.
@@ -122,7 +122,7 @@ Blockly \cite{Blockly} is a library for building visual programming editors. It 
 \caption[Google Blockly editor]{Google Blockly editor}
 \label{fig:pseudo_nodes}
 \end{figure}
-Figure~\ref{fig:blockly_sample} shows a simple program that could be created with blockly. Then Blockly provides API to generate the corresponding code in JavaScript, Python, PHP, Dart, or some other language. For instance the Python code corresponding to the sample visual program is shown in Fig~\ref{fig:blockly_sample_code}. The application can then execute the code as desired. From the application developer's point of view, Blockly is basically a textarea into which the user types syntactically perfect code. Blockly makes it completely impossible to make a syntax error. Blockly allows novice programmers to concentrate on the logic.
+Fig.~\ref{fig:blockly_sample} shows a simple program that could be created with blockly. Then Blockly provides API to generate the corresponding code in JavaScript, Python, PHP, Dart, or some other language. For instance the Python code corresponding to the sample visual program is shown in Fig~\ref{fig:blockly_sample_code}. The application can then execute the code as desired. From the application developer's point of view, Blockly is basically a textarea into which the user types syntactically perfect code. Blockly makes it completely impossible to make a syntax error. Blockly allows novice programmers to concentrate on the logic.
 
 Additionally, many non-programmers find a blank screen with a blinking cursor to be daunting. Even seasoned programmers can benefit by starting a script with Blockly. Blockly makes it easy to create custom blocks and code generation which simplifies the task of developers to create application specific programming language interface for novice users. All these advantages makes Blockly ideal choice as a visual programming editor for Indriya platform.
 \section{Summary}

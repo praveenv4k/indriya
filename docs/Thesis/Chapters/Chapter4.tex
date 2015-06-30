@@ -7,12 +7,12 @@
 \lhead{Chapter 4. \emph{System Implementation}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
 The software framework proposed and introduced in \ref{Chapter4} has been exploited to develop the Indriya platform. In this chapter the software architecture of the experimental platform is presented. Apart from the architecture itself, specific implementation details of each of the components in the system is also described in this chapter.  The software is designed using a hierarchical structure. The main layers of the system are
 \begin{itemize}
-\item \emph{Hardware Layer} is composed of sensors and robots connected to the network. Currently only those sensors that support TCP/IP network communication are considered.
-\item \emph{Distributed Components Layer} is composed of individual processes that could be running across different computers/devices in the network
-\item \emph{Application Components Layer} is the central server of the Indriya platform which contains the backend processing units for the application to run as a whole.
-\item \emph{User Interface Layer} takes the responsibility of providing useful and intuitive user-interface to the end users.
+\item \emph{Hardware layer} is composed of sensors and robots connected to the network. Currently only those sensors that support TCP/IP network communication are considered.
+\item \emph{Distributed components layer} is composed of individual processes that could be running across different computers/devices in the network
+\item \emph{Application components layer} is the central server of the Indriya platform which contains the backend processing units for the application to run as a whole.
+\item \emph{User interface layer} takes the responsibility of providing useful and intuitive user-interface to the end users.
 \end{itemize}
-The architecture of the complete system is shown in Figure~\ref{fig:indriya_arch}. More finer details of each of the layers are presented in the following Sections~\ref{ssec:app_comp}$\sim$\ref{ssec:ui_comp}.
+The architecture of the complete system is shown in Fig.~\ref{fig:indriya_arch}. More finer details of each of the layers are presented in the following Sections~\ref{ssec:app_comp}$\sim$\ref{ssec:ui_comp}.
 \begin{figure}
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
@@ -20,8 +20,8 @@ The architecture of the complete system is shown in Figure~\ref{fig:indriya_arch
 \caption[System setup]{System setup}
 \label{fig:system_setup}
 \end{subfigure}
-\begin{subfigure}[t]{0.48\textwidth}
-\includegraphics[width=\textwidth]{../thesis/assets/architecture.eps}
+\begin{subfigure}[t]{0.44\textwidth}
+\includegraphics[width=\textwidth]{../thesis/assets/indriya_architecture.eps}
 \caption[Software architecture]{Software architecture}
 \label{fig:architecture}
 \end{subfigure}
@@ -34,7 +34,7 @@ The architecture of the complete system is shown in Figure~\ref{fig:indriya_arch
 % \caption[System Architecture]{System Architecture}
 % \label{fig:architecture}
 % \end{figure}
-\section{Application Components}
+\section{Application components}
 \label{ssec:app_comp}
 The application level components are responsible for bootstrapping and maintain the uptodate status of the system. 
 \subsection*{Application Context}
@@ -54,7 +54,7 @@ The schematic representation of data structure of the context is shown in Fig~\r
 \caption[Application Context]{Application Context}
 \label{fig:system_context}
 \end{figure}
-\subsection*{Parameter Server} 
+\subsection*{Parameter server} 
 The parameter server acts as a central repository for managing the parameters of the system and of the distributed components. The parameter server is basically designed as a responder socket which responds to the requests from a remote client. The list of supported request to pull the data from the parameter server as shown in the Table~\ref{table:parameter_server}
 \begin{table}[H]
 \centering
@@ -108,7 +108,7 @@ The web server embedded in the application is responsible for data and file tran
 \begin{table}[H]
 \centering
 \small
-\caption{Embedded Web Server RESTful API}
+\caption{Embedded web server RESTful API}
 \label{table:restful_api}
 \begin{tabular}{|l|p{2.8cm}|p{1.2cm}|p{5.5cm}|}
 \hline
@@ -177,20 +177,20 @@ The bootstrapper takes care of initializing the system and starting up all the p
  \caption{Bootstrapper Algorithm}
  \label{alg:bootstrapper}
 \end{algorithm}
-\section{Distributed Components}
+\section{Distributed components}
 \label{ssec:dist_comp}
 These are nodes in the system each with a specific goal that can be started/stopped at any time during the entire application life-cycle without affecting the other nodes or the system. All the nodes will communicate with the application using message passing techniques. They can run in any machine inside the network.
-\subsection{Motion Recognition Node} A dedicated node that interacts with a motion recognition sensor and sends the detected gestures and motions to the application. Additionally each motion recognition module registers a set of actions/gestures that could be detected with the sensor associated with it. The gesture recognition logic depends on the sensor associated with the gesture recognition module. The gesture recognition workflow of kinect based system in explained in Section~\ref{sssec:kinect_gestures}
-\subsubsection{Kinect Gesture Recognition}
+\subsection{Motion recognition node} A dedicated node that interacts with a motion recognition sensor and sends the detected gestures and motions to the application. Additionally each motion recognition module registers a set of actions/gestures that could be detected with the sensor associated with it. The gesture recognition logic depends on the sensor associated with the gesture recognition module. The gesture recognition workflow of kinect based system in explained in Section~\ref{sssec:kinect_gestures}
+\subsubsection{Kinect gesture recognition}
 \label{sssec:kinect_gestures}
-The Kinect gesture recognition system involves a training phase during which the desired gestures are captured and tagged. These tagged gestures will be used by a gesture detector trainer which will generate a set of training examples. The training results are stored in files and will be used by the gesture detector to perform per-frame classification of the data. The Visual Gesture Builder (VGB) tool that comes together with Kinect for Windows SDK eases the process of tagging the gestures, evaluating the gesture recognition and creating the gesture database. The work-flow of using the VGB is shown in the Figure~\ref{fig:vgb_workflow}.
+The Kinect gesture recognition system involves a training phase during which the desired gestures are captured and tagged. These tagged gestures will be used by a gesture detector trainer which will generate a set of training examples. The training results are stored in files and will be used by the gesture detector to perform per-frame classification of the data. The Visual Gesture Builder (VGB) tool that comes together with Kinect for Windows SDK eases the process of tagging the gestures, evaluating the gesture recognition and creating the gesture database. The work-flow of using the VGB is shown in the Fig.~\ref{fig:vgb_workflow}.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{assets/vgb_flow.eps}
 \caption[Visual Gesture Builder Work flow]{Visual Gesture Builder Work flow \cite{KinectSDK2014}}
 \label{fig:vgb_workflow}
 \end{figure}
-The workflow shown in Figure~\ref{fig:vgb_workflow} has been adopted to develop all the gestures needed for the kinect gesture recognition module. The process followed for generating the Left hand wave gesture is shown in the Figure~\ref{fig:gesture_waveleft}. As shown in the figure at first the clips are captured using the Kinect studio tool and  stored as \textbf{XEF} files. The clips are then imported in the visual gesture builder. The imported clips could be traversed and the tagging is done (i.e at each frame it is possible to specify if that particular frame is part of the gesture of interest or not). This process could be repeated on one or more imported clips. The tagged clips are built in order to generate a set of weak classifiers and learn confidence values for each of those classifiers. Once the training process is complete, the trained classifier could be evaluated over a set of test clips using a live preview as shown in step 3 in the figure. When the results are satisfactory, the training data could be exported as a database saved as \textbf{VGD} (Visual Gesture Database) format.
+The workflow shown in Fig.~\ref{fig:vgb_workflow} has been adopted to develop all the gestures needed for the kinect gesture recognition module. The process followed for generating the Left hand wave gesture is shown in the Fig.~\ref{fig:gesture_waveleft}. As shown in the figure at first the clips are captured using the Kinect studio tool and  stored as \textbf{XEF} files. The clips are then imported in the visual gesture builder. The imported clips could be traversed and the tagging is done (i.e at each frame it is possible to specify if that particular frame is part of the gesture of interest or not). This process could be repeated on one or more imported clips. The tagged clips are built in order to generate a set of weak classifiers and learn confidence values for each of those classifiers. Once the training process is complete, the trained classifier could be evaluated over a set of test clips using a live preview as shown in step 3 in the figure. When the results are satisfactory, the training data could be exported as a database saved as \textbf{VGD} (Visual Gesture Database) format.
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{assets/gesture_recog_flow.eps}
@@ -215,7 +215,7 @@ The database is imported into the gesture recognition module and the responsibil
   }
   PUBLISH(skeletons)\;
  }
- \caption{Kinect Gesture recognition module}
+ \caption{Kinect gesture recognition module}
  \label{alg:gesture_recognize}
 \end{algorithm}
 \subsection{Speech recognition node}
@@ -241,7 +241,7 @@ The Nao humanoid robot already comes with an inbuilt speech recognition and syth
 \subsection{Robot interface node} 
 The Robot interface node is a dedicated node that interacts with a specific robot and can invoke a set of actions on it.  It registers a set of actions that could be invoked on the robot associated with it. The robot interface node sets up a publisher that periodically sends the information about the robot status like joint values, sensor information to the application to keep the context uptodate. Additionally it sets up a responder socket which will wait for action execution request from the remote node. 
 
-The robot interface node implements a Finite state machine (Figure~\ref{fig:robot_fsm}) in order appropriately streamline the data/status management with the remote caller node. The states of the FSM are
+The robot interface node implements a Finite state machine (Fig.~\ref{fig:robot_fsm}) in order appropriately streamline the data/status management with the remote caller node. The states of the FSM are
 \begin{itemize}[leftmargin={1cm},topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] 
 \item \emph{idle:} The robot is ready to receive new execution request.
 \item \emph{wait:} The node is waiting for the action execution arguments.
@@ -302,7 +302,7 @@ Each of the above states has a self loop when waiting for the state transition t
 The robot interface node dedicated to Nao humanoid robot is described in Section~\ref{sssec:nao_interface}
 \subsubsection{NAO robot interface}
 \label{sssec:nao_interface}
-The Nao robot interface makes use of the NaoQi python SDK which provides API for accessing various functionalities of the robot such as joint/cartesian control, memory access, motion, speech, object/face/people detection and tracking, behavior invocation etc., A set of necessary functions are implemented in the NaoBehaviorModule and they are registered to the application when the node is started up. The control flow is shown in Figure~\ref{fig:nao_interface}.
+The Nao robot interface makes use of the NaoQi python SDK which provides API for accessing various functionalities of the robot such as joint/cartesian control, memory access, motion, speech, object/face/people detection and tracking, behavior invocation etc., A set of necessary functions are implemented in the NaoBehaviorModule and they are registered to the application when the node is started up. The control flow is shown in Fig.~\ref{fig:nao_interface}.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\textwidth]{assets/NaoBehaviorModule.eps}
@@ -395,7 +395,7 @@ The fiducial marker based approach is used in order to localize the robot in the
 \end{table}
 
 \subparagraph{Modeling}
-For computing the absolute pose of the torso frame of the robot with respect to the world frame, the coordinate frames shown in Figure~\ref{fig:nao_localization} is used.
+For computing the absolute pose of the torso frame of the robot with respect to the world frame, the coordinate frames shown in Fig.~\ref{fig:nao_localization} is used.
 
 \begin{tabular}{r l}
 \centering
@@ -455,7 +455,7 @@ A dynamic component that will be created when the user starts the program he/she
 \label{fig:program_concept}
 \end{figure}
 \subsection{Conceptual model}
-The behavior program is structured in a simple way so that it could be easily understood by the end user. The conceptual model of behavior program is shown in Figure~\ref{fig:program_concept}. The behavior program is composed of:
+The behavior program is structured in a simple way so that it could be easily understood by the end user. The conceptual model of behavior program is shown in Fig.~\ref{fig:program_concept}. The behavior program is composed of:
 \begin{itemize}
 \item \emph{Startup behavior}: The startup block will be executed once when the user starts the program. The user can add a set of actions to be performed when the program starts. The start-up block is optional and there cannot be more than one start-up block in the program
 \item \emph{Trigger behavior}: The behavior block is the core component of the behavior program. The block could be activated by the interaction between the human and the robot. There could be many behavior blocks in a program. The properties/attributes of a behavior block is shown in Table~\ref{table:behavior_block}.
@@ -497,38 +497,43 @@ The behavior program is structured in a simple way so that it could be easily un
 \end{itemize}
 \subsection{Block level implementation}
 \label{sec:block_impl}
-The visual blocks corresponding to each of the startup, trigger and exit behaviors are implemented. The complex programs could be composed by putting together these blocks. The startup and exit blocks are shown in Fig~\ref{fig:blocks_init}. As could be seen from the figure, the blocks are quite simple making it possible to put the list of statements consisting of initialization and termination logic of the program. 
+The visual blocks corresponding to each of the startup, trigger and exit behaviors are implemented. The complex programs could be composed by putting together these blocks. The startup and exit blocks are shown in Fig.~\ref{fig:blocks_init}. As could be seen from the figure, the blocks are quite simple making it possible to put the list of statements consisting of initialization and termination logic of the program. 
 \begin{figure}[H]
-\centering
+%\centering
 \begin{subfigure}[t]{0.28\textwidth}
-\includegraphics[width=\textwidth]{../thesis/assets/blocks_startup.png}
-\caption[Startup block]{Startup block}
-\label{fig:startup_block}
-\end{subfigure}
-\begin{subfigure}[t]{0.28\textwidth}
-\includegraphics[width=\textwidth]{../thesis/assets/blocks_exit.png}
-\caption[Exit block]{Exit block}
-\label{fig:exit_block}
-\end{subfigure}
-\caption[Startup and Exit behaviors]{Startup and Exit behaviors}
+\includegraphics[width=\textwidth]{../thesis/assets/blocks_init.png}
+\caption[Startup/Exit blocks]{Startup/Exit blocks}
 \label{fig:blocks_init}
-\end{figure}
-The trigger behavior block is designed in such a way that it incorporates the conceptual model and at the same time easier for the end user to understand and use it. The trigger behavior block is shown in Fig~\ref{fig:blocks_trigger}. The visual design provides ability to compose the blocks by putting an external boolean trigger, choose priority and lifetime from the combo box interface, add startup,cyclic and exit statements etc.,
-\begin{figure}[H]
-\centering
-\begin{subfigure}[t]{0.38\textwidth}
+\end{subfigure}
+\begin{subfigure}[t]{0.33\textwidth}
 \includegraphics[width=\textwidth]{../thesis/assets/blocks_behavior1.png}
-\caption[Example 1]{Priority: Low, Execute: Once}
+\caption[Trigger behavior block 1]{Trigger behavior block 1}
 \label{fig:trigger_block1}
 \end{subfigure}
-\begin{subfigure}[t]{0.38\textwidth}
+\begin{subfigure}[t]{0.33\textwidth}
 \includegraphics[width=\textwidth]{../thesis/assets/blocks_behavior2.png}
-\caption[Example 2]{Priority: High, Execute: Until}
+\caption[Trigger behavior block 2]{Trigger behavior block 2}
 \label{fig:trigger_block2}
 \end{subfigure}
-\caption[Trigger behavior]{Trigger behavior}
-\label{fig:blocks_trigger}
+\caption[Behavior program constructs]{Behavior program constructs}
+\label{fig:behavior_blocks}
 \end{figure}
+The trigger behavior block is designed in such a way that it incorporates the conceptual model and at the same time easier for the end user to understand and use it. The trigger behavior blocks are shown in Fig.~\ref{fig:trigger_block1} and \ref{fig:trigger_block2}. The visual design provides ability to compose the blocks by putting an external boolean trigger, choose priority and lifetime from the combo box interface, add startup,cyclic and exit statements etc.,
+% \begin{figure}[H]
+% \centering
+% \begin{subfigure}[t]{0.38\textwidth}
+% \includegraphics[width=\textwidth]{../thesis/assets/blocks_behavior1.png}
+% \caption[Example 1]{Priority: Low, Execute: Once}
+% \label{fig:trigger_block1}
+% \end{subfigure}
+% \begin{subfigure}[t]{0.38\textwidth}
+% \includegraphics[width=\textwidth]{../thesis/assets/blocks_behavior2.png}
+% \caption[Example 2]{Priority: High, Execute: Until}
+% \label{fig:trigger_block2}
+% \end{subfigure}
+% \caption[Trigger behavior]{Trigger behavior}
+% \label{fig:blocks_trigger}
+% \end{figure}
 The block interface is reactive in the sense that for instance when the lifetime of the block is switched from \emph{Once/Forever} to \emph{Until}, a new input appears in the block where the user can add the condition to stop the block.
 
 \textbf{TODO: } Describe all the blocks (Triggers/Actions) developed.
@@ -541,7 +546,7 @@ The next step in the behavior program design flow is to generate the executable 
 \caption[Behavior program - Execution flow]{Behavior program - Execution flow}
 \label{fig:program_execution}
 \end{figure}
- The execution flow of the behavior program is shown in Figure~\ref{fig:program_execution}. The generated behavior program is consumed by a \emph{Behavior execution engine} which dynamically identifies the configured behavior blocks. The main functionality of the behavior execution engine is to check if the trigger condition of the behavior blocks is met and once the condition is met, the execution of the corresponding behavior is scheduled on a separate CPU thread. The behavior program accesses the uptodate information about the environment through the interface namely the \emph{Behavior execution context} which acts as a proxy to the \emph{Application context}. The algorithm of the behavior execution by the engine is shown in Algorithm~\ref{alg:behavior_engine}.
+ The execution flow of the behavior program is shown in Fig.~\ref{fig:program_execution}. The generated behavior program is consumed by a \emph{Behavior execution engine} which dynamically identifies the configured behavior blocks. The main functionality of the behavior execution engine is to check if the trigger condition of the behavior blocks is met and once the condition is met, the execution of the corresponding behavior is scheduled on a separate CPU thread. The behavior program accesses the uptodate information about the environment through the interface namely the \emph{Behavior execution context} which acts as a proxy to the \emph{Application context}. The algorithm of the behavior execution by the engine is shown in Algorithm~\ref{alg:behavior_engine}.
 
 \begin{algorithm}[H]
  \KwData{program : Behavior program}
@@ -577,7 +582,7 @@ The next step in the behavior program design flow is to generate the executable 
  \label{alg:behavior_engine}
 \end{algorithm}
 
-\section{User Interface}
+\section{User interface}
 \label{ssec:ui_comp}
 The user interface is a web application that runs on any latest web-kit browsers supporting HTML5, CSS3 and WebGL technologies. The list of libraries and components used to build the web interface has been described in Section~\ref{sec:ui_design}. In this section the various screens in the developed user interface has been described. The UI is composed of tabbed interface consisting of 3 main components as shown in Fig~\ref{fig:behavior_designer}.
 \begin{itemize}
