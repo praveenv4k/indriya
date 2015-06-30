@@ -4,43 +4,46 @@
 \label{Chapter7} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 \lhead{Chapter 7. \emph{Conclusion}} 
 \section{Project Summary}
-In this section a description of the research plan and research schedule are presented.
+In this section summary of the Indriya platform is described
 \subsection{System specification}
- After studying the available state of the art techniques, an initial (may subject to change) architecture of the experimental platform is proposed. The proposed system specification is shown in Table~\ref{table:system} and the system architecture is shown in the Fig.~\ref{fig:architecture}.
+ The Indriya platform could be seen as a product by itself. The prduct specification is shown in Table~\ref{table:system}.
 \begin{table}
 \centering
-\footnotesize
-\caption{System Specification}
+%\footnotesize
+\caption{Indriya Specification}
 \label{table:system}
 \begin{tabularx}{\textwidth}{X X X}
 \toprule
-  \multirow{2}{*}{Hardware} & Supported Robots & Nao, Pepper, Turtlebot \\
+  \multirow{2}{*}{Hardware} & Supported Robots & Nao \\
                             & Sensor & Kinect for Windows V2 \\
                             & PC & 64-bit (x64) processor, min 4GB Memory, Physical dual-core 3.1 GHz or more,USB 3.0 controller, DX11 capable graphics adapter\\
                                           \toprule                                       
-  \multirow{2}{*}{Software} & Platform & Windows 8.1 (Migration to Ubuntu based on the availability of stable tools for kinect v2) \\
-                            & Development Tools & Microsoft Visual Studio, Choreographe, Kinect Studio, Gesture builder \\
-                            & Programming Languages & C++, C\# \\
-                            & Source control & Github \\
-                            & Software libraries & Kinect for Windows SDK 2.0, Point Cloud Library 1.7.2, OpenCV
+  \multirow{2}{*}{Software} & Platform & Windows 8.1  \\
+                            & For running & Microsoft .NET 4.5.1, Visual C++ Redistributable Kinect SDK, Choreographe, Kinect for Windows SDK \\
+                            & For developing & Visual studio community 2013, See readme for list of dependencies \\
                                           \tabularnewline\toprule
 \end{tabularx}
 \end{table}
+The Table~\ref{table:platform_revisited} clarifies the functionalities of Indriya platform.
 
-The Kinect SDK will be used for the skeleton tracking of human using the RGB-D information acquired from the sensor. The Gesture recognition library will be used in order to recognize the gesture of the tracked skeletons. If additional gestures will be needed for the experimental scenario, they will be captured and tagged using the \emph{Gesture builder} that accompanies the Kinect SDK. In order to track the position of the Nao, a particle filter tracker (\emph{KLDAdaptiveParticleFilterOMPTracker}) available in point cloud library will be used. In case if the tracker is heavier to run beside the skeleton tracking of Kinect (since the kinect tracking is resource consuming), pose tracking using \emph{ARToolKit} will be tried out. All the heavy data processing will be done by a powerful computer which will be called \emph{Interaction Manager}. 
-
-The human motion tracking and nao pose tracking would be implemented as TDM components which would be able to pull/push information from/to the Internal model provided by the TDM architecture. For instance, Nao robot's pose would be continuosly pushed to the IM and other blocks which are responsible to command Nao to move to a particular position could pull the pose information from the IM. Also triggers like \emph{Human detected}, \emph{Object Detected} will be implemented which could be used to activate behavioral blocks as needed. The NaoQi middleware already exposes APIs to perform data communication using SOAP protocol. An example component library and a simple \emph{Human greeting} behavior using the "to be" implemented function and trigger blocks is shown in Fig.~\ref{fig:program}. The details about the sensor$\Leftrightarrow$robot data communication will be taken care by the individual function by interacting with the internal model. For instance in the example program proposed, the default behavior just embeds functions to track the human and Nao. The default program updates their information to the internal model. The actual \emph{Human Greet} behavior embeds \emph{Approach Human function}: which gets the position of the Human from the internal model and move towards him, \emph{Greet Human function}: which pulls the position of the Nao robot from the internal model and when it is close enough to human, it will greet human by bowing (\emph{Japanese style greeting}). Thanks to the TDM framework, it will take care of the object permanence and say this simple program could be used irrespective of the number of persons to greet.
-\begin{figure}
+\begin{table}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{assets/tdm_example_proposed.eps}
-\caption{Greeting a human Example}
-\label{fig:program}
-\end{figure}	
-	The depicted TDM program is just an initial proposal of how the outcome of the work will look like. Once the component library is created, more complex dynamic behavior could be created. The current idea is to design a scenario in which Nao acts as a receptionist and evaluate the interaction using questionnaires and online logging of expression of human. Data analysis will be done using the statistical tools.
-
-\subsection*{Research Schedule}
-	The research is carried out in GVLab at Tokyo University of Agriculture and Technology (TUAT) in Japan. The research is funded by Japan Student Support Organisation (JASSO). The proposed schedule of the thesis is from \emph{16/02/2015} $\sim$ \emph{18/08/2015}.
+\small
+\caption{Indriya platform revisited}
+\label{table:platform_revisited}
+% \begin{tabular}{|l|l|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{3cm}|}
+\begin{tabular}{|r|p{10cm}|}
+\hline
+  \textbf{$What is it?$}  & \begin{itemize}
+                            \item Design behavior programs
+                            \end{itemize}
+  \tabularnewline \hline
+  \textbf{$What is it not?$}  & -
+  \tabularnewline \hline
+\end{tabular}
+\end{table}
 	
+The source code of the complete Indriya is available as Open source at \url{https://github.com/praveenv4k/Indriya}. 
 \subsection{Project Statistics}
 
 \begin{table}[h!]
@@ -86,6 +89,10 @@ The human motion tracking and nao pose tracking would be implemented as TDM comp
   \end{center}
 \end{table}
 
+\begin{tikzpicture} 
+\pie[text=legend]{43.85/C\#, 22.83/C++, 9.52/Python, 6.96/Javascript, 16.8/Others} 
+\end{tikzpicture}
+
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{assets/code_statistics.png}
@@ -94,7 +101,14 @@ The human motion tracking and nao pose tracking would be implemented as TDM comp
 \end{figure}  
 
 \subsection{Scope for prospective work}
-  
+  The Indriya platform has tremendous hope for future developments. Some of the directions that could be thought are
+
+\begin{itemize}
+\item Integration of sensors available in smartphone and wearable devices like IMUs, Gyroscopes, GPS etc.,
+\item Integration of Natural Language Processing systems with the speech recognition module for more natural interaction
+\item Increasing the range of operation of Humanoid robots by fusing data from two or more Kinect sensors 
+\item Support for social behavior learning and intelligence modules for dynamic adoption of human like behavior by robots
+\end{itemize}
 
 \section{Conclusion} % Main chapter title
 	Human Robot Interaction is a complex interdisciplinary problem that needs expertise in various fields like human computer interaction, psychology, biomechanics, humanoid robotics etc., Social robots have become very common in the recent days and they find useful applications in entertainment, education, autism treatment and elderly care. 
