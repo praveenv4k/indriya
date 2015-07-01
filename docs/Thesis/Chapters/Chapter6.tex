@@ -5,15 +5,38 @@
 \label{Chapter6} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
 \lhead{Chapter 6. \emph{User experience evaluation}} 
-Human-Robot Interaction (HRI) being a rapidly advancing area of research, there is a growing need for strong experimental designs and methods of evaluation. This will bring credibility and validity to scientific research that involves humans as subjects, as recognized in the psychology and social science fields. As robots are becoming more prevalent, accurate methods to assess how humans respond to robots, how they feel about their interactions with robots, and how they interpret the actions of robots are very important. 
+Human-Robot Interaction (HRI) being a rapidly advancing area of research, there is a growing need for strong experimental designs and methods of evaluation. This will bring credibility and validity to scientific research that involves humans as subjects, as recognized in the psychology and social science fields. As robots are becoming more prevalent, accurate methods to assess how humans respond to robots, how they feel about their interactions with robots, and how they interpret the actions of robots are very important. Indriya platform being aimed at naive users it is very important to evaluate how people feel about the system. In this chapter, the experiment design process, data collection and analysis are discussed.
 
-\section{Experiment}
+\section{Experiment protocol}
+The interaction design process suggested in \cite{Rogers2011} has been followed. The main aspects of the experiment are as follows
+\begin{itemize}
+\item Identifying the participants: A set of participants were identified who have beginner to intermediate programming skill to evaluate the platform
+\item Relationship with participants: A professional relationship is maintained with the participants in order to reduce the bias in the evaluation process
+\item Setting goals: The main goals of the experiment considered are
+\begin{itemize}
+\item Whether the participants understand the objective of the system?
+\item Whether the participants able to use the system?
+\item Whether the participants able to execute the designed scenario on the real robot?
+\end{itemize}
+\item Pilot studies: Before conducting the experiment with many participants, it has been decided to perform pilot studies on a small set of participants. This is to avoid ambiguities in the setup and data collection method that might arise when one directly conducts the real experiment.
+\end{itemize}
 
-\subsection{Protocol}
+For the pilot studies and also for the actual experiment, a handout describing the Indriya platform has been produced. The prepared handout is shown in Fig.~\ref{fig:handout}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{../thesis/assets/handout.png}
+\includegraphics[width=\textwidth]{../thesis/assets/handout.png}
 \caption[System description handout]{System description handout}
 \label{fig:handout}
 \end{figure}
+
+\section{Data collection method}
+The self-assessment \cite{bethel2010review} technique has been used as the data collection method. A questionnaire has been framed in order to access various metrics of the user experience. The Google forms has been used to prepare the questionnaire. The questionnaire is at first made in English and after performing the pilot studies on a set of English speaking participants, it has been translated to Japanese with the help of native Japanese speaker. The questionnaire has been integrated with the user interface. Soon after the participants design and execute the scenario they have developed, they could navigate to the \emph{Evaluate} screen (similar to the in-app rating in modern applications) and evaluate the system. The Google forms integrated with user interface is shown in Fig.~\ref{fig:ui_evaluate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{../thesis/assets/questionnaire_integration.png}
+\caption[Questionnaire integration in UI]{Questionnaire integration in UI}
+\label{fig:ui_evaluate}
+\end{figure}
+
 \section{Summary and Discussion}
