@@ -687,10 +687,13 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
                     // Now we find the angle of rotation needed to do this alignment
                     //var angle = Math.Acos(Vector2.Dot(toHumanVec, yUnit));
                     var angle = GetRelativeAngle(xUnit, toHumanVec);
+
+#if USE_YAW
                     if (rWorldYaw > 0)
                         angle += rWorldYaw;
                     else
                         angle -= rWorldYaw;
+#endif
                     // Update the values of X,Y,Theta
                     var xDict = behaviorInfo.Parameters.TryGetAndReturn("x") as
                         Dictionary<string, object>;
