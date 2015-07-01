@@ -45,60 +45,80 @@ The Table~\ref{table:platform_revisited} clarifies the functionalities of Indriy
 	
 The source code of the complete Indriya is available as Open source at \url{https://github.com/praveenv4k/Indriya}. 
 \subsection{Project Statistics}
+% \begin{table}[h!]
+%   \begin{center}
+%     \caption{Project Code Statistics}
+%     \label{table:code_stats}
+%     \pgfplotstabletypeset[
+%       columns = {language,comment,code},
+%       multicolumn names, % allows to have multicolumn names
+%       col sep=comma, % the seperator in our .csv file
+%       %display columns/0/.style={
+%       %    column name=$Files$, % name of first column
+%       %    column type={S},string type
+%       %},  % use siunitx for formatting
+%       %display columns/0/.style={
+%       %    column name=$Files$,
+%       %    string type
+%       %},  % use siunitx for formatting
+%       display columns/0/.style={
+%         column name=$Language$,
+%         string type
+%       },
+%       %display columns/1/.style={
+%       %  column name=$Blank$,
+%       %  string type
+%       %},
+%       display columns/1/.style={
+%         column name=$Comment$,
+%         string type
+%       },
+%       display columns/2/.style={
+%         column name=$Code$,
+%         string type
+%       },
+%       every head row/.style={
+%         before row={\toprule}, % have a rule at top
+%         after row={
+%           %\si{\ampere} & \si{\volt}\\ % the units seperated by &
+%           \midrule} % rule under units
+%       },
+%       every last row/.style={after row=\bottomrule}, % rule at bottom
+%     ]{assets/cloc_code_statistics.csv} % filename/path to file
+%   \end{center}
+% \end{table}
 
-\begin{table}[h!]
-  \begin{center}
-    \caption{Project Code Statistics}
-    \label{table:code_stats}
-    \pgfplotstabletypeset[
-      columns = {language,comment,code},
-      multicolumn names, % allows to have multicolumn names
-      col sep=comma, % the seperator in our .csv file
-      %display columns/0/.style={
-      %    column name=$Files$, % name of first column
-      %    column type={S},string type
-      %},  % use siunitx for formatting
-      %display columns/0/.style={
-      %    column name=$Files$,
-      %    string type
-      %},  % use siunitx for formatting
-      display columns/0/.style={
-        column name=$Language$,
-        string type
-      },
-      %display columns/1/.style={
-      %  column name=$Blank$,
-      %  string type
-      %},
-      display columns/1/.style={
-        column name=$Comment$,
-        string type
-      },
-      display columns/2/.style={
-        column name=$Code$,
-        string type
-      },
-      every head row/.style={
-        before row={\toprule}, % have a rule at top
-        after row={
-          %\si{\ampere} & \si{\volt}\\ % the units seperated by &
-          \midrule} % rule under units
-      },
-      every last row/.style={after row=\bottomrule}, % rule at bottom
-    ]{assets/cloc_code_statistics.csv} % filename/path to file
-  \end{center}
-\end{table}
-
-\begin{tikzpicture} 
-\pie[text=legend]{43.85/C\#, 22.83/C++, 9.52/Python, 6.96/Javascript, 16.8/Others} 
-\end{tikzpicture}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{assets/code_statistics.png}
-\caption{Code Statistics}
-\label{fig:code_stats}
-\end{figure}  
+% \begin{figure}[H]
+% \centering
+% \begin{tikzpicture} 
+% \pie[text=legend]{43.85/C\#, 22.83/C++, 9.52/Python, 6.96/Javascript, 16.8/Others} 
+% \end{tikzpicture}
+% \caption[NAO museum guide: Experiment setup]{NAO museum guide: Experiment setup}
+% \label{fig:pie}
+% \end{figure}
+\begin{figure}[!ht]
+  %\centering
+  %\rule{6.4cm}{3.6cm}
+  \begin{tikzpicture}[scale=0.8]
+  %\pie[text=legend]{43.85/C\#, 22.83/C++, 9.52/Python, 6.96/Javascript, 16.8/Others} 
+  %\pie[ cloud , text = inside , scale font ]{43.85/C\#, 22.83/C++, 9.52/Python, 6.96/Javascript, 16.8/Others}
+  \pie[ cloud , text = inside ]{43.85/C\#, 22.83/C++, 9.52/Python, 6.96/JS, 16.8/Others}
+  %\pie[ square]{43.85/C\#, 22.83/C++, 9.52/Python, 6.96/JS, 16.8/Others}
+  \end{tikzpicture}
+  \qquad
+  \begin{tabular}[b]{cc}\hline
+    Language & Lines of code \\ \hline
+    C\# & 0 \\
+    C++ & 0 \\
+    Python & 0 \\
+    Javascript (JS) & 0 \\
+    Others & 0 \\
+    Total & 0 \\ \hline
+  \end{tabular}
+  \captionlistentry[table]{Indriya: Code statistics}
+  %\captionsetup{labelformat=andtable}
+  \caption{Indriya: Code statistics}
+\end{figure}
 
 \subsection{Scope for prospective work}
   The Indriya platform has tremendous hope for future developments. Some of the directions that could be thought are

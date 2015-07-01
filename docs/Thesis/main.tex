@@ -41,7 +41,8 @@
 \usepackage{extramarks}
 \usepackage{chngpage}
 \usepackage{soul,color}
-\usepackage{graphicx,float,wrapfig}
+%\usepackage{graphicx,float,wrapfig}
+\usepackage{graphicx,wrapfig}
 \usepackage{times}
 \usepackage{tabularx,ragged2e}
 \usepackage{booktabs}
@@ -58,6 +59,7 @@
 \usepackage{multirow}
 \usepackage{listings}
 \usepackage{mdwlist}
+\usepackage{floatrow}
 
 \usepackage{filecontents}
 \usepackage{enumitem}
@@ -72,7 +74,7 @@
 %\usepackage{textures}
 %\usepackage{context}
 \usetikzlibrary{arrows,positioning,automata,intersections}
-
+\newfloatcommand{capbtabbox}{table}[][\FBwidth]
 \lstdefinelanguage{XML}
 {
   basicstyle=\ttfamily\footnotesize,
