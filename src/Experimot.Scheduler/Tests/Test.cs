@@ -152,6 +152,14 @@ namespace Experimot.Scheduler.Tests
             }
         }
 
+        public static void CheckRelativeAngle()
+        {
+            Vector2 v1 = new Vector2(-0.05f,0.86f);
+            Vector2 v2 = new Vector2(-0.7f, 1f);
+            var angle = BehaviorExecutionContext.GetRelativeAngle(v1, v2);
+            Console.WriteLine(@"Relative Angle : {0}",angle);
+        }
+
         public static void GestureConfidenceDataIterate()
         {
             var gesture = new Gesture("test", GestureMode.Discrete);

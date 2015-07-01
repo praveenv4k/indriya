@@ -199,6 +199,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
     {
         //try
         {
+            DisplayRobotPose();
             using (var ctx = NetMQContext.Create())
             {
                 using (var sock = ctx.CreateRequestSocket())
@@ -681,12 +682,14 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
                     var toHumanVec = new Vector2(hDisp.X, hDisp.Y) -
                                      new Vector2(rDisp.X, rDisp.Y);
                     toHumanVec.Normalize();
+
+                    var headingVec = new Vector2((float) Math.Cos(rWorldYaw), (float) Math.Sin(rWorldYaw));
                     // Next we would like to align the X-Axis of the robot with that of this unit vector
-                    var yUnit = Vector2.UnitY;
-                    var xUnit = Vector2.UnitX;
+                    //var yUnit = Vector2.UnitY;
+                    //var xUnit = Vector2.UnitX;
                     // Now we find the angle of rotation needed to do this alignment
                     //var angle = Math.Acos(Vector2.Dot(toHumanVec, yUnit));
-                    var angle = GetRelativeAngle(xUnit, toHumanVec);
+                    var angle = GetRelativeAngle(headingVec, toHumanVec);
 
 #if USE_YAW
                     if (rWorldYaw > 0)
@@ -784,7 +787,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
                     var threshold = distance;
                     if (distDict != null)
                     {
-                        float.TryParse(humanDict.TryGetAndReturn("value").ToString(),
+                        float.TryParse(distDict.TryGetAndReturn("value").ToString(),
                             out threshold);
                     }
 
@@ -792,42 +795,91 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
                     if (distance > threshold)
                     {
                         residual = distance - threshold;
-                    }
 
-                    // Unit Vector
-                    toHumanVec.Normalize();
-                    //var residualVector = toHumanVec*residual;
-                    var residualVector = Vector2.UnitX*residual;
+                        // Unit Vector
+                        toHumanVec.Normalize();
+                        //var residualVector = toHumanVec*residual;
+                        var residualVector = Vector2.UnitX*residual;
 
-                    // Update the values of X,Y,Theta
-                    var xDict = behaviorInfo.Parameters.TryGetAndReturn("x") as
-                        Dictionary<string, object>;
-                    var yDict =
-                        behaviorInfo.Parameters.TryGetAndReturn("y") as
+                        // Update the values of X,Y,Theta
+                        var xDict = behaviorInfo.Parameters.TryGetAndReturn("x") as
                             Dictionary<string, object>;
-                    var thetaDict =
-                        behaviorInfo.Parameters.TryGetAndReturn("theta") as
-                            Dictionary<string, object>;
+                        var yDict =
+                            behaviorInfo.Parameters.TryGetAndReturn("y") as
+                                Dictionary<string, object>;
+                        var thetaDict =
+                            behaviorInfo.Parameters.TryGetAndReturn("theta") as
+                                Dictionary<string, object>;
 
-                    Log.InfoFormat("Move To X : {0}, Y:{1}", residualVector.X, residualVector.Y);
+                        Log.InfoFormat("Move To X : {0}, Y:{1}", residualVector.X, residualVector.Y);
 
-                    if (xDict != null)
-                    {
-                        xDict["value"] = 0.75*residualVector.X;
+                        if (xDict != null)
+                        {
+                            xDict["value"] = 0.75*residualVector.X;
+                        }
+                        if (yDict != null)
+                        {
+                            yDict["value"] = 0.0f;
+                        }
+                        if (thetaDict != null)
+                        {
+                            thetaDict["value"] = 0.0f;
+                        }
+                        ret = true;
                     }
-                    if (yDict != null)
-                    {
-                        yDict["value"] = 0.0f;
-                    }
-                    if (thetaDict != null)
-                    {
-                        thetaDict["value"] = 0.0f;
-                    }
-                    ret = true;
                 }
             }
         }
         return ret;
+    }
+
+    public void DisplayRobotPose()
+    {
+
+        // Get Robot String
+        var robotString = GetContextJsonString(ContextServer, RecvTimeout, "robot");
+
+        // Get World String
+        var worldFrame = GetContextJsonString(ContextServer, RecvTimeout, "world_frame");
+
+
+        Matrix3x3 robotRot;
+        Matrix3x3 worldRot;
+
+        Quaternion robotQ;
+        Quaternion worldQ;
+
+        Vector3 robotTrans;
+        Vector3 worldTrans;
+
+        // Get the transformation from the JSON strings
+        GetLocalizationFromRobotJson(robotString, out robotTrans, out robotRot,
+            out robotQ);
+        GetWorldFrameMatrix(worldFrame, out worldTrans, out worldRot, out worldQ);
+
+        var worldMat = GetMatrixFromPose(worldQ, new Vector3(0, 0, 0));
+        var robotMat = GetMatrixFromPose(robotQ, new Vector3(0, 0, 0));
+
+        worldMat.Invert();
+        var hRobot = worldMat*robotMat;
+
+        var rWorldQ = Quaternion.RotationMatrix(hRobot);
+
+        var rWorldYaw = GetHeading(rWorldQ);
+
+        // Compute the displacement of Robot and Human wrt to world frame
+        worldRot.Invert();
+
+
+        var rDisp =
+            new Vector3(Vector3.Dot(worldRot.Column1, robotTrans),
+                Vector3.Dot(worldRot.Column2, robotTrans),
+                Vector3.Dot(worldRot.Column3, robotTrans)) -
+            new Vector3(Vector3.Dot(worldRot.Column1, worldTrans),
+                Vector3.Dot(worldRot.Column2, worldTrans),
+                Vector3.Dot(worldRot.Column3, worldTrans));
+
+        Log.InfoFormat("X:{0}, Y:{1}, Theta:{2}", rDisp.X, rDisp.Y, rWorldYaw);
     }
 
     public bool CancelRequest
