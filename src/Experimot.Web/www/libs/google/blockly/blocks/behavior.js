@@ -125,7 +125,8 @@ Blockly.Blocks.behaviors.VoiceProperties =
     ["STOP", "STOP"],
     ["START", "START"],
     ["SIT", "SIT"],
-    ["STAND", "STAND"]
+    ["STAND", "STAND"],
+    ["NAME", "NAME"]
 ];
 
 Blockly.Blocks.behaviors.PriorityProperties =
@@ -137,9 +138,9 @@ Blockly.Blocks.behaviors.PriorityProperties =
 
 Blockly.Blocks.behaviors.ExecutionProperties =
 [
-    ["Forever", 'forever'],
     ["Once", 'once'],
-    ["Until", 'until']
+    ["Until", 'until'],
+    ["Forever", 'forever']
 ];
 
 Blockly.Blocks.behaviors.ConfidenceProperties =

@@ -34,7 +34,7 @@
     <!-- TODO Define Parameter for Periods of ContextServer, ContextSync, ParameterServer, GesturePeriod-->
   </parameters>
   <nodes>
-    <node enabled="true" name="localization">
+    <node enabled="false" name="localization">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\experimot_localization.exe</path>
@@ -128,7 +128,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="false" name="speech_recognition">
+    <node enabled="true" name="speech_recognition">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Speech\Experimot.Kinect.Speech.exe</path>
@@ -252,7 +252,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="true" name="robot_interface">
+    <node enabled="false" name="robot_interface">
       <process>
         <type>executable</type>
         <path>python.exe</path>

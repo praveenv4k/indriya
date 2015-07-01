@@ -91,6 +91,7 @@ namespace Experimot.Kinect.Speech
             }
             if (_voiceCommandPublisher == null)
             {
+                Console.WriteLine(@"Node info null");
                 _voiceCommandPublisher = new VoiceCommandPublisher();
             }
         }

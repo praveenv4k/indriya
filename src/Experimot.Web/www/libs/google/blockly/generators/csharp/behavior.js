@@ -528,7 +528,7 @@ Blockly.CSharp['voice_trigger'] = function (block) {
 Blockly.CSharp['voice_trigger2'] = function (block) {
     var trigger = block.getFieldValue('VOICE_TRIGGER');
 
-    var genCode = 'var gestureInfo = context.GetVoiceCommand(\"' + trigger + '\");\n' +
+    var genCode = 'var voiceCommand = context.GetVoiceCommand(\"' + trigger + '\");\n' +
         'if (voiceCommand.Active && voiceCommand.Confidence > 80)\n' +
         '{\n' +
         'Console.WriteLine("Voice trigger received : {0} - {1}", voiceCommand.Name, voiceCommand.Confidence);\n' +

@@ -137,6 +137,7 @@ class NaoBehaviorModule:
         language = params.get('lang','')
         proxy = self.getTextToSpeechProxy()
         languages = proxy.getAvailableLanguages()
+        print languages
         if language in languages:
             self.language = language
             id = proxy.post.setLanguage(language)
