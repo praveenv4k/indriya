@@ -5,6 +5,8 @@
         <tag>YES</tag>
         <one-of>
           <item> yes </item>
+          <item> yeah </item>
+          <item> yup </item>
         </one-of>
       </item>
       <item>
@@ -17,12 +19,14 @@
         <tag>STOP</tag>
         <one-of>
           <item> stop </item>
+          <item> exit </item>
         </one-of>
       </item>
       <item>
         <tag>START</tag>
         <one-of>
           <item> start </item>
+          <item> begin </item>
         </one-of>
       </item>
       <item>
@@ -61,6 +65,22 @@
           <item> orange </item>
         </one-of>
       </item>
+    </one-of>
+  </rule>
+  <rule id="greet">
+    <one-of>
+      <item>hello</item>
+      <item>good afternoon</item>
+      <item>good evening</item>
+      <item>good bye</item>
+      <item>bye</item>
+    </one-of>
+  </rule>
+  <rule id="simple_questions">
+    <one-of>
+      <item>what is your name?</item>
+      <item>what is the time now?</item>
+      <item>how are you feeling today?</item>
     </one-of>
   </rule>
 </grammar>
