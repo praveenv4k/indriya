@@ -814,7 +814,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
                     }
                     if (yDict != null)
                     {
-                        yDict["value"] = 0.75*residualVector.Y;
+                        yDict["value"] = 0.0f;
                     }
                     if (thetaDict != null)
                     {

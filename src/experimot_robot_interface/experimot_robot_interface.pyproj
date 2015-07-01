@@ -56,7 +56,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="plot_example.py" />
-    <Compile Include="ReadPositionValues.py" />
     <Compile Include="ReadJointValues.py" />
     <Compile Include="read_values.py" />
   </ItemGroup>
