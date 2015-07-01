@@ -462,6 +462,14 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
             var humanArray = JArray.Parse(humanStr);
             foreach (var human in humanArray)
             {
+                if (gestureName == "HumanDetected")
+                {
+                    ret.HumanId = human.Value<int>("Id");
+                    ret.Active = true;
+                    ret.Confidence = 91;
+                    break;
+                }
+
                 var gestures = human.SelectToken("$.Gestures");
                 foreach (var gesture in gestures)
                 {
@@ -489,6 +497,17 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
             var humanArray = JArray.Parse(humanStr);
             foreach (var human in humanArray)
             {
+                if (gestureName == "HumanDetected")
+                {
+                    ret.Add(new GestureInfo
+                    {
+                        Name = gestureName,
+                        HumanId = human.Value<int>("Id"),
+                        Active = true,
+                        Confidence = 91
+                    });
+                    break;
+                }
                 var gestures = human.SelectToken("$.Gestures");
                 foreach (var gesture in gestures)
                 {

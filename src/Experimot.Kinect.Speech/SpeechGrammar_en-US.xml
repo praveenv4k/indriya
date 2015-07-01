@@ -2,6 +2,20 @@
   <rule id="rootRule">
     <one-of>
       <item>
+        <tag>SIT</tag>
+        <one-of>
+          <item> sit </item>
+          <item> sit down </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>STAND</tag>
+        <one-of>
+          <item> stand </item>
+          <item> stand up </item>
+        </one-of>
+      </item>
+      <item>
         <tag>YES</tag>
         <one-of>
           <item> yes </item>
@@ -65,22 +79,130 @@
           <item> orange </item>
         </one-of>
       </item>
+      <item>
+        <tag>Hello</tag>
+        <one-of>
+          <item>hello</item>
+        </one-of>
+      </item>
+      <item>
+        <tag>Good afternoon</tag>
+        <one-of>
+          <item>good afternoon</item>
+        </one-of>
+      </item>
+      <item>
+        <tag>Good evening</tag>
+        <one-of>
+          <item>good evening</item>
+        </one-of>
+      </item>
+      <item>
+        <tag>Good bye</tag>
+        <one-of>
+          <item>good bye</item>
+        </one-of>
+      </item>
+      <item>
+        <tag>bye</tag>
+        <one-of>
+          <item>bye</item>
+        </one-of>
+      </item>
+      <item>
+        <tag>NAME</tag>
+        <one-of>
+          <item>what is your name</item>
+          <item>your name please</item>
+          <item>your name</item>
+          <item>your nice name</item>
+          <item>how can I call you</item>
+        </one-of>
+      </item>
+      <item>
+        <tag>Hiro</tag>
+        <one-of>
+          <item>Hiro</item>
+          <item>Hiro chan</item>
+          <item>Hiro kun</item>
+          <item>are you there Hiro</item>
+        </one-of>
+      </item>
+      <item>
+        <tag>TIME</tag>
+        <one-of>
+          <item>what is the time now</item>
+          <item>what time is it right now</item>
+          <item>time please</item>
+        </one-of>
+      </item>
+      <item>
+        <tag>Feeling</tag>
+        <one-of>
+          <item>how are you feeling today</item>
+          <item>are you ok</item>
+        </one-of>
+      </item>
+      <item>
+        <tag>OKAY</tag>
+        <one-of>
+          <item>I am feeling good</item>
+          <item>I am ok</item>
+          <item>I am good</item>
+          <item>am good</item>
+          <item>am ok</item>
+          <item>am feeling good</item>
+        </one-of>
+      </item>
+      <item>
+        <tag>NOT_OKAY</tag>
+        <one-of>
+          <item>I am not feeling good</item>
+          <item>I am not ok</item>
+          <item>I am feeling bad</item>
+        </one-of>
+      </item>
     </one-of>
   </rule>
-  <rule id="greet">
+  <!--<rule id="greet">
     <one-of>
-      <item>hello</item>
-      <item>good afternoon</item>
-      <item>good evening</item>
-      <item>good bye</item>
-      <item>bye</item>
+      <item>
+        <tag>Hello</tag>
+        <one-of>
+          <item>hello</item>
+        </one-of>
+      </item>
+      <item>
+        <tag>Good afternoon</tag>
+        <one-of>
+          <item>good afternoon</item>
+        </one-of>
+      </item>
+      <item>
+        <tag>Good evening</tag>
+        <one-of>
+          <item>good evening</item>
+        </one-of>
+      </item>
+      <item>
+        <tag>Good bye</tag>
+        <one-of>
+          <item>good bye</item>
+        </one-of>
+      </item>
+      <item>
+        <tag>bye</tag>
+        <one-of>
+          <item>bye</item>
+        </one-of>
+      </item>
     </one-of>
-  </rule>
-  <rule id="simple_questions">
+  </rule>-->
+  <!--<rule id="simple_questions">
     <one-of>
       <item>what is your name?</item>
       <item>what is the time now?</item>
       <item>how are you feeling today?</item>
     </one-of>
-  </rule>
+  </rule>-->
 </grammar>

@@ -1,0 +1,113 @@
+// ReSharper disable RedundantUsingDirective
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+// Main Behavior Program
+
+public class StartupBehavior : IExecuteOnceBehavior
+{
+    public void Execute(IBehaviorExecutionContext context)
+    {
+        // STARTUP_BLOCK
+          var var_f1168e67_08f5_c757_a63b_98d838ff56ee= new BehaviorInfo
+  {
+  BehaviorName = "Say Expressively",
+  RobotName = "Hiro",Parameters = new Dictionary<string, object>
+  {
+  {"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Hello, are you okay?", true, "string")}
+  }
+  };
+
+  BehaviorModuleHelper.Execute(context, var_f1168e67_08f5_c757_a63b_98d838ff56ee);
+  while (true)
+  {
+  var var_412d0c32_de4a_96ea_b5b0_9ef4b6fb5314 = context.GetVoiceCommand();
+  if (var_412d0c32_de4a_96ea_b5b0_9ef4b6fb5314.Active && var_412d0c32_de4a_96ea_b5b0_9ef4b6fb5314.Confidence > 80)
+  {
+  string var_4b2db5f3_b03c_2ba6_88e5_c97ca5166134 = var_412d0c32_de4a_96ea_b5b0_9ef4b6fb5314.Name;
+  string var_2a97f375_8d37_7f54_936d_caf23b125e09 = "YES";
+  string var_d4ad7f14_0c04_d455_8698_8a2ad20a60f3 = "NO";
+  if (String.Compare(var_2a97f375_8d37_7f54_936d_caf23b125e09, var_4b2db5f3_b03c_2ba6_88e5_c97ca5166134, StringComparison.OrdinalIgnoreCase)==0)
+  {
+    var var_1b07d201_5aef_f6fc_8139_573beca20b64= new BehaviorInfo
+    {
+    BehaviorName = "Say Expressively",
+    RobotName = "Hiro",Parameters = new Dictionary<string, object>
+    {
+    {"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("That is great", true, "string")}
+    }
+    };
+
+    BehaviorModuleHelper.Execute(context, var_1b07d201_5aef_f6fc_8139_573beca20b64);
+
+  break;
+  }
+  if (String.Compare(var_d4ad7f14_0c04_d455_8698_8a2ad20a60f3, var_4b2db5f3_b03c_2ba6_88e5_c97ca5166134, StringComparison.OrdinalIgnoreCase)==0)
+  {
+    var var_de96b899_5f0a_1fed_810c_75ca99f05fe6= new BehaviorInfo
+    {
+    BehaviorName = "Say Expressively",
+    RobotName = "Hiro",Parameters = new Dictionary<string, object>
+    {
+    {"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Don't worry. Everything will be alright", true, "string")}
+    }
+    };
+
+    BehaviorModuleHelper.Execute(context, var_de96b899_5f0a_1fed_810c_75ca99f05fe6);
+
+  break;
+  }
+  }
+  }var var_1f58a1f9_e730_6c3c_a7c6_1fe39fed14aa= new BehaviorInfo
+  {
+  BehaviorName = "Say Expressively",
+  RobotName = "Hiro",Parameters = new Dictionary<string, object>
+  {
+  {"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Shall I dance now?", true, "string")}
+  }
+  };
+
+  BehaviorModuleHelper.Execute(context, var_1f58a1f9_e730_6c3c_a7c6_1fe39fed14aa);
+  while (true)
+  {
+  var var_e1230b14_778a_5ab7_a572_eb2878b9796b = context.GetVoiceCommand();
+  if (var_e1230b14_778a_5ab7_a572_eb2878b9796b.Active && var_e1230b14_778a_5ab7_a572_eb2878b9796b.Confidence > 80)
+  {
+  string var_32694701_6eb0_9ff0_a4b5_e54103e8e027 = var_e1230b14_778a_5ab7_a572_eb2878b9796b.Name;
+  string var_87899511_d464_10f6_af7e_d357f1b29206 = "YES";
+  string var_72dff23f_8396_f38d_847b_bdc672235dc5 = "NO";
+  if (String.Compare(var_87899511_d464_10f6_af7e_d357f1b29206, var_32694701_6eb0_9ff0_a4b5_e54103e8e027, StringComparison.OrdinalIgnoreCase)==0)
+  {
+    var var_1244af87_aaeb_fe59_bea0_79f4978ac52a= new BehaviorInfo{BehaviorName = "Stand",RobotName = "Hiro"};
+
+    BehaviorModuleHelper.Execute(context, var_1244af87_aaeb_fe59_bea0_79f4978ac52a);
+
+  break;
+  }
+  if (String.Compare(var_72dff23f_8396_f38d_847b_bdc672235dc5, var_32694701_6eb0_9ff0_a4b5_e54103e8e027, StringComparison.OrdinalIgnoreCase)==0)
+  {
+    var var_df68804e_ecd8_6e3f_b69f_6c06e0735021= new BehaviorInfo
+    {
+    BehaviorName = "Say Expressively",
+    RobotName = "Hiro",Parameters = new Dictionary<string, object>
+    {
+    {"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Okay got it.", true, "string")}
+    }
+    };
+
+    BehaviorModuleHelper.Execute(context, var_df68804e_ecd8_6e3f_b69f_6c06e0735021);
+
+  break;
+  }
+  }
+  }var var_73900247_5ee4_4f41_a863_ee3771ca98e6= new BehaviorInfo
+  {
+  BehaviorName = "Take Rest",
+  RobotName = "Hiro",Parameters = new Dictionary<string, object>()
+  };
+
+  BehaviorModuleHelper.Execute(context, var_73900247_5ee4_4f41_a863_ee3771ca98e6);
+
+    }
+}

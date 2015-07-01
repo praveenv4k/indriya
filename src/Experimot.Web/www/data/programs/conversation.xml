@@ -1,0 +1,57 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_startup" id="12" x="38" y="38">
+    <statement name="DO">
+      <block type="animated_say_action" id="37">
+        <field name="SAY_TEXT">Hello, are you okay?</field>
+        <field name="ROBOT">Hiro</field>
+        <next>
+          <block type="wait_voice_response" id="23">
+            <field name="CHOICE1">YES</field>
+            <field name="CHOICE2">NO</field>
+            <statement name="DO_CHOICE1">
+              <block type="animated_say_action" id="38">
+                <field name="SAY_TEXT">That is great</field>
+                <field name="ROBOT">Hiro</field>
+              </block>
+            </statement>
+            <statement name="DO_CHOICE2">
+              <block type="animated_say_action" id="39">
+                <field name="SAY_TEXT">Don't worry. Everything will be alright</field>
+                <field name="ROBOT">Hiro</field>
+              </block>
+            </statement>
+            <next>
+              <block type="animated_say_action" id="42">
+                <field name="SAY_TEXT">Shall I dance now?</field>
+                <field name="ROBOT">Hiro</field>
+                <next>
+                  <block type="wait_voice_response" id="41">
+                    <field name="CHOICE1">YES</field>
+                    <field name="CHOICE2">NO</field>
+                    <statement name="DO_CHOICE1">
+                      <block type="robot_action" id="56">
+                        <field name="actions">Stand</field>
+                        <field name="ROBOT">Hiro</field>
+                      </block>
+                    </statement>
+                    <statement name="DO_CHOICE2">
+                      <block type="animated_say_action" id="44">
+                        <field name="SAY_TEXT">Okay got it.</field>
+                        <field name="ROBOT">Hiro</field>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="robot_rest_action" id="66">
+                        <field name="ROBOT">Hiro</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
