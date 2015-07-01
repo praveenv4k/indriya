@@ -6,7 +6,7 @@ import sys
 import time
 import argparse
 import thread
-
+import json
 from naoqi import ALProxy
 
 from os.path import dirname
@@ -96,6 +96,10 @@ SENSOR_TO_LOG_LIST = ["Device/SubDeviceList/HeadPitch/Position/Sensor/Value",
                         "Device/SubDeviceList/RShoulderRoll/Position/Sensor/Value",
                         "Device/SubDeviceList/RWristYaw/Position/Sensor/Value"]
 
+POS_TO_LOG_LIST = ["Motion/Walk/AbsDistanceX",
+                        "Motion/Walk/AbsDistanceY",
+                        "Motion/Walk/AbsDistanceTheta"]
+
 # def recordData(nao_ip):
 #     """ Record the data from ALMemory.
 #     Returns a matrix of values
@@ -124,6 +128,11 @@ def send_joint_values(sock,head,vals):
     sock.send_string(head,zmq.SNDMORE)
     sock.send_string(str)
 
+def send_position_values(sock,head,vals):
+    str = json.dumps(vals)
+    sock.send_string(head,zmq.SNDMORE)
+    sock.send_string(str)
+
 def reorder_joint_values(row):
     data = []
     for i in range(0,25):
@@ -135,8 +144,9 @@ def recordData(memory):
     """ Record the data from ALMemory.
     Returns a matrix of values
     """
-    value = memory.getListData(SENSOR_TO_LOG_LIST)
-    return value
+    joint = memory.getListData(SENSOR_TO_LOG_LIST)
+    pos = memory.getListData(POS_TO_LOG_LIST)
+    return [joint,pos]
 
 if __name__ == "__main__":
     # Real Robot
@@ -168,6 +178,11 @@ if __name__ == "__main__":
                     PUB_IP = pub.host.encode('utf-8')
                     PUB_PORT = pub.port
                     PUB_TOPIC = pub.topic.encode('utf-8')
+                  pub2 = parameter_utils.getPublisherInfo(node,"AbsolutePosition")
+                  if pub2 != None:
+                    PUB2_IP = pub2.host.encode('utf-8')
+                    PUB2_PORT = pub2.port
+                    PUB2_TOPIC = pub2.topic.encode('utf-8')
         else:
               print "Start locally"
 
@@ -175,13 +190,17 @@ if __name__ == "__main__":
         socket = context.socket(zmq.PUB)
         socket.bind("%s:%s" % (PUB_IP,PUB_PORT))
 
+        socket2 = context.socket(zmq.PUB)
+        socket2.bind("%s:%s" % (PUB2_IP,PUB2_PORT))
+
         print "Publishing data ..."
         memory = ALProxy("ALMemory", ROBOT_IP, ROBOT_PORT)
         while 1:
             value = recordData(memory)
             print value
-            send_joint_values(socket,PUB_TOPIC,value)
-            time.sleep(0.1)
+            send_joint_values(socket,PUB_TOPIC,value[0])
+            send_position_values(socket2,PUB2_TOPIC,value[1])
+            time.sleep(0.04)
     except:
       print "Exception occured : ", sys.exc_info()
 
