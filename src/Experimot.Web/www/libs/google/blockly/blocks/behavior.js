@@ -1034,7 +1034,7 @@ Blockly.Blocks['voice_trigger'] = {
         this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(75);
         this.appendDummyInput()
-            .appendField("Voice command : ");
+            .appendField("Speech trigger : ");
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField(voiceDropdown, "VOICE_TRIGGER");
@@ -1049,7 +1049,7 @@ Blockly.Blocks['voice_trigger2'] = {
         this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
         this.setColour(290);
         this.appendDummyInput()
-            .appendField("Voice command : ");
+            .appendField("Speech trigger : ");
         this.appendDummyInput()
             .appendField(new Blockly.FieldTextInput("YES"), "VOICE_TRIGGER");
         this.setOutput(true, "Boolean");
