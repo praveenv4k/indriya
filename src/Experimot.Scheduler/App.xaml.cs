@@ -34,6 +34,7 @@ namespace Experimot.Scheduler
 
         private void RunTests(experimot_config config)
         {
+            Tests.Test.CheckRelativeAngle();
             //Tests.Test.ExecuteParallel();
             //Tests.Test.TestVoiceCommandJson();
             //Tests.Test.TestSharpDxMatrixRotation();
