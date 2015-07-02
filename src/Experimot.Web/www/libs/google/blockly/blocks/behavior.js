@@ -85,7 +85,8 @@ Blockly.Blocks.behaviors.GestureProperties =
     ["WaveLeft", 'Greet_Left'],
     ["WaveRight", 'Greet_Right'],
     ["LiftLeftHand", "LiftHand_Left"],
-    ["LiftRightHand", "LiftHand_Right"]
+    ["LiftRightHand", "LiftHand_Right"],
+    ["Seated", "Seated"]
 ];
 
 Blockly.Blocks.behaviors.Languages =
@@ -119,13 +120,14 @@ Blockly.Blocks.behaviors.Robots =
 
 Blockly.Blocks.behaviors.VoiceProperties =
 [
-    ["RED", 'RED'],
-    ["GREEN", 'GREEN'],
-    ["BLUE", 'BLUE'],
-    ["STOP", "STOP"],
     ["START", "START"],
+    ["STOP", "STOP"],
     ["SIT", "SIT"],
-    ["STAND", "STAND"]
+    ["STAND", "STAND"],
+    ["Good bye", "Good bye"]
+    //,["RED", 'RED'],
+    //["GREEN", 'GREEN'],
+    //["BLUE", 'BLUE']
     //,["NAME", "NAME"]
 ];
 
