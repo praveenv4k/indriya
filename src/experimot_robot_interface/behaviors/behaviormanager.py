@@ -187,10 +187,17 @@ def behavior_server2(behaviorModule,ip,port):
                 if proxy is not None and id is not -1:
                     if proxy.isRunning(id):
                         # if the proxy is a ALBehaviorProxy we just invoke stopAllBehaviors
-                        stopAllBehaviors = getattr(proxy,"stopAllBehaviors")
-                        if stopAllBehaviors is not None:
-                            print stopAllBehaviors
+                        methods =  proxy.getMethodList()
+                        if "stopAllBehaviors" in methods:
+                            stopAllBehaviors = getattr(proxy,"stopAllBehaviors")
                             stopAllBehaviors()
+                        elif "stopMove" in methods:
+                            stopMove = getattr(proxy,"stopMove")
+                            stopMove()
+                        #stopAllBehaviors = getattr(proxy,"stopAllBehaviors")
+                        #if stopAllBehaviors is not None:
+                        #    print stopAllBehaviors
+                        #    stopAllBehaviors()
                             
                         proxy.stop(id)
                         waitTime = 0

@@ -40,7 +40,6 @@
         <tag>START</tag>
         <one-of>
           <item> start </item>
-          <item> begin </item>
         </one-of>
       </item>
       <item>
@@ -110,6 +109,12 @@
         </one-of>
       </item>
       <item>
+        <tag>turn</tag>
+        <one-of>
+          <item>turn</item>
+        </one-of>
+      </item>
+      <!--<item>
         <tag>NAME</tag>
         <one-of>
           <item>what is your name</item>
@@ -161,7 +166,7 @@
           <item>I am not ok</item>
           <item>I am feeling bad</item>
         </one-of>
-      </item>
+      </item>-->
     </one-of>
   </rule>
   <!--<rule id="greet">

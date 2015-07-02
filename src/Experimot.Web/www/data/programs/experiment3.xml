@@ -1,0 +1,52 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_startup" id="32" x="363" y="63">
+    <statement name="DO">
+      <block type="robot_action" id="41">
+        <field name="actions">Greet</field>
+        <field name="ROBOT">Hiro</field>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="85" inline="false" x="338" y="163">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="voice_trigger2" id="101">
+        <field name="VOICE_TRIGGER">turn</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="turn_action" id="95">
+        <field name="actions">left</field>
+        <field name="ROBOT">Hiro</field>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="107" inline="false" x="338" y="338">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="trigger" id="143">
+        <field name="MOTION_TRIGGER">Greet_Right</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="117">
+        <field name="SAY_TEXT">Dont ask me to turn</field>
+        <field name="ROBOT">Hiro</field>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_exit" id="122" x="388" y="513">
+    <statement name="DO">
+      <block type="therapy_action" id="131">
+        <field name="therapy_exercise">liftLeftHand</field>
+        <field name="ROBOT">Hiro</field>
+      </block>
+    </statement>
+  </block>
+</xml>
