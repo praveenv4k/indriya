@@ -81,7 +81,7 @@ Blockly.Blocks.behaviors.rename = function(text) {
 
 Blockly.Blocks.behaviors.GestureProperties =
 [
-    ["HumanDetected", 'HumanDetected'],
+    //["HumanDetected", 'HumanDetected'],
     ["WaveLeft", 'Greet_Left'],
     ["WaveRight", 'Greet_Right'],
     ["LiftLeftHand", "LiftHand_Left"],
@@ -91,24 +91,24 @@ Blockly.Blocks.behaviors.GestureProperties =
 Blockly.Blocks.behaviors.Languages =
 [
     ["English", 'English'],
-    ["Japanese", 'Japanese'],
-    ["French", 'French'],
-    ["Italian", "Italian"],
-    ["Chinese", "Chinese"],
-    ["Spanish", "Spanish"]
+    ["Japanese", 'Japanese']
+    //,["French", 'French'],
+    //["Italian", "Italian"],
+    //["Chinese", "Chinese"],
+    //["Spanish", "Spanish"]
 ];
 
 Blockly.Blocks.behaviors.StandardBehaviors =
 [
     ["Greet", "Greet"],
-    ["LyingBelly", 'LyingBelly'],
-    ["Sit Relax", 'Sit Relax'],
+    //["LyingBelly", 'LyingBelly'],
+    //["Sit Relax", 'Sit Relax'],
     ["Stand", 'Stand'],
     ["Crouch", "Crouch"],
-    ["LyingBack", "LyingBack"],
-    ["Sit", "Sit"],
-    ["LabIntroduction", "LabIntroduction"],
-    ["Dance", "Dance"]
+    //["LyingBack", "LyingBack"],
+    //["Sit", "Sit"],
+    ["LabIntroduction", "LabIntroduction"]
+    //,["Dance", "Dance"]
 ];
 
 Blockly.Blocks.behaviors.Robots =
@@ -1099,6 +1099,7 @@ Blockly.Blocks['robot_action'] = {
         this.setColour(225);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Do ")
             .appendField(standardBehaviors, "actions");
         var robots = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.Robots, function (option) {
         });
