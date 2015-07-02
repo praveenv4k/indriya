@@ -42,10 +42,10 @@ methods =  motion.getMethodList()
 if "stopAllBehaviors" in methods:
     print "Method exist"
 
-method2 = getattr(motion,"stopAllBehaviors")
-if method2 is not None:
-    print method2
-    method2()
+#method2 = getattr(motion,"stopAllBehaviors")
+#if method2 is not None:
+#    print method2
+#    method2()
 
 #tts = module.getTextToSpeechProxy()
 
