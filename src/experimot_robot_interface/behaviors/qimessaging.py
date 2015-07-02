@@ -17,14 +17,35 @@ import time
 #tts.say("Hello, World6")
 #tts.say("Hello, World7")
 
-module = NaoBehaviorModule.NaoBehaviorModule("127.0.0.1",52417)
+ROBOTIP='192.168.11.14'
+ROBOTPORT=9559
+
+
+#module = NaoBehaviorModule.NaoBehaviorModule("127.0.0.1",52417)
+
+module = NaoBehaviorModule.NaoBehaviorModule(ROBOTIP,ROBOTPORT)
 
 behavior = module.getBehaviorProxy()
+
+bmethods =  behavior.getMethodList()
+if "stopAllBehaviors" in bmethods:
+    print "Method exist"
 
 method = getattr(behavior,"stopAllBehaviors")
 if method is not None:
     print method
     method()
+
+motion = module.getMotionProxy()
+print motion
+methods =  motion.getMethodList()
+if "stopAllBehaviors" in methods:
+    print "Method exist"
+
+method2 = getattr(motion,"stopAllBehaviors")
+if method2 is not None:
+    print method2
+    method2()
 
 #tts = module.getTextToSpeechProxy()
 
