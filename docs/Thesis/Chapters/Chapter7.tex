@@ -6,7 +6,7 @@
 \section{Project Summary}
 In this section summary of the Indriya platform is described
 \subsection{System specification}
- The Indriya platform could be seen as a product by itself. The prduct specification is shown in Table~\ref{table:system}.
+ The Indriya platform could be seen as a product by itself. The product specification is shown in Table~\ref{table:system}.
 \begin{table}
 \centering
 %\footnotesize
@@ -24,7 +24,16 @@ In this section summary of the Indriya platform is described
                                           \tabularnewline\toprule
 \end{tabularx}
 \end{table}
-The Table~\ref{table:platform_revisited} clarifies the functionalities of Indriya platform.
+In summary Indriya platform
+\begin{itemize}
+\item Is a software to design HRI scenarios based on human behaviors
+\item Gives opportunity to augment multimodal sensor to the existing perception system of the robot
+\item Provides easy to user interface for designing the scenarios
+\end{itemize}
+and it is not
+\begin{itemize}
+\item A system to design low level control of a robot
+\end{itemize}
 
 \begin{table}[H]
 \centering
@@ -43,8 +52,9 @@ The Table~\ref{table:platform_revisited} clarifies the functionalities of Indriy
 \end{tabular}
 \end{table}
 	
-The source code of the complete Indriya is available as Open source at \url{https://github.com/praveenv4k/Indriya}. 
+The source code of the complete platform is available as Open source at \url{https://github.com/praveenv4k/Indriya}. 
 \subsection{Project Statistics}
+The project has an extensive code base consisting of over 30k lines of code (counted using CLOC tool). The software has been written using diverse programming language according to the best fit for the purpose. The code statistics is shown in Fig.\ref{fig:code_stats}.
 % \begin{table}[h!]
 %   \begin{center}
 %     \caption{Project Code Statistics}
@@ -115,15 +125,19 @@ The source code of the complete Indriya is available as Open source at \url{http
     Others & 0 \\
     Total & 0 \\ \hline
   \end{tabular}
-  \captionlistentry[table]{Indriya: Code statistics}
+  %\captionlistentry[table]{Indriya: Code statistics}
   %\captionsetup{labelformat=andtable}
   \caption{Indriya: Code statistics}
+    \label{fig:code_stats}
 \end{figure}
 
 \subsection{Scope for prospective work}
-  The Indriya platform has tremendous hope for future developments. Some of the directions that could be thought are
+  The Indriya platform has tremendous scope for future developments. Some of the directions that could be thought are
 
 \begin{itemize}
+\item Developing a huge database of commonly encountered gestures in social environment
+\item Developing an extensive database of robot actions that the user expects it do on a daily basis
+\item Developing an interface definition language to generate the visual programming blocks and code generation modules for those blocks automatically.
 \item Integration of sensors available in smartphone and wearable devices like IMUs, Gyroscopes, GPS etc.,
 \item Integration of Natural Language Processing systems with the speech recognition module for more natural interaction
 \item Increasing the range of operation of Humanoid robots by fusing data from two or more Kinect sensors 

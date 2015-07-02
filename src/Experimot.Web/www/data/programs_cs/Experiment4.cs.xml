@@ -1,0 +1,248 @@
+// ReSharper disable RedundantUsingDirective
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+// Main Behavior Program
+
+public class StartupBehavior : IExecuteOnceBehavior
+{
+    public void Execute(IBehaviorExecutionContext context)
+    {
+        // STARTUP_BLOCK
+          var var_154f825f_be85_1d8b_9f84_7df5953e5472= new BehaviorInfo
+  {
+  BehaviorName = "Say Expressively",
+  RobotName = "Hiro",Parameters = new Dictionary<string, object>
+  {
+  {"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Let's go", true, "string")}
+  }
+  };
+
+  BehaviorModuleHelper.Execute(context, var_154f825f_be85_1d8b_9f84_7df5953e5472);
+
+    }
+}
+// ReSharper disable CheckNamespace
+
+using System;
+
+public class Behavior_e1a52f48_d8db_6805_9387_7a768bca75a8 : ITriggerBehavior
+{
+    public string Name { get; set; }
+
+    protected static BehaviorExecutionPriority Priority;
+
+    public Behavior_e1a52f48_d8db_6805_9387_7a768bca75a8()
+    {
+        GetPriority();
+        GetExecutionLifetime();
+        GetUid();
+    }
+
+    public static BehaviorExecutionPriority GetPriority()
+    {
+        // SET_PRIORITY
+        Priority = BehaviorExecutionPriority.low;
+
+        return Priority;
+    }
+
+    protected static BehaviorExecutionLifetime ExecutionLifetime;
+
+    public static BehaviorExecutionLifetime GetExecutionLifetime()
+    {
+        // SET_EXECUTION_LIFETIME
+        ExecutionLifetime = BehaviorExecutionLifetime.once;
+
+        return ExecutionLifetime;
+    }
+
+    public int Id { get; set; }
+
+    protected static string Uid;
+
+    public static string GetUid()
+    {
+        // SET_UID
+        Uid = "e1a52f48_d8db_6805_9387_7a768bca75a8";
+
+        return Uid;
+    }
+
+    private static bool _initActionsComplete;
+    private static bool _cyclicActionsComplete;
+    private static bool _exitActionsComplete;
+
+    public static TriggerResult CheckTrigger(IBehaviorExecutionContext context)
+    {
+        var result = new TriggerResult {Active = false};
+
+        if (context != null && !ExecutionComplete)
+        {
+            var gestureInfoList = context.GetGestureInfoList("Greet_Left");
+var gestureInfo = gestureInfoList.FirstOrDefault(s=>s.Confidence > 90);
+if (gestureInfo.Active && gestureInfo.Confidence > 80)
+{
+Console.WriteLine("Gesture trigger received : {0} - {1}", gestureInfo.Name, gestureInfo.Confidence);
+result.HumanId = gestureInfo.HumanId;
+result.HumanInLoop = true;
+result.Active = true;
+}
+
+        }
+        return result;
+    }
+
+    public bool ExecutionUntil(IBehaviorExecutionContext context)
+    {
+        if (context != null)
+        {
+            // EXECUTE_UNTIL
+            // EXECUTE_UNTIL_HERE
+        }
+        return true;
+    }
+
+    public string ActiveResource { get; set; }
+
+    public static bool InitActionsComplete
+    {
+        get { return _initActionsComplete; }
+        set { _initActionsComplete = value; }
+    }
+
+    public static bool CyclicActionsComplete
+    {
+        get { return _cyclicActionsComplete; }
+        set { _cyclicActionsComplete = value; }
+    }
+
+    public static bool ExitActionsComplete
+    {
+        get { return _exitActionsComplete; }
+        set { _exitActionsComplete = value; }
+    }
+
+    public static bool ExecutionComplete
+    {
+        get { return InitActionsComplete & CyclicActionsComplete & ExitActionsComplete; }
+    }
+
+    public bool ExecuteInit(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!InitActionsComplete)
+        {
+            // INIT_BLOCK
+            // INIT_BLOCK_HERE
+            InitActionsComplete = true;
+        }
+        return InitActionsComplete;
+    }
+
+    public bool ExecuteCyclic(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!CyclicActionsComplete && InitActionsComplete)
+        {
+            // CYCLIC_BLOCK
+              var var_049de89e_3f15_66c5_8887_bcb403087a72= new BehaviorInfo
+  {
+  BehaviorName = "Move To",
+  RobotName = "Hiro",Parameters = new Dictionary<string, object>
+  {
+  {"translation", BehaviorModuleHelper.CreateBehaviorParameterOptions("0", false, "float")},
+  {"rotation", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},
+  {"human", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},
+  {"dist", BehaviorModuleHelper.CreateBehaviorParameterOptions(1.50, false, "float")},
+  {"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")},
+  {"y", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")},
+  {"theta", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")}
+  }
+  };
+
+  if (context.RefreshApproachParameters(var_049de89e_3f15_66c5_8887_bcb403087a72, trigger)) {
+  BehaviorModuleHelper.Execute(context, var_049de89e_3f15_66c5_8887_bcb403087a72);
+  }
+  var var_4d6a7901_1b81_72a9_b8fb_08ba3ed8db7d= new BehaviorInfo
+  {
+  BehaviorName = "Move To",
+  RobotName = "Hiro",Parameters = new Dictionary<string, object>
+  {
+  {"translation", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},
+  {"rotation", BehaviorModuleHelper.CreateBehaviorParameterOptions("0", false, "float")},
+  {"human", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},
+  {"dist", BehaviorModuleHelper.CreateBehaviorParameterOptions(1.50, false, "float")},
+  {"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(1.50, true, "float")},
+  {"y", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")},
+  {"theta", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")}
+  }
+  };
+
+  if (context.RefreshApproachParameters(var_4d6a7901_1b81_72a9_b8fb_08ba3ed8db7d, trigger)) {
+  BehaviorModuleHelper.Execute(context, var_4d6a7901_1b81_72a9_b8fb_08ba3ed8db7d);
+  }
+  var var_b501ff28_b75b_c470_8d0a_f924ad065313= new BehaviorInfo{BehaviorName = "liftLeftHand",RobotName = "Hiro"};
+
+  BehaviorModuleHelper.Execute(context, var_b501ff28_b75b_c470_8d0a_f924ad065313);
+
+
+            if (ExecutionLifetime == BehaviorExecutionLifetime.once)
+            {
+                CyclicActionsComplete = true;
+            }
+            else if (ExecutionLifetime == BehaviorExecutionLifetime.until)
+            {
+                var complete = ExecutionUntil(context);
+                CyclicActionsComplete = !complete;
+            }
+        }
+        return CyclicActionsComplete;
+    }
+
+    public bool ExecuteExit(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!ExitActionsComplete && CyclicActionsComplete)
+        {
+            // EXIT_BLOCK
+            // EXIT_BLOCK_HERE
+            ExitActionsComplete = true;
+        }
+        return ExitActionsComplete;
+    }
+
+    public bool Execute(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        try
+        {
+            ExecuteInit(context, trigger);
+            ExecuteCyclic(context, trigger);
+            ExecuteExit(context, trigger);
+            System.Console.WriteLine(@"Lifetime: {3} Init : {0}, Cyclic: {1}, Exit: {2}", InitActionsComplete,
+                CyclicActionsComplete,
+                ExitActionsComplete, ExecutionLifetime);
+        }
+        catch (BehaviorCanceledException ex)
+        {
+            Console.WriteLine(@"Execution canceled : {0}, {1} ,{2}", GetUid(), ex.Message, ex.StackTrace);
+        }
+        return ExecutionComplete;
+    }
+}
+public class ExitBehavior : IExecuteOnceBehavior
+{
+    public void Execute(IBehaviorExecutionContext context)
+    {
+        // EXIT_BLOCK
+          var var_5292ca3b_36d6_c37a_bb08_ba8f562caa41= new BehaviorInfo
+  {
+  BehaviorName = "Say Expressively",
+  RobotName = "Hiro",Parameters = new Dictionary<string, object>
+  {
+  {"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Thank you for listening !", true, "string")}
+  }
+  };
+
+  BehaviorModuleHelper.Execute(context, var_5292ca3b_36d6_c37a_bb08_ba8f562caa41);
+
+    }
+}
