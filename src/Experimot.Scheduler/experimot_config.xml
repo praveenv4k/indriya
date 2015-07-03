@@ -17,7 +17,7 @@
     <param key="DateTimeFormatString" value="yyyy/MM/dd HH:mm:ss.fff" type="string"/>
     
     <!--<param key="NAO-A-ROBOTIP" value="127.0.0.1" type="string"/>
-    <param key="NAO-A-ROBOTPORT" value="62831" type="int"/>-->
+    <param key="NAO-A-ROBOTPORT" value="55406" type="int"/>-->
     <param key="NAO-A-ROBOTIP" value="192.168.11.27" type="string"/>
     <param key="NAO-A-ROBOTPORT" value="9559" type="int"/>
 
@@ -34,7 +34,7 @@
     <!-- TODO Define Parameter for Periods of ContextServer, ContextSync, ParameterServer, GesturePeriod-->
   </parameters>
   <nodes>
-    <node enabled="true" name="localization">
+    <node enabled="false" name="localization">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\experimot_localization.exe</path>
@@ -252,7 +252,39 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="true" name="robot_interface">
+    <node enabled="true" name="imu_perception">
+      <process>
+        <type>executable</type>
+        <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Imu.Perception\Experimot.Imu.Perception.exe</path>
+        <args></args>
+      </process>
+      <publishers>
+        <publish>
+          <host>tcp://*</host>
+          <port>6010</port>
+          <topic>IGP</topic>
+          <msg_type>GestureTrigger</msg_type>
+          <name>ImuGesturePublisher</name>
+        </publish>
+      </publishers>
+      <subscribers>
+        <subscribe>
+          <host>tcp://192.168.11.43</host>
+          <port>12000</port>
+          <topic>motionarm1</topic>
+          <msg_type>ImuGesture</msg_type>
+          <name>ImuGestureListener</name>
+        </subscribe>
+        <subscribe>
+          <host>tcp://localhost</host>
+          <port>6010</port>
+          <topic>IGP</topic>
+          <msg_type>GestureTrigger</msg_type>
+          <name>ImuGesturePublisher</name>
+        </subscribe>
+      </subscribers>
+    </node>
+    <node enabled="false" name="robot_interface">
       <process>
         <type>executable</type>
         <path>python.exe</path>
