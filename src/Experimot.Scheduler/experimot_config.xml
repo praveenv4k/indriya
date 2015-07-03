@@ -18,10 +18,10 @@
     
     <!--<param key="NAO-A-ROBOTIP" value="127.0.0.1" type="string"/>
     <param key="NAO-A-ROBOTPORT" value="62831" type="int"/>-->
-    <param key="NAO-A-ROBOTIP" value="192.168.11.14" type="string"/>
+    <param key="NAO-A-ROBOTIP" value="192.168.11.27" type="string"/>
     <param key="NAO-A-ROBOTPORT" value="9559" type="int"/>
 
-    <param key="NAO-B-ROBOTIP" value="192.168.11.50" type="string"/>
+    <param key="NAO-B-ROBOTIP" value="192.168.11.28" type="string"/>
     <param key="NAO-B-ROBOTPORT" value="9559" type="int"/>
     
     <param key="ContextServerHost" value="tcp://*" type="string"/>
@@ -34,7 +34,7 @@
     <!-- TODO Define Parameter for Periods of ContextServer, ContextSync, ParameterServer, GesturePeriod-->
   </parameters>
   <nodes>
-    <node enabled="false" name="localization">
+    <node enabled="true" name="localization">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\experimot_localization.exe</path>
@@ -86,7 +86,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false" name="gesture_recognition">
+    <node enabled="true" name="gesture_recognition">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Perception\Experimot.Kinect.Perception.exe</path>
@@ -252,7 +252,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false" name="robot_interface">
+    <node enabled="true" name="robot_interface">
       <process>
         <type>executable</type>
         <path>python.exe</path>
@@ -286,7 +286,7 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_relative_localize.py</args>
       </process>
     </node>
-    <node enabled="false" name="hiro_manager">
+    <node enabled="true" name="hiro_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>

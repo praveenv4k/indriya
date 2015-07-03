@@ -1,0 +1,208 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_startup" id="93" x="13" y="13">
+    <statement name="DO">
+      <block type="parallel_execute" id="178">
+        <statement name="BRANCH1">
+          <block type="animated_say_action" id="192">
+            <field name="SAY_TEXT">I am Hiro</field>
+            <field name="ROBOT">Hiro</field>
+            <next>
+              <block type="sleep_for" id="215">
+                <field name="SLEEP_FOR">2000</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="BRANCH2">
+          <block type="sleep_for" id="219">
+            <field name="SLEEP_FOR">2000</field>
+            <next>
+              <block type="animated_say_action" id="193">
+                <field name="SAY_TEXT">I am Taro</field>
+                <field name="ROBOT">Taro</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_exit" id="97" x="563" y="13">
+    <statement name="DO">
+      <block type="parallel_execute" id="129">
+        <statement name="BRANCH1">
+          <block type="animated_say_action" id="115">
+            <field name="SAY_TEXT">See you Taro</field>
+            <field name="ROBOT">Hiro</field>
+            <next>
+              <block type="sleep_for" id="357">
+                <field name="SLEEP_FOR">3000</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="BRANCH2">
+          <block type="sleep_for" id="356">
+            <field name="SLEEP_FOR">3000</field>
+            <next>
+              <block type="animated_say_action" id="125">
+                <field name="SAY_TEXT">Good bye Hiro</field>
+                <field name="ROBOT">Taro</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="354" inline="false" x="563" y="288">
+    <mutation run_until="true" run_logic="(taro_listen == 1)"></mutation>
+    <field name="behavior_name">Hiro Ask</field>
+    <field name="priorities">low</field>
+    <field name="execution">until</field>
+    <value name="trigger">
+      <block type="trigger" id="502">
+        <field name="MOTION_TRIGGER">Greet_Right</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="controls_repeat_ext" id="528" inline="true">
+        <value name="TIMES">
+          <block type="math_number" id="529">
+            <field name="NUM">5</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="animated_say_action" id="362">
+            <field name="SAY_TEXT">Stop</field>
+            <field name="ROBOT">Taro</field>
+            <next>
+              <block type="sleep_for" id="512">
+                <field name="SLEEP_FOR">3000</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="RUN_UNTIL">
+      <block type="logic_compare" id="378" inline="true">
+        <field name="OP">EQ</field>
+        <value name="A">
+          <block type="variables_get" id="393">
+            <field name="VAR">taro_listen</field>
+          </block>
+        </value>
+        <value name="B">
+          <block type="math_number" id="383">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="behavior_composable_simple" id="95" inline="false" x="13" y="338">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="trigger" id="352">
+        <field name="MOTION_TRIGGER">Greet_Left</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="parallel_execute" id="250">
+        <statement name="BRANCH1">
+          <block type="move_action" id="259">
+            <field name="distance">0.3</field>
+            <field name="ROBOT">Hiro</field>
+            <next>
+              <block type="turn_action" id="277">
+                <field name="actions">left</field>
+                <field name="ROBOT">Hiro</field>
+                <next>
+                  <block type="animated_say_action" id="314">
+                    <field name="SAY_TEXT">Sit down Taro</field>
+                    <field name="ROBOT">Hiro</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="BRANCH2">
+          <block type="move_action" id="268">
+            <field name="distance">0.3</field>
+            <field name="ROBOT">Taro</field>
+            <next>
+              <block type="turn_action" id="278">
+                <field name="actions">right</field>
+                <field name="ROBOT">Taro</field>
+                <next>
+                  <block type="sleep_for" id="344">
+                    <field name="SLEEP_FOR">3000</field>
+                    <next>
+                      <block type="robot_action" id="332">
+                        <field name="actions">Crouch</field>
+                        <field name="ROBOT">Taro</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="358" inline="false" x="563" y="613">
+    <mutation run_until="true" run_logic="(taro_listen == 1)"></mutation>
+    <field name="behavior_name">Taro Do</field>
+    <field name="priorities">normal</field>
+    <field name="execution">until</field>
+    <value name="trigger">
+      <block type="voice_trigger" id="361">
+        <field name="VOICE_TRIGGER">STOP</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="robot_action" id="511">
+        <field name="actions">Stand</field>
+        <field name="ROBOT">Taro</field>
+        <next>
+          <block type="therapy_action" id="463">
+            <field name="therapy_exercise">liftLeftHand</field>
+            <field name="ROBOT">Taro</field>
+            <next>
+              <block type="variables_set" id="401" inline="true">
+                <field name="VAR">taro_listen</field>
+                <value name="VALUE">
+                  <block type="math_number" id="402">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="RUN_UNTIL">
+      <block type="logic_compare" id="394" inline="true">
+        <field name="OP">EQ</field>
+        <value name="A">
+          <block type="variables_get" id="395">
+            <field name="VAR">taro_listen</field>
+          </block>
+        </value>
+        <value name="B">
+          <block type="math_number" id="396">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+</xml>

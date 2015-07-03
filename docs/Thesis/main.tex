@@ -60,12 +60,13 @@
 \usepackage{listings}
 \usepackage{mdwlist}
 \usepackage{floatrow}
-
 \usepackage{filecontents}
 \usepackage{enumitem}
 \usepackage{pgf-pie}
 \usepackage{xcolor}
 \usepackage{xkeyval}
+\usepackage[whole]{bxcjkjatype}
+
 %\usepackage{pdftex}
 %\usepackage{dvips}
 %\usepackage{dvipdfm}
@@ -89,6 +90,11 @@
   stringstyle=\color{blue},
   identifierstyle=\color{red}
 }
+\usepackage{hyperref}% http://ctan.org/pkg/hyperref
+\renewcommand{\LayoutChoiceField}[2]{%
+  \leavevmode #2 #1%
+}
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1: #2}\vspace{.5em}\hrule\vspace{.10in}}
 
 \thesistitle{Indriya: An experimental platform for Human Robot Interaction based on human behaviors}
 \degree{European Master in Advanced Robotics}
@@ -467,6 +473,7 @@ $^{i}T_j$ & Transformation Matrix of $F_j$ w.r.t $F_i$ & \\
 \input{Appendices/AppendixA}
 %\input{Appendices/AppendixB}
 %\input{Appendices/AppendixC}
+\input{Appendices/AppendixD}
 
 %\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 \clearpage

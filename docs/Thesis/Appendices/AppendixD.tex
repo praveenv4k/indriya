@@ -1,0 +1,77 @@
+% Appendix Template
+
+\chapter{User study questionnaire} % Main appendix title
+
+\label{AppendixD} % Change X to a consecutive letter; for referencing this appendix elsewhere, use \ref{AppendixX}
+
+\lhead{Appendix D. \emph{User study questionnaire}} % Change X to a consecutive letter; this is for the header on each page - perhaps a shortened title
+
+\section{Questionnaire/アンケート}
+The questionnaire used (English/Japanese) for the user data collection is shown below
+
+\begin{table}[!htbp]
+\centering
+\caption{Comparison of percentages.}
+\begin{tabular}{*3c}
+\toprule
+\multicolumn{3}{c}{Usability}\\
+\midrule
+{}   & Question   & Answer    \\
+\hline
+1   &  Was the interface easy to use? & \begin{Form}
+\def\DefaultWidthofChoiceMenu{12pt}
+Very easy
+\ChoiceMenu[radio,radiosymbol=\ding{109},name=myGroupOfRadiobuttons]{}{1=1}
+\ChoiceMenu[radio,radiosymbol=\ding{109},name=myGroupOfRadiobuttons]{}{2=2}
+\ChoiceMenu[radio,radiosymbol=\ding{109},name=myGroupOfRadiobuttons]{}{3=3}
+\ChoiceMenu[radio]{}{4=4}
+Very difficult
+\end{Form} \\
+2   &  11.8 & 12.7 \\
+3   &  6.6  &  5.6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subparagraph{Usability/使いやすさについて}
+
+\begin{Form}
+\subsection*{Usability/使いやすさについて}
+\question{1}{Was the interface easy to use?\\ \quad このインターフェースは使いやすかったですか？} 
+\def\DefaultWidthofChoiceMenu{12pt}
+Very easy/簡単だった
+\quad \ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{1=1}
+\ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{2=2}
+\ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{3=3}
+\ChoiceMenu[radio]{}{4=4}
+\quad Very difficult/難しかった
+
+\question{2}{Was the interface easy to use?\\ \quad 今回のタブレットアプリケーションは便利でしたか？} 
+\def\DefaultWidthofChoiceMenu{12pt}
+Very easy/とてもそう思う
+\quad \ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{1=1}
+\ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{2=2}
+\ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{3=3}
+\ChoiceMenu[radio]{}{4=4}
+\quad Very difficult/そうは思わない
+
+\question{3}{Was the interface easy to use?\\ \quad このアプリケーションに慣れるのにどのくらいかかりましたか？} 
+\def\DefaultWidthofChoiceMenu{12pt}
+Very easy/すぐに慣れた
+\quad \ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{1=1}
+\ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{2=2}
+\ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{3=3}
+\ChoiceMenu[radio]{}{4=4}
+\quad Very difficult/とても時間がかかった
+
+\question{3}{Was the interface easy to use?\\ \quad このアプリケーションに慣れるのにどのくらいかかりましたか？} 
+\def\DefaultWidthofChoiceMenu{12pt}
+Very easy/すぐに慣れた
+\quad \ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{1=1}
+\ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{2=2}
+\ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{3=3}
+\ChoiceMenu[radio]{}{4=4}
+\quad Very difficult/とても時間がかかった
+
+
+\end{Form}
