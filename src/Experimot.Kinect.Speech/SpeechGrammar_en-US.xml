@@ -9,6 +9,12 @@
         </one-of>
       </item>
       <item>
+        <tag>GO</tag>
+        <one-of>
+          <item> go </item>
+        </one-of>
+      </item>
+      <item>
         <tag>STAND</tag>
         <one-of>
           <item> stand </item>

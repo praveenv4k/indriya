@@ -43,11 +43,11 @@ namespace Experimot.Kinect.Speech
 
         //private readonly string _grammarFile = "SpeechGrammar.xml";
         private readonly string _grammarFileBase = "SpeechGrammar";
-        private readonly string _grammarFile = "SpeechGrammar_ja-JP.xml";
+        private readonly string _grammarFile = "SpeechGrammar_en-US.xml";
         private readonly string _language = "Japanese";
 
         private readonly VoiceCommandPublisher _voiceCommandPublisher;
-        private readonly string _culture = "ja-JP";
+        private readonly string _culture = "en-US";
         private readonly string _fallbackLanguage = "English";
         private readonly string _fallbackCulture = "en-US";
         private readonly string _dateTimeFormatString = "yyyy/MM/dd HH:mm:ss.fff";

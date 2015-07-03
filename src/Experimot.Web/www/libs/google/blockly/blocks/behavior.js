@@ -81,7 +81,7 @@ Blockly.Blocks.behaviors.rename = function(text) {
 
 Blockly.Blocks.behaviors.GestureProperties =
 [
-    //["HumanDetected", 'HumanDetected'],
+    ["HumanDetected", 'HumanDetected'],
     ["WaveLeft", 'Greet_Left'],
     ["WaveRight", 'Greet_Right'],
     ["LiftLeftHand", "LiftHand_Left"],
@@ -120,6 +120,7 @@ Blockly.Blocks.behaviors.Robots =
 
 Blockly.Blocks.behaviors.VoiceProperties =
 [
+    ["GO", "GO"],
     ["START", "START"],
     ["STOP", "STOP"],
     ["SIT", "SIT"],
