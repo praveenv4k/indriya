@@ -6,24 +6,31 @@
 \section{Project Summary}
 In this section summary of the Indriya platform is described
 \subsection{System specification}
- The Indriya platform could be seen as a product by itself. The product specification is shown in Table~\ref{table:system}.
-\begin{table}
+ The Indriya platform could be seen as a product by itself. The product specification is shown in Table~\ref{table:system_spec}.
+
+\begin{table}[H]
 \centering
-%\footnotesize
+%\small
 \caption{Indriya Specification}
-\label{table:system}
-\begin{tabularx}{\textwidth}{X X X}
-\toprule
-  \multirow{2}{*}{Hardware} & Supported Robots & Nao \\
-                            & Sensor & Kinect for Windows V2 \\
-                            & PC & 64-bit (x64) processor, min 4GB Memory, Physical dual-core 3.1 GHz or more,USB 3.0 controller, DX11 capable graphics adapter\\
-                                          \toprule                                       
-  \multirow{2}{*}{Software} & Platform & Windows 8.1  \\
-                            & For running & Microsoft .NET 4.5.1, Visual C++ Redistributable Kinect SDK, Choreographe, Kinect for Windows SDK \\
-                            & For developing & Visual studio community 2013, See readme for list of dependencies \\
-                                          \tabularnewline\toprule
-\end{tabularx}
+\label{table:system_spec}
+\begin{tabular}{| p{3.1cm} | p{12cm} |}
+\hline
+  Hardware & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] 
+                                                  \item Supported Robots: Nao
+                                                  \item Sensor: Kinect for Windows V2
+                                                  \item PC: x64 processor, min 4GB memory, Physical dual-core 3.1 GHz or more, USB 3.0 controller, DX11 capable graphics adapter
+                                                  \end{itemize} 
+                                          \tabularnewline\hline
+                                          
+  Software &  \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] 
+                                                  \item Platform: Windows 8.1
+                                                  \item For running: Microsoft .NET 4.5.1, Visual C++ 2013 redistributable, Naoqi Python SDK v2.3.3, Kinect for Windows SDK
+                                                  \item For developing: Please go through readme file: \url{https://github.com/praveenv4k/Indriya/blob/master/README.md}
+                                                \end{itemize} 
+                                          \tabularnewline\hline
+\end{tabular}
 \end{table}
+
 In summary Indriya platform
 \begin{itemize}
 \item Is a software to design HRI scenarios based on human behaviors
@@ -121,6 +128,7 @@ The project has an extensive code base consisting of over 30k lines of code (cou
 \item Developing a huge database of commonly encountered gestures in social environment
 \item Developing an extensive database of robot actions that the user expects it do on a daily basis
 \item Developing an interface definition language to generate the visual programming blocks and code generation modules for those blocks automatically.
+\item Integration of data management system/user databases to persist and retrieve user information for personalized interaction experience
 \item Integration of sensors available in smartphone and wearable devices like IMUs, Gyroscopes, GPS etc.,
 \item Integration of Natural Language Processing systems with the speech recognition module for more natural interaction
 \item Increasing the range of operation of Humanoid robots by fusing data from two or more Kinect sensors 
@@ -128,8 +136,8 @@ The project has an extensive code base consisting of over 30k lines of code (cou
 \end{itemize}
 
 \section{Conclusion} % Main chapter title
-	Human Robot Interaction is a complex interdisciplinary problem that needs expertise in various fields like human computer interaction, psychology, biomechanics, humanoid robotics etc., Social robots have become very common in the recent days and they find useful applications in entertainment, education, autism treatment and elderly care. 
-	
-	For an efficient interaction with human, the robot has to understand his motions and also the environment around him. This is only possible when the robot has necessary perception capabilities which seemlessly make the robot understand the human motions. However the onboard sensors most often cannot deliver all the information necessary for an effective interaction. So there is a need to augment exteroceptive sensors to the system and RGB-D sensors prove to be a convincing solution to this purpose. Irrespective of the underlying perception system used, there is also a need for a scalable robot behavior design framework which could take care of automatic information flow between various components in the system and dynamic creation of behaviors based on object permanence in the environment. Combining the perception system and behavior framework will result in a platform wherein interaction based on human motion will be possible. 
-	
-	This bibliographic study explained the requirements and challenges in each of the problems of motion understanding, robot localization, behavioral design and evaluation techniques. The state of the art research helped to make appropriate choices to tackle each of the problems under study. More specifically in the research plan described in this study, it is proposed to use Kinect V2 sensor as the perception system and use of Kinect SDK for human motion understanding. The robot localization and tracking problem will be tackled by using a parallelized implementation of particle filter tracking algorithm available in Point cloud library. The Target Drives Means(TDM) framework will be used as the dynamic behavior design infrastructure. An example TDM program is also presented that uses the aforementioned experimental platform. The state of the art HRI evaluation techniques like self assesments and behavioral measures will be used to evaluate the interaction. The experimental platform this thesis aims to achieve will encourage diverse experiments focusing on the evaluation of specific interaction metrics.
+Human Robot Interaction is a complex interdisciplinary problem that needs expertise in various fields like human computer interaction, psychology, sociology, humanoid robotics etc., Social robots have become very common in the recent days and they find useful applications in entertainment, education, autism treatment and elderly care. 
+
+For an efficient interaction with human, the robot has to understand his/her behaviors and also the environment around him. This is only possible when the robot has necessary perception capabilities to make it aware of the situation. However the onboard sensors most often cannot deliver all the information necessary for an effective interaction. The abundance of smart devices and sensors in the smart home and public environments can be exploited for this purpose and RGB-D sensors like Microsoft Kinect provides a convincing solution.
+
+The people from interdisciplinary fields wanting to develop a rich interaction scenario find it difficult to use the existing technology as it requires strong background in programming. Any new programming paradigm designed for such purposes should find a correct balance between simplicity and expressiveness which was the main motivation behind this thesis. The behavior programming paradigm proposed in this thesis could be used for studying various aspects of HRI such as efficiency of the system, cooperativeness, social acceptance etc., There exist some open questions and challenges to be addressed however. The preliminary challenges are to find a set of all possible human motions that could be understood from the sensors distributed around in the environment and to identify all possible actions a robot could perform to interact with human in a social interaction scenario. The next question is to find the spectrum of interaction scenarios this kind of programming interface could cover. 

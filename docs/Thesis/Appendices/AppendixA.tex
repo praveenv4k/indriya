@@ -8,12 +8,12 @@
  % For referencing this appendix elsewhere, use \ref{AppendixA}
 \lhead{Appendix A. \emph{Statistical Tools}} % This is for the header on each page - perhaps a shortened title
 	A summary of the most commonly used statistical tools in HRI are presented below.
-\begin{enumerate}
+\begin{enumerate}[leftmargin={0.5cm},topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] 
 \item \emph{Mean, Variance} The most simplest way of statistical analysis of a set of data is to represent them with their mean and the standard deviation. Let $X$ be the set of data collected with $X_i$ being the result of the $i^{th}$ experiment $(i = 1..N)$, the mean $\mu_X$ and the standard deviation $\sigma_X$ are given by
 \begin{align*}
 \mu_X    &= \frac{1}{N} \sum_{i=1}^{N} X_i\ ; \quad \sigma_X = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (X_i - \mu_X)^2}
 \end{align*}
-Additionally more often the variability of the data in the set is express by the variance ${\sigma_X}^2$. Suppose we consider another set of data $Y$ characterized by its mean $\mu_Y$ and standard deviation $\sigma_Y$, more often in the statistical analysis we will be coming across cases in which the observations in the set $X$ will be related to the observations in the set $Y$. The \emph{covariance (cov(X,Y))} gives the measure of how to the observations in sets $X,Y$ change together and is given by
+Additionally more often the variability of the data in the set is express by the variance ${\sigma_X}^2$. Suppose we consider another set of data $Y$ characterized by its mean $\mu_Y$ and standard deviation $\sigma_Y$, more often in the statistical analysis we will be coming across cases in which the observations in the set $X$ will be related to the observations in the set $Y$. The \emph{covariance (cov(X,Y))} gives the measure of how the observations in sets $X,Y$ change together and is given by
 \begin{align*}
 cov(X,Y) = \frac{1}{N} \sum_{i=1}^{N} (X_i - \mu_X) (Y_i - \mu_Y) 
 \end{align*}
@@ -26,12 +26,12 @@ cov(X,Y) = \frac{1}{N} \sum_{i=1}^{N} (X_i - \mu_X) (Y_i - \mu_Y)
 \begin{equation}
 \rho_s = 1-\frac{6\sum {d_i}^2}{n(n^2-1)} 
 \end{equation}
-where $d_i=x_i-y_i$ is the difference between the ranks. If the raw scores have equal values then identical values are assigned to them as the average of their ranks. The SPCC is less sensitive than the Pearson correlation to strong outliers. 
+where $d_i=x_i-y_i$ is the difference between the ranks. If the raw scores have equal values then identical values are assigned to them as the average of their ranks. The SCC is less sensitive than the Pearson correlation to strong outliers. 
 \item \emph{T-test} : T-test could be used for comparing the means of two set of samples, even if they have different numbers of replicates. In simple terms, the t-test compares the actual difference between two means in relation to the variation in the data (expressed as the standard deviation of the difference between the means). The \emph{One-sample t-test} where in to test the null hypothesis for a set $X:(N,\mu_X,\sigma_X)$ that the sample mean $\mu_X$ is equal to $\mu_0$ one case use
 \begin{align*}
 t = \frac{\mu_X - \mu_0}{\sigma_X/\sqrt{N}}
 \end{align*}
-The degree of freedom used for this case is $N=1$. Alternatively a more general form of \emph{Paired t-test} for the two sets $X:(N1,\mu_X,\sigma_X),\ Y:(N2,\mu_Y,\sigma_Y)$ where unequal variances and samples sizes are assumed is given by \emph{Welch's t-test}. The t- statistic to test whether the means are different is given for this case by
+The degree of freedom used for this case is $N=1$. Alternatively a more general form of \emph{Paired t-test} for the two sets $X:(N1,\mu_X,\sigma_X),\ Y:(N2,\mu_Y,\sigma_Y)$ where unequal variances and samples sizes are assumed is given by \emph{Welch's t-test}. The t-statistic to test whether the means are different is given for this case by
 \begin{align*}
 t &= \frac{\mu_X-\mu_Y}{\sigma_{\mu_X-\mu_Y}} \quad \text{where} \quad \sigma_{\mu_X-\mu_Y} = \sqrt{\frac{{\sigma_X}^2}{N1}+\frac{{\sigma_Y}^2}{N2}} 
 \end{align*}
@@ -39,7 +39,7 @@ t &= \frac{\mu_X-\mu_Y}{\sigma_{\mu_X-\mu_Y}} \quad \text{where} \quad \sigma_{\
 %\item \emph{Chi-Test}
 \item \emph{Cronbach's alpha} : Cronbach's $\alpha$ is used as a lowerbound estimate of the reliability of a psychometric test. Suppose that we measure a quantity which is a sum of $N$ components $X = \sum_{i=1}^{N} Y_i$, Cronbach's $\alpha$ is defined as 
 \begin{align*}
-\alpha = \frac{N}{N-1} (1 - \frac{\sum_{i=1}^{N} {\sigma_{Y_i}}^2}{{\sigma_{X}}^2})
+\alpha = \frac{N}{N-1} \left( 1 - \frac{\sum_{i=1}^{N} {\sigma_{Y_i}}^2}{{\sigma_{X}}^2} \right)
 \end{align*}
 where ${\sigma_X}^2,{\sigma_{Y_i}}^2$ are the variances of total test scores and that of $i^{th}$ test score respectively. Cronbach's alpha will generally increase as the intercorrelations among test items increase, and is thus known as an internal consistency estimate of reliability of test scores.
 \end{enumerate}
