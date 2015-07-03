@@ -86,7 +86,8 @@ Blockly.Blocks.behaviors.GestureProperties =
     ["WaveRight", 'Greet_Right'],
     ["LiftLeftHand", "LiftHand_Left"],
     ["LiftRightHand", "LiftHand_Right"],
-    ["Seated", "Seated"]
+    ["Seated", "Seated"],
+    ["SmartWave", 'IMU_WAVE']
 ];
 
 Blockly.Blocks.behaviors.Languages =

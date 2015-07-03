@@ -227,27 +227,63 @@ namespace Experimot.Scheduler.Data
             {
                 lock (_object)
                 {
-                    var item = _humans.FirstOrDefault(s => s.Body.TrackingId == triggers.id);
-                    if (item != null)
+                    if (_humans.Count > 0)
                     {
-                        foreach (var trigger in triggers.motion)
+                        var item = _humans.FirstOrDefault(s => s.Body.TrackingId == triggers.id);
+                        if (item != null)
                         {
-                            var gest = item.Gestures.FirstOrDefault(g => g.Name == trigger.name);
-
-                            if (gest != null && !string.IsNullOrEmpty(trigger.name))
+                            foreach (var trigger in triggers.motion)
                             {
-                                gest.Refresh(trigger);
+                                var gest = item.Gestures.FirstOrDefault(g => g.Name == trigger.name);
+
+                                if (gest != null && !string.IsNullOrEmpty(trigger.name))
+                                {
+                                    gest.Refresh(trigger);
+                                }
+                                else
+                                {
+                                    if (!string.IsNullOrEmpty(trigger.name))
+                                    {
+                                        var newGest = new Gesture(trigger.name, (GestureMode) trigger.type);
+                                        newGest.Refresh(trigger);
+                                        item.Gestures.Add(newGest);
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public void Update(GestureTrigger trigger)
+        {
+            if (trigger != null)
+            {
+                Console.WriteLine(trigger.motion.name);
+                lock (_object)
+                {
+                    if (_humans.Count > 0)
+                    {
+                        var item = _humans[0];
+                        if (item != null)
+                        {
+                            var gest = item.Gestures.FirstOrDefault(g => g.Name == trigger.motion.name);
+
+                            if (gest != null && !string.IsNullOrEmpty(trigger.motion.name))
+                            {
+                                gest.Refresh(trigger.motion);
                             }
                             else
                             {
-                                if (!string.IsNullOrEmpty(trigger.name))
+                                if (!string.IsNullOrEmpty(trigger.motion.name))
                                 {
-                                    var newGest = new Gesture(trigger.name, (GestureMode) trigger.type);
-                                    newGest.Refresh(trigger);
+                                    var newGest = new Gesture(trigger.motion.name, (GestureMode) trigger.motion.type);
+                                    newGest.Refresh(trigger.motion);
                                     item.Gestures.Add(newGest);
                                 }
                             }
-
                         }
                     }
                 }
