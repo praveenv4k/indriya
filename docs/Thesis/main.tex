@@ -96,6 +96,41 @@
 }
 \newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1: #2}\vspace{.5em}\hrule\vspace{.10in}}
 
+%\color{red}$\bm{#8}$ \\
+%\color{red}$\bm{#8}$ \\
+
+%\newcommand\radioquestion[7]{\vspace{.10in}\hrule \begin{tabular}{rl}
+%\textbf{#1:} & \textbf{#2}\\
+%{} & \textbf{#3}\\
+%\end{tabular}
+%\hrule \vspace{.5em}
+%
+%\begin{tabular}{rp{5cm}l}
+%\textbf{#4} & 
+%\ChoiceMenu[radio]{}{1=1}
+%\ChoiceMenu[radio]{}{2=2}
+%\ChoiceMenu[radio]{}{3=3}
+%\ChoiceMenu[radio]{}{4=4} & \textbf{#5} \\
+%\textbf{#6}  & {} & \textbf{#7} \\
+%\end{tabular}
+%\vspace{.05in}}
+
+\newcommand\radioquestion[7]{\vspace{.20in}
+%\hrule 
+\begin{tabular}{rl}
+\textbf{#1:} & \textbf{#2}\\
+{} & \textbf{#3}\\
+\end{tabular}
+%\hrule 
+%\vspace{.5em}
+
+\begin{tabular}{rll}
+\textbf{#4} & 
+\textbf{$\square$ 1\quad$\square$ 2\quad$\square$ 3\quad$\square$ 4} & \textbf{#5} \\
+\textbf{#6}  & {} & \textbf{#7} \\
+\end{tabular}
+\vspace{.05in}}
+
 \thesistitle{Indriya: An experimental platform for Human Robot Interaction based on human behaviors}
 \degree{European Master in Advanced Robotics}
 \authors{Praveenkumar \textsc{Vasudevan}}

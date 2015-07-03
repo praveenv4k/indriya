@@ -6,72 +6,52 @@
 
 \lhead{Appendix D. \emph{User study questionnaire}} % Change X to a consecutive letter; this is for the header on each page - perhaps a shortened title
 
-\section{Questionnaire/アンケート}
-The questionnaire used (English/Japanese) for the user data collection is shown below
+A questionnaire is used (English/Japanese) for the user data collection.  
+\section*{Questionnaire/アンケート}
 
-\begin{table}[!htbp]
-\centering
-\caption{Comparison of percentages.}
-\begin{tabular}{*3c}
-\toprule
-\multicolumn{3}{c}{Usability}\\
-\midrule
-{}   & Question   & Answer    \\
-\hline
-1   &  Was the interface easy to use? & \begin{Form}
-\def\DefaultWidthofChoiceMenu{12pt}
-Very easy
-\ChoiceMenu[radio,radiosymbol=\ding{109},name=myGroupOfRadiobuttons]{}{1=1}
-\ChoiceMenu[radio,radiosymbol=\ding{109},name=myGroupOfRadiobuttons]{}{2=2}
-\ChoiceMenu[radio,radiosymbol=\ding{109},name=myGroupOfRadiobuttons]{}{3=3}
-\ChoiceMenu[radio]{}{4=4}
-Very difficult
-\end{Form} \\
-2   &  11.8 & 12.7 \\
-3   &  6.6  &  5.6 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\subparagraph{Usability/使いやすさについて}
 
 \begin{Form}
+\hrule
 \subsection*{Usability/使いやすさについて}
-\question{1}{Was the interface easy to use?\\ \quad このインターフェースは使いやすかったですか？} 
-\def\DefaultWidthofChoiceMenu{12pt}
-Very easy/簡単だった
-\quad \ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{1=1}
-\ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{2=2}
-\ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{3=3}
-\ChoiceMenu[radio]{}{4=4}
-\quad Very difficult/難しかった
+\hrule
+\radioquestion{1}{Was the interface easy to use?}{このインターフェースは使いやすかったですか？}{Very easy}{Very difficult}{簡単だった}{難しかった}
 
-\question{2}{Was the interface easy to use?\\ \quad 今回のタブレットアプリケーションは便利でしたか？} 
-\def\DefaultWidthofChoiceMenu{12pt}
-Very easy/とてもそう思う
-\quad \ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{1=1}
-\ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{2=2}
-\ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{3=3}
-\ChoiceMenu[radio]{}{4=4}
-\quad Very difficult/そうは思わない
+\radioquestion{2}{Do you think tablet application is convenient?}{今回のタブレットアプリケーションは便利でしたか？}{Very easy}{Very difficult}{とてもそう思う}{そうは思わない}
 
-\question{3}{Was the interface easy to use?\\ \quad このアプリケーションに慣れるのにどのくらいかかりましたか？} 
-\def\DefaultWidthofChoiceMenu{12pt}
-Very easy/すぐに慣れた
-\quad \ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{1=1}
-\ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{2=2}
-\ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{3=3}
-\ChoiceMenu[radio]{}{4=4}
-\quad Very difficult/とても時間がかかった
+\radioquestion{3}{How long did it take to learn to use the application?}{このアプリケーションに慣れるのにどのくらいかかりましたか？}{Very easy}{Very difficult}{すぐに慣れた}{とても時間がかかった}
 
-\question{3}{Was the interface easy to use?\\ \quad このアプリケーションに慣れるのにどのくらいかかりましたか？} 
-\def\DefaultWidthofChoiceMenu{12pt}
-Very easy/すぐに慣れた
-\quad \ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{1=1}
-\ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{2=2}
-\ChoiceMenu[radio,radiosymbol=,name=myGroupOfRadiobuttons]{}{3=3}
-\ChoiceMenu[radio]{}{4=4}
-\quad Very difficult/とても時間がかかった
+\radioquestion{4}{Was the program structure easy to understand?}{プログラムの構成は分かりやすいものでしたか？}{Very easy}{Very difficult}{簡単だった}{難しかった}
+
+\radioquestion{5}{Were the functionality of programming blocks easy to understand?}{プログラムブロックは分かりやすいものでしたか？}{Very easy}{Very difficult}{簡単だった}{難しかった}
+
+\radioquestion{6}{Were you able to create the scenario you wanted to?}{思い通りのシナリオを作ることができましたか？}{Very easy}{Very difficult}{問題なく作ることができた}{全然作れなかった}
+\hrule
+\subsection*{Execution/シナリオの実行について}
+\hrule
+\radioquestion{7}{Was the scenario executed as you expected?}{思い通りにシナリオを実行することができましたか？}{Very easy}{Very difficult}{思い通りにできた}{全然違うものだった}
+
+\radioquestion{8}{Did the robot understand your gestures and commands as expected?}{ロボットがあなたのことを理解しているように感じましたか？}{Very easy}{Very difficult}{きちんと理解してくれた}{全然理解してくれなかった}
+
+\radioquestion{9}{Was the robot reactive to your commands and gestures?}{ロボットはあなたの行動に対して適切に反応していましたか？}{Very easy}{Very difficult}{きちんと反応してくれた}{全然反応してくれなかった}
+
+\vspace{.20in}
+%\hrule 
+\begin{tabular}{rl}
+\textbf{10} & \textbf{If the execution has failed, what were the reasons for it?}\\
+{} & (You can choose more than one option for this question)\\
+{} & \textbf{シナリオの実行がうまくいかなかったとき、その理由が分かりましたか？}\\
+{} & (複数回答可))\\
+\end{tabular}
+%\hrule 
+%\vspace{.5em}
+
+\begin{tabular}{rl}
+$\square$ & System Failure/システムに原因があった \\
+$\square$ & System Failure/システムに原因があった \\
+$\square$ & System Failure/システムに原因があった \\
+$\square$ & System Failure/システムに原因があった \\
+\end{tabular}
+\vspace{.05in}
 
 
 \end{Form}
