@@ -84,6 +84,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectEx", "external\Kinect
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experimot.Kinect.Speech", "src\Experimot.Kinect.Speech\Experimot.Kinect.Speech.csproj", "{9D3B9A64-4F96-457A-ABCA-92E60A51E664}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experimot.Imu.Perception", "src\Experimot.Imu.Perception\Experimot.Imu.Perception.csproj", "{18D93E86-4702-4407-902A-39692E52A770}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -402,6 +404,21 @@ Global
 		{9D3B9A64-4F96-457A-ABCA-92E60A51E664}.Release|x64.ActiveCfg = Release|Any CPU
 		{9D3B9A64-4F96-457A-ABCA-92E60A51E664}.Release|x86.ActiveCfg = Release|x86
 		{9D3B9A64-4F96-457A-ABCA-92E60A51E664}.Release|x86.Build.0 = Release|x86
+		{18D93E86-4702-4407-902A-39692E52A770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18D93E86-4702-4407-902A-39692E52A770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18D93E86-4702-4407-902A-39692E52A770}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{18D93E86-4702-4407-902A-39692E52A770}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{18D93E86-4702-4407-902A-39692E52A770}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{18D93E86-4702-4407-902A-39692E52A770}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{18D93E86-4702-4407-902A-39692E52A770}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{18D93E86-4702-4407-902A-39692E52A770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18D93E86-4702-4407-902A-39692E52A770}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18D93E86-4702-4407-902A-39692E52A770}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{18D93E86-4702-4407-902A-39692E52A770}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{18D93E86-4702-4407-902A-39692E52A770}.Release|Win32.ActiveCfg = Release|x86
+		{18D93E86-4702-4407-902A-39692E52A770}.Release|Win32.Build.0 = Release|x86
+		{18D93E86-4702-4407-902A-39692E52A770}.Release|x64.ActiveCfg = Release|Any CPU
+		{18D93E86-4702-4407-902A-39692E52A770}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -427,5 +444,6 @@ Global
 		{4564F9A2-8646-4DF6-AB4C-370DD25DDD5C} = {094315CC-B029-4AD0-8E4B-998A7094808B}
 		{B7429D12-B30B-4ADA-A23C-6376AFB54B80} = {C063E180-573D-4365-9B9F-1F277E2B4EF8}
 		{9D3B9A64-4F96-457A-ABCA-92E60A51E664} = {094315CC-B029-4AD0-8E4B-998A7094808B}
+		{18D93E86-4702-4407-902A-39692E52A770} = {094315CC-B029-4AD0-8E4B-998A7094808B}
 	EndGlobalSection
 EndGlobal
