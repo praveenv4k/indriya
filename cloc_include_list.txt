@@ -2,6 +2,7 @@ include/experimot/common
 src/Experimot.Core
 src/Experimot.Core.Msgs
 src/Experimot.Core.NLP
+src/Experimot.Imu.Perception
 src/Experimot.Kinect.Perception
 src/Experimot.Kinect.Playback
 src/Experimot.Kinect.Speech

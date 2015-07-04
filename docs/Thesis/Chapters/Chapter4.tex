@@ -583,15 +583,7 @@ The next step in the behavior program design flow is to generate the executable 
  The execution flow of the behavior program is shown in Fig.~\ref{fig:program_execution}. The generated behavior program is consumed by a \emph{Behavior execution engine} which dynamically identifies the configured behavior blocks. The main functionality of the behavior execution engine is to check if the trigger condition of the behavior blocks is met and once the condition is met, the execution of the corresponding behavior is scheduled on a separate CPU thread. The behavior program accesses the uptodate information about the environment through the interface namely the \emph{Behavior execution context} which acts as a proxy to the \emph{Application context}. The algorithm of the behavior execution by the engine is shown in Algorithm~\ref{alg:behavior_engine}.
 \section{User interface}
 \label{ssec:ui_comp}
-The user interface is a web application that runs on any latest web-kit browsers supporting HTML5, CSS3 and WebGL technologies. The list of libraries and components used to build the web interface has been described in Section~\ref{sec:ui_design}. In this section the various screens in the developed user interface has been described. The UI is composed of tabbed interface consisting of 3 main components as shown in Fig~\ref{fig:behavior_designer}.
-\begin{itemize}
-\item Design: To design the behavior
-\item Visualize: To visualize the interaction
-\item Monitor: To visualize the human and robot information
-\end{itemize}
-
-\subsection*{Behavior Designer} The Behavior designer surface could be used by the user to drag and drop the behavior blocks. The behavior designer is shown in Fig~\ref{fig:behavior_designer}.
-
+The user interface is a web application that runs on any latest web-kit browsers supporting HTML5, CSS3 and WebGL technologies. The list of libraries and components used to build the web interface has been described in Section~\ref{sec:ui_design}. In this section the various screens in the developed user interface has been described. 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
@@ -624,16 +616,20 @@ The user interface is a web application that runs on any latest web-kit browsers
     \caption[Behavior designer]{Behavior designer}
     \label{fig:behavior_designer}
 \end{figure}
-
+The UI is composed of tabbed interface consisting of 3 main components as shown in Fig~\ref{fig:behavior_designer}.
+\begin{itemize}
+\item Design: To design the behavior
+\item Visualize: To visualize the interaction
+\item Monitor: To visualize the human and robot information
+\end{itemize}
+\subsection*{Behavior Designer} The Behavior designer surface could be used by the user to drag and drop the behavior blocks. The behavior designer is shown in Fig~\ref{fig:behavior_designer}.
 The behavior designer is the core component of the user interface. The designer is composed of 
 \begin{itemize}
 \item Designer command panel : It contains command buttons like Open/Save/Clear/Run which makes it easy to perform operations like creating a new program, saving the program to the server, Clear the workspace and Running the active behavior program
-\item Toolbox : It contains behavior, action and trigger blocks needed to realize the behavior program. It also contains the standard logical blocks that comes with Blockly editor.
+\item Toolbox : It contains behavior, action and trigger blocks needed to realize the behavior program. It also contains the standard logical blocks that comes with Blockly editor. The toolbox components are categorized according to their functionality
 \item Designer surface: The designer surface is the playground where the user can create behavior program by dropping in blocks from the toolbox.
 \end{itemize}
-
 \subsection*{Visualization} The visualization could be used to see the interaction of the human and robot inside a virtual 3D environment.
-% Simulation Node
 \begin{algorithm}
  \KwData{simulation\_config}
  \textbf{\emph{Init}}:\\
@@ -645,11 +641,10 @@ The behavior designer is the core component of the user interface. The designer 
  	skeletons = READ\_SKELETON\_DATA() \; 
  	RENDER(robot,sensors)
  }
- %\caption{Localization Algorithm}
- %\label{alg:localize}
+ \caption{Visualization algorithm}
+ \label{alg:visualize}
 \end{algorithm}
-
 \subsection*{Monitor}
 The monitor screen shows the current content of the application context in a tree view. This is mainly developed for debugging purpose.
-
 \section{Summary}
+The chapter discussed the software architecture of the Indriya platform. The specific implementation of a set of components of each layer in the software architecture are described which closes the design to execution loop of an HRI scenario. However as described earlier the architecture is open so that new robots interface nodes and sensor interface modules could be easily integrated in the Indriya platform.

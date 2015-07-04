@@ -1,6 +1,7 @@
 include/experimot/common: zero sized file
 src/Experimot.Core: --exclude-dir=1
 src/Experimot.Core.Msgs: --exclude-dir=1
+src/Experimot.Core.Msgs/My Amplifier XE Results - Experimot.Core.Msgs: zero sized file
 src/Experimot.Core.Msgs/Properties: zero sized file
 src/Experimot.Core.NLP: --exclude-dir=1
 src/Experimot.Core.NLP/Properties: zero sized file
@@ -9,6 +10,8 @@ src/Experimot.Core.NLP/Properties/Settings.settings: language unknown (#3)
 src/Experimot.Core/Properties: zero sized file
 src/Experimot.Core/Schema: zero sized file
 src/Experimot.Core/Util: zero sized file
+src/Experimot.Imu.Perception: --exclude-dir=1
+src/Experimot.Imu.Perception/Properties: zero sized file
 src/Experimot.Kinect.Perception: --exclude-dir=1
 src/Experimot.Kinect.Perception/Database: zero sized file
 src/Experimot.Kinect.Perception/Experimot.Kinect.Perception.csproj.user: language unknown (#3)
@@ -29,6 +32,7 @@ src/Experimot.Scheduler: --exclude-dir=1
 src/Experimot.Scheduler/Data: zero sized file
 src/Experimot.Scheduler/Experimot.Scheduler.csproj.user: language unknown (#3)
 src/Experimot.Scheduler/Mvvm: zero sized file
+src/Experimot.Scheduler/My Amplifier XE Results - Experimot.Scheduler: zero sized file
 src/Experimot.Scheduler/Properties: zero sized file
 src/Experimot.Scheduler/Properties/Resources.resx: language unknown (#3)
 src/Experimot.Scheduler/Properties/Settings.settings: language unknown (#3)
