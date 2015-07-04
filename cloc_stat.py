@@ -52,13 +52,18 @@ if __name__ == "__main__":
     code_table = 'Language & Lines of code \\\ \hline \n'
     comma = 0
     for lang in languages:
-        if comma is 1:
-            percentage = percentage + ','
-        index = languages.index(lang)
-        code_table = code_table + langout[index] + ' & ' + str(counts[index]) + '\\\ \n'
-        p = float(counts[index])/total
-        percentage = percentage + str(round(p*100,2)) + '/' + langpie[index]
-        comma = 1
+		if comma is 1:
+			percentage = percentage + ','
+		index = languages.index(lang)
+		code_table = code_table + langout[index] + ' & ' + str(counts[index]) + '\\\ \n'
+		p = float(counts[index])/total
+		percentage = percentage + str(round(p*100,2)) + '/' + langpie[index]
+		comma = 1
     code_table = code_table + '\hline \n Total' + ' & ' + str(total) + '\\\ \hline \n'
     print code_table
     print percentage
+    f = open('cloc_latex.txt', 'w')
+    f.write(code_table)
+    f.write(percentage)
+    f.close()
+	
