@@ -1,0 +1,9 @@
+Language & Lines of code \\ \hline 
+C\# & 13911\\ 
+C++ & 7046\\ 
+Python & 2969\\ 
+Javascript (JS) & 2141\\ 
+Others & 5470\\ 
+\hline 
+ Total & 31537\\ \hline 
+44.11/C\#,22.34/C++,9.41/Python,6.79/JS,17.34/Others
