@@ -187,7 +187,7 @@ The Kinect gesture recognition system involves a training phase during which the
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{assets/vgb_flow.eps}
-\caption[Visual Gesture Builder Work flow]{Visual Gesture Builder Work flow \cite{KinectSDK2014}}
+\caption[Visual Gesture Builder work flow]{Visual Gesture Builder work flow \cite{KinectSDK2014}}
 \label{fig:vgb_workflow}
 \end{figure}
 The workflow shown in Fig.~\ref{fig:vgb_workflow} has been adopted to develop all the gestures needed for the kinect gesture recognition module. The process followed for generating the Left hand wave gesture is shown in the Fig.~\ref{fig:gesture_waveleft}. As shown in the figure at first the clips are captured using the Kinect studio tool and  stored as \textbf{XEF} files. The clips are then imported in the visual gesture builder. The imported clips could be traversed and the tagging is done (i.e at each frame it is possible to specify if that particular frame is part of the gesture of interest or not). This process could be repeated on one or more imported clips. The tagged clips are built in order to generate a set of weak classifiers and learn confidence values for each of those classifiers. Once the training process is complete, the trained classifier could be evaluated over a set of test clips using a live preview as shown in step 3 in the figure. When the results are satisfactory, the training data could be exported as a database saved as \textbf{VGD} (Visual Gesture Database) format.
@@ -451,7 +451,7 @@ A dynamic component that will be created when the user starts the program he/she
 \begin{figure}
 \centering
 \includegraphics[width=0.4\textwidth]{../thesis/assets/program_structure.eps}
-\caption[Behavior Program - Conceptual Model]{Behavior Program - Conceptual Model}
+\caption[Behavior program - Conceptual model]{Behavior program - Conceptual model}
 \label{fig:program_concept}
 \end{figure}
 \subsection{Conceptual model}

@@ -19,7 +19,7 @@ In order to describe the simplicity and intuitiveness, we will make a comparativ
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{../thesis/assets/scenario_museum_choregraphe2.png}
-\caption[NAO museum guide: Choregraphe Program]{NAO museum guide: Choregraphe Program}
+\caption[NAO museum guide: Choregraphe program]{NAO museum guide: Choregraphe program}
 \label{fig:scenario1_program_choregraphe}
 \end{figure}
 The behavior program desgined using Choregraphe software is shown in Fig.~\ref{fig:scenario1_program_choregraphe}. Though Choregraphe uses a familiar flow-chart based programming model and has a huge library of primitive blocks to build complex motion patterns, the data flow for this scenario is not straight forward. As could be noticed from Fig~\ref{fig:scenario1_program_choregraphe}, at first the robot keeps looking for people in its vicinity using the \emph{Face detection block} at the cost of its power. The battery may be used up even before the robot really detects a person. Once it detects a person, the face detection block is stopped and \emph{People tracker} block is activated. The robot starts approaching (tracking) the person until a fixed distance with the person is reached. Once the desired distance of separation is achieved, the people tracker block is stopped. Now the robot will actually start explaining the history of the museum. It could be noticed that this kind of description/design of scenario might be easy for a seasoned programmer. However for a novice programmer it could be difficult to think of the dataflow as they literally have to emulate the whole scenario in their mind before designing the system. Moreover for human-in-the-loop scenarios like this, it is extremely difficult to simulate the behavior. So each time in order to verify the behavior, it has to be executed in the real robot which increases the overhead of the design process.
@@ -28,7 +28,7 @@ Now let us see how such a scenario could be designed using Indriya system. The d
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{../thesis/assets/scenario1_new.png}
-\caption[NAO museum guide: Indriya Program]{NAO museum guide: Indriya Program}
+\caption[NAO museum guide: Indriya program]{NAO museum guide: Indriya program}
 \label{fig:scenario1_program}
 \end{figure}
 The framework equipped with Kinect sensor takes care of the detection of people and gives the relative localization of the robot and human. Once the person is detected or a configured gesture trigger arrives, the behavior program retrieves the dynamic position of the robot and of the human from the application context. Using this information, the relative transformation of the human with respect to human is computed. The \emph{Approach block} makes use of this information to drive the robot towards the person. After coming into the proximity of the person, the robot starts explaining the history of museum configured using \emph{Say Expressively} block. From the user perspective, the design of the behavior is \textbf{\emph{intuitive}} using Indriya. He/She can focus on the scenario rather than thinking about the minute details of the data flow as the Indriya system equipped with the perception system acts as a proxy and eases the design process. 
@@ -62,7 +62,7 @@ The reference implementation of the caring robot is shown in Fig.~
 
 \section{Multi-robot programming at finger tips}
 The Indriya system now supports NAO humanoid robots. It will soon support Turtlebot and Pepper humanoid robot. The main advantage of the system is the robot interface modules developed for each of these robots are designed in such a way that it is easy to create multiple instances (nodes) with the same script by just changing the connection parameters as shown in Listing~\ref{lst:multirobot_config}
-\lstinputlisting[caption=Multirobot Configuration File,label={lst:multirobot_config},language=XML]{assets/multirobot_config.xml}
+\lstinputlisting[caption=Multi-robot Configuration File,label={lst:multirobot_config},language=XML]{assets/multirobot_config.xml}
 In this way it is easy to extend the system to be used for many robots of same kind and also many different kinds of robots. 
 \begin{figure}
 \centering
@@ -77,7 +77,7 @@ In this way it is easy to extend the system to be used for many robots of same k
 \caption[Individual robot selection]{Individual robot selection}
 \label{fig:robot_selection}
 \end{subfigure}
-\caption[Multirobot support]{Multirobot support}
+\caption[Multi-robot support]{Multi-robot support}
 \label{fig:multirobot_support}
 \end{figure}
 The user interface is also designed in such a way that, it is easy to choose which action to be executed in which robot. The robot actions are categorized by their types in the tool box (Fig.~\ref{fig:robot_categorize}) and with the given robot type, for each robot action blocks it is possible to choose the robot by its name (Fig.~\ref{fig:robot_selection}) as specified by the user in the configuration file.
