@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03f6965a-39a2-4893-a7b0-c0ae82b1fab2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../docs/Thesis/Appendices/AppendixC.tex" afterPath="$PROJECT_DIR$/../../docs/Thesis/Appendices/AppendixC.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../docs/Thesis/Appendices/AppendixA.tex" afterPath="$PROJECT_DIR$/../../docs/Thesis/Appendices/AppendixA.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../docs/Thesis/Chapters/Chapter4.tex" afterPath="$PROJECT_DIR$/../../docs/Thesis/Chapters/Chapter4.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../docs/Thesis/Chapters/Chapter6.tex" afterPath="$PROJECT_DIR$/../../docs/Thesis/Chapters/Chapter6.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../cloc_code_statistics.csv" afterPath="$PROJECT_DIR$/../../cloc_code_statistics.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../docs/Thesis/assets/cloc_code_statistics.csv" afterPath="$PROJECT_DIR$/../../docs/Thesis/assets/cloc_code_statistics.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../cloc_code_statistics.txt" afterPath="$PROJECT_DIR$/../../cloc_code_statistics.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../cloc_ignored_list.txt" afterPath="$PROJECT_DIR$/../../cloc_ignored_list.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../cloc_include_list.txt" afterPath="$PROJECT_DIR$/../../cloc_include_list.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../docs/Thesis/main.tex" afterPath="$PROJECT_DIR$/../../docs/Thesis/main.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PyScripts.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,12 +35,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="NaoBehaviorModule.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NaoBehaviorModule.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/behaviors/NaoBehaviorModule.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1788" max-vertical-offset="5882">
-              <caret line="130" column="28" selection-start-line="130" selection-start-column="28" selection-end-line="130" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1839" max-vertical-offset="6579">
+              <caret line="126" column="1" selection-start-line="126" selection-start-column="1" selection-end-line="126" selection-end-column="1" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_dir.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_dir.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
+              <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cloc_stat.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cloc_stat.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6923077" vertical-offset="731" max-vertical-offset="1173">
+              <caret line="61" column="40" selection-start-line="61" selection-start-column="40" selection-end-line="61" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReadJointValues.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ReadJointValues.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="3604">
+              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+              <folding>
+                <element signature="e#29#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JointPublisher.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JointPublisher.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="799" max-vertical-offset="1241">
+              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="26" />
+              <folding>
+                <element signature="e#22#48#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -39,11 +92,9 @@
       <file leaf-file-name="behaviormanager.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/behaviors/behaviormanager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1836" max-vertical-offset="2278">
-              <caret line="128" column="40" selection-start-line="0" selection-start-column="0" selection-end-line="128" selection-end-column="43" />
-              <folding>
-                <element signature="e#27#36#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="5253" max-vertical-offset="5695">
+              <caret line="329" column="40" selection-start-line="0" selection-start-column="0" selection-end-line="329" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -82,18 +133,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parameter_utils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/parameter_utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="2159">
-              <caret line="33" column="45" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="45" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -124,14 +163,15 @@
         <option value="$PROJECT_DIR$/parameter_utils.py" />
         <option value="$PROJECT_DIR$/behaviors/almotion_setangles.py" />
         <option value="$PROJECT_DIR$/behaviors/behaviormanager.py" />
-        <option value="$PROJECT_DIR$/behaviors/NaoBehaviorModule.py" />
         <option value="$PROJECT_DIR$/behaviors/imitation_manager.py" />
+        <option value="$PROJECT_DIR$/behaviors/NaoBehaviorModule.py" />
+        <option value="$PROJECT_DIR$/cloc_stat.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="122" />
-    <option name="y" value="35" />
+    <option name="x" value="222" />
+    <option name="y" value="72" />
     <option name="width" value="1417" />
     <option name="height" value="890" />
   </component>
@@ -214,28 +254,7 @@
       <recent name="C:\Work\Develop\src\github\PyScripts" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.imitation_manager">
-    <configuration default="false" name="BehaviorModuleBase" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/behaviors" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PyScripts" />
-      <option name="SCRIPT_NAME" value="C:\Work\Develop\src\github\ExPeriMot\src\experimot_robot_interface\behaviors\NaoBehaviorModule.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <RunnerSettings RunnerId="PyDebugRunner" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PyDebugRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.cloc_stat">
     <configuration default="false" name="NaoBehaviorModule" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -308,6 +327,25 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="PyScripts" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/behaviors/imitation_manager.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="cloc_stat" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PyScripts" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cloc_stat.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <RunnerSettings RunnerId="PyDebugRunner" />
@@ -437,19 +475,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.BehaviorModuleBase" />
-      <item index="1" class="java.lang.String" itemvalue="Python.NaoBehaviorModule" />
-      <item index="2" class="java.lang.String" itemvalue="Python.behaviormanager" />
-      <item index="3" class="java.lang.String" itemvalue="Python.almotion_setangles" />
-      <item index="4" class="java.lang.String" itemvalue="Python.imitation_manager" />
+      <item index="0" class="java.lang.String" itemvalue="Python.NaoBehaviorModule" />
+      <item index="1" class="java.lang.String" itemvalue="Python.behaviormanager" />
+      <item index="2" class="java.lang.String" itemvalue="Python.almotion_setangles" />
+      <item index="3" class="java.lang.String" itemvalue="Python.imitation_manager" />
+      <item index="4" class="java.lang.String" itemvalue="Python.cloc_stat" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.imitation_manager" />
-        <item index="1" class="java.lang.String" itemvalue="Python.almotion_setangles" />
-        <item index="2" class="java.lang.String" itemvalue="Python.behaviormanager" />
-        <item index="3" class="java.lang.String" itemvalue="Python.NaoBehaviorModule" />
-        <item index="4" class="java.lang.String" itemvalue="Python.BehaviorModuleBase" />
+        <item index="0" class="java.lang.String" itemvalue="Python.cloc_stat" />
+        <item index="1" class="java.lang.String" itemvalue="Python.imitation_manager" />
+        <item index="2" class="java.lang.String" itemvalue="Python.almotion_setangles" />
+        <item index="3" class="java.lang.String" itemvalue="Python.behaviormanager" />
+        <item index="4" class="java.lang.String" itemvalue="Python.NaoBehaviorModule" />
       </list>
     </recent_temporary>
   </component>
@@ -467,28 +505,28 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="122" y="35" width="1417" height="890" extended-state="0" />
+    <frame x="222" y="72" width="1417" height="890" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24696645" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39820743" sideWeight="0.3369022" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53521127" sideWeight="0.62955034" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31045407" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39820743" sideWeight="0.6630978" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53521127" sideWeight="0.62955034" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39820743" sideWeight="0.6630978" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -545,22 +583,20 @@
           <line>158</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/read_values.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="24" />
+      <option name="time" value="26" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/datalog.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="8330">
-          <caret line="1" column="401" selection-start-line="1" selection-start-column="401" selection-end-line="1" selection-end-column="401" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Lib/site-packages/zmq/sugar/socket.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="4920" max-vertical-offset="8194">
@@ -771,20 +807,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/read_values.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1496">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JointPublisher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="1241">
-          <caret line="55" column="13" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/motion_walk.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1556" max-vertical-offset="2125">
@@ -810,13 +832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="1751">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ReadJointValues.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="3213">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -862,20 +877,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_dir.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46107784" vertical-offset="126" max-vertical-offset="1105">
-          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#9#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/parameter_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="2159">
-          <caret line="33" column="45" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="2159">
+          <caret line="34" column="14" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="45" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
@@ -912,18 +917,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/behaviors/behaviormanager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1943" max-vertical-offset="2278">
-          <caret line="128" column="40" selection-start-line="0" selection-start-column="0" selection-end-line="128" selection-end-column="43" />
-          <folding>
-            <element signature="e#27#36#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="5253" max-vertical-offset="5695">
+          <caret line="329" column="40" selection-start-line="0" selection-start-column="0" selection-end-line="329" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/behaviors/NaoBehaviorModule.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1788" max-vertical-offset="5882">
-          <caret line="130" column="28" selection-start-line="130" selection-start-column="28" selection-end-line="130" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1839" max-vertical-offset="6579">
+          <caret line="126" column="1" selection-start-line="126" selection-start-column="1" selection-end-line="126" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_dir.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReadJointValues.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="3604">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+          <folding>
+            <element signature="e#29#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/read_values.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1054" max-vertical-offset="1496">
+          <caret line="69" column="39" selection-start-line="69" selection-start-column="39" selection-end-line="69" selection-end-column="39" />
+          <folding>
+            <element signature="e#408#417#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JointPublisher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="799" max-vertical-offset="1241">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="26" />
+          <folding>
+            <element signature="e#22#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloc_stat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6923077" vertical-offset="731" max-vertical-offset="1173">
+          <caret line="61" column="40" selection-start-line="61" selection-start-column="40" selection-end-line="61" selection-end-column="40" />
           <folding />
         </state>
       </provider>
