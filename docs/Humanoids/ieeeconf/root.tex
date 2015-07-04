@@ -22,8 +22,10 @@
 %\usepackage{amsmath} % assumes amsmath package installed
 %\usepackage{amssymb}  % assumes amsmath package installed
 
+\usepackage{hyperref}
+
 \title{\LARGE \bf
-Indriya : An intuitive interface for designing social behaviors of humanoid robots for human-in-the-loop scenarios
+Indriya : A platform for designing human robot interaction scenarios based on human behaviors
 }
 
 
@@ -50,7 +52,7 @@ Indriya : An intuitive interface for designing social behaviors of humanoid robo
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 
-Humans interacting with intelligent robots has been seen as a potential game changer of the future. In scenarios where robots coexist with humans in a social environment, understanding not only verbal communication, but also non-verbal communication is extremely inevitable. The non-verbal communication carries information such as intention, emotion and health of a human, that adds value to the way robots participate in an interaction. Additionally, the people who design interaction scenarios are from diverse fields who do not essentially have the required robot programming skills. In this paper we propose an easy to use and intuitive programming interface which gives the power to design robot behaviors taking into account human motions. We propose a distributed system namely Indriya which gives the capability to plug and play multi-modal motion recognition systems and diverse class of robots. We present results of NAO humanoid robot performing actions understanding human motions using Kinect motion recognition system.
+In scenarios where robots coexist with humans in a social environment, understanding both verbal and non-verbal communication is extremely inevitable. Together they convey information such as intention, emotion and even health of a human, that adds value to the way robots participate in an interaction. Additionally, the people who design interaction scenarios are from diverse fields who do not essentially have the required robot programming skills. In this paper a new behavior programming paradigm and an easy to use visual programming interface for the same is proposed, which gives the power to design robot behaviors taking into account human behaviors. For making it possible a distributed platform namely Indriya has been proposed, which gives the capability to plug and play multi-modal activity recognition systems and diverse class of robots. The usage of the system has been demonstrated using scenarios where NAO humanoid robot performs actions understanding human behavior using Microsoft Kinect gesture/speech recognition system. Finally the platform is validated using statistical analysis performed on the user study conducted on a set of participants.
 
 \end{abstract}
 
@@ -58,17 +60,19 @@ Humans interacting with intelligent robots has been seen as a potential game cha
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{INTRODUCTION}
 
-The richness and diversity of Human Robot Interaction (HRI) has been described in \cite{dautenhahn2007methodology} as ``HRI is a challenging research field at the intersection of psychology, cognitive science, social sciences, artificial intelligence, computer science, robotics, engineering and human-computer interaction". Goodrich in his extensive survey \cite{goodrich2007human} proposed two main types of HRI namely remote interaction and proximate interaction. The latter is particularly important where the humans and the robots are co-located. Proximate interaction has gained importance due to the successful encounters of putting robots to work with human beings. It has led to the development of a new class of robots called social robots. Yan et al. \cite{yan2014survey} define ``A social robot is a robot which can execute designated tasks and the necessary condition turning a robot into a social robot is the ability to interact with humans by adhering to certain social cues and rules.''
+The richness and diversity of Human Robot Interaction (HRI) has been described in \cite{dautenhahn2007methodology} as ``HRI is a challenging research field at the intersection of psychology, cognitive science, social sciences, artificial intelligence, computer science, robotics, engineering and human-computer interaction". Goodrich in his extensive survey \cite{goodrich2007human} proposed two main types of HRI namely remote interaction and proximate interaction. Proximate interaction has led to the development of a new class of robots called social robots. Yan et al. \cite{yan2014survey} define ``A social robot is a robot which can execute designated tasks and the necessary condition turning a robot into a social robot is the ability to interact with humans by adhering to certain social cues and rules.''
 
-	Social robots already entered the human spaces as entertainers, educators, caring agents and personal assistants \cite{Aldebaran}. Hence the design and the development of interaction systems need to be approached in a systematic manner wherein the robots should be able to understand the human motions and intentions in order to interact in a better way. To make it possible it is necessary to develop robotic systems with essential perceptual ability for efficient and natural interaction. Most often the on-board sensors on the robots fail to satisfy this demanding requirement due to various constraints like space, power and computational needs. Therefore consideration of augmenting exteroceptive sensors that are commonly available in the smart home/public environments to this purpose is essential.
+	Social robots already entered the human spaces as entertainers, educators, caring agents and personal assistants \cite{Aldebaran}. Hence the design and the development of interaction systems need to be approached in a systematic manner wherein the robots should be able to understand the human behaviors in order to interact in a better way. To make it possible it is necessary to develop robotic systems with essential perceptual ability for efficient and natural interaction. Most often the on-board sensors on the robots fail to satisfy this demanding requirement due to various constraints like space, power and computational needs. Therefore consideration of augmenting exteroceptive sensors that are commonly available in the smart home/public environments to this purpose is essential.
 
-	Another important aspect in HRI is the fact that the users of such systems are from diverse backgrounds. People study various aspects such as robot ethics, social acceptance, liveliness, cultural influence etc., from various perspectives like sociology, psychology, humanities and so on. So the tools needed to design behaviors of a social robot should be intuitive and user friendly.  With increased availability of social robots and cost effective motion recognition sensors, we could still observe a huge void which inhibits the exploitation of available technology for designing human motion driven robot behaviors.
+	Another important aspect in HRI is the fact that the users of such systems are from diverse backgrounds. People study various aspects such as robot ethics, social acceptance, liveliness, cultural influence etc., from various perspectives like sociology, psychology, humanities and so on. So the tools needed to design behaviors of a social robot should be intuitive and user friendly.  With increased availability of social robots and cost effective motion recognition sensors, we could still observe a huge void which inhibits the exploitation of available technology for designing robot behaviors for human-in-the-loop scenarios.
 
-	The main contribution of this work is an application independent experimental platform: Indriya, wherein a social robot is augmented with essential perceptual ability to understand human motions. The behavior design of such a social robot is made possible by an easy to use behavior design interface. The resulting experimental platform could be used by people from interdisciplinary fields to design the interaction between social robots and humans. Although our behavior design framework could accommodate variety of robots and sensors, we present the scenarios targeted for the NAO \cite{NaoRobot} humanoid robot and commercially available Kinect \cite{Kinect2014} RGB-D camera for localization and gesture recognition. 
+	The main contribution of this paper are: \textbf{(a)} A distributed and modular \textit{Application framework} which gives opportunity to interface multimodal sensor systems and diverse class of robots. \textbf{(b)} A simple and easy to understand \textit{Behavior program model} in order to design reactive human robot interaction scenarios. \textbf{(c)} An intuitive and easy to use \textit{User interface} to design, execute and monitor interaction from broad range of client devices. 
+
+ The paper is organized as follows. Section~\ref{sec:related_work} discusses the state-of-the-art techniques. Section~\ref{sec:indriya_platform} presents a brief introduction to Indriya architecture. Section~\ref{sec:system_evaluation} describes the system capabilities and Section~\ref{sec:user_study} presents the user study results.  Finally Section~\ref{sec:conclusion} presents the concluding remarks.
 
 \section{RELATED WORK}
-
-Vision based motion capture and analysis systems have been one of the first class citizens in the human motion capture and analysis. It has been studied widely and a summary of all the approaches developed during the past decade has been presented in the surveys \cite{moeslund2006survey}\cite{poppe2007vision}. Vision based human pose estimation has traditionally suffered from the requirement to adopt an initialization pose and losing track after a few frames. These problems have been addressed by the approaches proposed by Xbox team \cite{Kinect2014} which are capable of accurately tracking human skeletons using single depth images \cite{shotton2013efficient}. Understanding of human motion is not complete if the action of the human could not be inferred. In the survey by Microsoft research team \cite{han2013enhanced}, a study on various algorithms used for human activity analysis is presented. Recently data-driven machine learning approaches have proven to be successful with recognition accuracy as high as 94.9\% \cite{Kinect2014}.
+\label{sec:related_work}
+Human behavior understanding can be broadly classified into non-verbal/motion recognition and verbal/speech recognition. Vision based motion capture and analysis systems have been one of the first class citizens in the human motion capture and analysis summarized in various surveys \cite{moeslund2006survey}\cite{poppe2007vision}. Vision based human pose estimation has traditionally suffered from the requirement to adopt an initialization pose and losing track after a few frames. These problems have been addressed in \cite{shotton2013efficient} which are capable of accurately tracking human skeletons using single depth images. Understanding of human motion is not complete if the action of the human could not be inferred. In the survey by Microsoft research team \cite{han2013enhanced}, a study on various algorithms used for human activity analysis is presented. Recently data-driven machine learning approaches have proven to be successful with recognition accuracy as high as 94.9\% \cite{Kinect2014}.
 	
 	The localization of humanoid robots is a challenging issue, due to rough odometry estimation, noisy onboard sensing, and the swaying motion caused by walking \cite{cervera2012localization}. The Point cloud library \cite{rusu20113d}, one of the most widely used 3d perception library, implements ready to use probabilistic tracking algorithms. Studies on robot localization, obstacle mapping, and path planning by equipping NAO with a consumer-level depth camera have been reported in \cite{maier2012real}. Localization and motion planning in smart home environment using an external kinect sensor have been proposed in \cite{cervera2012localization}. These methods are computationally demanding and it could cause overall performance degradation particularly when one wants to share the same sensor for both human motion recognition and localization of the robot. Tracking rectangular fiducial markers using augmented reality tool-kits like ALVAR \cite{ALVAR} can be interesting if one could embed those markers on the humanoid robot. This is one of the simplest and cheapest solutions in terms of computational power as it can provide position and orientation of the physical markers in real time.
 	
@@ -76,8 +80,8 @@ Vision based motion capture and analysis systems have been one of the first clas
 	
 	Nowadays there has been a lot of efforts to teach programming to children and people without computer science background \cite{Scratch}\cite{Blockly}. These tools are very intuitive and have already been proven to be used by novice programmers to build games and educational applications. The Blockly library \cite{Blockly} from Google offers a complete client side JavaScript library which could be used for developing custom blocks and code generators as per the application requirements.
 
-\section{INTUITIVE BEHAVIOR INTERFACE}
-
+\section{INDRIYA PLATFORM}
+\label{sec:indriya_platform}
 We propose a light weight interface for designing human motion driven behaviors taking inspiration from distributed architecture \cite{quigley2009ros} and intuitive visual programming techniques \cite{Blockly}. 
 \subsection{System Architecture}
 The system setup and architecture are shown in Fig~\ref{fig:architecture}.
@@ -145,6 +149,14 @@ The behavior program is structured in a simple way so that it could be easily un
 \end{itemize}
 \end{itemize}
 
+\section{SYSTEM EVALUATION}
+\label{sec:system_evaluation}
+
+\section{USER STUDY}
+\label{sec:user_study}
+
+\section{CONCLUSIONS}
+\label{sec:conclusion}
 
 \section{USING THE TEMPLATE}
 
