@@ -385,7 +385,7 @@
       <process>
         <type>scriptcs</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\scriptcs\scriptcs.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\bin\scriptcs\main_program.csx -logLevel debug</args>
+        <args>%DEV_SDK_ROOT%\experimot\bin\scriptcs\main_program.csx -logLevel debug -M mono</args>
       </process>
       <parameters>
         <param key="BehaviorManagerName" value="nao_behavior_manager" type="string"/>
