@@ -5,7 +5,7 @@
 \label{Chapter4} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
 \lhead{Chapter 4. \emph{System Implementation}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
-The software framework proposed and introduced in \ref{Chapter4} has been exploited to develop the Indriya platform. In this chapter the software architecture of the experimental platform is presented. Apart from the architecture itself, specific implementation details of each of the components in the system is also described in this chapter.  The software is designed using a hierarchical structure. The main layers of the system are
+The software framework proposed and introduced in \ref{Chapter3} has been exploited to develop the Indriya platform. In this chapter the software architecture of the experimental platform is presented. Apart from the architecture itself, specific implementation details of each of the components in the system are also described in this chapter. The software is designed using a hierarchical structure. The main layers of the system are
 \begin{itemize}
 \item \emph{Hardware layer} is composed of sensors and robots connected to the network. Currently only those sensors that support TCP/IP network communication are considered.
 \item \emph{Distributed components layer} is composed of individual processes that could be running across different computers/devices in the network
@@ -61,24 +61,24 @@ The parameter server acts as a central repository for managing the parameters of
 \small
 \caption{Parameter server interface specification}
 \label{table:parameter_server}
-\begin{tabular}{| p{3.1cm} | p{7.4cm} | p{2.8cm} |}
+\begin{tabular}{| p{5cm} | p{4cm} | p{2.8cm} |}
 \hline
   \textbf{Request Description} & \textbf{Request Arguments} & \textbf{Response}
   \tabularnewline \hline
   Node Parameters request & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] 
-                                                  \item Name of the node: string
+                                                  \item Name of the node
                                                   \end{itemize} & Node Parameters 
                                           \tabularnewline\hline
                                           
   Motion recognition module registration request &  \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] 
-                                                  \item Name of the node: string
-                                                  \item Module Information: GestureRecognitionModule
+                                                  \item Name of the node
+                                                  \item Module Information
                                                 \end{itemize} & Registration Status  (Success/Failure)
                                           \tabularnewline\hline
   
   Robot Interface module registration request & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] 
-                                                \item Name of the node: string
-                                                \item Module Information: RobotBehaviorModule 
+                                                \item Name of the node
+                                                \item Module Information
                                             \end{itemize} & Registration Status  (Success/Failure)
                                           \tabularnewline\hline
   File Request & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] 
@@ -630,20 +630,20 @@ The behavior designer is the core component of the user interface. The designer 
 \item Designer surface: The designer surface is the playground where the user can create behavior program by dropping in blocks from the toolbox.
 \end{itemize}
 \subsection*{Visualization} The visualization could be used to see the interaction of the human and robot inside a virtual 3D environment.
-\begin{algorithm}
- \KwData{simulation\_config}
- \textbf{\emph{Init}}:\\
- \quad INIT\_SIMULATION\_ENGINE(simulation\_config) \;
- \quad INIT\_SUBSCRIBERS(simulation\_config) \;
- \quad LOAD\_ENVIRONMENT(simulation\_config) \; 
- \While{True}{
- 	sensors = READ\_SENSOR\_VALUES() \; 
- 	skeletons = READ\_SKELETON\_DATA() \; 
- 	RENDER(robot,sensors)
- }
- \caption{Visualization algorithm}
- \label{alg:visualize}
-\end{algorithm}
+% \begin{algorithm}
+%  \KwData{simulation\_config}
+%  \textbf{\emph{Init}}:\\
+%  \quad INIT\_SIMULATION\_ENGINE(simulation\_config) \;
+%  \quad INIT\_SUBSCRIBERS(simulation\_config) \;
+%  \quad LOAD\_ENVIRONMENT(simulation\_config) \; 
+%  \While{True}{
+%  	sensors = READ\_SENSOR\_VALUES() \; 
+%  	skeletons = READ\_SKELETON\_DATA() \; 
+%  	RENDER(robot,sensors)
+%  }
+%  \caption{Visualization algorithm}
+%  \label{alg:visualize}
+% \end{algorithm}
 \subsection*{Monitor}
 The monitor screen shows the current content of the application context in a tree view. This is mainly developed for debugging purpose.
 \section{Summary}
