@@ -1,0 +1,19 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_composable_simple" id="3" inline="false" x="313" y="88">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="trigger" id="20">
+        <field name="MOTION_TRIGGER">HumanDetected</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="move_action" id="44">
+        <field name="distance">0.5</field>
+        <field name="ROBOT">Hiro</field>
+      </block>
+    </statement>
+  </block>
+</xml>
