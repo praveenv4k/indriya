@@ -3,7 +3,7 @@
 %        1         2         3         4         5         6         7         8
 
 \documentclass[letterpaper, 10 pt, conference]{ieeeconf}  % Comment this line out if you need a4paper
-
+%\graphicspath{{../../Thesis/assets/}}
 %\documentclass[a4paper, 10pt, conference]{ieeeconf}      % Use this line for a4 paper
 
 \IEEEoverridecommandlockouts                              % This command is only needed if 
@@ -15,15 +15,17 @@
 % on the last page of the document
 
 % The following packages can be found on http:\\www.ctan.org
-%\usepackage{graphics} % for pdf, bitmapped graphics files
-%\usepackage{epsfig} % for postscript graphics files
+\usepackage{graphicx} % for pdf, bitmapped graphics files
+\usepackage{epsfig} % for postscript graphics files
 %\usepackage{mathptmx} % assumes new font selection scheme installed
 %\usepackage{times} % assumes new font selection scheme installed
 %\usepackage{amsmath} % assumes amsmath package installed
 %\usepackage{amssymb}  % assumes amsmath package installed
+\usepackage{epstopdf}
 
 \usepackage{hyperref}
-
+\usepackage{subcaption}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
 \title{\LARGE \bf
 Indriya : A platform for designing human robot interaction scenarios based on human behaviors
 }
@@ -52,7 +54,7 @@ Indriya : A platform for designing human robot interaction scenarios based on hu
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 
-In scenarios where robots coexist with humans in a social environment, understanding both verbal and non-verbal communication is extremely inevitable. Together they convey information such as intention, emotion and even health of a human, that adds value to the way robots participate in an interaction. Additionally, the people who design interaction scenarios are from diverse fields who do not essentially have the required robot programming skills. In this paper a new behavior programming paradigm and an easy to use visual programming interface for the same is proposed, which gives the power to design robot behaviors taking into account human behaviors. For making it possible a distributed platform namely Indriya has been proposed, which gives the capability to plug and play multi-modal activity recognition systems and diverse class of robots. The usage of the system has been demonstrated using scenarios where NAO humanoid robot performs actions understanding human behavior using Microsoft Kinect gesture/speech recognition system. Finally the platform is validated using statistical analysis performed on the user study conducted on a set of participants.
+In scenarios where robots coexist with humans in a social environment, understanding both verbal and non-verbal communication is extremely inevitable. Together they convey information such as intention, emotion and even health of a human, that adds value to the way robots participate in an interaction. On the other hand, the people who design interaction scenarios are from diverse fields who do not essentially have the required robot programming skills. In this paper a new behavior programming paradigm and an easy to use visual programming interface for the same is proposed, which gives the power to design human-robot interaction taking into account human behaviors. The distributed platform namely Indriya proposed in this paper gives the ability to plug and play multimodal sensors and diverse class of robots. The platform usage has been demonstrated using scenarios where NAO robot performs actions understanding human behavior using Microsoft Kinect sensor. %Finally the platform is validated using statistical analysis performed on the user study conducted on a set of participants.
 
 \end{abstract}
 
@@ -60,11 +62,11 @@ In scenarios where robots coexist with humans in a social environment, understan
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{INTRODUCTION}
 
-The richness and diversity of Human Robot Interaction (HRI) has been described in \cite{dautenhahn2007methodology} as ``HRI is a challenging research field at the intersection of psychology, cognitive science, social sciences, artificial intelligence, computer science, robotics, engineering and human-computer interaction". Goodrich in his extensive survey \cite{goodrich2007human} proposed two main types of HRI namely remote interaction and proximate interaction. Proximate interaction has led to the development of a new class of robots called social robots. Yan et al. \cite{yan2014survey} define ``A social robot is a robot which can execute designated tasks and the necessary condition turning a robot into a social robot is the ability to interact with humans by adhering to certain social cues and rules.''
+The richness and diversity of Human Robot Interaction (HRI) has been described in \cite{dautenhahn2007methodology} as ``HRI is a challenging research field at the intersection of psychology, cognitive science, social sciences, artificial intelligence, computer science, robotics, engineering and human-computer interaction". Goodrich in his extensive survey \cite{goodrich2007human} proposed two main types of HRI namely remote interaction and proximate interaction. The latter has led to the development of a new class of robots called social robots. Yan et al. \cite{yan2014survey} define ``A social robot is a robot which can execute designated tasks and the necessary condition turning a robot into a social robot is the ability to interact with humans by adhering to certain social cues and rules.''
 
 	Social robots already entered the human spaces as entertainers, educators, caring agents and personal assistants \cite{Aldebaran}. Hence the design and the development of interaction systems need to be approached in a systematic manner wherein the robots should be able to understand the human behaviors in order to interact in a better way. To make it possible it is necessary to develop robotic systems with essential perceptual ability for efficient and natural interaction. Most often the on-board sensors on the robots fail to satisfy this demanding requirement due to various constraints like space, power and computational needs. Therefore consideration of augmenting exteroceptive sensors that are commonly available in the smart home/public environments to this purpose is essential.
 
-	Another important aspect in HRI is the fact that the users of such systems are from diverse backgrounds. People study various aspects such as robot ethics, social acceptance, liveliness, cultural influence etc., from various perspectives like sociology, psychology, humanities and so on. So the tools needed to design behaviors of a social robot should be intuitive and user friendly.  With increased availability of social robots and cost effective human activity recognition sensors, we could still observe a huge void which inhibits the exploitation of available technology for designing robot behaviors for human-in-the-loop scenarios.
+	Another important aspect is that the HRI designers are from diverse backgrounds. People study various aspects such as robot ethics, social acceptance, liveliness, cultural influence etc., from various perspectives like sociology, psychology, humanities and so on. So the tools needed to design behaviors of a social robot should be intuitive and user friendly.  With increased availability of social robots and cost effective human activity recognition sensors, we could still observe a huge void which inhibits the exploitation of available technology for designing robot behaviors for human-in-the-loop scenarios.
 
 	The main contribution of this paper are: \textbf{(a)} A distributed and modular \textit{Application framework} which gives opportunity to interface multimodal sensor systems and diverse class of robots. \textbf{(b)} A simple and easy to understand \textit{Behavior program model} in order to design reactive human robot interaction scenarios. \textbf{(c)} An intuitive and easy to use \textit{User interface} to design, execute and monitor interaction from broad range of client devices. 
 
@@ -72,135 +74,147 @@ The richness and diversity of Human Robot Interaction (HRI) has been described i
 
 \section{RELATED WORK}
 \label{sec:related_work}
-Human behavior understanding can be broadly classified into non-verbal/motion recognition and verbal/speech recognition. Vision based motion capture and analysis systems have been one of the first class citizens in the human motion capture and analysis summarized in various surveys \cite{moeslund2006survey}\cite{poppe2007vision}. Vision based human pose estimation has traditionally suffered from the requirement to adopt an initialization pose and losing track after a few frames. These problems have been addressed in \cite{shotton2013efficient} which are capable of accurately tracking human skeletons using single depth images. Understanding of human motion is not complete if the action of the human could not be inferred. In the survey by Microsoft research team \cite{han2013enhanced}, a study on various algorithms used for human activity analysis is presented. Recently data-driven machine learning approaches have proven to be successful with recognition accuracy as high as 94.9\% \cite{Kinect2014}.
+Human behavior understanding can be broadly classified into non-verbal/motion recognition and verbal/speech recognition. Vision based motion capture and analysis systems have been one of the first class citizens in the human motion analysis which is summarized in surveys \cite{moeslund2006survey}\cite{poppe2007vision}. Vision based human pose estimation has traditionally suffered from the requirement to adopt an initialization pose and losing track after a few frames. These problems have been addressed in \cite{shotton2013efficient} which proposes methods to track accurately the human skeletons using single depth images. Understanding of human motion is not complete if the action of the human could not be inferred. In the survey \cite{han2013enhanced}, a study on various algorithms used for human activity analysis is presented. Recently data-driven machine learning approaches have proven to be successful with recognition accuracy as high as 94.9\% \cite{Kinect2014}. The verbal communication instead has been studied by human computer interaction community for many years now  \cite{reddy1976speech} \cite{lippmann1997speech} and led to the development of software toolkits that implements state-of-the-art algorithms \cite{SpeechSdk}.
 	
-	The localization of humanoid robots is a challenging issue, due to rough odometry estimation, noisy onboard sensing, and the swaying motion caused by walking \cite{cervera2012localization}. The Point cloud library \cite{rusu20113d}, one of the most widely used 3d perception library, implements ready to use probabilistic tracking algorithms. Studies on robot localization, obstacle mapping, and path planning by equipping NAO with a consumer-level depth camera have been reported in \cite{maier2012real}. Localization and motion planning in smart home environment using an external kinect sensor have been proposed in \cite{cervera2012localization}. These methods are computationally demanding and it could cause overall performance degradation particularly when one wants to share the same sensor for both human motion recognition and localization of the robot. Tracking rectangular fiducial markers using augmented reality tool-kits like ALVAR \cite{ALVAR} can be interesting if one could embed those markers on the humanoid robot. This is one of the simplest and cheapest solutions in terms of computational power as it can provide position and orientation of the physical markers in real time.
+	The localization of humanoid robots is a challenging issue, due to rough odometry estimation, noisy onboard sensing, and the swaying motion caused by walking \cite{cervera2012localization}. Studies on robot localization, obstacle mapping, and path planning by equipping NAO with a consumer-level depth camera have been reported in \cite{maier2012real}. Localization and motion planning in smart home environment using an external kinect sensor have been proposed in \cite{cervera2012localization}. These methods are computationally demanding and it could cause overall performance degradation particularly when one wants to share the same sensor for both human motion recognition and localization of the robot. Tracking rectangular fiducial markers using augmented reality tool-kits like ALVAR \cite{ALVAR} can be interesting if one could embed those markers on the humanoid robot. This is one of the simplest and cheapest solutions in terms of computational power as it can provide position and orientation of the physical markers in real time.
 	
-	The users of social robots do not have necessarily backgrounds in programming and design of robot behaviors. The main challenge in the behavior design is the ability to define the behavior which can abstract complex data flows from the end user. There exists flow-chart based visual programming languages \cite{NaoRobot} which allow non-programmers to create robot applications using a set of pre-built behavioral blocks. These programs are very intuitive but when it comes to designing reactive behaviors for human-in-the-loop scenarios, the existing visual programming methods increase the cognitive load on the end users. Specialized robot programming techniques like Task description language \cite{simmons1998task} and middlewares like ROS \cite{quigley2009ros} have been proposed in the literature. Though these systems provide modular and distributed architecture, support multiple sensors and robots etc., these require high level of skill in robotics and programming. Recently non-domain-specific solution like Targets-Drives-Means is proposed in \cite{berenz2014targets}, however it lacks an intuitive interface.
-	
-	Nowadays there has been a lot of efforts to teach programming to children and people without computer science background \cite{Scratch}\cite{Blockly}. These tools are very intuitive and have already been proven to be used by novice programmers to build games and educational applications. The Blockly library \cite{Blockly} from Google offers a complete client side JavaScript library which could be used for developing custom blocks and code generators as per the application requirements.
-
+	The users of social robots do not have necessarily backgrounds in programming and design of robot behaviors. The main challenge in the behavior design is the ability to define the behavior which can abstract complex data flows from the end user. There exists flow-chart based visual programming languages \cite{Choregraphe} which allow non-programmers to create robot applications using a set of pre-built behavioral blocks. These programs are very intuitive but when it comes to designing reactive behaviors for human-in-the-loop scenarios, the existing visual programming methods increase the cognitive load on the end users. Specialized robot programming techniques like Task description language \cite{simmons1998task} and middlewares like ROS \cite{quigley2009ros} have been proposed in the literature. Though these systems provide modular and distributed architecture, support multiple sensors and robots etc., these require high level of skill in robotics and programming. Recently non-domain-specific solution like Targets-Drives-Means is proposed in \cite{berenz2014targets}, however it lacks an intuitive interface.
 \section{INDRIYA PLATFORM}
 \label{sec:indriya_platform}
-We propose a light weight interface for designing human motion driven behaviors taking inspiration from distributed architecture \cite{quigley2009ros} and intuitive visual programming techniques \cite{Blockly}. 
+We propose a platform namely ``Indriya'', for designing human robot interaction scenarios taking inspiration from distributed architecture \cite{quigley2009ros} and intuitive visual programming techniques \cite{Blockly}. 
 \subsection{System Architecture}
-The system setup and architecture are shown in Fig~\ref{fig:architecture}.
-The principal components of the architecture are
-%\begin{figure}
-%\centering
-%\begin{subfigure}[t]{0.46\textwidth}
-%\includegraphics[width=\textwidth]{../../thesis/assets/system_setup.eps}
-%\caption[System Setup]{System Setup}
-%\end{subfigure}
-%\begin{subfigure}[t]{0.48\textwidth}
-%\includegraphics[width=\textwidth]{../../thesis/assets/architecture.eps}
-%\caption[System Architecture]{Architecture}
-%\end{subfigure}
-%\caption[System Architecture]{Indriya behavior interface}
-%\label{fig:architecture}
-%\end{figure}
-\begin{itemize}
-\item \textbf{Application Components}
-\begin{itemize}
-\item \emph{Context}: The application context contains the complete description of the world. It contains latest information about all the robots including their location, sensor data, status etc., It also contains information about all the humans in the environment along with their active motions/gestures as supplied by the motion recognition modules.
-\item \emph{Parameter Server}: The parameter server acts as a central repository for managing the parameters of the system and of the distributed components.
-\item \emph{Embedded Web Server}: The web server embedded in the application serves the file and data requests from the web client.
-\item \emph{Context Orchestrator}: The orchestrator keeps the Context uptodate by synchronizing with information of the robots and humans published by the distributed components.
-\item \emph{Behavior Program} : A dynamic component that will be created when the user starts the program he/she designed using the user interface. The declarative description of the behavior described in Section~\ref{ssec:behavior_program} is parsed in order to create a memory model. The behavior program node monitors the application context for the motion triggers and invokes the corresponding robot actions according to the way it is being described in the program.
-\end{itemize}
-\item \textbf{Distributed Components} : These are nodes in the system each with a specific goal that can be started/stopped at any time during the entire application life-cycle without affecting the other nodes or the system. All the nodes will communicate with the application using message passing techniques. They can run in any machine inside the network.
-\begin{itemize}
-\item \emph{Motion Recognition Node} : A dedicated node that interacts with a motion recognition sensor and sends the detected motions and gestures to the application. Additionally each motion recognition module registers a set of motions/gestures that could be detected with the sensor associated with it.
-\item \emph{Robot Interface Node} : A dedicated node that interacts with a specific robot and can invoke a set of actions on it. It also sends periodic update about the robot status to the application. Moreover it registers a set of parameterizable actions that could be invoked on the robot associated with it.
-\item \emph{Localization Node} : A dedicated node which uses the perception system to compute the position and orientation of the robot and humans in the environment.
-\end{itemize}
-\item \textbf{User Interface}: The user interface is a web application that runs on any latest web-kit browsers supporting WebGL technology. The prime goal of this UI is to make it suitable for environments adopting bring your own device (BYOD) policy.
-\begin{itemize}
-\item \emph{Behavior Designer}: The Behavior designer surface could be used by the user to drag and drop the behavior blocks and construct the program by putting together motion recognition blocks and robot action blocks. The designed behavior will be encoded into a declarative XML format and sent to the server when the user request to start the program. The designer offers a full range of capabilities like Create/Edit/Delete/Save behavior programs. 
-\item \emph{Visualization}: The visualization could be used to see the interaction of the human and robot inside a virtual 3D environment.
-\end{itemize}
-\end{itemize}
+The system setup and architecture are shown in Fig~\ref{fig:indriya}. The principal components of the architecture are
+\begin{figure}[thpb]
+\centering
+\begin{subfigure}[t]{0.48\columnwidth}
+\includegraphics[width=\columnwidth]{../../thesis/assets/system_setup.eps}
+\caption[System setup]{System setup}
+\label{fig:setup}
+\end{subfigure}
+\begin{subfigure}[t]{0.48\columnwidth}
+\includegraphics[width=\columnwidth]{../../thesis/assets/indriya_architecture.eps}
+\caption[Software architecture]{Software architecture}
+\label{fig:architecture}
+\end{subfigure}
+\caption[Indriya Platform]{Indriya Platform}
+\label{fig:indriya}
+\end{figure}
+\subsubsection{Hardware layer} : It is composed of robots and sensors which are connected to the Indriya application server. 
+\subsubsection{Distributed Layer} : It is composed nodes each with a specific goal that can run in any machine inside the network. All the nodes will communicate with the application using message passing techniques. The most important nodes in the system are: 
+\emph{Motion Recognition Node} that interacts with a motion recognition sensor and sends the detected motions and gestures to the application. Additionally each motion recognition module registers a set of motions/gestures that could be detected with the sensor associated with it, \emph{Speech Recognition Node} that makes use of the pre-configured grammar file for language of interest to recognize the human speech, \emph{Robot Interface Node} that interacts with a specific robot and can invoke a set of actions on it. It also sends periodic update about the robot status to the application. Moreover it registers a set of parameterizable actions that could be invoked on the robot associated with it.\emph{Localization Node} that uses the perception system to compute the position and orientation of the robot and humans in the environment.
+\subsubsection{Application Components}
+The \emph{Application context} contains the complete description of the world. It contains latest information about all the robots and humans in the environment. The \emph{Parameter Server} acts as a central repository for managing the parameters of the system. The \emph{Embedded Web Server} is responsible for data and file transaction between the Indriya system and the web client through a set of RESTful services. The \emph{Context Orchestrator} keeps the application context uptodate by synchronizing with information  published by the distributed components.
+\subsubsection{User Interface}: The user interface is a web application that runs on any latest web-kit browsers supporting WebGL technology. The prime goal of this UI is to make it suitable for environments adopting bring your own device (BYOD) policy. The UI is composed of: A \emph{Behavior Designer} that could be used by the user to drag and drop the behavior blocks and construct the program by putting together motion recognition blocks and robot action blocks. The designer offers a full range of capabilities like Create/Edit/Delete/Save behavior programs. The \emph{Visualization} could be used to see the interaction of the human and robot inside a virtual 3D environment.
 \subsection{Behavior Program}
 \label{ssec:behavior_program}
-%\begin{figure}
-%\centering
-%\begin{subfigure}[t]{0.48\textwidth}
-%\includegraphics[width=\textwidth]{../../thesis/assets/program_structure.eps}
-%\caption[Conceptual Model]{Conceptual Model}
-%\label{fig:program_concept}
-%\end{subfigure}
-%\begin{subfigure}[t]{0.48\textwidth}
-%\includegraphics[width=\textwidth]{../../thesis/assets/program_block.png}
-%\caption[Block Implementation]{Block Implementation}
-%\label{fig:program_blocks}
-%\end{subfigure}
-%\caption[Program Structure]{Behavior program structure}
-%\label{fig:program}
-%\end{figure}
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.48\columnwidth}
+\includegraphics[width=\columnwidth]{../../thesis/assets/program_structure.eps}
+\caption[Conceptual Model]{Conceptual Model}
+\label{fig:program_concept}
+\end{subfigure}
+\begin{subfigure}[t]{0.48\columnwidth}
+\includegraphics[width=\columnwidth]{../../thesis/assets/behavior_blocks.png}
+\caption[Block Implementation]{Block Implementation}
+\label{fig:program_blocks}
+\end{subfigure}
+\caption[Program Structure]{Behavior program structure}
+\label{fig:program}
+\end{figure}
 The behavior program is structured in a simple way so that it could be easily understood by the end user. The conceptual model of behavior program is shown in Fig.~\ref{fig:program_concept} and the block level implementation is shown in Fig.~\ref{fig:program_blocks}. The behavior program is composed of:
-\begin{itemize}
-\item \emph{Start-up and Exit Blocks}: The start-up block will be executed once when the user starts the program. The user can add a set of actions to be performed when the program starts. Similarly the exit block will be executed once when the lifetime of all the configured behavior blocks expire.  Both these blocks are optional and there cannot be more than one start-up and exit blocks in a program.
-\item \emph{Behavior Block}: The behavior block is composed of
-\begin{itemize}
-\item A \textbf{trigger} that activates this block. The trigger source could be either of human presence/absence, gesture, vicinity of human, verbal command etc.,
-\item The \textbf{lifetime} of each behavior block could be configured to run only once, forever or until a condition is met. 
-\item The \textbf{priority} of the block could be set to low, normal or high and the execution is done based on fixed-priority pre-emptive scheduling.
-\item Similar to the behavior program level, at each behavior block level a set of \textbf{startup} and \textbf{exit} actions could be set which would be executed only once during the creation and termination respectively. The \textbf{cyclic} actions will be performed each time the trigger condition is met.
-\end{itemize}
-\end{itemize}
 
+\emph{Startup and Exit behavior}: The start-up behavior will be executed once when the user starts the program. The user can add a set of actions to be performed when the program starts. Similarly the exit block will be executed once when the lifetime of all the configured behavior blocks expire.  Both these blocks are optional and there cannot be more than one instances of these in a program.
+
+\emph{Trigger behavior}: The behavior block is the core component of the behavior program. The block could be activated by the interaction between the human and the robot. There could be many behavior blocks in a program.
+\begin{table}[h]
+\caption{Trigger behavior properties}
+\label{trigger_behavior}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+  \textbf{Property} & \textbf{Description}\\
+\hline
+Trigger & Block activation trigger.\\
+{}		& Gesture/speech trigger, vicinity of human etc.,\\
+\hline
+Lifetime & Behavior lifetime. \\
+{}       & Once, Forever or Until a condition is met\\
+\hline
+Priority & Behavior priority. \\
+{}       & Uses fixed priority premptive scheduling\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\subsection{Code generation and execution}
+Each of the visual behavior program blocks has an associated code generation module and C\# code is generated from the blocks from the blocks. Traditionally there is a need to compile the C\# code and generate binaries when one wants to execute it. Thanks to the latest compiler technologies and tools like ScriptCS \cite{ScriptCS}, it is now possible to run the C\# code like scripts. This is exploited in the Indriya platform.
+\begin{figure}
+\includegraphics[width=\columnwidth]{../../thesis/assets/execution_flow.eps}
+\caption[Behavior program - Execution flow]{Behavior program - Execution flow}
+\label{fig:program_execution}
+\end{figure}
+
+\begin{algorithm}
+ \KwData{program : Behavior program}
+ startup := STARTUP\_BEHAVIORS(program)\;
+ exit := EXIT\_BEHAVIORS(program)\;
+ triggered := TRIGGER\_BEHAVIORS(program)\;
+ sorted := SORT\_PRIORITY(triggered)\;
+ \If{startup}{
+  EXECUTE\_BEHAVIOR(startup)\;
+ }
+ \While{behavior lifetime}{
+  \ForAll{behavior in sorted}{
+    \If{behavior not complete}{
+      \If{CHECK\_TRIGGER(behavior)}{
+        current = GET\_ACTIVE\_TASK()\;
+        priority1 = PRIORITY(behavior)\;
+        priority2 = PRIORITY(current)\;  
+        \If{priority1 $>$ priority2}{
+          DO\_PREMEPTION(current)\;
+          SCHEDULE\_TASK(behavior)\;
+        }
+        \ElseIf{no active task}{
+          SCHEDULE\_TASK(behavior)\;
+        }
+      }
+    }
+  }
+ }
+ \If{exit}{
+  EXECUTE\_BEHAVIOR(exit)\;
+ }
+ \caption{Behavior execution algorithm}
+ \label{alg:behavior_engine}
+\end{algorithm}
+ The execution flow of the behavior program is shown in Fig.~\ref{fig:program_execution}. The generated behavior program is consumed by a \emph{Behavior execution engine} which dynamically identifies the configured behavior blocks. The main functionality of the behavior execution engine is to check if the trigger condition of the behavior blocks is met and once the condition is met, the execution of the corresponding behavior is scheduled on a separate CPU thread. The behavior program accesses the uptodate information about the environment through an interface namely the \emph{Behavior execution context} which acts as a proxy to the \emph{Application context}. The algorithm of the behavior execution by the engine is shown in Algorithm~\ref{alg:behavior_engine}.
+\section{IMPLEMENTATION}
+The platform is implemented using open network communication standards equipped by ZeroMQ library \cite{ZeroMQ} and message serialization is done using Google protocol buffers \cite{ProtocolBuffers}. The node information and parameters of nodes are configured using an XML file. A set of human motion clips are captured and gesture recognizer is trained using the Visual gesture builder tool that comes with Microsoft Kinect SDK. Similarly a set of commonly used speech commands are configured in the grammar files to be used by the speech recognition node. The localization of the robot is achieved using a marker cube mounted on the head of the humanoid robot. ALVAR \cite{ALVAR} marker tracking library is used along with a 2-DOF kinematic model from torso to the tip of the head of the robot.  A set of actions are developed for NAO humanoid robot such as approaching a human, saying expressively etc., and corresponding visual blocks are also developed. The software is tested on a 64-bit Intel Core i7 CPU with clock speed 3.60 Ghz and 8 GB of RAM on a Microsoft Windows 8.1 OS. The source code of the software is available as open source at \url{https://github.com/praveenv4k/Indriya}
 \section{SYSTEM EVALUATION}
 \label{sec:system_evaluation}
+In this section various capabilities of Indriya platform are evaluated
+\subsection{Intuitiveness}
+ The NAO humanoid robot is a guide in a museum. The museum manager would like to design a scenario where when a visitor comes into the vicinity of the robot, the robot would approach him/her and start explaining the history of the museum. The experiment setup for this scenario is shown in Fig~\ref{fig:scenario1_setup}. We would like to use this scenario to compare the  the simplicity and straight forwardness of behavior description with Choregraphe \cite{Choregraphe} shown in Fig~\ref{fig:scenario1_program_choregraphe} and with our interface shown in Fig~\ref{fig:scenario1_program}.
+\begin{figure}
+\includegraphics[width=\columnwidth]{../../thesis/assets/scenario_museum_choregraphe3.png}
+\caption[NAO museum guide: Choregraphe program]{NAO museum guide: Choregraphe program}
+\label{fig:scenario1_program_choregraphe}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=0.6\columnwidth]{../../thesis/assets/scenario_museum_text.eps}
+\caption[NAO museum guide: Indriya program]{NAO museum guide: Indriya program}
+\label{fig:scenario1_program}
+\end{figure}
+Though Choregraphe uses a familiar flow-chart based programming model and has a huge library of primitive blocks to build complex motion patterns, the data flow for this scenario is not straight forward. As could be noticed from Fig~\ref{fig:scenario1_program_choregraphe}, at first the robot keeps looking for people in its vicinity using the \emph{Face detection block} at the cost of its power. Once it detects a person, the face detection block is stopped and \emph{People tracker} block is activated. The robot starts approaching (tracking) the person until a fixed distance with the person is reached. Once the desired distance of separation is achieved, the people tracker block is stopped. Now the robot will actually start explaining the history of the museum. For a novice programmer it could be difficult to think of this dataflow as they literally have to emulate the whole scenario in their mind before designing the system.
 
+The textual representation of Indriya program is shown in Fig.~\ref{fig:scenario1_program} for clarity. The platform equipped with Kinect sensor takes care of the detection of people and gives the relative localization of the robot and human. Once the person is detected or a configured gesture trigger arrives, the behavior program retrieves the relative transformation of the robot with respect to human. The \emph{Approach block} makes use of this information to drive the robot towards the person. After coming into the proximity of the person, the robot starts explaining the history of museum configure. From the user perspective, the design of the behavior is \emph{intuitive} using Indriya. He/She can focus on the scenario rather than thinking about the minute details of the data flow. 
 \section{USER STUDY}
 \label{sec:user_study}
 
 \section{CONCLUSIONS}
 \label{sec:conclusion}
-
-\section{USING THE TEMPLATE}
-
-Use this sample document as your LaTeX source file to create your document. Save this file as {\bf root.tex}. You have to make sure to use the cls file that came with this distribution. If you use a different style file, you cannot expect to get required margins. Note also that when you are creating your out PDF file, the source file is only part of the equation. {\it Your \TeX\ $\rightarrow$ PDF filter determines the output file size. Even if you make all the specifications to output a letter file in the source - if your filter is set to produce A4, you will only get A4 output. }
-
-It is impossible to account for all possible situation, one would encounter using \TeX. If you are using multiple \TeX\ files you must make sure that the ``MAIN`` source file is called root.tex - this is particularly important if your conference is using PaperPlaza's built in \TeX\ to PDF conversion tool.
-
-\subsection{Headings, etc}
-
-Text heads organize the topics on a relational, hierarchical basis. For example, the paper title is the primary text head because all subsequent material relates and elaborates on this one topic. If there are two or more sub-topics, the next level head (uppercase Roman numerals) should be used and, conversely, if there are not at least two sub-topics, then no subheads should be introduced. Styles named “Heading 1”, “Heading 2”, “Heading 3”, and “Heading 4” are prescribed.
-
-\subsection{Figures and Tables}
-
-Positioning Figures and Tables: Place figures and tables at the top and bottom of columns. Avoid placing them in the middle of columns. Large figures and tables may span across both columns. Figure captions should be below the figures; table heads should appear above the tables. Insert figures and tables after they are cited in the text. Use the abbreviation “Fig. 1”, even at the beginning of a sentence.
-
-\begin{table}[h]
-\caption{An Example of a Table}
-\label{table_example}
-\begin{center}
-\begin{tabular}{|c||c|}
-\hline
-One & Two\\
-\hline
-Three & Four\\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-
-   \begin{figure}[thpb]
-      \centering
-      \framebox{\parbox{3in}{We suggest that you use a text box to insert a graphic (which is ideally a 300 dpi TIFF or EPS file, with all fonts embedded) because, in an document, this method is somewhat more stable than directly inserting a picture.
-}}
-      %\includegraphics[scale=1.0]{figurefile}
-      \caption{Inductance of oscillation winding on amorphous
-       magnetic core versus DC bias magnetic field}
-      \label{figurelabel}
-   \end{figure}
-   
-
-Figure Labels: Use 8 point Times New Roman for Figure labels. Use words rather than symbols or abbreviations when writing Figure axis labels to avoid confusing the reader. As an example, write the quantity “Magnetization”, or “Magnetization, M”, not just “M”. If including units in the label, present them within parentheses. Do not label axes only with units. In the example, write “Magnetization (A/m)” or “Magnetization {A[m(1)]}”, not just “A/m”. Do not label axes with a ratio of quantities and units. For example, write “Temperature (K)”, not “Temperature/K.”
-
-\section{CONCLUSIONS}
 
 A conclusion section is not required. Although a conclusion may review the main points of the paper, do not replicate the abstract as the conclusion. A conclusion might elaborate on the importance of the work or suggest applications and extensions. 
 
@@ -220,21 +234,11 @@ A conclusion section is not required. Although a conclusion may review the main 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{APPENDIX}
-
-Appendixes should appear before the acknowledgment.
-
 \section*{ACKNOWLEDGMENT}
 
 We would like to thank the members of GVLab at Tokyo University of Agriculture and Technology for helping us arranging the resources and participating in the experimentation.
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-References are important to the reader; therefore, each citation must be complete and correct. If at all possible, references should be commonly available publications.
-
-
 
 %\begin{thebibliography}{99}
 %
@@ -266,9 +270,11 @@ References are important to the reader; therefore, each citation must be complet
 %
 %\end{thebibliography}
 
-\bibliographystyle{ieeetr} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,biblio}
+%\bibliographystyle{ieeetr} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
 
-\bibliography{biblio}
+%\bibliography{biblio}
 
 
 \end{document}
