@@ -120,6 +120,12 @@
           <item>turn</item>
         </one-of>
       </item>
+      <item>
+        <tag>HELP</tag>
+        <one-of>
+          <item> help </item>
+        </one-of>
+      </item>
       <!--<item>
         <tag>NAME</tag>
         <one-of>
