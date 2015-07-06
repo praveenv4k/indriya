@@ -1,68 +1,69 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="behavior_composable" id="24" inline="false" x="38" y="13">
-    <mutation run_until="false" run_logic=""></mutation>
-    <field name="behavior_name">default</field>
-    <field name="priorities">low</field>
-    <field name="execution">forever</field>
-    <value name="trigger">
-      <block type="trigger" id="25">
-        <field name="MOTION_TRIGGER">Greet_Left</field>
-      </block>
-    </value>
+  <block type="behavior_startup" id="7" x="188" y="-12">
     <statement name="DO">
-      <block type="controls_repeat_ext" id="26" inline="true">
-        <value name="TIMES">
-          <block type="math_number" id="27">
-            <field name="NUM">3</field>
+      <block type="variables_set" id="10" inline="true">
+        <field name="VAR">item</field>
+        <value name="VALUE">
+          <block type="math_number" id="15">
+            <field name="NUM">0</field>
           </block>
         </value>
-        <statement name="DO">
-          <block type="robot_action" id="28">
-            <field name="actions">stand</field>
-            <field name="ROBOT">Hiro</field>
-            <next>
-              <block type="robot_action" id="29">
-                <field name="actions">crouch</field>
-                <field name="ROBOT">Hiro</field>
-              </block>
-            </next>
-          </block>
-        </statement>
       </block>
     </statement>
   </block>
-  <block type="behavior_composable" id="30" inline="false" x="38" y="363">
+  <block type="behavior_composable_simple" id="2" inline="false" x="163" y="138">
     <mutation run_until="false" run_logic=""></mutation>
     <field name="behavior_name">default</field>
     <field name="priorities">high</field>
     <field name="execution">forever</field>
     <value name="trigger">
-      <block type="trigger" id="31">
-        <field name="MOTION_TRIGGER">Greet_Right</field>
+      <block type="voice_trigger" id="5">
+        <field name="VOICE_TRIGGER">STOP</field>
       </block>
     </value>
     <statement name="DO">
-      <block type="animated_say_action" id="32">
-        <field name="SAY_TEXT">Got waveright command</field>
-        <field name="ROBOT">Hiro</field>
+      <block type="math_change" id="22" inline="true">
+        <field name="VAR">item</field>
+        <value name="DELTA">
+          <block type="math_number" id="23">
+            <field name="NUM">1</field>
+          </block>
+        </value>
         <next>
-          <block type="animated_say_action" id="33">
-            <field name="SAY_TEXT">I am going to stop</field>
+          <block type="animated_say_action_arg" id="33" inline="true">
+            <mutation say_arg="item"></mutation>
+            <field name="PREFIX_TEXT">Hey, you said GO</field>
+            <field name="SUFFIX_TEXT"> times!</field>
             <field name="ROBOT">Hiro</field>
+            <value name="ARG_NAME">
+              <block type="variables_get" id="37">
+                <field name="VAR">item</field>
+              </block>
+            </value>
             <next>
-              <block type="animated_say_action" id="34">
-                <field name="SAY_TEXT">I am repeating</field>
+              <block type="robot_rest_action" id="63">
                 <field name="ROBOT">Hiro</field>
-                <next>
-                  <block type="animated_say_action" id="35">
-                    <field name="SAY_TEXT">I am going to stop</field>
-                    <field name="ROBOT">Hiro</field>
-                  </block>
-                </next>
               </block>
             </next>
           </block>
         </next>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="64" inline="false" x="163" y="388">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">normal</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="voice_trigger" id="65">
+        <field name="VOICE_TRIGGER">GO</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="move_action" id="79">
+        <field name="distance">1</field>
+        <field name="ROBOT">Hiro</field>
       </block>
     </statement>
   </block>
