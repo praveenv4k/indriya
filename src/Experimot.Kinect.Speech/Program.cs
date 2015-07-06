@@ -1,9 +1,12 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using CommandLine;
 using experimot.msgs;
+using Experimot.Core.Util;
+using Microsoft.Speech.Recognition;
 using NetMQ;
 using ProtoBuf;
 
@@ -28,7 +31,7 @@ namespace Experimot.Kinect.Speech
             Console.OutputEncoding = Encoding.Unicode;
             var str = "あかい";
             Console.WriteLine(str);
-            
+
             Node info = null;
             try
             {
@@ -59,13 +62,26 @@ namespace Experimot.Kinect.Speech
         private static void RunRecognizer(object nodeArg)
         {
             var nodeInfo = nodeArg as Node;
-            var recognizer = new KinectSpeechRecognition(nodeInfo);
-            recognizer.Initialize();
-            while (!_stopRecognizer)
+            if (nodeInfo != null)
             {
+                var module = ParameterUtil.Get(nodeInfo.param, "RecognitionModule", "KinectSpeechRecognition");
+                ISpeechRecognitionModule recognizer = null;
+                if (module == "KinectSpeechRecognition")
+                {
+                    recognizer = new KinectSpeechRecognition(nodeInfo);
+                    recognizer.Initialize();
+                }
+                else
+                {
+                    recognizer = new StandardSpeechRecognition(nodeInfo);
+                    recognizer.Initialize();
+                }
+                while (!_stopRecognizer)
+                {
 
+                }
+                recognizer.Terminate();
             }
-            recognizer.Terminate();
         }
 
         private static Node GetNodeInfo(string name, string server, int timeout = 1000)

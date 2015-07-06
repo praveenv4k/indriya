@@ -7,25 +7,13 @@ using System.Threading.Tasks;
 using Common.Logging;
 using experimot.msgs;
 using Experimot.Core.Util;
-using Microsoft.Kinect;
-using Microsoft.Speech.AudioFormat;
 using Microsoft.Speech.Recognition;
 
 namespace Experimot.Kinect.Speech
 {
-    internal class KinectSpeechRecognition:ISpeechRecognitionModule
+    internal class StandardSpeechRecognition: ISpeechRecognitionModule
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof (KinectSpeechRecognition));
-
-        /// <summary>
-        /// Active Kinect sensor.
-        /// </summary>
-        private KinectSensor _kinectSensor;
-
-        /// <summary>
-        /// Stream for 32b-16b conversion.
-        /// </summary>
-        private KinectAudioStream _convertStream;
+        private static readonly ILog Log = LogManager.GetLogger(typeof (StandardSpeechRecognition));
 
         /// <summary>
         /// Speech recognition engine using audio data from Kinect.
@@ -54,7 +42,7 @@ namespace Experimot.Kinect.Speech
         private SpeechCommand _speechCommand;
         private Task _speechCommandTask;
 
-        public KinectSpeechRecognition(Node node)
+        public StandardSpeechRecognition(Node node)
         {
             if (node != null)
             {
@@ -100,68 +88,34 @@ namespace Experimot.Kinect.Speech
         {
             try
             {
-                if (_kinectSensor == null && !string.IsNullOrEmpty(_grammarFile) && System.IO.File.Exists(_grammarFile))
+                if (!string.IsNullOrEmpty(_grammarFile) && System.IO.File.Exists(_grammarFile))
                 {
-                    _kinectSensor = KinectSensor.GetDefault();
-                    if (_kinectSensor != null)
+                    _speechEngine = new SpeechRecognitionEngine();
+
+                    Console.WriteLine("Speech Engine created");
+
+                    // Load the grammar file
+                    var g = new Grammar(_grammarFile);
+                    _speechEngine.LoadGrammar(g);
+
+                    Console.WriteLine("Loaded Grammar File : {0}", _grammarFile);
+
+                    // Subscribe to events
+                    _speechEngine.SpeechRecognized += SpeechRecognized;
+                    _speechEngine.SpeechRecognitionRejected += SpeechRejected;
+
+                    _speechEngine.SetInputToDefaultAudioDevice();
+                    _speechEngine.RecognizeAsync(RecognizeMode.Multiple);
+
+                    if (_voiceCommandPublisher != null)
                     {
-                        // open the sensor
-                        _kinectSensor.Open();
-
-                        Console.WriteLine("Sensor Opened");
-
-                        // grab the audio stream
-                        IReadOnlyList<AudioBeam> audioBeamList = _kinectSensor.AudioSource.AudioBeams;
-                        System.IO.Stream audioStream = audioBeamList[0].OpenInputStream();
-
-                        // create the convert stream
-                        _convertStream = new KinectAudioStream(audioStream);
-
-                        Console.WriteLine("Stream created");
-
-                        var ri = TryGetKinectRecognizer();
-
-                        if (ri != null)
-                        {
-                            Console.WriteLine("Kinect recognizer exists");
-                            // Create instance of the speech engine
-                            _speechEngine = new SpeechRecognitionEngine(ri.Id);
-
-                            Console.WriteLine("Speech Engine created");
-
-                            // Load the grammar file
-                            var g = new Grammar(_grammarFile);
-                            _speechEngine.LoadGrammar(g);
-
-                            Console.WriteLine("Loaded Grammar File : {0}", _grammarFile);
-
-                            // Subscribe to events
-                            _speechEngine.SpeechRecognized += SpeechRecognized;
-                            _speechEngine.SpeechRecognitionRejected += SpeechRejected;
-
-                            // let the convertStream know speech is going active
-                            _convertStream.SpeechActive = true;
-
-                            // For long recognition sessions (a few hours or more), it may be beneficial to turn off adaptation of the acoustic model. 
-                            // This will prevent recognition accuracy from degrading over time.
-                            ////speechEngine.UpdateRecognizerSetting("AdaptationOn", 0);
-
-                            _speechEngine.SetInputToAudioStream(
-                                _convertStream,
-                                new SpeechAudioFormatInfo(EncodingFormat.Pcm, 16000, 16, 1, 32000, 2, null));
-                            _speechEngine.RecognizeAsync(RecognizeMode.Multiple);
-
-                            if (_voiceCommandPublisher != null)
-                            {
-                                _voiceCommandPublisher.Initialize();
-                            }
-
-                            _speechCommand = new SpeechCommand(_voiceCommandPublisher);
-                            _speechCommandTask = Task.Factory.StartNew(() => _speechCommand.Run(200));
-
-                            Console.WriteLine("Started recognizing");
-                        }
+                        _voiceCommandPublisher.Initialize();
                     }
+
+                    _speechCommand = new SpeechCommand(_voiceCommandPublisher);
+                    _speechCommandTask = Task.Factory.StartNew(() => _speechCommand.Run(200));
+
+                    Console.WriteLine("Started recognizing");
                 }
             }
             catch (Exception ex)
@@ -186,14 +140,6 @@ namespace Experimot.Kinect.Speech
                 if (_voiceCommandPublisher != null)
                 {
                     Console.WriteLine("Publishing recognized voice command: {0}", e.Result.Confidence);
-                    //_voiceCommandPublisher.Update(new VoiceCommandDescription
-                    //{
-                    //    active = true,
-                    //    command = value,
-                    //    confidence = (int) (e.Result.Confidence*100),
-                    //    language = _language,
-                    //    triggeredAt = DateTime.Now.ToString(_dateTimeFormatString)
-                    //});
                     if (_speechCommand != null)
                     {
                         _speechCommand.Update(new VoiceCommandDescription
@@ -224,55 +170,13 @@ namespace Experimot.Kinect.Speech
                 _voiceCommandPublisher.Terminate();
             }
 
-            if (_convertStream != null)
-            {
-                _convertStream.SpeechActive = false;
-            }
-
             if (_speechEngine != null)
             {
                 _speechEngine.SpeechRecognized -= SpeechRecognized;
                 _speechEngine.SpeechRecognitionRejected -= SpeechRejected;
                 _speechEngine.RecognizeAsyncStop();
             }
-
-            if (_kinectSensor != null)
-            {
-                _kinectSensor.Close();
-                _kinectSensor = null;
-            }
             Console.WriteLine("Kinect Speech Recognition terminated");
-        }
-
-        public RecognizerInfo TryGetKinectRecognizer()
-        {
-            IEnumerable<RecognizerInfo> recognizers = null;
-
-            // This is required to catch the case when an expected recognizer is not installed.
-            // By default - the x86 Speech Runtime is always expected. 
-            try
-            {
-                recognizers = SpeechRecognitionEngine.InstalledRecognizers();
-            }
-            catch (COMException ex)
-            {
-                Log.ErrorFormat("Error retrieving installed recognizers : {0}", ex.StackTrace);
-            }
-
-            if (recognizers != null)
-            {
-                foreach (var recognizer in recognizers)
-                {
-                    string value;
-                    recognizer.AdditionalInfo.TryGetValue("Kinect", out value);
-                    if ("True".Equals(value, StringComparison.OrdinalIgnoreCase) &&
-                        _culture.Equals(recognizer.Culture.Name, StringComparison.OrdinalIgnoreCase))
-                    {
-                        return recognizer;
-                    }
-                }
-            }
-            return null;
         }
 
         // TODO Audio Body Correlation

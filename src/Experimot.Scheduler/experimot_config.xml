@@ -128,13 +128,14 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="false" name="speech_recognition">
+    <node enabled="true" name="speech_recognition">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Speech\Experimot.Kinect.Speech.exe</path>
         <args></args>
       </process>
       <parameters>
+        <param key="RecognitionModule" type="string" value="StandardSpeechRecognition"/>
         <param key="ConfidenceThreshold" type="double" value="0.60"/>
         <param key="DegreesInRightAngle" type="int" value="90"/>
         <param key="DisplacementAmount" type="int" value="60"/>
