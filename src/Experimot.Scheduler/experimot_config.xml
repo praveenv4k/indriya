@@ -86,7 +86,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="true" name="gesture_recognition">
+    <node enabled="false" name="gesture_recognition">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Perception\Experimot.Kinect.Perception.exe</path>
@@ -252,7 +252,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="true" name="imu_perception">
+    <node enabled="false" name="imu_perception">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Imu.Perception\Experimot.Imu.Perception.exe</path>
@@ -318,7 +318,7 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_relative_localize.py</args>
       </process>
     </node>
-    <node enabled="true" name="hiro_manager">
+    <node enabled="false" name="hiro_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>
