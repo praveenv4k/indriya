@@ -26,6 +26,7 @@
 \usepackage{hyperref}
 \usepackage{subcaption}
 \usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+
 \title{\LARGE \bf
 Indriya : A platform for designing human robot interaction scenarios based on human behaviors
 }
@@ -195,7 +196,8 @@ The platform is implemented using open network communication standards equipped 
 \label{sec:system_evaluation}
 In this section various capabilities of Indriya platform are evaluated
 \subsection{Intuitiveness}
- The NAO humanoid robot is a guide in a museum. The museum manager would like to design a scenario where when a visitor comes into the vicinity of the robot, the robot would approach him/her and start explaining the history of the museum. The experiment setup for this scenario is shown in Fig~\ref{fig:scenario1_setup}. We would like to use this scenario to compare the  the simplicity and straight forwardness of behavior description with Choregraphe \cite{Choregraphe} shown in Fig~\ref{fig:scenario1_program_choregraphe} and with our interface shown in Fig~\ref{fig:scenario1_program}.
+\textbf{Scenario:} The NAO humanoid robot is a guide in a museum. The museum manager would like to design a scenario where when a visitor comes into the vicinity of the robot, the robot would approach him/her and start explaining the history of the museum. The experiment setup for this scenario is shown in Fig~\ref{fig:scenario1_setup}.
+
 \begin{figure}
 \includegraphics[width=\columnwidth]{../../thesis/assets/scenario_museum_choregraphe3.png}
 \caption[NAO museum guide: Choregraphe program]{NAO museum guide: Choregraphe program}
@@ -203,20 +205,65 @@ In this section various capabilities of Indriya platform are evaluated
 \end{figure}
 \begin{figure}
 \centering
-\includegraphics[width=0.6\columnwidth]{../../thesis/assets/scenario_museum_text.eps}
+\includegraphics[width=\columnwidth]{../../thesis/assets/scenario1_new.png}
 \caption[NAO museum guide: Indriya program]{NAO museum guide: Indriya program}
 \label{fig:scenario1_program}
 \end{figure}
-Though Choregraphe uses a familiar flow-chart based programming model and has a huge library of primitive blocks to build complex motion patterns, the data flow for this scenario is not straight forward. As could be noticed from Fig~\ref{fig:scenario1_program_choregraphe}, at first the robot keeps looking for people in its vicinity using the \emph{Face detection block} at the cost of its power. Once it detects a person, the face detection block is stopped and \emph{People tracker} block is activated. The robot starts approaching (tracking) the person until a fixed distance with the person is reached. Once the desired distance of separation is achieved, the people tracker block is stopped. Now the robot will actually start explaining the history of the museum. For a novice programmer it could be difficult to think of this dataflow as they literally have to emulate the whole scenario in their mind before designing the system.
+ We would like to use this scenario to compare the simplicity and straight forwardness of behavior description with Choregraphe \cite{Choregraphe} shown in Fig~\ref{fig:scenario1_program_choregraphe} and with our interface shown in Fig~\ref{fig:scenario1_program}. Though Choregraphe uses a familiar flow-chart based programming model and has a huge library of primitive blocks to build complex motion patterns, the data flow for this scenario is not straight forward. As could be noticed from Fig~\ref{fig:scenario1_program_choregraphe}, at first the robot keeps looking for people in its vicinity using the \emph{Face detection block} at the cost of its power. Once it detects a person, the face detection block is stopped and \emph{People tracker} block is activated. The robot starts approaching (tracking) the person until a fixed distance with the person is reached. Once the desired distance of separation is achieved, the people tracker block is stopped. Now the robot will actually start explaining the history of the museum. For a novice programmer it could be difficult to think of this dataflow as they literally have to emulate the whole scenario in their mind before designing the system.
 
-The textual representation of Indriya program is shown in Fig.~\ref{fig:scenario1_program} for clarity. The platform equipped with Kinect sensor takes care of the detection of people and gives the relative localization of the robot and human. Once the person is detected or a configured gesture trigger arrives, the behavior program retrieves the relative transformation of the robot with respect to human. The \emph{Approach block} makes use of this information to drive the robot towards the person. After coming into the proximity of the person, the robot starts explaining the history of museum configure. From the user perspective, the design of the behavior is \emph{intuitive} using Indriya. He/She can focus on the scenario rather than thinking about the minute details of the data flow. 
+The Indriya platform equipped with Kinect sensor takes care of the detection of people and gives the relative localization of the robot and human. Once the person is detected or a configured gesture trigger arrives, the behavior program retrieves the relative transformation of the robot with respect to human. The \emph{Approach block} makes use of this information to drive the robot towards the person. After coming into the proximity of the person, the robot starts explaining the history of museum. From the user perspective, the design of the behavior is \emph{intuitive} using Indriya. He/She can focus on the scenario rather than thinking about the minute details of the data flow. 
+
+\subsection{Realistic scenarios}
+\textbf{Scenario:} A physiotherapist who is in a remote hospital would like to prepare an exercise routine for his patient who is recovering from the fracture of his left hand. The therapist wants the service robot in the rehabilitation center to give directions to the patient in an interactive manner and facilitate the process. The exercise is composed of: an introduction and demonstration of the routine, interactively reporting the progress of the exercise and finally notifying the completion. The experiment setup is shown in Fig.~\ref{fig:scenario2_setup}
+
+\begin{figure}
+\begin{subfigure}[t]{0.48\columnwidth}
+\includegraphics[width=\columnwidth]{../../thesis/assets/scenario_museum.png}
+\caption[NAO museum guide: Experiment setup]{NAO museum guide}
+\label{fig:scenario1_setup}
+\end{subfigure}
+\begin{subfigure}[t]{0.48\columnwidth}
+\includegraphics[width=\columnwidth]{../../thesis/assets/scenario_therapy.png}
+\caption[NAO therapy facilitator: Experiment setup]{NAO therapy facilitator}
+\label{fig:scenario2_setup}
+\end{subfigure}
+\caption[Experiment setup]{Experiment setup}
+\label{fig:experiment_setup}
+\end{figure}
+Though Choregraphe software gives the capability of programming behaviors with basic human awareness, it does not explicitly allows programming that takes into account human gestures/motions. This is not the drawback of the system but the fact that it does not have enough sensors to understand complex motions. Thanks to the Kinect sensor and its gesture recognition capabilites, one can exploit it to design a program for the above scenario using our platform as shown in Fig~\ref{fig:scenario2_program}.
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{../../thesis/assets/scenario2_new.png}
+\caption[NAO therapy facilitator: Indriya program]{NAO therapy facilitator: Indriya program}
+\label{fig:scenario2_program}
+\end{figure}
+The scenario is designed using all the three basic behavior constructs that constitutes the behavior program. In the startup behavior the robot gives an introduction about the exercise routine and then gives a demonstration of how to do it. A trigger behavior block is configured to be triggered each time when the patient performs the therapy routine (lifting left hand). Each time the patient performs the exercise a variable is incremented and the robot notifies the progress by announcing how many times the patient has completed the exercise. The trigger behavior block is configured \emph{Until} a desired condition on the exercise count is reached (say lifting left hand 5 times). Once the lifetime of the trigger behavior block expires, the robot gives some closing comments about the routine. It could be noticed that the description of this scenario is quite simple using Indriya. The blockly editor powered with the behavior program logic abstracts the complexity of designing realistic scenarios.
+
+\subsection{Priority execution}
+Most often in real life HRI scenarios one would like to have robot respond to certain events with a higher priority irrespective of what it is doing at that time. Priority based execution capability comes handy in such scenarios. The inherent problem is that often these concepts are extremely difficult to understand/implement for beginner to intermediate level programmers. The Indriya system makes this extremely easy by just fixing the priority of each behavior blocks. 
+
+\textbf{Scenario:} Let us consider an elderly care robot who takes care of a fictitious person Mr. Adams. The living room is equipped with kinect sensor so that the activities and voice commands of the person could be recognized by Indriya system. The care taker of Mr. Adams who is working during the day would like to design a behavior program for the robot. He/She wants the robot to respond to normal commands like \emph{Come here}, \emph{Bring Coffee} etc., Among others he would like the robot to serve emergency conditions like when the elderly person faint down suddenly, or he/she asks for help due to medical complications etc.,
+
+The reference implementation of the caring robot is shown in Fig.~
+
+\subsection{Programming Multi-robots and Parallel tasks}
+The Indriya system is designed in such a way that it is easy to create multiple instances of robot interface module targeted at a single robot type (say NAO) by just changing the connection parameters. The visual blocks are also designed so that it is easy to select the robot on which the task should be executed, by an user-defined name. Additionally the platform makes it simpler to execute parallel tasks on two or more robots without any hassles.
+
+\textbf{Scenario:} Let us consider a product introduction event in which the product team decided to use robots to give an introduction and demonstration of their product. Let us assume that the robots say \emph{Hiro} and \emph{Taro} were used to give an introduction about \emph{Indriya} platform and its capabilities like multi-robot support, parallel execution, gesture/voice recognition support and priority based execution support etc., A reference implementation of this scenario is shown in Fig~\ref{fig:complex_parallel_program}
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{../../thesis/assets/complex_parallel_scenario.png}
+\caption[Product demo scenario: Indriya program]{Product demo scenario: Indriya program}
+\label{fig:complex_parallel_program}
+\end{figure}
+Even for an intermediate programmer implementing such a scenario using say a system like ROS \cite{quigley2009ros} will be a daunting job. Parallel programming using multiple threads is tricky at times. Depending on the OS and programming language used, the constructs to build programs for parallel execution of tasks is difficult. With robots it is even more difficult job as the execution has to be monitored while serving other high priority human triggers. The Indriya platform gives a breezy user interface with which all these problems are effectively addressed.
 \section{USER STUDY}
 \label{sec:user_study}
 
 \section{CONCLUSIONS}
 \label{sec:conclusion}
-
-A conclusion section is not required. Although a conclusion may review the main points of the paper, do not replicate the abstract as the conclusion. A conclusion might elaborate on the importance of the work or suggest applications and extensions. 
 
 \addtolength{\textheight}{-12cm}   % This command serves to balance the column lengths
                                   % on the last page of the document manually. It shortens
