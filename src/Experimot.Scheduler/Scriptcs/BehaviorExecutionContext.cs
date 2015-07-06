@@ -37,6 +37,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
     private readonly object _object = new object();
     private const int RecvTimeout = 500;
     private const int FsmPeriod = 50;
+    private const int SpeechDuration = 2500;
 
     public string ContextServer
     {
@@ -552,7 +553,7 @@ public class BehaviorExecutionContext : IBehaviorExecutionContext
                     var triggerAt = current.Value<DateTime>("TriggerAt");
                     var now = DateTime.Now;
                     var span = now - triggerAt;
-                    if (span > new TimeSpan(0, 0, 0, 1))
+                    if (span > new TimeSpan(0, 0, 0, 0, SpeechDuration))
                     {
                     }
                     else

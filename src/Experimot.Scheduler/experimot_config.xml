@@ -16,10 +16,10 @@
     <param key="NaoBehaviorModule" value="nao_behavior_manager" type="string"/>
     <param key="DateTimeFormatString" value="yyyy/MM/dd HH:mm:ss.fff" type="string"/>
     
-    <!--<param key="NAO-A-ROBOTIP" value="127.0.0.1" type="string"/>
-    <param key="NAO-A-ROBOTPORT" value="55406" type="int"/>-->
-    <param key="NAO-A-ROBOTIP" value="192.168.11.27" type="string"/>
-    <param key="NAO-A-ROBOTPORT" value="9559" type="int"/>
+    <param key="NAO-A-ROBOTIP" value="127.0.0.1" type="string"/>
+    <param key="NAO-A-ROBOTPORT" value="60067" type="int"/>
+    <!--<param key="NAO-A-ROBOTIP" value="192.168.11.27" type="string"/>
+    <param key="NAO-A-ROBOTPORT" value="9559" type="int"/>-->
 
     <param key="NAO-B-ROBOTIP" value="192.168.11.28" type="string"/>
     <param key="NAO-B-ROBOTPORT" value="9559" type="int"/>
@@ -319,7 +319,7 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_relative_localize.py</args>
       </process>
     </node>
-    <node enabled="false" name="hiro_manager">
+    <node enabled="true" name="hiro_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>
@@ -386,7 +386,7 @@
       <process>
         <type>scriptcs</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\scriptcs\scriptcs.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\bin\scriptcs\main_program.csx -logLevel debug -M mono</args>
+        <args>%DEV_SDK_ROOT%\experimot\bin\scriptcs\main_program.csx -logLevel debug</args>
       </process>
       <parameters>
         <param key="BehaviorManagerName" value="nao_behavior_manager" type="string"/>

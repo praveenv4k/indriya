@@ -81,13 +81,13 @@ Blockly.Blocks.behaviors.rename = function(text) {
 
 Blockly.Blocks.behaviors.GestureProperties =
 [
-    ["HumanDetected", 'HumanDetected'],
     ["WaveLeft", 'Greet_Left'],
     ["WaveRight", 'Greet_Right'],
     ["LiftLeftHand", "LiftHand_Left"],
     ["LiftRightHand", "LiftHand_Right"],
-    ["Seated", "Seated"],
-    ["SmartWave", 'IMU_WAVE']
+    ["HumanDetected", 'HumanDetected']
+    //,["Seated", "Seated"],
+    //["SmartWave", 'IMU_WAVE']
 ];
 
 Blockly.Blocks.behaviors.Languages =

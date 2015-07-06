@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Common.Logging;
 using experimot.msgs;
@@ -88,7 +87,7 @@ namespace Experimot.Kinect.Speech
         {
             try
             {
-                if (!string.IsNullOrEmpty(_grammarFile) && System.IO.File.Exists(_grammarFile))
+                if (!string.IsNullOrEmpty(_grammarFile) && File.Exists(_grammarFile))
                 {
                     _speechEngine = new SpeechRecognitionEngine();
 
@@ -113,7 +112,7 @@ namespace Experimot.Kinect.Speech
                     }
 
                     _speechCommand = new SpeechCommand(_voiceCommandPublisher);
-                    _speechCommandTask = Task.Factory.StartNew(() => _speechCommand.Run(200));
+                    _speechCommandTask = Task.Factory.StartNew(() => _speechCommand.Run(100));
 
                     Console.WriteLine("Started recognizing");
                 }
