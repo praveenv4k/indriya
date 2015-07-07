@@ -285,7 +285,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false" name="robot_interface">
+    <node enabled="true" name="robot_interface">
       <process>
         <type>executable</type>
         <path>python.exe</path>
@@ -319,7 +319,7 @@
         <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_relative_localize.py</args>
       </process>
     </node>
-    <node enabled="false" name="hiro_manager">
+    <node enabled="true" name="hiro_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>
@@ -334,7 +334,7 @@
         <param key="RequestServerPort" value="5590" type="int"/>
       </parameters>
     </node>
-    <node enabled="false" name="taro_manager">
+    <node enabled="true" name="taro_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>

@@ -55,7 +55,7 @@ namespace Experimot.Kinect.Perception
         /// <summary> List of gesture detectors, there will be one detector created for each potential body (max of 6) </summary>
         private List<GestureDetector> _gestureDetectorList;
 
-        private readonly Node _node;
+        //private readonly Node _node;
         private KinectBodyPublisher _kBodyPub;
         private readonly ILog _log = LogManager.GetLogger<MainWindow>();
         private GestureTriggerPublisher _gestPub;
@@ -107,9 +107,10 @@ namespace Experimot.Kinect.Perception
 
             IList<string> dbList = new List<string>();
             const string defaultValue = @"Database\experimot.gbd";
-            if (_node != null)
+            var node = App.NodeInfo;
+            if (node != null)
             {
-                dbList = ParameterUtil.GetCsvList(_node.param, "database", defaultValue);
+                dbList = ParameterUtil.GetCsvList(node.param, "database", defaultValue);
             }
             else
             {
@@ -163,14 +164,14 @@ namespace Experimot.Kinect.Perception
             }
         }
 
-        public MainWindow(Node node) : this()
+        public MainWindow(Node node2) : this()
         {
-            _node = node;
-            if (_node != null)
+            var node = App.NodeInfo;
+            if (node != null)
             {
-                if (_node.publisher != null)
+                if (node.publisher != null)
                 {
-                    foreach (var item in _node.publisher)
+                    foreach (var item in node.publisher)
                     {
                         if (item.msg_type == "KinectBodies")
                         {
@@ -190,12 +191,12 @@ namespace Experimot.Kinect.Perception
                             try
                             {
                                 string defaultValue = @"nao_joints_h25v50.json";
-                                var fileName = ParameterUtil.Get(_node.param, "nao_joints", defaultValue);
+                                var fileName = ParameterUtil.Get(node.param, "nao_joints", defaultValue);
 
                                 var json = App.GetFileString(fileName, App.Options.ParameterServer);
 
                                 defaultValue = @"kinect_nao_map.json";
-                                fileName = ParameterUtil.Get(_node.param, "nao_kinect", defaultValue);
+                                fileName = ParameterUtil.Get(node.param, "nao_kinect", defaultValue);
                                 var kinectJson = App.GetFileString(fileName, App.Options.ParameterServer);
                                 _naoJoints = new NaoJointPublisher(item.host, item.port, item.topic, json, kinectJson);
                             }
