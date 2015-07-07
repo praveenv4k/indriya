@@ -1,0 +1,121 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_startup" id="13" x="213" y="38">
+    <statement name="DO">
+      <block type="parallel_execute" id="41">
+        <statement name="BRANCH1">
+          <block type="animated_say_action" id="22">
+            <field name="SAY_TEXT">Hello</field>
+            <field name="ROBOT">Hiro</field>
+          </block>
+        </statement>
+        <statement name="BRANCH2">
+          <block type="animated_say_action" id="42">
+            <field name="SAY_TEXT">Hello</field>
+            <field name="ROBOT">Taro</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="44" inline="false" x="213" y="213">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">normal</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="voice_trigger" id="49">
+        <field name="VOICE_TRIGGER">GO</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="parallel_execute" id="76">
+        <statement name="BRANCH1">
+          <block type="move_action" id="71">
+            <field name="distance">0.5</field>
+            <field name="ROBOT">Hiro</field>
+          </block>
+        </statement>
+        <statement name="BRANCH2">
+          <block type="turn_action" id="85">
+            <field name="actions">left</field>
+            <field name="ROBOT">Taro</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="87" inline="false" x="213" y="438">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="trigger" id="90">
+        <field name="MOTION_TRIGGER">Greet_Left</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="parallel_execute" id="94">
+        <statement name="BRANCH1">
+          <block type="animated_say_action" id="112">
+            <field name="SAY_TEXT">good</field>
+            <field name="ROBOT">Hiro</field>
+          </block>
+        </statement>
+        <statement name="BRANCH2">
+          <block type="turn_action" id="113">
+            <field name="actions">right</field>
+            <field name="ROBOT">Taro</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="116" inline="false" x="213" y="688">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="trigger" id="127">
+        <field name="MOTION_TRIGGER">Greet_Right</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="wait_voice_response" id="118">
+        <field name="CHOICE1">Yes</field>
+        <field name="CHOICE2">No</field>
+        <statement name="DO_CHOICE1">
+          <block type="animated_say_action" id="137">
+            <field name="SAY_TEXT">I am Hiro</field>
+            <field name="ROBOT">Hiro</field>
+          </block>
+        </statement>
+        <statement name="DO_CHOICE2">
+          <block type="approach_action" id="162">
+            <field name="approach_distance">2.00</field>
+            <field name="ROBOT">Taro</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_exit" id="140" x="213" y="938">
+    <statement name="DO">
+      <block type="parallel_execute" id="144">
+        <statement name="BRANCH1">
+          <block type="move_action" id="153">
+            <field name="distance">-0.5</field>
+            <field name="ROBOT">Hiro</field>
+          </block>
+        </statement>
+        <statement name="BRANCH2">
+          <block type="animated_say_action" id="171">
+            <field name="SAY_TEXT">Thank you</field>
+            <field name="ROBOT">Taro</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

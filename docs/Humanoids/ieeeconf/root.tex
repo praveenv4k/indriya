@@ -261,10 +261,23 @@ The Indriya system is designed in such a way that it is easy to create multiple 
 Even for an intermediate programmer implementing such a scenario using say a system like ROS \cite{quigley2009ros} will be a daunting job. Parallel programming using multiple threads is tricky at times. Depending on the OS and programming language used, the constructs to build programs for parallel execution of tasks is difficult. With robots it is even more difficult job as the execution has to be monitored while serving other high priority human triggers. The Indriya platform gives a breezy user interface with which all these problems are effectively addressed.
 \section{USER STUDY}
 \label{sec:user_study}
-
+\subsection{Protocol}
+The interaction design process suggested in \cite{Rogers2011} has been followed. The participants were given a short introduction about the system with the help of a handout describing the platform. The participants were given a maximum of 90 minutes to think, design and execute the scenario designed. They were given a maximum of 2 chances to edit and execute the scenario on the real robot. Irrespective of whether they manage to complete what they desired at the end of two chances, they were asked to evaluate the system based on their experience of using the platform. A questionnaire is prepared in both English and Japanese for the data collection purpose and the questionnaire is integrated in the user interface as shown in Fig.\ref{fig:ui_evaluate}. The questions are designed with a 4-point semantic differential scale.
+ \begin{figure}
+ \centering
+ \includegraphics[width=0.8\columnwidth]{../../thesis/assets/questionnaire_integration.png}
+ \caption[Questionnaire integration in UI]{Questionnaire integration in UI}
+ \label{fig:ui_evaluate}
+ \end{figure}
+\subsection{Data analysis}
+Statistical analysis is performed on the data collected during the user study. The usability metrics such as learnability, effectiveness, efficiency and satisfaction are measured. 
+\subsection{Observations}
 \section{CONCLUSIONS}
 \label{sec:conclusion}
-
+The abundance of smart devices and sensors in the smart home and public environments could be used for an immersive and personalized human robot interaction experience. However people from interdisciplinary fields find it difficult to use the existing technology as it requires strong background in programming. Any new programming paradigm designed for such purposes should find a correct balance between simplicity and expressiveness which motivated us to develop this platform. There exist some open questions and challenges to be addressed. The preliminary challenges are to find a set of all possible human activities that could be understood from the sensors distributed around in the environment and to identify all possible actions a robot could perform to interact with human in a social interaction scenario. The next question is to find the spectrum of interaction scenarios this kind of programming interface could cover. We believe these issue could be effectively addressed owing to the modular design and extensible nature of our platform.
+\section{Prospective work}
+\label{sec:prospects}
+\quad This is a work in progress and for the moment we have evaluated our system for the Kinect system working seamlessly with the NAO humanoid robot for a set of predefined gestures/speech commands and robot actions. We are planning to develop an extensive database containing commonly encountered gestures and also an extensive set of primitive robot actions. Additionally we are also planning to integrate our system to work with other modes of motion recognition like inertial measurement units (IMU), accelerometers and gyroscopes that are available in smart-phones and wearable devices. Similarly we are planning to integrate our system with other robots like Pepper which we expect to receive soon.
 \addtolength{\textheight}{-12cm}   % This command serves to balance the column lengths
                                   % on the last page of the document manually. It shortens
                                   % the textheight of the last page by a suitable amount.
