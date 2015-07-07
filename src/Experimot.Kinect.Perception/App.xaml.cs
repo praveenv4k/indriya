@@ -20,7 +20,7 @@ namespace Experimot.Kinect.Perception
     {
         private static readonly ILog Log = LogManager.GetLogger<App>();
         public static CommandLineOptions Options;
-
+        public static Node NodeInfo;
         public App()
         {
             Startup += AppStartup;
@@ -28,7 +28,7 @@ namespace Experimot.Kinect.Perception
 
         private void AppStartup(object sender, StartupEventArgs e)
         {
-            Node info = null;
+            NodeInfo = null;
             try
             {
                 var args = e.Args;
@@ -36,11 +36,11 @@ namespace Experimot.Kinect.Perception
                 {
                     Options = new CommandLineOptions();
                     Parser.Default.ParseArguments(args, Options);
-                    info = GetNodeInfo(Options.Name, Options.ParameterServer);
+                    NodeInfo = GetNodeInfo(Options.Name, Options.ParameterServer);
 
-                    if (info != null)
+                    if (NodeInfo != null)
                     {
-                        SendMotionRecognitionModuleInfo(info, Options.ParameterServer);
+                        SendMotionRecognitionModuleInfo(NodeInfo, Options.ParameterServer);
                     }
                 }
             }
@@ -48,14 +48,14 @@ namespace Experimot.Kinect.Perception
             {
                 Log.Info("Retrieving the parameter from server failed");
             }
-            if (info == null)
+            if (NodeInfo == null)
             {
                 MessageBox.Show("Info null");
                 MainWindow = new MainWindow();
             }
             else
             {
-                MainWindow = new MainWindow(info);
+                MainWindow = new MainWindow(NodeInfo);
             }
             MainWindow.Show();
         }
