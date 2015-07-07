@@ -15,6 +15,18 @@
         </one-of>
       </item>
       <item>
+        <tag>nice</tag>
+        <one-of>
+          <item> nice </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>bad</tag>
+        <one-of>
+          <item> bad </item>
+        </one-of>
+      </item>
+      <item>
         <tag>STAND</tag>
         <one-of>
           <item> stand </item>
@@ -109,6 +121,18 @@
         </one-of>
       </item>
       <item>
+        <tag>Come here</tag>
+        <one-of>
+          <item>come here</item>
+        </one-of>
+      </item>
+      <item>
+        <tag>Bring coffee</tag>
+        <one-of>
+          <item>bring coffee</item>
+        </one-of>
+      </item>
+      <item>
         <tag>bye</tag>
         <one-of>
           <item>bye</item>
@@ -124,6 +148,19 @@
         <tag>HELP</tag>
         <one-of>
           <item> help </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>Hiro</tag>
+        <one-of>
+          <item> hiro </item>
+        <item> hero </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>Taro</tag>
+        <one-of>
+          <item> taro </item>
         </one-of>
       </item>
       <!--<item>

@@ -1,0 +1,109 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_startup" id="3" x="88" y="-237">
+    <statement name="DO">
+      <block type="robot_action" id="130">
+        <field name="actions">Stand</field>
+        <field name="ROBOT">Hiro</field>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="5" inline="false" x="88" y="-137">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">high</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="trigger" id="143">
+        <field name="MOTION_TRIGGER">HumanDetected</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="approach_action" id="53">
+        <field name="approach_distance">1.00</field>
+        <field name="ROBOT">Hiro</field>
+        <next>
+          <block type="robot_action" id="139">
+            <field name="actions">Greet</field>
+            <field name="ROBOT">Hiro</field>
+            <next>
+              <block type="animated_say_action" id="37">
+                <field name="SAY_TEXT">I am Nao!</field>
+                <field name="ROBOT">Hiro</field>
+                <next>
+                  <block type="animated_say_action" id="310">
+                    <field name="SAY_TEXT">Will you wave your hand?</field>
+                    <field name="ROBOT">Hiro</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="172" inline="false" x="88" y="113">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">normal</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="trigger" id="121">
+        <field name="MOTION_TRIGGER">Greet_Left</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="339">
+        <field name="SAY_TEXT">Thank you</field>
+        <field name="ROBOT">Hiro</field>
+        <next>
+          <block type="animated_say_action" id="348">
+            <field name="SAY_TEXT">Will you be a friend with me?</field>
+            <field name="ROBOT">Hiro</field>
+            <next>
+              <block type="wait_voice_response" id="191">
+                <field name="CHOICE1">YES</field>
+                <field name="CHOICE2">NO</field>
+                <statement name="DO_CHOICE1">
+                  <block type="animated_say_action" id="377">
+                    <field name="SAY_TEXT">Thank you</field>
+                    <field name="ROBOT">Hiro</field>
+                  </block>
+                </statement>
+                <statement name="DO_CHOICE2">
+                  <block type="animated_say_action" id="368">
+                    <field name="SAY_TEXT">I am very dissappointed</field>
+                    <field name="ROBOT">Hiro</field>
+                    <next>
+                      <block type="turn_action" id="238">
+                        <field name="actions">left</field>
+                        <field name="ROBOT">Hiro</field>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="414" inline="false" x="113" y="463">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="voice_trigger" id="419">
+        <field name="VOICE_TRIGGER">Good bye</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="152">
+        <field name="SAY_TEXT">good bye</field>
+        <field name="ROBOT">Hiro</field>
+      </block>
+    </statement>
+  </block>
+</xml>

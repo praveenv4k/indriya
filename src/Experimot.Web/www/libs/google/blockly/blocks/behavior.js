@@ -122,7 +122,7 @@ Blockly.Blocks.behaviors.Robots =
 Blockly.Blocks.behaviors.VoiceProperties =
 [
     ["GO", "GO"],
-    ["START", "START"],
+    //["START", "START"],
     ["STOP", "STOP"],
     ["SIT", "SIT"],
     ["STAND", "STAND"],

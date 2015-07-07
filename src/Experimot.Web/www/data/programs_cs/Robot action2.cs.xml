@@ -1,0 +1,398 @@
+// ReSharper disable RedundantUsingDirective
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+// Main Behavior Program
+
+// ReSharper disable CheckNamespace
+
+using System;
+
+public class Behavior_e8c0213c_fe04_7663_90bd_a252d735d02e : ITriggerBehavior
+{
+    public string Name { get; set; }
+
+    protected static BehaviorExecutionPriority Priority;
+
+    public Behavior_e8c0213c_fe04_7663_90bd_a252d735d02e()
+    {
+        GetPriority();
+        GetExecutionLifetime();
+        GetUid();
+    }
+
+    public static BehaviorExecutionPriority GetPriority()
+    {
+        // SET_PRIORITY
+        Priority = BehaviorExecutionPriority.low;
+
+        return Priority;
+    }
+
+    protected static BehaviorExecutionLifetime ExecutionLifetime;
+
+    public static BehaviorExecutionLifetime GetExecutionLifetime()
+    {
+        // SET_EXECUTION_LIFETIME
+        ExecutionLifetime = BehaviorExecutionLifetime.once;
+
+        return ExecutionLifetime;
+    }
+
+    public int Id { get; set; }
+
+    protected static string Uid;
+
+    public static string GetUid()
+    {
+        // SET_UID
+        Uid = "e8c0213c_fe04_7663_90bd_a252d735d02e";
+
+        return Uid;
+    }
+
+    private static bool _initActionsComplete;
+    private static bool _cyclicActionsComplete;
+    private static bool _exitActionsComplete;
+
+    public static TriggerResult CheckTrigger(IBehaviorExecutionContext context)
+    {
+        var result = new TriggerResult {Active = false};
+
+        if (context != null && !ExecutionComplete)
+        {
+            var voiceCommand = context.GetVoiceCommand("Good bye");
+if (voiceCommand.Active && voiceCommand.Confidence > 70)
+{
+Console.WriteLine("Voice trigger received : {0} - {1}", voiceCommand.Name, voiceCommand.Confidence);
+result.Active = true;
+}
+
+        }
+        return result;
+    }
+
+    public bool ExecutionUntil(IBehaviorExecutionContext context)
+    {
+        if (context != null)
+        {
+            // EXECUTE_UNTIL
+            // EXECUTE_UNTIL_HERE
+        }
+        return true;
+    }
+
+    public string ActiveResource { get; set; }
+
+    public static bool InitActionsComplete
+    {
+        get { return _initActionsComplete; }
+        set { _initActionsComplete = value; }
+    }
+
+    public static bool CyclicActionsComplete
+    {
+        get { return _cyclicActionsComplete; }
+        set { _cyclicActionsComplete = value; }
+    }
+
+    public static bool ExitActionsComplete
+    {
+        get { return _exitActionsComplete; }
+        set { _exitActionsComplete = value; }
+    }
+
+    public static bool ExecutionComplete
+    {
+        get { return InitActionsComplete & CyclicActionsComplete & ExitActionsComplete; }
+    }
+
+    public bool ExecuteInit(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!InitActionsComplete)
+        {
+            // INIT_BLOCK
+            // INIT_BLOCK_HERE
+            InitActionsComplete = true;
+        }
+        return InitActionsComplete;
+    }
+
+    public bool ExecuteCyclic(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!CyclicActionsComplete && InitActionsComplete)
+        {
+            // CYCLIC_BLOCK
+              var var_0ecce038_446f_a710_b552_5f7a284861dc= new BehaviorInfo
+  {
+  BehaviorName = "Say Expressively",
+  RobotName = "Taro",Parameters = new Dictionary<string, object>
+  {
+  {"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("See you.", true, "string")}
+  }
+  };
+
+  BehaviorModuleHelper.Execute(context, var_0ecce038_446f_a710_b552_5f7a284861dc);
+  var var_72d1c845_cc45_b812_87b1_c21d34c156f6= new BehaviorInfo
+  {
+  BehaviorName = "Say Expressively",
+  RobotName = "Hiro",Parameters = new Dictionary<string, object>
+  {
+  {"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Take care.", true, "string")}
+  }
+  };
+
+  BehaviorModuleHelper.Execute(context, var_72d1c845_cc45_b812_87b1_c21d34c156f6);
+  var var_eec2bcec_b228_731a_b100_b4b1ed4277f0 = new List<Task>();
+  var var_5a62d112_01f5_65ab_a7b6_cff4e928d42f = new Action( () =>
+  {
+    var var_2ccc2e97_001b_bcce_8a97_2e99deeeda15= new BehaviorInfo
+    {
+    BehaviorName = "Move To",
+    RobotName = "Hiro",Parameters = new Dictionary<string, object>
+    {
+    {"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, false, "float")},
+    {"y", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, false, "float")},
+    {"theta", BehaviorModuleHelper.CreateBehaviorParameterOptions(3.141592653589793, false, "float")}
+    }
+    };
+
+    BehaviorModuleHelper.Execute(context, var_2ccc2e97_001b_bcce_8a97_2e99deeeda15);
+
+  });
+  var var_73c6f01f_74d1_0013_bfbe_ca36a407c6a8 = new Action( () =>
+  {
+    var var_acf04cfc_eae2_95e0_a8d5_78c241870351= new BehaviorInfo
+    {
+    BehaviorName = "Move To",
+    RobotName = "Taro",Parameters = new Dictionary<string, object>
+    {
+    {"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, false, "float")},
+    {"y", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, false, "float")},
+    {"theta", BehaviorModuleHelper.CreateBehaviorParameterOptions(3.141592653589793, false, "float")}
+    }
+    };
+
+    BehaviorModuleHelper.Execute(context, var_acf04cfc_eae2_95e0_a8d5_78c241870351);
+
+  });
+  var_eec2bcec_b228_731a_b100_b4b1ed4277f0.Add(Task.Run(var_5a62d112_01f5_65ab_a7b6_cff4e928d42f));
+  var_eec2bcec_b228_731a_b100_b4b1ed4277f0.Add(Task.Run(var_73c6f01f_74d1_0013_bfbe_ca36a407c6a8));
+  Task.WaitAll(var_eec2bcec_b228_731a_b100_b4b1ed4277f0.ToArray());
+  System.Console.WriteLine("Parallel action execution complete");var var_9bfebcd9_afa3_7a24_8e56_43b9681311d5 = new List<Task>();
+  var var_1d477c4d_b072_c88d_be2d_a37874fc2b67 = new Action( () =>
+  {
+    var var_43a68741_a221_d088_8d37_1ef7daad6952= new BehaviorInfo
+    {
+    BehaviorName = "Move To",
+    RobotName = "Hiro",Parameters = new Dictionary<string, object>
+    {
+    {"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.5, false, "float")},
+    {"y", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, false, "float")},
+    {"theta", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, false, "float")}
+    }
+    };
+
+    BehaviorModuleHelper.Execute(context, var_43a68741_a221_d088_8d37_1ef7daad6952);
+
+  });
+  var var_2e4a687c_32f5_99be_81a5_36c2207cea4a = new Action( () =>
+  {
+    var var_ede2377e_3d65_489e_933f_821694ac465a= new BehaviorInfo
+    {
+    BehaviorName = "Move To",
+    RobotName = "Taro",Parameters = new Dictionary<string, object>
+    {
+    {"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.5, false, "float")},
+    {"y", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, false, "float")},
+    {"theta", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, false, "float")}
+    }
+    };
+
+    BehaviorModuleHelper.Execute(context, var_ede2377e_3d65_489e_933f_821694ac465a);
+
+  });
+  var_9bfebcd9_afa3_7a24_8e56_43b9681311d5.Add(Task.Run(var_1d477c4d_b072_c88d_be2d_a37874fc2b67));
+  var_9bfebcd9_afa3_7a24_8e56_43b9681311d5.Add(Task.Run(var_2e4a687c_32f5_99be_81a5_36c2207cea4a));
+  Task.WaitAll(var_9bfebcd9_afa3_7a24_8e56_43b9681311d5.ToArray());
+  System.Console.WriteLine("Parallel action execution complete");
+
+            if (ExecutionLifetime == BehaviorExecutionLifetime.once)
+            {
+                CyclicActionsComplete = true;
+            }
+            else if (ExecutionLifetime == BehaviorExecutionLifetime.until)
+            {
+                var complete = ExecutionUntil(context);
+                CyclicActionsComplete = !complete;
+            }
+        }
+        return CyclicActionsComplete;
+    }
+
+    public bool ExecuteExit(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!ExitActionsComplete && CyclicActionsComplete)
+        {
+            // EXIT_BLOCK
+            // EXIT_BLOCK_HERE
+            ExitActionsComplete = true;
+        }
+        return ExitActionsComplete;
+    }
+
+    public bool Execute(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        try
+        {
+            ExecuteInit(context, trigger);
+            ExecuteCyclic(context, trigger);
+            ExecuteExit(context, trigger);
+            System.Console.WriteLine(@"Lifetime: {3} Init : {0}, Cyclic: {1}, Exit: {2}", InitActionsComplete,
+                CyclicActionsComplete,
+                ExitActionsComplete, ExecutionLifetime);
+        }
+        catch (BehaviorCanceledException ex)
+        {
+            Console.WriteLine(@"Execution canceled : {0}, {1} ,{2}", GetUid(), ex.Message, ex.StackTrace);
+        }
+        return ExecutionComplete;
+    }
+}
+public class StartupBehavior : IExecuteOnceBehavior
+{
+    public void Execute(IBehaviorExecutionContext context)
+    {
+        // STARTUP_BLOCK
+          var var_79e2177d_4495_1eac_b9be_9b4190e66ed9 = new List<Task>();
+  var var_57968334_327d_12f7_a421_f34185702fa5 = new Action( () =>
+  {
+    var var_63f13a78_54fb_9193_87a6_3b54d5e68a8b= new BehaviorInfo{BehaviorName = "Stand",RobotName = "Hiro"};
+
+    BehaviorModuleHelper.Execute(context, var_63f13a78_54fb_9193_87a6_3b54d5e68a8b);
+
+  });
+  var var_acceed7e_2264_1f6a_91a8_80ab9f32d709 = new Action( () =>
+  {
+    var var_39d46ce4_5626_3c9f_8300_9abaf033e6dd= new BehaviorInfo{BehaviorName = "Stand",RobotName = "Taro"};
+
+    BehaviorModuleHelper.Execute(context, var_39d46ce4_5626_3c9f_8300_9abaf033e6dd);
+
+  });
+  var_79e2177d_4495_1eac_b9be_9b4190e66ed9.Add(Task.Run(var_57968334_327d_12f7_a421_f34185702fa5));
+  var_79e2177d_4495_1eac_b9be_9b4190e66ed9.Add(Task.Run(var_acceed7e_2264_1f6a_91a8_80ab9f32d709));
+  Task.WaitAll(var_79e2177d_4495_1eac_b9be_9b4190e66ed9.ToArray());
+  System.Console.WriteLine("Parallel action execution complete");var var_91f16ed8_ffec_d1e3_a987_c4629edbe315 = new List<Task>();
+  var var_6c03a79f_d034_d2b9_a171_c1adccd9b48c = new Action( () =>
+  {
+    var var_25f9b1b0_0bf1_7c51_8094_0a5067624c13= new BehaviorInfo
+    {
+    BehaviorName = "Move To",
+    RobotName = "Hiro",Parameters = new Dictionary<string, object>
+    {
+    {"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.5, false, "float")},
+    {"y", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, false, "float")},
+    {"theta", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, false, "float")}
+    }
+    };
+
+    BehaviorModuleHelper.Execute(context, var_25f9b1b0_0bf1_7c51_8094_0a5067624c13);
+
+  });
+  var var_1bc42ff8_0eab_864b_a8a9_df53ed93fa8b = new Action( () =>
+  {
+    var var_a789d720_05f9_a7b2_a891_4e1ebb9d49cd= new BehaviorInfo
+    {
+    BehaviorName = "Move To",
+    RobotName = "Taro",Parameters = new Dictionary<string, object>
+    {
+    {"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.5, false, "float")},
+    {"y", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, false, "float")},
+    {"theta", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, false, "float")}
+    }
+    };
+
+    BehaviorModuleHelper.Execute(context, var_a789d720_05f9_a7b2_a891_4e1ebb9d49cd);
+
+  });
+  var_91f16ed8_ffec_d1e3_a987_c4629edbe315.Add(Task.Run(var_6c03a79f_d034_d2b9_a171_c1adccd9b48c));
+  var_91f16ed8_ffec_d1e3_a987_c4629edbe315.Add(Task.Run(var_1bc42ff8_0eab_864b_a8a9_df53ed93fa8b));
+  Task.WaitAll(var_91f16ed8_ffec_d1e3_a987_c4629edbe315.ToArray());
+  System.Console.WriteLine("Parallel action execution complete");var var_831a60ab_5fee_8680_8bf0_fc0470bf827a= new BehaviorInfo
+  {
+  BehaviorName = "Say Expressively",
+  RobotName = "Hiro",Parameters = new Dictionary<string, object>
+  {
+  {"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Hello. What do you think of me?", true, "string")}
+  }
+  };
+
+  BehaviorModuleHelper.Execute(context, var_831a60ab_5fee_8680_8bf0_fc0470bf827a);
+  while (true)
+  {
+  var var_02c5aec1_5c05_1c4a_8ab3_4627c6cf0304 = context.GetVoiceCommand();
+  if (var_02c5aec1_5c05_1c4a_8ab3_4627c6cf0304.Active && var_02c5aec1_5c05_1c4a_8ab3_4627c6cf0304.Confidence > 80)
+  {
+  string var_aa6e5322_3c38_009e_b2a5_8855a402654b = var_02c5aec1_5c05_1c4a_8ab3_4627c6cf0304.Name;
+  string var_2bb5b942_7054_d000_aff7_000eeb534ae8 = "nice";
+  string var_55d56669_3435_edd3_b969_283ee9fa250f = "bad";
+  if (String.Compare(var_2bb5b942_7054_d000_aff7_000eeb534ae8, var_aa6e5322_3c38_009e_b2a5_8855a402654b, StringComparison.OrdinalIgnoreCase)==0)
+  {
+    var var_23f9fed2_6cbc_f851_809d_3937829284e3= new BehaviorInfo
+    {
+    BehaviorName = "Say Expressively",
+    RobotName = "Hiro",Parameters = new Dictionary<string, object>
+    {
+    {"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Thank you. I'm happy.", true, "string")}
+    }
+    };
+
+    BehaviorModuleHelper.Execute(context, var_23f9fed2_6cbc_f851_809d_3937829284e3);
+
+  break;
+  }
+  if (String.Compare(var_55d56669_3435_edd3_b969_283ee9fa250f, var_aa6e5322_3c38_009e_b2a5_8855a402654b, StringComparison.OrdinalIgnoreCase)==0)
+  {
+    var var_ae9c9079_bf6e_bb86_81b0_b598e7668fc5= new BehaviorInfo
+    {
+    BehaviorName = "Say Expressively",
+    RobotName = "Hiro",Parameters = new Dictionary<string, object>
+    {
+    {"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Oh, I'm sad.", true, "string")}
+    }
+    };
+
+    BehaviorModuleHelper.Execute(context, var_ae9c9079_bf6e_bb86_81b0_b598e7668fc5);
+
+  break;
+  }
+  }
+  }var var_dbcc770a_2673_e83d_8d78_0ac01fdb4e1f= new BehaviorInfo{BehaviorName = "liftLeftHand",RobotName = "Taro"};
+
+  BehaviorModuleHelper.Execute(context, var_dbcc770a_2673_e83d_8d78_0ac01fdb4e1f);
+
+    }
+}
+public class ExitBehavior : IExecuteOnceBehavior
+{
+    public void Execute(IBehaviorExecutionContext context)
+    {
+        // EXIT_BLOCK
+          var var_cf3dcedb_b9cb_0360_9013_2c4e999ffba0= new BehaviorInfo
+  {
+  BehaviorName = "Take Rest",
+  RobotName = "Hiro",Parameters = new Dictionary<string, object>()
+  };
+
+  BehaviorModuleHelper.Execute(context, var_cf3dcedb_b9cb_0360_9013_2c4e999ffba0);
+  var var_4c85594d_7bfb_0b22_ba6a_f4b90e9f99b8= new BehaviorInfo
+  {
+  BehaviorName = "Take Rest",
+  RobotName = "Taro",Parameters = new Dictionary<string, object>()
+  };
+
+  BehaviorModuleHelper.Execute(context, var_4c85594d_7bfb_0b22_ba6a_f4b90e9f99b8);
+
+    }
+}

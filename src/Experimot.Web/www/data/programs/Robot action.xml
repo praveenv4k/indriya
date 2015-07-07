@@ -1,0 +1,105 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_startup" id="2" x="138" y="-62">
+    <statement name="DO">
+      <block type="robot_action" id="403">
+        <field name="actions">Stand</field>
+        <field name="ROBOT">Hiro</field>
+        <next>
+          <block type="robot_action" id="415">
+            <field name="actions">Stand</field>
+            <field name="ROBOT">Taro</field>
+            <next>
+              <block type="move_action" id="56">
+                <field name="distance">0.5</field>
+                <field name="ROBOT">Hiro</field>
+                <next>
+                  <block type="move_action" id="384">
+                    <field name="distance">0.5</field>
+                    <field name="ROBOT">Taro</field>
+                    <next>
+                      <block type="animated_say_action" id="101">
+                        <field name="SAY_TEXT">Hello. What do you think of me?</field>
+                        <field name="ROBOT">Hiro</field>
+                        <next>
+                          <block type="wait_voice_response" id="286">
+                            <field name="CHOICE1">nice</field>
+                            <field name="CHOICE2">bad</field>
+                            <statement name="DO_CHOICE1">
+                              <block type="animated_say_action" id="191">
+                                <field name="SAY_TEXT">Thank you. I'm happy.</field>
+                                <field name="ROBOT">Hiro</field>
+                              </block>
+                            </statement>
+                            <statement name="DO_CHOICE2">
+                              <block type="animated_say_action" id="297">
+                                <field name="SAY_TEXT">Oh, I'm sad.</field>
+                                <field name="ROBOT">Hiro</field>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="therapy_action" id="359">
+                                <field name="therapy_exercise">liftLeftHand</field>
+                                <field name="ROBOT">Taro</field>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="4" inline="false" x="138" y="288">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="voice_trigger" id="305">
+        <field name="VOICE_TRIGGER">Good bye</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="turn_action" id="203">
+        <field name="actions">around</field>
+        <field name="ROBOT">Hiro</field>
+        <next>
+          <block type="turn_action" id="212">
+            <field name="actions">around</field>
+            <field name="ROBOT">Taro</field>
+            <next>
+              <block type="move_action" id="221">
+                <field name="distance">0.5</field>
+                <field name="ROBOT">Hiro</field>
+                <next>
+                  <block type="move_action" id="428">
+                    <field name="distance">0.5</field>
+                    <field name="ROBOT">Taro</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_exit" id="7" x="138" y="538">
+    <statement name="DO">
+      <block type="robot_rest_action" id="182">
+        <field name="ROBOT">Hiro</field>
+        <next>
+          <block type="robot_rest_action" id="437">
+            <field name="ROBOT">Taro</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

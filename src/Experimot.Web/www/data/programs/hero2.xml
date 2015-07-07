@@ -1,0 +1,99 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_startup" id="2" x="213" y="13">
+    <statement name="DO">
+      <block type="animated_say_action" id="11">
+        <field name="SAY_TEXT">Hello</field>
+        <field name="ROBOT">Hiro</field>
+        <next>
+          <block type="animated_say_action" id="324">
+            <field name="SAY_TEXT">Hello</field>
+            <field name="ROBOT">Taro</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="15" inline="false" x="213" y="138">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="trigger" id="140">
+        <field name="MOTION_TRIGGER">Greet_Right</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="78">
+        <field name="SAY_TEXT">Which one of us do you like better?</field>
+        <field name="ROBOT">Hiro</field>
+        <next>
+          <block type="wait_voice_response" id="80">
+            <field name="CHOICE1">Hiro</field>
+            <field name="CHOICE2">Taro</field>
+            <statement name="DO_CHOICE1">
+              <block type="animated_say_action" id="191">
+                <field name="SAY_TEXT">Thank you</field>
+                <field name="ROBOT">Hiro</field>
+                <next>
+                  <block type="approach_action" id="163">
+                    <field name="approach_distance">1.00</field>
+                    <field name="ROBOT">Hiro</field>
+                    <next>
+                      <block type="animated_say_action" id="307">
+                        <field name="SAY_TEXT">I love you</field>
+                        <field name="ROBOT">Hiro</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <statement name="DO_CHOICE2">
+              <block type="animated_say_action" id="350">
+                <field name="SAY_TEXT">Thank you.I love you.</field>
+                <field name="ROBOT">Taro</field>
+                <next>
+                  <block type="animated_say_action" id="154">
+                    <field name="SAY_TEXT">I'm so sad</field>
+                    <field name="ROBOT">Hiro</field>
+                    <next>
+                      <block type="turn_action" id="173">
+                        <field name="actions">around</field>
+                        <field name="ROBOT">Hiro</field>
+                        <next>
+                          <block type="move_action" id="182">
+                            <field name="distance">0.5</field>
+                            <field name="ROBOT">Hiro</field>
+                            <next>
+                              <block type="robot_rest_action" id="368">
+                                <field name="ROBOT">Hiro</field>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_exit" id="234" x="213" y="588">
+    <statement name="DO">
+      <block type="animated_say_action" id="289">
+        <field name="SAY_TEXT">Good bye</field>
+        <field name="ROBOT">Taro</field>
+        <next>
+          <block type="robot_rest_action" id="280">
+            <field name="ROBOT">Taro</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
