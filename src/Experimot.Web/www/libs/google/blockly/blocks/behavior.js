@@ -86,8 +86,8 @@ Blockly.Blocks.behaviors.GestureProperties =
     ["LiftLeftHand", "LiftHand_Left"],
     ["LiftRightHand", "LiftHand_Right"],
     ["HumanDetected", 'HumanDetected']
-    //,["Seated", "Seated"],
-    //["SmartWave", 'IMU_WAVE']
+    ,["Seated", "Seated"]
+    //,["SmartWave", 'IMU_WAVE']
 ];
 
 Blockly.Blocks.behaviors.Languages =
@@ -110,7 +110,7 @@ Blockly.Blocks.behaviors.StandardBehaviors =
     //["LyingBack", "LyingBack"],
     //["Sit", "Sit"],
     ["LabIntroduction", "LabIntroduction"]
-    //,["Dance", "Dance"]
+    ,["Dance", "Dance"]
 ];
 
 Blockly.Blocks.behaviors.Robots =

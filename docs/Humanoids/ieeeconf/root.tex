@@ -209,7 +209,7 @@ In this section various capabilities of Indriya platform are evaluated
 \caption[NAO museum guide: Indriya program]{NAO museum guide: Indriya program}
 \label{fig:scenario1_program}
 \end{figure}
- We would like to use this scenario to compare the simplicity and straight forwardness of behavior description with Choregraphe \cite{Choregraphe} shown in Fig~\ref{fig:scenario1_program_choregraphe} and with our interface shown in Fig~\ref{fig:scenario1_program}. Though Choregraphe uses a familiar flow-chart based programming model and has a huge library of primitive blocks to build complex motion patterns, the data flow for this scenario is not straight forward. As could be noticed from Fig~\ref{fig:scenario1_program_choregraphe}, at first the robot keeps looking for people in its vicinity using the \emph{Face detection block} at the cost of its power. Once it detects a person, the face detection block is stopped and \emph{People tracker} block is activated. The robot starts approaching (tracking) the person until a fixed distance with the person is reached. Once the desired distance of separation is achieved, the people tracker block is stopped. Now the robot will actually start explaining the history of the museum. For a novice programmer it could be difficult to think of this dataflow as they literally have to emulate the whole scenario in their mind before designing the system.
+ We would like to use this scenario to compare the simplicity and straight forwardness of behavior description with our interface shown in Fig~\ref{fig:scenario1_program} when compared to Choregraphe \cite{Choregraphe} shown in Fig~\ref{fig:scenario1_program_choregraphe}. Though Choregraphe uses a familiar flow-chart based programming model and has a huge library of primitive blocks to build complex motion patterns, the data flow for this scenario is not straight forward. As could be noticed from Fig~\ref{fig:scenario1_program_choregraphe}, at first the robot keeps looking for people in its vicinity using the \emph{Face detection block} at the cost of its power. Once it detects a person, the face detection block is stopped and \emph{People tracker} block is activated. The robot starts approaching (tracking) the person until a fixed distance with the person is reached. Once the desired distance of separation is achieved, the people tracker block is stopped. Now the robot will actually start explaining the history of the museum. For a novice programmer it could be difficult to think of this dataflow as they literally have to emulate the whole scenario in their mind before designing the system.
 
 The Indriya platform equipped with Kinect sensor takes care of the detection of people and gives the relative localization of the robot and human. Once the person is detected or a configured gesture trigger arrives, the behavior program retrieves the relative transformation of the robot with respect to human. The \emph{Approach block} makes use of this information to drive the robot towards the person. After coming into the proximity of the person, the robot starts explaining the history of museum. From the user perspective, the design of the behavior is \emph{intuitive} using Indriya. He/She can focus on the scenario rather than thinking about the minute details of the data flow. 
 
@@ -242,10 +242,10 @@ The scenario is designed using all the three basic behavior constructs that cons
 
 \subsection{Priority execution}
 Most often in real life HRI scenarios one would like to have robot respond to certain events with a higher priority irrespective of what it is doing at that time. Priority based execution capability comes handy in such scenarios. The inherent problem is that often these concepts are extremely difficult to understand/implement for beginner to intermediate level programmers. The Indriya system makes this extremely easy by just fixing the priority of each behavior blocks. 
-
-\textbf{Scenario:} Let us consider an elderly care robot who takes care of a fictitious person Mr. Adams. The living room is equipped with kinect sensor so that the activities and voice commands of the person could be recognized by Indriya system. The care taker of Mr. Adams who is working during the day would like to design a behavior program for the robot. He/She wants the robot to respond to normal commands like \emph{Come here}, \emph{Bring Coffee} etc., Among others he would like the robot to serve emergency conditions like when the elderly person faint down suddenly, or he/she asks for help due to medical complications etc.,
-
-The reference implementation of the caring robot is shown in Fig.~
+%
+%\textbf{Scenario:} Let us consider an elderly care robot who takes care of a fictitious person Mr. Adams. The living room is equipped with kinect sensor so that the activities and voice commands of the person could be recognized by Indriya system. The care taker of Mr. Adams who is working during the day would like to design a behavior program for the robot. He/She wants the robot to respond to normal commands like \emph{Come here}, \emph{Bring Coffee} etc., Among others he would like the robot to serve emergency conditions like when the elderly person faint down suddenly, or he/she asks for help due to medical complications etc.,
+%
+%The reference implementation of the caring robot is shown in Fig.~
 
 \subsection{Programming Multi-robots and Parallel tasks}
 The Indriya system is designed in such a way that it is easy to create multiple instances of robot interface module targeted at a single robot type (say NAO) by just changing the connection parameters. The visual blocks are also designed so that it is easy to select the robot on which the task should be executed, by an user-defined name. Additionally the platform makes it simpler to execute parallel tasks on two or more robots without any hassles.
@@ -262,22 +262,52 @@ Even for an intermediate programmer implementing such a scenario using say a sys
 \section{USER STUDY}
 \label{sec:user_study}
 \subsection{Protocol}
-The interaction design process suggested in \cite{Rogers2011} has been followed. The participants were given a short introduction about the system with the help of a handout describing the platform. The participants were given a maximum of 90 minutes to think, design and execute the scenario designed. They were given a maximum of 2 chances to edit and execute the scenario on the real robot. Irrespective of whether they manage to complete what they desired at the end of two chances, they were asked to evaluate the system based on their experience of using the platform. A questionnaire is prepared in both English and Japanese for the data collection purpose and the questionnaire is integrated in the user interface as shown in Fig.\ref{fig:ui_evaluate}. The questions are designed with a 4-point semantic differential scale.
+The interaction design process suggested in \cite{Rogers2011} has been followed. Ten participants with mean age: 22.3 and SD: 4.47 were asked to program an interaction scenario using Indriya. The participants were given a short introduction about the system and were given a maximum of 90 minutes to think, design and execute the scenario designed. They were given a maximum of 2 chances to edit and execute the scenario on the real robot. Irrespective of whether they manage to complete what they desired at the end of two chances, they were asked to evaluate the system based on their experience of using the platform. Half of the participants were given an option to program two robots. A questionnaire is prepared in both English and Japanese (\url{https://goo.gl/a5GVAQ}) for the data collection purpose and the questionnaire is integrated in the user interface. The questions are designed with a 4-point semantic differential scale and is designed in such a way that lesser the value better the user experience.
+% \begin{figure}
+% \centering
+% \includegraphics[width=0.8\columnwidth]{../../thesis/assets/questionnaire_integration.png}
+% \caption[Questionnaire integration in UI]{Questionnaire integration in UI}
+% \label{fig:ui_evaluate}
+% \end{figure}
+\subsection{Data analysis}
+Statistical analysis is performed on the data collected during the user study. The usability metrics such as learnability, effectiveness, efficiency and satisfaction are focused on. To start with, \emph{Factor analysis} is performed to find the dominant factors in the data. The mean and SD of the factor-wise usability metrics are shown in Fig.~\ref{fig:metrics}. The users found the system easy to learn to use and get started. About 80\% of the participants were able to create a scenario and execute it on real robot in less than 30 minutes.
  \begin{figure}
  \centering
- \includegraphics[width=0.8\columnwidth]{../../thesis/assets/questionnaire_integration.png}
- \caption[Questionnaire integration in UI]{Questionnaire integration in UI}
- \label{fig:ui_evaluate}
+ \includegraphics[width=\columnwidth]{../../thesis/assets/usability.eps}
+ \caption[Usability metrics]{Usability metrics}
+ \label{fig:metrics}
  \end{figure}
-\subsection{Data analysis}
-Statistical analysis is performed on the data collected during the user study. The usability metrics such as learnability, effectiveness, efficiency and satisfaction are measured. 
-\subsection{Observations}
+ As observed in Table~\ref{table:correlation}, the users who found the program structure easy to understand also found the application easy to use. The users who felt that the application is convenient had a strong impact on the scenario creation. The users who were able to successfully execute the scenario rated that they found it easy to create the scenario and additionally found the robot reactive to gestures and voice commands which makes sense. 
+\begin{table}[h]
+\caption{Pearson correlation coefficient}
+\label{table:correlation}
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+  {} & \textbf{Program}& \textbf{Scenario}& \textbf{Scenario}& \textbf{}\\
+    {} & \textbf{structure}& \textbf{creation}& \textbf{execution}& \textbf{Reactiveness}\\
+\hline
+{} & {} & {} & {} & {}\\
+\textbf{Learn to use} & {0.6667} & {-} & {-} & {-}\\
+\hline
+{} & {} & {} & {} & {}\\
+\textbf{Convenience} & {-} & {0.7698} & {0.6804} & {-}\\
+\hline
+\textbf{Scenario}  & {} & {} & {} & {}\\
+\textbf{creation}  & {-} & {-} & {0.7071} & {-}\\
+\hline
+\textbf{Scenario} & {} & {} & {} & {}\\
+\textbf{execution} & {-} & {-} & {-} & {0.5477}\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
 \section{CONCLUSIONS}
 \label{sec:conclusion}
 The abundance of smart devices and sensors in the smart home and public environments could be used for an immersive and personalized human robot interaction experience. However people from interdisciplinary fields find it difficult to use the existing technology as it requires strong background in programming. Any new programming paradigm designed for such purposes should find a correct balance between simplicity and expressiveness which motivated us to develop this platform. There exist some open questions and challenges to be addressed. The preliminary challenges are to find a set of all possible human activities that could be understood from the sensors distributed around in the environment and to identify all possible actions a robot could perform to interact with human in a social interaction scenario. The next question is to find the spectrum of interaction scenarios this kind of programming interface could cover. We believe these issue could be effectively addressed owing to the modular design and extensible nature of our platform.
 \section{Prospective work}
 \label{sec:prospects}
-\quad This is a work in progress and for the moment we have evaluated our system for the Kinect system working seamlessly with the NAO humanoid robot for a set of predefined gestures/speech commands and robot actions. We are planning to develop an extensive database containing commonly encountered gestures and also an extensive set of primitive robot actions. Additionally we are also planning to integrate our system to work with other modes of motion recognition like inertial measurement units (IMU), accelerometers and gyroscopes that are available in smart-phones and wearable devices. Similarly we are planning to integrate our system with other robots like Pepper which we expect to receive soon.
+For the moment we have evaluated our system for the Kinect system working seamlessly with the NAO humanoid robot for a set of predefined gestures/speech commands and robot actions. We are planning to develop an extensive database containing commonly encountered gestures and also an extensive set of primitive robot actions. Additionally we are also planning to integrate our system to work with other modes of motion recognition like inertial measurement units (IMU), accelerometers and gyroscopes that are available in smart-phones and wearable devices. Similarly we are planning to integrate our system with other robots like Pepper which we expect to receive soon.
 \addtolength{\textheight}{-12cm}   % This command serves to balance the column lengths
                                   % on the last page of the document manually. It shortens
                                   % the textheight of the last page by a suitable amount.

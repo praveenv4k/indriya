@@ -1,0 +1,243 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_composable_simple" id="3" inline="false" x="63" y="-237">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="voice_trigger2" id="7">
+        <field name="VOICE_TRIGGER">Come here</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="26">
+        <field name="SAY_TEXT">Are you feeling good Adams?</field>
+        <field name="ROBOT">Hiro</field>
+        <next>
+          <block type="wait_voice_response" id="28">
+            <field name="CHOICE1">YES</field>
+            <field name="CHOICE2">NO</field>
+            <statement name="DO_CHOICE1">
+              <block type="variables_set" id="35" inline="true">
+                <field name="VAR">condition</field>
+                <value name="VALUE">
+                  <block type="math_number" id="40">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="DO_CHOICE2">
+              <block type="variables_set" id="41" inline="true">
+                <field name="VAR">condition</field>
+                <value name="VALUE">
+                  <block type="math_number" id="42">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="controls_if" id="64" inline="false">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare" id="74" inline="true">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="79">
+                        <field name="VAR">condition</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="80">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="animated_say_action" id="29">
+                    <field name="SAY_TEXT">That's good!</field>
+                    <field name="ROBOT">Hiro</field>
+                    <next>
+                      <block type="animated_say_action" id="149">
+                        <field name="SAY_TEXT">Would you like to drink something?</field>
+                        <field name="ROBOT">Hiro</field>
+                        <next>
+                          <block type="animated_say_action" id="32">
+                            <field name="SAY_TEXT">Coffee or tea?</field>
+                            <field name="ROBOT">Hiro</field>
+                            <next>
+                              <block type="wait_voice_response" id="81">
+                                <field name="CHOICE1">Coffee</field>
+                                <field name="CHOICE2">Tea</field>
+                                <statement name="DO_CHOICE1">
+                                  <block type="variables_set" id="82" inline="true">
+                                    <field name="VAR">coffee</field>
+                                    <value name="VALUE">
+                                      <block type="math_number" id="83">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                                <statement name="DO_CHOICE2">
+                                  <block type="variables_set" id="84" inline="true">
+                                    <field name="VAR">coffee</field>
+                                    <value name="VALUE">
+                                      <block type="math_number" id="85">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="controls_if" id="113" inline="false">
+                                    <mutation elseif="1" else="1"></mutation>
+                                    <value name="IF0">
+                                      <block type="logic_compare" id="93" inline="true">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="94">
+                                            <field name="VAR">coffee</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="95">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="animated_say_action" id="96">
+                                        <field name="SAY_TEXT">Okay I will bring you some coffee!</field>
+                                        <field name="ROBOT">Hiro</field>
+                                      </block>
+                                    </statement>
+                                    <value name="IF1">
+                                      <block type="logic_compare" id="114" inline="true">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="115">
+                                            <field name="VAR">coffee</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="116">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO1">
+                                      <block type="animated_say_action" id="109">
+                                        <field name="SAY_TEXT">Okay I will bring you some tea!</field>
+                                        <field name="ROBOT">Hiro</field>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="animated_say_action" id="86">
+                    <field name="SAY_TEXT">Oh no! Shall I call the helpline?</field>
+                    <field name="ROBOT">Hiro</field>
+                    <next>
+                      <block type="wait_voice_response" id="87">
+                        <field name="CHOICE1">YES</field>
+                        <field name="CHOICE2">NO</field>
+                        <statement name="DO_CHOICE1">
+                          <block type="variables_set" id="88" inline="true">
+                            <field name="VAR">helpline</field>
+                            <value name="VALUE">
+                              <block type="math_number" id="89">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <statement name="DO_CHOICE2">
+                          <block type="variables_set" id="90" inline="true">
+                            <field name="VAR">helpline</field>
+                            <value name="VALUE">
+                              <block type="math_number" id="91">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="controls_if" id="92" inline="false">
+                            <mutation else="1"></mutation>
+                            <value name="IF0">
+                              <block type="logic_compare" id="117" inline="true">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="variables_get" id="118">
+                                    <field name="VAR">helpline</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="119">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="animated_say_action" id="120">
+                                <field name="SAY_TEXT">Okay I will call them immediately</field>
+                                <field name="ROBOT">Hiro</field>
+                              </block>
+                            </statement>
+                            <statement name="ELSE">
+                              <block type="animated_say_action" id="121">
+                                <field name="SAY_TEXT">Take rest! You will feel better.</field>
+                                <field name="ROBOT">Hiro</field>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="143" inline="false" x="113" y="913">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="trigger" id="148">
+        <field name="MOTION_TRIGGER">Greet_Left</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="turn_action" id="130">
+        <field name="actions">around</field>
+        <field name="ROBOT">Hiro</field>
+        <next>
+          <block type="move_action" id="140">
+            <field name="distance">0.5</field>
+            <field name="ROBOT">Hiro</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

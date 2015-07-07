@@ -50,6 +50,7 @@ namespace Experimot.Kinect.Perception
             }
             if (info == null)
             {
+                MessageBox.Show("Info null");
                 MainWindow = new MainWindow();
             }
             else
@@ -197,7 +198,6 @@ namespace Experimot.Kinect.Perception
                 {
                     dbList.Add(defaultValue);
                 }
-
                 var module = new GestureRecognitionModule {name = node.name};
                 foreach (var db in dbList)
                 {
@@ -229,7 +229,8 @@ namespace Experimot.Kinect.Perception
                             socket.Send(ms.GetBuffer(), (int)ms.Length);
                         }
                         
-                        var msg = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, timeout));
+                        //var msg = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, timeout));
+                        var msg = socket.ReceiveString();
                         if (msg != null)
                         {
                             Log.InfoFormat("Motion registration response: {0}", msg);

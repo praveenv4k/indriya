@@ -6,6 +6,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
 using Common.Logging;
 using experimot.msgs;
 using Microsoft.Kinect;
@@ -68,7 +70,6 @@ namespace Experimot.Kinect.Perception
                 if (database != null)
                 {
                     _gestures.AddRange(database.GestureNames);
-
                     foreach (var gesture in database.Gestures)
                     {
                         _vgbFrameSource.AddGesture(gesture);

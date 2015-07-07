@@ -20,6 +20,7 @@ using experimot.msgs;
 using Experimot.Core.Util;
 using Microsoft.Kinect;
 using System;
+using System.Linq;
 #if USE_KINECT_BODIES
 #else
 using KinectEx;
@@ -114,7 +115,7 @@ namespace Experimot.Kinect.Perception
             {
                 dbList.Add(defaultValue);
             }
-
+            //MessageBox.Show(string.Join("\n", _node.param.Select(s=>s.value)));
             _database = new GestureDatabase(dbList);
 
             for (int i = 0; i < maxBodies; ++i)
