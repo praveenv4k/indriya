@@ -1,0 +1,171 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_composable_simple" id="61" inline="false" x="113" y="-37">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="trigger" id="65">
+        <field name="MOTION_TRIGGER">HumanDetected</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="parallel_execute" id="31">
+        <statement name="BRANCH1">
+          <block type="robot_action" id="32">
+            <field name="actions">Greet</field>
+            <field name="ROBOT">Hiro</field>
+          </block>
+        </statement>
+        <statement name="BRANCH2">
+          <block type="robot_action" id="33">
+            <field name="actions">Greet</field>
+            <field name="ROBOT">Taro</field>
+          </block>
+        </statement>
+        <next>
+          <block type="animated_say_action" id="34">
+            <field name="SAY_TEXT">I am Hiro</field>
+            <field name="ROBOT">Hiro</field>
+            <next>
+              <block type="animated_say_action" id="35">
+                <field name="SAY_TEXT">And I am Taro</field>
+                <field name="ROBOT">Taro</field>
+                <next>
+                  <block type="animated_say_action" id="36">
+                    <field name="SAY_TEXT">We want to introduce Indriya system. Taro, you want to start?</field>
+                    <field name="ROBOT">Hiro</field>
+                    <next>
+                      <block type="animated_say_action" id="37">
+                        <field name="SAY_TEXT">Yes sure.</field>
+                        <field name="ROBOT">Taro</field>
+                        <next>
+                          <block type="animated_say_action" id="38">
+                            <field name="SAY_TEXT">Indriya helps to design interaction scenario based on human behaviors</field>
+                            <field name="ROBOT">Taro</field>
+                            <next>
+                              <block type="animated_say_action" id="39">
+                                <field name="SAY_TEXT">That's right! You can design program to respond to a gesture</field>
+                                <field name="ROBOT">Hiro</field>
+                                <next>
+                                  <block type="animated_say_action" id="40">
+                                    <field name="SAY_TEXT">And also to a voice command from the user</field>
+                                    <field name="ROBOT">Taro</field>
+                                    <next>
+                                      <block type="animated_say_action" id="41">
+                                        <field name="SAY_TEXT">You can also program two robots operate in parallel</field>
+                                        <field name="ROBOT">Hiro</field>
+                                        <next>
+                                          <block type="animated_say_action" id="42">
+                                            <field name="SAY_TEXT">And finally you can design behaviors with priority</field>
+                                            <field name="ROBOT">Taro</field>
+                                            <next>
+                                              <block type="animated_say_action" id="43">
+                                                <field name="SAY_TEXT">If you want both of us to dance together, wave your left hand</field>
+                                                <field name="ROBOT">Hiro</field>
+                                                <next>
+                                                  <block type="animated_say_action" id="44">
+                                                    <field name="SAY_TEXT">If you want to interrupt at any time, say STOP loudly</field>
+                                                    <field name="ROBOT">Taro</field>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="45" inline="false" x="488" y="463">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">high</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="voice_trigger" id="46">
+        <field name="VOICE_TRIGGER">STOP</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="turn_action" id="74">
+        <field name="actions">right</field>
+        <field name="ROBOT">Hiro</field>
+        <next>
+          <block type="animated_say_action" id="47">
+            <field name="SAY_TEXT">Taro, we received a stop command.</field>
+            <field name="ROBOT">Hiro</field>
+            <next>
+              <block type="animated_say_action" id="48">
+                <field name="SAY_TEXT">Yes, Let us go to rest position</field>
+                <field name="ROBOT">Taro</field>
+                <next>
+                  <block type="parallel_execute" id="49">
+                    <statement name="BRANCH1">
+                      <block type="turn_action" id="75">
+                        <field name="actions">left</field>
+                        <field name="ROBOT">Hiro</field>
+                        <next>
+                          <block type="robot_rest_action" id="50">
+                            <field name="ROBOT">Hiro</field>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <statement name="BRANCH2">
+                      <block type="robot_rest_action" id="51">
+                        <field name="ROBOT">Taro</field>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="52" inline="false" x="113" y="488">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="trigger" id="55">
+        <field name="MOTION_TRIGGER">Greet_Left</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="parallel_execute" id="56">
+        <statement name="BRANCH1">
+          <block type="robot_action" id="57">
+            <field name="actions">Dance</field>
+            <field name="ROBOT">Hiro</field>
+          </block>
+        </statement>
+        <statement name="BRANCH2">
+          <block type="robot_action" id="58">
+            <field name="actions">Dance</field>
+            <field name="ROBOT">Taro</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

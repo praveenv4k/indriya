@@ -86,7 +86,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false" name="gesture_recognition">
+    <node enabled="true" name="gesture_recognition">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Perception\Experimot.Kinect.Perception.exe</path>
@@ -128,7 +128,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="false" name="speech_recognition">
+    <node enabled="true" name="speech_recognition">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Speech\Experimot.Kinect.Speech.exe</path>

@@ -163,6 +163,18 @@
           <item> taro </item>
         </one-of>
       </item>
+      <item>
+        <tag>Coffee</tag>
+        <one-of>
+          <item> coffee </item>
+        </one-of>
+      </item>
+      <item>
+        <tag>Tea</tag>
+        <one-of>
+          <item> tea </item>
+        </one-of>
+      </item>
       <!--<item>
         <tag>NAME</tag>
         <one-of>
