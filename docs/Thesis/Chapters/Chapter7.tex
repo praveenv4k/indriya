@@ -37,12 +37,9 @@ In summary Indriya platform
 \item Gives opportunity to augment multimodal sensor to the existing perception system of the robot
 \item Provides easy to user interface for designing the scenarios
 \end{itemize}
-and it is not
-\begin{itemize}
-\item A system to design low level control of a robot
-\end{itemize}
+and it is not a tool to design low level joint/cartesian motions of the robot.
 	
-The source code of the complete platform is available as Open source at \url{https://github.com/praveenv4k/Indriya}. 
+The source code of the complete platform is available as open source at \url{https://github.com/praveenv4k/Indriya}. 
 \subsection{Project Statistics}
 The project has an extensive code base consisting of over 30k lines of code (counted using CLOC \cite{cloc} tool). The software has been written using diverse programming language according to the best fit for the purpose. The code statistics is shown in Fig.\ref{fig:code_stats}.
 % \begin{table}[h!]
@@ -128,7 +125,7 @@ Others & 5470\\
 \begin{itemize}
 \item Developing a huge database of commonly encountered gestures in social environment
 \item Developing an extensive database of robot actions that the user expects it do on a daily basis
-\item Developing an interface definition language to generate the visual programming blocks and code generation modules for those blocks automatically.
+\item Developing an interface definition language (IDL) which could be used to generate the visual programming blocks and code generation modules automatically.
 \item Integration of data management system/user databases to persist and retrieve user information for personalized interaction experience
 \item Integration of sensors available in smartphone and wearable devices like IMUs, Gyroscopes, GPS etc.,
 \item Integration of Natural Language Processing systems with the speech recognition module for more natural interaction
@@ -139,6 +136,6 @@ Others & 5470\\
 \section{Conclusion} % Main chapter title
 Human Robot Interaction is a complex interdisciplinary problem that needs expertise in various fields like human computer interaction, psychology, sociology, humanoid robotics etc., Social robots have become very common in the recent days and they find useful applications in entertainment, education, autism treatment and elderly care. 
 
-For an efficient interaction with human, the robot has to understand his/her behaviors and also the environment around him. This is only possible when the robot has necessary perception capabilities to make it aware of the situation. However the onboard sensors most often cannot deliver all the information necessary for an effective interaction. The abundance of smart devices and sensors in the smart home and public environments can be exploited for this purpose and RGB-D sensors like Microsoft Kinect provides a convincing solution.
+For an efficient interaction with human, the robot has to understand his/her behaviors and also the environment around him. This is only possible when the robot has necessary perception capabilities to make it aware of the situation. However the onboard sensors most often cannot deliver all the information necessary for an effective interaction. The abundance of smart devices and sensors in the smart home and public environments could be used for an immersive and personalized human robot interaction experience. 
 
-The people from interdisciplinary fields wanting to develop a rich interaction scenario find it difficult to use the existing technology as it requires strong background in programming. Any new programming paradigm designed for such purposes should find a correct balance between simplicity and expressiveness which was the main motivation behind this thesis. The behavior programming paradigm proposed in this thesis could be used for studying various aspects of HRI such as efficiency of the system, cooperativeness, social acceptance etc., There exist some open questions and challenges to be addressed however. The preliminary challenges are to find a set of all possible human motions that could be understood from the sensors distributed around in the environment and to identify all possible actions a robot could perform to interact with human in a social interaction scenario. The next question is to find the spectrum of interaction scenarios this kind of programming interface could cover. 
+The people from interdisciplinary fields wanting to develop a rich interaction scenario find it difficult to use the existing technology as it requires strong background in programming. Any new programming paradigm designed for such purposes should find a correct balance between simplicity and expressiveness which was the main motivation behind this thesis. The behavior programming paradigm and the designer interface developed in this thesis could be used to interaction scenarios for studying various aspects of HRI such as efficiency of the system, cooperativeness, social acceptance etc., There exist some open questions and challenges to be addressed however. The preliminary challenges are to find a set of all possible human motions that could be understood from the sensors distributed around in the environment and to identify all possible actions a robot could perform to interact with human in a social interaction scenario. The next question is to find the spectrum of interaction scenarios this kind of programming interface could cover. These issues could be effectively addressed owing to the modular design and extensible nature of Indriya.
