@@ -95,7 +95,7 @@ namespace Experimot.Kinect.Speech
                         socket.Connect(server);
                         socket.Send(name);
 
-                        var msg = socket.ReceiveMessage(new TimeSpan(0, 0, 0, 0, timeout));
+                        var msg = socket.ReceiveMessage();
                         if (msg != null)
                         {
                             if (msg.FrameCount > 0)

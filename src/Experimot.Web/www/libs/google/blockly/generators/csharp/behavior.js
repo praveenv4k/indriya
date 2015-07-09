@@ -398,7 +398,7 @@ Blockly.CSharp['approach_action'] = function(block) {
         '{"rotation", BehaviorModuleHelper.CreateBehaviorParameterOptions("0", false, "float")},\n' +
         '{"human", BehaviorModuleHelper.CreateBehaviorParameterOptions("1", false, "float")},\n' +
         '{"dist", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + distance + ', false, "float")},\n' +
-        '{"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(' + distance + ', true, "float")},\n' +
+        '{"x", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")},\n' +
         '{"y", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")},\n' +
         '{"theta", BehaviorModuleHelper.CreateBehaviorParameterOptions(0.0, true, "float")}\n' +
         '}\n' +
