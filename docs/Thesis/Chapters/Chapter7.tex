@@ -7,7 +7,6 @@
 In this section summary of the Indriya platform is described
 \subsection{System specification}
  The Indriya platform could be seen as a product by itself. The product specification is shown in Table~\ref{table:system_spec}.
-
 \begin{table}[H]
 \centering
 %\small
@@ -17,20 +16,19 @@ In this section summary of the Indriya platform is described
 \hline
   Hardware & \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] 
                                                   \item Supported Robots: Nao
-                                                  \item Sensor: Kinect for Windows V2
+                                                  \item Sensor: Kinect for Windows V2, External microphone (optional)
                                                   \item PC: x64 processor, min 4GB memory, Physical dual-core 3.1 GHz or more, USB 3.0 controller, DX11 capable graphics adapter
                                                   \end{itemize} 
                                           \tabularnewline\hline
                                           
   Software &  \begin{itemize}[leftmargin=*,topsep={0pt},itemsep={0pt},partopsep={0pt},parsep={0pt}] 
                                                   \item Platform: Windows 8.1
-                                                  \item For running: Microsoft .NET 4.5.1, Visual C++ 2013 redistributable, Naoqi Python SDK v2.3.3, Kinect for Windows SDK
+                                                  \item For running: Microsoft .NET 4.5.1, Visual C++ 2013 redistributable, Naoqi Python SDK v2.1.3, Kinect for Windows SDK
                                                   \item For developing: Please go through readme file: \url{https://github.com/praveenv4k/Indriya/blob/master/README.md}
                                                 \end{itemize} 
                                           \tabularnewline\hline
 \end{tabular}
 \end{table}
-
 In summary Indriya platform
 \begin{itemize}
 \item Is a software to design HRI scenarios based on human behaviors
@@ -41,7 +39,7 @@ and it is not a tool to design low level joint/cartesian motions of the robot.
 	
 The source code of the complete platform is available as open source at \url{https://github.com/praveenv4k/Indriya}. 
 \subsection{Project Statistics}
-The project has an extensive code base consisting of over 30k lines of code (counted using CLOC \cite{cloc} tool). The software has been written using diverse programming language according to the best fit for the purpose. The code statistics is shown in Fig.\ref{fig:code_stats}.
+The project has an extensive code base consisting of over 30k lines of code (counted using CLOC \cite{cloc} tool). The software has been written using diverse programming languages according to the ``best fit for the purpose''. The code statistics is shown in Fig.\ref{fig:code_stats}.
 % \begin{table}[h!]
 %   \begin{center}
 %     \caption{Project Code Statistics}
@@ -99,19 +97,19 @@ The project has an extensive code base consisting of over 30k lines of code (cou
   \begin{tikzpicture}[scale=0.8]
   %\pie[text=legend]{43.85/C\#, 22.83/C++, 9.52/Python, 6.96/Javascript, 16.8/Others} 
   %\pie[ cloud , text = inside , scale font ]{43.85/C\#, 22.83/C++, 9.52/Python, 6.96/Javascript, 16.8/Others}
-  \pie[ cloud , text = inside ]{44.11/C\#,22.34/C++,9.41/Python,6.79/JS,17.34/Others}
+  \pie[ cloud , text = inside ]{44.32/C\#,22.18/C++,9.35/Python,6.74/JS,17.41/Others}
   %\pie[ square]{43.85/C\#, 22.83/C++, 9.52/Python, 6.96/JS, 16.8/Others}
   \end{tikzpicture}
   \qquad
   \begin{tabular}[b]{|c|c|}\hline
 Language & Lines of code \\ \hline 
-C\# & 13911\\ 
+C\# & 14081\\ 
 C++ & 7046\\ 
 Python & 2969\\ 
 Javascript (JS) & 2141\\ 
-Others & 5470\\ 
+Others & 5532\\ 
 \hline 
- Total & 31537\\ \hline 
+ Total & 31769\\ \hline 
   \end{tabular}
   %\captionlistentry[table]{Indriya: Code statistics}
   %\captionsetup{labelformat=andtable}

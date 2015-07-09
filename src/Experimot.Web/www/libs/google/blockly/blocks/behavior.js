@@ -1337,6 +1337,7 @@ Blockly.Blocks['sleep_for'] = {
             .appendField(new Blockly.FieldTextInput("1000"), "SLEEP_FOR");
         this.appendDummyInput()
             .appendField(" milliseconds");
+        this.setInputsInline(true);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.setTooltip('');

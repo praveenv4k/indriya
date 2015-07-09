@@ -67,7 +67,7 @@ The questionnaire is presented in Appendix~\ref{AppendixD}. Most of the question
 \end{itemize}
 
 \section{Data analysis}
-Statistical analysis is performed on the data collected during the user study. Ten participants (Age mean: 22.3, SD: 4.47) were asked to program an interaction scenario using Indriya. About 50\% of the participants reported that they have beginner level proficiency in programming and do not have background in robotics. The usability metrics such as learnability, effectiveness, efficiency and satisfaction are focused on. To start with, \emph{Factor analysis} is performed to find the dominant factors in the data. The mean and SD of the factor-wise usability metrics are shown in Fig.~\ref{fig:metrics}. The users found the system easy to learn to use and get started. About 80\% of the participants were able to create a scenario and execute it on real robot in less than 30 minutes.
+Statistical analysis is performed on the data collected during the user study. Ten participants (Age mean: 22.3, SD: 4.47) were asked to program an interaction scenario using Indriya. About 50\% of the participants reported that they have beginner level proficiency in programming and do not have background in robotics. The usability metrics such as learnability, effectiveness, efficiency and satisfaction are focused on. To start with, \emph{Factor analysis} is performed on the data to find the dominant factors in the data. The mean and SD of the factor-wise usability metrics are shown in Fig.~\ref{fig:metrics}. Almost all the users found the system easy to learn to use and get started. About 80\% of the participants were able to create a scenario and execute it on real robot in less than 30 minutes.
  \begin{figure}
  \centering
  \includegraphics[width=\columnwidth]{../../thesis/assets/usability.eps}
@@ -99,14 +99,13 @@ Statistical analysis is performed on the data collected during the user study. T
 \end{tabular}
 \end{center}
 \end{table}
-
- As observed in Table~\ref{table:correlation}, the users who found the program structure easy to understand also found the application easy to use. The users who felt that the application is convenient had a strong impact on the scenario creation. The users who were able to successfully execute the scenario rated that they found it easy to create the scenario and additionally found the robot reactive to gestures and voice commands which makes sense. 
+In order to find the correlation between various metrics shown in Fig.~\ref{fig:metrics}, Pearson correlation cofficient is computed. The most interesting outcomes are shown in Table~\ref{table:correlation}. As observed in the table, the users who found the program structure easy to understand also found the application easy to use. The users who felt that the application is convenient had a strong impact on the scenario creation. The users who were able to successfully execute the scenario rated that they found it easy to create the scenario and additionally found the robot reactive to gestures and voice commands which makes sense. 
  
 \section{Summary and discussion}
 Thanks to the user study, apart from evaluating the system, several extreme cases and the functionalities an user expects out of the system were determined. The summary of the observations are
 \begin{itemize}
 \item Speech recognition: Many users suggested the usage of an external microphone for the speech recognition. Most of the time during the interaction, the user is far away from the Kinect sensor so the voice recognition fails. This feedback from the user was immediately considered and an external microphone is used during the user study with the last four participants. 
 \item Exit behavior: The interpretation of exit behavior was different from user to user. It was observed that the participants had difficulty in observing when the life time of all configured blocks complete.
-\item Triggers: Many users attempted to aggregate multiple triggers together to fire the execution of behavior block. Moreover some users wanted to fire a behavior block with some variable. The users also wanted to execute the trigger behavior blocks until a gesture trigger arrives or wait for a gesture (similar to voice response) to continue execution etc., These features will be considered to be implemented in the next version of the software.
+\item Triggers: Many users attempted to aggregate multiple triggers together to fire the execution of a behavior block. Moreover some users wanted to fire a behavior block with some variable. The users also wanted to execute the trigger behavior blocks until a gesture trigger arrives or wait for a gesture (similar to voice response) to continue execution etc., These features will be considered to be implemented in the next version of the software.
 \item Robot-robot interaction: The participants who programmed two robots went beyond human-robot interaction and tried to design robot-robot interaction scenarios. This possibility was not considered while authoring Indriya and it opens up new lines of research.
 \end{itemize}

@@ -337,7 +337,7 @@ The Nao robot interface makes use of the NaoQi python SDK which provides API for
 \caption[NAO robot Interface]{NAO robot Interface}
 \label{fig:nao_interface}
 \end{figure}
-The visual representation of a set of action blocks developed for Nao humanoid robot is illustrated in Section~\ref{sec:block_impl}
+The visual representation of a set of action blocks developed for Nao humanoid robot can be found in Table~\ref{table:nao_blocks}
 % \begin{center}
 % \begin{tikzpicture}[scale=0.2]
 % \tikzstyle{every node}+=[inner sep=0pt]
@@ -581,10 +581,10 @@ The trigger behavior block is designed in such a way that it incorporates the co
 The block interface is reactive in the sense that for instance when the lifetime of the block is switched from \emph{Once/Forever} to \emph{Until}, a new input appears in the block where the user can add the condition to stop the block.
 
 \subsection{Code generation and execution}
-The next step in the behavior program design flow is to generate the executable code from the blocks and execute them. The surface on which the program is designed, is called the \emph{workspace}. Each blocks developed as part of the platform has an associated code generation module. So when the user decides to run a program, as a first step all the blocks in the workspace are iterated and code is generated. The blockly editor supports code generation for programming languages like JS, Python and Dart. However a special code generator that could generate C\# code from the blocks has been. This is because most of the platform is written in C\# and there are loads of goodies that comes with the .NET framework. Traditionally there is a need to compile the C\# code and generate binaries when one wants to execute it. Thanks to the latest compiler technologies and tools like ScriptCS \cite{ScriptCS}, it is now possible to run the C\# code like scripts. This is exploited in the experimental platform to dynamically generate the code and run.
+The next step in the behavior program design flow is to generate the executable code from the blocks and execute them. Each blocks developed as part of the platform has an associated code generation module. So when the user decides to run a program, as a first step all the blocks in the workspace (the surface on which the program is designed) are iterated and code is generated. The blockly editor supports code generation for programming languages like JS, Python and Dart. However a custom code generator that could generate C\# code from the blocks has been used in Indriya. This is because most of the platform is written in C\# and there are loads of goodies that comes with the .NET framework. Traditionally there is a need to compile the C\# code and generate binaries when one wants to execute it. Thanks to the latest compiler technologies and tools like ScriptCS \cite{ScriptCS}, it is now possible to run the C\# code like scripts. This is exploited in the platform to dynamically generate the code and run.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{../thesis/assets/execution_flow.eps}
+\includegraphics[width=0.6\textwidth]{../thesis/assets/execution_flow.eps}
 \caption[Behavior program - Execution flow]{Behavior program - Execution flow}
 \label{fig:program_execution}
 \end{figure}
@@ -622,11 +622,11 @@ The next step in the behavior program design flow is to generate the executable 
  \caption{Behavior execution algorithm}
  \label{alg:behavior_engine}
 \end{algorithm}
- The execution flow of the behavior program is shown in Fig.~\ref{fig:program_execution}. The generated behavior program is consumed by a \emph{Behavior execution engine} which dynamically identifies the configured behavior blocks. The main functionality of the behavior execution engine is to check if the trigger condition of the behavior blocks is met and once the condition is met, the execution of the corresponding behavior is scheduled on a separate CPU thread. The behavior program accesses the uptodate information about the environment through the interface namely the \emph{Behavior execution context} which acts as a proxy to the \emph{Application context}. The algorithm of the behavior execution by the engine is shown in Algorithm~\ref{alg:behavior_engine}.
+ The execution flow of the behavior program is shown in Fig.~\ref{fig:program_execution}. The generated behavior program is consumed by a \emph{Behavior execution engine} which dynamically identifies the configured behavior blocks. The main functionality of the behavior execution engine is to iterate and check if the trigger condition of the behavior block is met and once the condition is met, the execution of the corresponding behavior block is scheduled on a separate CPU thread. The behavior program accesses the uptodate information about the environment through the interface named the \emph{Behavior execution context} which acts as a proxy to the \emph{Application context}. The algorithm of the behavior execution by the engine is shown in Algorithm~\ref{alg:behavior_engine}.
 \section{User interface}
 \label{ssec:ui_comp}
-The user interface is a web application that runs on any latest web-kit browsers supporting HTML5, CSS3 and WebGL technologies. The list of libraries and components used to build the web interface has been described in Section~\ref{sec:ui_design}. In this section the various screens in the developed user interface has been described. 
-\begin{figure}[H]
+The user interface is a web application that runs on any latest web-kit browsers supporting HTML5, CSS3 and WebGL technologies. The list of libraries and components used to build the web interface has been described in Section~\ref{sec:ui_design}. In this section the various screens in the developed user interface shown in Fig~\ref{fig:behavior_designer} has been described. 
+\begin{figure}
 \centering
 \begin{tikzpicture}
     \node [anchor=north] (main) at (1.5,9.5) {\Large Main Tabs};
@@ -658,112 +658,110 @@ The user interface is a web application that runs on any latest web-kit browsers
     \caption[Behavior designer]{Behavior designer}
     \label{fig:behavior_designer}
 \end{figure}
-The UI is composed of tabbed interface consisting of 3 main components as shown in Fig~\ref{fig:behavior_designer}.
-\begin{itemize}
-\item Design: To design the behavior
-\item Visualize: To visualize the interaction
-\item Monitor: To visualize the human and robot information
-\end{itemize}
-\subsection*{Behavior Designer} The Behavior designer surface could be used by the user to drag and drop the behavior blocks. The behavior designer is shown in Fig~\ref{fig:behavior_designer}.
-The behavior designer is the core component of the user interface. The designer is composed of 
-\begin{itemize}
-\item Designer command panel : It contains command buttons like Open/Save/Clear/Run which makes it easy to perform operations like creating a new program, saving the program to the server, Clear the workspace and Running the active behavior program
-\item Toolbox : It contains behavior, action and trigger blocks needed to realize the behavior program. It also contains the standard logical blocks that comes with Blockly editor. The toolbox components are categorized according to their functionality. The description of user interface blocks to build scenarios apart from the basic constructs of behavior program are shown in Table~\. These custom blocks are written in Javascript.
-\item Designer surface: The designer surface is the playground where the user can create behavior program by dropping in blocks from the toolbox.
-\end{itemize}
-% %\begin{table}[H]
-% \begin{longtable}[H]{|p{3cm}|r|p{8cm}|}
-% %\centering
-% %\small
-% %\caption{Implemented blocks}
-% %\label{table:toolbox_blocks}
-% %\begin{tabular}{|p{3cm}|r|p{8cm}|}
-%   \hline
-%     \multicolumn{3}{|c|}{Nao action blocks}\\
-%     \hline
-%     \multirow{4}{*}{Move straight}& {} & {} \\
-%                              & Visual & \parbox[c]{1em}{\includegraphics[width=4cm]{../thesis/assets/blocks/nao_move.png}} \\
-%                              & Description & The robot moves straight for the specified distance. \\
-%                              & Parameters & \begin{itemize} \item Distance in metres \item Name/Id of robot \end{itemize} \\
-%     \hline
-%     \multirow{4}{*}{Turn}& {} & {} \\
-%                              & Visual & \parbox[c]{1em}{\includegraphics[width=4cm]{../thesis/assets/blocks/nao_turn.png}} \\
-%                              & Description & The robot turn towards the direction specified \\
-%                              & Parameters & \begin{itemize} \item Direction: Left, Right, Around \item Name/Id of robot \end{itemize} \\
-%     \hline
-%     \multirow{4}{*}{Approach}& {} & {} \\
-%                              & Visual & \parbox[c]{1em}{\includegraphics[width=8cm]{../thesis/assets/blocks/nao_approach.png}} \\
-%                              & Description & The robot approaches towards the human who interacted with the robot through a gesture/voice command until the specified distance threshold is reached. \\
-%                              & Parameters & \begin{itemize} \item Distance threshold in metres \item Name/Id of robot \end{itemize} \\
-
-%     \hline
-%     \multirow{4}{*}{Standard action}& {} & {} \\
-%                              & Visual & \parbox[c]{1em}{\includegraphics[width=4cm]{../thesis/assets/blocks/nao_behavior.png}} \\
-%                              & Description & The robot performs certain standard actions \\
-%                              & Parameters & \begin{itemize} \item Action name: Greet, Stand, Sit etc., \item Name/Id of robot \end{itemize} \\
-
-%     \hline
-%     \multirow{4}{*}{Say}& {} & {} \\
-%                              & Visual & \parbox[c]{1em}{\includegraphics[width=8cm]{../thesis/assets/blocks/nao_say.png}} \\
-%                              & Description & The robot speaks the input text expressively (using hand and head motions)  \\
-%                              & Parameters & \begin{itemize} \item Text to speak \item Name/Id of robot \end{itemize} \\
-
-%     \hline
-%     \multirow{4}{*}{Say with argument}& {} & {} \\
-%                              & Visual & \parbox[c]{1em}{\includegraphics[width=8cm]{../thesis/assets/blocks/nao_arg_say.png}} \\
-%                              & Description & A variable could be used in the text to speak  \\
-%                              & Parameters & \begin{itemize} \item Prefix/Suffix text with variable placeholder \item Name/Id of robot \end{itemize} \\
-
-%     % {} & {} \\
-%     % Block&\parbox[c]{1em}{\includegraphics[width=5in]{../thesis/assets/blocks/nao_approach.png}} \\
-%     % \hline
-%     % Description& The signal that activates the behavior block. The trigger source could be either of human presence/absence, motion gesture, vicinity of human, verbal command or any boolean edge trigger. \\
-%     % \hline
-%     % Parameters& {} \\
-%     \hline
-%   % \multicolumn{2}{|c|}{Nao action blocks} \\
-%   % Block: \parbox[c]{1em}{\includegraphics[width=5in]{../thesis/assets/blocks/nao_approach.png}} \\
-%   % Description: The signal that activates the behavior block. The trigger source could be either of human presence/absence, motion gesture, vicinity of human, verbal command or any boolean edge trigger. \\
-%   % Parameters : 
-%   %                                         \tabularnewline\hline
-% %\end{tabular}
-% \end{longtable}
-%\begin{table}[H]
-\begin{longtable}[H]{|r|p{12cm}|}
+% The UI is composed of tabbed interface consisting of 3 main components as shown in Fig~\ref{fig:behavior_designer}.
+% \begin{itemize}
+% \item Design: To design the behavior
+% \item Visualize: To visualize the interaction
+% \item Monitor: To monitor the human and robot information
+% \end{itemize}
+\begin{table}[htbp]
+\centering
+\small
+\caption{Trigger, Speech and Miscellaneous blocks}
+\label{table:multi_blocks}
+\begin{tabular}{|r|p{12cm}|}
     \hline
     \multicolumn{2}{|c|}{Trigger blocks}\\
     \hline
      {} & {} \\
-                             Visual & \parbox[c]{1em}{\includegraphics[width=5cm]{../thesis/assets/blocks/triggers_gesture.png}} \\
+                             Visual & \parbox[c]{1em}{\includegraphics[width=4cm]{../thesis/assets/blocks/triggers_gesture.png}} \\
                              Name   & Gesture trigger \\
                              Description & The block that detects the human gesture and generates the trigger \\
                              Parameters & 1. Gesture to be detected (WaveLeft, WaveRight, LiftLeft, LiftRight, Seated etc.,) \\ 
     \hline
     {} & {} \\
-                             Visual & \parbox[c]{1em}{\includegraphics[width=5cm]{../thesis/assets/blocks/triggers_speech1.png}} \\
-                             {} & \parbox[c]{1em}{\includegraphics[width=5cm]{../thesis/assets/blocks/triggers_speech2.png}} \\
+                             Visual & \parbox[c]{1em}{\includegraphics[width=8cm]{../thesis/assets/blocks/triggers_speech.png}} \\ 
+                             %\parbox[r]{1em}{\includegraphics[width=4cm]{../thesis/assets/blocks/triggers_speech2.png}} \\
                              Name   & Voice trigger \\
                              Description & The block that detects the predefined voice commands and generates the trigger \\
                              Parameters & 1. Voice command to be detected (Go, Stop, Good bye, Come here, Help etc.,) \\
+    \hline
+% \end{tabular}
+% \end{table}
+% \begin{table}
+% \centering
+% \small
+% \caption{Speech blocks}
+% \label{table:speech_blocks}
+% \begin{tabular}{|r|p{12cm}|}
+    \hline
+    \multicolumn{2}{|c|}{Speech blocks}\\
+    \hline
+     {} & {} \\
+                             Visual & \parbox[c]{1em}{\includegraphics[width=3cm]{../thesis/assets/blocks/speech_wait.png}} \\
+                             Name   & Speech response block \\
+                             Description & Waits for the speech response from human and performs actions corresponding to the response \\
+                             Parameters & 1. List of actions to be performed when the response corresponds to choice 1 \\
+                             {}         & 2. List of actions to be performed when the response corresponds to choice 2 \\
+    \hline
+% \end{tabular}
+% \end{table}
+% \begin{table}
+% \centering
+% \small
+% \caption{Miscellaneous blocks}
+% \label{table:misc_blocks}
+% \begin{tabular}{|r|p{12cm}|}
+    \hline
+    \multicolumn{2}{|c|}{Miscellaneous blocks}\\
+    \hline
+     {} & {} \\
+                             Visual & \parbox[c]{1em}{\includegraphics[width=5cm]{../thesis/assets/blocks/console_print.png}} \\
+                             Name   & Console print \\
+                             Description & To print a debugging message in the terminal during program execution \\
+                             Parameters & 1. Message to print \\ 
+    \hline
+    {} & {} \\
+                             Visual & \parbox[c]{1em}{\includegraphics[width=4.5cm]{../thesis/assets/blocks/sleep.png}} \\
+                             Name   & Sleep \\
+                             Description & To suspend execution for a specified interval of time \\
+                             Parameters & 1. Interval in milliseconds \\
+    \hline
+    {} & {} \\
+                             Visual & \parbox[c]{1em}{\includegraphics[width=2.5cm]{../thesis/assets/blocks/parallel.png}} \\
+                             Name   & Parallel execution block \\
+                             Description & To perform two tasks simulataneously. Care should be taken that the action is not performed on the same robot on both the branches of the block \\
+                             Parameters & 1. List of actions to be performed on robot 1 \\
+                             {}         & 2. List of actions to be performed on robot 2 \\
+
+    \hline
+\end{tabular}
+\end{table}
+\begin{table}
+\centering
+\small
+\caption{Nao blocks}
+\label{table:nao_blocks}
+\begin{tabular}{|r|p{12cm}|}
     \hline                             
     \multicolumn{2}{|c|}{Nao action blocks}\\
     \hline
      {} & {} \\
-                             Visual & \parbox[c]{1em}{\includegraphics[width=7cm]{../thesis/assets/blocks/nao_move.png}} \\
+                             Visual & \parbox[c]{1em}{\includegraphics[width=6cm]{../thesis/assets/blocks/nao_move.png}} \\
                              Name   & Move straight action \\
                              Description & The robot moves straight for the specified distance. \\
                              Parameters & 1. Distance in metres \\ 
                              {}         & 2. Name/Id of robot \\
     \hline
     {} & {} \\
-                             Visual & \parbox[c]{1em}{\includegraphics[width=6cm]{../thesis/assets/blocks/nao_turn.png}} \\
+                             Visual & \parbox[c]{1em}{\includegraphics[width=5cm]{../thesis/assets/blocks/nao_turn.png}} \\
                              Name   & Turn action \\
                              Description & The robot turn towards the direction specified \\
                              Parameters & 1. Direction: Left, Right, Around \\
                              {}         & 2. Name/Id of robot \\
     \hline
     {} & {} \\
-                             Visual & \parbox[c]{1em}{\includegraphics[width=11cm]{../thesis/assets/blocks/nao_approach.png}} \\
+                             Visual & \parbox[c]{1em}{\includegraphics[width=10cm]{../thesis/assets/blocks/nao_approach.png}} \\
                              Name   & Approach action \\
                              Description & The robot approaches towards the human who interacted with the robot through a gesture/voice command until the specified distance threshold is reached. \\
                              Parameters & 1. Distance threshold in metres \\
@@ -771,7 +769,7 @@ The behavior designer is the core component of the user interface. The designer 
 
     \hline
     {} & {} \\
-                             Visual & \parbox[c]{1em}{\includegraphics[width=6cm]{../thesis/assets/blocks/nao_behavior.png}} \\
+                             Visual & \parbox[c]{1em}{\includegraphics[width=5cm]{../thesis/assets/blocks/nao_behavior.png}} \\
                              Name   & Standard action \\
                              Description & The robot performs certain standard actions \\
                              Parameters & 1. Action name: Greet, Stand, Sit etc., \\
@@ -779,7 +777,7 @@ The behavior designer is the core component of the user interface. The designer 
 
     \hline
     {} & {} \\
-                             Visual & \parbox[c]{1em}{\includegraphics[width=7cm]{../thesis/assets/blocks/nao_say.png}} \\
+                             Visual & \parbox[c]{1em}{\includegraphics[width=6.5cm]{../thesis/assets/blocks/nao_say.png}} \\
                              Name   & Say expressively action \\
                              Description & The robot speaks the input text expressively (using hand and head motions)  \\
                              Parameters & 1. Text to speak \\
@@ -795,56 +793,21 @@ The behavior designer is the core component of the user interface. The designer 
 
     \hline
     {} & {} \\
-                             Visual & \parbox[c]{1em}{\includegraphics[width=2.5cm]{../thesis/assets/blocks/nao_rest.png}} \\
+                             Visual & \parbox[c]{1em}{\includegraphics[width=2cm]{../thesis/assets/blocks/nao_rest.png}} \\
                              Name   & Rest \\
                              Description & Put the robot in rest mode and switch off the motors (to avoid heating and conserve power)  \\
                              Parameters & 1. Name/Id of robot \\
      
     \hline
-    \multicolumn{2}{|c|}{Speech blocks}\\
-    \hline
-     {} & {} \\
-                             Visual & \parbox[c]{1em}{\includegraphics[width=4cm]{../thesis/assets/blocks/speech_wait.png}} \\
-                             Name   & Speech response block \\
-                             Description & Waits for the speech response from human and performs actions corresponding to the response \\
-                             Parameters & 1. List of actions to be performed when the response corresponds to choice 1 \\
-                             {}         & 2. List of actions to be performed when the response corresponds to choice 2 \\
-    \hline
-    \multicolumn{2}{|c|}{Miscellaneous blocks}\\
-    \hline
-     {} & {} \\
-                             Visual & \parbox[c]{1em}{\includegraphics[width=6cm]{../thesis/assets/blocks/console_print.png}} \\
-                             Name   & Console print \\
-                             Description & To print a debugging message in the terminal during program execution \\
-                             Parameters & 1. Message to print \\ 
-    \hline
-    {} & {} \\
-                             Visual & \parbox[c]{1em}{\includegraphics[width=3cm]{../thesis/assets/blocks/sleep.png}} \\
-                             Name   & Sleep \\
-                             Description & To suspend execution for a specified interval of time \\
-                             Parameters & 1. Interval in milliseconds \\
-    \hline
-    {} & {} \\
-                             Visual & \parbox[c]{1em}{\includegraphics[width=3cm]{../thesis/assets/blocks/parallel.png}} \\
-                             Name   & Parallel execution block \\
-                             Description & To perform two tasks simulataneously. Care should be taken that the action is not performed on the same robot on both the branches of the block \\
-                             Parameters & 1. List of actions to be performed on robot 1 \\
-                             {}         & 2. List of actions to be performed on robot 2 \\
-
-    % {} & {} \\
-    % Block&\parbox[c]{1em}{\includegraphics[width=5in]{../thesis/assets/blocks/nao_approach.png}} \\
-    % \hline
-    % Description& The signal that activates the behavior block. The trigger source could be either of human presence/absence, motion gesture, vicinity of human, verbal command or any boolean edge trigger. \\
-    % \hline
-    % Parameters& {} \\
-    \hline
-  % \multicolumn{2}{|c|}{Nao action blocks} \\
-  % Block: \parbox[c]{1em}{\includegraphics[width=5in]{../thesis/assets/blocks/nao_approach.png}} \\
-  % Description: The signal that activates the behavior block. The trigger source could be either of human presence/absence, motion gesture, vicinity of human, verbal command or any boolean edge trigger. \\
-  % Parameters : 
-  %                                         \tabularnewline\hline
-%\end{tabular}
-\end{longtable}
+\end{tabular}
+\end{table}
+\subsection*{Behavior Designer} The Behavior designer surface could be used by the user to drag and drop the behavior blocks. The behavior designer is shown in Fig~\ref{fig:behavior_designer}.
+The behavior designer is the main component of the user interface. The designer is composed of 
+\begin{itemize}
+\item Designer command panel : It contains command buttons like Open/Save/Clear/Run which makes it easy to perform operations like creating a new program, saving the program to the server, Clear the workspace and Running the active behavior program
+\item Toolbox : It contains behavior, action and trigger blocks needed to realize the behavior program. It also contains the standard logical blocks that comes with Blockly editor. The toolbox components are categorized according to their functionality. The description of user interface blocks to build scenarios apart from the basic constructs of behavior program are shown in Tables~\ref{table:multi_blocks},\ref{table:nao_blocks}. These custom blocks are written in Javascript.
+\item Designer surface: The designer surface is the playground where the user can create behavior program by dropping in blocks from the toolbox and build the program.
+\end{itemize}
 \subsection*{Visualization} The visualization could be used to see the interaction of the human and robot inside a virtual 3D environment.
 % \begin{algorithm}
 %  \KwData{simulation\_config}
@@ -853,14 +816,15 @@ The behavior designer is the core component of the user interface. The designer 
 %  \quad INIT\_SUBSCRIBERS(simulation\_config) \;
 %  \quad LOAD\_ENVIRONMENT(simulation\_config) \; 
 %  \While{True}{
-%  	sensors = READ\_SENSOR\_VALUES() \; 
-%  	skeletons = READ\_SKELETON\_DATA() \; 
-%  	RENDER(robot,sensors)
+%   sensors = READ\_SENSOR\_VALUES() \; 
+%   skeletons = READ\_SKELETON\_DATA() \; 
+%   RENDER(robot,sensors)
 %  }
 %  \caption{Visualization algorithm}
 %  \label{alg:visualize}
 % \end{algorithm}
 \subsection*{Monitor}
 The monitor screen shows the current content of the application context in a tree view. This is mainly developed for debugging purpose.
+
 \section{Summary}
-The chapter discussed the software architecture of the Indriya platform. The specific implementation of a set of components of each layer in the software architecture are described which closes the design to execution loop of an HRI scenario. However as described earlier the architecture is open so that new robots interface nodes and sensor interface modules could be easily integrated in the Indriya platform.
+This chapter discussed the software architecture of the Indriya platform. The specific implementation of a set of components of each layer in the software architecture are described which closes the design to execution loop of an HRI scenario. The Indriya platform built on latest software technologies also gives possibility to extend it easily because to its modular design. The decentralized approach makes it easy to integrate new sensors like those in smartphones, wearables etc., and new social robots as well. Corresponding visual blocks could be created which will be available to the end-user via the user interface and could be used to create HRI scenarios.
