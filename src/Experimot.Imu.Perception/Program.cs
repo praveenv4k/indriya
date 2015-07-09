@@ -211,16 +211,11 @@ namespace Experimot.Imu.Perception
                         socket.Connect(server);
                         socket.Send(name);
 
-                        var msg = socket.ReceiveMessage(new TimeSpan(0, 0, 0, 0, timeout));
+                        var msg = socket.ReceiveMessage();
                         if (msg != null)
                         {
                             if (msg.FrameCount > 0)
                             {
-                                //    var nodeInfo = Serializer.Deserialize<Node>(msg.First.Buffer);
-                                //    MessageBox.Show(string.Format("Received node info!"));
-                                //    return nodeInfo;
-                                //}
-
                                 using (var memStream = new MemoryStream(msg.First.Buffer))
                                 {
                                     var nodeInfo = Serializer.Deserialize<Node>(memStream);
