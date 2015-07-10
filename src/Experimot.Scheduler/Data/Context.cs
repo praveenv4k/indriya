@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using Caliburn.Micro;
 using experimot.msgs;
 using Experimot.Scheduler.Annotations;
+using Newtonsoft.Json;
 using ILog = Common.Logging.ILog;
 using LogManager = Common.Logging.LogManager;
 
@@ -163,6 +164,7 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        private bool serializeHuman = false;
         public void Update(KinectBodies kinectBodies)
         {
             lock (_object)
@@ -217,6 +219,11 @@ namespace Experimot.Scheduler.Data
                         //    item.Body = kinectBody;
                         //}
                     }
+                }
+                if (Humans.Count > 0 && !serializeHuman)
+                {
+                    Console.WriteLine(JsonConvert.SerializeObject(Humans));
+                    serializeHuman = true;
                 }
             }
         }
