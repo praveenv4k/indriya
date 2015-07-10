@@ -88,6 +88,55 @@ namespace Experimot.Scheduler.Tests
             }
         }
 
+        public static void MultihumanGestureTest()
+        {
+            var list = GetGestureInfoList("Greet_Left");
+            var first = list.FirstOrDefault(s => s.Confidence > 80);
+            Console.WriteLine(first.HumanId);
+        }
+
+        public static List<GestureInfo> GetGestureInfoList(string gestureName)
+        {
+            var ret = new List<GestureInfo>();
+            var humanStr = File.ReadAllText("humans.json");
+            if (!string.IsNullOrEmpty(humanStr))
+            {
+                var humanArray = JArray.Parse(humanStr);
+                foreach (var human in humanArray)
+                {
+                    if (gestureName == "HumanDetected")
+                    {
+                        ret.Add(new GestureInfo
+                        {
+                            Name = gestureName,
+                            HumanId = human.Value<int>("Id"),
+                            Active = true,
+                            Confidence = 91
+                        });
+                        break;
+                    }
+                    var gestures = human.SelectToken("$.Gestures");
+                    foreach (var gesture in gestures)
+                    {
+                        string name = gesture.Value<string>("Name");
+                        if (name != gestureName)
+                        {
+                            continue;
+                        }
+                        ret.Add(new GestureInfo
+                        {
+                            Name = gestureName,
+                            HumanId = human.Value<int>("Id"),
+                            Active = gesture.Value<bool>("Active"),
+                            Confidence = gesture.Value<int>("Confidence")
+                        });
+                    }
+                }
+            }
+            //Console.WriteLine(@"GetGestureInfo : {0}, Confidence : {1}", gestureName, ret.Confidence);
+            return ret;
+        }
+
         public static void ExecuteParallel()
         {
             var list = new List<Task>();
