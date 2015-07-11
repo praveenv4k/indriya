@@ -18,7 +18,7 @@
     
     <!--<param key="NAO-A-ROBOTIP" value="127.0.0.1" type="string"/>
     <param key="NAO-A-ROBOTPORT" value="49793" type="int"/>-->
-    <param key="NAO-A-ROBOTIP" value="192.168.11.42" type="string"/>
+    <param key="NAO-A-ROBOTIP" value="192.168.11.10" type="string"/>
     <param key="NAO-A-ROBOTPORT" value="9559" type="int"/>
 
     <param key="NAO-B-ROBOTIP" value="192.168.11.37" type="string"/>
@@ -34,7 +34,7 @@
     <!-- TODO Define Parameter for Periods of ContextServer, ContextSync, ParameterServer, GesturePeriod-->
   </parameters>
   <nodes>
-    <node enabled="false" name="localization">
+    <node enabled="true" name="localization">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\experimot_localization.exe</path>
@@ -213,7 +213,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false" name="localization_logger">
+    <node enabled="true" name="localization_logger">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Localization.Logger\Experimot.Localization.Logger.exe</path>
@@ -285,7 +285,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false" name="robot_interface">
+    <node enabled="true" name="robot_interface">
       <process>
         <type>executable</type>
         <path>python.exe</path>
@@ -332,6 +332,15 @@
         <param key="RequestServerIP" value="tcp://*" type="string"/>
         <param key="RequestClientIP" value="tcp://localhost" type="string"/>
         <param key="RequestServerPort" value="5590" type="int"/>
+      </parameters>
+    </node>
+    <node enabled="false" name="nao_odometry">
+      <process>
+        <type>executable</type>
+        <path>python.exe</path>
+        <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_robot_interface\odometry.py</args>
+      </process>
+      <parameters>
       </parameters>
     </node>
     <node enabled="false" name="taro_manager">

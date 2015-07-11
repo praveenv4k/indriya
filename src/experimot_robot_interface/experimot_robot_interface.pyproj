@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{464dce7e-4f29-4169-bf26-d563de3a5712}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>behaviors\qimessaging.py</StartupFile>
+    <StartupFile>odometry.py</StartupFile>
     <SearchPath>..\experimot_msgs\python\</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -52,12 +52,16 @@
     </Compile>
     <Compile Include="JointPublisher.py" />
     <Compile Include="motion_walk.py" />
+    <Compile Include="odometry.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="parameter_utils.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="plot_example.py" />
     <Compile Include="ReadJointValues.py" />
     <Compile Include="read_values.py" />
+    <Compile Include="transformations.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="behaviors\" />
