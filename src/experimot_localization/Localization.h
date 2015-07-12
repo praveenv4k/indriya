@@ -23,6 +23,13 @@
 #include "MedianFilter.h"
 #include "MarkerParticleFilter.h"
 
+#include <opencv2/core/core.hpp>
+//#include <opencv2\core\utility.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/calib3d/calib3d.hpp>
+#include <opencv2/video/tracking.hpp>
+
 #define COMM_PROTOCOL		"tcp"
 #define COMM_SUBIPADDRESS	"127.0.0.1"
 #define COMM_SUBPORT		5563
@@ -36,6 +43,8 @@
 #define TDM_ADDRESS			"tcp://*"
 #define TDM_PORT			5700
 #define TDM_TIMEOUT			100
+
+#define VERBOSE_MODE 0
 
 class Localization;
 
@@ -351,6 +360,7 @@ public:
 #endif
 				}
 				else{
+					m_nMeasuredCount = 0;
 					cout << "No markers detected" << endl;
 				}
 				if (m_bVisualize){
@@ -397,6 +407,8 @@ public:
 	}
 
 	void PublishTransform(){
+		boost::posix_time::ptime t1(boost::posix_time::microsec_clock::local_time());
+
 		//cout << "Publishing transform" << endl;
 		m_PoseTimer.expires_at(m_PoseTimer.expires_at() + boost::posix_time::milliseconds(m_nPoseCycle));
 		//TODO Publish Torso transform here
@@ -445,11 +457,13 @@ public:
 #if 1
 
 #if 1
+#if VERBOSE_MODE
 				cout << "*********************************************" << std::endl;
 				cout << "End Effector w.r.t Torso   : " << eef << std::endl;
 				cout << "Top Marker w.r.t ALVAR     : " << markerTfm << std::endl;
 				cout << "Torso w.r.t ALVAR          : " << torsoTfm << std::endl << std::endl;
 				cout << "Torso w.r.t Kinect         : " << kinectTfm << std::endl << std::endl;
+#endif
 #endif
 
 #else
@@ -468,12 +482,63 @@ public:
 				transforms.insert(std::pair<string, Transform>("world_frame", Transform()));
 				Transform torsoWorld = worldTfmKinect.inverse() * kinectTfm;
 				transforms.insert(std::pair<string, Transform>("torso_frame_world", torsoWorld));
+				Transform torsoWorldFiltered;
+				if (getFilteredPose(torsoWorld, torsoWorldFiltered)){
+					transforms.insert(std::pair<string, Transform>("torso_frame_world_filtered", torsoWorldFiltered));
+#if VERBOSE_MODE
+#else
+					cout << "T   : " << torsoWorld << std::endl;
+					cout << "T_F : " << torsoWorldFiltered << std::endl;
+#endif
+				}
 				m_pTorsoPosePublisherPtr->Publish(transforms);
+
+				boost::posix_time::ptime t2(boost::posix_time::microsec_clock::local_time());
+				boost::posix_time::time_duration dt = t2 - t1;
+				//print formatted date
+				std::cout << dt << std::endl;
+				//number of elapsed miliseconds
+				long msec = dt.total_milliseconds();
+				//print elapsed seconds (with millisecond precision)
+				std::cout << msec / 1000.0 << std::endl;
 			}
 		}
 		m_PoseTimer.async_wait(strand_.wrap(boost::bind(&Localization::PublishTransform, this)));
 	}
 
+	bool getFilteredPose(const Transform& tfm, Transform& filtered){
+		m_nMeasuredCount++;
+		if (m_nMeasuredCount > 30)
+			m_bGoodMeasurements = true;
+		else
+			return false;
+		// GOOD MEASUREMENT
+		if (m_bGoodMeasurements)
+		{
+
+			// Get the measured translation
+			cv::Mat translation_measured(3, 1, CV_64F);
+			cv::Mat rotation_measured(3, 3, CV_64F);
+
+			TransformationHelper::RaveToCv(tfm, translation_measured, rotation_measured);
+
+			// fill the measurements vector
+			fillMeasurements(m_Measurements, translation_measured, rotation_measured);
+
+			//good_measurement = true;
+
+		}
+
+		// Instantiate estimated translation and rotation
+		cv::Mat translation_estimated(3, 1, CV_64F);
+		cv::Mat rotation_estimated(3, 3, CV_64F);
+
+		// update the Kalman filter with good measurements
+		updateKalmanFilter(m_KalmanFilter, m_Measurements,
+			translation_estimated, rotation_estimated);
+
+		return true;
+	}
 
 	void LocalizationRespond(){
 		m_TdmTimer.expires_at(m_TdmTimer.expires_at() + boost::posix_time::milliseconds(m_nTdmCycle));
@@ -514,7 +579,7 @@ public:
 #endif
 
 
-				m_pLocalizationResponderPtr->Respond(kinectTfm, m_prevLocalizationTransform,false);
+				m_pLocalizationResponderPtr->Respond(kinectTfm, m_prevLocalizationTransform, false);
 
 				m_prevLocalizationTransform = kinectTfm;
 			}
@@ -522,6 +587,120 @@ public:
 		m_TdmTimer.async_wait(strand_.wrap(boost::bind(&Localization::LocalizationRespond, this)));
 	}
 
+	void initKalmanFilter(cv::KalmanFilter &KF, int nStates, int nMeasurements, int nInputs, double dt){
+		KF.init(nStates, nMeasurements, nInputs, CV_64F);                 // init Kalman Filter
+
+		setIdentity(KF.processNoiseCov, cv::Scalar::all(1e-5));       // set process noise
+		setIdentity(KF.measurementNoiseCov, cv::Scalar::all(1e-2));   // set measurement noise
+		setIdentity(KF.errorCovPost, cv::Scalar::all(1));             // error covariance
+
+
+		/** DYNAMIC MODEL **/
+
+		//  [1 0 0 dt  0  0 dt2   0   0 0 0 0  0  0  0   0   0   0]
+		//  [0 1 0  0 dt  0   0 dt2   0 0 0 0  0  0  0   0   0   0]
+		//  [0 0 1  0  0 dt   0   0 dt2 0 0 0  0  0  0   0   0   0]
+		//  [0 0 0  1  0  0  dt   0   0 0 0 0  0  0  0   0   0   0]
+		//  [0 0 0  0  1  0   0  dt   0 0 0 0  0  0  0   0   0   0]
+		//  [0 0 0  0  0  1   0   0  dt 0 0 0  0  0  0   0   0   0]
+		//  [0 0 0  0  0  0   1   0   0 0 0 0  0  0  0   0   0   0]
+		//  [0 0 0  0  0  0   0   1   0 0 0 0  0  0  0   0   0   0]
+		//  [0 0 0  0  0  0   0   0   1 0 0 0  0  0  0   0   0   0]
+		//  [0 0 0  0  0  0   0   0   0 1 0 0 dt  0  0 dt2   0   0]
+		//  [0 0 0  0  0  0   0   0   0 0 1 0  0 dt  0   0 dt2   0]
+		//  [0 0 0  0  0  0   0   0   0 0 0 1  0  0 dt   0   0 dt2]
+		//  [0 0 0  0  0  0   0   0   0 0 0 0  1  0  0  dt   0   0]
+		//  [0 0 0  0  0  0   0   0   0 0 0 0  0  1  0   0  dt   0]
+		//  [0 0 0  0  0  0   0   0   0 0 0 0  0  0  1   0   0  dt]
+		//  [0 0 0  0  0  0   0   0   0 0 0 0  0  0  0   1   0   0]
+		//  [0 0 0  0  0  0   0   0   0 0 0 0  0  0  0   0   1   0]
+		//  [0 0 0  0  0  0   0   0   0 0 0 0  0  0  0   0   0   1]
+
+		// position
+		KF.transitionMatrix.at<double>(0, 3) = dt;
+		KF.transitionMatrix.at<double>(1, 4) = dt;
+		KF.transitionMatrix.at<double>(2, 5) = dt;
+		KF.transitionMatrix.at<double>(3, 6) = dt;
+		KF.transitionMatrix.at<double>(4, 7) = dt;
+		KF.transitionMatrix.at<double>(5, 8) = dt;
+		KF.transitionMatrix.at<double>(0, 6) = 0.5*pow(dt, 2);
+		KF.transitionMatrix.at<double>(1, 7) = 0.5*pow(dt, 2);
+		KF.transitionMatrix.at<double>(2, 8) = 0.5*pow(dt, 2);
+
+		// orientation
+		KF.transitionMatrix.at<double>(9, 12) = dt;
+		KF.transitionMatrix.at<double>(10, 13) = dt;
+		KF.transitionMatrix.at<double>(11, 14) = dt;
+		KF.transitionMatrix.at<double>(12, 15) = dt;
+		KF.transitionMatrix.at<double>(13, 16) = dt;
+		KF.transitionMatrix.at<double>(14, 17) = dt;
+		KF.transitionMatrix.at<double>(9, 15) = 0.5*pow(dt, 2);
+		KF.transitionMatrix.at<double>(10, 16) = 0.5*pow(dt, 2);
+		KF.transitionMatrix.at<double>(11, 17) = 0.5*pow(dt, 2);
+
+
+		/** MEASUREMENT MODEL **/
+
+		//  [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+		//  [0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+		//  [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+		//  [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0]
+		//  [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0]
+		//  [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0]
+
+		KF.measurementMatrix.at<double>(0, 0) = 1;  // x
+		KF.measurementMatrix.at<double>(1, 1) = 1;  // y
+		KF.measurementMatrix.at<double>(2, 2) = 1;  // z
+		KF.measurementMatrix.at<double>(3, 9) = 1;  // roll
+		KF.measurementMatrix.at<double>(4, 10) = 1; // pitch
+		KF.measurementMatrix.at<double>(5, 11) = 1; // yaw
+	}
+	void updateKalmanFilter(cv::KalmanFilter &KF, boost::shared_ptr<cv::Mat> &measurement,
+		cv::Mat &translation_estimated, cv::Mat &rotation_estimated){
+
+		// First predict, to update the internal statePre variable
+		cv::Mat prediction = KF.predict();
+
+		// The "correct" phase that is going to use the predicted value and our measurement
+		cv::Mat temp_measured(6, 1, CV_64F);
+		
+		temp_measured.at<double>(0, 0) = measurement->at<double>(0, 0);  // x
+		temp_measured.at<double>(1, 0) = measurement->at<double>(1, 0);  // y
+		temp_measured.at<double>(2, 0) = measurement->at<double>(2, 0);  // z
+		temp_measured.at<double>(3, 0) = measurement->at<double>(3, 0);  // roll
+		temp_measured.at<double>(4, 0) = measurement->at<double>(4, 0);  // pitch
+		temp_measured.at<double>(5, 0) = measurement->at<double>(5, 0);  // yaw
+
+		cv::Mat estimated = KF.correct(temp_measured);
+
+		// Estimated translation
+		translation_estimated.at<double>(0) = estimated.at<double>(0);
+		translation_estimated.at<double>(1) = estimated.at<double>(1);
+		translation_estimated.at<double>(2) = estimated.at<double>(2);
+
+		// Estimated euler angles
+		cv::Mat eulers_estimated(3, 1, CV_64F);
+		eulers_estimated.at<double>(0) = estimated.at<double>(9);
+		eulers_estimated.at<double>(1) = estimated.at<double>(10);
+		eulers_estimated.at<double>(2) = estimated.at<double>(11);
+
+		// Convert estimated quaternion to rotation matrix
+		rotation_estimated = TransformationHelper::euler2rot(eulers_estimated);
+	}
+	void fillMeasurements(boost::shared_ptr<cv::Mat> &measurements,
+		const cv::Mat &translation_measured, const cv::Mat &rotation_measured){
+		// Convert rotation matrix to euler angles
+		cv::Mat measured_eulers(3, 1, CV_64F);
+		measured_eulers = TransformationHelper::rot2euler(rotation_measured);
+
+		// Set measurement to predict
+		measurements->at<double>(0) = translation_measured.at<double>(0); // x
+		measurements->at<double>(1) = translation_measured.at<double>(1); // y
+		measurements->at<double>(2) = translation_measured.at<double>(2); // z
+		measurements->at<double>(3) = measured_eulers.at<double>(0);      // roll
+		measurements->at<double>(4) = measured_eulers.at<double>(1);      // pitch
+		measurements->at<double>(5) = measured_eulers.at<double>(2);      // yaw
+	}
 private:
 	void _init(){
 		m_VideoCapture.open(0);
@@ -529,7 +708,7 @@ private:
 
 		/*if (m_bVisualize){
 			cvNamedWindow("Image View", 1);
-		}*/
+			}*/
 
 		m_SensorTimer.async_wait(strand_.wrap(boost::bind(&Localization::SensorDataProcess, this)));
 		m_RobotTimer.async_wait(strand_.wrap(boost::bind(&Localization::JointDataReceive, this)));
@@ -542,6 +721,12 @@ private:
 #endif
 
 		m_SensorThread = boost::thread(&Localization::SensorDataProcessThread, this);
+
+		initKalmanFilter(m_KalmanFilter, m_nStates, m_nMeasurements, m_nInputs, m_dt);    // init function
+		m_Measurements = boost::shared_ptr<cv::Mat>(new cv::Mat(m_nMeasurements, 1, CV_64F));
+		m_Measurements->setTo(cv::Scalar(0));
+		m_bGoodMeasurements = false;
+		m_nMeasuredCount = 0;
 	}
 private:
 	boost::thread m_SensorThread;
@@ -569,7 +754,16 @@ private:
 	//TorsoPoseFilter m_poseFilter;
 
 	Transform m_prevLocalizationTransform;
-
+	//////////////////////////////////////////////////////////////////////
+	cv::KalmanFilter m_KalmanFilter;
+	const int m_nStates = 18;            // the number of states
+	const int m_nMeasurements = 6;       // the number of measured states
+	const int m_nInputs = 0;             // the number of control actions
+	const double m_dt = 0.08;             // time between measurements (1/FPS)
+	bool m_bGoodMeasurements;			 // Flag to indicate if the measurements are good
+	boost::shared_ptr<cv::Mat> m_Measurements;
+	int m_nMeasuredCount;
+	//////////////////////////////////////////////////////////////////////
 	MedianFilter m_MedianFilter;
 #ifdef USE_PARTICLE_FILTER
 	MarkerParticleFilter m_ParticleFilter;

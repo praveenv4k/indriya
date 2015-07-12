@@ -29,6 +29,7 @@ POS_TO_LOG_LIST = ["Motion/Walk/AbsDistanceX",
 
 stop = False
 gPose = None
+gPoseFiltered = None
 
 def getHeading(q):
     yaw = math.atan2(2.0 * (q[2] * q[0] - q[1] * q[3]),1 - 2 * q[2] * q[2] - 2 * q[3] * q[3])
@@ -46,6 +47,7 @@ def localize_client(stop2,lock):
                 
                 #global stop
                 global gPose
+                global gPoseFiltered
                 while stop is not True:
                     msgs = sock.recv_multipart()
                     #print msgs
@@ -58,6 +60,12 @@ def localize_client(stop2,lock):
                             lock.acquire()
                             rot = [pose.orientation.w,pose.orientation.x,pose.orientation.y,pose.orientation.z]
                             gPose = [pose.position.x,pose.position.y,pose.position.z,pose.orientation.w,pose.orientation.x,pose.orientation.y,pose.orientation.z, getHeading(rot)]
+                            #print "L:", gPose[0]/1000,gPose[1]/1000,gPose[2]/1000, gPose[3],gPose[4],gPose[5],gPose[6], gPose[7]
+                            lock.release()
+                        elif pose.name == "torso_frame_world_filtered":
+                            lock.acquire()
+                            rot = [pose.orientation.w,pose.orientation.x,pose.orientation.y,pose.orientation.z]
+                            gPoseFiltered = [pose.position.x,pose.position.y,pose.position.z,pose.orientation.w,pose.orientation.x,pose.orientation.y,pose.orientation.z, getHeading(rot)]
                             #print "L:", gPose[0]/1000,gPose[1]/1000,gPose[2]/1000, gPose[3],gPose[4],gPose[5],gPose[6], gPose[7]
                             lock.release()
                             #print gPose
@@ -120,10 +128,12 @@ def makeMotion(ip,port,lock):
         rot = transformations.quaternion_from_euler(odomData[3], odomData[4], odomData[5])
         lock.acquire()
         local = gPose
+        localFiltered = gPoseFiltered
         lock.release()
         if local != None:
             print "O:", pos[0],pos[1],pos[2], rot[0],rot[1],rot[2],rot[3], getHeading(rot)
             print "L:", local[0]/1000,local[1]/1000,local[2]/1000, local[3],local[4],local[5],local[6], local[7]
+            print "L_F:", localFiltered[0]/1000,localFiltered[1]/1000,localFiltered[2]/1000, localFiltered[3],localFiltered[4],localFiltered[5],localFiltered[6], localFiltered[7]
         #print gPose
         time.sleep(0.100)
 

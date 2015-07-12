@@ -239,10 +239,10 @@ public:
 		// 0,   0 ,  0 , 1
 
 		//Openrave Matrix indices format
-		//0, 4, 8, trans.x
-		//1, 5, 9, trans.y
-		//2, 6, 10, trans.z
-		//3, 7, 11, trans.w
+		//row 0: 0, 1, 2, 3
+		//row 1: 4, 5, 6, 7
+		//row 2: 8, 9, 10, 11
+		//trans.x, trans.y, trans.z, trans.w
 
 		TransformMatrix mat;
 		mat.rotfrommat(r11, r12, r13, r21, r22, r23, r31, r32, r33);

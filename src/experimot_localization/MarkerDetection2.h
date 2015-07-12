@@ -393,7 +393,9 @@ public:
 				int resol = mData.GetRes();
 				int id = mData.GetId();
 
+#if PRINT_MSG
 				cout << "******* ID: " << id << "; Resolution: " << resol << endl;
+#endif
 				if (CheckIfWorldMarker(id)){
 					m_bWorldMarkerExists = true;
 					TransformMatrix world_rave;
@@ -417,7 +419,9 @@ public:
 				pt2 = mData.experimot_marker_points_img[(resol*resol) - 1];
 
 				if (showCorners) {
+#if PRINT_MSG
 					cout << "Showing Corners " << endl;
+#endif
 					cvCircle(image, cvPoint(int(pt1.x), int(pt1.y)), 5, CV_RGB(255, 255, 255));
 					cvCircle(image, cvPoint(int(pt2.x), int(pt2.y)), 5, CV_RGB(255, 0, 0));
 					cvCircle(image, cvPoint(int(pt3.x), int(pt3.y)), 5, CV_RGB(0, 255, 0));
