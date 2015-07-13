@@ -537,6 +537,8 @@ public:
 		updateKalmanFilter(m_KalmanFilter, m_Measurements,
 			translation_estimated, rotation_estimated);
 
+		TransformationHelper::CvToRave(translation_estimated, rotation_estimated, filtered);
+
 		return true;
 	}
 
@@ -655,6 +657,7 @@ public:
 		KF.measurementMatrix.at<double>(4, 10) = 1; // pitch
 		KF.measurementMatrix.at<double>(5, 11) = 1; // yaw
 	}
+
 	void updateKalmanFilter(cv::KalmanFilter &KF, boost::shared_ptr<cv::Mat> &measurement,
 		cv::Mat &translation_estimated, cv::Mat &rotation_estimated){
 

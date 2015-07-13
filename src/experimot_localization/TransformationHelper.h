@@ -280,9 +280,29 @@ public:
 		rot.at<double>(2, 1) = (double)mat.m[9];
 		rot.at<double>(2, 2) = (double)mat.m[10];
 
-		trans.at<double>(0, 0) = (double)mat.trans.x;
+		trans.at<double>(0) = (double)tfm.trans.x;
+		trans.at<double>(1) = (double)tfm.trans.y;
+		trans.at<double>(2) = (double)tfm.trans.z;
+	}
+
+	static void CvToRave(const cv::Mat& trans, const cv::Mat& rot, OpenRAVE::Transform& tfm){
+		OpenRAVE::TransformMatrix mat;
+		//OpenRAVE::geometry::quatFromMatrix
+		mat.m[0] = rot.at<double>(0, 0);
+		mat.m[1] = rot.at<double>(0, 1);
+		mat.m[2] = rot.at<double>(0, 2);
+		mat.m[4] = rot.at<double>(1, 0);
+		mat.m[5] = rot.at<double>(1, 1);
+		mat.m[6] = rot.at<double>(1, 2);
+		mat.m[8] = rot.at<double>(2, 0);
+		mat.m[9] = rot.at<double>(2, 1);
+		mat.m[10] = rot.at<double>(2, 2);
+
+		tfm.trans = OpenRAVE::Vector(trans.at<double>(0), trans.at<double>(1), trans.at<double>(2));
+		tfm.rot = OpenRAVE::geometry::quatFromMatrix(mat);
+		/*trans.at<double>(0, 0) = (double)mat.trans.x;
 		trans.at<double>(1, 0) = (double)mat.trans.y;
-		trans.at<double>(2, 0) = (double)mat.trans.z;
+		trans.at<double>(2, 0) = (double)mat.trans.z;*/
 	}
 
 };

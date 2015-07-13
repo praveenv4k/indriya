@@ -18,7 +18,7 @@
     
     <!--<param key="NAO-A-ROBOTIP" value="127.0.0.1" type="string"/>
     <param key="NAO-A-ROBOTPORT" value="49793" type="int"/>-->
-    <param key="NAO-A-ROBOTIP" value="192.168.11.10" type="string"/>
+    <param key="NAO-A-ROBOTIP" value="192.168.11.41" type="string"/>
     <param key="NAO-A-ROBOTPORT" value="9559" type="int"/>
 
     <param key="NAO-B-ROBOTIP" value="192.168.11.37" type="string"/>
@@ -285,7 +285,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false" name="robot_interface">
+    <node enabled="true" name="robot_interface">
       <process>
         <type>executable</type>
         <path>python.exe</path>

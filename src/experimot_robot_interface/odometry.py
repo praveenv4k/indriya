@@ -31,6 +31,17 @@ stop = False
 gPose = None
 gPoseFiltered = None
 
+dataNamesList = ["DCM/Time",
+                "Device/SubDeviceList/InertialSensor/AngleX/Sensor/Value",
+                "Device/SubDeviceList/InertialSensor/AngleY/Sensor/Value",
+                "Device/SubDeviceList/InertialSensor/AngleZ/Sensor/Value",
+                "Device/SubDeviceList/InertialSensor/GyroscopeX/Sensor/Value", 
+                "Device/SubDeviceList/InertialSensor/GyroscopeY/Sensor/Value",
+                "Device/SubDeviceList/InertialSensor/GyroscopeZ/Sensor/Value",
+                "Device/SubDeviceList/InertialSensor/AccelerometerX/Sensor/Value", 
+                "Device/SubDeviceList/InertialSensor/AccelerometerY/Sensor/Value",
+                "Device/SubDeviceList/InertialSensor/AccelerometerZ/Sensor/Value"]
+
 def getHeading(q):
     yaw = math.atan2(2.0 * (q[2] * q[0] - q[1] * q[3]),1 - 2 * q[2] * q[2] - 2 * q[3] * q[3])
     return yaw
@@ -97,13 +108,16 @@ def getMotionProxy(ip,port):
 def getPostureProxy(ip,port):
         return ALProxy("ALRobotPosture", ip, port)
 
+def getMemoryProxy(ip,port):
+        return  ALProxy("ALMemory", ip, port)
+
 def moveInit(motion,posture):
         posture.goToPosture("Stand", 0.5)
         # Initialize move process.
         motion.moveInit()
 
 def action_moveTo(motion,posture,x,y,theta):
-        moveInit(motion,posture)
+        #moveInit(motion,posture)
         if motion is not None:
             id = motion.post.moveTo(x,y,theta)
             return [id,motion]
@@ -113,6 +127,47 @@ def action_moveTo(motion,posture,x,y,theta):
 def makeMotion(ip,port,lock):
     motion = getMotionProxy(ip,port)
     posture = getPostureProxy(ip,port)
+    memory = getMemoryProxy(ip,port)
+    moveInit(motion,posture)
+    #ret = action_moveTo(motion,posture,0.6,0.5,math.pi/2)
+    ret = action_moveTo(motion,posture,0.75,0,0)
+    #global gPose
+    while ret[1].isRunning(ret[0]):
+        # motion.FRAME_WORLD
+        odomData = motion.getPosition("Torso",1, True)
+        memData = memory.getListData(dataNamesList)
+        #print odomData
+        
+        #positionData = motion.getAngles("Body", True)
+        #print positionData
+
+        pos = [odomData[0], odomData[1], odomData[2]]
+        rot = transformations.quaternion_from_euler(odomData[3], odomData[4], odomData[5])
+
+        #rot2 = transformations.quaternion_from_euler(memData[1], memData[2], memData[3])
+
+        lock.acquire()
+        local = gPose
+        localFiltered = gPoseFiltered
+        lock.release()
+        if local != None:
+            print "O:", pos[0],pos[1],pos[2], rot[0],rot[1],rot[2],rot[3], getHeading(rot)
+            print "L:", local[0]/1000,local[1]/1000,local[2]/1000, local[3],local[4],local[5],local[6], local[7]
+            print "L_F:", localFiltered[0]/1000,localFiltered[1]/1000,localFiltered[2]/1000, localFiltered[3],localFiltered[4],localFiltered[5],localFiltered[6], localFiltered[7]
+            print "IMU:", memData
+        #print gPose
+        time.sleep(0.100)
+
+    global stop
+    lock.acquire()
+    stop = True
+    lock.release()
+
+def makeMotion2(ip,port,lock):
+    motion = getMotionProxy(ip,port)
+    posture = getPostureProxy(ip,port)
+    moveInit(motion,posture)
+
     ret = action_moveTo(motion,posture,0.75,0,0)
 
     #global gPose
@@ -145,12 +200,12 @@ def makeMotion(ip,port,lock):
 
 if __name__ == "__main__":
     # Real Robot
-    ROBOT_IP = "192.168.11.10"
+    ROBOT_IP = "192.168.11.41"
     ROBOT_PORT = 9559
     try:
         # create a lock object for synchronization
         lock = thread.allocate_lock()
-        time.sleep(5)
+        time.sleep(8)
         memory = ALProxy("ALMemory", ROBOT_IP, ROBOT_PORT)
         #thread.start_new_thread(recordPositionValues,(memory,lock))
         thread.start_new_thread(localize_client,(stop,lock))
