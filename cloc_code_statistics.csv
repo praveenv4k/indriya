@@ -1,11 +1,11 @@
-files,language,blank,comment,code,"http://cloc.sourceforge.net v 1.62  T=3.81 s (69.7 files/s, 11138.3 lines/s)"
-108,C#,1829,2419,14081
-35,C/C++ Header,946,872,5023
-29,Python,920,1597,2969
+files,language,blank,comment,code,"http://cloc.sourceforge.net v 1.62  T=4.79 s (55.8 files/s, 9004.5 lines/s)"
+108,C#,1829,2414,14141
+35,C/C++ Header,997,928,5238
+30,Python,958,1629,3117
 21,Javascript,303,521,2141
 14,C++,385,491,2023
-9,MSBuild script,0,63,1892
-14,XML,18,147,1769
+9,MSBuild script,0,63,1912
+14,XML,18,147,1778
 2,JSON,0,0,578
 3,XSD,39,9,478
 8,XAML,21,27,300
