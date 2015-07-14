@@ -129,8 +129,8 @@ def makeMotion(ip,port,lock):
     posture = getPostureProxy(ip,port)
     memory = getMemoryProxy(ip,port)
     moveInit(motion,posture)
-    #ret = action_moveTo(motion,posture,0.6,0.5,math.pi/2)
-    ret = action_moveTo(motion,posture,0.75,0,0)
+    ret = action_moveTo(motion,posture,0.6,0.5,math.pi/2)
+    #ret = action_moveTo(motion,posture,0.75,0,0)
     #global gPose
     while ret[1].isRunning(ret[0]):
         # motion.FRAME_WORLD
@@ -151,13 +151,39 @@ def makeMotion(ip,port,lock):
         localFiltered = gPoseFiltered
         lock.release()
         if local != None:
-            print "O:", pos[0],pos[1],pos[2], rot[0],rot[1],rot[2],rot[3], getHeading(rot)
-            print "L:", local[0]/1000,local[1]/1000,local[2]/1000, local[3],local[4],local[5],local[6], local[7]
-            print "L_F:", localFiltered[0]/1000,localFiltered[1]/1000,localFiltered[2]/1000, localFiltered[3],localFiltered[4],localFiltered[5],localFiltered[6], localFiltered[7]
+            print "O:", pos[0],pos[1],pos[2], rot[0],rot[1],rot[2],rot[3], getHeading(rot), 0, 0
+            print "L:", local[0]/1000,local[1]/1000,local[2]/1000, local[3],local[4],local[5],local[6], local[7], 0, 0
+            print "L_F:", localFiltered[0]/1000,localFiltered[1]/1000,localFiltered[2]/1000, localFiltered[3],localFiltered[4],localFiltered[5],localFiltered[6], localFiltered[7], 0, 0
             print "IMU:", memData
         #print gPose
         time.sleep(0.100)
 
+    for i in range(1,20):
+        odomData = motion.getPosition("Torso",1, True)
+        memData = memory.getListData(dataNamesList)
+        #print odomData
+        
+        #positionData = motion.getAngles("Body", True)
+        #print positionData
+
+        pos = [odomData[0], odomData[1], odomData[2]]
+        rot = transformations.quaternion_from_euler(odomData[3], odomData[4], odomData[5])
+
+        #rot2 = transformations.quaternion_from_euler(memData[1], memData[2], memData[3])
+
+        lock.acquire()
+        local = gPose
+        localFiltered = gPoseFiltered
+        lock.release()
+        if local != None:
+            print "O:", pos[0],pos[1],pos[2], rot[0],rot[1],rot[2],rot[3], getHeading(rot), 0, 0
+            print "L:", local[0]/1000,local[1]/1000,local[2]/1000, local[3],local[4],local[5],local[6], local[7], 0, 0
+            print "L_F:", localFiltered[0]/1000,localFiltered[1]/1000,localFiltered[2]/1000, localFiltered[3],localFiltered[4],localFiltered[5],localFiltered[6], localFiltered[7], 0, 0
+            print "IMU:", memData
+        #print gPose
+        time.sleep(0.100)
+
+    time.sleep(3)
     global stop
     lock.acquire()
     stop = True
@@ -200,13 +226,13 @@ def makeMotion2(ip,port,lock):
 
 if __name__ == "__main__":
     # Real Robot
-    ROBOT_IP = "192.168.11.41"
+    ROBOT_IP = "192.168.11.29"
     ROBOT_PORT = 9559
     try:
         # create a lock object for synchronization
         lock = thread.allocate_lock()
         time.sleep(8)
-        memory = ALProxy("ALMemory", ROBOT_IP, ROBOT_PORT)
+        #memory = ALProxy("ALMemory", ROBOT_IP, ROBOT_PORT)
         #thread.start_new_thread(recordPositionValues,(memory,lock))
         thread.start_new_thread(localize_client,(stop,lock))
         time.sleep(2)

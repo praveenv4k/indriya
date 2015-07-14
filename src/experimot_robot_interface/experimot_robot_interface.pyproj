@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{464dce7e-4f29-4169-bf26-d563de3a5712}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>odometry.py</StartupFile>
+    <StartupFile>control_loop.py</StartupFile>
     <SearchPath>..\experimot_msgs\python\</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -48,6 +48,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="behaviors\qimessaging.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="control_loop.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="JointPublisher.py" />
