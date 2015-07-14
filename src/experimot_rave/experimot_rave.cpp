@@ -517,6 +517,7 @@ public:
 							std::cout << "There is no body information" << std::endl;
 						}
 						else{
+							continue; // For debug
 							for (google::protobuf::int32 i = 0; i < humans.human_size(); i++){
 								const experimot::msgs::Human& human = humans.human(i);
 								stringstream ss;
