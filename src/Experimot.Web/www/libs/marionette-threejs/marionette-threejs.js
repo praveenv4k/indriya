@@ -1931,19 +1931,19 @@
     _kinematics: undefined,
 
     initDrawable: function() {
-      var _this = this;
-  
-      var _loaded = function() {
-        if (_this.collection !== undefined) {
-          _this.collection.trigger('drawable:loaded', _this);
-        }
-        _this.trigger('drawable:loaded', _this);
-  
-        _this.on('change:matrix', function() {
-          _this.updateMesh();
-        });
-        _this.updateMesh();
-      };
+        var _this = this;
+
+        var _loaded = function() {
+            if (_this.collection !== undefined) {
+                _this.collection.trigger('drawable:loaded', _this);
+            }
+            _this.trigger('drawable:loaded', _this);
+
+            _this.on('change:matrix', function() {
+                _this.updateMesh();
+            });
+            _this.updateMesh();
+        };
         if (this.get('colladaUrl')) {
             console.log('Collada URL: ' + this.get('colladaUrl'));
             var loader = new THREE.ColladaLoader();
@@ -1956,7 +1956,7 @@
                         child.material.shading = THREE.FlatShading;
                     }
                 });
-                _this._mesh.scale.x = _this._mesh.scale.y = _this._mesh.scale.z = 10.0;
+                //_this._mesh.scale.x = _this._mesh.scale.y = _this._mesh.scale.z = 10.0;
                 _this._mesh.updateMatrix();
 
                 _this._kinematics = collada.kinematics;
@@ -1971,8 +1971,180 @@
                 //});
                 //_this.updateMesh();
             });
-        }else if (this.get('hasSkeleton')) {
-            
+        } else if (this.get('hasSkeleton')) {
+            var constants =
+            {
+                cameraFieldOfView: 45,
+                nearPlaneDistance: 0.1,
+                farPlaneDistance: 1000,
+                circleRadius: 0.03,
+                leafScale: 3.0
+            };
+            var boneList =
+            [
+// Torso
+                [3, 2],
+                [2, 20],
+                [20, 1],
+                [1, 0],
+                [20, 8],
+                [20, 4],
+                [0, 16],
+                [0, 12],
+
+// Right Arm
+                [8, 9],
+                [9, 10],
+                [10, 11],
+                [11, 23],
+                [10, 24],
+
+// Left Arm
+                [4, 5],
+                [5, 6],
+                [6, 7],
+                [7, 21],
+                [6, 22],
+
+// Right Leg
+                [16, 17],
+                [17, 18],
+                [18, 19],
+
+// Left Leg
+                [12, 13],
+                [13, 14],
+                [14, 15]
+            ];
+            var colors = ['red', 'green', 'blue', 'yellow', 'purple', 'orange'];
+            var inferredColor = 'grey';
+            var skeletonObj = this.get('skeleton');
+            if (skeletonObj != undefined) {
+                var group = new THREE.Group();
+                //var that = this;
+                var body = skeletonObj;
+                var jointPositions = {};
+                var joints = body.Joints;
+                //var group = new THREE.Object3D();
+                var groupName = "body" + body.TrackingId;
+                group.name = groupName;
+
+                var lineMaterial = new THREE.LineBasicMaterial({ color: 0xFFFFFF });
+
+                for(var bone =0; bone < boneList.length; bone++){
+                    var t1 = boneList[bone][0];
+                    var t2 = boneList[bone][1];
+
+                    var joint0 = body.Joints[t1];
+                    var joint1 = body.Joints[t2];
+
+                    // If we can't find either of these joints, exit
+                    if (joint0.State === 0 ||
+                        joint1.State === 0) {
+
+                    } else {
+                        var lineGeom = new THREE.Geometry();
+                        lineGeom.vertices.push(
+                            new THREE.Vector3(joint0.Position.x, joint0.Position.y, joint0.Position.z),
+                            new THREE.Vector3(joint1.Position.x, joint1.Position.y, joint1.Position.z));
+
+                        var drawnLine = new THREE.Line(lineGeom, lineMaterial,
+                            THREE.LinePieces);
+
+                        group.add(drawnLine);
+
+                        //// We assume all drawn bones are inferred unless BOTH joints are tracked
+                        //RaveVector < float > drawPen = KinectBodyHelper::
+                        //Instance() -  > inferredBonePen;
+                        //int
+                        //boneW = no_conf_width;
+                        //if ((joint0.state() == KinectJoint_TrackingState_Tracked) && (joint1.state() == KinectJoint_TrackingState_Tracked)) {
+                        //    drawPen = bColor;
+                        //    boneW = bone_width;
+                        //}
+
+                        //const
+                        //experimot::
+                        //msgs::
+                        //Vector3d & jointPos0 = joint0.position();
+                        //const
+                        //experimot::
+                        //msgs::
+                        //Vector3d & jointPos1 = joint1.position();
+                        //RaveVector < float > jp0, jp1;
+                        //KinectPointsProcess(jointPos0, jp0);
+                        //KinectPointsProcess(jointPos1, jp1);
+
+                        //vector < RaveVector < float >> vpoints;
+                        //vpoints.push_back(jp0);
+                        //vpoints.push_back(jp1);
+
+                        //listgraphs.push_back(penv -  > drawlinestrip( & vpoints[0].x, vpoints.size(), sizeof(vpoints[0]), boneW, drawPen));
+                    }
+                }
+
+                for (var i = 0; i < joints.length; i++) {
+                    var joint = joints[i];
+                    var jointName = "joint" + body.TrackingId + i;
+                    //console.log(joint);
+                    var jointType = joint.Type;
+                    var state = joint.State;
+                    var mappedPoint = joint.Position;
+                    if ((joint.State !== 0) &&
+                    (mappedPoint.x !== Number.NEGATIVE_INFINITY) &&
+                    (mappedPoint.y !== Number.POSITIVE_INFINITY)) {
+                        //var sphere = this._drawnJoints[jointType];
+                        var sphere = undefined;
+                        var material, scale;
+
+                        //this._clearLine();
+                        var isLeaf = false;
+                        if (jointType === 3 || jointType === 15 | jointType === 19) {
+                            isLeaf = true;
+                        }
+                        var color = inferredColor;
+                        if (state === 2) {
+                            color = colors[body.TrackingId];
+                        }
+                        if (!sphere) {
+                            sphere = new THREE.Mesh(new THREE.SphereGeometry(constants.circleRadius, 32, 32), material);
+                            scale = isLeaf ? constants.leafScale : 1.0;
+                            sphere.scale.set(scale, scale, scale);
+                            group.add(sphere);
+                            //console.log('added');
+                            //this._drawJoints[jointType] = sphere;
+                        }
+                        // ensure it's using the right material - can change between frames if joints
+                        // go from inferred/tracked.
+                        material = new THREE.MeshLambertMaterial(
+                            {
+                                color: color
+                            }
+                        );
+                        sphere.material = material;
+                        sphere.name = jointName;
+                        sphere.position.set(mappedPoint.x, mappedPoint.y, mappedPoint.z);
+                        //this._drawnJoints[jointType] = sphere;
+
+                        jointPositions[jointType] = mappedPoint;
+                    } else {
+                        //that._ensureJointNotDrawn(jointType);
+                    }
+                }
+                //if (_this.collection !== undefined) {
+                //    _this.collection.trigger('drawable:loaded', _this);
+                //}
+                //_this.trigger('drawable:loaded', _this);
+
+                this._mesh = group;
+                this._mesh.updateMatrix();
+
+                if (this.collection !== undefined) {
+                    console.log('collection valid');
+                    this.collection.trigger('drawable:loaded', this);
+                }
+                this.trigger('drawable:loaded', this);
+            }
         } else {
             if (THREE.hasOwnProperty(this.get('geometryType'))) {
                 this._texture = THREE.ImageUtils.loadTexture(this.get('texture'), THREE.UVMapping, _loaded);
@@ -2225,8 +2397,9 @@
   
       // this basically takes the place of the add event
       'drawable:loaded': function(drawable) {
-        this.addDrawable(drawable);
-      }
+            console.log('Adding a drawable');
+            this.addDrawable(drawable);
+        }
     },
   
     _transformControlDragging: false,
@@ -2324,7 +2497,8 @@
       this.renderer.setSize(this.getWidth(), this.getHeight());
   
         //Praveen
-      //this.renderer.setClearColor(0xaaaaaa);
+        //this.renderer.setClearColor(0xaaaaaa);
+      this.renderer.setClearColor(0x5a5a5a);
   
       var _this = this;
       var _setRendererDOMElement = function() {
@@ -2338,7 +2512,8 @@
         this.camera = new THREE.PerspectiveCamera(70, this.getWidth() / this.getHeight(), 0.01, 1000000.0);
         // Praveen
       //this.camera.position.set(1000, 500, 1000);
-      this.camera.position.set(10, 8, -10);
+        //this.camera.position.set(10, 8, -10);
+        this.camera.position.set(1, 0.8, -1);
       this.camera.lookAt(new THREE.Vector3(0, 200, 0));
     },
   
@@ -2347,7 +2522,8 @@
   
         // Praveen
       //var grid = new THREE.GridHelper(1000, 100);
-      var grid = new THREE.GridHelper(14, 1);
+        //var grid = new THREE.GridHelper(14, 1);
+      var grid = new THREE.GridHelper(3, 0.25);
       grid.setColors(0x444444, 0x888888);
       this.scene.add(grid);
   
@@ -2357,13 +2533,13 @@
     },
   
     addDrawable: function(drawable) {
-      console.log('ThreeJSRenderer: add drawable');
-  
-      var mesh = drawable.getMesh();
-      if (mesh) {
-          console.log(mesh);
-        this.scene.add(mesh);
-      }
+        console.log('ThreeJSRenderer: add drawable');
+
+        var mesh = drawable.getMesh();
+        if (mesh) {
+            //console.log(mesh);
+            this.scene.add(mesh);
+        }
     },
   
     removeDrawable: function(drawable) {

@@ -1,0 +1,69 @@
+[
+// Torso
+[Head, Neck],
+[Neck, SpineShoulder],
+[SpineShoulder, SpineMid],
+[SpineMid, SpineBase],
+[SpineShoulder, ShoulderRight],
+[SpineShoulder, ShoulderLeft],
+[SpineBase, HipRight],
+[SpineBase, HipLeft],
+
+// Right Arm
+[ShoulderRight, ElbowRight],
+[ElbowRight, WristRight],
+[WristRight, HandRight],
+[HandRight, HandTipRight],
+[WristRight, ThumbRight],
+
+// Left Arm
+[ShoulderLeft, ElbowLeft],
+[ElbowLeft, WristLeft],
+[WristLeft, HandLeft],
+[HandLeft, HandTipLeft],
+[WristLeft, ThumbLeft],
+
+// Right Leg
+[HipRight, KneeRight],
+[KneeRight, AnkleRight],
+[AnkleRight, FootRight],
+
+// Left Leg
+[HipLeft, KneeLeft],
+[KneeLeft, AnkleLeft],
+[AnkleLeft, FootLeft]]
+
+[
+// Torso
+[3, 2],
+[2, 20],
+[20, 1],
+[1, 0],
+[20, 8],
+[20, 4],
+[0, 16],
+[0, 12],
+
+// Right Arm
+[8, 9],
+[9, 10],
+[10, 11],
+[11, 23],
+[10, 24],
+
+// Left Arm
+[4, 5],
+[5, 6],
+[6, 7],
+[7, 21],
+[6, 22],
+
+// Right Leg
+[16, 17],
+[17, 18],
+[18, 19],
+
+// Left Leg
+[12, 13],
+[13, 14],
+[14, 15]]
