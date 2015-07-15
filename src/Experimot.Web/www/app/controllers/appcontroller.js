@@ -16,6 +16,7 @@
                 app.renderer = new m3Js.ThreeJSRenderer({
                     collection: app.Drawables
                 });
+                app.renderer.disableTransformControl();
                 app.loader = new THREE.ColladaLoader();
                 app.loader.options.convertUpAxis = true;
 

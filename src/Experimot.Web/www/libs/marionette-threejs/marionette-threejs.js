@@ -2285,8 +2285,10 @@
       }
     },
   
-    onDrawablePointerUp: function(drawable) {
-      this.transformControl.attachDrawable(drawable);
+    onDrawablePointerUp: function (drawable) {
+        if (this.transformControl) {
+            this.transformControl.attachDrawable(drawable);
+        }
     },
   
     onMouseWheel: function(e) {
@@ -2383,8 +2385,10 @@
     startWebGLRendering: function() {
       var _this = this;
       var _render = function() {
-        _this.transformControl.getControl().update();
-        _this.renderer.render(_this.scene, _this.camera);
+          if (_this.transformControl) {
+              _this.transformControl.getControl().update();
+          }
+          _this.renderer.render(_this.scene, _this.camera);
       };
   
       var _animate = function() {
@@ -2506,19 +2510,26 @@
     },
   
     dispatchDOMEventToControls: function(e) {
-  
-      // only dispatch to orbit control if not intersecting transform control
-      if (!this.transformControl.intersectsControl(e)) {
-        this.orbitControl.dispatchDOMEvent(e);
-      }
-  
-      if (this.transformControl) {
-        this._transformControlDragging = this.transformControl.isDragging();
-        this.transformControl.dispatchDOMEvent(e);
-      }
-      else {
-        this._transformControlDragging = false;
-      }
+
+        // only dispatch to orbit control if not intersecting transform control
+        if (this.transformControl) {
+            if (!this.transformControl.intersectsControl(e)) {
+                if (this.orbitControl) {
+                    this.orbitControl.dispatchDOMEvent(e);
+                }
+            }
+        } else {
+            if (this.orbitControl) {
+                this.orbitControl.dispatchDOMEvent(e);
+            }
+        }
+
+        if (this.transformControl) {
+            this._transformControlDragging = this.transformControl.isDragging();
+            this.transformControl.dispatchDOMEvent(e);
+        } else {
+            this._transformControlDragging = false;
+        }
     },
   
     initialize: function(options) {
@@ -2529,7 +2540,10 @@
   
         this.setupPointerEvents();
   
-        this.setupTransformControl();
+        /// Praveen Disable transform control as we don't want to manipulate the object from renderer
+        // this.setupTransformControl();
+        /// Praveen Disable transform control as we don't want to manipulate the object from renderer
+
         this.setupOrbitControl();
   
         var _this = this;
