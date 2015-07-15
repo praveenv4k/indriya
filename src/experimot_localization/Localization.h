@@ -594,7 +594,7 @@ public:
 
 		setIdentity(KF.processNoiseCov, cv::Scalar::all(1e-5));       // set process noise
 		//setIdentity(KF.measurementNoiseCov, cv::Scalar::all(1e-2));   // set measurement noise
-		setIdentity(KF.measurementNoiseCov, cv::Scalar::all(8e-3));   // set measurement noise
+		setIdentity(KF.measurementNoiseCov, cv::Scalar::all(5e-3));   // set measurement noise
 		setIdentity(KF.errorCovPost, cv::Scalar::all(1));             // error covariance
 
 
