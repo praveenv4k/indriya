@@ -16,10 +16,10 @@
     <param key="NaoBehaviorModule" value="nao_behavior_manager" type="string"/>
     <param key="DateTimeFormatString" value="yyyy/MM/dd HH:mm:ss.fff" type="string"/>
     
-    <!--<param key="NAO-A-ROBOTIP" value="127.0.0.1" type="string"/>
-    <param key="NAO-A-ROBOTPORT" value="49793" type="int"/>-->
-    <param key="NAO-A-ROBOTIP" value="192.168.11.44" type="string"/>
-    <param key="NAO-A-ROBOTPORT" value="9559" type="int"/>
+    <param key="NAO-A-ROBOTIP" value="127.0.0.1" type="string"/>
+    <param key="NAO-A-ROBOTPORT" value="60017" type="int"/>
+    <!--<param key="NAO-A-ROBOTIP" value="192.168.11.44" type="string"/>
+    <param key="NAO-A-ROBOTPORT" value="9559" type="int"/>-->
 
     <param key="NAO-B-ROBOTIP" value="192.168.11.37" type="string"/>
     <param key="NAO-B-ROBOTPORT" value="9559" type="int"/>
@@ -156,7 +156,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="false" name="simulation">
+    <node enabled="true" name="simulation">
       <process>
         <type>executable</type>
         <path>%DEV_SDK_ROOT%\experimot\bin\experimot_rave.exe</path>

@@ -19,6 +19,8 @@ sys.path.append(dir1)
 
 import joint_value_map_pb2
 
+useSensors = False
+
 #ROBOT_IP = "nao.local"
 #ROBOT_IP = "127.0.0.1"
 
@@ -96,6 +98,32 @@ SENSOR_TO_LOG_LIST = ["Device/SubDeviceList/HeadPitch/Position/Sensor/Value",
                         "Device/SubDeviceList/RShoulderRoll/Position/Sensor/Value",
                         "Device/SubDeviceList/RWristYaw/Position/Sensor/Value"]
 
+JOINT_NAMES = ["HeadPitch",
+                        "HeadYaw",
+                        "LAnklePitch",
+                        "LAnkleRoll",
+                        "LElbowRoll",
+                        "LElbowYaw",
+                        "LHand",
+                        "LHipPitch",
+                        "LHipRoll",
+                        "LHipYawPitch",
+                        "LKneePitch",
+                        "LShoulderPitch",
+                        "LShoulderRoll",
+                        "LWristYaw",
+                        "RAnklePitch",
+                        "RAnkleRoll",
+                        "RElbowRoll",
+                        "RElbowYaw",
+                        "RHand",
+                        "RHipPitch",
+                        "RHipRoll",
+                        "RKneePitch",
+                        "RShoulderPitch",
+                        "RShoulderRoll",
+                        "RWristYaw"]
+
 POS_TO_LOG_LIST = ["Motion/Walk/AbsDistanceX",
                         "Motion/Walk/AbsDistanceY",
                         "Motion/Walk/AbsDistanceTheta"]
@@ -119,6 +147,10 @@ POS_TO_LOG_LIST = ["Motion/Walk/AbsDistanceX",
 
 def send_joint_values(sock,head,vals):
     rave_joint = reorder_joint_values(vals)
+    #if useSensors==True:
+        #rave_joint = reorder_joint_values(vals)
+    #else:
+        #rave_joint = vals
     msg = joint_value_map_pb2.JointValueVector()
     for i in range(0,25):
         elem = msg.JointValues.add()
@@ -140,12 +172,19 @@ def reorder_joint_values(row):
     print data
     return data
 
-def recordData(memory):
+def recordData(memory,motion):
     """ Record the data from ALMemory.
     Returns a matrix of values
     """
-    joint = memory.getListData(SENSOR_TO_LOG_LIST)
-    pos = memory.getListData(POS_TO_LOG_LIST)
+    names         = "JointActuators"
+    if useSensors==True:
+        joint = memory.getListData(SENSOR_TO_LOG_LIST)
+    else:
+        joint = motion.getAngles(JOINT_NAMES,useSensors)
+    
+    print len(joint)
+    #pos = memory.getListData(POS_TO_LOG_LIST)
+    pos = motion.getRobotPosition(useSensors)
     return [joint,pos]
 
 if __name__ == "__main__":
@@ -186,6 +225,11 @@ if __name__ == "__main__":
         else:
               print "Start locally"
 
+        if ROBOT_IP == '127.0.0.1':
+            useSensors = False
+        else:
+            useSensors = True
+
         context = zmq.Context()
         socket = context.socket(zmq.PUB)
         socket.bind("%s:%s" % (PUB_IP,PUB_PORT))
@@ -195,12 +239,13 @@ if __name__ == "__main__":
 
         print "Publishing data ..."
         memory = ALProxy("ALMemory", ROBOT_IP, ROBOT_PORT)
+        motion = ALProxy("ALMotion", ROBOT_IP, ROBOT_PORT)
         while 1:
-            value = recordData(memory)
+            value = recordData(memory,motion)
             print value
             send_joint_values(socket,PUB_TOPIC,value[0])
             send_position_values(socket2,PUB2_TOPIC,value[1])
-            time.sleep(0.04)
+            time.sleep(0.08)
     except:
       print "Exception occured : ", sys.exc_info()
 
