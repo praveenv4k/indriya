@@ -1,4 +1,5 @@
-﻿using Nancy;
+﻿using System;
+using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Conventions;
 using Nancy.TinyIoc;
@@ -7,18 +8,40 @@ namespace Experimot.Scheduler.Web
 {
     public class ExperimotRootPathProvider : IRootPathProvider
     {
-        private const string WebRoot = @"C:/Work/Develop/src/github/ExPeriMot/src/Experimot.Web/www";
-        //private const string WebRoot = @"../../src/Experimot.Web/www/";
         public string GetRootPath()
         {
-            return WebRoot;
+            return WebRootPath.GetRootPath();
+        }
+    }
+
+    public static class WebRootPath
+    {
+        private const string WebRoot = @"C:/Work/Develop/src/github/indriya/src/Experimot.Web/www";
+
+        public static string GetRootPath()
+        {
+            string root = string.Empty;
+            try
+            {
+                root = Environment.GetEnvironmentVariable("WEB_ROOT");
+                if (string.IsNullOrEmpty(root))
+                {
+                    root = WebRoot;
+                }
+            }
+            catch (Exception ex)
+            {
+                if (string.IsNullOrEmpty(root))
+                {
+                    root = WebRoot;
+                }
+            }
+            return root;
         }
     }
 
     internal class ExperimotWebBootStrapper : DefaultNancyBootstrapper
     {
-        private const string WebRoot = @"C:/Work/Develop/src/github/ExPeriMot/src/Experimot.Web/www";
-
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
             base.ApplicationStartup(container, pipelines);
@@ -37,16 +60,25 @@ namespace Experimot.Scheduler.Web
             //Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("scenes", "Web/www/scenes"));
             //Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("demo", "Web/www/demo"));
             //Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("app", "Web/www/app"));
-
-            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("files", @"C:/Work/Develop/src/github/ExPeriMot/src/Experimot.Web/www/files"));
-            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("fonts", @"C:/Work/Develop/src/github/ExPeriMot/src/Experimot.Web/www/fonts"));
-            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("js", @"C:/Work/Develop/src/github/ExPeriMot/src/Experimot.Web/www/js"));
-            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("libs", @"C:/Work/Develop/src/github/ExPeriMot/src/Experimot.Web/www/libs"));
-            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("../libs", @"C:/Work/Develop/src/github/ExPeriMot/src/Experimot.Web/www/libs"));
-            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("scenes", @"C:/Work/Develop/src/github/ExPeriMot/src/Experimot.Web/www/scenes"));
-            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("demo", @"C:/Work/Develop/src/github/ExPeriMot/src/Experimot.Web/www/demo"));
-            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("app", @"C:/Work/Develop/src/github/ExPeriMot/src/Experimot.Web/www/app"));
-            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("data", @"C:/Work/Develop/src/github/ExPeriMot/src/Experimot.Web/www/data"));
+            var root = WebRootPath.GetRootPath();
+            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("files",
+                System.IO.Path.Combine(root, "files")));
+            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("fonts",
+                System.IO.Path.Combine(root, "fonts")));
+            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("js",
+                System.IO.Path.Combine(root, "js")));
+            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("libs",
+                System.IO.Path.Combine(root, "libs")));
+            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("../libs",
+                System.IO.Path.Combine(root, "libs")));
+            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("scenes",
+                System.IO.Path.Combine(root, "scenes")));
+            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("demo",
+                System.IO.Path.Combine(root, "demo")));
+            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("app",
+                System.IO.Path.Combine(root, "app")));
+            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("data",
+                System.IO.Path.Combine(root, "data")));
         }
 
         protected override IRootPathProvider RootPathProvider

@@ -22,7 +22,8 @@ namespace Experimot.Scheduler.Web.Modules
     public class IndexModule : NancyModule
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof (IndexModule));
-        private const string WebRoot = @"C:/Work/Develop/src/github/ExPeriMot/src/Experimot.Web/www";
+        //private const string WebRoot = @"C:/Work/Develop/src/github/ExPeriMot/src/Experimot.Web/www";
+        private static readonly string WebRoot = WebRootPath.GetRootPath();
         //private const string WebRoot = @"../../src/Experimot.Web/www/";
         public IndexModule()
         {
@@ -101,14 +102,14 @@ namespace Experimot.Scheduler.Web.Modules
                     if (context != null)
                     {
                         //return Response.AsJson(context.Humans);
-                        return (Response)JsonConvert.SerializeObject(context.Humans);
+                        return (Response) JsonConvert.SerializeObject(context.Humans);
                     }
                 }
                 catch (Exception ex)
                 {
                     Log.InfoFormat("Exception occured while GET context : {0}", ex.Message);
                 }
-                return (Response)HttpStatusCode.OK;
+                return (Response) HttpStatusCode.OK;
             };
 
             Get["/jointvals"] = parameters =>
@@ -155,7 +156,7 @@ namespace Experimot.Scheduler.Web.Modules
                 {
                     Log.InfoFormat("Exception occured while GET jointvals : {0}", ex.Message);
                 }
-                return (Response)HttpStatusCode.OK;
+                return (Response) HttpStatusCode.OK;
             };
 
 
@@ -168,11 +169,11 @@ namespace Experimot.Scheduler.Web.Modules
                     {
                         string result = reader.ReadToEnd();
                         var bootStrapper = TinyIoCContainer.Current.Resolve<BootStrapper>();
-                        if (bootStrapper!=null && !string.IsNullOrEmpty(result))
+                        if (bootStrapper != null && !string.IsNullOrEmpty(result))
                         {
                             bootStrapper.RequestMainProgramGeneration(result);
                             bootStrapper.MainProgramExecutionRequest(ExecutionRequest.Start);
-                            return (Response)HttpStatusCode.OK;
+                            return (Response) HttpStatusCode.OK;
                         }
                         Log.InfoFormat("Body  : {0}", result);
 
@@ -180,9 +181,9 @@ namespace Experimot.Scheduler.Web.Modules
                 }
                 else
                 {
-                    
+
                 }
-                return (Response)HttpStatusCode.NotModified;
+                return (Response) HttpStatusCode.NotModified;
             };
 
             Get["/visualize/skeleton/list"] = parameters =>
@@ -259,13 +260,13 @@ namespace Experimot.Scheduler.Web.Modules
                             {
                                 context.PrepareForNewProgram();
                                 bootStrapper.MainProgramExecutionRequest(ExecutionRequest.Start);
-                                return (Response)HttpStatusCode.OK;
+                                return (Response) HttpStatusCode.OK;
                             }
                         }
                         Log.InfoFormat("Body  : {0}", result);
                     }
                 }
-                return (Response)HttpStatusCode.NotModified;
+                return (Response) HttpStatusCode.NotModified;
             };
 
             Post["/designer/program/startcs"] = parameters =>
@@ -281,7 +282,8 @@ namespace Experimot.Scheduler.Web.Modules
                         if (!string.IsNullOrEmpty(outputPath))
                         {
                             File.WriteAllText(
-                                Path.Combine(Environment.ExpandEnvironmentVariables(outputPath), "GeneratedProgram.csx"), result);
+                                Path.Combine(Environment.ExpandEnvironmentVariables(outputPath), "GeneratedProgram.csx"),
+                                result);
 
                             var bootStrapper = TinyIoCContainer.Current.Resolve<BootStrapper>();
                             var context = TinyIoCContainer.Current.Resolve<Context>();
@@ -289,13 +291,13 @@ namespace Experimot.Scheduler.Web.Modules
                             {
                                 context.PrepareForNewProgram();
                                 bootStrapper.MainProgramExecutionRequest(ExecutionRequest.Start);
-                                return (Response)HttpStatusCode.OK;
+                                return (Response) HttpStatusCode.OK;
                             }
                         }
                         Log.InfoFormat("Body  : {0}", result);
                     }
                 }
-                return (Response)HttpStatusCode.NotModified;
+                return (Response) HttpStatusCode.NotModified;
             };
 
             Post["/designer/program/save"] = parameters =>
@@ -385,13 +387,13 @@ namespace Experimot.Scheduler.Web.Modules
                             }
                         }
                     }
-                    return (Response)HttpStatusCode.OK;
+                    return (Response) HttpStatusCode.OK;
                 }
                 else
                 {
 
                 }
-                return (Response)HttpStatusCode.NotModified;
+                return (Response) HttpStatusCode.NotModified;
             };
 
             Post["/designer/program/stop"] = parameters =>
@@ -401,9 +403,9 @@ namespace Experimot.Scheduler.Web.Modules
                 if (bootStrapper != null)
                 {
                     bootStrapper.MainProgramExecutionRequest(ExecutionRequest.Stop);
-                    return (Response)HttpStatusCode.OK;
+                    return (Response) HttpStatusCode.OK;
                 }
-                return (Response)HttpStatusCode.NotModified;
+                return (Response) HttpStatusCode.NotModified;
             };
 
             Post["/designer/program/code"] = parameters =>
@@ -437,7 +439,7 @@ namespace Experimot.Scheduler.Web.Modules
                         Log.InfoFormat("Query - Key  : {0}; Value: {1}", key, queryDict[key]);
                     }
                 }
-                return (Response)HttpStatusCode.OK;
+                return (Response) HttpStatusCode.OK;
             };
         }
     }
