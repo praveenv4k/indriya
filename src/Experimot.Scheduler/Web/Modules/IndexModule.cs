@@ -22,21 +22,16 @@ namespace Experimot.Scheduler.Web.Modules
     public class IndexModule : NancyModule
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof (IndexModule));
-        //private const string WebRoot = @"C:/Work/Develop/src/github/ExPeriMot/src/Experimot.Web/www";
         private static readonly string WebRoot = WebRootPath.GetRootPath();
-        //private const string WebRoot = @"../../src/Experimot.Web/www/";
+
         public IndexModule()
         {
-            //Get["/"] = parameters => Response.AsFile(@"Web/www/index.html");
-            //Get["/"] = parameters => Response.AsFile(Path.Combine(WebRoot, "index.html"));
             Get["/"] = parameters => Response.AsFile("index.html");
 
             Get["/models/{type}/(?<all>.*)"] = parameters =>
             {
                 Console.WriteLine(Request.Path);
-                //return Response.AsFile(System.IO.Path.Combine("Web/www" + Request.Path));
                 return Response.AsFile(WebRoot + Request.Path);
-                //return Response.AsFile(Request.Path);
             };
 
             Get["/context"] = parameters =>
@@ -101,7 +96,6 @@ namespace Experimot.Scheduler.Web.Modules
                     var context = TinyIoCContainer.Current.Resolve<Context>();
                     if (context != null)
                     {
-                        //return Response.AsJson(context.Humans);
                         return (Response) JsonConvert.SerializeObject(context.Humans);
                     }
                 }

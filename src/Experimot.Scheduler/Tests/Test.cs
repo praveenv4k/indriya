@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Media.Animation;
-using System.Windows.Navigation;
-using System.Xml.Linq;
 using Common.Logging;
 using Experimot.Core;
 using Experimot.Core.Util;
@@ -13,10 +10,9 @@ using Experimot.Scheduler.Data;
 using Experimot.Scheduler.Scriptcs;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Quartz.Util;
 using SharpDX;
 // ReSharper disable FunctionComplexityOverflow
-
+// ReSharper disable once LoopCanBeConvertedToQuery
 namespace Experimot.Scheduler.Tests
 {
     internal class Test
@@ -73,13 +69,12 @@ namespace Experimot.Scheduler.Tests
                 if (obj != null)
                 {
                     Log.InfoFormat("Json object count : {0}", obj.Count);
-                    var token2 = obj.SelectToken("$.parameters"); //$.Manufacturers[?(@.Name == 'Acme Co')]
+                    var token2 = obj.SelectToken("$.parameters");
                     if (token2 != null)
                     {
 
                     }
                     var token = obj.SelectToken("$.parameters[?(@.key == 'ApplicationName')]");
-                    //$.Manufacturers[?(@.Name == 'Acme Co')]
                     if (token != null)
                     {
                         Log.InfoFormat("Value : {0}", token.Value<string>("value"));
@@ -144,30 +139,30 @@ namespace Experimot.Scheduler.Tests
             int a = 10, b = 20;
             Action<int, int> taskAction1 = delegate(int a1, int b1)
             {
-                Console.WriteLine("StartTask1 : {0}", DateTime.Now);
+                Console.WriteLine(@"StartTask1 : {0}", DateTime.Now);
                 System.Threading.Thread.Sleep(2000);
-                Console.WriteLine("EndTask1 : {0}", DateTime.Now);
-                Console.WriteLine("{0}, {1}", a1, b1);
+                Console.WriteLine(@"EndTask1 : {0}", DateTime.Now);
+                Console.WriteLine(@"{0}, {1}", a1, b1);
             };
             Action<int, int> taskAction2 = delegate(int a1, int b1)
             {
-                Console.WriteLine("StartTask2: {0}", DateTime.Now);
+                Console.WriteLine(@"StartTask2: {0}", DateTime.Now);
                 System.Threading.Thread.Sleep(5000);
-                Console.WriteLine("EndTask2: {0}", DateTime.Now);
-                Console.WriteLine("{0}, {1}", a1, b1);
+                Console.WriteLine(@"EndTask2: {0}", DateTime.Now);
+                Console.WriteLine(@"{0}, {1}", a1, b1);
             };
             Action taskAction3 = delegate
             {
-                Console.WriteLine("StartTask2: {0}", DateTime.Now);
+                Console.WriteLine(@"StartTask2: {0}", DateTime.Now);
                 System.Threading.Thread.Sleep(5000);
-                Console.WriteLine("EndTask2: {0}", DateTime.Now);
+                Console.WriteLine(@"EndTask2: {0}", DateTime.Now);
             };
 
             Action taskAction4 = delegate
             {
-                Console.WriteLine("StartTask2: {0}", DateTime.Now);
+                Console.WriteLine(@"StartTask2: {0}", DateTime.Now);
                 System.Threading.Thread.Sleep(5000);
-                Console.WriteLine("EndTask2: {0}", DateTime.Now);
+                Console.WriteLine(@"EndTask2: {0}", DateTime.Now);
             };
 
             list.Add(Task.Factory.StartNew(() => taskAction1(a, b)));
@@ -264,7 +259,7 @@ namespace Experimot.Scheduler.Tests
             //torso_frame_kinect,0,-162.226432126277,-510.568576421518,2058.52739944453,-0.725971817970276,0.322613894939423,0.246974587440491,0.554877161979675
             //torso_frame_world,0,131.927854697293,393.702612672757,245.855610297709,-0.00544274205055237,0.0278509132097885,0.473493447583182,-0.880340081041494
             //world_frame,0,0,0,0,0,0,0,1
-            var world = new Quaternion()
+            var world = new Quaternion
             {
                 X = 0.496099710464478f,
                 Y = -0.641970217227936f,
@@ -272,7 +267,7 @@ namespace Experimot.Scheduler.Tests
                 W = -0.358258932828903f
             };
 
-            var robot = new Quaternion()
+            var robot = new Quaternion
             {
                 X = -0.725971817970276f,
                 Y = 0.322613894939423f,
@@ -288,9 +283,9 @@ namespace Experimot.Scheduler.Tests
             var robotMat = MotionBehaviorTask.GetMatrixFromPose(robot,
                 new Vector3(0, 0, 0));
 
-            var humanRot =  Matrix3x3.RotationQuaternion(q);
+            //var humanRot =  Matrix3x3.RotationQuaternion(q);
             var worldRot =  Matrix3x3.RotationQuaternion(world);
-            var robotRot = Matrix3x3.RotationQuaternion(robot);
+            //var robotRot = Matrix3x3.RotationQuaternion(robot);
 
             var humanVec = 
                 new Vector3(0.4264857172966f, 0.482540011405945f, 2.79593229293823f);
@@ -384,7 +379,7 @@ namespace Experimot.Scheduler.Tests
             {
                 var dir = Path.GetDirectoryName(outputPath);
                 outputPath = Environment.ExpandEnvironmentVariables(dir ?? "");
-                var behaviors = MainProgramUtil.ReadBehaviorXmlFile(System.IO.Path.Combine(outputPath, "behavior.xml"));
+                var behaviors = MainProgramUtil.ReadBehaviorXmlFile(Path.Combine(outputPath, "behavior.xml"));
                 Console.WriteLine(@"Behaviors  : {0}", behaviors.Count);
                 if (behaviors.Count > 0)
                 {
@@ -402,7 +397,7 @@ namespace Experimot.Scheduler.Tests
                                 if (param != null)
                                 {
                                     param["value"] = "New value";
-                                    Console.WriteLine("Value : {0}", cloned.Parameters[key]);
+                                    Console.WriteLine(@"Value : {0}", cloned.Parameters[key]);
                                 }
                             }
                         }
@@ -447,7 +442,7 @@ namespace Experimot.Scheduler.Tests
         public static void TestReadSkeletonFile()
         {
             var path = @"C:\Work\Develop\sdk_2013\experimot\bin\nodes\Experimot.Localization.Logger\skeleton3.bin";
-            var skeleton = Experimot.Core.Util.IoUtils.ReadSkeletonBinFile(path);
+            var skeleton = IoUtils.ReadSkeletonBinFile(path);
 
             if (skeleton.Body.Count > 0)
             {
@@ -457,11 +452,11 @@ namespace Experimot.Scheduler.Tests
             }
         }
 
-        public static void ParseSkeletonString()
-        {
-            string skeleton =
-                "[{\"TrackingId\":0,\"IsTracked\":true,\"JointCount\":25,\"Joints\":[{\"Type\":0,\"State\":2,\"Position\":{\"x\":0.1249847337603569,\"y\":-0.11825757473707199,\"z\":2.0625252723693848},\"Orientation\":{\"x\":-0.0074656009674072266,\"y\":0.994424045085907,\"z\":-0.097892805933952332,\"w\":-0.038496285676956177},\"Angle\":-1000.0},{\"Type\":1,\"State\":2,\"Position\":{\"x\":0.11765184998512268,\"y\":0.203008234500885,\"z\":1.9989355802536011},\"Orientation\":{\"x\":-0.00657985545694828,\"y\":0.99403524398803711,\"z\":-0.0979563295841217,\"w\":-0.047489270567893982},\"Angle\":-1000.0},{\"Type\":2,\"State\":2,\"Position\":{\"x\":0.10996883362531662,\"y\":0.51213032007217407,\"z\":1.9208577871322632},\"Orientation\":{\"x\":-0.0050320285372436047,\"y\":0.988418698310852,\"z\":-0.14094266295433044,\"w\":-0.05602056160569191},\"Angle\":-1000.0},{\"Type\":3,\"State\":2,\"Position\":{\"x\":0.11100767552852631,\"y\":0.65268588066101074,\"z\":1.8685903549194336},\"Orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":0.0},\"Angle\":-1000.0},{\"Type\":4,\"State\":2,\"Position\":{\"x\":-0.072081379592418671,\"y\":0.4020199179649353,\"z\":1.9540755748748779},\"Orientation\":{\"x\":0.7670518159866333,\"y\":-0.632301926612854,\"z\":0.061224404722452164,\"w\":0.089873649179935455},\"Angle\":-1000.0},{\"Type\":5,\"State\":2,\"Position\":{\"x\":-0.12330306321382523,\"y\":0.11945255100727081,\"z\":2.05051851272583},\"Orientation\":{\"x\":0.73542362451553345,\"y\":-0.17178833484649658,\"z\":-0.65233117341995239,\"w\":0.064069680869579315},\"Angle\":-1000.0},{\"Type\":6,\"State\":2,\"Position\":{\"x\":-0.15616711974143982,\"y\":-0.12857961654663086,\"z\":2.0507967472076416},\"Orientation\":{\"x\":0.92765551805496216,\"y\":-0.060984104871749878,\"z\":0.36759054660797119,\"w\":0.024764804169535637},\"Angle\":-1000.0},{\"Type\":7,\"State\":2,\"Position\":{\"x\":-0.1523086279630661,\"y\":-0.21819016337394714,\"z\":2.0551552772521973},\"Orientation\":{\"x\":0.92823714017868042,\"y\":0.028965773060917854,\"z\":0.37057283520698547,\"w\":0.014580557122826576},\"Angle\":-1000.0},{\"Type\":8,\"State\":2,\"Position\":{\"x\":0.27921488881111145,\"y\":0.37990257143974304,\"z\":1.9194412231445313},\"Orientation\":{\"x\":0.79949504137039185,\"y\":0.58344054222106934,\"z\":-0.14125023782253265,\"w\":0.021289864555001259},\"Angle\":-1000.0},{\"Type\":9,\"State\":2,\"Position\":{\"x\":0.3518061637878418,\"y\":0.11258499324321747,\"z\":1.994931697845459},\"Orientation\":{\"x\":0.90514588356018066,\"y\":0.17058581113815308,\"z\":0.38243570923805237,\"w\":0.073172867298126221},\"Angle\":-1000.0},{\"Type\":10,\"State\":2,\"Position\":{\"x\":0.38414722681045532,\"y\":-0.14147576689720154,\"z\":2.028949499130249},\"Orientation\":{\"x\":0.82764512300491333,\"y\":0.015472088009119034,\"z\":-0.55378943681716919,\"w\":0.089896410703659058},\"Angle\":-1000.0},{\"Type\":11,\"State\":2,\"Position\":{\"x\":0.39050894975662231,\"y\":-0.23987813293933868,\"z\":2.0402326583862305},\"Orientation\":{\"x\":0.82969772815704346,\"y\":-0.00494163203984499,\"z\":-0.55436939001083374,\"w\":0.06520678848028183},\"Angle\":-1000.0},{\"Type\":12,\"State\":2,\"Position\":{\"x\":0.042388316243886948,\"y\":-0.11569768190383911,\"z\":2.0310888290405273},\"Orientation\":{\"x\":-0.67155742645263672,\"y\":0.71412324905395508,\"z\":-0.18583275377750397,\"w\":0.0671171322464943},\"Angle\":-1000.0},{\"Type\":13,\"State\":2,\"Position\":{\"x\":0.016902543604373932,\"y\":-0.54638540744781494,\"z\":2.1400647163391113},\"Orientation\":{\"x\":-0.67750316858291626,\"y\":0.10988163203001022,\"z\":0.72451204061508179,\"w\":-0.063227236270904541},\"Angle\":-1000.0},{\"Type\":14,\"State\":2,\"Position\":{\"x\":0.019744889810681343,\"y\":-0.94153130054473877,\"z\":2.2733347415924072},\"Orientation\":{\"x\":-0.47902095317840576,\"y\":0.13989044725894928,\"z\":0.86273252964019775,\"w\":-0.081622451543807983},\"Angle\":-1000.0},{\"Type\":15,\"State\":2,\"Position\":{\"x\":-0.030965633690357208,\"y\":-1.002164363861084,\"z\":2.2072350978851318},\"Orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":0.0},\"Angle\":-1000.0},{\"Type\":16,\"State\":2,\"Position\":{\"x\":0.20302265882492065,\"y\":-0.11659203469753265,\"z\":2.0189299583435059},\"Orientation\":{\"x\":0.65893334150314331,\"y\":0.704171359539032,\"z\":-0.23768116533756256,\"w\":-0.11600561439990997},\"Angle\":-1000.0},{\"Type\":17,\"State\":2,\"Position\":{\"x\":0.23478332161903381,\"y\":-0.54882222414016724,\"z\":2.1385741233825684},\"Orientation\":{\"x\":0.72868585586547852,\"y\":0.11722782999277115,\"z\":0.67059111595153809,\"w\":0.074712879955768585},\"Angle\":-1000.0},{\"Type\":18,\"State\":2,\"Position\":{\"x\":0.24888120591640472,\"y\":-0.9450414776802063,\"z\":2.2931602001190186},\"Orientation\":{\"x\":0.6585991382598877,\"y\":0.14848074316978455,\"z\":0.72924256324768066,\"w\":0.11138219386339188},\"Angle\":-1000.0},{\"Type\":19,\"State\":2,\"Position\":{\"x\":0.26045051217079163,\"y\":-1.0068831443786621,\"z\":2.2119810581207275},\"Orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":0.0},\"Angle\":-1000.0},{\"Type\":20,\"State\":2,\"Position\":{\"x\":0.11199373751878738,\"y\":0.436588853597641,\"z\":1.9427328109741211},\"Orientation\":{\"x\":-0.0051533849909901619,\"y\":0.9913705587387085,\"z\":-0.11824706941843033,\"w\":-0.056351780891418457},\"Angle\":-1000.0},{\"Type\":21,\"State\":2,\"Position\":{\"x\":-0.15046697854995728,\"y\":-0.31152123212814331,\"z\":2.0728788375854492},\"Orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":0.0},\"Angle\":-1000.0},{\"Type\":22,\"State\":2,\"Position\":{\"x\":-0.11904703080654144,\"y\":-0.25189891457557678,\"z\":2.0134797096252441},\"Orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":0.0},\"Angle\":-1000.0},{\"Type\":23,\"State\":2,\"Position\":{\"x\":0.3890744149684906,\"y\":-0.32848110795021057,\"z\":2.0569159984588623},\"Orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":0.0},\"Angle\":-1000.0},{\"Type\":24,\"State\":2,\"Position\":{\"x\":0.35649600625038147,\"y\":-0.27371099591255188,\"z\":2.019277811050415},\"Orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":0.0},\"Angle\":-1000.0}],\"ClippedEdges\":0,\"HandLeftConfidence\":0,\"HandLeftState\":0,\"HandRightConfidence\":0,\"HandRightState\":0,\"IsRestricted\":false,\"Lean\":null,\"LeanTrackingState\":0}]";
-        }
+        //public static void ParseSkeletonString()
+        //{
+        //    string skeleton =
+        //        "[{\"TrackingId\":0,\"IsTracked\":true,\"JointCount\":25,\"Joints\":[{\"Type\":0,\"State\":2,\"Position\":{\"x\":0.1249847337603569,\"y\":-0.11825757473707199,\"z\":2.0625252723693848},\"Orientation\":{\"x\":-0.0074656009674072266,\"y\":0.994424045085907,\"z\":-0.097892805933952332,\"w\":-0.038496285676956177},\"Angle\":-1000.0},{\"Type\":1,\"State\":2,\"Position\":{\"x\":0.11765184998512268,\"y\":0.203008234500885,\"z\":1.9989355802536011},\"Orientation\":{\"x\":-0.00657985545694828,\"y\":0.99403524398803711,\"z\":-0.0979563295841217,\"w\":-0.047489270567893982},\"Angle\":-1000.0},{\"Type\":2,\"State\":2,\"Position\":{\"x\":0.10996883362531662,\"y\":0.51213032007217407,\"z\":1.9208577871322632},\"Orientation\":{\"x\":-0.0050320285372436047,\"y\":0.988418698310852,\"z\":-0.14094266295433044,\"w\":-0.05602056160569191},\"Angle\":-1000.0},{\"Type\":3,\"State\":2,\"Position\":{\"x\":0.11100767552852631,\"y\":0.65268588066101074,\"z\":1.8685903549194336},\"Orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":0.0},\"Angle\":-1000.0},{\"Type\":4,\"State\":2,\"Position\":{\"x\":-0.072081379592418671,\"y\":0.4020199179649353,\"z\":1.9540755748748779},\"Orientation\":{\"x\":0.7670518159866333,\"y\":-0.632301926612854,\"z\":0.061224404722452164,\"w\":0.089873649179935455},\"Angle\":-1000.0},{\"Type\":5,\"State\":2,\"Position\":{\"x\":-0.12330306321382523,\"y\":0.11945255100727081,\"z\":2.05051851272583},\"Orientation\":{\"x\":0.73542362451553345,\"y\":-0.17178833484649658,\"z\":-0.65233117341995239,\"w\":0.064069680869579315},\"Angle\":-1000.0},{\"Type\":6,\"State\":2,\"Position\":{\"x\":-0.15616711974143982,\"y\":-0.12857961654663086,\"z\":2.0507967472076416},\"Orientation\":{\"x\":0.92765551805496216,\"y\":-0.060984104871749878,\"z\":0.36759054660797119,\"w\":0.024764804169535637},\"Angle\":-1000.0},{\"Type\":7,\"State\":2,\"Position\":{\"x\":-0.1523086279630661,\"y\":-0.21819016337394714,\"z\":2.0551552772521973},\"Orientation\":{\"x\":0.92823714017868042,\"y\":0.028965773060917854,\"z\":0.37057283520698547,\"w\":0.014580557122826576},\"Angle\":-1000.0},{\"Type\":8,\"State\":2,\"Position\":{\"x\":0.27921488881111145,\"y\":0.37990257143974304,\"z\":1.9194412231445313},\"Orientation\":{\"x\":0.79949504137039185,\"y\":0.58344054222106934,\"z\":-0.14125023782253265,\"w\":0.021289864555001259},\"Angle\":-1000.0},{\"Type\":9,\"State\":2,\"Position\":{\"x\":0.3518061637878418,\"y\":0.11258499324321747,\"z\":1.994931697845459},\"Orientation\":{\"x\":0.90514588356018066,\"y\":0.17058581113815308,\"z\":0.38243570923805237,\"w\":0.073172867298126221},\"Angle\":-1000.0},{\"Type\":10,\"State\":2,\"Position\":{\"x\":0.38414722681045532,\"y\":-0.14147576689720154,\"z\":2.028949499130249},\"Orientation\":{\"x\":0.82764512300491333,\"y\":0.015472088009119034,\"z\":-0.55378943681716919,\"w\":0.089896410703659058},\"Angle\":-1000.0},{\"Type\":11,\"State\":2,\"Position\":{\"x\":0.39050894975662231,\"y\":-0.23987813293933868,\"z\":2.0402326583862305},\"Orientation\":{\"x\":0.82969772815704346,\"y\":-0.00494163203984499,\"z\":-0.55436939001083374,\"w\":0.06520678848028183},\"Angle\":-1000.0},{\"Type\":12,\"State\":2,\"Position\":{\"x\":0.042388316243886948,\"y\":-0.11569768190383911,\"z\":2.0310888290405273},\"Orientation\":{\"x\":-0.67155742645263672,\"y\":0.71412324905395508,\"z\":-0.18583275377750397,\"w\":0.0671171322464943},\"Angle\":-1000.0},{\"Type\":13,\"State\":2,\"Position\":{\"x\":0.016902543604373932,\"y\":-0.54638540744781494,\"z\":2.1400647163391113},\"Orientation\":{\"x\":-0.67750316858291626,\"y\":0.10988163203001022,\"z\":0.72451204061508179,\"w\":-0.063227236270904541},\"Angle\":-1000.0},{\"Type\":14,\"State\":2,\"Position\":{\"x\":0.019744889810681343,\"y\":-0.94153130054473877,\"z\":2.2733347415924072},\"Orientation\":{\"x\":-0.47902095317840576,\"y\":0.13989044725894928,\"z\":0.86273252964019775,\"w\":-0.081622451543807983},\"Angle\":-1000.0},{\"Type\":15,\"State\":2,\"Position\":{\"x\":-0.030965633690357208,\"y\":-1.002164363861084,\"z\":2.2072350978851318},\"Orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":0.0},\"Angle\":-1000.0},{\"Type\":16,\"State\":2,\"Position\":{\"x\":0.20302265882492065,\"y\":-0.11659203469753265,\"z\":2.0189299583435059},\"Orientation\":{\"x\":0.65893334150314331,\"y\":0.704171359539032,\"z\":-0.23768116533756256,\"w\":-0.11600561439990997},\"Angle\":-1000.0},{\"Type\":17,\"State\":2,\"Position\":{\"x\":0.23478332161903381,\"y\":-0.54882222414016724,\"z\":2.1385741233825684},\"Orientation\":{\"x\":0.72868585586547852,\"y\":0.11722782999277115,\"z\":0.67059111595153809,\"w\":0.074712879955768585},\"Angle\":-1000.0},{\"Type\":18,\"State\":2,\"Position\":{\"x\":0.24888120591640472,\"y\":-0.9450414776802063,\"z\":2.2931602001190186},\"Orientation\":{\"x\":0.6585991382598877,\"y\":0.14848074316978455,\"z\":0.72924256324768066,\"w\":0.11138219386339188},\"Angle\":-1000.0},{\"Type\":19,\"State\":2,\"Position\":{\"x\":0.26045051217079163,\"y\":-1.0068831443786621,\"z\":2.2119810581207275},\"Orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":0.0},\"Angle\":-1000.0},{\"Type\":20,\"State\":2,\"Position\":{\"x\":0.11199373751878738,\"y\":0.436588853597641,\"z\":1.9427328109741211},\"Orientation\":{\"x\":-0.0051533849909901619,\"y\":0.9913705587387085,\"z\":-0.11824706941843033,\"w\":-0.056351780891418457},\"Angle\":-1000.0},{\"Type\":21,\"State\":2,\"Position\":{\"x\":-0.15046697854995728,\"y\":-0.31152123212814331,\"z\":2.0728788375854492},\"Orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":0.0},\"Angle\":-1000.0},{\"Type\":22,\"State\":2,\"Position\":{\"x\":-0.11904703080654144,\"y\":-0.25189891457557678,\"z\":2.0134797096252441},\"Orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":0.0},\"Angle\":-1000.0},{\"Type\":23,\"State\":2,\"Position\":{\"x\":0.3890744149684906,\"y\":-0.32848110795021057,\"z\":2.0569159984588623},\"Orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":0.0},\"Angle\":-1000.0},{\"Type\":24,\"State\":2,\"Position\":{\"x\":0.35649600625038147,\"y\":-0.27371099591255188,\"z\":2.019277811050415},\"Orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":0.0},\"Angle\":-1000.0}],\"ClippedEdges\":0,\"HandLeftConfidence\":0,\"HandLeftState\":0,\"HandRightConfidence\":0,\"HandRightState\":0,\"IsRestricted\":false,\"Lean\":null,\"LeanTrackingState\":0}]";
+        //}
 
     }
 
@@ -497,7 +492,7 @@ namespace Experimot.Scheduler.Tests
                 {23, 24},
                 {24, 18},
             };
-            var lines = System.IO.File.ReadAllLines(@"datalog.csv");
+            var lines = File.ReadAllLines(@"datalog.csv");
             var csv = lines.Select(line => line.Split(',')).ToList(); // or, List<YourClass>
             _jointList = new List<List<double>>();
             for (int i = 0; i < csv.Count; i++)

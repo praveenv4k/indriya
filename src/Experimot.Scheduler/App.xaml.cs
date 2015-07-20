@@ -34,7 +34,7 @@ namespace Experimot.Scheduler
 
         private void RunTests(experimot_config config)
         {
-            Tests.Test.TestReadSkeletonFile();
+            //Tests.Test.TestReadSkeletonFile();
             //Tests.Test.MultihumanGestureTest();
             //Tests.Test.CheckRelativeAngle();
             //Tests.Test.ExecuteParallel();

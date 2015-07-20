@@ -4,10 +4,19 @@ using Experimot.Core.Annotations;
 
 namespace Experimot.Scheduler.Data
 {
+    /// <summary>
+    /// Represents a robot behavior
+    /// </summary>
     public class Behavior : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Name of the behavior
+        /// </summary>
         public string Name
         {
             get { return _name; }
@@ -19,6 +28,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Behavior Mode
+        /// </summary>
         public BehaviorMode Mode
         {
             get { return _behaviorMode; }
@@ -30,6 +42,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Current state of the behavior execution
+        /// </summary>
         public BehaviorState State
         {
             get { return _state; }

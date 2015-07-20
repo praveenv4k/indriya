@@ -4,6 +4,7 @@ import node_pb2
 import robot_behavior_pb2
 import sys
 import json
+
 def getNodeParameters(name,parameterServerAddress,timeout):
     try:
         # using with keyword save the life! If not used, the unmanaged resources are getting cleaned up

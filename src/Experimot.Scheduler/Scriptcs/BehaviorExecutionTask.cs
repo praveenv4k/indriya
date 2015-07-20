@@ -1,6 +1,7 @@
 ﻿using Common.Logging;
 using System;
 
+// ReSharper disable once CheckNamespace
 public class BehaviorExecutionTask : Quartz.IJob
 {
     private static readonly ILog Log = LogManager.GetLogger(typeof (BehaviorExecutionTask));

@@ -46,20 +46,6 @@ namespace Experimot.Scheduler.Web
         {
             base.ApplicationStartup(container, pipelines);
 
-            //string[] folders = { "files", "fonts", "js", "libs", "../libs", "scenes", "demo", "app" };
-            //foreach (var folder in folders)
-            //{
-            //    Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory(folder,
-            //        System.IO.Path.Combine(WebRoot, folder)));
-            //}
-
-            //Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("files","Web/www/files"));
-            //Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("fonts", "Web/www/fonts"));
-            //Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("js", "Web/www/js"));
-            //Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("libs", "Web/www/libs"));
-            //Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("scenes", "Web/www/scenes"));
-            //Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("demo", "Web/www/demo"));
-            //Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("app", "Web/www/app"));
             var root = WebRootPath.GetRootPath();
             Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("files",
                 System.IO.Path.Combine(root, "files")));
