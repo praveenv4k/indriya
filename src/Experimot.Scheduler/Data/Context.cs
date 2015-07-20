@@ -13,6 +13,9 @@ using LogManager = Common.Logging.LogManager;
 
 namespace Experimot.Scheduler.Data
 {
+    /// <summary>
+    /// Represents the application context
+    /// </summary>
     public class Context : INotifyPropertyChanged
     {
         private Robot _robot;
@@ -33,6 +36,9 @@ namespace Experimot.Scheduler.Data
         private static readonly ILog Log = LogManager.GetLogger<Context>();
         private readonly VoiceCommandManager _voiceCommandManager;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Context()
         {
             Humans = new BindableCollection<Human>();
@@ -44,6 +50,9 @@ namespace Experimot.Scheduler.Data
             VoiceRecognitionModules = new BindableCollection<VoiceRecognitionModule>();
         }
 
+        /// <summary>
+        /// Description of robot
+        /// </summary>
         public Robot Robot
         {
             get { return _robot; }
