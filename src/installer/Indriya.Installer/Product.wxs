@@ -9,7 +9,7 @@
 		<Feature Id="ProductFeature" Title="IndriyaInstaller" Level="1">
 			<ComponentGroupRef Id="ProductComponents" />
 		</Feature>
-  
+    <PropertyRef Id="NETFRAMEWORK45"/>
 	</Product>
   
 	<Fragment>
