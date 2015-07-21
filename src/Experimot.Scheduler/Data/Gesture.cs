@@ -7,6 +7,9 @@ using Experimot.Core.Annotations;
 
 namespace Experimot.Scheduler.Data
 {
+    /// <summary>
+    /// Represents a gesture
+    /// </summary>
     public class Gesture : INotifyPropertyChanged
     {
         private string _name;
@@ -15,6 +18,11 @@ namespace Experimot.Scheduler.Data
         private readonly Dictionary<GestureConfidenceLevels, GestureConfidenceData> _confidenceDict;
         protected const int GesturePeriod = 2;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="name">Name of the gesture</param>
+        /// <param name="mode">Mode of the gesture</param>
         public Gesture(string name, GestureMode mode)
         {
             //_currentLapse = 0;
@@ -34,11 +42,21 @@ namespace Experimot.Scheduler.Data
             };
         }
 
+        /// <summary>
+        /// To check if the gesture confidence is above a certain level
+        /// </summary>
+        /// <param name="confidence">Confidence value</param>
+        /// <param name="level">Confidence level</param>
+        /// <returns>True if confidence is above the level</returns>
         private bool IsActive(int confidence, GestureConfidenceLevels level)
         {
             return confidence >= (int) level;
         }
 
+        /// <summary>
+        /// Update the count of the confidence levels above the given confidence value
+        /// </summary>
+        /// <param name="confidence"></param>
         private void UpdateConfidenceLevels(int confidence)
         {
             var enumArray = Enum.GetValues(typeof (GestureConfidenceLevels));
@@ -50,6 +68,10 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Refreshed the gesture with the gesture trigger
+        /// </summary>
+        /// <param name="trigger">Gesture Trigger</param>
         public void Refresh(GestureDescription trigger)
         {
             if (trigger != null)
@@ -64,6 +86,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Reset the confidence level count
+        /// </summary>
         public void Reset()
         {
             var enumArray = Enum.GetValues(typeof(GestureConfidenceLevels));
@@ -74,6 +99,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Name of the gesture
+        /// </summary>
         public string Name
         {
             get { return _name; }
@@ -85,6 +113,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Mode of the gesture
+        /// </summary>
         public GestureMode Mode
         {
             get { return _gestureMode; }
@@ -96,6 +127,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Gesture active flag
+        /// </summary>
         public bool Active
         {
             get { return _active; }
@@ -109,6 +143,9 @@ namespace Experimot.Scheduler.Data
 
         private int _progress;
 
+        /// <summary>
+        /// Gesture progress flag - For continuous gestures
+        /// </summary>
         public int Progress
         {
             get { return _progress; }
@@ -122,6 +159,9 @@ namespace Experimot.Scheduler.Data
 
         private int _confidence;
 
+        /// <summary>
+        /// Gesture confidence values
+        /// </summary>
         public int Confidence
         {
             get { return _confidence; }
@@ -135,6 +175,9 @@ namespace Experimot.Scheduler.Data
 
         private int _count;
 
+        /// <summary>
+        /// Gesture count
+        /// </summary>
         public int Count
         {
             get { return _count; }
@@ -152,13 +195,22 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Dictionary containing the number of times this gesture is performed corresponding to each confidence level
+        /// </summary>
         public Dictionary<GestureConfidenceLevels, GestureConfidenceData> ConfidenceDict
         {
             get { return _confidenceDict; }
         }
 
+        /// <summary>
+        /// Gesture triggered event
+        /// </summary>
         public event EventHandler<GestureArgs> GestureTriggered;
 
+        /// <summary>
+        /// Property changed event
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]

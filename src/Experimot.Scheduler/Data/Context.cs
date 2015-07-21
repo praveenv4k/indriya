@@ -27,6 +27,7 @@ namespace Experimot.Scheduler.Data
             position = new Vector3d() {x = 0, y = 0, z = 0},
             orientation = new Quaternion() {w = 1, x = 0, y = 0, z = 0}
         };
+
         private BindableCollection<Human> _humans;
         private IDictionary<string, ManipulatableObject> _objects;
         private readonly object _object = new object();
@@ -35,6 +36,7 @@ namespace Experimot.Scheduler.Data
         private BindableCollection<RobotBehaviorModule> _behaviorModules;
         private static readonly ILog Log = LogManager.GetLogger<Context>();
         private readonly VoiceCommandManager _voiceCommandManager;
+        private bool _serializeHuman;
 
         /// <summary>
         /// Constructor
@@ -64,46 +66,70 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Collection of human in the environment
+        /// </summary>
         public BindableCollection<Human> Humans
         {
             get { return _humans; }
             set { _humans = value; }
         }
 
+        /// <summary>
+        /// Collection of objects in the environment
+        /// </summary>
         public IDictionary<string, ManipulatableObject> Objects
         {
             get { return _objects; }
             set { _objects = value; }
         }
 
+        /// <summary>
+        /// List of registered Motion recognition modules
+        /// </summary>
         public BindableCollection<GestureModule> MotionModules
         {
             get { return _motionModules; }
             set { _motionModules = value; }
         }
 
+        /// <summary>
+        /// List of registered Robot behavior modules
+        /// </summary>
         public BindableCollection<RobotBehaviorModule> BehaviorModules
         {
             get { return _behaviorModules; }
             set { _behaviorModules = value; }
         }
 
+        /// <summary>
+        /// List of registered speech recognition modules
+        /// </summary>
         public BindableCollection<VoiceRecognitionModule> VoiceRecognitionModules
         {
             get { return _voiceModules; }
             set { _voiceModules = value; }
         }
 
+        /// <summary>
+        /// Transformation of world reference frame
+        /// </summary>
         public Pose WorldFrame
         {
             get { return _worldFrame; }
         }
 
+        /// <summary>
+        /// Manages the speech commands from the user
+        /// </summary>
         public VoiceCommandManager VoiceCommandManager
         {
             get { return _voiceCommandManager; }
         }
 
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
@@ -113,6 +139,9 @@ namespace Experimot.Scheduler.Data
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        /// <summary>
+        /// Prepared the context for new program
+        /// </summary>
         public void PrepareForNewProgram()
         {
             lock (_object)
@@ -127,6 +156,10 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Set the world reference frame transformation
+        /// </summary>
+        /// <param name="pose">World frame transformation</param>
         public void SetWorldFrame(Pose pose)
         {
             if (pose != null)
@@ -136,6 +169,10 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Update a message of type Pose_V
+        /// </summary>
+        /// <param name="pose">List of pose message</param>
         public void Update(Pose_V pose)
         {
             lock (_object)
@@ -145,6 +182,10 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Update the joint values of the robot
+        /// </summary>
+        /// <param name="jointValue">List of joint values</param>
         public void Update(JointValueVector jointValue)
         {
             lock (_object)
@@ -153,6 +194,10 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Update the sensor data of the robot
+        /// </summary>
+        /// <param name="sensorData">Sensor data</param>
         public void Update(SensorData sensorData)
         {
             lock (_object)
@@ -161,6 +206,10 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Update the voice command from the human
+        /// </summary>
+        /// <param name="command">Voice command</param>
         public void Update(VoiceCommandDescription command)
         {
             lock (_object)
@@ -173,7 +222,10 @@ namespace Experimot.Scheduler.Data
             }
         }
 
-        private bool serializeHuman = false;
+        /// <summary>
+        /// Update the skeleton information of the humans
+        /// </summary>
+        /// <param name="kinectBodies">Skeleton list</param>
         public void Update(KinectBodies kinectBodies)
         {
             lock (_object)
@@ -215,28 +267,20 @@ namespace Experimot.Scheduler.Data
                     else
                     {
                         item.Body = kinectBody;
-
-                        // Check below is not needed since only tracked kinect bodies are published by the publisher
-
-                        //if (!kinectBody.IsTracked)
-                        //{
-                        //    Humans.Remove(item);
-                        //    Log.InfoFormat("Removed untracked human: {0}", item.Id);
-                        //}
-                        //else
-                        //{
-                        //    item.Body = kinectBody;
-                        //}
                     }
                 }
-                if (Humans.Count > 0 && !serializeHuman)
+                if (Humans.Count > 0 && !_serializeHuman)
                 {
                     Console.WriteLine(JsonConvert.SerializeObject(Humans));
-                    serializeHuman = true;
+                    _serializeHuman = true;
                 }
             }
         }
 
+        /// <summary>
+        /// Update the gesture triggers from the gesture recognition module
+        /// </summary>
+        /// <param name="triggers">Gesture trigger list</param>
         public void Update(GestureTriggers triggers)
         {
             if (triggers != null)
@@ -273,6 +317,10 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Update the gesture trigger from gesture recognition module
+        /// </summary>
+        /// <param name="trigger">Gesture trigger</param>
         public void Update(GestureTrigger trigger)
         {
             if (trigger != null)
@@ -306,6 +354,10 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Update humans information
+        /// </summary>
+        /// <param name="humans">List of human</param>
         public void Update(Humans humans)
         {
             if (humans != null)
@@ -327,6 +379,10 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Register the gesture recognition module to the context
+        /// </summary>
+        /// <param name="module">Module information</param>
         public void RegisterMotionRecognitionModule(GestureRecognitionModule module)
         {
             if (module != null && !string.IsNullOrEmpty(module.name))
@@ -346,6 +402,10 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Register the voice recognition module to the context
+        /// </summary>
+        /// <param name="module">Module information</param>
         public void RegisterVoiceRecognitionModule(VoiceRecognitionModule module)
         {
             if (module != null && !string.IsNullOrEmpty(module.name))
@@ -365,6 +425,10 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Register the robot behavior module information to the context
+        /// </summary>
+        /// <param name="module">Module information</param>
         public void RegisterRobotBehaviorModule(RobotBehaviorModule module)
         {
             if (module != null && !string.IsNullOrEmpty(module.name))
