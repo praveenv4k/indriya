@@ -97,7 +97,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\experimot_msgs\experimot_msgs.vcxproj">
+    <ProjectReference Include="..\indriya_msgs\indriya_msgs.vcxproj">
       <Project>{1ab15496-ac39-4ac7-8507-df6033138943}</Project>
     </ProjectReference>
   </ItemGroup>

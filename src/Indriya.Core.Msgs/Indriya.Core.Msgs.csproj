@@ -68,337 +68,337 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\experimot_msgs\csharp\axis.cs">
+    <Compile Include="..\indriya_msgs\csharp\axis.cs">
       <Link>axis.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\boxgeom.cs">
+    <Compile Include="..\indriya_msgs\csharp\boxgeom.cs">
       <Link>boxgeom.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\camerasensor.cs">
+    <Compile Include="..\indriya_msgs\csharp\camerasensor.cs">
       <Link>camerasensor.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\camera_cmd.cs">
+    <Compile Include="..\indriya_msgs\csharp\camera_cmd.cs">
       <Link>camera_cmd.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\collision.cs">
+    <Compile Include="..\indriya_msgs\csharp\collision.cs">
       <Link>collision.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\color.cs">
+    <Compile Include="..\indriya_msgs\csharp\color.cs">
       <Link>color.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\contact.cs">
+    <Compile Include="..\indriya_msgs\csharp\contact.cs">
       <Link>contact.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\contacts.cs">
+    <Compile Include="..\indriya_msgs\csharp\contacts.cs">
       <Link>contacts.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\contactsensor.cs">
+    <Compile Include="..\indriya_msgs\csharp\contactsensor.cs">
       <Link>contactsensor.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\cylindergeom.cs">
+    <Compile Include="..\indriya_msgs\csharp\cylindergeom.cs">
       <Link>cylindergeom.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\diagnostics.cs">
+    <Compile Include="..\indriya_msgs\csharp\diagnostics.cs">
       <Link>diagnostics.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\distortion.cs">
+    <Compile Include="..\indriya_msgs\csharp\distortion.cs">
       <Link>distortion.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\factory.cs">
+    <Compile Include="..\indriya_msgs\csharp\factory.cs">
       <Link>factory.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\fluid.cs">
+    <Compile Include="..\indriya_msgs\csharp\fluid.cs">
       <Link>fluid.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\fog.cs">
+    <Compile Include="..\indriya_msgs\csharp\fog.cs">
       <Link>fog.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\friction.cs">
+    <Compile Include="..\indriya_msgs\csharp\friction.cs">
       <Link>friction.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\geometry.cs">
+    <Compile Include="..\indriya_msgs\csharp\geometry.cs">
       <Link>geometry.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\gesture.cs">
+    <Compile Include="..\indriya_msgs\csharp\gesture.cs">
       <Link>gesture.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\gps.cs">
+    <Compile Include="..\indriya_msgs\csharp\gps.cs">
       <Link>gps.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\gui.cs">
+    <Compile Include="..\indriya_msgs\csharp\gui.cs">
       <Link>gui.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\gui_camera.cs">
+    <Compile Include="..\indriya_msgs\csharp\gui_camera.cs">
       <Link>gui_camera.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\gz_string.cs">
+    <Compile Include="..\indriya_msgs\csharp\gz_string.cs">
       <Link>gz_string.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\gz_string_v.cs">
+    <Compile Include="..\indriya_msgs\csharp\gz_string_v.cs">
       <Link>gz_string_v.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\header.cs">
+    <Compile Include="..\indriya_msgs\csharp\header.cs">
       <Link>header.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\heightmapgeom.cs">
+    <Compile Include="..\indriya_msgs\csharp\heightmapgeom.cs">
       <Link>heightmapgeom.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\human.cs">
+    <Compile Include="..\indriya_msgs\csharp\human.cs">
       <Link>human.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\hydra.cs">
+    <Compile Include="..\indriya_msgs\csharp\hydra.cs">
       <Link>hydra.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\image.cs">
+    <Compile Include="..\indriya_msgs\csharp\image.cs">
       <Link>image.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\imagegeom.cs">
+    <Compile Include="..\indriya_msgs\csharp\imagegeom.cs">
       <Link>imagegeom.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\images_stamped.cs">
+    <Compile Include="..\indriya_msgs\csharp\images_stamped.cs">
       <Link>images_stamped.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\image_stamped.cs">
+    <Compile Include="..\indriya_msgs\csharp\image_stamped.cs">
       <Link>image_stamped.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\imu.cs">
+    <Compile Include="..\indriya_msgs\csharp\imu.cs">
       <Link>imu.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\inertial.cs">
+    <Compile Include="..\indriya_msgs\csharp\inertial.cs">
       <Link>inertial.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\int.cs">
+    <Compile Include="..\indriya_msgs\csharp\int.cs">
       <Link>int.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\joint.cs">
+    <Compile Include="..\indriya_msgs\csharp\joint.cs">
       <Link>joint.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\joint_animation.cs">
+    <Compile Include="..\indriya_msgs\csharp\joint_animation.cs">
       <Link>joint_animation.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\joint_cmd.cs">
+    <Compile Include="..\indriya_msgs\csharp\joint_cmd.cs">
       <Link>joint_cmd.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\joint_value_map.cs">
+    <Compile Include="..\indriya_msgs\csharp\joint_value_map.cs">
       <Link>joint_value_map.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\joint_wrench.cs">
+    <Compile Include="..\indriya_msgs\csharp\joint_wrench.cs">
       <Link>joint_wrench.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\joint_wrench_stamped.cs">
+    <Compile Include="..\indriya_msgs\csharp\joint_wrench_stamped.cs">
       <Link>joint_wrench_stamped.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\joystick.cs">
+    <Compile Include="..\indriya_msgs\csharp\joystick.cs">
       <Link>joystick.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\kinect_body.cs">
+    <Compile Include="..\indriya_msgs\csharp\kinect_body.cs">
       <Link>kinect_body.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\kinect_joint.cs">
+    <Compile Include="..\indriya_msgs\csharp\kinect_joint.cs">
       <Link>kinect_joint.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\laserscan.cs">
+    <Compile Include="..\indriya_msgs\csharp\laserscan.cs">
       <Link>laserscan.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\laserscan_stamped.cs">
+    <Compile Include="..\indriya_msgs\csharp\laserscan_stamped.cs">
       <Link>laserscan_stamped.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\light.cs">
+    <Compile Include="..\indriya_msgs\csharp\light.cs">
       <Link>light.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\link.cs">
+    <Compile Include="..\indriya_msgs\csharp\link.cs">
       <Link>link.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\link_data.cs">
+    <Compile Include="..\indriya_msgs\csharp\link_data.cs">
       <Link>link_data.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\log_control.cs">
+    <Compile Include="..\indriya_msgs\csharp\log_control.cs">
       <Link>log_control.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\log_status.cs">
+    <Compile Include="..\indriya_msgs\csharp\log_status.cs">
       <Link>log_status.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\material.cs">
+    <Compile Include="..\indriya_msgs\csharp\material.cs">
       <Link>material.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\meshgeom.cs">
+    <Compile Include="..\indriya_msgs\csharp\meshgeom.cs">
       <Link>meshgeom.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\model.cs">
+    <Compile Include="..\indriya_msgs\csharp\model.cs">
       <Link>model.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\model_configuration.cs">
+    <Compile Include="..\indriya_msgs\csharp\model_configuration.cs">
       <Link>model_configuration.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\model_v.cs">
+    <Compile Include="..\indriya_msgs\csharp\model_v.cs">
       <Link>model_v.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\node.cs">
+    <Compile Include="..\indriya_msgs\csharp\node.cs">
       <Link>node.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\packet.cs">
+    <Compile Include="..\indriya_msgs\csharp\packet.cs">
       <Link>packet.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\param.cs">
+    <Compile Include="..\indriya_msgs\csharp\param.cs">
       <Link>param.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\physics.cs">
+    <Compile Include="..\indriya_msgs\csharp\physics.cs">
       <Link>physics.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\pid.cs">
+    <Compile Include="..\indriya_msgs\csharp\pid.cs">
       <Link>pid.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\planegeom.cs">
+    <Compile Include="..\indriya_msgs\csharp\planegeom.cs">
       <Link>planegeom.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\plugin.cs">
+    <Compile Include="..\indriya_msgs\csharp\plugin.cs">
       <Link>plugin.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\pointcloud.cs">
+    <Compile Include="..\indriya_msgs\csharp\pointcloud.cs">
       <Link>pointcloud.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\polylinegeom.cs">
+    <Compile Include="..\indriya_msgs\csharp\polylinegeom.cs">
       <Link>polylinegeom.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\pose.cs">
+    <Compile Include="..\indriya_msgs\csharp\pose.cs">
       <Link>pose.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\poses_stamped.cs">
+    <Compile Include="..\indriya_msgs\csharp\poses_stamped.cs">
       <Link>poses_stamped.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\pose_animation.cs">
+    <Compile Include="..\indriya_msgs\csharp\pose_animation.cs">
       <Link>pose_animation.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\pose_stamped.cs">
+    <Compile Include="..\indriya_msgs\csharp\pose_stamped.cs">
       <Link>pose_stamped.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\pose_trajectory.cs">
+    <Compile Include="..\indriya_msgs\csharp\pose_trajectory.cs">
       <Link>pose_trajectory.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\pose_v.cs">
+    <Compile Include="..\indriya_msgs\csharp\pose_v.cs">
       <Link>pose_v.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\projector.cs">
+    <Compile Include="..\indriya_msgs\csharp\projector.cs">
       <Link>projector.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\propagation_grid.cs">
+    <Compile Include="..\indriya_msgs\csharp\propagation_grid.cs">
       <Link>propagation_grid.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\propagation_particle.cs">
+    <Compile Include="..\indriya_msgs\csharp\propagation_particle.cs">
       <Link>propagation_particle.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\publish.cs">
+    <Compile Include="..\indriya_msgs\csharp\publish.cs">
       <Link>publish.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\publishers.cs">
+    <Compile Include="..\indriya_msgs\csharp\publishers.cs">
       <Link>publishers.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\quaternion.cs">
+    <Compile Include="..\indriya_msgs\csharp\quaternion.cs">
       <Link>quaternion.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\raysensor.cs">
+    <Compile Include="..\indriya_msgs\csharp\raysensor.cs">
       <Link>raysensor.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\request.cs">
+    <Compile Include="..\indriya_msgs\csharp\request.cs">
       <Link>request.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\response.cs">
+    <Compile Include="..\indriya_msgs\csharp\response.cs">
       <Link>response.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\road.cs">
+    <Compile Include="..\indriya_msgs\csharp\road.cs">
       <Link>road.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\robot_behavior.cs">
+    <Compile Include="..\indriya_msgs\csharp\robot_behavior.cs">
       <Link>robot_behavior.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\scene.cs">
+    <Compile Include="..\indriya_msgs\csharp\scene.cs">
       <Link>scene.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\selection.cs">
+    <Compile Include="..\indriya_msgs\csharp\selection.cs">
       <Link>selection.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\sensor.cs">
+    <Compile Include="..\indriya_msgs\csharp\sensor.cs">
       <Link>sensor.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\server_control.cs">
+    <Compile Include="..\indriya_msgs\csharp\server_control.cs">
       <Link>server_control.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\shadows.cs">
+    <Compile Include="..\indriya_msgs\csharp\shadows.cs">
       <Link>shadows.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\sim_event.cs">
+    <Compile Include="..\indriya_msgs\csharp\sim_event.cs">
       <Link>sim_event.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\sky.cs">
+    <Compile Include="..\indriya_msgs\csharp\sky.cs">
       <Link>sky.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\sonar.cs">
+    <Compile Include="..\indriya_msgs\csharp\sonar.cs">
       <Link>sonar.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\sonar_stamped.cs">
+    <Compile Include="..\indriya_msgs\csharp\sonar_stamped.cs">
       <Link>sonar_stamped.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\spheregeom.cs">
+    <Compile Include="..\indriya_msgs\csharp\spheregeom.cs">
       <Link>spheregeom.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\spherical_coordinates.cs">
+    <Compile Include="..\indriya_msgs\csharp\spherical_coordinates.cs">
       <Link>spherical_coordinates.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\subscribe.cs">
+    <Compile Include="..\indriya_msgs\csharp\subscribe.cs">
       <Link>subscribe.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\surface.cs">
+    <Compile Include="..\indriya_msgs\csharp\surface.cs">
       <Link>surface.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\tactile.cs">
+    <Compile Include="..\indriya_msgs\csharp\tactile.cs">
       <Link>tactile.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\test.cs">
+    <Compile Include="..\indriya_msgs\csharp\test.cs">
       <Link>test.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\time.cs">
+    <Compile Include="..\indriya_msgs\csharp\time.cs">
       <Link>time.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\topic_info.cs">
+    <Compile Include="..\indriya_msgs\csharp\topic_info.cs">
       <Link>topic_info.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\track_visual.cs">
+    <Compile Include="..\indriya_msgs\csharp\track_visual.cs">
       <Link>track_visual.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\vector2d.cs">
+    <Compile Include="..\indriya_msgs\csharp\vector2d.cs">
       <Link>vector2d.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\vector3d.cs">
+    <Compile Include="..\indriya_msgs\csharp\vector3d.cs">
       <Link>vector3d.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\visual.cs">
+    <Compile Include="..\indriya_msgs\csharp\visual.cs">
       <Link>visual.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\voice.cs">
+    <Compile Include="..\indriya_msgs\csharp\voice.cs">
       <Link>voice.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\wireless_node.cs">
+    <Compile Include="..\indriya_msgs\csharp\wireless_node.cs">
       <Link>wireless_node.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\wireless_nodes.cs">
+    <Compile Include="..\indriya_msgs\csharp\wireless_nodes.cs">
       <Link>wireless_nodes.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\world_control.cs">
+    <Compile Include="..\indriya_msgs\csharp\world_control.cs">
       <Link>world_control.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\world_modify.cs">
+    <Compile Include="..\indriya_msgs\csharp\world_modify.cs">
       <Link>world_modify.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\world_reset.cs">
+    <Compile Include="..\indriya_msgs\csharp\world_reset.cs">
       <Link>world_reset.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\world_stats.cs">
+    <Compile Include="..\indriya_msgs\csharp\world_stats.cs">
       <Link>world_stats.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\wrench.cs">
+    <Compile Include="..\indriya_msgs\csharp\wrench.cs">
       <Link>wrench.cs</Link>
     </Compile>
-    <Compile Include="..\experimot_msgs\csharp\wrench_stamped.cs">
+    <Compile Include="..\indriya_msgs\csharp\wrench_stamped.cs">
       <Link>wrench_stamped.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

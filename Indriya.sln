@@ -24,7 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "external", "external", "{C0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtoGen", "external\ProtoGen\ProtoGen.csproj", "{F6CBE303-3B5F-4CCC-B0B7-D81A6BD462C9}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "indriya_kinect_capture", "src\indriya_kinect_capture\CvKinectCapture.vcxproj", "{C93E9887-FF52-41E3-964D-665398828210}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experimot_capture", "src\indriya_kinect_capture\indriya_kinect_capture.vcxproj", "{C93E9887-FF52-41E3-964D-665398828210}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "indriya_robot_localization", "src\indriya_robot_localization\indriya_robot_localization.vcxproj", "{D3B734CB-E7B8-4FF1-9390-A52E4E6C7291}"
 EndProject
@@ -34,7 +34,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indriya.Kinect.Perception",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indriya.Core.Msgs", "src\Indriya.Core.Msgs\Indriya.Core.Msgs.csproj", "{45E9E170-76B7-4E71-B557-9B131E0C175B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "indriya_kinect_calibration", "src\indriya_kinect_calibration\OpenCV_Calibration.vcxproj", "{D33DF366-7A84-4078-9801-30C145525070}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experimot_calibration", "src\indriya_kinect_calibration\indriya_kinect_calibration.vcxproj", "{D33DF366-7A84-4078-9801-30C145525070}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indriya.Kinect.Playback", "src\Indriya.Kinect.Playback\Indriya.Kinect.Playback.csproj", "{90934219-A7A1-4445-A333-81C1A28F3672}"
 EndProject
@@ -173,6 +173,7 @@ Global
 		{1AB15496-AC39-4AC7-8507-DF6033138943}.Distribution|x86.Build.0 = Debug|Win32
 		{1AB15496-AC39-4AC7-8507-DF6033138943}.Release|Android.ActiveCfg = Release|Win32
 		{1AB15496-AC39-4AC7-8507-DF6033138943}.Release|Any CPU.ActiveCfg = Release|Win32
+		{1AB15496-AC39-4AC7-8507-DF6033138943}.Release|Any CPU.Build.0 = Release|Win32
 		{1AB15496-AC39-4AC7-8507-DF6033138943}.Release|iOS.ActiveCfg = Release|Win32
 		{1AB15496-AC39-4AC7-8507-DF6033138943}.Release|Mixed Platforms.ActiveCfg = Release|Win32
 		{1AB15496-AC39-4AC7-8507-DF6033138943}.Release|Mixed Platforms.Build.0 = Release|Win32
@@ -221,6 +222,7 @@ Global
 		{02FE2504-329C-4E39-A5F9-663567C1EA2D}.Distribution|x86.Build.0 = Debug|Win32
 		{02FE2504-329C-4E39-A5F9-663567C1EA2D}.Release|Android.ActiveCfg = Release|Win32
 		{02FE2504-329C-4E39-A5F9-663567C1EA2D}.Release|Any CPU.ActiveCfg = Release|Win32
+		{02FE2504-329C-4E39-A5F9-663567C1EA2D}.Release|Any CPU.Build.0 = Release|Win32
 		{02FE2504-329C-4E39-A5F9-663567C1EA2D}.Release|iOS.ActiveCfg = Release|Win32
 		{02FE2504-329C-4E39-A5F9-663567C1EA2D}.Release|Mixed Platforms.ActiveCfg = Release|Win32
 		{02FE2504-329C-4E39-A5F9-663567C1EA2D}.Release|Mixed Platforms.Build.0 = Release|Win32
@@ -317,6 +319,7 @@ Global
 		{C93E9887-FF52-41E3-964D-665398828210}.Distribution|x86.Build.0 = Debug|Win32
 		{C93E9887-FF52-41E3-964D-665398828210}.Release|Android.ActiveCfg = Release|Win32
 		{C93E9887-FF52-41E3-964D-665398828210}.Release|Any CPU.ActiveCfg = Release|Win32
+		{C93E9887-FF52-41E3-964D-665398828210}.Release|Any CPU.Build.0 = Release|Win32
 		{C93E9887-FF52-41E3-964D-665398828210}.Release|iOS.ActiveCfg = Release|Win32
 		{C93E9887-FF52-41E3-964D-665398828210}.Release|Mixed Platforms.ActiveCfg = Release|Win32
 		{C93E9887-FF52-41E3-964D-665398828210}.Release|Mixed Platforms.Build.0 = Release|Win32
@@ -365,6 +368,7 @@ Global
 		{D3B734CB-E7B8-4FF1-9390-A52E4E6C7291}.Distribution|x86.Build.0 = Debug|Win32
 		{D3B734CB-E7B8-4FF1-9390-A52E4E6C7291}.Release|Android.ActiveCfg = Release|Win32
 		{D3B734CB-E7B8-4FF1-9390-A52E4E6C7291}.Release|Any CPU.ActiveCfg = Release|Win32
+		{D3B734CB-E7B8-4FF1-9390-A52E4E6C7291}.Release|Any CPU.Build.0 = Release|Win32
 		{D3B734CB-E7B8-4FF1-9390-A52E4E6C7291}.Release|iOS.ActiveCfg = Release|Win32
 		{D3B734CB-E7B8-4FF1-9390-A52E4E6C7291}.Release|Mixed Platforms.ActiveCfg = Release|Win32
 		{D3B734CB-E7B8-4FF1-9390-A52E4E6C7291}.Release|Mixed Platforms.Build.0 = Release|Win32
@@ -413,6 +417,7 @@ Global
 		{9832DF71-1F64-475A-BE0E-5F50B3636997}.Distribution|x86.Build.0 = Debug|Win32
 		{9832DF71-1F64-475A-BE0E-5F50B3636997}.Release|Android.ActiveCfg = Release|Win32
 		{9832DF71-1F64-475A-BE0E-5F50B3636997}.Release|Any CPU.ActiveCfg = Release|Win32
+		{9832DF71-1F64-475A-BE0E-5F50B3636997}.Release|Any CPU.Build.0 = Release|Win32
 		{9832DF71-1F64-475A-BE0E-5F50B3636997}.Release|iOS.ActiveCfg = Release|Win32
 		{9832DF71-1F64-475A-BE0E-5F50B3636997}.Release|Mixed Platforms.ActiveCfg = Release|Win32
 		{9832DF71-1F64-475A-BE0E-5F50B3636997}.Release|Mixed Platforms.Build.0 = Release|Win32
@@ -559,6 +564,7 @@ Global
 		{D33DF366-7A84-4078-9801-30C145525070}.Distribution|x86.Build.0 = Debug|Win32
 		{D33DF366-7A84-4078-9801-30C145525070}.Release|Android.ActiveCfg = Release|Win32
 		{D33DF366-7A84-4078-9801-30C145525070}.Release|Any CPU.ActiveCfg = Release|Win32
+		{D33DF366-7A84-4078-9801-30C145525070}.Release|Any CPU.Build.0 = Release|Win32
 		{D33DF366-7A84-4078-9801-30C145525070}.Release|iOS.ActiveCfg = Release|Win32
 		{D33DF366-7A84-4078-9801-30C145525070}.Release|Mixed Platforms.ActiveCfg = Release|Win32
 		{D33DF366-7A84-4078-9801-30C145525070}.Release|Mixed Platforms.Build.0 = Release|Win32
@@ -697,6 +703,7 @@ Global
 		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Distribution|x86.Build.0 = Debug|Win32
 		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Release|Android.ActiveCfg = Release|Win32
 		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Release|Any CPU.ActiveCfg = Release|Win32
+		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Release|Any CPU.Build.0 = Release|Win32
 		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Release|iOS.ActiveCfg = Release|Win32
 		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Release|Mixed Platforms.ActiveCfg = Release|Win32
 		{4D5DE559-0A46-4024-9DFE-5BB913A44B12}.Release|Mixed Platforms.Build.0 = Release|Win32
@@ -1314,7 +1321,6 @@ Global
 		{CDEC9EB1-3714-40A3-8328-A5BACB3F82D8}.Distribution|x86.ActiveCfg = Debug|Any CPU
 		{CDEC9EB1-3714-40A3-8328-A5BACB3F82D8}.Release|Android.ActiveCfg = Debug|Any CPU
 		{CDEC9EB1-3714-40A3-8328-A5BACB3F82D8}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{CDEC9EB1-3714-40A3-8328-A5BACB3F82D8}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{CDEC9EB1-3714-40A3-8328-A5BACB3F82D8}.Release|iOS.ActiveCfg = Debug|Any CPU
 		{CDEC9EB1-3714-40A3-8328-A5BACB3F82D8}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{CDEC9EB1-3714-40A3-8328-A5BACB3F82D8}.Release|Mixed Platforms.Build.0 = Debug|Any CPU

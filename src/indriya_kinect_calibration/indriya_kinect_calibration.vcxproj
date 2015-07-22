@@ -14,7 +14,7 @@
     <ProjectGuid>{D33DF366-7A84-4078-9801-30C145525070}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>OpenCV_Calibration</RootNamespace>
-    <ProjectName>experimot_calibration</ProjectName>
+    <ProjectName>indriya_kinect_calibration</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -99,7 +99,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\experimot_capture\CvKinectCapture.vcxproj">
+    <ProjectReference Include="..\indriya_kinect_capture\indriya_kinect_capture.vcxproj">
       <Project>{c93e9887-ff52-41e3-964d-665398828210}</Project>
     </ProjectReference>
   </ItemGroup>

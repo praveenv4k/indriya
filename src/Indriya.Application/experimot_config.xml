@@ -37,7 +37,7 @@
     <node enabled="false" name="localization">
       <process>
         <type>executable</type>
-        <path>%DEV_SDK_ROOT%\experimot\bin\experimot_localization.exe</path>
+        <path>%DEV_SDK_ROOT%\experimot\bin\indriya_robot_localization.exe</path>
         <args></args>
       </process>
       <parameters>
@@ -90,7 +90,7 @@
     <node enabled="true" name="gesture_recognition">
       <process>
         <type>executable</type>
-        <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Perception\Experimot.Kinect.Perception.exe</path>
+        <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Indriya.Kinect.Perception\Indriya.Kinect.Perception.exe</path>
         <args></args>
       </process>
       <parameters>
@@ -132,7 +132,7 @@
     <node enabled="false" name="speech_recognition">
       <process>
         <type>executable</type>
-        <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Kinect.Speech\Experimot.Kinect.Speech.exe</path>
+        <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Indriya.Kinect.Speech\Indriya.Kinect.Speech.exe</path>
         <args></args>
       </process>
       <parameters>
@@ -159,7 +159,7 @@
     <node enabled="false" name="simulation">
       <process>
         <type>executable</type>
-        <path>%DEV_SDK_ROOT%\experimot\bin\experimot_rave.exe</path>
+        <path>%DEV_SDK_ROOT%\experimot\bin\indriya_rave.exe</path>
         <args></args>
       </process>
       <parameters>
@@ -217,7 +217,7 @@
     <node enabled="false" name="localization_logger">
       <process>
         <type>executable</type>
-        <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Localization.Logger\Experimot.Localization.Logger.exe</path>
+        <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Indriya.Localization.Logger\Indriya.Localization.Logger.exe</path>
         <args></args>
       </process>
       <parameters>
@@ -257,7 +257,7 @@
     <node enabled="false" name="imu_perception">
       <process>
         <type>executable</type>
-        <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Experimot.Imu.Perception\Experimot.Imu.Perception.exe</path>
+        <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Indriya.Imu.Perception\Indriya.Imu.Perception.exe</path>
         <args></args>
       </process>
       <publishers>

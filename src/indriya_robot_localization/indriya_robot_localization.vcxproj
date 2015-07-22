@@ -130,10 +130,10 @@
     <ClInclude Include="TransformationHelper.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\experimot_msgs\experimot_msgs.vcxproj">
+    <ProjectReference Include="..\indriya_msgs\indriya_msgs.vcxproj">
       <Project>{1ab15496-ac39-4ac7-8507-df6033138943}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\experimot_pcl_grabber\experimot_pcl_grabber.vcxproj">
+    <ProjectReference Include="..\indriya_pcl_grabber\indriya_pcl_grabber.vcxproj">
       <Project>{4d5de559-0a46-4024-9dfe-5bb913a44b12}</Project>
     </ProjectReference>
   </ItemGroup>

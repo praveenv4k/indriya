@@ -14,7 +14,7 @@
     <ProjectGuid>{C93E9887-FF52-41E3-964D-665398828210}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>CvKinectCapture</RootNamespace>
-    <ProjectName>experimot_capture</ProjectName>
+    <ProjectName>indriya_kinect_capture</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
