@@ -16,39 +16,39 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nodes", "nodes", "{094315CC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{8F8C643C-10D8-46BE-AA4F-CC58EACA0E49}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experimot_msgs", "src\experimot_msgs\experimot_msgs.vcxproj", "{1AB15496-AC39-4AC7-8507-DF6033138943}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "indriya_msgs", "src\indriya_msgs\indriya_msgs.vcxproj", "{1AB15496-AC39-4AC7-8507-DF6033138943}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experimot_msgs_gen", "src\experimot_msgs_gen\experimot_msgs_gen.vcxproj", "{02FE2504-329C-4E39-A5F9-663567C1EA2D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "indriya_msgs_gen", "src\indriya_msgs_gen\indriya_msgs_gen.vcxproj", "{02FE2504-329C-4E39-A5F9-663567C1EA2D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "external", "external", "{C063E180-573D-4365-9B9F-1F277E2B4EF8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtoGen", "external\ProtoGen\ProtoGen.csproj", "{F6CBE303-3B5F-4CCC-B0B7-D81A6BD462C9}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experimot_capture", "src\experimot_capture\CvKinectCapture.vcxproj", "{C93E9887-FF52-41E3-964D-665398828210}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "indriya_kinect_capture", "src\indriya_kinect_capture\CvKinectCapture.vcxproj", "{C93E9887-FF52-41E3-964D-665398828210}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experimot_localization", "src\experimot_localization\experimot_localization.vcxproj", "{D3B734CB-E7B8-4FF1-9390-A52E4E6C7291}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "indriya_robot_localization", "src\indriya_robot_localization\indriya_robot_localization.vcxproj", "{D3B734CB-E7B8-4FF1-9390-A52E4E6C7291}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experimot_rave", "src\experimot_rave\experimot_rave.vcxproj", "{9832DF71-1F64-475A-BE0E-5F50B3636997}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "indriya_rave", "src\indriya_rave\indriya_rave.vcxproj", "{9832DF71-1F64-475A-BE0E-5F50B3636997}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experimot.Kinect.Perception", "src\Experimot.Kinect.Perception\Experimot.Kinect.Perception.csproj", "{4678B291-A943-48BA-BBBE-F681D5C51AE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indriya.Kinect.Perception", "src\Indriya.Kinect.Perception\Indriya.Kinect.Perception.csproj", "{4678B291-A943-48BA-BBBE-F681D5C51AE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experimot.Core.Msgs", "src\Experimot.Core.Msgs\Experimot.Core.Msgs.csproj", "{45E9E170-76B7-4E71-B557-9B131E0C175B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indriya.Core.Msgs", "src\Indriya.Core.Msgs\Indriya.Core.Msgs.csproj", "{45E9E170-76B7-4E71-B557-9B131E0C175B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experimot_calibration", "src\experimot_calibration\OpenCV_Calibration.vcxproj", "{D33DF366-7A84-4078-9801-30C145525070}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "indriya_kinect_calibration", "src\indriya_kinect_calibration\OpenCV_Calibration.vcxproj", "{D33DF366-7A84-4078-9801-30C145525070}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experimot.Kinect.Playback", "src\Experimot.Kinect.Playback\Experimot.Kinect.Playback.csproj", "{90934219-A7A1-4445-A333-81C1A28F3672}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indriya.Kinect.Playback", "src\Indriya.Kinect.Playback\Indriya.Kinect.Playback.csproj", "{90934219-A7A1-4445-A333-81C1A28F3672}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "experimot_python_client", "src\experimot_python_client\experimot_python_client.pyproj", "{ED9454DE-9AC1-4E5D-93A2-9ABF5D6ABC55}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "indriya_python_client", "src\indriya_python_client\indriya_python_client.pyproj", "{ED9454DE-9AC1-4E5D-93A2-9ABF5D6ABC55}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experimot_pcl_grabber", "src\experimot_pcl_grabber\experimot_pcl_grabber.vcxproj", "{4D5DE559-0A46-4024-9DFE-5BB913A44B12}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "indriya_pcl_grabber", "src\indriya_pcl_grabber\indriya_pcl_grabber.vcxproj", "{4D5DE559-0A46-4024-9DFE-5BB913A44B12}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "experimot_robot_interface", "src\experimot_robot_interface\experimot_robot_interface.pyproj", "{464DCE7E-4F29-4169-BF26-D563DE3A5712}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "indriya_robot_interface", "src\indriya_robot_interface\indriya_robot_interface.pyproj", "{464DCE7E-4F29-4169-BF26-D563DE3A5712}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experimot.Core", "src\Experimot.Core\Experimot.Core.csproj", "{35CA8818-7E08-4B4C-A5F3-1F1E5DD0B973}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indriya.Core", "src\Indriya.Core\Indriya.Core.csproj", "{35CA8818-7E08-4B4C-A5F3-1F1E5DD0B973}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experimot.Core.NLP", "src\Experimot.Core.NLP\Experimot.Core.NLP.csproj", "{1D73FD20-9700-4018-B564-4AA7B6BF2AE1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indriya.Core.NLP", "src\Indriya.Core.NLP\Indriya.Core.NLP.csproj", "{1D73FD20-9700-4018-B564-4AA7B6BF2AE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experimot.Localization.Logger", "src\Experimot.Localization.Logger\Experimot.Localization.Logger.csproj", "{4564F9A2-8646-4DF6-AB4C-370DD25DDD5C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indriya.Localization.Logger", "src\Indriya.Localization.Logger\Indriya.Localization.Logger.csproj", "{4564F9A2-8646-4DF6-AB4C-370DD25DDD5C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C52CC5B8-A48F-49F3-A263-FB2EFD834F94}"
 	ProjectSection(SolutionItems) = preProject
@@ -59,9 +59,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C52CC5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectEx", "external\KinectEx\KinectEx.csproj", "{B7429D12-B30B-4ADA-A23C-6376AFB54B80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experimot.Kinect.Speech", "src\Experimot.Kinect.Speech\Experimot.Kinect.Speech.csproj", "{9D3B9A64-4F96-457A-ABCA-92E60A51E664}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indriya.Kinect.Speech", "src\Indriya.Kinect.Speech\Indriya.Kinect.Speech.csproj", "{9D3B9A64-4F96-457A-ABCA-92E60A51E664}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experimot.Imu.Perception", "src\Experimot.Imu.Perception\Experimot.Imu.Perception.csproj", "{18D93E86-4702-4407-902A-39692E52A770}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indriya.Imu.Perception", "src\Indriya.Imu.Perception\Indriya.Imu.Perception.csproj", "{18D93E86-4702-4407-902A-39692E52A770}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "installer", "installer", "{C57F85A2-8D9C-4FD3-B219-10B879DDFB33}"
 EndProject
