@@ -163,6 +163,7 @@
     <Compile Include="BootStrapper.cs" />
     <Compile Include="Data\ExecutionRequest.cs" />
     <Compile Include="Data\VoiceCommand.cs" />
+    <Compile Include="Data\VoiceCommandManager.cs" />
     <Compile Include="Mvvm\BrowserViewModel.cs" />
     <Compile Include="Data\Context.cs" />
     <Compile Include="Data\Behavior.cs" />

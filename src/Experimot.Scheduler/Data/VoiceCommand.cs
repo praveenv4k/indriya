@@ -1,12 +1,13 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Globalization;
 using System.Runtime.CompilerServices;
-using experimot.msgs;
 using Experimot.Scheduler.Annotations;
 
 namespace Experimot.Scheduler.Data
 {
+    /// <summary>
+    /// Represents a voice command
+    /// </summary>
     public class VoiceCommand: INotifyPropertyChanged
     {
         private string _command;
@@ -15,6 +16,9 @@ namespace Experimot.Scheduler.Data
         private string _language;
         private DateTime _triggerAt;
 
+        /// <summary>
+        /// Command information
+        /// </summary>
         public string Command
         {
             get { return _command; }
@@ -26,6 +30,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Flag to tell if the voice command is active
+        /// </summary>
         public bool Active
         {
             get { return _active; }
@@ -37,6 +44,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Voice command confidence value
+        /// </summary>
         public int Confidence
         {
             get { return _confidence; }
@@ -48,6 +58,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Language
+        /// </summary>
         public string Language
         {
             get { return _language; }
@@ -59,6 +72,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Time at which the command is triggered
+        /// </summary>
         public DateTime TriggerAt
         {
             get { return _triggerAt; }
@@ -70,104 +86,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
-        }
-    }
-
-    public class VoiceCommandManager: INotifyPropertyChanged
-    {
-        private VoiceCommand _previous;
-        private VoiceCommand _current;
-
-        public VoiceCommandManager()
-        {
-            _previous = new VoiceCommand()
-            {
-                TriggerAt = DateTime.Now
-            };
-            _current = new VoiceCommand()
-            {
-                TriggerAt = DateTime.Now
-            };
-        }
-
-        public VoiceCommand Previous
-        {
-            get { return _previous; }
-            set
-            {
-                if (Equals(value, _previous)) return;
-                _previous = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public VoiceCommand Current
-        {
-            get { return _current; }
-            set
-            {
-                if (Equals(value, _current)) return;
-                _current = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public void Update(VoiceCommandDescription command)
-        {
-            if (command != null)
-            {
-                if (_current != null)
-                {
-                    _previous = _current;
-                }
-                else
-                {
-                    _current = new VoiceCommand();
-                }
-
-                if (_previous == null)
-                {
-                    _previous = new VoiceCommand
-                    {
-                        Active = command.active,
-                        Command = command.command,
-                        Confidence = command.confidence,
-                        Language = command.language,
-                        TriggerAt = FromString(command.triggeredAt)
-                    };
-                }
-
-                _current.Active = command.active;
-                _current.Command = command.command;
-                _current.Confidence = command.confidence;
-                _current.Language = command.language;
-                _current.TriggerAt = FromString(command.triggeredAt);
-            }
-        }
-
-        public static DateTime FromString(string dateTimeStr)
-        {
-            try
-            {
-                if (!string.IsNullOrEmpty(dateTimeStr))
-                {
-                    return DateTime.ParseExact(dateTimeStr, "yyyy/MM/dd HH:mm:ss.fff", CultureInfo.InvariantCulture);
-                }
-            }
-            catch (Exception ex)
-            {
-                // ignored
-            }
-            return DateTime.Now;
-        }
-
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]

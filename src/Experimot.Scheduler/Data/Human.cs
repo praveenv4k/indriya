@@ -8,6 +8,9 @@ using Newtonsoft.Json;
 
 namespace Experimot.Scheduler.Data
 {
+    /// <summary>
+    /// Represents information about a human
+    /// </summary>
     public class Human : INotifyPropertyChanged
     {
         private int _id;
@@ -19,12 +22,21 @@ namespace Experimot.Scheduler.Data
         private Vector3d _torsoPosition;
         private Quaternion _torsoOrientation;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="id">Identifier of the human</param>
         public Human(int id)
         {
             _id = id;
             _gestures = new BindableCollection<Gesture>();
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="id">Identifier of the human</param>
+        /// <param name="modules">List of gesture modules</param>
         public Human(int id, IList<GestureModule> modules) : this(id)
         {
             if (modules != null)
@@ -42,6 +54,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Identifier of the human
+        /// </summary>
         public int Id
         {
             get { return _id; }
@@ -53,6 +68,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Skeleton information of the human
+        /// </summary>
         [JsonIgnore]
         public KinectBody Body
         {
@@ -65,6 +83,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Human head position
+        /// </summary>
         public Vector3d HeadPosition
         {
             get { return _headPosition; }
@@ -76,6 +97,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Human Torso position
+        /// </summary>
         public Vector3d TorsoPosition
         {
             get { return _torsoPosition; }
@@ -87,6 +111,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Human torso orientation. Computed from Shoulder points and spine base
+        /// </summary>
         public Quaternion TorsoOrientation
         {
             get { return _torsoOrientation; }
@@ -98,11 +125,17 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// List of gestures
+        /// </summary>
         public BindableCollection<Gesture> Gestures
         {
             get { return _gestures; }
         }
 
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]

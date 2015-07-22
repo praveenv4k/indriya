@@ -6,13 +6,23 @@ using Experimot.Core.Annotations;
 
 namespace Experimot.Scheduler.Data
 {
-    public class Localization: INotifyPropertyChanged
+    /// <summary>
+    /// Represents the localization information
+    /// </summary>
+    public class Localization : INotifyPropertyChanged
     {
         private Vector3d _currentPosition;
         private Quaternion _currentOrientation;
         private readonly ConcurrentQueue<Pose> _recentPoses;
+
+        /// <summary>
+        /// Cache size of recent poses
+        /// </summary>
         public const int RecentPosesCount = 100;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Localization()
         {
             SetPose(new Pose()
@@ -23,6 +33,10 @@ namespace Experimot.Scheduler.Data
             _recentPoses = new ConcurrentQueue<Pose>();
         }
 
+        /// <summary>
+        /// Update the pose information from incoming message
+        /// </summary>
+        /// <param name="pose"></param>
         public void SetPose(Pose pose)
         {
             if (pose != null)
@@ -32,6 +46,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Position in 3D
+        /// </summary>
         public Vector3d Position
         {
             get { return _currentPosition; }
@@ -46,6 +63,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Orientation in 3D
+        /// </summary>
         public Quaternion Orientation
         {
             get { return _currentOrientation; }
@@ -60,13 +80,18 @@ namespace Experimot.Scheduler.Data
             }
         }
 
-        //[ExpandableObject]
+        /// <summary>
+        /// Recent poses
+        /// </summary>
         [Browsable(false)]
         public ConcurrentQueue<Pose> RecentPose
         {
             get { return _recentPoses; }
         }
 
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]

@@ -5,12 +5,18 @@ using Experimot.Core.Annotations;
 
 namespace Experimot.Scheduler.Data
 {
+    /// <summary>
+    /// Represents a manipulatable object
+    /// </summary>
     public class ManipulatableObject: INotifyPropertyChanged
     {
         private string _id;
         private Pose _pose;
         private Color _color;
 
+        /// <summary>
+        /// Id of the object
+        /// </summary>
         public string Id
         {
             get { return _id; }
@@ -22,6 +28,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Pose of the object
+        /// </summary>
         public Pose Pose
         {
             get { return _pose; }
@@ -33,6 +42,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Color of the object
+        /// </summary>
         public Color Color
         {
             get { return _color; }
@@ -44,6 +56,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]

@@ -5,6 +5,9 @@ using Experimot.Core.Annotations;
 
 namespace Experimot.Scheduler.Data
 {
+    /// <summary>
+    /// Represents a robot
+    /// </summary>
     public class Robot : INotifyPropertyChanged
     {
         private string _name;
@@ -15,6 +18,9 @@ namespace Experimot.Scheduler.Data
         private SensorData _sensorData;
         private readonly ObservableCollection<Behavior> _behaviors;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Robot()
         {
             _sensorData = new SensorData();
@@ -30,6 +36,9 @@ namespace Experimot.Scheduler.Data
 
         }
 
+        /// <summary>
+        /// Name of the robot
+        /// </summary>
         public string Name
         {
             get { return _name; }
@@ -41,6 +50,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Version of the robot
+        /// </summary>
         public string Version
         {
             get { return _version; }
@@ -52,6 +64,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Description about the robot
+        /// </summary>
         public string Description
         {
             get { return _description; }
@@ -63,6 +78,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Configuration file path
+        /// </summary>
         public string FilePath
         {
             get { return _filePath; }
@@ -74,6 +92,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Sensor data of the robot
+        /// </summary>
         public SensorData SensorData
         {
             get { return _sensorData; }
@@ -85,6 +106,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Robot localization information
+        /// </summary>
         public Localization Localization
         {
             get { return _localization; }
@@ -96,6 +120,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
@@ -105,6 +132,9 @@ namespace Experimot.Scheduler.Data
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        /// <summary>
+        /// List of behaviors support by the robot
+        /// </summary>
         public ObservableCollection<Behavior> Behaviors
         {
             get { return _behaviors; }

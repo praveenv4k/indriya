@@ -5,6 +5,9 @@ using experimot.msgs;
 
 namespace Experimot.Scheduler.Data
 {
+    /// <summary>
+    /// Represents a gesture module
+    /// </summary>
     public class GestureModule : INotifyPropertyChanged
     {
         private string _name;
@@ -17,6 +20,9 @@ namespace Experimot.Scheduler.Data
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        /// <summary>
+        /// Name of the module
+        /// </summary>
         public string Name
         {
             get { return _name; }
@@ -28,6 +34,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Collection of gestures in the module
+        /// </summary>
         public ObservableCollection<Gesture> Gestures
         {
             get { return _gestures; }
@@ -35,6 +44,10 @@ namespace Experimot.Scheduler.Data
 
         private readonly ObservableCollection<Gesture> _gestures;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="module">Gesture recognition module message</param>
         public GestureModule(GestureRecognitionModule module)
         {
             _gestures = new ObservableCollection<Gesture>();

@@ -6,12 +6,18 @@ using Experimot.Core.Annotations;
 
 namespace Experimot.Scheduler.Data
 {
+    /// <summary>
+    /// Represents the sensor data
+    /// </summary>
     public class SensorData : INotifyPropertyChanged
     {
         private JointValueVector _jointValues;
         private IMU _imu;
         private readonly IDictionary<string, object> _sensorValues;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public SensorData()
         {
             _jointValues = new JointValueVector();
@@ -27,11 +33,17 @@ namespace Experimot.Scheduler.Data
             _sensorValues = new Dictionary<string, object>();
         }
 
+        /// <summary>
+        /// Dictionary of sensor values
+        /// </summary>
         public IDictionary<string, object> SensorValues
         {
             get { return _sensorValues; }
         }
 
+        /// <summary>
+        /// IMU sensor data
+        /// </summary>
         public IMU Imu
         {
             get { return _imu; }
@@ -43,6 +55,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Joint values
+        /// </summary>
         public JointValueVector JointValues
         {
             get { return _jointValues; }
@@ -54,6 +69,9 @@ namespace Experimot.Scheduler.Data
             }
         }
 
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
