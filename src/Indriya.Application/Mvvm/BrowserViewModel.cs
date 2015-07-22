@@ -9,7 +9,7 @@ using System.Windows.Input;
 using CefSharp;
 using CefSharp.Wpf;
 
-namespace Experimot.Scheduler.Mvvm
+namespace Indriya.Application.Mvvm
 {
     public class BrowserTabViewModel : INotifyPropertyChanged
     //public class BrowserTabViewModel : ViewModelBase
@@ -162,7 +162,7 @@ namespace Experimot.Scheduler.Mvvm
                         WebBrowser.FrameLoadEnd +=
                             delegate
                             {
-                                Application.Current.Dispatcher.BeginInvoke((Action) (() => _webBrowser.Focus()));
+                                System.Windows.Application.Current.Dispatcher.BeginInvoke((Action) (() => _webBrowser.Focus()));
                             };
                     }
 

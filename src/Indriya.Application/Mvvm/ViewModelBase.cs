@@ -8,7 +8,7 @@ using System.ComponentModel;
 using System.Linq.Expressions;
 using CefSharp;
 
-namespace Experimot.Scheduler.Mvvm
+namespace Indriya.Application.Mvvm
 {
     public class ViewModelBase : DisposableResource, INotifyPropertyChanged
     {

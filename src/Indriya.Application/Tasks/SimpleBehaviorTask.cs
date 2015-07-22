@@ -3,7 +3,7 @@ using Common.Logging;
 using NetMQ;
 using Quartz;
 
-namespace Experimot.Scheduler.Tasks
+namespace Indriya.Application.Tasks
 {
     internal class SimpleBehaviorTask : IJob
     {

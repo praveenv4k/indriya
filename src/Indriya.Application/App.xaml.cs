@@ -1,14 +1,13 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using Experimot.Core;
 using Nancy.TinyIoc;
 
-namespace Experimot.Scheduler
+namespace Indriya.Application
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : System.Windows.Application
     {
         protected override void OnStartup(StartupEventArgs e)
         {

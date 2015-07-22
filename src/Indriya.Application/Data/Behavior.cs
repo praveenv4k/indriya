@@ -2,7 +2,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Experimot.Core.Annotations;
 
-namespace Experimot.Scheduler.Data
+namespace Indriya.Application.Data
 {
     /// <summary>
     /// Represents a robot behavior

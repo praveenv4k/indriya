@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using experimot.msgs;
 using Experimot.Scheduler.Annotations;
 
-namespace Experimot.Scheduler.Data
+namespace Indriya.Application.Data
 {
     /// <summary>
     /// Voice command manager

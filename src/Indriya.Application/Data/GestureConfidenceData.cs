@@ -1,6 +1,6 @@
 using System;
 
-namespace Experimot.Scheduler.Data
+namespace Indriya.Application.Data
 {
     /// <summary>
     /// Represents gesture confidence data

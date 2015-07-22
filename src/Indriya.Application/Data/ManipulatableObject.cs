@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using experimot.msgs;
 using Experimot.Core.Annotations;
 
-namespace Experimot.Scheduler.Data
+namespace Indriya.Application.Data
 {
     /// <summary>
     /// Represents a manipulatable object

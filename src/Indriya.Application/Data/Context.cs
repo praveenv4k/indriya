@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 using ILog = Common.Logging.ILog;
 using LogManager = Common.Logging.LogManager;
 
-namespace Experimot.Scheduler.Data
+namespace Indriya.Application.Data
 {
     /// <summary>
     /// Represents the application context

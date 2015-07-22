@@ -1,8 +1,7 @@
-using System;
 using Common.Logging;
 using Quartz;
 
-namespace Experimot.Scheduler.Tasks
+namespace Indriya.Application.Tasks
 {
     internal class JobListenerImpl : IJobListener
     {

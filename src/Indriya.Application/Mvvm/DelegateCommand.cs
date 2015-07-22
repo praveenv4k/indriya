@@ -5,7 +5,7 @@
 using System;
 using System.Windows.Input;
 
-namespace Experimot.Scheduler.Mvvm
+namespace Indriya.Application.Mvvm
 {
     public class DelegateCommand : ICommand
     {

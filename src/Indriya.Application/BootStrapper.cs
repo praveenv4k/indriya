@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 using Common.Logging;
 using Experimot.Core;
 using Experimot.Core.Util;
-using Experimot.Scheduler.Data;
-using Experimot.Scheduler.Tasks;
-using Experimot.Scheduler.Web;
+using Indriya.Application.Data;
+using Indriya.Application.Tasks;
+using Indriya.Application.Web;
 using Indriya.Core.BehaviorEngine;
 using Nancy.TinyIoc;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Impl.Matchers;
 
-namespace Experimot.Scheduler
+namespace Indriya.Application
 {
     internal class BootStrapper
     {

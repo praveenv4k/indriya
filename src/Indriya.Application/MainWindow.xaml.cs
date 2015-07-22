@@ -2,11 +2,11 @@
 using System.Runtime.CompilerServices;
 using System.Windows;
 using Experimot.Scheduler.Annotations;
-using Experimot.Scheduler.Data;
-using Experimot.Scheduler.Mvvm;
+using Indriya.Application.Data;
+using Indriya.Application.Mvvm;
 using Nancy.TinyIoc;
 
-namespace Experimot.Scheduler
+namespace Indriya.Application
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

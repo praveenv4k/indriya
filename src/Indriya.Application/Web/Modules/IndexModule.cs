@@ -6,12 +6,12 @@ using System.Text;
 using Common.Logging;
 using Experimot.Core;
 using Experimot.Core.Util;
-using Experimot.Scheduler.Data;
+using Indriya.Application.Data;
 using Nancy;
 using Nancy.TinyIoc;
 using Newtonsoft.Json;
 
-namespace Experimot.Scheduler.Web.Modules
+namespace Indriya.Application.Web.Modules
 {
     internal class ProgramList
     {
@@ -134,7 +134,7 @@ namespace Experimot.Scheduler.Web.Modules
                 try
                 {
                     int id = parameters.id;
-                    string json = Tests.TestJointValues.Instance.GetJointValues(id);
+                    string json = Experimot.Scheduler.Tests.TestJointValues.Instance.GetJointValues(id);
                     var resp = new Response()
                     {
                         ContentType = "application/json",

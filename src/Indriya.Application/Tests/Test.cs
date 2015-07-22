@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 using Common.Logging;
 using Experimot.Core;
 using Experimot.Core.Util;
-using Experimot.Scheduler.Data;
+using Indriya.Application.Data;
 using Indriya.Core.BehaviorEngine;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SharpDX;
+
 // ReSharper disable FunctionComplexityOverflow
 // ReSharper disable once LoopCanBeConvertedToQuery
 namespace Experimot.Scheduler.Tests

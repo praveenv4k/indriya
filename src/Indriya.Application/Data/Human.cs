@@ -6,7 +6,7 @@ using experimot.msgs;
 using Experimot.Core.Annotations;
 using Newtonsoft.Json;
 
-namespace Experimot.Scheduler.Data
+namespace Indriya.Application.Data
 {
     /// <summary>
     /// Represents information about a human

@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using experimot.msgs;
 
-namespace Experimot.Scheduler.Data
+namespace Indriya.Application.Data
 {
     /// <summary>
     /// Represents a gesture module
@@ -13,7 +13,7 @@ namespace Experimot.Scheduler.Data
         private string _name;
         public event PropertyChangedEventHandler PropertyChanged;
 
-        [Annotations.NotifyPropertyChangedInvocator]
+        [Experimot.Scheduler.Annotations.NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             var handler = PropertyChanged;

@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using Quartz;
 
-namespace Experimot.Scheduler.Tasks
+namespace Indriya.Application.Tasks
 {
     internal class SimpleTask : IJob
     {

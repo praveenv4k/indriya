@@ -1,4 +1,4 @@
-namespace Experimot.Scheduler.Data
+namespace Indriya.Application.Data
 {
     /// <summary>
     /// Represents the behavior execution mode

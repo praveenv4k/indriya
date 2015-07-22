@@ -4,7 +4,7 @@ using Nancy.Bootstrapper;
 using Nancy.Conventions;
 using Nancy.TinyIoc;
 
-namespace Experimot.Scheduler.Web
+namespace Indriya.Application.Web
 {
     public class ExperimotRootPathProvider : IRootPathProvider
     {

@@ -1,4 +1,4 @@
-namespace Experimot.Scheduler.Data
+namespace Indriya.Application.Data
 {
     /// <summary>
     /// Behavior execution request

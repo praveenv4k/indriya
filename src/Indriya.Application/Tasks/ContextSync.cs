@@ -7,13 +7,13 @@ using System.Windows;
 using Common.Logging;
 using Experimot.Core;
 using Experimot.Core.Util;
-using Experimot.Scheduler.Data;
+using Indriya.Application.Data;
 using Nancy.TinyIoc;
 using NetMQ;
 using ProtoBuf;
 using Expression = System.Linq.Expressions.Expression;
 
-namespace Experimot.Scheduler.Tasks
+namespace Indriya.Application.Tasks
 {
     public class ContextSync : IDisposable
     {

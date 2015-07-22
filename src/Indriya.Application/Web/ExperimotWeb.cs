@@ -4,7 +4,7 @@ using Experimot.Core;
 using Experimot.Core.Util;
 using Nancy.Hosting.Self;
 
-namespace Experimot.Scheduler.Web
+namespace Indriya.Application.Web
 {
     internal class ExperimotWeb : IDisposable
     {

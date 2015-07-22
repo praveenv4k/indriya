@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq.Expressions;
 
-namespace Experimot.Scheduler.Mvvm
+namespace Indriya.Application.Mvvm
 {
     public static class PropertyChangedExtensionMethods
     {

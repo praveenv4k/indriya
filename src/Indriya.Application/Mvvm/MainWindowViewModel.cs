@@ -1,7 +1,7 @@
-﻿using Experimot.Scheduler.Data;
+﻿using Indriya.Application.Data;
 using Nancy.TinyIoc;
 
-namespace Experimot.Scheduler.Mvvm
+namespace Indriya.Application.Mvvm
 {
     public class MainWindowViewModel
     {
