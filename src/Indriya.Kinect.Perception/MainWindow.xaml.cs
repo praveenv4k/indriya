@@ -78,8 +78,8 @@ namespace Experimot.Kinect.Perception
 
             // set the status text
             StatusText = _kinectSensor.IsAvailable
-                ? Properties.Resources.RunningStatusText
-                : Properties.Resources.NoSensorStatusText;
+                ? Indriya.Kinect.Perception.Properties.Resources.RunningStatusText
+                : Indriya.Kinect.Perception.Properties.Resources.NoSensorStatusText;
 
             // open the reader for the body frames
             _bodyFrameReader = _kinectSensor.BodyFrameSource.OpenReader();
@@ -319,8 +319,8 @@ namespace Experimot.Kinect.Perception
         private void Sensor_IsAvailableChanged(object sender, IsAvailableChangedEventArgs e)
         {
             // on failure, set the status text
-            StatusText = _kinectSensor.IsAvailable ? Properties.Resources.RunningStatusText
-                                                            : Properties.Resources.SensorNotAvailableStatusText;
+            StatusText = _kinectSensor.IsAvailable ? Indriya.Kinect.Perception.Properties.Resources.RunningStatusText
+                                                            : Indriya.Kinect.Perception.Properties.Resources.SensorNotAvailableStatusText;
         }
 
         /// <summary>

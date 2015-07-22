@@ -7,8 +7,8 @@
     <ProjectGuid>{45E9E170-76B7-4E71-B557-9B131E0C175B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Experimot.Core.Msgs</RootNamespace>
-    <AssemblyName>Experimot.Core.Msgs</AssemblyName>
+    <RootNamespace>Indriya.Core.Msgs</RootNamespace>
+    <AssemblyName>Indriya.Core.Msgs</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>

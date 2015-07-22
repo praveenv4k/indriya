@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Experimot.Kinect.Playback.Properties {
+namespace Indriya.Kinect.Playback.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

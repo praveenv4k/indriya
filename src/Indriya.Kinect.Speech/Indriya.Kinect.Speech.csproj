@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Experimot.Kinect.Speech</RootNamespace>
-    <AssemblyName>Experimot.Kinect.Speech</AssemblyName>
+    <AssemblyName>Indriya.Kinect.Speech</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

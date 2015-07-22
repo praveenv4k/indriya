@@ -258,17 +258,17 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Indriya.Core.Msgs\Indriya.Core.Msgs.csproj">
-      <Project>{45e9e170-76b7-4e71-b557-9b131e0c175b}</Project>
-      <Name>Experimot.Core.Msgs</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Indriya.Core\Indriya.Core.csproj">
-      <Project>{35ca8818-7e08-4b4c-a5f3-1f1e5dd0b973}</Project>
-      <Name>Experimot.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Indriya.Core.BehaviorEngine\Indriya.Core.BehaviorEngine.csproj">
       <Project>{758bf857-4eb1-4ea4-a399-ac22fcd497de}</Project>
       <Name>Indriya.Core.BehaviorEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Indriya.Core.Msgs\Indriya.Core.Msgs.csproj">
+      <Project>{45e9e170-76b7-4e71-b557-9b131e0c175b}</Project>
+      <Name>Indriya.Core.Msgs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Indriya.Core\Indriya.Core.csproj">
+      <Project>{35ca8818-7e08-4b4c-a5f3-1f1e5dd0b973}</Project>
+      <Name>Indriya.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

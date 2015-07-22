@@ -7,8 +7,8 @@
     <ProjectGuid>{1D73FD20-9700-4018-B564-4AA7B6BF2AE1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Experimot.Core.NLP</RootNamespace>
-    <AssemblyName>Experimot.Core.NLP</AssemblyName>
+    <RootNamespace>Indriya.Core.NLP</RootNamespace>
+    <AssemblyName>Indriya.Core.NLP</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

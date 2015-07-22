@@ -7,8 +7,8 @@
     <ProjectGuid>{18D93E86-4702-4407-902A-39692E52A770}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Experimot.Imu.Perception</RootNamespace>
-    <AssemblyName>Experimot.Imu.Perception</AssemblyName>
+    <RootNamespace>Indriya.Imu.Perception</RootNamespace>
+    <AssemblyName>Indriya.Imu.Perception</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
