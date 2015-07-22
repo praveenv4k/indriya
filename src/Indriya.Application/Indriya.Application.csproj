@@ -9,8 +9,8 @@
     <ProjectGuid>{32A22435-0E56-4086-900E-E73F1B9216CE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Experimot.Scheduler</RootNamespace>
-    <AssemblyName>Experimot.Scheduler</AssemblyName>
+    <RootNamespace>Indriya.Application</RootNamespace>
+    <AssemblyName>Indriya.Application</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -187,20 +187,6 @@
     <Compile Include="Mvvm\PropertyChangedExtensionMethods.cs" />
     <Compile Include="Mvvm\ViewModelBase.cs" />
     <Compile Include="ContextServer.cs" />
-    <Compile Include="Scriptcs\BehaviorExecutionContext.cs" />
-    <Compile Include="Scriptcs\BehaviorExecutionEngine.cs" />
-    <Compile Include="Scriptcs\BehaviorExecutionTask.cs" />
-    <Compile Include="Scriptcs\BehaviorInfo.cs" />
-    <Compile Include="Scriptcs\NamespacesTemplate.cs" />
-    <Compile Include="Scriptcs\BehaviorTemplate.cs" />
-    <Compile Include="Scriptcs\ExitBehaviorTemplate.cs" />
-    <Compile Include="Scriptcs\IBehaviorExecutionContext.cs" />
-    <Compile Include="Scriptcs\IExecuteOnceBehavior.cs" />
-    <Compile Include="Scriptcs\ProgramGenerator.cs" />
-    <Compile Include="Scriptcs\ChainBehaviorTask.cs" />
-    <Compile Include="Scriptcs\MotionBehaviorTask.cs" />
-    <Compile Include="Scriptcs\GeneratedProgram.cs" />
-    <Compile Include="Scriptcs\StartupBehaviorTemplate.cs" />
     <Compile Include="Tasks\JobListener.cs" />
     <Compile Include="ParameterServer.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -257,12 +243,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <Compile Include="Scriptcs\MainProgramUtil.cs" />
-    <Compile Include="Scriptcs\SimpleBehaviorTask.cs" />
-    <Compile Include="Scriptcs\MainProgram.cs" />
-    <None Include="Scriptcs\main_program.csx" />
-    <None Include="Scriptcs\main_template.csx" />
-    <None Include="Scriptcs\main.csx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="kinect_nao_map.json">
@@ -285,6 +265,10 @@
     <ProjectReference Include="..\Experimot.Core\Experimot.Core.csproj">
       <Project>{35ca8818-7e08-4b4c-a5f3-1f1e5dd0b973}</Project>
       <Name>Experimot.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Indriya.Core.BehaviorEngine\Indriya.Core.BehaviorEngine.csproj">
+      <Project>{758bf857-4eb1-4ea4-a399-ac22fcd497de}</Project>
+      <Name>Indriya.Core.BehaviorEngine</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
