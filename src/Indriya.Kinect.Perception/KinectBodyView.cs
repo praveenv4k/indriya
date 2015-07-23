@@ -15,7 +15,7 @@ using KinectEx;
 using KinectEx.Smoothing;
 #endif
 
-namespace Experimot.Kinect.Perception
+namespace Indriya.Kinect.Perception
 {
     /// <summary>
     /// Visualizes the Kinect Body stream for display in the UI

@@ -1,12 +1,11 @@
-﻿using System.Globalization;
+﻿using Indriya.Core;
+using System.Globalization;
 using KinectEx.Smoothing;
-using System.Windows;
 using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using Indriya.Core.Msgs;
-using Experimot.Core;
 using Newtonsoft.Json.Linq;
 
 #if USE_KINECT_BODIES
@@ -16,7 +15,7 @@ using KinectEx;
 
 // ReSharper disable LoopCanBeConvertedToQuery
 
-namespace Experimot.Kinect.Perception
+namespace Indriya.Kinect.Perception
 {
     public class MethodArg
     {

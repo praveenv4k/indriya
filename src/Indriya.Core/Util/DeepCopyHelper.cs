@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace Experimot.Core.Util
+namespace Indriya.Core.Util
 {
     public static class DeepCopyHelper
     {

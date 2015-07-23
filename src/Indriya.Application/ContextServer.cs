@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using Common.Logging;
-using Experimot.Core;
-using Experimot.Core.Util;
 using Indriya.Application.Data;
+using Indriya.Core;
+using Indriya.Core.Util;
 using Nancy.TinyIoc;
 using NetMQ;
 using Newtonsoft.Json;
@@ -12,7 +12,7 @@ namespace Indriya.Application
 {
     public class ContextServer : IDisposable
     {
-        private readonly experimot_config _config;
+        private readonly AppConfig _config;
         private NetMQContext _ctx;
         private NetMQSocket _socket;
         private bool _disposed;
@@ -39,7 +39,7 @@ namespace Indriya.Application
 
         public ContextServer()
         {
-            _config = TinyIoCContainer.Current.Resolve<experimot_config>();
+            _config = TinyIoCContainer.Current.Resolve<AppConfig>();
             _interval = ParameterUtil.Get(_config.parameters, "ContextServerInterval", _interval);
         }
 

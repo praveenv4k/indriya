@@ -4,9 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Common.Logging;
-using Experimot.Core;
-using Experimot.Core.Util;
 using Indriya.Application.Data;
+using Indriya.Core;
+using Indriya.Core.Util;
 using Nancy;
 using Nancy.TinyIoc;
 using Newtonsoft.Json;
@@ -241,7 +241,7 @@ namespace Indriya.Application.Web.Modules
                     using (var reader = new StreamReader(Request.Body))
                     {
                         string result = reader.ReadToEnd();
-                        var config = TinyIoCContainer.Current.Resolve<experimot_config>();
+                        var config = TinyIoCContainer.Current.Resolve<AppConfig>();
                         var outputPath = ParameterUtil.Get(config.parameters, "MainProgramFolder", "");
                         if (!string.IsNullOrEmpty(outputPath))
                         {
@@ -271,7 +271,7 @@ namespace Indriya.Application.Web.Modules
                     using (var reader = new StreamReader(Request.Body))
                     {
                         string result = reader.ReadToEnd();
-                        var config = TinyIoCContainer.Current.Resolve<experimot_config>();
+                        var config = TinyIoCContainer.Current.Resolve<AppConfig>();
                         var outputPath = ParameterUtil.Get(config.parameters, "MainProgramFolder", "");
                         if (!string.IsNullOrEmpty(outputPath))
                         {

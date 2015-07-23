@@ -1,7 +1,7 @@
 ﻿
 using System.Windows.Media.Media3D;
 
-namespace Experimot.Kinect.Perception
+namespace Indriya.Kinect.Perception
 {
     internal class Triangle
     {

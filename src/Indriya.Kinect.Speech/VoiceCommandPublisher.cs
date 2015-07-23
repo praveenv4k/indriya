@@ -1,4 +1,4 @@
-﻿using Experimot.Core;
+﻿using Indriya.Core;
 using Indriya.Core.Msgs;
 
 namespace Experimot.Kinect.Speech

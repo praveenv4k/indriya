@@ -80,7 +80,7 @@
     <Compile Include="MessagePublisher.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Schema\experimot_config.designer.cs" />
+    <Compile Include="Schema\IndriyaConfig.designer.cs" />
     <Compile Include="Util\DeepCopyHelper.cs" />
     <Compile Include="Util\IoUtils.cs" />
     <Compile Include="Util\LinqXmlExtensions.cs" />
@@ -100,7 +100,7 @@
       <Generator>xsd.exe</Generator>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Schema\experimot_config.xsd">
+    <None Include="Schema\IndriyaConfig.xsd">
       <Generator>xsd.exe</Generator>
       <SubType>Designer</SubType>
     </None>

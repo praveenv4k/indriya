@@ -7,12 +7,12 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Common.Logging;
-using Experimot.Core;
-using Experimot.Core.Util;
 using Indriya.Application.Data;
 using Indriya.Application.Tasks;
 using Indriya.Application.Web;
+using Indriya.Core;
 using Indriya.Core.BehaviorEngine;
+using Indriya.Core.Util;
 using Nancy.TinyIoc;
 using Quartz;
 using Quartz.Impl;
@@ -61,7 +61,7 @@ namespace Indriya.Application
 
             TinyIoCContainer.Current.Register(this);
 
-            var config = experimot_config.LoadFromFile(configFile);
+            var config = AppConfig.LoadFromFile(configFile);
             TinyIoCContainer.Current.Register(config);
 
             var context = new Context();
@@ -246,7 +246,7 @@ namespace Indriya.Application
         /// </summary>
         public void StartUp()
         {
-            var config = TinyIoCContainer.Current.Resolve<experimot_config>();
+            var config = TinyIoCContainer.Current.Resolve<AppConfig>();
             if (!_startup && config != null)
             {
                 string paramServer = ParameterUtil.Get(config.parameters, "ParameterClientHost",
@@ -394,7 +394,7 @@ namespace Indriya.Application
         /// <param name="jsonString"></param>
         public void RequestMainProgramGeneration(string jsonString)
         {
-            var config = TinyIoCContainer.Current.Resolve<experimot_config>();
+            var config = TinyIoCContainer.Current.Resolve<AppConfig>();
             var outputPath = ParameterUtil.Get(config.parameters, "MainProgramFilePath", "");
             if (!string.IsNullOrEmpty(outputPath))
             {
@@ -409,7 +409,7 @@ namespace Indriya.Application
         /// <param name="map"></param>
         public void RequestMainProgramGeneration(IDictionary<string, string> map)
         {
-            var config = TinyIoCContainer.Current.Resolve<experimot_config>();
+            var config = TinyIoCContainer.Current.Resolve<AppConfig>();
             var outputPath = ParameterUtil.Get(config.parameters, "MainProgramFilePath", "");
             if (!string.IsNullOrEmpty(outputPath))
             {
@@ -426,7 +426,7 @@ namespace Indriya.Application
         /// <param name="request"></param>
         public void MainProgramExecutionRequest(ExecutionRequest request)
         {
-            var config = TinyIoCContainer.Current.Resolve<experimot_config>();
+            var config = TinyIoCContainer.Current.Resolve<AppConfig>();
             string contextServer = ParameterUtil.Get(config.parameters, "ContextClientHost",
                 "tcp://localhost");
             int contextPort = ParameterUtil.Get(config.parameters, "ContextServerPort",

@@ -5,7 +5,7 @@ using System.Windows.Data;
 using Common.Logging;
 using Microsoft.Kinect;
 
-namespace Experimot.Kinect.Perception
+namespace Indriya.Kinect.Perception
 {
     internal static class GestureNames
     {

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<experimot_config xmlns="http://www.tuat.ac.jp/~venture/ExperimotConfig">
+<AppConfig xmlns="http://www.tuat.ac.jp/~venture/IndriyaConfig">
   <parameters>
     <param key="ApplicationName" value="ExperiMot" type="string"/>
     <param key="Author" value="Praveenkumar VASUDEVAN" type="string"/>
@@ -15,7 +15,7 @@
     <!--<param key="WebServerHost" value="http://*" type="int"/>-->
     <param key="NaoBehaviorModule" value="nao_behavior_manager" type="string"/>
     <param key="DateTimeFormatString" value="yyyy/MM/dd HH:mm:ss.fff" type="string"/>
-    
+
     <param key="NAO-A-ROBOTIP" value="127.0.0.1" type="string"/>
     <param key="NAO-A-ROBOTPORT" value="59282" type="int"/>
     <!--<param key="NAO-A-ROBOTIP" value="192.168.11.41" type="string"/>
@@ -23,7 +23,7 @@
 
     <param key="NAO-B-ROBOTIP" value="192.168.11.37" type="string"/>
     <param key="NAO-B-ROBOTPORT" value="9559" type="int"/>
-    
+
     <param key="ContextServerHost" value="tcp://*" type="string"/>
     <param key="ContextClientHost" value="tcp://localhost" type="string"/>
     <param key="ContextServerPort" value="5800" type="int"/>
@@ -123,7 +123,8 @@
         <publish>
           <host>tcp://*</host>
           <port>5592</port>
-          <topic>NJP</topic><!--Nao Joint Publisher-->
+          <topic>NJP</topic>
+          <!--Nao Joint Publisher-->
           <msg_type>ParamList</msg_type>
           <name>NaoJointPublisher</name>
         </publish>
@@ -150,7 +151,8 @@
         <publish>
           <host>tcp://*</host>
           <port>5593</port>
-          <topic>VRP</topic><!--Voice Recognition Publisher-->
+          <topic>VRP</topic>
+          <!--Voice Recognition Publisher-->
           <msg_type>VoiceCommandDescription</msg_type>
           <name>VoiceCommandPublisher</name>
         </publish>
@@ -246,11 +248,11 @@
           <name>KinectBodyPublisher</name>
         </subscribe>
         <subscribe>
-            <host>tcp://localhost</host>
-            <port>5999</port>
-            <topic>NPP</topic>
-            <msg_type>AbsolutePosition</msg_type>
-            <name>NaoPositionPublisher</name>
+          <host>tcp://localhost</host>
+          <port>5999</port>
+          <topic>NPP</topic>
+          <msg_type>AbsolutePosition</msg_type>
+          <name>NaoPositionPublisher</name>
         </subscribe>
       </subscribers>
     </node>
@@ -376,7 +378,8 @@
         <subscribe>
           <host>tcp://localhost</host>
           <port>5592</port>
-          <topic>NJP</topic><!--Nao Joint Publisher-->
+          <topic>NJP</topic>
+          <!--Nao Joint Publisher-->
           <msg_type>ParamList</msg_type>
           <name>NaoJointPublisher</name>
         </subscribe>
@@ -404,4 +407,4 @@
       </parameters>
     </node>
   </nodes>
-</experimot_config>
+</AppConfig>

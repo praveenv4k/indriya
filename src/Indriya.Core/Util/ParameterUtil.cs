@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Indriya.Core.Msgs;
 
-namespace Experimot.Core.Util
+namespace Indriya.Core.Util
 {
     public class ParameterUtil
     {

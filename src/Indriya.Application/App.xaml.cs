@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Experimot.Core;
+using Indriya.Core;
 using Nancy.TinyIoc;
 
 namespace Indriya.Application
@@ -15,7 +16,7 @@ namespace Indriya.Application
             if (!string.IsNullOrEmpty(configFile))
             {
                 var bootStrapper = new BootStrapper(configFile);
-                RunTests(TinyIoCContainer.Current.Resolve<experimot_config>());
+                RunTests(TinyIoCContainer.Current.Resolve<AppConfig>());
                 bootStrapper.StartUp();
             }
             base.OnStartup(e);
@@ -31,7 +32,7 @@ namespace Indriya.Application
             base.OnExit(e);
         }
 
-        private void RunTests(experimot_config config)
+        private void RunTests(AppConfig config)
         {
             //Tests.Test.TestReadSkeletonFile();
             //Tests.Test.MultihumanGestureTest();

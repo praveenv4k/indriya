@@ -1,6 +1,6 @@
 using CommandLine;
 
-namespace Experimot.Kinect.Perception
+namespace Indriya.Kinect.Perception
 {
     public class CommandLineOptions
     {

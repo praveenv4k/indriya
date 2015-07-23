@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.Kinect;
 
-namespace Experimot.Kinect.Perception
+namespace Indriya.Kinect.Perception
 {
     /// <summary>
     /// Stores discrete gesture results for the GestureDetector.

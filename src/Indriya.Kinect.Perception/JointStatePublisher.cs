@@ -9,7 +9,7 @@ using Indriya.Core.Msgs;
 using NetMQ;
 using ProtoBuf;
 
-namespace Experimot.Kinect.Perception
+namespace Indriya.Kinect.Perception
 {
     public class JointStatePublisher
     {

@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using CommandLine;
 using Common.Logging;
-using Experimot.Core.Util;
 using Indriya.Core.Msgs;
 using NetMQ;
 using Newtonsoft.Json.Linq;
 using ProtoBuf;
 
-namespace Experimot.Imu.Perception
+namespace Indriya.Imu.Perception
 {
     class Program
     {

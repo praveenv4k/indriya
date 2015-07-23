@@ -16,8 +16,8 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using Common.Logging;
-using Experimot.Core.Util;
 using Microsoft.Kinect;
+using Indriya.Core.Util;
 using System;
 #if USE_KINECT_BODIES
 #else
@@ -25,7 +25,7 @@ using KinectEx;
 using KinectEx.Smoothing;
 #endif
 
-namespace Experimot.Kinect.Perception
+namespace Indriya.Kinect.Perception
 {
     /// <summary>
     /// Interaction logic for the MainWindow

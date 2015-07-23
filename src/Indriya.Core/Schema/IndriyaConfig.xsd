@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema elementFormDefault="qualified"
-           targetNamespace="http://www.tuat.ac.jp/~venture/ExperimotConfig"
+           targetNamespace="http://www.tuat.ac.jp/~venture/IndriyaConfig"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns="http://www.tuat.ac.jp/~venture/ExperimotConfig">
+           xmlns="http://www.tuat.ac.jp/~venture/IndriyaConfig">
   
   <xs:complexType name="process">
     <xs:sequence>
@@ -82,7 +82,7 @@
       <xs:attribute name="type" type="nodeType" use="optional" default="misc"/>
   </xs:complexType>
   
-  <xs:element name="experimot_config">
+  <xs:element name="AppConfig">
     <xs:complexType>
       <xs:sequence>
         <xs:element name="parameters" minOccurs="0" maxOccurs="1">

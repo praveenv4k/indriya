@@ -1,7 +1,7 @@
-﻿using Experimot.Core;
+﻿using Indriya.Core;
 using Indriya.Core.Msgs;
 
-namespace Experimot.Kinect.Perception
+namespace Indriya.Kinect.Perception
 {
     /// <summary>
     /// Interaction logic for MainWindow

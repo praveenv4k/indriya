@@ -3,7 +3,7 @@ using System.IO;
 using NetMQ;
 using ProtoBuf;
 
-namespace Experimot.Core
+namespace Indriya.Core
 {
     public class MessagePublisher<T> where T : class, IExtensible
     {

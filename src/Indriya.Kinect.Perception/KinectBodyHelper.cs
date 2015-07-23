@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Media;
 using Microsoft.Kinect;
 
-namespace Experimot.Kinect.Perception
+namespace Indriya.Kinect.Perception
 {
     public class KinectBodyHelper
     {

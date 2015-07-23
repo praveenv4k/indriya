@@ -5,9 +5,9 @@ using System.Linq;
 using System.Reflection;
 using System.Windows;
 using Common.Logging;
-using Experimot.Core;
-using Experimot.Core.Util;
 using Indriya.Application.Data;
+using Indriya.Core;
+using Indriya.Core.Util;
 using Nancy.TinyIoc;
 using NetMQ;
 using ProtoBuf;
@@ -38,7 +38,7 @@ namespace Indriya.Application.Tasks
         public ContextSync()
         {
             _ctx = TinyIoCContainer.Current.Resolve<Context>();
-            var config = TinyIoCContainer.Current.Resolve<experimot_config>();
+            var config = TinyIoCContainer.Current.Resolve<AppConfig>();
 
             _publishers = new List<socket>();
             _delegateDict = new Dictionary<string, DelegateInfo>();

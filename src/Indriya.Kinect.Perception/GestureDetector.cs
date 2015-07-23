@@ -11,7 +11,7 @@ using Indriya.Core.Msgs;
 using Microsoft.Kinect;
 using Microsoft.Kinect.VisualGestureBuilder;
 
-namespace Experimot.Kinect.Perception
+namespace Indriya.Kinect.Perception
 {
     /// <summary>
     /// Gesture Detector class which listens for VisualGestureBuilderFrame events from the service

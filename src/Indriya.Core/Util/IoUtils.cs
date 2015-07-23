@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Indriya.Core.Msgs;
 
-namespace Experimot.Core.Util
+namespace Indriya.Core.Util
 {
     public static class IoUtils
     {

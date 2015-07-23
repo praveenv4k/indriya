@@ -4,10 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Common.Logging;
-using Experimot.Core;
-using Experimot.Core.Util;
 using Indriya.Application.Data;
+using Indriya.Core;
 using Indriya.Core.BehaviorEngine;
+using Indriya.Core.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SharpDX;
@@ -233,7 +233,7 @@ namespace Experimot.Scheduler.Tests
             }
         }
 
-        public static void TestProgramGeneration(experimot_config config)
+        public static void TestProgramGeneration(AppConfig config)
         {
             var outputPath = ParameterUtil.Get(config.parameters, "MainProgramFilePath", "");
             if (!string.IsNullOrEmpty(outputPath))
@@ -373,7 +373,7 @@ namespace Experimot.Scheduler.Tests
             return (float)yaw;
         }
 
-        public static void TestReadBehaviorXml(experimot_config config)
+        public static void TestReadBehaviorXml(AppConfig config)
         {
             var outputPath = ParameterUtil.Get(config.parameters, "MainProgramFilePath", "");
             if (!string.IsNullOrEmpty(outputPath))
@@ -407,7 +407,7 @@ namespace Experimot.Scheduler.Tests
             }
         }
 
-        public static void TestJsonToProgram(experimot_config config)
+        public static void TestJsonToProgram(AppConfig config)
         {
             var behaviorInfoDict = new Dictionary<string, List<BehaviorInfo>>();
 

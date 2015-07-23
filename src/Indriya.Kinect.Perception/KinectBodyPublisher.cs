@@ -15,7 +15,7 @@ using KinectEx;
 using KinectEx.Smoothing;
 #endif
 
-namespace Experimot.Kinect.Perception
+namespace Indriya.Kinect.Perception
 {
     /// <summary>
     /// Interaction logic for MainWindow

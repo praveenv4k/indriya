@@ -7,7 +7,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.Kinect.VisualGestureBuilder;
 
-namespace Experimot.Kinect.Perception
+namespace Indriya.Kinect.Perception
 {
     public class GestureDatabase
     {

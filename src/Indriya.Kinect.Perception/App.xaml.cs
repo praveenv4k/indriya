@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 using System.Windows;
 using CommandLine;
 using Common.Logging;
-using Experimot.Core.Util;
 using Indriya.Core.Msgs;
+using Indriya.Core.Util;
 using Microsoft.Kinect.VisualGestureBuilder;
 using NetMQ;
 using ProtoBuf;
 
-namespace Experimot.Kinect.Perception
+namespace Indriya.Kinect.Perception
 {
     /// <summary>
     /// Interaction logic for App.xaml
