@@ -292,7 +292,7 @@
       <process>
         <type>executable</type>
         <path>python.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_robot_interface\ReadJointValues.py</args>
+        <args>%DEV_SDK_ROOT%\experimot\scripts\indriya_robot_interface\ReadJointValues.py</args>
       </process>
       <parameters>
         <param key="ROBOTIP" value="$NAO-A-ROBOTIP" type="string"/>
@@ -319,14 +319,14 @@
       <process>
         <type>executable</type>
         <path>python.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\experimot_relative_localize.py</args>
+        <args>%DEV_SDK_ROOT%\experimot\scripts\indriya_python_client\experimot_relative_localize.py</args>
       </process>
     </node>
     <node enabled="true" name="hiro_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_robot_interface\behaviors\behaviormanager.py</args>
+        <args>%DEV_SDK_ROOT%\experimot\scripts\indriya_robot_interface\behaviors\behaviormanager.py</args>
       </process>
       <parameters>
         <param key="ROBOTIP" value="$NAO-A-ROBOTIP" type="string"/>
@@ -341,7 +341,7 @@
       <process>
         <type>executable</type>
         <path>python.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_robot_interface\odometry.py</args>
+        <args>%DEV_SDK_ROOT%\experimot\scripts\indriya_robot_interface\odometry.py</args>
       </process>
       <parameters>
       </parameters>
@@ -350,7 +350,7 @@
       <process>
         <type>executable</type>
         <path>python.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_robot_interface\behaviors\behaviormanager.py</args>
+        <args>%DEV_SDK_ROOT%\experimot\scripts\indriya_robot_interface\behaviors\behaviormanager.py</args>
       </process>
       <parameters>
         <param key="ROBOTIP" value="$NAO-B-ROBOTIP" type="string"/>
@@ -365,7 +365,7 @@
       <process>
         <type>executable</type>
         <path>python.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_robot_interface\behaviors\imitation_manager.py</args>
+        <args>%DEV_SDK_ROOT%\experimot\scripts\indriya_robot_interface\behaviors\imitation_manager.py</args>
       </process>
       <parameters>
         <param key="ROBOTIP" value="$NAO-A-ROBOTIP" type="string"/>
@@ -389,7 +389,7 @@
       <process>
         <type>executable</type>
         <path>python.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\scripts\experimot_python_client\aps_test.py</args>
+        <args>%DEV_SDK_ROOT%\experimot\scripts\indriya_python_client\aps_test.py</args>
       </process>
       <parameters>
         <param key="BehaviorManagerName" value="nao_behavior_manager" type="string"/>

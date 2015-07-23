@@ -66,7 +66,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <OutputPath>..\..\bin\Release\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
@@ -294,7 +294,8 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /i/f/s/y $(SolutionDir)src\indriya_robot_interface\*.py %25DEV_SDK_ROOT%25\experimot\scripts\indriya_robot_interface\
-REM xcopy /i/f/s/y $(SolutionDir)src\Experimot.Scheduler\Scriptcs\*.cs* %25DEV_SDK_ROOT%25\experimot\bin\Scriptcs\*.csx</PostBuildEvent>
+REM xcopy /i/f/s/y $(SolutionDir)src\Experimot.Scheduler\Scriptcs\*.cs* %25DEV_SDK_ROOT%25\experimot\bin\Scriptcs\*.csx
+xcopy "$(TargetDir)*.*" "$(DEV_SDK_ROOT)\experimot\bin\app\$(TargetName)" /S /R /Y /I</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\..\packages\cef.redist.x86.3.2171.2069\build\cef.redist.x86.targets" Condition="Exists('..\..\packages\cef.redist.x86.3.2171.2069\build\cef.redist.x86.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
