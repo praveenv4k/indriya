@@ -6,7 +6,8 @@
     <ProjectGuid>{464dce7e-4f29-4169-bf26-d563de3a5712}</ProjectGuid>
     <ProjectHome />
     <StartupFile>control_loop.py</StartupFile>
-    <SearchPath>..\experimot_msgs\python\</SearchPath>
+    <SearchPath>
+    </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
@@ -14,7 +15,7 @@
     <InterpreterId />
     <InterpreterVersion />
     <IsWindowsApplication>False</IsWindowsApplication>
-    <PublishUrl>C:\Work\Develop\sdk_2013\experimot\scripts\experimot_robot_interface</PublishUrl>
+    <PublishUrl>C:\Work\Develop\sdk_2013\experimot\scripts\indriya_robot_interface</PublishUrl>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />

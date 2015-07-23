@@ -132,7 +132,7 @@
   </Target>
   <PropertyGroup>
     <PostBuildEvent>xcopy /i/f/s/y $(ProjectDir)*Template.cs* %25WEB_ROOT%25\data\templates\*.cs
-</PostBuildEvent>
+xcopy "$(TargetDir)*.*" "$(DEV_SDK_ROOT)\experimot\bin\scriptcs\scriptcs_bin" /S /R /Y /I</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

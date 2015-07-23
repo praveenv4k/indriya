@@ -6,13 +6,13 @@
     <ProjectGuid>ed9454de-9ac1-4e5d-93a2-9abf5d6abc55</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>plot_planar_localize.py</StartupFile>
-    <SearchPath>..\experimot_msgs\python\</SearchPath>
+    <SearchPath>..\indriya_msgs\python\</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>experimot_python_client</Name>
     <RootNamespace>experimot_python_client</RootNamespace>
     <IsWindowsApplication>False</IsWindowsApplication>
-    <PublishUrl>C:\Work\Develop\sdk_2013\experimot\scripts\experimot_python_client</PublishUrl>
+    <PublishUrl>C:\Work\Develop\sdk_2013\experimot\scripts\indriya_python_client</PublishUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
