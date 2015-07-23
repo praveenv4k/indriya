@@ -11,7 +11,7 @@ using System.Windows.Threading;
 using Microsoft.Kinect.Tools;
 using Microsoft.Win32;
 
-namespace Experimot.Kinect.Playback
+namespace Indriya.Kinect.Playback
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -1,7 +1,7 @@
 ﻿using Indriya.Core;
 using Indriya.Core.Msgs;
 
-namespace Experimot.Kinect.Speech
+namespace Indriya.Kinect.Speech
 {
     internal class VoiceCommandPublisher : MessagePublisher<VoiceCommandDescription>
     {

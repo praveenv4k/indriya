@@ -11,7 +11,7 @@ using NetMQ;
 using Newtonsoft.Json.Linq;
 using ProtoBuf;
 
-namespace Experimot.Localization.Logger
+namespace Indriya.Localization.Logger
 {
     internal class CommandLineOptions
     {

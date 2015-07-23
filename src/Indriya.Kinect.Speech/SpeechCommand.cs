@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Indriya.Core.Msgs;
+﻿using Indriya.Core.Msgs;
 
-namespace Experimot.Kinect.Speech
+namespace Indriya.Kinect.Speech
 {
     class SpeechCommand
     {

@@ -11,7 +11,7 @@ using Microsoft.Kinect;
 using Microsoft.Speech.AudioFormat;
 using Microsoft.Speech.Recognition;
 
-namespace Experimot.Kinect.Speech
+namespace Indriya.Kinect.Speech
 {
     internal class KinectSpeechRecognition:ISpeechRecognitionModule
     {

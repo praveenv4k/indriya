@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Experimot.Kinect.Playback
+namespace Indriya.Kinect.Playback
 {
     /// <summary>
     /// Interaction logic for App.xaml

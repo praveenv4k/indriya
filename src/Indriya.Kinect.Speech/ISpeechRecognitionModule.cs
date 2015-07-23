@@ -1,4 +1,4 @@
-﻿namespace Experimot.Kinect.Speech
+﻿namespace Indriya.Kinect.Speech
 {
     internal interface ISpeechRecognitionModule
     {

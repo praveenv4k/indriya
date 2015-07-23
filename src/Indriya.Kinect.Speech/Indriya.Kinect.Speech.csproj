@@ -7,7 +7,7 @@
     <ProjectGuid>{9D3B9A64-4F96-457A-ABCA-92E60A51E664}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Experimot.Kinect.Speech</RootNamespace>
+    <RootNamespace>Indriya.Kinect.Speech</RootNamespace>
     <AssemblyName>Indriya.Kinect.Speech</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

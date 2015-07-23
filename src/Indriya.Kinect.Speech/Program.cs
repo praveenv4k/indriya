@@ -8,7 +8,7 @@ using Indriya.Core.Util;
 using NetMQ;
 using ProtoBuf;
 
-namespace Experimot.Kinect.Speech
+namespace Indriya.Kinect.Speech
 {
     internal class CommandLineOptions
     {

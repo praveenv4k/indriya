@@ -1,6 +1,6 @@
 ﻿using Microsoft.Speech.Synthesis;
 
-namespace Experimot.Kinect.Speech
+namespace Indriya.Kinect.Speech
 {
     internal class SpeechSynthesis
     {

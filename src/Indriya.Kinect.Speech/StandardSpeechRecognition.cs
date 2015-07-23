@@ -8,7 +8,7 @@ using Indriya.Core.Msgs;
 using Indriya.Core.Util;
 using Microsoft.Speech.Recognition;
 
-namespace Experimot.Kinect.Speech
+namespace Indriya.Kinect.Speech
 {
     internal class StandardSpeechRecognition: ISpeechRecognitionModule
     {
