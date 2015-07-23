@@ -3,8 +3,8 @@
 
 #include "Pose.h"
 #include <openrave-core.h>
-#include "experimot\msgs\MessageTypes.h"
-#include "experimot\common\Common.h"
+#include "Indriya\Msgs\MessageTypes.h"
+#include "Indriya\Common\Common.h"
 
 using namespace alvar;
 using namespace OpenRAVE;

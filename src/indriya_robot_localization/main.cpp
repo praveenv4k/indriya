@@ -18,8 +18,8 @@
 #endif
 #endif
 
-#include "experimot\common\ParameterClient.h"
-#include "experimot\common\ParameterHelper.h"
+#include "Indriya\Common\ParameterClient.h"
+#include "Indriya\Common\ParameterHelper.h"
 #include <boost/program_options.hpp>
 
 int main(int argc, char *argv[])

@@ -2,7 +2,7 @@
 #define __COLOR_HELPER_H__
 
 #include "Colors.h"
-#include "experimot\msgs\MessageTypes.h"
+#include "Indriya\Msgs\MessageTypes.h"
 #include "openrave-core.h"
 
 class ColorHelper{

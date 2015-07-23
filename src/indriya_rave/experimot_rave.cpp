@@ -40,15 +40,15 @@
 #include <boost/utility/string_ref.hpp>
 #include "asio_server.h"
 
-#include "experimot\msgs\MessageTypes.h"
+#include "Indriya\Msgs\MessageTypes.h"
 #include <zmq.hpp>
 #include <zhelpers.hpp>
 #include <boost/atomic.hpp>
 #include "KinectBodyHelper.h"
 
 #include <boost\program_options.hpp>
-#include <experimot\common\ParameterClient.h>
-#include <experimot\common\ParameterHelper.h>
+#include <Indriya\Common\ParameterClient.h>
+#include <Indriya\Common\ParameterHelper.h>
 
 boost::atomic<bool> done(false);
 

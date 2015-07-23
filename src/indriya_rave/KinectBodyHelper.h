@@ -2,7 +2,7 @@
 #define __KINECTBODYHELPER_H__
 
 #include <boost\thread.hpp>
-#include <experimot\msgs\MessageTypes.h>
+#include <Indriya\Msgs\MessageTypes.h>
 #include "ColorHelper.h"
 #include <tuple>
 

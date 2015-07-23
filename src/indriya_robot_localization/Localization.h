@@ -15,7 +15,7 @@
 #include "NaoHeadTransformHelper.h"
 #include "LocalizationResponder.h"
 
-#include "experimot\common\ParameterHelper.h"
+#include "Indriya\Common\ParameterHelper.h"
 
 #include "TorsoPoseFilter.h"
 #include <bullet\Bullet3Common\b3Matrix3x3.h>

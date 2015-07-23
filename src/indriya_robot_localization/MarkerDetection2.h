@@ -12,11 +12,11 @@
 
 #include "TransformationHelper.h"
 #include "NaoHeadTransformHelper.h"
-#include "experimot\common\Common.h"
+#include "Indriya\Common\Common.h"
 
 #include "bullet\Bullet3Common\b3Quaternion.h"
 
-#include "experimot\common\ParameterHelper.h"
+#include "Indriya\Common\ParameterHelper.h"
 
 using namespace alvar;
 using namespace std;

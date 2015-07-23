@@ -9,7 +9,7 @@
 #include <boost\shared_ptr.hpp>
 
 #include "Common.h"
-#include "experimot\msgs\MessageTypes.h"
+#include "Indriya\Msgs\MessageTypes.h"
 
 class ParameterClient{
 public:
