@@ -9,7 +9,7 @@
 
 // Generated from: proto/friction.proto
 // Note: requires additional types generated from: vector3d.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Friction")]
   public partial class Friction : global::ProtoBuf.IExtensible
@@ -32,10 +32,10 @@ namespace experimot.msgs
       get { return _mu2; }
       set { _mu2 = value; }
     }
-    private experimot.msgs.Vector3d _fdir1 = null;
+    private Indriya.Core.Msgs.Vector3d _fdir1 = null;
     [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"fdir1", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Vector3d fdir1
+    public Indriya.Core.Msgs.Vector3d fdir1
     {
       get { return _fdir1; }
       set { _fdir1 = value; }

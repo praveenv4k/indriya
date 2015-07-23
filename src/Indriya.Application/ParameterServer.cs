@@ -71,7 +71,7 @@ namespace Indriya.Application
                             if (req.Contains("motion"))
                             {
                                 var motionModule =
-                                    ReceiveAndParseGestureDescription<experimot.msgs.GestureRecognitionModule>(_socket,
+                                    ReceiveAndParseGestureDescription<Indriya.Core.Msgs.GestureRecognitionModule>(_socket,
                                         RecvTimeout);
                                 if (motionModule != null)
                                 {
@@ -89,7 +89,7 @@ namespace Indriya.Application
                             else if (req.Contains("behavior"))
                             {
                                 var behaviorModule =
-                                    ReceiveAndParseGestureDescription<experimot.msgs.RobotBehaviorModule>(_socket,
+                                    ReceiveAndParseGestureDescription<Indriya.Core.Msgs.RobotBehaviorModule>(_socket,
                                         RecvTimeout);
                                 if (behaviorModule != null)
                                 {
@@ -107,7 +107,7 @@ namespace Indriya.Application
                             else if (req.Contains("speech"))
                             {
                                 var behaviorModule =
-                                    ReceiveAndParseGestureDescription<experimot.msgs.VoiceRecognitionModule>(_socket,
+                                    ReceiveAndParseGestureDescription<Indriya.Core.Msgs.VoiceRecognitionModule>(_socket,
                                         RecvTimeout);
                                 if (behaviorModule != null)
                                 {

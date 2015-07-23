@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_pointcloud_2eproto();
@@ -108,25 +109,25 @@ class PointCloud : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .experimot.msgs.Vector3d points = 1;
+  // repeated .Indriya.Core.Msgs.Vector3d points = 1;
   int points_size() const;
   void clear_points();
   static const int kPointsFieldNumber = 1;
-  const ::experimot::msgs::Vector3d& points(int index) const;
-  ::experimot::msgs::Vector3d* mutable_points(int index);
-  ::experimot::msgs::Vector3d* add_points();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector3d >&
+  const ::Indriya::Core::Msgs::Vector3d& points(int index) const;
+  ::Indriya::Core::Msgs::Vector3d* mutable_points(int index);
+  ::Indriya::Core::Msgs::Vector3d* add_points();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector3d >&
       points() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector3d >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector3d >*
       mutable_points();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.PointCloud)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.PointCloud)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector3d > points_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector3d > points_;
   friend void  protobuf_AddDesc_pointcloud_2eproto();
   friend void protobuf_AssignDesc_pointcloud_2eproto();
   friend void protobuf_ShutdownFile_pointcloud_2eproto();
@@ -142,45 +143,46 @@ class PointCloud : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // PointCloud
 
-// repeated .experimot.msgs.Vector3d points = 1;
+// repeated .Indriya.Core.Msgs.Vector3d points = 1;
 inline int PointCloud::points_size() const {
   return points_.size();
 }
 inline void PointCloud::clear_points() {
   points_.Clear();
 }
-inline const ::experimot::msgs::Vector3d& PointCloud::points(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PointCloud.points)
+inline const ::Indriya::Core::Msgs::Vector3d& PointCloud::points(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PointCloud.points)
   return points_.Get(index);
 }
-inline ::experimot::msgs::Vector3d* PointCloud::mutable_points(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.PointCloud.points)
+inline ::Indriya::Core::Msgs::Vector3d* PointCloud::mutable_points(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.PointCloud.points)
   return points_.Mutable(index);
 }
-inline ::experimot::msgs::Vector3d* PointCloud::add_points() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.PointCloud.points)
+inline ::Indriya::Core::Msgs::Vector3d* PointCloud::add_points() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.PointCloud.points)
   return points_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector3d >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector3d >&
 PointCloud::points() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.PointCloud.points)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.PointCloud.points)
   return points_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector3d >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector3d >*
 PointCloud::mutable_points() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.PointCloud.points)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.PointCloud.points)
   return &points_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::PointCloud> PointCloudPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::PointCloud> PointCloudPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::PointCloud const> ConstPointCloudPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::PointCloud const> ConstPointCloudPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_pointcloud_2eproto__INCLUDED

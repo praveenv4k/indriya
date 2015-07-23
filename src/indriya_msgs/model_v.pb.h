@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_model_5fv_2eproto();
@@ -108,25 +109,25 @@ class Model_V : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .experimot.msgs.Model models = 2;
+  // repeated .Indriya.Core.Msgs.Model models = 2;
   int models_size() const;
   void clear_models();
   static const int kModelsFieldNumber = 2;
-  const ::experimot::msgs::Model& models(int index) const;
-  ::experimot::msgs::Model* mutable_models(int index);
-  ::experimot::msgs::Model* add_models();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Model >&
+  const ::Indriya::Core::Msgs::Model& models(int index) const;
+  ::Indriya::Core::Msgs::Model* mutable_models(int index);
+  ::Indriya::Core::Msgs::Model* add_models();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Model >&
       models() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Model >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Model >*
       mutable_models();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Model_V)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Model_V)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Model > models_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Model > models_;
   friend void  protobuf_AddDesc_model_5fv_2eproto();
   friend void protobuf_AssignDesc_model_5fv_2eproto();
   friend void protobuf_ShutdownFile_model_5fv_2eproto();
@@ -142,45 +143,46 @@ class Model_V : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // Model_V
 
-// repeated .experimot.msgs.Model models = 2;
+// repeated .Indriya.Core.Msgs.Model models = 2;
 inline int Model_V::models_size() const {
   return models_.size();
 }
 inline void Model_V::clear_models() {
   models_.Clear();
 }
-inline const ::experimot::msgs::Model& Model_V::models(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Model_V.models)
+inline const ::Indriya::Core::Msgs::Model& Model_V::models(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Model_V.models)
   return models_.Get(index);
 }
-inline ::experimot::msgs::Model* Model_V::mutable_models(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Model_V.models)
+inline ::Indriya::Core::Msgs::Model* Model_V::mutable_models(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Model_V.models)
   return models_.Mutable(index);
 }
-inline ::experimot::msgs::Model* Model_V::add_models() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Model_V.models)
+inline ::Indriya::Core::Msgs::Model* Model_V::add_models() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Model_V.models)
   return models_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Model >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Model >&
 Model_V::models() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Model_V.models)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Model_V.models)
   return models_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Model >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Model >*
 Model_V::mutable_models() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Model_V.models)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Model_V.models)
   return &models_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Model_V> Model_VPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Model_V> Model_VPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Model_V const> ConstModel_VPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Model_V const> ConstModel_VPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_model_5fv_2eproto__INCLUDED

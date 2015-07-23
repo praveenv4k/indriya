@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -80,9 +81,9 @@ void protobuf_AddDesc_cylindergeom_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\022cylindergeom.proto\022\016experimot.msgs\".\n\014"
-    "CylinderGeom\022\016\n\006radius\030\001 \002(\001\022\016\n\006length\030\002"
-    " \002(\001", 84);
+    "\n\022cylindergeom.proto\022\021Indriya.Core.Msgs\""
+    ".\n\014CylinderGeom\022\016\n\006radius\030\001 \002(\001\022\016\n\006lengt"
+    "h\030\002 \002(\001", 87);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "cylindergeom.proto", &protobuf_RegisterTypes);
   CylinderGeom::default_instance_ = new CylinderGeom();
@@ -117,7 +118,7 @@ const int CylinderGeom::kLengthFieldNumber;
 CylinderGeom::CylinderGeom()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.CylinderGeom)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.CylinderGeom)
 }
 
 void CylinderGeom::InitAsDefaultInstance() {
@@ -128,7 +129,7 @@ CylinderGeom::CylinderGeom(const CylinderGeom& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.CylinderGeom)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.CylinderGeom)
 }
 
 void CylinderGeom::SharedCtor() {
@@ -139,7 +140,7 @@ void CylinderGeom::SharedCtor() {
 }
 
 CylinderGeom::~CylinderGeom() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.CylinderGeom)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.CylinderGeom)
   SharedDtor();
 }
 
@@ -197,7 +198,7 @@ bool CylinderGeom::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.CylinderGeom)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.CylinderGeom)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -246,17 +247,17 @@ bool CylinderGeom::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.CylinderGeom)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.CylinderGeom)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.CylinderGeom)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.CylinderGeom)
   return false;
 #undef DO_
 }
 
 void CylinderGeom::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.CylinderGeom)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.CylinderGeom)
   // required double radius = 1;
   if (has_radius()) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(1, this->radius(), output);
@@ -271,12 +272,12 @@ void CylinderGeom::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.CylinderGeom)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.CylinderGeom)
 }
 
 ::google::protobuf::uint8* CylinderGeom::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.CylinderGeom)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.CylinderGeom)
   // required double radius = 1;
   if (has_radius()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(1, this->radius(), target);
@@ -291,7 +292,7 @@ void CylinderGeom::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.CylinderGeom)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.CylinderGeom)
   return target;
 }
 
@@ -417,13 +418,13 @@ void CylinderGeom::InternalSwap(CylinderGeom* other) {
   clear_has_radius();
 }
  double CylinderGeom::radius() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.CylinderGeom.radius)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.CylinderGeom.radius)
   return radius_;
 }
  void CylinderGeom::set_radius(double value) {
   set_has_radius();
   radius_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.CylinderGeom.radius)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.CylinderGeom.radius)
 }
 
 // required double length = 2;
@@ -441,21 +442,22 @@ void CylinderGeom::InternalSwap(CylinderGeom* other) {
   clear_has_length();
 }
  double CylinderGeom::length() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.CylinderGeom.length)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.CylinderGeom.length)
   return length_;
 }
  void CylinderGeom::set_length(double value) {
   set_has_length();
   length_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.CylinderGeom.length)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.CylinderGeom.length)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.CylinderGeom", CylinderGeom)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.CylinderGeom", CylinderGeom)
 // @@protoc_insertion_point(global_scope)

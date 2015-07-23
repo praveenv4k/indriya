@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 // Generated from: proto/quaternion.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Quaternion")]
   public partial class Quaternion : global::ProtoBuf.IExtensible

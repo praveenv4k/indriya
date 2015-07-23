@@ -18,9 +18,9 @@ import vector3d_pb2 as vector3d__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='wrench.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x0cwrench.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\"[\n\x06Wrench\x12\'\n\x05\x66orce\x18\x01 \x02(\x0b\x32\x18.experimot.msgs.Vector3d\x12(\n\x06torque\x18\x02 \x02(\x0b\x32\x18.experimot.msgs.Vector3d')
+  serialized_pb=_b('\n\x0cwrench.proto\x12\x11Indriya.Core.Msgs\x1a\x0evector3d.proto\"a\n\x06Wrench\x12*\n\x05\x66orce\x18\x01 \x02(\x0b\x32\x1b.Indriya.Core.Msgs.Vector3d\x12+\n\x06torque\x18\x02 \x02(\x0b\x32\x1b.Indriya.Core.Msgs.Vector3d')
   ,
   dependencies=[vector3d__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,20 +30,20 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _WRENCH = _descriptor.Descriptor(
   name='Wrench',
-  full_name='experimot.msgs.Wrench',
+  full_name='Indriya.Core.Msgs.Wrench',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='force', full_name='experimot.msgs.Wrench.force', index=0,
+      name='force', full_name='Indriya.Core.Msgs.Wrench.force', index=0,
       number=1, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='torque', full_name='experimot.msgs.Wrench.torque', index=1,
+      name='torque', full_name='Indriya.Core.Msgs.Wrench.torque', index=1,
       number=2, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -61,8 +61,8 @@ _WRENCH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=48,
-  serialized_end=139,
+  serialized_start=51,
+  serialized_end=148,
 )
 
 _WRENCH.fields_by_name['force'].message_type = vector3d__pb2._VECTOR3D
@@ -72,7 +72,7 @@ DESCRIPTOR.message_types_by_name['Wrench'] = _WRENCH
 Wrench = _reflection.GeneratedProtocolMessageType('Wrench', (_message.Message,), dict(
   DESCRIPTOR = _WRENCH,
   __module__ = 'wrench_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Wrench)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Wrench)
   ))
 _sym_db.RegisterMessage(Wrench)
 

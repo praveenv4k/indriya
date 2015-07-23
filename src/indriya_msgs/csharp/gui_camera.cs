@@ -10,7 +10,7 @@
 // Generated from: proto/gui_camera.proto
 // Note: requires additional types generated from: pose.proto
 // Note: requires additional types generated from: track_visual.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"GUICamera")]
   public partial class GUICamera : global::ProtoBuf.IExtensible
@@ -32,18 +32,18 @@ namespace experimot.msgs
       get { return _view_controller; }
       set { _view_controller = value; }
     }
-    private experimot.msgs.Pose _pose = null;
+    private Indriya.Core.Msgs.Pose _pose = null;
     [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"pose", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Pose pose
+    public Indriya.Core.Msgs.Pose pose
     {
       get { return _pose; }
       set { _pose = value; }
     }
-    private experimot.msgs.TrackVisual _track = null;
+    private Indriya.Core.Msgs.TrackVisual _track = null;
     [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"track", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.TrackVisual track
+    public Indriya.Core.Msgs.TrackVisual track
     {
       get { return _track; }
       set { _track = value; }

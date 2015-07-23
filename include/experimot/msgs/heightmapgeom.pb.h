@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_heightmapgeom_2eproto();
@@ -142,7 +143,7 @@ class HeightmapGeom_Texture : public ::google::protobuf::Message {
   double size() const;
   void set_size(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.HeightmapGeom.Texture)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.HeightmapGeom.Texture)
  private:
   inline void set_has_diffuse();
   inline void clear_has_diffuse();
@@ -247,7 +248,7 @@ class HeightmapGeom_Blend : public ::google::protobuf::Message {
   double fade_dist() const;
   void set_fade_dist(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.HeightmapGeom.Blend)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.HeightmapGeom.Blend)
  private:
   inline void set_has_min_height();
   inline void clear_has_min_height();
@@ -338,32 +339,32 @@ class HeightmapGeom : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .experimot.msgs.Image image = 1;
+  // optional .Indriya.Core.Msgs.Image image = 1;
   bool has_image() const;
   void clear_image();
   static const int kImageFieldNumber = 1;
-  const ::experimot::msgs::Image& image() const;
-  ::experimot::msgs::Image* mutable_image();
-  ::experimot::msgs::Image* release_image();
-  void set_allocated_image(::experimot::msgs::Image* image);
+  const ::Indriya::Core::Msgs::Image& image() const;
+  ::Indriya::Core::Msgs::Image* mutable_image();
+  ::Indriya::Core::Msgs::Image* release_image();
+  void set_allocated_image(::Indriya::Core::Msgs::Image* image);
 
-  // required .experimot.msgs.Vector3d size = 2;
+  // required .Indriya.Core.Msgs.Vector3d size = 2;
   bool has_size() const;
   void clear_size();
   static const int kSizeFieldNumber = 2;
-  const ::experimot::msgs::Vector3d& size() const;
-  ::experimot::msgs::Vector3d* mutable_size();
-  ::experimot::msgs::Vector3d* release_size();
-  void set_allocated_size(::experimot::msgs::Vector3d* size);
+  const ::Indriya::Core::Msgs::Vector3d& size() const;
+  ::Indriya::Core::Msgs::Vector3d* mutable_size();
+  ::Indriya::Core::Msgs::Vector3d* release_size();
+  void set_allocated_size(::Indriya::Core::Msgs::Vector3d* size);
 
-  // optional .experimot.msgs.Vector3d origin = 3;
+  // optional .Indriya.Core.Msgs.Vector3d origin = 3;
   bool has_origin() const;
   void clear_origin();
   static const int kOriginFieldNumber = 3;
-  const ::experimot::msgs::Vector3d& origin() const;
-  ::experimot::msgs::Vector3d* mutable_origin();
-  ::experimot::msgs::Vector3d* release_origin();
-  void set_allocated_origin(::experimot::msgs::Vector3d* origin);
+  const ::Indriya::Core::Msgs::Vector3d& origin() const;
+  ::Indriya::Core::Msgs::Vector3d* mutable_origin();
+  ::Indriya::Core::Msgs::Vector3d* release_origin();
+  void set_allocated_origin(::Indriya::Core::Msgs::Vector3d* origin);
 
   // repeated float heights = 4;
   int heights_size() const;
@@ -391,28 +392,28 @@ class HeightmapGeom : public ::google::protobuf::Message {
   ::google::protobuf::int32 height() const;
   void set_height(::google::protobuf::int32 value);
 
-  // repeated .experimot.msgs.HeightmapGeom.Texture texture = 7;
+  // repeated .Indriya.Core.Msgs.HeightmapGeom.Texture texture = 7;
   int texture_size() const;
   void clear_texture();
   static const int kTextureFieldNumber = 7;
-  const ::experimot::msgs::HeightmapGeom_Texture& texture(int index) const;
-  ::experimot::msgs::HeightmapGeom_Texture* mutable_texture(int index);
-  ::experimot::msgs::HeightmapGeom_Texture* add_texture();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::HeightmapGeom_Texture >&
+  const ::Indriya::Core::Msgs::HeightmapGeom_Texture& texture(int index) const;
+  ::Indriya::Core::Msgs::HeightmapGeom_Texture* mutable_texture(int index);
+  ::Indriya::Core::Msgs::HeightmapGeom_Texture* add_texture();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::HeightmapGeom_Texture >&
       texture() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::HeightmapGeom_Texture >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::HeightmapGeom_Texture >*
       mutable_texture();
 
-  // repeated .experimot.msgs.HeightmapGeom.Blend blend = 8;
+  // repeated .Indriya.Core.Msgs.HeightmapGeom.Blend blend = 8;
   int blend_size() const;
   void clear_blend();
   static const int kBlendFieldNumber = 8;
-  const ::experimot::msgs::HeightmapGeom_Blend& blend(int index) const;
-  ::experimot::msgs::HeightmapGeom_Blend* mutable_blend(int index);
-  ::experimot::msgs::HeightmapGeom_Blend* add_blend();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::HeightmapGeom_Blend >&
+  const ::Indriya::Core::Msgs::HeightmapGeom_Blend& blend(int index) const;
+  ::Indriya::Core::Msgs::HeightmapGeom_Blend* mutable_blend(int index);
+  ::Indriya::Core::Msgs::HeightmapGeom_Blend* add_blend();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::HeightmapGeom_Blend >&
       blend() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::HeightmapGeom_Blend >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::HeightmapGeom_Blend >*
       mutable_blend();
 
   // optional bool use_terrain_paging = 9;
@@ -434,7 +435,7 @@ class HeightmapGeom : public ::google::protobuf::Message {
   ::std::string* release_filename();
   void set_allocated_filename(::std::string* filename);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.HeightmapGeom)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.HeightmapGeom)
  private:
   inline void set_has_image();
   inline void clear_has_image();
@@ -454,14 +455,14 @@ class HeightmapGeom : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::Image* image_;
-  ::experimot::msgs::Vector3d* size_;
-  ::experimot::msgs::Vector3d* origin_;
+  ::Indriya::Core::Msgs::Image* image_;
+  ::Indriya::Core::Msgs::Vector3d* size_;
+  ::Indriya::Core::Msgs::Vector3d* origin_;
   ::google::protobuf::RepeatedField< float > heights_;
   ::google::protobuf::int32 width_;
   ::google::protobuf::int32 height_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::HeightmapGeom_Texture > texture_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::HeightmapGeom_Blend > blend_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::HeightmapGeom_Texture > texture_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::HeightmapGeom_Blend > blend_;
   ::google::protobuf::internal::ArenaStringPtr filename_;
   bool use_terrain_paging_;
   friend void  protobuf_AddDesc_heightmapgeom_2eproto();
@@ -494,28 +495,28 @@ inline void HeightmapGeom_Texture::clear_diffuse() {
   clear_has_diffuse();
 }
 inline const ::std::string& HeightmapGeom_Texture::diffuse() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.HeightmapGeom.Texture.diffuse)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.HeightmapGeom.Texture.diffuse)
   return diffuse_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void HeightmapGeom_Texture::set_diffuse(const ::std::string& value) {
   set_has_diffuse();
   diffuse_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.HeightmapGeom.Texture.diffuse)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.HeightmapGeom.Texture.diffuse)
 }
 inline void HeightmapGeom_Texture::set_diffuse(const char* value) {
   set_has_diffuse();
   diffuse_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.HeightmapGeom.Texture.diffuse)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.HeightmapGeom.Texture.diffuse)
 }
 inline void HeightmapGeom_Texture::set_diffuse(const char* value, size_t size) {
   set_has_diffuse();
   diffuse_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.HeightmapGeom.Texture.diffuse)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.HeightmapGeom.Texture.diffuse)
 }
 inline ::std::string* HeightmapGeom_Texture::mutable_diffuse() {
   set_has_diffuse();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.HeightmapGeom.Texture.diffuse)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.HeightmapGeom.Texture.diffuse)
   return diffuse_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* HeightmapGeom_Texture::release_diffuse() {
@@ -529,7 +530,7 @@ inline void HeightmapGeom_Texture::set_allocated_diffuse(::std::string* diffuse)
     clear_has_diffuse();
   }
   diffuse_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), diffuse);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.HeightmapGeom.Texture.diffuse)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.HeightmapGeom.Texture.diffuse)
 }
 
 // required string normal = 2;
@@ -547,28 +548,28 @@ inline void HeightmapGeom_Texture::clear_normal() {
   clear_has_normal();
 }
 inline const ::std::string& HeightmapGeom_Texture::normal() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.HeightmapGeom.Texture.normal)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.HeightmapGeom.Texture.normal)
   return normal_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void HeightmapGeom_Texture::set_normal(const ::std::string& value) {
   set_has_normal();
   normal_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.HeightmapGeom.Texture.normal)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.HeightmapGeom.Texture.normal)
 }
 inline void HeightmapGeom_Texture::set_normal(const char* value) {
   set_has_normal();
   normal_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.HeightmapGeom.Texture.normal)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.HeightmapGeom.Texture.normal)
 }
 inline void HeightmapGeom_Texture::set_normal(const char* value, size_t size) {
   set_has_normal();
   normal_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.HeightmapGeom.Texture.normal)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.HeightmapGeom.Texture.normal)
 }
 inline ::std::string* HeightmapGeom_Texture::mutable_normal() {
   set_has_normal();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.HeightmapGeom.Texture.normal)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.HeightmapGeom.Texture.normal)
   return normal_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* HeightmapGeom_Texture::release_normal() {
@@ -582,7 +583,7 @@ inline void HeightmapGeom_Texture::set_allocated_normal(::std::string* normal) {
     clear_has_normal();
   }
   normal_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), normal);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.HeightmapGeom.Texture.normal)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.HeightmapGeom.Texture.normal)
 }
 
 // required double size = 3;
@@ -600,13 +601,13 @@ inline void HeightmapGeom_Texture::clear_size() {
   clear_has_size();
 }
 inline double HeightmapGeom_Texture::size() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.HeightmapGeom.Texture.size)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.HeightmapGeom.Texture.size)
   return size_;
 }
 inline void HeightmapGeom_Texture::set_size(double value) {
   set_has_size();
   size_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.HeightmapGeom.Texture.size)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.HeightmapGeom.Texture.size)
 }
 
 // -------------------------------------------------------------------
@@ -628,13 +629,13 @@ inline void HeightmapGeom_Blend::clear_min_height() {
   clear_has_min_height();
 }
 inline double HeightmapGeom_Blend::min_height() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.HeightmapGeom.Blend.min_height)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.HeightmapGeom.Blend.min_height)
   return min_height_;
 }
 inline void HeightmapGeom_Blend::set_min_height(double value) {
   set_has_min_height();
   min_height_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.HeightmapGeom.Blend.min_height)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.HeightmapGeom.Blend.min_height)
 }
 
 // required double fade_dist = 2;
@@ -652,20 +653,20 @@ inline void HeightmapGeom_Blend::clear_fade_dist() {
   clear_has_fade_dist();
 }
 inline double HeightmapGeom_Blend::fade_dist() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.HeightmapGeom.Blend.fade_dist)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.HeightmapGeom.Blend.fade_dist)
   return fade_dist_;
 }
 inline void HeightmapGeom_Blend::set_fade_dist(double value) {
   set_has_fade_dist();
   fade_dist_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.HeightmapGeom.Blend.fade_dist)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.HeightmapGeom.Blend.fade_dist)
 }
 
 // -------------------------------------------------------------------
 
 // HeightmapGeom
 
-// optional .experimot.msgs.Image image = 1;
+// optional .Indriya.Core.Msgs.Image image = 1;
 inline bool HeightmapGeom::has_image() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -676,28 +677,28 @@ inline void HeightmapGeom::clear_has_image() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void HeightmapGeom::clear_image() {
-  if (image_ != NULL) image_->::experimot::msgs::Image::Clear();
+  if (image_ != NULL) image_->::Indriya::Core::Msgs::Image::Clear();
   clear_has_image();
 }
-inline const ::experimot::msgs::Image& HeightmapGeom::image() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.HeightmapGeom.image)
+inline const ::Indriya::Core::Msgs::Image& HeightmapGeom::image() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.HeightmapGeom.image)
   return image_ != NULL ? *image_ : *default_instance_->image_;
 }
-inline ::experimot::msgs::Image* HeightmapGeom::mutable_image() {
+inline ::Indriya::Core::Msgs::Image* HeightmapGeom::mutable_image() {
   set_has_image();
   if (image_ == NULL) {
-    image_ = new ::experimot::msgs::Image;
+    image_ = new ::Indriya::Core::Msgs::Image;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.HeightmapGeom.image)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.HeightmapGeom.image)
   return image_;
 }
-inline ::experimot::msgs::Image* HeightmapGeom::release_image() {
+inline ::Indriya::Core::Msgs::Image* HeightmapGeom::release_image() {
   clear_has_image();
-  ::experimot::msgs::Image* temp = image_;
+  ::Indriya::Core::Msgs::Image* temp = image_;
   image_ = NULL;
   return temp;
 }
-inline void HeightmapGeom::set_allocated_image(::experimot::msgs::Image* image) {
+inline void HeightmapGeom::set_allocated_image(::Indriya::Core::Msgs::Image* image) {
   delete image_;
   image_ = image;
   if (image) {
@@ -705,10 +706,10 @@ inline void HeightmapGeom::set_allocated_image(::experimot::msgs::Image* image) 
   } else {
     clear_has_image();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.HeightmapGeom.image)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.HeightmapGeom.image)
 }
 
-// required .experimot.msgs.Vector3d size = 2;
+// required .Indriya.Core.Msgs.Vector3d size = 2;
 inline bool HeightmapGeom::has_size() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -719,28 +720,28 @@ inline void HeightmapGeom::clear_has_size() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void HeightmapGeom::clear_size() {
-  if (size_ != NULL) size_->::experimot::msgs::Vector3d::Clear();
+  if (size_ != NULL) size_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_size();
 }
-inline const ::experimot::msgs::Vector3d& HeightmapGeom::size() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.HeightmapGeom.size)
+inline const ::Indriya::Core::Msgs::Vector3d& HeightmapGeom::size() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.HeightmapGeom.size)
   return size_ != NULL ? *size_ : *default_instance_->size_;
 }
-inline ::experimot::msgs::Vector3d* HeightmapGeom::mutable_size() {
+inline ::Indriya::Core::Msgs::Vector3d* HeightmapGeom::mutable_size() {
   set_has_size();
   if (size_ == NULL) {
-    size_ = new ::experimot::msgs::Vector3d;
+    size_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.HeightmapGeom.size)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.HeightmapGeom.size)
   return size_;
 }
-inline ::experimot::msgs::Vector3d* HeightmapGeom::release_size() {
+inline ::Indriya::Core::Msgs::Vector3d* HeightmapGeom::release_size() {
   clear_has_size();
-  ::experimot::msgs::Vector3d* temp = size_;
+  ::Indriya::Core::Msgs::Vector3d* temp = size_;
   size_ = NULL;
   return temp;
 }
-inline void HeightmapGeom::set_allocated_size(::experimot::msgs::Vector3d* size) {
+inline void HeightmapGeom::set_allocated_size(::Indriya::Core::Msgs::Vector3d* size) {
   delete size_;
   size_ = size;
   if (size) {
@@ -748,10 +749,10 @@ inline void HeightmapGeom::set_allocated_size(::experimot::msgs::Vector3d* size)
   } else {
     clear_has_size();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.HeightmapGeom.size)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.HeightmapGeom.size)
 }
 
-// optional .experimot.msgs.Vector3d origin = 3;
+// optional .Indriya.Core.Msgs.Vector3d origin = 3;
 inline bool HeightmapGeom::has_origin() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -762,28 +763,28 @@ inline void HeightmapGeom::clear_has_origin() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void HeightmapGeom::clear_origin() {
-  if (origin_ != NULL) origin_->::experimot::msgs::Vector3d::Clear();
+  if (origin_ != NULL) origin_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_origin();
 }
-inline const ::experimot::msgs::Vector3d& HeightmapGeom::origin() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.HeightmapGeom.origin)
+inline const ::Indriya::Core::Msgs::Vector3d& HeightmapGeom::origin() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.HeightmapGeom.origin)
   return origin_ != NULL ? *origin_ : *default_instance_->origin_;
 }
-inline ::experimot::msgs::Vector3d* HeightmapGeom::mutable_origin() {
+inline ::Indriya::Core::Msgs::Vector3d* HeightmapGeom::mutable_origin() {
   set_has_origin();
   if (origin_ == NULL) {
-    origin_ = new ::experimot::msgs::Vector3d;
+    origin_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.HeightmapGeom.origin)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.HeightmapGeom.origin)
   return origin_;
 }
-inline ::experimot::msgs::Vector3d* HeightmapGeom::release_origin() {
+inline ::Indriya::Core::Msgs::Vector3d* HeightmapGeom::release_origin() {
   clear_has_origin();
-  ::experimot::msgs::Vector3d* temp = origin_;
+  ::Indriya::Core::Msgs::Vector3d* temp = origin_;
   origin_ = NULL;
   return temp;
 }
-inline void HeightmapGeom::set_allocated_origin(::experimot::msgs::Vector3d* origin) {
+inline void HeightmapGeom::set_allocated_origin(::Indriya::Core::Msgs::Vector3d* origin) {
   delete origin_;
   origin_ = origin;
   if (origin) {
@@ -791,7 +792,7 @@ inline void HeightmapGeom::set_allocated_origin(::experimot::msgs::Vector3d* ori
   } else {
     clear_has_origin();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.HeightmapGeom.origin)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.HeightmapGeom.origin)
 }
 
 // repeated float heights = 4;
@@ -802,25 +803,25 @@ inline void HeightmapGeom::clear_heights() {
   heights_.Clear();
 }
 inline float HeightmapGeom::heights(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.HeightmapGeom.heights)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.HeightmapGeom.heights)
   return heights_.Get(index);
 }
 inline void HeightmapGeom::set_heights(int index, float value) {
   heights_.Set(index, value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.HeightmapGeom.heights)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.HeightmapGeom.heights)
 }
 inline void HeightmapGeom::add_heights(float value) {
   heights_.Add(value);
-  // @@protoc_insertion_point(field_add:experimot.msgs.HeightmapGeom.heights)
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.HeightmapGeom.heights)
 }
 inline const ::google::protobuf::RepeatedField< float >&
 HeightmapGeom::heights() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.HeightmapGeom.heights)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.HeightmapGeom.heights)
   return heights_;
 }
 inline ::google::protobuf::RepeatedField< float >*
 HeightmapGeom::mutable_heights() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.HeightmapGeom.heights)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.HeightmapGeom.heights)
   return &heights_;
 }
 
@@ -839,13 +840,13 @@ inline void HeightmapGeom::clear_width() {
   clear_has_width();
 }
 inline ::google::protobuf::int32 HeightmapGeom::width() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.HeightmapGeom.width)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.HeightmapGeom.width)
   return width_;
 }
 inline void HeightmapGeom::set_width(::google::protobuf::int32 value) {
   set_has_width();
   width_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.HeightmapGeom.width)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.HeightmapGeom.width)
 }
 
 // optional int32 height = 6;
@@ -863,72 +864,72 @@ inline void HeightmapGeom::clear_height() {
   clear_has_height();
 }
 inline ::google::protobuf::int32 HeightmapGeom::height() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.HeightmapGeom.height)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.HeightmapGeom.height)
   return height_;
 }
 inline void HeightmapGeom::set_height(::google::protobuf::int32 value) {
   set_has_height();
   height_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.HeightmapGeom.height)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.HeightmapGeom.height)
 }
 
-// repeated .experimot.msgs.HeightmapGeom.Texture texture = 7;
+// repeated .Indriya.Core.Msgs.HeightmapGeom.Texture texture = 7;
 inline int HeightmapGeom::texture_size() const {
   return texture_.size();
 }
 inline void HeightmapGeom::clear_texture() {
   texture_.Clear();
 }
-inline const ::experimot::msgs::HeightmapGeom_Texture& HeightmapGeom::texture(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.HeightmapGeom.texture)
+inline const ::Indriya::Core::Msgs::HeightmapGeom_Texture& HeightmapGeom::texture(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.HeightmapGeom.texture)
   return texture_.Get(index);
 }
-inline ::experimot::msgs::HeightmapGeom_Texture* HeightmapGeom::mutable_texture(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.HeightmapGeom.texture)
+inline ::Indriya::Core::Msgs::HeightmapGeom_Texture* HeightmapGeom::mutable_texture(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.HeightmapGeom.texture)
   return texture_.Mutable(index);
 }
-inline ::experimot::msgs::HeightmapGeom_Texture* HeightmapGeom::add_texture() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.HeightmapGeom.texture)
+inline ::Indriya::Core::Msgs::HeightmapGeom_Texture* HeightmapGeom::add_texture() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.HeightmapGeom.texture)
   return texture_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::HeightmapGeom_Texture >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::HeightmapGeom_Texture >&
 HeightmapGeom::texture() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.HeightmapGeom.texture)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.HeightmapGeom.texture)
   return texture_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::HeightmapGeom_Texture >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::HeightmapGeom_Texture >*
 HeightmapGeom::mutable_texture() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.HeightmapGeom.texture)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.HeightmapGeom.texture)
   return &texture_;
 }
 
-// repeated .experimot.msgs.HeightmapGeom.Blend blend = 8;
+// repeated .Indriya.Core.Msgs.HeightmapGeom.Blend blend = 8;
 inline int HeightmapGeom::blend_size() const {
   return blend_.size();
 }
 inline void HeightmapGeom::clear_blend() {
   blend_.Clear();
 }
-inline const ::experimot::msgs::HeightmapGeom_Blend& HeightmapGeom::blend(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.HeightmapGeom.blend)
+inline const ::Indriya::Core::Msgs::HeightmapGeom_Blend& HeightmapGeom::blend(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.HeightmapGeom.blend)
   return blend_.Get(index);
 }
-inline ::experimot::msgs::HeightmapGeom_Blend* HeightmapGeom::mutable_blend(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.HeightmapGeom.blend)
+inline ::Indriya::Core::Msgs::HeightmapGeom_Blend* HeightmapGeom::mutable_blend(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.HeightmapGeom.blend)
   return blend_.Mutable(index);
 }
-inline ::experimot::msgs::HeightmapGeom_Blend* HeightmapGeom::add_blend() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.HeightmapGeom.blend)
+inline ::Indriya::Core::Msgs::HeightmapGeom_Blend* HeightmapGeom::add_blend() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.HeightmapGeom.blend)
   return blend_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::HeightmapGeom_Blend >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::HeightmapGeom_Blend >&
 HeightmapGeom::blend() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.HeightmapGeom.blend)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.HeightmapGeom.blend)
   return blend_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::HeightmapGeom_Blend >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::HeightmapGeom_Blend >*
 HeightmapGeom::mutable_blend() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.HeightmapGeom.blend)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.HeightmapGeom.blend)
   return &blend_;
 }
 
@@ -947,13 +948,13 @@ inline void HeightmapGeom::clear_use_terrain_paging() {
   clear_has_use_terrain_paging();
 }
 inline bool HeightmapGeom::use_terrain_paging() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.HeightmapGeom.use_terrain_paging)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.HeightmapGeom.use_terrain_paging)
   return use_terrain_paging_;
 }
 inline void HeightmapGeom::set_use_terrain_paging(bool value) {
   set_has_use_terrain_paging();
   use_terrain_paging_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.HeightmapGeom.use_terrain_paging)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.HeightmapGeom.use_terrain_paging)
 }
 
 // optional string filename = 10;
@@ -971,28 +972,28 @@ inline void HeightmapGeom::clear_filename() {
   clear_has_filename();
 }
 inline const ::std::string& HeightmapGeom::filename() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.HeightmapGeom.filename)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.HeightmapGeom.filename)
   return filename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void HeightmapGeom::set_filename(const ::std::string& value) {
   set_has_filename();
   filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.HeightmapGeom.filename)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.HeightmapGeom.filename)
 }
 inline void HeightmapGeom::set_filename(const char* value) {
   set_has_filename();
   filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.HeightmapGeom.filename)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.HeightmapGeom.filename)
 }
 inline void HeightmapGeom::set_filename(const char* value, size_t size) {
   set_has_filename();
   filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.HeightmapGeom.filename)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.HeightmapGeom.filename)
 }
 inline ::std::string* HeightmapGeom::mutable_filename() {
   set_has_filename();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.HeightmapGeom.filename)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.HeightmapGeom.filename)
   return filename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* HeightmapGeom::release_filename() {
@@ -1006,18 +1007,19 @@ inline void HeightmapGeom::set_allocated_filename(::std::string* filename) {
     clear_has_filename();
   }
   filename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), filename);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.HeightmapGeom.filename)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.HeightmapGeom.filename)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::HeightmapGeom> HeightmapGeomPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::HeightmapGeom> HeightmapGeomPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::HeightmapGeom const> ConstHeightmapGeomPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::HeightmapGeom const> ConstHeightmapGeomPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_heightmapgeom_2eproto__INCLUDED

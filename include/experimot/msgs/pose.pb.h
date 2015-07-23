@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_pose_2eproto();
@@ -128,25 +129,25 @@ class Pose : public ::google::protobuf::Message {
   ::google::protobuf::uint32 id() const;
   void set_id(::google::protobuf::uint32 value);
 
-  // required .experimot.msgs.Vector3d position = 3;
+  // required .Indriya.Core.Msgs.Vector3d position = 3;
   bool has_position() const;
   void clear_position();
   static const int kPositionFieldNumber = 3;
-  const ::experimot::msgs::Vector3d& position() const;
-  ::experimot::msgs::Vector3d* mutable_position();
-  ::experimot::msgs::Vector3d* release_position();
-  void set_allocated_position(::experimot::msgs::Vector3d* position);
+  const ::Indriya::Core::Msgs::Vector3d& position() const;
+  ::Indriya::Core::Msgs::Vector3d* mutable_position();
+  ::Indriya::Core::Msgs::Vector3d* release_position();
+  void set_allocated_position(::Indriya::Core::Msgs::Vector3d* position);
 
-  // required .experimot.msgs.Quaternion orientation = 4;
+  // required .Indriya.Core.Msgs.Quaternion orientation = 4;
   bool has_orientation() const;
   void clear_orientation();
   static const int kOrientationFieldNumber = 4;
-  const ::experimot::msgs::Quaternion& orientation() const;
-  ::experimot::msgs::Quaternion* mutable_orientation();
-  ::experimot::msgs::Quaternion* release_orientation();
-  void set_allocated_orientation(::experimot::msgs::Quaternion* orientation);
+  const ::Indriya::Core::Msgs::Quaternion& orientation() const;
+  ::Indriya::Core::Msgs::Quaternion* mutable_orientation();
+  ::Indriya::Core::Msgs::Quaternion* release_orientation();
+  void set_allocated_orientation(::Indriya::Core::Msgs::Quaternion* orientation);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Pose)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Pose)
  private:
   inline void set_has_name();
   inline void clear_has_name();
@@ -164,8 +165,8 @@ class Pose : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
-  ::experimot::msgs::Vector3d* position_;
-  ::experimot::msgs::Quaternion* orientation_;
+  ::Indriya::Core::Msgs::Vector3d* position_;
+  ::Indriya::Core::Msgs::Quaternion* orientation_;
   ::google::protobuf::uint32 id_;
   friend void  protobuf_AddDesc_pose_2eproto();
   friend void protobuf_AssignDesc_pose_2eproto();
@@ -197,28 +198,28 @@ inline void Pose::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& Pose::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Pose.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Pose.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Pose::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Pose.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Pose.name)
 }
 inline void Pose::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Pose.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Pose.name)
 }
 inline void Pose::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Pose.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Pose.name)
 }
 inline ::std::string* Pose::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Pose.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Pose.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Pose::release_name() {
@@ -232,7 +233,7 @@ inline void Pose::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Pose.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Pose.name)
 }
 
 // optional uint32 id = 2;
@@ -250,16 +251,16 @@ inline void Pose::clear_id() {
   clear_has_id();
 }
 inline ::google::protobuf::uint32 Pose::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Pose.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Pose.id)
   return id_;
 }
 inline void Pose::set_id(::google::protobuf::uint32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Pose.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Pose.id)
 }
 
-// required .experimot.msgs.Vector3d position = 3;
+// required .Indriya.Core.Msgs.Vector3d position = 3;
 inline bool Pose::has_position() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -270,28 +271,28 @@ inline void Pose::clear_has_position() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void Pose::clear_position() {
-  if (position_ != NULL) position_->::experimot::msgs::Vector3d::Clear();
+  if (position_ != NULL) position_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_position();
 }
-inline const ::experimot::msgs::Vector3d& Pose::position() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Pose.position)
+inline const ::Indriya::Core::Msgs::Vector3d& Pose::position() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Pose.position)
   return position_ != NULL ? *position_ : *default_instance_->position_;
 }
-inline ::experimot::msgs::Vector3d* Pose::mutable_position() {
+inline ::Indriya::Core::Msgs::Vector3d* Pose::mutable_position() {
   set_has_position();
   if (position_ == NULL) {
-    position_ = new ::experimot::msgs::Vector3d;
+    position_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Pose.position)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Pose.position)
   return position_;
 }
-inline ::experimot::msgs::Vector3d* Pose::release_position() {
+inline ::Indriya::Core::Msgs::Vector3d* Pose::release_position() {
   clear_has_position();
-  ::experimot::msgs::Vector3d* temp = position_;
+  ::Indriya::Core::Msgs::Vector3d* temp = position_;
   position_ = NULL;
   return temp;
 }
-inline void Pose::set_allocated_position(::experimot::msgs::Vector3d* position) {
+inline void Pose::set_allocated_position(::Indriya::Core::Msgs::Vector3d* position) {
   delete position_;
   position_ = position;
   if (position) {
@@ -299,10 +300,10 @@ inline void Pose::set_allocated_position(::experimot::msgs::Vector3d* position) 
   } else {
     clear_has_position();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Pose.position)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Pose.position)
 }
 
-// required .experimot.msgs.Quaternion orientation = 4;
+// required .Indriya.Core.Msgs.Quaternion orientation = 4;
 inline bool Pose::has_orientation() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -313,28 +314,28 @@ inline void Pose::clear_has_orientation() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void Pose::clear_orientation() {
-  if (orientation_ != NULL) orientation_->::experimot::msgs::Quaternion::Clear();
+  if (orientation_ != NULL) orientation_->::Indriya::Core::Msgs::Quaternion::Clear();
   clear_has_orientation();
 }
-inline const ::experimot::msgs::Quaternion& Pose::orientation() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Pose.orientation)
+inline const ::Indriya::Core::Msgs::Quaternion& Pose::orientation() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Pose.orientation)
   return orientation_ != NULL ? *orientation_ : *default_instance_->orientation_;
 }
-inline ::experimot::msgs::Quaternion* Pose::mutable_orientation() {
+inline ::Indriya::Core::Msgs::Quaternion* Pose::mutable_orientation() {
   set_has_orientation();
   if (orientation_ == NULL) {
-    orientation_ = new ::experimot::msgs::Quaternion;
+    orientation_ = new ::Indriya::Core::Msgs::Quaternion;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Pose.orientation)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Pose.orientation)
   return orientation_;
 }
-inline ::experimot::msgs::Quaternion* Pose::release_orientation() {
+inline ::Indriya::Core::Msgs::Quaternion* Pose::release_orientation() {
   clear_has_orientation();
-  ::experimot::msgs::Quaternion* temp = orientation_;
+  ::Indriya::Core::Msgs::Quaternion* temp = orientation_;
   orientation_ = NULL;
   return temp;
 }
-inline void Pose::set_allocated_orientation(::experimot::msgs::Quaternion* orientation) {
+inline void Pose::set_allocated_orientation(::Indriya::Core::Msgs::Quaternion* orientation) {
   delete orientation_;
   orientation_ = orientation;
   if (orientation) {
@@ -342,18 +343,19 @@ inline void Pose::set_allocated_orientation(::experimot::msgs::Quaternion* orien
   } else {
     clear_has_orientation();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Pose.orientation)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Pose.orientation)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Pose> PosePtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Pose> PosePtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Pose const> ConstPosePtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Pose const> ConstPosePtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_pose_2eproto__INCLUDED

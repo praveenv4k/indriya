@@ -9,7 +9,7 @@
 
 // Generated from: proto/pose_trajectory.proto
 // Note: requires additional types generated from: pose_stamped.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"PoseTrajectory")]
   public partial class PoseTrajectory : global::ProtoBuf.IExtensible
@@ -32,9 +32,9 @@ namespace experimot.msgs
       get { return _id; }
       set { _id = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.PoseStamped> _pose_stamped = new global::System.Collections.Generic.List<experimot.msgs.PoseStamped>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.PoseStamped> _pose_stamped = new global::System.Collections.Generic.List<Indriya.Core.Msgs.PoseStamped>();
     [global::ProtoBuf.ProtoMember(3, Name=@"pose_stamped", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.PoseStamped> pose_stamped
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.PoseStamped> pose_stamped
     {
       get { return _pose_stamped; }
     }

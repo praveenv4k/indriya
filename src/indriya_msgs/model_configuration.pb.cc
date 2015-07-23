@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -82,15 +83,15 @@ void protobuf_AddDesc_model_5fconfiguration_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_time_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_pose_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_time_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_pose_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\031model_configuration.proto\022\016experimot.m"
-    "sgs\032\ntime.proto\032\npose.proto\"\235\001\n\022ModelCon"
-    "figuration\022\"\n\004time\030\001 \002(\0132\024.experimot.msg"
-    "s.Time\022\023\n\013joint_names\030\002 \003(\t\022\027\n\017joint_pos"
-    "itions\030\003 \003(\001\022\"\n\004pose\030\004 \001(\0132\024.experimot.m"
-    "sgs.Pose\022\021\n\tlink_name\030\005 \001(\t", 227);
+    "\n\031model_configuration.proto\022\021Indriya.Cor"
+    "e.Msgs\032\ntime.proto\032\npose.proto\"\243\001\n\022Model"
+    "Configuration\022%\n\004time\030\001 \002(\0132\027.Indriya.Co"
+    "re.Msgs.Time\022\023\n\013joint_names\030\002 \003(\t\022\027\n\017joi"
+    "nt_positions\030\003 \003(\001\022%\n\004pose\030\004 \001(\0132\027.Indri"
+    "ya.Core.Msgs.Pose\022\021\n\tlink_name\030\005 \001(\t", 236);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "model_configuration.proto", &protobuf_RegisterTypes);
   ModelConfiguration::default_instance_ = new ModelConfiguration();
@@ -128,12 +129,12 @@ const int ModelConfiguration::kLinkNameFieldNumber;
 ModelConfiguration::ModelConfiguration()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.ModelConfiguration)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.ModelConfiguration)
 }
 
 void ModelConfiguration::InitAsDefaultInstance() {
-  time_ = const_cast< ::experimot::msgs::Time*>(&::experimot::msgs::Time::default_instance());
-  pose_ = const_cast< ::experimot::msgs::Pose*>(&::experimot::msgs::Pose::default_instance());
+  time_ = const_cast< ::Indriya::Core::Msgs::Time*>(&::Indriya::Core::Msgs::Time::default_instance());
+  pose_ = const_cast< ::Indriya::Core::Msgs::Pose*>(&::Indriya::Core::Msgs::Pose::default_instance());
 }
 
 ModelConfiguration::ModelConfiguration(const ModelConfiguration& from)
@@ -141,7 +142,7 @@ ModelConfiguration::ModelConfiguration(const ModelConfiguration& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.ModelConfiguration)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.ModelConfiguration)
 }
 
 void ModelConfiguration::SharedCtor() {
@@ -154,7 +155,7 @@ void ModelConfiguration::SharedCtor() {
 }
 
 ModelConfiguration::~ModelConfiguration() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.ModelConfiguration)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.ModelConfiguration)
   SharedDtor();
 }
 
@@ -194,10 +195,10 @@ ModelConfiguration* ModelConfiguration::New(::google::protobuf::Arena* arena) co
 void ModelConfiguration::Clear() {
   if (_has_bits_[0 / 32] & 25) {
     if (has_time()) {
-      if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+      if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
     }
     if (has_pose()) {
-      if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+      if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
     }
     if (has_link_name()) {
       link_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -215,13 +216,13 @@ bool ModelConfiguration::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.ModelConfiguration)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.ModelConfiguration)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .experimot.msgs.Time time = 1;
+      // required .Indriya.Core.Msgs.Time time = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -243,7 +244,7 @@ bool ModelConfiguration::MergePartialFromCodedStream(
             this->joint_names(this->joint_names_size() - 1).data(),
             this->joint_names(this->joint_names_size() - 1).length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.ModelConfiguration.joint_names");
+            "Indriya.Core.Msgs.ModelConfiguration.joint_names");
         } else {
           goto handle_unusual;
         }
@@ -271,7 +272,7 @@ bool ModelConfiguration::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Pose pose = 4;
+      // optional .Indriya.Core.Msgs.Pose pose = 4;
       case 4: {
         if (tag == 34) {
          parse_pose:
@@ -293,7 +294,7 @@ bool ModelConfiguration::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->link_name().data(), this->link_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.ModelConfiguration.link_name");
+            "Indriya.Core.Msgs.ModelConfiguration.link_name");
         } else {
           goto handle_unusual;
         }
@@ -315,18 +316,18 @@ bool ModelConfiguration::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.ModelConfiguration)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.ModelConfiguration)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.ModelConfiguration)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.ModelConfiguration)
   return false;
 #undef DO_
 }
 
 void ModelConfiguration::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.ModelConfiguration)
-  // required .experimot.msgs.Time time = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.ModelConfiguration)
+  // required .Indriya.Core.Msgs.Time time = 1;
   if (has_time()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->time_, output);
@@ -337,7 +338,7 @@ void ModelConfiguration::SerializeWithCachedSizes(
   ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
     this->joint_names(i).data(), this->joint_names(i).length(),
     ::google::protobuf::internal::WireFormat::SERIALIZE,
-    "experimot.msgs.ModelConfiguration.joint_names");
+    "Indriya.Core.Msgs.ModelConfiguration.joint_names");
     ::google::protobuf::internal::WireFormatLite::WriteString(
       2, this->joint_names(i), output);
   }
@@ -348,7 +349,7 @@ void ModelConfiguration::SerializeWithCachedSizes(
       3, this->joint_positions(i), output);
   }
 
-  // optional .experimot.msgs.Pose pose = 4;
+  // optional .Indriya.Core.Msgs.Pose pose = 4;
   if (has_pose()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, *this->pose_, output);
@@ -359,7 +360,7 @@ void ModelConfiguration::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->link_name().data(), this->link_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.ModelConfiguration.link_name");
+      "Indriya.Core.Msgs.ModelConfiguration.link_name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       5, this->link_name(), output);
   }
@@ -368,13 +369,13 @@ void ModelConfiguration::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.ModelConfiguration)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.ModelConfiguration)
 }
 
 ::google::protobuf::uint8* ModelConfiguration::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.ModelConfiguration)
-  // required .experimot.msgs.Time time = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.ModelConfiguration)
+  // required .Indriya.Core.Msgs.Time time = 1;
   if (has_time()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -386,7 +387,7 @@ void ModelConfiguration::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->joint_names(i).data(), this->joint_names(i).length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.ModelConfiguration.joint_names");
+      "Indriya.Core.Msgs.ModelConfiguration.joint_names");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(2, this->joint_names(i), target);
   }
@@ -397,7 +398,7 @@ void ModelConfiguration::SerializeWithCachedSizes(
       WriteDoubleToArray(3, this->joint_positions(i), target);
   }
 
-  // optional .experimot.msgs.Pose pose = 4;
+  // optional .Indriya.Core.Msgs.Pose pose = 4;
   if (has_pose()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -409,7 +410,7 @@ void ModelConfiguration::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->link_name().data(), this->link_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.ModelConfiguration.link_name");
+      "Indriya.Core.Msgs.ModelConfiguration.link_name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         5, this->link_name(), target);
@@ -419,21 +420,21 @@ void ModelConfiguration::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.ModelConfiguration)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.ModelConfiguration)
   return target;
 }
 
 int ModelConfiguration::ByteSize() const {
   int total_size = 0;
 
-  // required .experimot.msgs.Time time = 1;
+  // required .Indriya.Core.Msgs.Time time = 1;
   if (has_time()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->time_);
   }
   if (_has_bits_[3 / 32] & 24) {
-    // optional .experimot.msgs.Pose pose = 4;
+    // optional .Indriya.Core.Msgs.Pose pose = 4;
     if (has_pose()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -491,10 +492,10 @@ void ModelConfiguration::MergeFrom(const ModelConfiguration& from) {
   joint_positions_.MergeFrom(from.joint_positions_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_time()) {
-      mutable_time()->::experimot::msgs::Time::MergeFrom(from.time());
+      mutable_time()->::Indriya::Core::Msgs::Time::MergeFrom(from.time());
     }
     if (from.has_pose()) {
-      mutable_pose()->::experimot::msgs::Pose::MergeFrom(from.pose());
+      mutable_pose()->::Indriya::Core::Msgs::Pose::MergeFrom(from.pose());
     }
     if (from.has_link_name()) {
       set_has_link_name();
@@ -556,7 +557,7 @@ void ModelConfiguration::InternalSwap(ModelConfiguration* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // ModelConfiguration
 
-// required .experimot.msgs.Time time = 1;
+// required .Indriya.Core.Msgs.Time time = 1;
  bool ModelConfiguration::has_time() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -567,28 +568,28 @@ void ModelConfiguration::InternalSwap(ModelConfiguration* other) {
   _has_bits_[0] &= ~0x00000001u;
 }
  void ModelConfiguration::clear_time() {
-  if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+  if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_time();
 }
- const ::experimot::msgs::Time& ModelConfiguration::time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ModelConfiguration.time)
+ const ::Indriya::Core::Msgs::Time& ModelConfiguration::time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ModelConfiguration.time)
   return time_ != NULL ? *time_ : *default_instance_->time_;
 }
- ::experimot::msgs::Time* ModelConfiguration::mutable_time() {
+ ::Indriya::Core::Msgs::Time* ModelConfiguration::mutable_time() {
   set_has_time();
   if (time_ == NULL) {
-    time_ = new ::experimot::msgs::Time;
+    time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.ModelConfiguration.time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.ModelConfiguration.time)
   return time_;
 }
- ::experimot::msgs::Time* ModelConfiguration::release_time() {
+ ::Indriya::Core::Msgs::Time* ModelConfiguration::release_time() {
   clear_has_time();
-  ::experimot::msgs::Time* temp = time_;
+  ::Indriya::Core::Msgs::Time* temp = time_;
   time_ = NULL;
   return temp;
 }
- void ModelConfiguration::set_allocated_time(::experimot::msgs::Time* time) {
+ void ModelConfiguration::set_allocated_time(::Indriya::Core::Msgs::Time* time) {
   delete time_;
   time_ = time;
   if (time) {
@@ -596,7 +597,7 @@ void ModelConfiguration::InternalSwap(ModelConfiguration* other) {
   } else {
     clear_has_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.ModelConfiguration.time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.ModelConfiguration.time)
 }
 
 // repeated string joint_names = 2;
@@ -607,49 +608,49 @@ void ModelConfiguration::InternalSwap(ModelConfiguration* other) {
   joint_names_.Clear();
 }
  const ::std::string& ModelConfiguration::joint_names(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ModelConfiguration.joint_names)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ModelConfiguration.joint_names)
   return joint_names_.Get(index);
 }
  ::std::string* ModelConfiguration::mutable_joint_names(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.ModelConfiguration.joint_names)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.ModelConfiguration.joint_names)
   return joint_names_.Mutable(index);
 }
  void ModelConfiguration::set_joint_names(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:experimot.msgs.ModelConfiguration.joint_names)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.ModelConfiguration.joint_names)
   joint_names_.Mutable(index)->assign(value);
 }
  void ModelConfiguration::set_joint_names(int index, const char* value) {
   joint_names_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.ModelConfiguration.joint_names)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.ModelConfiguration.joint_names)
 }
  void ModelConfiguration::set_joint_names(int index, const char* value, size_t size) {
   joint_names_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.ModelConfiguration.joint_names)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.ModelConfiguration.joint_names)
 }
  ::std::string* ModelConfiguration::add_joint_names() {
   return joint_names_.Add();
 }
  void ModelConfiguration::add_joint_names(const ::std::string& value) {
   joint_names_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:experimot.msgs.ModelConfiguration.joint_names)
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.ModelConfiguration.joint_names)
 }
  void ModelConfiguration::add_joint_names(const char* value) {
   joint_names_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:experimot.msgs.ModelConfiguration.joint_names)
+  // @@protoc_insertion_point(field_add_char:Indriya.Core.Msgs.ModelConfiguration.joint_names)
 }
  void ModelConfiguration::add_joint_names(const char* value, size_t size) {
   joint_names_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:experimot.msgs.ModelConfiguration.joint_names)
+  // @@protoc_insertion_point(field_add_pointer:Indriya.Core.Msgs.ModelConfiguration.joint_names)
 }
  const ::google::protobuf::RepeatedPtrField< ::std::string>&
 ModelConfiguration::joint_names() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.ModelConfiguration.joint_names)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.ModelConfiguration.joint_names)
   return joint_names_;
 }
  ::google::protobuf::RepeatedPtrField< ::std::string>*
 ModelConfiguration::mutable_joint_names() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.ModelConfiguration.joint_names)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.ModelConfiguration.joint_names)
   return &joint_names_;
 }
 
@@ -661,29 +662,29 @@ ModelConfiguration::mutable_joint_names() {
   joint_positions_.Clear();
 }
  double ModelConfiguration::joint_positions(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ModelConfiguration.joint_positions)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ModelConfiguration.joint_positions)
   return joint_positions_.Get(index);
 }
  void ModelConfiguration::set_joint_positions(int index, double value) {
   joint_positions_.Set(index, value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.ModelConfiguration.joint_positions)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.ModelConfiguration.joint_positions)
 }
  void ModelConfiguration::add_joint_positions(double value) {
   joint_positions_.Add(value);
-  // @@protoc_insertion_point(field_add:experimot.msgs.ModelConfiguration.joint_positions)
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.ModelConfiguration.joint_positions)
 }
  const ::google::protobuf::RepeatedField< double >&
 ModelConfiguration::joint_positions() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.ModelConfiguration.joint_positions)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.ModelConfiguration.joint_positions)
   return joint_positions_;
 }
  ::google::protobuf::RepeatedField< double >*
 ModelConfiguration::mutable_joint_positions() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.ModelConfiguration.joint_positions)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.ModelConfiguration.joint_positions)
   return &joint_positions_;
 }
 
-// optional .experimot.msgs.Pose pose = 4;
+// optional .Indriya.Core.Msgs.Pose pose = 4;
  bool ModelConfiguration::has_pose() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -694,28 +695,28 @@ ModelConfiguration::mutable_joint_positions() {
   _has_bits_[0] &= ~0x00000008u;
 }
  void ModelConfiguration::clear_pose() {
-  if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+  if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
   clear_has_pose();
 }
- const ::experimot::msgs::Pose& ModelConfiguration::pose() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ModelConfiguration.pose)
+ const ::Indriya::Core::Msgs::Pose& ModelConfiguration::pose() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ModelConfiguration.pose)
   return pose_ != NULL ? *pose_ : *default_instance_->pose_;
 }
- ::experimot::msgs::Pose* ModelConfiguration::mutable_pose() {
+ ::Indriya::Core::Msgs::Pose* ModelConfiguration::mutable_pose() {
   set_has_pose();
   if (pose_ == NULL) {
-    pose_ = new ::experimot::msgs::Pose;
+    pose_ = new ::Indriya::Core::Msgs::Pose;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.ModelConfiguration.pose)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.ModelConfiguration.pose)
   return pose_;
 }
- ::experimot::msgs::Pose* ModelConfiguration::release_pose() {
+ ::Indriya::Core::Msgs::Pose* ModelConfiguration::release_pose() {
   clear_has_pose();
-  ::experimot::msgs::Pose* temp = pose_;
+  ::Indriya::Core::Msgs::Pose* temp = pose_;
   pose_ = NULL;
   return temp;
 }
- void ModelConfiguration::set_allocated_pose(::experimot::msgs::Pose* pose) {
+ void ModelConfiguration::set_allocated_pose(::Indriya::Core::Msgs::Pose* pose) {
   delete pose_;
   pose_ = pose;
   if (pose) {
@@ -723,7 +724,7 @@ ModelConfiguration::mutable_joint_positions() {
   } else {
     clear_has_pose();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.ModelConfiguration.pose)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.ModelConfiguration.pose)
 }
 
 // optional string link_name = 5;
@@ -741,28 +742,28 @@ ModelConfiguration::mutable_joint_positions() {
   clear_has_link_name();
 }
  const ::std::string& ModelConfiguration::link_name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ModelConfiguration.link_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ModelConfiguration.link_name)
   return link_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void ModelConfiguration::set_link_name(const ::std::string& value) {
   set_has_link_name();
   link_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.ModelConfiguration.link_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.ModelConfiguration.link_name)
 }
  void ModelConfiguration::set_link_name(const char* value) {
   set_has_link_name();
   link_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.ModelConfiguration.link_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.ModelConfiguration.link_name)
 }
  void ModelConfiguration::set_link_name(const char* value, size_t size) {
   set_has_link_name();
   link_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.ModelConfiguration.link_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.ModelConfiguration.link_name)
 }
  ::std::string* ModelConfiguration::mutable_link_name() {
   set_has_link_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.ModelConfiguration.link_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.ModelConfiguration.link_name)
   return link_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* ModelConfiguration::release_link_name() {
@@ -776,15 +777,16 @@ ModelConfiguration::mutable_joint_positions() {
     clear_has_link_name();
   }
   link_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), link_name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.ModelConfiguration.link_name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.ModelConfiguration.link_name)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.ModelConfiguration", ModelConfiguration)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.ModelConfiguration", ModelConfiguration)
 // @@protoc_insertion_point(global_scope)

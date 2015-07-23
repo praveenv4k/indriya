@@ -9,30 +9,30 @@
 
 // Generated from: proto/diagnostics.proto
 // Note: requires additional types generated from: time.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Diagnostics")]
   public partial class Diagnostics : global::ProtoBuf.IExtensible
   {
     public Diagnostics() {}
     
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Diagnostics.DiagTime> _time = new global::System.Collections.Generic.List<experimot.msgs.Diagnostics.DiagTime>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Diagnostics.DiagTime> _time = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Diagnostics.DiagTime>();
     [global::ProtoBuf.ProtoMember(1, Name=@"time", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Diagnostics.DiagTime> time
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Diagnostics.DiagTime> time
     {
       get { return _time; }
     }
   
-    private experimot.msgs.Time _real_time;
+    private Indriya.Core.Msgs.Time _real_time;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"real_time", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Time real_time
+    public Indriya.Core.Msgs.Time real_time
     {
       get { return _real_time; }
       set { _real_time = value; }
     }
-    private experimot.msgs.Time _sim_time;
+    private Indriya.Core.Msgs.Time _sim_time;
     [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"sim_time", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Time sim_time
+    public Indriya.Core.Msgs.Time sim_time
     {
       get { return _sim_time; }
       set { _sim_time = value; }
@@ -56,16 +56,16 @@ namespace experimot.msgs
       get { return _name; }
       set { _name = value; }
     }
-    private experimot.msgs.Time _elapsed;
+    private Indriya.Core.Msgs.Time _elapsed;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"elapsed", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Time elapsed
+    public Indriya.Core.Msgs.Time elapsed
     {
       get { return _elapsed; }
       set { _elapsed = value; }
     }
-    private experimot.msgs.Time _wall;
+    private Indriya.Core.Msgs.Time _wall;
     [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"wall", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Time wall
+    public Indriya.Core.Msgs.Time wall
     {
       get { return _wall; }
       set { _wall = value; }

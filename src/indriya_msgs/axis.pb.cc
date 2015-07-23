@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -85,15 +86,15 @@ void protobuf_AddDesc_axis_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_vector3d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector3d_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\naxis.proto\022\016experimot.msgs\032\016vector3d.p"
-    "roto\"\310\001\n\004Axis\022%\n\003xyz\030\001 \002(\0132\030.experimot.m"
-    "sgs.Vector3d\022\023\n\013limit_lower\030\002 \002(\001\022\023\n\013lim"
-    "it_upper\030\003 \002(\001\022\024\n\014limit_effort\030\004 \002(\001\022\026\n\016"
-    "limit_velocity\030\005 \002(\001\022\017\n\007damping\030\006 \002(\001\022\020\n"
-    "\010friction\030\007 \002(\001\022\036\n\026use_parent_model_fram"
-    "e\030\010 \002(\010", 247);
+    "\n\naxis.proto\022\021Indriya.Core.Msgs\032\016vector3"
+    "d.proto\"\313\001\n\004Axis\022(\n\003xyz\030\001 \002(\0132\033.Indriya."
+    "Core.Msgs.Vector3d\022\023\n\013limit_lower\030\002 \002(\001\022"
+    "\023\n\013limit_upper\030\003 \002(\001\022\024\n\014limit_effort\030\004 \002"
+    "(\001\022\026\n\016limit_velocity\030\005 \002(\001\022\017\n\007damping\030\006 "
+    "\002(\001\022\020\n\010friction\030\007 \002(\001\022\036\n\026use_parent_mode"
+    "l_frame\030\010 \002(\010", 253);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "axis.proto", &protobuf_RegisterTypes);
   Axis::default_instance_ = new Axis();
@@ -134,11 +135,11 @@ const int Axis::kUseParentModelFrameFieldNumber;
 Axis::Axis()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Axis)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Axis)
 }
 
 void Axis::InitAsDefaultInstance() {
-  xyz_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
+  xyz_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
 }
 
 Axis::Axis(const Axis& from)
@@ -146,7 +147,7 @@ Axis::Axis(const Axis& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Axis)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Axis)
 }
 
 void Axis::SharedCtor() {
@@ -163,7 +164,7 @@ void Axis::SharedCtor() {
 }
 
 Axis::~Axis() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Axis)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Axis)
   SharedDtor();
 }
 
@@ -210,7 +211,7 @@ void Axis::Clear() {
   if (_has_bits_[0 / 32] & 255) {
     ZR_(limit_lower_, use_parent_model_frame_);
     if (has_xyz()) {
-      if (xyz_ != NULL) xyz_->::experimot::msgs::Vector3d::Clear();
+      if (xyz_ != NULL) xyz_->::Indriya::Core::Msgs::Vector3d::Clear();
     }
   }
 
@@ -227,13 +228,13 @@ bool Axis::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Axis)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Axis)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .experimot.msgs.Vector3d xyz = 1;
+      // required .Indriya.Core.Msgs.Vector3d xyz = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -364,18 +365,18 @@ bool Axis::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Axis)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Axis)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Axis)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Axis)
   return false;
 #undef DO_
 }
 
 void Axis::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Axis)
-  // required .experimot.msgs.Vector3d xyz = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Axis)
+  // required .Indriya.Core.Msgs.Vector3d xyz = 1;
   if (has_xyz()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->xyz_, output);
@@ -420,13 +421,13 @@ void Axis::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Axis)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Axis)
 }
 
 ::google::protobuf::uint8* Axis::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Axis)
-  // required .experimot.msgs.Vector3d xyz = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Axis)
+  // required .Indriya.Core.Msgs.Vector3d xyz = 1;
   if (has_xyz()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -472,7 +473,7 @@ void Axis::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Axis)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Axis)
   return target;
 }
 
@@ -480,7 +481,7 @@ int Axis::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
   if (has_xyz()) {
-    // required .experimot.msgs.Vector3d xyz = 1;
+    // required .Indriya.Core.Msgs.Vector3d xyz = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->xyz_);
@@ -527,7 +528,7 @@ int Axis::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x000000ff) ^ 0x000000ff) == 0) {  // All required fields are present.
-    // required .experimot.msgs.Vector3d xyz = 1;
+    // required .Indriya.Core.Msgs.Vector3d xyz = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->xyz_);
@@ -583,7 +584,7 @@ void Axis::MergeFrom(const Axis& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_xyz()) {
-      mutable_xyz()->::experimot::msgs::Vector3d::MergeFrom(from.xyz());
+      mutable_xyz()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.xyz());
     }
     if (from.has_limit_lower()) {
       set_limit_lower(from.limit_lower());
@@ -662,7 +663,7 @@ void Axis::InternalSwap(Axis* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Axis
 
-// required .experimot.msgs.Vector3d xyz = 1;
+// required .Indriya.Core.Msgs.Vector3d xyz = 1;
  bool Axis::has_xyz() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -673,28 +674,28 @@ void Axis::InternalSwap(Axis* other) {
   _has_bits_[0] &= ~0x00000001u;
 }
  void Axis::clear_xyz() {
-  if (xyz_ != NULL) xyz_->::experimot::msgs::Vector3d::Clear();
+  if (xyz_ != NULL) xyz_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_xyz();
 }
- const ::experimot::msgs::Vector3d& Axis::xyz() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Axis.xyz)
+ const ::Indriya::Core::Msgs::Vector3d& Axis::xyz() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Axis.xyz)
   return xyz_ != NULL ? *xyz_ : *default_instance_->xyz_;
 }
- ::experimot::msgs::Vector3d* Axis::mutable_xyz() {
+ ::Indriya::Core::Msgs::Vector3d* Axis::mutable_xyz() {
   set_has_xyz();
   if (xyz_ == NULL) {
-    xyz_ = new ::experimot::msgs::Vector3d;
+    xyz_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Axis.xyz)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Axis.xyz)
   return xyz_;
 }
- ::experimot::msgs::Vector3d* Axis::release_xyz() {
+ ::Indriya::Core::Msgs::Vector3d* Axis::release_xyz() {
   clear_has_xyz();
-  ::experimot::msgs::Vector3d* temp = xyz_;
+  ::Indriya::Core::Msgs::Vector3d* temp = xyz_;
   xyz_ = NULL;
   return temp;
 }
- void Axis::set_allocated_xyz(::experimot::msgs::Vector3d* xyz) {
+ void Axis::set_allocated_xyz(::Indriya::Core::Msgs::Vector3d* xyz) {
   delete xyz_;
   xyz_ = xyz;
   if (xyz) {
@@ -702,7 +703,7 @@ void Axis::InternalSwap(Axis* other) {
   } else {
     clear_has_xyz();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Axis.xyz)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Axis.xyz)
 }
 
 // required double limit_lower = 2;
@@ -720,13 +721,13 @@ void Axis::InternalSwap(Axis* other) {
   clear_has_limit_lower();
 }
  double Axis::limit_lower() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Axis.limit_lower)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Axis.limit_lower)
   return limit_lower_;
 }
  void Axis::set_limit_lower(double value) {
   set_has_limit_lower();
   limit_lower_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Axis.limit_lower)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Axis.limit_lower)
 }
 
 // required double limit_upper = 3;
@@ -744,13 +745,13 @@ void Axis::InternalSwap(Axis* other) {
   clear_has_limit_upper();
 }
  double Axis::limit_upper() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Axis.limit_upper)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Axis.limit_upper)
   return limit_upper_;
 }
  void Axis::set_limit_upper(double value) {
   set_has_limit_upper();
   limit_upper_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Axis.limit_upper)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Axis.limit_upper)
 }
 
 // required double limit_effort = 4;
@@ -768,13 +769,13 @@ void Axis::InternalSwap(Axis* other) {
   clear_has_limit_effort();
 }
  double Axis::limit_effort() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Axis.limit_effort)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Axis.limit_effort)
   return limit_effort_;
 }
  void Axis::set_limit_effort(double value) {
   set_has_limit_effort();
   limit_effort_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Axis.limit_effort)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Axis.limit_effort)
 }
 
 // required double limit_velocity = 5;
@@ -792,13 +793,13 @@ void Axis::InternalSwap(Axis* other) {
   clear_has_limit_velocity();
 }
  double Axis::limit_velocity() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Axis.limit_velocity)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Axis.limit_velocity)
   return limit_velocity_;
 }
  void Axis::set_limit_velocity(double value) {
   set_has_limit_velocity();
   limit_velocity_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Axis.limit_velocity)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Axis.limit_velocity)
 }
 
 // required double damping = 6;
@@ -816,13 +817,13 @@ void Axis::InternalSwap(Axis* other) {
   clear_has_damping();
 }
  double Axis::damping() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Axis.damping)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Axis.damping)
   return damping_;
 }
  void Axis::set_damping(double value) {
   set_has_damping();
   damping_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Axis.damping)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Axis.damping)
 }
 
 // required double friction = 7;
@@ -840,13 +841,13 @@ void Axis::InternalSwap(Axis* other) {
   clear_has_friction();
 }
  double Axis::friction() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Axis.friction)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Axis.friction)
   return friction_;
 }
  void Axis::set_friction(double value) {
   set_has_friction();
   friction_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Axis.friction)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Axis.friction)
 }
 
 // required bool use_parent_model_frame = 8;
@@ -864,21 +865,22 @@ void Axis::InternalSwap(Axis* other) {
   clear_has_use_parent_model_frame();
 }
  bool Axis::use_parent_model_frame() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Axis.use_parent_model_frame)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Axis.use_parent_model_frame)
   return use_parent_model_frame_;
 }
  void Axis::set_use_parent_model_frame(bool value) {
   set_has_use_parent_model_frame();
   use_parent_model_frame_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Axis.use_parent_model_frame)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Axis.use_parent_model_frame)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Axis", Axis)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Axis", Axis)
 // @@protoc_insertion_point(global_scope)

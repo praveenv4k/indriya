@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -105,17 +106,17 @@ void protobuf_AddDesc_diagnostics_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_time_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_time_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\021diagnostics.proto\022\016experimot.msgs\032\ntim"
-    "e.proto\"\221\002\n\013Diagnostics\0222\n\004time\030\001 \003(\0132$."
-    "experimot.msgs.Diagnostics.DiagTime\022\'\n\tr"
-    "eal_time\030\002 \002(\0132\024.experimot.msgs.Time\022&\n\010"
-    "sim_time\030\003 \002(\0132\024.experimot.msgs.Time\022\030\n\020"
-    "real_time_factor\030\004 \002(\001\032c\n\010DiagTime\022\014\n\004na"
-    "me\030\001 \002(\t\022%\n\007elapsed\030\002 \002(\0132\024.experimot.ms"
-    "gs.Time\022\"\n\004wall\030\003 \002(\0132\024.experimot.msgs.T"
-    "ime", 323);
+    "\n\021diagnostics.proto\022\021Indriya.Core.Msgs\032\n"
+    "time.proto\"\240\002\n\013Diagnostics\0225\n\004time\030\001 \003(\013"
+    "2\'.Indriya.Core.Msgs.Diagnostics.DiagTim"
+    "e\022*\n\treal_time\030\002 \002(\0132\027.Indriya.Core.Msgs"
+    ".Time\022)\n\010sim_time\030\003 \002(\0132\027.Indriya.Core.M"
+    "sgs.Time\022\030\n\020real_time_factor\030\004 \002(\001\032i\n\010Di"
+    "agTime\022\014\n\004name\030\001 \002(\t\022(\n\007elapsed\030\002 \002(\0132\027."
+    "Indriya.Core.Msgs.Time\022%\n\004wall\030\003 \002(\0132\027.I"
+    "ndriya.Core.Msgs.Time", 341);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "diagnostics.proto", &protobuf_RegisterTypes);
   Diagnostics::default_instance_ = new Diagnostics();
@@ -153,12 +154,12 @@ const int Diagnostics_DiagTime::kWallFieldNumber;
 Diagnostics_DiagTime::Diagnostics_DiagTime()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Diagnostics.DiagTime)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Diagnostics.DiagTime)
 }
 
 void Diagnostics_DiagTime::InitAsDefaultInstance() {
-  elapsed_ = const_cast< ::experimot::msgs::Time*>(&::experimot::msgs::Time::default_instance());
-  wall_ = const_cast< ::experimot::msgs::Time*>(&::experimot::msgs::Time::default_instance());
+  elapsed_ = const_cast< ::Indriya::Core::Msgs::Time*>(&::Indriya::Core::Msgs::Time::default_instance());
+  wall_ = const_cast< ::Indriya::Core::Msgs::Time*>(&::Indriya::Core::Msgs::Time::default_instance());
 }
 
 Diagnostics_DiagTime::Diagnostics_DiagTime(const Diagnostics_DiagTime& from)
@@ -166,7 +167,7 @@ Diagnostics_DiagTime::Diagnostics_DiagTime(const Diagnostics_DiagTime& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Diagnostics.DiagTime)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Diagnostics.DiagTime)
 }
 
 void Diagnostics_DiagTime::SharedCtor() {
@@ -179,7 +180,7 @@ void Diagnostics_DiagTime::SharedCtor() {
 }
 
 Diagnostics_DiagTime::~Diagnostics_DiagTime() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Diagnostics.DiagTime)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Diagnostics.DiagTime)
   SharedDtor();
 }
 
@@ -222,10 +223,10 @@ void Diagnostics_DiagTime::Clear() {
       name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_elapsed()) {
-      if (elapsed_ != NULL) elapsed_->::experimot::msgs::Time::Clear();
+      if (elapsed_ != NULL) elapsed_->::Indriya::Core::Msgs::Time::Clear();
     }
     if (has_wall()) {
-      if (wall_ != NULL) wall_->::experimot::msgs::Time::Clear();
+      if (wall_ != NULL) wall_->::Indriya::Core::Msgs::Time::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -238,7 +239,7 @@ bool Diagnostics_DiagTime::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Diagnostics.DiagTime)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Diagnostics.DiagTime)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -252,7 +253,7 @@ bool Diagnostics_DiagTime::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Diagnostics.DiagTime.name");
+            "Indriya.Core.Msgs.Diagnostics.DiagTime.name");
         } else {
           goto handle_unusual;
         }
@@ -260,7 +261,7 @@ bool Diagnostics_DiagTime::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Time elapsed = 2;
+      // required .Indriya.Core.Msgs.Time elapsed = 2;
       case 2: {
         if (tag == 18) {
          parse_elapsed:
@@ -273,7 +274,7 @@ bool Diagnostics_DiagTime::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Time wall = 3;
+      // required .Indriya.Core.Msgs.Time wall = 3;
       case 3: {
         if (tag == 26) {
          parse_wall:
@@ -300,34 +301,34 @@ bool Diagnostics_DiagTime::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Diagnostics.DiagTime)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Diagnostics.DiagTime)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Diagnostics.DiagTime)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Diagnostics.DiagTime)
   return false;
 #undef DO_
 }
 
 void Diagnostics_DiagTime::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Diagnostics.DiagTime)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Diagnostics.DiagTime)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Diagnostics.DiagTime.name");
+      "Indriya.Core.Msgs.Diagnostics.DiagTime.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
 
-  // required .experimot.msgs.Time elapsed = 2;
+  // required .Indriya.Core.Msgs.Time elapsed = 2;
   if (has_elapsed()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->elapsed_, output);
   }
 
-  // required .experimot.msgs.Time wall = 3;
+  // required .Indriya.Core.Msgs.Time wall = 3;
   if (has_wall()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, *this->wall_, output);
@@ -337,31 +338,31 @@ void Diagnostics_DiagTime::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Diagnostics.DiagTime)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Diagnostics.DiagTime)
 }
 
 ::google::protobuf::uint8* Diagnostics_DiagTime::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Diagnostics.DiagTime)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Diagnostics.DiagTime)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Diagnostics.DiagTime.name");
+      "Indriya.Core.Msgs.Diagnostics.DiagTime.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
   }
 
-  // required .experimot.msgs.Time elapsed = 2;
+  // required .Indriya.Core.Msgs.Time elapsed = 2;
   if (has_elapsed()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         2, *this->elapsed_, target);
   }
 
-  // required .experimot.msgs.Time wall = 3;
+  // required .Indriya.Core.Msgs.Time wall = 3;
   if (has_wall()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -372,7 +373,7 @@ void Diagnostics_DiagTime::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Diagnostics.DiagTime)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Diagnostics.DiagTime)
   return target;
 }
 
@@ -387,14 +388,14 @@ int Diagnostics_DiagTime::RequiredFieldsByteSizeFallback() const {
   }
 
   if (has_elapsed()) {
-    // required .experimot.msgs.Time elapsed = 2;
+    // required .Indriya.Core.Msgs.Time elapsed = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->elapsed_);
   }
 
   if (has_wall()) {
-    // required .experimot.msgs.Time wall = 3;
+    // required .Indriya.Core.Msgs.Time wall = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->wall_);
@@ -411,12 +412,12 @@ int Diagnostics_DiagTime::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->name());
 
-    // required .experimot.msgs.Time elapsed = 2;
+    // required .Indriya.Core.Msgs.Time elapsed = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->elapsed_);
 
-    // required .experimot.msgs.Time wall = 3;
+    // required .Indriya.Core.Msgs.Time wall = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->wall_);
@@ -455,10 +456,10 @@ void Diagnostics_DiagTime::MergeFrom(const Diagnostics_DiagTime& from) {
       name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
     }
     if (from.has_elapsed()) {
-      mutable_elapsed()->::experimot::msgs::Time::MergeFrom(from.elapsed());
+      mutable_elapsed()->::Indriya::Core::Msgs::Time::MergeFrom(from.elapsed());
     }
     if (from.has_wall()) {
-      mutable_wall()->::experimot::msgs::Time::MergeFrom(from.wall());
+      mutable_wall()->::Indriya::Core::Msgs::Time::MergeFrom(from.wall());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -524,12 +525,12 @@ const int Diagnostics::kRealTimeFactorFieldNumber;
 Diagnostics::Diagnostics()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Diagnostics)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Diagnostics)
 }
 
 void Diagnostics::InitAsDefaultInstance() {
-  real_time_ = const_cast< ::experimot::msgs::Time*>(&::experimot::msgs::Time::default_instance());
-  sim_time_ = const_cast< ::experimot::msgs::Time*>(&::experimot::msgs::Time::default_instance());
+  real_time_ = const_cast< ::Indriya::Core::Msgs::Time*>(&::Indriya::Core::Msgs::Time::default_instance());
+  sim_time_ = const_cast< ::Indriya::Core::Msgs::Time*>(&::Indriya::Core::Msgs::Time::default_instance());
 }
 
 Diagnostics::Diagnostics(const Diagnostics& from)
@@ -537,7 +538,7 @@ Diagnostics::Diagnostics(const Diagnostics& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Diagnostics)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Diagnostics)
 }
 
 void Diagnostics::SharedCtor() {
@@ -549,7 +550,7 @@ void Diagnostics::SharedCtor() {
 }
 
 Diagnostics::~Diagnostics() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Diagnostics)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Diagnostics)
   SharedDtor();
 }
 
@@ -588,10 +589,10 @@ Diagnostics* Diagnostics::New(::google::protobuf::Arena* arena) const {
 void Diagnostics::Clear() {
   if (_has_bits_[0 / 32] & 14) {
     if (has_real_time()) {
-      if (real_time_ != NULL) real_time_->::experimot::msgs::Time::Clear();
+      if (real_time_ != NULL) real_time_->::Indriya::Core::Msgs::Time::Clear();
     }
     if (has_sim_time()) {
-      if (sim_time_ != NULL) sim_time_->::experimot::msgs::Time::Clear();
+      if (sim_time_ != NULL) sim_time_->::Indriya::Core::Msgs::Time::Clear();
     }
     real_time_factor_ = 0;
   }
@@ -606,13 +607,13 @@ bool Diagnostics::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Diagnostics)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Diagnostics)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .experimot.msgs.Diagnostics.DiagTime time = 1;
+      // repeated .Indriya.Core.Msgs.Diagnostics.DiagTime time = 1;
       case 1: {
         if (tag == 10) {
          parse_time:
@@ -626,7 +627,7 @@ bool Diagnostics::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Time real_time = 2;
+      // required .Indriya.Core.Msgs.Time real_time = 2;
       case 2: {
         if (tag == 18) {
          parse_real_time:
@@ -639,7 +640,7 @@ bool Diagnostics::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Time sim_time = 3;
+      // required .Indriya.Core.Msgs.Time sim_time = 3;
       case 3: {
         if (tag == 26) {
          parse_sim_time:
@@ -681,30 +682,30 @@ bool Diagnostics::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Diagnostics)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Diagnostics)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Diagnostics)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Diagnostics)
   return false;
 #undef DO_
 }
 
 void Diagnostics::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Diagnostics)
-  // repeated .experimot.msgs.Diagnostics.DiagTime time = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Diagnostics)
+  // repeated .Indriya.Core.Msgs.Diagnostics.DiagTime time = 1;
   for (unsigned int i = 0, n = this->time_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->time(i), output);
   }
 
-  // required .experimot.msgs.Time real_time = 2;
+  // required .Indriya.Core.Msgs.Time real_time = 2;
   if (has_real_time()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->real_time_, output);
   }
 
-  // required .experimot.msgs.Time sim_time = 3;
+  // required .Indriya.Core.Msgs.Time sim_time = 3;
   if (has_sim_time()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, *this->sim_time_, output);
@@ -719,27 +720,27 @@ void Diagnostics::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Diagnostics)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Diagnostics)
 }
 
 ::google::protobuf::uint8* Diagnostics::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Diagnostics)
-  // repeated .experimot.msgs.Diagnostics.DiagTime time = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Diagnostics)
+  // repeated .Indriya.Core.Msgs.Diagnostics.DiagTime time = 1;
   for (unsigned int i = 0, n = this->time_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, this->time(i), target);
   }
 
-  // required .experimot.msgs.Time real_time = 2;
+  // required .Indriya.Core.Msgs.Time real_time = 2;
   if (has_real_time()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         2, *this->real_time_, target);
   }
 
-  // required .experimot.msgs.Time sim_time = 3;
+  // required .Indriya.Core.Msgs.Time sim_time = 3;
   if (has_sim_time()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -755,7 +756,7 @@ void Diagnostics::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Diagnostics)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Diagnostics)
   return target;
 }
 
@@ -763,14 +764,14 @@ int Diagnostics::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
   if (has_real_time()) {
-    // required .experimot.msgs.Time real_time = 2;
+    // required .Indriya.Core.Msgs.Time real_time = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->real_time_);
   }
 
   if (has_sim_time()) {
-    // required .experimot.msgs.Time sim_time = 3;
+    // required .Indriya.Core.Msgs.Time sim_time = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->sim_time_);
@@ -787,12 +788,12 @@ int Diagnostics::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x0000000e) ^ 0x0000000e) == 0) {  // All required fields are present.
-    // required .experimot.msgs.Time real_time = 2;
+    // required .Indriya.Core.Msgs.Time real_time = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->real_time_);
 
-    // required .experimot.msgs.Time sim_time = 3;
+    // required .Indriya.Core.Msgs.Time sim_time = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->sim_time_);
@@ -803,7 +804,7 @@ int Diagnostics::ByteSize() const {
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
-  // repeated .experimot.msgs.Diagnostics.DiagTime time = 1;
+  // repeated .Indriya.Core.Msgs.Diagnostics.DiagTime time = 1;
   total_size += 1 * this->time_size();
   for (int i = 0; i < this->time_size(); i++) {
     total_size +=
@@ -839,10 +840,10 @@ void Diagnostics::MergeFrom(const Diagnostics& from) {
   time_.MergeFrom(from.time_);
   if (from._has_bits_[1 / 32] & (0xffu << (1 % 32))) {
     if (from.has_real_time()) {
-      mutable_real_time()->::experimot::msgs::Time::MergeFrom(from.real_time());
+      mutable_real_time()->::Indriya::Core::Msgs::Time::MergeFrom(from.real_time());
     }
     if (from.has_sim_time()) {
-      mutable_sim_time()->::experimot::msgs::Time::MergeFrom(from.sim_time());
+      mutable_sim_time()->::Indriya::Core::Msgs::Time::MergeFrom(from.sim_time());
     }
     if (from.has_real_time_factor()) {
       set_real_time_factor(from.real_time_factor());
@@ -918,28 +919,28 @@ void Diagnostics::InternalSwap(Diagnostics* other) {
   clear_has_name();
 }
  const ::std::string& Diagnostics_DiagTime::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Diagnostics.DiagTime.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Diagnostics.DiagTime.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Diagnostics_DiagTime::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Diagnostics.DiagTime.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Diagnostics.DiagTime.name)
 }
  void Diagnostics_DiagTime::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Diagnostics.DiagTime.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Diagnostics.DiagTime.name)
 }
  void Diagnostics_DiagTime::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Diagnostics.DiagTime.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Diagnostics.DiagTime.name)
 }
  ::std::string* Diagnostics_DiagTime::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Diagnostics.DiagTime.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Diagnostics.DiagTime.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Diagnostics_DiagTime::release_name() {
@@ -953,10 +954,10 @@ void Diagnostics::InternalSwap(Diagnostics* other) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Diagnostics.DiagTime.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Diagnostics.DiagTime.name)
 }
 
-// required .experimot.msgs.Time elapsed = 2;
+// required .Indriya.Core.Msgs.Time elapsed = 2;
  bool Diagnostics_DiagTime::has_elapsed() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -967,28 +968,28 @@ void Diagnostics::InternalSwap(Diagnostics* other) {
   _has_bits_[0] &= ~0x00000002u;
 }
  void Diagnostics_DiagTime::clear_elapsed() {
-  if (elapsed_ != NULL) elapsed_->::experimot::msgs::Time::Clear();
+  if (elapsed_ != NULL) elapsed_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_elapsed();
 }
- const ::experimot::msgs::Time& Diagnostics_DiagTime::elapsed() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Diagnostics.DiagTime.elapsed)
+ const ::Indriya::Core::Msgs::Time& Diagnostics_DiagTime::elapsed() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Diagnostics.DiagTime.elapsed)
   return elapsed_ != NULL ? *elapsed_ : *default_instance_->elapsed_;
 }
- ::experimot::msgs::Time* Diagnostics_DiagTime::mutable_elapsed() {
+ ::Indriya::Core::Msgs::Time* Diagnostics_DiagTime::mutable_elapsed() {
   set_has_elapsed();
   if (elapsed_ == NULL) {
-    elapsed_ = new ::experimot::msgs::Time;
+    elapsed_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Diagnostics.DiagTime.elapsed)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Diagnostics.DiagTime.elapsed)
   return elapsed_;
 }
- ::experimot::msgs::Time* Diagnostics_DiagTime::release_elapsed() {
+ ::Indriya::Core::Msgs::Time* Diagnostics_DiagTime::release_elapsed() {
   clear_has_elapsed();
-  ::experimot::msgs::Time* temp = elapsed_;
+  ::Indriya::Core::Msgs::Time* temp = elapsed_;
   elapsed_ = NULL;
   return temp;
 }
- void Diagnostics_DiagTime::set_allocated_elapsed(::experimot::msgs::Time* elapsed) {
+ void Diagnostics_DiagTime::set_allocated_elapsed(::Indriya::Core::Msgs::Time* elapsed) {
   delete elapsed_;
   elapsed_ = elapsed;
   if (elapsed) {
@@ -996,10 +997,10 @@ void Diagnostics::InternalSwap(Diagnostics* other) {
   } else {
     clear_has_elapsed();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Diagnostics.DiagTime.elapsed)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Diagnostics.DiagTime.elapsed)
 }
 
-// required .experimot.msgs.Time wall = 3;
+// required .Indriya.Core.Msgs.Time wall = 3;
  bool Diagnostics_DiagTime::has_wall() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1010,28 +1011,28 @@ void Diagnostics::InternalSwap(Diagnostics* other) {
   _has_bits_[0] &= ~0x00000004u;
 }
  void Diagnostics_DiagTime::clear_wall() {
-  if (wall_ != NULL) wall_->::experimot::msgs::Time::Clear();
+  if (wall_ != NULL) wall_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_wall();
 }
- const ::experimot::msgs::Time& Diagnostics_DiagTime::wall() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Diagnostics.DiagTime.wall)
+ const ::Indriya::Core::Msgs::Time& Diagnostics_DiagTime::wall() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Diagnostics.DiagTime.wall)
   return wall_ != NULL ? *wall_ : *default_instance_->wall_;
 }
- ::experimot::msgs::Time* Diagnostics_DiagTime::mutable_wall() {
+ ::Indriya::Core::Msgs::Time* Diagnostics_DiagTime::mutable_wall() {
   set_has_wall();
   if (wall_ == NULL) {
-    wall_ = new ::experimot::msgs::Time;
+    wall_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Diagnostics.DiagTime.wall)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Diagnostics.DiagTime.wall)
   return wall_;
 }
- ::experimot::msgs::Time* Diagnostics_DiagTime::release_wall() {
+ ::Indriya::Core::Msgs::Time* Diagnostics_DiagTime::release_wall() {
   clear_has_wall();
-  ::experimot::msgs::Time* temp = wall_;
+  ::Indriya::Core::Msgs::Time* temp = wall_;
   wall_ = NULL;
   return temp;
 }
- void Diagnostics_DiagTime::set_allocated_wall(::experimot::msgs::Time* wall) {
+ void Diagnostics_DiagTime::set_allocated_wall(::Indriya::Core::Msgs::Time* wall) {
   delete wall_;
   wall_ = wall;
   if (wall) {
@@ -1039,44 +1040,44 @@ void Diagnostics::InternalSwap(Diagnostics* other) {
   } else {
     clear_has_wall();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Diagnostics.DiagTime.wall)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Diagnostics.DiagTime.wall)
 }
 
 // -------------------------------------------------------------------
 
 // Diagnostics
 
-// repeated .experimot.msgs.Diagnostics.DiagTime time = 1;
+// repeated .Indriya.Core.Msgs.Diagnostics.DiagTime time = 1;
  int Diagnostics::time_size() const {
   return time_.size();
 }
  void Diagnostics::clear_time() {
   time_.Clear();
 }
- const ::experimot::msgs::Diagnostics_DiagTime& Diagnostics::time(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Diagnostics.time)
+ const ::Indriya::Core::Msgs::Diagnostics_DiagTime& Diagnostics::time(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Diagnostics.time)
   return time_.Get(index);
 }
- ::experimot::msgs::Diagnostics_DiagTime* Diagnostics::mutable_time(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Diagnostics.time)
+ ::Indriya::Core::Msgs::Diagnostics_DiagTime* Diagnostics::mutable_time(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Diagnostics.time)
   return time_.Mutable(index);
 }
- ::experimot::msgs::Diagnostics_DiagTime* Diagnostics::add_time() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Diagnostics.time)
+ ::Indriya::Core::Msgs::Diagnostics_DiagTime* Diagnostics::add_time() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Diagnostics.time)
   return time_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Diagnostics_DiagTime >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Diagnostics_DiagTime >&
 Diagnostics::time() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Diagnostics.time)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Diagnostics.time)
   return time_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Diagnostics_DiagTime >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Diagnostics_DiagTime >*
 Diagnostics::mutable_time() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Diagnostics.time)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Diagnostics.time)
   return &time_;
 }
 
-// required .experimot.msgs.Time real_time = 2;
+// required .Indriya.Core.Msgs.Time real_time = 2;
  bool Diagnostics::has_real_time() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1087,28 +1088,28 @@ Diagnostics::mutable_time() {
   _has_bits_[0] &= ~0x00000002u;
 }
  void Diagnostics::clear_real_time() {
-  if (real_time_ != NULL) real_time_->::experimot::msgs::Time::Clear();
+  if (real_time_ != NULL) real_time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_real_time();
 }
- const ::experimot::msgs::Time& Diagnostics::real_time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Diagnostics.real_time)
+ const ::Indriya::Core::Msgs::Time& Diagnostics::real_time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Diagnostics.real_time)
   return real_time_ != NULL ? *real_time_ : *default_instance_->real_time_;
 }
- ::experimot::msgs::Time* Diagnostics::mutable_real_time() {
+ ::Indriya::Core::Msgs::Time* Diagnostics::mutable_real_time() {
   set_has_real_time();
   if (real_time_ == NULL) {
-    real_time_ = new ::experimot::msgs::Time;
+    real_time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Diagnostics.real_time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Diagnostics.real_time)
   return real_time_;
 }
- ::experimot::msgs::Time* Diagnostics::release_real_time() {
+ ::Indriya::Core::Msgs::Time* Diagnostics::release_real_time() {
   clear_has_real_time();
-  ::experimot::msgs::Time* temp = real_time_;
+  ::Indriya::Core::Msgs::Time* temp = real_time_;
   real_time_ = NULL;
   return temp;
 }
- void Diagnostics::set_allocated_real_time(::experimot::msgs::Time* real_time) {
+ void Diagnostics::set_allocated_real_time(::Indriya::Core::Msgs::Time* real_time) {
   delete real_time_;
   real_time_ = real_time;
   if (real_time) {
@@ -1116,10 +1117,10 @@ Diagnostics::mutable_time() {
   } else {
     clear_has_real_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Diagnostics.real_time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Diagnostics.real_time)
 }
 
-// required .experimot.msgs.Time sim_time = 3;
+// required .Indriya.Core.Msgs.Time sim_time = 3;
  bool Diagnostics::has_sim_time() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1130,28 +1131,28 @@ Diagnostics::mutable_time() {
   _has_bits_[0] &= ~0x00000004u;
 }
  void Diagnostics::clear_sim_time() {
-  if (sim_time_ != NULL) sim_time_->::experimot::msgs::Time::Clear();
+  if (sim_time_ != NULL) sim_time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_sim_time();
 }
- const ::experimot::msgs::Time& Diagnostics::sim_time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Diagnostics.sim_time)
+ const ::Indriya::Core::Msgs::Time& Diagnostics::sim_time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Diagnostics.sim_time)
   return sim_time_ != NULL ? *sim_time_ : *default_instance_->sim_time_;
 }
- ::experimot::msgs::Time* Diagnostics::mutable_sim_time() {
+ ::Indriya::Core::Msgs::Time* Diagnostics::mutable_sim_time() {
   set_has_sim_time();
   if (sim_time_ == NULL) {
-    sim_time_ = new ::experimot::msgs::Time;
+    sim_time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Diagnostics.sim_time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Diagnostics.sim_time)
   return sim_time_;
 }
- ::experimot::msgs::Time* Diagnostics::release_sim_time() {
+ ::Indriya::Core::Msgs::Time* Diagnostics::release_sim_time() {
   clear_has_sim_time();
-  ::experimot::msgs::Time* temp = sim_time_;
+  ::Indriya::Core::Msgs::Time* temp = sim_time_;
   sim_time_ = NULL;
   return temp;
 }
- void Diagnostics::set_allocated_sim_time(::experimot::msgs::Time* sim_time) {
+ void Diagnostics::set_allocated_sim_time(::Indriya::Core::Msgs::Time* sim_time) {
   delete sim_time_;
   sim_time_ = sim_time;
   if (sim_time) {
@@ -1159,7 +1160,7 @@ Diagnostics::mutable_time() {
   } else {
     clear_has_sim_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Diagnostics.sim_time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Diagnostics.sim_time)
 }
 
 // required double real_time_factor = 4;
@@ -1177,21 +1178,22 @@ Diagnostics::mutable_time() {
   clear_has_real_time_factor();
 }
  double Diagnostics::real_time_factor() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Diagnostics.real_time_factor)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Diagnostics.real_time_factor)
   return real_time_factor_;
 }
  void Diagnostics::set_real_time_factor(double value) {
   set_has_real_time_factor();
   real_time_factor_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Diagnostics.real_time_factor)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Diagnostics.real_time_factor)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Diagnostics", Diagnostics)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Diagnostics", Diagnostics)
 // @@protoc_insertion_point(global_scope)

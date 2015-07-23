@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 // Generated from: proto/plugin.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Plugin")]
   public partial class Plugin : global::ProtoBuf.IExtensible

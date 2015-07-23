@@ -9,16 +9,16 @@
 
 // Generated from: proto/model_v.proto
 // Note: requires additional types generated from: model.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Model_V")]
   public partial class Model_V : global::ProtoBuf.IExtensible
   {
     public Model_V() {}
     
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Model> _models = new global::System.Collections.Generic.List<experimot.msgs.Model>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Model> _models = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Model>();
     [global::ProtoBuf.ProtoMember(2, Name=@"models", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Model> models
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Model> models
     {
       get { return _models; }
     }

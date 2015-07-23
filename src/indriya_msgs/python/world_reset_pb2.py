@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='world_reset.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x11world_reset.proto\x12\x0e\x65xperimot.msgs\"T\n\nWorldReset\x12\x11\n\x03\x61ll\x18\x01 \x01(\x08:\x04true\x12\x18\n\ttime_only\x18\x02 \x01(\x08:\x05\x66\x61lse\x12\x19\n\nmodel_only\x18\x03 \x01(\x08:\x05\x66\x61lse')
+  serialized_pb=_b('\n\x11world_reset.proto\x12\x11Indriya.Core.Msgs\"T\n\nWorldReset\x12\x11\n\x03\x61ll\x18\x01 \x01(\x08:\x04true\x12\x18\n\ttime_only\x18\x02 \x01(\x08:\x05\x66\x61lse\x12\x19\n\nmodel_only\x18\x03 \x01(\x08:\x05\x66\x61lse')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -28,27 +28,27 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _WORLDRESET = _descriptor.Descriptor(
   name='WorldReset',
-  full_name='experimot.msgs.WorldReset',
+  full_name='Indriya.Core.Msgs.WorldReset',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='all', full_name='experimot.msgs.WorldReset.all', index=0,
+      name='all', full_name='Indriya.Core.Msgs.WorldReset.all', index=0,
       number=1, type=8, cpp_type=7, label=1,
       has_default_value=True, default_value=True,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='time_only', full_name='experimot.msgs.WorldReset.time_only', index=1,
+      name='time_only', full_name='Indriya.Core.Msgs.WorldReset.time_only', index=1,
       number=2, type=8, cpp_type=7, label=1,
       has_default_value=True, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='model_only', full_name='experimot.msgs.WorldReset.model_only', index=2,
+      name='model_only', full_name='Indriya.Core.Msgs.WorldReset.model_only', index=2,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=True, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -66,8 +66,8 @@ _WORLDRESET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=37,
-  serialized_end=121,
+  serialized_start=40,
+  serialized_end=124,
 )
 
 DESCRIPTOR.message_types_by_name['WorldReset'] = _WORLDRESET
@@ -75,7 +75,7 @@ DESCRIPTOR.message_types_by_name['WorldReset'] = _WORLDRESET
 WorldReset = _reflection.GeneratedProtocolMessageType('WorldReset', (_message.Message,), dict(
   DESCRIPTOR = _WORLDRESET,
   __module__ = 'world_reset_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.WorldReset)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.WorldReset)
   ))
 _sym_db.RegisterMessage(WorldReset)
 

@@ -19,9 +19,9 @@ import pose_pb2 as pose__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='model_configuration.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x19model_configuration.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\x1a\npose.proto\"\x9d\x01\n\x12ModelConfiguration\x12\"\n\x04time\x18\x01 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\x13\n\x0bjoint_names\x18\x02 \x03(\t\x12\x17\n\x0fjoint_positions\x18\x03 \x03(\x01\x12\"\n\x04pose\x18\x04 \x01(\x0b\x32\x14.experimot.msgs.Pose\x12\x11\n\tlink_name\x18\x05 \x01(\t')
+  serialized_pb=_b('\n\x19model_configuration.proto\x12\x11Indriya.Core.Msgs\x1a\ntime.proto\x1a\npose.proto\"\xa3\x01\n\x12ModelConfiguration\x12%\n\x04time\x18\x01 \x02(\x0b\x32\x17.Indriya.Core.Msgs.Time\x12\x13\n\x0bjoint_names\x18\x02 \x03(\t\x12\x17\n\x0fjoint_positions\x18\x03 \x03(\x01\x12%\n\x04pose\x18\x04 \x01(\x0b\x32\x17.Indriya.Core.Msgs.Pose\x12\x11\n\tlink_name\x18\x05 \x01(\t')
   ,
   dependencies=[time__pb2.DESCRIPTOR,pose__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -31,41 +31,41 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _MODELCONFIGURATION = _descriptor.Descriptor(
   name='ModelConfiguration',
-  full_name='experimot.msgs.ModelConfiguration',
+  full_name='Indriya.Core.Msgs.ModelConfiguration',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='time', full_name='experimot.msgs.ModelConfiguration.time', index=0,
+      name='time', full_name='Indriya.Core.Msgs.ModelConfiguration.time', index=0,
       number=1, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='joint_names', full_name='experimot.msgs.ModelConfiguration.joint_names', index=1,
+      name='joint_names', full_name='Indriya.Core.Msgs.ModelConfiguration.joint_names', index=1,
       number=2, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='joint_positions', full_name='experimot.msgs.ModelConfiguration.joint_positions', index=2,
+      name='joint_positions', full_name='Indriya.Core.Msgs.ModelConfiguration.joint_positions', index=2,
       number=3, type=1, cpp_type=5, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='pose', full_name='experimot.msgs.ModelConfiguration.pose', index=3,
+      name='pose', full_name='Indriya.Core.Msgs.ModelConfiguration.pose', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='link_name', full_name='experimot.msgs.ModelConfiguration.link_name', index=4,
+      name='link_name', full_name='Indriya.Core.Msgs.ModelConfiguration.link_name', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -83,8 +83,8 @@ _MODELCONFIGURATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=70,
-  serialized_end=227,
+  serialized_start=73,
+  serialized_end=236,
 )
 
 _MODELCONFIGURATION.fields_by_name['time'].message_type = time__pb2._TIME
@@ -94,7 +94,7 @@ DESCRIPTOR.message_types_by_name['ModelConfiguration'] = _MODELCONFIGURATION
 ModelConfiguration = _reflection.GeneratedProtocolMessageType('ModelConfiguration', (_message.Message,), dict(
   DESCRIPTOR = _MODELCONFIGURATION,
   __module__ = 'model_configuration_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.ModelConfiguration)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.ModelConfiguration)
   ))
 _sym_db.RegisterMessage(ModelConfiguration)
 

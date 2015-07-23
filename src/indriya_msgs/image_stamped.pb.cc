@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -79,13 +80,14 @@ void protobuf_AddDesc_image_5fstamped_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_time_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_image_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_time_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_image_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\023image_stamped.proto\022\016experimot.msgs\032\nt"
-    "ime.proto\032\013image.proto\"X\n\014ImageStamped\022\""
-    "\n\004time\030\001 \002(\0132\024.experimot.msgs.Time\022$\n\005im"
-    "age\030\002 \002(\0132\025.experimot.msgs.Image", 152);
+    "\n\023image_stamped.proto\022\021Indriya.Core.Msgs"
+    "\032\ntime.proto\032\013image.proto\"^\n\014ImageStampe"
+    "d\022%\n\004time\030\001 \002(\0132\027.Indriya.Core.Msgs.Time"
+    "\022\'\n\005image\030\002 \002(\0132\030.Indriya.Core.Msgs.Imag"
+    "e", 161);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "image_stamped.proto", &protobuf_RegisterTypes);
   ImageStamped::default_instance_ = new ImageStamped();
@@ -120,12 +122,12 @@ const int ImageStamped::kImageFieldNumber;
 ImageStamped::ImageStamped()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.ImageStamped)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.ImageStamped)
 }
 
 void ImageStamped::InitAsDefaultInstance() {
-  time_ = const_cast< ::experimot::msgs::Time*>(&::experimot::msgs::Time::default_instance());
-  image_ = const_cast< ::experimot::msgs::Image*>(&::experimot::msgs::Image::default_instance());
+  time_ = const_cast< ::Indriya::Core::Msgs::Time*>(&::Indriya::Core::Msgs::Time::default_instance());
+  image_ = const_cast< ::Indriya::Core::Msgs::Image*>(&::Indriya::Core::Msgs::Image::default_instance());
 }
 
 ImageStamped::ImageStamped(const ImageStamped& from)
@@ -133,7 +135,7 @@ ImageStamped::ImageStamped(const ImageStamped& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.ImageStamped)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.ImageStamped)
 }
 
 void ImageStamped::SharedCtor() {
@@ -144,7 +146,7 @@ void ImageStamped::SharedCtor() {
 }
 
 ImageStamped::~ImageStamped() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.ImageStamped)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.ImageStamped)
   SharedDtor();
 }
 
@@ -183,10 +185,10 @@ ImageStamped* ImageStamped::New(::google::protobuf::Arena* arena) const {
 void ImageStamped::Clear() {
   if (_has_bits_[0 / 32] & 3) {
     if (has_time()) {
-      if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+      if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
     }
     if (has_image()) {
-      if (image_ != NULL) image_->::experimot::msgs::Image::Clear();
+      if (image_ != NULL) image_->::Indriya::Core::Msgs::Image::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -199,13 +201,13 @@ bool ImageStamped::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.ImageStamped)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.ImageStamped)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .experimot.msgs.Time time = 1;
+      // required .Indriya.Core.Msgs.Time time = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -217,7 +219,7 @@ bool ImageStamped::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Image image = 2;
+      // required .Indriya.Core.Msgs.Image image = 2;
       case 2: {
         if (tag == 18) {
          parse_image:
@@ -244,24 +246,24 @@ bool ImageStamped::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.ImageStamped)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.ImageStamped)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.ImageStamped)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.ImageStamped)
   return false;
 #undef DO_
 }
 
 void ImageStamped::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.ImageStamped)
-  // required .experimot.msgs.Time time = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.ImageStamped)
+  // required .Indriya.Core.Msgs.Time time = 1;
   if (has_time()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->time_, output);
   }
 
-  // required .experimot.msgs.Image image = 2;
+  // required .Indriya.Core.Msgs.Image image = 2;
   if (has_image()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->image_, output);
@@ -271,20 +273,20 @@ void ImageStamped::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.ImageStamped)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.ImageStamped)
 }
 
 ::google::protobuf::uint8* ImageStamped::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.ImageStamped)
-  // required .experimot.msgs.Time time = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.ImageStamped)
+  // required .Indriya.Core.Msgs.Time time = 1;
   if (has_time()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, *this->time_, target);
   }
 
-  // required .experimot.msgs.Image image = 2;
+  // required .Indriya.Core.Msgs.Image image = 2;
   if (has_image()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -295,7 +297,7 @@ void ImageStamped::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.ImageStamped)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.ImageStamped)
   return target;
 }
 
@@ -303,14 +305,14 @@ int ImageStamped::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
   if (has_time()) {
-    // required .experimot.msgs.Time time = 1;
+    // required .Indriya.Core.Msgs.Time time = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->time_);
   }
 
   if (has_image()) {
-    // required .experimot.msgs.Image image = 2;
+    // required .Indriya.Core.Msgs.Image image = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->image_);
@@ -322,12 +324,12 @@ int ImageStamped::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required .experimot.msgs.Time time = 1;
+    // required .Indriya.Core.Msgs.Time time = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->time_);
 
-    // required .experimot.msgs.Image image = 2;
+    // required .Indriya.Core.Msgs.Image image = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->image_);
@@ -362,10 +364,10 @@ void ImageStamped::MergeFrom(const ImageStamped& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_time()) {
-      mutable_time()->::experimot::msgs::Time::MergeFrom(from.time());
+      mutable_time()->::Indriya::Core::Msgs::Time::MergeFrom(from.time());
     }
     if (from.has_image()) {
-      mutable_image()->::experimot::msgs::Image::MergeFrom(from.image());
+      mutable_image()->::Indriya::Core::Msgs::Image::MergeFrom(from.image());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -420,7 +422,7 @@ void ImageStamped::InternalSwap(ImageStamped* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // ImageStamped
 
-// required .experimot.msgs.Time time = 1;
+// required .Indriya.Core.Msgs.Time time = 1;
  bool ImageStamped::has_time() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -431,28 +433,28 @@ void ImageStamped::InternalSwap(ImageStamped* other) {
   _has_bits_[0] &= ~0x00000001u;
 }
  void ImageStamped::clear_time() {
-  if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+  if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_time();
 }
- const ::experimot::msgs::Time& ImageStamped::time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ImageStamped.time)
+ const ::Indriya::Core::Msgs::Time& ImageStamped::time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ImageStamped.time)
   return time_ != NULL ? *time_ : *default_instance_->time_;
 }
- ::experimot::msgs::Time* ImageStamped::mutable_time() {
+ ::Indriya::Core::Msgs::Time* ImageStamped::mutable_time() {
   set_has_time();
   if (time_ == NULL) {
-    time_ = new ::experimot::msgs::Time;
+    time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.ImageStamped.time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.ImageStamped.time)
   return time_;
 }
- ::experimot::msgs::Time* ImageStamped::release_time() {
+ ::Indriya::Core::Msgs::Time* ImageStamped::release_time() {
   clear_has_time();
-  ::experimot::msgs::Time* temp = time_;
+  ::Indriya::Core::Msgs::Time* temp = time_;
   time_ = NULL;
   return temp;
 }
- void ImageStamped::set_allocated_time(::experimot::msgs::Time* time) {
+ void ImageStamped::set_allocated_time(::Indriya::Core::Msgs::Time* time) {
   delete time_;
   time_ = time;
   if (time) {
@@ -460,10 +462,10 @@ void ImageStamped::InternalSwap(ImageStamped* other) {
   } else {
     clear_has_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.ImageStamped.time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.ImageStamped.time)
 }
 
-// required .experimot.msgs.Image image = 2;
+// required .Indriya.Core.Msgs.Image image = 2;
  bool ImageStamped::has_image() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -474,28 +476,28 @@ void ImageStamped::InternalSwap(ImageStamped* other) {
   _has_bits_[0] &= ~0x00000002u;
 }
  void ImageStamped::clear_image() {
-  if (image_ != NULL) image_->::experimot::msgs::Image::Clear();
+  if (image_ != NULL) image_->::Indriya::Core::Msgs::Image::Clear();
   clear_has_image();
 }
- const ::experimot::msgs::Image& ImageStamped::image() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ImageStamped.image)
+ const ::Indriya::Core::Msgs::Image& ImageStamped::image() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ImageStamped.image)
   return image_ != NULL ? *image_ : *default_instance_->image_;
 }
- ::experimot::msgs::Image* ImageStamped::mutable_image() {
+ ::Indriya::Core::Msgs::Image* ImageStamped::mutable_image() {
   set_has_image();
   if (image_ == NULL) {
-    image_ = new ::experimot::msgs::Image;
+    image_ = new ::Indriya::Core::Msgs::Image;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.ImageStamped.image)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.ImageStamped.image)
   return image_;
 }
- ::experimot::msgs::Image* ImageStamped::release_image() {
+ ::Indriya::Core::Msgs::Image* ImageStamped::release_image() {
   clear_has_image();
-  ::experimot::msgs::Image* temp = image_;
+  ::Indriya::Core::Msgs::Image* temp = image_;
   image_ = NULL;
   return temp;
 }
- void ImageStamped::set_allocated_image(::experimot::msgs::Image* image) {
+ void ImageStamped::set_allocated_image(::Indriya::Core::Msgs::Image* image) {
   delete image_;
   image_ = image;
   if (image) {
@@ -503,15 +505,16 @@ void ImageStamped::InternalSwap(ImageStamped* other) {
   } else {
     clear_has_image();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.ImageStamped.image)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.ImageStamped.image)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.ImageStamped", ImageStamped)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.ImageStamped", ImageStamped)
 // @@protoc_insertion_point(global_scope)

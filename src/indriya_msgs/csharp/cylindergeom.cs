@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 // Generated from: proto/cylindergeom.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CylinderGeom")]
   public partial class CylinderGeom : global::ProtoBuf.IExtensible

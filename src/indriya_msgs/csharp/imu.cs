@@ -11,16 +11,16 @@
 // Note: requires additional types generated from: time.proto
 // Note: requires additional types generated from: vector3d.proto
 // Note: requires additional types generated from: quaternion.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"IMU")]
   public partial class IMU : global::ProtoBuf.IExtensible
   {
     public IMU() {}
     
-    private experimot.msgs.Time _stamp;
+    private Indriya.Core.Msgs.Time _stamp;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"stamp", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Time stamp
+    public Indriya.Core.Msgs.Time stamp
     {
       get { return _stamp; }
       set { _stamp = value; }
@@ -32,23 +32,23 @@ namespace experimot.msgs
       get { return _entity_name; }
       set { _entity_name = value; }
     }
-    private experimot.msgs.Quaternion _orientation;
+    private Indriya.Core.Msgs.Quaternion _orientation;
     [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"orientation", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Quaternion orientation
+    public Indriya.Core.Msgs.Quaternion orientation
     {
       get { return _orientation; }
       set { _orientation = value; }
     }
-    private experimot.msgs.Vector3d _angular_velocity;
+    private Indriya.Core.Msgs.Vector3d _angular_velocity;
     [global::ProtoBuf.ProtoMember(4, IsRequired = true, Name=@"angular_velocity", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Vector3d angular_velocity
+    public Indriya.Core.Msgs.Vector3d angular_velocity
     {
       get { return _angular_velocity; }
       set { _angular_velocity = value; }
     }
-    private experimot.msgs.Vector3d _linear_acceleration;
+    private Indriya.Core.Msgs.Vector3d _linear_acceleration;
     [global::ProtoBuf.ProtoMember(5, IsRequired = true, Name=@"linear_acceleration", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Vector3d linear_acceleration
+    public Indriya.Core.Msgs.Vector3d linear_acceleration
     {
       get { return _linear_acceleration; }
       set { _linear_acceleration = value; }

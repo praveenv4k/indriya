@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -84,15 +85,15 @@ void protobuf_AddDesc_fog_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_color_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_color_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\tfog.proto\022\016experimot.msgs\032\013color.proto"
-    "\"\307\001\n\003Fog\022)\n\004type\030\001 \001(\0162\033.experimot.msgs."
-    "Fog.FogType\022$\n\005color\030\002 \001(\0132\025.experimot.m"
-    "sgs.Color\022\017\n\007density\030\003 \001(\002\022\r\n\005start\030\004 \001("
-    "\002\022\013\n\003end\030\005 \001(\002\"B\n\007FogType\022\010\n\004NONE\020\001\022\n\n\006L"
-    "INEAR\020\002\022\017\n\013EXPONENTIAL\020\003\022\020\n\014EXPONENTIAL2"
-    "\020\004", 242);
+    "\n\tfog.proto\022\021Indriya.Core.Msgs\032\013color.pr"
+    "oto\"\315\001\n\003Fog\022,\n\004type\030\001 \001(\0162\036.Indriya.Core"
+    ".Msgs.Fog.FogType\022\'\n\005color\030\002 \001(\0132\030.Indri"
+    "ya.Core.Msgs.Color\022\017\n\007density\030\003 \001(\002\022\r\n\005s"
+    "tart\030\004 \001(\002\022\013\n\003end\030\005 \001(\002\"B\n\007FogType\022\010\n\004NO"
+    "NE\020\001\022\n\n\006LINEAR\020\002\022\017\n\013EXPONENTIAL\020\003\022\020\n\014EXP"
+    "ONENTIAL2\020\004", 251);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fog.proto", &protobuf_RegisterTypes);
   Fog::default_instance_ = new Fog();
@@ -155,11 +156,11 @@ const int Fog::kEndFieldNumber;
 Fog::Fog()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Fog)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Fog)
 }
 
 void Fog::InitAsDefaultInstance() {
-  color_ = const_cast< ::experimot::msgs::Color*>(&::experimot::msgs::Color::default_instance());
+  color_ = const_cast< ::Indriya::Core::Msgs::Color*>(&::Indriya::Core::Msgs::Color::default_instance());
 }
 
 Fog::Fog(const Fog& from)
@@ -167,7 +168,7 @@ Fog::Fog(const Fog& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Fog)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Fog)
 }
 
 void Fog::SharedCtor() {
@@ -181,7 +182,7 @@ void Fog::SharedCtor() {
 }
 
 Fog::~Fog() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Fog)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Fog)
   SharedDtor();
 }
 
@@ -229,7 +230,7 @@ void Fog::Clear() {
     ZR_(density_, end_);
     type_ = 1;
     if (has_color()) {
-      if (color_ != NULL) color_->::experimot::msgs::Color::Clear();
+      if (color_ != NULL) color_->::Indriya::Core::Msgs::Color::Clear();
     }
   }
 
@@ -246,21 +247,21 @@ bool Fog::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Fog)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Fog)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .experimot.msgs.Fog.FogType type = 1;
+      // optional .Indriya.Core.Msgs.Fog.FogType type = 1;
       case 1: {
         if (tag == 8) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::experimot::msgs::Fog_FogType_IsValid(value)) {
-            set_type(static_cast< ::experimot::msgs::Fog_FogType >(value));
+          if (::Indriya::Core::Msgs::Fog_FogType_IsValid(value)) {
+            set_type(static_cast< ::Indriya::Core::Msgs::Fog_FogType >(value));
           } else {
             mutable_unknown_fields()->AddVarint(1, value);
           }
@@ -271,7 +272,7 @@ bool Fog::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Color color = 2;
+      // optional .Indriya.Core.Msgs.Color color = 2;
       case 2: {
         if (tag == 18) {
          parse_color:
@@ -343,24 +344,24 @@ bool Fog::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Fog)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Fog)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Fog)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Fog)
   return false;
 #undef DO_
 }
 
 void Fog::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Fog)
-  // optional .experimot.msgs.Fog.FogType type = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Fog)
+  // optional .Indriya.Core.Msgs.Fog.FogType type = 1;
   if (has_type()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->type(), output);
   }
 
-  // optional .experimot.msgs.Color color = 2;
+  // optional .Indriya.Core.Msgs.Color color = 2;
   if (has_color()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->color_, output);
@@ -385,19 +386,19 @@ void Fog::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Fog)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Fog)
 }
 
 ::google::protobuf::uint8* Fog::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Fog)
-  // optional .experimot.msgs.Fog.FogType type = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Fog)
+  // optional .Indriya.Core.Msgs.Fog.FogType type = 1;
   if (has_type()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->type(), target);
   }
 
-  // optional .experimot.msgs.Color color = 2;
+  // optional .Indriya.Core.Msgs.Color color = 2;
   if (has_color()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -423,7 +424,7 @@ void Fog::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Fog)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Fog)
   return target;
 }
 
@@ -431,13 +432,13 @@ int Fog::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & 31) {
-    // optional .experimot.msgs.Fog.FogType type = 1;
+    // optional .Indriya.Core.Msgs.Fog.FogType type = 1;
     if (has_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
     }
 
-    // optional .experimot.msgs.Color color = 2;
+    // optional .Indriya.Core.Msgs.Color color = 2;
     if (has_color()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -490,7 +491,7 @@ void Fog::MergeFrom(const Fog& from) {
       set_type(from.type());
     }
     if (from.has_color()) {
-      mutable_color()->::experimot::msgs::Color::MergeFrom(from.color());
+      mutable_color()->::Indriya::Core::Msgs::Color::MergeFrom(from.color());
     }
     if (from.has_density()) {
       set_density(from.density());
@@ -553,7 +554,7 @@ void Fog::InternalSwap(Fog* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Fog
 
-// optional .experimot.msgs.Fog.FogType type = 1;
+// optional .Indriya.Core.Msgs.Fog.FogType type = 1;
  bool Fog::has_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -567,18 +568,18 @@ void Fog::InternalSwap(Fog* other) {
   type_ = 1;
   clear_has_type();
 }
- ::experimot::msgs::Fog_FogType Fog::type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Fog.type)
-  return static_cast< ::experimot::msgs::Fog_FogType >(type_);
+ ::Indriya::Core::Msgs::Fog_FogType Fog::type() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Fog.type)
+  return static_cast< ::Indriya::Core::Msgs::Fog_FogType >(type_);
 }
- void Fog::set_type(::experimot::msgs::Fog_FogType value) {
-  assert(::experimot::msgs::Fog_FogType_IsValid(value));
+ void Fog::set_type(::Indriya::Core::Msgs::Fog_FogType value) {
+  assert(::Indriya::Core::Msgs::Fog_FogType_IsValid(value));
   set_has_type();
   type_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Fog.type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Fog.type)
 }
 
-// optional .experimot.msgs.Color color = 2;
+// optional .Indriya.Core.Msgs.Color color = 2;
  bool Fog::has_color() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -589,28 +590,28 @@ void Fog::InternalSwap(Fog* other) {
   _has_bits_[0] &= ~0x00000002u;
 }
  void Fog::clear_color() {
-  if (color_ != NULL) color_->::experimot::msgs::Color::Clear();
+  if (color_ != NULL) color_->::Indriya::Core::Msgs::Color::Clear();
   clear_has_color();
 }
- const ::experimot::msgs::Color& Fog::color() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Fog.color)
+ const ::Indriya::Core::Msgs::Color& Fog::color() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Fog.color)
   return color_ != NULL ? *color_ : *default_instance_->color_;
 }
- ::experimot::msgs::Color* Fog::mutable_color() {
+ ::Indriya::Core::Msgs::Color* Fog::mutable_color() {
   set_has_color();
   if (color_ == NULL) {
-    color_ = new ::experimot::msgs::Color;
+    color_ = new ::Indriya::Core::Msgs::Color;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Fog.color)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Fog.color)
   return color_;
 }
- ::experimot::msgs::Color* Fog::release_color() {
+ ::Indriya::Core::Msgs::Color* Fog::release_color() {
   clear_has_color();
-  ::experimot::msgs::Color* temp = color_;
+  ::Indriya::Core::Msgs::Color* temp = color_;
   color_ = NULL;
   return temp;
 }
- void Fog::set_allocated_color(::experimot::msgs::Color* color) {
+ void Fog::set_allocated_color(::Indriya::Core::Msgs::Color* color) {
   delete color_;
   color_ = color;
   if (color) {
@@ -618,7 +619,7 @@ void Fog::InternalSwap(Fog* other) {
   } else {
     clear_has_color();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Fog.color)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Fog.color)
 }
 
 // optional float density = 3;
@@ -636,13 +637,13 @@ void Fog::InternalSwap(Fog* other) {
   clear_has_density();
 }
  float Fog::density() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Fog.density)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Fog.density)
   return density_;
 }
  void Fog::set_density(float value) {
   set_has_density();
   density_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Fog.density)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Fog.density)
 }
 
 // optional float start = 4;
@@ -660,13 +661,13 @@ void Fog::InternalSwap(Fog* other) {
   clear_has_start();
 }
  float Fog::start() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Fog.start)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Fog.start)
   return start_;
 }
  void Fog::set_start(float value) {
   set_has_start();
   start_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Fog.start)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Fog.start)
 }
 
 // optional float end = 5;
@@ -684,21 +685,22 @@ void Fog::InternalSwap(Fog* other) {
   clear_has_end();
 }
  float Fog::end() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Fog.end)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Fog.end)
   return end_;
 }
  void Fog::set_end(float value) {
   set_has_end();
   end_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Fog.end)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Fog.end)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Fog", Fog)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Fog", Fog)
 // @@protoc_insertion_point(global_scope)

@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_gui_5fcamera_2eproto();
@@ -133,25 +134,25 @@ class GUICamera : public ::google::protobuf::Message {
   ::std::string* release_view_controller();
   void set_allocated_view_controller(::std::string* view_controller);
 
-  // optional .experimot.msgs.Pose pose = 3;
+  // optional .Indriya.Core.Msgs.Pose pose = 3;
   bool has_pose() const;
   void clear_pose();
   static const int kPoseFieldNumber = 3;
-  const ::experimot::msgs::Pose& pose() const;
-  ::experimot::msgs::Pose* mutable_pose();
-  ::experimot::msgs::Pose* release_pose();
-  void set_allocated_pose(::experimot::msgs::Pose* pose);
+  const ::Indriya::Core::Msgs::Pose& pose() const;
+  ::Indriya::Core::Msgs::Pose* mutable_pose();
+  ::Indriya::Core::Msgs::Pose* release_pose();
+  void set_allocated_pose(::Indriya::Core::Msgs::Pose* pose);
 
-  // optional .experimot.msgs.TrackVisual track = 4;
+  // optional .Indriya.Core.Msgs.TrackVisual track = 4;
   bool has_track() const;
   void clear_track();
   static const int kTrackFieldNumber = 4;
-  const ::experimot::msgs::TrackVisual& track() const;
-  ::experimot::msgs::TrackVisual* mutable_track();
-  ::experimot::msgs::TrackVisual* release_track();
-  void set_allocated_track(::experimot::msgs::TrackVisual* track);
+  const ::Indriya::Core::Msgs::TrackVisual& track() const;
+  ::Indriya::Core::Msgs::TrackVisual* mutable_track();
+  ::Indriya::Core::Msgs::TrackVisual* release_track();
+  void set_allocated_track(::Indriya::Core::Msgs::TrackVisual* track);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.GUICamera)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.GUICamera)
  private:
   inline void set_has_name();
   inline void clear_has_name();
@@ -167,8 +168,8 @@ class GUICamera : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr view_controller_;
-  ::experimot::msgs::Pose* pose_;
-  ::experimot::msgs::TrackVisual* track_;
+  ::Indriya::Core::Msgs::Pose* pose_;
+  ::Indriya::Core::Msgs::TrackVisual* track_;
   friend void  protobuf_AddDesc_gui_5fcamera_2eproto();
   friend void protobuf_AssignDesc_gui_5fcamera_2eproto();
   friend void protobuf_ShutdownFile_gui_5fcamera_2eproto();
@@ -199,28 +200,28 @@ inline void GUICamera::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& GUICamera::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GUICamera.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GUICamera.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void GUICamera::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.GUICamera.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GUICamera.name)
 }
 inline void GUICamera::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.GUICamera.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.GUICamera.name)
 }
 inline void GUICamera::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.GUICamera.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.GUICamera.name)
 }
 inline ::std::string* GUICamera::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GUICamera.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GUICamera.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* GUICamera::release_name() {
@@ -234,7 +235,7 @@ inline void GUICamera::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GUICamera.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.GUICamera.name)
 }
 
 // optional string view_controller = 2;
@@ -252,28 +253,28 @@ inline void GUICamera::clear_view_controller() {
   clear_has_view_controller();
 }
 inline const ::std::string& GUICamera::view_controller() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GUICamera.view_controller)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GUICamera.view_controller)
   return view_controller_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void GUICamera::set_view_controller(const ::std::string& value) {
   set_has_view_controller();
   view_controller_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.GUICamera.view_controller)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GUICamera.view_controller)
 }
 inline void GUICamera::set_view_controller(const char* value) {
   set_has_view_controller();
   view_controller_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.GUICamera.view_controller)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.GUICamera.view_controller)
 }
 inline void GUICamera::set_view_controller(const char* value, size_t size) {
   set_has_view_controller();
   view_controller_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.GUICamera.view_controller)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.GUICamera.view_controller)
 }
 inline ::std::string* GUICamera::mutable_view_controller() {
   set_has_view_controller();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GUICamera.view_controller)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GUICamera.view_controller)
   return view_controller_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* GUICamera::release_view_controller() {
@@ -287,10 +288,10 @@ inline void GUICamera::set_allocated_view_controller(::std::string* view_control
     clear_has_view_controller();
   }
   view_controller_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), view_controller);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GUICamera.view_controller)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.GUICamera.view_controller)
 }
 
-// optional .experimot.msgs.Pose pose = 3;
+// optional .Indriya.Core.Msgs.Pose pose = 3;
 inline bool GUICamera::has_pose() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -301,28 +302,28 @@ inline void GUICamera::clear_has_pose() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void GUICamera::clear_pose() {
-  if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+  if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
   clear_has_pose();
 }
-inline const ::experimot::msgs::Pose& GUICamera::pose() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GUICamera.pose)
+inline const ::Indriya::Core::Msgs::Pose& GUICamera::pose() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GUICamera.pose)
   return pose_ != NULL ? *pose_ : *default_instance_->pose_;
 }
-inline ::experimot::msgs::Pose* GUICamera::mutable_pose() {
+inline ::Indriya::Core::Msgs::Pose* GUICamera::mutable_pose() {
   set_has_pose();
   if (pose_ == NULL) {
-    pose_ = new ::experimot::msgs::Pose;
+    pose_ = new ::Indriya::Core::Msgs::Pose;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GUICamera.pose)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GUICamera.pose)
   return pose_;
 }
-inline ::experimot::msgs::Pose* GUICamera::release_pose() {
+inline ::Indriya::Core::Msgs::Pose* GUICamera::release_pose() {
   clear_has_pose();
-  ::experimot::msgs::Pose* temp = pose_;
+  ::Indriya::Core::Msgs::Pose* temp = pose_;
   pose_ = NULL;
   return temp;
 }
-inline void GUICamera::set_allocated_pose(::experimot::msgs::Pose* pose) {
+inline void GUICamera::set_allocated_pose(::Indriya::Core::Msgs::Pose* pose) {
   delete pose_;
   pose_ = pose;
   if (pose) {
@@ -330,10 +331,10 @@ inline void GUICamera::set_allocated_pose(::experimot::msgs::Pose* pose) {
   } else {
     clear_has_pose();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GUICamera.pose)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.GUICamera.pose)
 }
 
-// optional .experimot.msgs.TrackVisual track = 4;
+// optional .Indriya.Core.Msgs.TrackVisual track = 4;
 inline bool GUICamera::has_track() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -344,28 +345,28 @@ inline void GUICamera::clear_has_track() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void GUICamera::clear_track() {
-  if (track_ != NULL) track_->::experimot::msgs::TrackVisual::Clear();
+  if (track_ != NULL) track_->::Indriya::Core::Msgs::TrackVisual::Clear();
   clear_has_track();
 }
-inline const ::experimot::msgs::TrackVisual& GUICamera::track() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GUICamera.track)
+inline const ::Indriya::Core::Msgs::TrackVisual& GUICamera::track() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GUICamera.track)
   return track_ != NULL ? *track_ : *default_instance_->track_;
 }
-inline ::experimot::msgs::TrackVisual* GUICamera::mutable_track() {
+inline ::Indriya::Core::Msgs::TrackVisual* GUICamera::mutable_track() {
   set_has_track();
   if (track_ == NULL) {
-    track_ = new ::experimot::msgs::TrackVisual;
+    track_ = new ::Indriya::Core::Msgs::TrackVisual;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GUICamera.track)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GUICamera.track)
   return track_;
 }
-inline ::experimot::msgs::TrackVisual* GUICamera::release_track() {
+inline ::Indriya::Core::Msgs::TrackVisual* GUICamera::release_track() {
   clear_has_track();
-  ::experimot::msgs::TrackVisual* temp = track_;
+  ::Indriya::Core::Msgs::TrackVisual* temp = track_;
   track_ = NULL;
   return temp;
 }
-inline void GUICamera::set_allocated_track(::experimot::msgs::TrackVisual* track) {
+inline void GUICamera::set_allocated_track(::Indriya::Core::Msgs::TrackVisual* track) {
   delete track_;
   track_ = track;
   if (track) {
@@ -373,18 +374,19 @@ inline void GUICamera::set_allocated_track(::experimot::msgs::TrackVisual* track
   } else {
     clear_has_track();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GUICamera.track)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.GUICamera.track)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::GUICamera> GUICameraPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::GUICamera> GUICameraPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::GUICamera const> ConstGUICameraPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::GUICamera const> ConstGUICameraPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_gui_5fcamera_2eproto__INCLUDED

@@ -9,7 +9,7 @@
 
 // Generated from: proto/robot_behavior.proto
 // Note: requires additional types generated from: param.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"BehaviorArguments")]
   public partial class BehaviorArguments : global::ProtoBuf.IExtensible
@@ -68,23 +68,23 @@ namespace experimot.msgs
       get { return _function_name; }
       set { _function_name = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.BehaviorArguments> _arg = new global::System.Collections.Generic.List<experimot.msgs.BehaviorArguments>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.BehaviorArguments> _arg = new global::System.Collections.Generic.List<Indriya.Core.Msgs.BehaviorArguments>();
     [global::ProtoBuf.ProtoMember(3, Name=@"arg", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.BehaviorArguments> arg
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.BehaviorArguments> arg
     {
       get { return _arg; }
     }
   
-    private experimot.msgs.BehaviorDescription.ExecutionType _type;
+    private Indriya.Core.Msgs.BehaviorDescription.ExecutionType _type;
     [global::ProtoBuf.ProtoMember(4, IsRequired = true, Name=@"type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public experimot.msgs.BehaviorDescription.ExecutionType type
+    public Indriya.Core.Msgs.BehaviorDescription.ExecutionType type
     {
       get { return _type; }
       set { _type = value; }
     }
-    private experimot.msgs.BehaviorDescription.ExecutionState _state;
+    private Indriya.Core.Msgs.BehaviorDescription.ExecutionState _state;
     [global::ProtoBuf.ProtoMember(5, IsRequired = true, Name=@"state", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public experimot.msgs.BehaviorDescription.ExecutionState state
+    public Indriya.Core.Msgs.BehaviorDescription.ExecutionState state
     {
       get { return _state; }
       set { _state = value; }
@@ -138,24 +138,24 @@ namespace experimot.msgs
       get { return _robot; }
       set { _robot = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Param> _param = new global::System.Collections.Generic.List<experimot.msgs.Param>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Param> _param = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Param>();
     [global::ProtoBuf.ProtoMember(3, Name=@"param", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Param> param
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Param> param
     {
       get { return _param; }
     }
   
-    private readonly global::System.Collections.Generic.List<experimot.msgs.BehaviorDescription> _behaviors = new global::System.Collections.Generic.List<experimot.msgs.BehaviorDescription>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.BehaviorDescription> _behaviors = new global::System.Collections.Generic.List<Indriya.Core.Msgs.BehaviorDescription>();
     [global::ProtoBuf.ProtoMember(4, Name=@"behaviors", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.BehaviorDescription> behaviors
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.BehaviorDescription> behaviors
     {
       get { return _behaviors; }
     }
   
-    private experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder _responder = null;
+    private Indriya.Core.Msgs.RobotBehaviorModule.RobotBehaviorResponder _responder = null;
     [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"responder", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder
+    public Indriya.Core.Msgs.RobotBehaviorModule.RobotBehaviorResponder responder
     {
       get { return _responder; }
       set { _responder = value; }
@@ -194,9 +194,9 @@ namespace experimot.msgs
   {
     public RobotBehaviorModules() {}
     
-    private readonly global::System.Collections.Generic.List<experimot.msgs.RobotBehaviorModule> _modules = new global::System.Collections.Generic.List<experimot.msgs.RobotBehaviorModule>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.RobotBehaviorModule> _modules = new global::System.Collections.Generic.List<Indriya.Core.Msgs.RobotBehaviorModule>();
     [global::ProtoBuf.ProtoMember(1, Name=@"modules", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.RobotBehaviorModule> modules
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.RobotBehaviorModule> modules
     {
       get { return _modules; }
     }

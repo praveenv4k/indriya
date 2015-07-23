@@ -18,9 +18,9 @@ import friction_pb2 as friction__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='surface.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\rsurface.proto\x12\x0e\x65xperimot.msgs\x1a\x0e\x66riction.proto\"\xb3\x02\n\x07Surface\x12*\n\x08\x66riction\x18\x01 \x01(\x0b\x32\x18.experimot.msgs.Friction\x12\x1f\n\x17restitution_coefficient\x18\x02 \x01(\x01\x12\x18\n\x10\x62ounce_threshold\x18\x03 \x01(\x01\x12\x10\n\x08soft_cfm\x18\x04 \x01(\x01\x12\x10\n\x08soft_erp\x18\x05 \x01(\x01\x12\n\n\x02kp\x18\x06 \x01(\x01\x12\n\n\x02kd\x18\x07 \x01(\x01\x12\x0f\n\x07max_vel\x18\x08 \x01(\x01\x12\x11\n\tmin_depth\x18\t \x01(\x01\x12\x1f\n\x17\x63ollide_without_contact\x18\n \x01(\x08\x12\'\n\x1f\x63ollide_without_contact_bitmask\x18\x0b \x01(\r\x12\x17\n\x0f\x63ollide_bitmask\x18\x0c \x01(\r')
+  serialized_pb=_b('\n\rsurface.proto\x12\x11Indriya.Core.Msgs\x1a\x0e\x66riction.proto\"\xb6\x02\n\x07Surface\x12-\n\x08\x66riction\x18\x01 \x01(\x0b\x32\x1b.Indriya.Core.Msgs.Friction\x12\x1f\n\x17restitution_coefficient\x18\x02 \x01(\x01\x12\x18\n\x10\x62ounce_threshold\x18\x03 \x01(\x01\x12\x10\n\x08soft_cfm\x18\x04 \x01(\x01\x12\x10\n\x08soft_erp\x18\x05 \x01(\x01\x12\n\n\x02kp\x18\x06 \x01(\x01\x12\n\n\x02kd\x18\x07 \x01(\x01\x12\x0f\n\x07max_vel\x18\x08 \x01(\x01\x12\x11\n\tmin_depth\x18\t \x01(\x01\x12\x1f\n\x17\x63ollide_without_contact\x18\n \x01(\x08\x12\'\n\x1f\x63ollide_without_contact_bitmask\x18\x0b \x01(\r\x12\x17\n\x0f\x63ollide_bitmask\x18\x0c \x01(\r')
   ,
   dependencies=[friction__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,90 +30,90 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _SURFACE = _descriptor.Descriptor(
   name='Surface',
-  full_name='experimot.msgs.Surface',
+  full_name='Indriya.Core.Msgs.Surface',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='friction', full_name='experimot.msgs.Surface.friction', index=0,
+      name='friction', full_name='Indriya.Core.Msgs.Surface.friction', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='restitution_coefficient', full_name='experimot.msgs.Surface.restitution_coefficient', index=1,
+      name='restitution_coefficient', full_name='Indriya.Core.Msgs.Surface.restitution_coefficient', index=1,
       number=2, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='bounce_threshold', full_name='experimot.msgs.Surface.bounce_threshold', index=2,
+      name='bounce_threshold', full_name='Indriya.Core.Msgs.Surface.bounce_threshold', index=2,
       number=3, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='soft_cfm', full_name='experimot.msgs.Surface.soft_cfm', index=3,
+      name='soft_cfm', full_name='Indriya.Core.Msgs.Surface.soft_cfm', index=3,
       number=4, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='soft_erp', full_name='experimot.msgs.Surface.soft_erp', index=4,
+      name='soft_erp', full_name='Indriya.Core.Msgs.Surface.soft_erp', index=4,
       number=5, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='kp', full_name='experimot.msgs.Surface.kp', index=5,
+      name='kp', full_name='Indriya.Core.Msgs.Surface.kp', index=5,
       number=6, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='kd', full_name='experimot.msgs.Surface.kd', index=6,
+      name='kd', full_name='Indriya.Core.Msgs.Surface.kd', index=6,
       number=7, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='max_vel', full_name='experimot.msgs.Surface.max_vel', index=7,
+      name='max_vel', full_name='Indriya.Core.Msgs.Surface.max_vel', index=7,
       number=8, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='min_depth', full_name='experimot.msgs.Surface.min_depth', index=8,
+      name='min_depth', full_name='Indriya.Core.Msgs.Surface.min_depth', index=8,
       number=9, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='collide_without_contact', full_name='experimot.msgs.Surface.collide_without_contact', index=9,
+      name='collide_without_contact', full_name='Indriya.Core.Msgs.Surface.collide_without_contact', index=9,
       number=10, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='collide_without_contact_bitmask', full_name='experimot.msgs.Surface.collide_without_contact_bitmask', index=10,
+      name='collide_without_contact_bitmask', full_name='Indriya.Core.Msgs.Surface.collide_without_contact_bitmask', index=10,
       number=11, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='collide_bitmask', full_name='experimot.msgs.Surface.collide_bitmask', index=11,
+      name='collide_bitmask', full_name='Indriya.Core.Msgs.Surface.collide_bitmask', index=11,
       number=12, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -131,8 +131,8 @@ _SURFACE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=50,
-  serialized_end=357,
+  serialized_start=53,
+  serialized_end=363,
 )
 
 _SURFACE.fields_by_name['friction'].message_type = friction__pb2._FRICTION
@@ -141,7 +141,7 @@ DESCRIPTOR.message_types_by_name['Surface'] = _SURFACE
 Surface = _reflection.GeneratedProtocolMessageType('Surface', (_message.Message,), dict(
   DESCRIPTOR = _SURFACE,
   __module__ = 'surface_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Surface)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Surface)
   ))
 _sym_db.RegisterMessage(Surface)
 

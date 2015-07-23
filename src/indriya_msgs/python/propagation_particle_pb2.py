@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='propagation_particle.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x1apropagation_particle.proto\x12\x0e\x65xperimot.msgs\"A\n\x13PropagationParticle\x12\t\n\x01x\x18\x01 \x02(\x01\x12\t\n\x01y\x18\x02 \x02(\x01\x12\x14\n\x0csignal_level\x18\x03 \x02(\x01')
+  serialized_pb=_b('\n\x1apropagation_particle.proto\x12\x11Indriya.Core.Msgs\"A\n\x13PropagationParticle\x12\t\n\x01x\x18\x01 \x02(\x01\x12\t\n\x01y\x18\x02 \x02(\x01\x12\x14\n\x0csignal_level\x18\x03 \x02(\x01')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -28,27 +28,27 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _PROPAGATIONPARTICLE = _descriptor.Descriptor(
   name='PropagationParticle',
-  full_name='experimot.msgs.PropagationParticle',
+  full_name='Indriya.Core.Msgs.PropagationParticle',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='x', full_name='experimot.msgs.PropagationParticle.x', index=0,
+      name='x', full_name='Indriya.Core.Msgs.PropagationParticle.x', index=0,
       number=1, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='y', full_name='experimot.msgs.PropagationParticle.y', index=1,
+      name='y', full_name='Indriya.Core.Msgs.PropagationParticle.y', index=1,
       number=2, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='signal_level', full_name='experimot.msgs.PropagationParticle.signal_level', index=2,
+      name='signal_level', full_name='Indriya.Core.Msgs.PropagationParticle.signal_level', index=2,
       number=3, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -66,8 +66,8 @@ _PROPAGATIONPARTICLE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=46,
-  serialized_end=111,
+  serialized_start=49,
+  serialized_end=114,
 )
 
 DESCRIPTOR.message_types_by_name['PropagationParticle'] = _PROPAGATIONPARTICLE
@@ -75,7 +75,7 @@ DESCRIPTOR.message_types_by_name['PropagationParticle'] = _PROPAGATIONPARTICLE
 PropagationParticle = _reflection.GeneratedProtocolMessageType('PropagationParticle', (_message.Message,), dict(
   DESCRIPTOR = _PROPAGATIONPARTICLE,
   __module__ = 'propagation_particle_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.PropagationParticle)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.PropagationParticle)
   ))
 _sym_db.RegisterMessage(PropagationParticle)
 

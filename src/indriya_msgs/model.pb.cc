@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -87,22 +88,22 @@ void protobuf_AddDesc_model_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_joint_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_link_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_pose_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_visual_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_vector3d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_joint_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_link_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_pose_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_visual_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector3d_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\013model.proto\022\016experimot.msgs\032\013joint.pro"
-    "to\032\nlink.proto\032\npose.proto\032\014visual.proto"
-    "\032\016vector3d.proto\"\232\002\n\005Model\022\014\n\004name\030\001 \002(\t"
-    "\022\n\n\002id\030\002 \001(\r\022\021\n\tis_static\030\003 \001(\010\022\"\n\004pose\030"
-    "\004 \001(\0132\024.experimot.msgs.Pose\022$\n\005joint\030\005 \003"
-    "(\0132\025.experimot.msgs.Joint\022\"\n\004link\030\006 \003(\0132"
-    "\024.experimot.msgs.Link\022\017\n\007deleted\030\007 \001(\010\022&"
-    "\n\006visual\030\010 \003(\0132\026.experimot.msgs.Visual\022\'"
-    "\n\005scale\030\t \001(\0132\030.experimot.msgs.Vector3d\022"
-    "\024\n\014self_collide\030\n \001(\010", 381);
+    "\n\013model.proto\022\021Indriya.Core.Msgs\032\013joint."
+    "proto\032\nlink.proto\032\npose.proto\032\014visual.pr"
+    "oto\032\016vector3d.proto\"\251\002\n\005Model\022\014\n\004name\030\001 "
+    "\002(\t\022\n\n\002id\030\002 \001(\r\022\021\n\tis_static\030\003 \001(\010\022%\n\004po"
+    "se\030\004 \001(\0132\027.Indriya.Core.Msgs.Pose\022\'\n\005joi"
+    "nt\030\005 \003(\0132\030.Indriya.Core.Msgs.Joint\022%\n\004li"
+    "nk\030\006 \003(\0132\027.Indriya.Core.Msgs.Link\022\017\n\007del"
+    "eted\030\007 \001(\010\022)\n\006visual\030\010 \003(\0132\031.Indriya.Cor"
+    "e.Msgs.Visual\022*\n\005scale\030\t \001(\0132\033.Indriya.C"
+    "ore.Msgs.Vector3d\022\024\n\014self_collide\030\n \001(\010", 399);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "model.proto", &protobuf_RegisterTypes);
   Model::default_instance_ = new Model();
@@ -145,12 +146,12 @@ const int Model::kSelfCollideFieldNumber;
 Model::Model()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Model)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Model)
 }
 
 void Model::InitAsDefaultInstance() {
-  pose_ = const_cast< ::experimot::msgs::Pose*>(&::experimot::msgs::Pose::default_instance());
-  scale_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
+  pose_ = const_cast< ::Indriya::Core::Msgs::Pose*>(&::Indriya::Core::Msgs::Pose::default_instance());
+  scale_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
 }
 
 Model::Model(const Model& from)
@@ -158,7 +159,7 @@ Model::Model(const Model& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Model)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Model)
 }
 
 void Model::SharedCtor() {
@@ -175,7 +176,7 @@ void Model::SharedCtor() {
 }
 
 Model::~Model() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Model)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Model)
   SharedDtor();
 }
 
@@ -227,12 +228,12 @@ void Model::Clear() {
       name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_pose()) {
-      if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+      if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
     }
   }
   if (_has_bits_[8 / 32] & 768) {
     if (has_scale()) {
-      if (scale_ != NULL) scale_->::experimot::msgs::Vector3d::Clear();
+      if (scale_ != NULL) scale_->::Indriya::Core::Msgs::Vector3d::Clear();
     }
     self_collide_ = false;
   }
@@ -253,7 +254,7 @@ bool Model::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Model)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Model)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -267,7 +268,7 @@ bool Model::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Model.name");
+            "Indriya.Core.Msgs.Model.name");
         } else {
           goto handle_unusual;
         }
@@ -305,7 +306,7 @@ bool Model::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Pose pose = 4;
+      // optional .Indriya.Core.Msgs.Pose pose = 4;
       case 4: {
         if (tag == 34) {
          parse_pose:
@@ -318,7 +319,7 @@ bool Model::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .experimot.msgs.Joint joint = 5;
+      // repeated .Indriya.Core.Msgs.Joint joint = 5;
       case 5: {
         if (tag == 42) {
          parse_joint:
@@ -332,7 +333,7 @@ bool Model::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .experimot.msgs.Link link = 6;
+      // repeated .Indriya.Core.Msgs.Link link = 6;
       case 6: {
         if (tag == 50) {
          parse_link:
@@ -361,7 +362,7 @@ bool Model::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .experimot.msgs.Visual visual = 8;
+      // repeated .Indriya.Core.Msgs.Visual visual = 8;
       case 8: {
         if (tag == 66) {
          parse_visual:
@@ -375,7 +376,7 @@ bool Model::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Vector3d scale = 9;
+      // optional .Indriya.Core.Msgs.Vector3d scale = 9;
       case 9: {
         if (tag == 74) {
          parse_scale:
@@ -417,23 +418,23 @@ bool Model::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Model)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Model)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Model)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Model)
   return false;
 #undef DO_
 }
 
 void Model::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Model)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Model)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Model.name");
+      "Indriya.Core.Msgs.Model.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
@@ -448,19 +449,19 @@ void Model::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->is_static(), output);
   }
 
-  // optional .experimot.msgs.Pose pose = 4;
+  // optional .Indriya.Core.Msgs.Pose pose = 4;
   if (has_pose()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, *this->pose_, output);
   }
 
-  // repeated .experimot.msgs.Joint joint = 5;
+  // repeated .Indriya.Core.Msgs.Joint joint = 5;
   for (unsigned int i = 0, n = this->joint_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, this->joint(i), output);
   }
 
-  // repeated .experimot.msgs.Link link = 6;
+  // repeated .Indriya.Core.Msgs.Link link = 6;
   for (unsigned int i = 0, n = this->link_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       6, this->link(i), output);
@@ -471,13 +472,13 @@ void Model::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(7, this->deleted(), output);
   }
 
-  // repeated .experimot.msgs.Visual visual = 8;
+  // repeated .Indriya.Core.Msgs.Visual visual = 8;
   for (unsigned int i = 0, n = this->visual_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       8, this->visual(i), output);
   }
 
-  // optional .experimot.msgs.Vector3d scale = 9;
+  // optional .Indriya.Core.Msgs.Vector3d scale = 9;
   if (has_scale()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       9, *this->scale_, output);
@@ -492,18 +493,18 @@ void Model::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Model)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Model)
 }
 
 ::google::protobuf::uint8* Model::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Model)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Model)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Model.name");
+      "Indriya.Core.Msgs.Model.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
@@ -519,21 +520,21 @@ void Model::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->is_static(), target);
   }
 
-  // optional .experimot.msgs.Pose pose = 4;
+  // optional .Indriya.Core.Msgs.Pose pose = 4;
   if (has_pose()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         4, *this->pose_, target);
   }
 
-  // repeated .experimot.msgs.Joint joint = 5;
+  // repeated .Indriya.Core.Msgs.Joint joint = 5;
   for (unsigned int i = 0, n = this->joint_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         5, this->joint(i), target);
   }
 
-  // repeated .experimot.msgs.Link link = 6;
+  // repeated .Indriya.Core.Msgs.Link link = 6;
   for (unsigned int i = 0, n = this->link_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -545,14 +546,14 @@ void Model::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(7, this->deleted(), target);
   }
 
-  // repeated .experimot.msgs.Visual visual = 8;
+  // repeated .Indriya.Core.Msgs.Visual visual = 8;
   for (unsigned int i = 0, n = this->visual_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         8, this->visual(i), target);
   }
 
-  // optional .experimot.msgs.Vector3d scale = 9;
+  // optional .Indriya.Core.Msgs.Vector3d scale = 9;
   if (has_scale()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -568,7 +569,7 @@ void Model::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Model)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Model)
   return target;
 }
 
@@ -594,7 +595,7 @@ int Model::ByteSize() const {
       total_size += 1 + 1;
     }
 
-    // optional .experimot.msgs.Pose pose = 4;
+    // optional .Indriya.Core.Msgs.Pose pose = 4;
     if (has_pose()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -608,7 +609,7 @@ int Model::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & 768) {
-    // optional .experimot.msgs.Vector3d scale = 9;
+    // optional .Indriya.Core.Msgs.Vector3d scale = 9;
     if (has_scale()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -621,7 +622,7 @@ int Model::ByteSize() const {
     }
 
   }
-  // repeated .experimot.msgs.Joint joint = 5;
+  // repeated .Indriya.Core.Msgs.Joint joint = 5;
   total_size += 1 * this->joint_size();
   for (int i = 0; i < this->joint_size(); i++) {
     total_size +=
@@ -629,7 +630,7 @@ int Model::ByteSize() const {
         this->joint(i));
   }
 
-  // repeated .experimot.msgs.Link link = 6;
+  // repeated .Indriya.Core.Msgs.Link link = 6;
   total_size += 1 * this->link_size();
   for (int i = 0; i < this->link_size(); i++) {
     total_size +=
@@ -637,7 +638,7 @@ int Model::ByteSize() const {
         this->link(i));
   }
 
-  // repeated .experimot.msgs.Visual visual = 8;
+  // repeated .Indriya.Core.Msgs.Visual visual = 8;
   total_size += 1 * this->visual_size();
   for (int i = 0; i < this->visual_size(); i++) {
     total_size +=
@@ -685,7 +686,7 @@ void Model::MergeFrom(const Model& from) {
       set_is_static(from.is_static());
     }
     if (from.has_pose()) {
-      mutable_pose()->::experimot::msgs::Pose::MergeFrom(from.pose());
+      mutable_pose()->::Indriya::Core::Msgs::Pose::MergeFrom(from.pose());
     }
     if (from.has_deleted()) {
       set_deleted(from.deleted());
@@ -693,7 +694,7 @@ void Model::MergeFrom(const Model& from) {
   }
   if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_scale()) {
-      mutable_scale()->::experimot::msgs::Vector3d::MergeFrom(from.scale());
+      mutable_scale()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.scale());
     }
     if (from.has_self_collide()) {
       set_self_collide(from.self_collide());
@@ -777,28 +778,28 @@ void Model::InternalSwap(Model* other) {
   clear_has_name();
 }
  const ::std::string& Model::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Model.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Model.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Model::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Model.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Model.name)
 }
  void Model::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Model.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Model.name)
 }
  void Model::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Model.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Model.name)
 }
  ::std::string* Model::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Model.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Model.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Model::release_name() {
@@ -812,7 +813,7 @@ void Model::InternalSwap(Model* other) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Model.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Model.name)
 }
 
 // optional uint32 id = 2;
@@ -830,13 +831,13 @@ void Model::InternalSwap(Model* other) {
   clear_has_id();
 }
  ::google::protobuf::uint32 Model::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Model.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Model.id)
   return id_;
 }
  void Model::set_id(::google::protobuf::uint32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Model.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Model.id)
 }
 
 // optional bool is_static = 3;
@@ -854,16 +855,16 @@ void Model::InternalSwap(Model* other) {
   clear_has_is_static();
 }
  bool Model::is_static() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Model.is_static)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Model.is_static)
   return is_static_;
 }
  void Model::set_is_static(bool value) {
   set_has_is_static();
   is_static_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Model.is_static)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Model.is_static)
 }
 
-// optional .experimot.msgs.Pose pose = 4;
+// optional .Indriya.Core.Msgs.Pose pose = 4;
  bool Model::has_pose() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -874,28 +875,28 @@ void Model::InternalSwap(Model* other) {
   _has_bits_[0] &= ~0x00000008u;
 }
  void Model::clear_pose() {
-  if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+  if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
   clear_has_pose();
 }
- const ::experimot::msgs::Pose& Model::pose() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Model.pose)
+ const ::Indriya::Core::Msgs::Pose& Model::pose() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Model.pose)
   return pose_ != NULL ? *pose_ : *default_instance_->pose_;
 }
- ::experimot::msgs::Pose* Model::mutable_pose() {
+ ::Indriya::Core::Msgs::Pose* Model::mutable_pose() {
   set_has_pose();
   if (pose_ == NULL) {
-    pose_ = new ::experimot::msgs::Pose;
+    pose_ = new ::Indriya::Core::Msgs::Pose;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Model.pose)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Model.pose)
   return pose_;
 }
- ::experimot::msgs::Pose* Model::release_pose() {
+ ::Indriya::Core::Msgs::Pose* Model::release_pose() {
   clear_has_pose();
-  ::experimot::msgs::Pose* temp = pose_;
+  ::Indriya::Core::Msgs::Pose* temp = pose_;
   pose_ = NULL;
   return temp;
 }
- void Model::set_allocated_pose(::experimot::msgs::Pose* pose) {
+ void Model::set_allocated_pose(::Indriya::Core::Msgs::Pose* pose) {
   delete pose_;
   pose_ = pose;
   if (pose) {
@@ -903,66 +904,66 @@ void Model::InternalSwap(Model* other) {
   } else {
     clear_has_pose();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Model.pose)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Model.pose)
 }
 
-// repeated .experimot.msgs.Joint joint = 5;
+// repeated .Indriya.Core.Msgs.Joint joint = 5;
  int Model::joint_size() const {
   return joint_.size();
 }
  void Model::clear_joint() {
   joint_.Clear();
 }
- const ::experimot::msgs::Joint& Model::joint(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Model.joint)
+ const ::Indriya::Core::Msgs::Joint& Model::joint(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Model.joint)
   return joint_.Get(index);
 }
- ::experimot::msgs::Joint* Model::mutable_joint(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Model.joint)
+ ::Indriya::Core::Msgs::Joint* Model::mutable_joint(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Model.joint)
   return joint_.Mutable(index);
 }
- ::experimot::msgs::Joint* Model::add_joint() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Model.joint)
+ ::Indriya::Core::Msgs::Joint* Model::add_joint() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Model.joint)
   return joint_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Joint >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Joint >&
 Model::joint() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Model.joint)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Model.joint)
   return joint_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Joint >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Joint >*
 Model::mutable_joint() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Model.joint)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Model.joint)
   return &joint_;
 }
 
-// repeated .experimot.msgs.Link link = 6;
+// repeated .Indriya.Core.Msgs.Link link = 6;
  int Model::link_size() const {
   return link_.size();
 }
  void Model::clear_link() {
   link_.Clear();
 }
- const ::experimot::msgs::Link& Model::link(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Model.link)
+ const ::Indriya::Core::Msgs::Link& Model::link(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Model.link)
   return link_.Get(index);
 }
- ::experimot::msgs::Link* Model::mutable_link(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Model.link)
+ ::Indriya::Core::Msgs::Link* Model::mutable_link(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Model.link)
   return link_.Mutable(index);
 }
- ::experimot::msgs::Link* Model::add_link() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Model.link)
+ ::Indriya::Core::Msgs::Link* Model::add_link() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Model.link)
   return link_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Link >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Link >&
 Model::link() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Model.link)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Model.link)
   return link_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Link >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Link >*
 Model::mutable_link() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Model.link)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Model.link)
   return &link_;
 }
 
@@ -981,46 +982,46 @@ Model::mutable_link() {
   clear_has_deleted();
 }
  bool Model::deleted() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Model.deleted)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Model.deleted)
   return deleted_;
 }
  void Model::set_deleted(bool value) {
   set_has_deleted();
   deleted_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Model.deleted)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Model.deleted)
 }
 
-// repeated .experimot.msgs.Visual visual = 8;
+// repeated .Indriya.Core.Msgs.Visual visual = 8;
  int Model::visual_size() const {
   return visual_.size();
 }
  void Model::clear_visual() {
   visual_.Clear();
 }
- const ::experimot::msgs::Visual& Model::visual(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Model.visual)
+ const ::Indriya::Core::Msgs::Visual& Model::visual(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Model.visual)
   return visual_.Get(index);
 }
- ::experimot::msgs::Visual* Model::mutable_visual(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Model.visual)
+ ::Indriya::Core::Msgs::Visual* Model::mutable_visual(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Model.visual)
   return visual_.Mutable(index);
 }
- ::experimot::msgs::Visual* Model::add_visual() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Model.visual)
+ ::Indriya::Core::Msgs::Visual* Model::add_visual() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Model.visual)
   return visual_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Visual >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Visual >&
 Model::visual() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Model.visual)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Model.visual)
   return visual_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Visual >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Visual >*
 Model::mutable_visual() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Model.visual)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Model.visual)
   return &visual_;
 }
 
-// optional .experimot.msgs.Vector3d scale = 9;
+// optional .Indriya.Core.Msgs.Vector3d scale = 9;
  bool Model::has_scale() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -1031,28 +1032,28 @@ Model::mutable_visual() {
   _has_bits_[0] &= ~0x00000100u;
 }
  void Model::clear_scale() {
-  if (scale_ != NULL) scale_->::experimot::msgs::Vector3d::Clear();
+  if (scale_ != NULL) scale_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_scale();
 }
- const ::experimot::msgs::Vector3d& Model::scale() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Model.scale)
+ const ::Indriya::Core::Msgs::Vector3d& Model::scale() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Model.scale)
   return scale_ != NULL ? *scale_ : *default_instance_->scale_;
 }
- ::experimot::msgs::Vector3d* Model::mutable_scale() {
+ ::Indriya::Core::Msgs::Vector3d* Model::mutable_scale() {
   set_has_scale();
   if (scale_ == NULL) {
-    scale_ = new ::experimot::msgs::Vector3d;
+    scale_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Model.scale)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Model.scale)
   return scale_;
 }
- ::experimot::msgs::Vector3d* Model::release_scale() {
+ ::Indriya::Core::Msgs::Vector3d* Model::release_scale() {
   clear_has_scale();
-  ::experimot::msgs::Vector3d* temp = scale_;
+  ::Indriya::Core::Msgs::Vector3d* temp = scale_;
   scale_ = NULL;
   return temp;
 }
- void Model::set_allocated_scale(::experimot::msgs::Vector3d* scale) {
+ void Model::set_allocated_scale(::Indriya::Core::Msgs::Vector3d* scale) {
   delete scale_;
   scale_ = scale;
   if (scale) {
@@ -1060,7 +1061,7 @@ Model::mutable_visual() {
   } else {
     clear_has_scale();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Model.scale)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Model.scale)
 }
 
 // optional bool self_collide = 10;
@@ -1078,21 +1079,22 @@ Model::mutable_visual() {
   clear_has_self_collide();
 }
  bool Model::self_collide() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Model.self_collide)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Model.self_collide)
   return self_collide_;
 }
  void Model::set_self_collide(bool value) {
   set_has_self_collide();
   self_collide_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Model.self_collide)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Model.self_collide)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Model", Model)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Model", Model)
 // @@protoc_insertion_point(global_scope)

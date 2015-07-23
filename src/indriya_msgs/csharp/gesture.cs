@@ -9,7 +9,7 @@
 
 // Generated from: proto/gesture.proto
 // Note: requires additional types generated from: param.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"GestureDescription")]
   public partial class GestureDescription : global::ProtoBuf.IExtensible
@@ -23,9 +23,9 @@ namespace experimot.msgs
       get { return _name; }
       set { _name = value; }
     }
-    private experimot.msgs.GestureDescription.GestureType _type;
+    private Indriya.Core.Msgs.GestureDescription.GestureType _type;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public experimot.msgs.GestureDescription.GestureType type
+    public Indriya.Core.Msgs.GestureDescription.GestureType type
     {
       get { return _type; }
       set { _type = value; }
@@ -85,16 +85,16 @@ namespace experimot.msgs
       get { return _name; }
       set { _name = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Param> _params = new global::System.Collections.Generic.List<experimot.msgs.Param>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Param> _params = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Param>();
     [global::ProtoBuf.ProtoMember(2, Name=@"params", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Param> @params
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Param> @params
     {
       get { return _params; }
     }
   
-    private readonly global::System.Collections.Generic.List<experimot.msgs.GestureDescription> _motions = new global::System.Collections.Generic.List<experimot.msgs.GestureDescription>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.GestureDescription> _motions = new global::System.Collections.Generic.List<Indriya.Core.Msgs.GestureDescription>();
     [global::ProtoBuf.ProtoMember(3, Name=@"motions", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.GestureDescription> motions
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.GestureDescription> motions
     {
       get { return _motions; }
     }
@@ -109,9 +109,9 @@ namespace experimot.msgs
   {
     public GestureRecognitionModules() {}
     
-    private readonly global::System.Collections.Generic.List<experimot.msgs.GestureRecognitionModule> _modules = new global::System.Collections.Generic.List<experimot.msgs.GestureRecognitionModule>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.GestureRecognitionModule> _modules = new global::System.Collections.Generic.List<Indriya.Core.Msgs.GestureRecognitionModule>();
     [global::ProtoBuf.ProtoMember(1, Name=@"modules", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.GestureRecognitionModule> modules
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.GestureRecognitionModule> modules
     {
       get { return _modules; }
     }
@@ -133,9 +133,9 @@ namespace experimot.msgs
       get { return _id; }
       set { _id = value; }
     }
-    private experimot.msgs.GestureDescription _motion;
+    private Indriya.Core.Msgs.GestureDescription _motion;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"motion", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.GestureDescription motion
+    public Indriya.Core.Msgs.GestureDescription motion
     {
       get { return _motion; }
       set { _motion = value; }
@@ -157,9 +157,9 @@ namespace experimot.msgs
       get { return _id; }
       set { _id = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.GestureDescription> _motion = new global::System.Collections.Generic.List<experimot.msgs.GestureDescription>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.GestureDescription> _motion = new global::System.Collections.Generic.List<Indriya.Core.Msgs.GestureDescription>();
     [global::ProtoBuf.ProtoMember(2, Name=@"motion", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.GestureDescription> motion
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.GestureDescription> motion
     {
       get { return _motion; }
     }

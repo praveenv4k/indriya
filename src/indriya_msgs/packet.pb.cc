@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -80,12 +81,12 @@ void protobuf_AddDesc_packet_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_time_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_time_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\014packet.proto\022\016experimot.msgs\032\ntime.pro"
-    "to\"T\n\006Packet\022#\n\005stamp\030\001 \002(\0132\024.experimot."
-    "msgs.Time\022\014\n\004type\030\002 \002(\t\022\027\n\017serialized_da"
-    "ta\030\003 \002(\014", 128);
+    "\n\014packet.proto\022\021Indriya.Core.Msgs\032\ntime."
+    "proto\"W\n\006Packet\022&\n\005stamp\030\001 \002(\0132\027.Indriya"
+    ".Core.Msgs.Time\022\014\n\004type\030\002 \002(\t\022\027\n\017seriali"
+    "zed_data\030\003 \002(\014", 134);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "packet.proto", &protobuf_RegisterTypes);
   Packet::default_instance_ = new Packet();
@@ -121,11 +122,11 @@ const int Packet::kSerializedDataFieldNumber;
 Packet::Packet()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Packet)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Packet)
 }
 
 void Packet::InitAsDefaultInstance() {
-  stamp_ = const_cast< ::experimot::msgs::Time*>(&::experimot::msgs::Time::default_instance());
+  stamp_ = const_cast< ::Indriya::Core::Msgs::Time*>(&::Indriya::Core::Msgs::Time::default_instance());
 }
 
 Packet::Packet(const Packet& from)
@@ -133,7 +134,7 @@ Packet::Packet(const Packet& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Packet)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Packet)
 }
 
 void Packet::SharedCtor() {
@@ -146,7 +147,7 @@ void Packet::SharedCtor() {
 }
 
 Packet::~Packet() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Packet)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Packet)
   SharedDtor();
 }
 
@@ -186,7 +187,7 @@ Packet* Packet::New(::google::protobuf::Arena* arena) const {
 void Packet::Clear() {
   if (_has_bits_[0 / 32] & 7) {
     if (has_stamp()) {
-      if (stamp_ != NULL) stamp_->::experimot::msgs::Time::Clear();
+      if (stamp_ != NULL) stamp_->::Indriya::Core::Msgs::Time::Clear();
     }
     if (has_type()) {
       type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -205,13 +206,13 @@ bool Packet::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Packet)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Packet)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .experimot.msgs.Time stamp = 1;
+      // required .Indriya.Core.Msgs.Time stamp = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -232,7 +233,7 @@ bool Packet::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->type().data(), this->type().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Packet.type");
+            "Indriya.Core.Msgs.Packet.type");
         } else {
           goto handle_unusual;
         }
@@ -267,18 +268,18 @@ bool Packet::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Packet)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Packet)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Packet)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Packet)
   return false;
 #undef DO_
 }
 
 void Packet::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Packet)
-  // required .experimot.msgs.Time stamp = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Packet)
+  // required .Indriya.Core.Msgs.Time stamp = 1;
   if (has_stamp()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->stamp_, output);
@@ -289,7 +290,7 @@ void Packet::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->type().data(), this->type().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Packet.type");
+      "Indriya.Core.Msgs.Packet.type");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->type(), output);
   }
@@ -304,13 +305,13 @@ void Packet::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Packet)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Packet)
 }
 
 ::google::protobuf::uint8* Packet::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Packet)
-  // required .experimot.msgs.Time stamp = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Packet)
+  // required .Indriya.Core.Msgs.Time stamp = 1;
   if (has_stamp()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -322,7 +323,7 @@ void Packet::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->type().data(), this->type().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Packet.type");
+      "Indriya.Core.Msgs.Packet.type");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->type(), target);
@@ -339,7 +340,7 @@ void Packet::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Packet)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Packet)
   return target;
 }
 
@@ -347,7 +348,7 @@ int Packet::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
   if (has_stamp()) {
-    // required .experimot.msgs.Time stamp = 1;
+    // required .Indriya.Core.Msgs.Time stamp = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->stamp_);
@@ -373,7 +374,7 @@ int Packet::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
-    // required .experimot.msgs.Time stamp = 1;
+    // required .Indriya.Core.Msgs.Time stamp = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->stamp_);
@@ -418,7 +419,7 @@ void Packet::MergeFrom(const Packet& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_stamp()) {
-      mutable_stamp()->::experimot::msgs::Time::MergeFrom(from.stamp());
+      mutable_stamp()->::Indriya::Core::Msgs::Time::MergeFrom(from.stamp());
     }
     if (from.has_type()) {
       set_has_type();
@@ -479,7 +480,7 @@ void Packet::InternalSwap(Packet* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Packet
 
-// required .experimot.msgs.Time stamp = 1;
+// required .Indriya.Core.Msgs.Time stamp = 1;
  bool Packet::has_stamp() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -490,28 +491,28 @@ void Packet::InternalSwap(Packet* other) {
   _has_bits_[0] &= ~0x00000001u;
 }
  void Packet::clear_stamp() {
-  if (stamp_ != NULL) stamp_->::experimot::msgs::Time::Clear();
+  if (stamp_ != NULL) stamp_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_stamp();
 }
- const ::experimot::msgs::Time& Packet::stamp() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Packet.stamp)
+ const ::Indriya::Core::Msgs::Time& Packet::stamp() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Packet.stamp)
   return stamp_ != NULL ? *stamp_ : *default_instance_->stamp_;
 }
- ::experimot::msgs::Time* Packet::mutable_stamp() {
+ ::Indriya::Core::Msgs::Time* Packet::mutable_stamp() {
   set_has_stamp();
   if (stamp_ == NULL) {
-    stamp_ = new ::experimot::msgs::Time;
+    stamp_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Packet.stamp)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Packet.stamp)
   return stamp_;
 }
- ::experimot::msgs::Time* Packet::release_stamp() {
+ ::Indriya::Core::Msgs::Time* Packet::release_stamp() {
   clear_has_stamp();
-  ::experimot::msgs::Time* temp = stamp_;
+  ::Indriya::Core::Msgs::Time* temp = stamp_;
   stamp_ = NULL;
   return temp;
 }
- void Packet::set_allocated_stamp(::experimot::msgs::Time* stamp) {
+ void Packet::set_allocated_stamp(::Indriya::Core::Msgs::Time* stamp) {
   delete stamp_;
   stamp_ = stamp;
   if (stamp) {
@@ -519,7 +520,7 @@ void Packet::InternalSwap(Packet* other) {
   } else {
     clear_has_stamp();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Packet.stamp)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Packet.stamp)
 }
 
 // required string type = 2;
@@ -537,28 +538,28 @@ void Packet::InternalSwap(Packet* other) {
   clear_has_type();
 }
  const ::std::string& Packet::type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Packet.type)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Packet.type)
   return type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Packet::set_type(const ::std::string& value) {
   set_has_type();
   type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Packet.type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Packet.type)
 }
  void Packet::set_type(const char* value) {
   set_has_type();
   type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Packet.type)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Packet.type)
 }
  void Packet::set_type(const char* value, size_t size) {
   set_has_type();
   type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Packet.type)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Packet.type)
 }
  ::std::string* Packet::mutable_type() {
   set_has_type();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Packet.type)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Packet.type)
   return type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Packet::release_type() {
@@ -572,7 +573,7 @@ void Packet::InternalSwap(Packet* other) {
     clear_has_type();
   }
   type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), type);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Packet.type)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Packet.type)
 }
 
 // required bytes serialized_data = 3;
@@ -590,28 +591,28 @@ void Packet::InternalSwap(Packet* other) {
   clear_has_serialized_data();
 }
  const ::std::string& Packet::serialized_data() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Packet.serialized_data)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Packet.serialized_data)
   return serialized_data_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Packet::set_serialized_data(const ::std::string& value) {
   set_has_serialized_data();
   serialized_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Packet.serialized_data)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Packet.serialized_data)
 }
  void Packet::set_serialized_data(const char* value) {
   set_has_serialized_data();
   serialized_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Packet.serialized_data)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Packet.serialized_data)
 }
  void Packet::set_serialized_data(const void* value, size_t size) {
   set_has_serialized_data();
   serialized_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Packet.serialized_data)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Packet.serialized_data)
 }
  ::std::string* Packet::mutable_serialized_data() {
   set_has_serialized_data();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Packet.serialized_data)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Packet.serialized_data)
   return serialized_data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Packet::release_serialized_data() {
@@ -625,15 +626,16 @@ void Packet::InternalSwap(Packet* other) {
     clear_has_serialized_data();
   }
   serialized_data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), serialized_data);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Packet.serialized_data)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Packet.serialized_data)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Packet", Packet)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Packet", Packet)
 // @@protoc_insertion_point(global_scope)

@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 // Generated from: proto/raysensor.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"RaySensor")]
   public partial class RaySensor : global::ProtoBuf.IExtensible

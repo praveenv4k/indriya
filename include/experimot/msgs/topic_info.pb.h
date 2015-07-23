@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_topic_5finfo_2eproto();
@@ -121,31 +122,31 @@ class TopicInfo : public ::google::protobuf::Message {
   ::std::string* release_msg_type();
   void set_allocated_msg_type(::std::string* msg_type);
 
-  // repeated .experimot.msgs.Publish publisher = 2;
+  // repeated .Indriya.Core.Msgs.Publish publisher = 2;
   int publisher_size() const;
   void clear_publisher();
   static const int kPublisherFieldNumber = 2;
-  const ::experimot::msgs::Publish& publisher(int index) const;
-  ::experimot::msgs::Publish* mutable_publisher(int index);
-  ::experimot::msgs::Publish* add_publisher();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish >&
+  const ::Indriya::Core::Msgs::Publish& publisher(int index) const;
+  ::Indriya::Core::Msgs::Publish* mutable_publisher(int index);
+  ::Indriya::Core::Msgs::Publish* add_publisher();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Publish >&
       publisher() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Publish >*
       mutable_publisher();
 
-  // repeated .experimot.msgs.Subscribe subscriber = 3;
+  // repeated .Indriya.Core.Msgs.Subscribe subscriber = 3;
   int subscriber_size() const;
   void clear_subscriber();
   static const int kSubscriberFieldNumber = 3;
-  const ::experimot::msgs::Subscribe& subscriber(int index) const;
-  ::experimot::msgs::Subscribe* mutable_subscriber(int index);
-  ::experimot::msgs::Subscribe* add_subscriber();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Subscribe >&
+  const ::Indriya::Core::Msgs::Subscribe& subscriber(int index) const;
+  ::Indriya::Core::Msgs::Subscribe* mutable_subscriber(int index);
+  ::Indriya::Core::Msgs::Subscribe* add_subscriber();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Subscribe >&
       subscriber() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Subscribe >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Subscribe >*
       mutable_subscriber();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.TopicInfo)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.TopicInfo)
  private:
   inline void set_has_msg_type();
   inline void clear_has_msg_type();
@@ -154,8 +155,8 @@ class TopicInfo : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr msg_type_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish > publisher_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Subscribe > subscriber_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Publish > publisher_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Subscribe > subscriber_;
   friend void  protobuf_AddDesc_topic_5finfo_2eproto();
   friend void protobuf_AssignDesc_topic_5finfo_2eproto();
   friend void protobuf_ShutdownFile_topic_5finfo_2eproto();
@@ -186,28 +187,28 @@ inline void TopicInfo::clear_msg_type() {
   clear_has_msg_type();
 }
 inline const ::std::string& TopicInfo::msg_type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.TopicInfo.msg_type)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.TopicInfo.msg_type)
   return msg_type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void TopicInfo::set_msg_type(const ::std::string& value) {
   set_has_msg_type();
   msg_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.TopicInfo.msg_type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.TopicInfo.msg_type)
 }
 inline void TopicInfo::set_msg_type(const char* value) {
   set_has_msg_type();
   msg_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.TopicInfo.msg_type)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.TopicInfo.msg_type)
 }
 inline void TopicInfo::set_msg_type(const char* value, size_t size) {
   set_has_msg_type();
   msg_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.TopicInfo.msg_type)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.TopicInfo.msg_type)
 }
 inline ::std::string* TopicInfo::mutable_msg_type() {
   set_has_msg_type();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.TopicInfo.msg_type)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.TopicInfo.msg_type)
   return msg_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* TopicInfo::release_msg_type() {
@@ -221,78 +222,79 @@ inline void TopicInfo::set_allocated_msg_type(::std::string* msg_type) {
     clear_has_msg_type();
   }
   msg_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), msg_type);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.TopicInfo.msg_type)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.TopicInfo.msg_type)
 }
 
-// repeated .experimot.msgs.Publish publisher = 2;
+// repeated .Indriya.Core.Msgs.Publish publisher = 2;
 inline int TopicInfo::publisher_size() const {
   return publisher_.size();
 }
 inline void TopicInfo::clear_publisher() {
   publisher_.Clear();
 }
-inline const ::experimot::msgs::Publish& TopicInfo::publisher(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.TopicInfo.publisher)
+inline const ::Indriya::Core::Msgs::Publish& TopicInfo::publisher(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.TopicInfo.publisher)
   return publisher_.Get(index);
 }
-inline ::experimot::msgs::Publish* TopicInfo::mutable_publisher(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.TopicInfo.publisher)
+inline ::Indriya::Core::Msgs::Publish* TopicInfo::mutable_publisher(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.TopicInfo.publisher)
   return publisher_.Mutable(index);
 }
-inline ::experimot::msgs::Publish* TopicInfo::add_publisher() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.TopicInfo.publisher)
+inline ::Indriya::Core::Msgs::Publish* TopicInfo::add_publisher() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.TopicInfo.publisher)
   return publisher_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Publish >&
 TopicInfo::publisher() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.TopicInfo.publisher)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.TopicInfo.publisher)
   return publisher_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Publish >*
 TopicInfo::mutable_publisher() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.TopicInfo.publisher)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.TopicInfo.publisher)
   return &publisher_;
 }
 
-// repeated .experimot.msgs.Subscribe subscriber = 3;
+// repeated .Indriya.Core.Msgs.Subscribe subscriber = 3;
 inline int TopicInfo::subscriber_size() const {
   return subscriber_.size();
 }
 inline void TopicInfo::clear_subscriber() {
   subscriber_.Clear();
 }
-inline const ::experimot::msgs::Subscribe& TopicInfo::subscriber(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.TopicInfo.subscriber)
+inline const ::Indriya::Core::Msgs::Subscribe& TopicInfo::subscriber(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.TopicInfo.subscriber)
   return subscriber_.Get(index);
 }
-inline ::experimot::msgs::Subscribe* TopicInfo::mutable_subscriber(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.TopicInfo.subscriber)
+inline ::Indriya::Core::Msgs::Subscribe* TopicInfo::mutable_subscriber(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.TopicInfo.subscriber)
   return subscriber_.Mutable(index);
 }
-inline ::experimot::msgs::Subscribe* TopicInfo::add_subscriber() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.TopicInfo.subscriber)
+inline ::Indriya::Core::Msgs::Subscribe* TopicInfo::add_subscriber() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.TopicInfo.subscriber)
   return subscriber_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Subscribe >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Subscribe >&
 TopicInfo::subscriber() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.TopicInfo.subscriber)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.TopicInfo.subscriber)
   return subscriber_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Subscribe >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Subscribe >*
 TopicInfo::mutable_subscriber() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.TopicInfo.subscriber)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.TopicInfo.subscriber)
   return &subscriber_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::TopicInfo> TopicInfoPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::TopicInfo> TopicInfoPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::TopicInfo const> ConstTopicInfoPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::TopicInfo const> ConstTopicInfoPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_topic_5finfo_2eproto__INCLUDED

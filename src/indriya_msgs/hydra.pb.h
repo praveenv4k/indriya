@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_hydra_2eproto();
@@ -109,14 +110,14 @@ class Hydra_Paddle : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .experimot.msgs.Pose pose = 1;
+  // required .Indriya.Core.Msgs.Pose pose = 1;
   bool has_pose() const;
   void clear_pose();
   static const int kPoseFieldNumber = 1;
-  const ::experimot::msgs::Pose& pose() const;
-  ::experimot::msgs::Pose* mutable_pose();
-  ::experimot::msgs::Pose* release_pose();
-  void set_allocated_pose(::experimot::msgs::Pose* pose);
+  const ::Indriya::Core::Msgs::Pose& pose() const;
+  ::Indriya::Core::Msgs::Pose* mutable_pose();
+  ::Indriya::Core::Msgs::Pose* release_pose();
+  void set_allocated_pose(::Indriya::Core::Msgs::Pose* pose);
 
   // required bool button_bumper = 2;
   bool has_button_bumper() const;
@@ -188,7 +189,7 @@ class Hydra_Paddle : public ::google::protobuf::Message {
   double trigger() const;
   void set_trigger(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Hydra.Paddle)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Hydra.Paddle)
  private:
   inline void set_has_pose();
   inline void clear_has_pose();
@@ -219,7 +220,7 @@ class Hydra_Paddle : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::Pose* pose_;
+  ::Indriya::Core::Msgs::Pose* pose_;
   bool button_bumper_;
   bool button_1_;
   bool button_2_;
@@ -305,25 +306,25 @@ class Hydra : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .experimot.msgs.Hydra.Paddle right = 1;
+  // required .Indriya.Core.Msgs.Hydra.Paddle right = 1;
   bool has_right() const;
   void clear_right();
   static const int kRightFieldNumber = 1;
-  const ::experimot::msgs::Hydra_Paddle& right() const;
-  ::experimot::msgs::Hydra_Paddle* mutable_right();
-  ::experimot::msgs::Hydra_Paddle* release_right();
-  void set_allocated_right(::experimot::msgs::Hydra_Paddle* right);
+  const ::Indriya::Core::Msgs::Hydra_Paddle& right() const;
+  ::Indriya::Core::Msgs::Hydra_Paddle* mutable_right();
+  ::Indriya::Core::Msgs::Hydra_Paddle* release_right();
+  void set_allocated_right(::Indriya::Core::Msgs::Hydra_Paddle* right);
 
-  // required .experimot.msgs.Hydra.Paddle left = 2;
+  // required .Indriya.Core.Msgs.Hydra.Paddle left = 2;
   bool has_left() const;
   void clear_left();
   static const int kLeftFieldNumber = 2;
-  const ::experimot::msgs::Hydra_Paddle& left() const;
-  ::experimot::msgs::Hydra_Paddle* mutable_left();
-  ::experimot::msgs::Hydra_Paddle* release_left();
-  void set_allocated_left(::experimot::msgs::Hydra_Paddle* left);
+  const ::Indriya::Core::Msgs::Hydra_Paddle& left() const;
+  ::Indriya::Core::Msgs::Hydra_Paddle* mutable_left();
+  ::Indriya::Core::Msgs::Hydra_Paddle* release_left();
+  void set_allocated_left(::Indriya::Core::Msgs::Hydra_Paddle* left);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Hydra)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Hydra)
  private:
   inline void set_has_right();
   inline void clear_has_right();
@@ -336,8 +337,8 @@ class Hydra : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::Hydra_Paddle* right_;
-  ::experimot::msgs::Hydra_Paddle* left_;
+  ::Indriya::Core::Msgs::Hydra_Paddle* right_;
+  ::Indriya::Core::Msgs::Hydra_Paddle* left_;
   friend void  protobuf_AddDesc_hydra_2eproto();
   friend void protobuf_AssignDesc_hydra_2eproto();
   friend void protobuf_ShutdownFile_hydra_2eproto();
@@ -353,7 +354,7 @@ class Hydra : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // Hydra_Paddle
 
-// required .experimot.msgs.Pose pose = 1;
+// required .Indriya.Core.Msgs.Pose pose = 1;
 inline bool Hydra_Paddle::has_pose() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -364,28 +365,28 @@ inline void Hydra_Paddle::clear_has_pose() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void Hydra_Paddle::clear_pose() {
-  if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+  if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
   clear_has_pose();
 }
-inline const ::experimot::msgs::Pose& Hydra_Paddle::pose() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Hydra.Paddle.pose)
+inline const ::Indriya::Core::Msgs::Pose& Hydra_Paddle::pose() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Hydra.Paddle.pose)
   return pose_ != NULL ? *pose_ : *default_instance_->pose_;
 }
-inline ::experimot::msgs::Pose* Hydra_Paddle::mutable_pose() {
+inline ::Indriya::Core::Msgs::Pose* Hydra_Paddle::mutable_pose() {
   set_has_pose();
   if (pose_ == NULL) {
-    pose_ = new ::experimot::msgs::Pose;
+    pose_ = new ::Indriya::Core::Msgs::Pose;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Hydra.Paddle.pose)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Hydra.Paddle.pose)
   return pose_;
 }
-inline ::experimot::msgs::Pose* Hydra_Paddle::release_pose() {
+inline ::Indriya::Core::Msgs::Pose* Hydra_Paddle::release_pose() {
   clear_has_pose();
-  ::experimot::msgs::Pose* temp = pose_;
+  ::Indriya::Core::Msgs::Pose* temp = pose_;
   pose_ = NULL;
   return temp;
 }
-inline void Hydra_Paddle::set_allocated_pose(::experimot::msgs::Pose* pose) {
+inline void Hydra_Paddle::set_allocated_pose(::Indriya::Core::Msgs::Pose* pose) {
   delete pose_;
   pose_ = pose;
   if (pose) {
@@ -393,7 +394,7 @@ inline void Hydra_Paddle::set_allocated_pose(::experimot::msgs::Pose* pose) {
   } else {
     clear_has_pose();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Hydra.Paddle.pose)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Hydra.Paddle.pose)
 }
 
 // required bool button_bumper = 2;
@@ -411,13 +412,13 @@ inline void Hydra_Paddle::clear_button_bumper() {
   clear_has_button_bumper();
 }
 inline bool Hydra_Paddle::button_bumper() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Hydra.Paddle.button_bumper)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Hydra.Paddle.button_bumper)
   return button_bumper_;
 }
 inline void Hydra_Paddle::set_button_bumper(bool value) {
   set_has_button_bumper();
   button_bumper_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Hydra.Paddle.button_bumper)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Hydra.Paddle.button_bumper)
 }
 
 // required bool button_1 = 3;
@@ -435,13 +436,13 @@ inline void Hydra_Paddle::clear_button_1() {
   clear_has_button_1();
 }
 inline bool Hydra_Paddle::button_1() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Hydra.Paddle.button_1)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Hydra.Paddle.button_1)
   return button_1_;
 }
 inline void Hydra_Paddle::set_button_1(bool value) {
   set_has_button_1();
   button_1_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Hydra.Paddle.button_1)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Hydra.Paddle.button_1)
 }
 
 // required bool button_2 = 4;
@@ -459,13 +460,13 @@ inline void Hydra_Paddle::clear_button_2() {
   clear_has_button_2();
 }
 inline bool Hydra_Paddle::button_2() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Hydra.Paddle.button_2)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Hydra.Paddle.button_2)
   return button_2_;
 }
 inline void Hydra_Paddle::set_button_2(bool value) {
   set_has_button_2();
   button_2_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Hydra.Paddle.button_2)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Hydra.Paddle.button_2)
 }
 
 // required bool button_3 = 5;
@@ -483,13 +484,13 @@ inline void Hydra_Paddle::clear_button_3() {
   clear_has_button_3();
 }
 inline bool Hydra_Paddle::button_3() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Hydra.Paddle.button_3)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Hydra.Paddle.button_3)
   return button_3_;
 }
 inline void Hydra_Paddle::set_button_3(bool value) {
   set_has_button_3();
   button_3_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Hydra.Paddle.button_3)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Hydra.Paddle.button_3)
 }
 
 // required bool button_4 = 6;
@@ -507,13 +508,13 @@ inline void Hydra_Paddle::clear_button_4() {
   clear_has_button_4();
 }
 inline bool Hydra_Paddle::button_4() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Hydra.Paddle.button_4)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Hydra.Paddle.button_4)
   return button_4_;
 }
 inline void Hydra_Paddle::set_button_4(bool value) {
   set_has_button_4();
   button_4_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Hydra.Paddle.button_4)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Hydra.Paddle.button_4)
 }
 
 // required bool button_joy = 7;
@@ -531,13 +532,13 @@ inline void Hydra_Paddle::clear_button_joy() {
   clear_has_button_joy();
 }
 inline bool Hydra_Paddle::button_joy() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Hydra.Paddle.button_joy)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Hydra.Paddle.button_joy)
   return button_joy_;
 }
 inline void Hydra_Paddle::set_button_joy(bool value) {
   set_has_button_joy();
   button_joy_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Hydra.Paddle.button_joy)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Hydra.Paddle.button_joy)
 }
 
 // required bool button_center = 8;
@@ -555,13 +556,13 @@ inline void Hydra_Paddle::clear_button_center() {
   clear_has_button_center();
 }
 inline bool Hydra_Paddle::button_center() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Hydra.Paddle.button_center)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Hydra.Paddle.button_center)
   return button_center_;
 }
 inline void Hydra_Paddle::set_button_center(bool value) {
   set_has_button_center();
   button_center_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Hydra.Paddle.button_center)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Hydra.Paddle.button_center)
 }
 
 // required double joy_x = 9;
@@ -579,13 +580,13 @@ inline void Hydra_Paddle::clear_joy_x() {
   clear_has_joy_x();
 }
 inline double Hydra_Paddle::joy_x() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Hydra.Paddle.joy_x)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Hydra.Paddle.joy_x)
   return joy_x_;
 }
 inline void Hydra_Paddle::set_joy_x(double value) {
   set_has_joy_x();
   joy_x_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Hydra.Paddle.joy_x)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Hydra.Paddle.joy_x)
 }
 
 // required double joy_y = 10;
@@ -603,13 +604,13 @@ inline void Hydra_Paddle::clear_joy_y() {
   clear_has_joy_y();
 }
 inline double Hydra_Paddle::joy_y() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Hydra.Paddle.joy_y)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Hydra.Paddle.joy_y)
   return joy_y_;
 }
 inline void Hydra_Paddle::set_joy_y(double value) {
   set_has_joy_y();
   joy_y_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Hydra.Paddle.joy_y)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Hydra.Paddle.joy_y)
 }
 
 // required double trigger = 11;
@@ -627,20 +628,20 @@ inline void Hydra_Paddle::clear_trigger() {
   clear_has_trigger();
 }
 inline double Hydra_Paddle::trigger() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Hydra.Paddle.trigger)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Hydra.Paddle.trigger)
   return trigger_;
 }
 inline void Hydra_Paddle::set_trigger(double value) {
   set_has_trigger();
   trigger_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Hydra.Paddle.trigger)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Hydra.Paddle.trigger)
 }
 
 // -------------------------------------------------------------------
 
 // Hydra
 
-// required .experimot.msgs.Hydra.Paddle right = 1;
+// required .Indriya.Core.Msgs.Hydra.Paddle right = 1;
 inline bool Hydra::has_right() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -651,28 +652,28 @@ inline void Hydra::clear_has_right() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void Hydra::clear_right() {
-  if (right_ != NULL) right_->::experimot::msgs::Hydra_Paddle::Clear();
+  if (right_ != NULL) right_->::Indriya::Core::Msgs::Hydra_Paddle::Clear();
   clear_has_right();
 }
-inline const ::experimot::msgs::Hydra_Paddle& Hydra::right() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Hydra.right)
+inline const ::Indriya::Core::Msgs::Hydra_Paddle& Hydra::right() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Hydra.right)
   return right_ != NULL ? *right_ : *default_instance_->right_;
 }
-inline ::experimot::msgs::Hydra_Paddle* Hydra::mutable_right() {
+inline ::Indriya::Core::Msgs::Hydra_Paddle* Hydra::mutable_right() {
   set_has_right();
   if (right_ == NULL) {
-    right_ = new ::experimot::msgs::Hydra_Paddle;
+    right_ = new ::Indriya::Core::Msgs::Hydra_Paddle;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Hydra.right)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Hydra.right)
   return right_;
 }
-inline ::experimot::msgs::Hydra_Paddle* Hydra::release_right() {
+inline ::Indriya::Core::Msgs::Hydra_Paddle* Hydra::release_right() {
   clear_has_right();
-  ::experimot::msgs::Hydra_Paddle* temp = right_;
+  ::Indriya::Core::Msgs::Hydra_Paddle* temp = right_;
   right_ = NULL;
   return temp;
 }
-inline void Hydra::set_allocated_right(::experimot::msgs::Hydra_Paddle* right) {
+inline void Hydra::set_allocated_right(::Indriya::Core::Msgs::Hydra_Paddle* right) {
   delete right_;
   right_ = right;
   if (right) {
@@ -680,10 +681,10 @@ inline void Hydra::set_allocated_right(::experimot::msgs::Hydra_Paddle* right) {
   } else {
     clear_has_right();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Hydra.right)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Hydra.right)
 }
 
-// required .experimot.msgs.Hydra.Paddle left = 2;
+// required .Indriya.Core.Msgs.Hydra.Paddle left = 2;
 inline bool Hydra::has_left() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -694,28 +695,28 @@ inline void Hydra::clear_has_left() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void Hydra::clear_left() {
-  if (left_ != NULL) left_->::experimot::msgs::Hydra_Paddle::Clear();
+  if (left_ != NULL) left_->::Indriya::Core::Msgs::Hydra_Paddle::Clear();
   clear_has_left();
 }
-inline const ::experimot::msgs::Hydra_Paddle& Hydra::left() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Hydra.left)
+inline const ::Indriya::Core::Msgs::Hydra_Paddle& Hydra::left() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Hydra.left)
   return left_ != NULL ? *left_ : *default_instance_->left_;
 }
-inline ::experimot::msgs::Hydra_Paddle* Hydra::mutable_left() {
+inline ::Indriya::Core::Msgs::Hydra_Paddle* Hydra::mutable_left() {
   set_has_left();
   if (left_ == NULL) {
-    left_ = new ::experimot::msgs::Hydra_Paddle;
+    left_ = new ::Indriya::Core::Msgs::Hydra_Paddle;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Hydra.left)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Hydra.left)
   return left_;
 }
-inline ::experimot::msgs::Hydra_Paddle* Hydra::release_left() {
+inline ::Indriya::Core::Msgs::Hydra_Paddle* Hydra::release_left() {
   clear_has_left();
-  ::experimot::msgs::Hydra_Paddle* temp = left_;
+  ::Indriya::Core::Msgs::Hydra_Paddle* temp = left_;
   left_ = NULL;
   return temp;
 }
-inline void Hydra::set_allocated_left(::experimot::msgs::Hydra_Paddle* left) {
+inline void Hydra::set_allocated_left(::Indriya::Core::Msgs::Hydra_Paddle* left) {
   delete left_;
   left_ = left;
   if (left) {
@@ -723,18 +724,19 @@ inline void Hydra::set_allocated_left(::experimot::msgs::Hydra_Paddle* left) {
   } else {
     clear_has_left();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Hydra.left)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Hydra.left)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Hydra> HydraPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Hydra> HydraPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Hydra const> ConstHydraPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Hydra const> ConstHydraPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_hydra_2eproto__INCLUDED

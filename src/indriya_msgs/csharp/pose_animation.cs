@@ -10,7 +10,7 @@
 // Generated from: proto/pose_animation.proto
 // Note: requires additional types generated from: pose.proto
 // Note: requires additional types generated from: time.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"PoseAnimation")]
   public partial class PoseAnimation : global::ProtoBuf.IExtensible
@@ -32,16 +32,16 @@ namespace experimot.msgs
       get { return _model_id; }
       set { _model_id = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Pose> _pose = new global::System.Collections.Generic.List<experimot.msgs.Pose>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Pose> _pose = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Pose>();
     [global::ProtoBuf.ProtoMember(3, Name=@"pose", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Pose> pose
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Pose> pose
     {
       get { return _pose; }
     }
   
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Time> _time = new global::System.Collections.Generic.List<experimot.msgs.Time>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Time> _time = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Time>();
     [global::ProtoBuf.ProtoMember(4, Name=@"time", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Time> time
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Time> time
     {
       get { return _time; }
     }

@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_response_2eproto();
@@ -162,7 +163,7 @@ class Response : public ::google::protobuf::Message {
   ::std::string* release_serialized_data();
   void set_allocated_serialized_data(::std::string* serialized_data);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Response)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Response)
  private:
   inline void set_has_id();
   inline void clear_has_id();
@@ -216,13 +217,13 @@ inline void Response::clear_id() {
   clear_has_id();
 }
 inline ::google::protobuf::int32 Response::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Response.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Response.id)
   return id_;
 }
 inline void Response::set_id(::google::protobuf::int32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Response.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Response.id)
 }
 
 // required string request = 2;
@@ -240,28 +241,28 @@ inline void Response::clear_request() {
   clear_has_request();
 }
 inline const ::std::string& Response::request() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Response.request)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Response.request)
   return request_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Response::set_request(const ::std::string& value) {
   set_has_request();
   request_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Response.request)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Response.request)
 }
 inline void Response::set_request(const char* value) {
   set_has_request();
   request_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Response.request)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Response.request)
 }
 inline void Response::set_request(const char* value, size_t size) {
   set_has_request();
   request_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Response.request)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Response.request)
 }
 inline ::std::string* Response::mutable_request() {
   set_has_request();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Response.request)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Response.request)
   return request_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Response::release_request() {
@@ -275,7 +276,7 @@ inline void Response::set_allocated_request(::std::string* request) {
     clear_has_request();
   }
   request_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), request);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Response.request)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Response.request)
 }
 
 // required string response = 3;
@@ -293,28 +294,28 @@ inline void Response::clear_response() {
   clear_has_response();
 }
 inline const ::std::string& Response::response() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Response.response)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Response.response)
   return response_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Response::set_response(const ::std::string& value) {
   set_has_response();
   response_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Response.response)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Response.response)
 }
 inline void Response::set_response(const char* value) {
   set_has_response();
   response_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Response.response)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Response.response)
 }
 inline void Response::set_response(const char* value, size_t size) {
   set_has_response();
   response_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Response.response)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Response.response)
 }
 inline ::std::string* Response::mutable_response() {
   set_has_response();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Response.response)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Response.response)
   return response_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Response::release_response() {
@@ -328,7 +329,7 @@ inline void Response::set_allocated_response(::std::string* response) {
     clear_has_response();
   }
   response_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), response);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Response.response)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Response.response)
 }
 
 // optional string type = 4;
@@ -346,28 +347,28 @@ inline void Response::clear_type() {
   clear_has_type();
 }
 inline const ::std::string& Response::type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Response.type)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Response.type)
   return type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Response::set_type(const ::std::string& value) {
   set_has_type();
   type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Response.type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Response.type)
 }
 inline void Response::set_type(const char* value) {
   set_has_type();
   type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Response.type)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Response.type)
 }
 inline void Response::set_type(const char* value, size_t size) {
   set_has_type();
   type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Response.type)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Response.type)
 }
 inline ::std::string* Response::mutable_type() {
   set_has_type();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Response.type)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Response.type)
   return type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Response::release_type() {
@@ -381,7 +382,7 @@ inline void Response::set_allocated_type(::std::string* type) {
     clear_has_type();
   }
   type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), type);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Response.type)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Response.type)
 }
 
 // optional bytes serialized_data = 5;
@@ -399,28 +400,28 @@ inline void Response::clear_serialized_data() {
   clear_has_serialized_data();
 }
 inline const ::std::string& Response::serialized_data() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Response.serialized_data)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Response.serialized_data)
   return serialized_data_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Response::set_serialized_data(const ::std::string& value) {
   set_has_serialized_data();
   serialized_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Response.serialized_data)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Response.serialized_data)
 }
 inline void Response::set_serialized_data(const char* value) {
   set_has_serialized_data();
   serialized_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Response.serialized_data)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Response.serialized_data)
 }
 inline void Response::set_serialized_data(const void* value, size_t size) {
   set_has_serialized_data();
   serialized_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Response.serialized_data)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Response.serialized_data)
 }
 inline ::std::string* Response::mutable_serialized_data() {
   set_has_serialized_data();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Response.serialized_data)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Response.serialized_data)
   return serialized_data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Response::release_serialized_data() {
@@ -434,18 +435,19 @@ inline void Response::set_allocated_serialized_data(::std::string* serialized_da
     clear_has_serialized_data();
   }
   serialized_data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), serialized_data);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Response.serialized_data)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Response.serialized_data)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Response> ResponsePtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Response> ResponsePtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Response const> ConstResponsePtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Response const> ConstResponsePtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_response_2eproto__INCLUDED

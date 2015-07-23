@@ -9,7 +9,7 @@
 
 // Generated from: proto/world_control.proto
 // Note: requires additional types generated from: world_reset.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"WorldControl")]
   public partial class WorldControl : global::ProtoBuf.IExtensible
@@ -40,10 +40,10 @@ namespace experimot.msgs
       get { return _multi_step; }
       set { _multi_step = value; }
     }
-    private experimot.msgs.WorldReset _reset = null;
+    private Indriya.Core.Msgs.WorldReset _reset = null;
     [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"reset", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.WorldReset reset
+    public Indriya.Core.Msgs.WorldReset reset
     {
       get { return _reset; }
       set { _reset = value; }

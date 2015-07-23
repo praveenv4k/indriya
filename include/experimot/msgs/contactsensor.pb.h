@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_contactsensor_2eproto();
@@ -119,7 +120,7 @@ class ContactSensor : public ::google::protobuf::Message {
   ::std::string* release_collision_name();
   void set_allocated_collision_name(::std::string* collision_name);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.ContactSensor)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.ContactSensor)
  private:
   inline void set_has_collision_name();
   inline void clear_has_collision_name();
@@ -158,28 +159,28 @@ inline void ContactSensor::clear_collision_name() {
   clear_has_collision_name();
 }
 inline const ::std::string& ContactSensor::collision_name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ContactSensor.collision_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ContactSensor.collision_name)
   return collision_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ContactSensor::set_collision_name(const ::std::string& value) {
   set_has_collision_name();
   collision_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.ContactSensor.collision_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.ContactSensor.collision_name)
 }
 inline void ContactSensor::set_collision_name(const char* value) {
   set_has_collision_name();
   collision_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.ContactSensor.collision_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.ContactSensor.collision_name)
 }
 inline void ContactSensor::set_collision_name(const char* value, size_t size) {
   set_has_collision_name();
   collision_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.ContactSensor.collision_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.ContactSensor.collision_name)
 }
 inline ::std::string* ContactSensor::mutable_collision_name() {
   set_has_collision_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.ContactSensor.collision_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.ContactSensor.collision_name)
   return collision_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ContactSensor::release_collision_name() {
@@ -193,18 +194,19 @@ inline void ContactSensor::set_allocated_collision_name(::std::string* collision
     clear_has_collision_name();
   }
   collision_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), collision_name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.ContactSensor.collision_name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.ContactSensor.collision_name)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::ContactSensor> ContactSensorPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::ContactSensor> ContactSensorPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::ContactSensor const> ConstContactSensorPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::ContactSensor const> ConstContactSensorPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_contactsensor_2eproto__INCLUDED

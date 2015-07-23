@@ -13,7 +13,7 @@ public:
 		b = (float)((hexValue)& 0xFF) / 255.0;        // Extract the BB byte
 	}
 
-	static void HexToRgb(int hexValue, experimot::msgs::Color& color){
+	static void HexToRgb(int hexValue, Indriya::Core::Msgs::Color& color){
 		float r, g, b;
 		HexToRgb(hexValue, r, g, b);
 		color.set_r(r);

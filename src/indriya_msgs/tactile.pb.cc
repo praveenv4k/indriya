@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -81,12 +82,12 @@ void protobuf_AddDesc_tactile_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_time_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_time_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rtactile.proto\022\016experimot.msgs\032\ntime.pr"
-    "oto\"m\n\007Tactile\022\026\n\016collision_name\030\001 \003(\t\022\024"
-    "\n\014collision_id\030\002 \003(\r\022\020\n\010pressure\030\003 \003(\001\022\""
-    "\n\004time\030\004 \002(\0132\024.experimot.msgs.Time", 154);
+    "\n\rtactile.proto\022\021Indriya.Core.Msgs\032\ntime"
+    ".proto\"p\n\007Tactile\022\026\n\016collision_name\030\001 \003("
+    "\t\022\024\n\014collision_id\030\002 \003(\r\022\020\n\010pressure\030\003 \003("
+    "\001\022%\n\004time\030\004 \002(\0132\027.Indriya.Core.Msgs.Time", 160);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "tactile.proto", &protobuf_RegisterTypes);
   Tactile::default_instance_ = new Tactile();
@@ -123,11 +124,11 @@ const int Tactile::kTimeFieldNumber;
 Tactile::Tactile()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Tactile)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Tactile)
 }
 
 void Tactile::InitAsDefaultInstance() {
-  time_ = const_cast< ::experimot::msgs::Time*>(&::experimot::msgs::Time::default_instance());
+  time_ = const_cast< ::Indriya::Core::Msgs::Time*>(&::Indriya::Core::Msgs::Time::default_instance());
 }
 
 Tactile::Tactile(const Tactile& from)
@@ -135,7 +136,7 @@ Tactile::Tactile(const Tactile& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Tactile)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Tactile)
 }
 
 void Tactile::SharedCtor() {
@@ -146,7 +147,7 @@ void Tactile::SharedCtor() {
 }
 
 Tactile::~Tactile() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Tactile)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Tactile)
   SharedDtor();
 }
 
@@ -183,7 +184,7 @@ Tactile* Tactile::New(::google::protobuf::Arena* arena) const {
 
 void Tactile::Clear() {
   if (has_time()) {
-    if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+    if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
   }
   collision_name_.Clear();
   collision_id_.Clear();
@@ -198,7 +199,7 @@ bool Tactile::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Tactile)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Tactile)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -214,7 +215,7 @@ bool Tactile::MergePartialFromCodedStream(
             this->collision_name(this->collision_name_size() - 1).data(),
             this->collision_name(this->collision_name_size() - 1).length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Tactile.collision_name");
+            "Indriya.Core.Msgs.Tactile.collision_name");
         } else {
           goto handle_unusual;
         }
@@ -261,7 +262,7 @@ bool Tactile::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Time time = 4;
+      // required .Indriya.Core.Msgs.Time time = 4;
       case 4: {
         if (tag == 34) {
          parse_time:
@@ -288,23 +289,23 @@ bool Tactile::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Tactile)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Tactile)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Tactile)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Tactile)
   return false;
 #undef DO_
 }
 
 void Tactile::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Tactile)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Tactile)
   // repeated string collision_name = 1;
   for (int i = 0; i < this->collision_name_size(); i++) {
   ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
     this->collision_name(i).data(), this->collision_name(i).length(),
     ::google::protobuf::internal::WireFormat::SERIALIZE,
-    "experimot.msgs.Tactile.collision_name");
+    "Indriya.Core.Msgs.Tactile.collision_name");
     ::google::protobuf::internal::WireFormatLite::WriteString(
       1, this->collision_name(i), output);
   }
@@ -321,7 +322,7 @@ void Tactile::SerializeWithCachedSizes(
       3, this->pressure(i), output);
   }
 
-  // required .experimot.msgs.Time time = 4;
+  // required .Indriya.Core.Msgs.Time time = 4;
   if (has_time()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, *this->time_, output);
@@ -331,18 +332,18 @@ void Tactile::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Tactile)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Tactile)
 }
 
 ::google::protobuf::uint8* Tactile::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Tactile)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Tactile)
   // repeated string collision_name = 1;
   for (int i = 0; i < this->collision_name_size(); i++) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->collision_name(i).data(), this->collision_name(i).length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Tactile.collision_name");
+      "Indriya.Core.Msgs.Tactile.collision_name");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(1, this->collision_name(i), target);
   }
@@ -359,7 +360,7 @@ void Tactile::SerializeWithCachedSizes(
       WriteDoubleToArray(3, this->pressure(i), target);
   }
 
-  // required .experimot.msgs.Time time = 4;
+  // required .Indriya.Core.Msgs.Time time = 4;
   if (has_time()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -370,14 +371,14 @@ void Tactile::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Tactile)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Tactile)
   return target;
 }
 
 int Tactile::ByteSize() const {
   int total_size = 0;
 
-  // required .experimot.msgs.Time time = 4;
+  // required .Indriya.Core.Msgs.Time time = 4;
   if (has_time()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -437,7 +438,7 @@ void Tactile::MergeFrom(const Tactile& from) {
   pressure_.MergeFrom(from.pressure_);
   if (from._has_bits_[3 / 32] & (0xffu << (3 % 32))) {
     if (from.has_time()) {
-      mutable_time()->::experimot::msgs::Time::MergeFrom(from.time());
+      mutable_time()->::Indriya::Core::Msgs::Time::MergeFrom(from.time());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -499,49 +500,49 @@ void Tactile::InternalSwap(Tactile* other) {
   collision_name_.Clear();
 }
  const ::std::string& Tactile::collision_name(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Tactile.collision_name)
   return collision_name_.Get(index);
 }
  ::std::string* Tactile::mutable_collision_name(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Tactile.collision_name)
   return collision_name_.Mutable(index);
 }
  void Tactile::set_collision_name(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Tactile.collision_name)
   collision_name_.Mutable(index)->assign(value);
 }
  void Tactile::set_collision_name(int index, const char* value) {
   collision_name_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Tactile.collision_name)
 }
  void Tactile::set_collision_name(int index, const char* value, size_t size) {
   collision_name_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Tactile.collision_name)
 }
  ::std::string* Tactile::add_collision_name() {
   return collision_name_.Add();
 }
  void Tactile::add_collision_name(const ::std::string& value) {
   collision_name_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Tactile.collision_name)
 }
  void Tactile::add_collision_name(const char* value) {
   collision_name_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_add_char:Indriya.Core.Msgs.Tactile.collision_name)
 }
  void Tactile::add_collision_name(const char* value, size_t size) {
   collision_name_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_add_pointer:Indriya.Core.Msgs.Tactile.collision_name)
 }
  const ::google::protobuf::RepeatedPtrField< ::std::string>&
 Tactile::collision_name() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Tactile.collision_name)
   return collision_name_;
 }
  ::google::protobuf::RepeatedPtrField< ::std::string>*
 Tactile::mutable_collision_name() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Tactile.collision_name)
   return &collision_name_;
 }
 
@@ -553,25 +554,25 @@ Tactile::mutable_collision_name() {
   collision_id_.Clear();
 }
  ::google::protobuf::uint32 Tactile::collision_id(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Tactile.collision_id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Tactile.collision_id)
   return collision_id_.Get(index);
 }
  void Tactile::set_collision_id(int index, ::google::protobuf::uint32 value) {
   collision_id_.Set(index, value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Tactile.collision_id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Tactile.collision_id)
 }
  void Tactile::add_collision_id(::google::protobuf::uint32 value) {
   collision_id_.Add(value);
-  // @@protoc_insertion_point(field_add:experimot.msgs.Tactile.collision_id)
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Tactile.collision_id)
 }
  const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
 Tactile::collision_id() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Tactile.collision_id)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Tactile.collision_id)
   return collision_id_;
 }
  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
 Tactile::mutable_collision_id() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Tactile.collision_id)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Tactile.collision_id)
   return &collision_id_;
 }
 
@@ -583,29 +584,29 @@ Tactile::mutable_collision_id() {
   pressure_.Clear();
 }
  double Tactile::pressure(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Tactile.pressure)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Tactile.pressure)
   return pressure_.Get(index);
 }
  void Tactile::set_pressure(int index, double value) {
   pressure_.Set(index, value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Tactile.pressure)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Tactile.pressure)
 }
  void Tactile::add_pressure(double value) {
   pressure_.Add(value);
-  // @@protoc_insertion_point(field_add:experimot.msgs.Tactile.pressure)
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Tactile.pressure)
 }
  const ::google::protobuf::RepeatedField< double >&
 Tactile::pressure() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Tactile.pressure)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Tactile.pressure)
   return pressure_;
 }
  ::google::protobuf::RepeatedField< double >*
 Tactile::mutable_pressure() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Tactile.pressure)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Tactile.pressure)
   return &pressure_;
 }
 
-// required .experimot.msgs.Time time = 4;
+// required .Indriya.Core.Msgs.Time time = 4;
  bool Tactile::has_time() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -616,28 +617,28 @@ Tactile::mutable_pressure() {
   _has_bits_[0] &= ~0x00000008u;
 }
  void Tactile::clear_time() {
-  if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+  if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_time();
 }
- const ::experimot::msgs::Time& Tactile::time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Tactile.time)
+ const ::Indriya::Core::Msgs::Time& Tactile::time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Tactile.time)
   return time_ != NULL ? *time_ : *default_instance_->time_;
 }
- ::experimot::msgs::Time* Tactile::mutable_time() {
+ ::Indriya::Core::Msgs::Time* Tactile::mutable_time() {
   set_has_time();
   if (time_ == NULL) {
-    time_ = new ::experimot::msgs::Time;
+    time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Tactile.time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Tactile.time)
   return time_;
 }
- ::experimot::msgs::Time* Tactile::release_time() {
+ ::Indriya::Core::Msgs::Time* Tactile::release_time() {
   clear_has_time();
-  ::experimot::msgs::Time* temp = time_;
+  ::Indriya::Core::Msgs::Time* temp = time_;
   time_ = NULL;
   return temp;
 }
- void Tactile::set_allocated_time(::experimot::msgs::Time* time) {
+ void Tactile::set_allocated_time(::Indriya::Core::Msgs::Time* time) {
   delete time_;
   time_ = time;
   if (time) {
@@ -645,15 +646,16 @@ Tactile::mutable_pressure() {
   } else {
     clear_has_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Tactile.time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Tactile.time)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Tactile", Tactile)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Tactile", Tactile)
 // @@protoc_insertion_point(global_scope)

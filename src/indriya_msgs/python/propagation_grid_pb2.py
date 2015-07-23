@@ -18,9 +18,9 @@ import propagation_particle_pb2 as propagation__particle__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='propagation_grid.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x16propagation_grid.proto\x12\x0e\x65xperimot.msgs\x1a\x1apropagation_particle.proto\"H\n\x0fPropagationGrid\x12\x35\n\x08particle\x18\x01 \x03(\x0b\x32#.experimot.msgs.PropagationParticle')
+  serialized_pb=_b('\n\x16propagation_grid.proto\x12\x11Indriya.Core.Msgs\x1a\x1apropagation_particle.proto\"K\n\x0fPropagationGrid\x12\x38\n\x08particle\x18\x01 \x03(\x0b\x32&.Indriya.Core.Msgs.PropagationParticle')
   ,
   dependencies=[propagation__particle__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,13 +30,13 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _PROPAGATIONGRID = _descriptor.Descriptor(
   name='PropagationGrid',
-  full_name='experimot.msgs.PropagationGrid',
+  full_name='Indriya.Core.Msgs.PropagationGrid',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='particle', full_name='experimot.msgs.PropagationGrid.particle', index=0,
+      name='particle', full_name='Indriya.Core.Msgs.PropagationGrid.particle', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -54,8 +54,8 @@ _PROPAGATIONGRID = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=70,
-  serialized_end=142,
+  serialized_start=73,
+  serialized_end=148,
 )
 
 _PROPAGATIONGRID.fields_by_name['particle'].message_type = propagation__particle__pb2._PROPAGATIONPARTICLE
@@ -64,7 +64,7 @@ DESCRIPTOR.message_types_by_name['PropagationGrid'] = _PROPAGATIONGRID
 PropagationGrid = _reflection.GeneratedProtocolMessageType('PropagationGrid', (_message.Message,), dict(
   DESCRIPTOR = _PROPAGATIONGRID,
   __module__ = 'propagation_grid_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.PropagationGrid)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.PropagationGrid)
   ))
 _sym_db.RegisterMessage(PropagationGrid)
 

@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_laserscan_5fstamped_2eproto();
@@ -109,25 +110,25 @@ class LaserScanStamped : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .experimot.msgs.Time time = 1;
+  // required .Indriya.Core.Msgs.Time time = 1;
   bool has_time() const;
   void clear_time();
   static const int kTimeFieldNumber = 1;
-  const ::experimot::msgs::Time& time() const;
-  ::experimot::msgs::Time* mutable_time();
-  ::experimot::msgs::Time* release_time();
-  void set_allocated_time(::experimot::msgs::Time* time);
+  const ::Indriya::Core::Msgs::Time& time() const;
+  ::Indriya::Core::Msgs::Time* mutable_time();
+  ::Indriya::Core::Msgs::Time* release_time();
+  void set_allocated_time(::Indriya::Core::Msgs::Time* time);
 
-  // required .experimot.msgs.LaserScan scan = 2;
+  // required .Indriya.Core.Msgs.LaserScan scan = 2;
   bool has_scan() const;
   void clear_scan();
   static const int kScanFieldNumber = 2;
-  const ::experimot::msgs::LaserScan& scan() const;
-  ::experimot::msgs::LaserScan* mutable_scan();
-  ::experimot::msgs::LaserScan* release_scan();
-  void set_allocated_scan(::experimot::msgs::LaserScan* scan);
+  const ::Indriya::Core::Msgs::LaserScan& scan() const;
+  ::Indriya::Core::Msgs::LaserScan* mutable_scan();
+  ::Indriya::Core::Msgs::LaserScan* release_scan();
+  void set_allocated_scan(::Indriya::Core::Msgs::LaserScan* scan);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.LaserScanStamped)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.LaserScanStamped)
  private:
   inline void set_has_time();
   inline void clear_has_time();
@@ -140,8 +141,8 @@ class LaserScanStamped : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::Time* time_;
-  ::experimot::msgs::LaserScan* scan_;
+  ::Indriya::Core::Msgs::Time* time_;
+  ::Indriya::Core::Msgs::LaserScan* scan_;
   friend void  protobuf_AddDesc_laserscan_5fstamped_2eproto();
   friend void protobuf_AssignDesc_laserscan_5fstamped_2eproto();
   friend void protobuf_ShutdownFile_laserscan_5fstamped_2eproto();
@@ -157,7 +158,7 @@ class LaserScanStamped : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // LaserScanStamped
 
-// required .experimot.msgs.Time time = 1;
+// required .Indriya.Core.Msgs.Time time = 1;
 inline bool LaserScanStamped::has_time() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -168,28 +169,28 @@ inline void LaserScanStamped::clear_has_time() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void LaserScanStamped::clear_time() {
-  if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+  if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_time();
 }
-inline const ::experimot::msgs::Time& LaserScanStamped::time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LaserScanStamped.time)
+inline const ::Indriya::Core::Msgs::Time& LaserScanStamped::time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LaserScanStamped.time)
   return time_ != NULL ? *time_ : *default_instance_->time_;
 }
-inline ::experimot::msgs::Time* LaserScanStamped::mutable_time() {
+inline ::Indriya::Core::Msgs::Time* LaserScanStamped::mutable_time() {
   set_has_time();
   if (time_ == NULL) {
-    time_ = new ::experimot::msgs::Time;
+    time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LaserScanStamped.time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LaserScanStamped.time)
   return time_;
 }
-inline ::experimot::msgs::Time* LaserScanStamped::release_time() {
+inline ::Indriya::Core::Msgs::Time* LaserScanStamped::release_time() {
   clear_has_time();
-  ::experimot::msgs::Time* temp = time_;
+  ::Indriya::Core::Msgs::Time* temp = time_;
   time_ = NULL;
   return temp;
 }
-inline void LaserScanStamped::set_allocated_time(::experimot::msgs::Time* time) {
+inline void LaserScanStamped::set_allocated_time(::Indriya::Core::Msgs::Time* time) {
   delete time_;
   time_ = time;
   if (time) {
@@ -197,10 +198,10 @@ inline void LaserScanStamped::set_allocated_time(::experimot::msgs::Time* time) 
   } else {
     clear_has_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LaserScanStamped.time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LaserScanStamped.time)
 }
 
-// required .experimot.msgs.LaserScan scan = 2;
+// required .Indriya.Core.Msgs.LaserScan scan = 2;
 inline bool LaserScanStamped::has_scan() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -211,28 +212,28 @@ inline void LaserScanStamped::clear_has_scan() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void LaserScanStamped::clear_scan() {
-  if (scan_ != NULL) scan_->::experimot::msgs::LaserScan::Clear();
+  if (scan_ != NULL) scan_->::Indriya::Core::Msgs::LaserScan::Clear();
   clear_has_scan();
 }
-inline const ::experimot::msgs::LaserScan& LaserScanStamped::scan() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LaserScanStamped.scan)
+inline const ::Indriya::Core::Msgs::LaserScan& LaserScanStamped::scan() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LaserScanStamped.scan)
   return scan_ != NULL ? *scan_ : *default_instance_->scan_;
 }
-inline ::experimot::msgs::LaserScan* LaserScanStamped::mutable_scan() {
+inline ::Indriya::Core::Msgs::LaserScan* LaserScanStamped::mutable_scan() {
   set_has_scan();
   if (scan_ == NULL) {
-    scan_ = new ::experimot::msgs::LaserScan;
+    scan_ = new ::Indriya::Core::Msgs::LaserScan;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LaserScanStamped.scan)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LaserScanStamped.scan)
   return scan_;
 }
-inline ::experimot::msgs::LaserScan* LaserScanStamped::release_scan() {
+inline ::Indriya::Core::Msgs::LaserScan* LaserScanStamped::release_scan() {
   clear_has_scan();
-  ::experimot::msgs::LaserScan* temp = scan_;
+  ::Indriya::Core::Msgs::LaserScan* temp = scan_;
   scan_ = NULL;
   return temp;
 }
-inline void LaserScanStamped::set_allocated_scan(::experimot::msgs::LaserScan* scan) {
+inline void LaserScanStamped::set_allocated_scan(::Indriya::Core::Msgs::LaserScan* scan) {
   delete scan_;
   scan_ = scan;
   if (scan) {
@@ -240,18 +241,19 @@ inline void LaserScanStamped::set_allocated_scan(::experimot::msgs::LaserScan* s
   } else {
     clear_has_scan();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LaserScanStamped.scan)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LaserScanStamped.scan)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::LaserScanStamped> LaserScanStampedPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::LaserScanStamped> LaserScanStampedPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::LaserScanStamped const> ConstLaserScanStampedPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::LaserScanStamped const> ConstLaserScanStampedPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_laserscan_5fstamped_2eproto__INCLUDED

@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_friction_2eproto();
@@ -122,14 +123,14 @@ class Friction : public ::google::protobuf::Message {
   double mu2() const;
   void set_mu2(double value);
 
-  // optional .experimot.msgs.Vector3d fdir1 = 3;
+  // optional .Indriya.Core.Msgs.Vector3d fdir1 = 3;
   bool has_fdir1() const;
   void clear_fdir1();
   static const int kFdir1FieldNumber = 3;
-  const ::experimot::msgs::Vector3d& fdir1() const;
-  ::experimot::msgs::Vector3d* mutable_fdir1();
-  ::experimot::msgs::Vector3d* release_fdir1();
-  void set_allocated_fdir1(::experimot::msgs::Vector3d* fdir1);
+  const ::Indriya::Core::Msgs::Vector3d& fdir1() const;
+  ::Indriya::Core::Msgs::Vector3d* mutable_fdir1();
+  ::Indriya::Core::Msgs::Vector3d* release_fdir1();
+  void set_allocated_fdir1(::Indriya::Core::Msgs::Vector3d* fdir1);
 
   // optional double slip1 = 4;
   bool has_slip1() const;
@@ -145,7 +146,7 @@ class Friction : public ::google::protobuf::Message {
   double slip2() const;
   void set_slip2(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Friction)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Friction)
  private:
   inline void set_has_mu();
   inline void clear_has_mu();
@@ -163,7 +164,7 @@ class Friction : public ::google::protobuf::Message {
   mutable int _cached_size_;
   double mu_;
   double mu2_;
-  ::experimot::msgs::Vector3d* fdir1_;
+  ::Indriya::Core::Msgs::Vector3d* fdir1_;
   double slip1_;
   double slip2_;
   friend void  protobuf_AddDesc_friction_2eproto();
@@ -196,13 +197,13 @@ inline void Friction::clear_mu() {
   clear_has_mu();
 }
 inline double Friction::mu() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Friction.mu)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Friction.mu)
   return mu_;
 }
 inline void Friction::set_mu(double value) {
   set_has_mu();
   mu_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Friction.mu)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Friction.mu)
 }
 
 // optional double mu2 = 2;
@@ -220,16 +221,16 @@ inline void Friction::clear_mu2() {
   clear_has_mu2();
 }
 inline double Friction::mu2() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Friction.mu2)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Friction.mu2)
   return mu2_;
 }
 inline void Friction::set_mu2(double value) {
   set_has_mu2();
   mu2_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Friction.mu2)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Friction.mu2)
 }
 
-// optional .experimot.msgs.Vector3d fdir1 = 3;
+// optional .Indriya.Core.Msgs.Vector3d fdir1 = 3;
 inline bool Friction::has_fdir1() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -240,28 +241,28 @@ inline void Friction::clear_has_fdir1() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void Friction::clear_fdir1() {
-  if (fdir1_ != NULL) fdir1_->::experimot::msgs::Vector3d::Clear();
+  if (fdir1_ != NULL) fdir1_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_fdir1();
 }
-inline const ::experimot::msgs::Vector3d& Friction::fdir1() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Friction.fdir1)
+inline const ::Indriya::Core::Msgs::Vector3d& Friction::fdir1() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Friction.fdir1)
   return fdir1_ != NULL ? *fdir1_ : *default_instance_->fdir1_;
 }
-inline ::experimot::msgs::Vector3d* Friction::mutable_fdir1() {
+inline ::Indriya::Core::Msgs::Vector3d* Friction::mutable_fdir1() {
   set_has_fdir1();
   if (fdir1_ == NULL) {
-    fdir1_ = new ::experimot::msgs::Vector3d;
+    fdir1_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Friction.fdir1)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Friction.fdir1)
   return fdir1_;
 }
-inline ::experimot::msgs::Vector3d* Friction::release_fdir1() {
+inline ::Indriya::Core::Msgs::Vector3d* Friction::release_fdir1() {
   clear_has_fdir1();
-  ::experimot::msgs::Vector3d* temp = fdir1_;
+  ::Indriya::Core::Msgs::Vector3d* temp = fdir1_;
   fdir1_ = NULL;
   return temp;
 }
-inline void Friction::set_allocated_fdir1(::experimot::msgs::Vector3d* fdir1) {
+inline void Friction::set_allocated_fdir1(::Indriya::Core::Msgs::Vector3d* fdir1) {
   delete fdir1_;
   fdir1_ = fdir1;
   if (fdir1) {
@@ -269,7 +270,7 @@ inline void Friction::set_allocated_fdir1(::experimot::msgs::Vector3d* fdir1) {
   } else {
     clear_has_fdir1();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Friction.fdir1)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Friction.fdir1)
 }
 
 // optional double slip1 = 4;
@@ -287,13 +288,13 @@ inline void Friction::clear_slip1() {
   clear_has_slip1();
 }
 inline double Friction::slip1() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Friction.slip1)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Friction.slip1)
   return slip1_;
 }
 inline void Friction::set_slip1(double value) {
   set_has_slip1();
   slip1_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Friction.slip1)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Friction.slip1)
 }
 
 // optional double slip2 = 5;
@@ -311,24 +312,25 @@ inline void Friction::clear_slip2() {
   clear_has_slip2();
 }
 inline double Friction::slip2() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Friction.slip2)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Friction.slip2)
   return slip2_;
 }
 inline void Friction::set_slip2(double value) {
   set_has_slip2();
   slip2_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Friction.slip2)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Friction.slip2)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Friction> FrictionPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Friction> FrictionPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Friction const> ConstFrictionPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Friction const> ConstFrictionPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_friction_2eproto__INCLUDED

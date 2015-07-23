@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_joint_5fwrench_5fstamped_2eproto();
@@ -109,28 +110,28 @@ class ForceTorque : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .experimot.msgs.JointWrench wrench = 1;
+  // repeated .Indriya.Core.Msgs.JointWrench wrench = 1;
   int wrench_size() const;
   void clear_wrench();
   static const int kWrenchFieldNumber = 1;
-  const ::experimot::msgs::JointWrench& wrench(int index) const;
-  ::experimot::msgs::JointWrench* mutable_wrench(int index);
-  ::experimot::msgs::JointWrench* add_wrench();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::JointWrench >&
+  const ::Indriya::Core::Msgs::JointWrench& wrench(int index) const;
+  ::Indriya::Core::Msgs::JointWrench* mutable_wrench(int index);
+  ::Indriya::Core::Msgs::JointWrench* add_wrench();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::JointWrench >&
       wrench() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::JointWrench >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::JointWrench >*
       mutable_wrench();
 
-  // required .experimot.msgs.Time time = 2;
+  // required .Indriya.Core.Msgs.Time time = 2;
   bool has_time() const;
   void clear_time();
   static const int kTimeFieldNumber = 2;
-  const ::experimot::msgs::Time& time() const;
-  ::experimot::msgs::Time* mutable_time();
-  ::experimot::msgs::Time* release_time();
-  void set_allocated_time(::experimot::msgs::Time* time);
+  const ::Indriya::Core::Msgs::Time& time() const;
+  ::Indriya::Core::Msgs::Time* mutable_time();
+  ::Indriya::Core::Msgs::Time* release_time();
+  void set_allocated_time(::Indriya::Core::Msgs::Time* time);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.ForceTorque)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.ForceTorque)
  private:
   inline void set_has_time();
   inline void clear_has_time();
@@ -138,8 +139,8 @@ class ForceTorque : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::JointWrench > wrench_;
-  ::experimot::msgs::Time* time_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::JointWrench > wrench_;
+  ::Indriya::Core::Msgs::Time* time_;
   friend void  protobuf_AddDesc_joint_5fwrench_5fstamped_2eproto();
   friend void protobuf_AssignDesc_joint_5fwrench_5fstamped_2eproto();
   friend void protobuf_ShutdownFile_joint_5fwrench_5fstamped_2eproto();
@@ -155,37 +156,37 @@ class ForceTorque : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // ForceTorque
 
-// repeated .experimot.msgs.JointWrench wrench = 1;
+// repeated .Indriya.Core.Msgs.JointWrench wrench = 1;
 inline int ForceTorque::wrench_size() const {
   return wrench_.size();
 }
 inline void ForceTorque::clear_wrench() {
   wrench_.Clear();
 }
-inline const ::experimot::msgs::JointWrench& ForceTorque::wrench(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ForceTorque.wrench)
+inline const ::Indriya::Core::Msgs::JointWrench& ForceTorque::wrench(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ForceTorque.wrench)
   return wrench_.Get(index);
 }
-inline ::experimot::msgs::JointWrench* ForceTorque::mutable_wrench(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.ForceTorque.wrench)
+inline ::Indriya::Core::Msgs::JointWrench* ForceTorque::mutable_wrench(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.ForceTorque.wrench)
   return wrench_.Mutable(index);
 }
-inline ::experimot::msgs::JointWrench* ForceTorque::add_wrench() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.ForceTorque.wrench)
+inline ::Indriya::Core::Msgs::JointWrench* ForceTorque::add_wrench() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.ForceTorque.wrench)
   return wrench_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::JointWrench >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::JointWrench >&
 ForceTorque::wrench() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.ForceTorque.wrench)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.ForceTorque.wrench)
   return wrench_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::JointWrench >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::JointWrench >*
 ForceTorque::mutable_wrench() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.ForceTorque.wrench)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.ForceTorque.wrench)
   return &wrench_;
 }
 
-// required .experimot.msgs.Time time = 2;
+// required .Indriya.Core.Msgs.Time time = 2;
 inline bool ForceTorque::has_time() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -196,28 +197,28 @@ inline void ForceTorque::clear_has_time() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void ForceTorque::clear_time() {
-  if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+  if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_time();
 }
-inline const ::experimot::msgs::Time& ForceTorque::time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ForceTorque.time)
+inline const ::Indriya::Core::Msgs::Time& ForceTorque::time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ForceTorque.time)
   return time_ != NULL ? *time_ : *default_instance_->time_;
 }
-inline ::experimot::msgs::Time* ForceTorque::mutable_time() {
+inline ::Indriya::Core::Msgs::Time* ForceTorque::mutable_time() {
   set_has_time();
   if (time_ == NULL) {
-    time_ = new ::experimot::msgs::Time;
+    time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.ForceTorque.time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.ForceTorque.time)
   return time_;
 }
-inline ::experimot::msgs::Time* ForceTorque::release_time() {
+inline ::Indriya::Core::Msgs::Time* ForceTorque::release_time() {
   clear_has_time();
-  ::experimot::msgs::Time* temp = time_;
+  ::Indriya::Core::Msgs::Time* temp = time_;
   time_ = NULL;
   return temp;
 }
-inline void ForceTorque::set_allocated_time(::experimot::msgs::Time* time) {
+inline void ForceTorque::set_allocated_time(::Indriya::Core::Msgs::Time* time) {
   delete time_;
   time_ = time;
   if (time) {
@@ -225,18 +226,19 @@ inline void ForceTorque::set_allocated_time(::experimot::msgs::Time* time) {
   } else {
     clear_has_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.ForceTorque.time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.ForceTorque.time)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::ForceTorque> ForceTorquePtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::ForceTorque> ForceTorquePtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::ForceTorque const> ConstForceTorquePtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::ForceTorque const> ConstForceTorquePtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_joint_5fwrench_5fstamped_2eproto__INCLUDED

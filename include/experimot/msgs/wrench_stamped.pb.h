@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_wrench_5fstamped_2eproto();
@@ -109,25 +110,25 @@ class WrenchStamped : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .experimot.msgs.Time time = 1;
+  // required .Indriya.Core.Msgs.Time time = 1;
   bool has_time() const;
   void clear_time();
   static const int kTimeFieldNumber = 1;
-  const ::experimot::msgs::Time& time() const;
-  ::experimot::msgs::Time* mutable_time();
-  ::experimot::msgs::Time* release_time();
-  void set_allocated_time(::experimot::msgs::Time* time);
+  const ::Indriya::Core::Msgs::Time& time() const;
+  ::Indriya::Core::Msgs::Time* mutable_time();
+  ::Indriya::Core::Msgs::Time* release_time();
+  void set_allocated_time(::Indriya::Core::Msgs::Time* time);
 
-  // required .experimot.msgs.Wrench wrench = 2;
+  // required .Indriya.Core.Msgs.Wrench wrench = 2;
   bool has_wrench() const;
   void clear_wrench();
   static const int kWrenchFieldNumber = 2;
-  const ::experimot::msgs::Wrench& wrench() const;
-  ::experimot::msgs::Wrench* mutable_wrench();
-  ::experimot::msgs::Wrench* release_wrench();
-  void set_allocated_wrench(::experimot::msgs::Wrench* wrench);
+  const ::Indriya::Core::Msgs::Wrench& wrench() const;
+  ::Indriya::Core::Msgs::Wrench* mutable_wrench();
+  ::Indriya::Core::Msgs::Wrench* release_wrench();
+  void set_allocated_wrench(::Indriya::Core::Msgs::Wrench* wrench);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.WrenchStamped)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.WrenchStamped)
  private:
   inline void set_has_time();
   inline void clear_has_time();
@@ -140,8 +141,8 @@ class WrenchStamped : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::Time* time_;
-  ::experimot::msgs::Wrench* wrench_;
+  ::Indriya::Core::Msgs::Time* time_;
+  ::Indriya::Core::Msgs::Wrench* wrench_;
   friend void  protobuf_AddDesc_wrench_5fstamped_2eproto();
   friend void protobuf_AssignDesc_wrench_5fstamped_2eproto();
   friend void protobuf_ShutdownFile_wrench_5fstamped_2eproto();
@@ -157,7 +158,7 @@ class WrenchStamped : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // WrenchStamped
 
-// required .experimot.msgs.Time time = 1;
+// required .Indriya.Core.Msgs.Time time = 1;
 inline bool WrenchStamped::has_time() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -168,28 +169,28 @@ inline void WrenchStamped::clear_has_time() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void WrenchStamped::clear_time() {
-  if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+  if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_time();
 }
-inline const ::experimot::msgs::Time& WrenchStamped::time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WrenchStamped.time)
+inline const ::Indriya::Core::Msgs::Time& WrenchStamped::time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WrenchStamped.time)
   return time_ != NULL ? *time_ : *default_instance_->time_;
 }
-inline ::experimot::msgs::Time* WrenchStamped::mutable_time() {
+inline ::Indriya::Core::Msgs::Time* WrenchStamped::mutable_time() {
   set_has_time();
   if (time_ == NULL) {
-    time_ = new ::experimot::msgs::Time;
+    time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.WrenchStamped.time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.WrenchStamped.time)
   return time_;
 }
-inline ::experimot::msgs::Time* WrenchStamped::release_time() {
+inline ::Indriya::Core::Msgs::Time* WrenchStamped::release_time() {
   clear_has_time();
-  ::experimot::msgs::Time* temp = time_;
+  ::Indriya::Core::Msgs::Time* temp = time_;
   time_ = NULL;
   return temp;
 }
-inline void WrenchStamped::set_allocated_time(::experimot::msgs::Time* time) {
+inline void WrenchStamped::set_allocated_time(::Indriya::Core::Msgs::Time* time) {
   delete time_;
   time_ = time;
   if (time) {
@@ -197,10 +198,10 @@ inline void WrenchStamped::set_allocated_time(::experimot::msgs::Time* time) {
   } else {
     clear_has_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.WrenchStamped.time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.WrenchStamped.time)
 }
 
-// required .experimot.msgs.Wrench wrench = 2;
+// required .Indriya.Core.Msgs.Wrench wrench = 2;
 inline bool WrenchStamped::has_wrench() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -211,28 +212,28 @@ inline void WrenchStamped::clear_has_wrench() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void WrenchStamped::clear_wrench() {
-  if (wrench_ != NULL) wrench_->::experimot::msgs::Wrench::Clear();
+  if (wrench_ != NULL) wrench_->::Indriya::Core::Msgs::Wrench::Clear();
   clear_has_wrench();
 }
-inline const ::experimot::msgs::Wrench& WrenchStamped::wrench() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WrenchStamped.wrench)
+inline const ::Indriya::Core::Msgs::Wrench& WrenchStamped::wrench() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WrenchStamped.wrench)
   return wrench_ != NULL ? *wrench_ : *default_instance_->wrench_;
 }
-inline ::experimot::msgs::Wrench* WrenchStamped::mutable_wrench() {
+inline ::Indriya::Core::Msgs::Wrench* WrenchStamped::mutable_wrench() {
   set_has_wrench();
   if (wrench_ == NULL) {
-    wrench_ = new ::experimot::msgs::Wrench;
+    wrench_ = new ::Indriya::Core::Msgs::Wrench;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.WrenchStamped.wrench)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.WrenchStamped.wrench)
   return wrench_;
 }
-inline ::experimot::msgs::Wrench* WrenchStamped::release_wrench() {
+inline ::Indriya::Core::Msgs::Wrench* WrenchStamped::release_wrench() {
   clear_has_wrench();
-  ::experimot::msgs::Wrench* temp = wrench_;
+  ::Indriya::Core::Msgs::Wrench* temp = wrench_;
   wrench_ = NULL;
   return temp;
 }
-inline void WrenchStamped::set_allocated_wrench(::experimot::msgs::Wrench* wrench) {
+inline void WrenchStamped::set_allocated_wrench(::Indriya::Core::Msgs::Wrench* wrench) {
   delete wrench_;
   wrench_ = wrench;
   if (wrench) {
@@ -240,18 +241,19 @@ inline void WrenchStamped::set_allocated_wrench(::experimot::msgs::Wrench* wrenc
   } else {
     clear_has_wrench();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.WrenchStamped.wrench)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.WrenchStamped.wrench)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::WrenchStamped> WrenchStampedPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::WrenchStamped> WrenchStampedPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::WrenchStamped const> ConstWrenchStampedPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::WrenchStamped const> ConstWrenchStampedPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_wrench_5fstamped_2eproto__INCLUDED

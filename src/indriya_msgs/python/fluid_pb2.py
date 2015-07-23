@@ -18,9 +18,9 @@ import vector3d_pb2 as vector3d__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='fluid.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x0b\x66luid.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\"A\n\x05\x46luid\x12\x0c\n\x04name\x18\x01 \x02(\t\x12*\n\x08position\x18\x02 \x03(\x0b\x32\x18.experimot.msgs.Vector3d')
+  serialized_pb=_b('\n\x0b\x66luid.proto\x12\x11Indriya.Core.Msgs\x1a\x0evector3d.proto\"D\n\x05\x46luid\x12\x0c\n\x04name\x18\x01 \x02(\t\x12-\n\x08position\x18\x02 \x03(\x0b\x32\x1b.Indriya.Core.Msgs.Vector3d')
   ,
   dependencies=[vector3d__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,20 +30,20 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _FLUID = _descriptor.Descriptor(
   name='Fluid',
-  full_name='experimot.msgs.Fluid',
+  full_name='Indriya.Core.Msgs.Fluid',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='experimot.msgs.Fluid.name', index=0,
+      name='name', full_name='Indriya.Core.Msgs.Fluid.name', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='position', full_name='experimot.msgs.Fluid.position', index=1,
+      name='position', full_name='Indriya.Core.Msgs.Fluid.position', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -61,8 +61,8 @@ _FLUID = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=47,
-  serialized_end=112,
+  serialized_start=50,
+  serialized_end=118,
 )
 
 _FLUID.fields_by_name['position'].message_type = vector3d__pb2._VECTOR3D
@@ -71,7 +71,7 @@ DESCRIPTOR.message_types_by_name['Fluid'] = _FLUID
 Fluid = _reflection.GeneratedProtocolMessageType('Fluid', (_message.Message,), dict(
   DESCRIPTOR = _FLUID,
   __module__ = 'fluid_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Fluid)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Fluid)
   ))
 _sym_db.RegisterMessage(Fluid)
 

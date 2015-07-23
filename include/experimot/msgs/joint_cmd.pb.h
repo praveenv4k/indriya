@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_joint_5fcmd_2eproto();
@@ -134,23 +135,23 @@ class JointCmd : public ::google::protobuf::Message {
   double force() const;
   void set_force(double value);
 
-  // optional .experimot.msgs.PID position = 4;
+  // optional .Indriya.Core.Msgs.PID position = 4;
   bool has_position() const;
   void clear_position();
   static const int kPositionFieldNumber = 4;
-  const ::experimot::msgs::PID& position() const;
-  ::experimot::msgs::PID* mutable_position();
-  ::experimot::msgs::PID* release_position();
-  void set_allocated_position(::experimot::msgs::PID* position);
+  const ::Indriya::Core::Msgs::PID& position() const;
+  ::Indriya::Core::Msgs::PID* mutable_position();
+  ::Indriya::Core::Msgs::PID* release_position();
+  void set_allocated_position(::Indriya::Core::Msgs::PID* position);
 
-  // optional .experimot.msgs.PID velocity = 5;
+  // optional .Indriya.Core.Msgs.PID velocity = 5;
   bool has_velocity() const;
   void clear_velocity();
   static const int kVelocityFieldNumber = 5;
-  const ::experimot::msgs::PID& velocity() const;
-  ::experimot::msgs::PID* mutable_velocity();
-  ::experimot::msgs::PID* release_velocity();
-  void set_allocated_velocity(::experimot::msgs::PID* velocity);
+  const ::Indriya::Core::Msgs::PID& velocity() const;
+  ::Indriya::Core::Msgs::PID* mutable_velocity();
+  ::Indriya::Core::Msgs::PID* release_velocity();
+  void set_allocated_velocity(::Indriya::Core::Msgs::PID* velocity);
 
   // optional bool reset = 6;
   bool has_reset() const;
@@ -159,7 +160,7 @@ class JointCmd : public ::google::protobuf::Message {
   bool reset() const;
   void set_reset(bool value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.JointCmd)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.JointCmd)
  private:
   inline void set_has_name();
   inline void clear_has_name();
@@ -179,10 +180,10 @@ class JointCmd : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   double force_;
-  ::experimot::msgs::PID* position_;
+  ::Indriya::Core::Msgs::PID* position_;
   ::google::protobuf::int32 axis_;
   bool reset_;
-  ::experimot::msgs::PID* velocity_;
+  ::Indriya::Core::Msgs::PID* velocity_;
   friend void  protobuf_AddDesc_joint_5fcmd_2eproto();
   friend void protobuf_AssignDesc_joint_5fcmd_2eproto();
   friend void protobuf_ShutdownFile_joint_5fcmd_2eproto();
@@ -213,28 +214,28 @@ inline void JointCmd::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& JointCmd::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointCmd.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointCmd.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void JointCmd::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.JointCmd.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.JointCmd.name)
 }
 inline void JointCmd::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.JointCmd.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.JointCmd.name)
 }
 inline void JointCmd::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.JointCmd.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.JointCmd.name)
 }
 inline ::std::string* JointCmd::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.JointCmd.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.JointCmd.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* JointCmd::release_name() {
@@ -248,7 +249,7 @@ inline void JointCmd::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.JointCmd.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.JointCmd.name)
 }
 
 // optional int32 axis = 2 [default = 0];
@@ -266,13 +267,13 @@ inline void JointCmd::clear_axis() {
   clear_has_axis();
 }
 inline ::google::protobuf::int32 JointCmd::axis() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointCmd.axis)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointCmd.axis)
   return axis_;
 }
 inline void JointCmd::set_axis(::google::protobuf::int32 value) {
   set_has_axis();
   axis_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.JointCmd.axis)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.JointCmd.axis)
 }
 
 // optional double force = 3;
@@ -290,16 +291,16 @@ inline void JointCmd::clear_force() {
   clear_has_force();
 }
 inline double JointCmd::force() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointCmd.force)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointCmd.force)
   return force_;
 }
 inline void JointCmd::set_force(double value) {
   set_has_force();
   force_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.JointCmd.force)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.JointCmd.force)
 }
 
-// optional .experimot.msgs.PID position = 4;
+// optional .Indriya.Core.Msgs.PID position = 4;
 inline bool JointCmd::has_position() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -310,28 +311,28 @@ inline void JointCmd::clear_has_position() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void JointCmd::clear_position() {
-  if (position_ != NULL) position_->::experimot::msgs::PID::Clear();
+  if (position_ != NULL) position_->::Indriya::Core::Msgs::PID::Clear();
   clear_has_position();
 }
-inline const ::experimot::msgs::PID& JointCmd::position() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointCmd.position)
+inline const ::Indriya::Core::Msgs::PID& JointCmd::position() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointCmd.position)
   return position_ != NULL ? *position_ : *default_instance_->position_;
 }
-inline ::experimot::msgs::PID* JointCmd::mutable_position() {
+inline ::Indriya::Core::Msgs::PID* JointCmd::mutable_position() {
   set_has_position();
   if (position_ == NULL) {
-    position_ = new ::experimot::msgs::PID;
+    position_ = new ::Indriya::Core::Msgs::PID;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.JointCmd.position)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.JointCmd.position)
   return position_;
 }
-inline ::experimot::msgs::PID* JointCmd::release_position() {
+inline ::Indriya::Core::Msgs::PID* JointCmd::release_position() {
   clear_has_position();
-  ::experimot::msgs::PID* temp = position_;
+  ::Indriya::Core::Msgs::PID* temp = position_;
   position_ = NULL;
   return temp;
 }
-inline void JointCmd::set_allocated_position(::experimot::msgs::PID* position) {
+inline void JointCmd::set_allocated_position(::Indriya::Core::Msgs::PID* position) {
   delete position_;
   position_ = position;
   if (position) {
@@ -339,10 +340,10 @@ inline void JointCmd::set_allocated_position(::experimot::msgs::PID* position) {
   } else {
     clear_has_position();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.JointCmd.position)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.JointCmd.position)
 }
 
-// optional .experimot.msgs.PID velocity = 5;
+// optional .Indriya.Core.Msgs.PID velocity = 5;
 inline bool JointCmd::has_velocity() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -353,28 +354,28 @@ inline void JointCmd::clear_has_velocity() {
   _has_bits_[0] &= ~0x00000010u;
 }
 inline void JointCmd::clear_velocity() {
-  if (velocity_ != NULL) velocity_->::experimot::msgs::PID::Clear();
+  if (velocity_ != NULL) velocity_->::Indriya::Core::Msgs::PID::Clear();
   clear_has_velocity();
 }
-inline const ::experimot::msgs::PID& JointCmd::velocity() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointCmd.velocity)
+inline const ::Indriya::Core::Msgs::PID& JointCmd::velocity() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointCmd.velocity)
   return velocity_ != NULL ? *velocity_ : *default_instance_->velocity_;
 }
-inline ::experimot::msgs::PID* JointCmd::mutable_velocity() {
+inline ::Indriya::Core::Msgs::PID* JointCmd::mutable_velocity() {
   set_has_velocity();
   if (velocity_ == NULL) {
-    velocity_ = new ::experimot::msgs::PID;
+    velocity_ = new ::Indriya::Core::Msgs::PID;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.JointCmd.velocity)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.JointCmd.velocity)
   return velocity_;
 }
-inline ::experimot::msgs::PID* JointCmd::release_velocity() {
+inline ::Indriya::Core::Msgs::PID* JointCmd::release_velocity() {
   clear_has_velocity();
-  ::experimot::msgs::PID* temp = velocity_;
+  ::Indriya::Core::Msgs::PID* temp = velocity_;
   velocity_ = NULL;
   return temp;
 }
-inline void JointCmd::set_allocated_velocity(::experimot::msgs::PID* velocity) {
+inline void JointCmd::set_allocated_velocity(::Indriya::Core::Msgs::PID* velocity) {
   delete velocity_;
   velocity_ = velocity;
   if (velocity) {
@@ -382,7 +383,7 @@ inline void JointCmd::set_allocated_velocity(::experimot::msgs::PID* velocity) {
   } else {
     clear_has_velocity();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.JointCmd.velocity)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.JointCmd.velocity)
 }
 
 // optional bool reset = 6;
@@ -400,24 +401,25 @@ inline void JointCmd::clear_reset() {
   clear_has_reset();
 }
 inline bool JointCmd::reset() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointCmd.reset)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointCmd.reset)
   return reset_;
 }
 inline void JointCmd::set_reset(bool value) {
   set_has_reset();
   reset_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.JointCmd.reset)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.JointCmd.reset)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::JointCmd> JointCmdPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::JointCmd> JointCmdPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::JointCmd const> ConstJointCmdPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::JointCmd const> ConstJointCmdPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_joint_5fcmd_2eproto__INCLUDED

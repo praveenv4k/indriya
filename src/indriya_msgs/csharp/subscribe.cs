@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 // Generated from: proto/subscribe.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Subscribe")]
   public partial class Subscribe : global::ProtoBuf.IExtensible

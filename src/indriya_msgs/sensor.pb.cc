@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -90,22 +91,23 @@ void protobuf_AddDesc_sensor_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_pose_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_camerasensor_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_raysensor_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_contactsensor_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_pose_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_camerasensor_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_raysensor_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_contactsensor_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\014sensor.proto\022\016experimot.msgs\032\npose.pro"
-    "to\032\022camerasensor.proto\032\017raysensor.proto\032"
-    "\023contactsensor.proto\"\307\002\n\006Sensor\022\014\n\004name\030"
-    "\001 \002(\t\022\n\n\002id\030\002 \001(\r\022\016\n\006parent\030\003 \002(\t\022\021\n\tpar"
-    "ent_id\030\004 \002(\r\022\014\n\004type\030\005 \002(\t\022\021\n\talways_on\030"
-    "\006 \001(\010\022\023\n\013update_rate\030\007 \001(\001\022\"\n\004pose\030\010 \001(\013"
-    "2\024.experimot.msgs.Pose\022,\n\006camera\030\t \001(\0132\034"
-    ".experimot.msgs.CameraSensor\022&\n\003ray\030\n \001("
-    "\0132\031.experimot.msgs.RaySensor\022.\n\007contact\030"
-    "\013 \001(\0132\035.experimot.msgs.ContactSensor\022\021\n\t"
-    "visualize\030\014 \001(\010\022\r\n\005topic\030\r \001(\t", 430);
+    "\n\014sensor.proto\022\021Indriya.Core.Msgs\032\npose."
+    "proto\032\022camerasensor.proto\032\017raysensor.pro"
+    "to\032\023contactsensor.proto\"\323\002\n\006Sensor\022\014\n\004na"
+    "me\030\001 \002(\t\022\n\n\002id\030\002 \001(\r\022\016\n\006parent\030\003 \002(\t\022\021\n\t"
+    "parent_id\030\004 \002(\r\022\014\n\004type\030\005 \002(\t\022\021\n\talways_"
+    "on\030\006 \001(\010\022\023\n\013update_rate\030\007 \001(\001\022%\n\004pose\030\010 "
+    "\001(\0132\027.Indriya.Core.Msgs.Pose\022/\n\006camera\030\t"
+    " \001(\0132\037.Indriya.Core.Msgs.CameraSensor\022)\n"
+    "\003ray\030\n \001(\0132\034.Indriya.Core.Msgs.RaySensor"
+    "\0221\n\007contact\030\013 \001(\0132 .Indriya.Core.Msgs.Co"
+    "ntactSensor\022\021\n\tvisualize\030\014 \001(\010\022\r\n\005topic\030"
+    "\r \001(\t", 445);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "sensor.proto", &protobuf_RegisterTypes);
   Sensor::default_instance_ = new Sensor();
@@ -151,14 +153,14 @@ const int Sensor::kTopicFieldNumber;
 Sensor::Sensor()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Sensor)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Sensor)
 }
 
 void Sensor::InitAsDefaultInstance() {
-  pose_ = const_cast< ::experimot::msgs::Pose*>(&::experimot::msgs::Pose::default_instance());
-  camera_ = const_cast< ::experimot::msgs::CameraSensor*>(&::experimot::msgs::CameraSensor::default_instance());
-  ray_ = const_cast< ::experimot::msgs::RaySensor*>(&::experimot::msgs::RaySensor::default_instance());
-  contact_ = const_cast< ::experimot::msgs::ContactSensor*>(&::experimot::msgs::ContactSensor::default_instance());
+  pose_ = const_cast< ::Indriya::Core::Msgs::Pose*>(&::Indriya::Core::Msgs::Pose::default_instance());
+  camera_ = const_cast< ::Indriya::Core::Msgs::CameraSensor*>(&::Indriya::Core::Msgs::CameraSensor::default_instance());
+  ray_ = const_cast< ::Indriya::Core::Msgs::RaySensor*>(&::Indriya::Core::Msgs::RaySensor::default_instance());
+  contact_ = const_cast< ::Indriya::Core::Msgs::ContactSensor*>(&::Indriya::Core::Msgs::ContactSensor::default_instance());
 }
 
 Sensor::Sensor(const Sensor& from)
@@ -166,7 +168,7 @@ Sensor::Sensor(const Sensor& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Sensor)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Sensor)
 }
 
 void Sensor::SharedCtor() {
@@ -189,7 +191,7 @@ void Sensor::SharedCtor() {
 }
 
 Sensor::~Sensor() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Sensor)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Sensor)
   SharedDtor();
 }
 
@@ -254,18 +256,18 @@ void Sensor::Clear() {
     always_on_ = false;
     update_rate_ = 0;
     if (has_pose()) {
-      if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+      if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
     }
   }
   if (_has_bits_[8 / 32] & 7936) {
     if (has_camera()) {
-      if (camera_ != NULL) camera_->::experimot::msgs::CameraSensor::Clear();
+      if (camera_ != NULL) camera_->::Indriya::Core::Msgs::CameraSensor::Clear();
     }
     if (has_ray()) {
-      if (ray_ != NULL) ray_->::experimot::msgs::RaySensor::Clear();
+      if (ray_ != NULL) ray_->::Indriya::Core::Msgs::RaySensor::Clear();
     }
     if (has_contact()) {
-      if (contact_ != NULL) contact_->::experimot::msgs::ContactSensor::Clear();
+      if (contact_ != NULL) contact_->::Indriya::Core::Msgs::ContactSensor::Clear();
     }
     visualize_ = false;
     if (has_topic()) {
@@ -286,7 +288,7 @@ bool Sensor::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Sensor)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Sensor)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -300,7 +302,7 @@ bool Sensor::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Sensor.name");
+            "Indriya.Core.Msgs.Sensor.name");
         } else {
           goto handle_unusual;
         }
@@ -332,7 +334,7 @@ bool Sensor::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->parent().data(), this->parent().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Sensor.parent");
+            "Indriya.Core.Msgs.Sensor.parent");
         } else {
           goto handle_unusual;
         }
@@ -364,7 +366,7 @@ bool Sensor::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->type().data(), this->type().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Sensor.type");
+            "Indriya.Core.Msgs.Sensor.type");
         } else {
           goto handle_unusual;
         }
@@ -402,7 +404,7 @@ bool Sensor::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Pose pose = 8;
+      // optional .Indriya.Core.Msgs.Pose pose = 8;
       case 8: {
         if (tag == 66) {
          parse_pose:
@@ -415,7 +417,7 @@ bool Sensor::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.CameraSensor camera = 9;
+      // optional .Indriya.Core.Msgs.CameraSensor camera = 9;
       case 9: {
         if (tag == 74) {
          parse_camera:
@@ -428,7 +430,7 @@ bool Sensor::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.RaySensor ray = 10;
+      // optional .Indriya.Core.Msgs.RaySensor ray = 10;
       case 10: {
         if (tag == 82) {
          parse_ray:
@@ -441,7 +443,7 @@ bool Sensor::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.ContactSensor contact = 11;
+      // optional .Indriya.Core.Msgs.ContactSensor contact = 11;
       case 11: {
         if (tag == 90) {
          parse_contact:
@@ -478,7 +480,7 @@ bool Sensor::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->topic().data(), this->topic().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Sensor.topic");
+            "Indriya.Core.Msgs.Sensor.topic");
         } else {
           goto handle_unusual;
         }
@@ -500,23 +502,23 @@ bool Sensor::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Sensor)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Sensor)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Sensor)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Sensor)
   return false;
 #undef DO_
 }
 
 void Sensor::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Sensor)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Sensor)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Sensor.name");
+      "Indriya.Core.Msgs.Sensor.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
@@ -531,7 +533,7 @@ void Sensor::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->parent().data(), this->parent().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Sensor.parent");
+      "Indriya.Core.Msgs.Sensor.parent");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       3, this->parent(), output);
   }
@@ -546,7 +548,7 @@ void Sensor::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->type().data(), this->type().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Sensor.type");
+      "Indriya.Core.Msgs.Sensor.type");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       5, this->type(), output);
   }
@@ -561,25 +563,25 @@ void Sensor::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(7, this->update_rate(), output);
   }
 
-  // optional .experimot.msgs.Pose pose = 8;
+  // optional .Indriya.Core.Msgs.Pose pose = 8;
   if (has_pose()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       8, *this->pose_, output);
   }
 
-  // optional .experimot.msgs.CameraSensor camera = 9;
+  // optional .Indriya.Core.Msgs.CameraSensor camera = 9;
   if (has_camera()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       9, *this->camera_, output);
   }
 
-  // optional .experimot.msgs.RaySensor ray = 10;
+  // optional .Indriya.Core.Msgs.RaySensor ray = 10;
   if (has_ray()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       10, *this->ray_, output);
   }
 
-  // optional .experimot.msgs.ContactSensor contact = 11;
+  // optional .Indriya.Core.Msgs.ContactSensor contact = 11;
   if (has_contact()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       11, *this->contact_, output);
@@ -595,7 +597,7 @@ void Sensor::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->topic().data(), this->topic().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Sensor.topic");
+      "Indriya.Core.Msgs.Sensor.topic");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       13, this->topic(), output);
   }
@@ -604,18 +606,18 @@ void Sensor::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Sensor)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Sensor)
 }
 
 ::google::protobuf::uint8* Sensor::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Sensor)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Sensor)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Sensor.name");
+      "Indriya.Core.Msgs.Sensor.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
@@ -631,7 +633,7 @@ void Sensor::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->parent().data(), this->parent().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Sensor.parent");
+      "Indriya.Core.Msgs.Sensor.parent");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->parent(), target);
@@ -647,7 +649,7 @@ void Sensor::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->type().data(), this->type().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Sensor.type");
+      "Indriya.Core.Msgs.Sensor.type");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         5, this->type(), target);
@@ -663,28 +665,28 @@ void Sensor::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(7, this->update_rate(), target);
   }
 
-  // optional .experimot.msgs.Pose pose = 8;
+  // optional .Indriya.Core.Msgs.Pose pose = 8;
   if (has_pose()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         8, *this->pose_, target);
   }
 
-  // optional .experimot.msgs.CameraSensor camera = 9;
+  // optional .Indriya.Core.Msgs.CameraSensor camera = 9;
   if (has_camera()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         9, *this->camera_, target);
   }
 
-  // optional .experimot.msgs.RaySensor ray = 10;
+  // optional .Indriya.Core.Msgs.RaySensor ray = 10;
   if (has_ray()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         10, *this->ray_, target);
   }
 
-  // optional .experimot.msgs.ContactSensor contact = 11;
+  // optional .Indriya.Core.Msgs.ContactSensor contact = 11;
   if (has_contact()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -701,7 +703,7 @@ void Sensor::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->topic().data(), this->topic().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Sensor.topic");
+      "Indriya.Core.Msgs.Sensor.topic");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         13, this->topic(), target);
@@ -711,7 +713,7 @@ void Sensor::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Sensor)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Sensor)
   return target;
 }
 
@@ -793,7 +795,7 @@ int Sensor::ByteSize() const {
       total_size += 1 + 8;
     }
 
-    // optional .experimot.msgs.Pose pose = 8;
+    // optional .Indriya.Core.Msgs.Pose pose = 8;
     if (has_pose()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -802,21 +804,21 @@ int Sensor::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & 7936) {
-    // optional .experimot.msgs.CameraSensor camera = 9;
+    // optional .Indriya.Core.Msgs.CameraSensor camera = 9;
     if (has_camera()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->camera_);
     }
 
-    // optional .experimot.msgs.RaySensor ray = 10;
+    // optional .Indriya.Core.Msgs.RaySensor ray = 10;
     if (has_ray()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->ray_);
     }
 
-    // optional .experimot.msgs.ContactSensor contact = 11;
+    // optional .Indriya.Core.Msgs.ContactSensor contact = 11;
     if (has_contact()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -887,18 +889,18 @@ void Sensor::MergeFrom(const Sensor& from) {
       set_update_rate(from.update_rate());
     }
     if (from.has_pose()) {
-      mutable_pose()->::experimot::msgs::Pose::MergeFrom(from.pose());
+      mutable_pose()->::Indriya::Core::Msgs::Pose::MergeFrom(from.pose());
     }
   }
   if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_camera()) {
-      mutable_camera()->::experimot::msgs::CameraSensor::MergeFrom(from.camera());
+      mutable_camera()->::Indriya::Core::Msgs::CameraSensor::MergeFrom(from.camera());
     }
     if (from.has_ray()) {
-      mutable_ray()->::experimot::msgs::RaySensor::MergeFrom(from.ray());
+      mutable_ray()->::Indriya::Core::Msgs::RaySensor::MergeFrom(from.ray());
     }
     if (from.has_contact()) {
-      mutable_contact()->::experimot::msgs::ContactSensor::MergeFrom(from.contact());
+      mutable_contact()->::Indriya::Core::Msgs::ContactSensor::MergeFrom(from.contact());
     }
     if (from.has_visualize()) {
       set_visualize(from.visualize());
@@ -986,28 +988,28 @@ void Sensor::InternalSwap(Sensor* other) {
   clear_has_name();
 }
  const ::std::string& Sensor::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sensor.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sensor.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Sensor::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sensor.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sensor.name)
 }
  void Sensor::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Sensor.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Sensor.name)
 }
  void Sensor::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Sensor.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Sensor.name)
 }
  ::std::string* Sensor::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Sensor.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Sensor.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Sensor::release_name() {
@@ -1021,7 +1023,7 @@ void Sensor::InternalSwap(Sensor* other) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Sensor.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Sensor.name)
 }
 
 // optional uint32 id = 2;
@@ -1039,13 +1041,13 @@ void Sensor::InternalSwap(Sensor* other) {
   clear_has_id();
 }
  ::google::protobuf::uint32 Sensor::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sensor.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sensor.id)
   return id_;
 }
  void Sensor::set_id(::google::protobuf::uint32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sensor.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sensor.id)
 }
 
 // required string parent = 3;
@@ -1063,28 +1065,28 @@ void Sensor::InternalSwap(Sensor* other) {
   clear_has_parent();
 }
  const ::std::string& Sensor::parent() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sensor.parent)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sensor.parent)
   return parent_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Sensor::set_parent(const ::std::string& value) {
   set_has_parent();
   parent_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sensor.parent)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sensor.parent)
 }
  void Sensor::set_parent(const char* value) {
   set_has_parent();
   parent_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Sensor.parent)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Sensor.parent)
 }
  void Sensor::set_parent(const char* value, size_t size) {
   set_has_parent();
   parent_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Sensor.parent)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Sensor.parent)
 }
  ::std::string* Sensor::mutable_parent() {
   set_has_parent();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Sensor.parent)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Sensor.parent)
   return parent_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Sensor::release_parent() {
@@ -1098,7 +1100,7 @@ void Sensor::InternalSwap(Sensor* other) {
     clear_has_parent();
   }
   parent_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), parent);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Sensor.parent)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Sensor.parent)
 }
 
 // required uint32 parent_id = 4;
@@ -1116,13 +1118,13 @@ void Sensor::InternalSwap(Sensor* other) {
   clear_has_parent_id();
 }
  ::google::protobuf::uint32 Sensor::parent_id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sensor.parent_id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sensor.parent_id)
   return parent_id_;
 }
  void Sensor::set_parent_id(::google::protobuf::uint32 value) {
   set_has_parent_id();
   parent_id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sensor.parent_id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sensor.parent_id)
 }
 
 // required string type = 5;
@@ -1140,28 +1142,28 @@ void Sensor::InternalSwap(Sensor* other) {
   clear_has_type();
 }
  const ::std::string& Sensor::type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sensor.type)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sensor.type)
   return type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Sensor::set_type(const ::std::string& value) {
   set_has_type();
   type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sensor.type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sensor.type)
 }
  void Sensor::set_type(const char* value) {
   set_has_type();
   type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Sensor.type)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Sensor.type)
 }
  void Sensor::set_type(const char* value, size_t size) {
   set_has_type();
   type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Sensor.type)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Sensor.type)
 }
  ::std::string* Sensor::mutable_type() {
   set_has_type();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Sensor.type)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Sensor.type)
   return type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Sensor::release_type() {
@@ -1175,7 +1177,7 @@ void Sensor::InternalSwap(Sensor* other) {
     clear_has_type();
   }
   type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), type);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Sensor.type)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Sensor.type)
 }
 
 // optional bool always_on = 6;
@@ -1193,13 +1195,13 @@ void Sensor::InternalSwap(Sensor* other) {
   clear_has_always_on();
 }
  bool Sensor::always_on() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sensor.always_on)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sensor.always_on)
   return always_on_;
 }
  void Sensor::set_always_on(bool value) {
   set_has_always_on();
   always_on_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sensor.always_on)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sensor.always_on)
 }
 
 // optional double update_rate = 7;
@@ -1217,16 +1219,16 @@ void Sensor::InternalSwap(Sensor* other) {
   clear_has_update_rate();
 }
  double Sensor::update_rate() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sensor.update_rate)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sensor.update_rate)
   return update_rate_;
 }
  void Sensor::set_update_rate(double value) {
   set_has_update_rate();
   update_rate_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sensor.update_rate)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sensor.update_rate)
 }
 
-// optional .experimot.msgs.Pose pose = 8;
+// optional .Indriya.Core.Msgs.Pose pose = 8;
  bool Sensor::has_pose() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -1237,28 +1239,28 @@ void Sensor::InternalSwap(Sensor* other) {
   _has_bits_[0] &= ~0x00000080u;
 }
  void Sensor::clear_pose() {
-  if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+  if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
   clear_has_pose();
 }
- const ::experimot::msgs::Pose& Sensor::pose() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sensor.pose)
+ const ::Indriya::Core::Msgs::Pose& Sensor::pose() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sensor.pose)
   return pose_ != NULL ? *pose_ : *default_instance_->pose_;
 }
- ::experimot::msgs::Pose* Sensor::mutable_pose() {
+ ::Indriya::Core::Msgs::Pose* Sensor::mutable_pose() {
   set_has_pose();
   if (pose_ == NULL) {
-    pose_ = new ::experimot::msgs::Pose;
+    pose_ = new ::Indriya::Core::Msgs::Pose;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Sensor.pose)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Sensor.pose)
   return pose_;
 }
- ::experimot::msgs::Pose* Sensor::release_pose() {
+ ::Indriya::Core::Msgs::Pose* Sensor::release_pose() {
   clear_has_pose();
-  ::experimot::msgs::Pose* temp = pose_;
+  ::Indriya::Core::Msgs::Pose* temp = pose_;
   pose_ = NULL;
   return temp;
 }
- void Sensor::set_allocated_pose(::experimot::msgs::Pose* pose) {
+ void Sensor::set_allocated_pose(::Indriya::Core::Msgs::Pose* pose) {
   delete pose_;
   pose_ = pose;
   if (pose) {
@@ -1266,10 +1268,10 @@ void Sensor::InternalSwap(Sensor* other) {
   } else {
     clear_has_pose();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Sensor.pose)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Sensor.pose)
 }
 
-// optional .experimot.msgs.CameraSensor camera = 9;
+// optional .Indriya.Core.Msgs.CameraSensor camera = 9;
  bool Sensor::has_camera() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -1280,28 +1282,28 @@ void Sensor::InternalSwap(Sensor* other) {
   _has_bits_[0] &= ~0x00000100u;
 }
  void Sensor::clear_camera() {
-  if (camera_ != NULL) camera_->::experimot::msgs::CameraSensor::Clear();
+  if (camera_ != NULL) camera_->::Indriya::Core::Msgs::CameraSensor::Clear();
   clear_has_camera();
 }
- const ::experimot::msgs::CameraSensor& Sensor::camera() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sensor.camera)
+ const ::Indriya::Core::Msgs::CameraSensor& Sensor::camera() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sensor.camera)
   return camera_ != NULL ? *camera_ : *default_instance_->camera_;
 }
- ::experimot::msgs::CameraSensor* Sensor::mutable_camera() {
+ ::Indriya::Core::Msgs::CameraSensor* Sensor::mutable_camera() {
   set_has_camera();
   if (camera_ == NULL) {
-    camera_ = new ::experimot::msgs::CameraSensor;
+    camera_ = new ::Indriya::Core::Msgs::CameraSensor;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Sensor.camera)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Sensor.camera)
   return camera_;
 }
- ::experimot::msgs::CameraSensor* Sensor::release_camera() {
+ ::Indriya::Core::Msgs::CameraSensor* Sensor::release_camera() {
   clear_has_camera();
-  ::experimot::msgs::CameraSensor* temp = camera_;
+  ::Indriya::Core::Msgs::CameraSensor* temp = camera_;
   camera_ = NULL;
   return temp;
 }
- void Sensor::set_allocated_camera(::experimot::msgs::CameraSensor* camera) {
+ void Sensor::set_allocated_camera(::Indriya::Core::Msgs::CameraSensor* camera) {
   delete camera_;
   camera_ = camera;
   if (camera) {
@@ -1309,10 +1311,10 @@ void Sensor::InternalSwap(Sensor* other) {
   } else {
     clear_has_camera();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Sensor.camera)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Sensor.camera)
 }
 
-// optional .experimot.msgs.RaySensor ray = 10;
+// optional .Indriya.Core.Msgs.RaySensor ray = 10;
  bool Sensor::has_ray() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -1323,28 +1325,28 @@ void Sensor::InternalSwap(Sensor* other) {
   _has_bits_[0] &= ~0x00000200u;
 }
  void Sensor::clear_ray() {
-  if (ray_ != NULL) ray_->::experimot::msgs::RaySensor::Clear();
+  if (ray_ != NULL) ray_->::Indriya::Core::Msgs::RaySensor::Clear();
   clear_has_ray();
 }
- const ::experimot::msgs::RaySensor& Sensor::ray() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sensor.ray)
+ const ::Indriya::Core::Msgs::RaySensor& Sensor::ray() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sensor.ray)
   return ray_ != NULL ? *ray_ : *default_instance_->ray_;
 }
- ::experimot::msgs::RaySensor* Sensor::mutable_ray() {
+ ::Indriya::Core::Msgs::RaySensor* Sensor::mutable_ray() {
   set_has_ray();
   if (ray_ == NULL) {
-    ray_ = new ::experimot::msgs::RaySensor;
+    ray_ = new ::Indriya::Core::Msgs::RaySensor;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Sensor.ray)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Sensor.ray)
   return ray_;
 }
- ::experimot::msgs::RaySensor* Sensor::release_ray() {
+ ::Indriya::Core::Msgs::RaySensor* Sensor::release_ray() {
   clear_has_ray();
-  ::experimot::msgs::RaySensor* temp = ray_;
+  ::Indriya::Core::Msgs::RaySensor* temp = ray_;
   ray_ = NULL;
   return temp;
 }
- void Sensor::set_allocated_ray(::experimot::msgs::RaySensor* ray) {
+ void Sensor::set_allocated_ray(::Indriya::Core::Msgs::RaySensor* ray) {
   delete ray_;
   ray_ = ray;
   if (ray) {
@@ -1352,10 +1354,10 @@ void Sensor::InternalSwap(Sensor* other) {
   } else {
     clear_has_ray();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Sensor.ray)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Sensor.ray)
 }
 
-// optional .experimot.msgs.ContactSensor contact = 11;
+// optional .Indriya.Core.Msgs.ContactSensor contact = 11;
  bool Sensor::has_contact() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -1366,28 +1368,28 @@ void Sensor::InternalSwap(Sensor* other) {
   _has_bits_[0] &= ~0x00000400u;
 }
  void Sensor::clear_contact() {
-  if (contact_ != NULL) contact_->::experimot::msgs::ContactSensor::Clear();
+  if (contact_ != NULL) contact_->::Indriya::Core::Msgs::ContactSensor::Clear();
   clear_has_contact();
 }
- const ::experimot::msgs::ContactSensor& Sensor::contact() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sensor.contact)
+ const ::Indriya::Core::Msgs::ContactSensor& Sensor::contact() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sensor.contact)
   return contact_ != NULL ? *contact_ : *default_instance_->contact_;
 }
- ::experimot::msgs::ContactSensor* Sensor::mutable_contact() {
+ ::Indriya::Core::Msgs::ContactSensor* Sensor::mutable_contact() {
   set_has_contact();
   if (contact_ == NULL) {
-    contact_ = new ::experimot::msgs::ContactSensor;
+    contact_ = new ::Indriya::Core::Msgs::ContactSensor;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Sensor.contact)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Sensor.contact)
   return contact_;
 }
- ::experimot::msgs::ContactSensor* Sensor::release_contact() {
+ ::Indriya::Core::Msgs::ContactSensor* Sensor::release_contact() {
   clear_has_contact();
-  ::experimot::msgs::ContactSensor* temp = contact_;
+  ::Indriya::Core::Msgs::ContactSensor* temp = contact_;
   contact_ = NULL;
   return temp;
 }
- void Sensor::set_allocated_contact(::experimot::msgs::ContactSensor* contact) {
+ void Sensor::set_allocated_contact(::Indriya::Core::Msgs::ContactSensor* contact) {
   delete contact_;
   contact_ = contact;
   if (contact) {
@@ -1395,7 +1397,7 @@ void Sensor::InternalSwap(Sensor* other) {
   } else {
     clear_has_contact();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Sensor.contact)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Sensor.contact)
 }
 
 // optional bool visualize = 12;
@@ -1413,13 +1415,13 @@ void Sensor::InternalSwap(Sensor* other) {
   clear_has_visualize();
 }
  bool Sensor::visualize() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sensor.visualize)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sensor.visualize)
   return visualize_;
 }
  void Sensor::set_visualize(bool value) {
   set_has_visualize();
   visualize_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sensor.visualize)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sensor.visualize)
 }
 
 // optional string topic = 13;
@@ -1437,28 +1439,28 @@ void Sensor::InternalSwap(Sensor* other) {
   clear_has_topic();
 }
  const ::std::string& Sensor::topic() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sensor.topic)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sensor.topic)
   return topic_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Sensor::set_topic(const ::std::string& value) {
   set_has_topic();
   topic_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sensor.topic)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sensor.topic)
 }
  void Sensor::set_topic(const char* value) {
   set_has_topic();
   topic_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Sensor.topic)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Sensor.topic)
 }
  void Sensor::set_topic(const char* value, size_t size) {
   set_has_topic();
   topic_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Sensor.topic)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Sensor.topic)
 }
  ::std::string* Sensor::mutable_topic() {
   set_has_topic();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Sensor.topic)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Sensor.topic)
   return topic_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Sensor::release_topic() {
@@ -1472,15 +1474,16 @@ void Sensor::InternalSwap(Sensor* other) {
     clear_has_topic();
   }
   topic_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), topic);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Sensor.topic)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Sensor.topic)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Sensor", Sensor)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Sensor", Sensor)
 // @@protoc_insertion_point(global_scope)

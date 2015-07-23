@@ -1,4 +1,4 @@
-package experimot.msgs;
+package Indriya.Core.Msgs;
 
 /// \ingroup experimot_msgs
 /// \interface Diagnostics

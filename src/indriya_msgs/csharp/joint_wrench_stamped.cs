@@ -10,23 +10,23 @@
 // Generated from: proto/joint_wrench_stamped.proto
 // Note: requires additional types generated from: joint_wrench.proto
 // Note: requires additional types generated from: time.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"ForceTorque")]
   public partial class ForceTorque : global::ProtoBuf.IExtensible
   {
     public ForceTorque() {}
     
-    private readonly global::System.Collections.Generic.List<experimot.msgs.JointWrench> _wrench = new global::System.Collections.Generic.List<experimot.msgs.JointWrench>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.JointWrench> _wrench = new global::System.Collections.Generic.List<Indriya.Core.Msgs.JointWrench>();
     [global::ProtoBuf.ProtoMember(1, Name=@"wrench", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.JointWrench> wrench
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.JointWrench> wrench
     {
       get { return _wrench; }
     }
   
-    private experimot.msgs.Time _time;
+    private Indriya.Core.Msgs.Time _time;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"time", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Time time
+    public Indriya.Core.Msgs.Time time
     {
       get { return _time; }
       set { _time = value; }

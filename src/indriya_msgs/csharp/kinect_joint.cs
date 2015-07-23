@@ -10,37 +10,37 @@
 // Generated from: proto/kinect_joint.proto
 // Note: requires additional types generated from: vector3d.proto
 // Note: requires additional types generated from: quaternion.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"KinectJoint")]
   public partial class KinectJoint : global::ProtoBuf.IExtensible
   {
     public KinectJoint() {}
     
-    private experimot.msgs.KinectJoint.JointType _Type;
+    private Indriya.Core.Msgs.KinectJoint.JointType _Type;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"Type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public experimot.msgs.KinectJoint.JointType Type
+    public Indriya.Core.Msgs.KinectJoint.JointType Type
     {
       get { return _Type; }
       set { _Type = value; }
     }
-    private experimot.msgs.KinectJoint.TrackingState _State;
+    private Indriya.Core.Msgs.KinectJoint.TrackingState _State;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"State", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public experimot.msgs.KinectJoint.TrackingState State
+    public Indriya.Core.Msgs.KinectJoint.TrackingState State
     {
       get { return _State; }
       set { _State = value; }
     }
-    private experimot.msgs.Vector3d _Position;
+    private Indriya.Core.Msgs.Vector3d _Position;
     [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"Position", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Vector3d Position
+    public Indriya.Core.Msgs.Vector3d Position
     {
       get { return _Position; }
       set { _Position = value; }
     }
-    private experimot.msgs.Quaternion _Orientation;
+    private Indriya.Core.Msgs.Quaternion _Orientation;
     [global::ProtoBuf.ProtoMember(4, IsRequired = true, Name=@"Orientation", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Quaternion Orientation
+    public Indriya.Core.Msgs.Quaternion Orientation
     {
       get { return _Orientation; }
       set { _Orientation = value; }

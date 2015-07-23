@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='contactsensor.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x13\x63ontactsensor.proto\x12\x0e\x65xperimot.msgs\"\'\n\rContactSensor\x12\x16\n\x0e\x63ollision_name\x18\x01 \x01(\t')
+  serialized_pb=_b('\n\x13\x63ontactsensor.proto\x12\x11Indriya.Core.Msgs\"\'\n\rContactSensor\x12\x16\n\x0e\x63ollision_name\x18\x01 \x01(\t')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -28,13 +28,13 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _CONTACTSENSOR = _descriptor.Descriptor(
   name='ContactSensor',
-  full_name='experimot.msgs.ContactSensor',
+  full_name='Indriya.Core.Msgs.ContactSensor',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='collision_name', full_name='experimot.msgs.ContactSensor.collision_name', index=0,
+      name='collision_name', full_name='Indriya.Core.Msgs.ContactSensor.collision_name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -52,8 +52,8 @@ _CONTACTSENSOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=39,
-  serialized_end=78,
+  serialized_start=42,
+  serialized_end=81,
 )
 
 DESCRIPTOR.message_types_by_name['ContactSensor'] = _CONTACTSENSOR
@@ -61,7 +61,7 @@ DESCRIPTOR.message_types_by_name['ContactSensor'] = _CONTACTSENSOR
 ContactSensor = _reflection.GeneratedProtocolMessageType('ContactSensor', (_message.Message,), dict(
   DESCRIPTOR = _CONTACTSENSOR,
   __module__ = 'contactsensor_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.ContactSensor)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.ContactSensor)
   ))
 _sym_db.RegisterMessage(ContactSensor)
 

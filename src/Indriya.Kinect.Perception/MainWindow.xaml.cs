@@ -16,11 +16,9 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using Common.Logging;
-using experimot.msgs;
 using Experimot.Core.Util;
 using Microsoft.Kinect;
 using System;
-using System.Linq;
 #if USE_KINECT_BODIES
 #else
 using KinectEx;
@@ -164,7 +162,7 @@ namespace Experimot.Kinect.Perception
             }
         }
 
-        public MainWindow(Node node2) : this()
+        public MainWindow(Indriya.Core.Msgs.Node node2) : this()
         {
             var node = App.NodeInfo;
             if (node != null)

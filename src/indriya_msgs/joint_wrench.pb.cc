@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -83,14 +84,15 @@ void protobuf_AddDesc_joint_5fwrench_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_wrench_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_wrench_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\022joint_wrench.proto\022\016experimot.msgs\032\014wr"
-    "ench.proto\"\273\001\n\013JointWrench\022\023\n\013body_1_nam"
-    "e\030\001 \002(\t\022\021\n\tbody_1_id\030\002 \002(\r\022\023\n\013body_2_nam"
-    "e\030\003 \002(\t\022\021\n\tbody_2_id\030\004 \002(\r\022-\n\rbody_1_wre"
-    "nch\030\005 \002(\0132\026.experimot.msgs.Wrench\022-\n\rbod"
-    "y_2_wrench\030\006 \002(\0132\026.experimot.msgs.Wrench", 240);
+    "\n\022joint_wrench.proto\022\021Indriya.Core.Msgs\032"
+    "\014wrench.proto\"\301\001\n\013JointWrench\022\023\n\013body_1_"
+    "name\030\001 \002(\t\022\021\n\tbody_1_id\030\002 \002(\r\022\023\n\013body_2_"
+    "name\030\003 \002(\t\022\021\n\tbody_2_id\030\004 \002(\r\0220\n\rbody_1_"
+    "wrench\030\005 \002(\0132\031.Indriya.Core.Msgs.Wrench\022"
+    "0\n\rbody_2_wrench\030\006 \002(\0132\031.Indriya.Core.Ms"
+    "gs.Wrench", 249);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "joint_wrench.proto", &protobuf_RegisterTypes);
   JointWrench::default_instance_ = new JointWrench();
@@ -129,12 +131,12 @@ const int JointWrench::kBody2WrenchFieldNumber;
 JointWrench::JointWrench()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.JointWrench)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.JointWrench)
 }
 
 void JointWrench::InitAsDefaultInstance() {
-  body_1_wrench_ = const_cast< ::experimot::msgs::Wrench*>(&::experimot::msgs::Wrench::default_instance());
-  body_2_wrench_ = const_cast< ::experimot::msgs::Wrench*>(&::experimot::msgs::Wrench::default_instance());
+  body_1_wrench_ = const_cast< ::Indriya::Core::Msgs::Wrench*>(&::Indriya::Core::Msgs::Wrench::default_instance());
+  body_2_wrench_ = const_cast< ::Indriya::Core::Msgs::Wrench*>(&::Indriya::Core::Msgs::Wrench::default_instance());
 }
 
 JointWrench::JointWrench(const JointWrench& from)
@@ -142,7 +144,7 @@ JointWrench::JointWrench(const JointWrench& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.JointWrench)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.JointWrench)
 }
 
 void JointWrench::SharedCtor() {
@@ -158,7 +160,7 @@ void JointWrench::SharedCtor() {
 }
 
 JointWrench::~JointWrench() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.JointWrench)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.JointWrench)
   SharedDtor();
 }
 
@@ -214,10 +216,10 @@ void JointWrench::Clear() {
       body_2_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_body_1_wrench()) {
-      if (body_1_wrench_ != NULL) body_1_wrench_->::experimot::msgs::Wrench::Clear();
+      if (body_1_wrench_ != NULL) body_1_wrench_->::Indriya::Core::Msgs::Wrench::Clear();
     }
     if (has_body_2_wrench()) {
-      if (body_2_wrench_ != NULL) body_2_wrench_->::experimot::msgs::Wrench::Clear();
+      if (body_2_wrench_ != NULL) body_2_wrench_->::Indriya::Core::Msgs::Wrench::Clear();
     }
   }
 
@@ -234,7 +236,7 @@ bool JointWrench::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.JointWrench)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.JointWrench)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -248,7 +250,7 @@ bool JointWrench::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->body_1_name().data(), this->body_1_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.JointWrench.body_1_name");
+            "Indriya.Core.Msgs.JointWrench.body_1_name");
         } else {
           goto handle_unusual;
         }
@@ -280,7 +282,7 @@ bool JointWrench::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->body_2_name().data(), this->body_2_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.JointWrench.body_2_name");
+            "Indriya.Core.Msgs.JointWrench.body_2_name");
         } else {
           goto handle_unusual;
         }
@@ -303,7 +305,7 @@ bool JointWrench::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Wrench body_1_wrench = 5;
+      // required .Indriya.Core.Msgs.Wrench body_1_wrench = 5;
       case 5: {
         if (tag == 42) {
          parse_body_1_wrench:
@@ -316,7 +318,7 @@ bool JointWrench::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Wrench body_2_wrench = 6;
+      // required .Indriya.Core.Msgs.Wrench body_2_wrench = 6;
       case 6: {
         if (tag == 50) {
          parse_body_2_wrench:
@@ -343,23 +345,23 @@ bool JointWrench::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.JointWrench)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.JointWrench)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.JointWrench)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.JointWrench)
   return false;
 #undef DO_
 }
 
 void JointWrench::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.JointWrench)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.JointWrench)
   // required string body_1_name = 1;
   if (has_body_1_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->body_1_name().data(), this->body_1_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.JointWrench.body_1_name");
+      "Indriya.Core.Msgs.JointWrench.body_1_name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->body_1_name(), output);
   }
@@ -374,7 +376,7 @@ void JointWrench::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->body_2_name().data(), this->body_2_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.JointWrench.body_2_name");
+      "Indriya.Core.Msgs.JointWrench.body_2_name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       3, this->body_2_name(), output);
   }
@@ -384,13 +386,13 @@ void JointWrench::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->body_2_id(), output);
   }
 
-  // required .experimot.msgs.Wrench body_1_wrench = 5;
+  // required .Indriya.Core.Msgs.Wrench body_1_wrench = 5;
   if (has_body_1_wrench()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, *this->body_1_wrench_, output);
   }
 
-  // required .experimot.msgs.Wrench body_2_wrench = 6;
+  // required .Indriya.Core.Msgs.Wrench body_2_wrench = 6;
   if (has_body_2_wrench()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       6, *this->body_2_wrench_, output);
@@ -400,18 +402,18 @@ void JointWrench::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.JointWrench)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.JointWrench)
 }
 
 ::google::protobuf::uint8* JointWrench::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.JointWrench)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.JointWrench)
   // required string body_1_name = 1;
   if (has_body_1_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->body_1_name().data(), this->body_1_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.JointWrench.body_1_name");
+      "Indriya.Core.Msgs.JointWrench.body_1_name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->body_1_name(), target);
@@ -427,7 +429,7 @@ void JointWrench::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->body_2_name().data(), this->body_2_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.JointWrench.body_2_name");
+      "Indriya.Core.Msgs.JointWrench.body_2_name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->body_2_name(), target);
@@ -438,14 +440,14 @@ void JointWrench::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->body_2_id(), target);
   }
 
-  // required .experimot.msgs.Wrench body_1_wrench = 5;
+  // required .Indriya.Core.Msgs.Wrench body_1_wrench = 5;
   if (has_body_1_wrench()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         5, *this->body_1_wrench_, target);
   }
 
-  // required .experimot.msgs.Wrench body_2_wrench = 6;
+  // required .Indriya.Core.Msgs.Wrench body_2_wrench = 6;
   if (has_body_2_wrench()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -456,7 +458,7 @@ void JointWrench::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.JointWrench)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.JointWrench)
   return target;
 }
 
@@ -492,14 +494,14 @@ int JointWrench::RequiredFieldsByteSizeFallback() const {
   }
 
   if (has_body_1_wrench()) {
-    // required .experimot.msgs.Wrench body_1_wrench = 5;
+    // required .Indriya.Core.Msgs.Wrench body_1_wrench = 5;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->body_1_wrench_);
   }
 
   if (has_body_2_wrench()) {
-    // required .experimot.msgs.Wrench body_2_wrench = 6;
+    // required .Indriya.Core.Msgs.Wrench body_2_wrench = 6;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->body_2_wrench_);
@@ -531,12 +533,12 @@ int JointWrench::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->body_2_id());
 
-    // required .experimot.msgs.Wrench body_1_wrench = 5;
+    // required .Indriya.Core.Msgs.Wrench body_1_wrench = 5;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->body_1_wrench_);
 
-    // required .experimot.msgs.Wrench body_2_wrench = 6;
+    // required .Indriya.Core.Msgs.Wrench body_2_wrench = 6;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->body_2_wrench_);
@@ -585,10 +587,10 @@ void JointWrench::MergeFrom(const JointWrench& from) {
       set_body_2_id(from.body_2_id());
     }
     if (from.has_body_1_wrench()) {
-      mutable_body_1_wrench()->::experimot::msgs::Wrench::MergeFrom(from.body_1_wrench());
+      mutable_body_1_wrench()->::Indriya::Core::Msgs::Wrench::MergeFrom(from.body_1_wrench());
     }
     if (from.has_body_2_wrench()) {
-      mutable_body_2_wrench()->::experimot::msgs::Wrench::MergeFrom(from.body_2_wrench());
+      mutable_body_2_wrench()->::Indriya::Core::Msgs::Wrench::MergeFrom(from.body_2_wrench());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -662,28 +664,28 @@ void JointWrench::InternalSwap(JointWrench* other) {
   clear_has_body_1_name();
 }
  const ::std::string& JointWrench::body_1_name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointWrench.body_1_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointWrench.body_1_name)
   return body_1_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void JointWrench::set_body_1_name(const ::std::string& value) {
   set_has_body_1_name();
   body_1_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.JointWrench.body_1_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.JointWrench.body_1_name)
 }
  void JointWrench::set_body_1_name(const char* value) {
   set_has_body_1_name();
   body_1_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.JointWrench.body_1_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.JointWrench.body_1_name)
 }
  void JointWrench::set_body_1_name(const char* value, size_t size) {
   set_has_body_1_name();
   body_1_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.JointWrench.body_1_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.JointWrench.body_1_name)
 }
  ::std::string* JointWrench::mutable_body_1_name() {
   set_has_body_1_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.JointWrench.body_1_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.JointWrench.body_1_name)
   return body_1_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* JointWrench::release_body_1_name() {
@@ -697,7 +699,7 @@ void JointWrench::InternalSwap(JointWrench* other) {
     clear_has_body_1_name();
   }
   body_1_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), body_1_name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.JointWrench.body_1_name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.JointWrench.body_1_name)
 }
 
 // required uint32 body_1_id = 2;
@@ -715,13 +717,13 @@ void JointWrench::InternalSwap(JointWrench* other) {
   clear_has_body_1_id();
 }
  ::google::protobuf::uint32 JointWrench::body_1_id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointWrench.body_1_id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointWrench.body_1_id)
   return body_1_id_;
 }
  void JointWrench::set_body_1_id(::google::protobuf::uint32 value) {
   set_has_body_1_id();
   body_1_id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.JointWrench.body_1_id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.JointWrench.body_1_id)
 }
 
 // required string body_2_name = 3;
@@ -739,28 +741,28 @@ void JointWrench::InternalSwap(JointWrench* other) {
   clear_has_body_2_name();
 }
  const ::std::string& JointWrench::body_2_name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointWrench.body_2_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointWrench.body_2_name)
   return body_2_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void JointWrench::set_body_2_name(const ::std::string& value) {
   set_has_body_2_name();
   body_2_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.JointWrench.body_2_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.JointWrench.body_2_name)
 }
  void JointWrench::set_body_2_name(const char* value) {
   set_has_body_2_name();
   body_2_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.JointWrench.body_2_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.JointWrench.body_2_name)
 }
  void JointWrench::set_body_2_name(const char* value, size_t size) {
   set_has_body_2_name();
   body_2_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.JointWrench.body_2_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.JointWrench.body_2_name)
 }
  ::std::string* JointWrench::mutable_body_2_name() {
   set_has_body_2_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.JointWrench.body_2_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.JointWrench.body_2_name)
   return body_2_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* JointWrench::release_body_2_name() {
@@ -774,7 +776,7 @@ void JointWrench::InternalSwap(JointWrench* other) {
     clear_has_body_2_name();
   }
   body_2_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), body_2_name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.JointWrench.body_2_name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.JointWrench.body_2_name)
 }
 
 // required uint32 body_2_id = 4;
@@ -792,16 +794,16 @@ void JointWrench::InternalSwap(JointWrench* other) {
   clear_has_body_2_id();
 }
  ::google::protobuf::uint32 JointWrench::body_2_id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointWrench.body_2_id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointWrench.body_2_id)
   return body_2_id_;
 }
  void JointWrench::set_body_2_id(::google::protobuf::uint32 value) {
   set_has_body_2_id();
   body_2_id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.JointWrench.body_2_id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.JointWrench.body_2_id)
 }
 
-// required .experimot.msgs.Wrench body_1_wrench = 5;
+// required .Indriya.Core.Msgs.Wrench body_1_wrench = 5;
  bool JointWrench::has_body_1_wrench() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -812,28 +814,28 @@ void JointWrench::InternalSwap(JointWrench* other) {
   _has_bits_[0] &= ~0x00000010u;
 }
  void JointWrench::clear_body_1_wrench() {
-  if (body_1_wrench_ != NULL) body_1_wrench_->::experimot::msgs::Wrench::Clear();
+  if (body_1_wrench_ != NULL) body_1_wrench_->::Indriya::Core::Msgs::Wrench::Clear();
   clear_has_body_1_wrench();
 }
- const ::experimot::msgs::Wrench& JointWrench::body_1_wrench() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointWrench.body_1_wrench)
+ const ::Indriya::Core::Msgs::Wrench& JointWrench::body_1_wrench() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointWrench.body_1_wrench)
   return body_1_wrench_ != NULL ? *body_1_wrench_ : *default_instance_->body_1_wrench_;
 }
- ::experimot::msgs::Wrench* JointWrench::mutable_body_1_wrench() {
+ ::Indriya::Core::Msgs::Wrench* JointWrench::mutable_body_1_wrench() {
   set_has_body_1_wrench();
   if (body_1_wrench_ == NULL) {
-    body_1_wrench_ = new ::experimot::msgs::Wrench;
+    body_1_wrench_ = new ::Indriya::Core::Msgs::Wrench;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.JointWrench.body_1_wrench)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.JointWrench.body_1_wrench)
   return body_1_wrench_;
 }
- ::experimot::msgs::Wrench* JointWrench::release_body_1_wrench() {
+ ::Indriya::Core::Msgs::Wrench* JointWrench::release_body_1_wrench() {
   clear_has_body_1_wrench();
-  ::experimot::msgs::Wrench* temp = body_1_wrench_;
+  ::Indriya::Core::Msgs::Wrench* temp = body_1_wrench_;
   body_1_wrench_ = NULL;
   return temp;
 }
- void JointWrench::set_allocated_body_1_wrench(::experimot::msgs::Wrench* body_1_wrench) {
+ void JointWrench::set_allocated_body_1_wrench(::Indriya::Core::Msgs::Wrench* body_1_wrench) {
   delete body_1_wrench_;
   body_1_wrench_ = body_1_wrench;
   if (body_1_wrench) {
@@ -841,10 +843,10 @@ void JointWrench::InternalSwap(JointWrench* other) {
   } else {
     clear_has_body_1_wrench();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.JointWrench.body_1_wrench)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.JointWrench.body_1_wrench)
 }
 
-// required .experimot.msgs.Wrench body_2_wrench = 6;
+// required .Indriya.Core.Msgs.Wrench body_2_wrench = 6;
  bool JointWrench::has_body_2_wrench() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -855,28 +857,28 @@ void JointWrench::InternalSwap(JointWrench* other) {
   _has_bits_[0] &= ~0x00000020u;
 }
  void JointWrench::clear_body_2_wrench() {
-  if (body_2_wrench_ != NULL) body_2_wrench_->::experimot::msgs::Wrench::Clear();
+  if (body_2_wrench_ != NULL) body_2_wrench_->::Indriya::Core::Msgs::Wrench::Clear();
   clear_has_body_2_wrench();
 }
- const ::experimot::msgs::Wrench& JointWrench::body_2_wrench() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointWrench.body_2_wrench)
+ const ::Indriya::Core::Msgs::Wrench& JointWrench::body_2_wrench() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointWrench.body_2_wrench)
   return body_2_wrench_ != NULL ? *body_2_wrench_ : *default_instance_->body_2_wrench_;
 }
- ::experimot::msgs::Wrench* JointWrench::mutable_body_2_wrench() {
+ ::Indriya::Core::Msgs::Wrench* JointWrench::mutable_body_2_wrench() {
   set_has_body_2_wrench();
   if (body_2_wrench_ == NULL) {
-    body_2_wrench_ = new ::experimot::msgs::Wrench;
+    body_2_wrench_ = new ::Indriya::Core::Msgs::Wrench;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.JointWrench.body_2_wrench)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.JointWrench.body_2_wrench)
   return body_2_wrench_;
 }
- ::experimot::msgs::Wrench* JointWrench::release_body_2_wrench() {
+ ::Indriya::Core::Msgs::Wrench* JointWrench::release_body_2_wrench() {
   clear_has_body_2_wrench();
-  ::experimot::msgs::Wrench* temp = body_2_wrench_;
+  ::Indriya::Core::Msgs::Wrench* temp = body_2_wrench_;
   body_2_wrench_ = NULL;
   return temp;
 }
- void JointWrench::set_allocated_body_2_wrench(::experimot::msgs::Wrench* body_2_wrench) {
+ void JointWrench::set_allocated_body_2_wrench(::Indriya::Core::Msgs::Wrench* body_2_wrench) {
   delete body_2_wrench_;
   body_2_wrench_ = body_2_wrench;
   if (body_2_wrench) {
@@ -884,15 +886,16 @@ void JointWrench::InternalSwap(JointWrench* other) {
   } else {
     clear_has_body_2_wrench();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.JointWrench.body_2_wrench)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.JointWrench.body_2_wrench)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.JointWrench", JointWrench)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.JointWrench", JointWrench)
 // @@protoc_insertion_point(global_scope)

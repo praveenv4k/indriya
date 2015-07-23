@@ -19,9 +19,9 @@ import vector3d_pb2 as vector3d__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='heightmapgeom.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x13heightmapgeom.proto\x12\x0e\x65xperimot.msgs\x1a\x0bimage.proto\x1a\x0evector3d.proto\"\xbb\x03\n\rHeightmapGeom\x12$\n\x05image\x18\x01 \x01(\x0b\x32\x15.experimot.msgs.Image\x12&\n\x04size\x18\x02 \x02(\x0b\x32\x18.experimot.msgs.Vector3d\x12(\n\x06origin\x18\x03 \x01(\x0b\x32\x18.experimot.msgs.Vector3d\x12\x0f\n\x07heights\x18\x04 \x03(\x02\x12\r\n\x05width\x18\x05 \x01(\x05\x12\x0e\n\x06height\x18\x06 \x01(\x05\x12\x36\n\x07texture\x18\x07 \x03(\x0b\x32%.experimot.msgs.HeightmapGeom.Texture\x12\x32\n\x05\x62lend\x18\x08 \x03(\x0b\x32#.experimot.msgs.HeightmapGeom.Blend\x12\x1a\n\x12use_terrain_paging\x18\t \x01(\x08\x12\x10\n\x08\x66ilename\x18\n \x01(\t\x1a\x38\n\x07Texture\x12\x0f\n\x07\x64iffuse\x18\x01 \x02(\t\x12\x0e\n\x06normal\x18\x02 \x02(\t\x12\x0c\n\x04size\x18\x03 \x02(\x01\x1a.\n\x05\x42lend\x12\x12\n\nmin_height\x18\x01 \x02(\x01\x12\x11\n\tfade_dist\x18\x02 \x02(\x01')
+  serialized_pb=_b('\n\x13heightmapgeom.proto\x12\x11Indriya.Core.Msgs\x1a\x0bimage.proto\x1a\x0evector3d.proto\"\xca\x03\n\rHeightmapGeom\x12\'\n\x05image\x18\x01 \x01(\x0b\x32\x18.Indriya.Core.Msgs.Image\x12)\n\x04size\x18\x02 \x02(\x0b\x32\x1b.Indriya.Core.Msgs.Vector3d\x12+\n\x06origin\x18\x03 \x01(\x0b\x32\x1b.Indriya.Core.Msgs.Vector3d\x12\x0f\n\x07heights\x18\x04 \x03(\x02\x12\r\n\x05width\x18\x05 \x01(\x05\x12\x0e\n\x06height\x18\x06 \x01(\x05\x12\x39\n\x07texture\x18\x07 \x03(\x0b\x32(.Indriya.Core.Msgs.HeightmapGeom.Texture\x12\x35\n\x05\x62lend\x18\x08 \x03(\x0b\x32&.Indriya.Core.Msgs.HeightmapGeom.Blend\x12\x1a\n\x12use_terrain_paging\x18\t \x01(\x08\x12\x10\n\x08\x66ilename\x18\n \x01(\t\x1a\x38\n\x07Texture\x12\x0f\n\x07\x64iffuse\x18\x01 \x02(\t\x12\x0e\n\x06normal\x18\x02 \x02(\t\x12\x0c\n\x04size\x18\x03 \x02(\x01\x1a.\n\x05\x42lend\x12\x12\n\nmin_height\x18\x01 \x02(\x01\x12\x11\n\tfade_dist\x18\x02 \x02(\x01')
   ,
   dependencies=[image__pb2.DESCRIPTOR,vector3d__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -31,27 +31,27 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _HEIGHTMAPGEOM_TEXTURE = _descriptor.Descriptor(
   name='Texture',
-  full_name='experimot.msgs.HeightmapGeom.Texture',
+  full_name='Indriya.Core.Msgs.HeightmapGeom.Texture',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='diffuse', full_name='experimot.msgs.HeightmapGeom.Texture.diffuse', index=0,
+      name='diffuse', full_name='Indriya.Core.Msgs.HeightmapGeom.Texture.diffuse', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='normal', full_name='experimot.msgs.HeightmapGeom.Texture.normal', index=1,
+      name='normal', full_name='Indriya.Core.Msgs.HeightmapGeom.Texture.normal', index=1,
       number=2, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='size', full_name='experimot.msgs.HeightmapGeom.Texture.size', index=2,
+      name='size', full_name='Indriya.Core.Msgs.HeightmapGeom.Texture.size', index=2,
       number=3, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -69,26 +69,26 @@ _HEIGHTMAPGEOM_TEXTURE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=408,
-  serialized_end=464,
+  serialized_start=426,
+  serialized_end=482,
 )
 
 _HEIGHTMAPGEOM_BLEND = _descriptor.Descriptor(
   name='Blend',
-  full_name='experimot.msgs.HeightmapGeom.Blend',
+  full_name='Indriya.Core.Msgs.HeightmapGeom.Blend',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='min_height', full_name='experimot.msgs.HeightmapGeom.Blend.min_height', index=0,
+      name='min_height', full_name='Indriya.Core.Msgs.HeightmapGeom.Blend.min_height', index=0,
       number=1, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='fade_dist', full_name='experimot.msgs.HeightmapGeom.Blend.fade_dist', index=1,
+      name='fade_dist', full_name='Indriya.Core.Msgs.HeightmapGeom.Blend.fade_dist', index=1,
       number=2, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -106,82 +106,82 @@ _HEIGHTMAPGEOM_BLEND = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=466,
-  serialized_end=512,
+  serialized_start=484,
+  serialized_end=530,
 )
 
 _HEIGHTMAPGEOM = _descriptor.Descriptor(
   name='HeightmapGeom',
-  full_name='experimot.msgs.HeightmapGeom',
+  full_name='Indriya.Core.Msgs.HeightmapGeom',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='image', full_name='experimot.msgs.HeightmapGeom.image', index=0,
+      name='image', full_name='Indriya.Core.Msgs.HeightmapGeom.image', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='size', full_name='experimot.msgs.HeightmapGeom.size', index=1,
+      name='size', full_name='Indriya.Core.Msgs.HeightmapGeom.size', index=1,
       number=2, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='origin', full_name='experimot.msgs.HeightmapGeom.origin', index=2,
+      name='origin', full_name='Indriya.Core.Msgs.HeightmapGeom.origin', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='heights', full_name='experimot.msgs.HeightmapGeom.heights', index=3,
+      name='heights', full_name='Indriya.Core.Msgs.HeightmapGeom.heights', index=3,
       number=4, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='width', full_name='experimot.msgs.HeightmapGeom.width', index=4,
+      name='width', full_name='Indriya.Core.Msgs.HeightmapGeom.width', index=4,
       number=5, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='height', full_name='experimot.msgs.HeightmapGeom.height', index=5,
+      name='height', full_name='Indriya.Core.Msgs.HeightmapGeom.height', index=5,
       number=6, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='texture', full_name='experimot.msgs.HeightmapGeom.texture', index=6,
+      name='texture', full_name='Indriya.Core.Msgs.HeightmapGeom.texture', index=6,
       number=7, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='blend', full_name='experimot.msgs.HeightmapGeom.blend', index=7,
+      name='blend', full_name='Indriya.Core.Msgs.HeightmapGeom.blend', index=7,
       number=8, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='use_terrain_paging', full_name='experimot.msgs.HeightmapGeom.use_terrain_paging', index=8,
+      name='use_terrain_paging', full_name='Indriya.Core.Msgs.HeightmapGeom.use_terrain_paging', index=8,
       number=9, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='filename', full_name='experimot.msgs.HeightmapGeom.filename', index=9,
+      name='filename', full_name='Indriya.Core.Msgs.HeightmapGeom.filename', index=9,
       number=10, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -199,8 +199,8 @@ _HEIGHTMAPGEOM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=69,
-  serialized_end=512,
+  serialized_start=72,
+  serialized_end=530,
 )
 
 _HEIGHTMAPGEOM_TEXTURE.containing_type = _HEIGHTMAPGEOM
@@ -217,19 +217,19 @@ HeightmapGeom = _reflection.GeneratedProtocolMessageType('HeightmapGeom', (_mess
   Texture = _reflection.GeneratedProtocolMessageType('Texture', (_message.Message,), dict(
     DESCRIPTOR = _HEIGHTMAPGEOM_TEXTURE,
     __module__ = 'heightmapgeom_pb2'
-    # @@protoc_insertion_point(class_scope:experimot.msgs.HeightmapGeom.Texture)
+    # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.HeightmapGeom.Texture)
     ))
   ,
 
   Blend = _reflection.GeneratedProtocolMessageType('Blend', (_message.Message,), dict(
     DESCRIPTOR = _HEIGHTMAPGEOM_BLEND,
     __module__ = 'heightmapgeom_pb2'
-    # @@protoc_insertion_point(class_scope:experimot.msgs.HeightmapGeom.Blend)
+    # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.HeightmapGeom.Blend)
     ))
   ,
   DESCRIPTOR = _HEIGHTMAPGEOM,
   __module__ = 'heightmapgeom_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.HeightmapGeom)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.HeightmapGeom)
   ))
 _sym_db.RegisterMessage(HeightmapGeom)
 _sym_db.RegisterMessage(HeightmapGeom.Texture)

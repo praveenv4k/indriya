@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -81,14 +82,14 @@ void protobuf_AddDesc_pose_5fanimation_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_pose_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_time_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_pose_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_time_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\024pose_animation.proto\022\016experimot.msgs\032\n"
-    "pose.proto\032\ntime.proto\"}\n\rPoseAnimation\022"
-    "\022\n\nmodel_name\030\001 \002(\t\022\020\n\010model_id\030\002 \001(\r\022\"\n"
-    "\004pose\030\003 \003(\0132\024.experimot.msgs.Pose\022\"\n\004tim"
-    "e\030\004 \003(\0132\024.experimot.msgs.Time", 189);
+    "\n\024pose_animation.proto\022\021Indriya.Core.Msg"
+    "s\032\npose.proto\032\ntime.proto\"\203\001\n\rPoseAnimat"
+    "ion\022\022\n\nmodel_name\030\001 \002(\t\022\020\n\010model_id\030\002 \001("
+    "\r\022%\n\004pose\030\003 \003(\0132\027.Indriya.Core.Msgs.Pose"
+    "\022%\n\004time\030\004 \003(\0132\027.Indriya.Core.Msgs.Time", 199);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "pose_animation.proto", &protobuf_RegisterTypes);
   PoseAnimation::default_instance_ = new PoseAnimation();
@@ -125,7 +126,7 @@ const int PoseAnimation::kTimeFieldNumber;
 PoseAnimation::PoseAnimation()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.PoseAnimation)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.PoseAnimation)
 }
 
 void PoseAnimation::InitAsDefaultInstance() {
@@ -136,7 +137,7 @@ PoseAnimation::PoseAnimation(const PoseAnimation& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.PoseAnimation)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.PoseAnimation)
 }
 
 void PoseAnimation::SharedCtor() {
@@ -148,7 +149,7 @@ void PoseAnimation::SharedCtor() {
 }
 
 PoseAnimation::~PoseAnimation() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.PoseAnimation)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.PoseAnimation)
   SharedDtor();
 }
 
@@ -202,7 +203,7 @@ bool PoseAnimation::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.PoseAnimation)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.PoseAnimation)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -216,7 +217,7 @@ bool PoseAnimation::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->model_name().data(), this->model_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.PoseAnimation.model_name");
+            "Indriya.Core.Msgs.PoseAnimation.model_name");
         } else {
           goto handle_unusual;
         }
@@ -239,7 +240,7 @@ bool PoseAnimation::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .experimot.msgs.Pose pose = 3;
+      // repeated .Indriya.Core.Msgs.Pose pose = 3;
       case 3: {
         if (tag == 26) {
          parse_pose:
@@ -253,7 +254,7 @@ bool PoseAnimation::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .experimot.msgs.Time time = 4;
+      // repeated .Indriya.Core.Msgs.Time time = 4;
       case 4: {
         if (tag == 34) {
          parse_time:
@@ -281,23 +282,23 @@ bool PoseAnimation::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.PoseAnimation)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.PoseAnimation)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.PoseAnimation)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.PoseAnimation)
   return false;
 #undef DO_
 }
 
 void PoseAnimation::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.PoseAnimation)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.PoseAnimation)
   // required string model_name = 1;
   if (has_model_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->model_name().data(), this->model_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.PoseAnimation.model_name");
+      "Indriya.Core.Msgs.PoseAnimation.model_name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->model_name(), output);
   }
@@ -307,13 +308,13 @@ void PoseAnimation::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->model_id(), output);
   }
 
-  // repeated .experimot.msgs.Pose pose = 3;
+  // repeated .Indriya.Core.Msgs.Pose pose = 3;
   for (unsigned int i = 0, n = this->pose_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, this->pose(i), output);
   }
 
-  // repeated .experimot.msgs.Time time = 4;
+  // repeated .Indriya.Core.Msgs.Time time = 4;
   for (unsigned int i = 0, n = this->time_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->time(i), output);
@@ -323,18 +324,18 @@ void PoseAnimation::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.PoseAnimation)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.PoseAnimation)
 }
 
 ::google::protobuf::uint8* PoseAnimation::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.PoseAnimation)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.PoseAnimation)
   // required string model_name = 1;
   if (has_model_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->model_name().data(), this->model_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.PoseAnimation.model_name");
+      "Indriya.Core.Msgs.PoseAnimation.model_name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->model_name(), target);
@@ -345,14 +346,14 @@ void PoseAnimation::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->model_id(), target);
   }
 
-  // repeated .experimot.msgs.Pose pose = 3;
+  // repeated .Indriya.Core.Msgs.Pose pose = 3;
   for (unsigned int i = 0, n = this->pose_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         3, this->pose(i), target);
   }
 
-  // repeated .experimot.msgs.Time time = 4;
+  // repeated .Indriya.Core.Msgs.Time time = 4;
   for (unsigned int i = 0, n = this->time_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -363,7 +364,7 @@ void PoseAnimation::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.PoseAnimation)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.PoseAnimation)
   return target;
 }
 
@@ -383,7 +384,7 @@ int PoseAnimation::ByteSize() const {
         this->model_id());
   }
 
-  // repeated .experimot.msgs.Pose pose = 3;
+  // repeated .Indriya.Core.Msgs.Pose pose = 3;
   total_size += 1 * this->pose_size();
   for (int i = 0; i < this->pose_size(); i++) {
     total_size +=
@@ -391,7 +392,7 @@ int PoseAnimation::ByteSize() const {
         this->pose(i));
   }
 
-  // repeated .experimot.msgs.Time time = 4;
+  // repeated .Indriya.Core.Msgs.Time time = 4;
   total_size += 1 * this->time_size();
   for (int i = 0; i < this->time_size(); i++) {
     total_size +=
@@ -500,28 +501,28 @@ void PoseAnimation::InternalSwap(PoseAnimation* other) {
   clear_has_model_name();
 }
  const ::std::string& PoseAnimation::model_name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PoseAnimation.model_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PoseAnimation.model_name)
   return model_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void PoseAnimation::set_model_name(const ::std::string& value) {
   set_has_model_name();
   model_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.PoseAnimation.model_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PoseAnimation.model_name)
 }
  void PoseAnimation::set_model_name(const char* value) {
   set_has_model_name();
   model_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.PoseAnimation.model_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.PoseAnimation.model_name)
 }
  void PoseAnimation::set_model_name(const char* value, size_t size) {
   set_has_model_name();
   model_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.PoseAnimation.model_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.PoseAnimation.model_name)
 }
  ::std::string* PoseAnimation::mutable_model_name() {
   set_has_model_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.PoseAnimation.model_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.PoseAnimation.model_name)
   return model_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* PoseAnimation::release_model_name() {
@@ -535,7 +536,7 @@ void PoseAnimation::InternalSwap(PoseAnimation* other) {
     clear_has_model_name();
   }
   model_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), model_name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.PoseAnimation.model_name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.PoseAnimation.model_name)
 }
 
 // optional uint32 model_id = 2;
@@ -553,72 +554,72 @@ void PoseAnimation::InternalSwap(PoseAnimation* other) {
   clear_has_model_id();
 }
  ::google::protobuf::uint32 PoseAnimation::model_id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PoseAnimation.model_id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PoseAnimation.model_id)
   return model_id_;
 }
  void PoseAnimation::set_model_id(::google::protobuf::uint32 value) {
   set_has_model_id();
   model_id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PoseAnimation.model_id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PoseAnimation.model_id)
 }
 
-// repeated .experimot.msgs.Pose pose = 3;
+// repeated .Indriya.Core.Msgs.Pose pose = 3;
  int PoseAnimation::pose_size() const {
   return pose_.size();
 }
  void PoseAnimation::clear_pose() {
   pose_.Clear();
 }
- const ::experimot::msgs::Pose& PoseAnimation::pose(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PoseAnimation.pose)
+ const ::Indriya::Core::Msgs::Pose& PoseAnimation::pose(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PoseAnimation.pose)
   return pose_.Get(index);
 }
- ::experimot::msgs::Pose* PoseAnimation::mutable_pose(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.PoseAnimation.pose)
+ ::Indriya::Core::Msgs::Pose* PoseAnimation::mutable_pose(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.PoseAnimation.pose)
   return pose_.Mutable(index);
 }
- ::experimot::msgs::Pose* PoseAnimation::add_pose() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.PoseAnimation.pose)
+ ::Indriya::Core::Msgs::Pose* PoseAnimation::add_pose() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.PoseAnimation.pose)
   return pose_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Pose >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Pose >&
 PoseAnimation::pose() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.PoseAnimation.pose)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.PoseAnimation.pose)
   return pose_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Pose >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Pose >*
 PoseAnimation::mutable_pose() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.PoseAnimation.pose)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.PoseAnimation.pose)
   return &pose_;
 }
 
-// repeated .experimot.msgs.Time time = 4;
+// repeated .Indriya.Core.Msgs.Time time = 4;
  int PoseAnimation::time_size() const {
   return time_.size();
 }
  void PoseAnimation::clear_time() {
   time_.Clear();
 }
- const ::experimot::msgs::Time& PoseAnimation::time(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PoseAnimation.time)
+ const ::Indriya::Core::Msgs::Time& PoseAnimation::time(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PoseAnimation.time)
   return time_.Get(index);
 }
- ::experimot::msgs::Time* PoseAnimation::mutable_time(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.PoseAnimation.time)
+ ::Indriya::Core::Msgs::Time* PoseAnimation::mutable_time(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.PoseAnimation.time)
   return time_.Mutable(index);
 }
- ::experimot::msgs::Time* PoseAnimation::add_time() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.PoseAnimation.time)
+ ::Indriya::Core::Msgs::Time* PoseAnimation::add_time() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.PoseAnimation.time)
   return time_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Time >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Time >&
 PoseAnimation::time() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.PoseAnimation.time)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.PoseAnimation.time)
   return time_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Time >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Time >*
 PoseAnimation::mutable_time() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.PoseAnimation.time)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.PoseAnimation.time)
   return &time_;
 }
 
@@ -626,8 +627,9 @@ PoseAnimation::mutable_time() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.PoseAnimation", PoseAnimation)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.PoseAnimation", PoseAnimation)
 // @@protoc_insertion_point(global_scope)

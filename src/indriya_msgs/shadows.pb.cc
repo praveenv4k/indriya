@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -81,15 +82,15 @@ void protobuf_AddDesc_shadows_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_color_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_color_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rshadows.proto\022\016experimot.msgs\032\013color.p"
-    "roto\"\313\001\n\007Shadows\0220\n\004type\030\005 \001(\0162\".experim"
-    "ot.msgs.Shadows.ShadowType\022$\n\005color\030\006 \001("
-    "\0132\025.experimot.msgs.Color\"h\n\nShadowType\022\024"
-    "\n\020STENCIL_ADDITIVE\020\001\022\026\n\022STENCIL_MODULATI"
-    "VE\020\002\022\024\n\020TEXTURE_ADDITIVE\020\003\022\026\n\022TEXTURE_MO"
-    "DULATIVE\020\004", 250);
+    "\n\rshadows.proto\022\021Indriya.Core.Msgs\032\013colo"
+    "r.proto\"\321\001\n\007Shadows\0223\n\004type\030\005 \001(\0162%.Indr"
+    "iya.Core.Msgs.Shadows.ShadowType\022\'\n\005colo"
+    "r\030\006 \001(\0132\030.Indriya.Core.Msgs.Color\"h\n\nSha"
+    "dowType\022\024\n\020STENCIL_ADDITIVE\020\001\022\026\n\022STENCIL"
+    "_MODULATIVE\020\002\022\024\n\020TEXTURE_ADDITIVE\020\003\022\026\n\022T"
+    "EXTURE_MODULATIVE\020\004", 259);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "shadows.proto", &protobuf_RegisterTypes);
   Shadows::default_instance_ = new Shadows();
@@ -149,11 +150,11 @@ const int Shadows::kColorFieldNumber;
 Shadows::Shadows()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Shadows)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Shadows)
 }
 
 void Shadows::InitAsDefaultInstance() {
-  color_ = const_cast< ::experimot::msgs::Color*>(&::experimot::msgs::Color::default_instance());
+  color_ = const_cast< ::Indriya::Core::Msgs::Color*>(&::Indriya::Core::Msgs::Color::default_instance());
 }
 
 Shadows::Shadows(const Shadows& from)
@@ -161,7 +162,7 @@ Shadows::Shadows(const Shadows& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Shadows)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Shadows)
 }
 
 void Shadows::SharedCtor() {
@@ -172,7 +173,7 @@ void Shadows::SharedCtor() {
 }
 
 Shadows::~Shadows() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Shadows)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Shadows)
   SharedDtor();
 }
 
@@ -211,7 +212,7 @@ void Shadows::Clear() {
   if (_has_bits_[0 / 32] & 3) {
     type_ = 1;
     if (has_color()) {
-      if (color_ != NULL) color_->::experimot::msgs::Color::Clear();
+      if (color_ != NULL) color_->::Indriya::Core::Msgs::Color::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -224,21 +225,21 @@ bool Shadows::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Shadows)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Shadows)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .experimot.msgs.Shadows.ShadowType type = 5;
+      // optional .Indriya.Core.Msgs.Shadows.ShadowType type = 5;
       case 5: {
         if (tag == 40) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::experimot::msgs::Shadows_ShadowType_IsValid(value)) {
-            set_type(static_cast< ::experimot::msgs::Shadows_ShadowType >(value));
+          if (::Indriya::Core::Msgs::Shadows_ShadowType_IsValid(value)) {
+            set_type(static_cast< ::Indriya::Core::Msgs::Shadows_ShadowType >(value));
           } else {
             mutable_unknown_fields()->AddVarint(5, value);
           }
@@ -249,7 +250,7 @@ bool Shadows::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Color color = 6;
+      // optional .Indriya.Core.Msgs.Color color = 6;
       case 6: {
         if (tag == 50) {
          parse_color:
@@ -276,24 +277,24 @@ bool Shadows::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Shadows)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Shadows)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Shadows)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Shadows)
   return false;
 #undef DO_
 }
 
 void Shadows::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Shadows)
-  // optional .experimot.msgs.Shadows.ShadowType type = 5;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Shadows)
+  // optional .Indriya.Core.Msgs.Shadows.ShadowType type = 5;
   if (has_type()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       5, this->type(), output);
   }
 
-  // optional .experimot.msgs.Color color = 6;
+  // optional .Indriya.Core.Msgs.Color color = 6;
   if (has_color()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       6, *this->color_, output);
@@ -303,19 +304,19 @@ void Shadows::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Shadows)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Shadows)
 }
 
 ::google::protobuf::uint8* Shadows::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Shadows)
-  // optional .experimot.msgs.Shadows.ShadowType type = 5;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Shadows)
+  // optional .Indriya.Core.Msgs.Shadows.ShadowType type = 5;
   if (has_type()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       5, this->type(), target);
   }
 
-  // optional .experimot.msgs.Color color = 6;
+  // optional .Indriya.Core.Msgs.Color color = 6;
   if (has_color()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -326,7 +327,7 @@ void Shadows::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Shadows)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Shadows)
   return target;
 }
 
@@ -334,13 +335,13 @@ int Shadows::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & 3) {
-    // optional .experimot.msgs.Shadows.ShadowType type = 5;
+    // optional .Indriya.Core.Msgs.Shadows.ShadowType type = 5;
     if (has_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
     }
 
-    // optional .experimot.msgs.Color color = 6;
+    // optional .Indriya.Core.Msgs.Color color = 6;
     if (has_color()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -378,7 +379,7 @@ void Shadows::MergeFrom(const Shadows& from) {
       set_type(from.type());
     }
     if (from.has_color()) {
-      mutable_color()->::experimot::msgs::Color::MergeFrom(from.color());
+      mutable_color()->::Indriya::Core::Msgs::Color::MergeFrom(from.color());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -429,7 +430,7 @@ void Shadows::InternalSwap(Shadows* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Shadows
 
-// optional .experimot.msgs.Shadows.ShadowType type = 5;
+// optional .Indriya.Core.Msgs.Shadows.ShadowType type = 5;
  bool Shadows::has_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -443,18 +444,18 @@ void Shadows::InternalSwap(Shadows* other) {
   type_ = 1;
   clear_has_type();
 }
- ::experimot::msgs::Shadows_ShadowType Shadows::type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Shadows.type)
-  return static_cast< ::experimot::msgs::Shadows_ShadowType >(type_);
+ ::Indriya::Core::Msgs::Shadows_ShadowType Shadows::type() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Shadows.type)
+  return static_cast< ::Indriya::Core::Msgs::Shadows_ShadowType >(type_);
 }
- void Shadows::set_type(::experimot::msgs::Shadows_ShadowType value) {
-  assert(::experimot::msgs::Shadows_ShadowType_IsValid(value));
+ void Shadows::set_type(::Indriya::Core::Msgs::Shadows_ShadowType value) {
+  assert(::Indriya::Core::Msgs::Shadows_ShadowType_IsValid(value));
   set_has_type();
   type_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Shadows.type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Shadows.type)
 }
 
-// optional .experimot.msgs.Color color = 6;
+// optional .Indriya.Core.Msgs.Color color = 6;
  bool Shadows::has_color() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -465,28 +466,28 @@ void Shadows::InternalSwap(Shadows* other) {
   _has_bits_[0] &= ~0x00000002u;
 }
  void Shadows::clear_color() {
-  if (color_ != NULL) color_->::experimot::msgs::Color::Clear();
+  if (color_ != NULL) color_->::Indriya::Core::Msgs::Color::Clear();
   clear_has_color();
 }
- const ::experimot::msgs::Color& Shadows::color() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Shadows.color)
+ const ::Indriya::Core::Msgs::Color& Shadows::color() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Shadows.color)
   return color_ != NULL ? *color_ : *default_instance_->color_;
 }
- ::experimot::msgs::Color* Shadows::mutable_color() {
+ ::Indriya::Core::Msgs::Color* Shadows::mutable_color() {
   set_has_color();
   if (color_ == NULL) {
-    color_ = new ::experimot::msgs::Color;
+    color_ = new ::Indriya::Core::Msgs::Color;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Shadows.color)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Shadows.color)
   return color_;
 }
- ::experimot::msgs::Color* Shadows::release_color() {
+ ::Indriya::Core::Msgs::Color* Shadows::release_color() {
   clear_has_color();
-  ::experimot::msgs::Color* temp = color_;
+  ::Indriya::Core::Msgs::Color* temp = color_;
   color_ = NULL;
   return temp;
 }
- void Shadows::set_allocated_color(::experimot::msgs::Color* color) {
+ void Shadows::set_allocated_color(::Indriya::Core::Msgs::Color* color) {
   delete color_;
   color_ = color;
   if (color) {
@@ -494,15 +495,16 @@ void Shadows::InternalSwap(Shadows* other) {
   } else {
     clear_has_color();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Shadows.color)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Shadows.color)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Shadows", Shadows)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Shadows", Shadows)
 // @@protoc_insertion_point(global_scope)

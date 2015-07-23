@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='log_control.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x11log_control.proto\x12\x0e\x65xperimot.msgs\"^\n\nLogControl\x12\r\n\x05start\x18\x01 \x01(\x08\x12\x0c\n\x04stop\x18\x02 \x01(\x08\x12\x0e\n\x06paused\x18\x03 \x01(\x08\x12\x11\n\tbase_path\x18\x04 \x01(\t\x12\x10\n\x08\x65ncoding\x18\x05 \x01(\t')
+  serialized_pb=_b('\n\x11log_control.proto\x12\x11Indriya.Core.Msgs\"^\n\nLogControl\x12\r\n\x05start\x18\x01 \x01(\x08\x12\x0c\n\x04stop\x18\x02 \x01(\x08\x12\x0e\n\x06paused\x18\x03 \x01(\x08\x12\x11\n\tbase_path\x18\x04 \x01(\t\x12\x10\n\x08\x65ncoding\x18\x05 \x01(\t')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -28,41 +28,41 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _LOGCONTROL = _descriptor.Descriptor(
   name='LogControl',
-  full_name='experimot.msgs.LogControl',
+  full_name='Indriya.Core.Msgs.LogControl',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='start', full_name='experimot.msgs.LogControl.start', index=0,
+      name='start', full_name='Indriya.Core.Msgs.LogControl.start', index=0,
       number=1, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='stop', full_name='experimot.msgs.LogControl.stop', index=1,
+      name='stop', full_name='Indriya.Core.Msgs.LogControl.stop', index=1,
       number=2, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='paused', full_name='experimot.msgs.LogControl.paused', index=2,
+      name='paused', full_name='Indriya.Core.Msgs.LogControl.paused', index=2,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='base_path', full_name='experimot.msgs.LogControl.base_path', index=3,
+      name='base_path', full_name='Indriya.Core.Msgs.LogControl.base_path', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='encoding', full_name='experimot.msgs.LogControl.encoding', index=4,
+      name='encoding', full_name='Indriya.Core.Msgs.LogControl.encoding', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -80,8 +80,8 @@ _LOGCONTROL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=37,
-  serialized_end=131,
+  serialized_start=40,
+  serialized_end=134,
 )
 
 DESCRIPTOR.message_types_by_name['LogControl'] = _LOGCONTROL
@@ -89,7 +89,7 @@ DESCRIPTOR.message_types_by_name['LogControl'] = _LOGCONTROL
 LogControl = _reflection.GeneratedProtocolMessageType('LogControl', (_message.Message,), dict(
   DESCRIPTOR = _LOGCONTROL,
   __module__ = 'log_control_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.LogControl)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.LogControl)
   ))
 _sym_db.RegisterMessage(LogControl)
 

@@ -10,16 +10,16 @@
 // Generated from: proto/link_data.proto
 // Note: requires additional types generated from: vector3d.proto
 // Note: requires additional types generated from: time.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"LinkData")]
   public partial class LinkData : global::ProtoBuf.IExtensible
   {
     public LinkData() {}
     
-    private experimot.msgs.Time _time;
+    private Indriya.Core.Msgs.Time _time;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"time", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Time time
+    public Indriya.Core.Msgs.Time time
     {
       get { return _time; }
       set { _time = value; }
@@ -31,18 +31,18 @@ namespace experimot.msgs
       get { return _name; }
       set { _name = value; }
     }
-    private experimot.msgs.Vector3d _linear_velocity = null;
+    private Indriya.Core.Msgs.Vector3d _linear_velocity = null;
     [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"linear_velocity", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Vector3d linear_velocity
+    public Indriya.Core.Msgs.Vector3d linear_velocity
     {
       get { return _linear_velocity; }
       set { _linear_velocity = value; }
     }
-    private experimot.msgs.Vector3d _angular_velocity = null;
+    private Indriya.Core.Msgs.Vector3d _angular_velocity = null;
     [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"angular_velocity", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Vector3d angular_velocity
+    public Indriya.Core.Msgs.Vector3d angular_velocity
     {
       get { return _angular_velocity; }
       set { _angular_velocity = value; }

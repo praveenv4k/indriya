@@ -18,9 +18,9 @@ import vector3d_pb2 as vector3d__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='pointcloud.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x10pointcloud.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\"6\n\nPointCloud\x12(\n\x06points\x18\x01 \x03(\x0b\x32\x18.experimot.msgs.Vector3d')
+  serialized_pb=_b('\n\x10pointcloud.proto\x12\x11Indriya.Core.Msgs\x1a\x0evector3d.proto\"9\n\nPointCloud\x12+\n\x06points\x18\x01 \x03(\x0b\x32\x1b.Indriya.Core.Msgs.Vector3d')
   ,
   dependencies=[vector3d__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,13 +30,13 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _POINTCLOUD = _descriptor.Descriptor(
   name='PointCloud',
-  full_name='experimot.msgs.PointCloud',
+  full_name='Indriya.Core.Msgs.PointCloud',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='points', full_name='experimot.msgs.PointCloud.points', index=0,
+      name='points', full_name='Indriya.Core.Msgs.PointCloud.points', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -54,8 +54,8 @@ _POINTCLOUD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=52,
-  serialized_end=106,
+  serialized_start=55,
+  serialized_end=112,
 )
 
 _POINTCLOUD.fields_by_name['points'].message_type = vector3d__pb2._VECTOR3D
@@ -64,7 +64,7 @@ DESCRIPTOR.message_types_by_name['PointCloud'] = _POINTCLOUD
 PointCloud = _reflection.GeneratedProtocolMessageType('PointCloud', (_message.Message,), dict(
   DESCRIPTOR = _POINTCLOUD,
   __module__ = 'pointcloud_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.PointCloud)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.PointCloud)
   ))
 _sym_db.RegisterMessage(PointCloud)
 

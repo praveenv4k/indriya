@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_poses_5fstamped_2eproto();
@@ -109,28 +110,28 @@ class PosesStamped : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .experimot.msgs.Time time = 1;
+  // required .Indriya.Core.Msgs.Time time = 1;
   bool has_time() const;
   void clear_time();
   static const int kTimeFieldNumber = 1;
-  const ::experimot::msgs::Time& time() const;
-  ::experimot::msgs::Time* mutable_time();
-  ::experimot::msgs::Time* release_time();
-  void set_allocated_time(::experimot::msgs::Time* time);
+  const ::Indriya::Core::Msgs::Time& time() const;
+  ::Indriya::Core::Msgs::Time* mutable_time();
+  ::Indriya::Core::Msgs::Time* release_time();
+  void set_allocated_time(::Indriya::Core::Msgs::Time* time);
 
-  // repeated .experimot.msgs.Pose pose = 2;
+  // repeated .Indriya.Core.Msgs.Pose pose = 2;
   int pose_size() const;
   void clear_pose();
   static const int kPoseFieldNumber = 2;
-  const ::experimot::msgs::Pose& pose(int index) const;
-  ::experimot::msgs::Pose* mutable_pose(int index);
-  ::experimot::msgs::Pose* add_pose();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Pose >&
+  const ::Indriya::Core::Msgs::Pose& pose(int index) const;
+  ::Indriya::Core::Msgs::Pose* mutable_pose(int index);
+  ::Indriya::Core::Msgs::Pose* add_pose();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Pose >&
       pose() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Pose >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Pose >*
       mutable_pose();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.PosesStamped)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.PosesStamped)
  private:
   inline void set_has_time();
   inline void clear_has_time();
@@ -138,8 +139,8 @@ class PosesStamped : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::Time* time_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Pose > pose_;
+  ::Indriya::Core::Msgs::Time* time_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Pose > pose_;
   friend void  protobuf_AddDesc_poses_5fstamped_2eproto();
   friend void protobuf_AssignDesc_poses_5fstamped_2eproto();
   friend void protobuf_ShutdownFile_poses_5fstamped_2eproto();
@@ -155,7 +156,7 @@ class PosesStamped : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // PosesStamped
 
-// required .experimot.msgs.Time time = 1;
+// required .Indriya.Core.Msgs.Time time = 1;
 inline bool PosesStamped::has_time() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -166,28 +167,28 @@ inline void PosesStamped::clear_has_time() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void PosesStamped::clear_time() {
-  if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+  if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_time();
 }
-inline const ::experimot::msgs::Time& PosesStamped::time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PosesStamped.time)
+inline const ::Indriya::Core::Msgs::Time& PosesStamped::time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PosesStamped.time)
   return time_ != NULL ? *time_ : *default_instance_->time_;
 }
-inline ::experimot::msgs::Time* PosesStamped::mutable_time() {
+inline ::Indriya::Core::Msgs::Time* PosesStamped::mutable_time() {
   set_has_time();
   if (time_ == NULL) {
-    time_ = new ::experimot::msgs::Time;
+    time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.PosesStamped.time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.PosesStamped.time)
   return time_;
 }
-inline ::experimot::msgs::Time* PosesStamped::release_time() {
+inline ::Indriya::Core::Msgs::Time* PosesStamped::release_time() {
   clear_has_time();
-  ::experimot::msgs::Time* temp = time_;
+  ::Indriya::Core::Msgs::Time* temp = time_;
   time_ = NULL;
   return temp;
 }
-inline void PosesStamped::set_allocated_time(::experimot::msgs::Time* time) {
+inline void PosesStamped::set_allocated_time(::Indriya::Core::Msgs::Time* time) {
   delete time_;
   time_ = time;
   if (time) {
@@ -195,48 +196,49 @@ inline void PosesStamped::set_allocated_time(::experimot::msgs::Time* time) {
   } else {
     clear_has_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.PosesStamped.time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.PosesStamped.time)
 }
 
-// repeated .experimot.msgs.Pose pose = 2;
+// repeated .Indriya.Core.Msgs.Pose pose = 2;
 inline int PosesStamped::pose_size() const {
   return pose_.size();
 }
 inline void PosesStamped::clear_pose() {
   pose_.Clear();
 }
-inline const ::experimot::msgs::Pose& PosesStamped::pose(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PosesStamped.pose)
+inline const ::Indriya::Core::Msgs::Pose& PosesStamped::pose(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PosesStamped.pose)
   return pose_.Get(index);
 }
-inline ::experimot::msgs::Pose* PosesStamped::mutable_pose(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.PosesStamped.pose)
+inline ::Indriya::Core::Msgs::Pose* PosesStamped::mutable_pose(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.PosesStamped.pose)
   return pose_.Mutable(index);
 }
-inline ::experimot::msgs::Pose* PosesStamped::add_pose() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.PosesStamped.pose)
+inline ::Indriya::Core::Msgs::Pose* PosesStamped::add_pose() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.PosesStamped.pose)
   return pose_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Pose >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Pose >&
 PosesStamped::pose() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.PosesStamped.pose)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.PosesStamped.pose)
   return pose_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Pose >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Pose >*
 PosesStamped::mutable_pose() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.PosesStamped.pose)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.PosesStamped.pose)
   return &pose_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::PosesStamped> PosesStampedPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::PosesStamped> PosesStampedPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::PosesStamped const> ConstPosesStampedPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::PosesStamped const> ConstPosesStampedPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_poses_5fstamped_2eproto__INCLUDED

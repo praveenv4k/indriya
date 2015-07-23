@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_images_5fstamped_2eproto();
@@ -109,28 +110,28 @@ class ImagesStamped : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .experimot.msgs.Time time = 1;
+  // required .Indriya.Core.Msgs.Time time = 1;
   bool has_time() const;
   void clear_time();
   static const int kTimeFieldNumber = 1;
-  const ::experimot::msgs::Time& time() const;
-  ::experimot::msgs::Time* mutable_time();
-  ::experimot::msgs::Time* release_time();
-  void set_allocated_time(::experimot::msgs::Time* time);
+  const ::Indriya::Core::Msgs::Time& time() const;
+  ::Indriya::Core::Msgs::Time* mutable_time();
+  ::Indriya::Core::Msgs::Time* release_time();
+  void set_allocated_time(::Indriya::Core::Msgs::Time* time);
 
-  // repeated .experimot.msgs.Image image = 2;
+  // repeated .Indriya.Core.Msgs.Image image = 2;
   int image_size() const;
   void clear_image();
   static const int kImageFieldNumber = 2;
-  const ::experimot::msgs::Image& image(int index) const;
-  ::experimot::msgs::Image* mutable_image(int index);
-  ::experimot::msgs::Image* add_image();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Image >&
+  const ::Indriya::Core::Msgs::Image& image(int index) const;
+  ::Indriya::Core::Msgs::Image* mutable_image(int index);
+  ::Indriya::Core::Msgs::Image* add_image();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Image >&
       image() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Image >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Image >*
       mutable_image();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.ImagesStamped)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.ImagesStamped)
  private:
   inline void set_has_time();
   inline void clear_has_time();
@@ -138,8 +139,8 @@ class ImagesStamped : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::Time* time_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Image > image_;
+  ::Indriya::Core::Msgs::Time* time_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Image > image_;
   friend void  protobuf_AddDesc_images_5fstamped_2eproto();
   friend void protobuf_AssignDesc_images_5fstamped_2eproto();
   friend void protobuf_ShutdownFile_images_5fstamped_2eproto();
@@ -155,7 +156,7 @@ class ImagesStamped : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // ImagesStamped
 
-// required .experimot.msgs.Time time = 1;
+// required .Indriya.Core.Msgs.Time time = 1;
 inline bool ImagesStamped::has_time() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -166,28 +167,28 @@ inline void ImagesStamped::clear_has_time() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void ImagesStamped::clear_time() {
-  if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+  if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_time();
 }
-inline const ::experimot::msgs::Time& ImagesStamped::time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ImagesStamped.time)
+inline const ::Indriya::Core::Msgs::Time& ImagesStamped::time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ImagesStamped.time)
   return time_ != NULL ? *time_ : *default_instance_->time_;
 }
-inline ::experimot::msgs::Time* ImagesStamped::mutable_time() {
+inline ::Indriya::Core::Msgs::Time* ImagesStamped::mutable_time() {
   set_has_time();
   if (time_ == NULL) {
-    time_ = new ::experimot::msgs::Time;
+    time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.ImagesStamped.time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.ImagesStamped.time)
   return time_;
 }
-inline ::experimot::msgs::Time* ImagesStamped::release_time() {
+inline ::Indriya::Core::Msgs::Time* ImagesStamped::release_time() {
   clear_has_time();
-  ::experimot::msgs::Time* temp = time_;
+  ::Indriya::Core::Msgs::Time* temp = time_;
   time_ = NULL;
   return temp;
 }
-inline void ImagesStamped::set_allocated_time(::experimot::msgs::Time* time) {
+inline void ImagesStamped::set_allocated_time(::Indriya::Core::Msgs::Time* time) {
   delete time_;
   time_ = time;
   if (time) {
@@ -195,48 +196,49 @@ inline void ImagesStamped::set_allocated_time(::experimot::msgs::Time* time) {
   } else {
     clear_has_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.ImagesStamped.time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.ImagesStamped.time)
 }
 
-// repeated .experimot.msgs.Image image = 2;
+// repeated .Indriya.Core.Msgs.Image image = 2;
 inline int ImagesStamped::image_size() const {
   return image_.size();
 }
 inline void ImagesStamped::clear_image() {
   image_.Clear();
 }
-inline const ::experimot::msgs::Image& ImagesStamped::image(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ImagesStamped.image)
+inline const ::Indriya::Core::Msgs::Image& ImagesStamped::image(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ImagesStamped.image)
   return image_.Get(index);
 }
-inline ::experimot::msgs::Image* ImagesStamped::mutable_image(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.ImagesStamped.image)
+inline ::Indriya::Core::Msgs::Image* ImagesStamped::mutable_image(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.ImagesStamped.image)
   return image_.Mutable(index);
 }
-inline ::experimot::msgs::Image* ImagesStamped::add_image() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.ImagesStamped.image)
+inline ::Indriya::Core::Msgs::Image* ImagesStamped::add_image() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.ImagesStamped.image)
   return image_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Image >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Image >&
 ImagesStamped::image() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.ImagesStamped.image)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.ImagesStamped.image)
   return image_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Image >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Image >*
 ImagesStamped::mutable_image() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.ImagesStamped.image)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.ImagesStamped.image)
   return &image_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::ImagesStamped> ImagesStampedPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::ImagesStamped> ImagesStampedPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::ImagesStamped const> ConstImagesStampedPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::ImagesStamped const> ConstImagesStampedPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_images_5fstamped_2eproto__INCLUDED

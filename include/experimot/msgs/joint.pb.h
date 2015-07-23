@@ -35,8 +35,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_joint_2eproto();
@@ -195,12 +196,12 @@ class Joint : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedField< double >*
       mutable_angle();
 
-  // optional .experimot.msgs.Joint.Type type = 4;
+  // optional .Indriya.Core.Msgs.Joint.Type type = 4;
   bool has_type() const;
   void clear_type();
   static const int kTypeFieldNumber = 4;
-  ::experimot::msgs::Joint_Type type() const;
-  void set_type(::experimot::msgs::Joint_Type value);
+  ::Indriya::Core::Msgs::Joint_Type type() const;
+  void set_type(::Indriya::Core::Msgs::Joint_Type value);
 
   // optional string parent = 5;
   bool has_parent() const;
@@ -240,32 +241,32 @@ class Joint : public ::google::protobuf::Message {
   ::google::protobuf::uint32 child_id() const;
   void set_child_id(::google::protobuf::uint32 value);
 
-  // optional .experimot.msgs.Pose pose = 9;
+  // optional .Indriya.Core.Msgs.Pose pose = 9;
   bool has_pose() const;
   void clear_pose();
   static const int kPoseFieldNumber = 9;
-  const ::experimot::msgs::Pose& pose() const;
-  ::experimot::msgs::Pose* mutable_pose();
-  ::experimot::msgs::Pose* release_pose();
-  void set_allocated_pose(::experimot::msgs::Pose* pose);
+  const ::Indriya::Core::Msgs::Pose& pose() const;
+  ::Indriya::Core::Msgs::Pose* mutable_pose();
+  ::Indriya::Core::Msgs::Pose* release_pose();
+  void set_allocated_pose(::Indriya::Core::Msgs::Pose* pose);
 
-  // optional .experimot.msgs.Axis axis1 = 10;
+  // optional .Indriya.Core.Msgs.Axis axis1 = 10;
   bool has_axis1() const;
   void clear_axis1();
   static const int kAxis1FieldNumber = 10;
-  const ::experimot::msgs::Axis& axis1() const;
-  ::experimot::msgs::Axis* mutable_axis1();
-  ::experimot::msgs::Axis* release_axis1();
-  void set_allocated_axis1(::experimot::msgs::Axis* axis1);
+  const ::Indriya::Core::Msgs::Axis& axis1() const;
+  ::Indriya::Core::Msgs::Axis* mutable_axis1();
+  ::Indriya::Core::Msgs::Axis* release_axis1();
+  void set_allocated_axis1(::Indriya::Core::Msgs::Axis* axis1);
 
-  // optional .experimot.msgs.Axis axis2 = 11;
+  // optional .Indriya.Core.Msgs.Axis axis2 = 11;
   bool has_axis2() const;
   void clear_axis2();
   static const int kAxis2FieldNumber = 11;
-  const ::experimot::msgs::Axis& axis2() const;
-  ::experimot::msgs::Axis* mutable_axis2();
-  ::experimot::msgs::Axis* release_axis2();
-  void set_allocated_axis2(::experimot::msgs::Axis* axis2);
+  const ::Indriya::Core::Msgs::Axis& axis2() const;
+  ::Indriya::Core::Msgs::Axis* mutable_axis2();
+  ::Indriya::Core::Msgs::Axis* release_axis2();
+  void set_allocated_axis2(::Indriya::Core::Msgs::Axis* axis2);
 
   // optional double cfm = 12;
   bool has_cfm() const;
@@ -323,19 +324,19 @@ class Joint : public ::google::protobuf::Message {
   double suspension_erp() const;
   void set_suspension_erp(double value);
 
-  // repeated .experimot.msgs.Sensor sensor = 20;
+  // repeated .Indriya.Core.Msgs.Sensor sensor = 20;
   int sensor_size() const;
   void clear_sensor();
   static const int kSensorFieldNumber = 20;
-  const ::experimot::msgs::Sensor& sensor(int index) const;
-  ::experimot::msgs::Sensor* mutable_sensor(int index);
-  ::experimot::msgs::Sensor* add_sensor();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Sensor >&
+  const ::Indriya::Core::Msgs::Sensor& sensor(int index) const;
+  ::Indriya::Core::Msgs::Sensor* mutable_sensor(int index);
+  ::Indriya::Core::Msgs::Sensor* add_sensor();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Sensor >&
       sensor() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Sensor >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Sensor >*
       mutable_sensor();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Joint)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Joint)
  private:
   inline void set_has_name();
   inline void clear_has_name();
@@ -385,9 +386,9 @@ class Joint : public ::google::protobuf::Message {
   ::google::protobuf::internal::ArenaStringPtr child_;
   ::google::protobuf::uint32 parent_id_;
   ::google::protobuf::uint32 child_id_;
-  ::experimot::msgs::Pose* pose_;
-  ::experimot::msgs::Axis* axis1_;
-  ::experimot::msgs::Axis* axis2_;
+  ::Indriya::Core::Msgs::Pose* pose_;
+  ::Indriya::Core::Msgs::Axis* axis1_;
+  ::Indriya::Core::Msgs::Axis* axis2_;
   double cfm_;
   double bounce_;
   double velocity_;
@@ -396,7 +397,7 @@ class Joint : public ::google::protobuf::Message {
   double limit_erp_;
   double suspension_cfm_;
   double suspension_erp_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Sensor > sensor_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Sensor > sensor_;
   friend void  protobuf_AddDesc_joint_2eproto();
   friend void protobuf_AssignDesc_joint_2eproto();
   friend void protobuf_ShutdownFile_joint_2eproto();
@@ -427,28 +428,28 @@ inline void Joint::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& Joint::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Joint::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Joint.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Joint.name)
 }
 inline void Joint::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Joint.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Joint.name)
 }
 inline void Joint::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Joint.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Joint.name)
 }
 inline ::std::string* Joint::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Joint.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Joint.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Joint::release_name() {
@@ -462,7 +463,7 @@ inline void Joint::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Joint.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Joint.name)
 }
 
 // optional uint32 id = 2;
@@ -480,13 +481,13 @@ inline void Joint::clear_id() {
   clear_has_id();
 }
 inline ::google::protobuf::uint32 Joint::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.id)
   return id_;
 }
 inline void Joint::set_id(::google::protobuf::uint32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Joint.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Joint.id)
 }
 
 // repeated double angle = 3;
@@ -497,29 +498,29 @@ inline void Joint::clear_angle() {
   angle_.Clear();
 }
 inline double Joint::angle(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.angle)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.angle)
   return angle_.Get(index);
 }
 inline void Joint::set_angle(int index, double value) {
   angle_.Set(index, value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Joint.angle)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Joint.angle)
 }
 inline void Joint::add_angle(double value) {
   angle_.Add(value);
-  // @@protoc_insertion_point(field_add:experimot.msgs.Joint.angle)
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Joint.angle)
 }
 inline const ::google::protobuf::RepeatedField< double >&
 Joint::angle() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Joint.angle)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Joint.angle)
   return angle_;
 }
 inline ::google::protobuf::RepeatedField< double >*
 Joint::mutable_angle() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Joint.angle)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Joint.angle)
   return &angle_;
 }
 
-// optional .experimot.msgs.Joint.Type type = 4;
+// optional .Indriya.Core.Msgs.Joint.Type type = 4;
 inline bool Joint::has_type() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -533,15 +534,15 @@ inline void Joint::clear_type() {
   type_ = 1;
   clear_has_type();
 }
-inline ::experimot::msgs::Joint_Type Joint::type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.type)
-  return static_cast< ::experimot::msgs::Joint_Type >(type_);
+inline ::Indriya::Core::Msgs::Joint_Type Joint::type() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.type)
+  return static_cast< ::Indriya::Core::Msgs::Joint_Type >(type_);
 }
-inline void Joint::set_type(::experimot::msgs::Joint_Type value) {
-  assert(::experimot::msgs::Joint_Type_IsValid(value));
+inline void Joint::set_type(::Indriya::Core::Msgs::Joint_Type value) {
+  assert(::Indriya::Core::Msgs::Joint_Type_IsValid(value));
   set_has_type();
   type_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Joint.type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Joint.type)
 }
 
 // optional string parent = 5;
@@ -559,28 +560,28 @@ inline void Joint::clear_parent() {
   clear_has_parent();
 }
 inline const ::std::string& Joint::parent() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.parent)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.parent)
   return parent_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Joint::set_parent(const ::std::string& value) {
   set_has_parent();
   parent_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Joint.parent)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Joint.parent)
 }
 inline void Joint::set_parent(const char* value) {
   set_has_parent();
   parent_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Joint.parent)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Joint.parent)
 }
 inline void Joint::set_parent(const char* value, size_t size) {
   set_has_parent();
   parent_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Joint.parent)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Joint.parent)
 }
 inline ::std::string* Joint::mutable_parent() {
   set_has_parent();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Joint.parent)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Joint.parent)
   return parent_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Joint::release_parent() {
@@ -594,7 +595,7 @@ inline void Joint::set_allocated_parent(::std::string* parent) {
     clear_has_parent();
   }
   parent_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), parent);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Joint.parent)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Joint.parent)
 }
 
 // optional uint32 parent_id = 6;
@@ -612,13 +613,13 @@ inline void Joint::clear_parent_id() {
   clear_has_parent_id();
 }
 inline ::google::protobuf::uint32 Joint::parent_id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.parent_id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.parent_id)
   return parent_id_;
 }
 inline void Joint::set_parent_id(::google::protobuf::uint32 value) {
   set_has_parent_id();
   parent_id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Joint.parent_id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Joint.parent_id)
 }
 
 // optional string child = 7;
@@ -636,28 +637,28 @@ inline void Joint::clear_child() {
   clear_has_child();
 }
 inline const ::std::string& Joint::child() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.child)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.child)
   return child_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Joint::set_child(const ::std::string& value) {
   set_has_child();
   child_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Joint.child)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Joint.child)
 }
 inline void Joint::set_child(const char* value) {
   set_has_child();
   child_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Joint.child)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Joint.child)
 }
 inline void Joint::set_child(const char* value, size_t size) {
   set_has_child();
   child_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Joint.child)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Joint.child)
 }
 inline ::std::string* Joint::mutable_child() {
   set_has_child();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Joint.child)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Joint.child)
   return child_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Joint::release_child() {
@@ -671,7 +672,7 @@ inline void Joint::set_allocated_child(::std::string* child) {
     clear_has_child();
   }
   child_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), child);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Joint.child)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Joint.child)
 }
 
 // optional uint32 child_id = 8;
@@ -689,16 +690,16 @@ inline void Joint::clear_child_id() {
   clear_has_child_id();
 }
 inline ::google::protobuf::uint32 Joint::child_id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.child_id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.child_id)
   return child_id_;
 }
 inline void Joint::set_child_id(::google::protobuf::uint32 value) {
   set_has_child_id();
   child_id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Joint.child_id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Joint.child_id)
 }
 
-// optional .experimot.msgs.Pose pose = 9;
+// optional .Indriya.Core.Msgs.Pose pose = 9;
 inline bool Joint::has_pose() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -709,28 +710,28 @@ inline void Joint::clear_has_pose() {
   _has_bits_[0] &= ~0x00000100u;
 }
 inline void Joint::clear_pose() {
-  if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+  if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
   clear_has_pose();
 }
-inline const ::experimot::msgs::Pose& Joint::pose() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.pose)
+inline const ::Indriya::Core::Msgs::Pose& Joint::pose() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.pose)
   return pose_ != NULL ? *pose_ : *default_instance_->pose_;
 }
-inline ::experimot::msgs::Pose* Joint::mutable_pose() {
+inline ::Indriya::Core::Msgs::Pose* Joint::mutable_pose() {
   set_has_pose();
   if (pose_ == NULL) {
-    pose_ = new ::experimot::msgs::Pose;
+    pose_ = new ::Indriya::Core::Msgs::Pose;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Joint.pose)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Joint.pose)
   return pose_;
 }
-inline ::experimot::msgs::Pose* Joint::release_pose() {
+inline ::Indriya::Core::Msgs::Pose* Joint::release_pose() {
   clear_has_pose();
-  ::experimot::msgs::Pose* temp = pose_;
+  ::Indriya::Core::Msgs::Pose* temp = pose_;
   pose_ = NULL;
   return temp;
 }
-inline void Joint::set_allocated_pose(::experimot::msgs::Pose* pose) {
+inline void Joint::set_allocated_pose(::Indriya::Core::Msgs::Pose* pose) {
   delete pose_;
   pose_ = pose;
   if (pose) {
@@ -738,10 +739,10 @@ inline void Joint::set_allocated_pose(::experimot::msgs::Pose* pose) {
   } else {
     clear_has_pose();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Joint.pose)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Joint.pose)
 }
 
-// optional .experimot.msgs.Axis axis1 = 10;
+// optional .Indriya.Core.Msgs.Axis axis1 = 10;
 inline bool Joint::has_axis1() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -752,28 +753,28 @@ inline void Joint::clear_has_axis1() {
   _has_bits_[0] &= ~0x00000200u;
 }
 inline void Joint::clear_axis1() {
-  if (axis1_ != NULL) axis1_->::experimot::msgs::Axis::Clear();
+  if (axis1_ != NULL) axis1_->::Indriya::Core::Msgs::Axis::Clear();
   clear_has_axis1();
 }
-inline const ::experimot::msgs::Axis& Joint::axis1() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.axis1)
+inline const ::Indriya::Core::Msgs::Axis& Joint::axis1() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.axis1)
   return axis1_ != NULL ? *axis1_ : *default_instance_->axis1_;
 }
-inline ::experimot::msgs::Axis* Joint::mutable_axis1() {
+inline ::Indriya::Core::Msgs::Axis* Joint::mutable_axis1() {
   set_has_axis1();
   if (axis1_ == NULL) {
-    axis1_ = new ::experimot::msgs::Axis;
+    axis1_ = new ::Indriya::Core::Msgs::Axis;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Joint.axis1)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Joint.axis1)
   return axis1_;
 }
-inline ::experimot::msgs::Axis* Joint::release_axis1() {
+inline ::Indriya::Core::Msgs::Axis* Joint::release_axis1() {
   clear_has_axis1();
-  ::experimot::msgs::Axis* temp = axis1_;
+  ::Indriya::Core::Msgs::Axis* temp = axis1_;
   axis1_ = NULL;
   return temp;
 }
-inline void Joint::set_allocated_axis1(::experimot::msgs::Axis* axis1) {
+inline void Joint::set_allocated_axis1(::Indriya::Core::Msgs::Axis* axis1) {
   delete axis1_;
   axis1_ = axis1;
   if (axis1) {
@@ -781,10 +782,10 @@ inline void Joint::set_allocated_axis1(::experimot::msgs::Axis* axis1) {
   } else {
     clear_has_axis1();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Joint.axis1)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Joint.axis1)
 }
 
-// optional .experimot.msgs.Axis axis2 = 11;
+// optional .Indriya.Core.Msgs.Axis axis2 = 11;
 inline bool Joint::has_axis2() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -795,28 +796,28 @@ inline void Joint::clear_has_axis2() {
   _has_bits_[0] &= ~0x00000400u;
 }
 inline void Joint::clear_axis2() {
-  if (axis2_ != NULL) axis2_->::experimot::msgs::Axis::Clear();
+  if (axis2_ != NULL) axis2_->::Indriya::Core::Msgs::Axis::Clear();
   clear_has_axis2();
 }
-inline const ::experimot::msgs::Axis& Joint::axis2() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.axis2)
+inline const ::Indriya::Core::Msgs::Axis& Joint::axis2() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.axis2)
   return axis2_ != NULL ? *axis2_ : *default_instance_->axis2_;
 }
-inline ::experimot::msgs::Axis* Joint::mutable_axis2() {
+inline ::Indriya::Core::Msgs::Axis* Joint::mutable_axis2() {
   set_has_axis2();
   if (axis2_ == NULL) {
-    axis2_ = new ::experimot::msgs::Axis;
+    axis2_ = new ::Indriya::Core::Msgs::Axis;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Joint.axis2)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Joint.axis2)
   return axis2_;
 }
-inline ::experimot::msgs::Axis* Joint::release_axis2() {
+inline ::Indriya::Core::Msgs::Axis* Joint::release_axis2() {
   clear_has_axis2();
-  ::experimot::msgs::Axis* temp = axis2_;
+  ::Indriya::Core::Msgs::Axis* temp = axis2_;
   axis2_ = NULL;
   return temp;
 }
-inline void Joint::set_allocated_axis2(::experimot::msgs::Axis* axis2) {
+inline void Joint::set_allocated_axis2(::Indriya::Core::Msgs::Axis* axis2) {
   delete axis2_;
   axis2_ = axis2;
   if (axis2) {
@@ -824,7 +825,7 @@ inline void Joint::set_allocated_axis2(::experimot::msgs::Axis* axis2) {
   } else {
     clear_has_axis2();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Joint.axis2)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Joint.axis2)
 }
 
 // optional double cfm = 12;
@@ -842,13 +843,13 @@ inline void Joint::clear_cfm() {
   clear_has_cfm();
 }
 inline double Joint::cfm() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.cfm)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.cfm)
   return cfm_;
 }
 inline void Joint::set_cfm(double value) {
   set_has_cfm();
   cfm_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Joint.cfm)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Joint.cfm)
 }
 
 // optional double bounce = 13;
@@ -866,13 +867,13 @@ inline void Joint::clear_bounce() {
   clear_has_bounce();
 }
 inline double Joint::bounce() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.bounce)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.bounce)
   return bounce_;
 }
 inline void Joint::set_bounce(double value) {
   set_has_bounce();
   bounce_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Joint.bounce)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Joint.bounce)
 }
 
 // optional double velocity = 14;
@@ -890,13 +891,13 @@ inline void Joint::clear_velocity() {
   clear_has_velocity();
 }
 inline double Joint::velocity() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.velocity)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.velocity)
   return velocity_;
 }
 inline void Joint::set_velocity(double value) {
   set_has_velocity();
   velocity_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Joint.velocity)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Joint.velocity)
 }
 
 // optional double fudge_factor = 15;
@@ -914,13 +915,13 @@ inline void Joint::clear_fudge_factor() {
   clear_has_fudge_factor();
 }
 inline double Joint::fudge_factor() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.fudge_factor)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.fudge_factor)
   return fudge_factor_;
 }
 inline void Joint::set_fudge_factor(double value) {
   set_has_fudge_factor();
   fudge_factor_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Joint.fudge_factor)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Joint.fudge_factor)
 }
 
 // optional double limit_cfm = 16;
@@ -938,13 +939,13 @@ inline void Joint::clear_limit_cfm() {
   clear_has_limit_cfm();
 }
 inline double Joint::limit_cfm() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.limit_cfm)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.limit_cfm)
   return limit_cfm_;
 }
 inline void Joint::set_limit_cfm(double value) {
   set_has_limit_cfm();
   limit_cfm_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Joint.limit_cfm)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Joint.limit_cfm)
 }
 
 // optional double limit_erp = 17;
@@ -962,13 +963,13 @@ inline void Joint::clear_limit_erp() {
   clear_has_limit_erp();
 }
 inline double Joint::limit_erp() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.limit_erp)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.limit_erp)
   return limit_erp_;
 }
 inline void Joint::set_limit_erp(double value) {
   set_has_limit_erp();
   limit_erp_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Joint.limit_erp)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Joint.limit_erp)
 }
 
 // optional double suspension_cfm = 18;
@@ -986,13 +987,13 @@ inline void Joint::clear_suspension_cfm() {
   clear_has_suspension_cfm();
 }
 inline double Joint::suspension_cfm() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.suspension_cfm)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.suspension_cfm)
   return suspension_cfm_;
 }
 inline void Joint::set_suspension_cfm(double value) {
   set_has_suspension_cfm();
   suspension_cfm_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Joint.suspension_cfm)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Joint.suspension_cfm)
 }
 
 // optional double suspension_erp = 19;
@@ -1010,68 +1011,69 @@ inline void Joint::clear_suspension_erp() {
   clear_has_suspension_erp();
 }
 inline double Joint::suspension_erp() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.suspension_erp)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.suspension_erp)
   return suspension_erp_;
 }
 inline void Joint::set_suspension_erp(double value) {
   set_has_suspension_erp();
   suspension_erp_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Joint.suspension_erp)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Joint.suspension_erp)
 }
 
-// repeated .experimot.msgs.Sensor sensor = 20;
+// repeated .Indriya.Core.Msgs.Sensor sensor = 20;
 inline int Joint::sensor_size() const {
   return sensor_.size();
 }
 inline void Joint::clear_sensor() {
   sensor_.Clear();
 }
-inline const ::experimot::msgs::Sensor& Joint::sensor(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joint.sensor)
+inline const ::Indriya::Core::Msgs::Sensor& Joint::sensor(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joint.sensor)
   return sensor_.Get(index);
 }
-inline ::experimot::msgs::Sensor* Joint::mutable_sensor(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Joint.sensor)
+inline ::Indriya::Core::Msgs::Sensor* Joint::mutable_sensor(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Joint.sensor)
   return sensor_.Mutable(index);
 }
-inline ::experimot::msgs::Sensor* Joint::add_sensor() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Joint.sensor)
+inline ::Indriya::Core::Msgs::Sensor* Joint::add_sensor() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Joint.sensor)
   return sensor_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Sensor >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Sensor >&
 Joint::sensor() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Joint.sensor)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Joint.sensor)
   return sensor_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Sensor >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Sensor >*
 Joint::mutable_sensor() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Joint.sensor)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Joint.sensor)
   return &sensor_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Joint> JointPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Joint> JointPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::experimot::msgs::Joint_Type> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Indriya::Core::Msgs::Joint_Type> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::Joint_Type>() {
-  return ::experimot::msgs::Joint_Type_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Indriya::Core::Msgs::Joint_Type>() {
+  return ::Indriya::Core::Msgs::Joint_Type_descriptor();
 }
 
 }  // namespace protobuf
 }  // namespace google
 #endif  // SWIG
 
-typedef const boost::shared_ptr<experimot::msgs::Joint const> ConstJointPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Joint const> ConstJointPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_joint_2eproto__INCLUDED

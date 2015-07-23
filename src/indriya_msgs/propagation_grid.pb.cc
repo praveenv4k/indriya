@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -78,12 +79,12 @@ void protobuf_AddDesc_propagation_5fgrid_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_propagation_5fparticle_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_propagation_5fparticle_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\026propagation_grid.proto\022\016experimot.msgs"
-    "\032\032propagation_particle.proto\"H\n\017Propagat"
-    "ionGrid\0225\n\010particle\030\001 \003(\0132#.experimot.ms"
-    "gs.PropagationParticle", 142);
+    "\n\026propagation_grid.proto\022\021Indriya.Core.M"
+    "sgs\032\032propagation_particle.proto\"K\n\017Propa"
+    "gationGrid\0228\n\010particle\030\001 \003(\0132&.Indriya.C"
+    "ore.Msgs.PropagationParticle", 148);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "propagation_grid.proto", &protobuf_RegisterTypes);
   PropagationGrid::default_instance_ = new PropagationGrid();
@@ -117,7 +118,7 @@ const int PropagationGrid::kParticleFieldNumber;
 PropagationGrid::PropagationGrid()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.PropagationGrid)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.PropagationGrid)
 }
 
 void PropagationGrid::InitAsDefaultInstance() {
@@ -128,7 +129,7 @@ PropagationGrid::PropagationGrid(const PropagationGrid& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.PropagationGrid)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.PropagationGrid)
 }
 
 void PropagationGrid::SharedCtor() {
@@ -137,7 +138,7 @@ void PropagationGrid::SharedCtor() {
 }
 
 PropagationGrid::~PropagationGrid() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.PropagationGrid)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.PropagationGrid)
   SharedDtor();
 }
 
@@ -183,13 +184,13 @@ bool PropagationGrid::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.PropagationGrid)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.PropagationGrid)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .experimot.msgs.PropagationParticle particle = 1;
+      // repeated .Indriya.Core.Msgs.PropagationParticle particle = 1;
       case 1: {
         if (tag == 10) {
          parse_particle:
@@ -217,18 +218,18 @@ bool PropagationGrid::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.PropagationGrid)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.PropagationGrid)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.PropagationGrid)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.PropagationGrid)
   return false;
 #undef DO_
 }
 
 void PropagationGrid::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.PropagationGrid)
-  // repeated .experimot.msgs.PropagationParticle particle = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.PropagationGrid)
+  // repeated .Indriya.Core.Msgs.PropagationParticle particle = 1;
   for (unsigned int i = 0, n = this->particle_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->particle(i), output);
@@ -238,13 +239,13 @@ void PropagationGrid::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.PropagationGrid)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.PropagationGrid)
 }
 
 ::google::protobuf::uint8* PropagationGrid::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.PropagationGrid)
-  // repeated .experimot.msgs.PropagationParticle particle = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.PropagationGrid)
+  // repeated .Indriya.Core.Msgs.PropagationParticle particle = 1;
   for (unsigned int i = 0, n = this->particle_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -255,14 +256,14 @@ void PropagationGrid::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.PropagationGrid)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.PropagationGrid)
   return target;
 }
 
 int PropagationGrid::ByteSize() const {
   int total_size = 0;
 
-  // repeated .experimot.msgs.PropagationParticle particle = 1;
+  // repeated .Indriya.Core.Msgs.PropagationParticle particle = 1;
   total_size += 1 * this->particle_size();
   for (int i = 0; i < this->particle_size(); i++) {
     total_size +=
@@ -341,33 +342,33 @@ void PropagationGrid::InternalSwap(PropagationGrid* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // PropagationGrid
 
-// repeated .experimot.msgs.PropagationParticle particle = 1;
+// repeated .Indriya.Core.Msgs.PropagationParticle particle = 1;
  int PropagationGrid::particle_size() const {
   return particle_.size();
 }
  void PropagationGrid::clear_particle() {
   particle_.Clear();
 }
- const ::experimot::msgs::PropagationParticle& PropagationGrid::particle(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PropagationGrid.particle)
+ const ::Indriya::Core::Msgs::PropagationParticle& PropagationGrid::particle(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PropagationGrid.particle)
   return particle_.Get(index);
 }
- ::experimot::msgs::PropagationParticle* PropagationGrid::mutable_particle(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.PropagationGrid.particle)
+ ::Indriya::Core::Msgs::PropagationParticle* PropagationGrid::mutable_particle(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.PropagationGrid.particle)
   return particle_.Mutable(index);
 }
- ::experimot::msgs::PropagationParticle* PropagationGrid::add_particle() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.PropagationGrid.particle)
+ ::Indriya::Core::Msgs::PropagationParticle* PropagationGrid::add_particle() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.PropagationGrid.particle)
   return particle_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::PropagationParticle >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::PropagationParticle >&
 PropagationGrid::particle() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.PropagationGrid.particle)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.PropagationGrid.particle)
   return particle_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::PropagationParticle >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::PropagationParticle >*
 PropagationGrid::mutable_particle() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.PropagationGrid.particle)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.PropagationGrid.particle)
   return &particle_;
 }
 
@@ -375,8 +376,9 @@ PropagationGrid::mutable_particle() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.PropagationGrid", PropagationGrid)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.PropagationGrid", PropagationGrid)
 // @@protoc_insertion_point(global_scope)

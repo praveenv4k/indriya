@@ -18,9 +18,9 @@ import time_pb2 as time__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='packet.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x0cpacket.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\"T\n\x06Packet\x12#\n\x05stamp\x18\x01 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\x0c\n\x04type\x18\x02 \x02(\t\x12\x17\n\x0fserialized_data\x18\x03 \x02(\x0c')
+  serialized_pb=_b('\n\x0cpacket.proto\x12\x11Indriya.Core.Msgs\x1a\ntime.proto\"W\n\x06Packet\x12&\n\x05stamp\x18\x01 \x02(\x0b\x32\x17.Indriya.Core.Msgs.Time\x12\x0c\n\x04type\x18\x02 \x02(\t\x12\x17\n\x0fserialized_data\x18\x03 \x02(\x0c')
   ,
   dependencies=[time__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,27 +30,27 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _PACKET = _descriptor.Descriptor(
   name='Packet',
-  full_name='experimot.msgs.Packet',
+  full_name='Indriya.Core.Msgs.Packet',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='stamp', full_name='experimot.msgs.Packet.stamp', index=0,
+      name='stamp', full_name='Indriya.Core.Msgs.Packet.stamp', index=0,
       number=1, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='type', full_name='experimot.msgs.Packet.type', index=1,
+      name='type', full_name='Indriya.Core.Msgs.Packet.type', index=1,
       number=2, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='serialized_data', full_name='experimot.msgs.Packet.serialized_data', index=2,
+      name='serialized_data', full_name='Indriya.Core.Msgs.Packet.serialized_data', index=2,
       number=3, type=12, cpp_type=9, label=2,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
@@ -68,8 +68,8 @@ _PACKET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=44,
-  serialized_end=128,
+  serialized_start=47,
+  serialized_end=134,
 )
 
 _PACKET.fields_by_name['stamp'].message_type = time__pb2._TIME
@@ -78,7 +78,7 @@ DESCRIPTOR.message_types_by_name['Packet'] = _PACKET
 Packet = _reflection.GeneratedProtocolMessageType('Packet', (_message.Message,), dict(
   DESCRIPTOR = _PACKET,
   __module__ = 'packet_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Packet)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Packet)
   ))
 _sym_db.RegisterMessage(Packet)
 

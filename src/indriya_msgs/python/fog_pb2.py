@@ -18,9 +18,9 @@ import color_pb2 as color__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='fog.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\tfog.proto\x12\x0e\x65xperimot.msgs\x1a\x0b\x63olor.proto\"\xc7\x01\n\x03\x46og\x12)\n\x04type\x18\x01 \x01(\x0e\x32\x1b.experimot.msgs.Fog.FogType\x12$\n\x05\x63olor\x18\x02 \x01(\x0b\x32\x15.experimot.msgs.Color\x12\x0f\n\x07\x64\x65nsity\x18\x03 \x01(\x02\x12\r\n\x05start\x18\x04 \x01(\x02\x12\x0b\n\x03\x65nd\x18\x05 \x01(\x02\"B\n\x07\x46ogType\x12\x08\n\x04NONE\x10\x01\x12\n\n\x06LINEAR\x10\x02\x12\x0f\n\x0b\x45XPONENTIAL\x10\x03\x12\x10\n\x0c\x45XPONENTIAL2\x10\x04')
+  serialized_pb=_b('\n\tfog.proto\x12\x11Indriya.Core.Msgs\x1a\x0b\x63olor.proto\"\xcd\x01\n\x03\x46og\x12,\n\x04type\x18\x01 \x01(\x0e\x32\x1e.Indriya.Core.Msgs.Fog.FogType\x12\'\n\x05\x63olor\x18\x02 \x01(\x0b\x32\x18.Indriya.Core.Msgs.Color\x12\x0f\n\x07\x64\x65nsity\x18\x03 \x01(\x02\x12\r\n\x05start\x18\x04 \x01(\x02\x12\x0b\n\x03\x65nd\x18\x05 \x01(\x02\"B\n\x07\x46ogType\x12\x08\n\x04NONE\x10\x01\x12\n\n\x06LINEAR\x10\x02\x12\x0f\n\x0b\x45XPONENTIAL\x10\x03\x12\x10\n\x0c\x45XPONENTIAL2\x10\x04')
   ,
   dependencies=[color__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -29,7 +29,7 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _FOG_FOGTYPE = _descriptor.EnumDescriptor(
   name='FogType',
-  full_name='experimot.msgs.Fog.FogType',
+  full_name='Indriya.Core.Msgs.Fog.FogType',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -52,49 +52,49 @@ _FOG_FOGTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=176,
-  serialized_end=242,
+  serialized_start=185,
+  serialized_end=251,
 )
 _sym_db.RegisterEnumDescriptor(_FOG_FOGTYPE)
 
 
 _FOG = _descriptor.Descriptor(
   name='Fog',
-  full_name='experimot.msgs.Fog',
+  full_name='Indriya.Core.Msgs.Fog',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='type', full_name='experimot.msgs.Fog.type', index=0,
+      name='type', full_name='Indriya.Core.Msgs.Fog.type', index=0,
       number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=1,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='color', full_name='experimot.msgs.Fog.color', index=1,
+      name='color', full_name='Indriya.Core.Msgs.Fog.color', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='density', full_name='experimot.msgs.Fog.density', index=2,
+      name='density', full_name='Indriya.Core.Msgs.Fog.density', index=2,
       number=3, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='start', full_name='experimot.msgs.Fog.start', index=3,
+      name='start', full_name='Indriya.Core.Msgs.Fog.start', index=3,
       number=4, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='end', full_name='experimot.msgs.Fog.end', index=4,
+      name='end', full_name='Indriya.Core.Msgs.Fog.end', index=4,
       number=5, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -113,8 +113,8 @@ _FOG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=43,
-  serialized_end=242,
+  serialized_start=46,
+  serialized_end=251,
 )
 
 _FOG.fields_by_name['type'].enum_type = _FOG_FOGTYPE
@@ -125,7 +125,7 @@ DESCRIPTOR.message_types_by_name['Fog'] = _FOG
 Fog = _reflection.GeneratedProtocolMessageType('Fog', (_message.Message,), dict(
   DESCRIPTOR = _FOG,
   __module__ = 'fog_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Fog)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Fog)
   ))
 _sym_db.RegisterMessage(Fog)
 

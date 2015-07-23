@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -78,11 +79,11 @@ void protobuf_AddDesc_test_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_header_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_header_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\ntest.proto\022\016experimot.msgs\032\014header.pro"
-    "to\".\n\004Test\022&\n\006header\030\001 \002(\0132\026.experimot.m"
-    "sgs.Header", 90);
+    "\n\ntest.proto\022\021Indriya.Core.Msgs\032\014header."
+    "proto\"1\n\004Test\022)\n\006header\030\001 \002(\0132\031.Indriya."
+    "Core.Msgs.Header", 96);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "test.proto", &protobuf_RegisterTypes);
   Test::default_instance_ = new Test();
@@ -116,11 +117,11 @@ const int Test::kHeaderFieldNumber;
 Test::Test()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Test)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Test)
 }
 
 void Test::InitAsDefaultInstance() {
-  header_ = const_cast< ::experimot::msgs::Header*>(&::experimot::msgs::Header::default_instance());
+  header_ = const_cast< ::Indriya::Core::Msgs::Header*>(&::Indriya::Core::Msgs::Header::default_instance());
 }
 
 Test::Test(const Test& from)
@@ -128,7 +129,7 @@ Test::Test(const Test& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Test)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Test)
 }
 
 void Test::SharedCtor() {
@@ -138,7 +139,7 @@ void Test::SharedCtor() {
 }
 
 Test::~Test() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Test)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Test)
   SharedDtor();
 }
 
@@ -175,7 +176,7 @@ Test* Test::New(::google::protobuf::Arena* arena) const {
 
 void Test::Clear() {
   if (has_header()) {
-    if (header_ != NULL) header_->::experimot::msgs::Header::Clear();
+    if (header_ != NULL) header_->::Indriya::Core::Msgs::Header::Clear();
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
@@ -187,13 +188,13 @@ bool Test::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Test)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Test)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .experimot.msgs.Header header = 1;
+      // required .Indriya.Core.Msgs.Header header = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -219,18 +220,18 @@ bool Test::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Test)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Test)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Test)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Test)
   return false;
 #undef DO_
 }
 
 void Test::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Test)
-  // required .experimot.msgs.Header header = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Test)
+  // required .Indriya.Core.Msgs.Header header = 1;
   if (has_header()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->header_, output);
@@ -240,13 +241,13 @@ void Test::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Test)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Test)
 }
 
 ::google::protobuf::uint8* Test::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Test)
-  // required .experimot.msgs.Header header = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Test)
+  // required .Indriya.Core.Msgs.Header header = 1;
   if (has_header()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -257,14 +258,14 @@ void Test::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Test)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Test)
   return target;
 }
 
 int Test::ByteSize() const {
   int total_size = 0;
 
-  // required .experimot.msgs.Header header = 1;
+  // required .Indriya.Core.Msgs.Header header = 1;
   if (has_header()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -297,7 +298,7 @@ void Test::MergeFrom(const Test& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_header()) {
-      mutable_header()->::experimot::msgs::Header::MergeFrom(from.header());
+      mutable_header()->::Indriya::Core::Msgs::Header::MergeFrom(from.header());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -348,7 +349,7 @@ void Test::InternalSwap(Test* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Test
 
-// required .experimot.msgs.Header header = 1;
+// required .Indriya.Core.Msgs.Header header = 1;
  bool Test::has_header() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -359,28 +360,28 @@ void Test::InternalSwap(Test* other) {
   _has_bits_[0] &= ~0x00000001u;
 }
  void Test::clear_header() {
-  if (header_ != NULL) header_->::experimot::msgs::Header::Clear();
+  if (header_ != NULL) header_->::Indriya::Core::Msgs::Header::Clear();
   clear_has_header();
 }
- const ::experimot::msgs::Header& Test::header() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Test.header)
+ const ::Indriya::Core::Msgs::Header& Test::header() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Test.header)
   return header_ != NULL ? *header_ : *default_instance_->header_;
 }
- ::experimot::msgs::Header* Test::mutable_header() {
+ ::Indriya::Core::Msgs::Header* Test::mutable_header() {
   set_has_header();
   if (header_ == NULL) {
-    header_ = new ::experimot::msgs::Header;
+    header_ = new ::Indriya::Core::Msgs::Header;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Test.header)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Test.header)
   return header_;
 }
- ::experimot::msgs::Header* Test::release_header() {
+ ::Indriya::Core::Msgs::Header* Test::release_header() {
   clear_has_header();
-  ::experimot::msgs::Header* temp = header_;
+  ::Indriya::Core::Msgs::Header* temp = header_;
   header_ = NULL;
   return temp;
 }
- void Test::set_allocated_header(::experimot::msgs::Header* header) {
+ void Test::set_allocated_header(::Indriya::Core::Msgs::Header* header) {
   delete header_;
   header_ = header;
   if (header) {
@@ -388,15 +389,16 @@ void Test::InternalSwap(Test* other) {
   } else {
     clear_has_header();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Test.header)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Test.header)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Test", Test)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Test", Test)
 // @@protoc_insertion_point(global_scope)

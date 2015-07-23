@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -83,13 +84,13 @@ void protobuf_AddDesc_distortion_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_vector2d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector2d_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\020distortion.proto\022\016experimot.msgs\032\016vect"
-    "or2d.proto\"r\n\nDistortion\022(\n\006center\030\001 \001(\013"
-    "2\030.experimot.msgs.Vector2d\022\n\n\002k1\030\002 \001(\001\022\n"
-    "\n\002k2\030\003 \001(\001\022\n\n\002k3\030\004 \001(\001\022\n\n\002p1\030\005 \001(\001\022\n\n\002p2"
-    "\030\006 \001(\001", 166);
+    "\n\020distortion.proto\022\021Indriya.Core.Msgs\032\016v"
+    "ector2d.proto\"u\n\nDistortion\022+\n\006center\030\001 "
+    "\001(\0132\033.Indriya.Core.Msgs.Vector2d\022\n\n\002k1\030\002"
+    " \001(\001\022\n\n\002k2\030\003 \001(\001\022\n\n\002k3\030\004 \001(\001\022\n\n\002p1\030\005 \001(\001"
+    "\022\n\n\002p2\030\006 \001(\001", 172);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "distortion.proto", &protobuf_RegisterTypes);
   Distortion::default_instance_ = new Distortion();
@@ -128,11 +129,11 @@ const int Distortion::kP2FieldNumber;
 Distortion::Distortion()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Distortion)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Distortion)
 }
 
 void Distortion::InitAsDefaultInstance() {
-  center_ = const_cast< ::experimot::msgs::Vector2d*>(&::experimot::msgs::Vector2d::default_instance());
+  center_ = const_cast< ::Indriya::Core::Msgs::Vector2d*>(&::Indriya::Core::Msgs::Vector2d::default_instance());
 }
 
 Distortion::Distortion(const Distortion& from)
@@ -140,7 +141,7 @@ Distortion::Distortion(const Distortion& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Distortion)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Distortion)
 }
 
 void Distortion::SharedCtor() {
@@ -155,7 +156,7 @@ void Distortion::SharedCtor() {
 }
 
 Distortion::~Distortion() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Distortion)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Distortion)
   SharedDtor();
 }
 
@@ -202,7 +203,7 @@ void Distortion::Clear() {
   if (_has_bits_[0 / 32] & 63) {
     ZR_(k1_, p2_);
     if (has_center()) {
-      if (center_ != NULL) center_->::experimot::msgs::Vector2d::Clear();
+      if (center_ != NULL) center_->::Indriya::Core::Msgs::Vector2d::Clear();
     }
   }
 
@@ -219,13 +220,13 @@ bool Distortion::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Distortion)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Distortion)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .experimot.msgs.Vector2d center = 1;
+      // optional .Indriya.Core.Msgs.Vector2d center = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -326,18 +327,18 @@ bool Distortion::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Distortion)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Distortion)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Distortion)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Distortion)
   return false;
 #undef DO_
 }
 
 void Distortion::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Distortion)
-  // optional .experimot.msgs.Vector2d center = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Distortion)
+  // optional .Indriya.Core.Msgs.Vector2d center = 1;
   if (has_center()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->center_, output);
@@ -372,13 +373,13 @@ void Distortion::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Distortion)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Distortion)
 }
 
 ::google::protobuf::uint8* Distortion::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Distortion)
-  // optional .experimot.msgs.Vector2d center = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Distortion)
+  // optional .Indriya.Core.Msgs.Vector2d center = 1;
   if (has_center()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -414,7 +415,7 @@ void Distortion::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Distortion)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Distortion)
   return target;
 }
 
@@ -422,7 +423,7 @@ int Distortion::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & 63) {
-    // optional .experimot.msgs.Vector2d center = 1;
+    // optional .Indriya.Core.Msgs.Vector2d center = 1;
     if (has_center()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -482,7 +483,7 @@ void Distortion::MergeFrom(const Distortion& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_center()) {
-      mutable_center()->::experimot::msgs::Vector2d::MergeFrom(from.center());
+      mutable_center()->::Indriya::Core::Msgs::Vector2d::MergeFrom(from.center());
     }
     if (from.has_k1()) {
       set_k1(from.k1());
@@ -552,7 +553,7 @@ void Distortion::InternalSwap(Distortion* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Distortion
 
-// optional .experimot.msgs.Vector2d center = 1;
+// optional .Indriya.Core.Msgs.Vector2d center = 1;
  bool Distortion::has_center() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -563,28 +564,28 @@ void Distortion::InternalSwap(Distortion* other) {
   _has_bits_[0] &= ~0x00000001u;
 }
  void Distortion::clear_center() {
-  if (center_ != NULL) center_->::experimot::msgs::Vector2d::Clear();
+  if (center_ != NULL) center_->::Indriya::Core::Msgs::Vector2d::Clear();
   clear_has_center();
 }
- const ::experimot::msgs::Vector2d& Distortion::center() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Distortion.center)
+ const ::Indriya::Core::Msgs::Vector2d& Distortion::center() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Distortion.center)
   return center_ != NULL ? *center_ : *default_instance_->center_;
 }
- ::experimot::msgs::Vector2d* Distortion::mutable_center() {
+ ::Indriya::Core::Msgs::Vector2d* Distortion::mutable_center() {
   set_has_center();
   if (center_ == NULL) {
-    center_ = new ::experimot::msgs::Vector2d;
+    center_ = new ::Indriya::Core::Msgs::Vector2d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Distortion.center)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Distortion.center)
   return center_;
 }
- ::experimot::msgs::Vector2d* Distortion::release_center() {
+ ::Indriya::Core::Msgs::Vector2d* Distortion::release_center() {
   clear_has_center();
-  ::experimot::msgs::Vector2d* temp = center_;
+  ::Indriya::Core::Msgs::Vector2d* temp = center_;
   center_ = NULL;
   return temp;
 }
- void Distortion::set_allocated_center(::experimot::msgs::Vector2d* center) {
+ void Distortion::set_allocated_center(::Indriya::Core::Msgs::Vector2d* center) {
   delete center_;
   center_ = center;
   if (center) {
@@ -592,7 +593,7 @@ void Distortion::InternalSwap(Distortion* other) {
   } else {
     clear_has_center();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Distortion.center)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Distortion.center)
 }
 
 // optional double k1 = 2;
@@ -610,13 +611,13 @@ void Distortion::InternalSwap(Distortion* other) {
   clear_has_k1();
 }
  double Distortion::k1() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Distortion.k1)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Distortion.k1)
   return k1_;
 }
  void Distortion::set_k1(double value) {
   set_has_k1();
   k1_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Distortion.k1)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Distortion.k1)
 }
 
 // optional double k2 = 3;
@@ -634,13 +635,13 @@ void Distortion::InternalSwap(Distortion* other) {
   clear_has_k2();
 }
  double Distortion::k2() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Distortion.k2)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Distortion.k2)
   return k2_;
 }
  void Distortion::set_k2(double value) {
   set_has_k2();
   k2_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Distortion.k2)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Distortion.k2)
 }
 
 // optional double k3 = 4;
@@ -658,13 +659,13 @@ void Distortion::InternalSwap(Distortion* other) {
   clear_has_k3();
 }
  double Distortion::k3() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Distortion.k3)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Distortion.k3)
   return k3_;
 }
  void Distortion::set_k3(double value) {
   set_has_k3();
   k3_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Distortion.k3)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Distortion.k3)
 }
 
 // optional double p1 = 5;
@@ -682,13 +683,13 @@ void Distortion::InternalSwap(Distortion* other) {
   clear_has_p1();
 }
  double Distortion::p1() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Distortion.p1)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Distortion.p1)
   return p1_;
 }
  void Distortion::set_p1(double value) {
   set_has_p1();
   p1_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Distortion.p1)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Distortion.p1)
 }
 
 // optional double p2 = 6;
@@ -706,21 +707,22 @@ void Distortion::InternalSwap(Distortion* other) {
   clear_has_p2();
 }
  double Distortion::p2() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Distortion.p2)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Distortion.p2)
   return p2_;
 }
  void Distortion::set_p2(double value) {
   set_has_p2();
   p2_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Distortion.p2)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Distortion.p2)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Distortion", Distortion)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Distortion", Distortion)
 // @@protoc_insertion_point(global_scope)

@@ -19,9 +19,9 @@ import kinect_joint_pb2 as kinect__joint__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='kinect_body.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x11kinect_body.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector2d.proto\x1a\x12kinect_joint.proto\"\xc8\x07\n\nKinectBody\x12\x12\n\nTrackingId\x18\x01 \x02(\x05\x12\x11\n\tIsTracked\x18\x02 \x02(\x08\x12\x12\n\nJointCount\x18\x03 \x02(\x05\x12+\n\x06Joints\x18\x04 \x03(\x0b\x32\x1b.experimot.msgs.KinectJoint\x12;\n\x0c\x43lippedEdges\x18\x05 \x01(\x0e\x32%.experimot.msgs.KinectBody.FrameEdges\x12I\n\x12HandLeftConfidence\x18\x06 \x01(\x0e\x32-.experimot.msgs.KinectBody.TrackingConfidence\x12;\n\rHandLeftState\x18\x07 \x01(\x0e\x32$.experimot.msgs.KinectBody.HandState\x12J\n\x13HandRightConfidence\x18\x08 \x01(\x0e\x32-.experimot.msgs.KinectBody.TrackingConfidence\x12<\n\x0eHandRightState\x18\t \x01(\x0e\x32$.experimot.msgs.KinectBody.HandState\x12\x14\n\x0cIsRestricted\x18\n \x01(\x08\x12&\n\x04Lean\x18\x0b \x01(\x0b\x32\x18.experimot.msgs.Vector2d\x12\x19\n\x11LeanTrackingState\x18\x0c \x01(\x05\"a\n\x08\x41\x63tivity\x12\x11\n\rEyeLeftClosed\x10\x00\x12\x12\n\x0e\x45yeRightClosed\x10\x01\x12\r\n\tMouthOpen\x10\x02\x12\x0e\n\nMouthMoved\x10\x03\x12\x0f\n\x0bLookingAway\x10\x04\" \n\nAppearance\x12\x12\n\x0eWearingGlasses\x10\x00\":\n\x0f\x44\x65tectionResult\x12\x0b\n\x07Unknown\x10\x00\x12\x06\n\x02No\x10\x01\x12\t\n\x05Maybe\x10\x02\x12\x07\n\x03Yes\x10\x03\"@\n\nFrameEdges\x12\x08\n\x04None\x10\x00\x12\t\n\x05Right\x10\x01\x12\x08\n\x04Left\x10\x02\x12\x07\n\x03Top\x10\x04\x12\n\n\x06\x42ottom\x10\x08\"$\n\nExpression\x12\x0b\n\x07Neutral\x10\x00\x12\t\n\x05Happy\x10\x01\"\'\n\x12TrackingConfidence\x12\x07\n\x03Low\x10\x00\x12\x08\n\x04High\x10\x01\"X\n\tHandState\x12\x0e\n\nHS_Unknown\x10\x00\x12\x11\n\rHS_NotTracked\x10\x01\x12\x0b\n\x07HS_Open\x10\x02\x12\r\n\tHS_Closed\x10\x03\x12\x0c\n\x08HS_Lasso\x10\x04\"8\n\x0cKinectBodies\x12(\n\x04\x42ody\x18\x01 \x03(\x0b\x32\x1a.experimot.msgs.KinectBody')
+  serialized_pb=_b('\n\x11kinect_body.proto\x12\x11Indriya.Core.Msgs\x1a\x0evector2d.proto\x1a\x12kinect_joint.proto\"\xdd\x07\n\nKinectBody\x12\x12\n\nTrackingId\x18\x01 \x02(\x05\x12\x11\n\tIsTracked\x18\x02 \x02(\x08\x12\x12\n\nJointCount\x18\x03 \x02(\x05\x12.\n\x06Joints\x18\x04 \x03(\x0b\x32\x1e.Indriya.Core.Msgs.KinectJoint\x12>\n\x0c\x43lippedEdges\x18\x05 \x01(\x0e\x32(.Indriya.Core.Msgs.KinectBody.FrameEdges\x12L\n\x12HandLeftConfidence\x18\x06 \x01(\x0e\x32\x30.Indriya.Core.Msgs.KinectBody.TrackingConfidence\x12>\n\rHandLeftState\x18\x07 \x01(\x0e\x32\'.Indriya.Core.Msgs.KinectBody.HandState\x12M\n\x13HandRightConfidence\x18\x08 \x01(\x0e\x32\x30.Indriya.Core.Msgs.KinectBody.TrackingConfidence\x12?\n\x0eHandRightState\x18\t \x01(\x0e\x32\'.Indriya.Core.Msgs.KinectBody.HandState\x12\x14\n\x0cIsRestricted\x18\n \x01(\x08\x12)\n\x04Lean\x18\x0b \x01(\x0b\x32\x1b.Indriya.Core.Msgs.Vector2d\x12\x19\n\x11LeanTrackingState\x18\x0c \x01(\x05\"a\n\x08\x41\x63tivity\x12\x11\n\rEyeLeftClosed\x10\x00\x12\x12\n\x0e\x45yeRightClosed\x10\x01\x12\r\n\tMouthOpen\x10\x02\x12\x0e\n\nMouthMoved\x10\x03\x12\x0f\n\x0bLookingAway\x10\x04\" \n\nAppearance\x12\x12\n\x0eWearingGlasses\x10\x00\":\n\x0f\x44\x65tectionResult\x12\x0b\n\x07Unknown\x10\x00\x12\x06\n\x02No\x10\x01\x12\t\n\x05Maybe\x10\x02\x12\x07\n\x03Yes\x10\x03\"@\n\nFrameEdges\x12\x08\n\x04None\x10\x00\x12\t\n\x05Right\x10\x01\x12\x08\n\x04Left\x10\x02\x12\x07\n\x03Top\x10\x04\x12\n\n\x06\x42ottom\x10\x08\"$\n\nExpression\x12\x0b\n\x07Neutral\x10\x00\x12\t\n\x05Happy\x10\x01\"\'\n\x12TrackingConfidence\x12\x07\n\x03Low\x10\x00\x12\x08\n\x04High\x10\x01\"X\n\tHandState\x12\x0e\n\nHS_Unknown\x10\x00\x12\x11\n\rHS_NotTracked\x10\x01\x12\x0b\n\x07HS_Open\x10\x02\x12\r\n\tHS_Closed\x10\x03\x12\x0c\n\x08HS_Lasso\x10\x04\";\n\x0cKinectBodies\x12+\n\x04\x42ody\x18\x01 \x03(\x0b\x32\x1d.Indriya.Core.Msgs.KinectBody')
   ,
   dependencies=[vector2d__pb2.DESCRIPTOR,kinect__joint__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,7 +30,7 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _KINECTBODY_ACTIVITY = _descriptor.EnumDescriptor(
   name='Activity',
-  full_name='experimot.msgs.KinectBody.Activity',
+  full_name='Indriya.Core.Msgs.KinectBody.Activity',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -57,14 +57,14 @@ _KINECTBODY_ACTIVITY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=616,
-  serialized_end=713,
+  serialized_start=640,
+  serialized_end=737,
 )
 _sym_db.RegisterEnumDescriptor(_KINECTBODY_ACTIVITY)
 
 _KINECTBODY_APPEARANCE = _descriptor.EnumDescriptor(
   name='Appearance',
-  full_name='experimot.msgs.KinectBody.Appearance',
+  full_name='Indriya.Core.Msgs.KinectBody.Appearance',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -75,14 +75,14 @@ _KINECTBODY_APPEARANCE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=715,
-  serialized_end=747,
+  serialized_start=739,
+  serialized_end=771,
 )
 _sym_db.RegisterEnumDescriptor(_KINECTBODY_APPEARANCE)
 
 _KINECTBODY_DETECTIONRESULT = _descriptor.EnumDescriptor(
   name='DetectionResult',
-  full_name='experimot.msgs.KinectBody.DetectionResult',
+  full_name='Indriya.Core.Msgs.KinectBody.DetectionResult',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -105,14 +105,14 @@ _KINECTBODY_DETECTIONRESULT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=749,
-  serialized_end=807,
+  serialized_start=773,
+  serialized_end=831,
 )
 _sym_db.RegisterEnumDescriptor(_KINECTBODY_DETECTIONRESULT)
 
 _KINECTBODY_FRAMEEDGES = _descriptor.EnumDescriptor(
   name='FrameEdges',
-  full_name='experimot.msgs.KinectBody.FrameEdges',
+  full_name='Indriya.Core.Msgs.KinectBody.FrameEdges',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -139,14 +139,14 @@ _KINECTBODY_FRAMEEDGES = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=809,
-  serialized_end=873,
+  serialized_start=833,
+  serialized_end=897,
 )
 _sym_db.RegisterEnumDescriptor(_KINECTBODY_FRAMEEDGES)
 
 _KINECTBODY_EXPRESSION = _descriptor.EnumDescriptor(
   name='Expression',
-  full_name='experimot.msgs.KinectBody.Expression',
+  full_name='Indriya.Core.Msgs.KinectBody.Expression',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -161,14 +161,14 @@ _KINECTBODY_EXPRESSION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=875,
-  serialized_end=911,
+  serialized_start=899,
+  serialized_end=935,
 )
 _sym_db.RegisterEnumDescriptor(_KINECTBODY_EXPRESSION)
 
 _KINECTBODY_TRACKINGCONFIDENCE = _descriptor.EnumDescriptor(
   name='TrackingConfidence',
-  full_name='experimot.msgs.KinectBody.TrackingConfidence',
+  full_name='Indriya.Core.Msgs.KinectBody.TrackingConfidence',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -183,14 +183,14 @@ _KINECTBODY_TRACKINGCONFIDENCE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=913,
-  serialized_end=952,
+  serialized_start=937,
+  serialized_end=976,
 )
 _sym_db.RegisterEnumDescriptor(_KINECTBODY_TRACKINGCONFIDENCE)
 
 _KINECTBODY_HANDSTATE = _descriptor.EnumDescriptor(
   name='HandState',
-  full_name='experimot.msgs.KinectBody.HandState',
+  full_name='Indriya.Core.Msgs.KinectBody.HandState',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -217,98 +217,98 @@ _KINECTBODY_HANDSTATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=954,
-  serialized_end=1042,
+  serialized_start=978,
+  serialized_end=1066,
 )
 _sym_db.RegisterEnumDescriptor(_KINECTBODY_HANDSTATE)
 
 
 _KINECTBODY = _descriptor.Descriptor(
   name='KinectBody',
-  full_name='experimot.msgs.KinectBody',
+  full_name='Indriya.Core.Msgs.KinectBody',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='TrackingId', full_name='experimot.msgs.KinectBody.TrackingId', index=0,
+      name='TrackingId', full_name='Indriya.Core.Msgs.KinectBody.TrackingId', index=0,
       number=1, type=5, cpp_type=1, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='IsTracked', full_name='experimot.msgs.KinectBody.IsTracked', index=1,
+      name='IsTracked', full_name='Indriya.Core.Msgs.KinectBody.IsTracked', index=1,
       number=2, type=8, cpp_type=7, label=2,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='JointCount', full_name='experimot.msgs.KinectBody.JointCount', index=2,
+      name='JointCount', full_name='Indriya.Core.Msgs.KinectBody.JointCount', index=2,
       number=3, type=5, cpp_type=1, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Joints', full_name='experimot.msgs.KinectBody.Joints', index=3,
+      name='Joints', full_name='Indriya.Core.Msgs.KinectBody.Joints', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='ClippedEdges', full_name='experimot.msgs.KinectBody.ClippedEdges', index=4,
+      name='ClippedEdges', full_name='Indriya.Core.Msgs.KinectBody.ClippedEdges', index=4,
       number=5, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='HandLeftConfidence', full_name='experimot.msgs.KinectBody.HandLeftConfidence', index=5,
+      name='HandLeftConfidence', full_name='Indriya.Core.Msgs.KinectBody.HandLeftConfidence', index=5,
       number=6, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='HandLeftState', full_name='experimot.msgs.KinectBody.HandLeftState', index=6,
+      name='HandLeftState', full_name='Indriya.Core.Msgs.KinectBody.HandLeftState', index=6,
       number=7, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='HandRightConfidence', full_name='experimot.msgs.KinectBody.HandRightConfidence', index=7,
+      name='HandRightConfidence', full_name='Indriya.Core.Msgs.KinectBody.HandRightConfidence', index=7,
       number=8, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='HandRightState', full_name='experimot.msgs.KinectBody.HandRightState', index=8,
+      name='HandRightState', full_name='Indriya.Core.Msgs.KinectBody.HandRightState', index=8,
       number=9, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='IsRestricted', full_name='experimot.msgs.KinectBody.IsRestricted', index=9,
+      name='IsRestricted', full_name='Indriya.Core.Msgs.KinectBody.IsRestricted', index=9,
       number=10, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='Lean', full_name='experimot.msgs.KinectBody.Lean', index=10,
+      name='Lean', full_name='Indriya.Core.Msgs.KinectBody.Lean', index=10,
       number=11, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='LeanTrackingState', full_name='experimot.msgs.KinectBody.LeanTrackingState', index=11,
+      name='LeanTrackingState', full_name='Indriya.Core.Msgs.KinectBody.LeanTrackingState', index=11,
       number=12, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -333,20 +333,20 @@ _KINECTBODY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=74,
-  serialized_end=1042,
+  serialized_start=77,
+  serialized_end=1066,
 )
 
 
 _KINECTBODIES = _descriptor.Descriptor(
   name='KinectBodies',
-  full_name='experimot.msgs.KinectBodies',
+  full_name='Indriya.Core.Msgs.KinectBodies',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Body', full_name='experimot.msgs.KinectBodies.Body', index=0,
+      name='Body', full_name='Indriya.Core.Msgs.KinectBodies.Body', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -364,8 +364,8 @@ _KINECTBODIES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1044,
-  serialized_end=1100,
+  serialized_start=1068,
+  serialized_end=1127,
 )
 
 _KINECTBODY.fields_by_name['Joints'].message_type = kinect__joint__pb2._KINECTJOINT
@@ -389,14 +389,14 @@ DESCRIPTOR.message_types_by_name['KinectBodies'] = _KINECTBODIES
 KinectBody = _reflection.GeneratedProtocolMessageType('KinectBody', (_message.Message,), dict(
   DESCRIPTOR = _KINECTBODY,
   __module__ = 'kinect_body_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.KinectBody)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.KinectBody)
   ))
 _sym_db.RegisterMessage(KinectBody)
 
 KinectBodies = _reflection.GeneratedProtocolMessageType('KinectBodies', (_message.Message,), dict(
   DESCRIPTOR = _KINECTBODIES,
   __module__ = 'kinect_body_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.KinectBodies)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.KinectBodies)
   ))
 _sym_db.RegisterMessage(KinectBodies)
 

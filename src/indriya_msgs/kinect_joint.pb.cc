@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -86,29 +87,29 @@ void protobuf_AddDesc_kinect_5fjoint_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_vector3d_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_quaternion_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector3d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_quaternion_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\022kinect_joint.proto\022\016experimot.msgs\032\016ve"
-    "ctor3d.proto\032\020quaternion.proto\"\263\005\n\013Kinec"
-    "tJoint\0223\n\004Type\030\001 \002(\0162%.experimot.msgs.Ki"
-    "nectJoint.JointType\0228\n\005State\030\002 \002(\0162).exp"
-    "erimot.msgs.KinectJoint.TrackingState\022*\n"
-    "\010Position\030\003 \002(\0132\030.experimot.msgs.Vector3"
-    "d\022/\n\013Orientation\030\004 \002(\0132\032.experimot.msgs."
-    "Quaternion\022\024\n\005Angle\030\005 \001(\002:\005-1000\":\n\rTrac"
-    "kingState\022\016\n\nNotTracked\020\000\022\014\n\010Inferred\020\001\022"
-    "\013\n\007Tracked\020\002\"\205\003\n\tJointType\022\r\n\tSpineBase\020"
-    "\000\022\014\n\010SpineMid\020\001\022\010\n\004Neck\020\002\022\010\n\004Head\020\003\022\020\n\014S"
-    "houlderLeft\020\004\022\r\n\tElbowLeft\020\005\022\r\n\tWristLef"
-    "t\020\006\022\014\n\010HandLeft\020\007\022\021\n\rShoulderRight\020\010\022\016\n\n"
-    "ElbowRight\020\t\022\016\n\nWristRight\020\n\022\r\n\tHandRigh"
-    "t\020\013\022\013\n\007HipLeft\020\014\022\014\n\010KneeLeft\020\r\022\r\n\tAnkleL"
-    "eft\020\016\022\014\n\010FootLeft\020\017\022\014\n\010HipRight\020\020\022\r\n\tKne"
-    "eRight\020\021\022\016\n\nAnkleRight\020\022\022\r\n\tFootRight\020\023\022"
-    "\021\n\rSpineShoulder\020\024\022\017\n\013HandTipLeft\020\025\022\r\n\tT"
-    "humbLeft\020\026\022\020\n\014HandTipRight\020\027\022\016\n\nThumbRig"
-    "ht\020\030", 764);
+    "\n\022kinect_joint.proto\022\021Indriya.Core.Msgs\032"
+    "\016vector3d.proto\032\020quaternion.proto\"\277\005\n\013Ki"
+    "nectJoint\0226\n\004Type\030\001 \002(\0162(.Indriya.Core.M"
+    "sgs.KinectJoint.JointType\022;\n\005State\030\002 \002(\016"
+    "2,.Indriya.Core.Msgs.KinectJoint.Trackin"
+    "gState\022-\n\010Position\030\003 \002(\0132\033.Indriya.Core."
+    "Msgs.Vector3d\0222\n\013Orientation\030\004 \002(\0132\035.Ind"
+    "riya.Core.Msgs.Quaternion\022\024\n\005Angle\030\005 \001(\002"
+    ":\005-1000\":\n\rTrackingState\022\016\n\nNotTracked\020\000"
+    "\022\014\n\010Inferred\020\001\022\013\n\007Tracked\020\002\"\205\003\n\tJointTyp"
+    "e\022\r\n\tSpineBase\020\000\022\014\n\010SpineMid\020\001\022\010\n\004Neck\020\002"
+    "\022\010\n\004Head\020\003\022\020\n\014ShoulderLeft\020\004\022\r\n\tElbowLef"
+    "t\020\005\022\r\n\tWristLeft\020\006\022\014\n\010HandLeft\020\007\022\021\n\rShou"
+    "lderRight\020\010\022\016\n\nElbowRight\020\t\022\016\n\nWristRigh"
+    "t\020\n\022\r\n\tHandRight\020\013\022\013\n\007HipLeft\020\014\022\014\n\010KneeL"
+    "eft\020\r\022\r\n\tAnkleLeft\020\016\022\014\n\010FootLeft\020\017\022\014\n\010Hi"
+    "pRight\020\020\022\r\n\tKneeRight\020\021\022\016\n\nAnkleRight\020\022\022"
+    "\r\n\tFootRight\020\023\022\021\n\rSpineShoulder\020\024\022\017\n\013Han"
+    "dTipLeft\020\025\022\r\n\tThumbLeft\020\026\022\020\n\014HandTipRigh"
+    "t\020\027\022\016\n\nThumbRight\020\030", 779);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "kinect_joint.proto", &protobuf_RegisterTypes);
   KinectJoint::default_instance_ = new KinectJoint();
@@ -236,12 +237,12 @@ const int KinectJoint::kAngleFieldNumber;
 KinectJoint::KinectJoint()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.KinectJoint)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.KinectJoint)
 }
 
 void KinectJoint::InitAsDefaultInstance() {
-  position_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
-  orientation_ = const_cast< ::experimot::msgs::Quaternion*>(&::experimot::msgs::Quaternion::default_instance());
+  position_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
+  orientation_ = const_cast< ::Indriya::Core::Msgs::Quaternion*>(&::Indriya::Core::Msgs::Quaternion::default_instance());
 }
 
 KinectJoint::KinectJoint(const KinectJoint& from)
@@ -249,7 +250,7 @@ KinectJoint::KinectJoint(const KinectJoint& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.KinectJoint)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.KinectJoint)
 }
 
 void KinectJoint::SharedCtor() {
@@ -263,7 +264,7 @@ void KinectJoint::SharedCtor() {
 }
 
 KinectJoint::~KinectJoint() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.KinectJoint)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.KinectJoint)
   SharedDtor();
 }
 
@@ -311,10 +312,10 @@ void KinectJoint::Clear() {
   if (_has_bits_[0 / 32] & 31) {
     ZR_(type_, state_);
     if (has_position()) {
-      if (position_ != NULL) position_->::experimot::msgs::Vector3d::Clear();
+      if (position_ != NULL) position_->::Indriya::Core::Msgs::Vector3d::Clear();
     }
     if (has_orientation()) {
-      if (orientation_ != NULL) orientation_->::experimot::msgs::Quaternion::Clear();
+      if (orientation_ != NULL) orientation_->::Indriya::Core::Msgs::Quaternion::Clear();
     }
     angle_ = -1000;
   }
@@ -332,21 +333,21 @@ bool KinectJoint::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.KinectJoint)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.KinectJoint)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .experimot.msgs.KinectJoint.JointType Type = 1;
+      // required .Indriya.Core.Msgs.KinectJoint.JointType Type = 1;
       case 1: {
         if (tag == 8) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::experimot::msgs::KinectJoint_JointType_IsValid(value)) {
-            set_type(static_cast< ::experimot::msgs::KinectJoint_JointType >(value));
+          if (::Indriya::Core::Msgs::KinectJoint_JointType_IsValid(value)) {
+            set_type(static_cast< ::Indriya::Core::Msgs::KinectJoint_JointType >(value));
           } else {
             mutable_unknown_fields()->AddVarint(1, value);
           }
@@ -357,7 +358,7 @@ bool KinectJoint::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.KinectJoint.TrackingState State = 2;
+      // required .Indriya.Core.Msgs.KinectJoint.TrackingState State = 2;
       case 2: {
         if (tag == 16) {
          parse_State:
@@ -365,8 +366,8 @@ bool KinectJoint::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::experimot::msgs::KinectJoint_TrackingState_IsValid(value)) {
-            set_state(static_cast< ::experimot::msgs::KinectJoint_TrackingState >(value));
+          if (::Indriya::Core::Msgs::KinectJoint_TrackingState_IsValid(value)) {
+            set_state(static_cast< ::Indriya::Core::Msgs::KinectJoint_TrackingState >(value));
           } else {
             mutable_unknown_fields()->AddVarint(2, value);
           }
@@ -377,7 +378,7 @@ bool KinectJoint::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Vector3d Position = 3;
+      // required .Indriya.Core.Msgs.Vector3d Position = 3;
       case 3: {
         if (tag == 26) {
          parse_Position:
@@ -390,7 +391,7 @@ bool KinectJoint::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Quaternion Orientation = 4;
+      // required .Indriya.Core.Msgs.Quaternion Orientation = 4;
       case 4: {
         if (tag == 34) {
          parse_Orientation:
@@ -432,36 +433,36 @@ bool KinectJoint::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.KinectJoint)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.KinectJoint)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.KinectJoint)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.KinectJoint)
   return false;
 #undef DO_
 }
 
 void KinectJoint::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.KinectJoint)
-  // required .experimot.msgs.KinectJoint.JointType Type = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.KinectJoint)
+  // required .Indriya.Core.Msgs.KinectJoint.JointType Type = 1;
   if (has_type()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->type(), output);
   }
 
-  // required .experimot.msgs.KinectJoint.TrackingState State = 2;
+  // required .Indriya.Core.Msgs.KinectJoint.TrackingState State = 2;
   if (has_state()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       2, this->state(), output);
   }
 
-  // required .experimot.msgs.Vector3d Position = 3;
+  // required .Indriya.Core.Msgs.Vector3d Position = 3;
   if (has_position()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, *this->position_, output);
   }
 
-  // required .experimot.msgs.Quaternion Orientation = 4;
+  // required .Indriya.Core.Msgs.Quaternion Orientation = 4;
   if (has_orientation()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, *this->orientation_, output);
@@ -476,32 +477,32 @@ void KinectJoint::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.KinectJoint)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.KinectJoint)
 }
 
 ::google::protobuf::uint8* KinectJoint::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.KinectJoint)
-  // required .experimot.msgs.KinectJoint.JointType Type = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.KinectJoint)
+  // required .Indriya.Core.Msgs.KinectJoint.JointType Type = 1;
   if (has_type()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->type(), target);
   }
 
-  // required .experimot.msgs.KinectJoint.TrackingState State = 2;
+  // required .Indriya.Core.Msgs.KinectJoint.TrackingState State = 2;
   if (has_state()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       2, this->state(), target);
   }
 
-  // required .experimot.msgs.Vector3d Position = 3;
+  // required .Indriya.Core.Msgs.Vector3d Position = 3;
   if (has_position()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         3, *this->position_, target);
   }
 
-  // required .experimot.msgs.Quaternion Orientation = 4;
+  // required .Indriya.Core.Msgs.Quaternion Orientation = 4;
   if (has_orientation()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -517,7 +518,7 @@ void KinectJoint::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.KinectJoint)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.KinectJoint)
   return target;
 }
 
@@ -525,26 +526,26 @@ int KinectJoint::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
   if (has_type()) {
-    // required .experimot.msgs.KinectJoint.JointType Type = 1;
+    // required .Indriya.Core.Msgs.KinectJoint.JointType Type = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
   }
 
   if (has_state()) {
-    // required .experimot.msgs.KinectJoint.TrackingState State = 2;
+    // required .Indriya.Core.Msgs.KinectJoint.TrackingState State = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
   }
 
   if (has_position()) {
-    // required .experimot.msgs.Vector3d Position = 3;
+    // required .Indriya.Core.Msgs.Vector3d Position = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->position_);
   }
 
   if (has_orientation()) {
-    // required .experimot.msgs.Quaternion Orientation = 4;
+    // required .Indriya.Core.Msgs.Quaternion Orientation = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->orientation_);
@@ -556,20 +557,20 @@ int KinectJoint::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x0000000f) ^ 0x0000000f) == 0) {  // All required fields are present.
-    // required .experimot.msgs.KinectJoint.JointType Type = 1;
+    // required .Indriya.Core.Msgs.KinectJoint.JointType Type = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
 
-    // required .experimot.msgs.KinectJoint.TrackingState State = 2;
+    // required .Indriya.Core.Msgs.KinectJoint.TrackingState State = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
 
-    // required .experimot.msgs.Vector3d Position = 3;
+    // required .Indriya.Core.Msgs.Vector3d Position = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->position_);
 
-    // required .experimot.msgs.Quaternion Orientation = 4;
+    // required .Indriya.Core.Msgs.Quaternion Orientation = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->orientation_);
@@ -615,10 +616,10 @@ void KinectJoint::MergeFrom(const KinectJoint& from) {
       set_state(from.state());
     }
     if (from.has_position()) {
-      mutable_position()->::experimot::msgs::Vector3d::MergeFrom(from.position());
+      mutable_position()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.position());
     }
     if (from.has_orientation()) {
-      mutable_orientation()->::experimot::msgs::Quaternion::MergeFrom(from.orientation());
+      mutable_orientation()->::Indriya::Core::Msgs::Quaternion::MergeFrom(from.orientation());
     }
     if (from.has_angle()) {
       set_angle(from.angle());
@@ -679,7 +680,7 @@ void KinectJoint::InternalSwap(KinectJoint* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // KinectJoint
 
-// required .experimot.msgs.KinectJoint.JointType Type = 1;
+// required .Indriya.Core.Msgs.KinectJoint.JointType Type = 1;
  bool KinectJoint::has_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -693,18 +694,18 @@ void KinectJoint::InternalSwap(KinectJoint* other) {
   type_ = 0;
   clear_has_type();
 }
- ::experimot::msgs::KinectJoint_JointType KinectJoint::type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectJoint.Type)
-  return static_cast< ::experimot::msgs::KinectJoint_JointType >(type_);
+ ::Indriya::Core::Msgs::KinectJoint_JointType KinectJoint::type() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectJoint.Type)
+  return static_cast< ::Indriya::Core::Msgs::KinectJoint_JointType >(type_);
 }
- void KinectJoint::set_type(::experimot::msgs::KinectJoint_JointType value) {
-  assert(::experimot::msgs::KinectJoint_JointType_IsValid(value));
+ void KinectJoint::set_type(::Indriya::Core::Msgs::KinectJoint_JointType value) {
+  assert(::Indriya::Core::Msgs::KinectJoint_JointType_IsValid(value));
   set_has_type();
   type_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.KinectJoint.Type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.KinectJoint.Type)
 }
 
-// required .experimot.msgs.KinectJoint.TrackingState State = 2;
+// required .Indriya.Core.Msgs.KinectJoint.TrackingState State = 2;
  bool KinectJoint::has_state() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -718,18 +719,18 @@ void KinectJoint::InternalSwap(KinectJoint* other) {
   state_ = 0;
   clear_has_state();
 }
- ::experimot::msgs::KinectJoint_TrackingState KinectJoint::state() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectJoint.State)
-  return static_cast< ::experimot::msgs::KinectJoint_TrackingState >(state_);
+ ::Indriya::Core::Msgs::KinectJoint_TrackingState KinectJoint::state() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectJoint.State)
+  return static_cast< ::Indriya::Core::Msgs::KinectJoint_TrackingState >(state_);
 }
- void KinectJoint::set_state(::experimot::msgs::KinectJoint_TrackingState value) {
-  assert(::experimot::msgs::KinectJoint_TrackingState_IsValid(value));
+ void KinectJoint::set_state(::Indriya::Core::Msgs::KinectJoint_TrackingState value) {
+  assert(::Indriya::Core::Msgs::KinectJoint_TrackingState_IsValid(value));
   set_has_state();
   state_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.KinectJoint.State)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.KinectJoint.State)
 }
 
-// required .experimot.msgs.Vector3d Position = 3;
+// required .Indriya.Core.Msgs.Vector3d Position = 3;
  bool KinectJoint::has_position() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -740,28 +741,28 @@ void KinectJoint::InternalSwap(KinectJoint* other) {
   _has_bits_[0] &= ~0x00000004u;
 }
  void KinectJoint::clear_position() {
-  if (position_ != NULL) position_->::experimot::msgs::Vector3d::Clear();
+  if (position_ != NULL) position_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_position();
 }
- const ::experimot::msgs::Vector3d& KinectJoint::position() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectJoint.Position)
+ const ::Indriya::Core::Msgs::Vector3d& KinectJoint::position() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectJoint.Position)
   return position_ != NULL ? *position_ : *default_instance_->position_;
 }
- ::experimot::msgs::Vector3d* KinectJoint::mutable_position() {
+ ::Indriya::Core::Msgs::Vector3d* KinectJoint::mutable_position() {
   set_has_position();
   if (position_ == NULL) {
-    position_ = new ::experimot::msgs::Vector3d;
+    position_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.KinectJoint.Position)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.KinectJoint.Position)
   return position_;
 }
- ::experimot::msgs::Vector3d* KinectJoint::release_position() {
+ ::Indriya::Core::Msgs::Vector3d* KinectJoint::release_position() {
   clear_has_position();
-  ::experimot::msgs::Vector3d* temp = position_;
+  ::Indriya::Core::Msgs::Vector3d* temp = position_;
   position_ = NULL;
   return temp;
 }
- void KinectJoint::set_allocated_position(::experimot::msgs::Vector3d* position) {
+ void KinectJoint::set_allocated_position(::Indriya::Core::Msgs::Vector3d* position) {
   delete position_;
   position_ = position;
   if (position) {
@@ -769,10 +770,10 @@ void KinectJoint::InternalSwap(KinectJoint* other) {
   } else {
     clear_has_position();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.KinectJoint.Position)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.KinectJoint.Position)
 }
 
-// required .experimot.msgs.Quaternion Orientation = 4;
+// required .Indriya.Core.Msgs.Quaternion Orientation = 4;
  bool KinectJoint::has_orientation() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -783,28 +784,28 @@ void KinectJoint::InternalSwap(KinectJoint* other) {
   _has_bits_[0] &= ~0x00000008u;
 }
  void KinectJoint::clear_orientation() {
-  if (orientation_ != NULL) orientation_->::experimot::msgs::Quaternion::Clear();
+  if (orientation_ != NULL) orientation_->::Indriya::Core::Msgs::Quaternion::Clear();
   clear_has_orientation();
 }
- const ::experimot::msgs::Quaternion& KinectJoint::orientation() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectJoint.Orientation)
+ const ::Indriya::Core::Msgs::Quaternion& KinectJoint::orientation() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectJoint.Orientation)
   return orientation_ != NULL ? *orientation_ : *default_instance_->orientation_;
 }
- ::experimot::msgs::Quaternion* KinectJoint::mutable_orientation() {
+ ::Indriya::Core::Msgs::Quaternion* KinectJoint::mutable_orientation() {
   set_has_orientation();
   if (orientation_ == NULL) {
-    orientation_ = new ::experimot::msgs::Quaternion;
+    orientation_ = new ::Indriya::Core::Msgs::Quaternion;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.KinectJoint.Orientation)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.KinectJoint.Orientation)
   return orientation_;
 }
- ::experimot::msgs::Quaternion* KinectJoint::release_orientation() {
+ ::Indriya::Core::Msgs::Quaternion* KinectJoint::release_orientation() {
   clear_has_orientation();
-  ::experimot::msgs::Quaternion* temp = orientation_;
+  ::Indriya::Core::Msgs::Quaternion* temp = orientation_;
   orientation_ = NULL;
   return temp;
 }
- void KinectJoint::set_allocated_orientation(::experimot::msgs::Quaternion* orientation) {
+ void KinectJoint::set_allocated_orientation(::Indriya::Core::Msgs::Quaternion* orientation) {
   delete orientation_;
   orientation_ = orientation;
   if (orientation) {
@@ -812,7 +813,7 @@ void KinectJoint::InternalSwap(KinectJoint* other) {
   } else {
     clear_has_orientation();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.KinectJoint.Orientation)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.KinectJoint.Orientation)
 }
 
 // optional float Angle = 5 [default = -1000];
@@ -830,21 +831,22 @@ void KinectJoint::InternalSwap(KinectJoint* other) {
   clear_has_angle();
 }
  float KinectJoint::angle() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectJoint.Angle)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectJoint.Angle)
   return angle_;
 }
  void KinectJoint::set_angle(float value) {
   set_has_angle();
   angle_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.KinectJoint.Angle)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.KinectJoint.Angle)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.KinectJoint", KinectJoint)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.KinectJoint", KinectJoint)
 // @@protoc_insertion_point(global_scope)

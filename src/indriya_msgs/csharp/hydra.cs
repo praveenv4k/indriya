@@ -9,23 +9,23 @@
 
 // Generated from: proto/hydra.proto
 // Note: requires additional types generated from: pose.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Hydra")]
   public partial class Hydra : global::ProtoBuf.IExtensible
   {
     public Hydra() {}
     
-    private experimot.msgs.Hydra.Paddle _right;
+    private Indriya.Core.Msgs.Hydra.Paddle _right;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"right", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Hydra.Paddle right
+    public Indriya.Core.Msgs.Hydra.Paddle right
     {
       get { return _right; }
       set { _right = value; }
     }
-    private experimot.msgs.Hydra.Paddle _left;
+    private Indriya.Core.Msgs.Hydra.Paddle _left;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"left", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Hydra.Paddle left
+    public Indriya.Core.Msgs.Hydra.Paddle left
     {
       get { return _left; }
       set { _left = value; }
@@ -35,9 +35,9 @@ namespace experimot.msgs
   {
     public Paddle() {}
     
-    private experimot.msgs.Pose _pose;
+    private Indriya.Core.Msgs.Pose _pose;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"pose", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Pose pose
+    public Indriya.Core.Msgs.Pose pose
     {
       get { return _pose; }
       set { _pose = value; }

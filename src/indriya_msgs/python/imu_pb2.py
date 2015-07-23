@@ -20,9 +20,9 @@ import quaternion_pb2 as quaternion__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='imu.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\timu.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\x1a\x0evector3d.proto\x1a\x10quaternion.proto\"\xdb\x01\n\x03IMU\x12#\n\x05stamp\x18\x01 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\x13\n\x0b\x65ntity_name\x18\x02 \x02(\t\x12/\n\x0borientation\x18\x03 \x02(\x0b\x32\x1a.experimot.msgs.Quaternion\x12\x32\n\x10\x61ngular_velocity\x18\x04 \x02(\x0b\x32\x18.experimot.msgs.Vector3d\x12\x35\n\x13linear_acceleration\x18\x05 \x02(\x0b\x32\x18.experimot.msgs.Vector3d')
+  serialized_pb=_b('\n\timu.proto\x12\x11Indriya.Core.Msgs\x1a\ntime.proto\x1a\x0evector3d.proto\x1a\x10quaternion.proto\"\xe7\x01\n\x03IMU\x12&\n\x05stamp\x18\x01 \x02(\x0b\x32\x17.Indriya.Core.Msgs.Time\x12\x13\n\x0b\x65ntity_name\x18\x02 \x02(\t\x12\x32\n\x0borientation\x18\x03 \x02(\x0b\x32\x1d.Indriya.Core.Msgs.Quaternion\x12\x35\n\x10\x61ngular_velocity\x18\x04 \x02(\x0b\x32\x1b.Indriya.Core.Msgs.Vector3d\x12\x38\n\x13linear_acceleration\x18\x05 \x02(\x0b\x32\x1b.Indriya.Core.Msgs.Vector3d')
   ,
   dependencies=[time__pb2.DESCRIPTOR,vector3d__pb2.DESCRIPTOR,quaternion__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -32,41 +32,41 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _IMU = _descriptor.Descriptor(
   name='IMU',
-  full_name='experimot.msgs.IMU',
+  full_name='Indriya.Core.Msgs.IMU',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='stamp', full_name='experimot.msgs.IMU.stamp', index=0,
+      name='stamp', full_name='Indriya.Core.Msgs.IMU.stamp', index=0,
       number=1, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='entity_name', full_name='experimot.msgs.IMU.entity_name', index=1,
+      name='entity_name', full_name='Indriya.Core.Msgs.IMU.entity_name', index=1,
       number=2, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='orientation', full_name='experimot.msgs.IMU.orientation', index=2,
+      name='orientation', full_name='Indriya.Core.Msgs.IMU.orientation', index=2,
       number=3, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='angular_velocity', full_name='experimot.msgs.IMU.angular_velocity', index=3,
+      name='angular_velocity', full_name='Indriya.Core.Msgs.IMU.angular_velocity', index=3,
       number=4, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='linear_acceleration', full_name='experimot.msgs.IMU.linear_acceleration', index=4,
+      name='linear_acceleration', full_name='Indriya.Core.Msgs.IMU.linear_acceleration', index=4,
       number=5, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -84,8 +84,8 @@ _IMU = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=76,
-  serialized_end=295,
+  serialized_start=79,
+  serialized_end=310,
 )
 
 _IMU.fields_by_name['stamp'].message_type = time__pb2._TIME
@@ -97,7 +97,7 @@ DESCRIPTOR.message_types_by_name['IMU'] = _IMU
 IMU = _reflection.GeneratedProtocolMessageType('IMU', (_message.Message,), dict(
   DESCRIPTOR = _IMU,
   __module__ = 'imu_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.IMU)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.IMU)
   ))
 _sym_db.RegisterMessage(IMU)
 

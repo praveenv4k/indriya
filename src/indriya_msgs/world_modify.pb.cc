@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -83,10 +84,10 @@ void protobuf_AddDesc_world_5fmodify_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\022world_modify.proto\022\016experimot.msgs\"e\n\013"
-    "WorldModify\022\022\n\nworld_name\030\001 \002(\t\022\016\n\006remov"
-    "e\030\002 \001(\010\022\016\n\006create\030\003 \001(\010\022\016\n\006cloned\030\004 \001(\010\022"
-    "\022\n\ncloned_uri\030\005 \001(\t", 139);
+    "\n\022world_modify.proto\022\021Indriya.Core.Msgs\""
+    "e\n\013WorldModify\022\022\n\nworld_name\030\001 \002(\t\022\016\n\006re"
+    "move\030\002 \001(\010\022\016\n\006create\030\003 \001(\010\022\016\n\006cloned\030\004 \001"
+    "(\010\022\022\n\ncloned_uri\030\005 \001(\t", 142);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "world_modify.proto", &protobuf_RegisterTypes);
   WorldModify::default_instance_ = new WorldModify();
@@ -124,7 +125,7 @@ const int WorldModify::kClonedUriFieldNumber;
 WorldModify::WorldModify()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.WorldModify)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.WorldModify)
 }
 
 void WorldModify::InitAsDefaultInstance() {
@@ -135,7 +136,7 @@ WorldModify::WorldModify(const WorldModify& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.WorldModify)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.WorldModify)
 }
 
 void WorldModify::SharedCtor() {
@@ -150,7 +151,7 @@ void WorldModify::SharedCtor() {
 }
 
 WorldModify::~WorldModify() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.WorldModify)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.WorldModify)
   SharedDtor();
 }
 
@@ -218,7 +219,7 @@ bool WorldModify::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.WorldModify)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.WorldModify)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -232,7 +233,7 @@ bool WorldModify::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->world_name().data(), this->world_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.WorldModify.world_name");
+            "Indriya.Core.Msgs.WorldModify.world_name");
         } else {
           goto handle_unusual;
         }
@@ -294,7 +295,7 @@ bool WorldModify::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->cloned_uri().data(), this->cloned_uri().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.WorldModify.cloned_uri");
+            "Indriya.Core.Msgs.WorldModify.cloned_uri");
         } else {
           goto handle_unusual;
         }
@@ -316,23 +317,23 @@ bool WorldModify::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.WorldModify)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.WorldModify)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.WorldModify)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.WorldModify)
   return false;
 #undef DO_
 }
 
 void WorldModify::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.WorldModify)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.WorldModify)
   // required string world_name = 1;
   if (has_world_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->world_name().data(), this->world_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.WorldModify.world_name");
+      "Indriya.Core.Msgs.WorldModify.world_name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->world_name(), output);
   }
@@ -357,7 +358,7 @@ void WorldModify::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->cloned_uri().data(), this->cloned_uri().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.WorldModify.cloned_uri");
+      "Indriya.Core.Msgs.WorldModify.cloned_uri");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       5, this->cloned_uri(), output);
   }
@@ -366,18 +367,18 @@ void WorldModify::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.WorldModify)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.WorldModify)
 }
 
 ::google::protobuf::uint8* WorldModify::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.WorldModify)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.WorldModify)
   // required string world_name = 1;
   if (has_world_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->world_name().data(), this->world_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.WorldModify.world_name");
+      "Indriya.Core.Msgs.WorldModify.world_name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->world_name(), target);
@@ -403,7 +404,7 @@ void WorldModify::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->cloned_uri().data(), this->cloned_uri().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.WorldModify.cloned_uri");
+      "Indriya.Core.Msgs.WorldModify.cloned_uri");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         5, this->cloned_uri(), target);
@@ -413,7 +414,7 @@ void WorldModify::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.WorldModify)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.WorldModify)
   return target;
 }
 
@@ -558,28 +559,28 @@ void WorldModify::InternalSwap(WorldModify* other) {
   clear_has_world_name();
 }
  const ::std::string& WorldModify::world_name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldModify.world_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldModify.world_name)
   return world_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void WorldModify::set_world_name(const ::std::string& value) {
   set_has_world_name();
   world_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldModify.world_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldModify.world_name)
 }
  void WorldModify::set_world_name(const char* value) {
   set_has_world_name();
   world_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.WorldModify.world_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.WorldModify.world_name)
 }
  void WorldModify::set_world_name(const char* value, size_t size) {
   set_has_world_name();
   world_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.WorldModify.world_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.WorldModify.world_name)
 }
  ::std::string* WorldModify::mutable_world_name() {
   set_has_world_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.WorldModify.world_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.WorldModify.world_name)
   return world_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* WorldModify::release_world_name() {
@@ -593,7 +594,7 @@ void WorldModify::InternalSwap(WorldModify* other) {
     clear_has_world_name();
   }
   world_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), world_name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.WorldModify.world_name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.WorldModify.world_name)
 }
 
 // optional bool remove = 2;
@@ -611,13 +612,13 @@ void WorldModify::InternalSwap(WorldModify* other) {
   clear_has_remove();
 }
  bool WorldModify::remove() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldModify.remove)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldModify.remove)
   return remove_;
 }
  void WorldModify::set_remove(bool value) {
   set_has_remove();
   remove_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldModify.remove)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldModify.remove)
 }
 
 // optional bool create = 3;
@@ -635,13 +636,13 @@ void WorldModify::InternalSwap(WorldModify* other) {
   clear_has_create();
 }
  bool WorldModify::create() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldModify.create)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldModify.create)
   return create_;
 }
  void WorldModify::set_create(bool value) {
   set_has_create();
   create_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldModify.create)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldModify.create)
 }
 
 // optional bool cloned = 4;
@@ -659,13 +660,13 @@ void WorldModify::InternalSwap(WorldModify* other) {
   clear_has_cloned();
 }
  bool WorldModify::cloned() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldModify.cloned)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldModify.cloned)
   return cloned_;
 }
  void WorldModify::set_cloned(bool value) {
   set_has_cloned();
   cloned_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldModify.cloned)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldModify.cloned)
 }
 
 // optional string cloned_uri = 5;
@@ -683,28 +684,28 @@ void WorldModify::InternalSwap(WorldModify* other) {
   clear_has_cloned_uri();
 }
  const ::std::string& WorldModify::cloned_uri() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldModify.cloned_uri)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldModify.cloned_uri)
   return cloned_uri_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void WorldModify::set_cloned_uri(const ::std::string& value) {
   set_has_cloned_uri();
   cloned_uri_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldModify.cloned_uri)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldModify.cloned_uri)
 }
  void WorldModify::set_cloned_uri(const char* value) {
   set_has_cloned_uri();
   cloned_uri_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.WorldModify.cloned_uri)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.WorldModify.cloned_uri)
 }
  void WorldModify::set_cloned_uri(const char* value, size_t size) {
   set_has_cloned_uri();
   cloned_uri_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.WorldModify.cloned_uri)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.WorldModify.cloned_uri)
 }
  ::std::string* WorldModify::mutable_cloned_uri() {
   set_has_cloned_uri();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.WorldModify.cloned_uri)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.WorldModify.cloned_uri)
   return cloned_uri_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* WorldModify::release_cloned_uri() {
@@ -718,15 +719,16 @@ void WorldModify::InternalSwap(WorldModify* other) {
     clear_has_cloned_uri();
   }
   cloned_uri_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), cloned_uri);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.WorldModify.cloned_uri)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.WorldModify.cloned_uri)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.WorldModify", WorldModify)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.WorldModify", WorldModify)
 // @@protoc_insertion_point(global_scope)

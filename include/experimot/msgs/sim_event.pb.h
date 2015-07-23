@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_sim_5fevent_2eproto();
@@ -132,14 +133,14 @@ class SimEvent : public ::google::protobuf::Message {
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // required .experimot.msgs.WorldStatistics world_statistics = 3;
+  // required .Indriya.Core.Msgs.WorldStatistics world_statistics = 3;
   bool has_world_statistics() const;
   void clear_world_statistics();
   static const int kWorldStatisticsFieldNumber = 3;
-  const ::experimot::msgs::WorldStatistics& world_statistics() const;
-  ::experimot::msgs::WorldStatistics* mutable_world_statistics();
-  ::experimot::msgs::WorldStatistics* release_world_statistics();
-  void set_allocated_world_statistics(::experimot::msgs::WorldStatistics* world_statistics);
+  const ::Indriya::Core::Msgs::WorldStatistics& world_statistics() const;
+  ::Indriya::Core::Msgs::WorldStatistics* mutable_world_statistics();
+  ::Indriya::Core::Msgs::WorldStatistics* release_world_statistics();
+  void set_allocated_world_statistics(::Indriya::Core::Msgs::WorldStatistics* world_statistics);
 
   // optional string data = 4;
   bool has_data() const;
@@ -153,7 +154,7 @@ class SimEvent : public ::google::protobuf::Message {
   ::std::string* release_data();
   void set_allocated_data(::std::string* data);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.SimEvent)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.SimEvent)
  private:
   inline void set_has_type();
   inline void clear_has_type();
@@ -172,7 +173,7 @@ class SimEvent : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr type_;
   ::google::protobuf::internal::ArenaStringPtr name_;
-  ::experimot::msgs::WorldStatistics* world_statistics_;
+  ::Indriya::Core::Msgs::WorldStatistics* world_statistics_;
   ::google::protobuf::internal::ArenaStringPtr data_;
   friend void  protobuf_AddDesc_sim_5fevent_2eproto();
   friend void protobuf_AssignDesc_sim_5fevent_2eproto();
@@ -204,28 +205,28 @@ inline void SimEvent::clear_type() {
   clear_has_type();
 }
 inline const ::std::string& SimEvent::type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.SimEvent.type)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.SimEvent.type)
   return type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void SimEvent::set_type(const ::std::string& value) {
   set_has_type();
   type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.SimEvent.type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.SimEvent.type)
 }
 inline void SimEvent::set_type(const char* value) {
   set_has_type();
   type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.SimEvent.type)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.SimEvent.type)
 }
 inline void SimEvent::set_type(const char* value, size_t size) {
   set_has_type();
   type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.SimEvent.type)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.SimEvent.type)
 }
 inline ::std::string* SimEvent::mutable_type() {
   set_has_type();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.SimEvent.type)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.SimEvent.type)
   return type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* SimEvent::release_type() {
@@ -239,7 +240,7 @@ inline void SimEvent::set_allocated_type(::std::string* type) {
     clear_has_type();
   }
   type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), type);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.SimEvent.type)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.SimEvent.type)
 }
 
 // required string name = 2;
@@ -257,28 +258,28 @@ inline void SimEvent::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& SimEvent::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.SimEvent.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.SimEvent.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void SimEvent::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.SimEvent.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.SimEvent.name)
 }
 inline void SimEvent::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.SimEvent.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.SimEvent.name)
 }
 inline void SimEvent::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.SimEvent.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.SimEvent.name)
 }
 inline ::std::string* SimEvent::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.SimEvent.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.SimEvent.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* SimEvent::release_name() {
@@ -292,10 +293,10 @@ inline void SimEvent::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.SimEvent.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.SimEvent.name)
 }
 
-// required .experimot.msgs.WorldStatistics world_statistics = 3;
+// required .Indriya.Core.Msgs.WorldStatistics world_statistics = 3;
 inline bool SimEvent::has_world_statistics() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -306,28 +307,28 @@ inline void SimEvent::clear_has_world_statistics() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void SimEvent::clear_world_statistics() {
-  if (world_statistics_ != NULL) world_statistics_->::experimot::msgs::WorldStatistics::Clear();
+  if (world_statistics_ != NULL) world_statistics_->::Indriya::Core::Msgs::WorldStatistics::Clear();
   clear_has_world_statistics();
 }
-inline const ::experimot::msgs::WorldStatistics& SimEvent::world_statistics() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.SimEvent.world_statistics)
+inline const ::Indriya::Core::Msgs::WorldStatistics& SimEvent::world_statistics() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.SimEvent.world_statistics)
   return world_statistics_ != NULL ? *world_statistics_ : *default_instance_->world_statistics_;
 }
-inline ::experimot::msgs::WorldStatistics* SimEvent::mutable_world_statistics() {
+inline ::Indriya::Core::Msgs::WorldStatistics* SimEvent::mutable_world_statistics() {
   set_has_world_statistics();
   if (world_statistics_ == NULL) {
-    world_statistics_ = new ::experimot::msgs::WorldStatistics;
+    world_statistics_ = new ::Indriya::Core::Msgs::WorldStatistics;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.SimEvent.world_statistics)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.SimEvent.world_statistics)
   return world_statistics_;
 }
-inline ::experimot::msgs::WorldStatistics* SimEvent::release_world_statistics() {
+inline ::Indriya::Core::Msgs::WorldStatistics* SimEvent::release_world_statistics() {
   clear_has_world_statistics();
-  ::experimot::msgs::WorldStatistics* temp = world_statistics_;
+  ::Indriya::Core::Msgs::WorldStatistics* temp = world_statistics_;
   world_statistics_ = NULL;
   return temp;
 }
-inline void SimEvent::set_allocated_world_statistics(::experimot::msgs::WorldStatistics* world_statistics) {
+inline void SimEvent::set_allocated_world_statistics(::Indriya::Core::Msgs::WorldStatistics* world_statistics) {
   delete world_statistics_;
   world_statistics_ = world_statistics;
   if (world_statistics) {
@@ -335,7 +336,7 @@ inline void SimEvent::set_allocated_world_statistics(::experimot::msgs::WorldSta
   } else {
     clear_has_world_statistics();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.SimEvent.world_statistics)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.SimEvent.world_statistics)
 }
 
 // optional string data = 4;
@@ -353,28 +354,28 @@ inline void SimEvent::clear_data() {
   clear_has_data();
 }
 inline const ::std::string& SimEvent::data() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.SimEvent.data)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.SimEvent.data)
   return data_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void SimEvent::set_data(const ::std::string& value) {
   set_has_data();
   data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.SimEvent.data)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.SimEvent.data)
 }
 inline void SimEvent::set_data(const char* value) {
   set_has_data();
   data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.SimEvent.data)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.SimEvent.data)
 }
 inline void SimEvent::set_data(const char* value, size_t size) {
   set_has_data();
   data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.SimEvent.data)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.SimEvent.data)
 }
 inline ::std::string* SimEvent::mutable_data() {
   set_has_data();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.SimEvent.data)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.SimEvent.data)
   return data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* SimEvent::release_data() {
@@ -388,18 +389,19 @@ inline void SimEvent::set_allocated_data(::std::string* data) {
     clear_has_data();
   }
   data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.SimEvent.data)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.SimEvent.data)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::SimEvent> SimEventPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::SimEvent> SimEventPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::SimEvent const> ConstSimEventPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::SimEvent const> ConstSimEventPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_sim_5fevent_2eproto__INCLUDED

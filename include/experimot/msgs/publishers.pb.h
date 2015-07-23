@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_publishers_2eproto();
@@ -108,25 +109,25 @@ class Publishers : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .experimot.msgs.Publish publisher = 1;
+  // repeated .Indriya.Core.Msgs.Publish publisher = 1;
   int publisher_size() const;
   void clear_publisher();
   static const int kPublisherFieldNumber = 1;
-  const ::experimot::msgs::Publish& publisher(int index) const;
-  ::experimot::msgs::Publish* mutable_publisher(int index);
-  ::experimot::msgs::Publish* add_publisher();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish >&
+  const ::Indriya::Core::Msgs::Publish& publisher(int index) const;
+  ::Indriya::Core::Msgs::Publish* mutable_publisher(int index);
+  ::Indriya::Core::Msgs::Publish* add_publisher();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Publish >&
       publisher() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Publish >*
       mutable_publisher();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Publishers)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Publishers)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish > publisher_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Publish > publisher_;
   friend void  protobuf_AddDesc_publishers_2eproto();
   friend void protobuf_AssignDesc_publishers_2eproto();
   friend void protobuf_ShutdownFile_publishers_2eproto();
@@ -142,45 +143,46 @@ class Publishers : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // Publishers
 
-// repeated .experimot.msgs.Publish publisher = 1;
+// repeated .Indriya.Core.Msgs.Publish publisher = 1;
 inline int Publishers::publisher_size() const {
   return publisher_.size();
 }
 inline void Publishers::clear_publisher() {
   publisher_.Clear();
 }
-inline const ::experimot::msgs::Publish& Publishers::publisher(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Publishers.publisher)
+inline const ::Indriya::Core::Msgs::Publish& Publishers::publisher(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Publishers.publisher)
   return publisher_.Get(index);
 }
-inline ::experimot::msgs::Publish* Publishers::mutable_publisher(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Publishers.publisher)
+inline ::Indriya::Core::Msgs::Publish* Publishers::mutable_publisher(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Publishers.publisher)
   return publisher_.Mutable(index);
 }
-inline ::experimot::msgs::Publish* Publishers::add_publisher() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Publishers.publisher)
+inline ::Indriya::Core::Msgs::Publish* Publishers::add_publisher() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Publishers.publisher)
   return publisher_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Publish >&
 Publishers::publisher() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Publishers.publisher)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Publishers.publisher)
   return publisher_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Publish >*
 Publishers::mutable_publisher() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Publishers.publisher)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Publishers.publisher)
   return &publisher_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Publishers> PublishersPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Publishers> PublishersPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Publishers const> ConstPublishersPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Publishers const> ConstPublishersPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_publishers_2eproto__INCLUDED

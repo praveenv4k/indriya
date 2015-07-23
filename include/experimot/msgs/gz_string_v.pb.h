@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_gz_5fstring_5fv_2eproto();
@@ -123,7 +124,7 @@ class GzString_V : public ::google::protobuf::Message {
   const ::google::protobuf::RepeatedPtrField< ::std::string>& data() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_data();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.GzString_V)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.GzString_V)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -153,61 +154,62 @@ inline void GzString_V::clear_data() {
   data_.Clear();
 }
 inline const ::std::string& GzString_V::data(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GzString_V.data)
   return data_.Get(index);
 }
 inline ::std::string* GzString_V::mutable_data(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GzString_V.data)
   return data_.Mutable(index);
 }
 inline void GzString_V::set_data(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GzString_V.data)
   data_.Mutable(index)->assign(value);
 }
 inline void GzString_V::set_data(int index, const char* value) {
   data_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.GzString_V.data)
 }
 inline void GzString_V::set_data(int index, const char* value, size_t size) {
   data_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.GzString_V.data)
 }
 inline ::std::string* GzString_V::add_data() {
   return data_.Add();
 }
 inline void GzString_V::add_data(const ::std::string& value) {
   data_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.GzString_V.data)
 }
 inline void GzString_V::add_data(const char* value) {
   data_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_add_char:Indriya.Core.Msgs.GzString_V.data)
 }
 inline void GzString_V::add_data(const char* value, size_t size) {
   data_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_add_pointer:Indriya.Core.Msgs.GzString_V.data)
 }
 inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
 GzString_V::data() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.GzString_V.data)
   return data_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
 GzString_V::mutable_data() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.GzString_V.data)
   return &data_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::GzString_V> GzString_VPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::GzString_V> GzString_VPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::GzString_V const> ConstGzString_VPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::GzString_V const> ConstGzString_VPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_gz_5fstring_5fv_2eproto__INCLUDED

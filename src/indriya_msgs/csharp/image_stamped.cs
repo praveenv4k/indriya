@@ -10,23 +10,23 @@
 // Generated from: proto/image_stamped.proto
 // Note: requires additional types generated from: time.proto
 // Note: requires additional types generated from: image.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"ImageStamped")]
   public partial class ImageStamped : global::ProtoBuf.IExtensible
   {
     public ImageStamped() {}
     
-    private experimot.msgs.Time _time;
+    private Indriya.Core.Msgs.Time _time;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"time", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Time time
+    public Indriya.Core.Msgs.Time time
     {
       get { return _time; }
       set { _time = value; }
     }
-    private experimot.msgs.Image _image;
+    private Indriya.Core.Msgs.Image _image;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"image", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Image image
+    public Indriya.Core.Msgs.Image image
     {
       get { return _image; }
       set { _image = value; }

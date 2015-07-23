@@ -9,16 +9,16 @@
 
 // Generated from: proto/propagation_grid.proto
 // Note: requires additional types generated from: propagation_particle.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"PropagationGrid")]
   public partial class PropagationGrid : global::ProtoBuf.IExtensible
   {
     public PropagationGrid() {}
     
-    private readonly global::System.Collections.Generic.List<experimot.msgs.PropagationParticle> _particle = new global::System.Collections.Generic.List<experimot.msgs.PropagationParticle>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.PropagationParticle> _particle = new global::System.Collections.Generic.List<Indriya.Core.Msgs.PropagationParticle>();
     [global::ProtoBuf.ProtoMember(1, Name=@"particle", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.PropagationParticle> particle
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.PropagationParticle> particle
     {
       get { return _particle; }
     }

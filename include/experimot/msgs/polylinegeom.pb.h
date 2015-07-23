@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_polylinegeom_2eproto();
@@ -115,19 +116,19 @@ class Polyline : public ::google::protobuf::Message {
   double height() const;
   void set_height(double value);
 
-  // repeated .experimot.msgs.Vector2d point = 2;
+  // repeated .Indriya.Core.Msgs.Vector2d point = 2;
   int point_size() const;
   void clear_point();
   static const int kPointFieldNumber = 2;
-  const ::experimot::msgs::Vector2d& point(int index) const;
-  ::experimot::msgs::Vector2d* mutable_point(int index);
-  ::experimot::msgs::Vector2d* add_point();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector2d >&
+  const ::Indriya::Core::Msgs::Vector2d& point(int index) const;
+  ::Indriya::Core::Msgs::Vector2d* mutable_point(int index);
+  ::Indriya::Core::Msgs::Vector2d* add_point();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector2d >&
       point() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector2d >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector2d >*
       mutable_point();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Polyline)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Polyline)
  private:
   inline void set_has_height();
   inline void clear_has_height();
@@ -136,7 +137,7 @@ class Polyline : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   double height_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector2d > point_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector2d > point_;
   friend void  protobuf_AddDesc_polylinegeom_2eproto();
   friend void protobuf_AssignDesc_polylinegeom_2eproto();
   friend void protobuf_ShutdownFile_polylinegeom_2eproto();
@@ -167,54 +168,55 @@ inline void Polyline::clear_height() {
   clear_has_height();
 }
 inline double Polyline::height() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Polyline.height)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Polyline.height)
   return height_;
 }
 inline void Polyline::set_height(double value) {
   set_has_height();
   height_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Polyline.height)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Polyline.height)
 }
 
-// repeated .experimot.msgs.Vector2d point = 2;
+// repeated .Indriya.Core.Msgs.Vector2d point = 2;
 inline int Polyline::point_size() const {
   return point_.size();
 }
 inline void Polyline::clear_point() {
   point_.Clear();
 }
-inline const ::experimot::msgs::Vector2d& Polyline::point(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Polyline.point)
+inline const ::Indriya::Core::Msgs::Vector2d& Polyline::point(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Polyline.point)
   return point_.Get(index);
 }
-inline ::experimot::msgs::Vector2d* Polyline::mutable_point(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Polyline.point)
+inline ::Indriya::Core::Msgs::Vector2d* Polyline::mutable_point(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Polyline.point)
   return point_.Mutable(index);
 }
-inline ::experimot::msgs::Vector2d* Polyline::add_point() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Polyline.point)
+inline ::Indriya::Core::Msgs::Vector2d* Polyline::add_point() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Polyline.point)
   return point_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector2d >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector2d >&
 Polyline::point() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Polyline.point)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Polyline.point)
   return point_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector2d >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector2d >*
 Polyline::mutable_point() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Polyline.point)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Polyline.point)
   return &point_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Polyline> PolylinePtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Polyline> PolylinePtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Polyline const> ConstPolylinePtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Polyline const> ConstPolylinePtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_polylinegeom_2eproto__INCLUDED

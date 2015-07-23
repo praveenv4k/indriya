@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -78,11 +79,12 @@ void protobuf_AddDesc_wireless_5fnodes_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_wireless_5fnode_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_wireless_5fnode_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\024wireless_nodes.proto\022\016experimot.msgs\032\023"
-    "wireless_node.proto\";\n\rWirelessNodes\022*\n\004"
-    "node\030\001 \003(\0132\034.experimot.msgs.WirelessNode", 120);
+    "\n\024wireless_nodes.proto\022\021Indriya.Core.Msg"
+    "s\032\023wireless_node.proto\">\n\rWirelessNodes\022"
+    "-\n\004node\030\001 \003(\0132\037.Indriya.Core.Msgs.Wirele"
+    "ssNode", 126);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "wireless_nodes.proto", &protobuf_RegisterTypes);
   WirelessNodes::default_instance_ = new WirelessNodes();
@@ -116,7 +118,7 @@ const int WirelessNodes::kNodeFieldNumber;
 WirelessNodes::WirelessNodes()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.WirelessNodes)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.WirelessNodes)
 }
 
 void WirelessNodes::InitAsDefaultInstance() {
@@ -127,7 +129,7 @@ WirelessNodes::WirelessNodes(const WirelessNodes& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.WirelessNodes)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.WirelessNodes)
 }
 
 void WirelessNodes::SharedCtor() {
@@ -136,7 +138,7 @@ void WirelessNodes::SharedCtor() {
 }
 
 WirelessNodes::~WirelessNodes() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.WirelessNodes)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.WirelessNodes)
   SharedDtor();
 }
 
@@ -182,13 +184,13 @@ bool WirelessNodes::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.WirelessNodes)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.WirelessNodes)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .experimot.msgs.WirelessNode node = 1;
+      // repeated .Indriya.Core.Msgs.WirelessNode node = 1;
       case 1: {
         if (tag == 10) {
          parse_node:
@@ -216,18 +218,18 @@ bool WirelessNodes::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.WirelessNodes)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.WirelessNodes)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.WirelessNodes)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.WirelessNodes)
   return false;
 #undef DO_
 }
 
 void WirelessNodes::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.WirelessNodes)
-  // repeated .experimot.msgs.WirelessNode node = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.WirelessNodes)
+  // repeated .Indriya.Core.Msgs.WirelessNode node = 1;
   for (unsigned int i = 0, n = this->node_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->node(i), output);
@@ -237,13 +239,13 @@ void WirelessNodes::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.WirelessNodes)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.WirelessNodes)
 }
 
 ::google::protobuf::uint8* WirelessNodes::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.WirelessNodes)
-  // repeated .experimot.msgs.WirelessNode node = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.WirelessNodes)
+  // repeated .Indriya.Core.Msgs.WirelessNode node = 1;
   for (unsigned int i = 0, n = this->node_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -254,14 +256,14 @@ void WirelessNodes::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.WirelessNodes)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.WirelessNodes)
   return target;
 }
 
 int WirelessNodes::ByteSize() const {
   int total_size = 0;
 
-  // repeated .experimot.msgs.WirelessNode node = 1;
+  // repeated .Indriya.Core.Msgs.WirelessNode node = 1;
   total_size += 1 * this->node_size();
   for (int i = 0; i < this->node_size(); i++) {
     total_size +=
@@ -340,33 +342,33 @@ void WirelessNodes::InternalSwap(WirelessNodes* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // WirelessNodes
 
-// repeated .experimot.msgs.WirelessNode node = 1;
+// repeated .Indriya.Core.Msgs.WirelessNode node = 1;
  int WirelessNodes::node_size() const {
   return node_.size();
 }
  void WirelessNodes::clear_node() {
   node_.Clear();
 }
- const ::experimot::msgs::WirelessNode& WirelessNodes::node(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WirelessNodes.node)
+ const ::Indriya::Core::Msgs::WirelessNode& WirelessNodes::node(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WirelessNodes.node)
   return node_.Get(index);
 }
- ::experimot::msgs::WirelessNode* WirelessNodes::mutable_node(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.WirelessNodes.node)
+ ::Indriya::Core::Msgs::WirelessNode* WirelessNodes::mutable_node(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.WirelessNodes.node)
   return node_.Mutable(index);
 }
- ::experimot::msgs::WirelessNode* WirelessNodes::add_node() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.WirelessNodes.node)
+ ::Indriya::Core::Msgs::WirelessNode* WirelessNodes::add_node() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.WirelessNodes.node)
   return node_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::WirelessNode >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::WirelessNode >&
 WirelessNodes::node() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.WirelessNodes.node)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.WirelessNodes.node)
   return node_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::WirelessNode >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::WirelessNode >*
 WirelessNodes::mutable_node() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.WirelessNodes.node)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.WirelessNodes.node)
   return &node_;
 }
 
@@ -374,8 +376,9 @@ WirelessNodes::mutable_node() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.WirelessNodes", WirelessNodes)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.WirelessNodes", WirelessNodes)
 // @@protoc_insertion_point(global_scope)

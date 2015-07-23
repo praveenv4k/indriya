@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='wireless_node.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x13wireless_node.proto\x12\x0e\x65xperimot.msgs\"F\n\x0cWirelessNode\x12\r\n\x05\x65ssid\x18\x01 \x02(\t\x12\x11\n\tfrequency\x18\x02 \x02(\x01\x12\x14\n\x0csignal_level\x18\x03 \x02(\x01')
+  serialized_pb=_b('\n\x13wireless_node.proto\x12\x11Indriya.Core.Msgs\"F\n\x0cWirelessNode\x12\r\n\x05\x65ssid\x18\x01 \x02(\t\x12\x11\n\tfrequency\x18\x02 \x02(\x01\x12\x14\n\x0csignal_level\x18\x03 \x02(\x01')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -28,27 +28,27 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _WIRELESSNODE = _descriptor.Descriptor(
   name='WirelessNode',
-  full_name='experimot.msgs.WirelessNode',
+  full_name='Indriya.Core.Msgs.WirelessNode',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='essid', full_name='experimot.msgs.WirelessNode.essid', index=0,
+      name='essid', full_name='Indriya.Core.Msgs.WirelessNode.essid', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='frequency', full_name='experimot.msgs.WirelessNode.frequency', index=1,
+      name='frequency', full_name='Indriya.Core.Msgs.WirelessNode.frequency', index=1,
       number=2, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='signal_level', full_name='experimot.msgs.WirelessNode.signal_level', index=2,
+      name='signal_level', full_name='Indriya.Core.Msgs.WirelessNode.signal_level', index=2,
       number=3, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -66,8 +66,8 @@ _WIRELESSNODE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=39,
-  serialized_end=109,
+  serialized_start=42,
+  serialized_end=112,
 )
 
 DESCRIPTOR.message_types_by_name['WirelessNode'] = _WIRELESSNODE
@@ -75,7 +75,7 @@ DESCRIPTOR.message_types_by_name['WirelessNode'] = _WIRELESSNODE
 WirelessNode = _reflection.GeneratedProtocolMessageType('WirelessNode', (_message.Message,), dict(
   DESCRIPTOR = _WIRELESSNODE,
   __module__ = 'wireless_node_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.WirelessNode)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.WirelessNode)
   ))
 _sym_db.RegisterMessage(WirelessNode)
 

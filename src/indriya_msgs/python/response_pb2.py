@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='response.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x0eresponse.proto\x12\x0e\x65xperimot.msgs\"`\n\x08Response\x12\n\n\x02id\x18\x01 \x02(\x05\x12\x0f\n\x07request\x18\x02 \x02(\t\x12\x10\n\x08response\x18\x03 \x02(\t\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x17\n\x0fserialized_data\x18\x05 \x01(\x0c')
+  serialized_pb=_b('\n\x0eresponse.proto\x12\x11Indriya.Core.Msgs\"`\n\x08Response\x12\n\n\x02id\x18\x01 \x02(\x05\x12\x0f\n\x07request\x18\x02 \x02(\t\x12\x10\n\x08response\x18\x03 \x02(\t\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x17\n\x0fserialized_data\x18\x05 \x01(\x0c')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -28,41 +28,41 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _RESPONSE = _descriptor.Descriptor(
   name='Response',
-  full_name='experimot.msgs.Response',
+  full_name='Indriya.Core.Msgs.Response',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='experimot.msgs.Response.id', index=0,
+      name='id', full_name='Indriya.Core.Msgs.Response.id', index=0,
       number=1, type=5, cpp_type=1, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='request', full_name='experimot.msgs.Response.request', index=1,
+      name='request', full_name='Indriya.Core.Msgs.Response.request', index=1,
       number=2, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='response', full_name='experimot.msgs.Response.response', index=2,
+      name='response', full_name='Indriya.Core.Msgs.Response.response', index=2,
       number=3, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='type', full_name='experimot.msgs.Response.type', index=3,
+      name='type', full_name='Indriya.Core.Msgs.Response.type', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='serialized_data', full_name='experimot.msgs.Response.serialized_data', index=4,
+      name='serialized_data', full_name='Indriya.Core.Msgs.Response.serialized_data', index=4,
       number=5, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
@@ -80,8 +80,8 @@ _RESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=34,
-  serialized_end=130,
+  serialized_start=37,
+  serialized_end=133,
 )
 
 DESCRIPTOR.message_types_by_name['Response'] = _RESPONSE
@@ -89,7 +89,7 @@ DESCRIPTOR.message_types_by_name['Response'] = _RESPONSE
 Response = _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), dict(
   DESCRIPTOR = _RESPONSE,
   __module__ = 'response_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Response)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Response)
   ))
 _sym_db.RegisterMessage(Response)
 

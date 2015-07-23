@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_pose_5ftrajectory_2eproto();
@@ -127,19 +128,19 @@ class PoseTrajectory : public ::google::protobuf::Message {
   ::google::protobuf::uint32 id() const;
   void set_id(::google::protobuf::uint32 value);
 
-  // repeated .experimot.msgs.PoseStamped pose_stamped = 3;
+  // repeated .Indriya.Core.Msgs.PoseStamped pose_stamped = 3;
   int pose_stamped_size() const;
   void clear_pose_stamped();
   static const int kPoseStampedFieldNumber = 3;
-  const ::experimot::msgs::PoseStamped& pose_stamped(int index) const;
-  ::experimot::msgs::PoseStamped* mutable_pose_stamped(int index);
-  ::experimot::msgs::PoseStamped* add_pose_stamped();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::PoseStamped >&
+  const ::Indriya::Core::Msgs::PoseStamped& pose_stamped(int index) const;
+  ::Indriya::Core::Msgs::PoseStamped* mutable_pose_stamped(int index);
+  ::Indriya::Core::Msgs::PoseStamped* add_pose_stamped();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::PoseStamped >&
       pose_stamped() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::PoseStamped >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::PoseStamped >*
       mutable_pose_stamped();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.PoseTrajectory)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.PoseTrajectory)
  private:
   inline void set_has_name();
   inline void clear_has_name();
@@ -150,7 +151,7 @@ class PoseTrajectory : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::PoseStamped > pose_stamped_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::PoseStamped > pose_stamped_;
   ::google::protobuf::uint32 id_;
   friend void  protobuf_AddDesc_pose_5ftrajectory_2eproto();
   friend void protobuf_AssignDesc_pose_5ftrajectory_2eproto();
@@ -182,28 +183,28 @@ inline void PoseTrajectory::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& PoseTrajectory::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PoseTrajectory.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PoseTrajectory.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void PoseTrajectory::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.PoseTrajectory.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PoseTrajectory.name)
 }
 inline void PoseTrajectory::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.PoseTrajectory.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.PoseTrajectory.name)
 }
 inline void PoseTrajectory::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.PoseTrajectory.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.PoseTrajectory.name)
 }
 inline ::std::string* PoseTrajectory::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.PoseTrajectory.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.PoseTrajectory.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* PoseTrajectory::release_name() {
@@ -217,7 +218,7 @@ inline void PoseTrajectory::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.PoseTrajectory.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.PoseTrajectory.name)
 }
 
 // optional uint32 id = 2;
@@ -235,54 +236,55 @@ inline void PoseTrajectory::clear_id() {
   clear_has_id();
 }
 inline ::google::protobuf::uint32 PoseTrajectory::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PoseTrajectory.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PoseTrajectory.id)
   return id_;
 }
 inline void PoseTrajectory::set_id(::google::protobuf::uint32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PoseTrajectory.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PoseTrajectory.id)
 }
 
-// repeated .experimot.msgs.PoseStamped pose_stamped = 3;
+// repeated .Indriya.Core.Msgs.PoseStamped pose_stamped = 3;
 inline int PoseTrajectory::pose_stamped_size() const {
   return pose_stamped_.size();
 }
 inline void PoseTrajectory::clear_pose_stamped() {
   pose_stamped_.Clear();
 }
-inline const ::experimot::msgs::PoseStamped& PoseTrajectory::pose_stamped(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PoseTrajectory.pose_stamped)
+inline const ::Indriya::Core::Msgs::PoseStamped& PoseTrajectory::pose_stamped(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PoseTrajectory.pose_stamped)
   return pose_stamped_.Get(index);
 }
-inline ::experimot::msgs::PoseStamped* PoseTrajectory::mutable_pose_stamped(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.PoseTrajectory.pose_stamped)
+inline ::Indriya::Core::Msgs::PoseStamped* PoseTrajectory::mutable_pose_stamped(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.PoseTrajectory.pose_stamped)
   return pose_stamped_.Mutable(index);
 }
-inline ::experimot::msgs::PoseStamped* PoseTrajectory::add_pose_stamped() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.PoseTrajectory.pose_stamped)
+inline ::Indriya::Core::Msgs::PoseStamped* PoseTrajectory::add_pose_stamped() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.PoseTrajectory.pose_stamped)
   return pose_stamped_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::PoseStamped >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::PoseStamped >&
 PoseTrajectory::pose_stamped() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.PoseTrajectory.pose_stamped)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.PoseTrajectory.pose_stamped)
   return pose_stamped_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::PoseStamped >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::PoseStamped >*
 PoseTrajectory::mutable_pose_stamped() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.PoseTrajectory.pose_stamped)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.PoseTrajectory.pose_stamped)
   return &pose_stamped_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::PoseTrajectory> PoseTrajectoryPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::PoseTrajectory> PoseTrajectoryPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::PoseTrajectory const> ConstPoseTrajectoryPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::PoseTrajectory const> ConstPoseTrajectoryPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_pose_5ftrajectory_2eproto__INCLUDED

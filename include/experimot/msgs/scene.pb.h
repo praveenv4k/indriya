@@ -37,8 +37,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_scene_2eproto();
@@ -125,32 +126,32 @@ class Scene : public ::google::protobuf::Message {
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // optional .experimot.msgs.Color ambient = 2;
+  // optional .Indriya.Core.Msgs.Color ambient = 2;
   bool has_ambient() const;
   void clear_ambient();
   static const int kAmbientFieldNumber = 2;
-  const ::experimot::msgs::Color& ambient() const;
-  ::experimot::msgs::Color* mutable_ambient();
-  ::experimot::msgs::Color* release_ambient();
-  void set_allocated_ambient(::experimot::msgs::Color* ambient);
+  const ::Indriya::Core::Msgs::Color& ambient() const;
+  ::Indriya::Core::Msgs::Color* mutable_ambient();
+  ::Indriya::Core::Msgs::Color* release_ambient();
+  void set_allocated_ambient(::Indriya::Core::Msgs::Color* ambient);
 
-  // optional .experimot.msgs.Color background = 3;
+  // optional .Indriya.Core.Msgs.Color background = 3;
   bool has_background() const;
   void clear_background();
   static const int kBackgroundFieldNumber = 3;
-  const ::experimot::msgs::Color& background() const;
-  ::experimot::msgs::Color* mutable_background();
-  ::experimot::msgs::Color* release_background();
-  void set_allocated_background(::experimot::msgs::Color* background);
+  const ::Indriya::Core::Msgs::Color& background() const;
+  ::Indriya::Core::Msgs::Color* mutable_background();
+  ::Indriya::Core::Msgs::Color* release_background();
+  void set_allocated_background(::Indriya::Core::Msgs::Color* background);
 
-  // optional .experimot.msgs.Sky sky = 4;
+  // optional .Indriya.Core.Msgs.Sky sky = 4;
   bool has_sky() const;
   void clear_sky();
   static const int kSkyFieldNumber = 4;
-  const ::experimot::msgs::Sky& sky() const;
-  ::experimot::msgs::Sky* mutable_sky();
-  ::experimot::msgs::Sky* release_sky();
-  void set_allocated_sky(::experimot::msgs::Sky* sky);
+  const ::Indriya::Core::Msgs::Sky& sky() const;
+  ::Indriya::Core::Msgs::Sky* mutable_sky();
+  ::Indriya::Core::Msgs::Sky* release_sky();
+  void set_allocated_sky(::Indriya::Core::Msgs::Sky* sky);
 
   // optional bool shadows = 5 [default = true];
   bool has_shadows() const;
@@ -159,14 +160,14 @@ class Scene : public ::google::protobuf::Message {
   bool shadows() const;
   void set_shadows(bool value);
 
-  // optional .experimot.msgs.Fog fog = 6;
+  // optional .Indriya.Core.Msgs.Fog fog = 6;
   bool has_fog() const;
   void clear_fog();
   static const int kFogFieldNumber = 6;
-  const ::experimot::msgs::Fog& fog() const;
-  ::experimot::msgs::Fog* mutable_fog();
-  ::experimot::msgs::Fog* release_fog();
-  void set_allocated_fog(::experimot::msgs::Fog* fog);
+  const ::Indriya::Core::Msgs::Fog& fog() const;
+  ::Indriya::Core::Msgs::Fog* mutable_fog();
+  ::Indriya::Core::Msgs::Fog* release_fog();
+  void set_allocated_fog(::Indriya::Core::Msgs::Fog* fog);
 
   // optional bool grid = 7;
   bool has_grid() const;
@@ -175,43 +176,43 @@ class Scene : public ::google::protobuf::Message {
   bool grid() const;
   void set_grid(bool value);
 
-  // repeated .experimot.msgs.Model model = 8;
+  // repeated .Indriya.Core.Msgs.Model model = 8;
   int model_size() const;
   void clear_model();
   static const int kModelFieldNumber = 8;
-  const ::experimot::msgs::Model& model(int index) const;
-  ::experimot::msgs::Model* mutable_model(int index);
-  ::experimot::msgs::Model* add_model();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Model >&
+  const ::Indriya::Core::Msgs::Model& model(int index) const;
+  ::Indriya::Core::Msgs::Model* mutable_model(int index);
+  ::Indriya::Core::Msgs::Model* add_model();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Model >&
       model() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Model >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Model >*
       mutable_model();
 
-  // repeated .experimot.msgs.Light light = 9;
+  // repeated .Indriya.Core.Msgs.Light light = 9;
   int light_size() const;
   void clear_light();
   static const int kLightFieldNumber = 9;
-  const ::experimot::msgs::Light& light(int index) const;
-  ::experimot::msgs::Light* mutable_light(int index);
-  ::experimot::msgs::Light* add_light();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Light >&
+  const ::Indriya::Core::Msgs::Light& light(int index) const;
+  ::Indriya::Core::Msgs::Light* mutable_light(int index);
+  ::Indriya::Core::Msgs::Light* add_light();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Light >&
       light() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Light >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Light >*
       mutable_light();
 
-  // repeated .experimot.msgs.Joint joint = 10;
+  // repeated .Indriya.Core.Msgs.Joint joint = 10;
   int joint_size() const;
   void clear_joint();
   static const int kJointFieldNumber = 10;
-  const ::experimot::msgs::Joint& joint(int index) const;
-  ::experimot::msgs::Joint* mutable_joint(int index);
-  ::experimot::msgs::Joint* add_joint();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Joint >&
+  const ::Indriya::Core::Msgs::Joint& joint(int index) const;
+  ::Indriya::Core::Msgs::Joint* mutable_joint(int index);
+  ::Indriya::Core::Msgs::Joint* add_joint();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Joint >&
       joint() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Joint >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Joint >*
       mutable_joint();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Scene)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Scene)
  private:
   inline void set_has_name();
   inline void clear_has_name();
@@ -232,13 +233,13 @@ class Scene : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
-  ::experimot::msgs::Color* ambient_;
-  ::experimot::msgs::Color* background_;
-  ::experimot::msgs::Sky* sky_;
-  ::experimot::msgs::Fog* fog_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Model > model_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Light > light_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Joint > joint_;
+  ::Indriya::Core::Msgs::Color* ambient_;
+  ::Indriya::Core::Msgs::Color* background_;
+  ::Indriya::Core::Msgs::Sky* sky_;
+  ::Indriya::Core::Msgs::Fog* fog_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Model > model_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Light > light_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Joint > joint_;
   bool shadows_;
   bool grid_;
   friend void  protobuf_AddDesc_scene_2eproto();
@@ -271,28 +272,28 @@ inline void Scene::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& Scene::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Scene.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Scene.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Scene::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Scene.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Scene.name)
 }
 inline void Scene::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Scene.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Scene.name)
 }
 inline void Scene::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Scene.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Scene.name)
 }
 inline ::std::string* Scene::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Scene.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Scene.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Scene::release_name() {
@@ -306,10 +307,10 @@ inline void Scene::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Scene.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Scene.name)
 }
 
-// optional .experimot.msgs.Color ambient = 2;
+// optional .Indriya.Core.Msgs.Color ambient = 2;
 inline bool Scene::has_ambient() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -320,28 +321,28 @@ inline void Scene::clear_has_ambient() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void Scene::clear_ambient() {
-  if (ambient_ != NULL) ambient_->::experimot::msgs::Color::Clear();
+  if (ambient_ != NULL) ambient_->::Indriya::Core::Msgs::Color::Clear();
   clear_has_ambient();
 }
-inline const ::experimot::msgs::Color& Scene::ambient() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Scene.ambient)
+inline const ::Indriya::Core::Msgs::Color& Scene::ambient() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Scene.ambient)
   return ambient_ != NULL ? *ambient_ : *default_instance_->ambient_;
 }
-inline ::experimot::msgs::Color* Scene::mutable_ambient() {
+inline ::Indriya::Core::Msgs::Color* Scene::mutable_ambient() {
   set_has_ambient();
   if (ambient_ == NULL) {
-    ambient_ = new ::experimot::msgs::Color;
+    ambient_ = new ::Indriya::Core::Msgs::Color;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Scene.ambient)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Scene.ambient)
   return ambient_;
 }
-inline ::experimot::msgs::Color* Scene::release_ambient() {
+inline ::Indriya::Core::Msgs::Color* Scene::release_ambient() {
   clear_has_ambient();
-  ::experimot::msgs::Color* temp = ambient_;
+  ::Indriya::Core::Msgs::Color* temp = ambient_;
   ambient_ = NULL;
   return temp;
 }
-inline void Scene::set_allocated_ambient(::experimot::msgs::Color* ambient) {
+inline void Scene::set_allocated_ambient(::Indriya::Core::Msgs::Color* ambient) {
   delete ambient_;
   ambient_ = ambient;
   if (ambient) {
@@ -349,10 +350,10 @@ inline void Scene::set_allocated_ambient(::experimot::msgs::Color* ambient) {
   } else {
     clear_has_ambient();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Scene.ambient)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Scene.ambient)
 }
 
-// optional .experimot.msgs.Color background = 3;
+// optional .Indriya.Core.Msgs.Color background = 3;
 inline bool Scene::has_background() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -363,28 +364,28 @@ inline void Scene::clear_has_background() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void Scene::clear_background() {
-  if (background_ != NULL) background_->::experimot::msgs::Color::Clear();
+  if (background_ != NULL) background_->::Indriya::Core::Msgs::Color::Clear();
   clear_has_background();
 }
-inline const ::experimot::msgs::Color& Scene::background() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Scene.background)
+inline const ::Indriya::Core::Msgs::Color& Scene::background() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Scene.background)
   return background_ != NULL ? *background_ : *default_instance_->background_;
 }
-inline ::experimot::msgs::Color* Scene::mutable_background() {
+inline ::Indriya::Core::Msgs::Color* Scene::mutable_background() {
   set_has_background();
   if (background_ == NULL) {
-    background_ = new ::experimot::msgs::Color;
+    background_ = new ::Indriya::Core::Msgs::Color;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Scene.background)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Scene.background)
   return background_;
 }
-inline ::experimot::msgs::Color* Scene::release_background() {
+inline ::Indriya::Core::Msgs::Color* Scene::release_background() {
   clear_has_background();
-  ::experimot::msgs::Color* temp = background_;
+  ::Indriya::Core::Msgs::Color* temp = background_;
   background_ = NULL;
   return temp;
 }
-inline void Scene::set_allocated_background(::experimot::msgs::Color* background) {
+inline void Scene::set_allocated_background(::Indriya::Core::Msgs::Color* background) {
   delete background_;
   background_ = background;
   if (background) {
@@ -392,10 +393,10 @@ inline void Scene::set_allocated_background(::experimot::msgs::Color* background
   } else {
     clear_has_background();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Scene.background)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Scene.background)
 }
 
-// optional .experimot.msgs.Sky sky = 4;
+// optional .Indriya.Core.Msgs.Sky sky = 4;
 inline bool Scene::has_sky() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -406,28 +407,28 @@ inline void Scene::clear_has_sky() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void Scene::clear_sky() {
-  if (sky_ != NULL) sky_->::experimot::msgs::Sky::Clear();
+  if (sky_ != NULL) sky_->::Indriya::Core::Msgs::Sky::Clear();
   clear_has_sky();
 }
-inline const ::experimot::msgs::Sky& Scene::sky() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Scene.sky)
+inline const ::Indriya::Core::Msgs::Sky& Scene::sky() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Scene.sky)
   return sky_ != NULL ? *sky_ : *default_instance_->sky_;
 }
-inline ::experimot::msgs::Sky* Scene::mutable_sky() {
+inline ::Indriya::Core::Msgs::Sky* Scene::mutable_sky() {
   set_has_sky();
   if (sky_ == NULL) {
-    sky_ = new ::experimot::msgs::Sky;
+    sky_ = new ::Indriya::Core::Msgs::Sky;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Scene.sky)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Scene.sky)
   return sky_;
 }
-inline ::experimot::msgs::Sky* Scene::release_sky() {
+inline ::Indriya::Core::Msgs::Sky* Scene::release_sky() {
   clear_has_sky();
-  ::experimot::msgs::Sky* temp = sky_;
+  ::Indriya::Core::Msgs::Sky* temp = sky_;
   sky_ = NULL;
   return temp;
 }
-inline void Scene::set_allocated_sky(::experimot::msgs::Sky* sky) {
+inline void Scene::set_allocated_sky(::Indriya::Core::Msgs::Sky* sky) {
   delete sky_;
   sky_ = sky;
   if (sky) {
@@ -435,7 +436,7 @@ inline void Scene::set_allocated_sky(::experimot::msgs::Sky* sky) {
   } else {
     clear_has_sky();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Scene.sky)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Scene.sky)
 }
 
 // optional bool shadows = 5 [default = true];
@@ -453,16 +454,16 @@ inline void Scene::clear_shadows() {
   clear_has_shadows();
 }
 inline bool Scene::shadows() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Scene.shadows)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Scene.shadows)
   return shadows_;
 }
 inline void Scene::set_shadows(bool value) {
   set_has_shadows();
   shadows_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Scene.shadows)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Scene.shadows)
 }
 
-// optional .experimot.msgs.Fog fog = 6;
+// optional .Indriya.Core.Msgs.Fog fog = 6;
 inline bool Scene::has_fog() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -473,28 +474,28 @@ inline void Scene::clear_has_fog() {
   _has_bits_[0] &= ~0x00000020u;
 }
 inline void Scene::clear_fog() {
-  if (fog_ != NULL) fog_->::experimot::msgs::Fog::Clear();
+  if (fog_ != NULL) fog_->::Indriya::Core::Msgs::Fog::Clear();
   clear_has_fog();
 }
-inline const ::experimot::msgs::Fog& Scene::fog() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Scene.fog)
+inline const ::Indriya::Core::Msgs::Fog& Scene::fog() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Scene.fog)
   return fog_ != NULL ? *fog_ : *default_instance_->fog_;
 }
-inline ::experimot::msgs::Fog* Scene::mutable_fog() {
+inline ::Indriya::Core::Msgs::Fog* Scene::mutable_fog() {
   set_has_fog();
   if (fog_ == NULL) {
-    fog_ = new ::experimot::msgs::Fog;
+    fog_ = new ::Indriya::Core::Msgs::Fog;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Scene.fog)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Scene.fog)
   return fog_;
 }
-inline ::experimot::msgs::Fog* Scene::release_fog() {
+inline ::Indriya::Core::Msgs::Fog* Scene::release_fog() {
   clear_has_fog();
-  ::experimot::msgs::Fog* temp = fog_;
+  ::Indriya::Core::Msgs::Fog* temp = fog_;
   fog_ = NULL;
   return temp;
 }
-inline void Scene::set_allocated_fog(::experimot::msgs::Fog* fog) {
+inline void Scene::set_allocated_fog(::Indriya::Core::Msgs::Fog* fog) {
   delete fog_;
   fog_ = fog;
   if (fog) {
@@ -502,7 +503,7 @@ inline void Scene::set_allocated_fog(::experimot::msgs::Fog* fog) {
   } else {
     clear_has_fog();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Scene.fog)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Scene.fog)
 }
 
 // optional bool grid = 7;
@@ -520,114 +521,115 @@ inline void Scene::clear_grid() {
   clear_has_grid();
 }
 inline bool Scene::grid() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Scene.grid)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Scene.grid)
   return grid_;
 }
 inline void Scene::set_grid(bool value) {
   set_has_grid();
   grid_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Scene.grid)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Scene.grid)
 }
 
-// repeated .experimot.msgs.Model model = 8;
+// repeated .Indriya.Core.Msgs.Model model = 8;
 inline int Scene::model_size() const {
   return model_.size();
 }
 inline void Scene::clear_model() {
   model_.Clear();
 }
-inline const ::experimot::msgs::Model& Scene::model(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Scene.model)
+inline const ::Indriya::Core::Msgs::Model& Scene::model(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Scene.model)
   return model_.Get(index);
 }
-inline ::experimot::msgs::Model* Scene::mutable_model(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Scene.model)
+inline ::Indriya::Core::Msgs::Model* Scene::mutable_model(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Scene.model)
   return model_.Mutable(index);
 }
-inline ::experimot::msgs::Model* Scene::add_model() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Scene.model)
+inline ::Indriya::Core::Msgs::Model* Scene::add_model() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Scene.model)
   return model_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Model >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Model >&
 Scene::model() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Scene.model)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Scene.model)
   return model_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Model >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Model >*
 Scene::mutable_model() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Scene.model)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Scene.model)
   return &model_;
 }
 
-// repeated .experimot.msgs.Light light = 9;
+// repeated .Indriya.Core.Msgs.Light light = 9;
 inline int Scene::light_size() const {
   return light_.size();
 }
 inline void Scene::clear_light() {
   light_.Clear();
 }
-inline const ::experimot::msgs::Light& Scene::light(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Scene.light)
+inline const ::Indriya::Core::Msgs::Light& Scene::light(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Scene.light)
   return light_.Get(index);
 }
-inline ::experimot::msgs::Light* Scene::mutable_light(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Scene.light)
+inline ::Indriya::Core::Msgs::Light* Scene::mutable_light(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Scene.light)
   return light_.Mutable(index);
 }
-inline ::experimot::msgs::Light* Scene::add_light() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Scene.light)
+inline ::Indriya::Core::Msgs::Light* Scene::add_light() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Scene.light)
   return light_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Light >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Light >&
 Scene::light() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Scene.light)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Scene.light)
   return light_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Light >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Light >*
 Scene::mutable_light() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Scene.light)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Scene.light)
   return &light_;
 }
 
-// repeated .experimot.msgs.Joint joint = 10;
+// repeated .Indriya.Core.Msgs.Joint joint = 10;
 inline int Scene::joint_size() const {
   return joint_.size();
 }
 inline void Scene::clear_joint() {
   joint_.Clear();
 }
-inline const ::experimot::msgs::Joint& Scene::joint(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Scene.joint)
+inline const ::Indriya::Core::Msgs::Joint& Scene::joint(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Scene.joint)
   return joint_.Get(index);
 }
-inline ::experimot::msgs::Joint* Scene::mutable_joint(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Scene.joint)
+inline ::Indriya::Core::Msgs::Joint* Scene::mutable_joint(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Scene.joint)
   return joint_.Mutable(index);
 }
-inline ::experimot::msgs::Joint* Scene::add_joint() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Scene.joint)
+inline ::Indriya::Core::Msgs::Joint* Scene::add_joint() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Scene.joint)
   return joint_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Joint >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Joint >&
 Scene::joint() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Scene.joint)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Scene.joint)
   return joint_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Joint >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Joint >*
 Scene::mutable_joint() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Scene.joint)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Scene.joint)
   return &joint_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Scene> ScenePtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Scene> ScenePtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Scene const> ConstScenePtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Scene const> ConstScenePtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_scene_2eproto__INCLUDED

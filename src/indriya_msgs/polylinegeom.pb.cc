@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -79,12 +80,12 @@ void protobuf_AddDesc_polylinegeom_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_vector2d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector2d_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\022polylinegeom.proto\022\016experimot.msgs\032\016ve"
-    "ctor2d.proto\"C\n\010Polyline\022\016\n\006height\030\001 \002(\001"
-    "\022\'\n\005point\030\002 \003(\0132\030.experimot.msgs.Vector2"
-    "d", 121);
+    "\n\022polylinegeom.proto\022\021Indriya.Core.Msgs\032"
+    "\016vector2d.proto\"F\n\010Polyline\022\016\n\006height\030\001 "
+    "\002(\001\022*\n\005point\030\002 \003(\0132\033.Indriya.Core.Msgs.V"
+    "ector2d", 127);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "polylinegeom.proto", &protobuf_RegisterTypes);
   Polyline::default_instance_ = new Polyline();
@@ -119,7 +120,7 @@ const int Polyline::kPointFieldNumber;
 Polyline::Polyline()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Polyline)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Polyline)
 }
 
 void Polyline::InitAsDefaultInstance() {
@@ -130,7 +131,7 @@ Polyline::Polyline(const Polyline& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Polyline)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Polyline)
 }
 
 void Polyline::SharedCtor() {
@@ -140,7 +141,7 @@ void Polyline::SharedCtor() {
 }
 
 Polyline::~Polyline() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Polyline)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Polyline)
   SharedDtor();
 }
 
@@ -187,7 +188,7 @@ bool Polyline::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Polyline)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Polyline)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -207,7 +208,7 @@ bool Polyline::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .experimot.msgs.Vector2d point = 2;
+      // repeated .Indriya.Core.Msgs.Vector2d point = 2;
       case 2: {
         if (tag == 18) {
          parse_point:
@@ -235,23 +236,23 @@ bool Polyline::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Polyline)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Polyline)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Polyline)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Polyline)
   return false;
 #undef DO_
 }
 
 void Polyline::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Polyline)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Polyline)
   // required double height = 1;
   if (has_height()) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(1, this->height(), output);
   }
 
-  // repeated .experimot.msgs.Vector2d point = 2;
+  // repeated .Indriya.Core.Msgs.Vector2d point = 2;
   for (unsigned int i = 0, n = this->point_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->point(i), output);
@@ -261,18 +262,18 @@ void Polyline::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Polyline)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Polyline)
 }
 
 ::google::protobuf::uint8* Polyline::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Polyline)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Polyline)
   // required double height = 1;
   if (has_height()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(1, this->height(), target);
   }
 
-  // repeated .experimot.msgs.Vector2d point = 2;
+  // repeated .Indriya.Core.Msgs.Vector2d point = 2;
   for (unsigned int i = 0, n = this->point_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -283,7 +284,7 @@ void Polyline::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Polyline)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Polyline)
   return target;
 }
 
@@ -294,7 +295,7 @@ int Polyline::ByteSize() const {
   if (has_height()) {
     total_size += 1 + 8;
   }
-  // repeated .experimot.msgs.Vector2d point = 2;
+  // repeated .Indriya.Core.Msgs.Vector2d point = 2;
   total_size += 1 * this->point_size();
   for (int i = 0; i < this->point_size(); i++) {
     total_size +=
@@ -395,42 +396,42 @@ void Polyline::InternalSwap(Polyline* other) {
   clear_has_height();
 }
  double Polyline::height() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Polyline.height)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Polyline.height)
   return height_;
 }
  void Polyline::set_height(double value) {
   set_has_height();
   height_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Polyline.height)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Polyline.height)
 }
 
-// repeated .experimot.msgs.Vector2d point = 2;
+// repeated .Indriya.Core.Msgs.Vector2d point = 2;
  int Polyline::point_size() const {
   return point_.size();
 }
  void Polyline::clear_point() {
   point_.Clear();
 }
- const ::experimot::msgs::Vector2d& Polyline::point(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Polyline.point)
+ const ::Indriya::Core::Msgs::Vector2d& Polyline::point(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Polyline.point)
   return point_.Get(index);
 }
- ::experimot::msgs::Vector2d* Polyline::mutable_point(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Polyline.point)
+ ::Indriya::Core::Msgs::Vector2d* Polyline::mutable_point(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Polyline.point)
   return point_.Mutable(index);
 }
- ::experimot::msgs::Vector2d* Polyline::add_point() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Polyline.point)
+ ::Indriya::Core::Msgs::Vector2d* Polyline::add_point() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Polyline.point)
   return point_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector2d >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector2d >&
 Polyline::point() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Polyline.point)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Polyline.point)
   return point_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector2d >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector2d >*
 Polyline::mutable_point() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Polyline.point)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Polyline.point)
   return &point_;
 }
 
@@ -438,8 +439,9 @@ Polyline::mutable_point() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Polyline", Polyline)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Polyline", Polyline)
 // @@protoc_insertion_point(global_scope)

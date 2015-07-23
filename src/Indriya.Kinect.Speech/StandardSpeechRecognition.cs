@@ -4,8 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Common.Logging;
-using experimot.msgs;
 using Experimot.Core.Util;
+using Indriya.Core.Msgs;
 using Microsoft.Speech.Recognition;
 
 namespace Experimot.Kinect.Speech

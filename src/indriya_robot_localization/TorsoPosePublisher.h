@@ -36,7 +36,7 @@ public:
 	//void Publish(Transform& torsoTransform){
 	//	try{
 	//		if (m_pSocket != 0 && m_pSocket->connected()){
-	//			experimot::msgs::Pose pose;
+	//			Indriya::Core::Msgs::Pose pose;
 	//			TransformationHelper::RaveToProto(torsoTransform, pose);
 	//			std::string str;
 	//			pose.SerializeToString(&str);
@@ -56,7 +56,7 @@ public:
 	void Publish(std::map<std::string, Transform>& transforms){
 		try{
 			if (m_pSocket != 0 && m_pSocket->connected()){
-				experimot::msgs::Pose_V pose;
+				Indriya::Core::Msgs::Pose_V pose;
 				TransformationHelper::RaveToProto(transforms, pose);
 				std::string str;
 				pose.SerializeToString(&str);

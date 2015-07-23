@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -78,11 +79,11 @@ void protobuf_AddDesc_pointcloud_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_vector3d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector3d_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\020pointcloud.proto\022\016experimot.msgs\032\016vect"
-    "or3d.proto\"6\n\nPointCloud\022(\n\006points\030\001 \003(\013"
-    "2\030.experimot.msgs.Vector3d", 106);
+    "\n\020pointcloud.proto\022\021Indriya.Core.Msgs\032\016v"
+    "ector3d.proto\"9\n\nPointCloud\022+\n\006points\030\001 "
+    "\003(\0132\033.Indriya.Core.Msgs.Vector3d", 112);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "pointcloud.proto", &protobuf_RegisterTypes);
   PointCloud::default_instance_ = new PointCloud();
@@ -116,7 +117,7 @@ const int PointCloud::kPointsFieldNumber;
 PointCloud::PointCloud()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.PointCloud)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.PointCloud)
 }
 
 void PointCloud::InitAsDefaultInstance() {
@@ -127,7 +128,7 @@ PointCloud::PointCloud(const PointCloud& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.PointCloud)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.PointCloud)
 }
 
 void PointCloud::SharedCtor() {
@@ -136,7 +137,7 @@ void PointCloud::SharedCtor() {
 }
 
 PointCloud::~PointCloud() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.PointCloud)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.PointCloud)
   SharedDtor();
 }
 
@@ -182,13 +183,13 @@ bool PointCloud::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.PointCloud)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.PointCloud)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .experimot.msgs.Vector3d points = 1;
+      // repeated .Indriya.Core.Msgs.Vector3d points = 1;
       case 1: {
         if (tag == 10) {
          parse_points:
@@ -216,18 +217,18 @@ bool PointCloud::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.PointCloud)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.PointCloud)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.PointCloud)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.PointCloud)
   return false;
 #undef DO_
 }
 
 void PointCloud::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.PointCloud)
-  // repeated .experimot.msgs.Vector3d points = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.PointCloud)
+  // repeated .Indriya.Core.Msgs.Vector3d points = 1;
   for (unsigned int i = 0, n = this->points_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->points(i), output);
@@ -237,13 +238,13 @@ void PointCloud::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.PointCloud)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.PointCloud)
 }
 
 ::google::protobuf::uint8* PointCloud::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.PointCloud)
-  // repeated .experimot.msgs.Vector3d points = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.PointCloud)
+  // repeated .Indriya.Core.Msgs.Vector3d points = 1;
   for (unsigned int i = 0, n = this->points_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -254,14 +255,14 @@ void PointCloud::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.PointCloud)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.PointCloud)
   return target;
 }
 
 int PointCloud::ByteSize() const {
   int total_size = 0;
 
-  // repeated .experimot.msgs.Vector3d points = 1;
+  // repeated .Indriya.Core.Msgs.Vector3d points = 1;
   total_size += 1 * this->points_size();
   for (int i = 0; i < this->points_size(); i++) {
     total_size +=
@@ -340,33 +341,33 @@ void PointCloud::InternalSwap(PointCloud* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // PointCloud
 
-// repeated .experimot.msgs.Vector3d points = 1;
+// repeated .Indriya.Core.Msgs.Vector3d points = 1;
  int PointCloud::points_size() const {
   return points_.size();
 }
  void PointCloud::clear_points() {
   points_.Clear();
 }
- const ::experimot::msgs::Vector3d& PointCloud::points(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PointCloud.points)
+ const ::Indriya::Core::Msgs::Vector3d& PointCloud::points(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PointCloud.points)
   return points_.Get(index);
 }
- ::experimot::msgs::Vector3d* PointCloud::mutable_points(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.PointCloud.points)
+ ::Indriya::Core::Msgs::Vector3d* PointCloud::mutable_points(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.PointCloud.points)
   return points_.Mutable(index);
 }
- ::experimot::msgs::Vector3d* PointCloud::add_points() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.PointCloud.points)
+ ::Indriya::Core::Msgs::Vector3d* PointCloud::add_points() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.PointCloud.points)
   return points_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector3d >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector3d >&
 PointCloud::points() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.PointCloud.points)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.PointCloud.points)
   return points_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector3d >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector3d >*
 PointCloud::mutable_points() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.PointCloud.points)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.PointCloud.points)
   return &points_;
 }
 
@@ -374,8 +375,9 @@ PointCloud::mutable_points() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.PointCloud", PointCloud)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.PointCloud", PointCloud)
 // @@protoc_insertion_point(global_scope)

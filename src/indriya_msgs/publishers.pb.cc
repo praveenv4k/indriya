@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -78,11 +79,11 @@ void protobuf_AddDesc_publishers_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_publish_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_publish_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\020publishers.proto\022\016experimot.msgs\032\rpubl"
-    "ish.proto\"8\n\nPublishers\022*\n\tpublisher\030\001 \003"
-    "(\0132\027.experimot.msgs.Publish", 107);
+    "\n\020publishers.proto\022\021Indriya.Core.Msgs\032\rp"
+    "ublish.proto\";\n\nPublishers\022-\n\tpublisher\030"
+    "\001 \003(\0132\032.Indriya.Core.Msgs.Publish", 113);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "publishers.proto", &protobuf_RegisterTypes);
   Publishers::default_instance_ = new Publishers();
@@ -116,7 +117,7 @@ const int Publishers::kPublisherFieldNumber;
 Publishers::Publishers()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Publishers)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Publishers)
 }
 
 void Publishers::InitAsDefaultInstance() {
@@ -127,7 +128,7 @@ Publishers::Publishers(const Publishers& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Publishers)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Publishers)
 }
 
 void Publishers::SharedCtor() {
@@ -136,7 +137,7 @@ void Publishers::SharedCtor() {
 }
 
 Publishers::~Publishers() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Publishers)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Publishers)
   SharedDtor();
 }
 
@@ -182,13 +183,13 @@ bool Publishers::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Publishers)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Publishers)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .experimot.msgs.Publish publisher = 1;
+      // repeated .Indriya.Core.Msgs.Publish publisher = 1;
       case 1: {
         if (tag == 10) {
          parse_publisher:
@@ -216,18 +217,18 @@ bool Publishers::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Publishers)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Publishers)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Publishers)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Publishers)
   return false;
 #undef DO_
 }
 
 void Publishers::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Publishers)
-  // repeated .experimot.msgs.Publish publisher = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Publishers)
+  // repeated .Indriya.Core.Msgs.Publish publisher = 1;
   for (unsigned int i = 0, n = this->publisher_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->publisher(i), output);
@@ -237,13 +238,13 @@ void Publishers::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Publishers)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Publishers)
 }
 
 ::google::protobuf::uint8* Publishers::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Publishers)
-  // repeated .experimot.msgs.Publish publisher = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Publishers)
+  // repeated .Indriya.Core.Msgs.Publish publisher = 1;
   for (unsigned int i = 0, n = this->publisher_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -254,14 +255,14 @@ void Publishers::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Publishers)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Publishers)
   return target;
 }
 
 int Publishers::ByteSize() const {
   int total_size = 0;
 
-  // repeated .experimot.msgs.Publish publisher = 1;
+  // repeated .Indriya.Core.Msgs.Publish publisher = 1;
   total_size += 1 * this->publisher_size();
   for (int i = 0; i < this->publisher_size(); i++) {
     total_size +=
@@ -340,33 +341,33 @@ void Publishers::InternalSwap(Publishers* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Publishers
 
-// repeated .experimot.msgs.Publish publisher = 1;
+// repeated .Indriya.Core.Msgs.Publish publisher = 1;
  int Publishers::publisher_size() const {
   return publisher_.size();
 }
  void Publishers::clear_publisher() {
   publisher_.Clear();
 }
- const ::experimot::msgs::Publish& Publishers::publisher(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Publishers.publisher)
+ const ::Indriya::Core::Msgs::Publish& Publishers::publisher(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Publishers.publisher)
   return publisher_.Get(index);
 }
- ::experimot::msgs::Publish* Publishers::mutable_publisher(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Publishers.publisher)
+ ::Indriya::Core::Msgs::Publish* Publishers::mutable_publisher(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Publishers.publisher)
   return publisher_.Mutable(index);
 }
- ::experimot::msgs::Publish* Publishers::add_publisher() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Publishers.publisher)
+ ::Indriya::Core::Msgs::Publish* Publishers::add_publisher() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Publishers.publisher)
   return publisher_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Publish >&
 Publishers::publisher() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Publishers.publisher)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Publishers.publisher)
   return publisher_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Publish >*
 Publishers::mutable_publisher() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Publishers.publisher)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Publishers.publisher)
   return &publisher_;
 }
 
@@ -374,8 +375,9 @@ Publishers::mutable_publisher() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Publishers", Publishers)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Publishers", Publishers)
 // @@protoc_insertion_point(global_scope)

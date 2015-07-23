@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_vector2d_2eproto();
@@ -121,7 +122,7 @@ class Vector2d : public ::google::protobuf::Message {
   double y() const;
   void set_y(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Vector2d)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Vector2d)
  private:
   inline void set_has_x();
   inline void clear_has_x();
@@ -166,13 +167,13 @@ inline void Vector2d::clear_x() {
   clear_has_x();
 }
 inline double Vector2d::x() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Vector2d.x)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Vector2d.x)
   return x_;
 }
 inline void Vector2d::set_x(double value) {
   set_has_x();
   x_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Vector2d.x)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Vector2d.x)
 }
 
 // required double y = 2;
@@ -190,24 +191,25 @@ inline void Vector2d::clear_y() {
   clear_has_y();
 }
 inline double Vector2d::y() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Vector2d.y)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Vector2d.y)
   return y_;
 }
 inline void Vector2d::set_y(double value) {
   set_has_y();
   y_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Vector2d.y)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Vector2d.y)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Vector2d> Vector2dPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Vector2d> Vector2dPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Vector2d const> ConstVector2dPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Vector2d const> ConstVector2dPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_vector2d_2eproto__INCLUDED

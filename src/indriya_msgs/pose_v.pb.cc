@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -78,11 +79,11 @@ void protobuf_AddDesc_pose_5fv_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_pose_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_pose_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\014pose_v.proto\022\016experimot.msgs\032\npose.pro"
-    "to\",\n\006Pose_V\022\"\n\004pose\030\001 \003(\0132\024.experimot.m"
-    "sgs.Pose", 88);
+    "\n\014pose_v.proto\022\021Indriya.Core.Msgs\032\npose."
+    "proto\"/\n\006Pose_V\022%\n\004pose\030\001 \003(\0132\027.Indriya."
+    "Core.Msgs.Pose", 94);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "pose_v.proto", &protobuf_RegisterTypes);
   Pose_V::default_instance_ = new Pose_V();
@@ -116,7 +117,7 @@ const int Pose_V::kPoseFieldNumber;
 Pose_V::Pose_V()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Pose_V)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Pose_V)
 }
 
 void Pose_V::InitAsDefaultInstance() {
@@ -127,7 +128,7 @@ Pose_V::Pose_V(const Pose_V& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Pose_V)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Pose_V)
 }
 
 void Pose_V::SharedCtor() {
@@ -136,7 +137,7 @@ void Pose_V::SharedCtor() {
 }
 
 Pose_V::~Pose_V() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Pose_V)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Pose_V)
   SharedDtor();
 }
 
@@ -182,13 +183,13 @@ bool Pose_V::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Pose_V)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Pose_V)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .experimot.msgs.Pose pose = 1;
+      // repeated .Indriya.Core.Msgs.Pose pose = 1;
       case 1: {
         if (tag == 10) {
          parse_pose:
@@ -216,18 +217,18 @@ bool Pose_V::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Pose_V)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Pose_V)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Pose_V)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Pose_V)
   return false;
 #undef DO_
 }
 
 void Pose_V::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Pose_V)
-  // repeated .experimot.msgs.Pose pose = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Pose_V)
+  // repeated .Indriya.Core.Msgs.Pose pose = 1;
   for (unsigned int i = 0, n = this->pose_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->pose(i), output);
@@ -237,13 +238,13 @@ void Pose_V::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Pose_V)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Pose_V)
 }
 
 ::google::protobuf::uint8* Pose_V::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Pose_V)
-  // repeated .experimot.msgs.Pose pose = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Pose_V)
+  // repeated .Indriya.Core.Msgs.Pose pose = 1;
   for (unsigned int i = 0, n = this->pose_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -254,14 +255,14 @@ void Pose_V::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Pose_V)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Pose_V)
   return target;
 }
 
 int Pose_V::ByteSize() const {
   int total_size = 0;
 
-  // repeated .experimot.msgs.Pose pose = 1;
+  // repeated .Indriya.Core.Msgs.Pose pose = 1;
   total_size += 1 * this->pose_size();
   for (int i = 0; i < this->pose_size(); i++) {
     total_size +=
@@ -340,33 +341,33 @@ void Pose_V::InternalSwap(Pose_V* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Pose_V
 
-// repeated .experimot.msgs.Pose pose = 1;
+// repeated .Indriya.Core.Msgs.Pose pose = 1;
  int Pose_V::pose_size() const {
   return pose_.size();
 }
  void Pose_V::clear_pose() {
   pose_.Clear();
 }
- const ::experimot::msgs::Pose& Pose_V::pose(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Pose_V.pose)
+ const ::Indriya::Core::Msgs::Pose& Pose_V::pose(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Pose_V.pose)
   return pose_.Get(index);
 }
- ::experimot::msgs::Pose* Pose_V::mutable_pose(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Pose_V.pose)
+ ::Indriya::Core::Msgs::Pose* Pose_V::mutable_pose(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Pose_V.pose)
   return pose_.Mutable(index);
 }
- ::experimot::msgs::Pose* Pose_V::add_pose() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Pose_V.pose)
+ ::Indriya::Core::Msgs::Pose* Pose_V::add_pose() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Pose_V.pose)
   return pose_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Pose >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Pose >&
 Pose_V::pose() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Pose_V.pose)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Pose_V.pose)
   return pose_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Pose >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Pose >*
 Pose_V::mutable_pose() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Pose_V.pose)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Pose_V.pose)
   return &pose_;
 }
 
@@ -374,8 +375,9 @@ Pose_V::mutable_pose() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Pose_V", Pose_V)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Pose_V", Pose_V)
 // @@protoc_insertion_point(global_scope)

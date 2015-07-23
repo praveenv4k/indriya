@@ -20,9 +20,9 @@ import sensor_pb2 as sensor__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='joint.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x0bjoint.proto\x12\x0e\x65xperimot.msgs\x1a\naxis.proto\x1a\npose.proto\x1a\x0csensor.proto\"\xb4\x04\n\x05Joint\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\n\n\x02id\x18\x02 \x01(\r\x12\r\n\x05\x61ngle\x18\x03 \x03(\x01\x12(\n\x04type\x18\x04 \x01(\x0e\x32\x1a.experimot.msgs.Joint.Type\x12\x0e\n\x06parent\x18\x05 \x01(\t\x12\x11\n\tparent_id\x18\x06 \x01(\r\x12\r\n\x05\x63hild\x18\x07 \x01(\t\x12\x10\n\x08\x63hild_id\x18\x08 \x01(\r\x12\"\n\x04pose\x18\t \x01(\x0b\x32\x14.experimot.msgs.Pose\x12#\n\x05\x61xis1\x18\n \x01(\x0b\x32\x14.experimot.msgs.Axis\x12#\n\x05\x61xis2\x18\x0b \x01(\x0b\x32\x14.experimot.msgs.Axis\x12\x0b\n\x03\x63\x66m\x18\x0c \x01(\x01\x12\x0e\n\x06\x62ounce\x18\r \x01(\x01\x12\x10\n\x08velocity\x18\x0e \x01(\x01\x12\x14\n\x0c\x66udge_factor\x18\x0f \x01(\x01\x12\x11\n\tlimit_cfm\x18\x10 \x01(\x01\x12\x11\n\tlimit_erp\x18\x11 \x01(\x01\x12\x16\n\x0esuspension_cfm\x18\x12 \x01(\x01\x12\x16\n\x0esuspension_erp\x18\x13 \x01(\x01\x12&\n\x06sensor\x18\x14 \x03(\x0b\x32\x16.experimot.msgs.Sensor\"c\n\x04Type\x12\x0c\n\x08REVOLUTE\x10\x01\x12\r\n\tREVOLUTE2\x10\x02\x12\r\n\tPRISMATIC\x10\x03\x12\r\n\tUNIVERSAL\x10\x04\x12\x08\n\x04\x42\x41LL\x10\x05\x12\t\n\x05SCREW\x10\x06\x12\x0b\n\x07GEARBOX\x10\x07')
+  serialized_pb=_b('\n\x0bjoint.proto\x12\x11Indriya.Core.Msgs\x1a\naxis.proto\x1a\npose.proto\x1a\x0csensor.proto\"\xc3\x04\n\x05Joint\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\n\n\x02id\x18\x02 \x01(\r\x12\r\n\x05\x61ngle\x18\x03 \x03(\x01\x12+\n\x04type\x18\x04 \x01(\x0e\x32\x1d.Indriya.Core.Msgs.Joint.Type\x12\x0e\n\x06parent\x18\x05 \x01(\t\x12\x11\n\tparent_id\x18\x06 \x01(\r\x12\r\n\x05\x63hild\x18\x07 \x01(\t\x12\x10\n\x08\x63hild_id\x18\x08 \x01(\r\x12%\n\x04pose\x18\t \x01(\x0b\x32\x17.Indriya.Core.Msgs.Pose\x12&\n\x05\x61xis1\x18\n \x01(\x0b\x32\x17.Indriya.Core.Msgs.Axis\x12&\n\x05\x61xis2\x18\x0b \x01(\x0b\x32\x17.Indriya.Core.Msgs.Axis\x12\x0b\n\x03\x63\x66m\x18\x0c \x01(\x01\x12\x0e\n\x06\x62ounce\x18\r \x01(\x01\x12\x10\n\x08velocity\x18\x0e \x01(\x01\x12\x14\n\x0c\x66udge_factor\x18\x0f \x01(\x01\x12\x11\n\tlimit_cfm\x18\x10 \x01(\x01\x12\x11\n\tlimit_erp\x18\x11 \x01(\x01\x12\x16\n\x0esuspension_cfm\x18\x12 \x01(\x01\x12\x16\n\x0esuspension_erp\x18\x13 \x01(\x01\x12)\n\x06sensor\x18\x14 \x03(\x0b\x32\x19.Indriya.Core.Msgs.Sensor\"c\n\x04Type\x12\x0c\n\x08REVOLUTE\x10\x01\x12\r\n\tREVOLUTE2\x10\x02\x12\r\n\tPRISMATIC\x10\x03\x12\r\n\tUNIVERSAL\x10\x04\x12\x08\n\x04\x42\x41LL\x10\x05\x12\t\n\x05SCREW\x10\x06\x12\x0b\n\x07GEARBOX\x10\x07')
   ,
   dependencies=[axis__pb2.DESCRIPTOR,pose__pb2.DESCRIPTOR,sensor__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -31,7 +31,7 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _JOINT_TYPE = _descriptor.EnumDescriptor(
   name='Type',
-  full_name='experimot.msgs.Joint.Type',
+  full_name='Indriya.Core.Msgs.Joint.Type',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -66,154 +66,154 @@ _JOINT_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=535,
-  serialized_end=634,
+  serialized_start=553,
+  serialized_end=652,
 )
 _sym_db.RegisterEnumDescriptor(_JOINT_TYPE)
 
 
 _JOINT = _descriptor.Descriptor(
   name='Joint',
-  full_name='experimot.msgs.Joint',
+  full_name='Indriya.Core.Msgs.Joint',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='experimot.msgs.Joint.name', index=0,
+      name='name', full_name='Indriya.Core.Msgs.Joint.name', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='id', full_name='experimot.msgs.Joint.id', index=1,
+      name='id', full_name='Indriya.Core.Msgs.Joint.id', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='angle', full_name='experimot.msgs.Joint.angle', index=2,
+      name='angle', full_name='Indriya.Core.Msgs.Joint.angle', index=2,
       number=3, type=1, cpp_type=5, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='type', full_name='experimot.msgs.Joint.type', index=3,
+      name='type', full_name='Indriya.Core.Msgs.Joint.type', index=3,
       number=4, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=1,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='parent', full_name='experimot.msgs.Joint.parent', index=4,
+      name='parent', full_name='Indriya.Core.Msgs.Joint.parent', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='parent_id', full_name='experimot.msgs.Joint.parent_id', index=5,
+      name='parent_id', full_name='Indriya.Core.Msgs.Joint.parent_id', index=5,
       number=6, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='child', full_name='experimot.msgs.Joint.child', index=6,
+      name='child', full_name='Indriya.Core.Msgs.Joint.child', index=6,
       number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='child_id', full_name='experimot.msgs.Joint.child_id', index=7,
+      name='child_id', full_name='Indriya.Core.Msgs.Joint.child_id', index=7,
       number=8, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='pose', full_name='experimot.msgs.Joint.pose', index=8,
+      name='pose', full_name='Indriya.Core.Msgs.Joint.pose', index=8,
       number=9, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='axis1', full_name='experimot.msgs.Joint.axis1', index=9,
+      name='axis1', full_name='Indriya.Core.Msgs.Joint.axis1', index=9,
       number=10, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='axis2', full_name='experimot.msgs.Joint.axis2', index=10,
+      name='axis2', full_name='Indriya.Core.Msgs.Joint.axis2', index=10,
       number=11, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='cfm', full_name='experimot.msgs.Joint.cfm', index=11,
+      name='cfm', full_name='Indriya.Core.Msgs.Joint.cfm', index=11,
       number=12, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='bounce', full_name='experimot.msgs.Joint.bounce', index=12,
+      name='bounce', full_name='Indriya.Core.Msgs.Joint.bounce', index=12,
       number=13, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='velocity', full_name='experimot.msgs.Joint.velocity', index=13,
+      name='velocity', full_name='Indriya.Core.Msgs.Joint.velocity', index=13,
       number=14, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='fudge_factor', full_name='experimot.msgs.Joint.fudge_factor', index=14,
+      name='fudge_factor', full_name='Indriya.Core.Msgs.Joint.fudge_factor', index=14,
       number=15, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='limit_cfm', full_name='experimot.msgs.Joint.limit_cfm', index=15,
+      name='limit_cfm', full_name='Indriya.Core.Msgs.Joint.limit_cfm', index=15,
       number=16, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='limit_erp', full_name='experimot.msgs.Joint.limit_erp', index=16,
+      name='limit_erp', full_name='Indriya.Core.Msgs.Joint.limit_erp', index=16,
       number=17, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='suspension_cfm', full_name='experimot.msgs.Joint.suspension_cfm', index=17,
+      name='suspension_cfm', full_name='Indriya.Core.Msgs.Joint.suspension_cfm', index=17,
       number=18, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='suspension_erp', full_name='experimot.msgs.Joint.suspension_erp', index=18,
+      name='suspension_erp', full_name='Indriya.Core.Msgs.Joint.suspension_erp', index=18,
       number=19, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='sensor', full_name='experimot.msgs.Joint.sensor', index=19,
+      name='sensor', full_name='Indriya.Core.Msgs.Joint.sensor', index=19,
       number=20, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -232,8 +232,8 @@ _JOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=70,
-  serialized_end=634,
+  serialized_start=73,
+  serialized_end=652,
 )
 
 _JOINT.fields_by_name['type'].enum_type = _JOINT_TYPE
@@ -247,7 +247,7 @@ DESCRIPTOR.message_types_by_name['Joint'] = _JOINT
 Joint = _reflection.GeneratedProtocolMessageType('Joint', (_message.Message,), dict(
   DESCRIPTOR = _JOINT,
   __module__ = 'joint_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Joint)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Joint)
   ))
 _sym_db.RegisterMessage(Joint)
 

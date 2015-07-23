@@ -9,17 +9,17 @@
 
 // Generated from: proto/distortion.proto
 // Note: requires additional types generated from: vector2d.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Distortion")]
   public partial class Distortion : global::ProtoBuf.IExtensible
   {
     public Distortion() {}
     
-    private experimot.msgs.Vector2d _center = null;
+    private Indriya.Core.Msgs.Vector2d _center = null;
     [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"center", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Vector2d center
+    public Indriya.Core.Msgs.Vector2d center
     {
       get { return _center; }
       set { _center = value; }

@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='spheregeom.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x10spheregeom.proto\x12\x0e\x65xperimot.msgs\"\x1c\n\nSphereGeom\x12\x0e\n\x06radius\x18\x01 \x02(\x01')
+  serialized_pb=_b('\n\x10spheregeom.proto\x12\x11Indriya.Core.Msgs\"\x1c\n\nSphereGeom\x12\x0e\n\x06radius\x18\x01 \x02(\x01')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -28,13 +28,13 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _SPHEREGEOM = _descriptor.Descriptor(
   name='SphereGeom',
-  full_name='experimot.msgs.SphereGeom',
+  full_name='Indriya.Core.Msgs.SphereGeom',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='radius', full_name='experimot.msgs.SphereGeom.radius', index=0,
+      name='radius', full_name='Indriya.Core.Msgs.SphereGeom.radius', index=0,
       number=1, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -52,8 +52,8 @@ _SPHEREGEOM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=36,
-  serialized_end=64,
+  serialized_start=39,
+  serialized_end=67,
 )
 
 DESCRIPTOR.message_types_by_name['SphereGeom'] = _SPHEREGEOM
@@ -61,7 +61,7 @@ DESCRIPTOR.message_types_by_name['SphereGeom'] = _SPHEREGEOM
 SphereGeom = _reflection.GeneratedProtocolMessageType('SphereGeom', (_message.Message,), dict(
   DESCRIPTOR = _SPHEREGEOM,
   __module__ = 'spheregeom_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.SphereGeom)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.SphereGeom)
   ))
 _sym_db.RegisterMessage(SphereGeom)
 

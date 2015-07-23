@@ -13,7 +13,7 @@
 
 class ParameterClient{
 public:
-	static bool Get(std::string& addr, std::string& req, experimot::msgs::NodePtr& nodeInfo, int timeout)
+	static bool Get(std::string& addr, std::string& req, Indriya::Core::Msgs::NodePtr& nodeInfo, int timeout)
 	{
 		bool ret = false;
 		try{

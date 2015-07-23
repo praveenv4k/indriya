@@ -14,7 +14,7 @@
 // Note: requires additional types generated from: sensor.proto
 // Note: requires additional types generated from: projector.proto
 // Note: requires additional types generated from: pose.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Link")]
   public partial class Link : global::ProtoBuf.IExtensible
@@ -68,46 +68,46 @@ namespace experimot.msgs
       get { return _enabled; }
       set { _enabled = value; }
     }
-    private experimot.msgs.Inertial _inertial = null;
+    private Indriya.Core.Msgs.Inertial _inertial = null;
     [global::ProtoBuf.ProtoMember(7, IsRequired = false, Name=@"inertial", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Inertial inertial
+    public Indriya.Core.Msgs.Inertial inertial
     {
       get { return _inertial; }
       set { _inertial = value; }
     }
-    private experimot.msgs.Pose _pose = null;
+    private Indriya.Core.Msgs.Pose _pose = null;
     [global::ProtoBuf.ProtoMember(8, IsRequired = false, Name=@"pose", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Pose pose
+    public Indriya.Core.Msgs.Pose pose
     {
       get { return _pose; }
       set { _pose = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Visual> _visual = new global::System.Collections.Generic.List<experimot.msgs.Visual>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Visual> _visual = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Visual>();
     [global::ProtoBuf.ProtoMember(9, Name=@"visual", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Visual> visual
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Visual> visual
     {
       get { return _visual; }
     }
   
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Collision> _collision = new global::System.Collections.Generic.List<experimot.msgs.Collision>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Collision> _collision = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Collision>();
     [global::ProtoBuf.ProtoMember(10, Name=@"collision", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Collision> collision
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Collision> collision
     {
       get { return _collision; }
     }
   
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Sensor> _sensor = new global::System.Collections.Generic.List<experimot.msgs.Sensor>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Sensor> _sensor = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Sensor>();
     [global::ProtoBuf.ProtoMember(11, Name=@"sensor", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Sensor> sensor
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Sensor> sensor
     {
       get { return _sensor; }
     }
   
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Projector> _projector = new global::System.Collections.Generic.List<experimot.msgs.Projector>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Projector> _projector = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Projector>();
     [global::ProtoBuf.ProtoMember(12, Name=@"projector", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Projector> projector
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Projector> projector
     {
       get { return _projector; }
     }

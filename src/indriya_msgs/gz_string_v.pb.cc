@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -79,8 +80,8 @@ void protobuf_AddDesc_gz_5fstring_5fv_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\021gz_string_v.proto\022\016experimot.msgs\"\032\n\nG"
-    "zString_V\022\014\n\004data\030\001 \003(\t", 63);
+    "\n\021gz_string_v.proto\022\021Indriya.Core.Msgs\"\032"
+    "\n\nGzString_V\022\014\n\004data\030\001 \003(\t", 66);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "gz_string_v.proto", &protobuf_RegisterTypes);
   GzString_V::default_instance_ = new GzString_V();
@@ -114,7 +115,7 @@ const int GzString_V::kDataFieldNumber;
 GzString_V::GzString_V()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.GzString_V)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.GzString_V)
 }
 
 void GzString_V::InitAsDefaultInstance() {
@@ -125,7 +126,7 @@ GzString_V::GzString_V(const GzString_V& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.GzString_V)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.GzString_V)
 }
 
 void GzString_V::SharedCtor() {
@@ -135,7 +136,7 @@ void GzString_V::SharedCtor() {
 }
 
 GzString_V::~GzString_V() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.GzString_V)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.GzString_V)
   SharedDtor();
 }
 
@@ -181,7 +182,7 @@ bool GzString_V::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.GzString_V)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.GzString_V)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -197,7 +198,7 @@ bool GzString_V::MergePartialFromCodedStream(
             this->data(this->data_size() - 1).data(),
             this->data(this->data_size() - 1).length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.GzString_V.data");
+            "Indriya.Core.Msgs.GzString_V.data");
         } else {
           goto handle_unusual;
         }
@@ -220,23 +221,23 @@ bool GzString_V::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.GzString_V)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.GzString_V)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.GzString_V)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.GzString_V)
   return false;
 #undef DO_
 }
 
 void GzString_V::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.GzString_V)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.GzString_V)
   // repeated string data = 1;
   for (int i = 0; i < this->data_size(); i++) {
   ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
     this->data(i).data(), this->data(i).length(),
     ::google::protobuf::internal::WireFormat::SERIALIZE,
-    "experimot.msgs.GzString_V.data");
+    "Indriya.Core.Msgs.GzString_V.data");
     ::google::protobuf::internal::WireFormatLite::WriteString(
       1, this->data(i), output);
   }
@@ -245,18 +246,18 @@ void GzString_V::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.GzString_V)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.GzString_V)
 }
 
 ::google::protobuf::uint8* GzString_V::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.GzString_V)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.GzString_V)
   // repeated string data = 1;
   for (int i = 0; i < this->data_size(); i++) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->data(i).data(), this->data(i).length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.GzString_V.data");
+      "Indriya.Core.Msgs.GzString_V.data");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(1, this->data(i), target);
   }
@@ -265,7 +266,7 @@ void GzString_V::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.GzString_V)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.GzString_V)
   return target;
 }
 
@@ -357,49 +358,49 @@ void GzString_V::InternalSwap(GzString_V* other) {
   data_.Clear();
 }
  const ::std::string& GzString_V::data(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GzString_V.data)
   return data_.Get(index);
 }
  ::std::string* GzString_V::mutable_data(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GzString_V.data)
   return data_.Mutable(index);
 }
  void GzString_V::set_data(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GzString_V.data)
   data_.Mutable(index)->assign(value);
 }
  void GzString_V::set_data(int index, const char* value) {
   data_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.GzString_V.data)
 }
  void GzString_V::set_data(int index, const char* value, size_t size) {
   data_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.GzString_V.data)
 }
  ::std::string* GzString_V::add_data() {
   return data_.Add();
 }
  void GzString_V::add_data(const ::std::string& value) {
   data_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.GzString_V.data)
 }
  void GzString_V::add_data(const char* value) {
   data_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_add_char:Indriya.Core.Msgs.GzString_V.data)
 }
  void GzString_V::add_data(const char* value, size_t size) {
   data_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_add_pointer:Indriya.Core.Msgs.GzString_V.data)
 }
  const ::google::protobuf::RepeatedPtrField< ::std::string>&
 GzString_V::data() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.GzString_V.data)
   return data_;
 }
  ::google::protobuf::RepeatedPtrField< ::std::string>*
 GzString_V::mutable_data() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.GzString_V.data)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.GzString_V.data)
   return &data_;
 }
 
@@ -407,8 +408,9 @@ GzString_V::mutable_data() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.GzString_V", GzString_V)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.GzString_V", GzString_V)
 // @@protoc_insertion_point(global_scope)

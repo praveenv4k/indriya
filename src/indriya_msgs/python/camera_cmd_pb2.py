@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='camera_cmd.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x10\x63\x61mera_cmd.proto\x12\x0e\x65xperimot.msgs\"!\n\tCameraCmd\x12\x14\n\x0c\x66ollow_model\x18\x01 \x01(\t')
+  serialized_pb=_b('\n\x10\x63\x61mera_cmd.proto\x12\x11Indriya.Core.Msgs\"!\n\tCameraCmd\x12\x14\n\x0c\x66ollow_model\x18\x01 \x01(\t')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -28,13 +28,13 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _CAMERACMD = _descriptor.Descriptor(
   name='CameraCmd',
-  full_name='experimot.msgs.CameraCmd',
+  full_name='Indriya.Core.Msgs.CameraCmd',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='follow_model', full_name='experimot.msgs.CameraCmd.follow_model', index=0,
+      name='follow_model', full_name='Indriya.Core.Msgs.CameraCmd.follow_model', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -52,8 +52,8 @@ _CAMERACMD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=36,
-  serialized_end=69,
+  serialized_start=39,
+  serialized_end=72,
 )
 
 DESCRIPTOR.message_types_by_name['CameraCmd'] = _CAMERACMD
@@ -61,7 +61,7 @@ DESCRIPTOR.message_types_by_name['CameraCmd'] = _CAMERACMD
 CameraCmd = _reflection.GeneratedProtocolMessageType('CameraCmd', (_message.Message,), dict(
   DESCRIPTOR = _CAMERACMD,
   __module__ = 'camera_cmd_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.CameraCmd)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.CameraCmd)
   ))
 _sym_db.RegisterMessage(CameraCmd)
 

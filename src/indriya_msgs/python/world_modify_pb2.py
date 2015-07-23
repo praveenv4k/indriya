@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='world_modify.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x12world_modify.proto\x12\x0e\x65xperimot.msgs\"e\n\x0bWorldModify\x12\x12\n\nworld_name\x18\x01 \x02(\t\x12\x0e\n\x06remove\x18\x02 \x01(\x08\x12\x0e\n\x06\x63reate\x18\x03 \x01(\x08\x12\x0e\n\x06\x63loned\x18\x04 \x01(\x08\x12\x12\n\ncloned_uri\x18\x05 \x01(\t')
+  serialized_pb=_b('\n\x12world_modify.proto\x12\x11Indriya.Core.Msgs\"e\n\x0bWorldModify\x12\x12\n\nworld_name\x18\x01 \x02(\t\x12\x0e\n\x06remove\x18\x02 \x01(\x08\x12\x0e\n\x06\x63reate\x18\x03 \x01(\x08\x12\x0e\n\x06\x63loned\x18\x04 \x01(\x08\x12\x12\n\ncloned_uri\x18\x05 \x01(\t')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -28,41 +28,41 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _WORLDMODIFY = _descriptor.Descriptor(
   name='WorldModify',
-  full_name='experimot.msgs.WorldModify',
+  full_name='Indriya.Core.Msgs.WorldModify',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='world_name', full_name='experimot.msgs.WorldModify.world_name', index=0,
+      name='world_name', full_name='Indriya.Core.Msgs.WorldModify.world_name', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='remove', full_name='experimot.msgs.WorldModify.remove', index=1,
+      name='remove', full_name='Indriya.Core.Msgs.WorldModify.remove', index=1,
       number=2, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='create', full_name='experimot.msgs.WorldModify.create', index=2,
+      name='create', full_name='Indriya.Core.Msgs.WorldModify.create', index=2,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='cloned', full_name='experimot.msgs.WorldModify.cloned', index=3,
+      name='cloned', full_name='Indriya.Core.Msgs.WorldModify.cloned', index=3,
       number=4, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='cloned_uri', full_name='experimot.msgs.WorldModify.cloned_uri', index=4,
+      name='cloned_uri', full_name='Indriya.Core.Msgs.WorldModify.cloned_uri', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -80,8 +80,8 @@ _WORLDMODIFY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=38,
-  serialized_end=139,
+  serialized_start=41,
+  serialized_end=142,
 )
 
 DESCRIPTOR.message_types_by_name['WorldModify'] = _WORLDMODIFY
@@ -89,7 +89,7 @@ DESCRIPTOR.message_types_by_name['WorldModify'] = _WORLDMODIFY
 WorldModify = _reflection.GeneratedProtocolMessageType('WorldModify', (_message.Message,), dict(
   DESCRIPTOR = _WORLDMODIFY,
   __module__ = 'world_modify_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.WorldModify)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.WorldModify)
   ))
 _sym_db.RegisterMessage(WorldModify)
 

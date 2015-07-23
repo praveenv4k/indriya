@@ -10,23 +10,23 @@
 // Generated from: proto/wrench_stamped.proto
 // Note: requires additional types generated from: time.proto
 // Note: requires additional types generated from: wrench.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"WrenchStamped")]
   public partial class WrenchStamped : global::ProtoBuf.IExtensible
   {
     public WrenchStamped() {}
     
-    private experimot.msgs.Time _time;
+    private Indriya.Core.Msgs.Time _time;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"time", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Time time
+    public Indriya.Core.Msgs.Time time
     {
       get { return _time; }
       set { _time = value; }
     }
-    private experimot.msgs.Wrench _wrench;
+    private Indriya.Core.Msgs.Wrench _wrench;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"wrench", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Wrench wrench
+    public Indriya.Core.Msgs.Wrench wrench
     {
       get { return _wrench; }
       set { _wrench = value; }

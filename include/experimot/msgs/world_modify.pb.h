@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_world_5fmodify_2eproto();
@@ -152,7 +153,7 @@ class WorldModify : public ::google::protobuf::Message {
   ::std::string* release_cloned_uri();
   void set_allocated_cloned_uri(::std::string* cloned_uri);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.WorldModify)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.WorldModify)
  private:
   inline void set_has_world_name();
   inline void clear_has_world_name();
@@ -203,28 +204,28 @@ inline void WorldModify::clear_world_name() {
   clear_has_world_name();
 }
 inline const ::std::string& WorldModify::world_name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldModify.world_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldModify.world_name)
   return world_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void WorldModify::set_world_name(const ::std::string& value) {
   set_has_world_name();
   world_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldModify.world_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldModify.world_name)
 }
 inline void WorldModify::set_world_name(const char* value) {
   set_has_world_name();
   world_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.WorldModify.world_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.WorldModify.world_name)
 }
 inline void WorldModify::set_world_name(const char* value, size_t size) {
   set_has_world_name();
   world_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.WorldModify.world_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.WorldModify.world_name)
 }
 inline ::std::string* WorldModify::mutable_world_name() {
   set_has_world_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.WorldModify.world_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.WorldModify.world_name)
   return world_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* WorldModify::release_world_name() {
@@ -238,7 +239,7 @@ inline void WorldModify::set_allocated_world_name(::std::string* world_name) {
     clear_has_world_name();
   }
   world_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), world_name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.WorldModify.world_name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.WorldModify.world_name)
 }
 
 // optional bool remove = 2;
@@ -256,13 +257,13 @@ inline void WorldModify::clear_remove() {
   clear_has_remove();
 }
 inline bool WorldModify::remove() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldModify.remove)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldModify.remove)
   return remove_;
 }
 inline void WorldModify::set_remove(bool value) {
   set_has_remove();
   remove_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldModify.remove)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldModify.remove)
 }
 
 // optional bool create = 3;
@@ -280,13 +281,13 @@ inline void WorldModify::clear_create() {
   clear_has_create();
 }
 inline bool WorldModify::create() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldModify.create)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldModify.create)
   return create_;
 }
 inline void WorldModify::set_create(bool value) {
   set_has_create();
   create_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldModify.create)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldModify.create)
 }
 
 // optional bool cloned = 4;
@@ -304,13 +305,13 @@ inline void WorldModify::clear_cloned() {
   clear_has_cloned();
 }
 inline bool WorldModify::cloned() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldModify.cloned)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldModify.cloned)
   return cloned_;
 }
 inline void WorldModify::set_cloned(bool value) {
   set_has_cloned();
   cloned_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldModify.cloned)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldModify.cloned)
 }
 
 // optional string cloned_uri = 5;
@@ -328,28 +329,28 @@ inline void WorldModify::clear_cloned_uri() {
   clear_has_cloned_uri();
 }
 inline const ::std::string& WorldModify::cloned_uri() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldModify.cloned_uri)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldModify.cloned_uri)
   return cloned_uri_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void WorldModify::set_cloned_uri(const ::std::string& value) {
   set_has_cloned_uri();
   cloned_uri_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldModify.cloned_uri)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldModify.cloned_uri)
 }
 inline void WorldModify::set_cloned_uri(const char* value) {
   set_has_cloned_uri();
   cloned_uri_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.WorldModify.cloned_uri)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.WorldModify.cloned_uri)
 }
 inline void WorldModify::set_cloned_uri(const char* value, size_t size) {
   set_has_cloned_uri();
   cloned_uri_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.WorldModify.cloned_uri)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.WorldModify.cloned_uri)
 }
 inline ::std::string* WorldModify::mutable_cloned_uri() {
   set_has_cloned_uri();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.WorldModify.cloned_uri)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.WorldModify.cloned_uri)
   return cloned_uri_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* WorldModify::release_cloned_uri() {
@@ -363,18 +364,19 @@ inline void WorldModify::set_allocated_cloned_uri(::std::string* cloned_uri) {
     clear_has_cloned_uri();
   }
   cloned_uri_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), cloned_uri);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.WorldModify.cloned_uri)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.WorldModify.cloned_uri)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::WorldModify> WorldModifyPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::WorldModify> WorldModifyPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::WorldModify const> ConstWorldModifyPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::WorldModify const> ConstWorldModifyPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_world_5fmodify_2eproto__INCLUDED

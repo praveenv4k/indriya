@@ -49,11 +49,11 @@ public:
 			zmq::message_t data;
 			if (m_pSocket->recv(&data))
 			{
-				experimot::msgs::JointValueVector jVector;
+				Indriya::Core::Msgs::JointValueVector jVector;
 				if (jVector.ParseFromArray(data.data(), data.size())){
 					jointValues.resize(jVector.jointvalues_size());
 					for (google::protobuf::int32 i = 0; i < jVector.jointvalues_size(); i++){
-						const experimot::msgs::JointValue& jVal = jVector.jointvalues(i);
+						const Indriya::Core::Msgs::JointValue& jVal = jVector.jointvalues(i);
 						jointValues[jVal.id()] = jVal.value();
 					}
 					//jVector.PrintDebugString();

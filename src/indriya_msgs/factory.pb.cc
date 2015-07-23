@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -82,13 +83,13 @@ void protobuf_AddDesc_factory_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_pose_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_pose_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rfactory.proto\022\016experimot.msgs\032\npose.pr"
-    "oto\"}\n\007Factory\022\013\n\003sdf\030\001 \001(\t\022\024\n\014sdf_filen"
-    "ame\030\002 \001(\t\022\"\n\004pose\030\003 \001(\0132\024.experimot.msgs"
-    ".Pose\022\021\n\tedit_name\030\004 \001(\t\022\030\n\020clone_model_"
-    "name\030\005 \001(\t", 170);
+    "\n\rfactory.proto\022\021Indriya.Core.Msgs\032\npose"
+    ".proto\"\200\001\n\007Factory\022\013\n\003sdf\030\001 \001(\t\022\024\n\014sdf_f"
+    "ilename\030\002 \001(\t\022%\n\004pose\030\003 \001(\0132\027.Indriya.Co"
+    "re.Msgs.Pose\022\021\n\tedit_name\030\004 \001(\t\022\030\n\020clone"
+    "_model_name\030\005 \001(\t", 177);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "factory.proto", &protobuf_RegisterTypes);
   Factory::default_instance_ = new Factory();
@@ -126,11 +127,11 @@ const int Factory::kCloneModelNameFieldNumber;
 Factory::Factory()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Factory)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Factory)
 }
 
 void Factory::InitAsDefaultInstance() {
-  pose_ = const_cast< ::experimot::msgs::Pose*>(&::experimot::msgs::Pose::default_instance());
+  pose_ = const_cast< ::Indriya::Core::Msgs::Pose*>(&::Indriya::Core::Msgs::Pose::default_instance());
 }
 
 Factory::Factory(const Factory& from)
@@ -138,7 +139,7 @@ Factory::Factory(const Factory& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Factory)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Factory)
 }
 
 void Factory::SharedCtor() {
@@ -153,7 +154,7 @@ void Factory::SharedCtor() {
 }
 
 Factory::~Factory() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Factory)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Factory)
   SharedDtor();
 }
 
@@ -201,7 +202,7 @@ void Factory::Clear() {
       sdf_filename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_pose()) {
-      if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+      if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
     }
     if (has_edit_name()) {
       edit_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -220,7 +221,7 @@ bool Factory::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Factory)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Factory)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -234,7 +235,7 @@ bool Factory::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->sdf().data(), this->sdf().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Factory.sdf");
+            "Indriya.Core.Msgs.Factory.sdf");
         } else {
           goto handle_unusual;
         }
@@ -251,7 +252,7 @@ bool Factory::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->sdf_filename().data(), this->sdf_filename().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Factory.sdf_filename");
+            "Indriya.Core.Msgs.Factory.sdf_filename");
         } else {
           goto handle_unusual;
         }
@@ -259,7 +260,7 @@ bool Factory::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Pose pose = 3;
+      // optional .Indriya.Core.Msgs.Pose pose = 3;
       case 3: {
         if (tag == 26) {
          parse_pose:
@@ -281,7 +282,7 @@ bool Factory::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->edit_name().data(), this->edit_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Factory.edit_name");
+            "Indriya.Core.Msgs.Factory.edit_name");
         } else {
           goto handle_unusual;
         }
@@ -298,7 +299,7 @@ bool Factory::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->clone_model_name().data(), this->clone_model_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Factory.clone_model_name");
+            "Indriya.Core.Msgs.Factory.clone_model_name");
         } else {
           goto handle_unusual;
         }
@@ -320,23 +321,23 @@ bool Factory::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Factory)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Factory)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Factory)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Factory)
   return false;
 #undef DO_
 }
 
 void Factory::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Factory)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Factory)
   // optional string sdf = 1;
   if (has_sdf()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->sdf().data(), this->sdf().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Factory.sdf");
+      "Indriya.Core.Msgs.Factory.sdf");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->sdf(), output);
   }
@@ -346,12 +347,12 @@ void Factory::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->sdf_filename().data(), this->sdf_filename().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Factory.sdf_filename");
+      "Indriya.Core.Msgs.Factory.sdf_filename");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->sdf_filename(), output);
   }
 
-  // optional .experimot.msgs.Pose pose = 3;
+  // optional .Indriya.Core.Msgs.Pose pose = 3;
   if (has_pose()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, *this->pose_, output);
@@ -362,7 +363,7 @@ void Factory::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->edit_name().data(), this->edit_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Factory.edit_name");
+      "Indriya.Core.Msgs.Factory.edit_name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       4, this->edit_name(), output);
   }
@@ -372,7 +373,7 @@ void Factory::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->clone_model_name().data(), this->clone_model_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Factory.clone_model_name");
+      "Indriya.Core.Msgs.Factory.clone_model_name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       5, this->clone_model_name(), output);
   }
@@ -381,18 +382,18 @@ void Factory::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Factory)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Factory)
 }
 
 ::google::protobuf::uint8* Factory::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Factory)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Factory)
   // optional string sdf = 1;
   if (has_sdf()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->sdf().data(), this->sdf().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Factory.sdf");
+      "Indriya.Core.Msgs.Factory.sdf");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->sdf(), target);
@@ -403,13 +404,13 @@ void Factory::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->sdf_filename().data(), this->sdf_filename().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Factory.sdf_filename");
+      "Indriya.Core.Msgs.Factory.sdf_filename");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->sdf_filename(), target);
   }
 
-  // optional .experimot.msgs.Pose pose = 3;
+  // optional .Indriya.Core.Msgs.Pose pose = 3;
   if (has_pose()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -421,7 +422,7 @@ void Factory::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->edit_name().data(), this->edit_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Factory.edit_name");
+      "Indriya.Core.Msgs.Factory.edit_name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         4, this->edit_name(), target);
@@ -432,7 +433,7 @@ void Factory::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->clone_model_name().data(), this->clone_model_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Factory.clone_model_name");
+      "Indriya.Core.Msgs.Factory.clone_model_name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         5, this->clone_model_name(), target);
@@ -442,7 +443,7 @@ void Factory::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Factory)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Factory)
   return target;
 }
 
@@ -464,7 +465,7 @@ int Factory::ByteSize() const {
           this->sdf_filename());
     }
 
-    // optional .experimot.msgs.Pose pose = 3;
+    // optional .Indriya.Core.Msgs.Pose pose = 3;
     if (has_pose()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -521,7 +522,7 @@ void Factory::MergeFrom(const Factory& from) {
       sdf_filename_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.sdf_filename_);
     }
     if (from.has_pose()) {
-      mutable_pose()->::experimot::msgs::Pose::MergeFrom(from.pose());
+      mutable_pose()->::Indriya::Core::Msgs::Pose::MergeFrom(from.pose());
     }
     if (from.has_edit_name()) {
       set_has_edit_name();
@@ -598,28 +599,28 @@ void Factory::InternalSwap(Factory* other) {
   clear_has_sdf();
 }
  const ::std::string& Factory::sdf() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Factory.sdf)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Factory.sdf)
   return sdf_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Factory::set_sdf(const ::std::string& value) {
   set_has_sdf();
   sdf_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Factory.sdf)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Factory.sdf)
 }
  void Factory::set_sdf(const char* value) {
   set_has_sdf();
   sdf_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Factory.sdf)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Factory.sdf)
 }
  void Factory::set_sdf(const char* value, size_t size) {
   set_has_sdf();
   sdf_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Factory.sdf)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Factory.sdf)
 }
  ::std::string* Factory::mutable_sdf() {
   set_has_sdf();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Factory.sdf)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Factory.sdf)
   return sdf_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Factory::release_sdf() {
@@ -633,7 +634,7 @@ void Factory::InternalSwap(Factory* other) {
     clear_has_sdf();
   }
   sdf_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sdf);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Factory.sdf)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Factory.sdf)
 }
 
 // optional string sdf_filename = 2;
@@ -651,28 +652,28 @@ void Factory::InternalSwap(Factory* other) {
   clear_has_sdf_filename();
 }
  const ::std::string& Factory::sdf_filename() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Factory.sdf_filename)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Factory.sdf_filename)
   return sdf_filename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Factory::set_sdf_filename(const ::std::string& value) {
   set_has_sdf_filename();
   sdf_filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Factory.sdf_filename)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Factory.sdf_filename)
 }
  void Factory::set_sdf_filename(const char* value) {
   set_has_sdf_filename();
   sdf_filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Factory.sdf_filename)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Factory.sdf_filename)
 }
  void Factory::set_sdf_filename(const char* value, size_t size) {
   set_has_sdf_filename();
   sdf_filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Factory.sdf_filename)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Factory.sdf_filename)
 }
  ::std::string* Factory::mutable_sdf_filename() {
   set_has_sdf_filename();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Factory.sdf_filename)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Factory.sdf_filename)
   return sdf_filename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Factory::release_sdf_filename() {
@@ -686,10 +687,10 @@ void Factory::InternalSwap(Factory* other) {
     clear_has_sdf_filename();
   }
   sdf_filename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sdf_filename);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Factory.sdf_filename)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Factory.sdf_filename)
 }
 
-// optional .experimot.msgs.Pose pose = 3;
+// optional .Indriya.Core.Msgs.Pose pose = 3;
  bool Factory::has_pose() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -700,28 +701,28 @@ void Factory::InternalSwap(Factory* other) {
   _has_bits_[0] &= ~0x00000004u;
 }
  void Factory::clear_pose() {
-  if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+  if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
   clear_has_pose();
 }
- const ::experimot::msgs::Pose& Factory::pose() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Factory.pose)
+ const ::Indriya::Core::Msgs::Pose& Factory::pose() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Factory.pose)
   return pose_ != NULL ? *pose_ : *default_instance_->pose_;
 }
- ::experimot::msgs::Pose* Factory::mutable_pose() {
+ ::Indriya::Core::Msgs::Pose* Factory::mutable_pose() {
   set_has_pose();
   if (pose_ == NULL) {
-    pose_ = new ::experimot::msgs::Pose;
+    pose_ = new ::Indriya::Core::Msgs::Pose;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Factory.pose)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Factory.pose)
   return pose_;
 }
- ::experimot::msgs::Pose* Factory::release_pose() {
+ ::Indriya::Core::Msgs::Pose* Factory::release_pose() {
   clear_has_pose();
-  ::experimot::msgs::Pose* temp = pose_;
+  ::Indriya::Core::Msgs::Pose* temp = pose_;
   pose_ = NULL;
   return temp;
 }
- void Factory::set_allocated_pose(::experimot::msgs::Pose* pose) {
+ void Factory::set_allocated_pose(::Indriya::Core::Msgs::Pose* pose) {
   delete pose_;
   pose_ = pose;
   if (pose) {
@@ -729,7 +730,7 @@ void Factory::InternalSwap(Factory* other) {
   } else {
     clear_has_pose();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Factory.pose)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Factory.pose)
 }
 
 // optional string edit_name = 4;
@@ -747,28 +748,28 @@ void Factory::InternalSwap(Factory* other) {
   clear_has_edit_name();
 }
  const ::std::string& Factory::edit_name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Factory.edit_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Factory.edit_name)
   return edit_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Factory::set_edit_name(const ::std::string& value) {
   set_has_edit_name();
   edit_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Factory.edit_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Factory.edit_name)
 }
  void Factory::set_edit_name(const char* value) {
   set_has_edit_name();
   edit_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Factory.edit_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Factory.edit_name)
 }
  void Factory::set_edit_name(const char* value, size_t size) {
   set_has_edit_name();
   edit_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Factory.edit_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Factory.edit_name)
 }
  ::std::string* Factory::mutable_edit_name() {
   set_has_edit_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Factory.edit_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Factory.edit_name)
   return edit_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Factory::release_edit_name() {
@@ -782,7 +783,7 @@ void Factory::InternalSwap(Factory* other) {
     clear_has_edit_name();
   }
   edit_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), edit_name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Factory.edit_name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Factory.edit_name)
 }
 
 // optional string clone_model_name = 5;
@@ -800,28 +801,28 @@ void Factory::InternalSwap(Factory* other) {
   clear_has_clone_model_name();
 }
  const ::std::string& Factory::clone_model_name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Factory.clone_model_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Factory.clone_model_name)
   return clone_model_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Factory::set_clone_model_name(const ::std::string& value) {
   set_has_clone_model_name();
   clone_model_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Factory.clone_model_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Factory.clone_model_name)
 }
  void Factory::set_clone_model_name(const char* value) {
   set_has_clone_model_name();
   clone_model_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Factory.clone_model_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Factory.clone_model_name)
 }
  void Factory::set_clone_model_name(const char* value, size_t size) {
   set_has_clone_model_name();
   clone_model_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Factory.clone_model_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Factory.clone_model_name)
 }
  ::std::string* Factory::mutable_clone_model_name() {
   set_has_clone_model_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Factory.clone_model_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Factory.clone_model_name)
   return clone_model_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Factory::release_clone_model_name() {
@@ -835,15 +836,16 @@ void Factory::InternalSwap(Factory* other) {
     clear_has_clone_model_name();
   }
   clone_model_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), clone_model_name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Factory.clone_model_name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Factory.clone_model_name)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Factory", Factory)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Factory", Factory)
 // @@protoc_insertion_point(global_scope)

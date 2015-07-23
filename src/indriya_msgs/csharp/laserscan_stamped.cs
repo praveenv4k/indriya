@@ -10,23 +10,23 @@
 // Generated from: proto/laserscan_stamped.proto
 // Note: requires additional types generated from: time.proto
 // Note: requires additional types generated from: laserscan.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"LaserScanStamped")]
   public partial class LaserScanStamped : global::ProtoBuf.IExtensible
   {
     public LaserScanStamped() {}
     
-    private experimot.msgs.Time _time;
+    private Indriya.Core.Msgs.Time _time;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"time", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Time time
+    public Indriya.Core.Msgs.Time time
     {
       get { return _time; }
       set { _time = value; }
     }
-    private experimot.msgs.LaserScan _scan;
+    private Indriya.Core.Msgs.LaserScan _scan;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"scan", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.LaserScan scan
+    public Indriya.Core.Msgs.LaserScan scan
     {
       get { return _scan; }
       set { _scan = value; }

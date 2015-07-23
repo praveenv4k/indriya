@@ -9,16 +9,16 @@
 
 // Generated from: proto/publishers.proto
 // Note: requires additional types generated from: publish.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Publishers")]
   public partial class Publishers : global::ProtoBuf.IExtensible
   {
     public Publishers() {}
     
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Publish> _publisher = new global::System.Collections.Generic.List<experimot.msgs.Publish>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Publish> _publisher = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Publish>();
     [global::ProtoBuf.ProtoMember(1, Name=@"publisher", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Publish> publisher
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Publish> publisher
     {
       get { return _publisher; }
     }

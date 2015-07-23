@@ -6,10 +6,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Windows;
 using Common.Logging;
-using experimot.msgs;
+using Indriya.Core.Msgs;
 using Microsoft.Kinect;
 using Microsoft.Kinect.VisualGestureBuilder;
 

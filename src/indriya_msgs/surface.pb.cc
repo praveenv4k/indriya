@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -89,17 +90,18 @@ void protobuf_AddDesc_surface_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_friction_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_friction_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rsurface.proto\022\016experimot.msgs\032\016frictio"
-    "n.proto\"\263\002\n\007Surface\022*\n\010friction\030\001 \001(\0132\030."
-    "experimot.msgs.Friction\022\037\n\027restitution_c"
-    "oefficient\030\002 \001(\001\022\030\n\020bounce_threshold\030\003 \001"
-    "(\001\022\020\n\010soft_cfm\030\004 \001(\001\022\020\n\010soft_erp\030\005 \001(\001\022\n"
-    "\n\002kp\030\006 \001(\001\022\n\n\002kd\030\007 \001(\001\022\017\n\007max_vel\030\010 \001(\001\022"
-    "\021\n\tmin_depth\030\t \001(\001\022\037\n\027collide_without_co"
-    "ntact\030\n \001(\010\022\'\n\037collide_without_contact_b"
-    "itmask\030\013 \001(\r\022\027\n\017collide_bitmask\030\014 \001(\r", 357);
+    "\n\rsurface.proto\022\021Indriya.Core.Msgs\032\016fric"
+    "tion.proto\"\266\002\n\007Surface\022-\n\010friction\030\001 \001(\013"
+    "2\033.Indriya.Core.Msgs.Friction\022\037\n\027restitu"
+    "tion_coefficient\030\002 \001(\001\022\030\n\020bounce_thresho"
+    "ld\030\003 \001(\001\022\020\n\010soft_cfm\030\004 \001(\001\022\020\n\010soft_erp\030\005"
+    " \001(\001\022\n\n\002kp\030\006 \001(\001\022\n\n\002kd\030\007 \001(\001\022\017\n\007max_vel\030"
+    "\010 \001(\001\022\021\n\tmin_depth\030\t \001(\001\022\037\n\027collide_with"
+    "out_contact\030\n \001(\010\022\'\n\037collide_without_con"
+    "tact_bitmask\030\013 \001(\r\022\027\n\017collide_bitmask\030\014 "
+    "\001(\r", 363);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "surface.proto", &protobuf_RegisterTypes);
   Surface::default_instance_ = new Surface();
@@ -144,11 +146,11 @@ const int Surface::kCollideBitmaskFieldNumber;
 Surface::Surface()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Surface)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Surface)
 }
 
 void Surface::InitAsDefaultInstance() {
-  friction_ = const_cast< ::experimot::msgs::Friction*>(&::experimot::msgs::Friction::default_instance());
+  friction_ = const_cast< ::Indriya::Core::Msgs::Friction*>(&::Indriya::Core::Msgs::Friction::default_instance());
 }
 
 Surface::Surface(const Surface& from)
@@ -156,7 +158,7 @@ Surface::Surface(const Surface& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Surface)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Surface)
 }
 
 void Surface::SharedCtor() {
@@ -177,7 +179,7 @@ void Surface::SharedCtor() {
 }
 
 Surface::~Surface() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Surface)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Surface)
   SharedDtor();
 }
 
@@ -224,7 +226,7 @@ void Surface::Clear() {
   if (_has_bits_[0 / 32] & 255) {
     ZR_(restitution_coefficient_, max_vel_);
     if (has_friction()) {
-      if (friction_ != NULL) friction_->::experimot::msgs::Friction::Clear();
+      if (friction_ != NULL) friction_->::Indriya::Core::Msgs::Friction::Clear();
     }
   }
   ZR_(min_depth_, collide_bitmask_);
@@ -242,13 +244,13 @@ bool Surface::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Surface)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Surface)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .experimot.msgs.Friction friction = 1;
+      // optional .Indriya.Core.Msgs.Friction friction = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -439,18 +441,18 @@ bool Surface::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Surface)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Surface)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Surface)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Surface)
   return false;
 #undef DO_
 }
 
 void Surface::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Surface)
-  // optional .experimot.msgs.Friction friction = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Surface)
+  // optional .Indriya.Core.Msgs.Friction friction = 1;
   if (has_friction()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->friction_, output);
@@ -515,13 +517,13 @@ void Surface::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Surface)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Surface)
 }
 
 ::google::protobuf::uint8* Surface::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Surface)
-  // optional .experimot.msgs.Friction friction = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Surface)
+  // optional .Indriya.Core.Msgs.Friction friction = 1;
   if (has_friction()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -587,7 +589,7 @@ void Surface::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Surface)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Surface)
   return target;
 }
 
@@ -595,7 +597,7 @@ int Surface::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & 255) {
-    // optional .experimot.msgs.Friction friction = 1;
+    // optional .Indriya.Core.Msgs.Friction friction = 1;
     if (has_friction()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -691,7 +693,7 @@ void Surface::MergeFrom(const Surface& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_friction()) {
-      mutable_friction()->::experimot::msgs::Friction::MergeFrom(from.friction());
+      mutable_friction()->::Indriya::Core::Msgs::Friction::MergeFrom(from.friction());
     }
     if (from.has_restitution_coefficient()) {
       set_restitution_coefficient(from.restitution_coefficient());
@@ -787,7 +789,7 @@ void Surface::InternalSwap(Surface* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Surface
 
-// optional .experimot.msgs.Friction friction = 1;
+// optional .Indriya.Core.Msgs.Friction friction = 1;
  bool Surface::has_friction() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -798,28 +800,28 @@ void Surface::InternalSwap(Surface* other) {
   _has_bits_[0] &= ~0x00000001u;
 }
  void Surface::clear_friction() {
-  if (friction_ != NULL) friction_->::experimot::msgs::Friction::Clear();
+  if (friction_ != NULL) friction_->::Indriya::Core::Msgs::Friction::Clear();
   clear_has_friction();
 }
- const ::experimot::msgs::Friction& Surface::friction() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Surface.friction)
+ const ::Indriya::Core::Msgs::Friction& Surface::friction() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Surface.friction)
   return friction_ != NULL ? *friction_ : *default_instance_->friction_;
 }
- ::experimot::msgs::Friction* Surface::mutable_friction() {
+ ::Indriya::Core::Msgs::Friction* Surface::mutable_friction() {
   set_has_friction();
   if (friction_ == NULL) {
-    friction_ = new ::experimot::msgs::Friction;
+    friction_ = new ::Indriya::Core::Msgs::Friction;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Surface.friction)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Surface.friction)
   return friction_;
 }
- ::experimot::msgs::Friction* Surface::release_friction() {
+ ::Indriya::Core::Msgs::Friction* Surface::release_friction() {
   clear_has_friction();
-  ::experimot::msgs::Friction* temp = friction_;
+  ::Indriya::Core::Msgs::Friction* temp = friction_;
   friction_ = NULL;
   return temp;
 }
- void Surface::set_allocated_friction(::experimot::msgs::Friction* friction) {
+ void Surface::set_allocated_friction(::Indriya::Core::Msgs::Friction* friction) {
   delete friction_;
   friction_ = friction;
   if (friction) {
@@ -827,7 +829,7 @@ void Surface::InternalSwap(Surface* other) {
   } else {
     clear_has_friction();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Surface.friction)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Surface.friction)
 }
 
 // optional double restitution_coefficient = 2;
@@ -845,13 +847,13 @@ void Surface::InternalSwap(Surface* other) {
   clear_has_restitution_coefficient();
 }
  double Surface::restitution_coefficient() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Surface.restitution_coefficient)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Surface.restitution_coefficient)
   return restitution_coefficient_;
 }
  void Surface::set_restitution_coefficient(double value) {
   set_has_restitution_coefficient();
   restitution_coefficient_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Surface.restitution_coefficient)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Surface.restitution_coefficient)
 }
 
 // optional double bounce_threshold = 3;
@@ -869,13 +871,13 @@ void Surface::InternalSwap(Surface* other) {
   clear_has_bounce_threshold();
 }
  double Surface::bounce_threshold() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Surface.bounce_threshold)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Surface.bounce_threshold)
   return bounce_threshold_;
 }
  void Surface::set_bounce_threshold(double value) {
   set_has_bounce_threshold();
   bounce_threshold_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Surface.bounce_threshold)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Surface.bounce_threshold)
 }
 
 // optional double soft_cfm = 4;
@@ -893,13 +895,13 @@ void Surface::InternalSwap(Surface* other) {
   clear_has_soft_cfm();
 }
  double Surface::soft_cfm() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Surface.soft_cfm)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Surface.soft_cfm)
   return soft_cfm_;
 }
  void Surface::set_soft_cfm(double value) {
   set_has_soft_cfm();
   soft_cfm_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Surface.soft_cfm)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Surface.soft_cfm)
 }
 
 // optional double soft_erp = 5;
@@ -917,13 +919,13 @@ void Surface::InternalSwap(Surface* other) {
   clear_has_soft_erp();
 }
  double Surface::soft_erp() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Surface.soft_erp)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Surface.soft_erp)
   return soft_erp_;
 }
  void Surface::set_soft_erp(double value) {
   set_has_soft_erp();
   soft_erp_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Surface.soft_erp)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Surface.soft_erp)
 }
 
 // optional double kp = 6;
@@ -941,13 +943,13 @@ void Surface::InternalSwap(Surface* other) {
   clear_has_kp();
 }
  double Surface::kp() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Surface.kp)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Surface.kp)
   return kp_;
 }
  void Surface::set_kp(double value) {
   set_has_kp();
   kp_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Surface.kp)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Surface.kp)
 }
 
 // optional double kd = 7;
@@ -965,13 +967,13 @@ void Surface::InternalSwap(Surface* other) {
   clear_has_kd();
 }
  double Surface::kd() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Surface.kd)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Surface.kd)
   return kd_;
 }
  void Surface::set_kd(double value) {
   set_has_kd();
   kd_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Surface.kd)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Surface.kd)
 }
 
 // optional double max_vel = 8;
@@ -989,13 +991,13 @@ void Surface::InternalSwap(Surface* other) {
   clear_has_max_vel();
 }
  double Surface::max_vel() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Surface.max_vel)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Surface.max_vel)
   return max_vel_;
 }
  void Surface::set_max_vel(double value) {
   set_has_max_vel();
   max_vel_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Surface.max_vel)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Surface.max_vel)
 }
 
 // optional double min_depth = 9;
@@ -1013,13 +1015,13 @@ void Surface::InternalSwap(Surface* other) {
   clear_has_min_depth();
 }
  double Surface::min_depth() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Surface.min_depth)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Surface.min_depth)
   return min_depth_;
 }
  void Surface::set_min_depth(double value) {
   set_has_min_depth();
   min_depth_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Surface.min_depth)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Surface.min_depth)
 }
 
 // optional bool collide_without_contact = 10;
@@ -1037,13 +1039,13 @@ void Surface::InternalSwap(Surface* other) {
   clear_has_collide_without_contact();
 }
  bool Surface::collide_without_contact() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Surface.collide_without_contact)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Surface.collide_without_contact)
   return collide_without_contact_;
 }
  void Surface::set_collide_without_contact(bool value) {
   set_has_collide_without_contact();
   collide_without_contact_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Surface.collide_without_contact)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Surface.collide_without_contact)
 }
 
 // optional uint32 collide_without_contact_bitmask = 11;
@@ -1061,13 +1063,13 @@ void Surface::InternalSwap(Surface* other) {
   clear_has_collide_without_contact_bitmask();
 }
  ::google::protobuf::uint32 Surface::collide_without_contact_bitmask() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Surface.collide_without_contact_bitmask)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Surface.collide_without_contact_bitmask)
   return collide_without_contact_bitmask_;
 }
  void Surface::set_collide_without_contact_bitmask(::google::protobuf::uint32 value) {
   set_has_collide_without_contact_bitmask();
   collide_without_contact_bitmask_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Surface.collide_without_contact_bitmask)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Surface.collide_without_contact_bitmask)
 }
 
 // optional uint32 collide_bitmask = 12;
@@ -1085,21 +1087,22 @@ void Surface::InternalSwap(Surface* other) {
   clear_has_collide_bitmask();
 }
  ::google::protobuf::uint32 Surface::collide_bitmask() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Surface.collide_bitmask)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Surface.collide_bitmask)
   return collide_bitmask_;
 }
  void Surface::set_collide_bitmask(::google::protobuf::uint32 value) {
   set_has_collide_bitmask();
   collide_bitmask_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Surface.collide_bitmask)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Surface.collide_bitmask)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Surface", Surface)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Surface", Surface)
 // @@protoc_insertion_point(global_scope)

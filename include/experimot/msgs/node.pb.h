@@ -34,8 +34,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_node_2eproto();
@@ -122,43 +123,43 @@ class Node : public ::google::protobuf::Message {
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // repeated .experimot.msgs.Param param = 2;
+  // repeated .Indriya.Core.Msgs.Param param = 2;
   int param_size() const;
   void clear_param();
   static const int kParamFieldNumber = 2;
-  const ::experimot::msgs::Param& param(int index) const;
-  ::experimot::msgs::Param* mutable_param(int index);
-  ::experimot::msgs::Param* add_param();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+  const ::Indriya::Core::Msgs::Param& param(int index) const;
+  ::Indriya::Core::Msgs::Param* mutable_param(int index);
+  ::Indriya::Core::Msgs::Param* add_param();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >&
       param() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >*
       mutable_param();
 
-  // repeated .experimot.msgs.Publish publisher = 3;
+  // repeated .Indriya.Core.Msgs.Publish publisher = 3;
   int publisher_size() const;
   void clear_publisher();
   static const int kPublisherFieldNumber = 3;
-  const ::experimot::msgs::Publish& publisher(int index) const;
-  ::experimot::msgs::Publish* mutable_publisher(int index);
-  ::experimot::msgs::Publish* add_publisher();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish >&
+  const ::Indriya::Core::Msgs::Publish& publisher(int index) const;
+  ::Indriya::Core::Msgs::Publish* mutable_publisher(int index);
+  ::Indriya::Core::Msgs::Publish* add_publisher();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Publish >&
       publisher() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Publish >*
       mutable_publisher();
 
-  // repeated .experimot.msgs.Subscribe subscriber = 4;
+  // repeated .Indriya.Core.Msgs.Subscribe subscriber = 4;
   int subscriber_size() const;
   void clear_subscriber();
   static const int kSubscriberFieldNumber = 4;
-  const ::experimot::msgs::Subscribe& subscriber(int index) const;
-  ::experimot::msgs::Subscribe* mutable_subscriber(int index);
-  ::experimot::msgs::Subscribe* add_subscriber();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Subscribe >&
+  const ::Indriya::Core::Msgs::Subscribe& subscriber(int index) const;
+  ::Indriya::Core::Msgs::Subscribe* mutable_subscriber(int index);
+  ::Indriya::Core::Msgs::Subscribe* add_subscriber();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Subscribe >&
       subscriber() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Subscribe >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Subscribe >*
       mutable_subscriber();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Node)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Node)
  private:
   inline void set_has_name();
   inline void clear_has_name();
@@ -167,9 +168,9 @@ class Node : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param > param_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish > publisher_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Subscribe > subscriber_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param > param_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Publish > publisher_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Subscribe > subscriber_;
   friend void  protobuf_AddDesc_node_2eproto();
   friend void protobuf_AssignDesc_node_2eproto();
   friend void protobuf_ShutdownFile_node_2eproto();
@@ -200,28 +201,28 @@ inline void Node::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& Node::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Node.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Node.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Node::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Node.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Node.name)
 }
 inline void Node::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Node.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Node.name)
 }
 inline void Node::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Node.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Node.name)
 }
 inline ::std::string* Node::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Node.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Node.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Node::release_name() {
@@ -235,108 +236,109 @@ inline void Node::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Node.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Node.name)
 }
 
-// repeated .experimot.msgs.Param param = 2;
+// repeated .Indriya.Core.Msgs.Param param = 2;
 inline int Node::param_size() const {
   return param_.size();
 }
 inline void Node::clear_param() {
   param_.Clear();
 }
-inline const ::experimot::msgs::Param& Node::param(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Node.param)
+inline const ::Indriya::Core::Msgs::Param& Node::param(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Node.param)
   return param_.Get(index);
 }
-inline ::experimot::msgs::Param* Node::mutable_param(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Node.param)
+inline ::Indriya::Core::Msgs::Param* Node::mutable_param(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Node.param)
   return param_.Mutable(index);
 }
-inline ::experimot::msgs::Param* Node::add_param() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Node.param)
+inline ::Indriya::Core::Msgs::Param* Node::add_param() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Node.param)
   return param_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >&
 Node::param() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Node.param)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Node.param)
   return param_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >*
 Node::mutable_param() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Node.param)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Node.param)
   return &param_;
 }
 
-// repeated .experimot.msgs.Publish publisher = 3;
+// repeated .Indriya.Core.Msgs.Publish publisher = 3;
 inline int Node::publisher_size() const {
   return publisher_.size();
 }
 inline void Node::clear_publisher() {
   publisher_.Clear();
 }
-inline const ::experimot::msgs::Publish& Node::publisher(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Node.publisher)
+inline const ::Indriya::Core::Msgs::Publish& Node::publisher(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Node.publisher)
   return publisher_.Get(index);
 }
-inline ::experimot::msgs::Publish* Node::mutable_publisher(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Node.publisher)
+inline ::Indriya::Core::Msgs::Publish* Node::mutable_publisher(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Node.publisher)
   return publisher_.Mutable(index);
 }
-inline ::experimot::msgs::Publish* Node::add_publisher() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Node.publisher)
+inline ::Indriya::Core::Msgs::Publish* Node::add_publisher() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Node.publisher)
   return publisher_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Publish >&
 Node::publisher() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Node.publisher)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Node.publisher)
   return publisher_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Publish >*
 Node::mutable_publisher() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Node.publisher)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Node.publisher)
   return &publisher_;
 }
 
-// repeated .experimot.msgs.Subscribe subscriber = 4;
+// repeated .Indriya.Core.Msgs.Subscribe subscriber = 4;
 inline int Node::subscriber_size() const {
   return subscriber_.size();
 }
 inline void Node::clear_subscriber() {
   subscriber_.Clear();
 }
-inline const ::experimot::msgs::Subscribe& Node::subscriber(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Node.subscriber)
+inline const ::Indriya::Core::Msgs::Subscribe& Node::subscriber(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Node.subscriber)
   return subscriber_.Get(index);
 }
-inline ::experimot::msgs::Subscribe* Node::mutable_subscriber(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Node.subscriber)
+inline ::Indriya::Core::Msgs::Subscribe* Node::mutable_subscriber(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Node.subscriber)
   return subscriber_.Mutable(index);
 }
-inline ::experimot::msgs::Subscribe* Node::add_subscriber() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Node.subscriber)
+inline ::Indriya::Core::Msgs::Subscribe* Node::add_subscriber() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Node.subscriber)
   return subscriber_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Subscribe >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Subscribe >&
 Node::subscriber() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Node.subscriber)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Node.subscriber)
   return subscriber_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Subscribe >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Subscribe >*
 Node::mutable_subscriber() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Node.subscriber)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Node.subscriber)
   return &subscriber_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Node> NodePtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Node> NodePtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Node const> ConstNodePtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Node const> ConstNodePtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_node_2eproto__INCLUDED

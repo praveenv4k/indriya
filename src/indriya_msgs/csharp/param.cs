@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 // Generated from: proto/param.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Param")]
   public partial class Param : global::ProtoBuf.IExtensible
@@ -46,9 +46,9 @@ namespace experimot.msgs
   {
     public ParamList() {}
     
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Param> _param = new global::System.Collections.Generic.List<experimot.msgs.Param>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Param> _param = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Param>();
     [global::ProtoBuf.ProtoMember(1, Name=@"param", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Param> param
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Param> param
     {
       get { return _param; }
     }

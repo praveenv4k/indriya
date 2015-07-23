@@ -20,9 +20,9 @@ import param_pb2 as param__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='node.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\nnode.proto\x12\x0e\x65xperimot.msgs\x1a\rpublish.proto\x1a\x0fsubscribe.proto\x1a\x0bparam.proto\"\x95\x01\n\x04Node\x12\x0c\n\x04name\x18\x01 \x02(\t\x12$\n\x05param\x18\x02 \x03(\x0b\x32\x15.experimot.msgs.Param\x12*\n\tpublisher\x18\x03 \x03(\x0b\x32\x17.experimot.msgs.Publish\x12-\n\nsubscriber\x18\x04 \x03(\x0b\x32\x19.experimot.msgs.Subscribe')
+  serialized_pb=_b('\n\nnode.proto\x12\x11Indriya.Core.Msgs\x1a\rpublish.proto\x1a\x0fsubscribe.proto\x1a\x0bparam.proto\"\x9e\x01\n\x04Node\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\'\n\x05param\x18\x02 \x03(\x0b\x32\x18.Indriya.Core.Msgs.Param\x12-\n\tpublisher\x18\x03 \x03(\x0b\x32\x1a.Indriya.Core.Msgs.Publish\x12\x30\n\nsubscriber\x18\x04 \x03(\x0b\x32\x1c.Indriya.Core.Msgs.Subscribe')
   ,
   dependencies=[publish__pb2.DESCRIPTOR,subscribe__pb2.DESCRIPTOR,param__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -32,34 +32,34 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _NODE = _descriptor.Descriptor(
   name='Node',
-  full_name='experimot.msgs.Node',
+  full_name='Indriya.Core.Msgs.Node',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='experimot.msgs.Node.name', index=0,
+      name='name', full_name='Indriya.Core.Msgs.Node.name', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='param', full_name='experimot.msgs.Node.param', index=1,
+      name='param', full_name='Indriya.Core.Msgs.Node.param', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='publisher', full_name='experimot.msgs.Node.publisher', index=2,
+      name='publisher', full_name='Indriya.Core.Msgs.Node.publisher', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='subscriber', full_name='experimot.msgs.Node.subscriber', index=3,
+      name='subscriber', full_name='Indriya.Core.Msgs.Node.subscriber', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -77,8 +77,8 @@ _NODE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=76,
-  serialized_end=225,
+  serialized_start=79,
+  serialized_end=237,
 )
 
 _NODE.fields_by_name['param'].message_type = param__pb2._PARAM
@@ -89,7 +89,7 @@ DESCRIPTOR.message_types_by_name['Node'] = _NODE
 Node = _reflection.GeneratedProtocolMessageType('Node', (_message.Message,), dict(
   DESCRIPTOR = _NODE,
   __module__ = 'node_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Node)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Node)
   ))
 _sym_db.RegisterMessage(Node)
 

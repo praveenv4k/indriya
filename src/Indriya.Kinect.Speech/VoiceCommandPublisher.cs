@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using experimot.msgs;
-using Experimot.Core;
+﻿using Experimot.Core;
+using Indriya.Core.Msgs;
 
 namespace Experimot.Kinect.Speech
 {

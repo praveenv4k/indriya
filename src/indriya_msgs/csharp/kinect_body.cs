@@ -10,7 +10,7 @@
 // Generated from: proto/kinect_body.proto
 // Note: requires additional types generated from: vector2d.proto
 // Note: requires additional types generated from: kinect_joint.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"KinectBody")]
   public partial class KinectBody : global::ProtoBuf.IExtensible
@@ -38,49 +38,49 @@ namespace experimot.msgs
       get { return _JointCount; }
       set { _JointCount = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.KinectJoint> _Joints = new global::System.Collections.Generic.List<experimot.msgs.KinectJoint>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.KinectJoint> _Joints = new global::System.Collections.Generic.List<Indriya.Core.Msgs.KinectJoint>();
     [global::ProtoBuf.ProtoMember(4, Name=@"Joints", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.KinectJoint> Joints
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.KinectJoint> Joints
     {
       get { return _Joints; }
     }
   
-    private experimot.msgs.KinectBody.FrameEdges _ClippedEdges = experimot.msgs.KinectBody.FrameEdges.None;
+    private Indriya.Core.Msgs.KinectBody.FrameEdges _ClippedEdges = Indriya.Core.Msgs.KinectBody.FrameEdges.None;
     [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"ClippedEdges", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(experimot.msgs.KinectBody.FrameEdges.None)]
-    public experimot.msgs.KinectBody.FrameEdges ClippedEdges
+    [global::System.ComponentModel.DefaultValue(Indriya.Core.Msgs.KinectBody.FrameEdges.None)]
+    public Indriya.Core.Msgs.KinectBody.FrameEdges ClippedEdges
     {
       get { return _ClippedEdges; }
       set { _ClippedEdges = value; }
     }
-    private experimot.msgs.KinectBody.TrackingConfidence _HandLeftConfidence = experimot.msgs.KinectBody.TrackingConfidence.Low;
+    private Indriya.Core.Msgs.KinectBody.TrackingConfidence _HandLeftConfidence = Indriya.Core.Msgs.KinectBody.TrackingConfidence.Low;
     [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"HandLeftConfidence", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(experimot.msgs.KinectBody.TrackingConfidence.Low)]
-    public experimot.msgs.KinectBody.TrackingConfidence HandLeftConfidence
+    [global::System.ComponentModel.DefaultValue(Indriya.Core.Msgs.KinectBody.TrackingConfidence.Low)]
+    public Indriya.Core.Msgs.KinectBody.TrackingConfidence HandLeftConfidence
     {
       get { return _HandLeftConfidence; }
       set { _HandLeftConfidence = value; }
     }
-    private experimot.msgs.KinectBody.HandState _HandLeftState = experimot.msgs.KinectBody.HandState.HS_Unknown;
+    private Indriya.Core.Msgs.KinectBody.HandState _HandLeftState = Indriya.Core.Msgs.KinectBody.HandState.HS_Unknown;
     [global::ProtoBuf.ProtoMember(7, IsRequired = false, Name=@"HandLeftState", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(experimot.msgs.KinectBody.HandState.HS_Unknown)]
-    public experimot.msgs.KinectBody.HandState HandLeftState
+    [global::System.ComponentModel.DefaultValue(Indriya.Core.Msgs.KinectBody.HandState.HS_Unknown)]
+    public Indriya.Core.Msgs.KinectBody.HandState HandLeftState
     {
       get { return _HandLeftState; }
       set { _HandLeftState = value; }
     }
-    private experimot.msgs.KinectBody.TrackingConfidence _HandRightConfidence = experimot.msgs.KinectBody.TrackingConfidence.Low;
+    private Indriya.Core.Msgs.KinectBody.TrackingConfidence _HandRightConfidence = Indriya.Core.Msgs.KinectBody.TrackingConfidence.Low;
     [global::ProtoBuf.ProtoMember(8, IsRequired = false, Name=@"HandRightConfidence", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(experimot.msgs.KinectBody.TrackingConfidence.Low)]
-    public experimot.msgs.KinectBody.TrackingConfidence HandRightConfidence
+    [global::System.ComponentModel.DefaultValue(Indriya.Core.Msgs.KinectBody.TrackingConfidence.Low)]
+    public Indriya.Core.Msgs.KinectBody.TrackingConfidence HandRightConfidence
     {
       get { return _HandRightConfidence; }
       set { _HandRightConfidence = value; }
     }
-    private experimot.msgs.KinectBody.HandState _HandRightState = experimot.msgs.KinectBody.HandState.HS_Unknown;
+    private Indriya.Core.Msgs.KinectBody.HandState _HandRightState = Indriya.Core.Msgs.KinectBody.HandState.HS_Unknown;
     [global::ProtoBuf.ProtoMember(9, IsRequired = false, Name=@"HandRightState", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(experimot.msgs.KinectBody.HandState.HS_Unknown)]
-    public experimot.msgs.KinectBody.HandState HandRightState
+    [global::System.ComponentModel.DefaultValue(Indriya.Core.Msgs.KinectBody.HandState.HS_Unknown)]
+    public Indriya.Core.Msgs.KinectBody.HandState HandRightState
     {
       get { return _HandRightState; }
       set { _HandRightState = value; }
@@ -93,10 +93,10 @@ namespace experimot.msgs
       get { return _IsRestricted; }
       set { _IsRestricted = value; }
     }
-    private experimot.msgs.Vector2d _Lean = null;
+    private Indriya.Core.Msgs.Vector2d _Lean = null;
     [global::ProtoBuf.ProtoMember(11, IsRequired = false, Name=@"Lean", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Vector2d Lean
+    public Indriya.Core.Msgs.Vector2d Lean
     {
       get { return _Lean; }
       set { _Lean = value; }
@@ -226,9 +226,9 @@ namespace experimot.msgs
   {
     public KinectBodies() {}
     
-    private readonly global::System.Collections.Generic.List<experimot.msgs.KinectBody> _Body = new global::System.Collections.Generic.List<experimot.msgs.KinectBody>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.KinectBody> _Body = new global::System.Collections.Generic.List<Indriya.Core.Msgs.KinectBody>();
     [global::ProtoBuf.ProtoMember(1, Name=@"Body", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.KinectBody> Body
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.KinectBody> Body
     {
       get { return _Body; }
     }

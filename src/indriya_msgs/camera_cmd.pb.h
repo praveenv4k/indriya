@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_camera_5fcmd_2eproto();
@@ -119,7 +120,7 @@ class CameraCmd : public ::google::protobuf::Message {
   ::std::string* release_follow_model();
   void set_allocated_follow_model(::std::string* follow_model);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.CameraCmd)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.CameraCmd)
  private:
   inline void set_has_follow_model();
   inline void clear_has_follow_model();
@@ -158,28 +159,28 @@ inline void CameraCmd::clear_follow_model() {
   clear_has_follow_model();
 }
 inline const ::std::string& CameraCmd::follow_model() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.CameraCmd.follow_model)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.CameraCmd.follow_model)
   return follow_model_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CameraCmd::set_follow_model(const ::std::string& value) {
   set_has_follow_model();
   follow_model_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.CameraCmd.follow_model)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.CameraCmd.follow_model)
 }
 inline void CameraCmd::set_follow_model(const char* value) {
   set_has_follow_model();
   follow_model_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.CameraCmd.follow_model)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.CameraCmd.follow_model)
 }
 inline void CameraCmd::set_follow_model(const char* value, size_t size) {
   set_has_follow_model();
   follow_model_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.CameraCmd.follow_model)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.CameraCmd.follow_model)
 }
 inline ::std::string* CameraCmd::mutable_follow_model() {
   set_has_follow_model();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.CameraCmd.follow_model)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.CameraCmd.follow_model)
   return follow_model_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* CameraCmd::release_follow_model() {
@@ -193,18 +194,19 @@ inline void CameraCmd::set_allocated_follow_model(::std::string* follow_model) {
     clear_has_follow_model();
   }
   follow_model_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), follow_model);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.CameraCmd.follow_model)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.CameraCmd.follow_model)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::CameraCmd> CameraCmdPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::CameraCmd> CameraCmdPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::CameraCmd const> ConstCameraCmdPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::CameraCmd const> ConstCameraCmdPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_camera_5fcmd_2eproto__INCLUDED

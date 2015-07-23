@@ -9,7 +9,7 @@
 
 // Generated from: proto/header.proto
 // Note: requires additional types generated from: time.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Header")]
   public partial class Header : global::ProtoBuf.IExtensible
@@ -24,10 +24,10 @@ namespace experimot.msgs
       get { return _str_id; }
       set { _str_id = value; }
     }
-    private experimot.msgs.Time _stamp = null;
+    private Indriya.Core.Msgs.Time _stamp = null;
     [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"stamp", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Time stamp
+    public Indriya.Core.Msgs.Time stamp
     {
       get { return _stamp; }
       set { _stamp = value; }

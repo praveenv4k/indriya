@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_inertial_2eproto();
@@ -115,14 +116,14 @@ class Inertial : public ::google::protobuf::Message {
   double mass() const;
   void set_mass(double value);
 
-  // optional .experimot.msgs.Pose pose = 2;
+  // optional .Indriya.Core.Msgs.Pose pose = 2;
   bool has_pose() const;
   void clear_pose();
   static const int kPoseFieldNumber = 2;
-  const ::experimot::msgs::Pose& pose() const;
-  ::experimot::msgs::Pose* mutable_pose();
-  ::experimot::msgs::Pose* release_pose();
-  void set_allocated_pose(::experimot::msgs::Pose* pose);
+  const ::Indriya::Core::Msgs::Pose& pose() const;
+  ::Indriya::Core::Msgs::Pose* mutable_pose();
+  ::Indriya::Core::Msgs::Pose* release_pose();
+  void set_allocated_pose(::Indriya::Core::Msgs::Pose* pose);
 
   // optional double ixx = 3;
   bool has_ixx() const;
@@ -166,7 +167,7 @@ class Inertial : public ::google::protobuf::Message {
   double izz() const;
   void set_izz(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Inertial)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Inertial)
  private:
   inline void set_has_mass();
   inline void clear_has_mass();
@@ -189,7 +190,7 @@ class Inertial : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   double mass_;
-  ::experimot::msgs::Pose* pose_;
+  ::Indriya::Core::Msgs::Pose* pose_;
   double ixx_;
   double ixy_;
   double ixz_;
@@ -226,16 +227,16 @@ inline void Inertial::clear_mass() {
   clear_has_mass();
 }
 inline double Inertial::mass() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Inertial.mass)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Inertial.mass)
   return mass_;
 }
 inline void Inertial::set_mass(double value) {
   set_has_mass();
   mass_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Inertial.mass)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Inertial.mass)
 }
 
-// optional .experimot.msgs.Pose pose = 2;
+// optional .Indriya.Core.Msgs.Pose pose = 2;
 inline bool Inertial::has_pose() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -246,28 +247,28 @@ inline void Inertial::clear_has_pose() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void Inertial::clear_pose() {
-  if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+  if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
   clear_has_pose();
 }
-inline const ::experimot::msgs::Pose& Inertial::pose() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Inertial.pose)
+inline const ::Indriya::Core::Msgs::Pose& Inertial::pose() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Inertial.pose)
   return pose_ != NULL ? *pose_ : *default_instance_->pose_;
 }
-inline ::experimot::msgs::Pose* Inertial::mutable_pose() {
+inline ::Indriya::Core::Msgs::Pose* Inertial::mutable_pose() {
   set_has_pose();
   if (pose_ == NULL) {
-    pose_ = new ::experimot::msgs::Pose;
+    pose_ = new ::Indriya::Core::Msgs::Pose;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Inertial.pose)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Inertial.pose)
   return pose_;
 }
-inline ::experimot::msgs::Pose* Inertial::release_pose() {
+inline ::Indriya::Core::Msgs::Pose* Inertial::release_pose() {
   clear_has_pose();
-  ::experimot::msgs::Pose* temp = pose_;
+  ::Indriya::Core::Msgs::Pose* temp = pose_;
   pose_ = NULL;
   return temp;
 }
-inline void Inertial::set_allocated_pose(::experimot::msgs::Pose* pose) {
+inline void Inertial::set_allocated_pose(::Indriya::Core::Msgs::Pose* pose) {
   delete pose_;
   pose_ = pose;
   if (pose) {
@@ -275,7 +276,7 @@ inline void Inertial::set_allocated_pose(::experimot::msgs::Pose* pose) {
   } else {
     clear_has_pose();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Inertial.pose)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Inertial.pose)
 }
 
 // optional double ixx = 3;
@@ -293,13 +294,13 @@ inline void Inertial::clear_ixx() {
   clear_has_ixx();
 }
 inline double Inertial::ixx() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Inertial.ixx)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Inertial.ixx)
   return ixx_;
 }
 inline void Inertial::set_ixx(double value) {
   set_has_ixx();
   ixx_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Inertial.ixx)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Inertial.ixx)
 }
 
 // optional double ixy = 4;
@@ -317,13 +318,13 @@ inline void Inertial::clear_ixy() {
   clear_has_ixy();
 }
 inline double Inertial::ixy() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Inertial.ixy)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Inertial.ixy)
   return ixy_;
 }
 inline void Inertial::set_ixy(double value) {
   set_has_ixy();
   ixy_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Inertial.ixy)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Inertial.ixy)
 }
 
 // optional double ixz = 5;
@@ -341,13 +342,13 @@ inline void Inertial::clear_ixz() {
   clear_has_ixz();
 }
 inline double Inertial::ixz() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Inertial.ixz)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Inertial.ixz)
   return ixz_;
 }
 inline void Inertial::set_ixz(double value) {
   set_has_ixz();
   ixz_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Inertial.ixz)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Inertial.ixz)
 }
 
 // optional double iyy = 6;
@@ -365,13 +366,13 @@ inline void Inertial::clear_iyy() {
   clear_has_iyy();
 }
 inline double Inertial::iyy() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Inertial.iyy)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Inertial.iyy)
   return iyy_;
 }
 inline void Inertial::set_iyy(double value) {
   set_has_iyy();
   iyy_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Inertial.iyy)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Inertial.iyy)
 }
 
 // optional double iyz = 7;
@@ -389,13 +390,13 @@ inline void Inertial::clear_iyz() {
   clear_has_iyz();
 }
 inline double Inertial::iyz() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Inertial.iyz)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Inertial.iyz)
   return iyz_;
 }
 inline void Inertial::set_iyz(double value) {
   set_has_iyz();
   iyz_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Inertial.iyz)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Inertial.iyz)
 }
 
 // optional double izz = 8;
@@ -413,24 +414,25 @@ inline void Inertial::clear_izz() {
   clear_has_izz();
 }
 inline double Inertial::izz() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Inertial.izz)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Inertial.izz)
   return izz_;
 }
 inline void Inertial::set_izz(double value) {
   set_has_izz();
   izz_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Inertial.izz)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Inertial.izz)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Inertial> InertialPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Inertial> InertialPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Inertial const> ConstInertialPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Inertial const> ConstInertialPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_inertial_2eproto__INCLUDED

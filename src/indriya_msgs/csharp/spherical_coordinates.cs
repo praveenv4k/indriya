@@ -8,16 +8,16 @@
 //------------------------------------------------------------------------------
 
 // Generated from: proto/spherical_coordinates.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"SphericalCoordinates")]
   public partial class SphericalCoordinates : global::ProtoBuf.IExtensible
   {
     public SphericalCoordinates() {}
     
-    private experimot.msgs.SphericalCoordinates.SurfaceModel _surface_model;
+    private Indriya.Core.Msgs.SphericalCoordinates.SurfaceModel _surface_model;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"surface_model", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public experimot.msgs.SphericalCoordinates.SurfaceModel surface_model
+    public Indriya.Core.Msgs.SphericalCoordinates.SurfaceModel surface_model
     {
       get { return _surface_model; }
       set { _surface_model = value; }

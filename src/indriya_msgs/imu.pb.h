@@ -34,8 +34,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_imu_2eproto();
@@ -110,14 +111,14 @@ class IMU : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .experimot.msgs.Time stamp = 1;
+  // required .Indriya.Core.Msgs.Time stamp = 1;
   bool has_stamp() const;
   void clear_stamp();
   static const int kStampFieldNumber = 1;
-  const ::experimot::msgs::Time& stamp() const;
-  ::experimot::msgs::Time* mutable_stamp();
-  ::experimot::msgs::Time* release_stamp();
-  void set_allocated_stamp(::experimot::msgs::Time* stamp);
+  const ::Indriya::Core::Msgs::Time& stamp() const;
+  ::Indriya::Core::Msgs::Time* mutable_stamp();
+  ::Indriya::Core::Msgs::Time* release_stamp();
+  void set_allocated_stamp(::Indriya::Core::Msgs::Time* stamp);
 
   // required string entity_name = 2;
   bool has_entity_name() const;
@@ -131,34 +132,34 @@ class IMU : public ::google::protobuf::Message {
   ::std::string* release_entity_name();
   void set_allocated_entity_name(::std::string* entity_name);
 
-  // required .experimot.msgs.Quaternion orientation = 3;
+  // required .Indriya.Core.Msgs.Quaternion orientation = 3;
   bool has_orientation() const;
   void clear_orientation();
   static const int kOrientationFieldNumber = 3;
-  const ::experimot::msgs::Quaternion& orientation() const;
-  ::experimot::msgs::Quaternion* mutable_orientation();
-  ::experimot::msgs::Quaternion* release_orientation();
-  void set_allocated_orientation(::experimot::msgs::Quaternion* orientation);
+  const ::Indriya::Core::Msgs::Quaternion& orientation() const;
+  ::Indriya::Core::Msgs::Quaternion* mutable_orientation();
+  ::Indriya::Core::Msgs::Quaternion* release_orientation();
+  void set_allocated_orientation(::Indriya::Core::Msgs::Quaternion* orientation);
 
-  // required .experimot.msgs.Vector3d angular_velocity = 4;
+  // required .Indriya.Core.Msgs.Vector3d angular_velocity = 4;
   bool has_angular_velocity() const;
   void clear_angular_velocity();
   static const int kAngularVelocityFieldNumber = 4;
-  const ::experimot::msgs::Vector3d& angular_velocity() const;
-  ::experimot::msgs::Vector3d* mutable_angular_velocity();
-  ::experimot::msgs::Vector3d* release_angular_velocity();
-  void set_allocated_angular_velocity(::experimot::msgs::Vector3d* angular_velocity);
+  const ::Indriya::Core::Msgs::Vector3d& angular_velocity() const;
+  ::Indriya::Core::Msgs::Vector3d* mutable_angular_velocity();
+  ::Indriya::Core::Msgs::Vector3d* release_angular_velocity();
+  void set_allocated_angular_velocity(::Indriya::Core::Msgs::Vector3d* angular_velocity);
 
-  // required .experimot.msgs.Vector3d linear_acceleration = 5;
+  // required .Indriya.Core.Msgs.Vector3d linear_acceleration = 5;
   bool has_linear_acceleration() const;
   void clear_linear_acceleration();
   static const int kLinearAccelerationFieldNumber = 5;
-  const ::experimot::msgs::Vector3d& linear_acceleration() const;
-  ::experimot::msgs::Vector3d* mutable_linear_acceleration();
-  ::experimot::msgs::Vector3d* release_linear_acceleration();
-  void set_allocated_linear_acceleration(::experimot::msgs::Vector3d* linear_acceleration);
+  const ::Indriya::Core::Msgs::Vector3d& linear_acceleration() const;
+  ::Indriya::Core::Msgs::Vector3d* mutable_linear_acceleration();
+  ::Indriya::Core::Msgs::Vector3d* release_linear_acceleration();
+  void set_allocated_linear_acceleration(::Indriya::Core::Msgs::Vector3d* linear_acceleration);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.IMU)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.IMU)
  private:
   inline void set_has_stamp();
   inline void clear_has_stamp();
@@ -177,11 +178,11 @@ class IMU : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::Time* stamp_;
+  ::Indriya::Core::Msgs::Time* stamp_;
   ::google::protobuf::internal::ArenaStringPtr entity_name_;
-  ::experimot::msgs::Quaternion* orientation_;
-  ::experimot::msgs::Vector3d* angular_velocity_;
-  ::experimot::msgs::Vector3d* linear_acceleration_;
+  ::Indriya::Core::Msgs::Quaternion* orientation_;
+  ::Indriya::Core::Msgs::Vector3d* angular_velocity_;
+  ::Indriya::Core::Msgs::Vector3d* linear_acceleration_;
   friend void  protobuf_AddDesc_imu_2eproto();
   friend void protobuf_AssignDesc_imu_2eproto();
   friend void protobuf_ShutdownFile_imu_2eproto();
@@ -197,7 +198,7 @@ class IMU : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // IMU
 
-// required .experimot.msgs.Time stamp = 1;
+// required .Indriya.Core.Msgs.Time stamp = 1;
 inline bool IMU::has_stamp() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -208,28 +209,28 @@ inline void IMU::clear_has_stamp() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void IMU::clear_stamp() {
-  if (stamp_ != NULL) stamp_->::experimot::msgs::Time::Clear();
+  if (stamp_ != NULL) stamp_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_stamp();
 }
-inline const ::experimot::msgs::Time& IMU::stamp() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.IMU.stamp)
+inline const ::Indriya::Core::Msgs::Time& IMU::stamp() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.IMU.stamp)
   return stamp_ != NULL ? *stamp_ : *default_instance_->stamp_;
 }
-inline ::experimot::msgs::Time* IMU::mutable_stamp() {
+inline ::Indriya::Core::Msgs::Time* IMU::mutable_stamp() {
   set_has_stamp();
   if (stamp_ == NULL) {
-    stamp_ = new ::experimot::msgs::Time;
+    stamp_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.IMU.stamp)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.IMU.stamp)
   return stamp_;
 }
-inline ::experimot::msgs::Time* IMU::release_stamp() {
+inline ::Indriya::Core::Msgs::Time* IMU::release_stamp() {
   clear_has_stamp();
-  ::experimot::msgs::Time* temp = stamp_;
+  ::Indriya::Core::Msgs::Time* temp = stamp_;
   stamp_ = NULL;
   return temp;
 }
-inline void IMU::set_allocated_stamp(::experimot::msgs::Time* stamp) {
+inline void IMU::set_allocated_stamp(::Indriya::Core::Msgs::Time* stamp) {
   delete stamp_;
   stamp_ = stamp;
   if (stamp) {
@@ -237,7 +238,7 @@ inline void IMU::set_allocated_stamp(::experimot::msgs::Time* stamp) {
   } else {
     clear_has_stamp();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.IMU.stamp)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.IMU.stamp)
 }
 
 // required string entity_name = 2;
@@ -255,28 +256,28 @@ inline void IMU::clear_entity_name() {
   clear_has_entity_name();
 }
 inline const ::std::string& IMU::entity_name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.IMU.entity_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.IMU.entity_name)
   return entity_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void IMU::set_entity_name(const ::std::string& value) {
   set_has_entity_name();
   entity_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.IMU.entity_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.IMU.entity_name)
 }
 inline void IMU::set_entity_name(const char* value) {
   set_has_entity_name();
   entity_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.IMU.entity_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.IMU.entity_name)
 }
 inline void IMU::set_entity_name(const char* value, size_t size) {
   set_has_entity_name();
   entity_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.IMU.entity_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.IMU.entity_name)
 }
 inline ::std::string* IMU::mutable_entity_name() {
   set_has_entity_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.IMU.entity_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.IMU.entity_name)
   return entity_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* IMU::release_entity_name() {
@@ -290,10 +291,10 @@ inline void IMU::set_allocated_entity_name(::std::string* entity_name) {
     clear_has_entity_name();
   }
   entity_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), entity_name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.IMU.entity_name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.IMU.entity_name)
 }
 
-// required .experimot.msgs.Quaternion orientation = 3;
+// required .Indriya.Core.Msgs.Quaternion orientation = 3;
 inline bool IMU::has_orientation() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -304,28 +305,28 @@ inline void IMU::clear_has_orientation() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void IMU::clear_orientation() {
-  if (orientation_ != NULL) orientation_->::experimot::msgs::Quaternion::Clear();
+  if (orientation_ != NULL) orientation_->::Indriya::Core::Msgs::Quaternion::Clear();
   clear_has_orientation();
 }
-inline const ::experimot::msgs::Quaternion& IMU::orientation() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.IMU.orientation)
+inline const ::Indriya::Core::Msgs::Quaternion& IMU::orientation() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.IMU.orientation)
   return orientation_ != NULL ? *orientation_ : *default_instance_->orientation_;
 }
-inline ::experimot::msgs::Quaternion* IMU::mutable_orientation() {
+inline ::Indriya::Core::Msgs::Quaternion* IMU::mutable_orientation() {
   set_has_orientation();
   if (orientation_ == NULL) {
-    orientation_ = new ::experimot::msgs::Quaternion;
+    orientation_ = new ::Indriya::Core::Msgs::Quaternion;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.IMU.orientation)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.IMU.orientation)
   return orientation_;
 }
-inline ::experimot::msgs::Quaternion* IMU::release_orientation() {
+inline ::Indriya::Core::Msgs::Quaternion* IMU::release_orientation() {
   clear_has_orientation();
-  ::experimot::msgs::Quaternion* temp = orientation_;
+  ::Indriya::Core::Msgs::Quaternion* temp = orientation_;
   orientation_ = NULL;
   return temp;
 }
-inline void IMU::set_allocated_orientation(::experimot::msgs::Quaternion* orientation) {
+inline void IMU::set_allocated_orientation(::Indriya::Core::Msgs::Quaternion* orientation) {
   delete orientation_;
   orientation_ = orientation;
   if (orientation) {
@@ -333,10 +334,10 @@ inline void IMU::set_allocated_orientation(::experimot::msgs::Quaternion* orient
   } else {
     clear_has_orientation();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.IMU.orientation)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.IMU.orientation)
 }
 
-// required .experimot.msgs.Vector3d angular_velocity = 4;
+// required .Indriya.Core.Msgs.Vector3d angular_velocity = 4;
 inline bool IMU::has_angular_velocity() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -347,28 +348,28 @@ inline void IMU::clear_has_angular_velocity() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void IMU::clear_angular_velocity() {
-  if (angular_velocity_ != NULL) angular_velocity_->::experimot::msgs::Vector3d::Clear();
+  if (angular_velocity_ != NULL) angular_velocity_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_angular_velocity();
 }
-inline const ::experimot::msgs::Vector3d& IMU::angular_velocity() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.IMU.angular_velocity)
+inline const ::Indriya::Core::Msgs::Vector3d& IMU::angular_velocity() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.IMU.angular_velocity)
   return angular_velocity_ != NULL ? *angular_velocity_ : *default_instance_->angular_velocity_;
 }
-inline ::experimot::msgs::Vector3d* IMU::mutable_angular_velocity() {
+inline ::Indriya::Core::Msgs::Vector3d* IMU::mutable_angular_velocity() {
   set_has_angular_velocity();
   if (angular_velocity_ == NULL) {
-    angular_velocity_ = new ::experimot::msgs::Vector3d;
+    angular_velocity_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.IMU.angular_velocity)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.IMU.angular_velocity)
   return angular_velocity_;
 }
-inline ::experimot::msgs::Vector3d* IMU::release_angular_velocity() {
+inline ::Indriya::Core::Msgs::Vector3d* IMU::release_angular_velocity() {
   clear_has_angular_velocity();
-  ::experimot::msgs::Vector3d* temp = angular_velocity_;
+  ::Indriya::Core::Msgs::Vector3d* temp = angular_velocity_;
   angular_velocity_ = NULL;
   return temp;
 }
-inline void IMU::set_allocated_angular_velocity(::experimot::msgs::Vector3d* angular_velocity) {
+inline void IMU::set_allocated_angular_velocity(::Indriya::Core::Msgs::Vector3d* angular_velocity) {
   delete angular_velocity_;
   angular_velocity_ = angular_velocity;
   if (angular_velocity) {
@@ -376,10 +377,10 @@ inline void IMU::set_allocated_angular_velocity(::experimot::msgs::Vector3d* ang
   } else {
     clear_has_angular_velocity();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.IMU.angular_velocity)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.IMU.angular_velocity)
 }
 
-// required .experimot.msgs.Vector3d linear_acceleration = 5;
+// required .Indriya.Core.Msgs.Vector3d linear_acceleration = 5;
 inline bool IMU::has_linear_acceleration() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -390,28 +391,28 @@ inline void IMU::clear_has_linear_acceleration() {
   _has_bits_[0] &= ~0x00000010u;
 }
 inline void IMU::clear_linear_acceleration() {
-  if (linear_acceleration_ != NULL) linear_acceleration_->::experimot::msgs::Vector3d::Clear();
+  if (linear_acceleration_ != NULL) linear_acceleration_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_linear_acceleration();
 }
-inline const ::experimot::msgs::Vector3d& IMU::linear_acceleration() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.IMU.linear_acceleration)
+inline const ::Indriya::Core::Msgs::Vector3d& IMU::linear_acceleration() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.IMU.linear_acceleration)
   return linear_acceleration_ != NULL ? *linear_acceleration_ : *default_instance_->linear_acceleration_;
 }
-inline ::experimot::msgs::Vector3d* IMU::mutable_linear_acceleration() {
+inline ::Indriya::Core::Msgs::Vector3d* IMU::mutable_linear_acceleration() {
   set_has_linear_acceleration();
   if (linear_acceleration_ == NULL) {
-    linear_acceleration_ = new ::experimot::msgs::Vector3d;
+    linear_acceleration_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.IMU.linear_acceleration)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.IMU.linear_acceleration)
   return linear_acceleration_;
 }
-inline ::experimot::msgs::Vector3d* IMU::release_linear_acceleration() {
+inline ::Indriya::Core::Msgs::Vector3d* IMU::release_linear_acceleration() {
   clear_has_linear_acceleration();
-  ::experimot::msgs::Vector3d* temp = linear_acceleration_;
+  ::Indriya::Core::Msgs::Vector3d* temp = linear_acceleration_;
   linear_acceleration_ = NULL;
   return temp;
 }
-inline void IMU::set_allocated_linear_acceleration(::experimot::msgs::Vector3d* linear_acceleration) {
+inline void IMU::set_allocated_linear_acceleration(::Indriya::Core::Msgs::Vector3d* linear_acceleration) {
   delete linear_acceleration_;
   linear_acceleration_ = linear_acceleration;
   if (linear_acceleration) {
@@ -419,18 +420,19 @@ inline void IMU::set_allocated_linear_acceleration(::experimot::msgs::Vector3d* 
   } else {
     clear_has_linear_acceleration();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.IMU.linear_acceleration)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.IMU.linear_acceleration)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::IMU> IMUPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::IMU> IMUPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::IMU const> ConstIMUPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::IMU const> ConstIMUPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_imu_2eproto__INCLUDED

@@ -10,7 +10,7 @@
 // Generated from: proto/sonar.proto
 // Note: requires additional types generated from: pose.proto
 // Note: requires additional types generated from: vector3d.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Sonar")]
   public partial class Sonar : global::ProtoBuf.IExtensible
@@ -24,9 +24,9 @@ namespace experimot.msgs
       get { return _frame; }
       set { _frame = value; }
     }
-    private experimot.msgs.Pose _world_pose;
+    private Indriya.Core.Msgs.Pose _world_pose;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"world_pose", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Pose world_pose
+    public Indriya.Core.Msgs.Pose world_pose
     {
       get { return _world_pose; }
       set { _world_pose = value; }
@@ -59,10 +59,10 @@ namespace experimot.msgs
       get { return _range; }
       set { _range = value; }
     }
-    private experimot.msgs.Vector3d _contact = null;
+    private Indriya.Core.Msgs.Vector3d _contact = null;
     [global::ProtoBuf.ProtoMember(7, IsRequired = false, Name=@"contact", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Vector3d contact
+    public Indriya.Core.Msgs.Vector3d contact
     {
       get { return _contact; }
       set { _contact = value; }

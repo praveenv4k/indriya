@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -81,14 +82,15 @@ void protobuf_AddDesc_gui_5fcamera_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_pose_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_track_5fvisual_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_pose_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_track_5fvisual_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\020gui_camera.proto\022\016experimot.msgs\032\npose"
-    ".proto\032\022track_visual.proto\"\202\001\n\tGUICamera"
-    "\022\014\n\004name\030\001 \002(\t\022\027\n\017view_controller\030\002 \001(\t\022"
-    "\"\n\004pose\030\003 \001(\0132\024.experimot.msgs.Pose\022*\n\005t"
-    "rack\030\004 \001(\0132\033.experimot.msgs.TrackVisual", 199);
+    "\n\020gui_camera.proto\022\021Indriya.Core.Msgs\032\np"
+    "ose.proto\032\022track_visual.proto\"\210\001\n\tGUICam"
+    "era\022\014\n\004name\030\001 \002(\t\022\027\n\017view_controller\030\002 \001"
+    "(\t\022%\n\004pose\030\003 \001(\0132\027.Indriya.Core.Msgs.Pos"
+    "e\022-\n\005track\030\004 \001(\0132\036.Indriya.Core.Msgs.Tra"
+    "ckVisual", 208);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "gui_camera.proto", &protobuf_RegisterTypes);
   GUICamera::default_instance_ = new GUICamera();
@@ -125,12 +127,12 @@ const int GUICamera::kTrackFieldNumber;
 GUICamera::GUICamera()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.GUICamera)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.GUICamera)
 }
 
 void GUICamera::InitAsDefaultInstance() {
-  pose_ = const_cast< ::experimot::msgs::Pose*>(&::experimot::msgs::Pose::default_instance());
-  track_ = const_cast< ::experimot::msgs::TrackVisual*>(&::experimot::msgs::TrackVisual::default_instance());
+  pose_ = const_cast< ::Indriya::Core::Msgs::Pose*>(&::Indriya::Core::Msgs::Pose::default_instance());
+  track_ = const_cast< ::Indriya::Core::Msgs::TrackVisual*>(&::Indriya::Core::Msgs::TrackVisual::default_instance());
 }
 
 GUICamera::GUICamera(const GUICamera& from)
@@ -138,7 +140,7 @@ GUICamera::GUICamera(const GUICamera& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.GUICamera)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.GUICamera)
 }
 
 void GUICamera::SharedCtor() {
@@ -152,7 +154,7 @@ void GUICamera::SharedCtor() {
 }
 
 GUICamera::~GUICamera() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.GUICamera)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.GUICamera)
   SharedDtor();
 }
 
@@ -199,10 +201,10 @@ void GUICamera::Clear() {
       view_controller_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_pose()) {
-      if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+      if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
     }
     if (has_track()) {
-      if (track_ != NULL) track_->::experimot::msgs::TrackVisual::Clear();
+      if (track_ != NULL) track_->::Indriya::Core::Msgs::TrackVisual::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -215,7 +217,7 @@ bool GUICamera::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.GUICamera)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.GUICamera)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -229,7 +231,7 @@ bool GUICamera::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.GUICamera.name");
+            "Indriya.Core.Msgs.GUICamera.name");
         } else {
           goto handle_unusual;
         }
@@ -246,7 +248,7 @@ bool GUICamera::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->view_controller().data(), this->view_controller().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.GUICamera.view_controller");
+            "Indriya.Core.Msgs.GUICamera.view_controller");
         } else {
           goto handle_unusual;
         }
@@ -254,7 +256,7 @@ bool GUICamera::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Pose pose = 3;
+      // optional .Indriya.Core.Msgs.Pose pose = 3;
       case 3: {
         if (tag == 26) {
          parse_pose:
@@ -267,7 +269,7 @@ bool GUICamera::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.TrackVisual track = 4;
+      // optional .Indriya.Core.Msgs.TrackVisual track = 4;
       case 4: {
         if (tag == 34) {
          parse_track:
@@ -294,23 +296,23 @@ bool GUICamera::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.GUICamera)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.GUICamera)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.GUICamera)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.GUICamera)
   return false;
 #undef DO_
 }
 
 void GUICamera::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.GUICamera)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.GUICamera)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.GUICamera.name");
+      "Indriya.Core.Msgs.GUICamera.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
@@ -320,18 +322,18 @@ void GUICamera::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->view_controller().data(), this->view_controller().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.GUICamera.view_controller");
+      "Indriya.Core.Msgs.GUICamera.view_controller");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->view_controller(), output);
   }
 
-  // optional .experimot.msgs.Pose pose = 3;
+  // optional .Indriya.Core.Msgs.Pose pose = 3;
   if (has_pose()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, *this->pose_, output);
   }
 
-  // optional .experimot.msgs.TrackVisual track = 4;
+  // optional .Indriya.Core.Msgs.TrackVisual track = 4;
   if (has_track()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, *this->track_, output);
@@ -341,18 +343,18 @@ void GUICamera::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.GUICamera)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.GUICamera)
 }
 
 ::google::protobuf::uint8* GUICamera::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.GUICamera)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.GUICamera)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.GUICamera.name");
+      "Indriya.Core.Msgs.GUICamera.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
@@ -363,20 +365,20 @@ void GUICamera::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->view_controller().data(), this->view_controller().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.GUICamera.view_controller");
+      "Indriya.Core.Msgs.GUICamera.view_controller");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->view_controller(), target);
   }
 
-  // optional .experimot.msgs.Pose pose = 3;
+  // optional .Indriya.Core.Msgs.Pose pose = 3;
   if (has_pose()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         3, *this->pose_, target);
   }
 
-  // optional .experimot.msgs.TrackVisual track = 4;
+  // optional .Indriya.Core.Msgs.TrackVisual track = 4;
   if (has_track()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -387,7 +389,7 @@ void GUICamera::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.GUICamera)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.GUICamera)
   return target;
 }
 
@@ -408,14 +410,14 @@ int GUICamera::ByteSize() const {
           this->view_controller());
     }
 
-    // optional .experimot.msgs.Pose pose = 3;
+    // optional .Indriya.Core.Msgs.Pose pose = 3;
     if (has_pose()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->pose_);
     }
 
-    // optional .experimot.msgs.TrackVisual track = 4;
+    // optional .Indriya.Core.Msgs.TrackVisual track = 4;
     if (has_track()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -458,10 +460,10 @@ void GUICamera::MergeFrom(const GUICamera& from) {
       view_controller_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.view_controller_);
     }
     if (from.has_pose()) {
-      mutable_pose()->::experimot::msgs::Pose::MergeFrom(from.pose());
+      mutable_pose()->::Indriya::Core::Msgs::Pose::MergeFrom(from.pose());
     }
     if (from.has_track()) {
-      mutable_track()->::experimot::msgs::TrackVisual::MergeFrom(from.track());
+      mutable_track()->::Indriya::Core::Msgs::TrackVisual::MergeFrom(from.track());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -533,28 +535,28 @@ void GUICamera::InternalSwap(GUICamera* other) {
   clear_has_name();
 }
  const ::std::string& GUICamera::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GUICamera.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GUICamera.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void GUICamera::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.GUICamera.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GUICamera.name)
 }
  void GUICamera::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.GUICamera.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.GUICamera.name)
 }
  void GUICamera::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.GUICamera.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.GUICamera.name)
 }
  ::std::string* GUICamera::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GUICamera.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GUICamera.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* GUICamera::release_name() {
@@ -568,7 +570,7 @@ void GUICamera::InternalSwap(GUICamera* other) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GUICamera.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.GUICamera.name)
 }
 
 // optional string view_controller = 2;
@@ -586,28 +588,28 @@ void GUICamera::InternalSwap(GUICamera* other) {
   clear_has_view_controller();
 }
  const ::std::string& GUICamera::view_controller() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GUICamera.view_controller)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GUICamera.view_controller)
   return view_controller_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void GUICamera::set_view_controller(const ::std::string& value) {
   set_has_view_controller();
   view_controller_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.GUICamera.view_controller)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GUICamera.view_controller)
 }
  void GUICamera::set_view_controller(const char* value) {
   set_has_view_controller();
   view_controller_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.GUICamera.view_controller)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.GUICamera.view_controller)
 }
  void GUICamera::set_view_controller(const char* value, size_t size) {
   set_has_view_controller();
   view_controller_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.GUICamera.view_controller)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.GUICamera.view_controller)
 }
  ::std::string* GUICamera::mutable_view_controller() {
   set_has_view_controller();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GUICamera.view_controller)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GUICamera.view_controller)
   return view_controller_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* GUICamera::release_view_controller() {
@@ -621,10 +623,10 @@ void GUICamera::InternalSwap(GUICamera* other) {
     clear_has_view_controller();
   }
   view_controller_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), view_controller);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GUICamera.view_controller)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.GUICamera.view_controller)
 }
 
-// optional .experimot.msgs.Pose pose = 3;
+// optional .Indriya.Core.Msgs.Pose pose = 3;
  bool GUICamera::has_pose() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -635,28 +637,28 @@ void GUICamera::InternalSwap(GUICamera* other) {
   _has_bits_[0] &= ~0x00000004u;
 }
  void GUICamera::clear_pose() {
-  if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+  if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
   clear_has_pose();
 }
- const ::experimot::msgs::Pose& GUICamera::pose() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GUICamera.pose)
+ const ::Indriya::Core::Msgs::Pose& GUICamera::pose() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GUICamera.pose)
   return pose_ != NULL ? *pose_ : *default_instance_->pose_;
 }
- ::experimot::msgs::Pose* GUICamera::mutable_pose() {
+ ::Indriya::Core::Msgs::Pose* GUICamera::mutable_pose() {
   set_has_pose();
   if (pose_ == NULL) {
-    pose_ = new ::experimot::msgs::Pose;
+    pose_ = new ::Indriya::Core::Msgs::Pose;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GUICamera.pose)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GUICamera.pose)
   return pose_;
 }
- ::experimot::msgs::Pose* GUICamera::release_pose() {
+ ::Indriya::Core::Msgs::Pose* GUICamera::release_pose() {
   clear_has_pose();
-  ::experimot::msgs::Pose* temp = pose_;
+  ::Indriya::Core::Msgs::Pose* temp = pose_;
   pose_ = NULL;
   return temp;
 }
- void GUICamera::set_allocated_pose(::experimot::msgs::Pose* pose) {
+ void GUICamera::set_allocated_pose(::Indriya::Core::Msgs::Pose* pose) {
   delete pose_;
   pose_ = pose;
   if (pose) {
@@ -664,10 +666,10 @@ void GUICamera::InternalSwap(GUICamera* other) {
   } else {
     clear_has_pose();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GUICamera.pose)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.GUICamera.pose)
 }
 
-// optional .experimot.msgs.TrackVisual track = 4;
+// optional .Indriya.Core.Msgs.TrackVisual track = 4;
  bool GUICamera::has_track() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -678,28 +680,28 @@ void GUICamera::InternalSwap(GUICamera* other) {
   _has_bits_[0] &= ~0x00000008u;
 }
  void GUICamera::clear_track() {
-  if (track_ != NULL) track_->::experimot::msgs::TrackVisual::Clear();
+  if (track_ != NULL) track_->::Indriya::Core::Msgs::TrackVisual::Clear();
   clear_has_track();
 }
- const ::experimot::msgs::TrackVisual& GUICamera::track() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GUICamera.track)
+ const ::Indriya::Core::Msgs::TrackVisual& GUICamera::track() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GUICamera.track)
   return track_ != NULL ? *track_ : *default_instance_->track_;
 }
- ::experimot::msgs::TrackVisual* GUICamera::mutable_track() {
+ ::Indriya::Core::Msgs::TrackVisual* GUICamera::mutable_track() {
   set_has_track();
   if (track_ == NULL) {
-    track_ = new ::experimot::msgs::TrackVisual;
+    track_ = new ::Indriya::Core::Msgs::TrackVisual;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GUICamera.track)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GUICamera.track)
   return track_;
 }
- ::experimot::msgs::TrackVisual* GUICamera::release_track() {
+ ::Indriya::Core::Msgs::TrackVisual* GUICamera::release_track() {
   clear_has_track();
-  ::experimot::msgs::TrackVisual* temp = track_;
+  ::Indriya::Core::Msgs::TrackVisual* temp = track_;
   track_ = NULL;
   return temp;
 }
- void GUICamera::set_allocated_track(::experimot::msgs::TrackVisual* track) {
+ void GUICamera::set_allocated_track(::Indriya::Core::Msgs::TrackVisual* track) {
   delete track_;
   track_ = track;
   if (track) {
@@ -707,15 +709,16 @@ void GUICamera::InternalSwap(GUICamera* other) {
   } else {
     clear_has_track();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GUICamera.track)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.GUICamera.track)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.GUICamera", GUICamera)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.GUICamera", GUICamera)
 // @@protoc_insertion_point(global_scope)

@@ -19,9 +19,9 @@ import laserscan_pb2 as laserscan__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='laserscan_stamped.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x17laserscan_stamped.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\x1a\x0flaserscan.proto\"_\n\x10LaserScanStamped\x12\"\n\x04time\x18\x01 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\'\n\x04scan\x18\x02 \x02(\x0b\x32\x19.experimot.msgs.LaserScan')
+  serialized_pb=_b('\n\x17laserscan_stamped.proto\x12\x11Indriya.Core.Msgs\x1a\ntime.proto\x1a\x0flaserscan.proto\"e\n\x10LaserScanStamped\x12%\n\x04time\x18\x01 \x02(\x0b\x32\x17.Indriya.Core.Msgs.Time\x12*\n\x04scan\x18\x02 \x02(\x0b\x32\x1c.Indriya.Core.Msgs.LaserScan')
   ,
   dependencies=[time__pb2.DESCRIPTOR,laserscan__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -31,20 +31,20 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _LASERSCANSTAMPED = _descriptor.Descriptor(
   name='LaserScanStamped',
-  full_name='experimot.msgs.LaserScanStamped',
+  full_name='Indriya.Core.Msgs.LaserScanStamped',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='time', full_name='experimot.msgs.LaserScanStamped.time', index=0,
+      name='time', full_name='Indriya.Core.Msgs.LaserScanStamped.time', index=0,
       number=1, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='scan', full_name='experimot.msgs.LaserScanStamped.scan', index=1,
+      name='scan', full_name='Indriya.Core.Msgs.LaserScanStamped.scan', index=1,
       number=2, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -62,8 +62,8 @@ _LASERSCANSTAMPED = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=72,
-  serialized_end=167,
+  serialized_start=75,
+  serialized_end=176,
 )
 
 _LASERSCANSTAMPED.fields_by_name['time'].message_type = time__pb2._TIME
@@ -73,7 +73,7 @@ DESCRIPTOR.message_types_by_name['LaserScanStamped'] = _LASERSCANSTAMPED
 LaserScanStamped = _reflection.GeneratedProtocolMessageType('LaserScanStamped', (_message.Message,), dict(
   DESCRIPTOR = _LASERSCANSTAMPED,
   __module__ = 'laserscan_stamped_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.LaserScanStamped)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.LaserScanStamped)
   ))
 _sym_db.RegisterMessage(LaserScanStamped)
 

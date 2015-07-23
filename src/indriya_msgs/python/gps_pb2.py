@@ -18,9 +18,9 @@ import time_pb2 as time__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='gps.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\tgps.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\"\xbf\x01\n\x03GPS\x12\"\n\x04time\x18\x01 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\x11\n\tlink_name\x18\x02 \x02(\t\x12\x14\n\x0clatitude_deg\x18\x03 \x02(\x01\x12\x15\n\rlongitude_deg\x18\x04 \x02(\x01\x12\x10\n\x08\x61ltitude\x18\x05 \x02(\x01\x12\x15\n\rvelocity_east\x18\x06 \x01(\x01\x12\x16\n\x0evelocity_north\x18\x07 \x01(\x01\x12\x13\n\x0bvelocity_up\x18\x08 \x01(\x01')
+  serialized_pb=_b('\n\tgps.proto\x12\x11Indriya.Core.Msgs\x1a\ntime.proto\"\xc2\x01\n\x03GPS\x12%\n\x04time\x18\x01 \x02(\x0b\x32\x17.Indriya.Core.Msgs.Time\x12\x11\n\tlink_name\x18\x02 \x02(\t\x12\x14\n\x0clatitude_deg\x18\x03 \x02(\x01\x12\x15\n\rlongitude_deg\x18\x04 \x02(\x01\x12\x10\n\x08\x61ltitude\x18\x05 \x02(\x01\x12\x15\n\rvelocity_east\x18\x06 \x01(\x01\x12\x16\n\x0evelocity_north\x18\x07 \x01(\x01\x12\x13\n\x0bvelocity_up\x18\x08 \x01(\x01')
   ,
   dependencies=[time__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,62 +30,62 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _GPS = _descriptor.Descriptor(
   name='GPS',
-  full_name='experimot.msgs.GPS',
+  full_name='Indriya.Core.Msgs.GPS',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='time', full_name='experimot.msgs.GPS.time', index=0,
+      name='time', full_name='Indriya.Core.Msgs.GPS.time', index=0,
       number=1, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='link_name', full_name='experimot.msgs.GPS.link_name', index=1,
+      name='link_name', full_name='Indriya.Core.Msgs.GPS.link_name', index=1,
       number=2, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='latitude_deg', full_name='experimot.msgs.GPS.latitude_deg', index=2,
+      name='latitude_deg', full_name='Indriya.Core.Msgs.GPS.latitude_deg', index=2,
       number=3, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='longitude_deg', full_name='experimot.msgs.GPS.longitude_deg', index=3,
+      name='longitude_deg', full_name='Indriya.Core.Msgs.GPS.longitude_deg', index=3,
       number=4, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='altitude', full_name='experimot.msgs.GPS.altitude', index=4,
+      name='altitude', full_name='Indriya.Core.Msgs.GPS.altitude', index=4,
       number=5, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='velocity_east', full_name='experimot.msgs.GPS.velocity_east', index=5,
+      name='velocity_east', full_name='Indriya.Core.Msgs.GPS.velocity_east', index=5,
       number=6, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='velocity_north', full_name='experimot.msgs.GPS.velocity_north', index=6,
+      name='velocity_north', full_name='Indriya.Core.Msgs.GPS.velocity_north', index=6,
       number=7, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='velocity_up', full_name='experimot.msgs.GPS.velocity_up', index=7,
+      name='velocity_up', full_name='Indriya.Core.Msgs.GPS.velocity_up', index=7,
       number=8, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -103,8 +103,8 @@ _GPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=42,
-  serialized_end=233,
+  serialized_start=45,
+  serialized_end=239,
 )
 
 _GPS.fields_by_name['time'].message_type = time__pb2._TIME
@@ -113,7 +113,7 @@ DESCRIPTOR.message_types_by_name['GPS'] = _GPS
 GPS = _reflection.GeneratedProtocolMessageType('GPS', (_message.Message,), dict(
   DESCRIPTOR = _GPS,
   __module__ = 'gps_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.GPS)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.GPS)
   ))
 _sym_db.RegisterMessage(GPS)
 

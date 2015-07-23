@@ -9,25 +9,25 @@
 
 // Generated from: proto/joystick.proto
 // Note: requires additional types generated from: vector3d.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Joystick")]
   public partial class Joystick : global::ProtoBuf.IExtensible
   {
     public Joystick() {}
     
-    private experimot.msgs.Vector3d _translation = null;
+    private Indriya.Core.Msgs.Vector3d _translation = null;
     [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"translation", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Vector3d translation
+    public Indriya.Core.Msgs.Vector3d translation
     {
       get { return _translation; }
       set { _translation = value; }
     }
-    private experimot.msgs.Vector3d _rotation = null;
+    private Indriya.Core.Msgs.Vector3d _rotation = null;
     [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"rotation", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Vector3d rotation
+    public Indriya.Core.Msgs.Vector3d rotation
     {
       get { return _rotation; }
       set { _rotation = value; }

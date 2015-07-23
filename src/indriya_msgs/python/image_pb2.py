@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='image.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x0bimage.proto\x12\x0e\x65xperimot.msgs\"X\n\x05Image\x12\r\n\x05width\x18\x01 \x02(\r\x12\x0e\n\x06height\x18\x02 \x02(\r\x12\x14\n\x0cpixel_format\x18\x03 \x02(\r\x12\x0c\n\x04step\x18\x04 \x02(\r\x12\x0c\n\x04\x64\x61ta\x18\x05 \x02(\x0c')
+  serialized_pb=_b('\n\x0bimage.proto\x12\x11Indriya.Core.Msgs\"X\n\x05Image\x12\r\n\x05width\x18\x01 \x02(\r\x12\x0e\n\x06height\x18\x02 \x02(\r\x12\x14\n\x0cpixel_format\x18\x03 \x02(\r\x12\x0c\n\x04step\x18\x04 \x02(\r\x12\x0c\n\x04\x64\x61ta\x18\x05 \x02(\x0c')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -28,41 +28,41 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _IMAGE = _descriptor.Descriptor(
   name='Image',
-  full_name='experimot.msgs.Image',
+  full_name='Indriya.Core.Msgs.Image',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='width', full_name='experimot.msgs.Image.width', index=0,
+      name='width', full_name='Indriya.Core.Msgs.Image.width', index=0,
       number=1, type=13, cpp_type=3, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='height', full_name='experimot.msgs.Image.height', index=1,
+      name='height', full_name='Indriya.Core.Msgs.Image.height', index=1,
       number=2, type=13, cpp_type=3, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='pixel_format', full_name='experimot.msgs.Image.pixel_format', index=2,
+      name='pixel_format', full_name='Indriya.Core.Msgs.Image.pixel_format', index=2,
       number=3, type=13, cpp_type=3, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='step', full_name='experimot.msgs.Image.step', index=3,
+      name='step', full_name='Indriya.Core.Msgs.Image.step', index=3,
       number=4, type=13, cpp_type=3, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='data', full_name='experimot.msgs.Image.data', index=4,
+      name='data', full_name='Indriya.Core.Msgs.Image.data', index=4,
       number=5, type=12, cpp_type=9, label=2,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
@@ -80,8 +80,8 @@ _IMAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=31,
-  serialized_end=119,
+  serialized_start=34,
+  serialized_end=122,
 )
 
 DESCRIPTOR.message_types_by_name['Image'] = _IMAGE
@@ -89,7 +89,7 @@ DESCRIPTOR.message_types_by_name['Image'] = _IMAGE
 Image = _reflection.GeneratedProtocolMessageType('Image', (_message.Message,), dict(
   DESCRIPTOR = _IMAGE,
   __module__ = 'image_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Image)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Image)
   ))
 _sym_db.RegisterMessage(Image)
 

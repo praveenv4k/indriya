@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='spherical_coordinates.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x1bspherical_coordinates.proto\x12\x0e\x65xperimot.msgs\"\xd6\x01\n\x14SphericalCoordinates\x12H\n\rsurface_model\x18\x01 \x02(\x0e\x32\x31.experimot.msgs.SphericalCoordinates.SurfaceModel\x12\x14\n\x0clatitude_deg\x18\x02 \x02(\x01\x12\x15\n\rlongitude_deg\x18\x03 \x02(\x01\x12\x11\n\televation\x18\x04 \x02(\x01\x12\x13\n\x0bheading_deg\x18\x05 \x02(\x01\"\x1f\n\x0cSurfaceModel\x12\x0f\n\x0b\x45\x41RTH_WGS84\x10\x01')
+  serialized_pb=_b('\n\x1bspherical_coordinates.proto\x12\x11Indriya.Core.Msgs\"\xd9\x01\n\x14SphericalCoordinates\x12K\n\rsurface_model\x18\x01 \x02(\x0e\x32\x34.Indriya.Core.Msgs.SphericalCoordinates.SurfaceModel\x12\x14\n\x0clatitude_deg\x18\x02 \x02(\x01\x12\x15\n\rlongitude_deg\x18\x03 \x02(\x01\x12\x11\n\televation\x18\x04 \x02(\x01\x12\x13\n\x0bheading_deg\x18\x05 \x02(\x01\"\x1f\n\x0cSurfaceModel\x12\x0f\n\x0b\x45\x41RTH_WGS84\x10\x01')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -27,7 +27,7 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _SPHERICALCOORDINATES_SURFACEMODEL = _descriptor.EnumDescriptor(
   name='SurfaceModel',
-  full_name='experimot.msgs.SphericalCoordinates.SurfaceModel',
+  full_name='Indriya.Core.Msgs.SphericalCoordinates.SurfaceModel',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -38,49 +38,49 @@ _SPHERICALCOORDINATES_SURFACEMODEL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=231,
-  serialized_end=262,
+  serialized_start=237,
+  serialized_end=268,
 )
 _sym_db.RegisterEnumDescriptor(_SPHERICALCOORDINATES_SURFACEMODEL)
 
 
 _SPHERICALCOORDINATES = _descriptor.Descriptor(
   name='SphericalCoordinates',
-  full_name='experimot.msgs.SphericalCoordinates',
+  full_name='Indriya.Core.Msgs.SphericalCoordinates',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='surface_model', full_name='experimot.msgs.SphericalCoordinates.surface_model', index=0,
+      name='surface_model', full_name='Indriya.Core.Msgs.SphericalCoordinates.surface_model', index=0,
       number=1, type=14, cpp_type=8, label=2,
       has_default_value=False, default_value=1,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='latitude_deg', full_name='experimot.msgs.SphericalCoordinates.latitude_deg', index=1,
+      name='latitude_deg', full_name='Indriya.Core.Msgs.SphericalCoordinates.latitude_deg', index=1,
       number=2, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='longitude_deg', full_name='experimot.msgs.SphericalCoordinates.longitude_deg', index=2,
+      name='longitude_deg', full_name='Indriya.Core.Msgs.SphericalCoordinates.longitude_deg', index=2,
       number=3, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='elevation', full_name='experimot.msgs.SphericalCoordinates.elevation', index=3,
+      name='elevation', full_name='Indriya.Core.Msgs.SphericalCoordinates.elevation', index=3,
       number=4, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='heading_deg', full_name='experimot.msgs.SphericalCoordinates.heading_deg', index=4,
+      name='heading_deg', full_name='Indriya.Core.Msgs.SphericalCoordinates.heading_deg', index=4,
       number=5, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -99,8 +99,8 @@ _SPHERICALCOORDINATES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=48,
-  serialized_end=262,
+  serialized_start=51,
+  serialized_end=268,
 )
 
 _SPHERICALCOORDINATES.fields_by_name['surface_model'].enum_type = _SPHERICALCOORDINATES_SURFACEMODEL
@@ -110,7 +110,7 @@ DESCRIPTOR.message_types_by_name['SphericalCoordinates'] = _SPHERICALCOORDINATES
 SphericalCoordinates = _reflection.GeneratedProtocolMessageType('SphericalCoordinates', (_message.Message,), dict(
   DESCRIPTOR = _SPHERICALCOORDINATES,
   __module__ = 'spherical_coordinates_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.SphericalCoordinates)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.SphericalCoordinates)
   ))
 _sym_db.RegisterMessage(SphericalCoordinates)
 

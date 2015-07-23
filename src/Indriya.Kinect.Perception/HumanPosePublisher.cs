@@ -1,5 +1,5 @@
-﻿using experimot.msgs;
-using Experimot.Core;
+﻿using Experimot.Core;
+using Indriya.Core.Msgs;
 
 namespace Experimot.Kinect.Perception
 {

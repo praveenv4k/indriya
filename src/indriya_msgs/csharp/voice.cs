@@ -9,7 +9,7 @@
 
 // Generated from: proto/voice.proto
 // Note: requires additional types generated from: param.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"VoiceCommandDescription")]
   public partial class VoiceCommandDescription : global::ProtoBuf.IExtensible
@@ -72,16 +72,16 @@ namespace experimot.msgs
       get { return _name; }
       set { _name = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Param> _params = new global::System.Collections.Generic.List<experimot.msgs.Param>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Param> _params = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Param>();
     [global::ProtoBuf.ProtoMember(2, Name=@"params", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Param> @params
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Param> @params
     {
       get { return _params; }
     }
   
-    private readonly global::System.Collections.Generic.List<experimot.msgs.VoiceCommandDescription> _commands = new global::System.Collections.Generic.List<experimot.msgs.VoiceCommandDescription>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.VoiceCommandDescription> _commands = new global::System.Collections.Generic.List<Indriya.Core.Msgs.VoiceCommandDescription>();
     [global::ProtoBuf.ProtoMember(3, Name=@"commands", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.VoiceCommandDescription> commands
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.VoiceCommandDescription> commands
     {
       get { return _commands; }
     }
@@ -96,9 +96,9 @@ namespace experimot.msgs
   {
     public VoiceRecognitionModules() {}
     
-    private readonly global::System.Collections.Generic.List<experimot.msgs.VoiceRecognitionModule> _modules = new global::System.Collections.Generic.List<experimot.msgs.VoiceRecognitionModule>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.VoiceRecognitionModule> _modules = new global::System.Collections.Generic.List<Indriya.Core.Msgs.VoiceRecognitionModule>();
     [global::ProtoBuf.ProtoMember(1, Name=@"modules", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.VoiceRecognitionModule> modules
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.VoiceRecognitionModule> modules
     {
       get { return _modules; }
     }

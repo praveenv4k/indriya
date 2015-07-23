@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -85,14 +86,14 @@ void protobuf_AddDesc_sky_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_color_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_color_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\tsky.proto\022\016experimot.msgs\032\013color.proto"
-    "\"\271\001\n\003Sky\022\014\n\004time\030\001 \001(\001\022\017\n\007sunrise\030\002 \001(\001\022"
-    "\016\n\006sunset\030\003 \001(\001\022\022\n\nwind_speed\030\004 \001(\001\022\026\n\016w"
-    "ind_direction\030\005 \001(\001\022,\n\rcloud_ambient\030\006 \001"
-    "(\0132\025.experimot.msgs.Color\022\020\n\010humidity\030\007 "
-    "\001(\001\022\027\n\017mean_cloud_size\030\010 \001(\001", 228);
+    "\n\tsky.proto\022\021Indriya.Core.Msgs\032\013color.pr"
+    "oto\"\274\001\n\003Sky\022\014\n\004time\030\001 \001(\001\022\017\n\007sunrise\030\002 \001"
+    "(\001\022\016\n\006sunset\030\003 \001(\001\022\022\n\nwind_speed\030\004 \001(\001\022\026"
+    "\n\016wind_direction\030\005 \001(\001\022/\n\rcloud_ambient\030"
+    "\006 \001(\0132\030.Indriya.Core.Msgs.Color\022\020\n\010humid"
+    "ity\030\007 \001(\001\022\027\n\017mean_cloud_size\030\010 \001(\001", 234);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "sky.proto", &protobuf_RegisterTypes);
   Sky::default_instance_ = new Sky();
@@ -133,11 +134,11 @@ const int Sky::kMeanCloudSizeFieldNumber;
 Sky::Sky()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Sky)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Sky)
 }
 
 void Sky::InitAsDefaultInstance() {
-  cloud_ambient_ = const_cast< ::experimot::msgs::Color*>(&::experimot::msgs::Color::default_instance());
+  cloud_ambient_ = const_cast< ::Indriya::Core::Msgs::Color*>(&::Indriya::Core::Msgs::Color::default_instance());
 }
 
 Sky::Sky(const Sky& from)
@@ -145,7 +146,7 @@ Sky::Sky(const Sky& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Sky)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Sky)
 }
 
 void Sky::SharedCtor() {
@@ -162,7 +163,7 @@ void Sky::SharedCtor() {
 }
 
 Sky::~Sky() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Sky)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Sky)
   SharedDtor();
 }
 
@@ -210,7 +211,7 @@ void Sky::Clear() {
     ZR_(time_, wind_direction_);
     ZR_(humidity_, mean_cloud_size_);
     if (has_cloud_ambient()) {
-      if (cloud_ambient_ != NULL) cloud_ambient_->::experimot::msgs::Color::Clear();
+      if (cloud_ambient_ != NULL) cloud_ambient_->::Indriya::Core::Msgs::Color::Clear();
     }
   }
 
@@ -227,7 +228,7 @@ bool Sky::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Sky)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Sky)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -307,7 +308,7 @@ bool Sky::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Color cloud_ambient = 6;
+      // optional .Indriya.Core.Msgs.Color cloud_ambient = 6;
       case 6: {
         if (tag == 50) {
          parse_cloud_ambient:
@@ -364,17 +365,17 @@ bool Sky::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Sky)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Sky)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Sky)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Sky)
   return false;
 #undef DO_
 }
 
 void Sky::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Sky)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Sky)
   // optional double time = 1;
   if (has_time()) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(1, this->time(), output);
@@ -400,7 +401,7 @@ void Sky::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->wind_direction(), output);
   }
 
-  // optional .experimot.msgs.Color cloud_ambient = 6;
+  // optional .Indriya.Core.Msgs.Color cloud_ambient = 6;
   if (has_cloud_ambient()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       6, *this->cloud_ambient_, output);
@@ -420,12 +421,12 @@ void Sky::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Sky)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Sky)
 }
 
 ::google::protobuf::uint8* Sky::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Sky)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Sky)
   // optional double time = 1;
   if (has_time()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(1, this->time(), target);
@@ -451,7 +452,7 @@ void Sky::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->wind_direction(), target);
   }
 
-  // optional .experimot.msgs.Color cloud_ambient = 6;
+  // optional .Indriya.Core.Msgs.Color cloud_ambient = 6;
   if (has_cloud_ambient()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -472,7 +473,7 @@ void Sky::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Sky)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Sky)
   return target;
 }
 
@@ -505,7 +506,7 @@ int Sky::ByteSize() const {
       total_size += 1 + 8;
     }
 
-    // optional .experimot.msgs.Color cloud_ambient = 6;
+    // optional .Indriya.Core.Msgs.Color cloud_ambient = 6;
     if (has_cloud_ambient()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -565,7 +566,7 @@ void Sky::MergeFrom(const Sky& from) {
       set_wind_direction(from.wind_direction());
     }
     if (from.has_cloud_ambient()) {
-      mutable_cloud_ambient()->::experimot::msgs::Color::MergeFrom(from.cloud_ambient());
+      mutable_cloud_ambient()->::Indriya::Core::Msgs::Color::MergeFrom(from.cloud_ambient());
     }
     if (from.has_humidity()) {
       set_humidity(from.humidity());
@@ -643,13 +644,13 @@ void Sky::InternalSwap(Sky* other) {
   clear_has_time();
 }
  double Sky::time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sky.time)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sky.time)
   return time_;
 }
  void Sky::set_time(double value) {
   set_has_time();
   time_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sky.time)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sky.time)
 }
 
 // optional double sunrise = 2;
@@ -667,13 +668,13 @@ void Sky::InternalSwap(Sky* other) {
   clear_has_sunrise();
 }
  double Sky::sunrise() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sky.sunrise)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sky.sunrise)
   return sunrise_;
 }
  void Sky::set_sunrise(double value) {
   set_has_sunrise();
   sunrise_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sky.sunrise)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sky.sunrise)
 }
 
 // optional double sunset = 3;
@@ -691,13 +692,13 @@ void Sky::InternalSwap(Sky* other) {
   clear_has_sunset();
 }
  double Sky::sunset() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sky.sunset)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sky.sunset)
   return sunset_;
 }
  void Sky::set_sunset(double value) {
   set_has_sunset();
   sunset_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sky.sunset)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sky.sunset)
 }
 
 // optional double wind_speed = 4;
@@ -715,13 +716,13 @@ void Sky::InternalSwap(Sky* other) {
   clear_has_wind_speed();
 }
  double Sky::wind_speed() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sky.wind_speed)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sky.wind_speed)
   return wind_speed_;
 }
  void Sky::set_wind_speed(double value) {
   set_has_wind_speed();
   wind_speed_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sky.wind_speed)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sky.wind_speed)
 }
 
 // optional double wind_direction = 5;
@@ -739,16 +740,16 @@ void Sky::InternalSwap(Sky* other) {
   clear_has_wind_direction();
 }
  double Sky::wind_direction() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sky.wind_direction)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sky.wind_direction)
   return wind_direction_;
 }
  void Sky::set_wind_direction(double value) {
   set_has_wind_direction();
   wind_direction_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sky.wind_direction)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sky.wind_direction)
 }
 
-// optional .experimot.msgs.Color cloud_ambient = 6;
+// optional .Indriya.Core.Msgs.Color cloud_ambient = 6;
  bool Sky::has_cloud_ambient() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -759,28 +760,28 @@ void Sky::InternalSwap(Sky* other) {
   _has_bits_[0] &= ~0x00000020u;
 }
  void Sky::clear_cloud_ambient() {
-  if (cloud_ambient_ != NULL) cloud_ambient_->::experimot::msgs::Color::Clear();
+  if (cloud_ambient_ != NULL) cloud_ambient_->::Indriya::Core::Msgs::Color::Clear();
   clear_has_cloud_ambient();
 }
- const ::experimot::msgs::Color& Sky::cloud_ambient() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sky.cloud_ambient)
+ const ::Indriya::Core::Msgs::Color& Sky::cloud_ambient() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sky.cloud_ambient)
   return cloud_ambient_ != NULL ? *cloud_ambient_ : *default_instance_->cloud_ambient_;
 }
- ::experimot::msgs::Color* Sky::mutable_cloud_ambient() {
+ ::Indriya::Core::Msgs::Color* Sky::mutable_cloud_ambient() {
   set_has_cloud_ambient();
   if (cloud_ambient_ == NULL) {
-    cloud_ambient_ = new ::experimot::msgs::Color;
+    cloud_ambient_ = new ::Indriya::Core::Msgs::Color;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Sky.cloud_ambient)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Sky.cloud_ambient)
   return cloud_ambient_;
 }
- ::experimot::msgs::Color* Sky::release_cloud_ambient() {
+ ::Indriya::Core::Msgs::Color* Sky::release_cloud_ambient() {
   clear_has_cloud_ambient();
-  ::experimot::msgs::Color* temp = cloud_ambient_;
+  ::Indriya::Core::Msgs::Color* temp = cloud_ambient_;
   cloud_ambient_ = NULL;
   return temp;
 }
- void Sky::set_allocated_cloud_ambient(::experimot::msgs::Color* cloud_ambient) {
+ void Sky::set_allocated_cloud_ambient(::Indriya::Core::Msgs::Color* cloud_ambient) {
   delete cloud_ambient_;
   cloud_ambient_ = cloud_ambient;
   if (cloud_ambient) {
@@ -788,7 +789,7 @@ void Sky::InternalSwap(Sky* other) {
   } else {
     clear_has_cloud_ambient();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Sky.cloud_ambient)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Sky.cloud_ambient)
 }
 
 // optional double humidity = 7;
@@ -806,13 +807,13 @@ void Sky::InternalSwap(Sky* other) {
   clear_has_humidity();
 }
  double Sky::humidity() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sky.humidity)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sky.humidity)
   return humidity_;
 }
  void Sky::set_humidity(double value) {
   set_has_humidity();
   humidity_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sky.humidity)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sky.humidity)
 }
 
 // optional double mean_cloud_size = 8;
@@ -830,21 +831,22 @@ void Sky::InternalSwap(Sky* other) {
   clear_has_mean_cloud_size();
 }
  double Sky::mean_cloud_size() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sky.mean_cloud_size)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sky.mean_cloud_size)
   return mean_cloud_size_;
 }
  void Sky::set_mean_cloud_size(double value) {
   set_has_mean_cloud_size();
   mean_cloud_size_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sky.mean_cloud_size)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sky.mean_cloud_size)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Sky", Sky)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Sky", Sky)
 // @@protoc_insertion_point(global_scope)

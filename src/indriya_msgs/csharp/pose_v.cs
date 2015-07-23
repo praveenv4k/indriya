@@ -9,16 +9,16 @@
 
 // Generated from: proto/pose_v.proto
 // Note: requires additional types generated from: pose.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Pose_V")]
   public partial class Pose_V : global::ProtoBuf.IExtensible
   {
     public Pose_V() {}
     
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Pose> _pose = new global::System.Collections.Generic.List<experimot.msgs.Pose>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Pose> _pose = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Pose>();
     [global::ProtoBuf.ProtoMember(1, Name=@"pose", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Pose> pose
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Pose> pose
     {
       get { return _pose; }
     }

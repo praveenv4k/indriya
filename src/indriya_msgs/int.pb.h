@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_int_2eproto();
@@ -114,7 +115,7 @@ class Int : public ::google::protobuf::Message {
   ::google::protobuf::int32 data() const;
   void set_data(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Int)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Int)
  private:
   inline void set_has_data();
   inline void clear_has_data();
@@ -153,24 +154,25 @@ inline void Int::clear_data() {
   clear_has_data();
 }
 inline ::google::protobuf::int32 Int::data() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Int.data)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Int.data)
   return data_;
 }
 inline void Int::set_data(::google::protobuf::int32 value) {
   set_has_data();
   data_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Int.data)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Int.data)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Int> IntPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Int> IntPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Int const> ConstIntPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Int const> ConstIntPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_int_2eproto__INCLUDED

@@ -11,7 +11,7 @@
 // Note: requires additional types generated from: vector3d.proto
 // Note: requires additional types generated from: time.proto
 // Note: requires additional types generated from: joint_wrench.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Contact")]
   public partial class Contact : global::ProtoBuf.IExtensible
@@ -32,16 +32,16 @@ namespace experimot.msgs
       get { return _collision2; }
       set { _collision2 = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Vector3d> _position = new global::System.Collections.Generic.List<experimot.msgs.Vector3d>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector3d> _position = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector3d>();
     [global::ProtoBuf.ProtoMember(3, Name=@"position", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Vector3d> position
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector3d> position
     {
       get { return _position; }
     }
   
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Vector3d> _normal = new global::System.Collections.Generic.List<experimot.msgs.Vector3d>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector3d> _normal = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector3d>();
     [global::ProtoBuf.ProtoMember(4, Name=@"normal", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Vector3d> normal
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector3d> normal
     {
       get { return _normal; }
     }
@@ -53,16 +53,16 @@ namespace experimot.msgs
       get { return _depth; }
     }
   
-    private readonly global::System.Collections.Generic.List<experimot.msgs.JointWrench> _wrench = new global::System.Collections.Generic.List<experimot.msgs.JointWrench>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.JointWrench> _wrench = new global::System.Collections.Generic.List<Indriya.Core.Msgs.JointWrench>();
     [global::ProtoBuf.ProtoMember(6, Name=@"wrench", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.JointWrench> wrench
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.JointWrench> wrench
     {
       get { return _wrench; }
     }
   
-    private experimot.msgs.Time _time;
+    private Indriya.Core.Msgs.Time _time;
     [global::ProtoBuf.ProtoMember(7, IsRequired = true, Name=@"time", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Time time
+    public Indriya.Core.Msgs.Time time
     {
       get { return _time; }
       set { _time = value; }

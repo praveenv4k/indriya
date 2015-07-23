@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_shadows_2eproto();
@@ -156,23 +157,23 @@ class Shadows : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .experimot.msgs.Shadows.ShadowType type = 5;
+  // optional .Indriya.Core.Msgs.Shadows.ShadowType type = 5;
   bool has_type() const;
   void clear_type();
   static const int kTypeFieldNumber = 5;
-  ::experimot::msgs::Shadows_ShadowType type() const;
-  void set_type(::experimot::msgs::Shadows_ShadowType value);
+  ::Indriya::Core::Msgs::Shadows_ShadowType type() const;
+  void set_type(::Indriya::Core::Msgs::Shadows_ShadowType value);
 
-  // optional .experimot.msgs.Color color = 6;
+  // optional .Indriya.Core.Msgs.Color color = 6;
   bool has_color() const;
   void clear_color();
   static const int kColorFieldNumber = 6;
-  const ::experimot::msgs::Color& color() const;
-  ::experimot::msgs::Color* mutable_color();
-  ::experimot::msgs::Color* release_color();
-  void set_allocated_color(::experimot::msgs::Color* color);
+  const ::Indriya::Core::Msgs::Color& color() const;
+  ::Indriya::Core::Msgs::Color* mutable_color();
+  ::Indriya::Core::Msgs::Color* release_color();
+  void set_allocated_color(::Indriya::Core::Msgs::Color* color);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Shadows)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Shadows)
  private:
   inline void set_has_type();
   inline void clear_has_type();
@@ -182,7 +183,7 @@ class Shadows : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::Color* color_;
+  ::Indriya::Core::Msgs::Color* color_;
   int type_;
   friend void  protobuf_AddDesc_shadows_2eproto();
   friend void protobuf_AssignDesc_shadows_2eproto();
@@ -199,7 +200,7 @@ class Shadows : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // Shadows
 
-// optional .experimot.msgs.Shadows.ShadowType type = 5;
+// optional .Indriya.Core.Msgs.Shadows.ShadowType type = 5;
 inline bool Shadows::has_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -213,18 +214,18 @@ inline void Shadows::clear_type() {
   type_ = 1;
   clear_has_type();
 }
-inline ::experimot::msgs::Shadows_ShadowType Shadows::type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Shadows.type)
-  return static_cast< ::experimot::msgs::Shadows_ShadowType >(type_);
+inline ::Indriya::Core::Msgs::Shadows_ShadowType Shadows::type() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Shadows.type)
+  return static_cast< ::Indriya::Core::Msgs::Shadows_ShadowType >(type_);
 }
-inline void Shadows::set_type(::experimot::msgs::Shadows_ShadowType value) {
-  assert(::experimot::msgs::Shadows_ShadowType_IsValid(value));
+inline void Shadows::set_type(::Indriya::Core::Msgs::Shadows_ShadowType value) {
+  assert(::Indriya::Core::Msgs::Shadows_ShadowType_IsValid(value));
   set_has_type();
   type_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Shadows.type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Shadows.type)
 }
 
-// optional .experimot.msgs.Color color = 6;
+// optional .Indriya.Core.Msgs.Color color = 6;
 inline bool Shadows::has_color() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -235,28 +236,28 @@ inline void Shadows::clear_has_color() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void Shadows::clear_color() {
-  if (color_ != NULL) color_->::experimot::msgs::Color::Clear();
+  if (color_ != NULL) color_->::Indriya::Core::Msgs::Color::Clear();
   clear_has_color();
 }
-inline const ::experimot::msgs::Color& Shadows::color() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Shadows.color)
+inline const ::Indriya::Core::Msgs::Color& Shadows::color() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Shadows.color)
   return color_ != NULL ? *color_ : *default_instance_->color_;
 }
-inline ::experimot::msgs::Color* Shadows::mutable_color() {
+inline ::Indriya::Core::Msgs::Color* Shadows::mutable_color() {
   set_has_color();
   if (color_ == NULL) {
-    color_ = new ::experimot::msgs::Color;
+    color_ = new ::Indriya::Core::Msgs::Color;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Shadows.color)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Shadows.color)
   return color_;
 }
-inline ::experimot::msgs::Color* Shadows::release_color() {
+inline ::Indriya::Core::Msgs::Color* Shadows::release_color() {
   clear_has_color();
-  ::experimot::msgs::Color* temp = color_;
+  ::Indriya::Core::Msgs::Color* temp = color_;
   color_ = NULL;
   return temp;
 }
-inline void Shadows::set_allocated_color(::experimot::msgs::Color* color) {
+inline void Shadows::set_allocated_color(::Indriya::Core::Msgs::Color* color) {
   delete color_;
   color_ = color;
   if (color) {
@@ -264,32 +265,33 @@ inline void Shadows::set_allocated_color(::experimot::msgs::Color* color) {
   } else {
     clear_has_color();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Shadows.color)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Shadows.color)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Shadows> ShadowsPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Shadows> ShadowsPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::experimot::msgs::Shadows_ShadowType> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Indriya::Core::Msgs::Shadows_ShadowType> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::Shadows_ShadowType>() {
-  return ::experimot::msgs::Shadows_ShadowType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Indriya::Core::Msgs::Shadows_ShadowType>() {
+  return ::Indriya::Core::Msgs::Shadows_ShadowType_descriptor();
 }
 
 }  // namespace protobuf
 }  // namespace google
 #endif  // SWIG
 
-typedef const boost::shared_ptr<experimot::msgs::Shadows const> ConstShadowsPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Shadows const> ConstShadowsPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_shadows_2eproto__INCLUDED

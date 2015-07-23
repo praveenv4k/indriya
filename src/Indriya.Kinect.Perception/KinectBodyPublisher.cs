@@ -1,14 +1,14 @@
-﻿using KinectJoint = experimot.msgs.KinectJoint;
-using KinectBody = experimot.msgs.KinectBody;
+﻿using Indriya.Core.Msgs;
+using KinectJoint = Indriya.Core.Msgs.KinectJoint;
+using KinectBody = Indriya.Core.Msgs.KinectBody;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Media.Media3D;
-using experimot.msgs;
 using Microsoft.Kinect;
 using NetMQ;
 using ProtoBuf;
-using Quaternion = experimot.msgs.Quaternion;
+using Quaternion = Indriya.Core.Msgs.Quaternion;
 #if USE_KINECT_BODIES
 #else
 using KinectEx;

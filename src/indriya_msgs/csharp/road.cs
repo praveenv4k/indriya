@@ -10,7 +10,7 @@
 // Generated from: proto/road.proto
 // Note: requires additional types generated from: vector3d.proto
 // Note: requires additional types generated from: material.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Road")]
   public partial class Road : global::ProtoBuf.IExtensible
@@ -31,17 +31,17 @@ namespace experimot.msgs
       get { return _width; }
       set { _width = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Vector3d> _point = new global::System.Collections.Generic.List<experimot.msgs.Vector3d>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector3d> _point = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector3d>();
     [global::ProtoBuf.ProtoMember(3, Name=@"point", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Vector3d> point
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector3d> point
     {
       get { return _point; }
     }
   
-    private experimot.msgs.Material _material = null;
+    private Indriya.Core.Msgs.Material _material = null;
     [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"material", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Material material
+    public Indriya.Core.Msgs.Material material
     {
       get { return _material; }
       set { _material = value; }

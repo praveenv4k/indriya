@@ -18,9 +18,9 @@ import time_pb2 as time__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='world_stats.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x11world_stats.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\"\xc5\x01\n\x0fWorldStatistics\x12&\n\x08sim_time\x18\x02 \x02(\x0b\x32\x14.experimot.msgs.Time\x12(\n\npause_time\x18\x03 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\'\n\treal_time\x18\x04 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\x0e\n\x06paused\x18\x05 \x02(\x08\x12\x12\n\niterations\x18\x06 \x02(\x04\x12\x13\n\x0bmodel_count\x18\x07 \x01(\x05')
+  serialized_pb=_b('\n\x11world_stats.proto\x12\x11Indriya.Core.Msgs\x1a\ntime.proto\"\xce\x01\n\x0fWorldStatistics\x12)\n\x08sim_time\x18\x02 \x02(\x0b\x32\x17.Indriya.Core.Msgs.Time\x12+\n\npause_time\x18\x03 \x02(\x0b\x32\x17.Indriya.Core.Msgs.Time\x12*\n\treal_time\x18\x04 \x02(\x0b\x32\x17.Indriya.Core.Msgs.Time\x12\x0e\n\x06paused\x18\x05 \x02(\x08\x12\x12\n\niterations\x18\x06 \x02(\x04\x12\x13\n\x0bmodel_count\x18\x07 \x01(\x05')
   ,
   dependencies=[time__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,48 +30,48 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _WORLDSTATISTICS = _descriptor.Descriptor(
   name='WorldStatistics',
-  full_name='experimot.msgs.WorldStatistics',
+  full_name='Indriya.Core.Msgs.WorldStatistics',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='sim_time', full_name='experimot.msgs.WorldStatistics.sim_time', index=0,
+      name='sim_time', full_name='Indriya.Core.Msgs.WorldStatistics.sim_time', index=0,
       number=2, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='pause_time', full_name='experimot.msgs.WorldStatistics.pause_time', index=1,
+      name='pause_time', full_name='Indriya.Core.Msgs.WorldStatistics.pause_time', index=1,
       number=3, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='real_time', full_name='experimot.msgs.WorldStatistics.real_time', index=2,
+      name='real_time', full_name='Indriya.Core.Msgs.WorldStatistics.real_time', index=2,
       number=4, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='paused', full_name='experimot.msgs.WorldStatistics.paused', index=3,
+      name='paused', full_name='Indriya.Core.Msgs.WorldStatistics.paused', index=3,
       number=5, type=8, cpp_type=7, label=2,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='iterations', full_name='experimot.msgs.WorldStatistics.iterations', index=4,
+      name='iterations', full_name='Indriya.Core.Msgs.WorldStatistics.iterations', index=4,
       number=6, type=4, cpp_type=4, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='model_count', full_name='experimot.msgs.WorldStatistics.model_count', index=5,
+      name='model_count', full_name='Indriya.Core.Msgs.WorldStatistics.model_count', index=5,
       number=7, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -89,8 +89,8 @@ _WORLDSTATISTICS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=50,
-  serialized_end=247,
+  serialized_start=53,
+  serialized_end=259,
 )
 
 _WORLDSTATISTICS.fields_by_name['sim_time'].message_type = time__pb2._TIME
@@ -101,7 +101,7 @@ DESCRIPTOR.message_types_by_name['WorldStatistics'] = _WORLDSTATISTICS
 WorldStatistics = _reflection.GeneratedProtocolMessageType('WorldStatistics', (_message.Message,), dict(
   DESCRIPTOR = _WORLDSTATISTICS,
   __module__ = 'world_stats_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.WorldStatistics)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.WorldStatistics)
   ))
 _sym_db.RegisterMessage(WorldStatistics)
 

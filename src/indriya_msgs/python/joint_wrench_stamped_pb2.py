@@ -19,9 +19,9 @@ import time_pb2 as time__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='joint_wrench_stamped.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x1ajoint_wrench_stamped.proto\x12\x0e\x65xperimot.msgs\x1a\x12joint_wrench.proto\x1a\ntime.proto\"^\n\x0b\x46orceTorque\x12+\n\x06wrench\x18\x01 \x03(\x0b\x32\x1b.experimot.msgs.JointWrench\x12\"\n\x04time\x18\x02 \x02(\x0b\x32\x14.experimot.msgs.Time')
+  serialized_pb=_b('\n\x1ajoint_wrench_stamped.proto\x12\x11Indriya.Core.Msgs\x1a\x12joint_wrench.proto\x1a\ntime.proto\"d\n\x0b\x46orceTorque\x12.\n\x06wrench\x18\x01 \x03(\x0b\x32\x1e.Indriya.Core.Msgs.JointWrench\x12%\n\x04time\x18\x02 \x02(\x0b\x32\x17.Indriya.Core.Msgs.Time')
   ,
   dependencies=[joint__wrench__pb2.DESCRIPTOR,time__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -31,20 +31,20 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _FORCETORQUE = _descriptor.Descriptor(
   name='ForceTorque',
-  full_name='experimot.msgs.ForceTorque',
+  full_name='Indriya.Core.Msgs.ForceTorque',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='wrench', full_name='experimot.msgs.ForceTorque.wrench', index=0,
+      name='wrench', full_name='Indriya.Core.Msgs.ForceTorque.wrench', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='time', full_name='experimot.msgs.ForceTorque.time', index=1,
+      name='time', full_name='Indriya.Core.Msgs.ForceTorque.time', index=1,
       number=2, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -62,8 +62,8 @@ _FORCETORQUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=78,
-  serialized_end=172,
+  serialized_start=81,
+  serialized_end=181,
 )
 
 _FORCETORQUE.fields_by_name['wrench'].message_type = joint__wrench__pb2._JOINTWRENCH
@@ -73,7 +73,7 @@ DESCRIPTOR.message_types_by_name['ForceTorque'] = _FORCETORQUE
 ForceTorque = _reflection.GeneratedProtocolMessageType('ForceTorque', (_message.Message,), dict(
   DESCRIPTOR = _FORCETORQUE,
   __module__ = 'joint_wrench_stamped_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.ForceTorque)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.ForceTorque)
   ))
 _sym_db.RegisterMessage(ForceTorque)
 

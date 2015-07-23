@@ -18,9 +18,9 @@ import publish_pb2 as publish__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='publishers.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x10publishers.proto\x12\x0e\x65xperimot.msgs\x1a\rpublish.proto\"8\n\nPublishers\x12*\n\tpublisher\x18\x01 \x03(\x0b\x32\x17.experimot.msgs.Publish')
+  serialized_pb=_b('\n\x10publishers.proto\x12\x11Indriya.Core.Msgs\x1a\rpublish.proto\";\n\nPublishers\x12-\n\tpublisher\x18\x01 \x03(\x0b\x32\x1a.Indriya.Core.Msgs.Publish')
   ,
   dependencies=[publish__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,13 +30,13 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _PUBLISHERS = _descriptor.Descriptor(
   name='Publishers',
-  full_name='experimot.msgs.Publishers',
+  full_name='Indriya.Core.Msgs.Publishers',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='publisher', full_name='experimot.msgs.Publishers.publisher', index=0,
+      name='publisher', full_name='Indriya.Core.Msgs.Publishers.publisher', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -54,8 +54,8 @@ _PUBLISHERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=51,
-  serialized_end=107,
+  serialized_start=54,
+  serialized_end=113,
 )
 
 _PUBLISHERS.fields_by_name['publisher'].message_type = publish__pb2._PUBLISH
@@ -64,7 +64,7 @@ DESCRIPTOR.message_types_by_name['Publishers'] = _PUBLISHERS
 Publishers = _reflection.GeneratedProtocolMessageType('Publishers', (_message.Message,), dict(
   DESCRIPTOR = _PUBLISHERS,
   __module__ = 'publishers_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Publishers)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Publishers)
   ))
 _sym_db.RegisterMessage(Publishers)
 

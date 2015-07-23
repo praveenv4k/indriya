@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_gui_2eproto();
@@ -116,28 +117,28 @@ class GUI : public ::google::protobuf::Message {
   bool fullscreen() const;
   void set_fullscreen(bool value);
 
-  // optional .experimot.msgs.GUICamera camera = 2;
+  // optional .Indriya.Core.Msgs.GUICamera camera = 2;
   bool has_camera() const;
   void clear_camera();
   static const int kCameraFieldNumber = 2;
-  const ::experimot::msgs::GUICamera& camera() const;
-  ::experimot::msgs::GUICamera* mutable_camera();
-  ::experimot::msgs::GUICamera* release_camera();
-  void set_allocated_camera(::experimot::msgs::GUICamera* camera);
+  const ::Indriya::Core::Msgs::GUICamera& camera() const;
+  ::Indriya::Core::Msgs::GUICamera* mutable_camera();
+  ::Indriya::Core::Msgs::GUICamera* release_camera();
+  void set_allocated_camera(::Indriya::Core::Msgs::GUICamera* camera);
 
-  // repeated .experimot.msgs.Plugin plugin = 3;
+  // repeated .Indriya.Core.Msgs.Plugin plugin = 3;
   int plugin_size() const;
   void clear_plugin();
   static const int kPluginFieldNumber = 3;
-  const ::experimot::msgs::Plugin& plugin(int index) const;
-  ::experimot::msgs::Plugin* mutable_plugin(int index);
-  ::experimot::msgs::Plugin* add_plugin();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Plugin >&
+  const ::Indriya::Core::Msgs::Plugin& plugin(int index) const;
+  ::Indriya::Core::Msgs::Plugin* mutable_plugin(int index);
+  ::Indriya::Core::Msgs::Plugin* add_plugin();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Plugin >&
       plugin() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Plugin >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Plugin >*
       mutable_plugin();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.GUI)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.GUI)
  private:
   inline void set_has_fullscreen();
   inline void clear_has_fullscreen();
@@ -147,8 +148,8 @@ class GUI : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::GUICamera* camera_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Plugin > plugin_;
+  ::Indriya::Core::Msgs::GUICamera* camera_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Plugin > plugin_;
   bool fullscreen_;
   friend void  protobuf_AddDesc_gui_2eproto();
   friend void protobuf_AssignDesc_gui_2eproto();
@@ -180,16 +181,16 @@ inline void GUI::clear_fullscreen() {
   clear_has_fullscreen();
 }
 inline bool GUI::fullscreen() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GUI.fullscreen)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GUI.fullscreen)
   return fullscreen_;
 }
 inline void GUI::set_fullscreen(bool value) {
   set_has_fullscreen();
   fullscreen_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.GUI.fullscreen)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GUI.fullscreen)
 }
 
-// optional .experimot.msgs.GUICamera camera = 2;
+// optional .Indriya.Core.Msgs.GUICamera camera = 2;
 inline bool GUI::has_camera() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -200,28 +201,28 @@ inline void GUI::clear_has_camera() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void GUI::clear_camera() {
-  if (camera_ != NULL) camera_->::experimot::msgs::GUICamera::Clear();
+  if (camera_ != NULL) camera_->::Indriya::Core::Msgs::GUICamera::Clear();
   clear_has_camera();
 }
-inline const ::experimot::msgs::GUICamera& GUI::camera() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GUI.camera)
+inline const ::Indriya::Core::Msgs::GUICamera& GUI::camera() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GUI.camera)
   return camera_ != NULL ? *camera_ : *default_instance_->camera_;
 }
-inline ::experimot::msgs::GUICamera* GUI::mutable_camera() {
+inline ::Indriya::Core::Msgs::GUICamera* GUI::mutable_camera() {
   set_has_camera();
   if (camera_ == NULL) {
-    camera_ = new ::experimot::msgs::GUICamera;
+    camera_ = new ::Indriya::Core::Msgs::GUICamera;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GUI.camera)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GUI.camera)
   return camera_;
 }
-inline ::experimot::msgs::GUICamera* GUI::release_camera() {
+inline ::Indriya::Core::Msgs::GUICamera* GUI::release_camera() {
   clear_has_camera();
-  ::experimot::msgs::GUICamera* temp = camera_;
+  ::Indriya::Core::Msgs::GUICamera* temp = camera_;
   camera_ = NULL;
   return temp;
 }
-inline void GUI::set_allocated_camera(::experimot::msgs::GUICamera* camera) {
+inline void GUI::set_allocated_camera(::Indriya::Core::Msgs::GUICamera* camera) {
   delete camera_;
   camera_ = camera;
   if (camera) {
@@ -229,48 +230,49 @@ inline void GUI::set_allocated_camera(::experimot::msgs::GUICamera* camera) {
   } else {
     clear_has_camera();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GUI.camera)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.GUI.camera)
 }
 
-// repeated .experimot.msgs.Plugin plugin = 3;
+// repeated .Indriya.Core.Msgs.Plugin plugin = 3;
 inline int GUI::plugin_size() const {
   return plugin_.size();
 }
 inline void GUI::clear_plugin() {
   plugin_.Clear();
 }
-inline const ::experimot::msgs::Plugin& GUI::plugin(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GUI.plugin)
+inline const ::Indriya::Core::Msgs::Plugin& GUI::plugin(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GUI.plugin)
   return plugin_.Get(index);
 }
-inline ::experimot::msgs::Plugin* GUI::mutable_plugin(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GUI.plugin)
+inline ::Indriya::Core::Msgs::Plugin* GUI::mutable_plugin(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GUI.plugin)
   return plugin_.Mutable(index);
 }
-inline ::experimot::msgs::Plugin* GUI::add_plugin() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.GUI.plugin)
+inline ::Indriya::Core::Msgs::Plugin* GUI::add_plugin() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.GUI.plugin)
   return plugin_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Plugin >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Plugin >&
 GUI::plugin() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.GUI.plugin)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.GUI.plugin)
   return plugin_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Plugin >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Plugin >*
 GUI::mutable_plugin() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.GUI.plugin)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.GUI.plugin)
   return &plugin_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::GUI> GUIPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::GUI> GUIPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::GUI const> ConstGUIPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::GUI const> ConstGUIPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_gui_2eproto__INCLUDED

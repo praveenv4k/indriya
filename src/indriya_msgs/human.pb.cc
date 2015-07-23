@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -104,17 +105,17 @@ void protobuf_AddDesc_human_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_vector3d_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_quaternion_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector3d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_quaternion_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\013human.proto\022\016experimot.msgs\032\016vector3d."
-    "proto\032\020quaternion.proto\"\270\001\n\005Human\022\n\n\002id\030"
-    "\001 \002(\005\022\017\n\007tracked\030\002 \002(\010\0220\n\016torso_position"
-    "\030\003 \002(\0132\030.experimot.msgs.Vector3d\022/\n\rhead"
-    "_position\030\004 \002(\0132\030.experimot.msgs.Vector3"
-    "d\022/\n\013orientation\030\005 \002(\0132\032.experimot.msgs."
-    "Quaternion\".\n\006Humans\022$\n\005human\030\001 \003(\0132\025.ex"
-    "perimot.msgs.Human", 298);
+    "\n\013human.proto\022\021Indriya.Core.Msgs\032\016vector"
+    "3d.proto\032\020quaternion.proto\"\301\001\n\005Human\022\n\n\002"
+    "id\030\001 \002(\005\022\017\n\007tracked\030\002 \002(\010\0223\n\016torso_posit"
+    "ion\030\003 \002(\0132\033.Indriya.Core.Msgs.Vector3d\0222"
+    "\n\rhead_position\030\004 \002(\0132\033.Indriya.Core.Msg"
+    "s.Vector3d\0222\n\013orientation\030\005 \002(\0132\035.Indriy"
+    "a.Core.Msgs.Quaternion\"1\n\006Humans\022\'\n\005huma"
+    "n\030\001 \003(\0132\030.Indriya.Core.Msgs.Human", 313);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "human.proto", &protobuf_RegisterTypes);
   Human::default_instance_ = new Human();
@@ -154,13 +155,13 @@ const int Human::kOrientationFieldNumber;
 Human::Human()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Human)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Human)
 }
 
 void Human::InitAsDefaultInstance() {
-  torso_position_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
-  head_position_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
-  orientation_ = const_cast< ::experimot::msgs::Quaternion*>(&::experimot::msgs::Quaternion::default_instance());
+  torso_position_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
+  head_position_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
+  orientation_ = const_cast< ::Indriya::Core::Msgs::Quaternion*>(&::Indriya::Core::Msgs::Quaternion::default_instance());
 }
 
 Human::Human(const Human& from)
@@ -168,7 +169,7 @@ Human::Human(const Human& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Human)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Human)
 }
 
 void Human::SharedCtor() {
@@ -182,7 +183,7 @@ void Human::SharedCtor() {
 }
 
 Human::~Human() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Human)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Human)
   SharedDtor();
 }
 
@@ -231,13 +232,13 @@ void Human::Clear() {
   if (_has_bits_[0 / 32] & 31) {
     ZR_(id_, tracked_);
     if (has_torso_position()) {
-      if (torso_position_ != NULL) torso_position_->::experimot::msgs::Vector3d::Clear();
+      if (torso_position_ != NULL) torso_position_->::Indriya::Core::Msgs::Vector3d::Clear();
     }
     if (has_head_position()) {
-      if (head_position_ != NULL) head_position_->::experimot::msgs::Vector3d::Clear();
+      if (head_position_ != NULL) head_position_->::Indriya::Core::Msgs::Vector3d::Clear();
     }
     if (has_orientation()) {
-      if (orientation_ != NULL) orientation_->::experimot::msgs::Quaternion::Clear();
+      if (orientation_ != NULL) orientation_->::Indriya::Core::Msgs::Quaternion::Clear();
     }
   }
 
@@ -254,7 +255,7 @@ bool Human::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Human)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Human)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -289,7 +290,7 @@ bool Human::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Vector3d torso_position = 3;
+      // required .Indriya.Core.Msgs.Vector3d torso_position = 3;
       case 3: {
         if (tag == 26) {
          parse_torso_position:
@@ -302,7 +303,7 @@ bool Human::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Vector3d head_position = 4;
+      // required .Indriya.Core.Msgs.Vector3d head_position = 4;
       case 4: {
         if (tag == 34) {
          parse_head_position:
@@ -315,7 +316,7 @@ bool Human::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Quaternion orientation = 5;
+      // required .Indriya.Core.Msgs.Quaternion orientation = 5;
       case 5: {
         if (tag == 42) {
          parse_orientation:
@@ -342,17 +343,17 @@ bool Human::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Human)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Human)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Human)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Human)
   return false;
 #undef DO_
 }
 
 void Human::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Human)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Human)
   // required int32 id = 1;
   if (has_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
@@ -363,19 +364,19 @@ void Human::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->tracked(), output);
   }
 
-  // required .experimot.msgs.Vector3d torso_position = 3;
+  // required .Indriya.Core.Msgs.Vector3d torso_position = 3;
   if (has_torso_position()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, *this->torso_position_, output);
   }
 
-  // required .experimot.msgs.Vector3d head_position = 4;
+  // required .Indriya.Core.Msgs.Vector3d head_position = 4;
   if (has_head_position()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, *this->head_position_, output);
   }
 
-  // required .experimot.msgs.Quaternion orientation = 5;
+  // required .Indriya.Core.Msgs.Quaternion orientation = 5;
   if (has_orientation()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, *this->orientation_, output);
@@ -385,12 +386,12 @@ void Human::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Human)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Human)
 }
 
 ::google::protobuf::uint8* Human::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Human)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Human)
   // required int32 id = 1;
   if (has_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
@@ -401,21 +402,21 @@ void Human::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->tracked(), target);
   }
 
-  // required .experimot.msgs.Vector3d torso_position = 3;
+  // required .Indriya.Core.Msgs.Vector3d torso_position = 3;
   if (has_torso_position()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         3, *this->torso_position_, target);
   }
 
-  // required .experimot.msgs.Vector3d head_position = 4;
+  // required .Indriya.Core.Msgs.Vector3d head_position = 4;
   if (has_head_position()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         4, *this->head_position_, target);
   }
 
-  // required .experimot.msgs.Quaternion orientation = 5;
+  // required .Indriya.Core.Msgs.Quaternion orientation = 5;
   if (has_orientation()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -426,7 +427,7 @@ void Human::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Human)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Human)
   return target;
 }
 
@@ -446,21 +447,21 @@ int Human::RequiredFieldsByteSizeFallback() const {
   }
 
   if (has_torso_position()) {
-    // required .experimot.msgs.Vector3d torso_position = 3;
+    // required .Indriya.Core.Msgs.Vector3d torso_position = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->torso_position_);
   }
 
   if (has_head_position()) {
-    // required .experimot.msgs.Vector3d head_position = 4;
+    // required .Indriya.Core.Msgs.Vector3d head_position = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->head_position_);
   }
 
   if (has_orientation()) {
-    // required .experimot.msgs.Quaternion orientation = 5;
+    // required .Indriya.Core.Msgs.Quaternion orientation = 5;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->orientation_);
@@ -480,17 +481,17 @@ int Human::ByteSize() const {
     // required bool tracked = 2;
     total_size += 1 + 1;
 
-    // required .experimot.msgs.Vector3d torso_position = 3;
+    // required .Indriya.Core.Msgs.Vector3d torso_position = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->torso_position_);
 
-    // required .experimot.msgs.Vector3d head_position = 4;
+    // required .Indriya.Core.Msgs.Vector3d head_position = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->head_position_);
 
-    // required .experimot.msgs.Quaternion orientation = 5;
+    // required .Indriya.Core.Msgs.Quaternion orientation = 5;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->orientation_);
@@ -531,13 +532,13 @@ void Human::MergeFrom(const Human& from) {
       set_tracked(from.tracked());
     }
     if (from.has_torso_position()) {
-      mutable_torso_position()->::experimot::msgs::Vector3d::MergeFrom(from.torso_position());
+      mutable_torso_position()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.torso_position());
     }
     if (from.has_head_position()) {
-      mutable_head_position()->::experimot::msgs::Vector3d::MergeFrom(from.head_position());
+      mutable_head_position()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.head_position());
     }
     if (from.has_orientation()) {
-      mutable_orientation()->::experimot::msgs::Quaternion::MergeFrom(from.orientation());
+      mutable_orientation()->::Indriya::Core::Msgs::Quaternion::MergeFrom(from.orientation());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -613,13 +614,13 @@ void Human::InternalSwap(Human* other) {
   clear_has_id();
 }
  ::google::protobuf::int32 Human::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Human.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Human.id)
   return id_;
 }
  void Human::set_id(::google::protobuf::int32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Human.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Human.id)
 }
 
 // required bool tracked = 2;
@@ -637,16 +638,16 @@ void Human::InternalSwap(Human* other) {
   clear_has_tracked();
 }
  bool Human::tracked() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Human.tracked)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Human.tracked)
   return tracked_;
 }
  void Human::set_tracked(bool value) {
   set_has_tracked();
   tracked_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Human.tracked)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Human.tracked)
 }
 
-// required .experimot.msgs.Vector3d torso_position = 3;
+// required .Indriya.Core.Msgs.Vector3d torso_position = 3;
  bool Human::has_torso_position() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -657,28 +658,28 @@ void Human::InternalSwap(Human* other) {
   _has_bits_[0] &= ~0x00000004u;
 }
  void Human::clear_torso_position() {
-  if (torso_position_ != NULL) torso_position_->::experimot::msgs::Vector3d::Clear();
+  if (torso_position_ != NULL) torso_position_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_torso_position();
 }
- const ::experimot::msgs::Vector3d& Human::torso_position() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Human.torso_position)
+ const ::Indriya::Core::Msgs::Vector3d& Human::torso_position() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Human.torso_position)
   return torso_position_ != NULL ? *torso_position_ : *default_instance_->torso_position_;
 }
- ::experimot::msgs::Vector3d* Human::mutable_torso_position() {
+ ::Indriya::Core::Msgs::Vector3d* Human::mutable_torso_position() {
   set_has_torso_position();
   if (torso_position_ == NULL) {
-    torso_position_ = new ::experimot::msgs::Vector3d;
+    torso_position_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Human.torso_position)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Human.torso_position)
   return torso_position_;
 }
- ::experimot::msgs::Vector3d* Human::release_torso_position() {
+ ::Indriya::Core::Msgs::Vector3d* Human::release_torso_position() {
   clear_has_torso_position();
-  ::experimot::msgs::Vector3d* temp = torso_position_;
+  ::Indriya::Core::Msgs::Vector3d* temp = torso_position_;
   torso_position_ = NULL;
   return temp;
 }
- void Human::set_allocated_torso_position(::experimot::msgs::Vector3d* torso_position) {
+ void Human::set_allocated_torso_position(::Indriya::Core::Msgs::Vector3d* torso_position) {
   delete torso_position_;
   torso_position_ = torso_position;
   if (torso_position) {
@@ -686,10 +687,10 @@ void Human::InternalSwap(Human* other) {
   } else {
     clear_has_torso_position();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Human.torso_position)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Human.torso_position)
 }
 
-// required .experimot.msgs.Vector3d head_position = 4;
+// required .Indriya.Core.Msgs.Vector3d head_position = 4;
  bool Human::has_head_position() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -700,28 +701,28 @@ void Human::InternalSwap(Human* other) {
   _has_bits_[0] &= ~0x00000008u;
 }
  void Human::clear_head_position() {
-  if (head_position_ != NULL) head_position_->::experimot::msgs::Vector3d::Clear();
+  if (head_position_ != NULL) head_position_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_head_position();
 }
- const ::experimot::msgs::Vector3d& Human::head_position() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Human.head_position)
+ const ::Indriya::Core::Msgs::Vector3d& Human::head_position() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Human.head_position)
   return head_position_ != NULL ? *head_position_ : *default_instance_->head_position_;
 }
- ::experimot::msgs::Vector3d* Human::mutable_head_position() {
+ ::Indriya::Core::Msgs::Vector3d* Human::mutable_head_position() {
   set_has_head_position();
   if (head_position_ == NULL) {
-    head_position_ = new ::experimot::msgs::Vector3d;
+    head_position_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Human.head_position)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Human.head_position)
   return head_position_;
 }
- ::experimot::msgs::Vector3d* Human::release_head_position() {
+ ::Indriya::Core::Msgs::Vector3d* Human::release_head_position() {
   clear_has_head_position();
-  ::experimot::msgs::Vector3d* temp = head_position_;
+  ::Indriya::Core::Msgs::Vector3d* temp = head_position_;
   head_position_ = NULL;
   return temp;
 }
- void Human::set_allocated_head_position(::experimot::msgs::Vector3d* head_position) {
+ void Human::set_allocated_head_position(::Indriya::Core::Msgs::Vector3d* head_position) {
   delete head_position_;
   head_position_ = head_position;
   if (head_position) {
@@ -729,10 +730,10 @@ void Human::InternalSwap(Human* other) {
   } else {
     clear_has_head_position();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Human.head_position)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Human.head_position)
 }
 
-// required .experimot.msgs.Quaternion orientation = 5;
+// required .Indriya.Core.Msgs.Quaternion orientation = 5;
  bool Human::has_orientation() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -743,28 +744,28 @@ void Human::InternalSwap(Human* other) {
   _has_bits_[0] &= ~0x00000010u;
 }
  void Human::clear_orientation() {
-  if (orientation_ != NULL) orientation_->::experimot::msgs::Quaternion::Clear();
+  if (orientation_ != NULL) orientation_->::Indriya::Core::Msgs::Quaternion::Clear();
   clear_has_orientation();
 }
- const ::experimot::msgs::Quaternion& Human::orientation() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Human.orientation)
+ const ::Indriya::Core::Msgs::Quaternion& Human::orientation() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Human.orientation)
   return orientation_ != NULL ? *orientation_ : *default_instance_->orientation_;
 }
- ::experimot::msgs::Quaternion* Human::mutable_orientation() {
+ ::Indriya::Core::Msgs::Quaternion* Human::mutable_orientation() {
   set_has_orientation();
   if (orientation_ == NULL) {
-    orientation_ = new ::experimot::msgs::Quaternion;
+    orientation_ = new ::Indriya::Core::Msgs::Quaternion;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Human.orientation)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Human.orientation)
   return orientation_;
 }
- ::experimot::msgs::Quaternion* Human::release_orientation() {
+ ::Indriya::Core::Msgs::Quaternion* Human::release_orientation() {
   clear_has_orientation();
-  ::experimot::msgs::Quaternion* temp = orientation_;
+  ::Indriya::Core::Msgs::Quaternion* temp = orientation_;
   orientation_ = NULL;
   return temp;
 }
- void Human::set_allocated_orientation(::experimot::msgs::Quaternion* orientation) {
+ void Human::set_allocated_orientation(::Indriya::Core::Msgs::Quaternion* orientation) {
   delete orientation_;
   orientation_ = orientation;
   if (orientation) {
@@ -772,7 +773,7 @@ void Human::InternalSwap(Human* other) {
   } else {
     clear_has_orientation();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Human.orientation)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Human.orientation)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -786,7 +787,7 @@ const int Humans::kHumanFieldNumber;
 Humans::Humans()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Humans)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Humans)
 }
 
 void Humans::InitAsDefaultInstance() {
@@ -797,7 +798,7 @@ Humans::Humans(const Humans& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Humans)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Humans)
 }
 
 void Humans::SharedCtor() {
@@ -806,7 +807,7 @@ void Humans::SharedCtor() {
 }
 
 Humans::~Humans() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Humans)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Humans)
   SharedDtor();
 }
 
@@ -852,13 +853,13 @@ bool Humans::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Humans)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Humans)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .experimot.msgs.Human human = 1;
+      // repeated .Indriya.Core.Msgs.Human human = 1;
       case 1: {
         if (tag == 10) {
          parse_human:
@@ -886,18 +887,18 @@ bool Humans::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Humans)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Humans)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Humans)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Humans)
   return false;
 #undef DO_
 }
 
 void Humans::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Humans)
-  // repeated .experimot.msgs.Human human = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Humans)
+  // repeated .Indriya.Core.Msgs.Human human = 1;
   for (unsigned int i = 0, n = this->human_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->human(i), output);
@@ -907,13 +908,13 @@ void Humans::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Humans)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Humans)
 }
 
 ::google::protobuf::uint8* Humans::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Humans)
-  // repeated .experimot.msgs.Human human = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Humans)
+  // repeated .Indriya.Core.Msgs.Human human = 1;
   for (unsigned int i = 0, n = this->human_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -924,14 +925,14 @@ void Humans::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Humans)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Humans)
   return target;
 }
 
 int Humans::ByteSize() const {
   int total_size = 0;
 
-  // repeated .experimot.msgs.Human human = 1;
+  // repeated .Indriya.Core.Msgs.Human human = 1;
   total_size += 1 * this->human_size();
   for (int i = 0; i < this->human_size(); i++) {
     total_size +=
@@ -1010,33 +1011,33 @@ void Humans::InternalSwap(Humans* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Humans
 
-// repeated .experimot.msgs.Human human = 1;
+// repeated .Indriya.Core.Msgs.Human human = 1;
  int Humans::human_size() const {
   return human_.size();
 }
  void Humans::clear_human() {
   human_.Clear();
 }
- const ::experimot::msgs::Human& Humans::human(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Humans.human)
+ const ::Indriya::Core::Msgs::Human& Humans::human(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Humans.human)
   return human_.Get(index);
 }
- ::experimot::msgs::Human* Humans::mutable_human(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Humans.human)
+ ::Indriya::Core::Msgs::Human* Humans::mutable_human(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Humans.human)
   return human_.Mutable(index);
 }
- ::experimot::msgs::Human* Humans::add_human() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Humans.human)
+ ::Indriya::Core::Msgs::Human* Humans::add_human() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Humans.human)
   return human_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Human >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Human >&
 Humans::human() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Humans.human)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Humans.human)
   return human_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Human >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Human >*
 Humans::mutable_human() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Humans.human)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Humans.human)
   return &human_;
 }
 
@@ -1044,8 +1045,9 @@ Humans::mutable_human() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Human", Human)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Human", Human)
 // @@protoc_insertion_point(global_scope)

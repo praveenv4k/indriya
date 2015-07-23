@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_pose_5fv_2eproto();
@@ -108,25 +109,25 @@ class Pose_V : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .experimot.msgs.Pose pose = 1;
+  // repeated .Indriya.Core.Msgs.Pose pose = 1;
   int pose_size() const;
   void clear_pose();
   static const int kPoseFieldNumber = 1;
-  const ::experimot::msgs::Pose& pose(int index) const;
-  ::experimot::msgs::Pose* mutable_pose(int index);
-  ::experimot::msgs::Pose* add_pose();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Pose >&
+  const ::Indriya::Core::Msgs::Pose& pose(int index) const;
+  ::Indriya::Core::Msgs::Pose* mutable_pose(int index);
+  ::Indriya::Core::Msgs::Pose* add_pose();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Pose >&
       pose() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Pose >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Pose >*
       mutable_pose();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Pose_V)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Pose_V)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Pose > pose_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Pose > pose_;
   friend void  protobuf_AddDesc_pose_5fv_2eproto();
   friend void protobuf_AssignDesc_pose_5fv_2eproto();
   friend void protobuf_ShutdownFile_pose_5fv_2eproto();
@@ -142,45 +143,46 @@ class Pose_V : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // Pose_V
 
-// repeated .experimot.msgs.Pose pose = 1;
+// repeated .Indriya.Core.Msgs.Pose pose = 1;
 inline int Pose_V::pose_size() const {
   return pose_.size();
 }
 inline void Pose_V::clear_pose() {
   pose_.Clear();
 }
-inline const ::experimot::msgs::Pose& Pose_V::pose(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Pose_V.pose)
+inline const ::Indriya::Core::Msgs::Pose& Pose_V::pose(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Pose_V.pose)
   return pose_.Get(index);
 }
-inline ::experimot::msgs::Pose* Pose_V::mutable_pose(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Pose_V.pose)
+inline ::Indriya::Core::Msgs::Pose* Pose_V::mutable_pose(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Pose_V.pose)
   return pose_.Mutable(index);
 }
-inline ::experimot::msgs::Pose* Pose_V::add_pose() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Pose_V.pose)
+inline ::Indriya::Core::Msgs::Pose* Pose_V::add_pose() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Pose_V.pose)
   return pose_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Pose >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Pose >&
 Pose_V::pose() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Pose_V.pose)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Pose_V.pose)
   return pose_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Pose >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Pose >*
 Pose_V::mutable_pose() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Pose_V.pose)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Pose_V.pose)
   return &pose_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Pose_V> Pose_VPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Pose_V> Pose_VPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Pose_V const> ConstPose_VPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Pose_V const> ConstPose_VPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_pose_5fv_2eproto__INCLUDED

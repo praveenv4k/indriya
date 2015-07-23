@@ -9,7 +9,7 @@
 
 // Generated from: proto/sim_event.proto
 // Note: requires additional types generated from: world_stats.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"SimEvent")]
   public partial class SimEvent : global::ProtoBuf.IExtensible
@@ -30,9 +30,9 @@ namespace experimot.msgs
       get { return _name; }
       set { _name = value; }
     }
-    private experimot.msgs.WorldStatistics _world_statistics;
+    private Indriya.Core.Msgs.WorldStatistics _world_statistics;
     [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"world_statistics", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.WorldStatistics world_statistics
+    public Indriya.Core.Msgs.WorldStatistics world_statistics
     {
       get { return _world_statistics; }
       set { _world_statistics = value; }

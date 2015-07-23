@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='server_control.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x14server_control.proto\x12\x0e\x65xperimot.msgs\"\x98\x01\n\rServerControl\x12\x17\n\x0fsave_world_name\x18\x01 \x01(\t\x12\x15\n\rsave_filename\x18\x02 \x01(\t\x12\x15\n\ropen_filename\x18\x03 \x01(\t\x12\x11\n\tnew_world\x18\x04 \x01(\x08\x12\x0c\n\x04stop\x18\x05 \x01(\x08\x12\r\n\x05\x63lone\x18\x06 \x01(\x08\x12\x10\n\x08new_port\x18\x07 \x01(\r')
+  serialized_pb=_b('\n\x14server_control.proto\x12\x11Indriya.Core.Msgs\"\x98\x01\n\rServerControl\x12\x17\n\x0fsave_world_name\x18\x01 \x01(\t\x12\x15\n\rsave_filename\x18\x02 \x01(\t\x12\x15\n\ropen_filename\x18\x03 \x01(\t\x12\x11\n\tnew_world\x18\x04 \x01(\x08\x12\x0c\n\x04stop\x18\x05 \x01(\x08\x12\r\n\x05\x63lone\x18\x06 \x01(\x08\x12\x10\n\x08new_port\x18\x07 \x01(\r')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -28,55 +28,55 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _SERVERCONTROL = _descriptor.Descriptor(
   name='ServerControl',
-  full_name='experimot.msgs.ServerControl',
+  full_name='Indriya.Core.Msgs.ServerControl',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='save_world_name', full_name='experimot.msgs.ServerControl.save_world_name', index=0,
+      name='save_world_name', full_name='Indriya.Core.Msgs.ServerControl.save_world_name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='save_filename', full_name='experimot.msgs.ServerControl.save_filename', index=1,
+      name='save_filename', full_name='Indriya.Core.Msgs.ServerControl.save_filename', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='open_filename', full_name='experimot.msgs.ServerControl.open_filename', index=2,
+      name='open_filename', full_name='Indriya.Core.Msgs.ServerControl.open_filename', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='new_world', full_name='experimot.msgs.ServerControl.new_world', index=3,
+      name='new_world', full_name='Indriya.Core.Msgs.ServerControl.new_world', index=3,
       number=4, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='stop', full_name='experimot.msgs.ServerControl.stop', index=4,
+      name='stop', full_name='Indriya.Core.Msgs.ServerControl.stop', index=4,
       number=5, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='clone', full_name='experimot.msgs.ServerControl.clone', index=5,
+      name='clone', full_name='Indriya.Core.Msgs.ServerControl.clone', index=5,
       number=6, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='new_port', full_name='experimot.msgs.ServerControl.new_port', index=6,
+      name='new_port', full_name='Indriya.Core.Msgs.ServerControl.new_port', index=6,
       number=7, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -94,8 +94,8 @@ _SERVERCONTROL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=41,
-  serialized_end=193,
+  serialized_start=44,
+  serialized_end=196,
 )
 
 DESCRIPTOR.message_types_by_name['ServerControl'] = _SERVERCONTROL
@@ -103,7 +103,7 @@ DESCRIPTOR.message_types_by_name['ServerControl'] = _SERVERCONTROL
 ServerControl = _reflection.GeneratedProtocolMessageType('ServerControl', (_message.Message,), dict(
   DESCRIPTOR = _SERVERCONTROL,
   __module__ = 'server_control_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.ServerControl)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.ServerControl)
   ))
 _sym_db.RegisterMessage(ServerControl)
 

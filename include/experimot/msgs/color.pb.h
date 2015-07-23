@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_color_2eproto();
@@ -135,7 +136,7 @@ class Color : public ::google::protobuf::Message {
   float a() const;
   void set_a(float value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Color)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Color)
  private:
   inline void set_has_r();
   inline void clear_has_r();
@@ -186,13 +187,13 @@ inline void Color::clear_r() {
   clear_has_r();
 }
 inline float Color::r() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Color.r)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Color.r)
   return r_;
 }
 inline void Color::set_r(float value) {
   set_has_r();
   r_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Color.r)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Color.r)
 }
 
 // required float g = 3;
@@ -210,13 +211,13 @@ inline void Color::clear_g() {
   clear_has_g();
 }
 inline float Color::g() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Color.g)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Color.g)
   return g_;
 }
 inline void Color::set_g(float value) {
   set_has_g();
   g_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Color.g)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Color.g)
 }
 
 // required float b = 4;
@@ -234,13 +235,13 @@ inline void Color::clear_b() {
   clear_has_b();
 }
 inline float Color::b() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Color.b)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Color.b)
   return b_;
 }
 inline void Color::set_b(float value) {
   set_has_b();
   b_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Color.b)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Color.b)
 }
 
 // optional float a = 5 [default = 1];
@@ -258,24 +259,25 @@ inline void Color::clear_a() {
   clear_has_a();
 }
 inline float Color::a() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Color.a)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Color.a)
   return a_;
 }
 inline void Color::set_a(float value) {
   set_has_a();
   a_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Color.a)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Color.a)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Color> ColorPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Color> ColorPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Color const> ConstColorPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Color const> ConstColorPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_color_2eproto__INCLUDED

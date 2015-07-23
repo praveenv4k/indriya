@@ -9,16 +9,16 @@
 
 // Generated from: proto/packet.proto
 // Note: requires additional types generated from: time.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Packet")]
   public partial class Packet : global::ProtoBuf.IExtensible
   {
     public Packet() {}
     
-    private experimot.msgs.Time _stamp;
+    private Indriya.Core.Msgs.Time _stamp;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"stamp", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Time stamp
+    public Indriya.Core.Msgs.Time stamp
     {
       get { return _stamp; }
       set { _stamp = value; }

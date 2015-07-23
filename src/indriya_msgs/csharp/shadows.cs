@@ -9,25 +9,25 @@
 
 // Generated from: proto/shadows.proto
 // Note: requires additional types generated from: color.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Shadows")]
   public partial class Shadows : global::ProtoBuf.IExtensible
   {
     public Shadows() {}
     
-    private experimot.msgs.Shadows.ShadowType _type = experimot.msgs.Shadows.ShadowType.STENCIL_ADDITIVE;
+    private Indriya.Core.Msgs.Shadows.ShadowType _type = Indriya.Core.Msgs.Shadows.ShadowType.STENCIL_ADDITIVE;
     [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(experimot.msgs.Shadows.ShadowType.STENCIL_ADDITIVE)]
-    public experimot.msgs.Shadows.ShadowType type
+    [global::System.ComponentModel.DefaultValue(Indriya.Core.Msgs.Shadows.ShadowType.STENCIL_ADDITIVE)]
+    public Indriya.Core.Msgs.Shadows.ShadowType type
     {
       get { return _type; }
       set { _type = value; }
     }
-    private experimot.msgs.Color _color = null;
+    private Indriya.Core.Msgs.Color _color = null;
     [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"color", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Color color
+    public Indriya.Core.Msgs.Color color
     {
       get { return _color; }
       set { _color = value; }

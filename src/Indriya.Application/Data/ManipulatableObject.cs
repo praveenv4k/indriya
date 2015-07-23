@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using experimot.msgs;
 using Experimot.Core.Annotations;
+using Indriya.Core.Msgs;
 
 namespace Indriya.Application.Data
 {

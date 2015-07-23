@@ -16,8 +16,9 @@
 */
 #include "MsgFactory.h"
 
-using namespace experimot;
-using namespace msgs;
+using namespace Indriya;
+using namespace Core;
+using namespace Msgs;
 
 std::map<std::string, MsgFactoryFn> *MsgFactory::msgMap = NULL;
 

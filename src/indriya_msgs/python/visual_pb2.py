@@ -22,9 +22,9 @@ import vector3d_pb2 as vector3d__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='visual.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x0cvisual.proto\x12\x0e\x65xperimot.msgs\x1a\npose.proto\x1a\x0egeometry.proto\x1a\x0ematerial.proto\x1a\x0cplugin.proto\x1a\x0evector3d.proto\"\x8f\x03\n\x06Visual\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\n\n\x02id\x18\x02 \x01(\r\x12\x13\n\x0bparent_name\x18\x03 \x02(\t\x12\x11\n\tparent_id\x18\x04 \x01(\r\x12\x14\n\x0c\x63\x61st_shadows\x18\x05 \x01(\x08\x12\x14\n\x0ctransparency\x18\x06 \x01(\x01\x12\x13\n\x0blaser_retro\x18\x07 \x01(\x01\x12\"\n\x04pose\x18\x08 \x01(\x0b\x32\x14.experimot.msgs.Pose\x12*\n\x08geometry\x18\t \x01(\x0b\x32\x18.experimot.msgs.Geometry\x12*\n\x08material\x18\n \x01(\x0b\x32\x18.experimot.msgs.Material\x12\x0f\n\x07visible\x18\x0b \x01(\x08\x12\x11\n\tdelete_me\x18\x0c \x01(\x08\x12\x11\n\tis_static\x18\r \x01(\x08\x12&\n\x06plugin\x18\x0e \x01(\x0b\x32\x16.experimot.msgs.Plugin\x12\'\n\x05scale\x18\x0f \x01(\x0b\x32\x18.experimot.msgs.Vector3d')
+  serialized_pb=_b('\n\x0cvisual.proto\x12\x11Indriya.Core.Msgs\x1a\npose.proto\x1a\x0egeometry.proto\x1a\x0ematerial.proto\x1a\x0cplugin.proto\x1a\x0evector3d.proto\"\x9e\x03\n\x06Visual\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\n\n\x02id\x18\x02 \x01(\r\x12\x13\n\x0bparent_name\x18\x03 \x02(\t\x12\x11\n\tparent_id\x18\x04 \x01(\r\x12\x14\n\x0c\x63\x61st_shadows\x18\x05 \x01(\x08\x12\x14\n\x0ctransparency\x18\x06 \x01(\x01\x12\x13\n\x0blaser_retro\x18\x07 \x01(\x01\x12%\n\x04pose\x18\x08 \x01(\x0b\x32\x17.Indriya.Core.Msgs.Pose\x12-\n\x08geometry\x18\t \x01(\x0b\x32\x1b.Indriya.Core.Msgs.Geometry\x12-\n\x08material\x18\n \x01(\x0b\x32\x1b.Indriya.Core.Msgs.Material\x12\x0f\n\x07visible\x18\x0b \x01(\x08\x12\x11\n\tdelete_me\x18\x0c \x01(\x08\x12\x11\n\tis_static\x18\r \x01(\x08\x12)\n\x06plugin\x18\x0e \x01(\x0b\x32\x19.Indriya.Core.Msgs.Plugin\x12*\n\x05scale\x18\x0f \x01(\x0b\x32\x1b.Indriya.Core.Msgs.Vector3d')
   ,
   dependencies=[pose__pb2.DESCRIPTOR,geometry__pb2.DESCRIPTOR,material__pb2.DESCRIPTOR,plugin__pb2.DESCRIPTOR,vector3d__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -34,111 +34,111 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _VISUAL = _descriptor.Descriptor(
   name='Visual',
-  full_name='experimot.msgs.Visual',
+  full_name='Indriya.Core.Msgs.Visual',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='experimot.msgs.Visual.name', index=0,
+      name='name', full_name='Indriya.Core.Msgs.Visual.name', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='id', full_name='experimot.msgs.Visual.id', index=1,
+      name='id', full_name='Indriya.Core.Msgs.Visual.id', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='parent_name', full_name='experimot.msgs.Visual.parent_name', index=2,
+      name='parent_name', full_name='Indriya.Core.Msgs.Visual.parent_name', index=2,
       number=3, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='parent_id', full_name='experimot.msgs.Visual.parent_id', index=3,
+      name='parent_id', full_name='Indriya.Core.Msgs.Visual.parent_id', index=3,
       number=4, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='cast_shadows', full_name='experimot.msgs.Visual.cast_shadows', index=4,
+      name='cast_shadows', full_name='Indriya.Core.Msgs.Visual.cast_shadows', index=4,
       number=5, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='transparency', full_name='experimot.msgs.Visual.transparency', index=5,
+      name='transparency', full_name='Indriya.Core.Msgs.Visual.transparency', index=5,
       number=6, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='laser_retro', full_name='experimot.msgs.Visual.laser_retro', index=6,
+      name='laser_retro', full_name='Indriya.Core.Msgs.Visual.laser_retro', index=6,
       number=7, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='pose', full_name='experimot.msgs.Visual.pose', index=7,
+      name='pose', full_name='Indriya.Core.Msgs.Visual.pose', index=7,
       number=8, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='geometry', full_name='experimot.msgs.Visual.geometry', index=8,
+      name='geometry', full_name='Indriya.Core.Msgs.Visual.geometry', index=8,
       number=9, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='material', full_name='experimot.msgs.Visual.material', index=9,
+      name='material', full_name='Indriya.Core.Msgs.Visual.material', index=9,
       number=10, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='visible', full_name='experimot.msgs.Visual.visible', index=10,
+      name='visible', full_name='Indriya.Core.Msgs.Visual.visible', index=10,
       number=11, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='delete_me', full_name='experimot.msgs.Visual.delete_me', index=11,
+      name='delete_me', full_name='Indriya.Core.Msgs.Visual.delete_me', index=11,
       number=12, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='is_static', full_name='experimot.msgs.Visual.is_static', index=12,
+      name='is_static', full_name='Indriya.Core.Msgs.Visual.is_static', index=12,
       number=13, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='plugin', full_name='experimot.msgs.Visual.plugin', index=13,
+      name='plugin', full_name='Indriya.Core.Msgs.Visual.plugin', index=13,
       number=14, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='scale', full_name='experimot.msgs.Visual.scale', index=14,
+      name='scale', full_name='Indriya.Core.Msgs.Visual.scale', index=14,
       number=15, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -156,8 +156,8 @@ _VISUAL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=107,
-  serialized_end=506,
+  serialized_start=110,
+  serialized_end=524,
 )
 
 _VISUAL.fields_by_name['pose'].message_type = pose__pb2._POSE
@@ -170,7 +170,7 @@ DESCRIPTOR.message_types_by_name['Visual'] = _VISUAL
 Visual = _reflection.GeneratedProtocolMessageType('Visual', (_message.Message,), dict(
   DESCRIPTOR = _VISUAL,
   __module__ = 'visual_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Visual)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Visual)
   ))
 _sym_db.RegisterMessage(Visual)
 

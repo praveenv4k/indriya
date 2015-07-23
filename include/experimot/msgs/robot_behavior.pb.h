@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_robot_5fbehavior_2eproto();
@@ -195,7 +196,7 @@ class BehaviorArguments : public ::google::protobuf::Message {
   ::std::string* release_type();
   void set_allocated_type(::std::string* type);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.BehaviorArguments)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.BehaviorArguments)
  private:
   inline void set_has_name();
   inline void clear_has_name();
@@ -362,33 +363,33 @@ class BehaviorDescription : public ::google::protobuf::Message {
   ::std::string* release_function_name();
   void set_allocated_function_name(::std::string* function_name);
 
-  // repeated .experimot.msgs.BehaviorArguments arg = 3;
+  // repeated .Indriya.Core.Msgs.BehaviorArguments arg = 3;
   int arg_size() const;
   void clear_arg();
   static const int kArgFieldNumber = 3;
-  const ::experimot::msgs::BehaviorArguments& arg(int index) const;
-  ::experimot::msgs::BehaviorArguments* mutable_arg(int index);
-  ::experimot::msgs::BehaviorArguments* add_arg();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorArguments >&
+  const ::Indriya::Core::Msgs::BehaviorArguments& arg(int index) const;
+  ::Indriya::Core::Msgs::BehaviorArguments* mutable_arg(int index);
+  ::Indriya::Core::Msgs::BehaviorArguments* add_arg();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::BehaviorArguments >&
       arg() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorArguments >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::BehaviorArguments >*
       mutable_arg();
 
-  // required .experimot.msgs.BehaviorDescription.ExecutionType type = 4;
+  // required .Indriya.Core.Msgs.BehaviorDescription.ExecutionType type = 4;
   bool has_type() const;
   void clear_type();
   static const int kTypeFieldNumber = 4;
-  ::experimot::msgs::BehaviorDescription_ExecutionType type() const;
-  void set_type(::experimot::msgs::BehaviorDescription_ExecutionType value);
+  ::Indriya::Core::Msgs::BehaviorDescription_ExecutionType type() const;
+  void set_type(::Indriya::Core::Msgs::BehaviorDescription_ExecutionType value);
 
-  // required .experimot.msgs.BehaviorDescription.ExecutionState state = 5;
+  // required .Indriya.Core.Msgs.BehaviorDescription.ExecutionState state = 5;
   bool has_state() const;
   void clear_state();
   static const int kStateFieldNumber = 5;
-  ::experimot::msgs::BehaviorDescription_ExecutionState state() const;
-  void set_state(::experimot::msgs::BehaviorDescription_ExecutionState value);
+  ::Indriya::Core::Msgs::BehaviorDescription_ExecutionState state() const;
+  void set_state(::Indriya::Core::Msgs::BehaviorDescription_ExecutionState value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.BehaviorDescription)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.BehaviorDescription)
  private:
   inline void set_has_name();
   inline void clear_has_name();
@@ -407,7 +408,7 @@ class BehaviorDescription : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr function_name_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorArguments > arg_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::BehaviorArguments > arg_;
   int type_;
   int state_;
   friend void  protobuf_AddDesc_robot_5fbehavior_2eproto();
@@ -502,7 +503,7 @@ class RobotBehaviorModule_RobotBehaviorResponder : public ::google::protobuf::Me
   ::google::protobuf::int32 port() const;
   void set_port(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.RobotBehaviorModule.RobotBehaviorResponder)
  private:
   inline void set_has_host();
   inline void clear_has_host();
@@ -616,40 +617,40 @@ class RobotBehaviorModule : public ::google::protobuf::Message {
   ::std::string* release_robot();
   void set_allocated_robot(::std::string* robot);
 
-  // repeated .experimot.msgs.Param param = 3;
+  // repeated .Indriya.Core.Msgs.Param param = 3;
   int param_size() const;
   void clear_param();
   static const int kParamFieldNumber = 3;
-  const ::experimot::msgs::Param& param(int index) const;
-  ::experimot::msgs::Param* mutable_param(int index);
-  ::experimot::msgs::Param* add_param();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+  const ::Indriya::Core::Msgs::Param& param(int index) const;
+  ::Indriya::Core::Msgs::Param* mutable_param(int index);
+  ::Indriya::Core::Msgs::Param* add_param();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >&
       param() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >*
       mutable_param();
 
-  // repeated .experimot.msgs.BehaviorDescription behaviors = 4;
+  // repeated .Indriya.Core.Msgs.BehaviorDescription behaviors = 4;
   int behaviors_size() const;
   void clear_behaviors();
   static const int kBehaviorsFieldNumber = 4;
-  const ::experimot::msgs::BehaviorDescription& behaviors(int index) const;
-  ::experimot::msgs::BehaviorDescription* mutable_behaviors(int index);
-  ::experimot::msgs::BehaviorDescription* add_behaviors();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorDescription >&
+  const ::Indriya::Core::Msgs::BehaviorDescription& behaviors(int index) const;
+  ::Indriya::Core::Msgs::BehaviorDescription* mutable_behaviors(int index);
+  ::Indriya::Core::Msgs::BehaviorDescription* add_behaviors();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::BehaviorDescription >&
       behaviors() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorDescription >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::BehaviorDescription >*
       mutable_behaviors();
 
-  // optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 5;
+  // optional .Indriya.Core.Msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 5;
   bool has_responder() const;
   void clear_responder();
   static const int kResponderFieldNumber = 5;
-  const ::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder& responder() const;
-  ::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder* mutable_responder();
-  ::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder* release_responder();
-  void set_allocated_responder(::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder* responder);
+  const ::Indriya::Core::Msgs::RobotBehaviorModule_RobotBehaviorResponder& responder() const;
+  ::Indriya::Core::Msgs::RobotBehaviorModule_RobotBehaviorResponder* mutable_responder();
+  ::Indriya::Core::Msgs::RobotBehaviorModule_RobotBehaviorResponder* release_responder();
+  void set_allocated_responder(::Indriya::Core::Msgs::RobotBehaviorModule_RobotBehaviorResponder* responder);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.RobotBehaviorModule)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.RobotBehaviorModule)
  private:
   inline void set_has_name();
   inline void clear_has_name();
@@ -666,9 +667,9 @@ class RobotBehaviorModule : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr robot_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param > param_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorDescription > behaviors_;
-  ::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder* responder_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param > param_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::BehaviorDescription > behaviors_;
+  ::Indriya::Core::Msgs::RobotBehaviorModule_RobotBehaviorResponder* responder_;
   friend void  protobuf_AddDesc_robot_5fbehavior_2eproto();
   friend void protobuf_AssignDesc_robot_5fbehavior_2eproto();
   friend void protobuf_ShutdownFile_robot_5fbehavior_2eproto();
@@ -742,25 +743,25 @@ class RobotBehaviorModules : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .experimot.msgs.RobotBehaviorModule modules = 1;
+  // repeated .Indriya.Core.Msgs.RobotBehaviorModule modules = 1;
   int modules_size() const;
   void clear_modules();
   static const int kModulesFieldNumber = 1;
-  const ::experimot::msgs::RobotBehaviorModule& modules(int index) const;
-  ::experimot::msgs::RobotBehaviorModule* mutable_modules(int index);
-  ::experimot::msgs::RobotBehaviorModule* add_modules();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::RobotBehaviorModule >&
+  const ::Indriya::Core::Msgs::RobotBehaviorModule& modules(int index) const;
+  ::Indriya::Core::Msgs::RobotBehaviorModule* mutable_modules(int index);
+  ::Indriya::Core::Msgs::RobotBehaviorModule* add_modules();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::RobotBehaviorModule >&
       modules() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::RobotBehaviorModule >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::RobotBehaviorModule >*
       mutable_modules();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.RobotBehaviorModules)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.RobotBehaviorModules)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::RobotBehaviorModule > modules_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::RobotBehaviorModule > modules_;
   friend void  protobuf_AddDesc_robot_5fbehavior_2eproto();
   friend void protobuf_AssignDesc_robot_5fbehavior_2eproto();
   friend void protobuf_ShutdownFile_robot_5fbehavior_2eproto();
@@ -791,28 +792,28 @@ inline void BehaviorArguments::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& BehaviorArguments::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorArguments.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.BehaviorArguments.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void BehaviorArguments::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorArguments.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.BehaviorArguments.name)
 }
 inline void BehaviorArguments::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.BehaviorArguments.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.BehaviorArguments.name)
 }
 inline void BehaviorArguments::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.BehaviorArguments.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.BehaviorArguments.name)
 }
 inline ::std::string* BehaviorArguments::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.BehaviorArguments.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.BehaviorArguments.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* BehaviorArguments::release_name() {
@@ -826,7 +827,7 @@ inline void BehaviorArguments::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.BehaviorArguments.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.BehaviorArguments.name)
 }
 
 // required string value = 2;
@@ -844,28 +845,28 @@ inline void BehaviorArguments::clear_value() {
   clear_has_value();
 }
 inline const ::std::string& BehaviorArguments::value() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorArguments.value)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.BehaviorArguments.value)
   return value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void BehaviorArguments::set_value(const ::std::string& value) {
   set_has_value();
   value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorArguments.value)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.BehaviorArguments.value)
 }
 inline void BehaviorArguments::set_value(const char* value) {
   set_has_value();
   value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.BehaviorArguments.value)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.BehaviorArguments.value)
 }
 inline void BehaviorArguments::set_value(const char* value, size_t size) {
   set_has_value();
   value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.BehaviorArguments.value)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.BehaviorArguments.value)
 }
 inline ::std::string* BehaviorArguments::mutable_value() {
   set_has_value();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.BehaviorArguments.value)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.BehaviorArguments.value)
   return value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* BehaviorArguments::release_value() {
@@ -879,7 +880,7 @@ inline void BehaviorArguments::set_allocated_value(::std::string* value) {
     clear_has_value();
   }
   value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.BehaviorArguments.value)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.BehaviorArguments.value)
 }
 
 // required bool place_holder = 3;
@@ -897,13 +898,13 @@ inline void BehaviorArguments::clear_place_holder() {
   clear_has_place_holder();
 }
 inline bool BehaviorArguments::place_holder() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorArguments.place_holder)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.BehaviorArguments.place_holder)
   return place_holder_;
 }
 inline void BehaviorArguments::set_place_holder(bool value) {
   set_has_place_holder();
   place_holder_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorArguments.place_holder)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.BehaviorArguments.place_holder)
 }
 
 // required string type = 4;
@@ -921,28 +922,28 @@ inline void BehaviorArguments::clear_type() {
   clear_has_type();
 }
 inline const ::std::string& BehaviorArguments::type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorArguments.type)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.BehaviorArguments.type)
   return type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void BehaviorArguments::set_type(const ::std::string& value) {
   set_has_type();
   type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorArguments.type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.BehaviorArguments.type)
 }
 inline void BehaviorArguments::set_type(const char* value) {
   set_has_type();
   type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.BehaviorArguments.type)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.BehaviorArguments.type)
 }
 inline void BehaviorArguments::set_type(const char* value, size_t size) {
   set_has_type();
   type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.BehaviorArguments.type)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.BehaviorArguments.type)
 }
 inline ::std::string* BehaviorArguments::mutable_type() {
   set_has_type();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.BehaviorArguments.type)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.BehaviorArguments.type)
   return type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* BehaviorArguments::release_type() {
@@ -956,7 +957,7 @@ inline void BehaviorArguments::set_allocated_type(::std::string* type) {
     clear_has_type();
   }
   type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), type);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.BehaviorArguments.type)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.BehaviorArguments.type)
 }
 
 // -------------------------------------------------------------------
@@ -978,28 +979,28 @@ inline void BehaviorDescription::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& BehaviorDescription::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorDescription.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.BehaviorDescription.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void BehaviorDescription::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorDescription.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.BehaviorDescription.name)
 }
 inline void BehaviorDescription::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.BehaviorDescription.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.BehaviorDescription.name)
 }
 inline void BehaviorDescription::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.BehaviorDescription.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.BehaviorDescription.name)
 }
 inline ::std::string* BehaviorDescription::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.BehaviorDescription.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.BehaviorDescription.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* BehaviorDescription::release_name() {
@@ -1013,7 +1014,7 @@ inline void BehaviorDescription::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.BehaviorDescription.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.BehaviorDescription.name)
 }
 
 // required string function_name = 2;
@@ -1031,28 +1032,28 @@ inline void BehaviorDescription::clear_function_name() {
   clear_has_function_name();
 }
 inline const ::std::string& BehaviorDescription::function_name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorDescription.function_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.BehaviorDescription.function_name)
   return function_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void BehaviorDescription::set_function_name(const ::std::string& value) {
   set_has_function_name();
   function_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorDescription.function_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.BehaviorDescription.function_name)
 }
 inline void BehaviorDescription::set_function_name(const char* value) {
   set_has_function_name();
   function_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.BehaviorDescription.function_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.BehaviorDescription.function_name)
 }
 inline void BehaviorDescription::set_function_name(const char* value, size_t size) {
   set_has_function_name();
   function_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.BehaviorDescription.function_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.BehaviorDescription.function_name)
 }
 inline ::std::string* BehaviorDescription::mutable_function_name() {
   set_has_function_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.BehaviorDescription.function_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.BehaviorDescription.function_name)
   return function_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* BehaviorDescription::release_function_name() {
@@ -1066,40 +1067,40 @@ inline void BehaviorDescription::set_allocated_function_name(::std::string* func
     clear_has_function_name();
   }
   function_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), function_name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.BehaviorDescription.function_name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.BehaviorDescription.function_name)
 }
 
-// repeated .experimot.msgs.BehaviorArguments arg = 3;
+// repeated .Indriya.Core.Msgs.BehaviorArguments arg = 3;
 inline int BehaviorDescription::arg_size() const {
   return arg_.size();
 }
 inline void BehaviorDescription::clear_arg() {
   arg_.Clear();
 }
-inline const ::experimot::msgs::BehaviorArguments& BehaviorDescription::arg(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorDescription.arg)
+inline const ::Indriya::Core::Msgs::BehaviorArguments& BehaviorDescription::arg(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.BehaviorDescription.arg)
   return arg_.Get(index);
 }
-inline ::experimot::msgs::BehaviorArguments* BehaviorDescription::mutable_arg(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.BehaviorDescription.arg)
+inline ::Indriya::Core::Msgs::BehaviorArguments* BehaviorDescription::mutable_arg(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.BehaviorDescription.arg)
   return arg_.Mutable(index);
 }
-inline ::experimot::msgs::BehaviorArguments* BehaviorDescription::add_arg() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.BehaviorDescription.arg)
+inline ::Indriya::Core::Msgs::BehaviorArguments* BehaviorDescription::add_arg() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.BehaviorDescription.arg)
   return arg_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorArguments >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::BehaviorArguments >&
 BehaviorDescription::arg() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.BehaviorDescription.arg)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.BehaviorDescription.arg)
   return arg_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorArguments >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::BehaviorArguments >*
 BehaviorDescription::mutable_arg() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.BehaviorDescription.arg)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.BehaviorDescription.arg)
   return &arg_;
 }
 
-// required .experimot.msgs.BehaviorDescription.ExecutionType type = 4;
+// required .Indriya.Core.Msgs.BehaviorDescription.ExecutionType type = 4;
 inline bool BehaviorDescription::has_type() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1113,18 +1114,18 @@ inline void BehaviorDescription::clear_type() {
   type_ = 0;
   clear_has_type();
 }
-inline ::experimot::msgs::BehaviorDescription_ExecutionType BehaviorDescription::type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorDescription.type)
-  return static_cast< ::experimot::msgs::BehaviorDescription_ExecutionType >(type_);
+inline ::Indriya::Core::Msgs::BehaviorDescription_ExecutionType BehaviorDescription::type() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.BehaviorDescription.type)
+  return static_cast< ::Indriya::Core::Msgs::BehaviorDescription_ExecutionType >(type_);
 }
-inline void BehaviorDescription::set_type(::experimot::msgs::BehaviorDescription_ExecutionType value) {
-  assert(::experimot::msgs::BehaviorDescription_ExecutionType_IsValid(value));
+inline void BehaviorDescription::set_type(::Indriya::Core::Msgs::BehaviorDescription_ExecutionType value) {
+  assert(::Indriya::Core::Msgs::BehaviorDescription_ExecutionType_IsValid(value));
   set_has_type();
   type_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorDescription.type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.BehaviorDescription.type)
 }
 
-// required .experimot.msgs.BehaviorDescription.ExecutionState state = 5;
+// required .Indriya.Core.Msgs.BehaviorDescription.ExecutionState state = 5;
 inline bool BehaviorDescription::has_state() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1138,15 +1139,15 @@ inline void BehaviorDescription::clear_state() {
   state_ = 0;
   clear_has_state();
 }
-inline ::experimot::msgs::BehaviorDescription_ExecutionState BehaviorDescription::state() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.BehaviorDescription.state)
-  return static_cast< ::experimot::msgs::BehaviorDescription_ExecutionState >(state_);
+inline ::Indriya::Core::Msgs::BehaviorDescription_ExecutionState BehaviorDescription::state() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.BehaviorDescription.state)
+  return static_cast< ::Indriya::Core::Msgs::BehaviorDescription_ExecutionState >(state_);
 }
-inline void BehaviorDescription::set_state(::experimot::msgs::BehaviorDescription_ExecutionState value) {
-  assert(::experimot::msgs::BehaviorDescription_ExecutionState_IsValid(value));
+inline void BehaviorDescription::set_state(::Indriya::Core::Msgs::BehaviorDescription_ExecutionState value) {
+  assert(::Indriya::Core::Msgs::BehaviorDescription_ExecutionState_IsValid(value));
   set_has_state();
   state_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.BehaviorDescription.state)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.BehaviorDescription.state)
 }
 
 // -------------------------------------------------------------------
@@ -1168,28 +1169,28 @@ inline void RobotBehaviorModule_RobotBehaviorResponder::clear_host() {
   clear_has_host();
 }
 inline const ::std::string& RobotBehaviorModule_RobotBehaviorResponder::host() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Host)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RobotBehaviorModule.RobotBehaviorResponder.Host)
   return host_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void RobotBehaviorModule_RobotBehaviorResponder::set_host(const ::std::string& value) {
   set_has_host();
   host_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Host)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.RobotBehaviorModule.RobotBehaviorResponder.Host)
 }
 inline void RobotBehaviorModule_RobotBehaviorResponder::set_host(const char* value) {
   set_has_host();
   host_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Host)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.RobotBehaviorModule.RobotBehaviorResponder.Host)
 }
 inline void RobotBehaviorModule_RobotBehaviorResponder::set_host(const char* value, size_t size) {
   set_has_host();
   host_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Host)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.RobotBehaviorModule.RobotBehaviorResponder.Host)
 }
 inline ::std::string* RobotBehaviorModule_RobotBehaviorResponder::mutable_host() {
   set_has_host();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Host)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.RobotBehaviorModule.RobotBehaviorResponder.Host)
   return host_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* RobotBehaviorModule_RobotBehaviorResponder::release_host() {
@@ -1203,7 +1204,7 @@ inline void RobotBehaviorModule_RobotBehaviorResponder::set_allocated_host(::std
     clear_has_host();
   }
   host_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), host);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Host)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.RobotBehaviorModule.RobotBehaviorResponder.Host)
 }
 
 // required int32 Port = 2;
@@ -1221,13 +1222,13 @@ inline void RobotBehaviorModule_RobotBehaviorResponder::clear_port() {
   clear_has_port();
 }
 inline ::google::protobuf::int32 RobotBehaviorModule_RobotBehaviorResponder::port() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Port)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RobotBehaviorModule.RobotBehaviorResponder.Port)
   return port_;
 }
 inline void RobotBehaviorModule_RobotBehaviorResponder::set_port(::google::protobuf::int32 value) {
   set_has_port();
   port_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder.Port)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.RobotBehaviorModule.RobotBehaviorResponder.Port)
 }
 
 // -------------------------------------------------------------------
@@ -1249,28 +1250,28 @@ inline void RobotBehaviorModule::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& RobotBehaviorModule::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RobotBehaviorModule.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RobotBehaviorModule.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void RobotBehaviorModule::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.RobotBehaviorModule.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.RobotBehaviorModule.name)
 }
 inline void RobotBehaviorModule::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.RobotBehaviorModule.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.RobotBehaviorModule.name)
 }
 inline void RobotBehaviorModule::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.RobotBehaviorModule.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.RobotBehaviorModule.name)
 }
 inline ::std::string* RobotBehaviorModule::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.RobotBehaviorModule.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.RobotBehaviorModule.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* RobotBehaviorModule::release_name() {
@@ -1284,7 +1285,7 @@ inline void RobotBehaviorModule::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.RobotBehaviorModule.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.RobotBehaviorModule.name)
 }
 
 // required string robot = 2;
@@ -1302,28 +1303,28 @@ inline void RobotBehaviorModule::clear_robot() {
   clear_has_robot();
 }
 inline const ::std::string& RobotBehaviorModule::robot() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RobotBehaviorModule.robot)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RobotBehaviorModule.robot)
   return robot_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void RobotBehaviorModule::set_robot(const ::std::string& value) {
   set_has_robot();
   robot_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.RobotBehaviorModule.robot)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.RobotBehaviorModule.robot)
 }
 inline void RobotBehaviorModule::set_robot(const char* value) {
   set_has_robot();
   robot_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.RobotBehaviorModule.robot)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.RobotBehaviorModule.robot)
 }
 inline void RobotBehaviorModule::set_robot(const char* value, size_t size) {
   set_has_robot();
   robot_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.RobotBehaviorModule.robot)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.RobotBehaviorModule.robot)
 }
 inline ::std::string* RobotBehaviorModule::mutable_robot() {
   set_has_robot();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.RobotBehaviorModule.robot)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.RobotBehaviorModule.robot)
   return robot_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* RobotBehaviorModule::release_robot() {
@@ -1337,70 +1338,70 @@ inline void RobotBehaviorModule::set_allocated_robot(::std::string* robot) {
     clear_has_robot();
   }
   robot_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), robot);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.RobotBehaviorModule.robot)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.RobotBehaviorModule.robot)
 }
 
-// repeated .experimot.msgs.Param param = 3;
+// repeated .Indriya.Core.Msgs.Param param = 3;
 inline int RobotBehaviorModule::param_size() const {
   return param_.size();
 }
 inline void RobotBehaviorModule::clear_param() {
   param_.Clear();
 }
-inline const ::experimot::msgs::Param& RobotBehaviorModule::param(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RobotBehaviorModule.param)
+inline const ::Indriya::Core::Msgs::Param& RobotBehaviorModule::param(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RobotBehaviorModule.param)
   return param_.Get(index);
 }
-inline ::experimot::msgs::Param* RobotBehaviorModule::mutable_param(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.RobotBehaviorModule.param)
+inline ::Indriya::Core::Msgs::Param* RobotBehaviorModule::mutable_param(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.RobotBehaviorModule.param)
   return param_.Mutable(index);
 }
-inline ::experimot::msgs::Param* RobotBehaviorModule::add_param() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.RobotBehaviorModule.param)
+inline ::Indriya::Core::Msgs::Param* RobotBehaviorModule::add_param() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.RobotBehaviorModule.param)
   return param_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >&
 RobotBehaviorModule::param() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.RobotBehaviorModule.param)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.RobotBehaviorModule.param)
   return param_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >*
 RobotBehaviorModule::mutable_param() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.RobotBehaviorModule.param)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.RobotBehaviorModule.param)
   return &param_;
 }
 
-// repeated .experimot.msgs.BehaviorDescription behaviors = 4;
+// repeated .Indriya.Core.Msgs.BehaviorDescription behaviors = 4;
 inline int RobotBehaviorModule::behaviors_size() const {
   return behaviors_.size();
 }
 inline void RobotBehaviorModule::clear_behaviors() {
   behaviors_.Clear();
 }
-inline const ::experimot::msgs::BehaviorDescription& RobotBehaviorModule::behaviors(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RobotBehaviorModule.behaviors)
+inline const ::Indriya::Core::Msgs::BehaviorDescription& RobotBehaviorModule::behaviors(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RobotBehaviorModule.behaviors)
   return behaviors_.Get(index);
 }
-inline ::experimot::msgs::BehaviorDescription* RobotBehaviorModule::mutable_behaviors(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.RobotBehaviorModule.behaviors)
+inline ::Indriya::Core::Msgs::BehaviorDescription* RobotBehaviorModule::mutable_behaviors(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.RobotBehaviorModule.behaviors)
   return behaviors_.Mutable(index);
 }
-inline ::experimot::msgs::BehaviorDescription* RobotBehaviorModule::add_behaviors() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.RobotBehaviorModule.behaviors)
+inline ::Indriya::Core::Msgs::BehaviorDescription* RobotBehaviorModule::add_behaviors() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.RobotBehaviorModule.behaviors)
   return behaviors_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorDescription >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::BehaviorDescription >&
 RobotBehaviorModule::behaviors() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.RobotBehaviorModule.behaviors)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.RobotBehaviorModule.behaviors)
   return behaviors_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::BehaviorDescription >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::BehaviorDescription >*
 RobotBehaviorModule::mutable_behaviors() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.RobotBehaviorModule.behaviors)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.RobotBehaviorModule.behaviors)
   return &behaviors_;
 }
 
-// optional .experimot.msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 5;
+// optional .Indriya.Core.Msgs.RobotBehaviorModule.RobotBehaviorResponder responder = 5;
 inline bool RobotBehaviorModule::has_responder() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1411,28 +1412,28 @@ inline void RobotBehaviorModule::clear_has_responder() {
   _has_bits_[0] &= ~0x00000010u;
 }
 inline void RobotBehaviorModule::clear_responder() {
-  if (responder_ != NULL) responder_->::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder::Clear();
+  if (responder_ != NULL) responder_->::Indriya::Core::Msgs::RobotBehaviorModule_RobotBehaviorResponder::Clear();
   clear_has_responder();
 }
-inline const ::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder& RobotBehaviorModule::responder() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RobotBehaviorModule.responder)
+inline const ::Indriya::Core::Msgs::RobotBehaviorModule_RobotBehaviorResponder& RobotBehaviorModule::responder() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RobotBehaviorModule.responder)
   return responder_ != NULL ? *responder_ : *default_instance_->responder_;
 }
-inline ::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder* RobotBehaviorModule::mutable_responder() {
+inline ::Indriya::Core::Msgs::RobotBehaviorModule_RobotBehaviorResponder* RobotBehaviorModule::mutable_responder() {
   set_has_responder();
   if (responder_ == NULL) {
-    responder_ = new ::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder;
+    responder_ = new ::Indriya::Core::Msgs::RobotBehaviorModule_RobotBehaviorResponder;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.RobotBehaviorModule.responder)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.RobotBehaviorModule.responder)
   return responder_;
 }
-inline ::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder* RobotBehaviorModule::release_responder() {
+inline ::Indriya::Core::Msgs::RobotBehaviorModule_RobotBehaviorResponder* RobotBehaviorModule::release_responder() {
   clear_has_responder();
-  ::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder* temp = responder_;
+  ::Indriya::Core::Msgs::RobotBehaviorModule_RobotBehaviorResponder* temp = responder_;
   responder_ = NULL;
   return temp;
 }
-inline void RobotBehaviorModule::set_allocated_responder(::experimot::msgs::RobotBehaviorModule_RobotBehaviorResponder* responder) {
+inline void RobotBehaviorModule::set_allocated_responder(::Indriya::Core::Msgs::RobotBehaviorModule_RobotBehaviorResponder* responder) {
   delete responder_;
   responder_ = responder;
   if (responder) {
@@ -1440,71 +1441,72 @@ inline void RobotBehaviorModule::set_allocated_responder(::experimot::msgs::Robo
   } else {
     clear_has_responder();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.RobotBehaviorModule.responder)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.RobotBehaviorModule.responder)
 }
 
 // -------------------------------------------------------------------
 
 // RobotBehaviorModules
 
-// repeated .experimot.msgs.RobotBehaviorModule modules = 1;
+// repeated .Indriya.Core.Msgs.RobotBehaviorModule modules = 1;
 inline int RobotBehaviorModules::modules_size() const {
   return modules_.size();
 }
 inline void RobotBehaviorModules::clear_modules() {
   modules_.Clear();
 }
-inline const ::experimot::msgs::RobotBehaviorModule& RobotBehaviorModules::modules(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RobotBehaviorModules.modules)
+inline const ::Indriya::Core::Msgs::RobotBehaviorModule& RobotBehaviorModules::modules(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RobotBehaviorModules.modules)
   return modules_.Get(index);
 }
-inline ::experimot::msgs::RobotBehaviorModule* RobotBehaviorModules::mutable_modules(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.RobotBehaviorModules.modules)
+inline ::Indriya::Core::Msgs::RobotBehaviorModule* RobotBehaviorModules::mutable_modules(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.RobotBehaviorModules.modules)
   return modules_.Mutable(index);
 }
-inline ::experimot::msgs::RobotBehaviorModule* RobotBehaviorModules::add_modules() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.RobotBehaviorModules.modules)
+inline ::Indriya::Core::Msgs::RobotBehaviorModule* RobotBehaviorModules::add_modules() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.RobotBehaviorModules.modules)
   return modules_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::RobotBehaviorModule >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::RobotBehaviorModule >&
 RobotBehaviorModules::modules() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.RobotBehaviorModules.modules)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.RobotBehaviorModules.modules)
   return modules_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::RobotBehaviorModule >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::RobotBehaviorModule >*
 RobotBehaviorModules::mutable_modules() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.RobotBehaviorModules.modules)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.RobotBehaviorModules.modules)
   return &modules_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::BehaviorArguments> BehaviorArgumentsPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::BehaviorArguments> BehaviorArgumentsPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::experimot::msgs::BehaviorDescription_ExecutionType> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Indriya::Core::Msgs::BehaviorDescription_ExecutionType> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::BehaviorDescription_ExecutionType>() {
-  return ::experimot::msgs::BehaviorDescription_ExecutionType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Indriya::Core::Msgs::BehaviorDescription_ExecutionType>() {
+  return ::Indriya::Core::Msgs::BehaviorDescription_ExecutionType_descriptor();
 }
-template <> struct is_proto_enum< ::experimot::msgs::BehaviorDescription_ExecutionState> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Indriya::Core::Msgs::BehaviorDescription_ExecutionState> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::BehaviorDescription_ExecutionState>() {
-  return ::experimot::msgs::BehaviorDescription_ExecutionState_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Indriya::Core::Msgs::BehaviorDescription_ExecutionState>() {
+  return ::Indriya::Core::Msgs::BehaviorDescription_ExecutionState_descriptor();
 }
 
 }  // namespace protobuf
 }  // namespace google
 #endif  // SWIG
 
-typedef const boost::shared_ptr<experimot::msgs::BehaviorArguments const> ConstBehaviorArgumentsPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::BehaviorArguments const> ConstBehaviorArgumentsPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_robot_5fbehavior_2eproto__INCLUDED

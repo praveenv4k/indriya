@@ -19,9 +19,9 @@ import material_pb2 as material__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='road.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\nroad.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\x1a\x0ematerial.proto\"x\n\x04Road\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\r\n\x05width\x18\x02 \x02(\x01\x12\'\n\x05point\x18\x03 \x03(\x0b\x32\x18.experimot.msgs.Vector3d\x12*\n\x08material\x18\x04 \x01(\x0b\x32\x18.experimot.msgs.Material')
+  serialized_pb=_b('\n\nroad.proto\x12\x11Indriya.Core.Msgs\x1a\x0evector3d.proto\x1a\x0ematerial.proto\"~\n\x04Road\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\r\n\x05width\x18\x02 \x02(\x01\x12*\n\x05point\x18\x03 \x03(\x0b\x32\x1b.Indriya.Core.Msgs.Vector3d\x12-\n\x08material\x18\x04 \x01(\x0b\x32\x1b.Indriya.Core.Msgs.Material')
   ,
   dependencies=[vector3d__pb2.DESCRIPTOR,material__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -31,34 +31,34 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _ROAD = _descriptor.Descriptor(
   name='Road',
-  full_name='experimot.msgs.Road',
+  full_name='Indriya.Core.Msgs.Road',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='experimot.msgs.Road.name', index=0,
+      name='name', full_name='Indriya.Core.Msgs.Road.name', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='width', full_name='experimot.msgs.Road.width', index=1,
+      name='width', full_name='Indriya.Core.Msgs.Road.width', index=1,
       number=2, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='point', full_name='experimot.msgs.Road.point', index=2,
+      name='point', full_name='Indriya.Core.Msgs.Road.point', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='material', full_name='experimot.msgs.Road.material', index=3,
+      name='material', full_name='Indriya.Core.Msgs.Road.material', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -76,8 +76,8 @@ _ROAD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=62,
-  serialized_end=182,
+  serialized_start=65,
+  serialized_end=191,
 )
 
 _ROAD.fields_by_name['point'].message_type = vector3d__pb2._VECTOR3D
@@ -87,7 +87,7 @@ DESCRIPTOR.message_types_by_name['Road'] = _ROAD
 Road = _reflection.GeneratedProtocolMessageType('Road', (_message.Message,), dict(
   DESCRIPTOR = _ROAD,
   __module__ = 'road_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Road)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Road)
   ))
 _sym_db.RegisterMessage(Road)
 

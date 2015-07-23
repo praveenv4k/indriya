@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_world_5fstats_2eproto();
@@ -108,32 +109,32 @@ class WorldStatistics : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .experimot.msgs.Time sim_time = 2;
+  // required .Indriya.Core.Msgs.Time sim_time = 2;
   bool has_sim_time() const;
   void clear_sim_time();
   static const int kSimTimeFieldNumber = 2;
-  const ::experimot::msgs::Time& sim_time() const;
-  ::experimot::msgs::Time* mutable_sim_time();
-  ::experimot::msgs::Time* release_sim_time();
-  void set_allocated_sim_time(::experimot::msgs::Time* sim_time);
+  const ::Indriya::Core::Msgs::Time& sim_time() const;
+  ::Indriya::Core::Msgs::Time* mutable_sim_time();
+  ::Indriya::Core::Msgs::Time* release_sim_time();
+  void set_allocated_sim_time(::Indriya::Core::Msgs::Time* sim_time);
 
-  // required .experimot.msgs.Time pause_time = 3;
+  // required .Indriya.Core.Msgs.Time pause_time = 3;
   bool has_pause_time() const;
   void clear_pause_time();
   static const int kPauseTimeFieldNumber = 3;
-  const ::experimot::msgs::Time& pause_time() const;
-  ::experimot::msgs::Time* mutable_pause_time();
-  ::experimot::msgs::Time* release_pause_time();
-  void set_allocated_pause_time(::experimot::msgs::Time* pause_time);
+  const ::Indriya::Core::Msgs::Time& pause_time() const;
+  ::Indriya::Core::Msgs::Time* mutable_pause_time();
+  ::Indriya::Core::Msgs::Time* release_pause_time();
+  void set_allocated_pause_time(::Indriya::Core::Msgs::Time* pause_time);
 
-  // required .experimot.msgs.Time real_time = 4;
+  // required .Indriya.Core.Msgs.Time real_time = 4;
   bool has_real_time() const;
   void clear_real_time();
   static const int kRealTimeFieldNumber = 4;
-  const ::experimot::msgs::Time& real_time() const;
-  ::experimot::msgs::Time* mutable_real_time();
-  ::experimot::msgs::Time* release_real_time();
-  void set_allocated_real_time(::experimot::msgs::Time* real_time);
+  const ::Indriya::Core::Msgs::Time& real_time() const;
+  ::Indriya::Core::Msgs::Time* mutable_real_time();
+  ::Indriya::Core::Msgs::Time* release_real_time();
+  void set_allocated_real_time(::Indriya::Core::Msgs::Time* real_time);
 
   // required bool paused = 5;
   bool has_paused() const;
@@ -156,7 +157,7 @@ class WorldStatistics : public ::google::protobuf::Message {
   ::google::protobuf::int32 model_count() const;
   void set_model_count(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.WorldStatistics)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.WorldStatistics)
  private:
   inline void set_has_sim_time();
   inline void clear_has_sim_time();
@@ -177,9 +178,9 @@ class WorldStatistics : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::Time* sim_time_;
-  ::experimot::msgs::Time* pause_time_;
-  ::experimot::msgs::Time* real_time_;
+  ::Indriya::Core::Msgs::Time* sim_time_;
+  ::Indriya::Core::Msgs::Time* pause_time_;
+  ::Indriya::Core::Msgs::Time* real_time_;
   ::google::protobuf::uint64 iterations_;
   bool paused_;
   ::google::protobuf::int32 model_count_;
@@ -198,7 +199,7 @@ class WorldStatistics : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // WorldStatistics
 
-// required .experimot.msgs.Time sim_time = 2;
+// required .Indriya.Core.Msgs.Time sim_time = 2;
 inline bool WorldStatistics::has_sim_time() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -209,28 +210,28 @@ inline void WorldStatistics::clear_has_sim_time() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void WorldStatistics::clear_sim_time() {
-  if (sim_time_ != NULL) sim_time_->::experimot::msgs::Time::Clear();
+  if (sim_time_ != NULL) sim_time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_sim_time();
 }
-inline const ::experimot::msgs::Time& WorldStatistics::sim_time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldStatistics.sim_time)
+inline const ::Indriya::Core::Msgs::Time& WorldStatistics::sim_time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldStatistics.sim_time)
   return sim_time_ != NULL ? *sim_time_ : *default_instance_->sim_time_;
 }
-inline ::experimot::msgs::Time* WorldStatistics::mutable_sim_time() {
+inline ::Indriya::Core::Msgs::Time* WorldStatistics::mutable_sim_time() {
   set_has_sim_time();
   if (sim_time_ == NULL) {
-    sim_time_ = new ::experimot::msgs::Time;
+    sim_time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.WorldStatistics.sim_time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.WorldStatistics.sim_time)
   return sim_time_;
 }
-inline ::experimot::msgs::Time* WorldStatistics::release_sim_time() {
+inline ::Indriya::Core::Msgs::Time* WorldStatistics::release_sim_time() {
   clear_has_sim_time();
-  ::experimot::msgs::Time* temp = sim_time_;
+  ::Indriya::Core::Msgs::Time* temp = sim_time_;
   sim_time_ = NULL;
   return temp;
 }
-inline void WorldStatistics::set_allocated_sim_time(::experimot::msgs::Time* sim_time) {
+inline void WorldStatistics::set_allocated_sim_time(::Indriya::Core::Msgs::Time* sim_time) {
   delete sim_time_;
   sim_time_ = sim_time;
   if (sim_time) {
@@ -238,10 +239,10 @@ inline void WorldStatistics::set_allocated_sim_time(::experimot::msgs::Time* sim
   } else {
     clear_has_sim_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.WorldStatistics.sim_time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.WorldStatistics.sim_time)
 }
 
-// required .experimot.msgs.Time pause_time = 3;
+// required .Indriya.Core.Msgs.Time pause_time = 3;
 inline bool WorldStatistics::has_pause_time() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -252,28 +253,28 @@ inline void WorldStatistics::clear_has_pause_time() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void WorldStatistics::clear_pause_time() {
-  if (pause_time_ != NULL) pause_time_->::experimot::msgs::Time::Clear();
+  if (pause_time_ != NULL) pause_time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_pause_time();
 }
-inline const ::experimot::msgs::Time& WorldStatistics::pause_time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldStatistics.pause_time)
+inline const ::Indriya::Core::Msgs::Time& WorldStatistics::pause_time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldStatistics.pause_time)
   return pause_time_ != NULL ? *pause_time_ : *default_instance_->pause_time_;
 }
-inline ::experimot::msgs::Time* WorldStatistics::mutable_pause_time() {
+inline ::Indriya::Core::Msgs::Time* WorldStatistics::mutable_pause_time() {
   set_has_pause_time();
   if (pause_time_ == NULL) {
-    pause_time_ = new ::experimot::msgs::Time;
+    pause_time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.WorldStatistics.pause_time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.WorldStatistics.pause_time)
   return pause_time_;
 }
-inline ::experimot::msgs::Time* WorldStatistics::release_pause_time() {
+inline ::Indriya::Core::Msgs::Time* WorldStatistics::release_pause_time() {
   clear_has_pause_time();
-  ::experimot::msgs::Time* temp = pause_time_;
+  ::Indriya::Core::Msgs::Time* temp = pause_time_;
   pause_time_ = NULL;
   return temp;
 }
-inline void WorldStatistics::set_allocated_pause_time(::experimot::msgs::Time* pause_time) {
+inline void WorldStatistics::set_allocated_pause_time(::Indriya::Core::Msgs::Time* pause_time) {
   delete pause_time_;
   pause_time_ = pause_time;
   if (pause_time) {
@@ -281,10 +282,10 @@ inline void WorldStatistics::set_allocated_pause_time(::experimot::msgs::Time* p
   } else {
     clear_has_pause_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.WorldStatistics.pause_time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.WorldStatistics.pause_time)
 }
 
-// required .experimot.msgs.Time real_time = 4;
+// required .Indriya.Core.Msgs.Time real_time = 4;
 inline bool WorldStatistics::has_real_time() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -295,28 +296,28 @@ inline void WorldStatistics::clear_has_real_time() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void WorldStatistics::clear_real_time() {
-  if (real_time_ != NULL) real_time_->::experimot::msgs::Time::Clear();
+  if (real_time_ != NULL) real_time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_real_time();
 }
-inline const ::experimot::msgs::Time& WorldStatistics::real_time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldStatistics.real_time)
+inline const ::Indriya::Core::Msgs::Time& WorldStatistics::real_time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldStatistics.real_time)
   return real_time_ != NULL ? *real_time_ : *default_instance_->real_time_;
 }
-inline ::experimot::msgs::Time* WorldStatistics::mutable_real_time() {
+inline ::Indriya::Core::Msgs::Time* WorldStatistics::mutable_real_time() {
   set_has_real_time();
   if (real_time_ == NULL) {
-    real_time_ = new ::experimot::msgs::Time;
+    real_time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.WorldStatistics.real_time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.WorldStatistics.real_time)
   return real_time_;
 }
-inline ::experimot::msgs::Time* WorldStatistics::release_real_time() {
+inline ::Indriya::Core::Msgs::Time* WorldStatistics::release_real_time() {
   clear_has_real_time();
-  ::experimot::msgs::Time* temp = real_time_;
+  ::Indriya::Core::Msgs::Time* temp = real_time_;
   real_time_ = NULL;
   return temp;
 }
-inline void WorldStatistics::set_allocated_real_time(::experimot::msgs::Time* real_time) {
+inline void WorldStatistics::set_allocated_real_time(::Indriya::Core::Msgs::Time* real_time) {
   delete real_time_;
   real_time_ = real_time;
   if (real_time) {
@@ -324,7 +325,7 @@ inline void WorldStatistics::set_allocated_real_time(::experimot::msgs::Time* re
   } else {
     clear_has_real_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.WorldStatistics.real_time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.WorldStatistics.real_time)
 }
 
 // required bool paused = 5;
@@ -342,13 +343,13 @@ inline void WorldStatistics::clear_paused() {
   clear_has_paused();
 }
 inline bool WorldStatistics::paused() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldStatistics.paused)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldStatistics.paused)
   return paused_;
 }
 inline void WorldStatistics::set_paused(bool value) {
   set_has_paused();
   paused_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldStatistics.paused)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldStatistics.paused)
 }
 
 // required uint64 iterations = 6;
@@ -366,13 +367,13 @@ inline void WorldStatistics::clear_iterations() {
   clear_has_iterations();
 }
 inline ::google::protobuf::uint64 WorldStatistics::iterations() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldStatistics.iterations)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldStatistics.iterations)
   return iterations_;
 }
 inline void WorldStatistics::set_iterations(::google::protobuf::uint64 value) {
   set_has_iterations();
   iterations_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldStatistics.iterations)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldStatistics.iterations)
 }
 
 // optional int32 model_count = 7;
@@ -390,24 +391,25 @@ inline void WorldStatistics::clear_model_count() {
   clear_has_model_count();
 }
 inline ::google::protobuf::int32 WorldStatistics::model_count() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldStatistics.model_count)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldStatistics.model_count)
   return model_count_;
 }
 inline void WorldStatistics::set_model_count(::google::protobuf::int32 value) {
   set_has_model_count();
   model_count_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldStatistics.model_count)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldStatistics.model_count)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::WorldStatistics> WorldStatisticsPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::WorldStatistics> WorldStatisticsPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::WorldStatistics const> ConstWorldStatisticsPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::WorldStatistics const> ConstWorldStatisticsPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_world_5fstats_2eproto__INCLUDED

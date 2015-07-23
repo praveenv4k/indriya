@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -79,12 +80,12 @@ void protobuf_AddDesc_wrench_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_vector3d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector3d_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\014wrench.proto\022\016experimot.msgs\032\016vector3d"
-    ".proto\"[\n\006Wrench\022\'\n\005force\030\001 \002(\0132\030.experi"
-    "mot.msgs.Vector3d\022(\n\006torque\030\002 \002(\0132\030.expe"
-    "rimot.msgs.Vector3d", 139);
+    "\n\014wrench.proto\022\021Indriya.Core.Msgs\032\016vecto"
+    "r3d.proto\"a\n\006Wrench\022*\n\005force\030\001 \002(\0132\033.Ind"
+    "riya.Core.Msgs.Vector3d\022+\n\006torque\030\002 \002(\0132"
+    "\033.Indriya.Core.Msgs.Vector3d", 148);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "wrench.proto", &protobuf_RegisterTypes);
   Wrench::default_instance_ = new Wrench();
@@ -119,12 +120,12 @@ const int Wrench::kTorqueFieldNumber;
 Wrench::Wrench()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Wrench)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Wrench)
 }
 
 void Wrench::InitAsDefaultInstance() {
-  force_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
-  torque_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
+  force_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
+  torque_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
 }
 
 Wrench::Wrench(const Wrench& from)
@@ -132,7 +133,7 @@ Wrench::Wrench(const Wrench& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Wrench)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Wrench)
 }
 
 void Wrench::SharedCtor() {
@@ -143,7 +144,7 @@ void Wrench::SharedCtor() {
 }
 
 Wrench::~Wrench() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Wrench)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Wrench)
   SharedDtor();
 }
 
@@ -182,10 +183,10 @@ Wrench* Wrench::New(::google::protobuf::Arena* arena) const {
 void Wrench::Clear() {
   if (_has_bits_[0 / 32] & 3) {
     if (has_force()) {
-      if (force_ != NULL) force_->::experimot::msgs::Vector3d::Clear();
+      if (force_ != NULL) force_->::Indriya::Core::Msgs::Vector3d::Clear();
     }
     if (has_torque()) {
-      if (torque_ != NULL) torque_->::experimot::msgs::Vector3d::Clear();
+      if (torque_ != NULL) torque_->::Indriya::Core::Msgs::Vector3d::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -198,13 +199,13 @@ bool Wrench::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Wrench)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Wrench)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .experimot.msgs.Vector3d force = 1;
+      // required .Indriya.Core.Msgs.Vector3d force = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -216,7 +217,7 @@ bool Wrench::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Vector3d torque = 2;
+      // required .Indriya.Core.Msgs.Vector3d torque = 2;
       case 2: {
         if (tag == 18) {
          parse_torque:
@@ -243,24 +244,24 @@ bool Wrench::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Wrench)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Wrench)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Wrench)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Wrench)
   return false;
 #undef DO_
 }
 
 void Wrench::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Wrench)
-  // required .experimot.msgs.Vector3d force = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Wrench)
+  // required .Indriya.Core.Msgs.Vector3d force = 1;
   if (has_force()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->force_, output);
   }
 
-  // required .experimot.msgs.Vector3d torque = 2;
+  // required .Indriya.Core.Msgs.Vector3d torque = 2;
   if (has_torque()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->torque_, output);
@@ -270,20 +271,20 @@ void Wrench::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Wrench)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Wrench)
 }
 
 ::google::protobuf::uint8* Wrench::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Wrench)
-  // required .experimot.msgs.Vector3d force = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Wrench)
+  // required .Indriya.Core.Msgs.Vector3d force = 1;
   if (has_force()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, *this->force_, target);
   }
 
-  // required .experimot.msgs.Vector3d torque = 2;
+  // required .Indriya.Core.Msgs.Vector3d torque = 2;
   if (has_torque()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -294,7 +295,7 @@ void Wrench::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Wrench)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Wrench)
   return target;
 }
 
@@ -302,14 +303,14 @@ int Wrench::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
   if (has_force()) {
-    // required .experimot.msgs.Vector3d force = 1;
+    // required .Indriya.Core.Msgs.Vector3d force = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->force_);
   }
 
   if (has_torque()) {
-    // required .experimot.msgs.Vector3d torque = 2;
+    // required .Indriya.Core.Msgs.Vector3d torque = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->torque_);
@@ -321,12 +322,12 @@ int Wrench::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required .experimot.msgs.Vector3d force = 1;
+    // required .Indriya.Core.Msgs.Vector3d force = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->force_);
 
-    // required .experimot.msgs.Vector3d torque = 2;
+    // required .Indriya.Core.Msgs.Vector3d torque = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->torque_);
@@ -361,10 +362,10 @@ void Wrench::MergeFrom(const Wrench& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_force()) {
-      mutable_force()->::experimot::msgs::Vector3d::MergeFrom(from.force());
+      mutable_force()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.force());
     }
     if (from.has_torque()) {
-      mutable_torque()->::experimot::msgs::Vector3d::MergeFrom(from.torque());
+      mutable_torque()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.torque());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -419,7 +420,7 @@ void Wrench::InternalSwap(Wrench* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Wrench
 
-// required .experimot.msgs.Vector3d force = 1;
+// required .Indriya.Core.Msgs.Vector3d force = 1;
  bool Wrench::has_force() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -430,28 +431,28 @@ void Wrench::InternalSwap(Wrench* other) {
   _has_bits_[0] &= ~0x00000001u;
 }
  void Wrench::clear_force() {
-  if (force_ != NULL) force_->::experimot::msgs::Vector3d::Clear();
+  if (force_ != NULL) force_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_force();
 }
- const ::experimot::msgs::Vector3d& Wrench::force() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Wrench.force)
+ const ::Indriya::Core::Msgs::Vector3d& Wrench::force() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Wrench.force)
   return force_ != NULL ? *force_ : *default_instance_->force_;
 }
- ::experimot::msgs::Vector3d* Wrench::mutable_force() {
+ ::Indriya::Core::Msgs::Vector3d* Wrench::mutable_force() {
   set_has_force();
   if (force_ == NULL) {
-    force_ = new ::experimot::msgs::Vector3d;
+    force_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Wrench.force)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Wrench.force)
   return force_;
 }
- ::experimot::msgs::Vector3d* Wrench::release_force() {
+ ::Indriya::Core::Msgs::Vector3d* Wrench::release_force() {
   clear_has_force();
-  ::experimot::msgs::Vector3d* temp = force_;
+  ::Indriya::Core::Msgs::Vector3d* temp = force_;
   force_ = NULL;
   return temp;
 }
- void Wrench::set_allocated_force(::experimot::msgs::Vector3d* force) {
+ void Wrench::set_allocated_force(::Indriya::Core::Msgs::Vector3d* force) {
   delete force_;
   force_ = force;
   if (force) {
@@ -459,10 +460,10 @@ void Wrench::InternalSwap(Wrench* other) {
   } else {
     clear_has_force();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Wrench.force)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Wrench.force)
 }
 
-// required .experimot.msgs.Vector3d torque = 2;
+// required .Indriya.Core.Msgs.Vector3d torque = 2;
  bool Wrench::has_torque() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -473,28 +474,28 @@ void Wrench::InternalSwap(Wrench* other) {
   _has_bits_[0] &= ~0x00000002u;
 }
  void Wrench::clear_torque() {
-  if (torque_ != NULL) torque_->::experimot::msgs::Vector3d::Clear();
+  if (torque_ != NULL) torque_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_torque();
 }
- const ::experimot::msgs::Vector3d& Wrench::torque() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Wrench.torque)
+ const ::Indriya::Core::Msgs::Vector3d& Wrench::torque() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Wrench.torque)
   return torque_ != NULL ? *torque_ : *default_instance_->torque_;
 }
- ::experimot::msgs::Vector3d* Wrench::mutable_torque() {
+ ::Indriya::Core::Msgs::Vector3d* Wrench::mutable_torque() {
   set_has_torque();
   if (torque_ == NULL) {
-    torque_ = new ::experimot::msgs::Vector3d;
+    torque_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Wrench.torque)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Wrench.torque)
   return torque_;
 }
- ::experimot::msgs::Vector3d* Wrench::release_torque() {
+ ::Indriya::Core::Msgs::Vector3d* Wrench::release_torque() {
   clear_has_torque();
-  ::experimot::msgs::Vector3d* temp = torque_;
+  ::Indriya::Core::Msgs::Vector3d* temp = torque_;
   torque_ = NULL;
   return temp;
 }
- void Wrench::set_allocated_torque(::experimot::msgs::Vector3d* torque) {
+ void Wrench::set_allocated_torque(::Indriya::Core::Msgs::Vector3d* torque) {
   delete torque_;
   torque_ = torque;
   if (torque) {
@@ -502,15 +503,16 @@ void Wrench::InternalSwap(Wrench* other) {
   } else {
     clear_has_torque();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Wrench.torque)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Wrench.torque)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Wrench", Wrench)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Wrench", Wrench)
 // @@protoc_insertion_point(global_scope)

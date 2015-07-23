@@ -19,9 +19,9 @@ import distortion_pb2 as distortion__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='camerasensor.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x12\x63\x61merasensor.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector2d.proto\x1a\x10\x64istortion.proto\"\xe8\x01\n\x0c\x43\x61meraSensor\x12\x16\n\x0ehorizontal_fov\x18\x01 \x01(\x01\x12,\n\nimage_size\x18\x02 \x01(\x0b\x32\x18.experimot.msgs.Vector2d\x12\x14\n\x0cimage_format\x18\x03 \x01(\t\x12\x11\n\tnear_clip\x18\x04 \x01(\x01\x12\x10\n\x08\x66\x61r_clip\x18\x05 \x01(\x01\x12\x14\n\x0csave_enabled\x18\x06 \x01(\x08\x12\x11\n\tsave_path\x18\x07 \x01(\t\x12.\n\ndistortion\x18\x08 \x01(\x0b\x32\x1a.experimot.msgs.Distortion')
+  serialized_pb=_b('\n\x12\x63\x61merasensor.proto\x12\x11Indriya.Core.Msgs\x1a\x0evector2d.proto\x1a\x10\x64istortion.proto\"\xee\x01\n\x0c\x43\x61meraSensor\x12\x16\n\x0ehorizontal_fov\x18\x01 \x01(\x01\x12/\n\nimage_size\x18\x02 \x01(\x0b\x32\x1b.Indriya.Core.Msgs.Vector2d\x12\x14\n\x0cimage_format\x18\x03 \x01(\t\x12\x11\n\tnear_clip\x18\x04 \x01(\x01\x12\x10\n\x08\x66\x61r_clip\x18\x05 \x01(\x01\x12\x14\n\x0csave_enabled\x18\x06 \x01(\x08\x12\x11\n\tsave_path\x18\x07 \x01(\t\x12\x31\n\ndistortion\x18\x08 \x01(\x0b\x32\x1d.Indriya.Core.Msgs.Distortion')
   ,
   dependencies=[vector2d__pb2.DESCRIPTOR,distortion__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -31,62 +31,62 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _CAMERASENSOR = _descriptor.Descriptor(
   name='CameraSensor',
-  full_name='experimot.msgs.CameraSensor',
+  full_name='Indriya.Core.Msgs.CameraSensor',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='horizontal_fov', full_name='experimot.msgs.CameraSensor.horizontal_fov', index=0,
+      name='horizontal_fov', full_name='Indriya.Core.Msgs.CameraSensor.horizontal_fov', index=0,
       number=1, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='image_size', full_name='experimot.msgs.CameraSensor.image_size', index=1,
+      name='image_size', full_name='Indriya.Core.Msgs.CameraSensor.image_size', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='image_format', full_name='experimot.msgs.CameraSensor.image_format', index=2,
+      name='image_format', full_name='Indriya.Core.Msgs.CameraSensor.image_format', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='near_clip', full_name='experimot.msgs.CameraSensor.near_clip', index=3,
+      name='near_clip', full_name='Indriya.Core.Msgs.CameraSensor.near_clip', index=3,
       number=4, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='far_clip', full_name='experimot.msgs.CameraSensor.far_clip', index=4,
+      name='far_clip', full_name='Indriya.Core.Msgs.CameraSensor.far_clip', index=4,
       number=5, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='save_enabled', full_name='experimot.msgs.CameraSensor.save_enabled', index=5,
+      name='save_enabled', full_name='Indriya.Core.Msgs.CameraSensor.save_enabled', index=5,
       number=6, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='save_path', full_name='experimot.msgs.CameraSensor.save_path', index=6,
+      name='save_path', full_name='Indriya.Core.Msgs.CameraSensor.save_path', index=6,
       number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='distortion', full_name='experimot.msgs.CameraSensor.distortion', index=7,
+      name='distortion', full_name='Indriya.Core.Msgs.CameraSensor.distortion', index=7,
       number=8, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -104,8 +104,8 @@ _CAMERASENSOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=73,
-  serialized_end=305,
+  serialized_start=76,
+  serialized_end=314,
 )
 
 _CAMERASENSOR.fields_by_name['image_size'].message_type = vector2d__pb2._VECTOR2D
@@ -115,7 +115,7 @@ DESCRIPTOR.message_types_by_name['CameraSensor'] = _CAMERASENSOR
 CameraSensor = _reflection.GeneratedProtocolMessageType('CameraSensor', (_message.Message,), dict(
   DESCRIPTOR = _CAMERASENSOR,
   __module__ = 'camerasensor_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.CameraSensor)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.CameraSensor)
   ))
 _sym_db.RegisterMessage(CameraSensor)
 

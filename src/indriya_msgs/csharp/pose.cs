@@ -10,7 +10,7 @@
 // Generated from: proto/pose.proto
 // Note: requires additional types generated from: vector3d.proto
 // Note: requires additional types generated from: quaternion.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Pose")]
   public partial class Pose : global::ProtoBuf.IExtensible
@@ -33,16 +33,16 @@ namespace experimot.msgs
       get { return _id; }
       set { _id = value; }
     }
-    private experimot.msgs.Vector3d _position;
+    private Indriya.Core.Msgs.Vector3d _position;
     [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"position", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Vector3d position
+    public Indriya.Core.Msgs.Vector3d position
     {
       get { return _position; }
       set { _position = value; }
     }
-    private experimot.msgs.Quaternion _orientation;
+    private Indriya.Core.Msgs.Quaternion _orientation;
     [global::ProtoBuf.ProtoMember(4, IsRequired = true, Name=@"orientation", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Quaternion orientation
+    public Indriya.Core.Msgs.Quaternion orientation
     {
       get { return _orientation; }
       set { _orientation = value; }

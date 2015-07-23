@@ -9,25 +9,25 @@
 
 // Generated from: proto/fog.proto
 // Note: requires additional types generated from: color.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Fog")]
   public partial class Fog : global::ProtoBuf.IExtensible
   {
     public Fog() {}
     
-    private experimot.msgs.Fog.FogType _type = experimot.msgs.Fog.FogType.NONE;
+    private Indriya.Core.Msgs.Fog.FogType _type = Indriya.Core.Msgs.Fog.FogType.NONE;
     [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(experimot.msgs.Fog.FogType.NONE)]
-    public experimot.msgs.Fog.FogType type
+    [global::System.ComponentModel.DefaultValue(Indriya.Core.Msgs.Fog.FogType.NONE)]
+    public Indriya.Core.Msgs.Fog.FogType type
     {
       get { return _type; }
       set { _type = value; }
     }
-    private experimot.msgs.Color _color = null;
+    private Indriya.Core.Msgs.Color _color = null;
     [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"color", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Color color
+    public Indriya.Core.Msgs.Color color
     {
       get { return _color; }
       set { _color = value; }

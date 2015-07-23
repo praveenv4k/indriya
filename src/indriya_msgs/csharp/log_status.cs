@@ -9,25 +9,25 @@
 
 // Generated from: proto/log_status.proto
 // Note: requires additional types generated from: time.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"LogStatus")]
   public partial class LogStatus : global::ProtoBuf.IExtensible
   {
     public LogStatus() {}
     
-    private experimot.msgs.Time _sim_time = null;
+    private Indriya.Core.Msgs.Time _sim_time = null;
     [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"sim_time", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Time sim_time
+    public Indriya.Core.Msgs.Time sim_time
     {
       get { return _sim_time; }
       set { _sim_time = value; }
     }
-    private experimot.msgs.LogStatus.LogFile _log_file = null;
+    private Indriya.Core.Msgs.LogStatus.LogFile _log_file = null;
     [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"log_file", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.LogStatus.LogFile log_file
+    public Indriya.Core.Msgs.LogStatus.LogFile log_file
     {
       get { return _log_file; }
       set { _log_file = value; }
@@ -69,10 +69,10 @@ namespace experimot.msgs
       get { return _size; }
       set { _size = value; }
     }
-    private experimot.msgs.LogStatus.LogFile.Units _size_units = experimot.msgs.LogStatus.LogFile.Units.BYTES;
+    private Indriya.Core.Msgs.LogStatus.LogFile.Units _size_units = Indriya.Core.Msgs.LogStatus.LogFile.Units.BYTES;
     [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"size_units", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(experimot.msgs.LogStatus.LogFile.Units.BYTES)]
-    public experimot.msgs.LogStatus.LogFile.Units size_units
+    [global::System.ComponentModel.DefaultValue(Indriya.Core.Msgs.LogStatus.LogFile.Units.BYTES)]
+    public Indriya.Core.Msgs.LogStatus.LogFile.Units size_units
     {
       get { return _size_units; }
       set { _size_units = value; }

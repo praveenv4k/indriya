@@ -9,7 +9,7 @@
 
 // Generated from: proto/joint_wrench.proto
 // Note: requires additional types generated from: wrench.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"JointWrench")]
   public partial class JointWrench : global::ProtoBuf.IExtensible
@@ -44,16 +44,16 @@ namespace experimot.msgs
       get { return _body_2_id; }
       set { _body_2_id = value; }
     }
-    private experimot.msgs.Wrench _body_1_wrench;
+    private Indriya.Core.Msgs.Wrench _body_1_wrench;
     [global::ProtoBuf.ProtoMember(5, IsRequired = true, Name=@"body_1_wrench", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Wrench body_1_wrench
+    public Indriya.Core.Msgs.Wrench body_1_wrench
     {
       get { return _body_1_wrench; }
       set { _body_1_wrench = value; }
     }
-    private experimot.msgs.Wrench _body_2_wrench;
+    private Indriya.Core.Msgs.Wrench _body_2_wrench;
     [global::ProtoBuf.ProtoMember(6, IsRequired = true, Name=@"body_2_wrench", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Wrench body_2_wrench
+    public Indriya.Core.Msgs.Wrench body_2_wrench
     {
       get { return _body_2_wrench; }
       set { _body_2_wrench = value; }

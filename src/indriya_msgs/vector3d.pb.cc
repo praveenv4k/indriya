@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -81,8 +82,8 @@ void protobuf_AddDesc_vector3d_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\016vector3d.proto\022\016experimot.msgs\"+\n\010Vect"
-    "or3d\022\t\n\001x\030\002 \002(\001\022\t\n\001y\030\003 \002(\001\022\t\n\001z\030\004 \002(\001", 77);
+    "\n\016vector3d.proto\022\021Indriya.Core.Msgs\"+\n\010V"
+    "ector3d\022\t\n\001x\030\002 \002(\001\022\t\n\001y\030\003 \002(\001\022\t\n\001z\030\004 \002(\001", 80);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "vector3d.proto", &protobuf_RegisterTypes);
   Vector3d::default_instance_ = new Vector3d();
@@ -118,7 +119,7 @@ const int Vector3d::kZFieldNumber;
 Vector3d::Vector3d()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Vector3d)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Vector3d)
 }
 
 void Vector3d::InitAsDefaultInstance() {
@@ -129,7 +130,7 @@ Vector3d::Vector3d(const Vector3d& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Vector3d)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Vector3d)
 }
 
 void Vector3d::SharedCtor() {
@@ -141,7 +142,7 @@ void Vector3d::SharedCtor() {
 }
 
 Vector3d::~Vector3d() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Vector3d)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Vector3d)
   SharedDtor();
 }
 
@@ -199,7 +200,7 @@ bool Vector3d::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Vector3d)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Vector3d)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -263,17 +264,17 @@ bool Vector3d::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Vector3d)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Vector3d)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Vector3d)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Vector3d)
   return false;
 #undef DO_
 }
 
 void Vector3d::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Vector3d)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Vector3d)
   // required double x = 2;
   if (has_x()) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->x(), output);
@@ -293,12 +294,12 @@ void Vector3d::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Vector3d)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Vector3d)
 }
 
 ::google::protobuf::uint8* Vector3d::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Vector3d)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Vector3d)
   // required double x = 2;
   if (has_x()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->x(), target);
@@ -318,7 +319,7 @@ void Vector3d::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Vector3d)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Vector3d)
   return target;
 }
 
@@ -456,13 +457,13 @@ void Vector3d::InternalSwap(Vector3d* other) {
   clear_has_x();
 }
  double Vector3d::x() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Vector3d.x)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Vector3d.x)
   return x_;
 }
  void Vector3d::set_x(double value) {
   set_has_x();
   x_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Vector3d.x)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Vector3d.x)
 }
 
 // required double y = 3;
@@ -480,13 +481,13 @@ void Vector3d::InternalSwap(Vector3d* other) {
   clear_has_y();
 }
  double Vector3d::y() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Vector3d.y)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Vector3d.y)
   return y_;
 }
  void Vector3d::set_y(double value) {
   set_has_y();
   y_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Vector3d.y)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Vector3d.y)
 }
 
 // required double z = 4;
@@ -504,21 +505,22 @@ void Vector3d::InternalSwap(Vector3d* other) {
   clear_has_z();
 }
  double Vector3d::z() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Vector3d.z)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Vector3d.z)
   return z_;
 }
  void Vector3d::set_z(double value) {
   set_has_z();
   z_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Vector3d.z)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Vector3d.z)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Vector3d", Vector3d)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Vector3d", Vector3d)
 // @@protoc_insertion_point(global_scope)

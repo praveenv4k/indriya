@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_link_5fdata_2eproto();
@@ -109,14 +110,14 @@ class LinkData : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .experimot.msgs.Time time = 1;
+  // required .Indriya.Core.Msgs.Time time = 1;
   bool has_time() const;
   void clear_time();
   static const int kTimeFieldNumber = 1;
-  const ::experimot::msgs::Time& time() const;
-  ::experimot::msgs::Time* mutable_time();
-  ::experimot::msgs::Time* release_time();
-  void set_allocated_time(::experimot::msgs::Time* time);
+  const ::Indriya::Core::Msgs::Time& time() const;
+  ::Indriya::Core::Msgs::Time* mutable_time();
+  ::Indriya::Core::Msgs::Time* release_time();
+  void set_allocated_time(::Indriya::Core::Msgs::Time* time);
 
   // required string name = 2;
   bool has_name() const;
@@ -130,25 +131,25 @@ class LinkData : public ::google::protobuf::Message {
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // optional .experimot.msgs.Vector3d linear_velocity = 3;
+  // optional .Indriya.Core.Msgs.Vector3d linear_velocity = 3;
   bool has_linear_velocity() const;
   void clear_linear_velocity();
   static const int kLinearVelocityFieldNumber = 3;
-  const ::experimot::msgs::Vector3d& linear_velocity() const;
-  ::experimot::msgs::Vector3d* mutable_linear_velocity();
-  ::experimot::msgs::Vector3d* release_linear_velocity();
-  void set_allocated_linear_velocity(::experimot::msgs::Vector3d* linear_velocity);
+  const ::Indriya::Core::Msgs::Vector3d& linear_velocity() const;
+  ::Indriya::Core::Msgs::Vector3d* mutable_linear_velocity();
+  ::Indriya::Core::Msgs::Vector3d* release_linear_velocity();
+  void set_allocated_linear_velocity(::Indriya::Core::Msgs::Vector3d* linear_velocity);
 
-  // optional .experimot.msgs.Vector3d angular_velocity = 4;
+  // optional .Indriya.Core.Msgs.Vector3d angular_velocity = 4;
   bool has_angular_velocity() const;
   void clear_angular_velocity();
   static const int kAngularVelocityFieldNumber = 4;
-  const ::experimot::msgs::Vector3d& angular_velocity() const;
-  ::experimot::msgs::Vector3d* mutable_angular_velocity();
-  ::experimot::msgs::Vector3d* release_angular_velocity();
-  void set_allocated_angular_velocity(::experimot::msgs::Vector3d* angular_velocity);
+  const ::Indriya::Core::Msgs::Vector3d& angular_velocity() const;
+  ::Indriya::Core::Msgs::Vector3d* mutable_angular_velocity();
+  ::Indriya::Core::Msgs::Vector3d* release_angular_velocity();
+  void set_allocated_angular_velocity(::Indriya::Core::Msgs::Vector3d* angular_velocity);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.LinkData)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.LinkData)
  private:
   inline void set_has_time();
   inline void clear_has_time();
@@ -165,10 +166,10 @@ class LinkData : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::Time* time_;
+  ::Indriya::Core::Msgs::Time* time_;
   ::google::protobuf::internal::ArenaStringPtr name_;
-  ::experimot::msgs::Vector3d* linear_velocity_;
-  ::experimot::msgs::Vector3d* angular_velocity_;
+  ::Indriya::Core::Msgs::Vector3d* linear_velocity_;
+  ::Indriya::Core::Msgs::Vector3d* angular_velocity_;
   friend void  protobuf_AddDesc_link_5fdata_2eproto();
   friend void protobuf_AssignDesc_link_5fdata_2eproto();
   friend void protobuf_ShutdownFile_link_5fdata_2eproto();
@@ -184,7 +185,7 @@ class LinkData : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // LinkData
 
-// required .experimot.msgs.Time time = 1;
+// required .Indriya.Core.Msgs.Time time = 1;
 inline bool LinkData::has_time() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -195,28 +196,28 @@ inline void LinkData::clear_has_time() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void LinkData::clear_time() {
-  if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+  if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_time();
 }
-inline const ::experimot::msgs::Time& LinkData::time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LinkData.time)
+inline const ::Indriya::Core::Msgs::Time& LinkData::time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LinkData.time)
   return time_ != NULL ? *time_ : *default_instance_->time_;
 }
-inline ::experimot::msgs::Time* LinkData::mutable_time() {
+inline ::Indriya::Core::Msgs::Time* LinkData::mutable_time() {
   set_has_time();
   if (time_ == NULL) {
-    time_ = new ::experimot::msgs::Time;
+    time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LinkData.time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LinkData.time)
   return time_;
 }
-inline ::experimot::msgs::Time* LinkData::release_time() {
+inline ::Indriya::Core::Msgs::Time* LinkData::release_time() {
   clear_has_time();
-  ::experimot::msgs::Time* temp = time_;
+  ::Indriya::Core::Msgs::Time* temp = time_;
   time_ = NULL;
   return temp;
 }
-inline void LinkData::set_allocated_time(::experimot::msgs::Time* time) {
+inline void LinkData::set_allocated_time(::Indriya::Core::Msgs::Time* time) {
   delete time_;
   time_ = time;
   if (time) {
@@ -224,7 +225,7 @@ inline void LinkData::set_allocated_time(::experimot::msgs::Time* time) {
   } else {
     clear_has_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LinkData.time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LinkData.time)
 }
 
 // required string name = 2;
@@ -242,28 +243,28 @@ inline void LinkData::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& LinkData::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LinkData.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LinkData.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void LinkData::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.LinkData.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LinkData.name)
 }
 inline void LinkData::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.LinkData.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.LinkData.name)
 }
 inline void LinkData::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.LinkData.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.LinkData.name)
 }
 inline ::std::string* LinkData::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LinkData.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LinkData.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* LinkData::release_name() {
@@ -277,10 +278,10 @@ inline void LinkData::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LinkData.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LinkData.name)
 }
 
-// optional .experimot.msgs.Vector3d linear_velocity = 3;
+// optional .Indriya.Core.Msgs.Vector3d linear_velocity = 3;
 inline bool LinkData::has_linear_velocity() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -291,28 +292,28 @@ inline void LinkData::clear_has_linear_velocity() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void LinkData::clear_linear_velocity() {
-  if (linear_velocity_ != NULL) linear_velocity_->::experimot::msgs::Vector3d::Clear();
+  if (linear_velocity_ != NULL) linear_velocity_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_linear_velocity();
 }
-inline const ::experimot::msgs::Vector3d& LinkData::linear_velocity() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LinkData.linear_velocity)
+inline const ::Indriya::Core::Msgs::Vector3d& LinkData::linear_velocity() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LinkData.linear_velocity)
   return linear_velocity_ != NULL ? *linear_velocity_ : *default_instance_->linear_velocity_;
 }
-inline ::experimot::msgs::Vector3d* LinkData::mutable_linear_velocity() {
+inline ::Indriya::Core::Msgs::Vector3d* LinkData::mutable_linear_velocity() {
   set_has_linear_velocity();
   if (linear_velocity_ == NULL) {
-    linear_velocity_ = new ::experimot::msgs::Vector3d;
+    linear_velocity_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LinkData.linear_velocity)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LinkData.linear_velocity)
   return linear_velocity_;
 }
-inline ::experimot::msgs::Vector3d* LinkData::release_linear_velocity() {
+inline ::Indriya::Core::Msgs::Vector3d* LinkData::release_linear_velocity() {
   clear_has_linear_velocity();
-  ::experimot::msgs::Vector3d* temp = linear_velocity_;
+  ::Indriya::Core::Msgs::Vector3d* temp = linear_velocity_;
   linear_velocity_ = NULL;
   return temp;
 }
-inline void LinkData::set_allocated_linear_velocity(::experimot::msgs::Vector3d* linear_velocity) {
+inline void LinkData::set_allocated_linear_velocity(::Indriya::Core::Msgs::Vector3d* linear_velocity) {
   delete linear_velocity_;
   linear_velocity_ = linear_velocity;
   if (linear_velocity) {
@@ -320,10 +321,10 @@ inline void LinkData::set_allocated_linear_velocity(::experimot::msgs::Vector3d*
   } else {
     clear_has_linear_velocity();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LinkData.linear_velocity)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LinkData.linear_velocity)
 }
 
-// optional .experimot.msgs.Vector3d angular_velocity = 4;
+// optional .Indriya.Core.Msgs.Vector3d angular_velocity = 4;
 inline bool LinkData::has_angular_velocity() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -334,28 +335,28 @@ inline void LinkData::clear_has_angular_velocity() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void LinkData::clear_angular_velocity() {
-  if (angular_velocity_ != NULL) angular_velocity_->::experimot::msgs::Vector3d::Clear();
+  if (angular_velocity_ != NULL) angular_velocity_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_angular_velocity();
 }
-inline const ::experimot::msgs::Vector3d& LinkData::angular_velocity() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LinkData.angular_velocity)
+inline const ::Indriya::Core::Msgs::Vector3d& LinkData::angular_velocity() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LinkData.angular_velocity)
   return angular_velocity_ != NULL ? *angular_velocity_ : *default_instance_->angular_velocity_;
 }
-inline ::experimot::msgs::Vector3d* LinkData::mutable_angular_velocity() {
+inline ::Indriya::Core::Msgs::Vector3d* LinkData::mutable_angular_velocity() {
   set_has_angular_velocity();
   if (angular_velocity_ == NULL) {
-    angular_velocity_ = new ::experimot::msgs::Vector3d;
+    angular_velocity_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LinkData.angular_velocity)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LinkData.angular_velocity)
   return angular_velocity_;
 }
-inline ::experimot::msgs::Vector3d* LinkData::release_angular_velocity() {
+inline ::Indriya::Core::Msgs::Vector3d* LinkData::release_angular_velocity() {
   clear_has_angular_velocity();
-  ::experimot::msgs::Vector3d* temp = angular_velocity_;
+  ::Indriya::Core::Msgs::Vector3d* temp = angular_velocity_;
   angular_velocity_ = NULL;
   return temp;
 }
-inline void LinkData::set_allocated_angular_velocity(::experimot::msgs::Vector3d* angular_velocity) {
+inline void LinkData::set_allocated_angular_velocity(::Indriya::Core::Msgs::Vector3d* angular_velocity) {
   delete angular_velocity_;
   angular_velocity_ = angular_velocity;
   if (angular_velocity) {
@@ -363,18 +364,19 @@ inline void LinkData::set_allocated_angular_velocity(::experimot::msgs::Vector3d
   } else {
     clear_has_angular_velocity();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LinkData.angular_velocity)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LinkData.angular_velocity)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::LinkData> LinkDataPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::LinkData> LinkDataPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::LinkData const> ConstLinkDataPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::LinkData const> ConstLinkDataPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_link_5fdata_2eproto__INCLUDED

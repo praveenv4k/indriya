@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='gz_string_v.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x11gz_string_v.proto\x12\x0e\x65xperimot.msgs\"\x1a\n\nGzString_V\x12\x0c\n\x04\x64\x61ta\x18\x01 \x03(\t')
+  serialized_pb=_b('\n\x11gz_string_v.proto\x12\x11Indriya.Core.Msgs\"\x1a\n\nGzString_V\x12\x0c\n\x04\x64\x61ta\x18\x01 \x03(\t')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -28,13 +28,13 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _GZSTRING_V = _descriptor.Descriptor(
   name='GzString_V',
-  full_name='experimot.msgs.GzString_V',
+  full_name='Indriya.Core.Msgs.GzString_V',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='data', full_name='experimot.msgs.GzString_V.data', index=0,
+      name='data', full_name='Indriya.Core.Msgs.GzString_V.data', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -52,8 +52,8 @@ _GZSTRING_V = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=37,
-  serialized_end=63,
+  serialized_start=40,
+  serialized_end=66,
 )
 
 DESCRIPTOR.message_types_by_name['GzString_V'] = _GZSTRING_V
@@ -61,7 +61,7 @@ DESCRIPTOR.message_types_by_name['GzString_V'] = _GZSTRING_V
 GzString_V = _reflection.GeneratedProtocolMessageType('GzString_V', (_message.Message,), dict(
   DESCRIPTOR = _GZSTRING_V,
   __module__ = 'gz_string_v_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.GzString_V)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.GzString_V)
   ))
 _sym_db.RegisterMessage(GzString_V)
 

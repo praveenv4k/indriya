@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -79,8 +80,9 @@ void protobuf_AddDesc_contactsensor_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\023contactsensor.proto\022\016experimot.msgs\"\'\n"
-    "\rContactSensor\022\026\n\016collision_name\030\001 \001(\t", 78);
+    "\n\023contactsensor.proto\022\021Indriya.Core.Msgs"
+    "\"\'\n\rContactSensor\022\026\n\016collision_name\030\001 \001("
+    "\t", 81);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "contactsensor.proto", &protobuf_RegisterTypes);
   ContactSensor::default_instance_ = new ContactSensor();
@@ -114,7 +116,7 @@ const int ContactSensor::kCollisionNameFieldNumber;
 ContactSensor::ContactSensor()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.ContactSensor)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.ContactSensor)
 }
 
 void ContactSensor::InitAsDefaultInstance() {
@@ -125,7 +127,7 @@ ContactSensor::ContactSensor(const ContactSensor& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.ContactSensor)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.ContactSensor)
 }
 
 void ContactSensor::SharedCtor() {
@@ -136,7 +138,7 @@ void ContactSensor::SharedCtor() {
 }
 
 ContactSensor::~ContactSensor() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.ContactSensor)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.ContactSensor)
   SharedDtor();
 }
 
@@ -185,7 +187,7 @@ bool ContactSensor::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.ContactSensor)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.ContactSensor)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -199,7 +201,7 @@ bool ContactSensor::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->collision_name().data(), this->collision_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.ContactSensor.collision_name");
+            "Indriya.Core.Msgs.ContactSensor.collision_name");
         } else {
           goto handle_unusual;
         }
@@ -221,23 +223,23 @@ bool ContactSensor::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.ContactSensor)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.ContactSensor)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.ContactSensor)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.ContactSensor)
   return false;
 #undef DO_
 }
 
 void ContactSensor::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.ContactSensor)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.ContactSensor)
   // optional string collision_name = 1;
   if (has_collision_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->collision_name().data(), this->collision_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.ContactSensor.collision_name");
+      "Indriya.Core.Msgs.ContactSensor.collision_name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->collision_name(), output);
   }
@@ -246,18 +248,18 @@ void ContactSensor::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.ContactSensor)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.ContactSensor)
 }
 
 ::google::protobuf::uint8* ContactSensor::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.ContactSensor)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.ContactSensor)
   // optional string collision_name = 1;
   if (has_collision_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->collision_name().data(), this->collision_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.ContactSensor.collision_name");
+      "Indriya.Core.Msgs.ContactSensor.collision_name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->collision_name(), target);
@@ -267,7 +269,7 @@ void ContactSensor::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.ContactSensor)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.ContactSensor)
   return target;
 }
 
@@ -371,28 +373,28 @@ void ContactSensor::InternalSwap(ContactSensor* other) {
   clear_has_collision_name();
 }
  const ::std::string& ContactSensor::collision_name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ContactSensor.collision_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ContactSensor.collision_name)
   return collision_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void ContactSensor::set_collision_name(const ::std::string& value) {
   set_has_collision_name();
   collision_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.ContactSensor.collision_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.ContactSensor.collision_name)
 }
  void ContactSensor::set_collision_name(const char* value) {
   set_has_collision_name();
   collision_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.ContactSensor.collision_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.ContactSensor.collision_name)
 }
  void ContactSensor::set_collision_name(const char* value, size_t size) {
   set_has_collision_name();
   collision_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.ContactSensor.collision_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.ContactSensor.collision_name)
 }
  ::std::string* ContactSensor::mutable_collision_name() {
   set_has_collision_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.ContactSensor.collision_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.ContactSensor.collision_name)
   return collision_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* ContactSensor::release_collision_name() {
@@ -406,15 +408,16 @@ void ContactSensor::InternalSwap(ContactSensor* other) {
     clear_has_collision_name();
   }
   collision_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), collision_name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.ContactSensor.collision_name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.ContactSensor.collision_name)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.ContactSensor", ContactSensor)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.ContactSensor", ContactSensor)
 // @@protoc_insertion_point(global_scope)

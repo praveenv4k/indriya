@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='cylindergeom.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x12\x63ylindergeom.proto\x12\x0e\x65xperimot.msgs\".\n\x0c\x43ylinderGeom\x12\x0e\n\x06radius\x18\x01 \x02(\x01\x12\x0e\n\x06length\x18\x02 \x02(\x01')
+  serialized_pb=_b('\n\x12\x63ylindergeom.proto\x12\x11Indriya.Core.Msgs\".\n\x0c\x43ylinderGeom\x12\x0e\n\x06radius\x18\x01 \x02(\x01\x12\x0e\n\x06length\x18\x02 \x02(\x01')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -28,20 +28,20 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _CYLINDERGEOM = _descriptor.Descriptor(
   name='CylinderGeom',
-  full_name='experimot.msgs.CylinderGeom',
+  full_name='Indriya.Core.Msgs.CylinderGeom',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='radius', full_name='experimot.msgs.CylinderGeom.radius', index=0,
+      name='radius', full_name='Indriya.Core.Msgs.CylinderGeom.radius', index=0,
       number=1, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='length', full_name='experimot.msgs.CylinderGeom.length', index=1,
+      name='length', full_name='Indriya.Core.Msgs.CylinderGeom.length', index=1,
       number=2, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -59,8 +59,8 @@ _CYLINDERGEOM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=38,
-  serialized_end=84,
+  serialized_start=41,
+  serialized_end=87,
 )
 
 DESCRIPTOR.message_types_by_name['CylinderGeom'] = _CYLINDERGEOM
@@ -68,7 +68,7 @@ DESCRIPTOR.message_types_by_name['CylinderGeom'] = _CYLINDERGEOM
 CylinderGeom = _reflection.GeneratedProtocolMessageType('CylinderGeom', (_message.Message,), dict(
   DESCRIPTOR = _CYLINDERGEOM,
   __module__ = 'cylindergeom_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.CylinderGeom)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.CylinderGeom)
   ))
 _sym_db.RegisterMessage(CylinderGeom)
 

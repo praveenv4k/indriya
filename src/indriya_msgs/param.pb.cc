@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -103,10 +104,10 @@ void protobuf_AddDesc_param_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\013param.proto\022\016experimot.msgs\"5\n\005Param\022\013"
-    "\n\003key\030\001 \002(\t\022\r\n\005value\030\002 \002(\t\022\020\n\010dataType\030\003"
-    " \002(\t\"1\n\tParamList\022$\n\005param\030\001 \003(\0132\025.exper"
-    "imot.msgs.Param", 135);
+    "\n\013param.proto\022\021Indriya.Core.Msgs\"5\n\005Para"
+    "m\022\013\n\003key\030\001 \002(\t\022\r\n\005value\030\002 \002(\t\022\020\n\010dataTyp"
+    "e\030\003 \002(\t\"4\n\tParamList\022\'\n\005param\030\001 \003(\0132\030.In"
+    "driya.Core.Msgs.Param", 141);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "param.proto", &protobuf_RegisterTypes);
   Param::default_instance_ = new Param();
@@ -144,7 +145,7 @@ const int Param::kDataTypeFieldNumber;
 Param::Param()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Param)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Param)
 }
 
 void Param::InitAsDefaultInstance() {
@@ -155,7 +156,7 @@ Param::Param(const Param& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Param)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Param)
 }
 
 void Param::SharedCtor() {
@@ -168,7 +169,7 @@ void Param::SharedCtor() {
 }
 
 Param::~Param() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Param)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Param)
   SharedDtor();
 }
 
@@ -227,7 +228,7 @@ bool Param::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Param)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Param)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -241,7 +242,7 @@ bool Param::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->key().data(), this->key().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Param.key");
+            "Indriya.Core.Msgs.Param.key");
         } else {
           goto handle_unusual;
         }
@@ -258,7 +259,7 @@ bool Param::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->value().data(), this->value().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Param.value");
+            "Indriya.Core.Msgs.Param.value");
         } else {
           goto handle_unusual;
         }
@@ -275,7 +276,7 @@ bool Param::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->datatype().data(), this->datatype().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Param.dataType");
+            "Indriya.Core.Msgs.Param.dataType");
         } else {
           goto handle_unusual;
         }
@@ -297,23 +298,23 @@ bool Param::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Param)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Param)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Param)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Param)
   return false;
 #undef DO_
 }
 
 void Param::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Param)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Param)
   // required string key = 1;
   if (has_key()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->key().data(), this->key().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Param.key");
+      "Indriya.Core.Msgs.Param.key");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->key(), output);
   }
@@ -323,7 +324,7 @@ void Param::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->value().data(), this->value().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Param.value");
+      "Indriya.Core.Msgs.Param.value");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->value(), output);
   }
@@ -333,7 +334,7 @@ void Param::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->datatype().data(), this->datatype().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Param.dataType");
+      "Indriya.Core.Msgs.Param.dataType");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       3, this->datatype(), output);
   }
@@ -342,18 +343,18 @@ void Param::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Param)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Param)
 }
 
 ::google::protobuf::uint8* Param::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Param)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Param)
   // required string key = 1;
   if (has_key()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->key().data(), this->key().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Param.key");
+      "Indriya.Core.Msgs.Param.key");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->key(), target);
@@ -364,7 +365,7 @@ void Param::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->value().data(), this->value().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Param.value");
+      "Indriya.Core.Msgs.Param.value");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->value(), target);
@@ -375,7 +376,7 @@ void Param::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->datatype().data(), this->datatype().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Param.dataType");
+      "Indriya.Core.Msgs.Param.dataType");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->datatype(), target);
@@ -385,7 +386,7 @@ void Param::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Param)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Param)
   return target;
 }
 
@@ -538,28 +539,28 @@ void Param::InternalSwap(Param* other) {
   clear_has_key();
 }
  const ::std::string& Param::key() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Param.key)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Param.key)
   return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Param::set_key(const ::std::string& value) {
   set_has_key();
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Param.key)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Param.key)
 }
  void Param::set_key(const char* value) {
   set_has_key();
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Param.key)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Param.key)
 }
  void Param::set_key(const char* value, size_t size) {
   set_has_key();
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Param.key)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Param.key)
 }
  ::std::string* Param::mutable_key() {
   set_has_key();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Param.key)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Param.key)
   return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Param::release_key() {
@@ -573,7 +574,7 @@ void Param::InternalSwap(Param* other) {
     clear_has_key();
   }
   key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Param.key)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Param.key)
 }
 
 // required string value = 2;
@@ -591,28 +592,28 @@ void Param::InternalSwap(Param* other) {
   clear_has_value();
 }
  const ::std::string& Param::value() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Param.value)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Param.value)
   return value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Param::set_value(const ::std::string& value) {
   set_has_value();
   value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Param.value)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Param.value)
 }
  void Param::set_value(const char* value) {
   set_has_value();
   value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Param.value)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Param.value)
 }
  void Param::set_value(const char* value, size_t size) {
   set_has_value();
   value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Param.value)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Param.value)
 }
  ::std::string* Param::mutable_value() {
   set_has_value();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Param.value)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Param.value)
   return value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Param::release_value() {
@@ -626,7 +627,7 @@ void Param::InternalSwap(Param* other) {
     clear_has_value();
   }
   value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Param.value)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Param.value)
 }
 
 // required string dataType = 3;
@@ -644,28 +645,28 @@ void Param::InternalSwap(Param* other) {
   clear_has_datatype();
 }
  const ::std::string& Param::datatype() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Param.dataType)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Param.dataType)
   return datatype_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Param::set_datatype(const ::std::string& value) {
   set_has_datatype();
   datatype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Param.dataType)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Param.dataType)
 }
  void Param::set_datatype(const char* value) {
   set_has_datatype();
   datatype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Param.dataType)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Param.dataType)
 }
  void Param::set_datatype(const char* value, size_t size) {
   set_has_datatype();
   datatype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Param.dataType)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Param.dataType)
 }
  ::std::string* Param::mutable_datatype() {
   set_has_datatype();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Param.dataType)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Param.dataType)
   return datatype_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Param::release_datatype() {
@@ -679,7 +680,7 @@ void Param::InternalSwap(Param* other) {
     clear_has_datatype();
   }
   datatype_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), datatype);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Param.dataType)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Param.dataType)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -693,7 +694,7 @@ const int ParamList::kParamFieldNumber;
 ParamList::ParamList()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.ParamList)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.ParamList)
 }
 
 void ParamList::InitAsDefaultInstance() {
@@ -704,7 +705,7 @@ ParamList::ParamList(const ParamList& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.ParamList)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.ParamList)
 }
 
 void ParamList::SharedCtor() {
@@ -713,7 +714,7 @@ void ParamList::SharedCtor() {
 }
 
 ParamList::~ParamList() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.ParamList)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.ParamList)
   SharedDtor();
 }
 
@@ -759,13 +760,13 @@ bool ParamList::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.ParamList)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.ParamList)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .experimot.msgs.Param param = 1;
+      // repeated .Indriya.Core.Msgs.Param param = 1;
       case 1: {
         if (tag == 10) {
          parse_param:
@@ -793,18 +794,18 @@ bool ParamList::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.ParamList)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.ParamList)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.ParamList)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.ParamList)
   return false;
 #undef DO_
 }
 
 void ParamList::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.ParamList)
-  // repeated .experimot.msgs.Param param = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.ParamList)
+  // repeated .Indriya.Core.Msgs.Param param = 1;
   for (unsigned int i = 0, n = this->param_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->param(i), output);
@@ -814,13 +815,13 @@ void ParamList::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.ParamList)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.ParamList)
 }
 
 ::google::protobuf::uint8* ParamList::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.ParamList)
-  // repeated .experimot.msgs.Param param = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.ParamList)
+  // repeated .Indriya.Core.Msgs.Param param = 1;
   for (unsigned int i = 0, n = this->param_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -831,14 +832,14 @@ void ParamList::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.ParamList)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.ParamList)
   return target;
 }
 
 int ParamList::ByteSize() const {
   int total_size = 0;
 
-  // repeated .experimot.msgs.Param param = 1;
+  // repeated .Indriya.Core.Msgs.Param param = 1;
   total_size += 1 * this->param_size();
   for (int i = 0; i < this->param_size(); i++) {
     total_size +=
@@ -917,33 +918,33 @@ void ParamList::InternalSwap(ParamList* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // ParamList
 
-// repeated .experimot.msgs.Param param = 1;
+// repeated .Indriya.Core.Msgs.Param param = 1;
  int ParamList::param_size() const {
   return param_.size();
 }
  void ParamList::clear_param() {
   param_.Clear();
 }
- const ::experimot::msgs::Param& ParamList::param(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ParamList.param)
+ const ::Indriya::Core::Msgs::Param& ParamList::param(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ParamList.param)
   return param_.Get(index);
 }
- ::experimot::msgs::Param* ParamList::mutable_param(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.ParamList.param)
+ ::Indriya::Core::Msgs::Param* ParamList::mutable_param(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.ParamList.param)
   return param_.Mutable(index);
 }
- ::experimot::msgs::Param* ParamList::add_param() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.ParamList.param)
+ ::Indriya::Core::Msgs::Param* ParamList::add_param() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.ParamList.param)
   return param_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >&
 ParamList::param() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.ParamList.param)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.ParamList.param)
   return param_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >*
 ParamList::mutable_param() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.ParamList.param)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.ParamList.param)
   return &param_;
 }
 
@@ -951,8 +952,9 @@ ParamList::mutable_param() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Param", Param)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Param", Param)
 // @@protoc_insertion_point(global_scope)

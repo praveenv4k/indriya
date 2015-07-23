@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_request_2eproto();
@@ -145,7 +146,7 @@ class Request : public ::google::protobuf::Message {
   double dbl_data() const;
   void set_dbl_data(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Request)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Request)
  private:
   inline void set_has_id();
   inline void clear_has_id();
@@ -196,13 +197,13 @@ inline void Request::clear_id() {
   clear_has_id();
 }
 inline ::google::protobuf::int32 Request::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Request.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Request.id)
   return id_;
 }
 inline void Request::set_id(::google::protobuf::int32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Request.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Request.id)
 }
 
 // required string request = 2;
@@ -220,28 +221,28 @@ inline void Request::clear_request() {
   clear_has_request();
 }
 inline const ::std::string& Request::request() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Request.request)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Request.request)
   return request_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Request::set_request(const ::std::string& value) {
   set_has_request();
   request_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Request.request)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Request.request)
 }
 inline void Request::set_request(const char* value) {
   set_has_request();
   request_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Request.request)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Request.request)
 }
 inline void Request::set_request(const char* value, size_t size) {
   set_has_request();
   request_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Request.request)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Request.request)
 }
 inline ::std::string* Request::mutable_request() {
   set_has_request();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Request.request)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Request.request)
   return request_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Request::release_request() {
@@ -255,7 +256,7 @@ inline void Request::set_allocated_request(::std::string* request) {
     clear_has_request();
   }
   request_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), request);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Request.request)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Request.request)
 }
 
 // optional string data = 3;
@@ -273,28 +274,28 @@ inline void Request::clear_data() {
   clear_has_data();
 }
 inline const ::std::string& Request::data() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Request.data)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Request.data)
   return data_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Request::set_data(const ::std::string& value) {
   set_has_data();
   data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Request.data)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Request.data)
 }
 inline void Request::set_data(const char* value) {
   set_has_data();
   data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Request.data)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Request.data)
 }
 inline void Request::set_data(const char* value, size_t size) {
   set_has_data();
   data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Request.data)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Request.data)
 }
 inline ::std::string* Request::mutable_data() {
   set_has_data();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Request.data)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Request.data)
   return data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Request::release_data() {
@@ -308,7 +309,7 @@ inline void Request::set_allocated_data(::std::string* data) {
     clear_has_data();
   }
   data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Request.data)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Request.data)
 }
 
 // optional double dbl_data = 4;
@@ -326,24 +327,25 @@ inline void Request::clear_dbl_data() {
   clear_has_dbl_data();
 }
 inline double Request::dbl_data() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Request.dbl_data)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Request.dbl_data)
   return dbl_data_;
 }
 inline void Request::set_dbl_data(double value) {
   set_has_dbl_data();
   dbl_data_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Request.dbl_data)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Request.dbl_data)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Request> RequestPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Request> RequestPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Request const> ConstRequestPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Request const> ConstRequestPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_request_2eproto__INCLUDED

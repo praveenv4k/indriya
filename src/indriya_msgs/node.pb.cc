@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -81,16 +82,16 @@ void protobuf_AddDesc_node_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_publish_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_subscribe_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_param_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_publish_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_subscribe_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_param_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\nnode.proto\022\016experimot.msgs\032\rpublish.pr"
-    "oto\032\017subscribe.proto\032\013param.proto\"\225\001\n\004No"
-    "de\022\014\n\004name\030\001 \002(\t\022$\n\005param\030\002 \003(\0132\025.experi"
-    "mot.msgs.Param\022*\n\tpublisher\030\003 \003(\0132\027.expe"
-    "rimot.msgs.Publish\022-\n\nsubscriber\030\004 \003(\0132\031"
-    ".experimot.msgs.Subscribe", 225);
+    "\n\nnode.proto\022\021Indriya.Core.Msgs\032\rpublish"
+    ".proto\032\017subscribe.proto\032\013param.proto\"\236\001\n"
+    "\004Node\022\014\n\004name\030\001 \002(\t\022\'\n\005param\030\002 \003(\0132\030.Ind"
+    "riya.Core.Msgs.Param\022-\n\tpublisher\030\003 \003(\0132"
+    "\032.Indriya.Core.Msgs.Publish\0220\n\nsubscribe"
+    "r\030\004 \003(\0132\034.Indriya.Core.Msgs.Subscribe", 237);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "node.proto", &protobuf_RegisterTypes);
   Node::default_instance_ = new Node();
@@ -127,7 +128,7 @@ const int Node::kSubscriberFieldNumber;
 Node::Node()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Node)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Node)
 }
 
 void Node::InitAsDefaultInstance() {
@@ -138,7 +139,7 @@ Node::Node(const Node& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Node)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Node)
 }
 
 void Node::SharedCtor() {
@@ -149,7 +150,7 @@ void Node::SharedCtor() {
 }
 
 Node::~Node() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Node)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Node)
   SharedDtor();
 }
 
@@ -201,7 +202,7 @@ bool Node::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Node)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Node)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -215,7 +216,7 @@ bool Node::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Node.name");
+            "Indriya.Core.Msgs.Node.name");
         } else {
           goto handle_unusual;
         }
@@ -223,7 +224,7 @@ bool Node::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .experimot.msgs.Param param = 2;
+      // repeated .Indriya.Core.Msgs.Param param = 2;
       case 2: {
         if (tag == 18) {
          parse_param:
@@ -237,7 +238,7 @@ bool Node::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .experimot.msgs.Publish publisher = 3;
+      // repeated .Indriya.Core.Msgs.Publish publisher = 3;
       case 3: {
         if (tag == 26) {
          parse_publisher:
@@ -251,7 +252,7 @@ bool Node::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .experimot.msgs.Subscribe subscriber = 4;
+      // repeated .Indriya.Core.Msgs.Subscribe subscriber = 4;
       case 4: {
         if (tag == 34) {
          parse_subscriber:
@@ -279,40 +280,40 @@ bool Node::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Node)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Node)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Node)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Node)
   return false;
 #undef DO_
 }
 
 void Node::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Node)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Node)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Node.name");
+      "Indriya.Core.Msgs.Node.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
 
-  // repeated .experimot.msgs.Param param = 2;
+  // repeated .Indriya.Core.Msgs.Param param = 2;
   for (unsigned int i = 0, n = this->param_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->param(i), output);
   }
 
-  // repeated .experimot.msgs.Publish publisher = 3;
+  // repeated .Indriya.Core.Msgs.Publish publisher = 3;
   for (unsigned int i = 0, n = this->publisher_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, this->publisher(i), output);
   }
 
-  // repeated .experimot.msgs.Subscribe subscriber = 4;
+  // repeated .Indriya.Core.Msgs.Subscribe subscriber = 4;
   for (unsigned int i = 0, n = this->subscriber_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->subscriber(i), output);
@@ -322,38 +323,38 @@ void Node::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Node)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Node)
 }
 
 ::google::protobuf::uint8* Node::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Node)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Node)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Node.name");
+      "Indriya.Core.Msgs.Node.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
   }
 
-  // repeated .experimot.msgs.Param param = 2;
+  // repeated .Indriya.Core.Msgs.Param param = 2;
   for (unsigned int i = 0, n = this->param_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         2, this->param(i), target);
   }
 
-  // repeated .experimot.msgs.Publish publisher = 3;
+  // repeated .Indriya.Core.Msgs.Publish publisher = 3;
   for (unsigned int i = 0, n = this->publisher_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         3, this->publisher(i), target);
   }
 
-  // repeated .experimot.msgs.Subscribe subscriber = 4;
+  // repeated .Indriya.Core.Msgs.Subscribe subscriber = 4;
   for (unsigned int i = 0, n = this->subscriber_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -364,7 +365,7 @@ void Node::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Node)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Node)
   return target;
 }
 
@@ -377,7 +378,7 @@ int Node::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->name());
   }
-  // repeated .experimot.msgs.Param param = 2;
+  // repeated .Indriya.Core.Msgs.Param param = 2;
   total_size += 1 * this->param_size();
   for (int i = 0; i < this->param_size(); i++) {
     total_size +=
@@ -385,7 +386,7 @@ int Node::ByteSize() const {
         this->param(i));
   }
 
-  // repeated .experimot.msgs.Publish publisher = 3;
+  // repeated .Indriya.Core.Msgs.Publish publisher = 3;
   total_size += 1 * this->publisher_size();
   for (int i = 0; i < this->publisher_size(); i++) {
     total_size +=
@@ -393,7 +394,7 @@ int Node::ByteSize() const {
         this->publisher(i));
   }
 
-  // repeated .experimot.msgs.Subscribe subscriber = 4;
+  // repeated .Indriya.Core.Msgs.Subscribe subscriber = 4;
   total_size += 1 * this->subscriber_size();
   for (int i = 0; i < this->subscriber_size(); i++) {
     total_size +=
@@ -501,28 +502,28 @@ void Node::InternalSwap(Node* other) {
   clear_has_name();
 }
  const ::std::string& Node::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Node.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Node.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Node::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Node.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Node.name)
 }
  void Node::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Node.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Node.name)
 }
  void Node::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Node.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Node.name)
 }
  ::std::string* Node::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Node.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Node.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Node::release_name() {
@@ -536,96 +537,96 @@ void Node::InternalSwap(Node* other) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Node.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Node.name)
 }
 
-// repeated .experimot.msgs.Param param = 2;
+// repeated .Indriya.Core.Msgs.Param param = 2;
  int Node::param_size() const {
   return param_.size();
 }
  void Node::clear_param() {
   param_.Clear();
 }
- const ::experimot::msgs::Param& Node::param(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Node.param)
+ const ::Indriya::Core::Msgs::Param& Node::param(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Node.param)
   return param_.Get(index);
 }
- ::experimot::msgs::Param* Node::mutable_param(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Node.param)
+ ::Indriya::Core::Msgs::Param* Node::mutable_param(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Node.param)
   return param_.Mutable(index);
 }
- ::experimot::msgs::Param* Node::add_param() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Node.param)
+ ::Indriya::Core::Msgs::Param* Node::add_param() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Node.param)
   return param_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >&
 Node::param() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Node.param)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Node.param)
   return param_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >*
 Node::mutable_param() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Node.param)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Node.param)
   return &param_;
 }
 
-// repeated .experimot.msgs.Publish publisher = 3;
+// repeated .Indriya.Core.Msgs.Publish publisher = 3;
  int Node::publisher_size() const {
   return publisher_.size();
 }
  void Node::clear_publisher() {
   publisher_.Clear();
 }
- const ::experimot::msgs::Publish& Node::publisher(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Node.publisher)
+ const ::Indriya::Core::Msgs::Publish& Node::publisher(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Node.publisher)
   return publisher_.Get(index);
 }
- ::experimot::msgs::Publish* Node::mutable_publisher(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Node.publisher)
+ ::Indriya::Core::Msgs::Publish* Node::mutable_publisher(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Node.publisher)
   return publisher_.Mutable(index);
 }
- ::experimot::msgs::Publish* Node::add_publisher() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Node.publisher)
+ ::Indriya::Core::Msgs::Publish* Node::add_publisher() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Node.publisher)
   return publisher_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Publish >&
 Node::publisher() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Node.publisher)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Node.publisher)
   return publisher_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Publish >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Publish >*
 Node::mutable_publisher() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Node.publisher)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Node.publisher)
   return &publisher_;
 }
 
-// repeated .experimot.msgs.Subscribe subscriber = 4;
+// repeated .Indriya.Core.Msgs.Subscribe subscriber = 4;
  int Node::subscriber_size() const {
   return subscriber_.size();
 }
  void Node::clear_subscriber() {
   subscriber_.Clear();
 }
- const ::experimot::msgs::Subscribe& Node::subscriber(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Node.subscriber)
+ const ::Indriya::Core::Msgs::Subscribe& Node::subscriber(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Node.subscriber)
   return subscriber_.Get(index);
 }
- ::experimot::msgs::Subscribe* Node::mutable_subscriber(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Node.subscriber)
+ ::Indriya::Core::Msgs::Subscribe* Node::mutable_subscriber(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Node.subscriber)
   return subscriber_.Mutable(index);
 }
- ::experimot::msgs::Subscribe* Node::add_subscriber() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Node.subscriber)
+ ::Indriya::Core::Msgs::Subscribe* Node::add_subscriber() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Node.subscriber)
   return subscriber_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Subscribe >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Subscribe >&
 Node::subscriber() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Node.subscriber)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Node.subscriber)
   return subscriber_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Subscribe >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Subscribe >*
 Node::mutable_subscriber() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Node.subscriber)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Node.subscriber)
   return &subscriber_;
 }
 
@@ -633,8 +634,9 @@ Node::mutable_subscriber() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Node", Node)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Node", Node)
 // @@protoc_insertion_point(global_scope)

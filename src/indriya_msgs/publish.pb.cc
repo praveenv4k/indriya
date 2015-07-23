@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -82,9 +83,9 @@ void protobuf_AddDesc_publish_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rpublish.proto\022\016experimot.msgs\"F\n\007Publi"
-    "sh\022\r\n\005topic\030\001 \002(\t\022\020\n\010msg_type\030\002 \002(\t\022\014\n\004h"
-    "ost\030\003 \002(\t\022\014\n\004port\030\004 \002(\r", 103);
+    "\n\rpublish.proto\022\021Indriya.Core.Msgs\"F\n\007Pu"
+    "blish\022\r\n\005topic\030\001 \002(\t\022\020\n\010msg_type\030\002 \002(\t\022\014"
+    "\n\004host\030\003 \002(\t\022\014\n\004port\030\004 \002(\r", 106);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "publish.proto", &protobuf_RegisterTypes);
   Publish::default_instance_ = new Publish();
@@ -121,7 +122,7 @@ const int Publish::kPortFieldNumber;
 Publish::Publish()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Publish)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Publish)
 }
 
 void Publish::InitAsDefaultInstance() {
@@ -132,7 +133,7 @@ Publish::Publish(const Publish& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Publish)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Publish)
 }
 
 void Publish::SharedCtor() {
@@ -146,7 +147,7 @@ void Publish::SharedCtor() {
 }
 
 Publish::~Publish() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Publish)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Publish)
   SharedDtor();
 }
 
@@ -206,7 +207,7 @@ bool Publish::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Publish)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Publish)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -220,7 +221,7 @@ bool Publish::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->topic().data(), this->topic().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Publish.topic");
+            "Indriya.Core.Msgs.Publish.topic");
         } else {
           goto handle_unusual;
         }
@@ -237,7 +238,7 @@ bool Publish::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->msg_type().data(), this->msg_type().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Publish.msg_type");
+            "Indriya.Core.Msgs.Publish.msg_type");
         } else {
           goto handle_unusual;
         }
@@ -254,7 +255,7 @@ bool Publish::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->host().data(), this->host().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Publish.host");
+            "Indriya.Core.Msgs.Publish.host");
         } else {
           goto handle_unusual;
         }
@@ -291,23 +292,23 @@ bool Publish::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Publish)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Publish)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Publish)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Publish)
   return false;
 #undef DO_
 }
 
 void Publish::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Publish)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Publish)
   // required string topic = 1;
   if (has_topic()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->topic().data(), this->topic().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Publish.topic");
+      "Indriya.Core.Msgs.Publish.topic");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->topic(), output);
   }
@@ -317,7 +318,7 @@ void Publish::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->msg_type().data(), this->msg_type().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Publish.msg_type");
+      "Indriya.Core.Msgs.Publish.msg_type");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->msg_type(), output);
   }
@@ -327,7 +328,7 @@ void Publish::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->host().data(), this->host().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Publish.host");
+      "Indriya.Core.Msgs.Publish.host");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       3, this->host(), output);
   }
@@ -341,18 +342,18 @@ void Publish::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Publish)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Publish)
 }
 
 ::google::protobuf::uint8* Publish::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Publish)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Publish)
   // required string topic = 1;
   if (has_topic()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->topic().data(), this->topic().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Publish.topic");
+      "Indriya.Core.Msgs.Publish.topic");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->topic(), target);
@@ -363,7 +364,7 @@ void Publish::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->msg_type().data(), this->msg_type().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Publish.msg_type");
+      "Indriya.Core.Msgs.Publish.msg_type");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->msg_type(), target);
@@ -374,7 +375,7 @@ void Publish::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->host().data(), this->host().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Publish.host");
+      "Indriya.Core.Msgs.Publish.host");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->host(), target);
@@ -389,7 +390,7 @@ void Publish::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Publish)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Publish)
   return target;
 }
 
@@ -558,28 +559,28 @@ void Publish::InternalSwap(Publish* other) {
   clear_has_topic();
 }
  const ::std::string& Publish::topic() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Publish.topic)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Publish.topic)
   return topic_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Publish::set_topic(const ::std::string& value) {
   set_has_topic();
   topic_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Publish.topic)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Publish.topic)
 }
  void Publish::set_topic(const char* value) {
   set_has_topic();
   topic_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Publish.topic)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Publish.topic)
 }
  void Publish::set_topic(const char* value, size_t size) {
   set_has_topic();
   topic_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Publish.topic)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Publish.topic)
 }
  ::std::string* Publish::mutable_topic() {
   set_has_topic();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Publish.topic)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Publish.topic)
   return topic_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Publish::release_topic() {
@@ -593,7 +594,7 @@ void Publish::InternalSwap(Publish* other) {
     clear_has_topic();
   }
   topic_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), topic);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Publish.topic)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Publish.topic)
 }
 
 // required string msg_type = 2;
@@ -611,28 +612,28 @@ void Publish::InternalSwap(Publish* other) {
   clear_has_msg_type();
 }
  const ::std::string& Publish::msg_type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Publish.msg_type)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Publish.msg_type)
   return msg_type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Publish::set_msg_type(const ::std::string& value) {
   set_has_msg_type();
   msg_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Publish.msg_type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Publish.msg_type)
 }
  void Publish::set_msg_type(const char* value) {
   set_has_msg_type();
   msg_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Publish.msg_type)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Publish.msg_type)
 }
  void Publish::set_msg_type(const char* value, size_t size) {
   set_has_msg_type();
   msg_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Publish.msg_type)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Publish.msg_type)
 }
  ::std::string* Publish::mutable_msg_type() {
   set_has_msg_type();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Publish.msg_type)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Publish.msg_type)
   return msg_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Publish::release_msg_type() {
@@ -646,7 +647,7 @@ void Publish::InternalSwap(Publish* other) {
     clear_has_msg_type();
   }
   msg_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), msg_type);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Publish.msg_type)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Publish.msg_type)
 }
 
 // required string host = 3;
@@ -664,28 +665,28 @@ void Publish::InternalSwap(Publish* other) {
   clear_has_host();
 }
  const ::std::string& Publish::host() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Publish.host)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Publish.host)
   return host_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Publish::set_host(const ::std::string& value) {
   set_has_host();
   host_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Publish.host)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Publish.host)
 }
  void Publish::set_host(const char* value) {
   set_has_host();
   host_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Publish.host)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Publish.host)
 }
  void Publish::set_host(const char* value, size_t size) {
   set_has_host();
   host_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Publish.host)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Publish.host)
 }
  ::std::string* Publish::mutable_host() {
   set_has_host();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Publish.host)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Publish.host)
   return host_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Publish::release_host() {
@@ -699,7 +700,7 @@ void Publish::InternalSwap(Publish* other) {
     clear_has_host();
   }
   host_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), host);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Publish.host)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Publish.host)
 }
 
 // required uint32 port = 4;
@@ -717,21 +718,22 @@ void Publish::InternalSwap(Publish* other) {
   clear_has_port();
 }
  ::google::protobuf::uint32 Publish::port() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Publish.port)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Publish.port)
   return port_;
 }
  void Publish::set_port(::google::protobuf::uint32 value) {
   set_has_port();
   port_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Publish.port)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Publish.port)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Publish", Publish)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Publish", Publish)
 // @@protoc_insertion_point(global_scope)

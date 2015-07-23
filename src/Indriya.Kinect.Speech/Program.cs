@@ -1,12 +1,10 @@
 ﻿using System;
 using System.IO;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using CommandLine;
-using experimot.msgs;
 using Experimot.Core.Util;
-using Microsoft.Speech.Recognition;
+using Indriya.Core.Msgs;
 using NetMQ;
 using ProtoBuf;
 

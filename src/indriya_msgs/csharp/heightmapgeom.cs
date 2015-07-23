@@ -10,32 +10,32 @@
 // Generated from: proto/heightmapgeom.proto
 // Note: requires additional types generated from: image.proto
 // Note: requires additional types generated from: vector3d.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"HeightmapGeom")]
   public partial class HeightmapGeom : global::ProtoBuf.IExtensible
   {
     public HeightmapGeom() {}
     
-    private experimot.msgs.Image _image = null;
+    private Indriya.Core.Msgs.Image _image = null;
     [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"image", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Image image
+    public Indriya.Core.Msgs.Image image
     {
       get { return _image; }
       set { _image = value; }
     }
-    private experimot.msgs.Vector3d _size;
+    private Indriya.Core.Msgs.Vector3d _size;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"size", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Vector3d size
+    public Indriya.Core.Msgs.Vector3d size
     {
       get { return _size; }
       set { _size = value; }
     }
-    private experimot.msgs.Vector3d _origin = null;
+    private Indriya.Core.Msgs.Vector3d _origin = null;
     [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"origin", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Vector3d origin
+    public Indriya.Core.Msgs.Vector3d origin
     {
       get { return _origin; }
       set { _origin = value; }
@@ -63,16 +63,16 @@ namespace experimot.msgs
       get { return _height; }
       set { _height = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.HeightmapGeom.Texture> _texture = new global::System.Collections.Generic.List<experimot.msgs.HeightmapGeom.Texture>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.HeightmapGeom.Texture> _texture = new global::System.Collections.Generic.List<Indriya.Core.Msgs.HeightmapGeom.Texture>();
     [global::ProtoBuf.ProtoMember(7, Name=@"texture", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.HeightmapGeom.Texture> texture
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.HeightmapGeom.Texture> texture
     {
       get { return _texture; }
     }
   
-    private readonly global::System.Collections.Generic.List<experimot.msgs.HeightmapGeom.Blend> _blend = new global::System.Collections.Generic.List<experimot.msgs.HeightmapGeom.Blend>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.HeightmapGeom.Blend> _blend = new global::System.Collections.Generic.List<Indriya.Core.Msgs.HeightmapGeom.Blend>();
     [global::ProtoBuf.ProtoMember(8, Name=@"blend", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.HeightmapGeom.Blend> blend
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.HeightmapGeom.Blend> blend
     {
       get { return _blend; }
     }

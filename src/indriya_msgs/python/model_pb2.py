@@ -22,9 +22,9 @@ import vector3d_pb2 as vector3d__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='model.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x0bmodel.proto\x12\x0e\x65xperimot.msgs\x1a\x0bjoint.proto\x1a\nlink.proto\x1a\npose.proto\x1a\x0cvisual.proto\x1a\x0evector3d.proto\"\x9a\x02\n\x05Model\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\n\n\x02id\x18\x02 \x01(\r\x12\x11\n\tis_static\x18\x03 \x01(\x08\x12\"\n\x04pose\x18\x04 \x01(\x0b\x32\x14.experimot.msgs.Pose\x12$\n\x05joint\x18\x05 \x03(\x0b\x32\x15.experimot.msgs.Joint\x12\"\n\x04link\x18\x06 \x03(\x0b\x32\x14.experimot.msgs.Link\x12\x0f\n\x07\x64\x65leted\x18\x07 \x01(\x08\x12&\n\x06visual\x18\x08 \x03(\x0b\x32\x16.experimot.msgs.Visual\x12\'\n\x05scale\x18\t \x01(\x0b\x32\x18.experimot.msgs.Vector3d\x12\x14\n\x0cself_collide\x18\n \x01(\x08')
+  serialized_pb=_b('\n\x0bmodel.proto\x12\x11Indriya.Core.Msgs\x1a\x0bjoint.proto\x1a\nlink.proto\x1a\npose.proto\x1a\x0cvisual.proto\x1a\x0evector3d.proto\"\xa9\x02\n\x05Model\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\n\n\x02id\x18\x02 \x01(\r\x12\x11\n\tis_static\x18\x03 \x01(\x08\x12%\n\x04pose\x18\x04 \x01(\x0b\x32\x17.Indriya.Core.Msgs.Pose\x12\'\n\x05joint\x18\x05 \x03(\x0b\x32\x18.Indriya.Core.Msgs.Joint\x12%\n\x04link\x18\x06 \x03(\x0b\x32\x17.Indriya.Core.Msgs.Link\x12\x0f\n\x07\x64\x65leted\x18\x07 \x01(\x08\x12)\n\x06visual\x18\x08 \x03(\x0b\x32\x19.Indriya.Core.Msgs.Visual\x12*\n\x05scale\x18\t \x01(\x0b\x32\x1b.Indriya.Core.Msgs.Vector3d\x12\x14\n\x0cself_collide\x18\n \x01(\x08')
   ,
   dependencies=[joint__pb2.DESCRIPTOR,link__pb2.DESCRIPTOR,pose__pb2.DESCRIPTOR,visual__pb2.DESCRIPTOR,vector3d__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -34,76 +34,76 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _MODEL = _descriptor.Descriptor(
   name='Model',
-  full_name='experimot.msgs.Model',
+  full_name='Indriya.Core.Msgs.Model',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='experimot.msgs.Model.name', index=0,
+      name='name', full_name='Indriya.Core.Msgs.Model.name', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='id', full_name='experimot.msgs.Model.id', index=1,
+      name='id', full_name='Indriya.Core.Msgs.Model.id', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='is_static', full_name='experimot.msgs.Model.is_static', index=2,
+      name='is_static', full_name='Indriya.Core.Msgs.Model.is_static', index=2,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='pose', full_name='experimot.msgs.Model.pose', index=3,
+      name='pose', full_name='Indriya.Core.Msgs.Model.pose', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='joint', full_name='experimot.msgs.Model.joint', index=4,
+      name='joint', full_name='Indriya.Core.Msgs.Model.joint', index=4,
       number=5, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='link', full_name='experimot.msgs.Model.link', index=5,
+      name='link', full_name='Indriya.Core.Msgs.Model.link', index=5,
       number=6, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='deleted', full_name='experimot.msgs.Model.deleted', index=6,
+      name='deleted', full_name='Indriya.Core.Msgs.Model.deleted', index=6,
       number=7, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='visual', full_name='experimot.msgs.Model.visual', index=7,
+      name='visual', full_name='Indriya.Core.Msgs.Model.visual', index=7,
       number=8, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='scale', full_name='experimot.msgs.Model.scale', index=8,
+      name='scale', full_name='Indriya.Core.Msgs.Model.scale', index=8,
       number=9, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='self_collide', full_name='experimot.msgs.Model.self_collide', index=9,
+      name='self_collide', full_name='Indriya.Core.Msgs.Model.self_collide', index=9,
       number=10, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -121,8 +121,8 @@ _MODEL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=99,
-  serialized_end=381,
+  serialized_start=102,
+  serialized_end=399,
 )
 
 _MODEL.fields_by_name['pose'].message_type = pose__pb2._POSE
@@ -135,7 +135,7 @@ DESCRIPTOR.message_types_by_name['Model'] = _MODEL
 Model = _reflection.GeneratedProtocolMessageType('Model', (_message.Message,), dict(
   DESCRIPTOR = _MODEL,
   __module__ = 'model_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Model)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Model)
   ))
 _sym_db.RegisterMessage(Model)
 

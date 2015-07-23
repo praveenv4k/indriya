@@ -9,25 +9,25 @@
 
 // Generated from: proto/material.proto
 // Note: requires additional types generated from: color.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Material")]
   public partial class Material : global::ProtoBuf.IExtensible
   {
     public Material() {}
     
-    private experimot.msgs.Material.Script _script = null;
+    private Indriya.Core.Msgs.Material.Script _script = null;
     [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"script", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Material.Script script
+    public Indriya.Core.Msgs.Material.Script script
     {
       get { return _script; }
       set { _script = value; }
     }
-    private experimot.msgs.Material.ShaderType _shader_type = experimot.msgs.Material.ShaderType.VERTEX;
+    private Indriya.Core.Msgs.Material.ShaderType _shader_type = Indriya.Core.Msgs.Material.ShaderType.VERTEX;
     [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"shader_type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(experimot.msgs.Material.ShaderType.VERTEX)]
-    public experimot.msgs.Material.ShaderType shader_type
+    [global::System.ComponentModel.DefaultValue(Indriya.Core.Msgs.Material.ShaderType.VERTEX)]
+    public Indriya.Core.Msgs.Material.ShaderType shader_type
     {
       get { return _shader_type; }
       set { _shader_type = value; }
@@ -40,34 +40,34 @@ namespace experimot.msgs
       get { return _normal_map; }
       set { _normal_map = value; }
     }
-    private experimot.msgs.Color _ambient = null;
+    private Indriya.Core.Msgs.Color _ambient = null;
     [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"ambient", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Color ambient
+    public Indriya.Core.Msgs.Color ambient
     {
       get { return _ambient; }
       set { _ambient = value; }
     }
-    private experimot.msgs.Color _diffuse = null;
+    private Indriya.Core.Msgs.Color _diffuse = null;
     [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"diffuse", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Color diffuse
+    public Indriya.Core.Msgs.Color diffuse
     {
       get { return _diffuse; }
       set { _diffuse = value; }
     }
-    private experimot.msgs.Color _specular = null;
+    private Indriya.Core.Msgs.Color _specular = null;
     [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"specular", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Color specular
+    public Indriya.Core.Msgs.Color specular
     {
       get { return _specular; }
       set { _specular = value; }
     }
-    private experimot.msgs.Color _emissive = null;
+    private Indriya.Core.Msgs.Color _emissive = null;
     [global::ProtoBuf.ProtoMember(7, IsRequired = false, Name=@"emissive", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Color emissive
+    public Indriya.Core.Msgs.Color emissive
     {
       get { return _emissive; }
       set { _emissive = value; }

@@ -18,9 +18,9 @@ import wireless_node_pb2 as wireless__node__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='wireless_nodes.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x14wireless_nodes.proto\x12\x0e\x65xperimot.msgs\x1a\x13wireless_node.proto\";\n\rWirelessNodes\x12*\n\x04node\x18\x01 \x03(\x0b\x32\x1c.experimot.msgs.WirelessNode')
+  serialized_pb=_b('\n\x14wireless_nodes.proto\x12\x11Indriya.Core.Msgs\x1a\x13wireless_node.proto\">\n\rWirelessNodes\x12-\n\x04node\x18\x01 \x03(\x0b\x32\x1f.Indriya.Core.Msgs.WirelessNode')
   ,
   dependencies=[wireless__node__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,13 +30,13 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _WIRELESSNODES = _descriptor.Descriptor(
   name='WirelessNodes',
-  full_name='experimot.msgs.WirelessNodes',
+  full_name='Indriya.Core.Msgs.WirelessNodes',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='node', full_name='experimot.msgs.WirelessNodes.node', index=0,
+      name='node', full_name='Indriya.Core.Msgs.WirelessNodes.node', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -54,8 +54,8 @@ _WIRELESSNODES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=61,
-  serialized_end=120,
+  serialized_start=64,
+  serialized_end=126,
 )
 
 _WIRELESSNODES.fields_by_name['node'].message_type = wireless__node__pb2._WIRELESSNODE
@@ -64,7 +64,7 @@ DESCRIPTOR.message_types_by_name['WirelessNodes'] = _WIRELESSNODES
 WirelessNodes = _reflection.GeneratedProtocolMessageType('WirelessNodes', (_message.Message,), dict(
   DESCRIPTOR = _WIRELESSNODES,
   __module__ = 'wireless_nodes_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.WirelessNodes)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.WirelessNodes)
   ))
 _sym_db.RegisterMessage(WirelessNodes)
 

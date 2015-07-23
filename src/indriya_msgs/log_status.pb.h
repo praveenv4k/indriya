@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_log_5fstatus_2eproto();
@@ -200,14 +201,14 @@ class LogStatus_LogFile : public ::google::protobuf::Message {
   float size() const;
   void set_size(float value);
 
-  // optional .experimot.msgs.LogStatus.LogFile.Units size_units = 5;
+  // optional .Indriya.Core.Msgs.LogStatus.LogFile.Units size_units = 5;
   bool has_size_units() const;
   void clear_size_units();
   static const int kSizeUnitsFieldNumber = 5;
-  ::experimot::msgs::LogStatus_LogFile_Units size_units() const;
-  void set_size_units(::experimot::msgs::LogStatus_LogFile_Units value);
+  ::Indriya::Core::Msgs::LogStatus_LogFile_Units size_units() const;
+  void set_size_units(::Indriya::Core::Msgs::LogStatus_LogFile_Units value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.LogStatus.LogFile)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.LogStatus.LogFile)
  private:
   inline void set_has_uri();
   inline void clear_has_uri();
@@ -303,25 +304,25 @@ class LogStatus : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .experimot.msgs.Time sim_time = 1;
+  // optional .Indriya.Core.Msgs.Time sim_time = 1;
   bool has_sim_time() const;
   void clear_sim_time();
   static const int kSimTimeFieldNumber = 1;
-  const ::experimot::msgs::Time& sim_time() const;
-  ::experimot::msgs::Time* mutable_sim_time();
-  ::experimot::msgs::Time* release_sim_time();
-  void set_allocated_sim_time(::experimot::msgs::Time* sim_time);
+  const ::Indriya::Core::Msgs::Time& sim_time() const;
+  ::Indriya::Core::Msgs::Time* mutable_sim_time();
+  ::Indriya::Core::Msgs::Time* release_sim_time();
+  void set_allocated_sim_time(::Indriya::Core::Msgs::Time* sim_time);
 
-  // optional .experimot.msgs.LogStatus.LogFile log_file = 2;
+  // optional .Indriya.Core.Msgs.LogStatus.LogFile log_file = 2;
   bool has_log_file() const;
   void clear_log_file();
   static const int kLogFileFieldNumber = 2;
-  const ::experimot::msgs::LogStatus_LogFile& log_file() const;
-  ::experimot::msgs::LogStatus_LogFile* mutable_log_file();
-  ::experimot::msgs::LogStatus_LogFile* release_log_file();
-  void set_allocated_log_file(::experimot::msgs::LogStatus_LogFile* log_file);
+  const ::Indriya::Core::Msgs::LogStatus_LogFile& log_file() const;
+  ::Indriya::Core::Msgs::LogStatus_LogFile* mutable_log_file();
+  ::Indriya::Core::Msgs::LogStatus_LogFile* release_log_file();
+  void set_allocated_log_file(::Indriya::Core::Msgs::LogStatus_LogFile* log_file);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.LogStatus)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.LogStatus)
  private:
   inline void set_has_sim_time();
   inline void clear_has_sim_time();
@@ -331,8 +332,8 @@ class LogStatus : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::Time* sim_time_;
-  ::experimot::msgs::LogStatus_LogFile* log_file_;
+  ::Indriya::Core::Msgs::Time* sim_time_;
+  ::Indriya::Core::Msgs::LogStatus_LogFile* log_file_;
   friend void  protobuf_AddDesc_log_5fstatus_2eproto();
   friend void protobuf_AssignDesc_log_5fstatus_2eproto();
   friend void protobuf_ShutdownFile_log_5fstatus_2eproto();
@@ -363,28 +364,28 @@ inline void LogStatus_LogFile::clear_uri() {
   clear_has_uri();
 }
 inline const ::std::string& LogStatus_LogFile::uri() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LogStatus.LogFile.uri)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LogStatus.LogFile.uri)
   return uri_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void LogStatus_LogFile::set_uri(const ::std::string& value) {
   set_has_uri();
   uri_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.LogStatus.LogFile.uri)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LogStatus.LogFile.uri)
 }
 inline void LogStatus_LogFile::set_uri(const char* value) {
   set_has_uri();
   uri_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.LogStatus.LogFile.uri)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.LogStatus.LogFile.uri)
 }
 inline void LogStatus_LogFile::set_uri(const char* value, size_t size) {
   set_has_uri();
   uri_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.LogStatus.LogFile.uri)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.LogStatus.LogFile.uri)
 }
 inline ::std::string* LogStatus_LogFile::mutable_uri() {
   set_has_uri();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LogStatus.LogFile.uri)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LogStatus.LogFile.uri)
   return uri_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* LogStatus_LogFile::release_uri() {
@@ -398,7 +399,7 @@ inline void LogStatus_LogFile::set_allocated_uri(::std::string* uri) {
     clear_has_uri();
   }
   uri_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), uri);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LogStatus.LogFile.uri)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LogStatus.LogFile.uri)
 }
 
 // optional string base_path = 2;
@@ -416,28 +417,28 @@ inline void LogStatus_LogFile::clear_base_path() {
   clear_has_base_path();
 }
 inline const ::std::string& LogStatus_LogFile::base_path() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LogStatus.LogFile.base_path)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LogStatus.LogFile.base_path)
   return base_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void LogStatus_LogFile::set_base_path(const ::std::string& value) {
   set_has_base_path();
   base_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.LogStatus.LogFile.base_path)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LogStatus.LogFile.base_path)
 }
 inline void LogStatus_LogFile::set_base_path(const char* value) {
   set_has_base_path();
   base_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.LogStatus.LogFile.base_path)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.LogStatus.LogFile.base_path)
 }
 inline void LogStatus_LogFile::set_base_path(const char* value, size_t size) {
   set_has_base_path();
   base_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.LogStatus.LogFile.base_path)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.LogStatus.LogFile.base_path)
 }
 inline ::std::string* LogStatus_LogFile::mutable_base_path() {
   set_has_base_path();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LogStatus.LogFile.base_path)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LogStatus.LogFile.base_path)
   return base_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* LogStatus_LogFile::release_base_path() {
@@ -451,7 +452,7 @@ inline void LogStatus_LogFile::set_allocated_base_path(::std::string* base_path)
     clear_has_base_path();
   }
   base_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), base_path);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LogStatus.LogFile.base_path)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LogStatus.LogFile.base_path)
 }
 
 // optional string full_path = 3;
@@ -469,28 +470,28 @@ inline void LogStatus_LogFile::clear_full_path() {
   clear_has_full_path();
 }
 inline const ::std::string& LogStatus_LogFile::full_path() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LogStatus.LogFile.full_path)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LogStatus.LogFile.full_path)
   return full_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void LogStatus_LogFile::set_full_path(const ::std::string& value) {
   set_has_full_path();
   full_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.LogStatus.LogFile.full_path)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LogStatus.LogFile.full_path)
 }
 inline void LogStatus_LogFile::set_full_path(const char* value) {
   set_has_full_path();
   full_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.LogStatus.LogFile.full_path)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.LogStatus.LogFile.full_path)
 }
 inline void LogStatus_LogFile::set_full_path(const char* value, size_t size) {
   set_has_full_path();
   full_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.LogStatus.LogFile.full_path)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.LogStatus.LogFile.full_path)
 }
 inline ::std::string* LogStatus_LogFile::mutable_full_path() {
   set_has_full_path();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LogStatus.LogFile.full_path)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LogStatus.LogFile.full_path)
   return full_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* LogStatus_LogFile::release_full_path() {
@@ -504,7 +505,7 @@ inline void LogStatus_LogFile::set_allocated_full_path(::std::string* full_path)
     clear_has_full_path();
   }
   full_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), full_path);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LogStatus.LogFile.full_path)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LogStatus.LogFile.full_path)
 }
 
 // optional float size = 4;
@@ -522,16 +523,16 @@ inline void LogStatus_LogFile::clear_size() {
   clear_has_size();
 }
 inline float LogStatus_LogFile::size() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LogStatus.LogFile.size)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LogStatus.LogFile.size)
   return size_;
 }
 inline void LogStatus_LogFile::set_size(float value) {
   set_has_size();
   size_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.LogStatus.LogFile.size)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LogStatus.LogFile.size)
 }
 
-// optional .experimot.msgs.LogStatus.LogFile.Units size_units = 5;
+// optional .Indriya.Core.Msgs.LogStatus.LogFile.Units size_units = 5;
 inline bool LogStatus_LogFile::has_size_units() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -545,22 +546,22 @@ inline void LogStatus_LogFile::clear_size_units() {
   size_units_ = 1;
   clear_has_size_units();
 }
-inline ::experimot::msgs::LogStatus_LogFile_Units LogStatus_LogFile::size_units() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LogStatus.LogFile.size_units)
-  return static_cast< ::experimot::msgs::LogStatus_LogFile_Units >(size_units_);
+inline ::Indriya::Core::Msgs::LogStatus_LogFile_Units LogStatus_LogFile::size_units() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LogStatus.LogFile.size_units)
+  return static_cast< ::Indriya::Core::Msgs::LogStatus_LogFile_Units >(size_units_);
 }
-inline void LogStatus_LogFile::set_size_units(::experimot::msgs::LogStatus_LogFile_Units value) {
-  assert(::experimot::msgs::LogStatus_LogFile_Units_IsValid(value));
+inline void LogStatus_LogFile::set_size_units(::Indriya::Core::Msgs::LogStatus_LogFile_Units value) {
+  assert(::Indriya::Core::Msgs::LogStatus_LogFile_Units_IsValid(value));
   set_has_size_units();
   size_units_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.LogStatus.LogFile.size_units)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LogStatus.LogFile.size_units)
 }
 
 // -------------------------------------------------------------------
 
 // LogStatus
 
-// optional .experimot.msgs.Time sim_time = 1;
+// optional .Indriya.Core.Msgs.Time sim_time = 1;
 inline bool LogStatus::has_sim_time() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -571,28 +572,28 @@ inline void LogStatus::clear_has_sim_time() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void LogStatus::clear_sim_time() {
-  if (sim_time_ != NULL) sim_time_->::experimot::msgs::Time::Clear();
+  if (sim_time_ != NULL) sim_time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_sim_time();
 }
-inline const ::experimot::msgs::Time& LogStatus::sim_time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LogStatus.sim_time)
+inline const ::Indriya::Core::Msgs::Time& LogStatus::sim_time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LogStatus.sim_time)
   return sim_time_ != NULL ? *sim_time_ : *default_instance_->sim_time_;
 }
-inline ::experimot::msgs::Time* LogStatus::mutable_sim_time() {
+inline ::Indriya::Core::Msgs::Time* LogStatus::mutable_sim_time() {
   set_has_sim_time();
   if (sim_time_ == NULL) {
-    sim_time_ = new ::experimot::msgs::Time;
+    sim_time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LogStatus.sim_time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LogStatus.sim_time)
   return sim_time_;
 }
-inline ::experimot::msgs::Time* LogStatus::release_sim_time() {
+inline ::Indriya::Core::Msgs::Time* LogStatus::release_sim_time() {
   clear_has_sim_time();
-  ::experimot::msgs::Time* temp = sim_time_;
+  ::Indriya::Core::Msgs::Time* temp = sim_time_;
   sim_time_ = NULL;
   return temp;
 }
-inline void LogStatus::set_allocated_sim_time(::experimot::msgs::Time* sim_time) {
+inline void LogStatus::set_allocated_sim_time(::Indriya::Core::Msgs::Time* sim_time) {
   delete sim_time_;
   sim_time_ = sim_time;
   if (sim_time) {
@@ -600,10 +601,10 @@ inline void LogStatus::set_allocated_sim_time(::experimot::msgs::Time* sim_time)
   } else {
     clear_has_sim_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LogStatus.sim_time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LogStatus.sim_time)
 }
 
-// optional .experimot.msgs.LogStatus.LogFile log_file = 2;
+// optional .Indriya.Core.Msgs.LogStatus.LogFile log_file = 2;
 inline bool LogStatus::has_log_file() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -614,28 +615,28 @@ inline void LogStatus::clear_has_log_file() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void LogStatus::clear_log_file() {
-  if (log_file_ != NULL) log_file_->::experimot::msgs::LogStatus_LogFile::Clear();
+  if (log_file_ != NULL) log_file_->::Indriya::Core::Msgs::LogStatus_LogFile::Clear();
   clear_has_log_file();
 }
-inline const ::experimot::msgs::LogStatus_LogFile& LogStatus::log_file() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LogStatus.log_file)
+inline const ::Indriya::Core::Msgs::LogStatus_LogFile& LogStatus::log_file() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LogStatus.log_file)
   return log_file_ != NULL ? *log_file_ : *default_instance_->log_file_;
 }
-inline ::experimot::msgs::LogStatus_LogFile* LogStatus::mutable_log_file() {
+inline ::Indriya::Core::Msgs::LogStatus_LogFile* LogStatus::mutable_log_file() {
   set_has_log_file();
   if (log_file_ == NULL) {
-    log_file_ = new ::experimot::msgs::LogStatus_LogFile;
+    log_file_ = new ::Indriya::Core::Msgs::LogStatus_LogFile;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LogStatus.log_file)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LogStatus.log_file)
   return log_file_;
 }
-inline ::experimot::msgs::LogStatus_LogFile* LogStatus::release_log_file() {
+inline ::Indriya::Core::Msgs::LogStatus_LogFile* LogStatus::release_log_file() {
   clear_has_log_file();
-  ::experimot::msgs::LogStatus_LogFile* temp = log_file_;
+  ::Indriya::Core::Msgs::LogStatus_LogFile* temp = log_file_;
   log_file_ = NULL;
   return temp;
 }
-inline void LogStatus::set_allocated_log_file(::experimot::msgs::LogStatus_LogFile* log_file) {
+inline void LogStatus::set_allocated_log_file(::Indriya::Core::Msgs::LogStatus_LogFile* log_file) {
   delete log_file_;
   log_file_ = log_file;
   if (log_file) {
@@ -643,32 +644,33 @@ inline void LogStatus::set_allocated_log_file(::experimot::msgs::LogStatus_LogFi
   } else {
     clear_has_log_file();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LogStatus.log_file)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LogStatus.log_file)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::LogStatus> LogStatusPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::LogStatus> LogStatusPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::experimot::msgs::LogStatus_LogFile_Units> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Indriya::Core::Msgs::LogStatus_LogFile_Units> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::LogStatus_LogFile_Units>() {
-  return ::experimot::msgs::LogStatus_LogFile_Units_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Indriya::Core::Msgs::LogStatus_LogFile_Units>() {
+  return ::Indriya::Core::Msgs::LogStatus_LogFile_Units_descriptor();
 }
 
 }  // namespace protobuf
 }  // namespace google
 #endif  // SWIG
 
-typedef const boost::shared_ptr<experimot::msgs::LogStatus const> ConstLogStatusPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::LogStatus const> ConstLogStatusPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_log_5fstatus_2eproto__INCLUDED

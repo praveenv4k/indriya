@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -82,9 +83,9 @@ void protobuf_AddDesc_quaternion_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\020quaternion.proto\022\016experimot.msgs\"8\n\nQu"
-    "aternion\022\t\n\001x\030\002 \002(\001\022\t\n\001y\030\003 \002(\001\022\t\n\001z\030\004 \002("
-    "\001\022\t\n\001w\030\005 \002(\001", 92);
+    "\n\020quaternion.proto\022\021Indriya.Core.Msgs\"8\n"
+    "\nQuaternion\022\t\n\001x\030\002 \002(\001\022\t\n\001y\030\003 \002(\001\022\t\n\001z\030\004"
+    " \002(\001\022\t\n\001w\030\005 \002(\001", 95);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "quaternion.proto", &protobuf_RegisterTypes);
   Quaternion::default_instance_ = new Quaternion();
@@ -121,7 +122,7 @@ const int Quaternion::kWFieldNumber;
 Quaternion::Quaternion()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Quaternion)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Quaternion)
 }
 
 void Quaternion::InitAsDefaultInstance() {
@@ -132,7 +133,7 @@ Quaternion::Quaternion(const Quaternion& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Quaternion)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Quaternion)
 }
 
 void Quaternion::SharedCtor() {
@@ -145,7 +146,7 @@ void Quaternion::SharedCtor() {
 }
 
 Quaternion::~Quaternion() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Quaternion)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Quaternion)
   SharedDtor();
 }
 
@@ -203,7 +204,7 @@ bool Quaternion::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Quaternion)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Quaternion)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -282,17 +283,17 @@ bool Quaternion::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Quaternion)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Quaternion)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Quaternion)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Quaternion)
   return false;
 #undef DO_
 }
 
 void Quaternion::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Quaternion)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Quaternion)
   // required double x = 2;
   if (has_x()) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->x(), output);
@@ -317,12 +318,12 @@ void Quaternion::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Quaternion)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Quaternion)
 }
 
 ::google::protobuf::uint8* Quaternion::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Quaternion)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Quaternion)
   // required double x = 2;
   if (has_x()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->x(), target);
@@ -347,7 +348,7 @@ void Quaternion::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Quaternion)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Quaternion)
   return target;
 }
 
@@ -497,13 +498,13 @@ void Quaternion::InternalSwap(Quaternion* other) {
   clear_has_x();
 }
  double Quaternion::x() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Quaternion.x)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Quaternion.x)
   return x_;
 }
  void Quaternion::set_x(double value) {
   set_has_x();
   x_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Quaternion.x)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Quaternion.x)
 }
 
 // required double y = 3;
@@ -521,13 +522,13 @@ void Quaternion::InternalSwap(Quaternion* other) {
   clear_has_y();
 }
  double Quaternion::y() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Quaternion.y)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Quaternion.y)
   return y_;
 }
  void Quaternion::set_y(double value) {
   set_has_y();
   y_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Quaternion.y)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Quaternion.y)
 }
 
 // required double z = 4;
@@ -545,13 +546,13 @@ void Quaternion::InternalSwap(Quaternion* other) {
   clear_has_z();
 }
  double Quaternion::z() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Quaternion.z)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Quaternion.z)
   return z_;
 }
  void Quaternion::set_z(double value) {
   set_has_z();
   z_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Quaternion.z)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Quaternion.z)
 }
 
 // required double w = 5;
@@ -569,21 +570,22 @@ void Quaternion::InternalSwap(Quaternion* other) {
   clear_has_w();
 }
  double Quaternion::w() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Quaternion.w)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Quaternion.w)
   return w_;
 }
  void Quaternion::set_w(double value) {
   set_has_w();
   w_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Quaternion.w)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Quaternion.w)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Quaternion", Quaternion)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Quaternion", Quaternion)
 // @@protoc_insertion_point(global_scope)

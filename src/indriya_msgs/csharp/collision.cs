@@ -12,7 +12,7 @@
 // Note: requires additional types generated from: geometry.proto
 // Note: requires additional types generated from: surface.proto
 // Note: requires additional types generated from: visual.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Collision")]
   public partial class Collision : global::ProtoBuf.IExtensible
@@ -49,33 +49,33 @@ namespace experimot.msgs
       get { return _max_contacts; }
       set { _max_contacts = value; }
     }
-    private experimot.msgs.Pose _pose = null;
+    private Indriya.Core.Msgs.Pose _pose = null;
     [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"pose", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Pose pose
+    public Indriya.Core.Msgs.Pose pose
     {
       get { return _pose; }
       set { _pose = value; }
     }
-    private experimot.msgs.Geometry _geometry = null;
+    private Indriya.Core.Msgs.Geometry _geometry = null;
     [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"geometry", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Geometry geometry
+    public Indriya.Core.Msgs.Geometry geometry
     {
       get { return _geometry; }
       set { _geometry = value; }
     }
-    private experimot.msgs.Surface _surface = null;
+    private Indriya.Core.Msgs.Surface _surface = null;
     [global::ProtoBuf.ProtoMember(7, IsRequired = false, Name=@"surface", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Surface surface
+    public Indriya.Core.Msgs.Surface surface
     {
       get { return _surface; }
       set { _surface = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Visual> _visual = new global::System.Collections.Generic.List<experimot.msgs.Visual>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Visual> _visual = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Visual>();
     [global::ProtoBuf.ProtoMember(8, Name=@"visual", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Visual> visual
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Visual> visual
     {
       get { return _visual; }
     }

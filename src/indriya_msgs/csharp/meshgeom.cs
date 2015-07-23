@@ -9,7 +9,7 @@
 
 // Generated from: proto/meshgeom.proto
 // Note: requires additional types generated from: vector3d.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"MeshGeom")]
   public partial class MeshGeom : global::ProtoBuf.IExtensible
@@ -23,10 +23,10 @@ namespace experimot.msgs
       get { return _filename; }
       set { _filename = value; }
     }
-    private experimot.msgs.Vector3d _scale = null;
+    private Indriya.Core.Msgs.Vector3d _scale = null;
     [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"scale", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Vector3d scale
+    public Indriya.Core.Msgs.Vector3d scale
     {
       get { return _scale; }
       set { _scale = value; }

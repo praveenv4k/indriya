@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -81,9 +82,9 @@ void protobuf_AddDesc_propagation_5fparticle_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\032propagation_particle.proto\022\016experimot."
-    "msgs\"A\n\023PropagationParticle\022\t\n\001x\030\001 \002(\001\022\t"
-    "\n\001y\030\002 \002(\001\022\024\n\014signal_level\030\003 \002(\001", 111);
+    "\n\032propagation_particle.proto\022\021Indriya.Co"
+    "re.Msgs\"A\n\023PropagationParticle\022\t\n\001x\030\001 \002("
+    "\001\022\t\n\001y\030\002 \002(\001\022\024\n\014signal_level\030\003 \002(\001", 114);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "propagation_particle.proto", &protobuf_RegisterTypes);
   PropagationParticle::default_instance_ = new PropagationParticle();
@@ -119,7 +120,7 @@ const int PropagationParticle::kSignalLevelFieldNumber;
 PropagationParticle::PropagationParticle()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.PropagationParticle)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.PropagationParticle)
 }
 
 void PropagationParticle::InitAsDefaultInstance() {
@@ -130,7 +131,7 @@ PropagationParticle::PropagationParticle(const PropagationParticle& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.PropagationParticle)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.PropagationParticle)
 }
 
 void PropagationParticle::SharedCtor() {
@@ -142,7 +143,7 @@ void PropagationParticle::SharedCtor() {
 }
 
 PropagationParticle::~PropagationParticle() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.PropagationParticle)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.PropagationParticle)
   SharedDtor();
 }
 
@@ -200,7 +201,7 @@ bool PropagationParticle::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.PropagationParticle)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.PropagationParticle)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -264,17 +265,17 @@ bool PropagationParticle::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.PropagationParticle)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.PropagationParticle)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.PropagationParticle)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.PropagationParticle)
   return false;
 #undef DO_
 }
 
 void PropagationParticle::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.PropagationParticle)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.PropagationParticle)
   // required double x = 1;
   if (has_x()) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(1, this->x(), output);
@@ -294,12 +295,12 @@ void PropagationParticle::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.PropagationParticle)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.PropagationParticle)
 }
 
 ::google::protobuf::uint8* PropagationParticle::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.PropagationParticle)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.PropagationParticle)
   // required double x = 1;
   if (has_x()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(1, this->x(), target);
@@ -319,7 +320,7 @@ void PropagationParticle::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.PropagationParticle)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.PropagationParticle)
   return target;
 }
 
@@ -457,13 +458,13 @@ void PropagationParticle::InternalSwap(PropagationParticle* other) {
   clear_has_x();
 }
  double PropagationParticle::x() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PropagationParticle.x)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PropagationParticle.x)
   return x_;
 }
  void PropagationParticle::set_x(double value) {
   set_has_x();
   x_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PropagationParticle.x)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PropagationParticle.x)
 }
 
 // required double y = 2;
@@ -481,13 +482,13 @@ void PropagationParticle::InternalSwap(PropagationParticle* other) {
   clear_has_y();
 }
  double PropagationParticle::y() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PropagationParticle.y)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PropagationParticle.y)
   return y_;
 }
  void PropagationParticle::set_y(double value) {
   set_has_y();
   y_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PropagationParticle.y)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PropagationParticle.y)
 }
 
 // required double signal_level = 3;
@@ -505,21 +506,22 @@ void PropagationParticle::InternalSwap(PropagationParticle* other) {
   clear_has_signal_level();
 }
  double PropagationParticle::signal_level() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PropagationParticle.signal_level)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PropagationParticle.signal_level)
   return signal_level_;
 }
  void PropagationParticle::set_signal_level(double value) {
   set_has_signal_level();
   signal_level_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PropagationParticle.signal_level)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PropagationParticle.signal_level)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.PropagationParticle", PropagationParticle)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.PropagationParticle", PropagationParticle)
 // @@protoc_insertion_point(global_scope)

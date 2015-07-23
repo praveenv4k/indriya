@@ -9,7 +9,7 @@
 
 // Generated from: proto/sky.proto
 // Note: requires additional types generated from: color.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Sky")]
   public partial class Sky : global::ProtoBuf.IExtensible
@@ -56,10 +56,10 @@ namespace experimot.msgs
       get { return _wind_direction; }
       set { _wind_direction = value; }
     }
-    private experimot.msgs.Color _cloud_ambient = null;
+    private Indriya.Core.Msgs.Color _cloud_ambient = null;
     [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"cloud_ambient", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Color cloud_ambient
+    public Indriya.Core.Msgs.Color cloud_ambient
     {
       get { return _cloud_ambient; }
       set { _cloud_ambient = value; }

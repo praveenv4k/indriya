@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_pose_5fanimation_2eproto();
@@ -128,31 +129,31 @@ class PoseAnimation : public ::google::protobuf::Message {
   ::google::protobuf::uint32 model_id() const;
   void set_model_id(::google::protobuf::uint32 value);
 
-  // repeated .experimot.msgs.Pose pose = 3;
+  // repeated .Indriya.Core.Msgs.Pose pose = 3;
   int pose_size() const;
   void clear_pose();
   static const int kPoseFieldNumber = 3;
-  const ::experimot::msgs::Pose& pose(int index) const;
-  ::experimot::msgs::Pose* mutable_pose(int index);
-  ::experimot::msgs::Pose* add_pose();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Pose >&
+  const ::Indriya::Core::Msgs::Pose& pose(int index) const;
+  ::Indriya::Core::Msgs::Pose* mutable_pose(int index);
+  ::Indriya::Core::Msgs::Pose* add_pose();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Pose >&
       pose() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Pose >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Pose >*
       mutable_pose();
 
-  // repeated .experimot.msgs.Time time = 4;
+  // repeated .Indriya.Core.Msgs.Time time = 4;
   int time_size() const;
   void clear_time();
   static const int kTimeFieldNumber = 4;
-  const ::experimot::msgs::Time& time(int index) const;
-  ::experimot::msgs::Time* mutable_time(int index);
-  ::experimot::msgs::Time* add_time();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Time >&
+  const ::Indriya::Core::Msgs::Time& time(int index) const;
+  ::Indriya::Core::Msgs::Time* mutable_time(int index);
+  ::Indriya::Core::Msgs::Time* add_time();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Time >&
       time() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Time >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Time >*
       mutable_time();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.PoseAnimation)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.PoseAnimation)
  private:
   inline void set_has_model_name();
   inline void clear_has_model_name();
@@ -163,8 +164,8 @@ class PoseAnimation : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr model_name_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Pose > pose_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Time > time_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Pose > pose_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Time > time_;
   ::google::protobuf::uint32 model_id_;
   friend void  protobuf_AddDesc_pose_5fanimation_2eproto();
   friend void protobuf_AssignDesc_pose_5fanimation_2eproto();
@@ -196,28 +197,28 @@ inline void PoseAnimation::clear_model_name() {
   clear_has_model_name();
 }
 inline const ::std::string& PoseAnimation::model_name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PoseAnimation.model_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PoseAnimation.model_name)
   return model_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void PoseAnimation::set_model_name(const ::std::string& value) {
   set_has_model_name();
   model_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.PoseAnimation.model_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PoseAnimation.model_name)
 }
 inline void PoseAnimation::set_model_name(const char* value) {
   set_has_model_name();
   model_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.PoseAnimation.model_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.PoseAnimation.model_name)
 }
 inline void PoseAnimation::set_model_name(const char* value, size_t size) {
   set_has_model_name();
   model_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.PoseAnimation.model_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.PoseAnimation.model_name)
 }
 inline ::std::string* PoseAnimation::mutable_model_name() {
   set_has_model_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.PoseAnimation.model_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.PoseAnimation.model_name)
   return model_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* PoseAnimation::release_model_name() {
@@ -231,7 +232,7 @@ inline void PoseAnimation::set_allocated_model_name(::std::string* model_name) {
     clear_has_model_name();
   }
   model_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), model_name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.PoseAnimation.model_name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.PoseAnimation.model_name)
 }
 
 // optional uint32 model_id = 2;
@@ -249,84 +250,85 @@ inline void PoseAnimation::clear_model_id() {
   clear_has_model_id();
 }
 inline ::google::protobuf::uint32 PoseAnimation::model_id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PoseAnimation.model_id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PoseAnimation.model_id)
   return model_id_;
 }
 inline void PoseAnimation::set_model_id(::google::protobuf::uint32 value) {
   set_has_model_id();
   model_id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PoseAnimation.model_id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PoseAnimation.model_id)
 }
 
-// repeated .experimot.msgs.Pose pose = 3;
+// repeated .Indriya.Core.Msgs.Pose pose = 3;
 inline int PoseAnimation::pose_size() const {
   return pose_.size();
 }
 inline void PoseAnimation::clear_pose() {
   pose_.Clear();
 }
-inline const ::experimot::msgs::Pose& PoseAnimation::pose(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PoseAnimation.pose)
+inline const ::Indriya::Core::Msgs::Pose& PoseAnimation::pose(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PoseAnimation.pose)
   return pose_.Get(index);
 }
-inline ::experimot::msgs::Pose* PoseAnimation::mutable_pose(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.PoseAnimation.pose)
+inline ::Indriya::Core::Msgs::Pose* PoseAnimation::mutable_pose(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.PoseAnimation.pose)
   return pose_.Mutable(index);
 }
-inline ::experimot::msgs::Pose* PoseAnimation::add_pose() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.PoseAnimation.pose)
+inline ::Indriya::Core::Msgs::Pose* PoseAnimation::add_pose() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.PoseAnimation.pose)
   return pose_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Pose >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Pose >&
 PoseAnimation::pose() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.PoseAnimation.pose)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.PoseAnimation.pose)
   return pose_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Pose >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Pose >*
 PoseAnimation::mutable_pose() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.PoseAnimation.pose)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.PoseAnimation.pose)
   return &pose_;
 }
 
-// repeated .experimot.msgs.Time time = 4;
+// repeated .Indriya.Core.Msgs.Time time = 4;
 inline int PoseAnimation::time_size() const {
   return time_.size();
 }
 inline void PoseAnimation::clear_time() {
   time_.Clear();
 }
-inline const ::experimot::msgs::Time& PoseAnimation::time(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PoseAnimation.time)
+inline const ::Indriya::Core::Msgs::Time& PoseAnimation::time(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PoseAnimation.time)
   return time_.Get(index);
 }
-inline ::experimot::msgs::Time* PoseAnimation::mutable_time(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.PoseAnimation.time)
+inline ::Indriya::Core::Msgs::Time* PoseAnimation::mutable_time(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.PoseAnimation.time)
   return time_.Mutable(index);
 }
-inline ::experimot::msgs::Time* PoseAnimation::add_time() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.PoseAnimation.time)
+inline ::Indriya::Core::Msgs::Time* PoseAnimation::add_time() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.PoseAnimation.time)
   return time_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Time >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Time >&
 PoseAnimation::time() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.PoseAnimation.time)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.PoseAnimation.time)
   return time_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Time >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Time >*
 PoseAnimation::mutable_time() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.PoseAnimation.time)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.PoseAnimation.time)
   return &time_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::PoseAnimation> PoseAnimationPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::PoseAnimation> PoseAnimationPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::PoseAnimation const> ConstPoseAnimationPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::PoseAnimation const> ConstPoseAnimationPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_pose_5fanimation_2eproto__INCLUDED

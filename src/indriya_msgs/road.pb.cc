@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -81,14 +82,14 @@ void protobuf_AddDesc_road_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_vector3d_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_material_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector3d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_material_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\nroad.proto\022\016experimot.msgs\032\016vector3d.p"
-    "roto\032\016material.proto\"x\n\004Road\022\014\n\004name\030\001 \002"
-    "(\t\022\r\n\005width\030\002 \002(\001\022\'\n\005point\030\003 \003(\0132\030.exper"
-    "imot.msgs.Vector3d\022*\n\010material\030\004 \001(\0132\030.e"
-    "xperimot.msgs.Material", 182);
+    "\n\nroad.proto\022\021Indriya.Core.Msgs\032\016vector3"
+    "d.proto\032\016material.proto\"~\n\004Road\022\014\n\004name\030"
+    "\001 \002(\t\022\r\n\005width\030\002 \002(\001\022*\n\005point\030\003 \003(\0132\033.In"
+    "driya.Core.Msgs.Vector3d\022-\n\010material\030\004 \001"
+    "(\0132\033.Indriya.Core.Msgs.Material", 191);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "road.proto", &protobuf_RegisterTypes);
   Road::default_instance_ = new Road();
@@ -125,11 +126,11 @@ const int Road::kMaterialFieldNumber;
 Road::Road()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Road)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Road)
 }
 
 void Road::InitAsDefaultInstance() {
-  material_ = const_cast< ::experimot::msgs::Material*>(&::experimot::msgs::Material::default_instance());
+  material_ = const_cast< ::Indriya::Core::Msgs::Material*>(&::Indriya::Core::Msgs::Material::default_instance());
 }
 
 Road::Road(const Road& from)
@@ -137,7 +138,7 @@ Road::Road(const Road& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Road)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Road)
 }
 
 void Road::SharedCtor() {
@@ -150,7 +151,7 @@ void Road::SharedCtor() {
 }
 
 Road::~Road() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Road)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Road)
   SharedDtor();
 }
 
@@ -193,7 +194,7 @@ void Road::Clear() {
     }
     width_ = 0;
     if (has_material()) {
-      if (material_ != NULL) material_->::experimot::msgs::Material::Clear();
+      if (material_ != NULL) material_->::Indriya::Core::Msgs::Material::Clear();
     }
   }
   point_.Clear();
@@ -207,7 +208,7 @@ bool Road::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Road)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Road)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -221,7 +222,7 @@ bool Road::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Road.name");
+            "Indriya.Core.Msgs.Road.name");
         } else {
           goto handle_unusual;
         }
@@ -244,7 +245,7 @@ bool Road::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .experimot.msgs.Vector3d point = 3;
+      // repeated .Indriya.Core.Msgs.Vector3d point = 3;
       case 3: {
         if (tag == 26) {
          parse_point:
@@ -258,7 +259,7 @@ bool Road::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Material material = 4;
+      // optional .Indriya.Core.Msgs.Material material = 4;
       case 4: {
         if (tag == 34) {
          parse_material:
@@ -285,23 +286,23 @@ bool Road::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Road)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Road)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Road)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Road)
   return false;
 #undef DO_
 }
 
 void Road::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Road)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Road)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Road.name");
+      "Indriya.Core.Msgs.Road.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
@@ -311,13 +312,13 @@ void Road::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->width(), output);
   }
 
-  // repeated .experimot.msgs.Vector3d point = 3;
+  // repeated .Indriya.Core.Msgs.Vector3d point = 3;
   for (unsigned int i = 0, n = this->point_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, this->point(i), output);
   }
 
-  // optional .experimot.msgs.Material material = 4;
+  // optional .Indriya.Core.Msgs.Material material = 4;
   if (has_material()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, *this->material_, output);
@@ -327,18 +328,18 @@ void Road::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Road)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Road)
 }
 
 ::google::protobuf::uint8* Road::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Road)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Road)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Road.name");
+      "Indriya.Core.Msgs.Road.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
@@ -349,14 +350,14 @@ void Road::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->width(), target);
   }
 
-  // repeated .experimot.msgs.Vector3d point = 3;
+  // repeated .Indriya.Core.Msgs.Vector3d point = 3;
   for (unsigned int i = 0, n = this->point_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         3, this->point(i), target);
   }
 
-  // optional .experimot.msgs.Material material = 4;
+  // optional .Indriya.Core.Msgs.Material material = 4;
   if (has_material()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -367,7 +368,7 @@ void Road::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Road)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Road)
   return target;
 }
 
@@ -403,14 +404,14 @@ int Road::ByteSize() const {
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
-  // optional .experimot.msgs.Material material = 4;
+  // optional .Indriya.Core.Msgs.Material material = 4;
   if (has_material()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->material_);
   }
 
-  // repeated .experimot.msgs.Vector3d point = 3;
+  // repeated .Indriya.Core.Msgs.Vector3d point = 3;
   total_size += 1 * this->point_size();
   for (int i = 0; i < this->point_size(); i++) {
     total_size +=
@@ -453,7 +454,7 @@ void Road::MergeFrom(const Road& from) {
       set_width(from.width());
     }
     if (from.has_material()) {
-      mutable_material()->::experimot::msgs::Material::MergeFrom(from.material());
+      mutable_material()->::Indriya::Core::Msgs::Material::MergeFrom(from.material());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -523,28 +524,28 @@ void Road::InternalSwap(Road* other) {
   clear_has_name();
 }
  const ::std::string& Road::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Road.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Road.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Road::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Road.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Road.name)
 }
  void Road::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Road.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Road.name)
 }
  void Road::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Road.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Road.name)
 }
  ::std::string* Road::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Road.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Road.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Road::release_name() {
@@ -558,7 +559,7 @@ void Road::InternalSwap(Road* other) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Road.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Road.name)
 }
 
 // required double width = 2;
@@ -576,46 +577,46 @@ void Road::InternalSwap(Road* other) {
   clear_has_width();
 }
  double Road::width() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Road.width)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Road.width)
   return width_;
 }
  void Road::set_width(double value) {
   set_has_width();
   width_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Road.width)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Road.width)
 }
 
-// repeated .experimot.msgs.Vector3d point = 3;
+// repeated .Indriya.Core.Msgs.Vector3d point = 3;
  int Road::point_size() const {
   return point_.size();
 }
  void Road::clear_point() {
   point_.Clear();
 }
- const ::experimot::msgs::Vector3d& Road::point(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Road.point)
+ const ::Indriya::Core::Msgs::Vector3d& Road::point(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Road.point)
   return point_.Get(index);
 }
- ::experimot::msgs::Vector3d* Road::mutable_point(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Road.point)
+ ::Indriya::Core::Msgs::Vector3d* Road::mutable_point(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Road.point)
   return point_.Mutable(index);
 }
- ::experimot::msgs::Vector3d* Road::add_point() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Road.point)
+ ::Indriya::Core::Msgs::Vector3d* Road::add_point() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Road.point)
   return point_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector3d >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector3d >&
 Road::point() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Road.point)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Road.point)
   return point_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector3d >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector3d >*
 Road::mutable_point() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Road.point)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Road.point)
   return &point_;
 }
 
-// optional .experimot.msgs.Material material = 4;
+// optional .Indriya.Core.Msgs.Material material = 4;
  bool Road::has_material() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -626,28 +627,28 @@ Road::mutable_point() {
   _has_bits_[0] &= ~0x00000008u;
 }
  void Road::clear_material() {
-  if (material_ != NULL) material_->::experimot::msgs::Material::Clear();
+  if (material_ != NULL) material_->::Indriya::Core::Msgs::Material::Clear();
   clear_has_material();
 }
- const ::experimot::msgs::Material& Road::material() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Road.material)
+ const ::Indriya::Core::Msgs::Material& Road::material() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Road.material)
   return material_ != NULL ? *material_ : *default_instance_->material_;
 }
- ::experimot::msgs::Material* Road::mutable_material() {
+ ::Indriya::Core::Msgs::Material* Road::mutable_material() {
   set_has_material();
   if (material_ == NULL) {
-    material_ = new ::experimot::msgs::Material;
+    material_ = new ::Indriya::Core::Msgs::Material;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Road.material)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Road.material)
   return material_;
 }
- ::experimot::msgs::Material* Road::release_material() {
+ ::Indriya::Core::Msgs::Material* Road::release_material() {
   clear_has_material();
-  ::experimot::msgs::Material* temp = material_;
+  ::Indriya::Core::Msgs::Material* temp = material_;
   material_ = NULL;
   return temp;
 }
- void Road::set_allocated_material(::experimot::msgs::Material* material) {
+ void Road::set_allocated_material(::Indriya::Core::Msgs::Material* material) {
   delete material_;
   material_ = material;
   if (material) {
@@ -655,15 +656,16 @@ Road::mutable_point() {
   } else {
     clear_has_material();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Road.material)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Road.material)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Road", Road)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Road", Road)
 // @@protoc_insertion_point(global_scope)

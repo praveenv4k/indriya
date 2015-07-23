@@ -10,7 +10,7 @@
 // Generated from: proto/topic_info.proto
 // Note: requires additional types generated from: publish.proto
 // Note: requires additional types generated from: subscribe.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"TopicInfo")]
   public partial class TopicInfo : global::ProtoBuf.IExtensible
@@ -24,16 +24,16 @@ namespace experimot.msgs
       get { return _msg_type; }
       set { _msg_type = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Publish> _publisher = new global::System.Collections.Generic.List<experimot.msgs.Publish>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Publish> _publisher = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Publish>();
     [global::ProtoBuf.ProtoMember(2, Name=@"publisher", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Publish> publisher
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Publish> publisher
     {
       get { return _publisher; }
     }
   
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Subscribe> _subscriber = new global::System.Collections.Generic.List<experimot.msgs.Subscribe>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Subscribe> _subscriber = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Subscribe>();
     [global::ProtoBuf.ProtoMember(3, Name=@"subscriber", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Subscribe> subscriber
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Subscribe> subscriber
     {
       get { return _subscriber; }
     }

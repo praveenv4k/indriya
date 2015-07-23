@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -110,21 +111,21 @@ void protobuf_AddDesc_material_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_color_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_color_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\016material.proto\022\016experimot.msgs\032\013color."
-    "proto\"\302\003\n\010Material\022/\n\006script\030\001 \001(\0132\037.exp"
-    "erimot.msgs.Material.Script\0228\n\013shader_ty"
-    "pe\030\002 \001(\0162#.experimot.msgs.Material.Shade"
-    "rType\022\022\n\nnormal_map\030\003 \001(\t\022&\n\007ambient\030\004 \001"
-    "(\0132\025.experimot.msgs.Color\022&\n\007diffuse\030\005 \001"
-    "(\0132\025.experimot.msgs.Color\022\'\n\010specular\030\006 "
-    "\001(\0132\025.experimot.msgs.Color\022\'\n\010emissive\030\007"
-    " \001(\0132\025.experimot.msgs.Color\022\020\n\010lighting\030"
-    "\010 \001(\010\032#\n\006Script\022\013\n\003uri\030\001 \003(\t\022\014\n\004name\030\002 \002"
-    "(\t\"^\n\nShaderType\022\n\n\006VERTEX\020\001\022\t\n\005PIXEL\020\002\022"
-    "\033\n\027NORMAL_MAP_OBJECT_SPACE\020\003\022\034\n\030NORMAL_M"
-    "AP_TANGENT_SPACE\020\004", 498);
+    "\n\016material.proto\022\021Indriya.Core.Msgs\032\013col"
+    "or.proto\"\324\003\n\010Material\0222\n\006script\030\001 \001(\0132\"."
+    "Indriya.Core.Msgs.Material.Script\022;\n\013sha"
+    "der_type\030\002 \001(\0162&.Indriya.Core.Msgs.Mater"
+    "ial.ShaderType\022\022\n\nnormal_map\030\003 \001(\t\022)\n\007am"
+    "bient\030\004 \001(\0132\030.Indriya.Core.Msgs.Color\022)\n"
+    "\007diffuse\030\005 \001(\0132\030.Indriya.Core.Msgs.Color"
+    "\022*\n\010specular\030\006 \001(\0132\030.Indriya.Core.Msgs.C"
+    "olor\022*\n\010emissive\030\007 \001(\0132\030.Indriya.Core.Ms"
+    "gs.Color\022\020\n\010lighting\030\010 \001(\010\032#\n\006Script\022\013\n\003"
+    "uri\030\001 \003(\t\022\014\n\004name\030\002 \002(\t\"^\n\nShaderType\022\n\n"
+    "\006VERTEX\020\001\022\t\n\005PIXEL\020\002\022\033\n\027NORMAL_MAP_OBJEC"
+    "T_SPACE\020\003\022\034\n\030NORMAL_MAP_TANGENT_SPACE\020\004", 519);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "material.proto", &protobuf_RegisterTypes);
   Material::default_instance_ = new Material();
@@ -186,7 +187,7 @@ const int Material_Script::kNameFieldNumber;
 Material_Script::Material_Script()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Material.Script)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Material.Script)
 }
 
 void Material_Script::InitAsDefaultInstance() {
@@ -197,7 +198,7 @@ Material_Script::Material_Script(const Material_Script& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Material.Script)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Material.Script)
 }
 
 void Material_Script::SharedCtor() {
@@ -208,7 +209,7 @@ void Material_Script::SharedCtor() {
 }
 
 Material_Script::~Material_Script() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Material.Script)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Material.Script)
   SharedDtor();
 }
 
@@ -258,7 +259,7 @@ bool Material_Script::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Material.Script)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Material.Script)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -274,7 +275,7 @@ bool Material_Script::MergePartialFromCodedStream(
             this->uri(this->uri_size() - 1).data(),
             this->uri(this->uri_size() - 1).length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Material.Script.uri");
+            "Indriya.Core.Msgs.Material.Script.uri");
         } else {
           goto handle_unusual;
         }
@@ -292,7 +293,7 @@ bool Material_Script::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Material.Script.name");
+            "Indriya.Core.Msgs.Material.Script.name");
         } else {
           goto handle_unusual;
         }
@@ -314,23 +315,23 @@ bool Material_Script::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Material.Script)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Material.Script)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Material.Script)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Material.Script)
   return false;
 #undef DO_
 }
 
 void Material_Script::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Material.Script)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Material.Script)
   // repeated string uri = 1;
   for (int i = 0; i < this->uri_size(); i++) {
   ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
     this->uri(i).data(), this->uri(i).length(),
     ::google::protobuf::internal::WireFormat::SERIALIZE,
-    "experimot.msgs.Material.Script.uri");
+    "Indriya.Core.Msgs.Material.Script.uri");
     ::google::protobuf::internal::WireFormatLite::WriteString(
       1, this->uri(i), output);
   }
@@ -340,7 +341,7 @@ void Material_Script::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Material.Script.name");
+      "Indriya.Core.Msgs.Material.Script.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->name(), output);
   }
@@ -349,18 +350,18 @@ void Material_Script::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Material.Script)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Material.Script)
 }
 
 ::google::protobuf::uint8* Material_Script::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Material.Script)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Material.Script)
   // repeated string uri = 1;
   for (int i = 0; i < this->uri_size(); i++) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->uri(i).data(), this->uri(i).length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Material.Script.uri");
+      "Indriya.Core.Msgs.Material.Script.uri");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(1, this->uri(i), target);
   }
@@ -370,7 +371,7 @@ void Material_Script::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Material.Script.name");
+      "Indriya.Core.Msgs.Material.Script.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->name(), target);
@@ -380,7 +381,7 @@ void Material_Script::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Material.Script)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Material.Script)
   return target;
 }
 
@@ -492,15 +493,15 @@ const int Material::kLightingFieldNumber;
 Material::Material()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Material)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Material)
 }
 
 void Material::InitAsDefaultInstance() {
-  script_ = const_cast< ::experimot::msgs::Material_Script*>(&::experimot::msgs::Material_Script::default_instance());
-  ambient_ = const_cast< ::experimot::msgs::Color*>(&::experimot::msgs::Color::default_instance());
-  diffuse_ = const_cast< ::experimot::msgs::Color*>(&::experimot::msgs::Color::default_instance());
-  specular_ = const_cast< ::experimot::msgs::Color*>(&::experimot::msgs::Color::default_instance());
-  emissive_ = const_cast< ::experimot::msgs::Color*>(&::experimot::msgs::Color::default_instance());
+  script_ = const_cast< ::Indriya::Core::Msgs::Material_Script*>(&::Indriya::Core::Msgs::Material_Script::default_instance());
+  ambient_ = const_cast< ::Indriya::Core::Msgs::Color*>(&::Indriya::Core::Msgs::Color::default_instance());
+  diffuse_ = const_cast< ::Indriya::Core::Msgs::Color*>(&::Indriya::Core::Msgs::Color::default_instance());
+  specular_ = const_cast< ::Indriya::Core::Msgs::Color*>(&::Indriya::Core::Msgs::Color::default_instance());
+  emissive_ = const_cast< ::Indriya::Core::Msgs::Color*>(&::Indriya::Core::Msgs::Color::default_instance());
 }
 
 Material::Material(const Material& from)
@@ -508,7 +509,7 @@ Material::Material(const Material& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Material)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Material)
 }
 
 void Material::SharedCtor() {
@@ -526,7 +527,7 @@ void Material::SharedCtor() {
 }
 
 Material::~Material() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Material)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Material)
   SharedDtor();
 }
 
@@ -569,23 +570,23 @@ Material* Material::New(::google::protobuf::Arena* arena) const {
 void Material::Clear() {
   if (_has_bits_[0 / 32] & 255) {
     if (has_script()) {
-      if (script_ != NULL) script_->::experimot::msgs::Material_Script::Clear();
+      if (script_ != NULL) script_->::Indriya::Core::Msgs::Material_Script::Clear();
     }
     shader_type_ = 1;
     if (has_normal_map()) {
       normal_map_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_ambient()) {
-      if (ambient_ != NULL) ambient_->::experimot::msgs::Color::Clear();
+      if (ambient_ != NULL) ambient_->::Indriya::Core::Msgs::Color::Clear();
     }
     if (has_diffuse()) {
-      if (diffuse_ != NULL) diffuse_->::experimot::msgs::Color::Clear();
+      if (diffuse_ != NULL) diffuse_->::Indriya::Core::Msgs::Color::Clear();
     }
     if (has_specular()) {
-      if (specular_ != NULL) specular_->::experimot::msgs::Color::Clear();
+      if (specular_ != NULL) specular_->::Indriya::Core::Msgs::Color::Clear();
     }
     if (has_emissive()) {
-      if (emissive_ != NULL) emissive_->::experimot::msgs::Color::Clear();
+      if (emissive_ != NULL) emissive_->::Indriya::Core::Msgs::Color::Clear();
     }
     lighting_ = false;
   }
@@ -599,13 +600,13 @@ bool Material::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Material)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Material)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .experimot.msgs.Material.Script script = 1;
+      // optional .Indriya.Core.Msgs.Material.Script script = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -617,7 +618,7 @@ bool Material::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Material.ShaderType shader_type = 2;
+      // optional .Indriya.Core.Msgs.Material.ShaderType shader_type = 2;
       case 2: {
         if (tag == 16) {
          parse_shader_type:
@@ -625,8 +626,8 @@ bool Material::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::experimot::msgs::Material_ShaderType_IsValid(value)) {
-            set_shader_type(static_cast< ::experimot::msgs::Material_ShaderType >(value));
+          if (::Indriya::Core::Msgs::Material_ShaderType_IsValid(value)) {
+            set_shader_type(static_cast< ::Indriya::Core::Msgs::Material_ShaderType >(value));
           } else {
             mutable_unknown_fields()->AddVarint(2, value);
           }
@@ -646,7 +647,7 @@ bool Material::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->normal_map().data(), this->normal_map().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Material.normal_map");
+            "Indriya.Core.Msgs.Material.normal_map");
         } else {
           goto handle_unusual;
         }
@@ -654,7 +655,7 @@ bool Material::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Color ambient = 4;
+      // optional .Indriya.Core.Msgs.Color ambient = 4;
       case 4: {
         if (tag == 34) {
          parse_ambient:
@@ -667,7 +668,7 @@ bool Material::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Color diffuse = 5;
+      // optional .Indriya.Core.Msgs.Color diffuse = 5;
       case 5: {
         if (tag == 42) {
          parse_diffuse:
@@ -680,7 +681,7 @@ bool Material::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Color specular = 6;
+      // optional .Indriya.Core.Msgs.Color specular = 6;
       case 6: {
         if (tag == 50) {
          parse_specular:
@@ -693,7 +694,7 @@ bool Material::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Color emissive = 7;
+      // optional .Indriya.Core.Msgs.Color emissive = 7;
       case 7: {
         if (tag == 58) {
          parse_emissive:
@@ -735,24 +736,24 @@ bool Material::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Material)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Material)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Material)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Material)
   return false;
 #undef DO_
 }
 
 void Material::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Material)
-  // optional .experimot.msgs.Material.Script script = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Material)
+  // optional .Indriya.Core.Msgs.Material.Script script = 1;
   if (has_script()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->script_, output);
   }
 
-  // optional .experimot.msgs.Material.ShaderType shader_type = 2;
+  // optional .Indriya.Core.Msgs.Material.ShaderType shader_type = 2;
   if (has_shader_type()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       2, this->shader_type(), output);
@@ -763,30 +764,30 @@ void Material::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->normal_map().data(), this->normal_map().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Material.normal_map");
+      "Indriya.Core.Msgs.Material.normal_map");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       3, this->normal_map(), output);
   }
 
-  // optional .experimot.msgs.Color ambient = 4;
+  // optional .Indriya.Core.Msgs.Color ambient = 4;
   if (has_ambient()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, *this->ambient_, output);
   }
 
-  // optional .experimot.msgs.Color diffuse = 5;
+  // optional .Indriya.Core.Msgs.Color diffuse = 5;
   if (has_diffuse()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, *this->diffuse_, output);
   }
 
-  // optional .experimot.msgs.Color specular = 6;
+  // optional .Indriya.Core.Msgs.Color specular = 6;
   if (has_specular()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       6, *this->specular_, output);
   }
 
-  // optional .experimot.msgs.Color emissive = 7;
+  // optional .Indriya.Core.Msgs.Color emissive = 7;
   if (has_emissive()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       7, *this->emissive_, output);
@@ -801,20 +802,20 @@ void Material::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Material)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Material)
 }
 
 ::google::protobuf::uint8* Material::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Material)
-  // optional .experimot.msgs.Material.Script script = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Material)
+  // optional .Indriya.Core.Msgs.Material.Script script = 1;
   if (has_script()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, *this->script_, target);
   }
 
-  // optional .experimot.msgs.Material.ShaderType shader_type = 2;
+  // optional .Indriya.Core.Msgs.Material.ShaderType shader_type = 2;
   if (has_shader_type()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       2, this->shader_type(), target);
@@ -825,34 +826,34 @@ void Material::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->normal_map().data(), this->normal_map().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Material.normal_map");
+      "Indriya.Core.Msgs.Material.normal_map");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->normal_map(), target);
   }
 
-  // optional .experimot.msgs.Color ambient = 4;
+  // optional .Indriya.Core.Msgs.Color ambient = 4;
   if (has_ambient()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         4, *this->ambient_, target);
   }
 
-  // optional .experimot.msgs.Color diffuse = 5;
+  // optional .Indriya.Core.Msgs.Color diffuse = 5;
   if (has_diffuse()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         5, *this->diffuse_, target);
   }
 
-  // optional .experimot.msgs.Color specular = 6;
+  // optional .Indriya.Core.Msgs.Color specular = 6;
   if (has_specular()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         6, *this->specular_, target);
   }
 
-  // optional .experimot.msgs.Color emissive = 7;
+  // optional .Indriya.Core.Msgs.Color emissive = 7;
   if (has_emissive()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -868,7 +869,7 @@ void Material::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Material)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Material)
   return target;
 }
 
@@ -876,14 +877,14 @@ int Material::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & 255) {
-    // optional .experimot.msgs.Material.Script script = 1;
+    // optional .Indriya.Core.Msgs.Material.Script script = 1;
     if (has_script()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->script_);
     }
 
-    // optional .experimot.msgs.Material.ShaderType shader_type = 2;
+    // optional .Indriya.Core.Msgs.Material.ShaderType shader_type = 2;
     if (has_shader_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->shader_type());
@@ -896,28 +897,28 @@ int Material::ByteSize() const {
           this->normal_map());
     }
 
-    // optional .experimot.msgs.Color ambient = 4;
+    // optional .Indriya.Core.Msgs.Color ambient = 4;
     if (has_ambient()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->ambient_);
     }
 
-    // optional .experimot.msgs.Color diffuse = 5;
+    // optional .Indriya.Core.Msgs.Color diffuse = 5;
     if (has_diffuse()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->diffuse_);
     }
 
-    // optional .experimot.msgs.Color specular = 6;
+    // optional .Indriya.Core.Msgs.Color specular = 6;
     if (has_specular()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->specular_);
     }
 
-    // optional .experimot.msgs.Color emissive = 7;
+    // optional .Indriya.Core.Msgs.Color emissive = 7;
     if (has_emissive()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -957,7 +958,7 @@ void Material::MergeFrom(const Material& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_script()) {
-      mutable_script()->::experimot::msgs::Material_Script::MergeFrom(from.script());
+      mutable_script()->::Indriya::Core::Msgs::Material_Script::MergeFrom(from.script());
     }
     if (from.has_shader_type()) {
       set_shader_type(from.shader_type());
@@ -967,16 +968,16 @@ void Material::MergeFrom(const Material& from) {
       normal_map_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.normal_map_);
     }
     if (from.has_ambient()) {
-      mutable_ambient()->::experimot::msgs::Color::MergeFrom(from.ambient());
+      mutable_ambient()->::Indriya::Core::Msgs::Color::MergeFrom(from.ambient());
     }
     if (from.has_diffuse()) {
-      mutable_diffuse()->::experimot::msgs::Color::MergeFrom(from.diffuse());
+      mutable_diffuse()->::Indriya::Core::Msgs::Color::MergeFrom(from.diffuse());
     }
     if (from.has_specular()) {
-      mutable_specular()->::experimot::msgs::Color::MergeFrom(from.specular());
+      mutable_specular()->::Indriya::Core::Msgs::Color::MergeFrom(from.specular());
     }
     if (from.has_emissive()) {
-      mutable_emissive()->::experimot::msgs::Color::MergeFrom(from.emissive());
+      mutable_emissive()->::Indriya::Core::Msgs::Color::MergeFrom(from.emissive());
     }
     if (from.has_lighting()) {
       set_lighting(from.lighting());
@@ -1056,49 +1057,49 @@ void Material::InternalSwap(Material* other) {
   uri_.Clear();
 }
  const ::std::string& Material_Script::uri(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Material.Script.uri)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Material.Script.uri)
   return uri_.Get(index);
 }
  ::std::string* Material_Script::mutable_uri(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Material.Script.uri)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Material.Script.uri)
   return uri_.Mutable(index);
 }
  void Material_Script::set_uri(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:experimot.msgs.Material.Script.uri)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Material.Script.uri)
   uri_.Mutable(index)->assign(value);
 }
  void Material_Script::set_uri(int index, const char* value) {
   uri_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Material.Script.uri)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Material.Script.uri)
 }
  void Material_Script::set_uri(int index, const char* value, size_t size) {
   uri_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Material.Script.uri)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Material.Script.uri)
 }
  ::std::string* Material_Script::add_uri() {
   return uri_.Add();
 }
  void Material_Script::add_uri(const ::std::string& value) {
   uri_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:experimot.msgs.Material.Script.uri)
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Material.Script.uri)
 }
  void Material_Script::add_uri(const char* value) {
   uri_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:experimot.msgs.Material.Script.uri)
+  // @@protoc_insertion_point(field_add_char:Indriya.Core.Msgs.Material.Script.uri)
 }
  void Material_Script::add_uri(const char* value, size_t size) {
   uri_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:experimot.msgs.Material.Script.uri)
+  // @@protoc_insertion_point(field_add_pointer:Indriya.Core.Msgs.Material.Script.uri)
 }
  const ::google::protobuf::RepeatedPtrField< ::std::string>&
 Material_Script::uri() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Material.Script.uri)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Material.Script.uri)
   return uri_;
 }
  ::google::protobuf::RepeatedPtrField< ::std::string>*
 Material_Script::mutable_uri() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Material.Script.uri)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Material.Script.uri)
   return &uri_;
 }
 
@@ -1117,28 +1118,28 @@ Material_Script::mutable_uri() {
   clear_has_name();
 }
  const ::std::string& Material_Script::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Material.Script.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Material.Script.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Material_Script::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Material.Script.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Material.Script.name)
 }
  void Material_Script::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Material.Script.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Material.Script.name)
 }
  void Material_Script::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Material.Script.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Material.Script.name)
 }
  ::std::string* Material_Script::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Material.Script.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Material.Script.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Material_Script::release_name() {
@@ -1152,14 +1153,14 @@ Material_Script::mutable_uri() {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Material.Script.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Material.Script.name)
 }
 
 // -------------------------------------------------------------------
 
 // Material
 
-// optional .experimot.msgs.Material.Script script = 1;
+// optional .Indriya.Core.Msgs.Material.Script script = 1;
  bool Material::has_script() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1170,28 +1171,28 @@ Material_Script::mutable_uri() {
   _has_bits_[0] &= ~0x00000001u;
 }
  void Material::clear_script() {
-  if (script_ != NULL) script_->::experimot::msgs::Material_Script::Clear();
+  if (script_ != NULL) script_->::Indriya::Core::Msgs::Material_Script::Clear();
   clear_has_script();
 }
- const ::experimot::msgs::Material_Script& Material::script() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Material.script)
+ const ::Indriya::Core::Msgs::Material_Script& Material::script() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Material.script)
   return script_ != NULL ? *script_ : *default_instance_->script_;
 }
- ::experimot::msgs::Material_Script* Material::mutable_script() {
+ ::Indriya::Core::Msgs::Material_Script* Material::mutable_script() {
   set_has_script();
   if (script_ == NULL) {
-    script_ = new ::experimot::msgs::Material_Script;
+    script_ = new ::Indriya::Core::Msgs::Material_Script;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Material.script)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Material.script)
   return script_;
 }
- ::experimot::msgs::Material_Script* Material::release_script() {
+ ::Indriya::Core::Msgs::Material_Script* Material::release_script() {
   clear_has_script();
-  ::experimot::msgs::Material_Script* temp = script_;
+  ::Indriya::Core::Msgs::Material_Script* temp = script_;
   script_ = NULL;
   return temp;
 }
- void Material::set_allocated_script(::experimot::msgs::Material_Script* script) {
+ void Material::set_allocated_script(::Indriya::Core::Msgs::Material_Script* script) {
   delete script_;
   script_ = script;
   if (script) {
@@ -1199,10 +1200,10 @@ Material_Script::mutable_uri() {
   } else {
     clear_has_script();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Material.script)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Material.script)
 }
 
-// optional .experimot.msgs.Material.ShaderType shader_type = 2;
+// optional .Indriya.Core.Msgs.Material.ShaderType shader_type = 2;
  bool Material::has_shader_type() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1216,15 +1217,15 @@ Material_Script::mutable_uri() {
   shader_type_ = 1;
   clear_has_shader_type();
 }
- ::experimot::msgs::Material_ShaderType Material::shader_type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Material.shader_type)
-  return static_cast< ::experimot::msgs::Material_ShaderType >(shader_type_);
+ ::Indriya::Core::Msgs::Material_ShaderType Material::shader_type() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Material.shader_type)
+  return static_cast< ::Indriya::Core::Msgs::Material_ShaderType >(shader_type_);
 }
- void Material::set_shader_type(::experimot::msgs::Material_ShaderType value) {
-  assert(::experimot::msgs::Material_ShaderType_IsValid(value));
+ void Material::set_shader_type(::Indriya::Core::Msgs::Material_ShaderType value) {
+  assert(::Indriya::Core::Msgs::Material_ShaderType_IsValid(value));
   set_has_shader_type();
   shader_type_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Material.shader_type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Material.shader_type)
 }
 
 // optional string normal_map = 3;
@@ -1242,28 +1243,28 @@ Material_Script::mutable_uri() {
   clear_has_normal_map();
 }
  const ::std::string& Material::normal_map() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Material.normal_map)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Material.normal_map)
   return normal_map_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Material::set_normal_map(const ::std::string& value) {
   set_has_normal_map();
   normal_map_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Material.normal_map)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Material.normal_map)
 }
  void Material::set_normal_map(const char* value) {
   set_has_normal_map();
   normal_map_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Material.normal_map)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Material.normal_map)
 }
  void Material::set_normal_map(const char* value, size_t size) {
   set_has_normal_map();
   normal_map_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Material.normal_map)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Material.normal_map)
 }
  ::std::string* Material::mutable_normal_map() {
   set_has_normal_map();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Material.normal_map)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Material.normal_map)
   return normal_map_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Material::release_normal_map() {
@@ -1277,10 +1278,10 @@ Material_Script::mutable_uri() {
     clear_has_normal_map();
   }
   normal_map_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), normal_map);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Material.normal_map)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Material.normal_map)
 }
 
-// optional .experimot.msgs.Color ambient = 4;
+// optional .Indriya.Core.Msgs.Color ambient = 4;
  bool Material::has_ambient() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1291,28 +1292,28 @@ Material_Script::mutable_uri() {
   _has_bits_[0] &= ~0x00000008u;
 }
  void Material::clear_ambient() {
-  if (ambient_ != NULL) ambient_->::experimot::msgs::Color::Clear();
+  if (ambient_ != NULL) ambient_->::Indriya::Core::Msgs::Color::Clear();
   clear_has_ambient();
 }
- const ::experimot::msgs::Color& Material::ambient() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Material.ambient)
+ const ::Indriya::Core::Msgs::Color& Material::ambient() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Material.ambient)
   return ambient_ != NULL ? *ambient_ : *default_instance_->ambient_;
 }
- ::experimot::msgs::Color* Material::mutable_ambient() {
+ ::Indriya::Core::Msgs::Color* Material::mutable_ambient() {
   set_has_ambient();
   if (ambient_ == NULL) {
-    ambient_ = new ::experimot::msgs::Color;
+    ambient_ = new ::Indriya::Core::Msgs::Color;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Material.ambient)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Material.ambient)
   return ambient_;
 }
- ::experimot::msgs::Color* Material::release_ambient() {
+ ::Indriya::Core::Msgs::Color* Material::release_ambient() {
   clear_has_ambient();
-  ::experimot::msgs::Color* temp = ambient_;
+  ::Indriya::Core::Msgs::Color* temp = ambient_;
   ambient_ = NULL;
   return temp;
 }
- void Material::set_allocated_ambient(::experimot::msgs::Color* ambient) {
+ void Material::set_allocated_ambient(::Indriya::Core::Msgs::Color* ambient) {
   delete ambient_;
   ambient_ = ambient;
   if (ambient) {
@@ -1320,10 +1321,10 @@ Material_Script::mutable_uri() {
   } else {
     clear_has_ambient();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Material.ambient)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Material.ambient)
 }
 
-// optional .experimot.msgs.Color diffuse = 5;
+// optional .Indriya.Core.Msgs.Color diffuse = 5;
  bool Material::has_diffuse() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1334,28 +1335,28 @@ Material_Script::mutable_uri() {
   _has_bits_[0] &= ~0x00000010u;
 }
  void Material::clear_diffuse() {
-  if (diffuse_ != NULL) diffuse_->::experimot::msgs::Color::Clear();
+  if (diffuse_ != NULL) diffuse_->::Indriya::Core::Msgs::Color::Clear();
   clear_has_diffuse();
 }
- const ::experimot::msgs::Color& Material::diffuse() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Material.diffuse)
+ const ::Indriya::Core::Msgs::Color& Material::diffuse() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Material.diffuse)
   return diffuse_ != NULL ? *diffuse_ : *default_instance_->diffuse_;
 }
- ::experimot::msgs::Color* Material::mutable_diffuse() {
+ ::Indriya::Core::Msgs::Color* Material::mutable_diffuse() {
   set_has_diffuse();
   if (diffuse_ == NULL) {
-    diffuse_ = new ::experimot::msgs::Color;
+    diffuse_ = new ::Indriya::Core::Msgs::Color;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Material.diffuse)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Material.diffuse)
   return diffuse_;
 }
- ::experimot::msgs::Color* Material::release_diffuse() {
+ ::Indriya::Core::Msgs::Color* Material::release_diffuse() {
   clear_has_diffuse();
-  ::experimot::msgs::Color* temp = diffuse_;
+  ::Indriya::Core::Msgs::Color* temp = diffuse_;
   diffuse_ = NULL;
   return temp;
 }
- void Material::set_allocated_diffuse(::experimot::msgs::Color* diffuse) {
+ void Material::set_allocated_diffuse(::Indriya::Core::Msgs::Color* diffuse) {
   delete diffuse_;
   diffuse_ = diffuse;
   if (diffuse) {
@@ -1363,10 +1364,10 @@ Material_Script::mutable_uri() {
   } else {
     clear_has_diffuse();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Material.diffuse)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Material.diffuse)
 }
 
-// optional .experimot.msgs.Color specular = 6;
+// optional .Indriya.Core.Msgs.Color specular = 6;
  bool Material::has_specular() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -1377,28 +1378,28 @@ Material_Script::mutable_uri() {
   _has_bits_[0] &= ~0x00000020u;
 }
  void Material::clear_specular() {
-  if (specular_ != NULL) specular_->::experimot::msgs::Color::Clear();
+  if (specular_ != NULL) specular_->::Indriya::Core::Msgs::Color::Clear();
   clear_has_specular();
 }
- const ::experimot::msgs::Color& Material::specular() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Material.specular)
+ const ::Indriya::Core::Msgs::Color& Material::specular() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Material.specular)
   return specular_ != NULL ? *specular_ : *default_instance_->specular_;
 }
- ::experimot::msgs::Color* Material::mutable_specular() {
+ ::Indriya::Core::Msgs::Color* Material::mutable_specular() {
   set_has_specular();
   if (specular_ == NULL) {
-    specular_ = new ::experimot::msgs::Color;
+    specular_ = new ::Indriya::Core::Msgs::Color;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Material.specular)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Material.specular)
   return specular_;
 }
- ::experimot::msgs::Color* Material::release_specular() {
+ ::Indriya::Core::Msgs::Color* Material::release_specular() {
   clear_has_specular();
-  ::experimot::msgs::Color* temp = specular_;
+  ::Indriya::Core::Msgs::Color* temp = specular_;
   specular_ = NULL;
   return temp;
 }
- void Material::set_allocated_specular(::experimot::msgs::Color* specular) {
+ void Material::set_allocated_specular(::Indriya::Core::Msgs::Color* specular) {
   delete specular_;
   specular_ = specular;
   if (specular) {
@@ -1406,10 +1407,10 @@ Material_Script::mutable_uri() {
   } else {
     clear_has_specular();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Material.specular)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Material.specular)
 }
 
-// optional .experimot.msgs.Color emissive = 7;
+// optional .Indriya.Core.Msgs.Color emissive = 7;
  bool Material::has_emissive() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1420,28 +1421,28 @@ Material_Script::mutable_uri() {
   _has_bits_[0] &= ~0x00000040u;
 }
  void Material::clear_emissive() {
-  if (emissive_ != NULL) emissive_->::experimot::msgs::Color::Clear();
+  if (emissive_ != NULL) emissive_->::Indriya::Core::Msgs::Color::Clear();
   clear_has_emissive();
 }
- const ::experimot::msgs::Color& Material::emissive() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Material.emissive)
+ const ::Indriya::Core::Msgs::Color& Material::emissive() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Material.emissive)
   return emissive_ != NULL ? *emissive_ : *default_instance_->emissive_;
 }
- ::experimot::msgs::Color* Material::mutable_emissive() {
+ ::Indriya::Core::Msgs::Color* Material::mutable_emissive() {
   set_has_emissive();
   if (emissive_ == NULL) {
-    emissive_ = new ::experimot::msgs::Color;
+    emissive_ = new ::Indriya::Core::Msgs::Color;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Material.emissive)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Material.emissive)
   return emissive_;
 }
- ::experimot::msgs::Color* Material::release_emissive() {
+ ::Indriya::Core::Msgs::Color* Material::release_emissive() {
   clear_has_emissive();
-  ::experimot::msgs::Color* temp = emissive_;
+  ::Indriya::Core::Msgs::Color* temp = emissive_;
   emissive_ = NULL;
   return temp;
 }
- void Material::set_allocated_emissive(::experimot::msgs::Color* emissive) {
+ void Material::set_allocated_emissive(::Indriya::Core::Msgs::Color* emissive) {
   delete emissive_;
   emissive_ = emissive;
   if (emissive) {
@@ -1449,7 +1450,7 @@ Material_Script::mutable_uri() {
   } else {
     clear_has_emissive();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Material.emissive)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Material.emissive)
 }
 
 // optional bool lighting = 8;
@@ -1467,21 +1468,22 @@ Material_Script::mutable_uri() {
   clear_has_lighting();
 }
  bool Material::lighting() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Material.lighting)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Material.lighting)
   return lighting_;
 }
  void Material::set_lighting(bool value) {
   set_has_lighting();
   lighting_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Material.lighting)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Material.lighting)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Material", Material)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Material", Material)
 // @@protoc_insertion_point(global_scope)

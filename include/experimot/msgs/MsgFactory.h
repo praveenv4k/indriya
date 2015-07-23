@@ -25,65 +25,68 @@
 #include <boost/shared_ptr.hpp>
 //#include "gazebo/util/system.hh"
 
-namespace experimot
+namespace Indriya
 {
-  namespace msgs
-  {
-    /// \def MsgFactoryFn
-    /// \brief Prototype for message factory generation
-    typedef boost::shared_ptr<google::protobuf::Message> (*MsgFactoryFn) ();
+	namespace Core
+	{
+		namespace Msgs
+		{
+			/// \def MsgFactoryFn
+			/// \brief Prototype for message factory generation
+			typedef boost::shared_ptr<google::protobuf::Message>(*MsgFactoryFn) ();
 
-    /// \addtogroup experimot_msgs Messages
-    /// \{
-    /// \class MsgFactory MsgFactory.hh msgs/msgs.hh
-    /// \brief A factory that generates protobuf message based on a string
-    /// type.
-    class MsgFactory
-    {
-      /// \brief Register a message.
-      /// \param[in] _msgType Type of message to register.
-      /// \param[in] _factoryfn Function that generates the message.
-      public: static void RegisterMsg(const std::string &_msgType,
-                                      MsgFactoryFn _factoryfn);
+			/// \addtogroup experimot_msgs Messages
+			/// \{
+			/// \class MsgFactory MsgFactory.hh msgs/msgs.hh
+			/// \brief A factory that generates protobuf message based on a string
+			/// type.
+			class MsgFactory
+			{
+				/// \brief Register a message.
+				/// \param[in] _msgType Type of message to register.
+				/// \param[in] _factoryfn Function that generates the message.
+			public: static void RegisterMsg(const std::string &_msgType,
+				MsgFactoryFn _factoryfn);
 
-      /// \brief Create a new instance of a message.
-      /// \param[in] _msgType Type of message to create.
-      /// \return Pointer to a google protobuf message. Null if the message
-      /// type could not be handled.
-      public: static boost::shared_ptr<google::protobuf::Message> NewMsg(
-                  const std::string &_msgType);
+					/// \brief Create a new instance of a message.
+					/// \param[in] _msgType Type of message to create.
+					/// \return Pointer to a google protobuf message. Null if the message
+					/// type could not be handled.
+			public: static boost::shared_ptr<google::protobuf::Message> NewMsg(
+				const std::string &_msgType);
 
-      /// \brief Get all the message types
-      /// \param[out] _types Vector of strings of the message types.
-      public: static void GetMsgTypes(std::vector<std::string> &_types);
+					/// \brief Get all the message types
+					/// \param[out] _types Vector of strings of the message types.
+			public: static void GetMsgTypes(std::vector<std::string> &_types);
 
-      /// \brief A list of registered message types
-      private: static std::map<std::string, MsgFactoryFn> *msgMap;
-    };
+					/// \brief A list of registered message types
+			private: static std::map<std::string, MsgFactoryFn> *msgMap;
+			};
 
 
-    /// \brief Static message registration macro
-    ///
-    /// Use this macro to register messages.
-    /// \param[in] _msgtype Message type name.
-    /// \param[in] _classname Class name for message.
-    #define EX_REGISTER_STATIC_MSG(_msgtype, _classname) \
+			/// \brief Static message registration macro
+			///
+			/// Use this macro to register messages.
+			/// \param[in] _msgtype Message type name.
+			/// \param[in] _classname Class name for message.
+#define EX_REGISTER_STATIC_MSG(_msgtype, _classname) \
     boost::shared_ptr<google::protobuf::Message> New##_classname() \
-    { \
-      return boost::shared_ptr<experimot::msgs::_classname>(\
-          new experimot::msgs::_classname); \
-    } \
+			    { \
+      return boost::shared_ptr<Indriya::Core::Msgs::_classname>(\
+          new Indriya::Core::Msgs::_classname); \
+			    } \
     class Msg##_classname \
-    { \
+			    { \
       public: Msg##_classname() \
-      { \
-        experimot::msgs::MsgFactory::RegisterMsg(_msgtype, New##_classname);\
-      } \
-    }; \
+			      { \
+        Indriya::Core::Msgs::MsgFactory::RegisterMsg(_msgtype, New##_classname);\
+			      } \
+			    }; \
     static Msg##_classname ExMsgInitializer;
 
-    /// \}
-  }
+			/// \}
+		}
+	}
 }
 
 #endif

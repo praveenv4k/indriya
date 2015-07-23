@@ -10,7 +10,7 @@
 // Generated from: proto/human.proto
 // Note: requires additional types generated from: vector3d.proto
 // Note: requires additional types generated from: quaternion.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Human")]
   public partial class Human : global::ProtoBuf.IExtensible
@@ -31,23 +31,23 @@ namespace experimot.msgs
       get { return _tracked; }
       set { _tracked = value; }
     }
-    private experimot.msgs.Vector3d _torso_position;
+    private Indriya.Core.Msgs.Vector3d _torso_position;
     [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"torso_position", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Vector3d torso_position
+    public Indriya.Core.Msgs.Vector3d torso_position
     {
       get { return _torso_position; }
       set { _torso_position = value; }
     }
-    private experimot.msgs.Vector3d _head_position;
+    private Indriya.Core.Msgs.Vector3d _head_position;
     [global::ProtoBuf.ProtoMember(4, IsRequired = true, Name=@"head_position", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Vector3d head_position
+    public Indriya.Core.Msgs.Vector3d head_position
     {
       get { return _head_position; }
       set { _head_position = value; }
     }
-    private experimot.msgs.Quaternion _orientation;
+    private Indriya.Core.Msgs.Quaternion _orientation;
     [global::ProtoBuf.ProtoMember(5, IsRequired = true, Name=@"orientation", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Quaternion orientation
+    public Indriya.Core.Msgs.Quaternion orientation
     {
       get { return _orientation; }
       set { _orientation = value; }
@@ -62,9 +62,9 @@ namespace experimot.msgs
   {
     public Humans() {}
     
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Human> _human = new global::System.Collections.Generic.List<experimot.msgs.Human>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Human> _human = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Human>();
     [global::ProtoBuf.ProtoMember(1, Name=@"human", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Human> human
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Human> human
     {
       get { return _human; }
     }

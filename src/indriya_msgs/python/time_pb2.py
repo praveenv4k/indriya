@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='time.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\ntime.proto\x12\x0e\x65xperimot.msgs\"!\n\x04Time\x12\x0b\n\x03sec\x18\x01 \x02(\x05\x12\x0c\n\x04nsec\x18\x02 \x02(\x05')
+  serialized_pb=_b('\n\ntime.proto\x12\x11Indriya.Core.Msgs\"!\n\x04Time\x12\x0b\n\x03sec\x18\x01 \x02(\x05\x12\x0c\n\x04nsec\x18\x02 \x02(\x05')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -28,20 +28,20 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _TIME = _descriptor.Descriptor(
   name='Time',
-  full_name='experimot.msgs.Time',
+  full_name='Indriya.Core.Msgs.Time',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='sec', full_name='experimot.msgs.Time.sec', index=0,
+      name='sec', full_name='Indriya.Core.Msgs.Time.sec', index=0,
       number=1, type=5, cpp_type=1, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='nsec', full_name='experimot.msgs.Time.nsec', index=1,
+      name='nsec', full_name='Indriya.Core.Msgs.Time.nsec', index=1,
       number=2, type=5, cpp_type=1, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -59,8 +59,8 @@ _TIME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=30,
-  serialized_end=63,
+  serialized_start=33,
+  serialized_end=66,
 )
 
 DESCRIPTOR.message_types_by_name['Time'] = _TIME
@@ -68,7 +68,7 @@ DESCRIPTOR.message_types_by_name['Time'] = _TIME
 Time = _reflection.GeneratedProtocolMessageType('Time', (_message.Message,), dict(
   DESCRIPTOR = _TIME,
   __module__ = 'time_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Time)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Time)
   ))
 _sym_db.RegisterMessage(Time)
 

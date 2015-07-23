@@ -6,7 +6,7 @@ using System.Windows.Documents;
 using edu.stanford.nlp.pipeline;
 using java.io;
 
-namespace Experimot.Core.NLP
+namespace Indriya.Core.NLP
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

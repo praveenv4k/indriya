@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -79,13 +80,14 @@ void protobuf_AddDesc_wrench_5fstamped_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_time_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_wrench_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_time_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_wrench_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\024wrench_stamped.proto\022\016experimot.msgs\032\n"
-    "time.proto\032\014wrench.proto\"[\n\rWrenchStampe"
-    "d\022\"\n\004time\030\001 \002(\0132\024.experimot.msgs.Time\022&\n"
-    "\006wrench\030\002 \002(\0132\026.experimot.msgs.Wrench", 157);
+    "\n\024wrench_stamped.proto\022\021Indriya.Core.Msg"
+    "s\032\ntime.proto\032\014wrench.proto\"a\n\rWrenchSta"
+    "mped\022%\n\004time\030\001 \002(\0132\027.Indriya.Core.Msgs.T"
+    "ime\022)\n\006wrench\030\002 \002(\0132\031.Indriya.Core.Msgs."
+    "Wrench", 166);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "wrench_stamped.proto", &protobuf_RegisterTypes);
   WrenchStamped::default_instance_ = new WrenchStamped();
@@ -120,12 +122,12 @@ const int WrenchStamped::kWrenchFieldNumber;
 WrenchStamped::WrenchStamped()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.WrenchStamped)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.WrenchStamped)
 }
 
 void WrenchStamped::InitAsDefaultInstance() {
-  time_ = const_cast< ::experimot::msgs::Time*>(&::experimot::msgs::Time::default_instance());
-  wrench_ = const_cast< ::experimot::msgs::Wrench*>(&::experimot::msgs::Wrench::default_instance());
+  time_ = const_cast< ::Indriya::Core::Msgs::Time*>(&::Indriya::Core::Msgs::Time::default_instance());
+  wrench_ = const_cast< ::Indriya::Core::Msgs::Wrench*>(&::Indriya::Core::Msgs::Wrench::default_instance());
 }
 
 WrenchStamped::WrenchStamped(const WrenchStamped& from)
@@ -133,7 +135,7 @@ WrenchStamped::WrenchStamped(const WrenchStamped& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.WrenchStamped)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.WrenchStamped)
 }
 
 void WrenchStamped::SharedCtor() {
@@ -144,7 +146,7 @@ void WrenchStamped::SharedCtor() {
 }
 
 WrenchStamped::~WrenchStamped() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.WrenchStamped)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.WrenchStamped)
   SharedDtor();
 }
 
@@ -183,10 +185,10 @@ WrenchStamped* WrenchStamped::New(::google::protobuf::Arena* arena) const {
 void WrenchStamped::Clear() {
   if (_has_bits_[0 / 32] & 3) {
     if (has_time()) {
-      if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+      if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
     }
     if (has_wrench()) {
-      if (wrench_ != NULL) wrench_->::experimot::msgs::Wrench::Clear();
+      if (wrench_ != NULL) wrench_->::Indriya::Core::Msgs::Wrench::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -199,13 +201,13 @@ bool WrenchStamped::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.WrenchStamped)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.WrenchStamped)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .experimot.msgs.Time time = 1;
+      // required .Indriya.Core.Msgs.Time time = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -217,7 +219,7 @@ bool WrenchStamped::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Wrench wrench = 2;
+      // required .Indriya.Core.Msgs.Wrench wrench = 2;
       case 2: {
         if (tag == 18) {
          parse_wrench:
@@ -244,24 +246,24 @@ bool WrenchStamped::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.WrenchStamped)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.WrenchStamped)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.WrenchStamped)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.WrenchStamped)
   return false;
 #undef DO_
 }
 
 void WrenchStamped::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.WrenchStamped)
-  // required .experimot.msgs.Time time = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.WrenchStamped)
+  // required .Indriya.Core.Msgs.Time time = 1;
   if (has_time()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->time_, output);
   }
 
-  // required .experimot.msgs.Wrench wrench = 2;
+  // required .Indriya.Core.Msgs.Wrench wrench = 2;
   if (has_wrench()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->wrench_, output);
@@ -271,20 +273,20 @@ void WrenchStamped::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.WrenchStamped)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.WrenchStamped)
 }
 
 ::google::protobuf::uint8* WrenchStamped::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.WrenchStamped)
-  // required .experimot.msgs.Time time = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.WrenchStamped)
+  // required .Indriya.Core.Msgs.Time time = 1;
   if (has_time()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, *this->time_, target);
   }
 
-  // required .experimot.msgs.Wrench wrench = 2;
+  // required .Indriya.Core.Msgs.Wrench wrench = 2;
   if (has_wrench()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -295,7 +297,7 @@ void WrenchStamped::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.WrenchStamped)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.WrenchStamped)
   return target;
 }
 
@@ -303,14 +305,14 @@ int WrenchStamped::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
   if (has_time()) {
-    // required .experimot.msgs.Time time = 1;
+    // required .Indriya.Core.Msgs.Time time = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->time_);
   }
 
   if (has_wrench()) {
-    // required .experimot.msgs.Wrench wrench = 2;
+    // required .Indriya.Core.Msgs.Wrench wrench = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->wrench_);
@@ -322,12 +324,12 @@ int WrenchStamped::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required .experimot.msgs.Time time = 1;
+    // required .Indriya.Core.Msgs.Time time = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->time_);
 
-    // required .experimot.msgs.Wrench wrench = 2;
+    // required .Indriya.Core.Msgs.Wrench wrench = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->wrench_);
@@ -362,10 +364,10 @@ void WrenchStamped::MergeFrom(const WrenchStamped& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_time()) {
-      mutable_time()->::experimot::msgs::Time::MergeFrom(from.time());
+      mutable_time()->::Indriya::Core::Msgs::Time::MergeFrom(from.time());
     }
     if (from.has_wrench()) {
-      mutable_wrench()->::experimot::msgs::Wrench::MergeFrom(from.wrench());
+      mutable_wrench()->::Indriya::Core::Msgs::Wrench::MergeFrom(from.wrench());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -420,7 +422,7 @@ void WrenchStamped::InternalSwap(WrenchStamped* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // WrenchStamped
 
-// required .experimot.msgs.Time time = 1;
+// required .Indriya.Core.Msgs.Time time = 1;
  bool WrenchStamped::has_time() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -431,28 +433,28 @@ void WrenchStamped::InternalSwap(WrenchStamped* other) {
   _has_bits_[0] &= ~0x00000001u;
 }
  void WrenchStamped::clear_time() {
-  if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+  if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_time();
 }
- const ::experimot::msgs::Time& WrenchStamped::time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WrenchStamped.time)
+ const ::Indriya::Core::Msgs::Time& WrenchStamped::time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WrenchStamped.time)
   return time_ != NULL ? *time_ : *default_instance_->time_;
 }
- ::experimot::msgs::Time* WrenchStamped::mutable_time() {
+ ::Indriya::Core::Msgs::Time* WrenchStamped::mutable_time() {
   set_has_time();
   if (time_ == NULL) {
-    time_ = new ::experimot::msgs::Time;
+    time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.WrenchStamped.time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.WrenchStamped.time)
   return time_;
 }
- ::experimot::msgs::Time* WrenchStamped::release_time() {
+ ::Indriya::Core::Msgs::Time* WrenchStamped::release_time() {
   clear_has_time();
-  ::experimot::msgs::Time* temp = time_;
+  ::Indriya::Core::Msgs::Time* temp = time_;
   time_ = NULL;
   return temp;
 }
- void WrenchStamped::set_allocated_time(::experimot::msgs::Time* time) {
+ void WrenchStamped::set_allocated_time(::Indriya::Core::Msgs::Time* time) {
   delete time_;
   time_ = time;
   if (time) {
@@ -460,10 +462,10 @@ void WrenchStamped::InternalSwap(WrenchStamped* other) {
   } else {
     clear_has_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.WrenchStamped.time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.WrenchStamped.time)
 }
 
-// required .experimot.msgs.Wrench wrench = 2;
+// required .Indriya.Core.Msgs.Wrench wrench = 2;
  bool WrenchStamped::has_wrench() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -474,28 +476,28 @@ void WrenchStamped::InternalSwap(WrenchStamped* other) {
   _has_bits_[0] &= ~0x00000002u;
 }
  void WrenchStamped::clear_wrench() {
-  if (wrench_ != NULL) wrench_->::experimot::msgs::Wrench::Clear();
+  if (wrench_ != NULL) wrench_->::Indriya::Core::Msgs::Wrench::Clear();
   clear_has_wrench();
 }
- const ::experimot::msgs::Wrench& WrenchStamped::wrench() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WrenchStamped.wrench)
+ const ::Indriya::Core::Msgs::Wrench& WrenchStamped::wrench() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WrenchStamped.wrench)
   return wrench_ != NULL ? *wrench_ : *default_instance_->wrench_;
 }
- ::experimot::msgs::Wrench* WrenchStamped::mutable_wrench() {
+ ::Indriya::Core::Msgs::Wrench* WrenchStamped::mutable_wrench() {
   set_has_wrench();
   if (wrench_ == NULL) {
-    wrench_ = new ::experimot::msgs::Wrench;
+    wrench_ = new ::Indriya::Core::Msgs::Wrench;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.WrenchStamped.wrench)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.WrenchStamped.wrench)
   return wrench_;
 }
- ::experimot::msgs::Wrench* WrenchStamped::release_wrench() {
+ ::Indriya::Core::Msgs::Wrench* WrenchStamped::release_wrench() {
   clear_has_wrench();
-  ::experimot::msgs::Wrench* temp = wrench_;
+  ::Indriya::Core::Msgs::Wrench* temp = wrench_;
   wrench_ = NULL;
   return temp;
 }
- void WrenchStamped::set_allocated_wrench(::experimot::msgs::Wrench* wrench) {
+ void WrenchStamped::set_allocated_wrench(::Indriya::Core::Msgs::Wrench* wrench) {
   delete wrench_;
   wrench_ = wrench;
   if (wrench) {
@@ -503,15 +505,16 @@ void WrenchStamped::InternalSwap(WrenchStamped* other) {
   } else {
     clear_has_wrench();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.WrenchStamped.wrench)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.WrenchStamped.wrench)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.WrenchStamped", WrenchStamped)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.WrenchStamped", WrenchStamped)
 // @@protoc_insertion_point(global_scope)

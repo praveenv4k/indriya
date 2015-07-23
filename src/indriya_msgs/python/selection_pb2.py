@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='selection.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x0fselection.proto\x12\x0e\x65xperimot.msgs\">\n\tSelection\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x17\n\x08selected\x18\x03 \x01(\x08:\x05\x66\x61lse')
+  serialized_pb=_b('\n\x0fselection.proto\x12\x11Indriya.Core.Msgs\">\n\tSelection\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x17\n\x08selected\x18\x03 \x01(\x08:\x05\x66\x61lse')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -28,27 +28,27 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _SELECTION = _descriptor.Descriptor(
   name='Selection',
-  full_name='experimot.msgs.Selection',
+  full_name='Indriya.Core.Msgs.Selection',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='experimot.msgs.Selection.id', index=0,
+      name='id', full_name='Indriya.Core.Msgs.Selection.id', index=0,
       number=1, type=13, cpp_type=3, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='name', full_name='experimot.msgs.Selection.name', index=1,
+      name='name', full_name='Indriya.Core.Msgs.Selection.name', index=1,
       number=2, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='selected', full_name='experimot.msgs.Selection.selected', index=2,
+      name='selected', full_name='Indriya.Core.Msgs.Selection.selected', index=2,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=True, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -66,8 +66,8 @@ _SELECTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=35,
-  serialized_end=97,
+  serialized_start=38,
+  serialized_end=100,
 )
 
 DESCRIPTOR.message_types_by_name['Selection'] = _SELECTION
@@ -75,7 +75,7 @@ DESCRIPTOR.message_types_by_name['Selection'] = _SELECTION
 Selection = _reflection.GeneratedProtocolMessageType('Selection', (_message.Message,), dict(
   DESCRIPTOR = _SELECTION,
   __module__ = 'selection_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Selection)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Selection)
   ))
 _sym_db.RegisterMessage(Selection)
 

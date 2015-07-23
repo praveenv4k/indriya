@@ -35,8 +35,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_light_2eproto();
@@ -168,39 +169,39 @@ class Light : public ::google::protobuf::Message {
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // optional .experimot.msgs.Light.LightType type = 2;
+  // optional .Indriya.Core.Msgs.Light.LightType type = 2;
   bool has_type() const;
   void clear_type();
   static const int kTypeFieldNumber = 2;
-  ::experimot::msgs::Light_LightType type() const;
-  void set_type(::experimot::msgs::Light_LightType value);
+  ::Indriya::Core::Msgs::Light_LightType type() const;
+  void set_type(::Indriya::Core::Msgs::Light_LightType value);
 
-  // optional .experimot.msgs.Pose pose = 3;
+  // optional .Indriya.Core.Msgs.Pose pose = 3;
   bool has_pose() const;
   void clear_pose();
   static const int kPoseFieldNumber = 3;
-  const ::experimot::msgs::Pose& pose() const;
-  ::experimot::msgs::Pose* mutable_pose();
-  ::experimot::msgs::Pose* release_pose();
-  void set_allocated_pose(::experimot::msgs::Pose* pose);
+  const ::Indriya::Core::Msgs::Pose& pose() const;
+  ::Indriya::Core::Msgs::Pose* mutable_pose();
+  ::Indriya::Core::Msgs::Pose* release_pose();
+  void set_allocated_pose(::Indriya::Core::Msgs::Pose* pose);
 
-  // optional .experimot.msgs.Color diffuse = 4;
+  // optional .Indriya.Core.Msgs.Color diffuse = 4;
   bool has_diffuse() const;
   void clear_diffuse();
   static const int kDiffuseFieldNumber = 4;
-  const ::experimot::msgs::Color& diffuse() const;
-  ::experimot::msgs::Color* mutable_diffuse();
-  ::experimot::msgs::Color* release_diffuse();
-  void set_allocated_diffuse(::experimot::msgs::Color* diffuse);
+  const ::Indriya::Core::Msgs::Color& diffuse() const;
+  ::Indriya::Core::Msgs::Color* mutable_diffuse();
+  ::Indriya::Core::Msgs::Color* release_diffuse();
+  void set_allocated_diffuse(::Indriya::Core::Msgs::Color* diffuse);
 
-  // optional .experimot.msgs.Color specular = 5;
+  // optional .Indriya.Core.Msgs.Color specular = 5;
   bool has_specular() const;
   void clear_specular();
   static const int kSpecularFieldNumber = 5;
-  const ::experimot::msgs::Color& specular() const;
-  ::experimot::msgs::Color* mutable_specular();
-  ::experimot::msgs::Color* release_specular();
-  void set_allocated_specular(::experimot::msgs::Color* specular);
+  const ::Indriya::Core::Msgs::Color& specular() const;
+  ::Indriya::Core::Msgs::Color* mutable_specular();
+  ::Indriya::Core::Msgs::Color* release_specular();
+  void set_allocated_specular(::Indriya::Core::Msgs::Color* specular);
 
   // optional float attenuation_constant = 6;
   bool has_attenuation_constant() const;
@@ -223,14 +224,14 @@ class Light : public ::google::protobuf::Message {
   float attenuation_quadratic() const;
   void set_attenuation_quadratic(float value);
 
-  // optional .experimot.msgs.Vector3d direction = 9;
+  // optional .Indriya.Core.Msgs.Vector3d direction = 9;
   bool has_direction() const;
   void clear_direction();
   static const int kDirectionFieldNumber = 9;
-  const ::experimot::msgs::Vector3d& direction() const;
-  ::experimot::msgs::Vector3d* mutable_direction();
-  ::experimot::msgs::Vector3d* release_direction();
-  void set_allocated_direction(::experimot::msgs::Vector3d* direction);
+  const ::Indriya::Core::Msgs::Vector3d& direction() const;
+  ::Indriya::Core::Msgs::Vector3d* mutable_direction();
+  ::Indriya::Core::Msgs::Vector3d* release_direction();
+  void set_allocated_direction(::Indriya::Core::Msgs::Vector3d* direction);
 
   // optional float range = 10;
   bool has_range() const;
@@ -267,7 +268,7 @@ class Light : public ::google::protobuf::Message {
   float spot_falloff() const;
   void set_spot_falloff(float value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Light)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Light)
  private:
   inline void set_has_name();
   inline void clear_has_name();
@@ -302,14 +303,14 @@ class Light : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
-  ::experimot::msgs::Pose* pose_;
-  ::experimot::msgs::Color* diffuse_;
+  ::Indriya::Core::Msgs::Pose* pose_;
+  ::Indriya::Core::Msgs::Color* diffuse_;
   int type_;
   float attenuation_constant_;
-  ::experimot::msgs::Color* specular_;
+  ::Indriya::Core::Msgs::Color* specular_;
   float attenuation_linear_;
   float attenuation_quadratic_;
-  ::experimot::msgs::Vector3d* direction_;
+  ::Indriya::Core::Msgs::Vector3d* direction_;
   float range_;
   bool cast_shadows_;
   float spot_inner_angle_;
@@ -345,28 +346,28 @@ inline void Light::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& Light::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Light.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Light.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Light::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Light.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Light.name)
 }
 inline void Light::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Light.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Light.name)
 }
 inline void Light::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Light.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Light.name)
 }
 inline ::std::string* Light::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Light.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Light.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Light::release_name() {
@@ -380,10 +381,10 @@ inline void Light::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Light.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Light.name)
 }
 
-// optional .experimot.msgs.Light.LightType type = 2;
+// optional .Indriya.Core.Msgs.Light.LightType type = 2;
 inline bool Light::has_type() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -397,18 +398,18 @@ inline void Light::clear_type() {
   type_ = 1;
   clear_has_type();
 }
-inline ::experimot::msgs::Light_LightType Light::type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Light.type)
-  return static_cast< ::experimot::msgs::Light_LightType >(type_);
+inline ::Indriya::Core::Msgs::Light_LightType Light::type() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Light.type)
+  return static_cast< ::Indriya::Core::Msgs::Light_LightType >(type_);
 }
-inline void Light::set_type(::experimot::msgs::Light_LightType value) {
-  assert(::experimot::msgs::Light_LightType_IsValid(value));
+inline void Light::set_type(::Indriya::Core::Msgs::Light_LightType value) {
+  assert(::Indriya::Core::Msgs::Light_LightType_IsValid(value));
   set_has_type();
   type_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Light.type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Light.type)
 }
 
-// optional .experimot.msgs.Pose pose = 3;
+// optional .Indriya.Core.Msgs.Pose pose = 3;
 inline bool Light::has_pose() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -419,28 +420,28 @@ inline void Light::clear_has_pose() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void Light::clear_pose() {
-  if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+  if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
   clear_has_pose();
 }
-inline const ::experimot::msgs::Pose& Light::pose() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Light.pose)
+inline const ::Indriya::Core::Msgs::Pose& Light::pose() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Light.pose)
   return pose_ != NULL ? *pose_ : *default_instance_->pose_;
 }
-inline ::experimot::msgs::Pose* Light::mutable_pose() {
+inline ::Indriya::Core::Msgs::Pose* Light::mutable_pose() {
   set_has_pose();
   if (pose_ == NULL) {
-    pose_ = new ::experimot::msgs::Pose;
+    pose_ = new ::Indriya::Core::Msgs::Pose;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Light.pose)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Light.pose)
   return pose_;
 }
-inline ::experimot::msgs::Pose* Light::release_pose() {
+inline ::Indriya::Core::Msgs::Pose* Light::release_pose() {
   clear_has_pose();
-  ::experimot::msgs::Pose* temp = pose_;
+  ::Indriya::Core::Msgs::Pose* temp = pose_;
   pose_ = NULL;
   return temp;
 }
-inline void Light::set_allocated_pose(::experimot::msgs::Pose* pose) {
+inline void Light::set_allocated_pose(::Indriya::Core::Msgs::Pose* pose) {
   delete pose_;
   pose_ = pose;
   if (pose) {
@@ -448,10 +449,10 @@ inline void Light::set_allocated_pose(::experimot::msgs::Pose* pose) {
   } else {
     clear_has_pose();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Light.pose)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Light.pose)
 }
 
-// optional .experimot.msgs.Color diffuse = 4;
+// optional .Indriya.Core.Msgs.Color diffuse = 4;
 inline bool Light::has_diffuse() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -462,28 +463,28 @@ inline void Light::clear_has_diffuse() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void Light::clear_diffuse() {
-  if (diffuse_ != NULL) diffuse_->::experimot::msgs::Color::Clear();
+  if (diffuse_ != NULL) diffuse_->::Indriya::Core::Msgs::Color::Clear();
   clear_has_diffuse();
 }
-inline const ::experimot::msgs::Color& Light::diffuse() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Light.diffuse)
+inline const ::Indriya::Core::Msgs::Color& Light::diffuse() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Light.diffuse)
   return diffuse_ != NULL ? *diffuse_ : *default_instance_->diffuse_;
 }
-inline ::experimot::msgs::Color* Light::mutable_diffuse() {
+inline ::Indriya::Core::Msgs::Color* Light::mutable_diffuse() {
   set_has_diffuse();
   if (diffuse_ == NULL) {
-    diffuse_ = new ::experimot::msgs::Color;
+    diffuse_ = new ::Indriya::Core::Msgs::Color;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Light.diffuse)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Light.diffuse)
   return diffuse_;
 }
-inline ::experimot::msgs::Color* Light::release_diffuse() {
+inline ::Indriya::Core::Msgs::Color* Light::release_diffuse() {
   clear_has_diffuse();
-  ::experimot::msgs::Color* temp = diffuse_;
+  ::Indriya::Core::Msgs::Color* temp = diffuse_;
   diffuse_ = NULL;
   return temp;
 }
-inline void Light::set_allocated_diffuse(::experimot::msgs::Color* diffuse) {
+inline void Light::set_allocated_diffuse(::Indriya::Core::Msgs::Color* diffuse) {
   delete diffuse_;
   diffuse_ = diffuse;
   if (diffuse) {
@@ -491,10 +492,10 @@ inline void Light::set_allocated_diffuse(::experimot::msgs::Color* diffuse) {
   } else {
     clear_has_diffuse();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Light.diffuse)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Light.diffuse)
 }
 
-// optional .experimot.msgs.Color specular = 5;
+// optional .Indriya.Core.Msgs.Color specular = 5;
 inline bool Light::has_specular() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -505,28 +506,28 @@ inline void Light::clear_has_specular() {
   _has_bits_[0] &= ~0x00000010u;
 }
 inline void Light::clear_specular() {
-  if (specular_ != NULL) specular_->::experimot::msgs::Color::Clear();
+  if (specular_ != NULL) specular_->::Indriya::Core::Msgs::Color::Clear();
   clear_has_specular();
 }
-inline const ::experimot::msgs::Color& Light::specular() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Light.specular)
+inline const ::Indriya::Core::Msgs::Color& Light::specular() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Light.specular)
   return specular_ != NULL ? *specular_ : *default_instance_->specular_;
 }
-inline ::experimot::msgs::Color* Light::mutable_specular() {
+inline ::Indriya::Core::Msgs::Color* Light::mutable_specular() {
   set_has_specular();
   if (specular_ == NULL) {
-    specular_ = new ::experimot::msgs::Color;
+    specular_ = new ::Indriya::Core::Msgs::Color;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Light.specular)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Light.specular)
   return specular_;
 }
-inline ::experimot::msgs::Color* Light::release_specular() {
+inline ::Indriya::Core::Msgs::Color* Light::release_specular() {
   clear_has_specular();
-  ::experimot::msgs::Color* temp = specular_;
+  ::Indriya::Core::Msgs::Color* temp = specular_;
   specular_ = NULL;
   return temp;
 }
-inline void Light::set_allocated_specular(::experimot::msgs::Color* specular) {
+inline void Light::set_allocated_specular(::Indriya::Core::Msgs::Color* specular) {
   delete specular_;
   specular_ = specular;
   if (specular) {
@@ -534,7 +535,7 @@ inline void Light::set_allocated_specular(::experimot::msgs::Color* specular) {
   } else {
     clear_has_specular();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Light.specular)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Light.specular)
 }
 
 // optional float attenuation_constant = 6;
@@ -552,13 +553,13 @@ inline void Light::clear_attenuation_constant() {
   clear_has_attenuation_constant();
 }
 inline float Light::attenuation_constant() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Light.attenuation_constant)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Light.attenuation_constant)
   return attenuation_constant_;
 }
 inline void Light::set_attenuation_constant(float value) {
   set_has_attenuation_constant();
   attenuation_constant_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Light.attenuation_constant)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Light.attenuation_constant)
 }
 
 // optional float attenuation_linear = 7;
@@ -576,13 +577,13 @@ inline void Light::clear_attenuation_linear() {
   clear_has_attenuation_linear();
 }
 inline float Light::attenuation_linear() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Light.attenuation_linear)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Light.attenuation_linear)
   return attenuation_linear_;
 }
 inline void Light::set_attenuation_linear(float value) {
   set_has_attenuation_linear();
   attenuation_linear_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Light.attenuation_linear)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Light.attenuation_linear)
 }
 
 // optional float attenuation_quadratic = 8;
@@ -600,16 +601,16 @@ inline void Light::clear_attenuation_quadratic() {
   clear_has_attenuation_quadratic();
 }
 inline float Light::attenuation_quadratic() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Light.attenuation_quadratic)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Light.attenuation_quadratic)
   return attenuation_quadratic_;
 }
 inline void Light::set_attenuation_quadratic(float value) {
   set_has_attenuation_quadratic();
   attenuation_quadratic_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Light.attenuation_quadratic)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Light.attenuation_quadratic)
 }
 
-// optional .experimot.msgs.Vector3d direction = 9;
+// optional .Indriya.Core.Msgs.Vector3d direction = 9;
 inline bool Light::has_direction() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -620,28 +621,28 @@ inline void Light::clear_has_direction() {
   _has_bits_[0] &= ~0x00000100u;
 }
 inline void Light::clear_direction() {
-  if (direction_ != NULL) direction_->::experimot::msgs::Vector3d::Clear();
+  if (direction_ != NULL) direction_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_direction();
 }
-inline const ::experimot::msgs::Vector3d& Light::direction() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Light.direction)
+inline const ::Indriya::Core::Msgs::Vector3d& Light::direction() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Light.direction)
   return direction_ != NULL ? *direction_ : *default_instance_->direction_;
 }
-inline ::experimot::msgs::Vector3d* Light::mutable_direction() {
+inline ::Indriya::Core::Msgs::Vector3d* Light::mutable_direction() {
   set_has_direction();
   if (direction_ == NULL) {
-    direction_ = new ::experimot::msgs::Vector3d;
+    direction_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Light.direction)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Light.direction)
   return direction_;
 }
-inline ::experimot::msgs::Vector3d* Light::release_direction() {
+inline ::Indriya::Core::Msgs::Vector3d* Light::release_direction() {
   clear_has_direction();
-  ::experimot::msgs::Vector3d* temp = direction_;
+  ::Indriya::Core::Msgs::Vector3d* temp = direction_;
   direction_ = NULL;
   return temp;
 }
-inline void Light::set_allocated_direction(::experimot::msgs::Vector3d* direction) {
+inline void Light::set_allocated_direction(::Indriya::Core::Msgs::Vector3d* direction) {
   delete direction_;
   direction_ = direction;
   if (direction) {
@@ -649,7 +650,7 @@ inline void Light::set_allocated_direction(::experimot::msgs::Vector3d* directio
   } else {
     clear_has_direction();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Light.direction)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Light.direction)
 }
 
 // optional float range = 10;
@@ -667,13 +668,13 @@ inline void Light::clear_range() {
   clear_has_range();
 }
 inline float Light::range() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Light.range)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Light.range)
   return range_;
 }
 inline void Light::set_range(float value) {
   set_has_range();
   range_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Light.range)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Light.range)
 }
 
 // optional bool cast_shadows = 11;
@@ -691,13 +692,13 @@ inline void Light::clear_cast_shadows() {
   clear_has_cast_shadows();
 }
 inline bool Light::cast_shadows() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Light.cast_shadows)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Light.cast_shadows)
   return cast_shadows_;
 }
 inline void Light::set_cast_shadows(bool value) {
   set_has_cast_shadows();
   cast_shadows_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Light.cast_shadows)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Light.cast_shadows)
 }
 
 // optional float spot_inner_angle = 12;
@@ -715,13 +716,13 @@ inline void Light::clear_spot_inner_angle() {
   clear_has_spot_inner_angle();
 }
 inline float Light::spot_inner_angle() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Light.spot_inner_angle)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Light.spot_inner_angle)
   return spot_inner_angle_;
 }
 inline void Light::set_spot_inner_angle(float value) {
   set_has_spot_inner_angle();
   spot_inner_angle_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Light.spot_inner_angle)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Light.spot_inner_angle)
 }
 
 // optional float spot_outer_angle = 13;
@@ -739,13 +740,13 @@ inline void Light::clear_spot_outer_angle() {
   clear_has_spot_outer_angle();
 }
 inline float Light::spot_outer_angle() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Light.spot_outer_angle)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Light.spot_outer_angle)
   return spot_outer_angle_;
 }
 inline void Light::set_spot_outer_angle(float value) {
   set_has_spot_outer_angle();
   spot_outer_angle_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Light.spot_outer_angle)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Light.spot_outer_angle)
 }
 
 // optional float spot_falloff = 14;
@@ -763,38 +764,39 @@ inline void Light::clear_spot_falloff() {
   clear_has_spot_falloff();
 }
 inline float Light::spot_falloff() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Light.spot_falloff)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Light.spot_falloff)
   return spot_falloff_;
 }
 inline void Light::set_spot_falloff(float value) {
   set_has_spot_falloff();
   spot_falloff_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Light.spot_falloff)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Light.spot_falloff)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Light> LightPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Light> LightPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::experimot::msgs::Light_LightType> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Indriya::Core::Msgs::Light_LightType> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::Light_LightType>() {
-  return ::experimot::msgs::Light_LightType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Indriya::Core::Msgs::Light_LightType>() {
+  return ::Indriya::Core::Msgs::Light_LightType_descriptor();
 }
 
 }  // namespace protobuf
 }  // namespace google
 #endif  // SWIG
 
-typedef const boost::shared_ptr<experimot::msgs::Light const> ConstLightPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Light const> ConstLightPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_light_2eproto__INCLUDED

@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_world_5freset_2eproto();
@@ -128,7 +129,7 @@ class WorldReset : public ::google::protobuf::Message {
   bool model_only() const;
   void set_model_only(bool value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.WorldReset)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.WorldReset)
  private:
   inline void set_has_all();
   inline void clear_has_all();
@@ -173,13 +174,13 @@ inline void WorldReset::clear_all() {
   clear_has_all();
 }
 inline bool WorldReset::all() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldReset.all)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldReset.all)
   return all_;
 }
 inline void WorldReset::set_all(bool value) {
   set_has_all();
   all_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldReset.all)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldReset.all)
 }
 
 // optional bool time_only = 2 [default = false];
@@ -197,13 +198,13 @@ inline void WorldReset::clear_time_only() {
   clear_has_time_only();
 }
 inline bool WorldReset::time_only() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldReset.time_only)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldReset.time_only)
   return time_only_;
 }
 inline void WorldReset::set_time_only(bool value) {
   set_has_time_only();
   time_only_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldReset.time_only)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldReset.time_only)
 }
 
 // optional bool model_only = 3 [default = false];
@@ -221,24 +222,25 @@ inline void WorldReset::clear_model_only() {
   clear_has_model_only();
 }
 inline bool WorldReset::model_only() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldReset.model_only)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldReset.model_only)
   return model_only_;
 }
 inline void WorldReset::set_model_only(bool value) {
   set_has_model_only();
   model_only_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldReset.model_only)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldReset.model_only)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::WorldReset> WorldResetPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::WorldReset> WorldResetPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::WorldReset const> ConstWorldResetPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::WorldReset const> ConstWorldResetPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_world_5freset_2eproto__INCLUDED

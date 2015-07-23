@@ -10,7 +10,7 @@
 // Generated from: proto/camerasensor.proto
 // Note: requires additional types generated from: vector2d.proto
 // Note: requires additional types generated from: distortion.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CameraSensor")]
   public partial class CameraSensor : global::ProtoBuf.IExtensible
@@ -25,10 +25,10 @@ namespace experimot.msgs
       get { return _horizontal_fov; }
       set { _horizontal_fov = value; }
     }
-    private experimot.msgs.Vector2d _image_size = null;
+    private Indriya.Core.Msgs.Vector2d _image_size = null;
     [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"image_size", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Vector2d image_size
+    public Indriya.Core.Msgs.Vector2d image_size
     {
       get { return _image_size; }
       set { _image_size = value; }
@@ -73,10 +73,10 @@ namespace experimot.msgs
       get { return _save_path; }
       set { _save_path = value; }
     }
-    private experimot.msgs.Distortion _distortion = null;
+    private Indriya.Core.Msgs.Distortion _distortion = null;
     [global::ProtoBuf.ProtoMember(8, IsRequired = false, Name=@"distortion", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Distortion distortion
+    public Indriya.Core.Msgs.Distortion distortion
     {
       get { return _distortion; }
       set { _distortion = value; }

@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_laserscan_2eproto();
@@ -120,14 +121,14 @@ class LaserScan : public ::google::protobuf::Message {
   ::std::string* release_frame();
   void set_allocated_frame(::std::string* frame);
 
-  // required .experimot.msgs.Pose world_pose = 2;
+  // required .Indriya.Core.Msgs.Pose world_pose = 2;
   bool has_world_pose() const;
   void clear_world_pose();
   static const int kWorldPoseFieldNumber = 2;
-  const ::experimot::msgs::Pose& world_pose() const;
-  ::experimot::msgs::Pose* mutable_world_pose();
-  ::experimot::msgs::Pose* release_world_pose();
-  void set_allocated_world_pose(::experimot::msgs::Pose* world_pose);
+  const ::Indriya::Core::Msgs::Pose& world_pose() const;
+  ::Indriya::Core::Msgs::Pose* mutable_world_pose();
+  ::Indriya::Core::Msgs::Pose* release_world_pose();
+  void set_allocated_world_pose(::Indriya::Core::Msgs::Pose* world_pose);
 
   // required double angle_min = 3;
   bool has_angle_min() const;
@@ -223,7 +224,7 @@ class LaserScan : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedField< double >*
       mutable_intensities();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.LaserScan)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.LaserScan)
  private:
   inline void set_has_frame();
   inline void clear_has_frame();
@@ -257,7 +258,7 @@ class LaserScan : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr frame_;
-  ::experimot::msgs::Pose* world_pose_;
+  ::Indriya::Core::Msgs::Pose* world_pose_;
   double angle_min_;
   double angle_max_;
   double angle_step_;
@@ -300,28 +301,28 @@ inline void LaserScan::clear_frame() {
   clear_has_frame();
 }
 inline const ::std::string& LaserScan::frame() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LaserScan.frame)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LaserScan.frame)
   return frame_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void LaserScan::set_frame(const ::std::string& value) {
   set_has_frame();
   frame_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.LaserScan.frame)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LaserScan.frame)
 }
 inline void LaserScan::set_frame(const char* value) {
   set_has_frame();
   frame_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.LaserScan.frame)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.LaserScan.frame)
 }
 inline void LaserScan::set_frame(const char* value, size_t size) {
   set_has_frame();
   frame_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.LaserScan.frame)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.LaserScan.frame)
 }
 inline ::std::string* LaserScan::mutable_frame() {
   set_has_frame();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LaserScan.frame)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LaserScan.frame)
   return frame_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* LaserScan::release_frame() {
@@ -335,10 +336,10 @@ inline void LaserScan::set_allocated_frame(::std::string* frame) {
     clear_has_frame();
   }
   frame_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), frame);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LaserScan.frame)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LaserScan.frame)
 }
 
-// required .experimot.msgs.Pose world_pose = 2;
+// required .Indriya.Core.Msgs.Pose world_pose = 2;
 inline bool LaserScan::has_world_pose() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -349,28 +350,28 @@ inline void LaserScan::clear_has_world_pose() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void LaserScan::clear_world_pose() {
-  if (world_pose_ != NULL) world_pose_->::experimot::msgs::Pose::Clear();
+  if (world_pose_ != NULL) world_pose_->::Indriya::Core::Msgs::Pose::Clear();
   clear_has_world_pose();
 }
-inline const ::experimot::msgs::Pose& LaserScan::world_pose() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LaserScan.world_pose)
+inline const ::Indriya::Core::Msgs::Pose& LaserScan::world_pose() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LaserScan.world_pose)
   return world_pose_ != NULL ? *world_pose_ : *default_instance_->world_pose_;
 }
-inline ::experimot::msgs::Pose* LaserScan::mutable_world_pose() {
+inline ::Indriya::Core::Msgs::Pose* LaserScan::mutable_world_pose() {
   set_has_world_pose();
   if (world_pose_ == NULL) {
-    world_pose_ = new ::experimot::msgs::Pose;
+    world_pose_ = new ::Indriya::Core::Msgs::Pose;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LaserScan.world_pose)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LaserScan.world_pose)
   return world_pose_;
 }
-inline ::experimot::msgs::Pose* LaserScan::release_world_pose() {
+inline ::Indriya::Core::Msgs::Pose* LaserScan::release_world_pose() {
   clear_has_world_pose();
-  ::experimot::msgs::Pose* temp = world_pose_;
+  ::Indriya::Core::Msgs::Pose* temp = world_pose_;
   world_pose_ = NULL;
   return temp;
 }
-inline void LaserScan::set_allocated_world_pose(::experimot::msgs::Pose* world_pose) {
+inline void LaserScan::set_allocated_world_pose(::Indriya::Core::Msgs::Pose* world_pose) {
   delete world_pose_;
   world_pose_ = world_pose;
   if (world_pose) {
@@ -378,7 +379,7 @@ inline void LaserScan::set_allocated_world_pose(::experimot::msgs::Pose* world_p
   } else {
     clear_has_world_pose();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LaserScan.world_pose)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LaserScan.world_pose)
 }
 
 // required double angle_min = 3;
@@ -396,13 +397,13 @@ inline void LaserScan::clear_angle_min() {
   clear_has_angle_min();
 }
 inline double LaserScan::angle_min() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LaserScan.angle_min)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LaserScan.angle_min)
   return angle_min_;
 }
 inline void LaserScan::set_angle_min(double value) {
   set_has_angle_min();
   angle_min_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.LaserScan.angle_min)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LaserScan.angle_min)
 }
 
 // required double angle_max = 4;
@@ -420,13 +421,13 @@ inline void LaserScan::clear_angle_max() {
   clear_has_angle_max();
 }
 inline double LaserScan::angle_max() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LaserScan.angle_max)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LaserScan.angle_max)
   return angle_max_;
 }
 inline void LaserScan::set_angle_max(double value) {
   set_has_angle_max();
   angle_max_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.LaserScan.angle_max)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LaserScan.angle_max)
 }
 
 // required double angle_step = 5;
@@ -444,13 +445,13 @@ inline void LaserScan::clear_angle_step() {
   clear_has_angle_step();
 }
 inline double LaserScan::angle_step() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LaserScan.angle_step)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LaserScan.angle_step)
   return angle_step_;
 }
 inline void LaserScan::set_angle_step(double value) {
   set_has_angle_step();
   angle_step_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.LaserScan.angle_step)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LaserScan.angle_step)
 }
 
 // required double range_min = 6;
@@ -468,13 +469,13 @@ inline void LaserScan::clear_range_min() {
   clear_has_range_min();
 }
 inline double LaserScan::range_min() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LaserScan.range_min)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LaserScan.range_min)
   return range_min_;
 }
 inline void LaserScan::set_range_min(double value) {
   set_has_range_min();
   range_min_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.LaserScan.range_min)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LaserScan.range_min)
 }
 
 // required double range_max = 7;
@@ -492,13 +493,13 @@ inline void LaserScan::clear_range_max() {
   clear_has_range_max();
 }
 inline double LaserScan::range_max() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LaserScan.range_max)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LaserScan.range_max)
   return range_max_;
 }
 inline void LaserScan::set_range_max(double value) {
   set_has_range_max();
   range_max_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.LaserScan.range_max)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LaserScan.range_max)
 }
 
 // required uint32 count = 8;
@@ -516,13 +517,13 @@ inline void LaserScan::clear_count() {
   clear_has_count();
 }
 inline ::google::protobuf::uint32 LaserScan::count() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LaserScan.count)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LaserScan.count)
   return count_;
 }
 inline void LaserScan::set_count(::google::protobuf::uint32 value) {
   set_has_count();
   count_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.LaserScan.count)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LaserScan.count)
 }
 
 // optional double vertical_angle_min = 9;
@@ -540,13 +541,13 @@ inline void LaserScan::clear_vertical_angle_min() {
   clear_has_vertical_angle_min();
 }
 inline double LaserScan::vertical_angle_min() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LaserScan.vertical_angle_min)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LaserScan.vertical_angle_min)
   return vertical_angle_min_;
 }
 inline void LaserScan::set_vertical_angle_min(double value) {
   set_has_vertical_angle_min();
   vertical_angle_min_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.LaserScan.vertical_angle_min)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LaserScan.vertical_angle_min)
 }
 
 // optional double vertical_angle_max = 10;
@@ -564,13 +565,13 @@ inline void LaserScan::clear_vertical_angle_max() {
   clear_has_vertical_angle_max();
 }
 inline double LaserScan::vertical_angle_max() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LaserScan.vertical_angle_max)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LaserScan.vertical_angle_max)
   return vertical_angle_max_;
 }
 inline void LaserScan::set_vertical_angle_max(double value) {
   set_has_vertical_angle_max();
   vertical_angle_max_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.LaserScan.vertical_angle_max)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LaserScan.vertical_angle_max)
 }
 
 // optional double vertical_angle_step = 11;
@@ -588,13 +589,13 @@ inline void LaserScan::clear_vertical_angle_step() {
   clear_has_vertical_angle_step();
 }
 inline double LaserScan::vertical_angle_step() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LaserScan.vertical_angle_step)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LaserScan.vertical_angle_step)
   return vertical_angle_step_;
 }
 inline void LaserScan::set_vertical_angle_step(double value) {
   set_has_vertical_angle_step();
   vertical_angle_step_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.LaserScan.vertical_angle_step)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LaserScan.vertical_angle_step)
 }
 
 // optional uint32 vertical_count = 12;
@@ -612,13 +613,13 @@ inline void LaserScan::clear_vertical_count() {
   clear_has_vertical_count();
 }
 inline ::google::protobuf::uint32 LaserScan::vertical_count() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LaserScan.vertical_count)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LaserScan.vertical_count)
   return vertical_count_;
 }
 inline void LaserScan::set_vertical_count(::google::protobuf::uint32 value) {
   set_has_vertical_count();
   vertical_count_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.LaserScan.vertical_count)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LaserScan.vertical_count)
 }
 
 // repeated double ranges = 13;
@@ -629,25 +630,25 @@ inline void LaserScan::clear_ranges() {
   ranges_.Clear();
 }
 inline double LaserScan::ranges(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LaserScan.ranges)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LaserScan.ranges)
   return ranges_.Get(index);
 }
 inline void LaserScan::set_ranges(int index, double value) {
   ranges_.Set(index, value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.LaserScan.ranges)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LaserScan.ranges)
 }
 inline void LaserScan::add_ranges(double value) {
   ranges_.Add(value);
-  // @@protoc_insertion_point(field_add:experimot.msgs.LaserScan.ranges)
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.LaserScan.ranges)
 }
 inline const ::google::protobuf::RepeatedField< double >&
 LaserScan::ranges() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.LaserScan.ranges)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.LaserScan.ranges)
   return ranges_;
 }
 inline ::google::protobuf::RepeatedField< double >*
 LaserScan::mutable_ranges() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.LaserScan.ranges)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.LaserScan.ranges)
   return &ranges_;
 }
 
@@ -659,37 +660,38 @@ inline void LaserScan::clear_intensities() {
   intensities_.Clear();
 }
 inline double LaserScan::intensities(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LaserScan.intensities)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LaserScan.intensities)
   return intensities_.Get(index);
 }
 inline void LaserScan::set_intensities(int index, double value) {
   intensities_.Set(index, value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.LaserScan.intensities)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LaserScan.intensities)
 }
 inline void LaserScan::add_intensities(double value) {
   intensities_.Add(value);
-  // @@protoc_insertion_point(field_add:experimot.msgs.LaserScan.intensities)
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.LaserScan.intensities)
 }
 inline const ::google::protobuf::RepeatedField< double >&
 LaserScan::intensities() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.LaserScan.intensities)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.LaserScan.intensities)
   return intensities_;
 }
 inline ::google::protobuf::RepeatedField< double >*
 LaserScan::mutable_intensities() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.LaserScan.intensities)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.LaserScan.intensities)
   return &intensities_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::LaserScan> LaserScanPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::LaserScan> LaserScanPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::LaserScan const> ConstLaserScanPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::LaserScan const> ConstLaserScanPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_laserscan_2eproto__INCLUDED

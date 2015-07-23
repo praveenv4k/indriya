@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_selection_2eproto();
@@ -133,7 +134,7 @@ class Selection : public ::google::protobuf::Message {
   bool selected() const;
   void set_selected(bool value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Selection)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Selection)
  private:
   inline void set_has_id();
   inline void clear_has_id();
@@ -181,13 +182,13 @@ inline void Selection::clear_id() {
   clear_has_id();
 }
 inline ::google::protobuf::uint32 Selection::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Selection.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Selection.id)
   return id_;
 }
 inline void Selection::set_id(::google::protobuf::uint32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Selection.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Selection.id)
 }
 
 // required string name = 2;
@@ -205,28 +206,28 @@ inline void Selection::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& Selection::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Selection.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Selection.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Selection::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Selection.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Selection.name)
 }
 inline void Selection::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Selection.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Selection.name)
 }
 inline void Selection::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Selection.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Selection.name)
 }
 inline ::std::string* Selection::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Selection.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Selection.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Selection::release_name() {
@@ -240,7 +241,7 @@ inline void Selection::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Selection.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Selection.name)
 }
 
 // optional bool selected = 3 [default = false];
@@ -258,24 +259,25 @@ inline void Selection::clear_selected() {
   clear_has_selected();
 }
 inline bool Selection::selected() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Selection.selected)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Selection.selected)
   return selected_;
 }
 inline void Selection::set_selected(bool value) {
   set_has_selected();
   selected_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Selection.selected)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Selection.selected)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Selection> SelectionPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Selection> SelectionPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Selection const> ConstSelectionPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Selection const> ConstSelectionPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_selection_2eproto__INCLUDED

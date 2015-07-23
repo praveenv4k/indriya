@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -85,11 +86,11 @@ void protobuf_AddDesc_pid_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\tpid.proto\022\016experimot.msgs\"\207\001\n\003PID\022\021\n\006t"
-    "arget\030\001 \001(\001:\0010\022\021\n\006p_gain\030\002 \001(\001:\0010\022\021\n\006i_g"
-    "ain\030\003 \001(\001:\0010\022\021\n\006d_gain\030\004 \001(\001:\0010\022\020\n\005i_max"
-    "\030\005 \001(\001:\0010\022\020\n\005i_min\030\006 \001(\001:\0010\022\020\n\005limit\030\007 \001"
-    "(\001:\0010", 165);
+    "\n\tpid.proto\022\021Indriya.Core.Msgs\"\207\001\n\003PID\022\021"
+    "\n\006target\030\001 \001(\001:\0010\022\021\n\006p_gain\030\002 \001(\001:\0010\022\021\n\006"
+    "i_gain\030\003 \001(\001:\0010\022\021\n\006d_gain\030\004 \001(\001:\0010\022\020\n\005i_"
+    "max\030\005 \001(\001:\0010\022\020\n\005i_min\030\006 \001(\001:\0010\022\020\n\005limit\030"
+    "\007 \001(\001:\0010", 168);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "pid.proto", &protobuf_RegisterTypes);
   PID::default_instance_ = new PID();
@@ -129,7 +130,7 @@ const int PID::kLimitFieldNumber;
 PID::PID()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.PID)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.PID)
 }
 
 void PID::InitAsDefaultInstance() {
@@ -140,7 +141,7 @@ PID::PID(const PID& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.PID)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.PID)
 }
 
 void PID::SharedCtor() {
@@ -156,7 +157,7 @@ void PID::SharedCtor() {
 }
 
 PID::~PID() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.PID)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.PID)
   SharedDtor();
 }
 
@@ -216,7 +217,7 @@ bool PID::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.PID)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.PID)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -340,17 +341,17 @@ bool PID::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.PID)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.PID)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.PID)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.PID)
   return false;
 #undef DO_
 }
 
 void PID::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.PID)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.PID)
   // optional double target = 1 [default = 0];
   if (has_target()) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(1, this->target(), output);
@@ -390,12 +391,12 @@ void PID::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.PID)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.PID)
 }
 
 ::google::protobuf::uint8* PID::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.PID)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.PID)
   // optional double target = 1 [default = 0];
   if (has_target()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(1, this->target(), target);
@@ -435,7 +436,7 @@ void PID::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.PID)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.PID)
   return target;
 }
 
@@ -592,13 +593,13 @@ void PID::InternalSwap(PID* other) {
   clear_has_target();
 }
  double PID::target() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PID.target)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PID.target)
   return target_;
 }
  void PID::set_target(double value) {
   set_has_target();
   target_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PID.target)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PID.target)
 }
 
 // optional double p_gain = 2 [default = 0];
@@ -616,13 +617,13 @@ void PID::InternalSwap(PID* other) {
   clear_has_p_gain();
 }
  double PID::p_gain() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PID.p_gain)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PID.p_gain)
   return p_gain_;
 }
  void PID::set_p_gain(double value) {
   set_has_p_gain();
   p_gain_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PID.p_gain)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PID.p_gain)
 }
 
 // optional double i_gain = 3 [default = 0];
@@ -640,13 +641,13 @@ void PID::InternalSwap(PID* other) {
   clear_has_i_gain();
 }
  double PID::i_gain() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PID.i_gain)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PID.i_gain)
   return i_gain_;
 }
  void PID::set_i_gain(double value) {
   set_has_i_gain();
   i_gain_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PID.i_gain)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PID.i_gain)
 }
 
 // optional double d_gain = 4 [default = 0];
@@ -664,13 +665,13 @@ void PID::InternalSwap(PID* other) {
   clear_has_d_gain();
 }
  double PID::d_gain() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PID.d_gain)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PID.d_gain)
   return d_gain_;
 }
  void PID::set_d_gain(double value) {
   set_has_d_gain();
   d_gain_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PID.d_gain)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PID.d_gain)
 }
 
 // optional double i_max = 5 [default = 0];
@@ -688,13 +689,13 @@ void PID::InternalSwap(PID* other) {
   clear_has_i_max();
 }
  double PID::i_max() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PID.i_max)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PID.i_max)
   return i_max_;
 }
  void PID::set_i_max(double value) {
   set_has_i_max();
   i_max_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PID.i_max)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PID.i_max)
 }
 
 // optional double i_min = 6 [default = 0];
@@ -712,13 +713,13 @@ void PID::InternalSwap(PID* other) {
   clear_has_i_min();
 }
  double PID::i_min() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PID.i_min)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PID.i_min)
   return i_min_;
 }
  void PID::set_i_min(double value) {
   set_has_i_min();
   i_min_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PID.i_min)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PID.i_min)
 }
 
 // optional double limit = 7 [default = 0];
@@ -736,21 +737,22 @@ void PID::InternalSwap(PID* other) {
   clear_has_limit();
 }
  double PID::limit() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PID.limit)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PID.limit)
   return limit_;
 }
  void PID::set_limit(double value) {
   set_has_limit();
   limit_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PID.limit)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PID.limit)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.PID", PID)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.PID", PID)
 // @@protoc_insertion_point(global_scope)

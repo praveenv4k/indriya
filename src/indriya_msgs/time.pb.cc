@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -80,8 +81,8 @@ void protobuf_AddDesc_time_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\ntime.proto\022\016experimot.msgs\"!\n\004Time\022\013\n\003"
-    "sec\030\001 \002(\005\022\014\n\004nsec\030\002 \002(\005", 63);
+    "\n\ntime.proto\022\021Indriya.Core.Msgs\"!\n\004Time\022"
+    "\013\n\003sec\030\001 \002(\005\022\014\n\004nsec\030\002 \002(\005", 66);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "time.proto", &protobuf_RegisterTypes);
   Time::default_instance_ = new Time();
@@ -116,7 +117,7 @@ const int Time::kNsecFieldNumber;
 Time::Time()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Time)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Time)
 }
 
 void Time::InitAsDefaultInstance() {
@@ -127,7 +128,7 @@ Time::Time(const Time& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Time)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Time)
 }
 
 void Time::SharedCtor() {
@@ -138,7 +139,7 @@ void Time::SharedCtor() {
 }
 
 Time::~Time() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Time)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Time)
   SharedDtor();
 }
 
@@ -196,7 +197,7 @@ bool Time::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Time)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Time)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -245,17 +246,17 @@ bool Time::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Time)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Time)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Time)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Time)
   return false;
 #undef DO_
 }
 
 void Time::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Time)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Time)
   // required int32 sec = 1;
   if (has_sec()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->sec(), output);
@@ -270,12 +271,12 @@ void Time::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Time)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Time)
 }
 
 ::google::protobuf::uint8* Time::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Time)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Time)
   // required int32 sec = 1;
   if (has_sec()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->sec(), target);
@@ -290,7 +291,7 @@ void Time::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Time)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Time)
   return target;
 }
 
@@ -424,13 +425,13 @@ void Time::InternalSwap(Time* other) {
   clear_has_sec();
 }
  ::google::protobuf::int32 Time::sec() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Time.sec)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Time.sec)
   return sec_;
 }
  void Time::set_sec(::google::protobuf::int32 value) {
   set_has_sec();
   sec_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Time.sec)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Time.sec)
 }
 
 // required int32 nsec = 2;
@@ -448,21 +449,22 @@ void Time::InternalSwap(Time* other) {
   clear_has_nsec();
 }
  ::google::protobuf::int32 Time::nsec() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Time.nsec)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Time.nsec)
   return nsec_;
 }
  void Time::set_nsec(::google::protobuf::int32 value) {
   set_has_nsec();
   nsec_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Time.nsec)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Time.nsec)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Time", Time)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Time", Time)
 // @@protoc_insertion_point(global_scope)

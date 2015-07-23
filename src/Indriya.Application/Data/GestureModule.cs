@@ -1,7 +1,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using experimot.msgs;
+using Indriya.Core.Msgs;
 
 namespace Indriya.Application.Data
 {

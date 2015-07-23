@@ -9,7 +9,7 @@
 
 // Generated from: proto/projector.proto
 // Note: requires additional types generated from: pose.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Projector")]
   public partial class Projector : global::ProtoBuf.IExtensible
@@ -31,10 +31,10 @@ namespace experimot.msgs
       get { return _texture; }
       set { _texture = value; }
     }
-    private experimot.msgs.Pose _pose = null;
+    private Indriya.Core.Msgs.Pose _pose = null;
     [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"pose", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Pose pose
+    public Indriya.Core.Msgs.Pose pose
     {
       get { return _pose; }
       set { _pose = value; }

@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -79,13 +80,14 @@ void protobuf_AddDesc_sonar_5fstamped_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_time_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_sonar_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_time_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_sonar_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\023sonar_stamped.proto\022\016experimot.msgs\032\nt"
-    "ime.proto\032\013sonar.proto\"X\n\014SonarStamped\022\""
-    "\n\004time\030\001 \002(\0132\024.experimot.msgs.Time\022$\n\005so"
-    "nar\030\002 \002(\0132\025.experimot.msgs.Sonar", 152);
+    "\n\023sonar_stamped.proto\022\021Indriya.Core.Msgs"
+    "\032\ntime.proto\032\013sonar.proto\"^\n\014SonarStampe"
+    "d\022%\n\004time\030\001 \002(\0132\027.Indriya.Core.Msgs.Time"
+    "\022\'\n\005sonar\030\002 \002(\0132\030.Indriya.Core.Msgs.Sona"
+    "r", 161);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "sonar_stamped.proto", &protobuf_RegisterTypes);
   SonarStamped::default_instance_ = new SonarStamped();
@@ -120,12 +122,12 @@ const int SonarStamped::kSonarFieldNumber;
 SonarStamped::SonarStamped()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.SonarStamped)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.SonarStamped)
 }
 
 void SonarStamped::InitAsDefaultInstance() {
-  time_ = const_cast< ::experimot::msgs::Time*>(&::experimot::msgs::Time::default_instance());
-  sonar_ = const_cast< ::experimot::msgs::Sonar*>(&::experimot::msgs::Sonar::default_instance());
+  time_ = const_cast< ::Indriya::Core::Msgs::Time*>(&::Indriya::Core::Msgs::Time::default_instance());
+  sonar_ = const_cast< ::Indriya::Core::Msgs::Sonar*>(&::Indriya::Core::Msgs::Sonar::default_instance());
 }
 
 SonarStamped::SonarStamped(const SonarStamped& from)
@@ -133,7 +135,7 @@ SonarStamped::SonarStamped(const SonarStamped& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.SonarStamped)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.SonarStamped)
 }
 
 void SonarStamped::SharedCtor() {
@@ -144,7 +146,7 @@ void SonarStamped::SharedCtor() {
 }
 
 SonarStamped::~SonarStamped() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.SonarStamped)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.SonarStamped)
   SharedDtor();
 }
 
@@ -183,10 +185,10 @@ SonarStamped* SonarStamped::New(::google::protobuf::Arena* arena) const {
 void SonarStamped::Clear() {
   if (_has_bits_[0 / 32] & 3) {
     if (has_time()) {
-      if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+      if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
     }
     if (has_sonar()) {
-      if (sonar_ != NULL) sonar_->::experimot::msgs::Sonar::Clear();
+      if (sonar_ != NULL) sonar_->::Indriya::Core::Msgs::Sonar::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -199,13 +201,13 @@ bool SonarStamped::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.SonarStamped)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.SonarStamped)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .experimot.msgs.Time time = 1;
+      // required .Indriya.Core.Msgs.Time time = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -217,7 +219,7 @@ bool SonarStamped::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Sonar sonar = 2;
+      // required .Indriya.Core.Msgs.Sonar sonar = 2;
       case 2: {
         if (tag == 18) {
          parse_sonar:
@@ -244,24 +246,24 @@ bool SonarStamped::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.SonarStamped)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.SonarStamped)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.SonarStamped)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.SonarStamped)
   return false;
 #undef DO_
 }
 
 void SonarStamped::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.SonarStamped)
-  // required .experimot.msgs.Time time = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.SonarStamped)
+  // required .Indriya.Core.Msgs.Time time = 1;
   if (has_time()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->time_, output);
   }
 
-  // required .experimot.msgs.Sonar sonar = 2;
+  // required .Indriya.Core.Msgs.Sonar sonar = 2;
   if (has_sonar()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->sonar_, output);
@@ -271,20 +273,20 @@ void SonarStamped::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.SonarStamped)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.SonarStamped)
 }
 
 ::google::protobuf::uint8* SonarStamped::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.SonarStamped)
-  // required .experimot.msgs.Time time = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.SonarStamped)
+  // required .Indriya.Core.Msgs.Time time = 1;
   if (has_time()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, *this->time_, target);
   }
 
-  // required .experimot.msgs.Sonar sonar = 2;
+  // required .Indriya.Core.Msgs.Sonar sonar = 2;
   if (has_sonar()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -295,7 +297,7 @@ void SonarStamped::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.SonarStamped)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.SonarStamped)
   return target;
 }
 
@@ -303,14 +305,14 @@ int SonarStamped::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
   if (has_time()) {
-    // required .experimot.msgs.Time time = 1;
+    // required .Indriya.Core.Msgs.Time time = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->time_);
   }
 
   if (has_sonar()) {
-    // required .experimot.msgs.Sonar sonar = 2;
+    // required .Indriya.Core.Msgs.Sonar sonar = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->sonar_);
@@ -322,12 +324,12 @@ int SonarStamped::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required .experimot.msgs.Time time = 1;
+    // required .Indriya.Core.Msgs.Time time = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->time_);
 
-    // required .experimot.msgs.Sonar sonar = 2;
+    // required .Indriya.Core.Msgs.Sonar sonar = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->sonar_);
@@ -362,10 +364,10 @@ void SonarStamped::MergeFrom(const SonarStamped& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_time()) {
-      mutable_time()->::experimot::msgs::Time::MergeFrom(from.time());
+      mutable_time()->::Indriya::Core::Msgs::Time::MergeFrom(from.time());
     }
     if (from.has_sonar()) {
-      mutable_sonar()->::experimot::msgs::Sonar::MergeFrom(from.sonar());
+      mutable_sonar()->::Indriya::Core::Msgs::Sonar::MergeFrom(from.sonar());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -420,7 +422,7 @@ void SonarStamped::InternalSwap(SonarStamped* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // SonarStamped
 
-// required .experimot.msgs.Time time = 1;
+// required .Indriya.Core.Msgs.Time time = 1;
  bool SonarStamped::has_time() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -431,28 +433,28 @@ void SonarStamped::InternalSwap(SonarStamped* other) {
   _has_bits_[0] &= ~0x00000001u;
 }
  void SonarStamped::clear_time() {
-  if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+  if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_time();
 }
- const ::experimot::msgs::Time& SonarStamped::time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.SonarStamped.time)
+ const ::Indriya::Core::Msgs::Time& SonarStamped::time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.SonarStamped.time)
   return time_ != NULL ? *time_ : *default_instance_->time_;
 }
- ::experimot::msgs::Time* SonarStamped::mutable_time() {
+ ::Indriya::Core::Msgs::Time* SonarStamped::mutable_time() {
   set_has_time();
   if (time_ == NULL) {
-    time_ = new ::experimot::msgs::Time;
+    time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.SonarStamped.time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.SonarStamped.time)
   return time_;
 }
- ::experimot::msgs::Time* SonarStamped::release_time() {
+ ::Indriya::Core::Msgs::Time* SonarStamped::release_time() {
   clear_has_time();
-  ::experimot::msgs::Time* temp = time_;
+  ::Indriya::Core::Msgs::Time* temp = time_;
   time_ = NULL;
   return temp;
 }
- void SonarStamped::set_allocated_time(::experimot::msgs::Time* time) {
+ void SonarStamped::set_allocated_time(::Indriya::Core::Msgs::Time* time) {
   delete time_;
   time_ = time;
   if (time) {
@@ -460,10 +462,10 @@ void SonarStamped::InternalSwap(SonarStamped* other) {
   } else {
     clear_has_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.SonarStamped.time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.SonarStamped.time)
 }
 
-// required .experimot.msgs.Sonar sonar = 2;
+// required .Indriya.Core.Msgs.Sonar sonar = 2;
  bool SonarStamped::has_sonar() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -474,28 +476,28 @@ void SonarStamped::InternalSwap(SonarStamped* other) {
   _has_bits_[0] &= ~0x00000002u;
 }
  void SonarStamped::clear_sonar() {
-  if (sonar_ != NULL) sonar_->::experimot::msgs::Sonar::Clear();
+  if (sonar_ != NULL) sonar_->::Indriya::Core::Msgs::Sonar::Clear();
   clear_has_sonar();
 }
- const ::experimot::msgs::Sonar& SonarStamped::sonar() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.SonarStamped.sonar)
+ const ::Indriya::Core::Msgs::Sonar& SonarStamped::sonar() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.SonarStamped.sonar)
   return sonar_ != NULL ? *sonar_ : *default_instance_->sonar_;
 }
- ::experimot::msgs::Sonar* SonarStamped::mutable_sonar() {
+ ::Indriya::Core::Msgs::Sonar* SonarStamped::mutable_sonar() {
   set_has_sonar();
   if (sonar_ == NULL) {
-    sonar_ = new ::experimot::msgs::Sonar;
+    sonar_ = new ::Indriya::Core::Msgs::Sonar;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.SonarStamped.sonar)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.SonarStamped.sonar)
   return sonar_;
 }
- ::experimot::msgs::Sonar* SonarStamped::release_sonar() {
+ ::Indriya::Core::Msgs::Sonar* SonarStamped::release_sonar() {
   clear_has_sonar();
-  ::experimot::msgs::Sonar* temp = sonar_;
+  ::Indriya::Core::Msgs::Sonar* temp = sonar_;
   sonar_ = NULL;
   return temp;
 }
- void SonarStamped::set_allocated_sonar(::experimot::msgs::Sonar* sonar) {
+ void SonarStamped::set_allocated_sonar(::Indriya::Core::Msgs::Sonar* sonar) {
   delete sonar_;
   sonar_ = sonar;
   if (sonar) {
@@ -503,15 +505,16 @@ void SonarStamped::InternalSwap(SonarStamped* other) {
   } else {
     clear_has_sonar();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.SonarStamped.sonar)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.SonarStamped.sonar)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.SonarStamped", SonarStamped)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.SonarStamped", SonarStamped)
 // @@protoc_insertion_point(global_scope)

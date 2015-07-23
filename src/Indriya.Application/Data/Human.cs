@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Caliburn.Micro;
-using experimot.msgs;
 using Experimot.Core.Annotations;
+using Indriya.Core.Msgs;
 using Newtonsoft.Json;
 
 namespace Indriya.Application.Data

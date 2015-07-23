@@ -9,16 +9,16 @@
 
 // Generated from: proto/wireless_nodes.proto
 // Note: requires additional types generated from: wireless_node.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"WirelessNodes")]
   public partial class WirelessNodes : global::ProtoBuf.IExtensible
   {
     public WirelessNodes() {}
     
-    private readonly global::System.Collections.Generic.List<experimot.msgs.WirelessNode> _node = new global::System.Collections.Generic.List<experimot.msgs.WirelessNode>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.WirelessNode> _node = new global::System.Collections.Generic.List<Indriya.Core.Msgs.WirelessNode>();
     [global::ProtoBuf.ProtoMember(1, Name=@"node", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.WirelessNode> node
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.WirelessNode> node
     {
       get { return _node; }
     }

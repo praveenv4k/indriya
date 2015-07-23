@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_gps_2eproto();
@@ -108,14 +109,14 @@ class GPS : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .experimot.msgs.Time time = 1;
+  // required .Indriya.Core.Msgs.Time time = 1;
   bool has_time() const;
   void clear_time();
   static const int kTimeFieldNumber = 1;
-  const ::experimot::msgs::Time& time() const;
-  ::experimot::msgs::Time* mutable_time();
-  ::experimot::msgs::Time* release_time();
-  void set_allocated_time(::experimot::msgs::Time* time);
+  const ::Indriya::Core::Msgs::Time& time() const;
+  ::Indriya::Core::Msgs::Time* mutable_time();
+  ::Indriya::Core::Msgs::Time* release_time();
+  void set_allocated_time(::Indriya::Core::Msgs::Time* time);
 
   // required string link_name = 2;
   bool has_link_name() const;
@@ -171,7 +172,7 @@ class GPS : public ::google::protobuf::Message {
   double velocity_up() const;
   void set_velocity_up(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.GPS)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.GPS)
  private:
   inline void set_has_time();
   inline void clear_has_time();
@@ -196,7 +197,7 @@ class GPS : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::Time* time_;
+  ::Indriya::Core::Msgs::Time* time_;
   ::google::protobuf::internal::ArenaStringPtr link_name_;
   double latitude_deg_;
   double longitude_deg_;
@@ -219,7 +220,7 @@ class GPS : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // GPS
 
-// required .experimot.msgs.Time time = 1;
+// required .Indriya.Core.Msgs.Time time = 1;
 inline bool GPS::has_time() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -230,28 +231,28 @@ inline void GPS::clear_has_time() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void GPS::clear_time() {
-  if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+  if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_time();
 }
-inline const ::experimot::msgs::Time& GPS::time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GPS.time)
+inline const ::Indriya::Core::Msgs::Time& GPS::time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GPS.time)
   return time_ != NULL ? *time_ : *default_instance_->time_;
 }
-inline ::experimot::msgs::Time* GPS::mutable_time() {
+inline ::Indriya::Core::Msgs::Time* GPS::mutable_time() {
   set_has_time();
   if (time_ == NULL) {
-    time_ = new ::experimot::msgs::Time;
+    time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GPS.time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GPS.time)
   return time_;
 }
-inline ::experimot::msgs::Time* GPS::release_time() {
+inline ::Indriya::Core::Msgs::Time* GPS::release_time() {
   clear_has_time();
-  ::experimot::msgs::Time* temp = time_;
+  ::Indriya::Core::Msgs::Time* temp = time_;
   time_ = NULL;
   return temp;
 }
-inline void GPS::set_allocated_time(::experimot::msgs::Time* time) {
+inline void GPS::set_allocated_time(::Indriya::Core::Msgs::Time* time) {
   delete time_;
   time_ = time;
   if (time) {
@@ -259,7 +260,7 @@ inline void GPS::set_allocated_time(::experimot::msgs::Time* time) {
   } else {
     clear_has_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GPS.time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.GPS.time)
 }
 
 // required string link_name = 2;
@@ -277,28 +278,28 @@ inline void GPS::clear_link_name() {
   clear_has_link_name();
 }
 inline const ::std::string& GPS::link_name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GPS.link_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GPS.link_name)
   return link_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void GPS::set_link_name(const ::std::string& value) {
   set_has_link_name();
   link_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.GPS.link_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GPS.link_name)
 }
 inline void GPS::set_link_name(const char* value) {
   set_has_link_name();
   link_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.GPS.link_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.GPS.link_name)
 }
 inline void GPS::set_link_name(const char* value, size_t size) {
   set_has_link_name();
   link_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.GPS.link_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.GPS.link_name)
 }
 inline ::std::string* GPS::mutable_link_name() {
   set_has_link_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GPS.link_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GPS.link_name)
   return link_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* GPS::release_link_name() {
@@ -312,7 +313,7 @@ inline void GPS::set_allocated_link_name(::std::string* link_name) {
     clear_has_link_name();
   }
   link_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), link_name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GPS.link_name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.GPS.link_name)
 }
 
 // required double latitude_deg = 3;
@@ -330,13 +331,13 @@ inline void GPS::clear_latitude_deg() {
   clear_has_latitude_deg();
 }
 inline double GPS::latitude_deg() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GPS.latitude_deg)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GPS.latitude_deg)
   return latitude_deg_;
 }
 inline void GPS::set_latitude_deg(double value) {
   set_has_latitude_deg();
   latitude_deg_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.GPS.latitude_deg)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GPS.latitude_deg)
 }
 
 // required double longitude_deg = 4;
@@ -354,13 +355,13 @@ inline void GPS::clear_longitude_deg() {
   clear_has_longitude_deg();
 }
 inline double GPS::longitude_deg() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GPS.longitude_deg)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GPS.longitude_deg)
   return longitude_deg_;
 }
 inline void GPS::set_longitude_deg(double value) {
   set_has_longitude_deg();
   longitude_deg_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.GPS.longitude_deg)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GPS.longitude_deg)
 }
 
 // required double altitude = 5;
@@ -378,13 +379,13 @@ inline void GPS::clear_altitude() {
   clear_has_altitude();
 }
 inline double GPS::altitude() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GPS.altitude)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GPS.altitude)
   return altitude_;
 }
 inline void GPS::set_altitude(double value) {
   set_has_altitude();
   altitude_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.GPS.altitude)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GPS.altitude)
 }
 
 // optional double velocity_east = 6;
@@ -402,13 +403,13 @@ inline void GPS::clear_velocity_east() {
   clear_has_velocity_east();
 }
 inline double GPS::velocity_east() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GPS.velocity_east)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GPS.velocity_east)
   return velocity_east_;
 }
 inline void GPS::set_velocity_east(double value) {
   set_has_velocity_east();
   velocity_east_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.GPS.velocity_east)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GPS.velocity_east)
 }
 
 // optional double velocity_north = 7;
@@ -426,13 +427,13 @@ inline void GPS::clear_velocity_north() {
   clear_has_velocity_north();
 }
 inline double GPS::velocity_north() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GPS.velocity_north)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GPS.velocity_north)
   return velocity_north_;
 }
 inline void GPS::set_velocity_north(double value) {
   set_has_velocity_north();
   velocity_north_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.GPS.velocity_north)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GPS.velocity_north)
 }
 
 // optional double velocity_up = 8;
@@ -450,24 +451,25 @@ inline void GPS::clear_velocity_up() {
   clear_has_velocity_up();
 }
 inline double GPS::velocity_up() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GPS.velocity_up)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GPS.velocity_up)
   return velocity_up_;
 }
 inline void GPS::set_velocity_up(double value) {
   set_has_velocity_up();
   velocity_up_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.GPS.velocity_up)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GPS.velocity_up)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::GPS> GPSPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::GPS> GPSPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::GPS const> ConstGPSPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::GPS const> ConstGPSPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_gps_2eproto__INCLUDED

@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_planegeom_2eproto();
@@ -109,23 +110,23 @@ class PlaneGeom : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .experimot.msgs.Vector3d normal = 1;
+  // required .Indriya.Core.Msgs.Vector3d normal = 1;
   bool has_normal() const;
   void clear_normal();
   static const int kNormalFieldNumber = 1;
-  const ::experimot::msgs::Vector3d& normal() const;
-  ::experimot::msgs::Vector3d* mutable_normal();
-  ::experimot::msgs::Vector3d* release_normal();
-  void set_allocated_normal(::experimot::msgs::Vector3d* normal);
+  const ::Indriya::Core::Msgs::Vector3d& normal() const;
+  ::Indriya::Core::Msgs::Vector3d* mutable_normal();
+  ::Indriya::Core::Msgs::Vector3d* release_normal();
+  void set_allocated_normal(::Indriya::Core::Msgs::Vector3d* normal);
 
-  // required .experimot.msgs.Vector2d size = 2;
+  // required .Indriya.Core.Msgs.Vector2d size = 2;
   bool has_size() const;
   void clear_size();
   static const int kSizeFieldNumber = 2;
-  const ::experimot::msgs::Vector2d& size() const;
-  ::experimot::msgs::Vector2d* mutable_size();
-  ::experimot::msgs::Vector2d* release_size();
-  void set_allocated_size(::experimot::msgs::Vector2d* size);
+  const ::Indriya::Core::Msgs::Vector2d& size() const;
+  ::Indriya::Core::Msgs::Vector2d* mutable_size();
+  ::Indriya::Core::Msgs::Vector2d* release_size();
+  void set_allocated_size(::Indriya::Core::Msgs::Vector2d* size);
 
   // optional double d = 3 [default = 0];
   bool has_d() const;
@@ -134,7 +135,7 @@ class PlaneGeom : public ::google::protobuf::Message {
   double d() const;
   void set_d(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.PlaneGeom)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.PlaneGeom)
  private:
   inline void set_has_normal();
   inline void clear_has_normal();
@@ -149,8 +150,8 @@ class PlaneGeom : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::Vector3d* normal_;
-  ::experimot::msgs::Vector2d* size_;
+  ::Indriya::Core::Msgs::Vector3d* normal_;
+  ::Indriya::Core::Msgs::Vector2d* size_;
   double d_;
   friend void  protobuf_AddDesc_planegeom_2eproto();
   friend void protobuf_AssignDesc_planegeom_2eproto();
@@ -167,7 +168,7 @@ class PlaneGeom : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // PlaneGeom
 
-// required .experimot.msgs.Vector3d normal = 1;
+// required .Indriya.Core.Msgs.Vector3d normal = 1;
 inline bool PlaneGeom::has_normal() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -178,28 +179,28 @@ inline void PlaneGeom::clear_has_normal() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void PlaneGeom::clear_normal() {
-  if (normal_ != NULL) normal_->::experimot::msgs::Vector3d::Clear();
+  if (normal_ != NULL) normal_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_normal();
 }
-inline const ::experimot::msgs::Vector3d& PlaneGeom::normal() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PlaneGeom.normal)
+inline const ::Indriya::Core::Msgs::Vector3d& PlaneGeom::normal() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PlaneGeom.normal)
   return normal_ != NULL ? *normal_ : *default_instance_->normal_;
 }
-inline ::experimot::msgs::Vector3d* PlaneGeom::mutable_normal() {
+inline ::Indriya::Core::Msgs::Vector3d* PlaneGeom::mutable_normal() {
   set_has_normal();
   if (normal_ == NULL) {
-    normal_ = new ::experimot::msgs::Vector3d;
+    normal_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.PlaneGeom.normal)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.PlaneGeom.normal)
   return normal_;
 }
-inline ::experimot::msgs::Vector3d* PlaneGeom::release_normal() {
+inline ::Indriya::Core::Msgs::Vector3d* PlaneGeom::release_normal() {
   clear_has_normal();
-  ::experimot::msgs::Vector3d* temp = normal_;
+  ::Indriya::Core::Msgs::Vector3d* temp = normal_;
   normal_ = NULL;
   return temp;
 }
-inline void PlaneGeom::set_allocated_normal(::experimot::msgs::Vector3d* normal) {
+inline void PlaneGeom::set_allocated_normal(::Indriya::Core::Msgs::Vector3d* normal) {
   delete normal_;
   normal_ = normal;
   if (normal) {
@@ -207,10 +208,10 @@ inline void PlaneGeom::set_allocated_normal(::experimot::msgs::Vector3d* normal)
   } else {
     clear_has_normal();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.PlaneGeom.normal)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.PlaneGeom.normal)
 }
 
-// required .experimot.msgs.Vector2d size = 2;
+// required .Indriya.Core.Msgs.Vector2d size = 2;
 inline bool PlaneGeom::has_size() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -221,28 +222,28 @@ inline void PlaneGeom::clear_has_size() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void PlaneGeom::clear_size() {
-  if (size_ != NULL) size_->::experimot::msgs::Vector2d::Clear();
+  if (size_ != NULL) size_->::Indriya::Core::Msgs::Vector2d::Clear();
   clear_has_size();
 }
-inline const ::experimot::msgs::Vector2d& PlaneGeom::size() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PlaneGeom.size)
+inline const ::Indriya::Core::Msgs::Vector2d& PlaneGeom::size() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PlaneGeom.size)
   return size_ != NULL ? *size_ : *default_instance_->size_;
 }
-inline ::experimot::msgs::Vector2d* PlaneGeom::mutable_size() {
+inline ::Indriya::Core::Msgs::Vector2d* PlaneGeom::mutable_size() {
   set_has_size();
   if (size_ == NULL) {
-    size_ = new ::experimot::msgs::Vector2d;
+    size_ = new ::Indriya::Core::Msgs::Vector2d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.PlaneGeom.size)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.PlaneGeom.size)
   return size_;
 }
-inline ::experimot::msgs::Vector2d* PlaneGeom::release_size() {
+inline ::Indriya::Core::Msgs::Vector2d* PlaneGeom::release_size() {
   clear_has_size();
-  ::experimot::msgs::Vector2d* temp = size_;
+  ::Indriya::Core::Msgs::Vector2d* temp = size_;
   size_ = NULL;
   return temp;
 }
-inline void PlaneGeom::set_allocated_size(::experimot::msgs::Vector2d* size) {
+inline void PlaneGeom::set_allocated_size(::Indriya::Core::Msgs::Vector2d* size) {
   delete size_;
   size_ = size;
   if (size) {
@@ -250,7 +251,7 @@ inline void PlaneGeom::set_allocated_size(::experimot::msgs::Vector2d* size) {
   } else {
     clear_has_size();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.PlaneGeom.size)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.PlaneGeom.size)
 }
 
 // optional double d = 3 [default = 0];
@@ -268,24 +269,25 @@ inline void PlaneGeom::clear_d() {
   clear_has_d();
 }
 inline double PlaneGeom::d() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PlaneGeom.d)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PlaneGeom.d)
   return d_;
 }
 inline void PlaneGeom::set_d(double value) {
   set_has_d();
   d_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PlaneGeom.d)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PlaneGeom.d)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::PlaneGeom> PlaneGeomPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::PlaneGeom> PlaneGeomPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::PlaneGeom const> ConstPlaneGeomPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::PlaneGeom const> ConstPlaneGeomPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_planegeom_2eproto__INCLUDED

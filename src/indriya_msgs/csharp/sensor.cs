@@ -12,7 +12,7 @@
 // Note: requires additional types generated from: camerasensor.proto
 // Note: requires additional types generated from: raysensor.proto
 // Note: requires additional types generated from: contactsensor.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Sensor")]
   public partial class Sensor : global::ProtoBuf.IExtensible
@@ -71,34 +71,34 @@ namespace experimot.msgs
       get { return _update_rate; }
       set { _update_rate = value; }
     }
-    private experimot.msgs.Pose _pose = null;
+    private Indriya.Core.Msgs.Pose _pose = null;
     [global::ProtoBuf.ProtoMember(8, IsRequired = false, Name=@"pose", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Pose pose
+    public Indriya.Core.Msgs.Pose pose
     {
       get { return _pose; }
       set { _pose = value; }
     }
-    private experimot.msgs.CameraSensor _camera = null;
+    private Indriya.Core.Msgs.CameraSensor _camera = null;
     [global::ProtoBuf.ProtoMember(9, IsRequired = false, Name=@"camera", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.CameraSensor camera
+    public Indriya.Core.Msgs.CameraSensor camera
     {
       get { return _camera; }
       set { _camera = value; }
     }
-    private experimot.msgs.RaySensor _ray = null;
+    private Indriya.Core.Msgs.RaySensor _ray = null;
     [global::ProtoBuf.ProtoMember(10, IsRequired = false, Name=@"ray", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.RaySensor ray
+    public Indriya.Core.Msgs.RaySensor ray
     {
       get { return _ray; }
       set { _ray = value; }
     }
-    private experimot.msgs.ContactSensor _contact = null;
+    private Indriya.Core.Msgs.ContactSensor _contact = null;
     [global::ProtoBuf.ProtoMember(11, IsRequired = false, Name=@"contact", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.ContactSensor contact
+    public Indriya.Core.Msgs.ContactSensor contact
     {
       get { return _contact; }
       set { _contact = value; }

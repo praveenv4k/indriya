@@ -9,7 +9,7 @@
 
 // Generated from: proto/inertial.proto
 // Note: requires additional types generated from: pose.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Inertial")]
   public partial class Inertial : global::ProtoBuf.IExtensible
@@ -24,10 +24,10 @@ namespace experimot.msgs
       get { return _mass; }
       set { _mass = value; }
     }
-    private experimot.msgs.Pose _pose = null;
+    private Indriya.Core.Msgs.Pose _pose = null;
     [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"pose", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Pose pose
+    public Indriya.Core.Msgs.Pose pose
     {
       get { return _pose; }
       set { _pose = value; }

@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -80,14 +81,14 @@ void protobuf_AddDesc_planegeom_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_vector3d_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_vector2d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector3d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector2d_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\017planegeom.proto\022\016experimot.msgs\032\016vecto"
-    "r3d.proto\032\016vector2d.proto\"k\n\tPlaneGeom\022("
-    "\n\006normal\030\001 \002(\0132\030.experimot.msgs.Vector3d"
-    "\022&\n\004size\030\002 \002(\0132\030.experimot.msgs.Vector2d"
-    "\022\014\n\001d\030\003 \001(\001:\0010", 174);
+    "\n\017planegeom.proto\022\021Indriya.Core.Msgs\032\016ve"
+    "ctor3d.proto\032\016vector2d.proto\"q\n\tPlaneGeo"
+    "m\022+\n\006normal\030\001 \002(\0132\033.Indriya.Core.Msgs.Ve"
+    "ctor3d\022)\n\004size\030\002 \002(\0132\033.Indriya.Core.Msgs"
+    ".Vector2d\022\014\n\001d\030\003 \001(\001:\0010", 183);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "planegeom.proto", &protobuf_RegisterTypes);
   PlaneGeom::default_instance_ = new PlaneGeom();
@@ -123,12 +124,12 @@ const int PlaneGeom::kDFieldNumber;
 PlaneGeom::PlaneGeom()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.PlaneGeom)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.PlaneGeom)
 }
 
 void PlaneGeom::InitAsDefaultInstance() {
-  normal_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
-  size_ = const_cast< ::experimot::msgs::Vector2d*>(&::experimot::msgs::Vector2d::default_instance());
+  normal_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
+  size_ = const_cast< ::Indriya::Core::Msgs::Vector2d*>(&::Indriya::Core::Msgs::Vector2d::default_instance());
 }
 
 PlaneGeom::PlaneGeom(const PlaneGeom& from)
@@ -136,7 +137,7 @@ PlaneGeom::PlaneGeom(const PlaneGeom& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.PlaneGeom)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.PlaneGeom)
 }
 
 void PlaneGeom::SharedCtor() {
@@ -148,7 +149,7 @@ void PlaneGeom::SharedCtor() {
 }
 
 PlaneGeom::~PlaneGeom() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.PlaneGeom)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.PlaneGeom)
   SharedDtor();
 }
 
@@ -187,10 +188,10 @@ PlaneGeom* PlaneGeom::New(::google::protobuf::Arena* arena) const {
 void PlaneGeom::Clear() {
   if (_has_bits_[0 / 32] & 7) {
     if (has_normal()) {
-      if (normal_ != NULL) normal_->::experimot::msgs::Vector3d::Clear();
+      if (normal_ != NULL) normal_->::Indriya::Core::Msgs::Vector3d::Clear();
     }
     if (has_size()) {
-      if (size_ != NULL) size_->::experimot::msgs::Vector2d::Clear();
+      if (size_ != NULL) size_->::Indriya::Core::Msgs::Vector2d::Clear();
     }
     d_ = 0;
   }
@@ -204,13 +205,13 @@ bool PlaneGeom::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.PlaneGeom)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.PlaneGeom)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .experimot.msgs.Vector3d normal = 1;
+      // required .Indriya.Core.Msgs.Vector3d normal = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -222,7 +223,7 @@ bool PlaneGeom::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Vector2d size = 2;
+      // required .Indriya.Core.Msgs.Vector2d size = 2;
       case 2: {
         if (tag == 18) {
          parse_size:
@@ -264,24 +265,24 @@ bool PlaneGeom::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.PlaneGeom)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.PlaneGeom)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.PlaneGeom)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.PlaneGeom)
   return false;
 #undef DO_
 }
 
 void PlaneGeom::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.PlaneGeom)
-  // required .experimot.msgs.Vector3d normal = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.PlaneGeom)
+  // required .Indriya.Core.Msgs.Vector3d normal = 1;
   if (has_normal()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->normal_, output);
   }
 
-  // required .experimot.msgs.Vector2d size = 2;
+  // required .Indriya.Core.Msgs.Vector2d size = 2;
   if (has_size()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->size_, output);
@@ -296,20 +297,20 @@ void PlaneGeom::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.PlaneGeom)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.PlaneGeom)
 }
 
 ::google::protobuf::uint8* PlaneGeom::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.PlaneGeom)
-  // required .experimot.msgs.Vector3d normal = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.PlaneGeom)
+  // required .Indriya.Core.Msgs.Vector3d normal = 1;
   if (has_normal()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, *this->normal_, target);
   }
 
-  // required .experimot.msgs.Vector2d size = 2;
+  // required .Indriya.Core.Msgs.Vector2d size = 2;
   if (has_size()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -325,7 +326,7 @@ void PlaneGeom::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.PlaneGeom)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.PlaneGeom)
   return target;
 }
 
@@ -333,14 +334,14 @@ int PlaneGeom::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
   if (has_normal()) {
-    // required .experimot.msgs.Vector3d normal = 1;
+    // required .Indriya.Core.Msgs.Vector3d normal = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->normal_);
   }
 
   if (has_size()) {
-    // required .experimot.msgs.Vector2d size = 2;
+    // required .Indriya.Core.Msgs.Vector2d size = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->size_);
@@ -352,12 +353,12 @@ int PlaneGeom::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required .experimot.msgs.Vector3d normal = 1;
+    // required .Indriya.Core.Msgs.Vector3d normal = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->normal_);
 
-    // required .experimot.msgs.Vector2d size = 2;
+    // required .Indriya.Core.Msgs.Vector2d size = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->size_);
@@ -397,10 +398,10 @@ void PlaneGeom::MergeFrom(const PlaneGeom& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_normal()) {
-      mutable_normal()->::experimot::msgs::Vector3d::MergeFrom(from.normal());
+      mutable_normal()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.normal());
     }
     if (from.has_size()) {
-      mutable_size()->::experimot::msgs::Vector2d::MergeFrom(from.size());
+      mutable_size()->::Indriya::Core::Msgs::Vector2d::MergeFrom(from.size());
     }
     if (from.has_d()) {
       set_d(from.d());
@@ -459,7 +460,7 @@ void PlaneGeom::InternalSwap(PlaneGeom* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // PlaneGeom
 
-// required .experimot.msgs.Vector3d normal = 1;
+// required .Indriya.Core.Msgs.Vector3d normal = 1;
  bool PlaneGeom::has_normal() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -470,28 +471,28 @@ void PlaneGeom::InternalSwap(PlaneGeom* other) {
   _has_bits_[0] &= ~0x00000001u;
 }
  void PlaneGeom::clear_normal() {
-  if (normal_ != NULL) normal_->::experimot::msgs::Vector3d::Clear();
+  if (normal_ != NULL) normal_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_normal();
 }
- const ::experimot::msgs::Vector3d& PlaneGeom::normal() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PlaneGeom.normal)
+ const ::Indriya::Core::Msgs::Vector3d& PlaneGeom::normal() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PlaneGeom.normal)
   return normal_ != NULL ? *normal_ : *default_instance_->normal_;
 }
- ::experimot::msgs::Vector3d* PlaneGeom::mutable_normal() {
+ ::Indriya::Core::Msgs::Vector3d* PlaneGeom::mutable_normal() {
   set_has_normal();
   if (normal_ == NULL) {
-    normal_ = new ::experimot::msgs::Vector3d;
+    normal_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.PlaneGeom.normal)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.PlaneGeom.normal)
   return normal_;
 }
- ::experimot::msgs::Vector3d* PlaneGeom::release_normal() {
+ ::Indriya::Core::Msgs::Vector3d* PlaneGeom::release_normal() {
   clear_has_normal();
-  ::experimot::msgs::Vector3d* temp = normal_;
+  ::Indriya::Core::Msgs::Vector3d* temp = normal_;
   normal_ = NULL;
   return temp;
 }
- void PlaneGeom::set_allocated_normal(::experimot::msgs::Vector3d* normal) {
+ void PlaneGeom::set_allocated_normal(::Indriya::Core::Msgs::Vector3d* normal) {
   delete normal_;
   normal_ = normal;
   if (normal) {
@@ -499,10 +500,10 @@ void PlaneGeom::InternalSwap(PlaneGeom* other) {
   } else {
     clear_has_normal();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.PlaneGeom.normal)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.PlaneGeom.normal)
 }
 
-// required .experimot.msgs.Vector2d size = 2;
+// required .Indriya.Core.Msgs.Vector2d size = 2;
  bool PlaneGeom::has_size() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -513,28 +514,28 @@ void PlaneGeom::InternalSwap(PlaneGeom* other) {
   _has_bits_[0] &= ~0x00000002u;
 }
  void PlaneGeom::clear_size() {
-  if (size_ != NULL) size_->::experimot::msgs::Vector2d::Clear();
+  if (size_ != NULL) size_->::Indriya::Core::Msgs::Vector2d::Clear();
   clear_has_size();
 }
- const ::experimot::msgs::Vector2d& PlaneGeom::size() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PlaneGeom.size)
+ const ::Indriya::Core::Msgs::Vector2d& PlaneGeom::size() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PlaneGeom.size)
   return size_ != NULL ? *size_ : *default_instance_->size_;
 }
- ::experimot::msgs::Vector2d* PlaneGeom::mutable_size() {
+ ::Indriya::Core::Msgs::Vector2d* PlaneGeom::mutable_size() {
   set_has_size();
   if (size_ == NULL) {
-    size_ = new ::experimot::msgs::Vector2d;
+    size_ = new ::Indriya::Core::Msgs::Vector2d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.PlaneGeom.size)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.PlaneGeom.size)
   return size_;
 }
- ::experimot::msgs::Vector2d* PlaneGeom::release_size() {
+ ::Indriya::Core::Msgs::Vector2d* PlaneGeom::release_size() {
   clear_has_size();
-  ::experimot::msgs::Vector2d* temp = size_;
+  ::Indriya::Core::Msgs::Vector2d* temp = size_;
   size_ = NULL;
   return temp;
 }
- void PlaneGeom::set_allocated_size(::experimot::msgs::Vector2d* size) {
+ void PlaneGeom::set_allocated_size(::Indriya::Core::Msgs::Vector2d* size) {
   delete size_;
   size_ = size;
   if (size) {
@@ -542,7 +543,7 @@ void PlaneGeom::InternalSwap(PlaneGeom* other) {
   } else {
     clear_has_size();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.PlaneGeom.size)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.PlaneGeom.size)
 }
 
 // optional double d = 3 [default = 0];
@@ -560,21 +561,22 @@ void PlaneGeom::InternalSwap(PlaneGeom* other) {
   clear_has_d();
 }
  double PlaneGeom::d() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PlaneGeom.d)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PlaneGeom.d)
   return d_;
 }
  void PlaneGeom::set_d(double value) {
   set_has_d();
   d_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PlaneGeom.d)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PlaneGeom.d)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.PlaneGeom", PlaneGeom)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.PlaneGeom", PlaneGeom)
 // @@protoc_insertion_point(global_scope)

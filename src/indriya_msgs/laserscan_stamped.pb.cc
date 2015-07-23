@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -79,14 +80,14 @@ void protobuf_AddDesc_laserscan_5fstamped_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_time_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_laserscan_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_time_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_laserscan_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\027laserscan_stamped.proto\022\016experimot.msg"
-    "s\032\ntime.proto\032\017laserscan.proto\"_\n\020LaserS"
-    "canStamped\022\"\n\004time\030\001 \002(\0132\024.experimot.msg"
-    "s.Time\022\'\n\004scan\030\002 \002(\0132\031.experimot.msgs.La"
-    "serScan", 167);
+    "\n\027laserscan_stamped.proto\022\021Indriya.Core."
+    "Msgs\032\ntime.proto\032\017laserscan.proto\"e\n\020Las"
+    "erScanStamped\022%\n\004time\030\001 \002(\0132\027.Indriya.Co"
+    "re.Msgs.Time\022*\n\004scan\030\002 \002(\0132\034.Indriya.Cor"
+    "e.Msgs.LaserScan", 176);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "laserscan_stamped.proto", &protobuf_RegisterTypes);
   LaserScanStamped::default_instance_ = new LaserScanStamped();
@@ -121,12 +122,12 @@ const int LaserScanStamped::kScanFieldNumber;
 LaserScanStamped::LaserScanStamped()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.LaserScanStamped)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.LaserScanStamped)
 }
 
 void LaserScanStamped::InitAsDefaultInstance() {
-  time_ = const_cast< ::experimot::msgs::Time*>(&::experimot::msgs::Time::default_instance());
-  scan_ = const_cast< ::experimot::msgs::LaserScan*>(&::experimot::msgs::LaserScan::default_instance());
+  time_ = const_cast< ::Indriya::Core::Msgs::Time*>(&::Indriya::Core::Msgs::Time::default_instance());
+  scan_ = const_cast< ::Indriya::Core::Msgs::LaserScan*>(&::Indriya::Core::Msgs::LaserScan::default_instance());
 }
 
 LaserScanStamped::LaserScanStamped(const LaserScanStamped& from)
@@ -134,7 +135,7 @@ LaserScanStamped::LaserScanStamped(const LaserScanStamped& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.LaserScanStamped)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.LaserScanStamped)
 }
 
 void LaserScanStamped::SharedCtor() {
@@ -145,7 +146,7 @@ void LaserScanStamped::SharedCtor() {
 }
 
 LaserScanStamped::~LaserScanStamped() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.LaserScanStamped)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.LaserScanStamped)
   SharedDtor();
 }
 
@@ -184,10 +185,10 @@ LaserScanStamped* LaserScanStamped::New(::google::protobuf::Arena* arena) const 
 void LaserScanStamped::Clear() {
   if (_has_bits_[0 / 32] & 3) {
     if (has_time()) {
-      if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+      if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
     }
     if (has_scan()) {
-      if (scan_ != NULL) scan_->::experimot::msgs::LaserScan::Clear();
+      if (scan_ != NULL) scan_->::Indriya::Core::Msgs::LaserScan::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -200,13 +201,13 @@ bool LaserScanStamped::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.LaserScanStamped)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.LaserScanStamped)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .experimot.msgs.Time time = 1;
+      // required .Indriya.Core.Msgs.Time time = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -218,7 +219,7 @@ bool LaserScanStamped::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.LaserScan scan = 2;
+      // required .Indriya.Core.Msgs.LaserScan scan = 2;
       case 2: {
         if (tag == 18) {
          parse_scan:
@@ -245,24 +246,24 @@ bool LaserScanStamped::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.LaserScanStamped)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.LaserScanStamped)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.LaserScanStamped)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.LaserScanStamped)
   return false;
 #undef DO_
 }
 
 void LaserScanStamped::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.LaserScanStamped)
-  // required .experimot.msgs.Time time = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.LaserScanStamped)
+  // required .Indriya.Core.Msgs.Time time = 1;
   if (has_time()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->time_, output);
   }
 
-  // required .experimot.msgs.LaserScan scan = 2;
+  // required .Indriya.Core.Msgs.LaserScan scan = 2;
   if (has_scan()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->scan_, output);
@@ -272,20 +273,20 @@ void LaserScanStamped::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.LaserScanStamped)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.LaserScanStamped)
 }
 
 ::google::protobuf::uint8* LaserScanStamped::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.LaserScanStamped)
-  // required .experimot.msgs.Time time = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.LaserScanStamped)
+  // required .Indriya.Core.Msgs.Time time = 1;
   if (has_time()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, *this->time_, target);
   }
 
-  // required .experimot.msgs.LaserScan scan = 2;
+  // required .Indriya.Core.Msgs.LaserScan scan = 2;
   if (has_scan()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -296,7 +297,7 @@ void LaserScanStamped::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.LaserScanStamped)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.LaserScanStamped)
   return target;
 }
 
@@ -304,14 +305,14 @@ int LaserScanStamped::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
   if (has_time()) {
-    // required .experimot.msgs.Time time = 1;
+    // required .Indriya.Core.Msgs.Time time = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->time_);
   }
 
   if (has_scan()) {
-    // required .experimot.msgs.LaserScan scan = 2;
+    // required .Indriya.Core.Msgs.LaserScan scan = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->scan_);
@@ -323,12 +324,12 @@ int LaserScanStamped::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required .experimot.msgs.Time time = 1;
+    // required .Indriya.Core.Msgs.Time time = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->time_);
 
-    // required .experimot.msgs.LaserScan scan = 2;
+    // required .Indriya.Core.Msgs.LaserScan scan = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->scan_);
@@ -363,10 +364,10 @@ void LaserScanStamped::MergeFrom(const LaserScanStamped& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_time()) {
-      mutable_time()->::experimot::msgs::Time::MergeFrom(from.time());
+      mutable_time()->::Indriya::Core::Msgs::Time::MergeFrom(from.time());
     }
     if (from.has_scan()) {
-      mutable_scan()->::experimot::msgs::LaserScan::MergeFrom(from.scan());
+      mutable_scan()->::Indriya::Core::Msgs::LaserScan::MergeFrom(from.scan());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -421,7 +422,7 @@ void LaserScanStamped::InternalSwap(LaserScanStamped* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // LaserScanStamped
 
-// required .experimot.msgs.Time time = 1;
+// required .Indriya.Core.Msgs.Time time = 1;
  bool LaserScanStamped::has_time() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -432,28 +433,28 @@ void LaserScanStamped::InternalSwap(LaserScanStamped* other) {
   _has_bits_[0] &= ~0x00000001u;
 }
  void LaserScanStamped::clear_time() {
-  if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+  if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_time();
 }
- const ::experimot::msgs::Time& LaserScanStamped::time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LaserScanStamped.time)
+ const ::Indriya::Core::Msgs::Time& LaserScanStamped::time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LaserScanStamped.time)
   return time_ != NULL ? *time_ : *default_instance_->time_;
 }
- ::experimot::msgs::Time* LaserScanStamped::mutable_time() {
+ ::Indriya::Core::Msgs::Time* LaserScanStamped::mutable_time() {
   set_has_time();
   if (time_ == NULL) {
-    time_ = new ::experimot::msgs::Time;
+    time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LaserScanStamped.time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LaserScanStamped.time)
   return time_;
 }
- ::experimot::msgs::Time* LaserScanStamped::release_time() {
+ ::Indriya::Core::Msgs::Time* LaserScanStamped::release_time() {
   clear_has_time();
-  ::experimot::msgs::Time* temp = time_;
+  ::Indriya::Core::Msgs::Time* temp = time_;
   time_ = NULL;
   return temp;
 }
- void LaserScanStamped::set_allocated_time(::experimot::msgs::Time* time) {
+ void LaserScanStamped::set_allocated_time(::Indriya::Core::Msgs::Time* time) {
   delete time_;
   time_ = time;
   if (time) {
@@ -461,10 +462,10 @@ void LaserScanStamped::InternalSwap(LaserScanStamped* other) {
   } else {
     clear_has_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LaserScanStamped.time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LaserScanStamped.time)
 }
 
-// required .experimot.msgs.LaserScan scan = 2;
+// required .Indriya.Core.Msgs.LaserScan scan = 2;
  bool LaserScanStamped::has_scan() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -475,28 +476,28 @@ void LaserScanStamped::InternalSwap(LaserScanStamped* other) {
   _has_bits_[0] &= ~0x00000002u;
 }
  void LaserScanStamped::clear_scan() {
-  if (scan_ != NULL) scan_->::experimot::msgs::LaserScan::Clear();
+  if (scan_ != NULL) scan_->::Indriya::Core::Msgs::LaserScan::Clear();
   clear_has_scan();
 }
- const ::experimot::msgs::LaserScan& LaserScanStamped::scan() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LaserScanStamped.scan)
+ const ::Indriya::Core::Msgs::LaserScan& LaserScanStamped::scan() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LaserScanStamped.scan)
   return scan_ != NULL ? *scan_ : *default_instance_->scan_;
 }
- ::experimot::msgs::LaserScan* LaserScanStamped::mutable_scan() {
+ ::Indriya::Core::Msgs::LaserScan* LaserScanStamped::mutable_scan() {
   set_has_scan();
   if (scan_ == NULL) {
-    scan_ = new ::experimot::msgs::LaserScan;
+    scan_ = new ::Indriya::Core::Msgs::LaserScan;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LaserScanStamped.scan)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LaserScanStamped.scan)
   return scan_;
 }
- ::experimot::msgs::LaserScan* LaserScanStamped::release_scan() {
+ ::Indriya::Core::Msgs::LaserScan* LaserScanStamped::release_scan() {
   clear_has_scan();
-  ::experimot::msgs::LaserScan* temp = scan_;
+  ::Indriya::Core::Msgs::LaserScan* temp = scan_;
   scan_ = NULL;
   return temp;
 }
- void LaserScanStamped::set_allocated_scan(::experimot::msgs::LaserScan* scan) {
+ void LaserScanStamped::set_allocated_scan(::Indriya::Core::Msgs::LaserScan* scan) {
   delete scan_;
   scan_ = scan;
   if (scan) {
@@ -504,15 +505,16 @@ void LaserScanStamped::InternalSwap(LaserScanStamped* other) {
   } else {
     clear_has_scan();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LaserScanStamped.scan)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LaserScanStamped.scan)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.LaserScanStamped", LaserScanStamped)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.LaserScanStamped", LaserScanStamped)
 // @@protoc_insertion_point(global_scope)

@@ -34,8 +34,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_kinect_5fbody_2eproto();
@@ -453,52 +454,52 @@ class KinectBody : public ::google::protobuf::Message {
   ::google::protobuf::int32 jointcount() const;
   void set_jointcount(::google::protobuf::int32 value);
 
-  // repeated .experimot.msgs.KinectJoint Joints = 4;
+  // repeated .Indriya.Core.Msgs.KinectJoint Joints = 4;
   int joints_size() const;
   void clear_joints();
   static const int kJointsFieldNumber = 4;
-  const ::experimot::msgs::KinectJoint& joints(int index) const;
-  ::experimot::msgs::KinectJoint* mutable_joints(int index);
-  ::experimot::msgs::KinectJoint* add_joints();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::KinectJoint >&
+  const ::Indriya::Core::Msgs::KinectJoint& joints(int index) const;
+  ::Indriya::Core::Msgs::KinectJoint* mutable_joints(int index);
+  ::Indriya::Core::Msgs::KinectJoint* add_joints();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::KinectJoint >&
       joints() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::KinectJoint >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::KinectJoint >*
       mutable_joints();
 
-  // optional .experimot.msgs.KinectBody.FrameEdges ClippedEdges = 5;
+  // optional .Indriya.Core.Msgs.KinectBody.FrameEdges ClippedEdges = 5;
   bool has_clippededges() const;
   void clear_clippededges();
   static const int kClippedEdgesFieldNumber = 5;
-  ::experimot::msgs::KinectBody_FrameEdges clippededges() const;
-  void set_clippededges(::experimot::msgs::KinectBody_FrameEdges value);
+  ::Indriya::Core::Msgs::KinectBody_FrameEdges clippededges() const;
+  void set_clippededges(::Indriya::Core::Msgs::KinectBody_FrameEdges value);
 
-  // optional .experimot.msgs.KinectBody.TrackingConfidence HandLeftConfidence = 6;
+  // optional .Indriya.Core.Msgs.KinectBody.TrackingConfidence HandLeftConfidence = 6;
   bool has_handleftconfidence() const;
   void clear_handleftconfidence();
   static const int kHandLeftConfidenceFieldNumber = 6;
-  ::experimot::msgs::KinectBody_TrackingConfidence handleftconfidence() const;
-  void set_handleftconfidence(::experimot::msgs::KinectBody_TrackingConfidence value);
+  ::Indriya::Core::Msgs::KinectBody_TrackingConfidence handleftconfidence() const;
+  void set_handleftconfidence(::Indriya::Core::Msgs::KinectBody_TrackingConfidence value);
 
-  // optional .experimot.msgs.KinectBody.HandState HandLeftState = 7;
+  // optional .Indriya.Core.Msgs.KinectBody.HandState HandLeftState = 7;
   bool has_handleftstate() const;
   void clear_handleftstate();
   static const int kHandLeftStateFieldNumber = 7;
-  ::experimot::msgs::KinectBody_HandState handleftstate() const;
-  void set_handleftstate(::experimot::msgs::KinectBody_HandState value);
+  ::Indriya::Core::Msgs::KinectBody_HandState handleftstate() const;
+  void set_handleftstate(::Indriya::Core::Msgs::KinectBody_HandState value);
 
-  // optional .experimot.msgs.KinectBody.TrackingConfidence HandRightConfidence = 8;
+  // optional .Indriya.Core.Msgs.KinectBody.TrackingConfidence HandRightConfidence = 8;
   bool has_handrightconfidence() const;
   void clear_handrightconfidence();
   static const int kHandRightConfidenceFieldNumber = 8;
-  ::experimot::msgs::KinectBody_TrackingConfidence handrightconfidence() const;
-  void set_handrightconfidence(::experimot::msgs::KinectBody_TrackingConfidence value);
+  ::Indriya::Core::Msgs::KinectBody_TrackingConfidence handrightconfidence() const;
+  void set_handrightconfidence(::Indriya::Core::Msgs::KinectBody_TrackingConfidence value);
 
-  // optional .experimot.msgs.KinectBody.HandState HandRightState = 9;
+  // optional .Indriya.Core.Msgs.KinectBody.HandState HandRightState = 9;
   bool has_handrightstate() const;
   void clear_handrightstate();
   static const int kHandRightStateFieldNumber = 9;
-  ::experimot::msgs::KinectBody_HandState handrightstate() const;
-  void set_handrightstate(::experimot::msgs::KinectBody_HandState value);
+  ::Indriya::Core::Msgs::KinectBody_HandState handrightstate() const;
+  void set_handrightstate(::Indriya::Core::Msgs::KinectBody_HandState value);
 
   // optional bool IsRestricted = 10;
   bool has_isrestricted() const;
@@ -507,14 +508,14 @@ class KinectBody : public ::google::protobuf::Message {
   bool isrestricted() const;
   void set_isrestricted(bool value);
 
-  // optional .experimot.msgs.Vector2d Lean = 11;
+  // optional .Indriya.Core.Msgs.Vector2d Lean = 11;
   bool has_lean() const;
   void clear_lean();
   static const int kLeanFieldNumber = 11;
-  const ::experimot::msgs::Vector2d& lean() const;
-  ::experimot::msgs::Vector2d* mutable_lean();
-  ::experimot::msgs::Vector2d* release_lean();
-  void set_allocated_lean(::experimot::msgs::Vector2d* lean);
+  const ::Indriya::Core::Msgs::Vector2d& lean() const;
+  ::Indriya::Core::Msgs::Vector2d* mutable_lean();
+  ::Indriya::Core::Msgs::Vector2d* release_lean();
+  void set_allocated_lean(::Indriya::Core::Msgs::Vector2d* lean);
 
   // optional int32 LeanTrackingState = 12;
   bool has_leantrackingstate() const;
@@ -523,7 +524,7 @@ class KinectBody : public ::google::protobuf::Message {
   ::google::protobuf::int32 leantrackingstate() const;
   void set_leantrackingstate(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.KinectBody)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.KinectBody)
  private:
   inline void set_has_trackingid();
   inline void clear_has_trackingid();
@@ -556,7 +557,7 @@ class KinectBody : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::int32 trackingid_;
   ::google::protobuf::int32 jointcount_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::KinectJoint > joints_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::KinectJoint > joints_;
   int clippededges_;
   int handleftconfidence_;
   bool istracked_;
@@ -564,7 +565,7 @@ class KinectBody : public ::google::protobuf::Message {
   int handleftstate_;
   int handrightconfidence_;
   int handrightstate_;
-  ::experimot::msgs::Vector2d* lean_;
+  ::Indriya::Core::Msgs::Vector2d* lean_;
   ::google::protobuf::int32 leantrackingstate_;
   friend void  protobuf_AddDesc_kinect_5fbody_2eproto();
   friend void protobuf_AssignDesc_kinect_5fbody_2eproto();
@@ -639,25 +640,25 @@ class KinectBodies : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .experimot.msgs.KinectBody Body = 1;
+  // repeated .Indriya.Core.Msgs.KinectBody Body = 1;
   int body_size() const;
   void clear_body();
   static const int kBodyFieldNumber = 1;
-  const ::experimot::msgs::KinectBody& body(int index) const;
-  ::experimot::msgs::KinectBody* mutable_body(int index);
-  ::experimot::msgs::KinectBody* add_body();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::KinectBody >&
+  const ::Indriya::Core::Msgs::KinectBody& body(int index) const;
+  ::Indriya::Core::Msgs::KinectBody* mutable_body(int index);
+  ::Indriya::Core::Msgs::KinectBody* add_body();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::KinectBody >&
       body() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::KinectBody >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::KinectBody >*
       mutable_body();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.KinectBodies)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.KinectBodies)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::KinectBody > body_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::KinectBody > body_;
   friend void  protobuf_AddDesc_kinect_5fbody_2eproto();
   friend void protobuf_AssignDesc_kinect_5fbody_2eproto();
   friend void protobuf_ShutdownFile_kinect_5fbody_2eproto();
@@ -688,13 +689,13 @@ inline void KinectBody::clear_trackingid() {
   clear_has_trackingid();
 }
 inline ::google::protobuf::int32 KinectBody::trackingid() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectBody.TrackingId)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectBody.TrackingId)
   return trackingid_;
 }
 inline void KinectBody::set_trackingid(::google::protobuf::int32 value) {
   set_has_trackingid();
   trackingid_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.TrackingId)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.KinectBody.TrackingId)
 }
 
 // required bool IsTracked = 2;
@@ -712,13 +713,13 @@ inline void KinectBody::clear_istracked() {
   clear_has_istracked();
 }
 inline bool KinectBody::istracked() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectBody.IsTracked)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectBody.IsTracked)
   return istracked_;
 }
 inline void KinectBody::set_istracked(bool value) {
   set_has_istracked();
   istracked_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.IsTracked)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.KinectBody.IsTracked)
 }
 
 // required int32 JointCount = 3;
@@ -736,46 +737,46 @@ inline void KinectBody::clear_jointcount() {
   clear_has_jointcount();
 }
 inline ::google::protobuf::int32 KinectBody::jointcount() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectBody.JointCount)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectBody.JointCount)
   return jointcount_;
 }
 inline void KinectBody::set_jointcount(::google::protobuf::int32 value) {
   set_has_jointcount();
   jointcount_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.JointCount)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.KinectBody.JointCount)
 }
 
-// repeated .experimot.msgs.KinectJoint Joints = 4;
+// repeated .Indriya.Core.Msgs.KinectJoint Joints = 4;
 inline int KinectBody::joints_size() const {
   return joints_.size();
 }
 inline void KinectBody::clear_joints() {
   joints_.Clear();
 }
-inline const ::experimot::msgs::KinectJoint& KinectBody::joints(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectBody.Joints)
+inline const ::Indriya::Core::Msgs::KinectJoint& KinectBody::joints(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectBody.Joints)
   return joints_.Get(index);
 }
-inline ::experimot::msgs::KinectJoint* KinectBody::mutable_joints(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.KinectBody.Joints)
+inline ::Indriya::Core::Msgs::KinectJoint* KinectBody::mutable_joints(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.KinectBody.Joints)
   return joints_.Mutable(index);
 }
-inline ::experimot::msgs::KinectJoint* KinectBody::add_joints() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.KinectBody.Joints)
+inline ::Indriya::Core::Msgs::KinectJoint* KinectBody::add_joints() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.KinectBody.Joints)
   return joints_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::KinectJoint >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::KinectJoint >&
 KinectBody::joints() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.KinectBody.Joints)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.KinectBody.Joints)
   return joints_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::KinectJoint >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::KinectJoint >*
 KinectBody::mutable_joints() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.KinectBody.Joints)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.KinectBody.Joints)
   return &joints_;
 }
 
-// optional .experimot.msgs.KinectBody.FrameEdges ClippedEdges = 5;
+// optional .Indriya.Core.Msgs.KinectBody.FrameEdges ClippedEdges = 5;
 inline bool KinectBody::has_clippededges() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -789,18 +790,18 @@ inline void KinectBody::clear_clippededges() {
   clippededges_ = 0;
   clear_has_clippededges();
 }
-inline ::experimot::msgs::KinectBody_FrameEdges KinectBody::clippededges() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectBody.ClippedEdges)
-  return static_cast< ::experimot::msgs::KinectBody_FrameEdges >(clippededges_);
+inline ::Indriya::Core::Msgs::KinectBody_FrameEdges KinectBody::clippededges() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectBody.ClippedEdges)
+  return static_cast< ::Indriya::Core::Msgs::KinectBody_FrameEdges >(clippededges_);
 }
-inline void KinectBody::set_clippededges(::experimot::msgs::KinectBody_FrameEdges value) {
-  assert(::experimot::msgs::KinectBody_FrameEdges_IsValid(value));
+inline void KinectBody::set_clippededges(::Indriya::Core::Msgs::KinectBody_FrameEdges value) {
+  assert(::Indriya::Core::Msgs::KinectBody_FrameEdges_IsValid(value));
   set_has_clippededges();
   clippededges_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.ClippedEdges)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.KinectBody.ClippedEdges)
 }
 
-// optional .experimot.msgs.KinectBody.TrackingConfidence HandLeftConfidence = 6;
+// optional .Indriya.Core.Msgs.KinectBody.TrackingConfidence HandLeftConfidence = 6;
 inline bool KinectBody::has_handleftconfidence() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -814,18 +815,18 @@ inline void KinectBody::clear_handleftconfidence() {
   handleftconfidence_ = 0;
   clear_has_handleftconfidence();
 }
-inline ::experimot::msgs::KinectBody_TrackingConfidence KinectBody::handleftconfidence() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectBody.HandLeftConfidence)
-  return static_cast< ::experimot::msgs::KinectBody_TrackingConfidence >(handleftconfidence_);
+inline ::Indriya::Core::Msgs::KinectBody_TrackingConfidence KinectBody::handleftconfidence() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectBody.HandLeftConfidence)
+  return static_cast< ::Indriya::Core::Msgs::KinectBody_TrackingConfidence >(handleftconfidence_);
 }
-inline void KinectBody::set_handleftconfidence(::experimot::msgs::KinectBody_TrackingConfidence value) {
-  assert(::experimot::msgs::KinectBody_TrackingConfidence_IsValid(value));
+inline void KinectBody::set_handleftconfidence(::Indriya::Core::Msgs::KinectBody_TrackingConfidence value) {
+  assert(::Indriya::Core::Msgs::KinectBody_TrackingConfidence_IsValid(value));
   set_has_handleftconfidence();
   handleftconfidence_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.HandLeftConfidence)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.KinectBody.HandLeftConfidence)
 }
 
-// optional .experimot.msgs.KinectBody.HandState HandLeftState = 7;
+// optional .Indriya.Core.Msgs.KinectBody.HandState HandLeftState = 7;
 inline bool KinectBody::has_handleftstate() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -839,18 +840,18 @@ inline void KinectBody::clear_handleftstate() {
   handleftstate_ = 0;
   clear_has_handleftstate();
 }
-inline ::experimot::msgs::KinectBody_HandState KinectBody::handleftstate() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectBody.HandLeftState)
-  return static_cast< ::experimot::msgs::KinectBody_HandState >(handleftstate_);
+inline ::Indriya::Core::Msgs::KinectBody_HandState KinectBody::handleftstate() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectBody.HandLeftState)
+  return static_cast< ::Indriya::Core::Msgs::KinectBody_HandState >(handleftstate_);
 }
-inline void KinectBody::set_handleftstate(::experimot::msgs::KinectBody_HandState value) {
-  assert(::experimot::msgs::KinectBody_HandState_IsValid(value));
+inline void KinectBody::set_handleftstate(::Indriya::Core::Msgs::KinectBody_HandState value) {
+  assert(::Indriya::Core::Msgs::KinectBody_HandState_IsValid(value));
   set_has_handleftstate();
   handleftstate_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.HandLeftState)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.KinectBody.HandLeftState)
 }
 
-// optional .experimot.msgs.KinectBody.TrackingConfidence HandRightConfidence = 8;
+// optional .Indriya.Core.Msgs.KinectBody.TrackingConfidence HandRightConfidence = 8;
 inline bool KinectBody::has_handrightconfidence() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -864,18 +865,18 @@ inline void KinectBody::clear_handrightconfidence() {
   handrightconfidence_ = 0;
   clear_has_handrightconfidence();
 }
-inline ::experimot::msgs::KinectBody_TrackingConfidence KinectBody::handrightconfidence() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectBody.HandRightConfidence)
-  return static_cast< ::experimot::msgs::KinectBody_TrackingConfidence >(handrightconfidence_);
+inline ::Indriya::Core::Msgs::KinectBody_TrackingConfidence KinectBody::handrightconfidence() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectBody.HandRightConfidence)
+  return static_cast< ::Indriya::Core::Msgs::KinectBody_TrackingConfidence >(handrightconfidence_);
 }
-inline void KinectBody::set_handrightconfidence(::experimot::msgs::KinectBody_TrackingConfidence value) {
-  assert(::experimot::msgs::KinectBody_TrackingConfidence_IsValid(value));
+inline void KinectBody::set_handrightconfidence(::Indriya::Core::Msgs::KinectBody_TrackingConfidence value) {
+  assert(::Indriya::Core::Msgs::KinectBody_TrackingConfidence_IsValid(value));
   set_has_handrightconfidence();
   handrightconfidence_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.HandRightConfidence)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.KinectBody.HandRightConfidence)
 }
 
-// optional .experimot.msgs.KinectBody.HandState HandRightState = 9;
+// optional .Indriya.Core.Msgs.KinectBody.HandState HandRightState = 9;
 inline bool KinectBody::has_handrightstate() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -889,15 +890,15 @@ inline void KinectBody::clear_handrightstate() {
   handrightstate_ = 0;
   clear_has_handrightstate();
 }
-inline ::experimot::msgs::KinectBody_HandState KinectBody::handrightstate() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectBody.HandRightState)
-  return static_cast< ::experimot::msgs::KinectBody_HandState >(handrightstate_);
+inline ::Indriya::Core::Msgs::KinectBody_HandState KinectBody::handrightstate() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectBody.HandRightState)
+  return static_cast< ::Indriya::Core::Msgs::KinectBody_HandState >(handrightstate_);
 }
-inline void KinectBody::set_handrightstate(::experimot::msgs::KinectBody_HandState value) {
-  assert(::experimot::msgs::KinectBody_HandState_IsValid(value));
+inline void KinectBody::set_handrightstate(::Indriya::Core::Msgs::KinectBody_HandState value) {
+  assert(::Indriya::Core::Msgs::KinectBody_HandState_IsValid(value));
   set_has_handrightstate();
   handrightstate_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.HandRightState)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.KinectBody.HandRightState)
 }
 
 // optional bool IsRestricted = 10;
@@ -915,16 +916,16 @@ inline void KinectBody::clear_isrestricted() {
   clear_has_isrestricted();
 }
 inline bool KinectBody::isrestricted() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectBody.IsRestricted)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectBody.IsRestricted)
   return isrestricted_;
 }
 inline void KinectBody::set_isrestricted(bool value) {
   set_has_isrestricted();
   isrestricted_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.IsRestricted)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.KinectBody.IsRestricted)
 }
 
-// optional .experimot.msgs.Vector2d Lean = 11;
+// optional .Indriya.Core.Msgs.Vector2d Lean = 11;
 inline bool KinectBody::has_lean() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -935,28 +936,28 @@ inline void KinectBody::clear_has_lean() {
   _has_bits_[0] &= ~0x00000400u;
 }
 inline void KinectBody::clear_lean() {
-  if (lean_ != NULL) lean_->::experimot::msgs::Vector2d::Clear();
+  if (lean_ != NULL) lean_->::Indriya::Core::Msgs::Vector2d::Clear();
   clear_has_lean();
 }
-inline const ::experimot::msgs::Vector2d& KinectBody::lean() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectBody.Lean)
+inline const ::Indriya::Core::Msgs::Vector2d& KinectBody::lean() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectBody.Lean)
   return lean_ != NULL ? *lean_ : *default_instance_->lean_;
 }
-inline ::experimot::msgs::Vector2d* KinectBody::mutable_lean() {
+inline ::Indriya::Core::Msgs::Vector2d* KinectBody::mutable_lean() {
   set_has_lean();
   if (lean_ == NULL) {
-    lean_ = new ::experimot::msgs::Vector2d;
+    lean_ = new ::Indriya::Core::Msgs::Vector2d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.KinectBody.Lean)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.KinectBody.Lean)
   return lean_;
 }
-inline ::experimot::msgs::Vector2d* KinectBody::release_lean() {
+inline ::Indriya::Core::Msgs::Vector2d* KinectBody::release_lean() {
   clear_has_lean();
-  ::experimot::msgs::Vector2d* temp = lean_;
+  ::Indriya::Core::Msgs::Vector2d* temp = lean_;
   lean_ = NULL;
   return temp;
 }
-inline void KinectBody::set_allocated_lean(::experimot::msgs::Vector2d* lean) {
+inline void KinectBody::set_allocated_lean(::Indriya::Core::Msgs::Vector2d* lean) {
   delete lean_;
   lean_ = lean;
   if (lean) {
@@ -964,7 +965,7 @@ inline void KinectBody::set_allocated_lean(::experimot::msgs::Vector2d* lean) {
   } else {
     clear_has_lean();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.KinectBody.Lean)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.KinectBody.Lean)
 }
 
 // optional int32 LeanTrackingState = 12;
@@ -982,102 +983,103 @@ inline void KinectBody::clear_leantrackingstate() {
   clear_has_leantrackingstate();
 }
 inline ::google::protobuf::int32 KinectBody::leantrackingstate() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectBody.LeanTrackingState)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectBody.LeanTrackingState)
   return leantrackingstate_;
 }
 inline void KinectBody::set_leantrackingstate(::google::protobuf::int32 value) {
   set_has_leantrackingstate();
   leantrackingstate_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.KinectBody.LeanTrackingState)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.KinectBody.LeanTrackingState)
 }
 
 // -------------------------------------------------------------------
 
 // KinectBodies
 
-// repeated .experimot.msgs.KinectBody Body = 1;
+// repeated .Indriya.Core.Msgs.KinectBody Body = 1;
 inline int KinectBodies::body_size() const {
   return body_.size();
 }
 inline void KinectBodies::clear_body() {
   body_.Clear();
 }
-inline const ::experimot::msgs::KinectBody& KinectBodies::body(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectBodies.Body)
+inline const ::Indriya::Core::Msgs::KinectBody& KinectBodies::body(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectBodies.Body)
   return body_.Get(index);
 }
-inline ::experimot::msgs::KinectBody* KinectBodies::mutable_body(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.KinectBodies.Body)
+inline ::Indriya::Core::Msgs::KinectBody* KinectBodies::mutable_body(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.KinectBodies.Body)
   return body_.Mutable(index);
 }
-inline ::experimot::msgs::KinectBody* KinectBodies::add_body() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.KinectBodies.Body)
+inline ::Indriya::Core::Msgs::KinectBody* KinectBodies::add_body() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.KinectBodies.Body)
   return body_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::KinectBody >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::KinectBody >&
 KinectBodies::body() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.KinectBodies.Body)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.KinectBodies.Body)
   return body_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::KinectBody >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::KinectBody >*
 KinectBodies::mutable_body() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.KinectBodies.Body)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.KinectBodies.Body)
   return &body_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::KinectBody> KinectBodyPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::KinectBody> KinectBodyPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::experimot::msgs::KinectBody_Activity> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Indriya::Core::Msgs::KinectBody_Activity> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::KinectBody_Activity>() {
-  return ::experimot::msgs::KinectBody_Activity_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Indriya::Core::Msgs::KinectBody_Activity>() {
+  return ::Indriya::Core::Msgs::KinectBody_Activity_descriptor();
 }
-template <> struct is_proto_enum< ::experimot::msgs::KinectBody_Appearance> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Indriya::Core::Msgs::KinectBody_Appearance> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::KinectBody_Appearance>() {
-  return ::experimot::msgs::KinectBody_Appearance_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Indriya::Core::Msgs::KinectBody_Appearance>() {
+  return ::Indriya::Core::Msgs::KinectBody_Appearance_descriptor();
 }
-template <> struct is_proto_enum< ::experimot::msgs::KinectBody_DetectionResult> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Indriya::Core::Msgs::KinectBody_DetectionResult> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::KinectBody_DetectionResult>() {
-  return ::experimot::msgs::KinectBody_DetectionResult_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Indriya::Core::Msgs::KinectBody_DetectionResult>() {
+  return ::Indriya::Core::Msgs::KinectBody_DetectionResult_descriptor();
 }
-template <> struct is_proto_enum< ::experimot::msgs::KinectBody_FrameEdges> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Indriya::Core::Msgs::KinectBody_FrameEdges> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::KinectBody_FrameEdges>() {
-  return ::experimot::msgs::KinectBody_FrameEdges_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Indriya::Core::Msgs::KinectBody_FrameEdges>() {
+  return ::Indriya::Core::Msgs::KinectBody_FrameEdges_descriptor();
 }
-template <> struct is_proto_enum< ::experimot::msgs::KinectBody_Expression> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Indriya::Core::Msgs::KinectBody_Expression> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::KinectBody_Expression>() {
-  return ::experimot::msgs::KinectBody_Expression_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Indriya::Core::Msgs::KinectBody_Expression>() {
+  return ::Indriya::Core::Msgs::KinectBody_Expression_descriptor();
 }
-template <> struct is_proto_enum< ::experimot::msgs::KinectBody_TrackingConfidence> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Indriya::Core::Msgs::KinectBody_TrackingConfidence> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::KinectBody_TrackingConfidence>() {
-  return ::experimot::msgs::KinectBody_TrackingConfidence_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Indriya::Core::Msgs::KinectBody_TrackingConfidence>() {
+  return ::Indriya::Core::Msgs::KinectBody_TrackingConfidence_descriptor();
 }
-template <> struct is_proto_enum< ::experimot::msgs::KinectBody_HandState> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Indriya::Core::Msgs::KinectBody_HandState> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::KinectBody_HandState>() {
-  return ::experimot::msgs::KinectBody_HandState_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Indriya::Core::Msgs::KinectBody_HandState>() {
+  return ::Indriya::Core::Msgs::KinectBody_HandState_descriptor();
 }
 
 }  // namespace protobuf
 }  // namespace google
 #endif  // SWIG
 
-typedef const boost::shared_ptr<experimot::msgs::KinectBody const> ConstKinectBodyPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::KinectBody const> ConstKinectBodyPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_kinect_5fbody_2eproto__INCLUDED

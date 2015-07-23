@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_cylindergeom_2eproto();
@@ -121,7 +122,7 @@ class CylinderGeom : public ::google::protobuf::Message {
   double length() const;
   void set_length(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.CylinderGeom)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.CylinderGeom)
  private:
   inline void set_has_radius();
   inline void clear_has_radius();
@@ -166,13 +167,13 @@ inline void CylinderGeom::clear_radius() {
   clear_has_radius();
 }
 inline double CylinderGeom::radius() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.CylinderGeom.radius)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.CylinderGeom.radius)
   return radius_;
 }
 inline void CylinderGeom::set_radius(double value) {
   set_has_radius();
   radius_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.CylinderGeom.radius)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.CylinderGeom.radius)
 }
 
 // required double length = 2;
@@ -190,24 +191,25 @@ inline void CylinderGeom::clear_length() {
   clear_has_length();
 }
 inline double CylinderGeom::length() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.CylinderGeom.length)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.CylinderGeom.length)
   return length_;
 }
 inline void CylinderGeom::set_length(double value) {
   set_has_length();
   length_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.CylinderGeom.length)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.CylinderGeom.length)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::CylinderGeom> CylinderGeomPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::CylinderGeom> CylinderGeomPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::CylinderGeom const> ConstCylinderGeomPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::CylinderGeom const> ConstCylinderGeomPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_cylindergeom_2eproto__INCLUDED

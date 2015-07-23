@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_spherical_5fcoordinates_2eproto();
@@ -149,12 +150,12 @@ class SphericalCoordinates : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .experimot.msgs.SphericalCoordinates.SurfaceModel surface_model = 1;
+  // required .Indriya.Core.Msgs.SphericalCoordinates.SurfaceModel surface_model = 1;
   bool has_surface_model() const;
   void clear_surface_model();
   static const int kSurfaceModelFieldNumber = 1;
-  ::experimot::msgs::SphericalCoordinates_SurfaceModel surface_model() const;
-  void set_surface_model(::experimot::msgs::SphericalCoordinates_SurfaceModel value);
+  ::Indriya::Core::Msgs::SphericalCoordinates_SurfaceModel surface_model() const;
+  void set_surface_model(::Indriya::Core::Msgs::SphericalCoordinates_SurfaceModel value);
 
   // required double latitude_deg = 2;
   bool has_latitude_deg() const;
@@ -184,7 +185,7 @@ class SphericalCoordinates : public ::google::protobuf::Message {
   double heading_deg() const;
   void set_heading_deg(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.SphericalCoordinates)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.SphericalCoordinates)
  private:
   inline void set_has_surface_model();
   inline void clear_has_surface_model();
@@ -223,7 +224,7 @@ class SphericalCoordinates : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // SphericalCoordinates
 
-// required .experimot.msgs.SphericalCoordinates.SurfaceModel surface_model = 1;
+// required .Indriya.Core.Msgs.SphericalCoordinates.SurfaceModel surface_model = 1;
 inline bool SphericalCoordinates::has_surface_model() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -237,15 +238,15 @@ inline void SphericalCoordinates::clear_surface_model() {
   surface_model_ = 1;
   clear_has_surface_model();
 }
-inline ::experimot::msgs::SphericalCoordinates_SurfaceModel SphericalCoordinates::surface_model() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.SphericalCoordinates.surface_model)
-  return static_cast< ::experimot::msgs::SphericalCoordinates_SurfaceModel >(surface_model_);
+inline ::Indriya::Core::Msgs::SphericalCoordinates_SurfaceModel SphericalCoordinates::surface_model() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.SphericalCoordinates.surface_model)
+  return static_cast< ::Indriya::Core::Msgs::SphericalCoordinates_SurfaceModel >(surface_model_);
 }
-inline void SphericalCoordinates::set_surface_model(::experimot::msgs::SphericalCoordinates_SurfaceModel value) {
-  assert(::experimot::msgs::SphericalCoordinates_SurfaceModel_IsValid(value));
+inline void SphericalCoordinates::set_surface_model(::Indriya::Core::Msgs::SphericalCoordinates_SurfaceModel value) {
+  assert(::Indriya::Core::Msgs::SphericalCoordinates_SurfaceModel_IsValid(value));
   set_has_surface_model();
   surface_model_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.SphericalCoordinates.surface_model)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.SphericalCoordinates.surface_model)
 }
 
 // required double latitude_deg = 2;
@@ -263,13 +264,13 @@ inline void SphericalCoordinates::clear_latitude_deg() {
   clear_has_latitude_deg();
 }
 inline double SphericalCoordinates::latitude_deg() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.SphericalCoordinates.latitude_deg)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.SphericalCoordinates.latitude_deg)
   return latitude_deg_;
 }
 inline void SphericalCoordinates::set_latitude_deg(double value) {
   set_has_latitude_deg();
   latitude_deg_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.SphericalCoordinates.latitude_deg)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.SphericalCoordinates.latitude_deg)
 }
 
 // required double longitude_deg = 3;
@@ -287,13 +288,13 @@ inline void SphericalCoordinates::clear_longitude_deg() {
   clear_has_longitude_deg();
 }
 inline double SphericalCoordinates::longitude_deg() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.SphericalCoordinates.longitude_deg)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.SphericalCoordinates.longitude_deg)
   return longitude_deg_;
 }
 inline void SphericalCoordinates::set_longitude_deg(double value) {
   set_has_longitude_deg();
   longitude_deg_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.SphericalCoordinates.longitude_deg)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.SphericalCoordinates.longitude_deg)
 }
 
 // required double elevation = 4;
@@ -311,13 +312,13 @@ inline void SphericalCoordinates::clear_elevation() {
   clear_has_elevation();
 }
 inline double SphericalCoordinates::elevation() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.SphericalCoordinates.elevation)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.SphericalCoordinates.elevation)
   return elevation_;
 }
 inline void SphericalCoordinates::set_elevation(double value) {
   set_has_elevation();
   elevation_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.SphericalCoordinates.elevation)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.SphericalCoordinates.elevation)
 }
 
 // required double heading_deg = 5;
@@ -335,38 +336,39 @@ inline void SphericalCoordinates::clear_heading_deg() {
   clear_has_heading_deg();
 }
 inline double SphericalCoordinates::heading_deg() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.SphericalCoordinates.heading_deg)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.SphericalCoordinates.heading_deg)
   return heading_deg_;
 }
 inline void SphericalCoordinates::set_heading_deg(double value) {
   set_has_heading_deg();
   heading_deg_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.SphericalCoordinates.heading_deg)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.SphericalCoordinates.heading_deg)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::SphericalCoordinates> SphericalCoordinatesPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::SphericalCoordinates> SphericalCoordinatesPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::experimot::msgs::SphericalCoordinates_SurfaceModel> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Indriya::Core::Msgs::SphericalCoordinates_SurfaceModel> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::SphericalCoordinates_SurfaceModel>() {
-  return ::experimot::msgs::SphericalCoordinates_SurfaceModel_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Indriya::Core::Msgs::SphericalCoordinates_SurfaceModel>() {
+  return ::Indriya::Core::Msgs::SphericalCoordinates_SurfaceModel_descriptor();
 }
 
 }  // namespace protobuf
 }  // namespace google
 #endif  // SWIG
 
-typedef const boost::shared_ptr<experimot::msgs::SphericalCoordinates const> ConstSphericalCoordinatesPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::SphericalCoordinates const> ConstSphericalCoordinatesPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_spherical_5fcoordinates_2eproto__INCLUDED

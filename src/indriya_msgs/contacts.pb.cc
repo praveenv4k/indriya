@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -79,13 +80,13 @@ void protobuf_AddDesc_contacts_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_contact_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_time_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_contact_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_time_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\016contacts.proto\022\016experimot.msgs\032\rcontac"
-    "t.proto\032\ntime.proto\"X\n\010Contacts\022(\n\007conta"
-    "ct\030\001 \003(\0132\027.experimot.msgs.Contact\022\"\n\004tim"
-    "e\030\002 \002(\0132\024.experimot.msgs.Time", 149);
+    "\n\016contacts.proto\022\021Indriya.Core.Msgs\032\rcon"
+    "tact.proto\032\ntime.proto\"^\n\010Contacts\022+\n\007co"
+    "ntact\030\001 \003(\0132\032.Indriya.Core.Msgs.Contact\022"
+    "%\n\004time\030\002 \002(\0132\027.Indriya.Core.Msgs.Time", 158);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "contacts.proto", &protobuf_RegisterTypes);
   Contacts::default_instance_ = new Contacts();
@@ -120,11 +121,11 @@ const int Contacts::kTimeFieldNumber;
 Contacts::Contacts()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Contacts)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Contacts)
 }
 
 void Contacts::InitAsDefaultInstance() {
-  time_ = const_cast< ::experimot::msgs::Time*>(&::experimot::msgs::Time::default_instance());
+  time_ = const_cast< ::Indriya::Core::Msgs::Time*>(&::Indriya::Core::Msgs::Time::default_instance());
 }
 
 Contacts::Contacts(const Contacts& from)
@@ -132,7 +133,7 @@ Contacts::Contacts(const Contacts& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Contacts)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Contacts)
 }
 
 void Contacts::SharedCtor() {
@@ -142,7 +143,7 @@ void Contacts::SharedCtor() {
 }
 
 Contacts::~Contacts() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Contacts)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Contacts)
   SharedDtor();
 }
 
@@ -179,7 +180,7 @@ Contacts* Contacts::New(::google::protobuf::Arena* arena) const {
 
 void Contacts::Clear() {
   if (has_time()) {
-    if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+    if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
   }
   contact_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -192,13 +193,13 @@ bool Contacts::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Contacts)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Contacts)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .experimot.msgs.Contact contact = 1;
+      // repeated .Indriya.Core.Msgs.Contact contact = 1;
       case 1: {
         if (tag == 10) {
          parse_contact:
@@ -212,7 +213,7 @@ bool Contacts::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Time time = 2;
+      // required .Indriya.Core.Msgs.Time time = 2;
       case 2: {
         if (tag == 18) {
          parse_time:
@@ -239,24 +240,24 @@ bool Contacts::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Contacts)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Contacts)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Contacts)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Contacts)
   return false;
 #undef DO_
 }
 
 void Contacts::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Contacts)
-  // repeated .experimot.msgs.Contact contact = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Contacts)
+  // repeated .Indriya.Core.Msgs.Contact contact = 1;
   for (unsigned int i = 0, n = this->contact_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->contact(i), output);
   }
 
-  // required .experimot.msgs.Time time = 2;
+  // required .Indriya.Core.Msgs.Time time = 2;
   if (has_time()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->time_, output);
@@ -266,20 +267,20 @@ void Contacts::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Contacts)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Contacts)
 }
 
 ::google::protobuf::uint8* Contacts::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Contacts)
-  // repeated .experimot.msgs.Contact contact = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Contacts)
+  // repeated .Indriya.Core.Msgs.Contact contact = 1;
   for (unsigned int i = 0, n = this->contact_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, this->contact(i), target);
   }
 
-  // required .experimot.msgs.Time time = 2;
+  // required .Indriya.Core.Msgs.Time time = 2;
   if (has_time()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -290,20 +291,20 @@ void Contacts::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Contacts)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Contacts)
   return target;
 }
 
 int Contacts::ByteSize() const {
   int total_size = 0;
 
-  // required .experimot.msgs.Time time = 2;
+  // required .Indriya.Core.Msgs.Time time = 2;
   if (has_time()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->time_);
   }
-  // repeated .experimot.msgs.Contact contact = 1;
+  // repeated .Indriya.Core.Msgs.Contact contact = 1;
   total_size += 1 * this->contact_size();
   for (int i = 0; i < this->contact_size(); i++) {
     total_size +=
@@ -339,7 +340,7 @@ void Contacts::MergeFrom(const Contacts& from) {
   contact_.MergeFrom(from.contact_);
   if (from._has_bits_[1 / 32] & (0xffu << (1 % 32))) {
     if (from.has_time()) {
-      mutable_time()->::experimot::msgs::Time::MergeFrom(from.time());
+      mutable_time()->::Indriya::Core::Msgs::Time::MergeFrom(from.time());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -392,37 +393,37 @@ void Contacts::InternalSwap(Contacts* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Contacts
 
-// repeated .experimot.msgs.Contact contact = 1;
+// repeated .Indriya.Core.Msgs.Contact contact = 1;
  int Contacts::contact_size() const {
   return contact_.size();
 }
  void Contacts::clear_contact() {
   contact_.Clear();
 }
- const ::experimot::msgs::Contact& Contacts::contact(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Contacts.contact)
+ const ::Indriya::Core::Msgs::Contact& Contacts::contact(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Contacts.contact)
   return contact_.Get(index);
 }
- ::experimot::msgs::Contact* Contacts::mutable_contact(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Contacts.contact)
+ ::Indriya::Core::Msgs::Contact* Contacts::mutable_contact(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Contacts.contact)
   return contact_.Mutable(index);
 }
- ::experimot::msgs::Contact* Contacts::add_contact() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Contacts.contact)
+ ::Indriya::Core::Msgs::Contact* Contacts::add_contact() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Contacts.contact)
   return contact_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Contact >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Contact >&
 Contacts::contact() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Contacts.contact)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Contacts.contact)
   return contact_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Contact >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Contact >*
 Contacts::mutable_contact() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Contacts.contact)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Contacts.contact)
   return &contact_;
 }
 
-// required .experimot.msgs.Time time = 2;
+// required .Indriya.Core.Msgs.Time time = 2;
  bool Contacts::has_time() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -433,28 +434,28 @@ Contacts::mutable_contact() {
   _has_bits_[0] &= ~0x00000002u;
 }
  void Contacts::clear_time() {
-  if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+  if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_time();
 }
- const ::experimot::msgs::Time& Contacts::time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Contacts.time)
+ const ::Indriya::Core::Msgs::Time& Contacts::time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Contacts.time)
   return time_ != NULL ? *time_ : *default_instance_->time_;
 }
- ::experimot::msgs::Time* Contacts::mutable_time() {
+ ::Indriya::Core::Msgs::Time* Contacts::mutable_time() {
   set_has_time();
   if (time_ == NULL) {
-    time_ = new ::experimot::msgs::Time;
+    time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Contacts.time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Contacts.time)
   return time_;
 }
- ::experimot::msgs::Time* Contacts::release_time() {
+ ::Indriya::Core::Msgs::Time* Contacts::release_time() {
   clear_has_time();
-  ::experimot::msgs::Time* temp = time_;
+  ::Indriya::Core::Msgs::Time* temp = time_;
   time_ = NULL;
   return temp;
 }
- void Contacts::set_allocated_time(::experimot::msgs::Time* time) {
+ void Contacts::set_allocated_time(::Indriya::Core::Msgs::Time* time) {
   delete time_;
   time_ = time;
   if (time) {
@@ -462,15 +463,16 @@ Contacts::mutable_contact() {
   } else {
     clear_has_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Contacts.time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Contacts.time)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Contacts", Contacts)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Contacts", Contacts)
 // @@protoc_insertion_point(global_scope)

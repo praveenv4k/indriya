@@ -19,9 +19,9 @@ import time_pb2 as time__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='link_data.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x0flink_data.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\x1a\ntime.proto\"\xa3\x01\n\x08LinkData\x12\"\n\x04time\x18\x01 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x31\n\x0flinear_velocity\x18\x03 \x01(\x0b\x32\x18.experimot.msgs.Vector3d\x12\x32\n\x10\x61ngular_velocity\x18\x04 \x01(\x0b\x32\x18.experimot.msgs.Vector3d')
+  serialized_pb=_b('\n\x0flink_data.proto\x12\x11Indriya.Core.Msgs\x1a\x0evector3d.proto\x1a\ntime.proto\"\xac\x01\n\x08LinkData\x12%\n\x04time\x18\x01 \x02(\x0b\x32\x17.Indriya.Core.Msgs.Time\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x34\n\x0flinear_velocity\x18\x03 \x01(\x0b\x32\x1b.Indriya.Core.Msgs.Vector3d\x12\x35\n\x10\x61ngular_velocity\x18\x04 \x01(\x0b\x32\x1b.Indriya.Core.Msgs.Vector3d')
   ,
   dependencies=[vector3d__pb2.DESCRIPTOR,time__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -31,34 +31,34 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _LINKDATA = _descriptor.Descriptor(
   name='LinkData',
-  full_name='experimot.msgs.LinkData',
+  full_name='Indriya.Core.Msgs.LinkData',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='time', full_name='experimot.msgs.LinkData.time', index=0,
+      name='time', full_name='Indriya.Core.Msgs.LinkData.time', index=0,
       number=1, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='name', full_name='experimot.msgs.LinkData.name', index=1,
+      name='name', full_name='Indriya.Core.Msgs.LinkData.name', index=1,
       number=2, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='linear_velocity', full_name='experimot.msgs.LinkData.linear_velocity', index=2,
+      name='linear_velocity', full_name='Indriya.Core.Msgs.LinkData.linear_velocity', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='angular_velocity', full_name='experimot.msgs.LinkData.angular_velocity', index=3,
+      name='angular_velocity', full_name='Indriya.Core.Msgs.LinkData.angular_velocity', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -76,8 +76,8 @@ _LINKDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=64,
-  serialized_end=227,
+  serialized_start=67,
+  serialized_end=239,
 )
 
 _LINKDATA.fields_by_name['time'].message_type = time__pb2._TIME
@@ -88,7 +88,7 @@ DESCRIPTOR.message_types_by_name['LinkData'] = _LINKDATA
 LinkData = _reflection.GeneratedProtocolMessageType('LinkData', (_message.Message,), dict(
   DESCRIPTOR = _LINKDATA,
   __module__ = 'link_data_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.LinkData)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.LinkData)
   ))
 _sym_db.RegisterMessage(LinkData)
 

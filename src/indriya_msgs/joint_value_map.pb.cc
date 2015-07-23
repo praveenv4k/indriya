@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -102,10 +103,10 @@ void protobuf_AddDesc_joint_5fvalue_5fmap_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\025joint_value_map.proto\022\016experimot.msgs\""
-    "\'\n\nJointValue\022\n\n\002id\030\001 \002(\005\022\r\n\005value\030\002 \002(\001"
-    "\"C\n\020JointValueVector\022/\n\013JointValues\030\001 \003("
-    "\0132\032.experimot.msgs.JointValue", 149);
+    "\n\025joint_value_map.proto\022\021Indriya.Core.Ms"
+    "gs\"\'\n\nJointValue\022\n\n\002id\030\001 \002(\005\022\r\n\005value\030\002 "
+    "\002(\001\"F\n\020JointValueVector\0222\n\013JointValues\030\001"
+    " \003(\0132\035.Indriya.Core.Msgs.JointValue", 155);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "joint_value_map.proto", &protobuf_RegisterTypes);
   JointValue::default_instance_ = new JointValue();
@@ -142,7 +143,7 @@ const int JointValue::kValueFieldNumber;
 JointValue::JointValue()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.JointValue)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.JointValue)
 }
 
 void JointValue::InitAsDefaultInstance() {
@@ -153,7 +154,7 @@ JointValue::JointValue(const JointValue& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.JointValue)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.JointValue)
 }
 
 void JointValue::SharedCtor() {
@@ -164,7 +165,7 @@ void JointValue::SharedCtor() {
 }
 
 JointValue::~JointValue() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.JointValue)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.JointValue)
   SharedDtor();
 }
 
@@ -222,7 +223,7 @@ bool JointValue::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.JointValue)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.JointValue)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -271,17 +272,17 @@ bool JointValue::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.JointValue)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.JointValue)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.JointValue)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.JointValue)
   return false;
 #undef DO_
 }
 
 void JointValue::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.JointValue)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.JointValue)
   // required int32 id = 1;
   if (has_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
@@ -296,12 +297,12 @@ void JointValue::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.JointValue)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.JointValue)
 }
 
 ::google::protobuf::uint8* JointValue::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.JointValue)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.JointValue)
   // required int32 id = 1;
   if (has_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
@@ -316,7 +317,7 @@ void JointValue::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.JointValue)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.JointValue)
   return target;
 }
 
@@ -446,13 +447,13 @@ void JointValue::InternalSwap(JointValue* other) {
   clear_has_id();
 }
  ::google::protobuf::int32 JointValue::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointValue.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointValue.id)
   return id_;
 }
  void JointValue::set_id(::google::protobuf::int32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.JointValue.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.JointValue.id)
 }
 
 // required double value = 2;
@@ -470,13 +471,13 @@ void JointValue::InternalSwap(JointValue* other) {
   clear_has_value();
 }
  double JointValue::value() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointValue.value)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointValue.value)
   return value_;
 }
  void JointValue::set_value(double value) {
   set_has_value();
   value_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.JointValue.value)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.JointValue.value)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -490,7 +491,7 @@ const int JointValueVector::kJointValuesFieldNumber;
 JointValueVector::JointValueVector()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.JointValueVector)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.JointValueVector)
 }
 
 void JointValueVector::InitAsDefaultInstance() {
@@ -501,7 +502,7 @@ JointValueVector::JointValueVector(const JointValueVector& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.JointValueVector)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.JointValueVector)
 }
 
 void JointValueVector::SharedCtor() {
@@ -510,7 +511,7 @@ void JointValueVector::SharedCtor() {
 }
 
 JointValueVector::~JointValueVector() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.JointValueVector)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.JointValueVector)
   SharedDtor();
 }
 
@@ -556,13 +557,13 @@ bool JointValueVector::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.JointValueVector)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.JointValueVector)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .experimot.msgs.JointValue JointValues = 1;
+      // repeated .Indriya.Core.Msgs.JointValue JointValues = 1;
       case 1: {
         if (tag == 10) {
          parse_JointValues:
@@ -590,18 +591,18 @@ bool JointValueVector::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.JointValueVector)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.JointValueVector)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.JointValueVector)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.JointValueVector)
   return false;
 #undef DO_
 }
 
 void JointValueVector::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.JointValueVector)
-  // repeated .experimot.msgs.JointValue JointValues = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.JointValueVector)
+  // repeated .Indriya.Core.Msgs.JointValue JointValues = 1;
   for (unsigned int i = 0, n = this->jointvalues_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->jointvalues(i), output);
@@ -611,13 +612,13 @@ void JointValueVector::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.JointValueVector)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.JointValueVector)
 }
 
 ::google::protobuf::uint8* JointValueVector::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.JointValueVector)
-  // repeated .experimot.msgs.JointValue JointValues = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.JointValueVector)
+  // repeated .Indriya.Core.Msgs.JointValue JointValues = 1;
   for (unsigned int i = 0, n = this->jointvalues_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -628,14 +629,14 @@ void JointValueVector::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.JointValueVector)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.JointValueVector)
   return target;
 }
 
 int JointValueVector::ByteSize() const {
   int total_size = 0;
 
-  // repeated .experimot.msgs.JointValue JointValues = 1;
+  // repeated .Indriya.Core.Msgs.JointValue JointValues = 1;
   total_size += 1 * this->jointvalues_size();
   for (int i = 0; i < this->jointvalues_size(); i++) {
     total_size +=
@@ -714,33 +715,33 @@ void JointValueVector::InternalSwap(JointValueVector* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // JointValueVector
 
-// repeated .experimot.msgs.JointValue JointValues = 1;
+// repeated .Indriya.Core.Msgs.JointValue JointValues = 1;
  int JointValueVector::jointvalues_size() const {
   return jointvalues_.size();
 }
  void JointValueVector::clear_jointvalues() {
   jointvalues_.Clear();
 }
- const ::experimot::msgs::JointValue& JointValueVector::jointvalues(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointValueVector.JointValues)
+ const ::Indriya::Core::Msgs::JointValue& JointValueVector::jointvalues(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointValueVector.JointValues)
   return jointvalues_.Get(index);
 }
- ::experimot::msgs::JointValue* JointValueVector::mutable_jointvalues(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.JointValueVector.JointValues)
+ ::Indriya::Core::Msgs::JointValue* JointValueVector::mutable_jointvalues(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.JointValueVector.JointValues)
   return jointvalues_.Mutable(index);
 }
- ::experimot::msgs::JointValue* JointValueVector::add_jointvalues() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.JointValueVector.JointValues)
+ ::Indriya::Core::Msgs::JointValue* JointValueVector::add_jointvalues() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.JointValueVector.JointValues)
   return jointvalues_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::JointValue >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::JointValue >&
 JointValueVector::jointvalues() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.JointValueVector.JointValues)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.JointValueVector.JointValues)
   return jointvalues_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::JointValue >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::JointValue >*
 JointValueVector::mutable_jointvalues() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.JointValueVector.JointValues)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.JointValueVector.JointValues)
   return &jointvalues_;
 }
 
@@ -748,8 +749,9 @@ JointValueVector::mutable_jointvalues() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.JointValue", JointValue)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.JointValue", JointValue)
 // @@protoc_insertion_point(global_scope)

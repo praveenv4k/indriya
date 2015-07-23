@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -80,8 +81,8 @@ void protobuf_AddDesc_vector2d_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\016vector2d.proto\022\016experimot.msgs\" \n\010Vect"
-    "or2d\022\t\n\001x\030\001 \002(\001\022\t\n\001y\030\002 \002(\001", 66);
+    "\n\016vector2d.proto\022\021Indriya.Core.Msgs\" \n\010V"
+    "ector2d\022\t\n\001x\030\001 \002(\001\022\t\n\001y\030\002 \002(\001", 69);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "vector2d.proto", &protobuf_RegisterTypes);
   Vector2d::default_instance_ = new Vector2d();
@@ -116,7 +117,7 @@ const int Vector2d::kYFieldNumber;
 Vector2d::Vector2d()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Vector2d)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Vector2d)
 }
 
 void Vector2d::InitAsDefaultInstance() {
@@ -127,7 +128,7 @@ Vector2d::Vector2d(const Vector2d& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Vector2d)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Vector2d)
 }
 
 void Vector2d::SharedCtor() {
@@ -138,7 +139,7 @@ void Vector2d::SharedCtor() {
 }
 
 Vector2d::~Vector2d() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Vector2d)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Vector2d)
   SharedDtor();
 }
 
@@ -196,7 +197,7 @@ bool Vector2d::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Vector2d)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Vector2d)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -245,17 +246,17 @@ bool Vector2d::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Vector2d)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Vector2d)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Vector2d)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Vector2d)
   return false;
 #undef DO_
 }
 
 void Vector2d::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Vector2d)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Vector2d)
   // required double x = 1;
   if (has_x()) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(1, this->x(), output);
@@ -270,12 +271,12 @@ void Vector2d::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Vector2d)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Vector2d)
 }
 
 ::google::protobuf::uint8* Vector2d::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Vector2d)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Vector2d)
   // required double x = 1;
   if (has_x()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(1, this->x(), target);
@@ -290,7 +291,7 @@ void Vector2d::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Vector2d)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Vector2d)
   return target;
 }
 
@@ -416,13 +417,13 @@ void Vector2d::InternalSwap(Vector2d* other) {
   clear_has_x();
 }
  double Vector2d::x() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Vector2d.x)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Vector2d.x)
   return x_;
 }
  void Vector2d::set_x(double value) {
   set_has_x();
   x_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Vector2d.x)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Vector2d.x)
 }
 
 // required double y = 2;
@@ -440,21 +441,22 @@ void Vector2d::InternalSwap(Vector2d* other) {
   clear_has_y();
 }
  double Vector2d::y() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Vector2d.y)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Vector2d.y)
   return y_;
 }
  void Vector2d::set_y(double value) {
   set_has_y();
   y_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Vector2d.y)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Vector2d.y)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Vector2d", Vector2d)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Vector2d", Vector2d)
 // @@protoc_insertion_point(global_scope)

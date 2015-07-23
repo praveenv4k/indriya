@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -82,18 +83,18 @@ void protobuf_AddDesc_imu_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_time_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_vector3d_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_quaternion_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_time_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector3d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_quaternion_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\timu.proto\022\016experimot.msgs\032\ntime.proto\032"
-    "\016vector3d.proto\032\020quaternion.proto\"\333\001\n\003IM"
-    "U\022#\n\005stamp\030\001 \002(\0132\024.experimot.msgs.Time\022\023"
-    "\n\013entity_name\030\002 \002(\t\022/\n\013orientation\030\003 \002(\013"
-    "2\032.experimot.msgs.Quaternion\0222\n\020angular_"
-    "velocity\030\004 \002(\0132\030.experimot.msgs.Vector3d"
-    "\0225\n\023linear_acceleration\030\005 \002(\0132\030.experimo"
-    "t.msgs.Vector3d", 295);
+    "\n\timu.proto\022\021Indriya.Core.Msgs\032\ntime.pro"
+    "to\032\016vector3d.proto\032\020quaternion.proto\"\347\001\n"
+    "\003IMU\022&\n\005stamp\030\001 \002(\0132\027.Indriya.Core.Msgs."
+    "Time\022\023\n\013entity_name\030\002 \002(\t\0222\n\013orientation"
+    "\030\003 \002(\0132\035.Indriya.Core.Msgs.Quaternion\0225\n"
+    "\020angular_velocity\030\004 \002(\0132\033.Indriya.Core.M"
+    "sgs.Vector3d\0228\n\023linear_acceleration\030\005 \002("
+    "\0132\033.Indriya.Core.Msgs.Vector3d", 310);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "imu.proto", &protobuf_RegisterTypes);
   IMU::default_instance_ = new IMU();
@@ -131,14 +132,14 @@ const int IMU::kLinearAccelerationFieldNumber;
 IMU::IMU()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.IMU)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.IMU)
 }
 
 void IMU::InitAsDefaultInstance() {
-  stamp_ = const_cast< ::experimot::msgs::Time*>(&::experimot::msgs::Time::default_instance());
-  orientation_ = const_cast< ::experimot::msgs::Quaternion*>(&::experimot::msgs::Quaternion::default_instance());
-  angular_velocity_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
-  linear_acceleration_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
+  stamp_ = const_cast< ::Indriya::Core::Msgs::Time*>(&::Indriya::Core::Msgs::Time::default_instance());
+  orientation_ = const_cast< ::Indriya::Core::Msgs::Quaternion*>(&::Indriya::Core::Msgs::Quaternion::default_instance());
+  angular_velocity_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
+  linear_acceleration_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
 }
 
 IMU::IMU(const IMU& from)
@@ -146,7 +147,7 @@ IMU::IMU(const IMU& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.IMU)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.IMU)
 }
 
 void IMU::SharedCtor() {
@@ -161,7 +162,7 @@ void IMU::SharedCtor() {
 }
 
 IMU::~IMU() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.IMU)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.IMU)
   SharedDtor();
 }
 
@@ -203,19 +204,19 @@ IMU* IMU::New(::google::protobuf::Arena* arena) const {
 void IMU::Clear() {
   if (_has_bits_[0 / 32] & 31) {
     if (has_stamp()) {
-      if (stamp_ != NULL) stamp_->::experimot::msgs::Time::Clear();
+      if (stamp_ != NULL) stamp_->::Indriya::Core::Msgs::Time::Clear();
     }
     if (has_entity_name()) {
       entity_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_orientation()) {
-      if (orientation_ != NULL) orientation_->::experimot::msgs::Quaternion::Clear();
+      if (orientation_ != NULL) orientation_->::Indriya::Core::Msgs::Quaternion::Clear();
     }
     if (has_angular_velocity()) {
-      if (angular_velocity_ != NULL) angular_velocity_->::experimot::msgs::Vector3d::Clear();
+      if (angular_velocity_ != NULL) angular_velocity_->::Indriya::Core::Msgs::Vector3d::Clear();
     }
     if (has_linear_acceleration()) {
-      if (linear_acceleration_ != NULL) linear_acceleration_->::experimot::msgs::Vector3d::Clear();
+      if (linear_acceleration_ != NULL) linear_acceleration_->::Indriya::Core::Msgs::Vector3d::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -228,13 +229,13 @@ bool IMU::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.IMU)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.IMU)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .experimot.msgs.Time stamp = 1;
+      // required .Indriya.Core.Msgs.Time stamp = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -255,7 +256,7 @@ bool IMU::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->entity_name().data(), this->entity_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.IMU.entity_name");
+            "Indriya.Core.Msgs.IMU.entity_name");
         } else {
           goto handle_unusual;
         }
@@ -263,7 +264,7 @@ bool IMU::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Quaternion orientation = 3;
+      // required .Indriya.Core.Msgs.Quaternion orientation = 3;
       case 3: {
         if (tag == 26) {
          parse_orientation:
@@ -276,7 +277,7 @@ bool IMU::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Vector3d angular_velocity = 4;
+      // required .Indriya.Core.Msgs.Vector3d angular_velocity = 4;
       case 4: {
         if (tag == 34) {
          parse_angular_velocity:
@@ -289,7 +290,7 @@ bool IMU::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Vector3d linear_acceleration = 5;
+      // required .Indriya.Core.Msgs.Vector3d linear_acceleration = 5;
       case 5: {
         if (tag == 42) {
          parse_linear_acceleration:
@@ -316,18 +317,18 @@ bool IMU::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.IMU)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.IMU)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.IMU)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.IMU)
   return false;
 #undef DO_
 }
 
 void IMU::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.IMU)
-  // required .experimot.msgs.Time stamp = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.IMU)
+  // required .Indriya.Core.Msgs.Time stamp = 1;
   if (has_stamp()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->stamp_, output);
@@ -338,24 +339,24 @@ void IMU::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->entity_name().data(), this->entity_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.IMU.entity_name");
+      "Indriya.Core.Msgs.IMU.entity_name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->entity_name(), output);
   }
 
-  // required .experimot.msgs.Quaternion orientation = 3;
+  // required .Indriya.Core.Msgs.Quaternion orientation = 3;
   if (has_orientation()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, *this->orientation_, output);
   }
 
-  // required .experimot.msgs.Vector3d angular_velocity = 4;
+  // required .Indriya.Core.Msgs.Vector3d angular_velocity = 4;
   if (has_angular_velocity()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, *this->angular_velocity_, output);
   }
 
-  // required .experimot.msgs.Vector3d linear_acceleration = 5;
+  // required .Indriya.Core.Msgs.Vector3d linear_acceleration = 5;
   if (has_linear_acceleration()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, *this->linear_acceleration_, output);
@@ -365,13 +366,13 @@ void IMU::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.IMU)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.IMU)
 }
 
 ::google::protobuf::uint8* IMU::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.IMU)
-  // required .experimot.msgs.Time stamp = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.IMU)
+  // required .Indriya.Core.Msgs.Time stamp = 1;
   if (has_stamp()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -383,27 +384,27 @@ void IMU::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->entity_name().data(), this->entity_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.IMU.entity_name");
+      "Indriya.Core.Msgs.IMU.entity_name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->entity_name(), target);
   }
 
-  // required .experimot.msgs.Quaternion orientation = 3;
+  // required .Indriya.Core.Msgs.Quaternion orientation = 3;
   if (has_orientation()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         3, *this->orientation_, target);
   }
 
-  // required .experimot.msgs.Vector3d angular_velocity = 4;
+  // required .Indriya.Core.Msgs.Vector3d angular_velocity = 4;
   if (has_angular_velocity()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         4, *this->angular_velocity_, target);
   }
 
-  // required .experimot.msgs.Vector3d linear_acceleration = 5;
+  // required .Indriya.Core.Msgs.Vector3d linear_acceleration = 5;
   if (has_linear_acceleration()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -414,7 +415,7 @@ void IMU::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.IMU)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.IMU)
   return target;
 }
 
@@ -422,7 +423,7 @@ int IMU::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
   if (has_stamp()) {
-    // required .experimot.msgs.Time stamp = 1;
+    // required .Indriya.Core.Msgs.Time stamp = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->stamp_);
@@ -436,21 +437,21 @@ int IMU::RequiredFieldsByteSizeFallback() const {
   }
 
   if (has_orientation()) {
-    // required .experimot.msgs.Quaternion orientation = 3;
+    // required .Indriya.Core.Msgs.Quaternion orientation = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->orientation_);
   }
 
   if (has_angular_velocity()) {
-    // required .experimot.msgs.Vector3d angular_velocity = 4;
+    // required .Indriya.Core.Msgs.Vector3d angular_velocity = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->angular_velocity_);
   }
 
   if (has_linear_acceleration()) {
-    // required .experimot.msgs.Vector3d linear_acceleration = 5;
+    // required .Indriya.Core.Msgs.Vector3d linear_acceleration = 5;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->linear_acceleration_);
@@ -462,7 +463,7 @@ int IMU::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x0000001f) ^ 0x0000001f) == 0) {  // All required fields are present.
-    // required .experimot.msgs.Time stamp = 1;
+    // required .Indriya.Core.Msgs.Time stamp = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->stamp_);
@@ -472,17 +473,17 @@ int IMU::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->entity_name());
 
-    // required .experimot.msgs.Quaternion orientation = 3;
+    // required .Indriya.Core.Msgs.Quaternion orientation = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->orientation_);
 
-    // required .experimot.msgs.Vector3d angular_velocity = 4;
+    // required .Indriya.Core.Msgs.Vector3d angular_velocity = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->angular_velocity_);
 
-    // required .experimot.msgs.Vector3d linear_acceleration = 5;
+    // required .Indriya.Core.Msgs.Vector3d linear_acceleration = 5;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->linear_acceleration_);
@@ -517,20 +518,20 @@ void IMU::MergeFrom(const IMU& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_stamp()) {
-      mutable_stamp()->::experimot::msgs::Time::MergeFrom(from.stamp());
+      mutable_stamp()->::Indriya::Core::Msgs::Time::MergeFrom(from.stamp());
     }
     if (from.has_entity_name()) {
       set_has_entity_name();
       entity_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.entity_name_);
     }
     if (from.has_orientation()) {
-      mutable_orientation()->::experimot::msgs::Quaternion::MergeFrom(from.orientation());
+      mutable_orientation()->::Indriya::Core::Msgs::Quaternion::MergeFrom(from.orientation());
     }
     if (from.has_angular_velocity()) {
-      mutable_angular_velocity()->::experimot::msgs::Vector3d::MergeFrom(from.angular_velocity());
+      mutable_angular_velocity()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.angular_velocity());
     }
     if (from.has_linear_acceleration()) {
-      mutable_linear_acceleration()->::experimot::msgs::Vector3d::MergeFrom(from.linear_acceleration());
+      mutable_linear_acceleration()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.linear_acceleration());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -594,7 +595,7 @@ void IMU::InternalSwap(IMU* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // IMU
 
-// required .experimot.msgs.Time stamp = 1;
+// required .Indriya.Core.Msgs.Time stamp = 1;
  bool IMU::has_stamp() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -605,28 +606,28 @@ void IMU::InternalSwap(IMU* other) {
   _has_bits_[0] &= ~0x00000001u;
 }
  void IMU::clear_stamp() {
-  if (stamp_ != NULL) stamp_->::experimot::msgs::Time::Clear();
+  if (stamp_ != NULL) stamp_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_stamp();
 }
- const ::experimot::msgs::Time& IMU::stamp() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.IMU.stamp)
+ const ::Indriya::Core::Msgs::Time& IMU::stamp() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.IMU.stamp)
   return stamp_ != NULL ? *stamp_ : *default_instance_->stamp_;
 }
- ::experimot::msgs::Time* IMU::mutable_stamp() {
+ ::Indriya::Core::Msgs::Time* IMU::mutable_stamp() {
   set_has_stamp();
   if (stamp_ == NULL) {
-    stamp_ = new ::experimot::msgs::Time;
+    stamp_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.IMU.stamp)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.IMU.stamp)
   return stamp_;
 }
- ::experimot::msgs::Time* IMU::release_stamp() {
+ ::Indriya::Core::Msgs::Time* IMU::release_stamp() {
   clear_has_stamp();
-  ::experimot::msgs::Time* temp = stamp_;
+  ::Indriya::Core::Msgs::Time* temp = stamp_;
   stamp_ = NULL;
   return temp;
 }
- void IMU::set_allocated_stamp(::experimot::msgs::Time* stamp) {
+ void IMU::set_allocated_stamp(::Indriya::Core::Msgs::Time* stamp) {
   delete stamp_;
   stamp_ = stamp;
   if (stamp) {
@@ -634,7 +635,7 @@ void IMU::InternalSwap(IMU* other) {
   } else {
     clear_has_stamp();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.IMU.stamp)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.IMU.stamp)
 }
 
 // required string entity_name = 2;
@@ -652,28 +653,28 @@ void IMU::InternalSwap(IMU* other) {
   clear_has_entity_name();
 }
  const ::std::string& IMU::entity_name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.IMU.entity_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.IMU.entity_name)
   return entity_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void IMU::set_entity_name(const ::std::string& value) {
   set_has_entity_name();
   entity_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.IMU.entity_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.IMU.entity_name)
 }
  void IMU::set_entity_name(const char* value) {
   set_has_entity_name();
   entity_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.IMU.entity_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.IMU.entity_name)
 }
  void IMU::set_entity_name(const char* value, size_t size) {
   set_has_entity_name();
   entity_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.IMU.entity_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.IMU.entity_name)
 }
  ::std::string* IMU::mutable_entity_name() {
   set_has_entity_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.IMU.entity_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.IMU.entity_name)
   return entity_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* IMU::release_entity_name() {
@@ -687,10 +688,10 @@ void IMU::InternalSwap(IMU* other) {
     clear_has_entity_name();
   }
   entity_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), entity_name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.IMU.entity_name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.IMU.entity_name)
 }
 
-// required .experimot.msgs.Quaternion orientation = 3;
+// required .Indriya.Core.Msgs.Quaternion orientation = 3;
  bool IMU::has_orientation() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -701,28 +702,28 @@ void IMU::InternalSwap(IMU* other) {
   _has_bits_[0] &= ~0x00000004u;
 }
  void IMU::clear_orientation() {
-  if (orientation_ != NULL) orientation_->::experimot::msgs::Quaternion::Clear();
+  if (orientation_ != NULL) orientation_->::Indriya::Core::Msgs::Quaternion::Clear();
   clear_has_orientation();
 }
- const ::experimot::msgs::Quaternion& IMU::orientation() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.IMU.orientation)
+ const ::Indriya::Core::Msgs::Quaternion& IMU::orientation() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.IMU.orientation)
   return orientation_ != NULL ? *orientation_ : *default_instance_->orientation_;
 }
- ::experimot::msgs::Quaternion* IMU::mutable_orientation() {
+ ::Indriya::Core::Msgs::Quaternion* IMU::mutable_orientation() {
   set_has_orientation();
   if (orientation_ == NULL) {
-    orientation_ = new ::experimot::msgs::Quaternion;
+    orientation_ = new ::Indriya::Core::Msgs::Quaternion;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.IMU.orientation)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.IMU.orientation)
   return orientation_;
 }
- ::experimot::msgs::Quaternion* IMU::release_orientation() {
+ ::Indriya::Core::Msgs::Quaternion* IMU::release_orientation() {
   clear_has_orientation();
-  ::experimot::msgs::Quaternion* temp = orientation_;
+  ::Indriya::Core::Msgs::Quaternion* temp = orientation_;
   orientation_ = NULL;
   return temp;
 }
- void IMU::set_allocated_orientation(::experimot::msgs::Quaternion* orientation) {
+ void IMU::set_allocated_orientation(::Indriya::Core::Msgs::Quaternion* orientation) {
   delete orientation_;
   orientation_ = orientation;
   if (orientation) {
@@ -730,10 +731,10 @@ void IMU::InternalSwap(IMU* other) {
   } else {
     clear_has_orientation();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.IMU.orientation)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.IMU.orientation)
 }
 
-// required .experimot.msgs.Vector3d angular_velocity = 4;
+// required .Indriya.Core.Msgs.Vector3d angular_velocity = 4;
  bool IMU::has_angular_velocity() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -744,28 +745,28 @@ void IMU::InternalSwap(IMU* other) {
   _has_bits_[0] &= ~0x00000008u;
 }
  void IMU::clear_angular_velocity() {
-  if (angular_velocity_ != NULL) angular_velocity_->::experimot::msgs::Vector3d::Clear();
+  if (angular_velocity_ != NULL) angular_velocity_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_angular_velocity();
 }
- const ::experimot::msgs::Vector3d& IMU::angular_velocity() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.IMU.angular_velocity)
+ const ::Indriya::Core::Msgs::Vector3d& IMU::angular_velocity() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.IMU.angular_velocity)
   return angular_velocity_ != NULL ? *angular_velocity_ : *default_instance_->angular_velocity_;
 }
- ::experimot::msgs::Vector3d* IMU::mutable_angular_velocity() {
+ ::Indriya::Core::Msgs::Vector3d* IMU::mutable_angular_velocity() {
   set_has_angular_velocity();
   if (angular_velocity_ == NULL) {
-    angular_velocity_ = new ::experimot::msgs::Vector3d;
+    angular_velocity_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.IMU.angular_velocity)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.IMU.angular_velocity)
   return angular_velocity_;
 }
- ::experimot::msgs::Vector3d* IMU::release_angular_velocity() {
+ ::Indriya::Core::Msgs::Vector3d* IMU::release_angular_velocity() {
   clear_has_angular_velocity();
-  ::experimot::msgs::Vector3d* temp = angular_velocity_;
+  ::Indriya::Core::Msgs::Vector3d* temp = angular_velocity_;
   angular_velocity_ = NULL;
   return temp;
 }
- void IMU::set_allocated_angular_velocity(::experimot::msgs::Vector3d* angular_velocity) {
+ void IMU::set_allocated_angular_velocity(::Indriya::Core::Msgs::Vector3d* angular_velocity) {
   delete angular_velocity_;
   angular_velocity_ = angular_velocity;
   if (angular_velocity) {
@@ -773,10 +774,10 @@ void IMU::InternalSwap(IMU* other) {
   } else {
     clear_has_angular_velocity();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.IMU.angular_velocity)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.IMU.angular_velocity)
 }
 
-// required .experimot.msgs.Vector3d linear_acceleration = 5;
+// required .Indriya.Core.Msgs.Vector3d linear_acceleration = 5;
  bool IMU::has_linear_acceleration() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -787,28 +788,28 @@ void IMU::InternalSwap(IMU* other) {
   _has_bits_[0] &= ~0x00000010u;
 }
  void IMU::clear_linear_acceleration() {
-  if (linear_acceleration_ != NULL) linear_acceleration_->::experimot::msgs::Vector3d::Clear();
+  if (linear_acceleration_ != NULL) linear_acceleration_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_linear_acceleration();
 }
- const ::experimot::msgs::Vector3d& IMU::linear_acceleration() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.IMU.linear_acceleration)
+ const ::Indriya::Core::Msgs::Vector3d& IMU::linear_acceleration() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.IMU.linear_acceleration)
   return linear_acceleration_ != NULL ? *linear_acceleration_ : *default_instance_->linear_acceleration_;
 }
- ::experimot::msgs::Vector3d* IMU::mutable_linear_acceleration() {
+ ::Indriya::Core::Msgs::Vector3d* IMU::mutable_linear_acceleration() {
   set_has_linear_acceleration();
   if (linear_acceleration_ == NULL) {
-    linear_acceleration_ = new ::experimot::msgs::Vector3d;
+    linear_acceleration_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.IMU.linear_acceleration)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.IMU.linear_acceleration)
   return linear_acceleration_;
 }
- ::experimot::msgs::Vector3d* IMU::release_linear_acceleration() {
+ ::Indriya::Core::Msgs::Vector3d* IMU::release_linear_acceleration() {
   clear_has_linear_acceleration();
-  ::experimot::msgs::Vector3d* temp = linear_acceleration_;
+  ::Indriya::Core::Msgs::Vector3d* temp = linear_acceleration_;
   linear_acceleration_ = NULL;
   return temp;
 }
- void IMU::set_allocated_linear_acceleration(::experimot::msgs::Vector3d* linear_acceleration) {
+ void IMU::set_allocated_linear_acceleration(::Indriya::Core::Msgs::Vector3d* linear_acceleration) {
   delete linear_acceleration_;
   linear_acceleration_ = linear_acceleration;
   if (linear_acceleration) {
@@ -816,15 +817,16 @@ void IMU::InternalSwap(IMU* other) {
   } else {
     clear_has_linear_acceleration();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.IMU.linear_acceleration)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.IMU.linear_acceleration)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.IMU", IMU)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.IMU", IMU)
 // @@protoc_insertion_point(global_scope)

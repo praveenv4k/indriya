@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -82,13 +83,13 @@ void protobuf_AddDesc_world_5fcontrol_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_world_5freset_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_world_5freset_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\023world_control.proto\022\016experimot.msgs\032\021w"
-    "orld_reset.proto\"x\n\014WorldControl\022\r\n\005paus"
-    "e\030\001 \001(\010\022\014\n\004step\030\002 \001(\010\022\022\n\nmulti_step\030\003 \001("
-    "\r\022)\n\005reset\030\004 \001(\0132\032.experimot.msgs.WorldR"
-    "eset\022\014\n\004seed\030\005 \001(\r", 178);
+    "\n\023world_control.proto\022\021Indriya.Core.Msgs"
+    "\032\021world_reset.proto\"{\n\014WorldControl\022\r\n\005p"
+    "ause\030\001 \001(\010\022\014\n\004step\030\002 \001(\010\022\022\n\nmulti_step\030\003"
+    " \001(\r\022,\n\005reset\030\004 \001(\0132\035.Indriya.Core.Msgs."
+    "WorldReset\022\014\n\004seed\030\005 \001(\r", 184);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "world_control.proto", &protobuf_RegisterTypes);
   WorldControl::default_instance_ = new WorldControl();
@@ -126,11 +127,11 @@ const int WorldControl::kSeedFieldNumber;
 WorldControl::WorldControl()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.WorldControl)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.WorldControl)
 }
 
 void WorldControl::InitAsDefaultInstance() {
-  reset_ = const_cast< ::experimot::msgs::WorldReset*>(&::experimot::msgs::WorldReset::default_instance());
+  reset_ = const_cast< ::Indriya::Core::Msgs::WorldReset*>(&::Indriya::Core::Msgs::WorldReset::default_instance());
 }
 
 WorldControl::WorldControl(const WorldControl& from)
@@ -138,7 +139,7 @@ WorldControl::WorldControl(const WorldControl& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.WorldControl)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.WorldControl)
 }
 
 void WorldControl::SharedCtor() {
@@ -152,7 +153,7 @@ void WorldControl::SharedCtor() {
 }
 
 WorldControl::~WorldControl() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.WorldControl)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.WorldControl)
   SharedDtor();
 }
 
@@ -199,7 +200,7 @@ void WorldControl::Clear() {
   if (_has_bits_[0 / 32] & 31) {
     ZR_(pause_, multi_step_);
     if (has_reset()) {
-      if (reset_ != NULL) reset_->::experimot::msgs::WorldReset::Clear();
+      if (reset_ != NULL) reset_->::Indriya::Core::Msgs::WorldReset::Clear();
     }
     seed_ = 0u;
   }
@@ -217,7 +218,7 @@ bool WorldControl::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.WorldControl)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.WorldControl)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -267,7 +268,7 @@ bool WorldControl::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.WorldReset reset = 4;
+      // optional .Indriya.Core.Msgs.WorldReset reset = 4;
       case 4: {
         if (tag == 34) {
          parse_reset:
@@ -309,17 +310,17 @@ bool WorldControl::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.WorldControl)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.WorldControl)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.WorldControl)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.WorldControl)
   return false;
 #undef DO_
 }
 
 void WorldControl::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.WorldControl)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.WorldControl)
   // optional bool pause = 1;
   if (has_pause()) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->pause(), output);
@@ -335,7 +336,7 @@ void WorldControl::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->multi_step(), output);
   }
 
-  // optional .experimot.msgs.WorldReset reset = 4;
+  // optional .Indriya.Core.Msgs.WorldReset reset = 4;
   if (has_reset()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, *this->reset_, output);
@@ -350,12 +351,12 @@ void WorldControl::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.WorldControl)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.WorldControl)
 }
 
 ::google::protobuf::uint8* WorldControl::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.WorldControl)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.WorldControl)
   // optional bool pause = 1;
   if (has_pause()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->pause(), target);
@@ -371,7 +372,7 @@ void WorldControl::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->multi_step(), target);
   }
 
-  // optional .experimot.msgs.WorldReset reset = 4;
+  // optional .Indriya.Core.Msgs.WorldReset reset = 4;
   if (has_reset()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -387,7 +388,7 @@ void WorldControl::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.WorldControl)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.WorldControl)
   return target;
 }
 
@@ -412,7 +413,7 @@ int WorldControl::ByteSize() const {
           this->multi_step());
     }
 
-    // optional .experimot.msgs.WorldReset reset = 4;
+    // optional .Indriya.Core.Msgs.WorldReset reset = 4;
     if (has_reset()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -463,7 +464,7 @@ void WorldControl::MergeFrom(const WorldControl& from) {
       set_multi_step(from.multi_step());
     }
     if (from.has_reset()) {
-      mutable_reset()->::experimot::msgs::WorldReset::MergeFrom(from.reset());
+      mutable_reset()->::Indriya::Core::Msgs::WorldReset::MergeFrom(from.reset());
     }
     if (from.has_seed()) {
       set_seed(from.seed());
@@ -532,13 +533,13 @@ void WorldControl::InternalSwap(WorldControl* other) {
   clear_has_pause();
 }
  bool WorldControl::pause() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldControl.pause)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldControl.pause)
   return pause_;
 }
  void WorldControl::set_pause(bool value) {
   set_has_pause();
   pause_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldControl.pause)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldControl.pause)
 }
 
 // optional bool step = 2;
@@ -556,13 +557,13 @@ void WorldControl::InternalSwap(WorldControl* other) {
   clear_has_step();
 }
  bool WorldControl::step() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldControl.step)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldControl.step)
   return step_;
 }
  void WorldControl::set_step(bool value) {
   set_has_step();
   step_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldControl.step)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldControl.step)
 }
 
 // optional uint32 multi_step = 3;
@@ -580,16 +581,16 @@ void WorldControl::InternalSwap(WorldControl* other) {
   clear_has_multi_step();
 }
  ::google::protobuf::uint32 WorldControl::multi_step() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldControl.multi_step)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldControl.multi_step)
   return multi_step_;
 }
  void WorldControl::set_multi_step(::google::protobuf::uint32 value) {
   set_has_multi_step();
   multi_step_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldControl.multi_step)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldControl.multi_step)
 }
 
-// optional .experimot.msgs.WorldReset reset = 4;
+// optional .Indriya.Core.Msgs.WorldReset reset = 4;
  bool WorldControl::has_reset() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -600,28 +601,28 @@ void WorldControl::InternalSwap(WorldControl* other) {
   _has_bits_[0] &= ~0x00000008u;
 }
  void WorldControl::clear_reset() {
-  if (reset_ != NULL) reset_->::experimot::msgs::WorldReset::Clear();
+  if (reset_ != NULL) reset_->::Indriya::Core::Msgs::WorldReset::Clear();
   clear_has_reset();
 }
- const ::experimot::msgs::WorldReset& WorldControl::reset() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldControl.reset)
+ const ::Indriya::Core::Msgs::WorldReset& WorldControl::reset() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldControl.reset)
   return reset_ != NULL ? *reset_ : *default_instance_->reset_;
 }
- ::experimot::msgs::WorldReset* WorldControl::mutable_reset() {
+ ::Indriya::Core::Msgs::WorldReset* WorldControl::mutable_reset() {
   set_has_reset();
   if (reset_ == NULL) {
-    reset_ = new ::experimot::msgs::WorldReset;
+    reset_ = new ::Indriya::Core::Msgs::WorldReset;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.WorldControl.reset)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.WorldControl.reset)
   return reset_;
 }
- ::experimot::msgs::WorldReset* WorldControl::release_reset() {
+ ::Indriya::Core::Msgs::WorldReset* WorldControl::release_reset() {
   clear_has_reset();
-  ::experimot::msgs::WorldReset* temp = reset_;
+  ::Indriya::Core::Msgs::WorldReset* temp = reset_;
   reset_ = NULL;
   return temp;
 }
- void WorldControl::set_allocated_reset(::experimot::msgs::WorldReset* reset) {
+ void WorldControl::set_allocated_reset(::Indriya::Core::Msgs::WorldReset* reset) {
   delete reset_;
   reset_ = reset;
   if (reset) {
@@ -629,7 +630,7 @@ void WorldControl::InternalSwap(WorldControl* other) {
   } else {
     clear_has_reset();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.WorldControl.reset)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.WorldControl.reset)
 }
 
 // optional uint32 seed = 5;
@@ -647,21 +648,22 @@ void WorldControl::InternalSwap(WorldControl* other) {
   clear_has_seed();
 }
  ::google::protobuf::uint32 WorldControl::seed() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldControl.seed)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldControl.seed)
   return seed_;
 }
  void WorldControl::set_seed(::google::protobuf::uint32 value) {
   set_has_seed();
   seed_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldControl.seed)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldControl.seed)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.WorldControl", WorldControl)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.WorldControl", WorldControl)
 // @@protoc_insertion_point(global_scope)

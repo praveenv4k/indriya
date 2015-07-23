@@ -9,16 +9,16 @@
 
 // Generated from: proto/axis.proto
 // Note: requires additional types generated from: vector3d.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Axis")]
   public partial class Axis : global::ProtoBuf.IExtensible
   {
     public Axis() {}
     
-    private experimot.msgs.Vector3d _xyz;
+    private Indriya.Core.Msgs.Vector3d _xyz;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"xyz", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Vector3d xyz
+    public Indriya.Core.Msgs.Vector3d xyz
     {
       get { return _xyz; }
       set { _xyz = value; }

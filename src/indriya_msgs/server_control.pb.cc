@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -85,11 +86,11 @@ void protobuf_AddDesc_server_5fcontrol_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\024server_control.proto\022\016experimot.msgs\"\230"
-    "\001\n\rServerControl\022\027\n\017save_world_name\030\001 \001("
-    "\t\022\025\n\rsave_filename\030\002 \001(\t\022\025\n\ropen_filenam"
-    "e\030\003 \001(\t\022\021\n\tnew_world\030\004 \001(\010\022\014\n\004stop\030\005 \001(\010"
-    "\022\r\n\005clone\030\006 \001(\010\022\020\n\010new_port\030\007 \001(\r", 193);
+    "\n\024server_control.proto\022\021Indriya.Core.Msg"
+    "s\"\230\001\n\rServerControl\022\027\n\017save_world_name\030\001"
+    " \001(\t\022\025\n\rsave_filename\030\002 \001(\t\022\025\n\ropen_file"
+    "name\030\003 \001(\t\022\021\n\tnew_world\030\004 \001(\010\022\014\n\004stop\030\005 "
+    "\001(\010\022\r\n\005clone\030\006 \001(\010\022\020\n\010new_port\030\007 \001(\r", 196);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "server_control.proto", &protobuf_RegisterTypes);
   ServerControl::default_instance_ = new ServerControl();
@@ -129,7 +130,7 @@ const int ServerControl::kNewPortFieldNumber;
 ServerControl::ServerControl()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.ServerControl)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.ServerControl)
 }
 
 void ServerControl::InitAsDefaultInstance() {
@@ -140,7 +141,7 @@ ServerControl::ServerControl(const ServerControl& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.ServerControl)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.ServerControl)
 }
 
 void ServerControl::SharedCtor() {
@@ -157,7 +158,7 @@ void ServerControl::SharedCtor() {
 }
 
 ServerControl::~ServerControl() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.ServerControl)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.ServerControl)
   SharedDtor();
 }
 
@@ -229,7 +230,7 @@ bool ServerControl::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.ServerControl)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.ServerControl)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -243,7 +244,7 @@ bool ServerControl::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->save_world_name().data(), this->save_world_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.ServerControl.save_world_name");
+            "Indriya.Core.Msgs.ServerControl.save_world_name");
         } else {
           goto handle_unusual;
         }
@@ -260,7 +261,7 @@ bool ServerControl::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->save_filename().data(), this->save_filename().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.ServerControl.save_filename");
+            "Indriya.Core.Msgs.ServerControl.save_filename");
         } else {
           goto handle_unusual;
         }
@@ -277,7 +278,7 @@ bool ServerControl::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->open_filename().data(), this->open_filename().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.ServerControl.open_filename");
+            "Indriya.Core.Msgs.ServerControl.open_filename");
         } else {
           goto handle_unusual;
         }
@@ -359,23 +360,23 @@ bool ServerControl::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.ServerControl)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.ServerControl)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.ServerControl)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.ServerControl)
   return false;
 #undef DO_
 }
 
 void ServerControl::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.ServerControl)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.ServerControl)
   // optional string save_world_name = 1;
   if (has_save_world_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->save_world_name().data(), this->save_world_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.ServerControl.save_world_name");
+      "Indriya.Core.Msgs.ServerControl.save_world_name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->save_world_name(), output);
   }
@@ -385,7 +386,7 @@ void ServerControl::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->save_filename().data(), this->save_filename().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.ServerControl.save_filename");
+      "Indriya.Core.Msgs.ServerControl.save_filename");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->save_filename(), output);
   }
@@ -395,7 +396,7 @@ void ServerControl::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->open_filename().data(), this->open_filename().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.ServerControl.open_filename");
+      "Indriya.Core.Msgs.ServerControl.open_filename");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       3, this->open_filename(), output);
   }
@@ -424,18 +425,18 @@ void ServerControl::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.ServerControl)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.ServerControl)
 }
 
 ::google::protobuf::uint8* ServerControl::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.ServerControl)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.ServerControl)
   // optional string save_world_name = 1;
   if (has_save_world_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->save_world_name().data(), this->save_world_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.ServerControl.save_world_name");
+      "Indriya.Core.Msgs.ServerControl.save_world_name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->save_world_name(), target);
@@ -446,7 +447,7 @@ void ServerControl::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->save_filename().data(), this->save_filename().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.ServerControl.save_filename");
+      "Indriya.Core.Msgs.ServerControl.save_filename");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->save_filename(), target);
@@ -457,7 +458,7 @@ void ServerControl::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->open_filename().data(), this->open_filename().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.ServerControl.open_filename");
+      "Indriya.Core.Msgs.ServerControl.open_filename");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->open_filename(), target);
@@ -487,7 +488,7 @@ void ServerControl::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.ServerControl)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.ServerControl)
   return target;
 }
 
@@ -655,28 +656,28 @@ void ServerControl::InternalSwap(ServerControl* other) {
   clear_has_save_world_name();
 }
  const ::std::string& ServerControl::save_world_name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ServerControl.save_world_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ServerControl.save_world_name)
   return save_world_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void ServerControl::set_save_world_name(const ::std::string& value) {
   set_has_save_world_name();
   save_world_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.ServerControl.save_world_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.ServerControl.save_world_name)
 }
  void ServerControl::set_save_world_name(const char* value) {
   set_has_save_world_name();
   save_world_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.ServerControl.save_world_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.ServerControl.save_world_name)
 }
  void ServerControl::set_save_world_name(const char* value, size_t size) {
   set_has_save_world_name();
   save_world_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.ServerControl.save_world_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.ServerControl.save_world_name)
 }
  ::std::string* ServerControl::mutable_save_world_name() {
   set_has_save_world_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.ServerControl.save_world_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.ServerControl.save_world_name)
   return save_world_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* ServerControl::release_save_world_name() {
@@ -690,7 +691,7 @@ void ServerControl::InternalSwap(ServerControl* other) {
     clear_has_save_world_name();
   }
   save_world_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), save_world_name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.ServerControl.save_world_name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.ServerControl.save_world_name)
 }
 
 // optional string save_filename = 2;
@@ -708,28 +709,28 @@ void ServerControl::InternalSwap(ServerControl* other) {
   clear_has_save_filename();
 }
  const ::std::string& ServerControl::save_filename() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ServerControl.save_filename)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ServerControl.save_filename)
   return save_filename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void ServerControl::set_save_filename(const ::std::string& value) {
   set_has_save_filename();
   save_filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.ServerControl.save_filename)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.ServerControl.save_filename)
 }
  void ServerControl::set_save_filename(const char* value) {
   set_has_save_filename();
   save_filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.ServerControl.save_filename)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.ServerControl.save_filename)
 }
  void ServerControl::set_save_filename(const char* value, size_t size) {
   set_has_save_filename();
   save_filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.ServerControl.save_filename)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.ServerControl.save_filename)
 }
  ::std::string* ServerControl::mutable_save_filename() {
   set_has_save_filename();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.ServerControl.save_filename)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.ServerControl.save_filename)
   return save_filename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* ServerControl::release_save_filename() {
@@ -743,7 +744,7 @@ void ServerControl::InternalSwap(ServerControl* other) {
     clear_has_save_filename();
   }
   save_filename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), save_filename);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.ServerControl.save_filename)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.ServerControl.save_filename)
 }
 
 // optional string open_filename = 3;
@@ -761,28 +762,28 @@ void ServerControl::InternalSwap(ServerControl* other) {
   clear_has_open_filename();
 }
  const ::std::string& ServerControl::open_filename() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ServerControl.open_filename)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ServerControl.open_filename)
   return open_filename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void ServerControl::set_open_filename(const ::std::string& value) {
   set_has_open_filename();
   open_filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.ServerControl.open_filename)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.ServerControl.open_filename)
 }
  void ServerControl::set_open_filename(const char* value) {
   set_has_open_filename();
   open_filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.ServerControl.open_filename)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.ServerControl.open_filename)
 }
  void ServerControl::set_open_filename(const char* value, size_t size) {
   set_has_open_filename();
   open_filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.ServerControl.open_filename)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.ServerControl.open_filename)
 }
  ::std::string* ServerControl::mutable_open_filename() {
   set_has_open_filename();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.ServerControl.open_filename)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.ServerControl.open_filename)
   return open_filename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* ServerControl::release_open_filename() {
@@ -796,7 +797,7 @@ void ServerControl::InternalSwap(ServerControl* other) {
     clear_has_open_filename();
   }
   open_filename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), open_filename);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.ServerControl.open_filename)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.ServerControl.open_filename)
 }
 
 // optional bool new_world = 4;
@@ -814,13 +815,13 @@ void ServerControl::InternalSwap(ServerControl* other) {
   clear_has_new_world();
 }
  bool ServerControl::new_world() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ServerControl.new_world)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ServerControl.new_world)
   return new_world_;
 }
  void ServerControl::set_new_world(bool value) {
   set_has_new_world();
   new_world_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.ServerControl.new_world)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.ServerControl.new_world)
 }
 
 // optional bool stop = 5;
@@ -838,13 +839,13 @@ void ServerControl::InternalSwap(ServerControl* other) {
   clear_has_stop();
 }
  bool ServerControl::stop() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ServerControl.stop)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ServerControl.stop)
   return stop_;
 }
  void ServerControl::set_stop(bool value) {
   set_has_stop();
   stop_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.ServerControl.stop)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.ServerControl.stop)
 }
 
 // optional bool clone = 6;
@@ -862,13 +863,13 @@ void ServerControl::InternalSwap(ServerControl* other) {
   clear_has_clone();
 }
  bool ServerControl::clone() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ServerControl.clone)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ServerControl.clone)
   return clone_;
 }
  void ServerControl::set_clone(bool value) {
   set_has_clone();
   clone_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.ServerControl.clone)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.ServerControl.clone)
 }
 
 // optional uint32 new_port = 7;
@@ -886,21 +887,22 @@ void ServerControl::InternalSwap(ServerControl* other) {
   clear_has_new_port();
 }
  ::google::protobuf::uint32 ServerControl::new_port() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ServerControl.new_port)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ServerControl.new_port)
   return new_port_;
 }
  void ServerControl::set_new_port(::google::protobuf::uint32 value) {
   set_has_new_port();
   new_port_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.ServerControl.new_port)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.ServerControl.new_port)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.ServerControl", ServerControl)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.ServerControl", ServerControl)
 // @@protoc_insertion_point(global_scope)

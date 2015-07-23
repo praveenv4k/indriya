@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_physics_2eproto();
@@ -156,12 +157,12 @@ class Physics : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .experimot.msgs.Physics.Type type = 1 [default = ODE];
+  // optional .Indriya.Core.Msgs.Physics.Type type = 1 [default = ODE];
   bool has_type() const;
   void clear_type();
   static const int kTypeFieldNumber = 1;
-  ::experimot::msgs::Physics_Type type() const;
-  void set_type(::experimot::msgs::Physics_Type value);
+  ::Indriya::Core::Msgs::Physics_Type type() const;
+  void set_type(::Indriya::Core::Msgs::Physics_Type value);
 
   // optional string solver_type = 2;
   bool has_solver_type() const;
@@ -231,14 +232,14 @@ class Physics : public ::google::protobuf::Message {
   double contact_surface_layer() const;
   void set_contact_surface_layer(double value);
 
-  // optional .experimot.msgs.Vector3d gravity = 11;
+  // optional .Indriya.Core.Msgs.Vector3d gravity = 11;
   bool has_gravity() const;
   void clear_gravity();
   static const int kGravityFieldNumber = 11;
-  const ::experimot::msgs::Vector3d& gravity() const;
-  ::experimot::msgs::Vector3d* mutable_gravity();
-  ::experimot::msgs::Vector3d* release_gravity();
-  void set_allocated_gravity(::experimot::msgs::Vector3d* gravity);
+  const ::Indriya::Core::Msgs::Vector3d& gravity() const;
+  ::Indriya::Core::Msgs::Vector3d* mutable_gravity();
+  ::Indriya::Core::Msgs::Vector3d* release_gravity();
+  void set_allocated_gravity(::Indriya::Core::Msgs::Vector3d* gravity);
 
   // optional bool enable_physics = 12;
   bool has_enable_physics() const;
@@ -268,7 +269,7 @@ class Physics : public ::google::protobuf::Message {
   double max_step_size() const;
   void set_max_step_size(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Physics)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Physics)
  private:
   inline void set_has_type();
   inline void clear_has_type();
@@ -315,7 +316,7 @@ class Physics : public ::google::protobuf::Message {
   bool enable_physics_;
   double contact_max_correcting_vel_;
   double contact_surface_layer_;
-  ::experimot::msgs::Vector3d* gravity_;
+  ::Indriya::Core::Msgs::Vector3d* gravity_;
   double real_time_factor_;
   double real_time_update_rate_;
   double max_step_size_;
@@ -334,7 +335,7 @@ class Physics : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // Physics
 
-// optional .experimot.msgs.Physics.Type type = 1 [default = ODE];
+// optional .Indriya.Core.Msgs.Physics.Type type = 1 [default = ODE];
 inline bool Physics::has_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -348,15 +349,15 @@ inline void Physics::clear_type() {
   type_ = 1;
   clear_has_type();
 }
-inline ::experimot::msgs::Physics_Type Physics::type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Physics.type)
-  return static_cast< ::experimot::msgs::Physics_Type >(type_);
+inline ::Indriya::Core::Msgs::Physics_Type Physics::type() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Physics.type)
+  return static_cast< ::Indriya::Core::Msgs::Physics_Type >(type_);
 }
-inline void Physics::set_type(::experimot::msgs::Physics_Type value) {
-  assert(::experimot::msgs::Physics_Type_IsValid(value));
+inline void Physics::set_type(::Indriya::Core::Msgs::Physics_Type value) {
+  assert(::Indriya::Core::Msgs::Physics_Type_IsValid(value));
   set_has_type();
   type_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Physics.type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Physics.type)
 }
 
 // optional string solver_type = 2;
@@ -374,28 +375,28 @@ inline void Physics::clear_solver_type() {
   clear_has_solver_type();
 }
 inline const ::std::string& Physics::solver_type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Physics.solver_type)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Physics.solver_type)
   return solver_type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Physics::set_solver_type(const ::std::string& value) {
   set_has_solver_type();
   solver_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Physics.solver_type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Physics.solver_type)
 }
 inline void Physics::set_solver_type(const char* value) {
   set_has_solver_type();
   solver_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Physics.solver_type)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Physics.solver_type)
 }
 inline void Physics::set_solver_type(const char* value, size_t size) {
   set_has_solver_type();
   solver_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Physics.solver_type)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Physics.solver_type)
 }
 inline ::std::string* Physics::mutable_solver_type() {
   set_has_solver_type();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Physics.solver_type)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Physics.solver_type)
   return solver_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Physics::release_solver_type() {
@@ -409,7 +410,7 @@ inline void Physics::set_allocated_solver_type(::std::string* solver_type) {
     clear_has_solver_type();
   }
   solver_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), solver_type);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Physics.solver_type)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Physics.solver_type)
 }
 
 // optional double min_step_size = 3;
@@ -427,13 +428,13 @@ inline void Physics::clear_min_step_size() {
   clear_has_min_step_size();
 }
 inline double Physics::min_step_size() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Physics.min_step_size)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Physics.min_step_size)
   return min_step_size_;
 }
 inline void Physics::set_min_step_size(double value) {
   set_has_min_step_size();
   min_step_size_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Physics.min_step_size)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Physics.min_step_size)
 }
 
 // optional int32 precon_iters = 4;
@@ -451,13 +452,13 @@ inline void Physics::clear_precon_iters() {
   clear_has_precon_iters();
 }
 inline ::google::protobuf::int32 Physics::precon_iters() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Physics.precon_iters)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Physics.precon_iters)
   return precon_iters_;
 }
 inline void Physics::set_precon_iters(::google::protobuf::int32 value) {
   set_has_precon_iters();
   precon_iters_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Physics.precon_iters)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Physics.precon_iters)
 }
 
 // optional int32 iters = 5;
@@ -475,13 +476,13 @@ inline void Physics::clear_iters() {
   clear_has_iters();
 }
 inline ::google::protobuf::int32 Physics::iters() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Physics.iters)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Physics.iters)
   return iters_;
 }
 inline void Physics::set_iters(::google::protobuf::int32 value) {
   set_has_iters();
   iters_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Physics.iters)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Physics.iters)
 }
 
 // optional double sor = 6;
@@ -499,13 +500,13 @@ inline void Physics::clear_sor() {
   clear_has_sor();
 }
 inline double Physics::sor() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Physics.sor)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Physics.sor)
   return sor_;
 }
 inline void Physics::set_sor(double value) {
   set_has_sor();
   sor_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Physics.sor)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Physics.sor)
 }
 
 // optional double cfm = 7;
@@ -523,13 +524,13 @@ inline void Physics::clear_cfm() {
   clear_has_cfm();
 }
 inline double Physics::cfm() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Physics.cfm)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Physics.cfm)
   return cfm_;
 }
 inline void Physics::set_cfm(double value) {
   set_has_cfm();
   cfm_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Physics.cfm)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Physics.cfm)
 }
 
 // optional double erp = 8;
@@ -547,13 +548,13 @@ inline void Physics::clear_erp() {
   clear_has_erp();
 }
 inline double Physics::erp() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Physics.erp)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Physics.erp)
   return erp_;
 }
 inline void Physics::set_erp(double value) {
   set_has_erp();
   erp_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Physics.erp)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Physics.erp)
 }
 
 // optional double contact_max_correcting_vel = 9;
@@ -571,13 +572,13 @@ inline void Physics::clear_contact_max_correcting_vel() {
   clear_has_contact_max_correcting_vel();
 }
 inline double Physics::contact_max_correcting_vel() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Physics.contact_max_correcting_vel)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Physics.contact_max_correcting_vel)
   return contact_max_correcting_vel_;
 }
 inline void Physics::set_contact_max_correcting_vel(double value) {
   set_has_contact_max_correcting_vel();
   contact_max_correcting_vel_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Physics.contact_max_correcting_vel)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Physics.contact_max_correcting_vel)
 }
 
 // optional double contact_surface_layer = 10;
@@ -595,16 +596,16 @@ inline void Physics::clear_contact_surface_layer() {
   clear_has_contact_surface_layer();
 }
 inline double Physics::contact_surface_layer() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Physics.contact_surface_layer)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Physics.contact_surface_layer)
   return contact_surface_layer_;
 }
 inline void Physics::set_contact_surface_layer(double value) {
   set_has_contact_surface_layer();
   contact_surface_layer_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Physics.contact_surface_layer)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Physics.contact_surface_layer)
 }
 
-// optional .experimot.msgs.Vector3d gravity = 11;
+// optional .Indriya.Core.Msgs.Vector3d gravity = 11;
 inline bool Physics::has_gravity() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -615,28 +616,28 @@ inline void Physics::clear_has_gravity() {
   _has_bits_[0] &= ~0x00000400u;
 }
 inline void Physics::clear_gravity() {
-  if (gravity_ != NULL) gravity_->::experimot::msgs::Vector3d::Clear();
+  if (gravity_ != NULL) gravity_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_gravity();
 }
-inline const ::experimot::msgs::Vector3d& Physics::gravity() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Physics.gravity)
+inline const ::Indriya::Core::Msgs::Vector3d& Physics::gravity() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Physics.gravity)
   return gravity_ != NULL ? *gravity_ : *default_instance_->gravity_;
 }
-inline ::experimot::msgs::Vector3d* Physics::mutable_gravity() {
+inline ::Indriya::Core::Msgs::Vector3d* Physics::mutable_gravity() {
   set_has_gravity();
   if (gravity_ == NULL) {
-    gravity_ = new ::experimot::msgs::Vector3d;
+    gravity_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Physics.gravity)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Physics.gravity)
   return gravity_;
 }
-inline ::experimot::msgs::Vector3d* Physics::release_gravity() {
+inline ::Indriya::Core::Msgs::Vector3d* Physics::release_gravity() {
   clear_has_gravity();
-  ::experimot::msgs::Vector3d* temp = gravity_;
+  ::Indriya::Core::Msgs::Vector3d* temp = gravity_;
   gravity_ = NULL;
   return temp;
 }
-inline void Physics::set_allocated_gravity(::experimot::msgs::Vector3d* gravity) {
+inline void Physics::set_allocated_gravity(::Indriya::Core::Msgs::Vector3d* gravity) {
   delete gravity_;
   gravity_ = gravity;
   if (gravity) {
@@ -644,7 +645,7 @@ inline void Physics::set_allocated_gravity(::experimot::msgs::Vector3d* gravity)
   } else {
     clear_has_gravity();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Physics.gravity)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Physics.gravity)
 }
 
 // optional bool enable_physics = 12;
@@ -662,13 +663,13 @@ inline void Physics::clear_enable_physics() {
   clear_has_enable_physics();
 }
 inline bool Physics::enable_physics() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Physics.enable_physics)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Physics.enable_physics)
   return enable_physics_;
 }
 inline void Physics::set_enable_physics(bool value) {
   set_has_enable_physics();
   enable_physics_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Physics.enable_physics)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Physics.enable_physics)
 }
 
 // optional double real_time_factor = 13;
@@ -686,13 +687,13 @@ inline void Physics::clear_real_time_factor() {
   clear_has_real_time_factor();
 }
 inline double Physics::real_time_factor() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Physics.real_time_factor)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Physics.real_time_factor)
   return real_time_factor_;
 }
 inline void Physics::set_real_time_factor(double value) {
   set_has_real_time_factor();
   real_time_factor_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Physics.real_time_factor)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Physics.real_time_factor)
 }
 
 // optional double real_time_update_rate = 14;
@@ -710,13 +711,13 @@ inline void Physics::clear_real_time_update_rate() {
   clear_has_real_time_update_rate();
 }
 inline double Physics::real_time_update_rate() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Physics.real_time_update_rate)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Physics.real_time_update_rate)
   return real_time_update_rate_;
 }
 inline void Physics::set_real_time_update_rate(double value) {
   set_has_real_time_update_rate();
   real_time_update_rate_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Physics.real_time_update_rate)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Physics.real_time_update_rate)
 }
 
 // optional double max_step_size = 15;
@@ -734,38 +735,39 @@ inline void Physics::clear_max_step_size() {
   clear_has_max_step_size();
 }
 inline double Physics::max_step_size() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Physics.max_step_size)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Physics.max_step_size)
   return max_step_size_;
 }
 inline void Physics::set_max_step_size(double value) {
   set_has_max_step_size();
   max_step_size_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Physics.max_step_size)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Physics.max_step_size)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Physics> PhysicsPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Physics> PhysicsPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::experimot::msgs::Physics_Type> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Indriya::Core::Msgs::Physics_Type> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::Physics_Type>() {
-  return ::experimot::msgs::Physics_Type_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Indriya::Core::Msgs::Physics_Type>() {
+  return ::Indriya::Core::Msgs::Physics_Type_descriptor();
 }
 
 }  // namespace protobuf
 }  // namespace google
 #endif  // SWIG
 
-typedef const boost::shared_ptr<experimot::msgs::Physics const> ConstPhysicsPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Physics const> ConstPhysicsPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_physics_2eproto__INCLUDED

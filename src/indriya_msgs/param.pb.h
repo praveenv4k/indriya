@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_param_2eproto();
@@ -144,7 +145,7 @@ class Param : public ::google::protobuf::Message {
   ::std::string* release_datatype();
   void set_allocated_datatype(::std::string* datatype);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Param)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Param)
  private:
   inline void set_has_key();
   inline void clear_has_key();
@@ -235,25 +236,25 @@ class ParamList : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .experimot.msgs.Param param = 1;
+  // repeated .Indriya.Core.Msgs.Param param = 1;
   int param_size() const;
   void clear_param();
   static const int kParamFieldNumber = 1;
-  const ::experimot::msgs::Param& param(int index) const;
-  ::experimot::msgs::Param* mutable_param(int index);
-  ::experimot::msgs::Param* add_param();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+  const ::Indriya::Core::Msgs::Param& param(int index) const;
+  ::Indriya::Core::Msgs::Param* mutable_param(int index);
+  ::Indriya::Core::Msgs::Param* add_param();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >&
       param() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >*
       mutable_param();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.ParamList)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.ParamList)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param > param_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param > param_;
   friend void  protobuf_AddDesc_param_2eproto();
   friend void protobuf_AssignDesc_param_2eproto();
   friend void protobuf_ShutdownFile_param_2eproto();
@@ -284,28 +285,28 @@ inline void Param::clear_key() {
   clear_has_key();
 }
 inline const ::std::string& Param::key() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Param.key)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Param.key)
   return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Param::set_key(const ::std::string& value) {
   set_has_key();
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Param.key)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Param.key)
 }
 inline void Param::set_key(const char* value) {
   set_has_key();
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Param.key)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Param.key)
 }
 inline void Param::set_key(const char* value, size_t size) {
   set_has_key();
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Param.key)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Param.key)
 }
 inline ::std::string* Param::mutable_key() {
   set_has_key();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Param.key)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Param.key)
   return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Param::release_key() {
@@ -319,7 +320,7 @@ inline void Param::set_allocated_key(::std::string* key) {
     clear_has_key();
   }
   key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Param.key)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Param.key)
 }
 
 // required string value = 2;
@@ -337,28 +338,28 @@ inline void Param::clear_value() {
   clear_has_value();
 }
 inline const ::std::string& Param::value() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Param.value)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Param.value)
   return value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Param::set_value(const ::std::string& value) {
   set_has_value();
   value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Param.value)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Param.value)
 }
 inline void Param::set_value(const char* value) {
   set_has_value();
   value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Param.value)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Param.value)
 }
 inline void Param::set_value(const char* value, size_t size) {
   set_has_value();
   value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Param.value)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Param.value)
 }
 inline ::std::string* Param::mutable_value() {
   set_has_value();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Param.value)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Param.value)
   return value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Param::release_value() {
@@ -372,7 +373,7 @@ inline void Param::set_allocated_value(::std::string* value) {
     clear_has_value();
   }
   value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Param.value)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Param.value)
 }
 
 // required string dataType = 3;
@@ -390,28 +391,28 @@ inline void Param::clear_datatype() {
   clear_has_datatype();
 }
 inline const ::std::string& Param::datatype() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Param.dataType)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Param.dataType)
   return datatype_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Param::set_datatype(const ::std::string& value) {
   set_has_datatype();
   datatype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Param.dataType)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Param.dataType)
 }
 inline void Param::set_datatype(const char* value) {
   set_has_datatype();
   datatype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Param.dataType)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Param.dataType)
 }
 inline void Param::set_datatype(const char* value, size_t size) {
   set_has_datatype();
   datatype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Param.dataType)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Param.dataType)
 }
 inline ::std::string* Param::mutable_datatype() {
   set_has_datatype();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Param.dataType)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Param.dataType)
   return datatype_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Param::release_datatype() {
@@ -425,52 +426,53 @@ inline void Param::set_allocated_datatype(::std::string* datatype) {
     clear_has_datatype();
   }
   datatype_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), datatype);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Param.dataType)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Param.dataType)
 }
 
 // -------------------------------------------------------------------
 
 // ParamList
 
-// repeated .experimot.msgs.Param param = 1;
+// repeated .Indriya.Core.Msgs.Param param = 1;
 inline int ParamList::param_size() const {
   return param_.size();
 }
 inline void ParamList::clear_param() {
   param_.Clear();
 }
-inline const ::experimot::msgs::Param& ParamList::param(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ParamList.param)
+inline const ::Indriya::Core::Msgs::Param& ParamList::param(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ParamList.param)
   return param_.Get(index);
 }
-inline ::experimot::msgs::Param* ParamList::mutable_param(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.ParamList.param)
+inline ::Indriya::Core::Msgs::Param* ParamList::mutable_param(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.ParamList.param)
   return param_.Mutable(index);
 }
-inline ::experimot::msgs::Param* ParamList::add_param() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.ParamList.param)
+inline ::Indriya::Core::Msgs::Param* ParamList::add_param() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.ParamList.param)
   return param_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >&
 ParamList::param() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.ParamList.param)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.ParamList.param)
   return param_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >*
 ParamList::mutable_param() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.ParamList.param)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.ParamList.param)
   return &param_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Param> ParamPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Param> ParamPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Param const> ConstParamPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Param const> ConstParamPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_param_2eproto__INCLUDED

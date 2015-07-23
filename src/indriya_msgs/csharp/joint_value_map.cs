@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 // Generated from: proto/joint_value_map.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"JointValue")]
   public partial class JointValue : global::ProtoBuf.IExtensible
@@ -39,9 +39,9 @@ namespace experimot.msgs
   {
     public JointValueVector() {}
     
-    private readonly global::System.Collections.Generic.List<experimot.msgs.JointValue> _JointValues = new global::System.Collections.Generic.List<experimot.msgs.JointValue>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.JointValue> _JointValues = new global::System.Collections.Generic.List<Indriya.Core.Msgs.JointValue>();
     [global::ProtoBuf.ProtoMember(1, Name=@"JointValues", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.JointValue> JointValues
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.JointValue> JointValues
     {
       get { return _JointValues; }
     }

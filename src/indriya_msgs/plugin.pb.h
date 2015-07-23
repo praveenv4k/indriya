@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_plugin_2eproto();
@@ -143,7 +144,7 @@ class Plugin : public ::google::protobuf::Message {
   ::std::string* release_innerxml();
   void set_allocated_innerxml(::std::string* innerxml);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Plugin)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Plugin)
  private:
   inline void set_has_name();
   inline void clear_has_name();
@@ -191,28 +192,28 @@ inline void Plugin::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& Plugin::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Plugin.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Plugin.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Plugin::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Plugin.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Plugin.name)
 }
 inline void Plugin::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Plugin.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Plugin.name)
 }
 inline void Plugin::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Plugin.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Plugin.name)
 }
 inline ::std::string* Plugin::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Plugin.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Plugin.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Plugin::release_name() {
@@ -226,7 +227,7 @@ inline void Plugin::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Plugin.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Plugin.name)
 }
 
 // required string filename = 2;
@@ -244,28 +245,28 @@ inline void Plugin::clear_filename() {
   clear_has_filename();
 }
 inline const ::std::string& Plugin::filename() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Plugin.filename)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Plugin.filename)
   return filename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Plugin::set_filename(const ::std::string& value) {
   set_has_filename();
   filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Plugin.filename)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Plugin.filename)
 }
 inline void Plugin::set_filename(const char* value) {
   set_has_filename();
   filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Plugin.filename)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Plugin.filename)
 }
 inline void Plugin::set_filename(const char* value, size_t size) {
   set_has_filename();
   filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Plugin.filename)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Plugin.filename)
 }
 inline ::std::string* Plugin::mutable_filename() {
   set_has_filename();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Plugin.filename)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Plugin.filename)
   return filename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Plugin::release_filename() {
@@ -279,7 +280,7 @@ inline void Plugin::set_allocated_filename(::std::string* filename) {
     clear_has_filename();
   }
   filename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), filename);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Plugin.filename)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Plugin.filename)
 }
 
 // optional string innerxml = 3 [default = ""];
@@ -297,28 +298,28 @@ inline void Plugin::clear_innerxml() {
   clear_has_innerxml();
 }
 inline const ::std::string& Plugin::innerxml() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Plugin.innerxml)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Plugin.innerxml)
   return innerxml_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Plugin::set_innerxml(const ::std::string& value) {
   set_has_innerxml();
   innerxml_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Plugin.innerxml)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Plugin.innerxml)
 }
 inline void Plugin::set_innerxml(const char* value) {
   set_has_innerxml();
   innerxml_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Plugin.innerxml)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Plugin.innerxml)
 }
 inline void Plugin::set_innerxml(const char* value, size_t size) {
   set_has_innerxml();
   innerxml_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Plugin.innerxml)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Plugin.innerxml)
 }
 inline ::std::string* Plugin::mutable_innerxml() {
   set_has_innerxml();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Plugin.innerxml)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Plugin.innerxml)
   return innerxml_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Plugin::release_innerxml() {
@@ -332,18 +333,19 @@ inline void Plugin::set_allocated_innerxml(::std::string* innerxml) {
     clear_has_innerxml();
   }
   innerxml_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), innerxml);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Plugin.innerxml)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Plugin.innerxml)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Plugin> PluginPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Plugin> PluginPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Plugin const> ConstPluginPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Plugin const> ConstPluginPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_plugin_2eproto__INCLUDED

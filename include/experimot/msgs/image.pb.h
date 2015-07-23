@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_image_2eproto();
@@ -147,7 +148,7 @@ class Image : public ::google::protobuf::Message {
   ::std::string* release_data();
   void set_allocated_data(::std::string* data);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Image)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Image)
  private:
   inline void set_has_width();
   inline void clear_has_width();
@@ -201,13 +202,13 @@ inline void Image::clear_width() {
   clear_has_width();
 }
 inline ::google::protobuf::uint32 Image::width() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Image.width)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Image.width)
   return width_;
 }
 inline void Image::set_width(::google::protobuf::uint32 value) {
   set_has_width();
   width_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Image.width)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Image.width)
 }
 
 // required uint32 height = 2;
@@ -225,13 +226,13 @@ inline void Image::clear_height() {
   clear_has_height();
 }
 inline ::google::protobuf::uint32 Image::height() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Image.height)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Image.height)
   return height_;
 }
 inline void Image::set_height(::google::protobuf::uint32 value) {
   set_has_height();
   height_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Image.height)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Image.height)
 }
 
 // required uint32 pixel_format = 3;
@@ -249,13 +250,13 @@ inline void Image::clear_pixel_format() {
   clear_has_pixel_format();
 }
 inline ::google::protobuf::uint32 Image::pixel_format() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Image.pixel_format)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Image.pixel_format)
   return pixel_format_;
 }
 inline void Image::set_pixel_format(::google::protobuf::uint32 value) {
   set_has_pixel_format();
   pixel_format_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Image.pixel_format)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Image.pixel_format)
 }
 
 // required uint32 step = 4;
@@ -273,13 +274,13 @@ inline void Image::clear_step() {
   clear_has_step();
 }
 inline ::google::protobuf::uint32 Image::step() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Image.step)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Image.step)
   return step_;
 }
 inline void Image::set_step(::google::protobuf::uint32 value) {
   set_has_step();
   step_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Image.step)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Image.step)
 }
 
 // required bytes data = 5;
@@ -297,28 +298,28 @@ inline void Image::clear_data() {
   clear_has_data();
 }
 inline const ::std::string& Image::data() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Image.data)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Image.data)
   return data_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Image::set_data(const ::std::string& value) {
   set_has_data();
   data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Image.data)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Image.data)
 }
 inline void Image::set_data(const char* value) {
   set_has_data();
   data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Image.data)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Image.data)
 }
 inline void Image::set_data(const void* value, size_t size) {
   set_has_data();
   data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Image.data)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Image.data)
 }
 inline ::std::string* Image::mutable_data() {
   set_has_data();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Image.data)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Image.data)
   return data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Image::release_data() {
@@ -332,18 +333,19 @@ inline void Image::set_allocated_data(::std::string* data) {
     clear_has_data();
   }
   data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Image.data)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Image.data)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Image> ImagePtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Image> ImagePtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Image const> ConstImagePtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Image const> ConstImagePtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_image_2eproto__INCLUDED

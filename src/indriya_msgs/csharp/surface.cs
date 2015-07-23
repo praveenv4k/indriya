@@ -9,17 +9,17 @@
 
 // Generated from: proto/surface.proto
 // Note: requires additional types generated from: friction.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Surface")]
   public partial class Surface : global::ProtoBuf.IExtensible
   {
     public Surface() {}
     
-    private experimot.msgs.Friction _friction = null;
+    private Indriya.Core.Msgs.Friction _friction = null;
     [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"friction", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Friction friction
+    public Indriya.Core.Msgs.Friction friction
     {
       get { return _friction; }
       set { _friction = value; }

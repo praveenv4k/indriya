@@ -9,7 +9,7 @@
 
 // Generated from: proto/joint_cmd.proto
 // Note: requires additional types generated from: pid.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"JointCmd")]
   public partial class JointCmd : global::ProtoBuf.IExtensible
@@ -39,18 +39,18 @@ namespace experimot.msgs
       get { return _force; }
       set { _force = value; }
     }
-    private experimot.msgs.PID _position = null;
+    private Indriya.Core.Msgs.PID _position = null;
     [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"position", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.PID position
+    public Indriya.Core.Msgs.PID position
     {
       get { return _position; }
       set { _position = value; }
     }
-    private experimot.msgs.PID _velocity = null;
+    private Indriya.Core.Msgs.PID _velocity = null;
     [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"velocity", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.PID velocity
+    public Indriya.Core.Msgs.PID velocity
     {
       get { return _velocity; }
       set { _velocity = value; }

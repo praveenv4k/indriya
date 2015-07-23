@@ -18,9 +18,9 @@ import time_pb2 as time__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='header.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x0cheader.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\"L\n\x06Header\x12\x0e\n\x06str_id\x18\x01 \x01(\t\x12#\n\x05stamp\x18\x02 \x01(\x0b\x32\x14.experimot.msgs.Time\x12\r\n\x05index\x18\x03 \x01(\x05')
+  serialized_pb=_b('\n\x0cheader.proto\x12\x11Indriya.Core.Msgs\x1a\ntime.proto\"O\n\x06Header\x12\x0e\n\x06str_id\x18\x01 \x01(\t\x12&\n\x05stamp\x18\x02 \x01(\x0b\x32\x17.Indriya.Core.Msgs.Time\x12\r\n\x05index\x18\x03 \x01(\x05')
   ,
   dependencies=[time__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,27 +30,27 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _HEADER = _descriptor.Descriptor(
   name='Header',
-  full_name='experimot.msgs.Header',
+  full_name='Indriya.Core.Msgs.Header',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='str_id', full_name='experimot.msgs.Header.str_id', index=0,
+      name='str_id', full_name='Indriya.Core.Msgs.Header.str_id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='stamp', full_name='experimot.msgs.Header.stamp', index=1,
+      name='stamp', full_name='Indriya.Core.Msgs.Header.stamp', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='index', full_name='experimot.msgs.Header.index', index=2,
+      name='index', full_name='Indriya.Core.Msgs.Header.index', index=2,
       number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -68,8 +68,8 @@ _HEADER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=44,
-  serialized_end=120,
+  serialized_start=47,
+  serialized_end=126,
 )
 
 _HEADER.fields_by_name['stamp'].message_type = time__pb2._TIME
@@ -78,7 +78,7 @@ DESCRIPTOR.message_types_by_name['Header'] = _HEADER
 Header = _reflection.GeneratedProtocolMessageType('Header', (_message.Message,), dict(
   DESCRIPTOR = _HEADER,
   __module__ = 'header_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Header)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Header)
   ))
 _sym_db.RegisterMessage(Header)
 

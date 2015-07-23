@@ -14,7 +14,7 @@
 // Note: requires additional types generated from: light.proto
 // Note: requires additional types generated from: joint.proto
 // Note: requires additional types generated from: model.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Scene")]
   public partial class Scene : global::ProtoBuf.IExtensible
@@ -28,26 +28,26 @@ namespace experimot.msgs
       get { return _name; }
       set { _name = value; }
     }
-    private experimot.msgs.Color _ambient = null;
+    private Indriya.Core.Msgs.Color _ambient = null;
     [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"ambient", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Color ambient
+    public Indriya.Core.Msgs.Color ambient
     {
       get { return _ambient; }
       set { _ambient = value; }
     }
-    private experimot.msgs.Color _background = null;
+    private Indriya.Core.Msgs.Color _background = null;
     [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"background", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Color background
+    public Indriya.Core.Msgs.Color background
     {
       get { return _background; }
       set { _background = value; }
     }
-    private experimot.msgs.Sky _sky = null;
+    private Indriya.Core.Msgs.Sky _sky = null;
     [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"sky", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Sky sky
+    public Indriya.Core.Msgs.Sky sky
     {
       get { return _sky; }
       set { _sky = value; }
@@ -60,10 +60,10 @@ namespace experimot.msgs
       get { return _shadows; }
       set { _shadows = value; }
     }
-    private experimot.msgs.Fog _fog = null;
+    private Indriya.Core.Msgs.Fog _fog = null;
     [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"fog", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Fog fog
+    public Indriya.Core.Msgs.Fog fog
     {
       get { return _fog; }
       set { _fog = value; }
@@ -76,23 +76,23 @@ namespace experimot.msgs
       get { return _grid; }
       set { _grid = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Model> _model = new global::System.Collections.Generic.List<experimot.msgs.Model>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Model> _model = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Model>();
     [global::ProtoBuf.ProtoMember(8, Name=@"model", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Model> model
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Model> model
     {
       get { return _model; }
     }
   
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Light> _light = new global::System.Collections.Generic.List<experimot.msgs.Light>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Light> _light = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Light>();
     [global::ProtoBuf.ProtoMember(9, Name=@"light", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Light> light
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Light> light
     {
       get { return _light; }
     }
   
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Joint> _joint = new global::System.Collections.Generic.List<experimot.msgs.Joint>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Joint> _joint = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Joint>();
     [global::ProtoBuf.ProtoMember(10, Name=@"joint", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Joint> joint
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Joint> joint
     {
       get { return _joint; }
     }

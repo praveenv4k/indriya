@@ -9,30 +9,30 @@
 
 // Generated from: proto/world_stats.proto
 // Note: requires additional types generated from: time.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"WorldStatistics")]
   public partial class WorldStatistics : global::ProtoBuf.IExtensible
   {
     public WorldStatistics() {}
     
-    private experimot.msgs.Time _sim_time;
+    private Indriya.Core.Msgs.Time _sim_time;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"sim_time", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Time sim_time
+    public Indriya.Core.Msgs.Time sim_time
     {
       get { return _sim_time; }
       set { _sim_time = value; }
     }
-    private experimot.msgs.Time _pause_time;
+    private Indriya.Core.Msgs.Time _pause_time;
     [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"pause_time", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Time pause_time
+    public Indriya.Core.Msgs.Time pause_time
     {
       get { return _pause_time; }
       set { _pause_time = value; }
     }
-    private experimot.msgs.Time _real_time;
+    private Indriya.Core.Msgs.Time _real_time;
     [global::ProtoBuf.ProtoMember(4, IsRequired = true, Name=@"real_time", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Time real_time
+    public Indriya.Core.Msgs.Time real_time
     {
       get { return _real_time; }
       set { _real_time = value; }

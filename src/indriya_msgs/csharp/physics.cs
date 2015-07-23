@@ -9,17 +9,17 @@
 
 // Generated from: proto/physics.proto
 // Note: requires additional types generated from: vector3d.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Physics")]
   public partial class Physics : global::ProtoBuf.IExtensible
   {
     public Physics() {}
     
-    private experimot.msgs.Physics.Type _type = experimot.msgs.Physics.Type.ODE;
+    private Indriya.Core.Msgs.Physics.Type _type = Indriya.Core.Msgs.Physics.Type.ODE;
     [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(experimot.msgs.Physics.Type.ODE)]
-    public experimot.msgs.Physics.Type type
+    [global::System.ComponentModel.DefaultValue(Indriya.Core.Msgs.Physics.Type.ODE)]
+    public Indriya.Core.Msgs.Physics.Type type
     {
       get { return _type; }
       set { _type = value; }
@@ -96,10 +96,10 @@ namespace experimot.msgs
       get { return _contact_surface_layer; }
       set { _contact_surface_layer = value; }
     }
-    private experimot.msgs.Vector3d _gravity = null;
+    private Indriya.Core.Msgs.Vector3d _gravity = null;
     [global::ProtoBuf.ProtoMember(11, IsRequired = false, Name=@"gravity", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Vector3d gravity
+    public Indriya.Core.Msgs.Vector3d gravity
     {
       get { return _gravity; }
       set { _gravity = value; }

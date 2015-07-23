@@ -1,4 +1,4 @@
-﻿<Window x:Class="Experimot.Core.NLP.MainWindow"
+﻿<Window x:Class="Indriya.Core.NLP.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Stanford NLP Sample" Height="600" Width="800">

@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -81,12 +82,13 @@ void protobuf_AddDesc_meshgeom_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_vector3d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector3d_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\016meshgeom.proto\022\016experimot.msgs\032\016vector"
-    "3d.proto\"n\n\010MeshGeom\022\020\n\010filename\030\001 \002(\t\022\'"
-    "\n\005scale\030\002 \001(\0132\030.experimot.msgs.Vector3d\022"
-    "\017\n\007submesh\030\003 \001(\t\022\026\n\016center_submesh\030\004 \001(\010", 160);
+    "\n\016meshgeom.proto\022\021Indriya.Core.Msgs\032\016vec"
+    "tor3d.proto\"q\n\010MeshGeom\022\020\n\010filename\030\001 \002("
+    "\t\022*\n\005scale\030\002 \001(\0132\033.Indriya.Core.Msgs.Vec"
+    "tor3d\022\017\n\007submesh\030\003 \001(\t\022\026\n\016center_submesh"
+    "\030\004 \001(\010", 166);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "meshgeom.proto", &protobuf_RegisterTypes);
   MeshGeom::default_instance_ = new MeshGeom();
@@ -123,11 +125,11 @@ const int MeshGeom::kCenterSubmeshFieldNumber;
 MeshGeom::MeshGeom()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.MeshGeom)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.MeshGeom)
 }
 
 void MeshGeom::InitAsDefaultInstance() {
-  scale_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
+  scale_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
 }
 
 MeshGeom::MeshGeom(const MeshGeom& from)
@@ -135,7 +137,7 @@ MeshGeom::MeshGeom(const MeshGeom& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.MeshGeom)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.MeshGeom)
 }
 
 void MeshGeom::SharedCtor() {
@@ -149,7 +151,7 @@ void MeshGeom::SharedCtor() {
 }
 
 MeshGeom::~MeshGeom() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.MeshGeom)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.MeshGeom)
   SharedDtor();
 }
 
@@ -192,7 +194,7 @@ void MeshGeom::Clear() {
       filename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_scale()) {
-      if (scale_ != NULL) scale_->::experimot::msgs::Vector3d::Clear();
+      if (scale_ != NULL) scale_->::Indriya::Core::Msgs::Vector3d::Clear();
     }
     if (has_submesh()) {
       submesh_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -209,7 +211,7 @@ bool MeshGeom::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.MeshGeom)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.MeshGeom)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -223,7 +225,7 @@ bool MeshGeom::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->filename().data(), this->filename().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.MeshGeom.filename");
+            "Indriya.Core.Msgs.MeshGeom.filename");
         } else {
           goto handle_unusual;
         }
@@ -231,7 +233,7 @@ bool MeshGeom::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Vector3d scale = 2;
+      // optional .Indriya.Core.Msgs.Vector3d scale = 2;
       case 2: {
         if (tag == 18) {
          parse_scale:
@@ -253,7 +255,7 @@ bool MeshGeom::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->submesh().data(), this->submesh().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.MeshGeom.submesh");
+            "Indriya.Core.Msgs.MeshGeom.submesh");
         } else {
           goto handle_unusual;
         }
@@ -290,28 +292,28 @@ bool MeshGeom::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.MeshGeom)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.MeshGeom)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.MeshGeom)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.MeshGeom)
   return false;
 #undef DO_
 }
 
 void MeshGeom::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.MeshGeom)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.MeshGeom)
   // required string filename = 1;
   if (has_filename()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->filename().data(), this->filename().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.MeshGeom.filename");
+      "Indriya.Core.Msgs.MeshGeom.filename");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->filename(), output);
   }
 
-  // optional .experimot.msgs.Vector3d scale = 2;
+  // optional .Indriya.Core.Msgs.Vector3d scale = 2;
   if (has_scale()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->scale_, output);
@@ -322,7 +324,7 @@ void MeshGeom::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->submesh().data(), this->submesh().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.MeshGeom.submesh");
+      "Indriya.Core.Msgs.MeshGeom.submesh");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       3, this->submesh(), output);
   }
@@ -336,24 +338,24 @@ void MeshGeom::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.MeshGeom)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.MeshGeom)
 }
 
 ::google::protobuf::uint8* MeshGeom::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.MeshGeom)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.MeshGeom)
   // required string filename = 1;
   if (has_filename()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->filename().data(), this->filename().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.MeshGeom.filename");
+      "Indriya.Core.Msgs.MeshGeom.filename");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->filename(), target);
   }
 
-  // optional .experimot.msgs.Vector3d scale = 2;
+  // optional .Indriya.Core.Msgs.Vector3d scale = 2;
   if (has_scale()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -365,7 +367,7 @@ void MeshGeom::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->submesh().data(), this->submesh().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.MeshGeom.submesh");
+      "Indriya.Core.Msgs.MeshGeom.submesh");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->submesh(), target);
@@ -380,7 +382,7 @@ void MeshGeom::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.MeshGeom)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.MeshGeom)
   return target;
 }
 
@@ -394,7 +396,7 @@ int MeshGeom::ByteSize() const {
         this->filename());
   }
   if (_has_bits_[1 / 32] & 14) {
-    // optional .experimot.msgs.Vector3d scale = 2;
+    // optional .Indriya.Core.Msgs.Vector3d scale = 2;
     if (has_scale()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -445,7 +447,7 @@ void MeshGeom::MergeFrom(const MeshGeom& from) {
       filename_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.filename_);
     }
     if (from.has_scale()) {
-      mutable_scale()->::experimot::msgs::Vector3d::MergeFrom(from.scale());
+      mutable_scale()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.scale());
     }
     if (from.has_submesh()) {
       set_has_submesh();
@@ -521,28 +523,28 @@ void MeshGeom::InternalSwap(MeshGeom* other) {
   clear_has_filename();
 }
  const ::std::string& MeshGeom::filename() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.MeshGeom.filename)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.MeshGeom.filename)
   return filename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void MeshGeom::set_filename(const ::std::string& value) {
   set_has_filename();
   filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.MeshGeom.filename)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.MeshGeom.filename)
 }
  void MeshGeom::set_filename(const char* value) {
   set_has_filename();
   filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.MeshGeom.filename)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.MeshGeom.filename)
 }
  void MeshGeom::set_filename(const char* value, size_t size) {
   set_has_filename();
   filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.MeshGeom.filename)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.MeshGeom.filename)
 }
  ::std::string* MeshGeom::mutable_filename() {
   set_has_filename();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.MeshGeom.filename)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.MeshGeom.filename)
   return filename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* MeshGeom::release_filename() {
@@ -556,10 +558,10 @@ void MeshGeom::InternalSwap(MeshGeom* other) {
     clear_has_filename();
   }
   filename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), filename);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.MeshGeom.filename)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.MeshGeom.filename)
 }
 
-// optional .experimot.msgs.Vector3d scale = 2;
+// optional .Indriya.Core.Msgs.Vector3d scale = 2;
  bool MeshGeom::has_scale() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -570,28 +572,28 @@ void MeshGeom::InternalSwap(MeshGeom* other) {
   _has_bits_[0] &= ~0x00000002u;
 }
  void MeshGeom::clear_scale() {
-  if (scale_ != NULL) scale_->::experimot::msgs::Vector3d::Clear();
+  if (scale_ != NULL) scale_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_scale();
 }
- const ::experimot::msgs::Vector3d& MeshGeom::scale() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.MeshGeom.scale)
+ const ::Indriya::Core::Msgs::Vector3d& MeshGeom::scale() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.MeshGeom.scale)
   return scale_ != NULL ? *scale_ : *default_instance_->scale_;
 }
- ::experimot::msgs::Vector3d* MeshGeom::mutable_scale() {
+ ::Indriya::Core::Msgs::Vector3d* MeshGeom::mutable_scale() {
   set_has_scale();
   if (scale_ == NULL) {
-    scale_ = new ::experimot::msgs::Vector3d;
+    scale_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.MeshGeom.scale)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.MeshGeom.scale)
   return scale_;
 }
- ::experimot::msgs::Vector3d* MeshGeom::release_scale() {
+ ::Indriya::Core::Msgs::Vector3d* MeshGeom::release_scale() {
   clear_has_scale();
-  ::experimot::msgs::Vector3d* temp = scale_;
+  ::Indriya::Core::Msgs::Vector3d* temp = scale_;
   scale_ = NULL;
   return temp;
 }
- void MeshGeom::set_allocated_scale(::experimot::msgs::Vector3d* scale) {
+ void MeshGeom::set_allocated_scale(::Indriya::Core::Msgs::Vector3d* scale) {
   delete scale_;
   scale_ = scale;
   if (scale) {
@@ -599,7 +601,7 @@ void MeshGeom::InternalSwap(MeshGeom* other) {
   } else {
     clear_has_scale();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.MeshGeom.scale)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.MeshGeom.scale)
 }
 
 // optional string submesh = 3;
@@ -617,28 +619,28 @@ void MeshGeom::InternalSwap(MeshGeom* other) {
   clear_has_submesh();
 }
  const ::std::string& MeshGeom::submesh() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.MeshGeom.submesh)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.MeshGeom.submesh)
   return submesh_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void MeshGeom::set_submesh(const ::std::string& value) {
   set_has_submesh();
   submesh_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.MeshGeom.submesh)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.MeshGeom.submesh)
 }
  void MeshGeom::set_submesh(const char* value) {
   set_has_submesh();
   submesh_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.MeshGeom.submesh)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.MeshGeom.submesh)
 }
  void MeshGeom::set_submesh(const char* value, size_t size) {
   set_has_submesh();
   submesh_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.MeshGeom.submesh)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.MeshGeom.submesh)
 }
  ::std::string* MeshGeom::mutable_submesh() {
   set_has_submesh();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.MeshGeom.submesh)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.MeshGeom.submesh)
   return submesh_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* MeshGeom::release_submesh() {
@@ -652,7 +654,7 @@ void MeshGeom::InternalSwap(MeshGeom* other) {
     clear_has_submesh();
   }
   submesh_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), submesh);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.MeshGeom.submesh)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.MeshGeom.submesh)
 }
 
 // optional bool center_submesh = 4;
@@ -670,21 +672,22 @@ void MeshGeom::InternalSwap(MeshGeom* other) {
   clear_has_center_submesh();
 }
  bool MeshGeom::center_submesh() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.MeshGeom.center_submesh)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.MeshGeom.center_submesh)
   return center_submesh_;
 }
  void MeshGeom::set_center_submesh(bool value) {
   set_has_center_submesh();
   center_submesh_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.MeshGeom.center_submesh)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.MeshGeom.center_submesh)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.MeshGeom", MeshGeom)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.MeshGeom", MeshGeom)
 // @@protoc_insertion_point(global_scope)

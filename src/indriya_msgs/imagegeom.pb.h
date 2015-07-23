@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_imagegeom_2eproto();
@@ -147,7 +148,7 @@ class ImageGeom : public ::google::protobuf::Message {
   ::google::protobuf::int32 granularity() const;
   void set_granularity(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.ImageGeom)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.ImageGeom)
  private:
   inline void set_has_uri();
   inline void clear_has_uri();
@@ -198,28 +199,28 @@ inline void ImageGeom::clear_uri() {
   clear_has_uri();
 }
 inline const ::std::string& ImageGeom::uri() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ImageGeom.uri)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ImageGeom.uri)
   return uri_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ImageGeom::set_uri(const ::std::string& value) {
   set_has_uri();
   uri_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.ImageGeom.uri)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.ImageGeom.uri)
 }
 inline void ImageGeom::set_uri(const char* value) {
   set_has_uri();
   uri_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.ImageGeom.uri)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.ImageGeom.uri)
 }
 inline void ImageGeom::set_uri(const char* value, size_t size) {
   set_has_uri();
   uri_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.ImageGeom.uri)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.ImageGeom.uri)
 }
 inline ::std::string* ImageGeom::mutable_uri() {
   set_has_uri();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.ImageGeom.uri)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.ImageGeom.uri)
   return uri_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ImageGeom::release_uri() {
@@ -233,7 +234,7 @@ inline void ImageGeom::set_allocated_uri(::std::string* uri) {
     clear_has_uri();
   }
   uri_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), uri);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.ImageGeom.uri)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.ImageGeom.uri)
 }
 
 // optional double scale = 2;
@@ -251,13 +252,13 @@ inline void ImageGeom::clear_scale() {
   clear_has_scale();
 }
 inline double ImageGeom::scale() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ImageGeom.scale)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ImageGeom.scale)
   return scale_;
 }
 inline void ImageGeom::set_scale(double value) {
   set_has_scale();
   scale_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.ImageGeom.scale)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.ImageGeom.scale)
 }
 
 // optional int32 threshold = 3 [default = 255];
@@ -275,13 +276,13 @@ inline void ImageGeom::clear_threshold() {
   clear_has_threshold();
 }
 inline ::google::protobuf::int32 ImageGeom::threshold() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ImageGeom.threshold)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ImageGeom.threshold)
   return threshold_;
 }
 inline void ImageGeom::set_threshold(::google::protobuf::int32 value) {
   set_has_threshold();
   threshold_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.ImageGeom.threshold)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.ImageGeom.threshold)
 }
 
 // optional double height = 4;
@@ -299,13 +300,13 @@ inline void ImageGeom::clear_height() {
   clear_has_height();
 }
 inline double ImageGeom::height() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ImageGeom.height)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ImageGeom.height)
   return height_;
 }
 inline void ImageGeom::set_height(double value) {
   set_has_height();
   height_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.ImageGeom.height)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.ImageGeom.height)
 }
 
 // optional int32 granularity = 5;
@@ -323,24 +324,25 @@ inline void ImageGeom::clear_granularity() {
   clear_has_granularity();
 }
 inline ::google::protobuf::int32 ImageGeom::granularity() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.ImageGeom.granularity)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.ImageGeom.granularity)
   return granularity_;
 }
 inline void ImageGeom::set_granularity(::google::protobuf::int32 value) {
   set_has_granularity();
   granularity_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.ImageGeom.granularity)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.ImageGeom.granularity)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::ImageGeom> ImageGeomPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::ImageGeom> ImageGeomPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::ImageGeom const> ConstImageGeomPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::ImageGeom const> ConstImageGeomPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_imagegeom_2eproto__INCLUDED

@@ -11,7 +11,7 @@
 // Note: requires additional types generated from: pose.proto
 // Note: requires additional types generated from: vector3d.proto
 // Note: requires additional types generated from: color.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Light")]
   public partial class Light : global::ProtoBuf.IExtensible
@@ -25,34 +25,34 @@ namespace experimot.msgs
       get { return _name; }
       set { _name = value; }
     }
-    private experimot.msgs.Light.LightType _type = experimot.msgs.Light.LightType.POINT;
+    private Indriya.Core.Msgs.Light.LightType _type = Indriya.Core.Msgs.Light.LightType.POINT;
     [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(experimot.msgs.Light.LightType.POINT)]
-    public experimot.msgs.Light.LightType type
+    [global::System.ComponentModel.DefaultValue(Indriya.Core.Msgs.Light.LightType.POINT)]
+    public Indriya.Core.Msgs.Light.LightType type
     {
       get { return _type; }
       set { _type = value; }
     }
-    private experimot.msgs.Pose _pose = null;
+    private Indriya.Core.Msgs.Pose _pose = null;
     [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"pose", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Pose pose
+    public Indriya.Core.Msgs.Pose pose
     {
       get { return _pose; }
       set { _pose = value; }
     }
-    private experimot.msgs.Color _diffuse = null;
+    private Indriya.Core.Msgs.Color _diffuse = null;
     [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"diffuse", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Color diffuse
+    public Indriya.Core.Msgs.Color diffuse
     {
       get { return _diffuse; }
       set { _diffuse = value; }
     }
-    private experimot.msgs.Color _specular = null;
+    private Indriya.Core.Msgs.Color _specular = null;
     [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"specular", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Color specular
+    public Indriya.Core.Msgs.Color specular
     {
       get { return _specular; }
       set { _specular = value; }
@@ -81,10 +81,10 @@ namespace experimot.msgs
       get { return _attenuation_quadratic; }
       set { _attenuation_quadratic = value; }
     }
-    private experimot.msgs.Vector3d _direction = null;
+    private Indriya.Core.Msgs.Vector3d _direction = null;
     [global::ProtoBuf.ProtoMember(9, IsRequired = false, Name=@"direction", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Vector3d direction
+    public Indriya.Core.Msgs.Vector3d direction
     {
       get { return _direction; }
       set { _direction = value; }

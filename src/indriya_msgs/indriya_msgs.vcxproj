@@ -62,7 +62,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreBuildEvent>
-      <Command>call proto_export.bat $(PROTOBUF_ROOT)\bin\protoc.exe $(ProjectDir) $(OutDir)\experimot_msgs_gen.exe $(ProjectDir)\proto</Command>
+      <Command>call proto_export.bat $(PROTOBUF_ROOT)\bin\protoc.exe $(ProjectDir) $(OutDir)\indriya_msgs_gen.exe $(ProjectDir)\proto $(SolutionDir)bin\$(Configuration)\ProtoGen.exe</Command>
     </PreBuildEvent>
     <CustomBuildStep>
       <Command>
@@ -92,7 +92,7 @@
       <Command>call msg_export.bat $(ProjectDir) $(SolutionDir) $(TargetPath) $(Configuration) $(EXPERIMOT_SCRIPTS_DIR)</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>call proto_export.bat $(PROTOBUF_ROOT)\bin\protoc.exe $(ProjectDir) $(OutDir)\experimot_msgs_gen.exe $(ProjectDir)\proto $(SolutionDir)bin\$(Configuration)\ProtoGen.exe</Command>
+      <Command>call proto_export.bat $(PROTOBUF_ROOT)\bin\protoc.exe $(ProjectDir) $(OutDir)\indriya_msgs_gen.exe $(ProjectDir)\proto $(SolutionDir)bin\$(Configuration)\ProtoGen.exe</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

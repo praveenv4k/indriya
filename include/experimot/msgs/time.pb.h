@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_time_2eproto();
@@ -121,7 +122,7 @@ class Time : public ::google::protobuf::Message {
   ::google::protobuf::int32 nsec() const;
   void set_nsec(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Time)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Time)
  private:
   inline void set_has_sec();
   inline void clear_has_sec();
@@ -166,13 +167,13 @@ inline void Time::clear_sec() {
   clear_has_sec();
 }
 inline ::google::protobuf::int32 Time::sec() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Time.sec)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Time.sec)
   return sec_;
 }
 inline void Time::set_sec(::google::protobuf::int32 value) {
   set_has_sec();
   sec_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Time.sec)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Time.sec)
 }
 
 // required int32 nsec = 2;
@@ -190,24 +191,25 @@ inline void Time::clear_nsec() {
   clear_has_nsec();
 }
 inline ::google::protobuf::int32 Time::nsec() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Time.nsec)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Time.nsec)
   return nsec_;
 }
 inline void Time::set_nsec(::google::protobuf::int32 value) {
   set_has_nsec();
   nsec_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Time.nsec)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Time.nsec)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Time> TimePtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Time> TimePtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Time const> ConstTimePtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Time const> ConstTimePtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_time_2eproto__INCLUDED

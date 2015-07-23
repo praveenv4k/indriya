@@ -9,23 +9,23 @@
 
 // Generated from: proto/wrench.proto
 // Note: requires additional types generated from: vector3d.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Wrench")]
   public partial class Wrench : global::ProtoBuf.IExtensible
   {
     public Wrench() {}
     
-    private experimot.msgs.Vector3d _force;
+    private Indriya.Core.Msgs.Vector3d _force;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"force", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Vector3d force
+    public Indriya.Core.Msgs.Vector3d force
     {
       get { return _force; }
       set { _force = value; }
     }
-    private experimot.msgs.Vector3d _torque;
+    private Indriya.Core.Msgs.Vector3d _torque;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"torque", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Vector3d torque
+    public Indriya.Core.Msgs.Vector3d torque
     {
       get { return _torque; }
       set { _torque = value; }

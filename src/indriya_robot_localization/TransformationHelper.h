@@ -108,7 +108,7 @@ public:
 		TransformToPose(out, output);
 	}
 
-	static void RaveToProto(const OpenRAVE::Transform& tfm, experimot::msgs::Pose& pose){
+	static void RaveToProto(const OpenRAVE::Transform& tfm, Indriya::Core::Msgs::Pose& pose){
 		// Set Position
 		pose.mutable_position()->set_x(tfm.trans[0]);
 		pose.mutable_position()->set_y(tfm.trans[1]);
@@ -120,11 +120,11 @@ public:
 		pose.mutable_orientation()->set_z(tfm.rot[3]);
 	}
 
-	static void RaveToProto(const std::map<std::string, OpenRAVE::Transform>& tfmMap, experimot::msgs::Pose_V& poseVector){
+	static void RaveToProto(const std::map<std::string, OpenRAVE::Transform>& tfmMap, Indriya::Core::Msgs::Pose_V& poseVector){
 		FOREACHC(it, tfmMap){
 			// Set Position
 			if (!it->first.empty()){
-				experimot::msgs::Pose* pose = poseVector.add_pose();
+				Indriya::Core::Msgs::Pose* pose = poseVector.add_pose();
 				pose->set_name(it->first.c_str());
 				pose->mutable_position()->set_x(it->second.trans[0]);
 				pose->mutable_position()->set_y(it->second.trans[1]);
@@ -138,7 +138,7 @@ public:
 		}
 	}
 
-	static void ProtoToRave(const experimot::msgs::Pose& pose, OpenRAVE::Transform& tfm){
+	static void ProtoToRave(const Indriya::Core::Msgs::Pose& pose, OpenRAVE::Transform& tfm){
 		// Set Position
 		tfm.trans[0] = pose.position().x();
 		tfm.trans[1] = pose.position().y();

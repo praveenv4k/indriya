@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -82,12 +83,13 @@ void protobuf_AddDesc_friction_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_vector3d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector3d_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\016friction.proto\022\016experimot.msgs\032\016vector"
-    "3d.proto\"j\n\010Friction\022\n\n\002mu\030\001 \001(\001\022\013\n\003mu2\030"
-    "\002 \001(\001\022\'\n\005fdir1\030\003 \001(\0132\030.experimot.msgs.Ve"
-    "ctor3d\022\r\n\005slip1\030\004 \001(\001\022\r\n\005slip2\030\005 \001(\001", 156);
+    "\n\016friction.proto\022\021Indriya.Core.Msgs\032\016vec"
+    "tor3d.proto\"m\n\010Friction\022\n\n\002mu\030\001 \001(\001\022\013\n\003m"
+    "u2\030\002 \001(\001\022*\n\005fdir1\030\003 \001(\0132\033.Indriya.Core.M"
+    "sgs.Vector3d\022\r\n\005slip1\030\004 \001(\001\022\r\n\005slip2\030\005 \001"
+    "(\001", 162);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "friction.proto", &protobuf_RegisterTypes);
   Friction::default_instance_ = new Friction();
@@ -125,11 +127,11 @@ const int Friction::kSlip2FieldNumber;
 Friction::Friction()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Friction)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Friction)
 }
 
 void Friction::InitAsDefaultInstance() {
-  fdir1_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
+  fdir1_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
 }
 
 Friction::Friction(const Friction& from)
@@ -137,7 +139,7 @@ Friction::Friction(const Friction& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Friction)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Friction)
 }
 
 void Friction::SharedCtor() {
@@ -151,7 +153,7 @@ void Friction::SharedCtor() {
 }
 
 Friction::~Friction() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Friction)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Friction)
   SharedDtor();
 }
 
@@ -199,7 +201,7 @@ void Friction::Clear() {
     ZR_(mu_, mu2_);
     ZR_(slip1_, slip2_);
     if (has_fdir1()) {
-      if (fdir1_ != NULL) fdir1_->::experimot::msgs::Vector3d::Clear();
+      if (fdir1_ != NULL) fdir1_->::Indriya::Core::Msgs::Vector3d::Clear();
     }
   }
 
@@ -216,7 +218,7 @@ bool Friction::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Friction)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Friction)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -251,7 +253,7 @@ bool Friction::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Vector3d fdir1 = 3;
+      // optional .Indriya.Core.Msgs.Vector3d fdir1 = 3;
       case 3: {
         if (tag == 26) {
          parse_fdir1:
@@ -308,17 +310,17 @@ bool Friction::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Friction)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Friction)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Friction)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Friction)
   return false;
 #undef DO_
 }
 
 void Friction::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Friction)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Friction)
   // optional double mu = 1;
   if (has_mu()) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(1, this->mu(), output);
@@ -329,7 +331,7 @@ void Friction::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->mu2(), output);
   }
 
-  // optional .experimot.msgs.Vector3d fdir1 = 3;
+  // optional .Indriya.Core.Msgs.Vector3d fdir1 = 3;
   if (has_fdir1()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, *this->fdir1_, output);
@@ -349,12 +351,12 @@ void Friction::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Friction)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Friction)
 }
 
 ::google::protobuf::uint8* Friction::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Friction)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Friction)
   // optional double mu = 1;
   if (has_mu()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(1, this->mu(), target);
@@ -365,7 +367,7 @@ void Friction::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->mu2(), target);
   }
 
-  // optional .experimot.msgs.Vector3d fdir1 = 3;
+  // optional .Indriya.Core.Msgs.Vector3d fdir1 = 3;
   if (has_fdir1()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -386,7 +388,7 @@ void Friction::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Friction)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Friction)
   return target;
 }
 
@@ -404,7 +406,7 @@ int Friction::ByteSize() const {
       total_size += 1 + 8;
     }
 
-    // optional .experimot.msgs.Vector3d fdir1 = 3;
+    // optional .Indriya.Core.Msgs.Vector3d fdir1 = 3;
     if (has_fdir1()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -455,7 +457,7 @@ void Friction::MergeFrom(const Friction& from) {
       set_mu2(from.mu2());
     }
     if (from.has_fdir1()) {
-      mutable_fdir1()->::experimot::msgs::Vector3d::MergeFrom(from.fdir1());
+      mutable_fdir1()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.fdir1());
     }
     if (from.has_slip1()) {
       set_slip1(from.slip1());
@@ -530,13 +532,13 @@ void Friction::InternalSwap(Friction* other) {
   clear_has_mu();
 }
  double Friction::mu() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Friction.mu)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Friction.mu)
   return mu_;
 }
  void Friction::set_mu(double value) {
   set_has_mu();
   mu_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Friction.mu)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Friction.mu)
 }
 
 // optional double mu2 = 2;
@@ -554,16 +556,16 @@ void Friction::InternalSwap(Friction* other) {
   clear_has_mu2();
 }
  double Friction::mu2() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Friction.mu2)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Friction.mu2)
   return mu2_;
 }
  void Friction::set_mu2(double value) {
   set_has_mu2();
   mu2_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Friction.mu2)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Friction.mu2)
 }
 
-// optional .experimot.msgs.Vector3d fdir1 = 3;
+// optional .Indriya.Core.Msgs.Vector3d fdir1 = 3;
  bool Friction::has_fdir1() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -574,28 +576,28 @@ void Friction::InternalSwap(Friction* other) {
   _has_bits_[0] &= ~0x00000004u;
 }
  void Friction::clear_fdir1() {
-  if (fdir1_ != NULL) fdir1_->::experimot::msgs::Vector3d::Clear();
+  if (fdir1_ != NULL) fdir1_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_fdir1();
 }
- const ::experimot::msgs::Vector3d& Friction::fdir1() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Friction.fdir1)
+ const ::Indriya::Core::Msgs::Vector3d& Friction::fdir1() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Friction.fdir1)
   return fdir1_ != NULL ? *fdir1_ : *default_instance_->fdir1_;
 }
- ::experimot::msgs::Vector3d* Friction::mutable_fdir1() {
+ ::Indriya::Core::Msgs::Vector3d* Friction::mutable_fdir1() {
   set_has_fdir1();
   if (fdir1_ == NULL) {
-    fdir1_ = new ::experimot::msgs::Vector3d;
+    fdir1_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Friction.fdir1)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Friction.fdir1)
   return fdir1_;
 }
- ::experimot::msgs::Vector3d* Friction::release_fdir1() {
+ ::Indriya::Core::Msgs::Vector3d* Friction::release_fdir1() {
   clear_has_fdir1();
-  ::experimot::msgs::Vector3d* temp = fdir1_;
+  ::Indriya::Core::Msgs::Vector3d* temp = fdir1_;
   fdir1_ = NULL;
   return temp;
 }
- void Friction::set_allocated_fdir1(::experimot::msgs::Vector3d* fdir1) {
+ void Friction::set_allocated_fdir1(::Indriya::Core::Msgs::Vector3d* fdir1) {
   delete fdir1_;
   fdir1_ = fdir1;
   if (fdir1) {
@@ -603,7 +605,7 @@ void Friction::InternalSwap(Friction* other) {
   } else {
     clear_has_fdir1();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Friction.fdir1)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Friction.fdir1)
 }
 
 // optional double slip1 = 4;
@@ -621,13 +623,13 @@ void Friction::InternalSwap(Friction* other) {
   clear_has_slip1();
 }
  double Friction::slip1() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Friction.slip1)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Friction.slip1)
   return slip1_;
 }
  void Friction::set_slip1(double value) {
   set_has_slip1();
   slip1_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Friction.slip1)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Friction.slip1)
 }
 
 // optional double slip2 = 5;
@@ -645,21 +647,22 @@ void Friction::InternalSwap(Friction* other) {
   clear_has_slip2();
 }
  double Friction::slip2() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Friction.slip2)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Friction.slip2)
   return slip2_;
 }
  void Friction::set_slip2(double value) {
   set_has_slip2();
   slip2_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Friction.slip2)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Friction.slip2)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Friction", Friction)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Friction", Friction)
 // @@protoc_insertion_point(global_scope)

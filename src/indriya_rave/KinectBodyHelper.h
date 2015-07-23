@@ -6,7 +6,7 @@
 #include "ColorHelper.h"
 #include <tuple>
 
-using namespace experimot::msgs;
+using namespace Indriya::Core::Msgs;
 using namespace OpenRAVE;
 
 class KinectBodyHelper;

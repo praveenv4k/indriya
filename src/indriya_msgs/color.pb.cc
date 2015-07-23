@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -82,9 +83,9 @@ void protobuf_AddDesc_color_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\013color.proto\022\016experimot.msgs\"6\n\005Color\022\t"
-    "\n\001r\030\002 \002(\002\022\t\n\001g\030\003 \002(\002\022\t\n\001b\030\004 \002(\002\022\014\n\001a\030\005 \001"
-    "(\002:\0011", 85);
+    "\n\013color.proto\022\021Indriya.Core.Msgs\"6\n\005Colo"
+    "r\022\t\n\001r\030\002 \002(\002\022\t\n\001g\030\003 \002(\002\022\t\n\001b\030\004 \002(\002\022\014\n\001a\030"
+    "\005 \001(\002:\0011", 88);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "color.proto", &protobuf_RegisterTypes);
   Color::default_instance_ = new Color();
@@ -121,7 +122,7 @@ const int Color::kAFieldNumber;
 Color::Color()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Color)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Color)
 }
 
 void Color::InitAsDefaultInstance() {
@@ -132,7 +133,7 @@ Color::Color(const Color& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Color)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Color)
 }
 
 void Color::SharedCtor() {
@@ -145,7 +146,7 @@ void Color::SharedCtor() {
 }
 
 Color::~Color() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Color)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Color)
   SharedDtor();
 }
 
@@ -206,7 +207,7 @@ bool Color::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Color)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Color)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -285,17 +286,17 @@ bool Color::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Color)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Color)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Color)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Color)
   return false;
 #undef DO_
 }
 
 void Color::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Color)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Color)
   // required float r = 2;
   if (has_r()) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->r(), output);
@@ -320,12 +321,12 @@ void Color::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Color)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Color)
 }
 
 ::google::protobuf::uint8* Color::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Color)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Color)
   // required float r = 2;
   if (has_r()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->r(), target);
@@ -350,7 +351,7 @@ void Color::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Color)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Color)
   return target;
 }
 
@@ -497,13 +498,13 @@ void Color::InternalSwap(Color* other) {
   clear_has_r();
 }
  float Color::r() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Color.r)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Color.r)
   return r_;
 }
  void Color::set_r(float value) {
   set_has_r();
   r_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Color.r)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Color.r)
 }
 
 // required float g = 3;
@@ -521,13 +522,13 @@ void Color::InternalSwap(Color* other) {
   clear_has_g();
 }
  float Color::g() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Color.g)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Color.g)
   return g_;
 }
  void Color::set_g(float value) {
   set_has_g();
   g_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Color.g)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Color.g)
 }
 
 // required float b = 4;
@@ -545,13 +546,13 @@ void Color::InternalSwap(Color* other) {
   clear_has_b();
 }
  float Color::b() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Color.b)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Color.b)
   return b_;
 }
  void Color::set_b(float value) {
   set_has_b();
   b_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Color.b)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Color.b)
 }
 
 // optional float a = 5 [default = 1];
@@ -569,21 +570,22 @@ void Color::InternalSwap(Color* other) {
   clear_has_a();
 }
  float Color::a() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Color.a)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Color.a)
   return a_;
 }
  void Color::set_a(float value) {
   set_has_a();
   a_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Color.a)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Color.a)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Color", Color)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Color", Color)
 // @@protoc_insertion_point(global_scope)

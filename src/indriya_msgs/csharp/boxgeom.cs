@@ -9,16 +9,16 @@
 
 // Generated from: proto/boxgeom.proto
 // Note: requires additional types generated from: vector3d.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"BoxGeom")]
   public partial class BoxGeom : global::ProtoBuf.IExtensible
   {
     public BoxGeom() {}
     
-    private experimot.msgs.Vector3d _size;
+    private Indriya.Core.Msgs.Vector3d _size;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"size", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Vector3d size
+    public Indriya.Core.Msgs.Vector3d size
     {
       get { return _size; }
       set { _size = value; }

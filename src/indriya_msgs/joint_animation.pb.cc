@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -103,14 +104,14 @@ void protobuf_AddDesc_joint_5fanimation_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_time_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_time_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\025joint_animation.proto\022\016experimot.msgs\032"
-    "\ntime.proto\"\243\001\n\016JointAnimation\022\022\n\nmodel_"
-    "name\030\001 \002(\t\0223\n\005joint\030\002 \003(\0132$.experimot.ms"
-    "gs.JointAnimation.Joint\022\"\n\004time\030\003 \003(\0132\024."
-    "experimot.msgs.Time\032$\n\005Joint\022\014\n\004name\030\001 \003"
-    "(\t\022\r\n\005angle\030\002 \003(\001", 217);
+    "\n\025joint_animation.proto\022\021Indriya.Core.Ms"
+    "gs\032\ntime.proto\"\251\001\n\016JointAnimation\022\022\n\nmod"
+    "el_name\030\001 \002(\t\0226\n\005joint\030\002 \003(\0132\'.Indriya.C"
+    "ore.Msgs.JointAnimation.Joint\022%\n\004time\030\003 "
+    "\003(\0132\027.Indriya.Core.Msgs.Time\032$\n\005Joint\022\014\n"
+    "\004name\030\001 \003(\t\022\r\n\005angle\030\002 \003(\001", 226);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "joint_animation.proto", &protobuf_RegisterTypes);
   JointAnimation::default_instance_ = new JointAnimation();
@@ -147,7 +148,7 @@ const int JointAnimation_Joint::kAngleFieldNumber;
 JointAnimation_Joint::JointAnimation_Joint()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.JointAnimation.Joint)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.JointAnimation.Joint)
 }
 
 void JointAnimation_Joint::InitAsDefaultInstance() {
@@ -158,7 +159,7 @@ JointAnimation_Joint::JointAnimation_Joint(const JointAnimation_Joint& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.JointAnimation.Joint)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.JointAnimation.Joint)
 }
 
 void JointAnimation_Joint::SharedCtor() {
@@ -168,7 +169,7 @@ void JointAnimation_Joint::SharedCtor() {
 }
 
 JointAnimation_Joint::~JointAnimation_Joint() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.JointAnimation.Joint)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.JointAnimation.Joint)
   SharedDtor();
 }
 
@@ -215,7 +216,7 @@ bool JointAnimation_Joint::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.JointAnimation.Joint)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.JointAnimation.Joint)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -231,7 +232,7 @@ bool JointAnimation_Joint::MergePartialFromCodedStream(
             this->name(this->name_size() - 1).data(),
             this->name(this->name_size() - 1).length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.JointAnimation.Joint.name");
+            "Indriya.Core.Msgs.JointAnimation.Joint.name");
         } else {
           goto handle_unusual;
         }
@@ -273,23 +274,23 @@ bool JointAnimation_Joint::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.JointAnimation.Joint)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.JointAnimation.Joint)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.JointAnimation.Joint)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.JointAnimation.Joint)
   return false;
 #undef DO_
 }
 
 void JointAnimation_Joint::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.JointAnimation.Joint)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.JointAnimation.Joint)
   // repeated string name = 1;
   for (int i = 0; i < this->name_size(); i++) {
   ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
     this->name(i).data(), this->name(i).length(),
     ::google::protobuf::internal::WireFormat::SERIALIZE,
-    "experimot.msgs.JointAnimation.Joint.name");
+    "Indriya.Core.Msgs.JointAnimation.Joint.name");
     ::google::protobuf::internal::WireFormatLite::WriteString(
       1, this->name(i), output);
   }
@@ -304,18 +305,18 @@ void JointAnimation_Joint::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.JointAnimation.Joint)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.JointAnimation.Joint)
 }
 
 ::google::protobuf::uint8* JointAnimation_Joint::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.JointAnimation.Joint)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.JointAnimation.Joint)
   // repeated string name = 1;
   for (int i = 0; i < this->name_size(); i++) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name(i).data(), this->name(i).length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.JointAnimation.Joint.name");
+      "Indriya.Core.Msgs.JointAnimation.Joint.name");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(1, this->name(i), target);
   }
@@ -330,7 +331,7 @@ void JointAnimation_Joint::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.JointAnimation.Joint)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.JointAnimation.Joint)
   return target;
 }
 
@@ -432,7 +433,7 @@ const int JointAnimation::kTimeFieldNumber;
 JointAnimation::JointAnimation()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.JointAnimation)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.JointAnimation)
 }
 
 void JointAnimation::InitAsDefaultInstance() {
@@ -443,7 +444,7 @@ JointAnimation::JointAnimation(const JointAnimation& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.JointAnimation)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.JointAnimation)
 }
 
 void JointAnimation::SharedCtor() {
@@ -454,7 +455,7 @@ void JointAnimation::SharedCtor() {
 }
 
 JointAnimation::~JointAnimation() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.JointAnimation)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.JointAnimation)
   SharedDtor();
 }
 
@@ -505,7 +506,7 @@ bool JointAnimation::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.JointAnimation)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.JointAnimation)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -519,7 +520,7 @@ bool JointAnimation::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->model_name().data(), this->model_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.JointAnimation.model_name");
+            "Indriya.Core.Msgs.JointAnimation.model_name");
         } else {
           goto handle_unusual;
         }
@@ -527,7 +528,7 @@ bool JointAnimation::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .experimot.msgs.JointAnimation.Joint joint = 2;
+      // repeated .Indriya.Core.Msgs.JointAnimation.Joint joint = 2;
       case 2: {
         if (tag == 18) {
          parse_joint:
@@ -541,7 +542,7 @@ bool JointAnimation::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .experimot.msgs.Time time = 3;
+      // repeated .Indriya.Core.Msgs.Time time = 3;
       case 3: {
         if (tag == 26) {
          parse_time:
@@ -569,34 +570,34 @@ bool JointAnimation::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.JointAnimation)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.JointAnimation)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.JointAnimation)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.JointAnimation)
   return false;
 #undef DO_
 }
 
 void JointAnimation::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.JointAnimation)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.JointAnimation)
   // required string model_name = 1;
   if (has_model_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->model_name().data(), this->model_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.JointAnimation.model_name");
+      "Indriya.Core.Msgs.JointAnimation.model_name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->model_name(), output);
   }
 
-  // repeated .experimot.msgs.JointAnimation.Joint joint = 2;
+  // repeated .Indriya.Core.Msgs.JointAnimation.Joint joint = 2;
   for (unsigned int i = 0, n = this->joint_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->joint(i), output);
   }
 
-  // repeated .experimot.msgs.Time time = 3;
+  // repeated .Indriya.Core.Msgs.Time time = 3;
   for (unsigned int i = 0, n = this->time_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, this->time(i), output);
@@ -606,31 +607,31 @@ void JointAnimation::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.JointAnimation)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.JointAnimation)
 }
 
 ::google::protobuf::uint8* JointAnimation::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.JointAnimation)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.JointAnimation)
   // required string model_name = 1;
   if (has_model_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->model_name().data(), this->model_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.JointAnimation.model_name");
+      "Indriya.Core.Msgs.JointAnimation.model_name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->model_name(), target);
   }
 
-  // repeated .experimot.msgs.JointAnimation.Joint joint = 2;
+  // repeated .Indriya.Core.Msgs.JointAnimation.Joint joint = 2;
   for (unsigned int i = 0, n = this->joint_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         2, this->joint(i), target);
   }
 
-  // repeated .experimot.msgs.Time time = 3;
+  // repeated .Indriya.Core.Msgs.Time time = 3;
   for (unsigned int i = 0, n = this->time_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -641,7 +642,7 @@ void JointAnimation::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.JointAnimation)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.JointAnimation)
   return target;
 }
 
@@ -654,7 +655,7 @@ int JointAnimation::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->model_name());
   }
-  // repeated .experimot.msgs.JointAnimation.Joint joint = 2;
+  // repeated .Indriya.Core.Msgs.JointAnimation.Joint joint = 2;
   total_size += 1 * this->joint_size();
   for (int i = 0; i < this->joint_size(); i++) {
     total_size +=
@@ -662,7 +663,7 @@ int JointAnimation::ByteSize() const {
         this->joint(i));
   }
 
-  // repeated .experimot.msgs.Time time = 3;
+  // repeated .Indriya.Core.Msgs.Time time = 3;
   total_size += 1 * this->time_size();
   for (int i = 0; i < this->time_size(); i++) {
     total_size +=
@@ -759,49 +760,49 @@ void JointAnimation::InternalSwap(JointAnimation* other) {
   name_.Clear();
 }
  const ::std::string& JointAnimation_Joint::name(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointAnimation.Joint.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointAnimation.Joint.name)
   return name_.Get(index);
 }
  ::std::string* JointAnimation_Joint::mutable_name(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.JointAnimation.Joint.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.JointAnimation.Joint.name)
   return name_.Mutable(index);
 }
  void JointAnimation_Joint::set_name(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:experimot.msgs.JointAnimation.Joint.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.JointAnimation.Joint.name)
   name_.Mutable(index)->assign(value);
 }
  void JointAnimation_Joint::set_name(int index, const char* value) {
   name_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.JointAnimation.Joint.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.JointAnimation.Joint.name)
 }
  void JointAnimation_Joint::set_name(int index, const char* value, size_t size) {
   name_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.JointAnimation.Joint.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.JointAnimation.Joint.name)
 }
  ::std::string* JointAnimation_Joint::add_name() {
   return name_.Add();
 }
  void JointAnimation_Joint::add_name(const ::std::string& value) {
   name_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:experimot.msgs.JointAnimation.Joint.name)
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.JointAnimation.Joint.name)
 }
  void JointAnimation_Joint::add_name(const char* value) {
   name_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:experimot.msgs.JointAnimation.Joint.name)
+  // @@protoc_insertion_point(field_add_char:Indriya.Core.Msgs.JointAnimation.Joint.name)
 }
  void JointAnimation_Joint::add_name(const char* value, size_t size) {
   name_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:experimot.msgs.JointAnimation.Joint.name)
+  // @@protoc_insertion_point(field_add_pointer:Indriya.Core.Msgs.JointAnimation.Joint.name)
 }
  const ::google::protobuf::RepeatedPtrField< ::std::string>&
 JointAnimation_Joint::name() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.JointAnimation.Joint.name)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.JointAnimation.Joint.name)
   return name_;
 }
  ::google::protobuf::RepeatedPtrField< ::std::string>*
 JointAnimation_Joint::mutable_name() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.JointAnimation.Joint.name)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.JointAnimation.Joint.name)
   return &name_;
 }
 
@@ -813,25 +814,25 @@ JointAnimation_Joint::mutable_name() {
   angle_.Clear();
 }
  double JointAnimation_Joint::angle(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointAnimation.Joint.angle)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointAnimation.Joint.angle)
   return angle_.Get(index);
 }
  void JointAnimation_Joint::set_angle(int index, double value) {
   angle_.Set(index, value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.JointAnimation.Joint.angle)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.JointAnimation.Joint.angle)
 }
  void JointAnimation_Joint::add_angle(double value) {
   angle_.Add(value);
-  // @@protoc_insertion_point(field_add:experimot.msgs.JointAnimation.Joint.angle)
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.JointAnimation.Joint.angle)
 }
  const ::google::protobuf::RepeatedField< double >&
 JointAnimation_Joint::angle() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.JointAnimation.Joint.angle)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.JointAnimation.Joint.angle)
   return angle_;
 }
  ::google::protobuf::RepeatedField< double >*
 JointAnimation_Joint::mutable_angle() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.JointAnimation.Joint.angle)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.JointAnimation.Joint.angle)
   return &angle_;
 }
 
@@ -854,28 +855,28 @@ JointAnimation_Joint::mutable_angle() {
   clear_has_model_name();
 }
  const ::std::string& JointAnimation::model_name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointAnimation.model_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointAnimation.model_name)
   return model_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void JointAnimation::set_model_name(const ::std::string& value) {
   set_has_model_name();
   model_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.JointAnimation.model_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.JointAnimation.model_name)
 }
  void JointAnimation::set_model_name(const char* value) {
   set_has_model_name();
   model_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.JointAnimation.model_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.JointAnimation.model_name)
 }
  void JointAnimation::set_model_name(const char* value, size_t size) {
   set_has_model_name();
   model_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.JointAnimation.model_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.JointAnimation.model_name)
 }
  ::std::string* JointAnimation::mutable_model_name() {
   set_has_model_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.JointAnimation.model_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.JointAnimation.model_name)
   return model_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* JointAnimation::release_model_name() {
@@ -889,66 +890,66 @@ JointAnimation_Joint::mutable_angle() {
     clear_has_model_name();
   }
   model_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), model_name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.JointAnimation.model_name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.JointAnimation.model_name)
 }
 
-// repeated .experimot.msgs.JointAnimation.Joint joint = 2;
+// repeated .Indriya.Core.Msgs.JointAnimation.Joint joint = 2;
  int JointAnimation::joint_size() const {
   return joint_.size();
 }
  void JointAnimation::clear_joint() {
   joint_.Clear();
 }
- const ::experimot::msgs::JointAnimation_Joint& JointAnimation::joint(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointAnimation.joint)
+ const ::Indriya::Core::Msgs::JointAnimation_Joint& JointAnimation::joint(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointAnimation.joint)
   return joint_.Get(index);
 }
- ::experimot::msgs::JointAnimation_Joint* JointAnimation::mutable_joint(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.JointAnimation.joint)
+ ::Indriya::Core::Msgs::JointAnimation_Joint* JointAnimation::mutable_joint(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.JointAnimation.joint)
   return joint_.Mutable(index);
 }
- ::experimot::msgs::JointAnimation_Joint* JointAnimation::add_joint() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.JointAnimation.joint)
+ ::Indriya::Core::Msgs::JointAnimation_Joint* JointAnimation::add_joint() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.JointAnimation.joint)
   return joint_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::JointAnimation_Joint >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::JointAnimation_Joint >&
 JointAnimation::joint() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.JointAnimation.joint)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.JointAnimation.joint)
   return joint_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::JointAnimation_Joint >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::JointAnimation_Joint >*
 JointAnimation::mutable_joint() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.JointAnimation.joint)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.JointAnimation.joint)
   return &joint_;
 }
 
-// repeated .experimot.msgs.Time time = 3;
+// repeated .Indriya.Core.Msgs.Time time = 3;
  int JointAnimation::time_size() const {
   return time_.size();
 }
  void JointAnimation::clear_time() {
   time_.Clear();
 }
- const ::experimot::msgs::Time& JointAnimation::time(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointAnimation.time)
+ const ::Indriya::Core::Msgs::Time& JointAnimation::time(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointAnimation.time)
   return time_.Get(index);
 }
- ::experimot::msgs::Time* JointAnimation::mutable_time(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.JointAnimation.time)
+ ::Indriya::Core::Msgs::Time* JointAnimation::mutable_time(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.JointAnimation.time)
   return time_.Mutable(index);
 }
- ::experimot::msgs::Time* JointAnimation::add_time() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.JointAnimation.time)
+ ::Indriya::Core::Msgs::Time* JointAnimation::add_time() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.JointAnimation.time)
   return time_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Time >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Time >&
 JointAnimation::time() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.JointAnimation.time)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.JointAnimation.time)
   return time_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Time >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Time >*
 JointAnimation::mutable_time() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.JointAnimation.time)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.JointAnimation.time)
   return &time_;
 }
 
@@ -956,8 +957,9 @@ JointAnimation::mutable_time() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.JointAnimation", JointAnimation)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.JointAnimation", JointAnimation)
 // @@protoc_insertion_point(global_scope)

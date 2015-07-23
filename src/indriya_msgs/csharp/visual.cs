@@ -13,7 +13,7 @@
 // Note: requires additional types generated from: material.proto
 // Note: requires additional types generated from: plugin.proto
 // Note: requires additional types generated from: vector3d.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Visual")]
   public partial class Visual : global::ProtoBuf.IExtensible
@@ -74,26 +74,26 @@ namespace experimot.msgs
       get { return _laser_retro; }
       set { _laser_retro = value; }
     }
-    private experimot.msgs.Pose _pose = null;
+    private Indriya.Core.Msgs.Pose _pose = null;
     [global::ProtoBuf.ProtoMember(8, IsRequired = false, Name=@"pose", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Pose pose
+    public Indriya.Core.Msgs.Pose pose
     {
       get { return _pose; }
       set { _pose = value; }
     }
-    private experimot.msgs.Geometry _geometry = null;
+    private Indriya.Core.Msgs.Geometry _geometry = null;
     [global::ProtoBuf.ProtoMember(9, IsRequired = false, Name=@"geometry", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Geometry geometry
+    public Indriya.Core.Msgs.Geometry geometry
     {
       get { return _geometry; }
       set { _geometry = value; }
     }
-    private experimot.msgs.Material _material = null;
+    private Indriya.Core.Msgs.Material _material = null;
     [global::ProtoBuf.ProtoMember(10, IsRequired = false, Name=@"material", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Material material
+    public Indriya.Core.Msgs.Material material
     {
       get { return _material; }
       set { _material = value; }
@@ -122,18 +122,18 @@ namespace experimot.msgs
       get { return _is_static; }
       set { _is_static = value; }
     }
-    private experimot.msgs.Plugin _plugin = null;
+    private Indriya.Core.Msgs.Plugin _plugin = null;
     [global::ProtoBuf.ProtoMember(14, IsRequired = false, Name=@"plugin", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Plugin plugin
+    public Indriya.Core.Msgs.Plugin plugin
     {
       get { return _plugin; }
       set { _plugin = value; }
     }
-    private experimot.msgs.Vector3d _scale = null;
+    private Indriya.Core.Msgs.Vector3d _scale = null;
     [global::ProtoBuf.ProtoMember(15, IsRequired = false, Name=@"scale", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Vector3d scale
+    public Indriya.Core.Msgs.Vector3d scale
     {
       get { return _scale; }
       set { _scale = value; }

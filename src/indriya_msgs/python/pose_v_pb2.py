@@ -18,9 +18,9 @@ import pose_pb2 as pose__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='pose_v.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x0cpose_v.proto\x12\x0e\x65xperimot.msgs\x1a\npose.proto\",\n\x06Pose_V\x12\"\n\x04pose\x18\x01 \x03(\x0b\x32\x14.experimot.msgs.Pose')
+  serialized_pb=_b('\n\x0cpose_v.proto\x12\x11Indriya.Core.Msgs\x1a\npose.proto\"/\n\x06Pose_V\x12%\n\x04pose\x18\x01 \x03(\x0b\x32\x17.Indriya.Core.Msgs.Pose')
   ,
   dependencies=[pose__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,13 +30,13 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _POSE_V = _descriptor.Descriptor(
   name='Pose_V',
-  full_name='experimot.msgs.Pose_V',
+  full_name='Indriya.Core.Msgs.Pose_V',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='pose', full_name='experimot.msgs.Pose_V.pose', index=0,
+      name='pose', full_name='Indriya.Core.Msgs.Pose_V.pose', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -54,8 +54,8 @@ _POSE_V = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=44,
-  serialized_end=88,
+  serialized_start=47,
+  serialized_end=94,
 )
 
 _POSE_V.fields_by_name['pose'].message_type = pose__pb2._POSE
@@ -64,7 +64,7 @@ DESCRIPTOR.message_types_by_name['Pose_V'] = _POSE_V
 Pose_V = _reflection.GeneratedProtocolMessageType('Pose_V', (_message.Message,), dict(
   DESCRIPTOR = _POSE_V,
   __module__ = 'pose_v_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Pose_V)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Pose_V)
   ))
 _sym_db.RegisterMessage(Pose_V)
 

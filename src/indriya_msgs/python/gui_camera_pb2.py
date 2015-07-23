@@ -19,9 +19,9 @@ import track_visual_pb2 as track__visual__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='gui_camera.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x10gui_camera.proto\x12\x0e\x65xperimot.msgs\x1a\npose.proto\x1a\x12track_visual.proto\"\x82\x01\n\tGUICamera\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x17\n\x0fview_controller\x18\x02 \x01(\t\x12\"\n\x04pose\x18\x03 \x01(\x0b\x32\x14.experimot.msgs.Pose\x12*\n\x05track\x18\x04 \x01(\x0b\x32\x1b.experimot.msgs.TrackVisual')
+  serialized_pb=_b('\n\x10gui_camera.proto\x12\x11Indriya.Core.Msgs\x1a\npose.proto\x1a\x12track_visual.proto\"\x88\x01\n\tGUICamera\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x17\n\x0fview_controller\x18\x02 \x01(\t\x12%\n\x04pose\x18\x03 \x01(\x0b\x32\x17.Indriya.Core.Msgs.Pose\x12-\n\x05track\x18\x04 \x01(\x0b\x32\x1e.Indriya.Core.Msgs.TrackVisual')
   ,
   dependencies=[pose__pb2.DESCRIPTOR,track__visual__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -31,34 +31,34 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _GUICAMERA = _descriptor.Descriptor(
   name='GUICamera',
-  full_name='experimot.msgs.GUICamera',
+  full_name='Indriya.Core.Msgs.GUICamera',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='experimot.msgs.GUICamera.name', index=0,
+      name='name', full_name='Indriya.Core.Msgs.GUICamera.name', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='view_controller', full_name='experimot.msgs.GUICamera.view_controller', index=1,
+      name='view_controller', full_name='Indriya.Core.Msgs.GUICamera.view_controller', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='pose', full_name='experimot.msgs.GUICamera.pose', index=2,
+      name='pose', full_name='Indriya.Core.Msgs.GUICamera.pose', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='track', full_name='experimot.msgs.GUICamera.track', index=3,
+      name='track', full_name='Indriya.Core.Msgs.GUICamera.track', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -76,8 +76,8 @@ _GUICAMERA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=69,
-  serialized_end=199,
+  serialized_start=72,
+  serialized_end=208,
 )
 
 _GUICAMERA.fields_by_name['pose'].message_type = pose__pb2._POSE
@@ -87,7 +87,7 @@ DESCRIPTOR.message_types_by_name['GUICamera'] = _GUICAMERA
 GUICamera = _reflection.GeneratedProtocolMessageType('GUICamera', (_message.Message,), dict(
   DESCRIPTOR = _GUICAMERA,
   __module__ = 'gui_camera_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.GUICamera)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.GUICamera)
   ))
 _sym_db.RegisterMessage(GUICamera)
 

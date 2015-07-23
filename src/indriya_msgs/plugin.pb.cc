@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -81,9 +82,9 @@ void protobuf_AddDesc_plugin_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\014plugin.proto\022\016experimot.msgs\"<\n\006Plugin"
-    "\022\014\n\004name\030\001 \002(\t\022\020\n\010filename\030\002 \002(\t\022\022\n\010inne"
-    "rxml\030\003 \001(\t:\000", 92);
+    "\n\014plugin.proto\022\021Indriya.Core.Msgs\"<\n\006Plu"
+    "gin\022\014\n\004name\030\001 \002(\t\022\020\n\010filename\030\002 \002(\t\022\022\n\010i"
+    "nnerxml\030\003 \001(\t:\000", 95);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "plugin.proto", &protobuf_RegisterTypes);
   Plugin::default_instance_ = new Plugin();
@@ -119,7 +120,7 @@ const int Plugin::kInnerxmlFieldNumber;
 Plugin::Plugin()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Plugin)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Plugin)
 }
 
 void Plugin::InitAsDefaultInstance() {
@@ -130,7 +131,7 @@ Plugin::Plugin(const Plugin& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Plugin)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Plugin)
 }
 
 void Plugin::SharedCtor() {
@@ -143,7 +144,7 @@ void Plugin::SharedCtor() {
 }
 
 Plugin::~Plugin() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Plugin)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Plugin)
   SharedDtor();
 }
 
@@ -202,7 +203,7 @@ bool Plugin::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Plugin)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Plugin)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -216,7 +217,7 @@ bool Plugin::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Plugin.name");
+            "Indriya.Core.Msgs.Plugin.name");
         } else {
           goto handle_unusual;
         }
@@ -233,7 +234,7 @@ bool Plugin::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->filename().data(), this->filename().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Plugin.filename");
+            "Indriya.Core.Msgs.Plugin.filename");
         } else {
           goto handle_unusual;
         }
@@ -250,7 +251,7 @@ bool Plugin::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->innerxml().data(), this->innerxml().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Plugin.innerxml");
+            "Indriya.Core.Msgs.Plugin.innerxml");
         } else {
           goto handle_unusual;
         }
@@ -272,23 +273,23 @@ bool Plugin::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Plugin)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Plugin)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Plugin)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Plugin)
   return false;
 #undef DO_
 }
 
 void Plugin::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Plugin)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Plugin)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Plugin.name");
+      "Indriya.Core.Msgs.Plugin.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
@@ -298,7 +299,7 @@ void Plugin::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->filename().data(), this->filename().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Plugin.filename");
+      "Indriya.Core.Msgs.Plugin.filename");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->filename(), output);
   }
@@ -308,7 +309,7 @@ void Plugin::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->innerxml().data(), this->innerxml().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Plugin.innerxml");
+      "Indriya.Core.Msgs.Plugin.innerxml");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       3, this->innerxml(), output);
   }
@@ -317,18 +318,18 @@ void Plugin::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Plugin)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Plugin)
 }
 
 ::google::protobuf::uint8* Plugin::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Plugin)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Plugin)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Plugin.name");
+      "Indriya.Core.Msgs.Plugin.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
@@ -339,7 +340,7 @@ void Plugin::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->filename().data(), this->filename().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Plugin.filename");
+      "Indriya.Core.Msgs.Plugin.filename");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->filename(), target);
@@ -350,7 +351,7 @@ void Plugin::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->innerxml().data(), this->innerxml().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Plugin.innerxml");
+      "Indriya.Core.Msgs.Plugin.innerxml");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->innerxml(), target);
@@ -360,7 +361,7 @@ void Plugin::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Plugin)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Plugin)
   return target;
 }
 
@@ -508,28 +509,28 @@ void Plugin::InternalSwap(Plugin* other) {
   clear_has_name();
 }
  const ::std::string& Plugin::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Plugin.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Plugin.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Plugin::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Plugin.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Plugin.name)
 }
  void Plugin::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Plugin.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Plugin.name)
 }
  void Plugin::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Plugin.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Plugin.name)
 }
  ::std::string* Plugin::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Plugin.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Plugin.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Plugin::release_name() {
@@ -543,7 +544,7 @@ void Plugin::InternalSwap(Plugin* other) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Plugin.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Plugin.name)
 }
 
 // required string filename = 2;
@@ -561,28 +562,28 @@ void Plugin::InternalSwap(Plugin* other) {
   clear_has_filename();
 }
  const ::std::string& Plugin::filename() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Plugin.filename)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Plugin.filename)
   return filename_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Plugin::set_filename(const ::std::string& value) {
   set_has_filename();
   filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Plugin.filename)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Plugin.filename)
 }
  void Plugin::set_filename(const char* value) {
   set_has_filename();
   filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Plugin.filename)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Plugin.filename)
 }
  void Plugin::set_filename(const char* value, size_t size) {
   set_has_filename();
   filename_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Plugin.filename)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Plugin.filename)
 }
  ::std::string* Plugin::mutable_filename() {
   set_has_filename();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Plugin.filename)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Plugin.filename)
   return filename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Plugin::release_filename() {
@@ -596,7 +597,7 @@ void Plugin::InternalSwap(Plugin* other) {
     clear_has_filename();
   }
   filename_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), filename);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Plugin.filename)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Plugin.filename)
 }
 
 // optional string innerxml = 3 [default = ""];
@@ -614,28 +615,28 @@ void Plugin::InternalSwap(Plugin* other) {
   clear_has_innerxml();
 }
  const ::std::string& Plugin::innerxml() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Plugin.innerxml)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Plugin.innerxml)
   return innerxml_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Plugin::set_innerxml(const ::std::string& value) {
   set_has_innerxml();
   innerxml_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Plugin.innerxml)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Plugin.innerxml)
 }
  void Plugin::set_innerxml(const char* value) {
   set_has_innerxml();
   innerxml_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Plugin.innerxml)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Plugin.innerxml)
 }
  void Plugin::set_innerxml(const char* value, size_t size) {
   set_has_innerxml();
   innerxml_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Plugin.innerxml)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Plugin.innerxml)
 }
  ::std::string* Plugin::mutable_innerxml() {
   set_has_innerxml();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Plugin.innerxml)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Plugin.innerxml)
   return innerxml_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Plugin::release_innerxml() {
@@ -649,15 +650,16 @@ void Plugin::InternalSwap(Plugin* other) {
     clear_has_innerxml();
   }
   innerxml_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), innerxml);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Plugin.innerxml)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Plugin.innerxml)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Plugin", Plugin)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Plugin", Plugin)
 // @@protoc_insertion_point(global_scope)

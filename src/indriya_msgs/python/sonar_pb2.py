@@ -19,9 +19,9 @@ import vector3d_pb2 as vector3d__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='sonar.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x0bsonar.proto\x12\x0e\x65xperimot.msgs\x1a\npose.proto\x1a\x0evector3d.proto\"\xb0\x01\n\x05Sonar\x12\r\n\x05\x66rame\x18\x01 \x02(\t\x12(\n\nworld_pose\x18\x02 \x02(\x0b\x32\x14.experimot.msgs.Pose\x12\x11\n\trange_min\x18\x03 \x02(\x01\x12\x11\n\trange_max\x18\x04 \x02(\x01\x12\x0e\n\x06radius\x18\x05 \x02(\x01\x12\r\n\x05range\x18\x06 \x02(\x01\x12)\n\x07\x63ontact\x18\x07 \x01(\x0b\x32\x18.experimot.msgs.Vector3d')
+  serialized_pb=_b('\n\x0bsonar.proto\x12\x11Indriya.Core.Msgs\x1a\npose.proto\x1a\x0evector3d.proto\"\xb6\x01\n\x05Sonar\x12\r\n\x05\x66rame\x18\x01 \x02(\t\x12+\n\nworld_pose\x18\x02 \x02(\x0b\x32\x17.Indriya.Core.Msgs.Pose\x12\x11\n\trange_min\x18\x03 \x02(\x01\x12\x11\n\trange_max\x18\x04 \x02(\x01\x12\x0e\n\x06radius\x18\x05 \x02(\x01\x12\r\n\x05range\x18\x06 \x02(\x01\x12,\n\x07\x63ontact\x18\x07 \x01(\x0b\x32\x1b.Indriya.Core.Msgs.Vector3d')
   ,
   dependencies=[pose__pb2.DESCRIPTOR,vector3d__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -31,55 +31,55 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _SONAR = _descriptor.Descriptor(
   name='Sonar',
-  full_name='experimot.msgs.Sonar',
+  full_name='Indriya.Core.Msgs.Sonar',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='frame', full_name='experimot.msgs.Sonar.frame', index=0,
+      name='frame', full_name='Indriya.Core.Msgs.Sonar.frame', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='world_pose', full_name='experimot.msgs.Sonar.world_pose', index=1,
+      name='world_pose', full_name='Indriya.Core.Msgs.Sonar.world_pose', index=1,
       number=2, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='range_min', full_name='experimot.msgs.Sonar.range_min', index=2,
+      name='range_min', full_name='Indriya.Core.Msgs.Sonar.range_min', index=2,
       number=3, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='range_max', full_name='experimot.msgs.Sonar.range_max', index=3,
+      name='range_max', full_name='Indriya.Core.Msgs.Sonar.range_max', index=3,
       number=4, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='radius', full_name='experimot.msgs.Sonar.radius', index=4,
+      name='radius', full_name='Indriya.Core.Msgs.Sonar.radius', index=4,
       number=5, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='range', full_name='experimot.msgs.Sonar.range', index=5,
+      name='range', full_name='Indriya.Core.Msgs.Sonar.range', index=5,
       number=6, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='contact', full_name='experimot.msgs.Sonar.contact', index=6,
+      name='contact', full_name='Indriya.Core.Msgs.Sonar.contact', index=6,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -97,8 +97,8 @@ _SONAR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=60,
-  serialized_end=236,
+  serialized_start=63,
+  serialized_end=245,
 )
 
 _SONAR.fields_by_name['world_pose'].message_type = pose__pb2._POSE
@@ -108,7 +108,7 @@ DESCRIPTOR.message_types_by_name['Sonar'] = _SONAR
 Sonar = _reflection.GeneratedProtocolMessageType('Sonar', (_message.Message,), dict(
   DESCRIPTOR = _SONAR,
   __module__ = 'sonar_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Sonar)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Sonar)
   ))
 _sym_db.RegisterMessage(Sonar)
 

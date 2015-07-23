@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='param.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x0bparam.proto\x12\x0e\x65xperimot.msgs\"5\n\x05Param\x12\x0b\n\x03key\x18\x01 \x02(\t\x12\r\n\x05value\x18\x02 \x02(\t\x12\x10\n\x08\x64\x61taType\x18\x03 \x02(\t\"1\n\tParamList\x12$\n\x05param\x18\x01 \x03(\x0b\x32\x15.experimot.msgs.Param')
+  serialized_pb=_b('\n\x0bparam.proto\x12\x11Indriya.Core.Msgs\"5\n\x05Param\x12\x0b\n\x03key\x18\x01 \x02(\t\x12\r\n\x05value\x18\x02 \x02(\t\x12\x10\n\x08\x64\x61taType\x18\x03 \x02(\t\"4\n\tParamList\x12\'\n\x05param\x18\x01 \x03(\x0b\x32\x18.Indriya.Core.Msgs.Param')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -28,27 +28,27 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _PARAM = _descriptor.Descriptor(
   name='Param',
-  full_name='experimot.msgs.Param',
+  full_name='Indriya.Core.Msgs.Param',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='experimot.msgs.Param.key', index=0,
+      name='key', full_name='Indriya.Core.Msgs.Param.key', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='value', full_name='experimot.msgs.Param.value', index=1,
+      name='value', full_name='Indriya.Core.Msgs.Param.value', index=1,
       number=2, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='dataType', full_name='experimot.msgs.Param.dataType', index=2,
+      name='dataType', full_name='Indriya.Core.Msgs.Param.dataType', index=2,
       number=3, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -66,20 +66,20 @@ _PARAM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=31,
-  serialized_end=84,
+  serialized_start=34,
+  serialized_end=87,
 )
 
 
 _PARAMLIST = _descriptor.Descriptor(
   name='ParamList',
-  full_name='experimot.msgs.ParamList',
+  full_name='Indriya.Core.Msgs.ParamList',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='param', full_name='experimot.msgs.ParamList.param', index=0,
+      name='param', full_name='Indriya.Core.Msgs.ParamList.param', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -97,8 +97,8 @@ _PARAMLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=86,
-  serialized_end=135,
+  serialized_start=89,
+  serialized_end=141,
 )
 
 _PARAMLIST.fields_by_name['param'].message_type = _PARAM
@@ -108,14 +108,14 @@ DESCRIPTOR.message_types_by_name['ParamList'] = _PARAMLIST
 Param = _reflection.GeneratedProtocolMessageType('Param', (_message.Message,), dict(
   DESCRIPTOR = _PARAM,
   __module__ = 'param_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Param)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Param)
   ))
 _sym_db.RegisterMessage(Param)
 
 ParamList = _reflection.GeneratedProtocolMessageType('ParamList', (_message.Message,), dict(
   DESCRIPTOR = _PARAMLIST,
   __module__ = 'param_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.ParamList)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.ParamList)
   ))
 _sym_db.RegisterMessage(ParamList)
 

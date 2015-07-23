@@ -35,8 +35,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_collision_2eproto();
@@ -144,46 +145,46 @@ class Collision : public ::google::protobuf::Message {
   double max_contacts() const;
   void set_max_contacts(double value);
 
-  // optional .experimot.msgs.Pose pose = 5;
+  // optional .Indriya.Core.Msgs.Pose pose = 5;
   bool has_pose() const;
   void clear_pose();
   static const int kPoseFieldNumber = 5;
-  const ::experimot::msgs::Pose& pose() const;
-  ::experimot::msgs::Pose* mutable_pose();
-  ::experimot::msgs::Pose* release_pose();
-  void set_allocated_pose(::experimot::msgs::Pose* pose);
+  const ::Indriya::Core::Msgs::Pose& pose() const;
+  ::Indriya::Core::Msgs::Pose* mutable_pose();
+  ::Indriya::Core::Msgs::Pose* release_pose();
+  void set_allocated_pose(::Indriya::Core::Msgs::Pose* pose);
 
-  // optional .experimot.msgs.Geometry geometry = 6;
+  // optional .Indriya.Core.Msgs.Geometry geometry = 6;
   bool has_geometry() const;
   void clear_geometry();
   static const int kGeometryFieldNumber = 6;
-  const ::experimot::msgs::Geometry& geometry() const;
-  ::experimot::msgs::Geometry* mutable_geometry();
-  ::experimot::msgs::Geometry* release_geometry();
-  void set_allocated_geometry(::experimot::msgs::Geometry* geometry);
+  const ::Indriya::Core::Msgs::Geometry& geometry() const;
+  ::Indriya::Core::Msgs::Geometry* mutable_geometry();
+  ::Indriya::Core::Msgs::Geometry* release_geometry();
+  void set_allocated_geometry(::Indriya::Core::Msgs::Geometry* geometry);
 
-  // optional .experimot.msgs.Surface surface = 7;
+  // optional .Indriya.Core.Msgs.Surface surface = 7;
   bool has_surface() const;
   void clear_surface();
   static const int kSurfaceFieldNumber = 7;
-  const ::experimot::msgs::Surface& surface() const;
-  ::experimot::msgs::Surface* mutable_surface();
-  ::experimot::msgs::Surface* release_surface();
-  void set_allocated_surface(::experimot::msgs::Surface* surface);
+  const ::Indriya::Core::Msgs::Surface& surface() const;
+  ::Indriya::Core::Msgs::Surface* mutable_surface();
+  ::Indriya::Core::Msgs::Surface* release_surface();
+  void set_allocated_surface(::Indriya::Core::Msgs::Surface* surface);
 
-  // repeated .experimot.msgs.Visual visual = 8;
+  // repeated .Indriya.Core.Msgs.Visual visual = 8;
   int visual_size() const;
   void clear_visual();
   static const int kVisualFieldNumber = 8;
-  const ::experimot::msgs::Visual& visual(int index) const;
-  ::experimot::msgs::Visual* mutable_visual(int index);
-  ::experimot::msgs::Visual* add_visual();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Visual >&
+  const ::Indriya::Core::Msgs::Visual& visual(int index) const;
+  ::Indriya::Core::Msgs::Visual* mutable_visual(int index);
+  ::Indriya::Core::Msgs::Visual* add_visual();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Visual >&
       visual() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Visual >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Visual >*
       mutable_visual();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Collision)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Collision)
  private:
   inline void set_has_id();
   inline void clear_has_id();
@@ -209,10 +210,10 @@ class Collision : public ::google::protobuf::Message {
   ::google::protobuf::internal::ArenaStringPtr name_;
   double laser_retro_;
   double max_contacts_;
-  ::experimot::msgs::Pose* pose_;
-  ::experimot::msgs::Geometry* geometry_;
-  ::experimot::msgs::Surface* surface_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Visual > visual_;
+  ::Indriya::Core::Msgs::Pose* pose_;
+  ::Indriya::Core::Msgs::Geometry* geometry_;
+  ::Indriya::Core::Msgs::Surface* surface_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Visual > visual_;
   ::google::protobuf::uint32 id_;
   friend void  protobuf_AddDesc_collision_2eproto();
   friend void protobuf_AssignDesc_collision_2eproto();
@@ -244,13 +245,13 @@ inline void Collision::clear_id() {
   clear_has_id();
 }
 inline ::google::protobuf::uint32 Collision::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Collision.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Collision.id)
   return id_;
 }
 inline void Collision::set_id(::google::protobuf::uint32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Collision.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Collision.id)
 }
 
 // required string name = 2;
@@ -268,28 +269,28 @@ inline void Collision::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& Collision::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Collision.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Collision.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Collision::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Collision.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Collision.name)
 }
 inline void Collision::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Collision.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Collision.name)
 }
 inline void Collision::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Collision.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Collision.name)
 }
 inline ::std::string* Collision::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Collision.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Collision.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Collision::release_name() {
@@ -303,7 +304,7 @@ inline void Collision::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Collision.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Collision.name)
 }
 
 // optional double laser_retro = 3;
@@ -321,13 +322,13 @@ inline void Collision::clear_laser_retro() {
   clear_has_laser_retro();
 }
 inline double Collision::laser_retro() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Collision.laser_retro)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Collision.laser_retro)
   return laser_retro_;
 }
 inline void Collision::set_laser_retro(double value) {
   set_has_laser_retro();
   laser_retro_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Collision.laser_retro)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Collision.laser_retro)
 }
 
 // optional double max_contacts = 4;
@@ -345,16 +346,16 @@ inline void Collision::clear_max_contacts() {
   clear_has_max_contacts();
 }
 inline double Collision::max_contacts() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Collision.max_contacts)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Collision.max_contacts)
   return max_contacts_;
 }
 inline void Collision::set_max_contacts(double value) {
   set_has_max_contacts();
   max_contacts_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Collision.max_contacts)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Collision.max_contacts)
 }
 
-// optional .experimot.msgs.Pose pose = 5;
+// optional .Indriya.Core.Msgs.Pose pose = 5;
 inline bool Collision::has_pose() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -365,28 +366,28 @@ inline void Collision::clear_has_pose() {
   _has_bits_[0] &= ~0x00000010u;
 }
 inline void Collision::clear_pose() {
-  if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+  if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
   clear_has_pose();
 }
-inline const ::experimot::msgs::Pose& Collision::pose() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Collision.pose)
+inline const ::Indriya::Core::Msgs::Pose& Collision::pose() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Collision.pose)
   return pose_ != NULL ? *pose_ : *default_instance_->pose_;
 }
-inline ::experimot::msgs::Pose* Collision::mutable_pose() {
+inline ::Indriya::Core::Msgs::Pose* Collision::mutable_pose() {
   set_has_pose();
   if (pose_ == NULL) {
-    pose_ = new ::experimot::msgs::Pose;
+    pose_ = new ::Indriya::Core::Msgs::Pose;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Collision.pose)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Collision.pose)
   return pose_;
 }
-inline ::experimot::msgs::Pose* Collision::release_pose() {
+inline ::Indriya::Core::Msgs::Pose* Collision::release_pose() {
   clear_has_pose();
-  ::experimot::msgs::Pose* temp = pose_;
+  ::Indriya::Core::Msgs::Pose* temp = pose_;
   pose_ = NULL;
   return temp;
 }
-inline void Collision::set_allocated_pose(::experimot::msgs::Pose* pose) {
+inline void Collision::set_allocated_pose(::Indriya::Core::Msgs::Pose* pose) {
   delete pose_;
   pose_ = pose;
   if (pose) {
@@ -394,10 +395,10 @@ inline void Collision::set_allocated_pose(::experimot::msgs::Pose* pose) {
   } else {
     clear_has_pose();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Collision.pose)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Collision.pose)
 }
 
-// optional .experimot.msgs.Geometry geometry = 6;
+// optional .Indriya.Core.Msgs.Geometry geometry = 6;
 inline bool Collision::has_geometry() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -408,28 +409,28 @@ inline void Collision::clear_has_geometry() {
   _has_bits_[0] &= ~0x00000020u;
 }
 inline void Collision::clear_geometry() {
-  if (geometry_ != NULL) geometry_->::experimot::msgs::Geometry::Clear();
+  if (geometry_ != NULL) geometry_->::Indriya::Core::Msgs::Geometry::Clear();
   clear_has_geometry();
 }
-inline const ::experimot::msgs::Geometry& Collision::geometry() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Collision.geometry)
+inline const ::Indriya::Core::Msgs::Geometry& Collision::geometry() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Collision.geometry)
   return geometry_ != NULL ? *geometry_ : *default_instance_->geometry_;
 }
-inline ::experimot::msgs::Geometry* Collision::mutable_geometry() {
+inline ::Indriya::Core::Msgs::Geometry* Collision::mutable_geometry() {
   set_has_geometry();
   if (geometry_ == NULL) {
-    geometry_ = new ::experimot::msgs::Geometry;
+    geometry_ = new ::Indriya::Core::Msgs::Geometry;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Collision.geometry)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Collision.geometry)
   return geometry_;
 }
-inline ::experimot::msgs::Geometry* Collision::release_geometry() {
+inline ::Indriya::Core::Msgs::Geometry* Collision::release_geometry() {
   clear_has_geometry();
-  ::experimot::msgs::Geometry* temp = geometry_;
+  ::Indriya::Core::Msgs::Geometry* temp = geometry_;
   geometry_ = NULL;
   return temp;
 }
-inline void Collision::set_allocated_geometry(::experimot::msgs::Geometry* geometry) {
+inline void Collision::set_allocated_geometry(::Indriya::Core::Msgs::Geometry* geometry) {
   delete geometry_;
   geometry_ = geometry;
   if (geometry) {
@@ -437,10 +438,10 @@ inline void Collision::set_allocated_geometry(::experimot::msgs::Geometry* geome
   } else {
     clear_has_geometry();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Collision.geometry)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Collision.geometry)
 }
 
-// optional .experimot.msgs.Surface surface = 7;
+// optional .Indriya.Core.Msgs.Surface surface = 7;
 inline bool Collision::has_surface() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -451,28 +452,28 @@ inline void Collision::clear_has_surface() {
   _has_bits_[0] &= ~0x00000040u;
 }
 inline void Collision::clear_surface() {
-  if (surface_ != NULL) surface_->::experimot::msgs::Surface::Clear();
+  if (surface_ != NULL) surface_->::Indriya::Core::Msgs::Surface::Clear();
   clear_has_surface();
 }
-inline const ::experimot::msgs::Surface& Collision::surface() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Collision.surface)
+inline const ::Indriya::Core::Msgs::Surface& Collision::surface() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Collision.surface)
   return surface_ != NULL ? *surface_ : *default_instance_->surface_;
 }
-inline ::experimot::msgs::Surface* Collision::mutable_surface() {
+inline ::Indriya::Core::Msgs::Surface* Collision::mutable_surface() {
   set_has_surface();
   if (surface_ == NULL) {
-    surface_ = new ::experimot::msgs::Surface;
+    surface_ = new ::Indriya::Core::Msgs::Surface;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Collision.surface)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Collision.surface)
   return surface_;
 }
-inline ::experimot::msgs::Surface* Collision::release_surface() {
+inline ::Indriya::Core::Msgs::Surface* Collision::release_surface() {
   clear_has_surface();
-  ::experimot::msgs::Surface* temp = surface_;
+  ::Indriya::Core::Msgs::Surface* temp = surface_;
   surface_ = NULL;
   return temp;
 }
-inline void Collision::set_allocated_surface(::experimot::msgs::Surface* surface) {
+inline void Collision::set_allocated_surface(::Indriya::Core::Msgs::Surface* surface) {
   delete surface_;
   surface_ = surface;
   if (surface) {
@@ -480,48 +481,49 @@ inline void Collision::set_allocated_surface(::experimot::msgs::Surface* surface
   } else {
     clear_has_surface();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Collision.surface)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Collision.surface)
 }
 
-// repeated .experimot.msgs.Visual visual = 8;
+// repeated .Indriya.Core.Msgs.Visual visual = 8;
 inline int Collision::visual_size() const {
   return visual_.size();
 }
 inline void Collision::clear_visual() {
   visual_.Clear();
 }
-inline const ::experimot::msgs::Visual& Collision::visual(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Collision.visual)
+inline const ::Indriya::Core::Msgs::Visual& Collision::visual(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Collision.visual)
   return visual_.Get(index);
 }
-inline ::experimot::msgs::Visual* Collision::mutable_visual(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Collision.visual)
+inline ::Indriya::Core::Msgs::Visual* Collision::mutable_visual(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Collision.visual)
   return visual_.Mutable(index);
 }
-inline ::experimot::msgs::Visual* Collision::add_visual() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Collision.visual)
+inline ::Indriya::Core::Msgs::Visual* Collision::add_visual() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Collision.visual)
   return visual_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Visual >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Visual >&
 Collision::visual() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Collision.visual)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Collision.visual)
   return visual_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Visual >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Visual >*
 Collision::mutable_visual() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Collision.visual)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Collision.visual)
   return &visual_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Collision> CollisionPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Collision> CollisionPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Collision const> ConstCollisionPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Collision const> ConstCollisionPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_collision_2eproto__INCLUDED

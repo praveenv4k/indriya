@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_camerasensor_2eproto();
@@ -116,14 +117,14 @@ class CameraSensor : public ::google::protobuf::Message {
   double horizontal_fov() const;
   void set_horizontal_fov(double value);
 
-  // optional .experimot.msgs.Vector2d image_size = 2;
+  // optional .Indriya.Core.Msgs.Vector2d image_size = 2;
   bool has_image_size() const;
   void clear_image_size();
   static const int kImageSizeFieldNumber = 2;
-  const ::experimot::msgs::Vector2d& image_size() const;
-  ::experimot::msgs::Vector2d* mutable_image_size();
-  ::experimot::msgs::Vector2d* release_image_size();
-  void set_allocated_image_size(::experimot::msgs::Vector2d* image_size);
+  const ::Indriya::Core::Msgs::Vector2d& image_size() const;
+  ::Indriya::Core::Msgs::Vector2d* mutable_image_size();
+  ::Indriya::Core::Msgs::Vector2d* release_image_size();
+  void set_allocated_image_size(::Indriya::Core::Msgs::Vector2d* image_size);
 
   // optional string image_format = 3;
   bool has_image_format() const;
@@ -170,16 +171,16 @@ class CameraSensor : public ::google::protobuf::Message {
   ::std::string* release_save_path();
   void set_allocated_save_path(::std::string* save_path);
 
-  // optional .experimot.msgs.Distortion distortion = 8;
+  // optional .Indriya.Core.Msgs.Distortion distortion = 8;
   bool has_distortion() const;
   void clear_distortion();
   static const int kDistortionFieldNumber = 8;
-  const ::experimot::msgs::Distortion& distortion() const;
-  ::experimot::msgs::Distortion* mutable_distortion();
-  ::experimot::msgs::Distortion* release_distortion();
-  void set_allocated_distortion(::experimot::msgs::Distortion* distortion);
+  const ::Indriya::Core::Msgs::Distortion& distortion() const;
+  ::Indriya::Core::Msgs::Distortion* mutable_distortion();
+  ::Indriya::Core::Msgs::Distortion* release_distortion();
+  void set_allocated_distortion(::Indriya::Core::Msgs::Distortion* distortion);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.CameraSensor)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.CameraSensor)
  private:
   inline void set_has_horizontal_fov();
   inline void clear_has_horizontal_fov();
@@ -202,12 +203,12 @@ class CameraSensor : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   double horizontal_fov_;
-  ::experimot::msgs::Vector2d* image_size_;
+  ::Indriya::Core::Msgs::Vector2d* image_size_;
   ::google::protobuf::internal::ArenaStringPtr image_format_;
   double near_clip_;
   double far_clip_;
   ::google::protobuf::internal::ArenaStringPtr save_path_;
-  ::experimot::msgs::Distortion* distortion_;
+  ::Indriya::Core::Msgs::Distortion* distortion_;
   bool save_enabled_;
   friend void  protobuf_AddDesc_camerasensor_2eproto();
   friend void protobuf_AssignDesc_camerasensor_2eproto();
@@ -239,16 +240,16 @@ inline void CameraSensor::clear_horizontal_fov() {
   clear_has_horizontal_fov();
 }
 inline double CameraSensor::horizontal_fov() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.CameraSensor.horizontal_fov)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.CameraSensor.horizontal_fov)
   return horizontal_fov_;
 }
 inline void CameraSensor::set_horizontal_fov(double value) {
   set_has_horizontal_fov();
   horizontal_fov_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.CameraSensor.horizontal_fov)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.CameraSensor.horizontal_fov)
 }
 
-// optional .experimot.msgs.Vector2d image_size = 2;
+// optional .Indriya.Core.Msgs.Vector2d image_size = 2;
 inline bool CameraSensor::has_image_size() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -259,28 +260,28 @@ inline void CameraSensor::clear_has_image_size() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void CameraSensor::clear_image_size() {
-  if (image_size_ != NULL) image_size_->::experimot::msgs::Vector2d::Clear();
+  if (image_size_ != NULL) image_size_->::Indriya::Core::Msgs::Vector2d::Clear();
   clear_has_image_size();
 }
-inline const ::experimot::msgs::Vector2d& CameraSensor::image_size() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.CameraSensor.image_size)
+inline const ::Indriya::Core::Msgs::Vector2d& CameraSensor::image_size() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.CameraSensor.image_size)
   return image_size_ != NULL ? *image_size_ : *default_instance_->image_size_;
 }
-inline ::experimot::msgs::Vector2d* CameraSensor::mutable_image_size() {
+inline ::Indriya::Core::Msgs::Vector2d* CameraSensor::mutable_image_size() {
   set_has_image_size();
   if (image_size_ == NULL) {
-    image_size_ = new ::experimot::msgs::Vector2d;
+    image_size_ = new ::Indriya::Core::Msgs::Vector2d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.CameraSensor.image_size)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.CameraSensor.image_size)
   return image_size_;
 }
-inline ::experimot::msgs::Vector2d* CameraSensor::release_image_size() {
+inline ::Indriya::Core::Msgs::Vector2d* CameraSensor::release_image_size() {
   clear_has_image_size();
-  ::experimot::msgs::Vector2d* temp = image_size_;
+  ::Indriya::Core::Msgs::Vector2d* temp = image_size_;
   image_size_ = NULL;
   return temp;
 }
-inline void CameraSensor::set_allocated_image_size(::experimot::msgs::Vector2d* image_size) {
+inline void CameraSensor::set_allocated_image_size(::Indriya::Core::Msgs::Vector2d* image_size) {
   delete image_size_;
   image_size_ = image_size;
   if (image_size) {
@@ -288,7 +289,7 @@ inline void CameraSensor::set_allocated_image_size(::experimot::msgs::Vector2d* 
   } else {
     clear_has_image_size();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.CameraSensor.image_size)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.CameraSensor.image_size)
 }
 
 // optional string image_format = 3;
@@ -306,28 +307,28 @@ inline void CameraSensor::clear_image_format() {
   clear_has_image_format();
 }
 inline const ::std::string& CameraSensor::image_format() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.CameraSensor.image_format)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.CameraSensor.image_format)
   return image_format_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CameraSensor::set_image_format(const ::std::string& value) {
   set_has_image_format();
   image_format_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.CameraSensor.image_format)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.CameraSensor.image_format)
 }
 inline void CameraSensor::set_image_format(const char* value) {
   set_has_image_format();
   image_format_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.CameraSensor.image_format)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.CameraSensor.image_format)
 }
 inline void CameraSensor::set_image_format(const char* value, size_t size) {
   set_has_image_format();
   image_format_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.CameraSensor.image_format)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.CameraSensor.image_format)
 }
 inline ::std::string* CameraSensor::mutable_image_format() {
   set_has_image_format();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.CameraSensor.image_format)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.CameraSensor.image_format)
   return image_format_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* CameraSensor::release_image_format() {
@@ -341,7 +342,7 @@ inline void CameraSensor::set_allocated_image_format(::std::string* image_format
     clear_has_image_format();
   }
   image_format_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), image_format);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.CameraSensor.image_format)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.CameraSensor.image_format)
 }
 
 // optional double near_clip = 4;
@@ -359,13 +360,13 @@ inline void CameraSensor::clear_near_clip() {
   clear_has_near_clip();
 }
 inline double CameraSensor::near_clip() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.CameraSensor.near_clip)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.CameraSensor.near_clip)
   return near_clip_;
 }
 inline void CameraSensor::set_near_clip(double value) {
   set_has_near_clip();
   near_clip_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.CameraSensor.near_clip)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.CameraSensor.near_clip)
 }
 
 // optional double far_clip = 5;
@@ -383,13 +384,13 @@ inline void CameraSensor::clear_far_clip() {
   clear_has_far_clip();
 }
 inline double CameraSensor::far_clip() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.CameraSensor.far_clip)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.CameraSensor.far_clip)
   return far_clip_;
 }
 inline void CameraSensor::set_far_clip(double value) {
   set_has_far_clip();
   far_clip_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.CameraSensor.far_clip)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.CameraSensor.far_clip)
 }
 
 // optional bool save_enabled = 6;
@@ -407,13 +408,13 @@ inline void CameraSensor::clear_save_enabled() {
   clear_has_save_enabled();
 }
 inline bool CameraSensor::save_enabled() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.CameraSensor.save_enabled)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.CameraSensor.save_enabled)
   return save_enabled_;
 }
 inline void CameraSensor::set_save_enabled(bool value) {
   set_has_save_enabled();
   save_enabled_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.CameraSensor.save_enabled)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.CameraSensor.save_enabled)
 }
 
 // optional string save_path = 7;
@@ -431,28 +432,28 @@ inline void CameraSensor::clear_save_path() {
   clear_has_save_path();
 }
 inline const ::std::string& CameraSensor::save_path() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.CameraSensor.save_path)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.CameraSensor.save_path)
   return save_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CameraSensor::set_save_path(const ::std::string& value) {
   set_has_save_path();
   save_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.CameraSensor.save_path)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.CameraSensor.save_path)
 }
 inline void CameraSensor::set_save_path(const char* value) {
   set_has_save_path();
   save_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.CameraSensor.save_path)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.CameraSensor.save_path)
 }
 inline void CameraSensor::set_save_path(const char* value, size_t size) {
   set_has_save_path();
   save_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.CameraSensor.save_path)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.CameraSensor.save_path)
 }
 inline ::std::string* CameraSensor::mutable_save_path() {
   set_has_save_path();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.CameraSensor.save_path)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.CameraSensor.save_path)
   return save_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* CameraSensor::release_save_path() {
@@ -466,10 +467,10 @@ inline void CameraSensor::set_allocated_save_path(::std::string* save_path) {
     clear_has_save_path();
   }
   save_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), save_path);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.CameraSensor.save_path)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.CameraSensor.save_path)
 }
 
-// optional .experimot.msgs.Distortion distortion = 8;
+// optional .Indriya.Core.Msgs.Distortion distortion = 8;
 inline bool CameraSensor::has_distortion() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -480,28 +481,28 @@ inline void CameraSensor::clear_has_distortion() {
   _has_bits_[0] &= ~0x00000080u;
 }
 inline void CameraSensor::clear_distortion() {
-  if (distortion_ != NULL) distortion_->::experimot::msgs::Distortion::Clear();
+  if (distortion_ != NULL) distortion_->::Indriya::Core::Msgs::Distortion::Clear();
   clear_has_distortion();
 }
-inline const ::experimot::msgs::Distortion& CameraSensor::distortion() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.CameraSensor.distortion)
+inline const ::Indriya::Core::Msgs::Distortion& CameraSensor::distortion() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.CameraSensor.distortion)
   return distortion_ != NULL ? *distortion_ : *default_instance_->distortion_;
 }
-inline ::experimot::msgs::Distortion* CameraSensor::mutable_distortion() {
+inline ::Indriya::Core::Msgs::Distortion* CameraSensor::mutable_distortion() {
   set_has_distortion();
   if (distortion_ == NULL) {
-    distortion_ = new ::experimot::msgs::Distortion;
+    distortion_ = new ::Indriya::Core::Msgs::Distortion;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.CameraSensor.distortion)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.CameraSensor.distortion)
   return distortion_;
 }
-inline ::experimot::msgs::Distortion* CameraSensor::release_distortion() {
+inline ::Indriya::Core::Msgs::Distortion* CameraSensor::release_distortion() {
   clear_has_distortion();
-  ::experimot::msgs::Distortion* temp = distortion_;
+  ::Indriya::Core::Msgs::Distortion* temp = distortion_;
   distortion_ = NULL;
   return temp;
 }
-inline void CameraSensor::set_allocated_distortion(::experimot::msgs::Distortion* distortion) {
+inline void CameraSensor::set_allocated_distortion(::Indriya::Core::Msgs::Distortion* distortion) {
   delete distortion_;
   distortion_ = distortion;
   if (distortion) {
@@ -509,18 +510,19 @@ inline void CameraSensor::set_allocated_distortion(::experimot::msgs::Distortion
   } else {
     clear_has_distortion();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.CameraSensor.distortion)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.CameraSensor.distortion)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::CameraSensor> CameraSensorPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::CameraSensor> CameraSensorPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::CameraSensor const> ConstCameraSensorPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::CameraSensor const> ConstCameraSensorPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_camerasensor_2eproto__INCLUDED

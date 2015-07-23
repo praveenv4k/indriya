@@ -10,23 +10,23 @@
 // Generated from: proto/poses_stamped.proto
 // Note: requires additional types generated from: time.proto
 // Note: requires additional types generated from: pose.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"PosesStamped")]
   public partial class PosesStamped : global::ProtoBuf.IExtensible
   {
     public PosesStamped() {}
     
-    private experimot.msgs.Time _time;
+    private Indriya.Core.Msgs.Time _time;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"time", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Time time
+    public Indriya.Core.Msgs.Time time
     {
       get { return _time; }
       set { _time = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Pose> _pose = new global::System.Collections.Generic.List<experimot.msgs.Pose>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Pose> _pose = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Pose>();
     [global::ProtoBuf.ProtoMember(2, Name=@"pose", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Pose> pose
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Pose> pose
     {
       get { return _pose; }
     }

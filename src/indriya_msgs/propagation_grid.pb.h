@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_propagation_5fgrid_2eproto();
@@ -108,25 +109,25 @@ class PropagationGrid : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .experimot.msgs.PropagationParticle particle = 1;
+  // repeated .Indriya.Core.Msgs.PropagationParticle particle = 1;
   int particle_size() const;
   void clear_particle();
   static const int kParticleFieldNumber = 1;
-  const ::experimot::msgs::PropagationParticle& particle(int index) const;
-  ::experimot::msgs::PropagationParticle* mutable_particle(int index);
-  ::experimot::msgs::PropagationParticle* add_particle();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::PropagationParticle >&
+  const ::Indriya::Core::Msgs::PropagationParticle& particle(int index) const;
+  ::Indriya::Core::Msgs::PropagationParticle* mutable_particle(int index);
+  ::Indriya::Core::Msgs::PropagationParticle* add_particle();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::PropagationParticle >&
       particle() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::PropagationParticle >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::PropagationParticle >*
       mutable_particle();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.PropagationGrid)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.PropagationGrid)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::PropagationParticle > particle_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::PropagationParticle > particle_;
   friend void  protobuf_AddDesc_propagation_5fgrid_2eproto();
   friend void protobuf_AssignDesc_propagation_5fgrid_2eproto();
   friend void protobuf_ShutdownFile_propagation_5fgrid_2eproto();
@@ -142,45 +143,46 @@ class PropagationGrid : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // PropagationGrid
 
-// repeated .experimot.msgs.PropagationParticle particle = 1;
+// repeated .Indriya.Core.Msgs.PropagationParticle particle = 1;
 inline int PropagationGrid::particle_size() const {
   return particle_.size();
 }
 inline void PropagationGrid::clear_particle() {
   particle_.Clear();
 }
-inline const ::experimot::msgs::PropagationParticle& PropagationGrid::particle(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PropagationGrid.particle)
+inline const ::Indriya::Core::Msgs::PropagationParticle& PropagationGrid::particle(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PropagationGrid.particle)
   return particle_.Get(index);
 }
-inline ::experimot::msgs::PropagationParticle* PropagationGrid::mutable_particle(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.PropagationGrid.particle)
+inline ::Indriya::Core::Msgs::PropagationParticle* PropagationGrid::mutable_particle(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.PropagationGrid.particle)
   return particle_.Mutable(index);
 }
-inline ::experimot::msgs::PropagationParticle* PropagationGrid::add_particle() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.PropagationGrid.particle)
+inline ::Indriya::Core::Msgs::PropagationParticle* PropagationGrid::add_particle() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.PropagationGrid.particle)
   return particle_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::PropagationParticle >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::PropagationParticle >&
 PropagationGrid::particle() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.PropagationGrid.particle)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.PropagationGrid.particle)
   return particle_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::PropagationParticle >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::PropagationParticle >*
 PropagationGrid::mutable_particle() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.PropagationGrid.particle)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.PropagationGrid.particle)
   return &particle_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::PropagationGrid> PropagationGridPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::PropagationGrid> PropagationGridPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::PropagationGrid const> ConstPropagationGridPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::PropagationGrid const> ConstPropagationGridPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_propagation_5fgrid_2eproto__INCLUDED

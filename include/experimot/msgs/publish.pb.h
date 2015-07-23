@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_publish_2eproto();
@@ -150,7 +151,7 @@ class Publish : public ::google::protobuf::Message {
   ::google::protobuf::uint32 port() const;
   void set_port(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Publish)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Publish)
  private:
   inline void set_has_topic();
   inline void clear_has_topic();
@@ -201,28 +202,28 @@ inline void Publish::clear_topic() {
   clear_has_topic();
 }
 inline const ::std::string& Publish::topic() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Publish.topic)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Publish.topic)
   return topic_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Publish::set_topic(const ::std::string& value) {
   set_has_topic();
   topic_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Publish.topic)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Publish.topic)
 }
 inline void Publish::set_topic(const char* value) {
   set_has_topic();
   topic_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Publish.topic)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Publish.topic)
 }
 inline void Publish::set_topic(const char* value, size_t size) {
   set_has_topic();
   topic_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Publish.topic)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Publish.topic)
 }
 inline ::std::string* Publish::mutable_topic() {
   set_has_topic();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Publish.topic)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Publish.topic)
   return topic_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Publish::release_topic() {
@@ -236,7 +237,7 @@ inline void Publish::set_allocated_topic(::std::string* topic) {
     clear_has_topic();
   }
   topic_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), topic);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Publish.topic)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Publish.topic)
 }
 
 // required string msg_type = 2;
@@ -254,28 +255,28 @@ inline void Publish::clear_msg_type() {
   clear_has_msg_type();
 }
 inline const ::std::string& Publish::msg_type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Publish.msg_type)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Publish.msg_type)
   return msg_type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Publish::set_msg_type(const ::std::string& value) {
   set_has_msg_type();
   msg_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Publish.msg_type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Publish.msg_type)
 }
 inline void Publish::set_msg_type(const char* value) {
   set_has_msg_type();
   msg_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Publish.msg_type)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Publish.msg_type)
 }
 inline void Publish::set_msg_type(const char* value, size_t size) {
   set_has_msg_type();
   msg_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Publish.msg_type)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Publish.msg_type)
 }
 inline ::std::string* Publish::mutable_msg_type() {
   set_has_msg_type();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Publish.msg_type)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Publish.msg_type)
   return msg_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Publish::release_msg_type() {
@@ -289,7 +290,7 @@ inline void Publish::set_allocated_msg_type(::std::string* msg_type) {
     clear_has_msg_type();
   }
   msg_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), msg_type);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Publish.msg_type)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Publish.msg_type)
 }
 
 // required string host = 3;
@@ -307,28 +308,28 @@ inline void Publish::clear_host() {
   clear_has_host();
 }
 inline const ::std::string& Publish::host() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Publish.host)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Publish.host)
   return host_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Publish::set_host(const ::std::string& value) {
   set_has_host();
   host_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Publish.host)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Publish.host)
 }
 inline void Publish::set_host(const char* value) {
   set_has_host();
   host_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Publish.host)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Publish.host)
 }
 inline void Publish::set_host(const char* value, size_t size) {
   set_has_host();
   host_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Publish.host)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Publish.host)
 }
 inline ::std::string* Publish::mutable_host() {
   set_has_host();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Publish.host)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Publish.host)
   return host_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Publish::release_host() {
@@ -342,7 +343,7 @@ inline void Publish::set_allocated_host(::std::string* host) {
     clear_has_host();
   }
   host_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), host);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Publish.host)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Publish.host)
 }
 
 // required uint32 port = 4;
@@ -360,24 +361,25 @@ inline void Publish::clear_port() {
   clear_has_port();
 }
 inline ::google::protobuf::uint32 Publish::port() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Publish.port)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Publish.port)
   return port_;
 }
 inline void Publish::set_port(::google::protobuf::uint32 value) {
   set_has_port();
   port_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Publish.port)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Publish.port)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Publish> PublishPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Publish> PublishPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Publish const> ConstPublishPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Publish const> ConstPublishPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_publish_2eproto__INCLUDED

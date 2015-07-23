@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_voice_2eproto();
@@ -160,7 +161,7 @@ class VoiceCommandDescription : public ::google::protobuf::Message {
   ::std::string* release_triggeredat();
   void set_allocated_triggeredat(::std::string* triggeredat);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.VoiceCommandDescription)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.VoiceCommandDescription)
  private:
   inline void set_has_command();
   inline void clear_has_command();
@@ -266,31 +267,31 @@ class VoiceRecognitionModule : public ::google::protobuf::Message {
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // repeated .experimot.msgs.Param params = 2;
+  // repeated .Indriya.Core.Msgs.Param params = 2;
   int params_size() const;
   void clear_params();
   static const int kParamsFieldNumber = 2;
-  const ::experimot::msgs::Param& params(int index) const;
-  ::experimot::msgs::Param* mutable_params(int index);
-  ::experimot::msgs::Param* add_params();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+  const ::Indriya::Core::Msgs::Param& params(int index) const;
+  ::Indriya::Core::Msgs::Param* mutable_params(int index);
+  ::Indriya::Core::Msgs::Param* add_params();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >&
       params() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >*
       mutable_params();
 
-  // repeated .experimot.msgs.VoiceCommandDescription commands = 3;
+  // repeated .Indriya.Core.Msgs.VoiceCommandDescription commands = 3;
   int commands_size() const;
   void clear_commands();
   static const int kCommandsFieldNumber = 3;
-  const ::experimot::msgs::VoiceCommandDescription& commands(int index) const;
-  ::experimot::msgs::VoiceCommandDescription* mutable_commands(int index);
-  ::experimot::msgs::VoiceCommandDescription* add_commands();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::VoiceCommandDescription >&
+  const ::Indriya::Core::Msgs::VoiceCommandDescription& commands(int index) const;
+  ::Indriya::Core::Msgs::VoiceCommandDescription* mutable_commands(int index);
+  ::Indriya::Core::Msgs::VoiceCommandDescription* add_commands();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::VoiceCommandDescription >&
       commands() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::VoiceCommandDescription >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::VoiceCommandDescription >*
       mutable_commands();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.VoiceRecognitionModule)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.VoiceRecognitionModule)
  private:
   inline void set_has_name();
   inline void clear_has_name();
@@ -299,8 +300,8 @@ class VoiceRecognitionModule : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param > params_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::VoiceCommandDescription > commands_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param > params_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::VoiceCommandDescription > commands_;
   friend void  protobuf_AddDesc_voice_2eproto();
   friend void protobuf_AssignDesc_voice_2eproto();
   friend void protobuf_ShutdownFile_voice_2eproto();
@@ -374,25 +375,25 @@ class VoiceRecognitionModules : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .experimot.msgs.VoiceRecognitionModule modules = 1;
+  // repeated .Indriya.Core.Msgs.VoiceRecognitionModule modules = 1;
   int modules_size() const;
   void clear_modules();
   static const int kModulesFieldNumber = 1;
-  const ::experimot::msgs::VoiceRecognitionModule& modules(int index) const;
-  ::experimot::msgs::VoiceRecognitionModule* mutable_modules(int index);
-  ::experimot::msgs::VoiceRecognitionModule* add_modules();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::VoiceRecognitionModule >&
+  const ::Indriya::Core::Msgs::VoiceRecognitionModule& modules(int index) const;
+  ::Indriya::Core::Msgs::VoiceRecognitionModule* mutable_modules(int index);
+  ::Indriya::Core::Msgs::VoiceRecognitionModule* add_modules();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::VoiceRecognitionModule >&
       modules() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::VoiceRecognitionModule >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::VoiceRecognitionModule >*
       mutable_modules();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.VoiceRecognitionModules)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.VoiceRecognitionModules)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::VoiceRecognitionModule > modules_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::VoiceRecognitionModule > modules_;
   friend void  protobuf_AddDesc_voice_2eproto();
   friend void protobuf_AssignDesc_voice_2eproto();
   friend void protobuf_ShutdownFile_voice_2eproto();
@@ -423,28 +424,28 @@ inline void VoiceCommandDescription::clear_command() {
   clear_has_command();
 }
 inline const ::std::string& VoiceCommandDescription::command() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.VoiceCommandDescription.command)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.VoiceCommandDescription.command)
   return command_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void VoiceCommandDescription::set_command(const ::std::string& value) {
   set_has_command();
   command_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.VoiceCommandDescription.command)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.VoiceCommandDescription.command)
 }
 inline void VoiceCommandDescription::set_command(const char* value) {
   set_has_command();
   command_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.VoiceCommandDescription.command)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.VoiceCommandDescription.command)
 }
 inline void VoiceCommandDescription::set_command(const char* value, size_t size) {
   set_has_command();
   command_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.VoiceCommandDescription.command)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.VoiceCommandDescription.command)
 }
 inline ::std::string* VoiceCommandDescription::mutable_command() {
   set_has_command();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.VoiceCommandDescription.command)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.VoiceCommandDescription.command)
   return command_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* VoiceCommandDescription::release_command() {
@@ -458,7 +459,7 @@ inline void VoiceCommandDescription::set_allocated_command(::std::string* comman
     clear_has_command();
   }
   command_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), command);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.VoiceCommandDescription.command)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.VoiceCommandDescription.command)
 }
 
 // optional bool active = 2;
@@ -476,13 +477,13 @@ inline void VoiceCommandDescription::clear_active() {
   clear_has_active();
 }
 inline bool VoiceCommandDescription::active() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.VoiceCommandDescription.active)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.VoiceCommandDescription.active)
   return active_;
 }
 inline void VoiceCommandDescription::set_active(bool value) {
   set_has_active();
   active_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.VoiceCommandDescription.active)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.VoiceCommandDescription.active)
 }
 
 // optional int32 confidence = 3;
@@ -500,13 +501,13 @@ inline void VoiceCommandDescription::clear_confidence() {
   clear_has_confidence();
 }
 inline ::google::protobuf::int32 VoiceCommandDescription::confidence() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.VoiceCommandDescription.confidence)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.VoiceCommandDescription.confidence)
   return confidence_;
 }
 inline void VoiceCommandDescription::set_confidence(::google::protobuf::int32 value) {
   set_has_confidence();
   confidence_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.VoiceCommandDescription.confidence)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.VoiceCommandDescription.confidence)
 }
 
 // optional string language = 4;
@@ -524,28 +525,28 @@ inline void VoiceCommandDescription::clear_language() {
   clear_has_language();
 }
 inline const ::std::string& VoiceCommandDescription::language() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.VoiceCommandDescription.language)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.VoiceCommandDescription.language)
   return language_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void VoiceCommandDescription::set_language(const ::std::string& value) {
   set_has_language();
   language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.VoiceCommandDescription.language)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.VoiceCommandDescription.language)
 }
 inline void VoiceCommandDescription::set_language(const char* value) {
   set_has_language();
   language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.VoiceCommandDescription.language)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.VoiceCommandDescription.language)
 }
 inline void VoiceCommandDescription::set_language(const char* value, size_t size) {
   set_has_language();
   language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.VoiceCommandDescription.language)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.VoiceCommandDescription.language)
 }
 inline ::std::string* VoiceCommandDescription::mutable_language() {
   set_has_language();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.VoiceCommandDescription.language)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.VoiceCommandDescription.language)
   return language_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* VoiceCommandDescription::release_language() {
@@ -559,7 +560,7 @@ inline void VoiceCommandDescription::set_allocated_language(::std::string* langu
     clear_has_language();
   }
   language_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), language);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.VoiceCommandDescription.language)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.VoiceCommandDescription.language)
 }
 
 // optional string triggeredAt = 5;
@@ -577,28 +578,28 @@ inline void VoiceCommandDescription::clear_triggeredat() {
   clear_has_triggeredat();
 }
 inline const ::std::string& VoiceCommandDescription::triggeredat() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.VoiceCommandDescription.triggeredAt)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.VoiceCommandDescription.triggeredAt)
   return triggeredat_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void VoiceCommandDescription::set_triggeredat(const ::std::string& value) {
   set_has_triggeredat();
   triggeredat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.VoiceCommandDescription.triggeredAt)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.VoiceCommandDescription.triggeredAt)
 }
 inline void VoiceCommandDescription::set_triggeredat(const char* value) {
   set_has_triggeredat();
   triggeredat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.VoiceCommandDescription.triggeredAt)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.VoiceCommandDescription.triggeredAt)
 }
 inline void VoiceCommandDescription::set_triggeredat(const char* value, size_t size) {
   set_has_triggeredat();
   triggeredat_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.VoiceCommandDescription.triggeredAt)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.VoiceCommandDescription.triggeredAt)
 }
 inline ::std::string* VoiceCommandDescription::mutable_triggeredat() {
   set_has_triggeredat();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.VoiceCommandDescription.triggeredAt)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.VoiceCommandDescription.triggeredAt)
   return triggeredat_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* VoiceCommandDescription::release_triggeredat() {
@@ -612,7 +613,7 @@ inline void VoiceCommandDescription::set_allocated_triggeredat(::std::string* tr
     clear_has_triggeredat();
   }
   triggeredat_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), triggeredat);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.VoiceCommandDescription.triggeredAt)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.VoiceCommandDescription.triggeredAt)
 }
 
 // -------------------------------------------------------------------
@@ -634,28 +635,28 @@ inline void VoiceRecognitionModule::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& VoiceRecognitionModule::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.VoiceRecognitionModule.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.VoiceRecognitionModule.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void VoiceRecognitionModule::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.VoiceRecognitionModule.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.VoiceRecognitionModule.name)
 }
 inline void VoiceRecognitionModule::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.VoiceRecognitionModule.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.VoiceRecognitionModule.name)
 }
 inline void VoiceRecognitionModule::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.VoiceRecognitionModule.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.VoiceRecognitionModule.name)
 }
 inline ::std::string* VoiceRecognitionModule::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.VoiceRecognitionModule.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.VoiceRecognitionModule.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* VoiceRecognitionModule::release_name() {
@@ -669,66 +670,66 @@ inline void VoiceRecognitionModule::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.VoiceRecognitionModule.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.VoiceRecognitionModule.name)
 }
 
-// repeated .experimot.msgs.Param params = 2;
+// repeated .Indriya.Core.Msgs.Param params = 2;
 inline int VoiceRecognitionModule::params_size() const {
   return params_.size();
 }
 inline void VoiceRecognitionModule::clear_params() {
   params_.Clear();
 }
-inline const ::experimot::msgs::Param& VoiceRecognitionModule::params(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.VoiceRecognitionModule.params)
+inline const ::Indriya::Core::Msgs::Param& VoiceRecognitionModule::params(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.VoiceRecognitionModule.params)
   return params_.Get(index);
 }
-inline ::experimot::msgs::Param* VoiceRecognitionModule::mutable_params(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.VoiceRecognitionModule.params)
+inline ::Indriya::Core::Msgs::Param* VoiceRecognitionModule::mutable_params(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.VoiceRecognitionModule.params)
   return params_.Mutable(index);
 }
-inline ::experimot::msgs::Param* VoiceRecognitionModule::add_params() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.VoiceRecognitionModule.params)
+inline ::Indriya::Core::Msgs::Param* VoiceRecognitionModule::add_params() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.VoiceRecognitionModule.params)
   return params_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >&
 VoiceRecognitionModule::params() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.VoiceRecognitionModule.params)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.VoiceRecognitionModule.params)
   return params_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >*
 VoiceRecognitionModule::mutable_params() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.VoiceRecognitionModule.params)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.VoiceRecognitionModule.params)
   return &params_;
 }
 
-// repeated .experimot.msgs.VoiceCommandDescription commands = 3;
+// repeated .Indriya.Core.Msgs.VoiceCommandDescription commands = 3;
 inline int VoiceRecognitionModule::commands_size() const {
   return commands_.size();
 }
 inline void VoiceRecognitionModule::clear_commands() {
   commands_.Clear();
 }
-inline const ::experimot::msgs::VoiceCommandDescription& VoiceRecognitionModule::commands(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.VoiceRecognitionModule.commands)
+inline const ::Indriya::Core::Msgs::VoiceCommandDescription& VoiceRecognitionModule::commands(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.VoiceRecognitionModule.commands)
   return commands_.Get(index);
 }
-inline ::experimot::msgs::VoiceCommandDescription* VoiceRecognitionModule::mutable_commands(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.VoiceRecognitionModule.commands)
+inline ::Indriya::Core::Msgs::VoiceCommandDescription* VoiceRecognitionModule::mutable_commands(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.VoiceRecognitionModule.commands)
   return commands_.Mutable(index);
 }
-inline ::experimot::msgs::VoiceCommandDescription* VoiceRecognitionModule::add_commands() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.VoiceRecognitionModule.commands)
+inline ::Indriya::Core::Msgs::VoiceCommandDescription* VoiceRecognitionModule::add_commands() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.VoiceRecognitionModule.commands)
   return commands_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::VoiceCommandDescription >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::VoiceCommandDescription >&
 VoiceRecognitionModule::commands() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.VoiceRecognitionModule.commands)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.VoiceRecognitionModule.commands)
   return commands_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::VoiceCommandDescription >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::VoiceCommandDescription >*
 VoiceRecognitionModule::mutable_commands() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.VoiceRecognitionModule.commands)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.VoiceRecognitionModule.commands)
   return &commands_;
 }
 
@@ -736,45 +737,46 @@ VoiceRecognitionModule::mutable_commands() {
 
 // VoiceRecognitionModules
 
-// repeated .experimot.msgs.VoiceRecognitionModule modules = 1;
+// repeated .Indriya.Core.Msgs.VoiceRecognitionModule modules = 1;
 inline int VoiceRecognitionModules::modules_size() const {
   return modules_.size();
 }
 inline void VoiceRecognitionModules::clear_modules() {
   modules_.Clear();
 }
-inline const ::experimot::msgs::VoiceRecognitionModule& VoiceRecognitionModules::modules(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.VoiceRecognitionModules.modules)
+inline const ::Indriya::Core::Msgs::VoiceRecognitionModule& VoiceRecognitionModules::modules(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.VoiceRecognitionModules.modules)
   return modules_.Get(index);
 }
-inline ::experimot::msgs::VoiceRecognitionModule* VoiceRecognitionModules::mutable_modules(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.VoiceRecognitionModules.modules)
+inline ::Indriya::Core::Msgs::VoiceRecognitionModule* VoiceRecognitionModules::mutable_modules(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.VoiceRecognitionModules.modules)
   return modules_.Mutable(index);
 }
-inline ::experimot::msgs::VoiceRecognitionModule* VoiceRecognitionModules::add_modules() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.VoiceRecognitionModules.modules)
+inline ::Indriya::Core::Msgs::VoiceRecognitionModule* VoiceRecognitionModules::add_modules() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.VoiceRecognitionModules.modules)
   return modules_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::VoiceRecognitionModule >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::VoiceRecognitionModule >&
 VoiceRecognitionModules::modules() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.VoiceRecognitionModules.modules)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.VoiceRecognitionModules.modules)
   return modules_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::VoiceRecognitionModule >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::VoiceRecognitionModule >*
 VoiceRecognitionModules::mutable_modules() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.VoiceRecognitionModules.modules)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.VoiceRecognitionModules.modules)
   return &modules_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::VoiceCommandDescription> VoiceCommandDescriptionPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::VoiceCommandDescription> VoiceCommandDescriptionPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::VoiceCommandDescription const> ConstVoiceCommandDescriptionPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::VoiceCommandDescription const> ConstVoiceCommandDescriptionPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_voice_2eproto__INCLUDED

@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_propagation_5fparticle_2eproto();
@@ -128,7 +129,7 @@ class PropagationParticle : public ::google::protobuf::Message {
   double signal_level() const;
   void set_signal_level(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.PropagationParticle)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.PropagationParticle)
  private:
   inline void set_has_x();
   inline void clear_has_x();
@@ -176,13 +177,13 @@ inline void PropagationParticle::clear_x() {
   clear_has_x();
 }
 inline double PropagationParticle::x() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PropagationParticle.x)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PropagationParticle.x)
   return x_;
 }
 inline void PropagationParticle::set_x(double value) {
   set_has_x();
   x_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PropagationParticle.x)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PropagationParticle.x)
 }
 
 // required double y = 2;
@@ -200,13 +201,13 @@ inline void PropagationParticle::clear_y() {
   clear_has_y();
 }
 inline double PropagationParticle::y() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PropagationParticle.y)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PropagationParticle.y)
   return y_;
 }
 inline void PropagationParticle::set_y(double value) {
   set_has_y();
   y_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PropagationParticle.y)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PropagationParticle.y)
 }
 
 // required double signal_level = 3;
@@ -224,24 +225,25 @@ inline void PropagationParticle::clear_signal_level() {
   clear_has_signal_level();
 }
 inline double PropagationParticle::signal_level() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PropagationParticle.signal_level)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PropagationParticle.signal_level)
   return signal_level_;
 }
 inline void PropagationParticle::set_signal_level(double value) {
   set_has_signal_level();
   signal_level_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PropagationParticle.signal_level)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PropagationParticle.signal_level)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::PropagationParticle> PropagationParticlePtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::PropagationParticle> PropagationParticlePtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::PropagationParticle const> ConstPropagationParticlePtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::PropagationParticle const> ConstPropagationParticlePtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_propagation_5fparticle_2eproto__INCLUDED

@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_wireless_5fnode_2eproto();
@@ -133,7 +134,7 @@ class WirelessNode : public ::google::protobuf::Message {
   double signal_level() const;
   void set_signal_level(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.WirelessNode)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.WirelessNode)
  private:
   inline void set_has_essid();
   inline void clear_has_essid();
@@ -181,28 +182,28 @@ inline void WirelessNode::clear_essid() {
   clear_has_essid();
 }
 inline const ::std::string& WirelessNode::essid() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WirelessNode.essid)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WirelessNode.essid)
   return essid_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void WirelessNode::set_essid(const ::std::string& value) {
   set_has_essid();
   essid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.WirelessNode.essid)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WirelessNode.essid)
 }
 inline void WirelessNode::set_essid(const char* value) {
   set_has_essid();
   essid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.WirelessNode.essid)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.WirelessNode.essid)
 }
 inline void WirelessNode::set_essid(const char* value, size_t size) {
   set_has_essid();
   essid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.WirelessNode.essid)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.WirelessNode.essid)
 }
 inline ::std::string* WirelessNode::mutable_essid() {
   set_has_essid();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.WirelessNode.essid)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.WirelessNode.essid)
   return essid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* WirelessNode::release_essid() {
@@ -216,7 +217,7 @@ inline void WirelessNode::set_allocated_essid(::std::string* essid) {
     clear_has_essid();
   }
   essid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), essid);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.WirelessNode.essid)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.WirelessNode.essid)
 }
 
 // required double frequency = 2;
@@ -234,13 +235,13 @@ inline void WirelessNode::clear_frequency() {
   clear_has_frequency();
 }
 inline double WirelessNode::frequency() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WirelessNode.frequency)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WirelessNode.frequency)
   return frequency_;
 }
 inline void WirelessNode::set_frequency(double value) {
   set_has_frequency();
   frequency_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WirelessNode.frequency)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WirelessNode.frequency)
 }
 
 // required double signal_level = 3;
@@ -258,24 +259,25 @@ inline void WirelessNode::clear_signal_level() {
   clear_has_signal_level();
 }
 inline double WirelessNode::signal_level() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WirelessNode.signal_level)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WirelessNode.signal_level)
   return signal_level_;
 }
 inline void WirelessNode::set_signal_level(double value) {
   set_has_signal_level();
   signal_level_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WirelessNode.signal_level)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WirelessNode.signal_level)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::WirelessNode> WirelessNodePtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::WirelessNode> WirelessNodePtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::WirelessNode const> ConstWirelessNodePtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::WirelessNode const> ConstWirelessNodePtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_wireless_5fnode_2eproto__INCLUDED

@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_pid_2eproto();
@@ -156,7 +157,7 @@ class PID : public ::google::protobuf::Message {
   double limit() const;
   void set_limit(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.PID)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.PID)
  private:
   inline void set_has_target();
   inline void clear_has_target();
@@ -213,13 +214,13 @@ inline void PID::clear_target() {
   clear_has_target();
 }
 inline double PID::target() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PID.target)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PID.target)
   return target_;
 }
 inline void PID::set_target(double value) {
   set_has_target();
   target_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PID.target)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PID.target)
 }
 
 // optional double p_gain = 2 [default = 0];
@@ -237,13 +238,13 @@ inline void PID::clear_p_gain() {
   clear_has_p_gain();
 }
 inline double PID::p_gain() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PID.p_gain)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PID.p_gain)
   return p_gain_;
 }
 inline void PID::set_p_gain(double value) {
   set_has_p_gain();
   p_gain_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PID.p_gain)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PID.p_gain)
 }
 
 // optional double i_gain = 3 [default = 0];
@@ -261,13 +262,13 @@ inline void PID::clear_i_gain() {
   clear_has_i_gain();
 }
 inline double PID::i_gain() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PID.i_gain)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PID.i_gain)
   return i_gain_;
 }
 inline void PID::set_i_gain(double value) {
   set_has_i_gain();
   i_gain_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PID.i_gain)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PID.i_gain)
 }
 
 // optional double d_gain = 4 [default = 0];
@@ -285,13 +286,13 @@ inline void PID::clear_d_gain() {
   clear_has_d_gain();
 }
 inline double PID::d_gain() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PID.d_gain)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PID.d_gain)
   return d_gain_;
 }
 inline void PID::set_d_gain(double value) {
   set_has_d_gain();
   d_gain_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PID.d_gain)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PID.d_gain)
 }
 
 // optional double i_max = 5 [default = 0];
@@ -309,13 +310,13 @@ inline void PID::clear_i_max() {
   clear_has_i_max();
 }
 inline double PID::i_max() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PID.i_max)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PID.i_max)
   return i_max_;
 }
 inline void PID::set_i_max(double value) {
   set_has_i_max();
   i_max_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PID.i_max)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PID.i_max)
 }
 
 // optional double i_min = 6 [default = 0];
@@ -333,13 +334,13 @@ inline void PID::clear_i_min() {
   clear_has_i_min();
 }
 inline double PID::i_min() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PID.i_min)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PID.i_min)
   return i_min_;
 }
 inline void PID::set_i_min(double value) {
   set_has_i_min();
   i_min_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PID.i_min)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PID.i_min)
 }
 
 // optional double limit = 7 [default = 0];
@@ -357,24 +358,25 @@ inline void PID::clear_limit() {
   clear_has_limit();
 }
 inline double PID::limit() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.PID.limit)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.PID.limit)
   return limit_;
 }
 inline void PID::set_limit(double value) {
   set_has_limit();
   limit_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.PID.limit)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.PID.limit)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::PID> PIDPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::PID> PIDPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::PID const> ConstPIDPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::PID const> ConstPIDPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_pid_2eproto__INCLUDED

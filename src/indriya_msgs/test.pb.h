@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_test_2eproto();
@@ -108,16 +109,16 @@ class Test : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .experimot.msgs.Header header = 1;
+  // required .Indriya.Core.Msgs.Header header = 1;
   bool has_header() const;
   void clear_header();
   static const int kHeaderFieldNumber = 1;
-  const ::experimot::msgs::Header& header() const;
-  ::experimot::msgs::Header* mutable_header();
-  ::experimot::msgs::Header* release_header();
-  void set_allocated_header(::experimot::msgs::Header* header);
+  const ::Indriya::Core::Msgs::Header& header() const;
+  ::Indriya::Core::Msgs::Header* mutable_header();
+  ::Indriya::Core::Msgs::Header* release_header();
+  void set_allocated_header(::Indriya::Core::Msgs::Header* header);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Test)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Test)
  private:
   inline void set_has_header();
   inline void clear_has_header();
@@ -125,7 +126,7 @@ class Test : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::Header* header_;
+  ::Indriya::Core::Msgs::Header* header_;
   friend void  protobuf_AddDesc_test_2eproto();
   friend void protobuf_AssignDesc_test_2eproto();
   friend void protobuf_ShutdownFile_test_2eproto();
@@ -141,7 +142,7 @@ class Test : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // Test
 
-// required .experimot.msgs.Header header = 1;
+// required .Indriya.Core.Msgs.Header header = 1;
 inline bool Test::has_header() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -152,28 +153,28 @@ inline void Test::clear_has_header() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void Test::clear_header() {
-  if (header_ != NULL) header_->::experimot::msgs::Header::Clear();
+  if (header_ != NULL) header_->::Indriya::Core::Msgs::Header::Clear();
   clear_has_header();
 }
-inline const ::experimot::msgs::Header& Test::header() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Test.header)
+inline const ::Indriya::Core::Msgs::Header& Test::header() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Test.header)
   return header_ != NULL ? *header_ : *default_instance_->header_;
 }
-inline ::experimot::msgs::Header* Test::mutable_header() {
+inline ::Indriya::Core::Msgs::Header* Test::mutable_header() {
   set_has_header();
   if (header_ == NULL) {
-    header_ = new ::experimot::msgs::Header;
+    header_ = new ::Indriya::Core::Msgs::Header;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Test.header)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Test.header)
   return header_;
 }
-inline ::experimot::msgs::Header* Test::release_header() {
+inline ::Indriya::Core::Msgs::Header* Test::release_header() {
   clear_has_header();
-  ::experimot::msgs::Header* temp = header_;
+  ::Indriya::Core::Msgs::Header* temp = header_;
   header_ = NULL;
   return temp;
 }
-inline void Test::set_allocated_header(::experimot::msgs::Header* header) {
+inline void Test::set_allocated_header(::Indriya::Core::Msgs::Header* header) {
   delete header_;
   header_ = header;
   if (header) {
@@ -181,18 +182,19 @@ inline void Test::set_allocated_header(::experimot::msgs::Header* header) {
   } else {
     clear_has_header();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Test.header)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Test.header)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Test> TestPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Test> TestPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Test const> ConstTestPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Test const> ConstTestPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_test_2eproto__INCLUDED

@@ -9,7 +9,7 @@
 
 // Generated from: proto/joint_animation.proto
 // Note: requires additional types generated from: time.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"JointAnimation")]
   public partial class JointAnimation : global::ProtoBuf.IExtensible
@@ -23,16 +23,16 @@ namespace experimot.msgs
       get { return _model_name; }
       set { _model_name = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.JointAnimation.Joint> _joint = new global::System.Collections.Generic.List<experimot.msgs.JointAnimation.Joint>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.JointAnimation.Joint> _joint = new global::System.Collections.Generic.List<Indriya.Core.Msgs.JointAnimation.Joint>();
     [global::ProtoBuf.ProtoMember(2, Name=@"joint", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.JointAnimation.Joint> joint
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.JointAnimation.Joint> joint
     {
       get { return _joint; }
     }
   
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Time> _time = new global::System.Collections.Generic.List<experimot.msgs.Time>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Time> _time = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Time>();
     [global::ProtoBuf.ProtoMember(3, Name=@"time", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Time> time
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Time> time
     {
       get { return _time; }
     }

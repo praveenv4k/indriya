@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='int.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\tint.proto\x12\x0e\x65xperimot.msgs\"\x13\n\x03Int\x12\x0c\n\x04\x64\x61ta\x18\x01 \x02(\x05')
+  serialized_pb=_b('\n\tint.proto\x12\x11Indriya.Core.Msgs\"\x13\n\x03Int\x12\x0c\n\x04\x64\x61ta\x18\x01 \x02(\x05')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -28,13 +28,13 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _INT = _descriptor.Descriptor(
   name='Int',
-  full_name='experimot.msgs.Int',
+  full_name='Indriya.Core.Msgs.Int',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='data', full_name='experimot.msgs.Int.data', index=0,
+      name='data', full_name='Indriya.Core.Msgs.Int.data', index=0,
       number=1, type=5, cpp_type=1, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -52,8 +52,8 @@ _INT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=29,
-  serialized_end=48,
+  serialized_start=32,
+  serialized_end=51,
 )
 
 DESCRIPTOR.message_types_by_name['Int'] = _INT
@@ -61,7 +61,7 @@ DESCRIPTOR.message_types_by_name['Int'] = _INT
 Int = _reflection.GeneratedProtocolMessageType('Int', (_message.Message,), dict(
   DESCRIPTOR = _INT,
   __module__ = 'int_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Int)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Int)
   ))
 _sym_db.RegisterMessage(Int)
 

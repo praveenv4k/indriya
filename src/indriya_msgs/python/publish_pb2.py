@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='publish.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\rpublish.proto\x12\x0e\x65xperimot.msgs\"F\n\x07Publish\x12\r\n\x05topic\x18\x01 \x02(\t\x12\x10\n\x08msg_type\x18\x02 \x02(\t\x12\x0c\n\x04host\x18\x03 \x02(\t\x12\x0c\n\x04port\x18\x04 \x02(\r')
+  serialized_pb=_b('\n\rpublish.proto\x12\x11Indriya.Core.Msgs\"F\n\x07Publish\x12\r\n\x05topic\x18\x01 \x02(\t\x12\x10\n\x08msg_type\x18\x02 \x02(\t\x12\x0c\n\x04host\x18\x03 \x02(\t\x12\x0c\n\x04port\x18\x04 \x02(\r')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -28,34 +28,34 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _PUBLISH = _descriptor.Descriptor(
   name='Publish',
-  full_name='experimot.msgs.Publish',
+  full_name='Indriya.Core.Msgs.Publish',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='topic', full_name='experimot.msgs.Publish.topic', index=0,
+      name='topic', full_name='Indriya.Core.Msgs.Publish.topic', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='msg_type', full_name='experimot.msgs.Publish.msg_type', index=1,
+      name='msg_type', full_name='Indriya.Core.Msgs.Publish.msg_type', index=1,
       number=2, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='host', full_name='experimot.msgs.Publish.host', index=2,
+      name='host', full_name='Indriya.Core.Msgs.Publish.host', index=2,
       number=3, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='port', full_name='experimot.msgs.Publish.port', index=3,
+      name='port', full_name='Indriya.Core.Msgs.Publish.port', index=3,
       number=4, type=13, cpp_type=3, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -73,8 +73,8 @@ _PUBLISH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=33,
-  serialized_end=103,
+  serialized_start=36,
+  serialized_end=106,
 )
 
 DESCRIPTOR.message_types_by_name['Publish'] = _PUBLISH
@@ -82,7 +82,7 @@ DESCRIPTOR.message_types_by_name['Publish'] = _PUBLISH
 Publish = _reflection.GeneratedProtocolMessageType('Publish', (_message.Message,), dict(
   DESCRIPTOR = _PUBLISH,
   __module__ = 'publish_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Publish)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Publish)
   ))
 _sym_db.RegisterMessage(Publish)
 

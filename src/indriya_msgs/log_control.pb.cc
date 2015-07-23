@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -83,10 +84,10 @@ void protobuf_AddDesc_log_5fcontrol_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\021log_control.proto\022\016experimot.msgs\"^\n\nL"
-    "ogControl\022\r\n\005start\030\001 \001(\010\022\014\n\004stop\030\002 \001(\010\022\016"
-    "\n\006paused\030\003 \001(\010\022\021\n\tbase_path\030\004 \001(\t\022\020\n\010enc"
-    "oding\030\005 \001(\t", 131);
+    "\n\021log_control.proto\022\021Indriya.Core.Msgs\"^"
+    "\n\nLogControl\022\r\n\005start\030\001 \001(\010\022\014\n\004stop\030\002 \001("
+    "\010\022\016\n\006paused\030\003 \001(\010\022\021\n\tbase_path\030\004 \001(\t\022\020\n\010"
+    "encoding\030\005 \001(\t", 134);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "log_control.proto", &protobuf_RegisterTypes);
   LogControl::default_instance_ = new LogControl();
@@ -124,7 +125,7 @@ const int LogControl::kEncodingFieldNumber;
 LogControl::LogControl()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.LogControl)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.LogControl)
 }
 
 void LogControl::InitAsDefaultInstance() {
@@ -135,7 +136,7 @@ LogControl::LogControl(const LogControl& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.LogControl)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.LogControl)
 }
 
 void LogControl::SharedCtor() {
@@ -150,7 +151,7 @@ void LogControl::SharedCtor() {
 }
 
 LogControl::~LogControl() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.LogControl)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.LogControl)
   SharedDtor();
 }
 
@@ -218,7 +219,7 @@ bool LogControl::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.LogControl)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.LogControl)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -277,7 +278,7 @@ bool LogControl::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->base_path().data(), this->base_path().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.LogControl.base_path");
+            "Indriya.Core.Msgs.LogControl.base_path");
         } else {
           goto handle_unusual;
         }
@@ -294,7 +295,7 @@ bool LogControl::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->encoding().data(), this->encoding().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.LogControl.encoding");
+            "Indriya.Core.Msgs.LogControl.encoding");
         } else {
           goto handle_unusual;
         }
@@ -316,17 +317,17 @@ bool LogControl::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.LogControl)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.LogControl)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.LogControl)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.LogControl)
   return false;
 #undef DO_
 }
 
 void LogControl::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.LogControl)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.LogControl)
   // optional bool start = 1;
   if (has_start()) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->start(), output);
@@ -347,7 +348,7 @@ void LogControl::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->base_path().data(), this->base_path().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.LogControl.base_path");
+      "Indriya.Core.Msgs.LogControl.base_path");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       4, this->base_path(), output);
   }
@@ -357,7 +358,7 @@ void LogControl::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->encoding().data(), this->encoding().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.LogControl.encoding");
+      "Indriya.Core.Msgs.LogControl.encoding");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       5, this->encoding(), output);
   }
@@ -366,12 +367,12 @@ void LogControl::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.LogControl)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.LogControl)
 }
 
 ::google::protobuf::uint8* LogControl::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.LogControl)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.LogControl)
   // optional bool start = 1;
   if (has_start()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->start(), target);
@@ -392,7 +393,7 @@ void LogControl::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->base_path().data(), this->base_path().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.LogControl.base_path");
+      "Indriya.Core.Msgs.LogControl.base_path");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         4, this->base_path(), target);
@@ -403,7 +404,7 @@ void LogControl::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->encoding().data(), this->encoding().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.LogControl.encoding");
+      "Indriya.Core.Msgs.LogControl.encoding");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         5, this->encoding(), target);
@@ -413,7 +414,7 @@ void LogControl::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.LogControl)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.LogControl)
   return target;
 }
 
@@ -558,13 +559,13 @@ void LogControl::InternalSwap(LogControl* other) {
   clear_has_start();
 }
  bool LogControl::start() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LogControl.start)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LogControl.start)
   return start_;
 }
  void LogControl::set_start(bool value) {
   set_has_start();
   start_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.LogControl.start)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LogControl.start)
 }
 
 // optional bool stop = 2;
@@ -582,13 +583,13 @@ void LogControl::InternalSwap(LogControl* other) {
   clear_has_stop();
 }
  bool LogControl::stop() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LogControl.stop)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LogControl.stop)
   return stop_;
 }
  void LogControl::set_stop(bool value) {
   set_has_stop();
   stop_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.LogControl.stop)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LogControl.stop)
 }
 
 // optional bool paused = 3;
@@ -606,13 +607,13 @@ void LogControl::InternalSwap(LogControl* other) {
   clear_has_paused();
 }
  bool LogControl::paused() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LogControl.paused)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LogControl.paused)
   return paused_;
 }
  void LogControl::set_paused(bool value) {
   set_has_paused();
   paused_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.LogControl.paused)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LogControl.paused)
 }
 
 // optional string base_path = 4;
@@ -630,28 +631,28 @@ void LogControl::InternalSwap(LogControl* other) {
   clear_has_base_path();
 }
  const ::std::string& LogControl::base_path() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LogControl.base_path)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LogControl.base_path)
   return base_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void LogControl::set_base_path(const ::std::string& value) {
   set_has_base_path();
   base_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.LogControl.base_path)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LogControl.base_path)
 }
  void LogControl::set_base_path(const char* value) {
   set_has_base_path();
   base_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.LogControl.base_path)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.LogControl.base_path)
 }
  void LogControl::set_base_path(const char* value, size_t size) {
   set_has_base_path();
   base_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.LogControl.base_path)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.LogControl.base_path)
 }
  ::std::string* LogControl::mutable_base_path() {
   set_has_base_path();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LogControl.base_path)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LogControl.base_path)
   return base_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* LogControl::release_base_path() {
@@ -665,7 +666,7 @@ void LogControl::InternalSwap(LogControl* other) {
     clear_has_base_path();
   }
   base_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), base_path);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LogControl.base_path)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LogControl.base_path)
 }
 
 // optional string encoding = 5;
@@ -683,28 +684,28 @@ void LogControl::InternalSwap(LogControl* other) {
   clear_has_encoding();
 }
  const ::std::string& LogControl::encoding() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LogControl.encoding)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LogControl.encoding)
   return encoding_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void LogControl::set_encoding(const ::std::string& value) {
   set_has_encoding();
   encoding_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.LogControl.encoding)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LogControl.encoding)
 }
  void LogControl::set_encoding(const char* value) {
   set_has_encoding();
   encoding_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.LogControl.encoding)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.LogControl.encoding)
 }
  void LogControl::set_encoding(const char* value, size_t size) {
   set_has_encoding();
   encoding_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.LogControl.encoding)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.LogControl.encoding)
 }
  ::std::string* LogControl::mutable_encoding() {
   set_has_encoding();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LogControl.encoding)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LogControl.encoding)
   return encoding_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* LogControl::release_encoding() {
@@ -718,15 +719,16 @@ void LogControl::InternalSwap(LogControl* other) {
     clear_has_encoding();
   }
   encoding_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), encoding);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LogControl.encoding)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LogControl.encoding)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.LogControl", LogControl)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.LogControl", LogControl)
 // @@protoc_insertion_point(global_scope)

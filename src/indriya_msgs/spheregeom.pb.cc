@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -79,8 +80,8 @@ void protobuf_AddDesc_spheregeom_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\020spheregeom.proto\022\016experimot.msgs\"\034\n\nSp"
-    "hereGeom\022\016\n\006radius\030\001 \002(\001", 64);
+    "\n\020spheregeom.proto\022\021Indriya.Core.Msgs\"\034\n"
+    "\nSphereGeom\022\016\n\006radius\030\001 \002(\001", 67);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "spheregeom.proto", &protobuf_RegisterTypes);
   SphereGeom::default_instance_ = new SphereGeom();
@@ -114,7 +115,7 @@ const int SphereGeom::kRadiusFieldNumber;
 SphereGeom::SphereGeom()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.SphereGeom)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.SphereGeom)
 }
 
 void SphereGeom::InitAsDefaultInstance() {
@@ -125,7 +126,7 @@ SphereGeom::SphereGeom(const SphereGeom& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.SphereGeom)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.SphereGeom)
 }
 
 void SphereGeom::SharedCtor() {
@@ -135,7 +136,7 @@ void SphereGeom::SharedCtor() {
 }
 
 SphereGeom::~SphereGeom() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.SphereGeom)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.SphereGeom)
   SharedDtor();
 }
 
@@ -181,7 +182,7 @@ bool SphereGeom::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.SphereGeom)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.SphereGeom)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -215,17 +216,17 @@ bool SphereGeom::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.SphereGeom)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.SphereGeom)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.SphereGeom)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.SphereGeom)
   return false;
 #undef DO_
 }
 
 void SphereGeom::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.SphereGeom)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.SphereGeom)
   // required double radius = 1;
   if (has_radius()) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(1, this->radius(), output);
@@ -235,12 +236,12 @@ void SphereGeom::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.SphereGeom)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.SphereGeom)
 }
 
 ::google::protobuf::uint8* SphereGeom::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.SphereGeom)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.SphereGeom)
   // required double radius = 1;
   if (has_radius()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(1, this->radius(), target);
@@ -250,7 +251,7 @@ void SphereGeom::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.SphereGeom)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.SphereGeom)
   return target;
 }
 
@@ -351,21 +352,22 @@ void SphereGeom::InternalSwap(SphereGeom* other) {
   clear_has_radius();
 }
  double SphereGeom::radius() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.SphereGeom.radius)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.SphereGeom.radius)
   return radius_;
 }
  void SphereGeom::set_radius(double value) {
   set_has_radius();
   radius_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.SphereGeom.radius)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.SphereGeom.radius)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.SphereGeom", SphereGeom)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.SphereGeom", SphereGeom)
 // @@protoc_insertion_point(global_scope)

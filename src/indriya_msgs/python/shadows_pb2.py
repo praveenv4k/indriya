@@ -18,9 +18,9 @@ import color_pb2 as color__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='shadows.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\rshadows.proto\x12\x0e\x65xperimot.msgs\x1a\x0b\x63olor.proto\"\xcb\x01\n\x07Shadows\x12\x30\n\x04type\x18\x05 \x01(\x0e\x32\".experimot.msgs.Shadows.ShadowType\x12$\n\x05\x63olor\x18\x06 \x01(\x0b\x32\x15.experimot.msgs.Color\"h\n\nShadowType\x12\x14\n\x10STENCIL_ADDITIVE\x10\x01\x12\x16\n\x12STENCIL_MODULATIVE\x10\x02\x12\x14\n\x10TEXTURE_ADDITIVE\x10\x03\x12\x16\n\x12TEXTURE_MODULATIVE\x10\x04')
+  serialized_pb=_b('\n\rshadows.proto\x12\x11Indriya.Core.Msgs\x1a\x0b\x63olor.proto\"\xd1\x01\n\x07Shadows\x12\x33\n\x04type\x18\x05 \x01(\x0e\x32%.Indriya.Core.Msgs.Shadows.ShadowType\x12\'\n\x05\x63olor\x18\x06 \x01(\x0b\x32\x18.Indriya.Core.Msgs.Color\"h\n\nShadowType\x12\x14\n\x10STENCIL_ADDITIVE\x10\x01\x12\x16\n\x12STENCIL_MODULATIVE\x10\x02\x12\x14\n\x10TEXTURE_ADDITIVE\x10\x03\x12\x16\n\x12TEXTURE_MODULATIVE\x10\x04')
   ,
   dependencies=[color__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -29,7 +29,7 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _SHADOWS_SHADOWTYPE = _descriptor.EnumDescriptor(
   name='ShadowType',
-  full_name='experimot.msgs.Shadows.ShadowType',
+  full_name='Indriya.Core.Msgs.Shadows.ShadowType',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -52,28 +52,28 @@ _SHADOWS_SHADOWTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=146,
-  serialized_end=250,
+  serialized_start=155,
+  serialized_end=259,
 )
 _sym_db.RegisterEnumDescriptor(_SHADOWS_SHADOWTYPE)
 
 
 _SHADOWS = _descriptor.Descriptor(
   name='Shadows',
-  full_name='experimot.msgs.Shadows',
+  full_name='Indriya.Core.Msgs.Shadows',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='type', full_name='experimot.msgs.Shadows.type', index=0,
+      name='type', full_name='Indriya.Core.Msgs.Shadows.type', index=0,
       number=5, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=1,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='color', full_name='experimot.msgs.Shadows.color', index=1,
+      name='color', full_name='Indriya.Core.Msgs.Shadows.color', index=1,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -92,8 +92,8 @@ _SHADOWS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=47,
-  serialized_end=250,
+  serialized_start=50,
+  serialized_end=259,
 )
 
 _SHADOWS.fields_by_name['type'].enum_type = _SHADOWS_SHADOWTYPE
@@ -104,7 +104,7 @@ DESCRIPTOR.message_types_by_name['Shadows'] = _SHADOWS
 Shadows = _reflection.GeneratedProtocolMessageType('Shadows', (_message.Message,), dict(
   DESCRIPTOR = _SHADOWS,
   __module__ = 'shadows_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Shadows)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Shadows)
   ))
 _sym_db.RegisterMessage(Shadows)
 

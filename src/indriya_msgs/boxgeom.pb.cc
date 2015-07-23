@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -78,11 +79,11 @@ void protobuf_AddDesc_boxgeom_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_vector3d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector3d_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rboxgeom.proto\022\016experimot.msgs\032\016vector3"
-    "d.proto\"1\n\007BoxGeom\022&\n\004size\030\001 \002(\0132\030.exper"
-    "imot.msgs.Vector3d", 98);
+    "\n\rboxgeom.proto\022\021Indriya.Core.Msgs\032\016vect"
+    "or3d.proto\"4\n\007BoxGeom\022)\n\004size\030\001 \002(\0132\033.In"
+    "driya.Core.Msgs.Vector3d", 104);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "boxgeom.proto", &protobuf_RegisterTypes);
   BoxGeom::default_instance_ = new BoxGeom();
@@ -116,11 +117,11 @@ const int BoxGeom::kSizeFieldNumber;
 BoxGeom::BoxGeom()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.BoxGeom)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.BoxGeom)
 }
 
 void BoxGeom::InitAsDefaultInstance() {
-  size_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
+  size_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
 }
 
 BoxGeom::BoxGeom(const BoxGeom& from)
@@ -128,7 +129,7 @@ BoxGeom::BoxGeom(const BoxGeom& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.BoxGeom)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.BoxGeom)
 }
 
 void BoxGeom::SharedCtor() {
@@ -138,7 +139,7 @@ void BoxGeom::SharedCtor() {
 }
 
 BoxGeom::~BoxGeom() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.BoxGeom)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.BoxGeom)
   SharedDtor();
 }
 
@@ -175,7 +176,7 @@ BoxGeom* BoxGeom::New(::google::protobuf::Arena* arena) const {
 
 void BoxGeom::Clear() {
   if (has_size()) {
-    if (size_ != NULL) size_->::experimot::msgs::Vector3d::Clear();
+    if (size_ != NULL) size_->::Indriya::Core::Msgs::Vector3d::Clear();
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
@@ -187,13 +188,13 @@ bool BoxGeom::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.BoxGeom)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.BoxGeom)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .experimot.msgs.Vector3d size = 1;
+      // required .Indriya.Core.Msgs.Vector3d size = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -219,18 +220,18 @@ bool BoxGeom::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.BoxGeom)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.BoxGeom)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.BoxGeom)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.BoxGeom)
   return false;
 #undef DO_
 }
 
 void BoxGeom::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.BoxGeom)
-  // required .experimot.msgs.Vector3d size = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.BoxGeom)
+  // required .Indriya.Core.Msgs.Vector3d size = 1;
   if (has_size()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->size_, output);
@@ -240,13 +241,13 @@ void BoxGeom::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.BoxGeom)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.BoxGeom)
 }
 
 ::google::protobuf::uint8* BoxGeom::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.BoxGeom)
-  // required .experimot.msgs.Vector3d size = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.BoxGeom)
+  // required .Indriya.Core.Msgs.Vector3d size = 1;
   if (has_size()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -257,14 +258,14 @@ void BoxGeom::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.BoxGeom)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.BoxGeom)
   return target;
 }
 
 int BoxGeom::ByteSize() const {
   int total_size = 0;
 
-  // required .experimot.msgs.Vector3d size = 1;
+  // required .Indriya.Core.Msgs.Vector3d size = 1;
   if (has_size()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -297,7 +298,7 @@ void BoxGeom::MergeFrom(const BoxGeom& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_size()) {
-      mutable_size()->::experimot::msgs::Vector3d::MergeFrom(from.size());
+      mutable_size()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.size());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -348,7 +349,7 @@ void BoxGeom::InternalSwap(BoxGeom* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // BoxGeom
 
-// required .experimot.msgs.Vector3d size = 1;
+// required .Indriya.Core.Msgs.Vector3d size = 1;
  bool BoxGeom::has_size() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -359,28 +360,28 @@ void BoxGeom::InternalSwap(BoxGeom* other) {
   _has_bits_[0] &= ~0x00000001u;
 }
  void BoxGeom::clear_size() {
-  if (size_ != NULL) size_->::experimot::msgs::Vector3d::Clear();
+  if (size_ != NULL) size_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_size();
 }
- const ::experimot::msgs::Vector3d& BoxGeom::size() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.BoxGeom.size)
+ const ::Indriya::Core::Msgs::Vector3d& BoxGeom::size() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.BoxGeom.size)
   return size_ != NULL ? *size_ : *default_instance_->size_;
 }
- ::experimot::msgs::Vector3d* BoxGeom::mutable_size() {
+ ::Indriya::Core::Msgs::Vector3d* BoxGeom::mutable_size() {
   set_has_size();
   if (size_ == NULL) {
-    size_ = new ::experimot::msgs::Vector3d;
+    size_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.BoxGeom.size)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.BoxGeom.size)
   return size_;
 }
- ::experimot::msgs::Vector3d* BoxGeom::release_size() {
+ ::Indriya::Core::Msgs::Vector3d* BoxGeom::release_size() {
   clear_has_size();
-  ::experimot::msgs::Vector3d* temp = size_;
+  ::Indriya::Core::Msgs::Vector3d* temp = size_;
   size_ = NULL;
   return temp;
 }
- void BoxGeom::set_allocated_size(::experimot::msgs::Vector3d* size) {
+ void BoxGeom::set_allocated_size(::Indriya::Core::Msgs::Vector3d* size) {
   delete size_;
   size_ = size;
   if (size) {
@@ -388,15 +389,16 @@ void BoxGeom::InternalSwap(BoxGeom* other) {
   } else {
     clear_has_size();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.BoxGeom.size)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.BoxGeom.size)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.BoxGeom", BoxGeom)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.BoxGeom", BoxGeom)
 // @@protoc_insertion_point(global_scope)

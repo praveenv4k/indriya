@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -79,8 +80,8 @@ void protobuf_AddDesc_int_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\tint.proto\022\016experimot.msgs\"\023\n\003Int\022\014\n\004da"
-    "ta\030\001 \002(\005", 48);
+    "\n\tint.proto\022\021Indriya.Core.Msgs\"\023\n\003Int\022\014\n"
+    "\004data\030\001 \002(\005", 51);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "int.proto", &protobuf_RegisterTypes);
   Int::default_instance_ = new Int();
@@ -114,7 +115,7 @@ const int Int::kDataFieldNumber;
 Int::Int()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Int)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Int)
 }
 
 void Int::InitAsDefaultInstance() {
@@ -125,7 +126,7 @@ Int::Int(const Int& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Int)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Int)
 }
 
 void Int::SharedCtor() {
@@ -135,7 +136,7 @@ void Int::SharedCtor() {
 }
 
 Int::~Int() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Int)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Int)
   SharedDtor();
 }
 
@@ -181,7 +182,7 @@ bool Int::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Int)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Int)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -215,17 +216,17 @@ bool Int::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Int)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Int)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Int)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Int)
   return false;
 #undef DO_
 }
 
 void Int::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Int)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Int)
   // required int32 data = 1;
   if (has_data()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->data(), output);
@@ -235,12 +236,12 @@ void Int::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Int)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Int)
 }
 
 ::google::protobuf::uint8* Int::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Int)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Int)
   // required int32 data = 1;
   if (has_data()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->data(), target);
@@ -250,7 +251,7 @@ void Int::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Int)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Int)
   return target;
 }
 
@@ -353,21 +354,22 @@ void Int::InternalSwap(Int* other) {
   clear_has_data();
 }
  ::google::protobuf::int32 Int::data() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Int.data)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Int.data)
   return data_;
 }
  void Int::set_data(::google::protobuf::int32 value) {
   set_has_data();
   data_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Int.data)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Int.data)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Int", Int)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Int", Int)
 // @@protoc_insertion_point(global_scope)

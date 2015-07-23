@@ -19,9 +19,9 @@ import time_pb2 as time__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='pose_animation.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x14pose_animation.proto\x12\x0e\x65xperimot.msgs\x1a\npose.proto\x1a\ntime.proto\"}\n\rPoseAnimation\x12\x12\n\nmodel_name\x18\x01 \x02(\t\x12\x10\n\x08model_id\x18\x02 \x01(\r\x12\"\n\x04pose\x18\x03 \x03(\x0b\x32\x14.experimot.msgs.Pose\x12\"\n\x04time\x18\x04 \x03(\x0b\x32\x14.experimot.msgs.Time')
+  serialized_pb=_b('\n\x14pose_animation.proto\x12\x11Indriya.Core.Msgs\x1a\npose.proto\x1a\ntime.proto\"\x83\x01\n\rPoseAnimation\x12\x12\n\nmodel_name\x18\x01 \x02(\t\x12\x10\n\x08model_id\x18\x02 \x01(\r\x12%\n\x04pose\x18\x03 \x03(\x0b\x32\x17.Indriya.Core.Msgs.Pose\x12%\n\x04time\x18\x04 \x03(\x0b\x32\x17.Indriya.Core.Msgs.Time')
   ,
   dependencies=[pose__pb2.DESCRIPTOR,time__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -31,34 +31,34 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _POSEANIMATION = _descriptor.Descriptor(
   name='PoseAnimation',
-  full_name='experimot.msgs.PoseAnimation',
+  full_name='Indriya.Core.Msgs.PoseAnimation',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='model_name', full_name='experimot.msgs.PoseAnimation.model_name', index=0,
+      name='model_name', full_name='Indriya.Core.Msgs.PoseAnimation.model_name', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='model_id', full_name='experimot.msgs.PoseAnimation.model_id', index=1,
+      name='model_id', full_name='Indriya.Core.Msgs.PoseAnimation.model_id', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='pose', full_name='experimot.msgs.PoseAnimation.pose', index=2,
+      name='pose', full_name='Indriya.Core.Msgs.PoseAnimation.pose', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='time', full_name='experimot.msgs.PoseAnimation.time', index=3,
+      name='time', full_name='Indriya.Core.Msgs.PoseAnimation.time', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -76,8 +76,8 @@ _POSEANIMATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=64,
-  serialized_end=189,
+  serialized_start=68,
+  serialized_end=199,
 )
 
 _POSEANIMATION.fields_by_name['pose'].message_type = pose__pb2._POSE
@@ -87,7 +87,7 @@ DESCRIPTOR.message_types_by_name['PoseAnimation'] = _POSEANIMATION
 PoseAnimation = _reflection.GeneratedProtocolMessageType('PoseAnimation', (_message.Message,), dict(
   DESCRIPTOR = _POSEANIMATION,
   __module__ = 'pose_animation_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.PoseAnimation)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.PoseAnimation)
   ))
 _sym_db.RegisterMessage(PoseAnimation)
 

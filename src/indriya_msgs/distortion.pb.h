@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_distortion_2eproto();
@@ -108,14 +109,14 @@ class Distortion : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .experimot.msgs.Vector2d center = 1;
+  // optional .Indriya.Core.Msgs.Vector2d center = 1;
   bool has_center() const;
   void clear_center();
   static const int kCenterFieldNumber = 1;
-  const ::experimot::msgs::Vector2d& center() const;
-  ::experimot::msgs::Vector2d* mutable_center();
-  ::experimot::msgs::Vector2d* release_center();
-  void set_allocated_center(::experimot::msgs::Vector2d* center);
+  const ::Indriya::Core::Msgs::Vector2d& center() const;
+  ::Indriya::Core::Msgs::Vector2d* mutable_center();
+  ::Indriya::Core::Msgs::Vector2d* release_center();
+  void set_allocated_center(::Indriya::Core::Msgs::Vector2d* center);
 
   // optional double k1 = 2;
   bool has_k1() const;
@@ -152,7 +153,7 @@ class Distortion : public ::google::protobuf::Message {
   double p2() const;
   void set_p2(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Distortion)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Distortion)
  private:
   inline void set_has_center();
   inline void clear_has_center();
@@ -170,7 +171,7 @@ class Distortion : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::Vector2d* center_;
+  ::Indriya::Core::Msgs::Vector2d* center_;
   double k1_;
   double k2_;
   double k3_;
@@ -191,7 +192,7 @@ class Distortion : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // Distortion
 
-// optional .experimot.msgs.Vector2d center = 1;
+// optional .Indriya.Core.Msgs.Vector2d center = 1;
 inline bool Distortion::has_center() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -202,28 +203,28 @@ inline void Distortion::clear_has_center() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void Distortion::clear_center() {
-  if (center_ != NULL) center_->::experimot::msgs::Vector2d::Clear();
+  if (center_ != NULL) center_->::Indriya::Core::Msgs::Vector2d::Clear();
   clear_has_center();
 }
-inline const ::experimot::msgs::Vector2d& Distortion::center() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Distortion.center)
+inline const ::Indriya::Core::Msgs::Vector2d& Distortion::center() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Distortion.center)
   return center_ != NULL ? *center_ : *default_instance_->center_;
 }
-inline ::experimot::msgs::Vector2d* Distortion::mutable_center() {
+inline ::Indriya::Core::Msgs::Vector2d* Distortion::mutable_center() {
   set_has_center();
   if (center_ == NULL) {
-    center_ = new ::experimot::msgs::Vector2d;
+    center_ = new ::Indriya::Core::Msgs::Vector2d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Distortion.center)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Distortion.center)
   return center_;
 }
-inline ::experimot::msgs::Vector2d* Distortion::release_center() {
+inline ::Indriya::Core::Msgs::Vector2d* Distortion::release_center() {
   clear_has_center();
-  ::experimot::msgs::Vector2d* temp = center_;
+  ::Indriya::Core::Msgs::Vector2d* temp = center_;
   center_ = NULL;
   return temp;
 }
-inline void Distortion::set_allocated_center(::experimot::msgs::Vector2d* center) {
+inline void Distortion::set_allocated_center(::Indriya::Core::Msgs::Vector2d* center) {
   delete center_;
   center_ = center;
   if (center) {
@@ -231,7 +232,7 @@ inline void Distortion::set_allocated_center(::experimot::msgs::Vector2d* center
   } else {
     clear_has_center();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Distortion.center)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Distortion.center)
 }
 
 // optional double k1 = 2;
@@ -249,13 +250,13 @@ inline void Distortion::clear_k1() {
   clear_has_k1();
 }
 inline double Distortion::k1() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Distortion.k1)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Distortion.k1)
   return k1_;
 }
 inline void Distortion::set_k1(double value) {
   set_has_k1();
   k1_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Distortion.k1)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Distortion.k1)
 }
 
 // optional double k2 = 3;
@@ -273,13 +274,13 @@ inline void Distortion::clear_k2() {
   clear_has_k2();
 }
 inline double Distortion::k2() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Distortion.k2)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Distortion.k2)
   return k2_;
 }
 inline void Distortion::set_k2(double value) {
   set_has_k2();
   k2_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Distortion.k2)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Distortion.k2)
 }
 
 // optional double k3 = 4;
@@ -297,13 +298,13 @@ inline void Distortion::clear_k3() {
   clear_has_k3();
 }
 inline double Distortion::k3() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Distortion.k3)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Distortion.k3)
   return k3_;
 }
 inline void Distortion::set_k3(double value) {
   set_has_k3();
   k3_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Distortion.k3)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Distortion.k3)
 }
 
 // optional double p1 = 5;
@@ -321,13 +322,13 @@ inline void Distortion::clear_p1() {
   clear_has_p1();
 }
 inline double Distortion::p1() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Distortion.p1)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Distortion.p1)
   return p1_;
 }
 inline void Distortion::set_p1(double value) {
   set_has_p1();
   p1_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Distortion.p1)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Distortion.p1)
 }
 
 // optional double p2 = 6;
@@ -345,24 +346,25 @@ inline void Distortion::clear_p2() {
   clear_has_p2();
 }
 inline double Distortion::p2() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Distortion.p2)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Distortion.p2)
   return p2_;
 }
 inline void Distortion::set_p2(double value) {
   set_has_p2();
   p2_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Distortion.p2)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Distortion.p2)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Distortion> DistortionPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Distortion> DistortionPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Distortion const> ConstDistortionPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Distortion const> ConstDistortionPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_distortion_2eproto__INCLUDED

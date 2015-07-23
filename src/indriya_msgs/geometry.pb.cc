@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -89,36 +90,37 @@ void protobuf_AddDesc_geometry_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_boxgeom_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_cylindergeom_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_spheregeom_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_planegeom_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_imagegeom_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_heightmapgeom_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_meshgeom_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_vector3d_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_polylinegeom_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_boxgeom_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_cylindergeom_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_spheregeom_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_planegeom_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_imagegeom_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_heightmapgeom_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_meshgeom_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector3d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_polylinegeom_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\016geometry.proto\022\016experimot.msgs\032\rboxgeo"
-    "m.proto\032\022cylindergeom.proto\032\020spheregeom."
-    "proto\032\017planegeom.proto\032\017imagegeom.proto\032"
-    "\023heightmapgeom.proto\032\016meshgeom.proto\032\016ve"
-    "ctor3d.proto\032\022polylinegeom.proto\"\323\004\n\010Geo"
-    "metry\022+\n\004type\030\001 \001(\0162\035.experimot.msgs.Geo"
-    "metry.Type\022$\n\003box\030\002 \001(\0132\027.experimot.msgs"
-    ".BoxGeom\022.\n\010cylinder\030\003 \001(\0132\034.experimot.m"
-    "sgs.CylinderGeom\022(\n\005plane\030\004 \001(\0132\031.experi"
-    "mot.msgs.PlaneGeom\022*\n\006sphere\030\005 \001(\0132\032.exp"
-    "erimot.msgs.SphereGeom\022(\n\005image\030\006 \001(\0132\031."
-    "experimot.msgs.ImageGeom\0220\n\theightmap\030\007 "
-    "\001(\0132\035.experimot.msgs.HeightmapGeom\022&\n\004me"
-    "sh\030\010 \001(\0132\030.experimot.msgs.MeshGeom\022(\n\006po"
-    "ints\030\t \003(\0132\030.experimot.msgs.Vector3d\022*\n\010"
-    "polyline\030\n \003(\0132\030.experimot.msgs.Polyline"
-    "\"\223\001\n\004Type\022\007\n\003BOX\020\001\022\014\n\010CYLINDER\020\002\022\n\n\006SPHE"
-    "RE\020\003\022\t\n\005PLANE\020\004\022\t\n\005IMAGE\020\005\022\r\n\tHEIGHTMAP\020"
-    "\006\022\010\n\004MESH\020\007\022\020\n\014TRIANGLE_FAN\020\010\022\016\n\nLINE_ST"
-    "RIP\020\t\022\014\n\010POLYLINE\020\n\022\t\n\005EMPTY\020\013", 790);
+    "\n\016geometry.proto\022\021Indriya.Core.Msgs\032\rbox"
+    "geom.proto\032\022cylindergeom.proto\032\020spherege"
+    "om.proto\032\017planegeom.proto\032\017imagegeom.pro"
+    "to\032\023heightmapgeom.proto\032\016meshgeom.proto\032"
+    "\016vector3d.proto\032\022polylinegeom.proto\"\361\004\n\010"
+    "Geometry\022.\n\004type\030\001 \001(\0162 .Indriya.Core.Ms"
+    "gs.Geometry.Type\022\'\n\003box\030\002 \001(\0132\032.Indriya."
+    "Core.Msgs.BoxGeom\0221\n\010cylinder\030\003 \001(\0132\037.In"
+    "driya.Core.Msgs.CylinderGeom\022+\n\005plane\030\004 "
+    "\001(\0132\034.Indriya.Core.Msgs.PlaneGeom\022-\n\006sph"
+    "ere\030\005 \001(\0132\035.Indriya.Core.Msgs.SphereGeom"
+    "\022+\n\005image\030\006 \001(\0132\034.Indriya.Core.Msgs.Imag"
+    "eGeom\0223\n\theightmap\030\007 \001(\0132 .Indriya.Core."
+    "Msgs.HeightmapGeom\022)\n\004mesh\030\010 \001(\0132\033.Indri"
+    "ya.Core.Msgs.MeshGeom\022+\n\006points\030\t \003(\0132\033."
+    "Indriya.Core.Msgs.Vector3d\022-\n\010polyline\030\n"
+    " \003(\0132\033.Indriya.Core.Msgs.Polyline\"\223\001\n\004Ty"
+    "pe\022\007\n\003BOX\020\001\022\014\n\010CYLINDER\020\002\022\n\n\006SPHERE\020\003\022\t\n"
+    "\005PLANE\020\004\022\t\n\005IMAGE\020\005\022\r\n\tHEIGHTMAP\020\006\022\010\n\004ME"
+    "SH\020\007\022\020\n\014TRIANGLE_FAN\020\010\022\016\n\nLINE_STRIP\020\t\022\014"
+    "\n\010POLYLINE\020\n\022\t\n\005EMPTY\020\013", 823);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "geometry.proto", &protobuf_RegisterTypes);
   Geometry::default_instance_ = new Geometry();
@@ -200,17 +202,17 @@ const int Geometry::kPolylineFieldNumber;
 Geometry::Geometry()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Geometry)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Geometry)
 }
 
 void Geometry::InitAsDefaultInstance() {
-  box_ = const_cast< ::experimot::msgs::BoxGeom*>(&::experimot::msgs::BoxGeom::default_instance());
-  cylinder_ = const_cast< ::experimot::msgs::CylinderGeom*>(&::experimot::msgs::CylinderGeom::default_instance());
-  plane_ = const_cast< ::experimot::msgs::PlaneGeom*>(&::experimot::msgs::PlaneGeom::default_instance());
-  sphere_ = const_cast< ::experimot::msgs::SphereGeom*>(&::experimot::msgs::SphereGeom::default_instance());
-  image_ = const_cast< ::experimot::msgs::ImageGeom*>(&::experimot::msgs::ImageGeom::default_instance());
-  heightmap_ = const_cast< ::experimot::msgs::HeightmapGeom*>(&::experimot::msgs::HeightmapGeom::default_instance());
-  mesh_ = const_cast< ::experimot::msgs::MeshGeom*>(&::experimot::msgs::MeshGeom::default_instance());
+  box_ = const_cast< ::Indriya::Core::Msgs::BoxGeom*>(&::Indriya::Core::Msgs::BoxGeom::default_instance());
+  cylinder_ = const_cast< ::Indriya::Core::Msgs::CylinderGeom*>(&::Indriya::Core::Msgs::CylinderGeom::default_instance());
+  plane_ = const_cast< ::Indriya::Core::Msgs::PlaneGeom*>(&::Indriya::Core::Msgs::PlaneGeom::default_instance());
+  sphere_ = const_cast< ::Indriya::Core::Msgs::SphereGeom*>(&::Indriya::Core::Msgs::SphereGeom::default_instance());
+  image_ = const_cast< ::Indriya::Core::Msgs::ImageGeom*>(&::Indriya::Core::Msgs::ImageGeom::default_instance());
+  heightmap_ = const_cast< ::Indriya::Core::Msgs::HeightmapGeom*>(&::Indriya::Core::Msgs::HeightmapGeom::default_instance());
+  mesh_ = const_cast< ::Indriya::Core::Msgs::MeshGeom*>(&::Indriya::Core::Msgs::MeshGeom::default_instance());
 }
 
 Geometry::Geometry(const Geometry& from)
@@ -218,7 +220,7 @@ Geometry::Geometry(const Geometry& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Geometry)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Geometry)
 }
 
 void Geometry::SharedCtor() {
@@ -235,7 +237,7 @@ void Geometry::SharedCtor() {
 }
 
 Geometry::~Geometry() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Geometry)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Geometry)
   SharedDtor();
 }
 
@@ -280,25 +282,25 @@ void Geometry::Clear() {
   if (_has_bits_[0 / 32] & 255) {
     type_ = 1;
     if (has_box()) {
-      if (box_ != NULL) box_->::experimot::msgs::BoxGeom::Clear();
+      if (box_ != NULL) box_->::Indriya::Core::Msgs::BoxGeom::Clear();
     }
     if (has_cylinder()) {
-      if (cylinder_ != NULL) cylinder_->::experimot::msgs::CylinderGeom::Clear();
+      if (cylinder_ != NULL) cylinder_->::Indriya::Core::Msgs::CylinderGeom::Clear();
     }
     if (has_plane()) {
-      if (plane_ != NULL) plane_->::experimot::msgs::PlaneGeom::Clear();
+      if (plane_ != NULL) plane_->::Indriya::Core::Msgs::PlaneGeom::Clear();
     }
     if (has_sphere()) {
-      if (sphere_ != NULL) sphere_->::experimot::msgs::SphereGeom::Clear();
+      if (sphere_ != NULL) sphere_->::Indriya::Core::Msgs::SphereGeom::Clear();
     }
     if (has_image()) {
-      if (image_ != NULL) image_->::experimot::msgs::ImageGeom::Clear();
+      if (image_ != NULL) image_->::Indriya::Core::Msgs::ImageGeom::Clear();
     }
     if (has_heightmap()) {
-      if (heightmap_ != NULL) heightmap_->::experimot::msgs::HeightmapGeom::Clear();
+      if (heightmap_ != NULL) heightmap_->::Indriya::Core::Msgs::HeightmapGeom::Clear();
     }
     if (has_mesh()) {
-      if (mesh_ != NULL) mesh_->::experimot::msgs::MeshGeom::Clear();
+      if (mesh_ != NULL) mesh_->::Indriya::Core::Msgs::MeshGeom::Clear();
     }
   }
   points_.Clear();
@@ -313,21 +315,21 @@ bool Geometry::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Geometry)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Geometry)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .experimot.msgs.Geometry.Type type = 1;
+      // optional .Indriya.Core.Msgs.Geometry.Type type = 1;
       case 1: {
         if (tag == 8) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::experimot::msgs::Geometry_Type_IsValid(value)) {
-            set_type(static_cast< ::experimot::msgs::Geometry_Type >(value));
+          if (::Indriya::Core::Msgs::Geometry_Type_IsValid(value)) {
+            set_type(static_cast< ::Indriya::Core::Msgs::Geometry_Type >(value));
           } else {
             mutable_unknown_fields()->AddVarint(1, value);
           }
@@ -338,7 +340,7 @@ bool Geometry::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.BoxGeom box = 2;
+      // optional .Indriya.Core.Msgs.BoxGeom box = 2;
       case 2: {
         if (tag == 18) {
          parse_box:
@@ -351,7 +353,7 @@ bool Geometry::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.CylinderGeom cylinder = 3;
+      // optional .Indriya.Core.Msgs.CylinderGeom cylinder = 3;
       case 3: {
         if (tag == 26) {
          parse_cylinder:
@@ -364,7 +366,7 @@ bool Geometry::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.PlaneGeom plane = 4;
+      // optional .Indriya.Core.Msgs.PlaneGeom plane = 4;
       case 4: {
         if (tag == 34) {
          parse_plane:
@@ -377,7 +379,7 @@ bool Geometry::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.SphereGeom sphere = 5;
+      // optional .Indriya.Core.Msgs.SphereGeom sphere = 5;
       case 5: {
         if (tag == 42) {
          parse_sphere:
@@ -390,7 +392,7 @@ bool Geometry::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.ImageGeom image = 6;
+      // optional .Indriya.Core.Msgs.ImageGeom image = 6;
       case 6: {
         if (tag == 50) {
          parse_image:
@@ -403,7 +405,7 @@ bool Geometry::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.HeightmapGeom heightmap = 7;
+      // optional .Indriya.Core.Msgs.HeightmapGeom heightmap = 7;
       case 7: {
         if (tag == 58) {
          parse_heightmap:
@@ -416,7 +418,7 @@ bool Geometry::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.MeshGeom mesh = 8;
+      // optional .Indriya.Core.Msgs.MeshGeom mesh = 8;
       case 8: {
         if (tag == 66) {
          parse_mesh:
@@ -429,7 +431,7 @@ bool Geometry::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .experimot.msgs.Vector3d points = 9;
+      // repeated .Indriya.Core.Msgs.Vector3d points = 9;
       case 9: {
         if (tag == 74) {
          parse_points:
@@ -443,7 +445,7 @@ bool Geometry::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .experimot.msgs.Polyline polyline = 10;
+      // repeated .Indriya.Core.Msgs.Polyline polyline = 10;
       case 10: {
         if (tag == 82) {
          parse_polyline:
@@ -471,72 +473,72 @@ bool Geometry::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Geometry)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Geometry)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Geometry)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Geometry)
   return false;
 #undef DO_
 }
 
 void Geometry::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Geometry)
-  // optional .experimot.msgs.Geometry.Type type = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Geometry)
+  // optional .Indriya.Core.Msgs.Geometry.Type type = 1;
   if (has_type()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->type(), output);
   }
 
-  // optional .experimot.msgs.BoxGeom box = 2;
+  // optional .Indriya.Core.Msgs.BoxGeom box = 2;
   if (has_box()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->box_, output);
   }
 
-  // optional .experimot.msgs.CylinderGeom cylinder = 3;
+  // optional .Indriya.Core.Msgs.CylinderGeom cylinder = 3;
   if (has_cylinder()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, *this->cylinder_, output);
   }
 
-  // optional .experimot.msgs.PlaneGeom plane = 4;
+  // optional .Indriya.Core.Msgs.PlaneGeom plane = 4;
   if (has_plane()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, *this->plane_, output);
   }
 
-  // optional .experimot.msgs.SphereGeom sphere = 5;
+  // optional .Indriya.Core.Msgs.SphereGeom sphere = 5;
   if (has_sphere()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, *this->sphere_, output);
   }
 
-  // optional .experimot.msgs.ImageGeom image = 6;
+  // optional .Indriya.Core.Msgs.ImageGeom image = 6;
   if (has_image()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       6, *this->image_, output);
   }
 
-  // optional .experimot.msgs.HeightmapGeom heightmap = 7;
+  // optional .Indriya.Core.Msgs.HeightmapGeom heightmap = 7;
   if (has_heightmap()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       7, *this->heightmap_, output);
   }
 
-  // optional .experimot.msgs.MeshGeom mesh = 8;
+  // optional .Indriya.Core.Msgs.MeshGeom mesh = 8;
   if (has_mesh()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       8, *this->mesh_, output);
   }
 
-  // repeated .experimot.msgs.Vector3d points = 9;
+  // repeated .Indriya.Core.Msgs.Vector3d points = 9;
   for (unsigned int i = 0, n = this->points_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       9, this->points(i), output);
   }
 
-  // repeated .experimot.msgs.Polyline polyline = 10;
+  // repeated .Indriya.Core.Msgs.Polyline polyline = 10;
   for (unsigned int i = 0, n = this->polyline_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       10, this->polyline(i), output);
@@ -546,75 +548,75 @@ void Geometry::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Geometry)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Geometry)
 }
 
 ::google::protobuf::uint8* Geometry::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Geometry)
-  // optional .experimot.msgs.Geometry.Type type = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Geometry)
+  // optional .Indriya.Core.Msgs.Geometry.Type type = 1;
   if (has_type()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->type(), target);
   }
 
-  // optional .experimot.msgs.BoxGeom box = 2;
+  // optional .Indriya.Core.Msgs.BoxGeom box = 2;
   if (has_box()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         2, *this->box_, target);
   }
 
-  // optional .experimot.msgs.CylinderGeom cylinder = 3;
+  // optional .Indriya.Core.Msgs.CylinderGeom cylinder = 3;
   if (has_cylinder()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         3, *this->cylinder_, target);
   }
 
-  // optional .experimot.msgs.PlaneGeom plane = 4;
+  // optional .Indriya.Core.Msgs.PlaneGeom plane = 4;
   if (has_plane()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         4, *this->plane_, target);
   }
 
-  // optional .experimot.msgs.SphereGeom sphere = 5;
+  // optional .Indriya.Core.Msgs.SphereGeom sphere = 5;
   if (has_sphere()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         5, *this->sphere_, target);
   }
 
-  // optional .experimot.msgs.ImageGeom image = 6;
+  // optional .Indriya.Core.Msgs.ImageGeom image = 6;
   if (has_image()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         6, *this->image_, target);
   }
 
-  // optional .experimot.msgs.HeightmapGeom heightmap = 7;
+  // optional .Indriya.Core.Msgs.HeightmapGeom heightmap = 7;
   if (has_heightmap()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         7, *this->heightmap_, target);
   }
 
-  // optional .experimot.msgs.MeshGeom mesh = 8;
+  // optional .Indriya.Core.Msgs.MeshGeom mesh = 8;
   if (has_mesh()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         8, *this->mesh_, target);
   }
 
-  // repeated .experimot.msgs.Vector3d points = 9;
+  // repeated .Indriya.Core.Msgs.Vector3d points = 9;
   for (unsigned int i = 0, n = this->points_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         9, this->points(i), target);
   }
 
-  // repeated .experimot.msgs.Polyline polyline = 10;
+  // repeated .Indriya.Core.Msgs.Polyline polyline = 10;
   for (unsigned int i = 0, n = this->polyline_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -625,7 +627,7 @@ void Geometry::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Geometry)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Geometry)
   return target;
 }
 
@@ -633,55 +635,55 @@ int Geometry::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & 255) {
-    // optional .experimot.msgs.Geometry.Type type = 1;
+    // optional .Indriya.Core.Msgs.Geometry.Type type = 1;
     if (has_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
     }
 
-    // optional .experimot.msgs.BoxGeom box = 2;
+    // optional .Indriya.Core.Msgs.BoxGeom box = 2;
     if (has_box()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->box_);
     }
 
-    // optional .experimot.msgs.CylinderGeom cylinder = 3;
+    // optional .Indriya.Core.Msgs.CylinderGeom cylinder = 3;
     if (has_cylinder()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->cylinder_);
     }
 
-    // optional .experimot.msgs.PlaneGeom plane = 4;
+    // optional .Indriya.Core.Msgs.PlaneGeom plane = 4;
     if (has_plane()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->plane_);
     }
 
-    // optional .experimot.msgs.SphereGeom sphere = 5;
+    // optional .Indriya.Core.Msgs.SphereGeom sphere = 5;
     if (has_sphere()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->sphere_);
     }
 
-    // optional .experimot.msgs.ImageGeom image = 6;
+    // optional .Indriya.Core.Msgs.ImageGeom image = 6;
     if (has_image()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->image_);
     }
 
-    // optional .experimot.msgs.HeightmapGeom heightmap = 7;
+    // optional .Indriya.Core.Msgs.HeightmapGeom heightmap = 7;
     if (has_heightmap()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->heightmap_);
     }
 
-    // optional .experimot.msgs.MeshGeom mesh = 8;
+    // optional .Indriya.Core.Msgs.MeshGeom mesh = 8;
     if (has_mesh()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -689,7 +691,7 @@ int Geometry::ByteSize() const {
     }
 
   }
-  // repeated .experimot.msgs.Vector3d points = 9;
+  // repeated .Indriya.Core.Msgs.Vector3d points = 9;
   total_size += 1 * this->points_size();
   for (int i = 0; i < this->points_size(); i++) {
     total_size +=
@@ -697,7 +699,7 @@ int Geometry::ByteSize() const {
         this->points(i));
   }
 
-  // repeated .experimot.msgs.Polyline polyline = 10;
+  // repeated .Indriya.Core.Msgs.Polyline polyline = 10;
   total_size += 1 * this->polyline_size();
   for (int i = 0; i < this->polyline_size(); i++) {
     total_size +=
@@ -737,25 +739,25 @@ void Geometry::MergeFrom(const Geometry& from) {
       set_type(from.type());
     }
     if (from.has_box()) {
-      mutable_box()->::experimot::msgs::BoxGeom::MergeFrom(from.box());
+      mutable_box()->::Indriya::Core::Msgs::BoxGeom::MergeFrom(from.box());
     }
     if (from.has_cylinder()) {
-      mutable_cylinder()->::experimot::msgs::CylinderGeom::MergeFrom(from.cylinder());
+      mutable_cylinder()->::Indriya::Core::Msgs::CylinderGeom::MergeFrom(from.cylinder());
     }
     if (from.has_plane()) {
-      mutable_plane()->::experimot::msgs::PlaneGeom::MergeFrom(from.plane());
+      mutable_plane()->::Indriya::Core::Msgs::PlaneGeom::MergeFrom(from.plane());
     }
     if (from.has_sphere()) {
-      mutable_sphere()->::experimot::msgs::SphereGeom::MergeFrom(from.sphere());
+      mutable_sphere()->::Indriya::Core::Msgs::SphereGeom::MergeFrom(from.sphere());
     }
     if (from.has_image()) {
-      mutable_image()->::experimot::msgs::ImageGeom::MergeFrom(from.image());
+      mutable_image()->::Indriya::Core::Msgs::ImageGeom::MergeFrom(from.image());
     }
     if (from.has_heightmap()) {
-      mutable_heightmap()->::experimot::msgs::HeightmapGeom::MergeFrom(from.heightmap());
+      mutable_heightmap()->::Indriya::Core::Msgs::HeightmapGeom::MergeFrom(from.heightmap());
     }
     if (from.has_mesh()) {
-      mutable_mesh()->::experimot::msgs::MeshGeom::MergeFrom(from.mesh());
+      mutable_mesh()->::Indriya::Core::Msgs::MeshGeom::MergeFrom(from.mesh());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -834,7 +836,7 @@ void Geometry::InternalSwap(Geometry* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Geometry
 
-// optional .experimot.msgs.Geometry.Type type = 1;
+// optional .Indriya.Core.Msgs.Geometry.Type type = 1;
  bool Geometry::has_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -848,18 +850,18 @@ void Geometry::InternalSwap(Geometry* other) {
   type_ = 1;
   clear_has_type();
 }
- ::experimot::msgs::Geometry_Type Geometry::type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Geometry.type)
-  return static_cast< ::experimot::msgs::Geometry_Type >(type_);
+ ::Indriya::Core::Msgs::Geometry_Type Geometry::type() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Geometry.type)
+  return static_cast< ::Indriya::Core::Msgs::Geometry_Type >(type_);
 }
- void Geometry::set_type(::experimot::msgs::Geometry_Type value) {
-  assert(::experimot::msgs::Geometry_Type_IsValid(value));
+ void Geometry::set_type(::Indriya::Core::Msgs::Geometry_Type value) {
+  assert(::Indriya::Core::Msgs::Geometry_Type_IsValid(value));
   set_has_type();
   type_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Geometry.type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Geometry.type)
 }
 
-// optional .experimot.msgs.BoxGeom box = 2;
+// optional .Indriya.Core.Msgs.BoxGeom box = 2;
  bool Geometry::has_box() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -870,28 +872,28 @@ void Geometry::InternalSwap(Geometry* other) {
   _has_bits_[0] &= ~0x00000002u;
 }
  void Geometry::clear_box() {
-  if (box_ != NULL) box_->::experimot::msgs::BoxGeom::Clear();
+  if (box_ != NULL) box_->::Indriya::Core::Msgs::BoxGeom::Clear();
   clear_has_box();
 }
- const ::experimot::msgs::BoxGeom& Geometry::box() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Geometry.box)
+ const ::Indriya::Core::Msgs::BoxGeom& Geometry::box() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Geometry.box)
   return box_ != NULL ? *box_ : *default_instance_->box_;
 }
- ::experimot::msgs::BoxGeom* Geometry::mutable_box() {
+ ::Indriya::Core::Msgs::BoxGeom* Geometry::mutable_box() {
   set_has_box();
   if (box_ == NULL) {
-    box_ = new ::experimot::msgs::BoxGeom;
+    box_ = new ::Indriya::Core::Msgs::BoxGeom;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Geometry.box)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Geometry.box)
   return box_;
 }
- ::experimot::msgs::BoxGeom* Geometry::release_box() {
+ ::Indriya::Core::Msgs::BoxGeom* Geometry::release_box() {
   clear_has_box();
-  ::experimot::msgs::BoxGeom* temp = box_;
+  ::Indriya::Core::Msgs::BoxGeom* temp = box_;
   box_ = NULL;
   return temp;
 }
- void Geometry::set_allocated_box(::experimot::msgs::BoxGeom* box) {
+ void Geometry::set_allocated_box(::Indriya::Core::Msgs::BoxGeom* box) {
   delete box_;
   box_ = box;
   if (box) {
@@ -899,10 +901,10 @@ void Geometry::InternalSwap(Geometry* other) {
   } else {
     clear_has_box();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Geometry.box)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Geometry.box)
 }
 
-// optional .experimot.msgs.CylinderGeom cylinder = 3;
+// optional .Indriya.Core.Msgs.CylinderGeom cylinder = 3;
  bool Geometry::has_cylinder() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -913,28 +915,28 @@ void Geometry::InternalSwap(Geometry* other) {
   _has_bits_[0] &= ~0x00000004u;
 }
  void Geometry::clear_cylinder() {
-  if (cylinder_ != NULL) cylinder_->::experimot::msgs::CylinderGeom::Clear();
+  if (cylinder_ != NULL) cylinder_->::Indriya::Core::Msgs::CylinderGeom::Clear();
   clear_has_cylinder();
 }
- const ::experimot::msgs::CylinderGeom& Geometry::cylinder() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Geometry.cylinder)
+ const ::Indriya::Core::Msgs::CylinderGeom& Geometry::cylinder() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Geometry.cylinder)
   return cylinder_ != NULL ? *cylinder_ : *default_instance_->cylinder_;
 }
- ::experimot::msgs::CylinderGeom* Geometry::mutable_cylinder() {
+ ::Indriya::Core::Msgs::CylinderGeom* Geometry::mutable_cylinder() {
   set_has_cylinder();
   if (cylinder_ == NULL) {
-    cylinder_ = new ::experimot::msgs::CylinderGeom;
+    cylinder_ = new ::Indriya::Core::Msgs::CylinderGeom;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Geometry.cylinder)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Geometry.cylinder)
   return cylinder_;
 }
- ::experimot::msgs::CylinderGeom* Geometry::release_cylinder() {
+ ::Indriya::Core::Msgs::CylinderGeom* Geometry::release_cylinder() {
   clear_has_cylinder();
-  ::experimot::msgs::CylinderGeom* temp = cylinder_;
+  ::Indriya::Core::Msgs::CylinderGeom* temp = cylinder_;
   cylinder_ = NULL;
   return temp;
 }
- void Geometry::set_allocated_cylinder(::experimot::msgs::CylinderGeom* cylinder) {
+ void Geometry::set_allocated_cylinder(::Indriya::Core::Msgs::CylinderGeom* cylinder) {
   delete cylinder_;
   cylinder_ = cylinder;
   if (cylinder) {
@@ -942,10 +944,10 @@ void Geometry::InternalSwap(Geometry* other) {
   } else {
     clear_has_cylinder();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Geometry.cylinder)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Geometry.cylinder)
 }
 
-// optional .experimot.msgs.PlaneGeom plane = 4;
+// optional .Indriya.Core.Msgs.PlaneGeom plane = 4;
  bool Geometry::has_plane() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -956,28 +958,28 @@ void Geometry::InternalSwap(Geometry* other) {
   _has_bits_[0] &= ~0x00000008u;
 }
  void Geometry::clear_plane() {
-  if (plane_ != NULL) plane_->::experimot::msgs::PlaneGeom::Clear();
+  if (plane_ != NULL) plane_->::Indriya::Core::Msgs::PlaneGeom::Clear();
   clear_has_plane();
 }
- const ::experimot::msgs::PlaneGeom& Geometry::plane() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Geometry.plane)
+ const ::Indriya::Core::Msgs::PlaneGeom& Geometry::plane() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Geometry.plane)
   return plane_ != NULL ? *plane_ : *default_instance_->plane_;
 }
- ::experimot::msgs::PlaneGeom* Geometry::mutable_plane() {
+ ::Indriya::Core::Msgs::PlaneGeom* Geometry::mutable_plane() {
   set_has_plane();
   if (plane_ == NULL) {
-    plane_ = new ::experimot::msgs::PlaneGeom;
+    plane_ = new ::Indriya::Core::Msgs::PlaneGeom;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Geometry.plane)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Geometry.plane)
   return plane_;
 }
- ::experimot::msgs::PlaneGeom* Geometry::release_plane() {
+ ::Indriya::Core::Msgs::PlaneGeom* Geometry::release_plane() {
   clear_has_plane();
-  ::experimot::msgs::PlaneGeom* temp = plane_;
+  ::Indriya::Core::Msgs::PlaneGeom* temp = plane_;
   plane_ = NULL;
   return temp;
 }
- void Geometry::set_allocated_plane(::experimot::msgs::PlaneGeom* plane) {
+ void Geometry::set_allocated_plane(::Indriya::Core::Msgs::PlaneGeom* plane) {
   delete plane_;
   plane_ = plane;
   if (plane) {
@@ -985,10 +987,10 @@ void Geometry::InternalSwap(Geometry* other) {
   } else {
     clear_has_plane();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Geometry.plane)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Geometry.plane)
 }
 
-// optional .experimot.msgs.SphereGeom sphere = 5;
+// optional .Indriya.Core.Msgs.SphereGeom sphere = 5;
  bool Geometry::has_sphere() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -999,28 +1001,28 @@ void Geometry::InternalSwap(Geometry* other) {
   _has_bits_[0] &= ~0x00000010u;
 }
  void Geometry::clear_sphere() {
-  if (sphere_ != NULL) sphere_->::experimot::msgs::SphereGeom::Clear();
+  if (sphere_ != NULL) sphere_->::Indriya::Core::Msgs::SphereGeom::Clear();
   clear_has_sphere();
 }
- const ::experimot::msgs::SphereGeom& Geometry::sphere() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Geometry.sphere)
+ const ::Indriya::Core::Msgs::SphereGeom& Geometry::sphere() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Geometry.sphere)
   return sphere_ != NULL ? *sphere_ : *default_instance_->sphere_;
 }
- ::experimot::msgs::SphereGeom* Geometry::mutable_sphere() {
+ ::Indriya::Core::Msgs::SphereGeom* Geometry::mutable_sphere() {
   set_has_sphere();
   if (sphere_ == NULL) {
-    sphere_ = new ::experimot::msgs::SphereGeom;
+    sphere_ = new ::Indriya::Core::Msgs::SphereGeom;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Geometry.sphere)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Geometry.sphere)
   return sphere_;
 }
- ::experimot::msgs::SphereGeom* Geometry::release_sphere() {
+ ::Indriya::Core::Msgs::SphereGeom* Geometry::release_sphere() {
   clear_has_sphere();
-  ::experimot::msgs::SphereGeom* temp = sphere_;
+  ::Indriya::Core::Msgs::SphereGeom* temp = sphere_;
   sphere_ = NULL;
   return temp;
 }
- void Geometry::set_allocated_sphere(::experimot::msgs::SphereGeom* sphere) {
+ void Geometry::set_allocated_sphere(::Indriya::Core::Msgs::SphereGeom* sphere) {
   delete sphere_;
   sphere_ = sphere;
   if (sphere) {
@@ -1028,10 +1030,10 @@ void Geometry::InternalSwap(Geometry* other) {
   } else {
     clear_has_sphere();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Geometry.sphere)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Geometry.sphere)
 }
 
-// optional .experimot.msgs.ImageGeom image = 6;
+// optional .Indriya.Core.Msgs.ImageGeom image = 6;
  bool Geometry::has_image() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -1042,28 +1044,28 @@ void Geometry::InternalSwap(Geometry* other) {
   _has_bits_[0] &= ~0x00000020u;
 }
  void Geometry::clear_image() {
-  if (image_ != NULL) image_->::experimot::msgs::ImageGeom::Clear();
+  if (image_ != NULL) image_->::Indriya::Core::Msgs::ImageGeom::Clear();
   clear_has_image();
 }
- const ::experimot::msgs::ImageGeom& Geometry::image() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Geometry.image)
+ const ::Indriya::Core::Msgs::ImageGeom& Geometry::image() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Geometry.image)
   return image_ != NULL ? *image_ : *default_instance_->image_;
 }
- ::experimot::msgs::ImageGeom* Geometry::mutable_image() {
+ ::Indriya::Core::Msgs::ImageGeom* Geometry::mutable_image() {
   set_has_image();
   if (image_ == NULL) {
-    image_ = new ::experimot::msgs::ImageGeom;
+    image_ = new ::Indriya::Core::Msgs::ImageGeom;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Geometry.image)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Geometry.image)
   return image_;
 }
- ::experimot::msgs::ImageGeom* Geometry::release_image() {
+ ::Indriya::Core::Msgs::ImageGeom* Geometry::release_image() {
   clear_has_image();
-  ::experimot::msgs::ImageGeom* temp = image_;
+  ::Indriya::Core::Msgs::ImageGeom* temp = image_;
   image_ = NULL;
   return temp;
 }
- void Geometry::set_allocated_image(::experimot::msgs::ImageGeom* image) {
+ void Geometry::set_allocated_image(::Indriya::Core::Msgs::ImageGeom* image) {
   delete image_;
   image_ = image;
   if (image) {
@@ -1071,10 +1073,10 @@ void Geometry::InternalSwap(Geometry* other) {
   } else {
     clear_has_image();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Geometry.image)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Geometry.image)
 }
 
-// optional .experimot.msgs.HeightmapGeom heightmap = 7;
+// optional .Indriya.Core.Msgs.HeightmapGeom heightmap = 7;
  bool Geometry::has_heightmap() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1085,28 +1087,28 @@ void Geometry::InternalSwap(Geometry* other) {
   _has_bits_[0] &= ~0x00000040u;
 }
  void Geometry::clear_heightmap() {
-  if (heightmap_ != NULL) heightmap_->::experimot::msgs::HeightmapGeom::Clear();
+  if (heightmap_ != NULL) heightmap_->::Indriya::Core::Msgs::HeightmapGeom::Clear();
   clear_has_heightmap();
 }
- const ::experimot::msgs::HeightmapGeom& Geometry::heightmap() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Geometry.heightmap)
+ const ::Indriya::Core::Msgs::HeightmapGeom& Geometry::heightmap() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Geometry.heightmap)
   return heightmap_ != NULL ? *heightmap_ : *default_instance_->heightmap_;
 }
- ::experimot::msgs::HeightmapGeom* Geometry::mutable_heightmap() {
+ ::Indriya::Core::Msgs::HeightmapGeom* Geometry::mutable_heightmap() {
   set_has_heightmap();
   if (heightmap_ == NULL) {
-    heightmap_ = new ::experimot::msgs::HeightmapGeom;
+    heightmap_ = new ::Indriya::Core::Msgs::HeightmapGeom;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Geometry.heightmap)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Geometry.heightmap)
   return heightmap_;
 }
- ::experimot::msgs::HeightmapGeom* Geometry::release_heightmap() {
+ ::Indriya::Core::Msgs::HeightmapGeom* Geometry::release_heightmap() {
   clear_has_heightmap();
-  ::experimot::msgs::HeightmapGeom* temp = heightmap_;
+  ::Indriya::Core::Msgs::HeightmapGeom* temp = heightmap_;
   heightmap_ = NULL;
   return temp;
 }
- void Geometry::set_allocated_heightmap(::experimot::msgs::HeightmapGeom* heightmap) {
+ void Geometry::set_allocated_heightmap(::Indriya::Core::Msgs::HeightmapGeom* heightmap) {
   delete heightmap_;
   heightmap_ = heightmap;
   if (heightmap) {
@@ -1114,10 +1116,10 @@ void Geometry::InternalSwap(Geometry* other) {
   } else {
     clear_has_heightmap();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Geometry.heightmap)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Geometry.heightmap)
 }
 
-// optional .experimot.msgs.MeshGeom mesh = 8;
+// optional .Indriya.Core.Msgs.MeshGeom mesh = 8;
  bool Geometry::has_mesh() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -1128,28 +1130,28 @@ void Geometry::InternalSwap(Geometry* other) {
   _has_bits_[0] &= ~0x00000080u;
 }
  void Geometry::clear_mesh() {
-  if (mesh_ != NULL) mesh_->::experimot::msgs::MeshGeom::Clear();
+  if (mesh_ != NULL) mesh_->::Indriya::Core::Msgs::MeshGeom::Clear();
   clear_has_mesh();
 }
- const ::experimot::msgs::MeshGeom& Geometry::mesh() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Geometry.mesh)
+ const ::Indriya::Core::Msgs::MeshGeom& Geometry::mesh() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Geometry.mesh)
   return mesh_ != NULL ? *mesh_ : *default_instance_->mesh_;
 }
- ::experimot::msgs::MeshGeom* Geometry::mutable_mesh() {
+ ::Indriya::Core::Msgs::MeshGeom* Geometry::mutable_mesh() {
   set_has_mesh();
   if (mesh_ == NULL) {
-    mesh_ = new ::experimot::msgs::MeshGeom;
+    mesh_ = new ::Indriya::Core::Msgs::MeshGeom;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Geometry.mesh)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Geometry.mesh)
   return mesh_;
 }
- ::experimot::msgs::MeshGeom* Geometry::release_mesh() {
+ ::Indriya::Core::Msgs::MeshGeom* Geometry::release_mesh() {
   clear_has_mesh();
-  ::experimot::msgs::MeshGeom* temp = mesh_;
+  ::Indriya::Core::Msgs::MeshGeom* temp = mesh_;
   mesh_ = NULL;
   return temp;
 }
- void Geometry::set_allocated_mesh(::experimot::msgs::MeshGeom* mesh) {
+ void Geometry::set_allocated_mesh(::Indriya::Core::Msgs::MeshGeom* mesh) {
   delete mesh_;
   mesh_ = mesh;
   if (mesh) {
@@ -1157,66 +1159,66 @@ void Geometry::InternalSwap(Geometry* other) {
   } else {
     clear_has_mesh();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Geometry.mesh)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Geometry.mesh)
 }
 
-// repeated .experimot.msgs.Vector3d points = 9;
+// repeated .Indriya.Core.Msgs.Vector3d points = 9;
  int Geometry::points_size() const {
   return points_.size();
 }
  void Geometry::clear_points() {
   points_.Clear();
 }
- const ::experimot::msgs::Vector3d& Geometry::points(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Geometry.points)
+ const ::Indriya::Core::Msgs::Vector3d& Geometry::points(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Geometry.points)
   return points_.Get(index);
 }
- ::experimot::msgs::Vector3d* Geometry::mutable_points(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Geometry.points)
+ ::Indriya::Core::Msgs::Vector3d* Geometry::mutable_points(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Geometry.points)
   return points_.Mutable(index);
 }
- ::experimot::msgs::Vector3d* Geometry::add_points() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Geometry.points)
+ ::Indriya::Core::Msgs::Vector3d* Geometry::add_points() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Geometry.points)
   return points_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector3d >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector3d >&
 Geometry::points() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Geometry.points)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Geometry.points)
   return points_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector3d >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector3d >*
 Geometry::mutable_points() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Geometry.points)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Geometry.points)
   return &points_;
 }
 
-// repeated .experimot.msgs.Polyline polyline = 10;
+// repeated .Indriya.Core.Msgs.Polyline polyline = 10;
  int Geometry::polyline_size() const {
   return polyline_.size();
 }
  void Geometry::clear_polyline() {
   polyline_.Clear();
 }
- const ::experimot::msgs::Polyline& Geometry::polyline(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Geometry.polyline)
+ const ::Indriya::Core::Msgs::Polyline& Geometry::polyline(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Geometry.polyline)
   return polyline_.Get(index);
 }
- ::experimot::msgs::Polyline* Geometry::mutable_polyline(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Geometry.polyline)
+ ::Indriya::Core::Msgs::Polyline* Geometry::mutable_polyline(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Geometry.polyline)
   return polyline_.Mutable(index);
 }
- ::experimot::msgs::Polyline* Geometry::add_polyline() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Geometry.polyline)
+ ::Indriya::Core::Msgs::Polyline* Geometry::add_polyline() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Geometry.polyline)
   return polyline_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Polyline >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Polyline >&
 Geometry::polyline() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Geometry.polyline)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Geometry.polyline)
   return polyline_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Polyline >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Polyline >*
 Geometry::mutable_polyline() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Geometry.polyline)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Geometry.polyline)
   return &polyline_;
 }
 
@@ -1224,8 +1226,9 @@ Geometry::mutable_polyline() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Geometry", Geometry)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Geometry", Geometry)
 // @@protoc_insertion_point(global_scope)

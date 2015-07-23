@@ -18,9 +18,9 @@ import param_pb2 as param__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='gesture.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\rgesture.proto\x12\x0e\x65xperimot.msgs\x1a\x0bparam.proto\"\xcd\x01\n\x12GestureDescription\x12\x0c\n\x04name\x18\x01 \x02(\t\x12<\n\x04type\x18\x02 \x02(\x0e\x32..experimot.msgs.GestureDescription.GestureType\x12\x0e\n\x06\x61\x63tive\x18\x03 \x01(\x08\x12\x10\n\x08progress\x18\x04 \x01(\x05\x12\x12\n\nconfidence\x18\x05 \x01(\x05\"5\n\x0bGestureType\x12\x08\n\x04None\x10\x00\x12\x0c\n\x08\x44iscrete\x10\x01\x12\x0e\n\nContinuous\x10\x02\"\x84\x01\n\x18GestureRecognitionModule\x12\x0c\n\x04name\x18\x01 \x02(\t\x12%\n\x06params\x18\x02 \x03(\x0b\x32\x15.experimot.msgs.Param\x12\x33\n\x07motions\x18\x03 \x03(\x0b\x32\".experimot.msgs.GestureDescription\"V\n\x19GestureRecognitionModules\x12\x39\n\x07modules\x18\x01 \x03(\x0b\x32(.experimot.msgs.GestureRecognitionModule\"P\n\x0eGestureTrigger\x12\n\n\x02id\x18\x01 \x02(\x05\x12\x32\n\x06motion\x18\x02 \x02(\x0b\x32\".experimot.msgs.GestureDescription\"Q\n\x0fGestureTriggers\x12\n\n\x02id\x18\x01 \x02(\x05\x12\x32\n\x06motion\x18\x02 \x03(\x0b\x32\".experimot.msgs.GestureDescription')
+  serialized_pb=_b('\n\rgesture.proto\x12\x11Indriya.Core.Msgs\x1a\x0bparam.proto\"\xd0\x01\n\x12GestureDescription\x12\x0c\n\x04name\x18\x01 \x02(\t\x12?\n\x04type\x18\x02 \x02(\x0e\x32\x31.Indriya.Core.Msgs.GestureDescription.GestureType\x12\x0e\n\x06\x61\x63tive\x18\x03 \x01(\x08\x12\x10\n\x08progress\x18\x04 \x01(\x05\x12\x12\n\nconfidence\x18\x05 \x01(\x05\"5\n\x0bGestureType\x12\x08\n\x04None\x10\x00\x12\x0c\n\x08\x44iscrete\x10\x01\x12\x0e\n\nContinuous\x10\x02\"\x8a\x01\n\x18GestureRecognitionModule\x12\x0c\n\x04name\x18\x01 \x02(\t\x12(\n\x06params\x18\x02 \x03(\x0b\x32\x18.Indriya.Core.Msgs.Param\x12\x36\n\x07motions\x18\x03 \x03(\x0b\x32%.Indriya.Core.Msgs.GestureDescription\"Y\n\x19GestureRecognitionModules\x12<\n\x07modules\x18\x01 \x03(\x0b\x32+.Indriya.Core.Msgs.GestureRecognitionModule\"S\n\x0eGestureTrigger\x12\n\n\x02id\x18\x01 \x02(\x05\x12\x35\n\x06motion\x18\x02 \x02(\x0b\x32%.Indriya.Core.Msgs.GestureDescription\"T\n\x0fGestureTriggers\x12\n\n\x02id\x18\x01 \x02(\x05\x12\x35\n\x06motion\x18\x02 \x03(\x0b\x32%.Indriya.Core.Msgs.GestureDescription')
   ,
   dependencies=[param__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -29,7 +29,7 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _GESTUREDESCRIPTION_GESTURETYPE = _descriptor.EnumDescriptor(
   name='GestureType',
-  full_name='experimot.msgs.GestureDescription.GestureType',
+  full_name='Indriya.Core.Msgs.GestureDescription.GestureType',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -48,49 +48,49 @@ _GESTUREDESCRIPTION_GESTURETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=199,
-  serialized_end=252,
+  serialized_start=205,
+  serialized_end=258,
 )
 _sym_db.RegisterEnumDescriptor(_GESTUREDESCRIPTION_GESTURETYPE)
 
 
 _GESTUREDESCRIPTION = _descriptor.Descriptor(
   name='GestureDescription',
-  full_name='experimot.msgs.GestureDescription',
+  full_name='Indriya.Core.Msgs.GestureDescription',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='experimot.msgs.GestureDescription.name', index=0,
+      name='name', full_name='Indriya.Core.Msgs.GestureDescription.name', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='type', full_name='experimot.msgs.GestureDescription.type', index=1,
+      name='type', full_name='Indriya.Core.Msgs.GestureDescription.type', index=1,
       number=2, type=14, cpp_type=8, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='active', full_name='experimot.msgs.GestureDescription.active', index=2,
+      name='active', full_name='Indriya.Core.Msgs.GestureDescription.active', index=2,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='progress', full_name='experimot.msgs.GestureDescription.progress', index=3,
+      name='progress', full_name='Indriya.Core.Msgs.GestureDescription.progress', index=3,
       number=4, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='confidence', full_name='experimot.msgs.GestureDescription.confidence', index=4,
+      name='confidence', full_name='Indriya.Core.Msgs.GestureDescription.confidence', index=4,
       number=5, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -109,34 +109,34 @@ _GESTUREDESCRIPTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=47,
-  serialized_end=252,
+  serialized_start=50,
+  serialized_end=258,
 )
 
 
 _GESTURERECOGNITIONMODULE = _descriptor.Descriptor(
   name='GestureRecognitionModule',
-  full_name='experimot.msgs.GestureRecognitionModule',
+  full_name='Indriya.Core.Msgs.GestureRecognitionModule',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='experimot.msgs.GestureRecognitionModule.name', index=0,
+      name='name', full_name='Indriya.Core.Msgs.GestureRecognitionModule.name', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='params', full_name='experimot.msgs.GestureRecognitionModule.params', index=1,
+      name='params', full_name='Indriya.Core.Msgs.GestureRecognitionModule.params', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='motions', full_name='experimot.msgs.GestureRecognitionModule.motions', index=2,
+      name='motions', full_name='Indriya.Core.Msgs.GestureRecognitionModule.motions', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -154,20 +154,20 @@ _GESTURERECOGNITIONMODULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=255,
-  serialized_end=387,
+  serialized_start=261,
+  serialized_end=399,
 )
 
 
 _GESTURERECOGNITIONMODULES = _descriptor.Descriptor(
   name='GestureRecognitionModules',
-  full_name='experimot.msgs.GestureRecognitionModules',
+  full_name='Indriya.Core.Msgs.GestureRecognitionModules',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='modules', full_name='experimot.msgs.GestureRecognitionModules.modules', index=0,
+      name='modules', full_name='Indriya.Core.Msgs.GestureRecognitionModules.modules', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -185,27 +185,27 @@ _GESTURERECOGNITIONMODULES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=389,
-  serialized_end=475,
+  serialized_start=401,
+  serialized_end=490,
 )
 
 
 _GESTURETRIGGER = _descriptor.Descriptor(
   name='GestureTrigger',
-  full_name='experimot.msgs.GestureTrigger',
+  full_name='Indriya.Core.Msgs.GestureTrigger',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='experimot.msgs.GestureTrigger.id', index=0,
+      name='id', full_name='Indriya.Core.Msgs.GestureTrigger.id', index=0,
       number=1, type=5, cpp_type=1, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='motion', full_name='experimot.msgs.GestureTrigger.motion', index=1,
+      name='motion', full_name='Indriya.Core.Msgs.GestureTrigger.motion', index=1,
       number=2, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -223,27 +223,27 @@ _GESTURETRIGGER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=477,
-  serialized_end=557,
+  serialized_start=492,
+  serialized_end=575,
 )
 
 
 _GESTURETRIGGERS = _descriptor.Descriptor(
   name='GestureTriggers',
-  full_name='experimot.msgs.GestureTriggers',
+  full_name='Indriya.Core.Msgs.GestureTriggers',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='experimot.msgs.GestureTriggers.id', index=0,
+      name='id', full_name='Indriya.Core.Msgs.GestureTriggers.id', index=0,
       number=1, type=5, cpp_type=1, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='motion', full_name='experimot.msgs.GestureTriggers.motion', index=1,
+      name='motion', full_name='Indriya.Core.Msgs.GestureTriggers.motion', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -261,8 +261,8 @@ _GESTURETRIGGERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=559,
-  serialized_end=640,
+  serialized_start=577,
+  serialized_end=661,
 )
 
 _GESTUREDESCRIPTION.fields_by_name['type'].enum_type = _GESTUREDESCRIPTION_GESTURETYPE
@@ -281,35 +281,35 @@ DESCRIPTOR.message_types_by_name['GestureTriggers'] = _GESTURETRIGGERS
 GestureDescription = _reflection.GeneratedProtocolMessageType('GestureDescription', (_message.Message,), dict(
   DESCRIPTOR = _GESTUREDESCRIPTION,
   __module__ = 'gesture_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.GestureDescription)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.GestureDescription)
   ))
 _sym_db.RegisterMessage(GestureDescription)
 
 GestureRecognitionModule = _reflection.GeneratedProtocolMessageType('GestureRecognitionModule', (_message.Message,), dict(
   DESCRIPTOR = _GESTURERECOGNITIONMODULE,
   __module__ = 'gesture_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.GestureRecognitionModule)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.GestureRecognitionModule)
   ))
 _sym_db.RegisterMessage(GestureRecognitionModule)
 
 GestureRecognitionModules = _reflection.GeneratedProtocolMessageType('GestureRecognitionModules', (_message.Message,), dict(
   DESCRIPTOR = _GESTURERECOGNITIONMODULES,
   __module__ = 'gesture_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.GestureRecognitionModules)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.GestureRecognitionModules)
   ))
 _sym_db.RegisterMessage(GestureRecognitionModules)
 
 GestureTrigger = _reflection.GeneratedProtocolMessageType('GestureTrigger', (_message.Message,), dict(
   DESCRIPTOR = _GESTURETRIGGER,
   __module__ = 'gesture_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.GestureTrigger)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.GestureTrigger)
   ))
 _sym_db.RegisterMessage(GestureTrigger)
 
 GestureTriggers = _reflection.GeneratedProtocolMessageType('GestureTriggers', (_message.Message,), dict(
   DESCRIPTOR = _GESTURETRIGGERS,
   __module__ = 'gesture_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.GestureTriggers)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.GestureTriggers)
   ))
 _sym_db.RegisterMessage(GestureTriggers)
 

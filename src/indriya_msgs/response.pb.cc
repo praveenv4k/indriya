@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -83,10 +84,10 @@ void protobuf_AddDesc_response_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\016response.proto\022\016experimot.msgs\"`\n\010Resp"
-    "onse\022\n\n\002id\030\001 \002(\005\022\017\n\007request\030\002 \002(\t\022\020\n\010res"
-    "ponse\030\003 \002(\t\022\014\n\004type\030\004 \001(\t\022\027\n\017serialized_"
-    "data\030\005 \001(\014", 130);
+    "\n\016response.proto\022\021Indriya.Core.Msgs\"`\n\010R"
+    "esponse\022\n\n\002id\030\001 \002(\005\022\017\n\007request\030\002 \002(\t\022\020\n\010"
+    "response\030\003 \002(\t\022\014\n\004type\030\004 \001(\t\022\027\n\017serializ"
+    "ed_data\030\005 \001(\014", 133);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "response.proto", &protobuf_RegisterTypes);
   Response::default_instance_ = new Response();
@@ -124,7 +125,7 @@ const int Response::kSerializedDataFieldNumber;
 Response::Response()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Response)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Response)
 }
 
 void Response::InitAsDefaultInstance() {
@@ -135,7 +136,7 @@ Response::Response(const Response& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Response)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Response)
 }
 
 void Response::SharedCtor() {
@@ -150,7 +151,7 @@ void Response::SharedCtor() {
 }
 
 Response::~Response() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Response)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Response)
   SharedDtor();
 }
 
@@ -214,7 +215,7 @@ bool Response::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Response)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Response)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -243,7 +244,7 @@ bool Response::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->request().data(), this->request().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Response.request");
+            "Indriya.Core.Msgs.Response.request");
         } else {
           goto handle_unusual;
         }
@@ -260,7 +261,7 @@ bool Response::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->response().data(), this->response().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Response.response");
+            "Indriya.Core.Msgs.Response.response");
         } else {
           goto handle_unusual;
         }
@@ -277,7 +278,7 @@ bool Response::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->type().data(), this->type().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Response.type");
+            "Indriya.Core.Msgs.Response.type");
         } else {
           goto handle_unusual;
         }
@@ -312,17 +313,17 @@ bool Response::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Response)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Response)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Response)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Response)
   return false;
 #undef DO_
 }
 
 void Response::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Response)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Response)
   // required int32 id = 1;
   if (has_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
@@ -333,7 +334,7 @@ void Response::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->request().data(), this->request().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Response.request");
+      "Indriya.Core.Msgs.Response.request");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->request(), output);
   }
@@ -343,7 +344,7 @@ void Response::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->response().data(), this->response().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Response.response");
+      "Indriya.Core.Msgs.Response.response");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       3, this->response(), output);
   }
@@ -353,7 +354,7 @@ void Response::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->type().data(), this->type().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Response.type");
+      "Indriya.Core.Msgs.Response.type");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       4, this->type(), output);
   }
@@ -368,12 +369,12 @@ void Response::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Response)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Response)
 }
 
 ::google::protobuf::uint8* Response::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Response)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Response)
   // required int32 id = 1;
   if (has_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
@@ -384,7 +385,7 @@ void Response::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->request().data(), this->request().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Response.request");
+      "Indriya.Core.Msgs.Response.request");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->request(), target);
@@ -395,7 +396,7 @@ void Response::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->response().data(), this->response().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Response.response");
+      "Indriya.Core.Msgs.Response.response");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->response(), target);
@@ -406,7 +407,7 @@ void Response::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->type().data(), this->type().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Response.type");
+      "Indriya.Core.Msgs.Response.type");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         4, this->type(), target);
@@ -423,7 +424,7 @@ void Response::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Response)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Response)
   return target;
 }
 
@@ -601,13 +602,13 @@ void Response::InternalSwap(Response* other) {
   clear_has_id();
 }
  ::google::protobuf::int32 Response::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Response.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Response.id)
   return id_;
 }
  void Response::set_id(::google::protobuf::int32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Response.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Response.id)
 }
 
 // required string request = 2;
@@ -625,28 +626,28 @@ void Response::InternalSwap(Response* other) {
   clear_has_request();
 }
  const ::std::string& Response::request() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Response.request)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Response.request)
   return request_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Response::set_request(const ::std::string& value) {
   set_has_request();
   request_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Response.request)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Response.request)
 }
  void Response::set_request(const char* value) {
   set_has_request();
   request_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Response.request)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Response.request)
 }
  void Response::set_request(const char* value, size_t size) {
   set_has_request();
   request_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Response.request)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Response.request)
 }
  ::std::string* Response::mutable_request() {
   set_has_request();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Response.request)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Response.request)
   return request_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Response::release_request() {
@@ -660,7 +661,7 @@ void Response::InternalSwap(Response* other) {
     clear_has_request();
   }
   request_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), request);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Response.request)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Response.request)
 }
 
 // required string response = 3;
@@ -678,28 +679,28 @@ void Response::InternalSwap(Response* other) {
   clear_has_response();
 }
  const ::std::string& Response::response() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Response.response)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Response.response)
   return response_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Response::set_response(const ::std::string& value) {
   set_has_response();
   response_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Response.response)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Response.response)
 }
  void Response::set_response(const char* value) {
   set_has_response();
   response_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Response.response)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Response.response)
 }
  void Response::set_response(const char* value, size_t size) {
   set_has_response();
   response_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Response.response)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Response.response)
 }
  ::std::string* Response::mutable_response() {
   set_has_response();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Response.response)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Response.response)
   return response_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Response::release_response() {
@@ -713,7 +714,7 @@ void Response::InternalSwap(Response* other) {
     clear_has_response();
   }
   response_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), response);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Response.response)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Response.response)
 }
 
 // optional string type = 4;
@@ -731,28 +732,28 @@ void Response::InternalSwap(Response* other) {
   clear_has_type();
 }
  const ::std::string& Response::type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Response.type)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Response.type)
   return type_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Response::set_type(const ::std::string& value) {
   set_has_type();
   type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Response.type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Response.type)
 }
  void Response::set_type(const char* value) {
   set_has_type();
   type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Response.type)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Response.type)
 }
  void Response::set_type(const char* value, size_t size) {
   set_has_type();
   type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Response.type)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Response.type)
 }
  ::std::string* Response::mutable_type() {
   set_has_type();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Response.type)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Response.type)
   return type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Response::release_type() {
@@ -766,7 +767,7 @@ void Response::InternalSwap(Response* other) {
     clear_has_type();
   }
   type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), type);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Response.type)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Response.type)
 }
 
 // optional bytes serialized_data = 5;
@@ -784,28 +785,28 @@ void Response::InternalSwap(Response* other) {
   clear_has_serialized_data();
 }
  const ::std::string& Response::serialized_data() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Response.serialized_data)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Response.serialized_data)
   return serialized_data_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Response::set_serialized_data(const ::std::string& value) {
   set_has_serialized_data();
   serialized_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Response.serialized_data)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Response.serialized_data)
 }
  void Response::set_serialized_data(const char* value) {
   set_has_serialized_data();
   serialized_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Response.serialized_data)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Response.serialized_data)
 }
  void Response::set_serialized_data(const void* value, size_t size) {
   set_has_serialized_data();
   serialized_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Response.serialized_data)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Response.serialized_data)
 }
  ::std::string* Response::mutable_serialized_data() {
   set_has_serialized_data();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Response.serialized_data)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Response.serialized_data)
   return serialized_data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Response::release_serialized_data() {
@@ -819,15 +820,16 @@ void Response::InternalSwap(Response* other) {
     clear_has_serialized_data();
   }
   serialized_data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), serialized_data);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Response.serialized_data)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Response.serialized_data)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Response", Response)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Response", Response)
 // @@protoc_insertion_point(global_scope)

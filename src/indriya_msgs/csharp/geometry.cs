@@ -17,87 +17,87 @@
 // Note: requires additional types generated from: meshgeom.proto
 // Note: requires additional types generated from: vector3d.proto
 // Note: requires additional types generated from: polylinegeom.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Geometry")]
   public partial class Geometry : global::ProtoBuf.IExtensible
   {
     public Geometry() {}
     
-    private experimot.msgs.Geometry.Type _type = experimot.msgs.Geometry.Type.BOX;
+    private Indriya.Core.Msgs.Geometry.Type _type = Indriya.Core.Msgs.Geometry.Type.BOX;
     [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(experimot.msgs.Geometry.Type.BOX)]
-    public experimot.msgs.Geometry.Type type
+    [global::System.ComponentModel.DefaultValue(Indriya.Core.Msgs.Geometry.Type.BOX)]
+    public Indriya.Core.Msgs.Geometry.Type type
     {
       get { return _type; }
       set { _type = value; }
     }
-    private experimot.msgs.BoxGeom _box = null;
+    private Indriya.Core.Msgs.BoxGeom _box = null;
     [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"box", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.BoxGeom box
+    public Indriya.Core.Msgs.BoxGeom box
     {
       get { return _box; }
       set { _box = value; }
     }
-    private experimot.msgs.CylinderGeom _cylinder = null;
+    private Indriya.Core.Msgs.CylinderGeom _cylinder = null;
     [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"cylinder", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.CylinderGeom cylinder
+    public Indriya.Core.Msgs.CylinderGeom cylinder
     {
       get { return _cylinder; }
       set { _cylinder = value; }
     }
-    private experimot.msgs.PlaneGeom _plane = null;
+    private Indriya.Core.Msgs.PlaneGeom _plane = null;
     [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"plane", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.PlaneGeom plane
+    public Indriya.Core.Msgs.PlaneGeom plane
     {
       get { return _plane; }
       set { _plane = value; }
     }
-    private experimot.msgs.SphereGeom _sphere = null;
+    private Indriya.Core.Msgs.SphereGeom _sphere = null;
     [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"sphere", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.SphereGeom sphere
+    public Indriya.Core.Msgs.SphereGeom sphere
     {
       get { return _sphere; }
       set { _sphere = value; }
     }
-    private experimot.msgs.ImageGeom _image = null;
+    private Indriya.Core.Msgs.ImageGeom _image = null;
     [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"image", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.ImageGeom image
+    public Indriya.Core.Msgs.ImageGeom image
     {
       get { return _image; }
       set { _image = value; }
     }
-    private experimot.msgs.HeightmapGeom _heightmap = null;
+    private Indriya.Core.Msgs.HeightmapGeom _heightmap = null;
     [global::ProtoBuf.ProtoMember(7, IsRequired = false, Name=@"heightmap", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.HeightmapGeom heightmap
+    public Indriya.Core.Msgs.HeightmapGeom heightmap
     {
       get { return _heightmap; }
       set { _heightmap = value; }
     }
-    private experimot.msgs.MeshGeom _mesh = null;
+    private Indriya.Core.Msgs.MeshGeom _mesh = null;
     [global::ProtoBuf.ProtoMember(8, IsRequired = false, Name=@"mesh", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.MeshGeom mesh
+    public Indriya.Core.Msgs.MeshGeom mesh
     {
       get { return _mesh; }
       set { _mesh = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Vector3d> _points = new global::System.Collections.Generic.List<experimot.msgs.Vector3d>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector3d> _points = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector3d>();
     [global::ProtoBuf.ProtoMember(9, Name=@"points", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Vector3d> points
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector3d> points
     {
       get { return _points; }
     }
   
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Polyline> _polyline = new global::System.Collections.Generic.List<experimot.msgs.Polyline>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Polyline> _polyline = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Polyline>();
     [global::ProtoBuf.ProtoMember(10, Name=@"polyline", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Polyline> polyline
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Polyline> polyline
     {
       get { return _polyline; }
     }

@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -78,11 +79,11 @@ void protobuf_AddDesc_model_5fv_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_model_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_model_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rmodel_v.proto\022\016experimot.msgs\032\013model.p"
-    "roto\"0\n\007Model_V\022%\n\006models\030\002 \003(\0132\025.experi"
-    "mot.msgs.Model", 94);
+    "\n\rmodel_v.proto\022\021Indriya.Core.Msgs\032\013mode"
+    "l.proto\"3\n\007Model_V\022(\n\006models\030\002 \003(\0132\030.Ind"
+    "riya.Core.Msgs.Model", 100);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "model_v.proto", &protobuf_RegisterTypes);
   Model_V::default_instance_ = new Model_V();
@@ -116,7 +117,7 @@ const int Model_V::kModelsFieldNumber;
 Model_V::Model_V()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Model_V)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Model_V)
 }
 
 void Model_V::InitAsDefaultInstance() {
@@ -127,7 +128,7 @@ Model_V::Model_V(const Model_V& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Model_V)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Model_V)
 }
 
 void Model_V::SharedCtor() {
@@ -136,7 +137,7 @@ void Model_V::SharedCtor() {
 }
 
 Model_V::~Model_V() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Model_V)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Model_V)
   SharedDtor();
 }
 
@@ -182,13 +183,13 @@ bool Model_V::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Model_V)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Model_V)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .experimot.msgs.Model models = 2;
+      // repeated .Indriya.Core.Msgs.Model models = 2;
       case 2: {
         if (tag == 18) {
          parse_models:
@@ -216,18 +217,18 @@ bool Model_V::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Model_V)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Model_V)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Model_V)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Model_V)
   return false;
 #undef DO_
 }
 
 void Model_V::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Model_V)
-  // repeated .experimot.msgs.Model models = 2;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Model_V)
+  // repeated .Indriya.Core.Msgs.Model models = 2;
   for (unsigned int i = 0, n = this->models_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->models(i), output);
@@ -237,13 +238,13 @@ void Model_V::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Model_V)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Model_V)
 }
 
 ::google::protobuf::uint8* Model_V::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Model_V)
-  // repeated .experimot.msgs.Model models = 2;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Model_V)
+  // repeated .Indriya.Core.Msgs.Model models = 2;
   for (unsigned int i = 0, n = this->models_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -254,14 +255,14 @@ void Model_V::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Model_V)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Model_V)
   return target;
 }
 
 int Model_V::ByteSize() const {
   int total_size = 0;
 
-  // repeated .experimot.msgs.Model models = 2;
+  // repeated .Indriya.Core.Msgs.Model models = 2;
   total_size += 1 * this->models_size();
   for (int i = 0; i < this->models_size(); i++) {
     total_size +=
@@ -340,33 +341,33 @@ void Model_V::InternalSwap(Model_V* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Model_V
 
-// repeated .experimot.msgs.Model models = 2;
+// repeated .Indriya.Core.Msgs.Model models = 2;
  int Model_V::models_size() const {
   return models_.size();
 }
  void Model_V::clear_models() {
   models_.Clear();
 }
- const ::experimot::msgs::Model& Model_V::models(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Model_V.models)
+ const ::Indriya::Core::Msgs::Model& Model_V::models(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Model_V.models)
   return models_.Get(index);
 }
- ::experimot::msgs::Model* Model_V::mutable_models(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Model_V.models)
+ ::Indriya::Core::Msgs::Model* Model_V::mutable_models(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Model_V.models)
   return models_.Mutable(index);
 }
- ::experimot::msgs::Model* Model_V::add_models() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Model_V.models)
+ ::Indriya::Core::Msgs::Model* Model_V::add_models() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Model_V.models)
   return models_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Model >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Model >&
 Model_V::models() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Model_V.models)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Model_V.models)
   return models_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Model >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Model >*
 Model_V::mutable_models() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Model_V.models)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Model_V.models)
   return &models_;
 }
 
@@ -374,8 +375,9 @@ Model_V::mutable_models() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Model_V", Model_V)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Model_V", Model_V)
 // @@protoc_insertion_point(global_scope)

@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -84,15 +85,16 @@ void protobuf_AddDesc_sonar_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_pose_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_vector3d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_pose_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector3d_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\013sonar.proto\022\016experimot.msgs\032\npose.prot"
-    "o\032\016vector3d.proto\"\260\001\n\005Sonar\022\r\n\005frame\030\001 \002"
-    "(\t\022(\n\nworld_pose\030\002 \002(\0132\024.experimot.msgs."
-    "Pose\022\021\n\trange_min\030\003 \002(\001\022\021\n\trange_max\030\004 \002"
-    "(\001\022\016\n\006radius\030\005 \002(\001\022\r\n\005range\030\006 \002(\001\022)\n\007con"
-    "tact\030\007 \001(\0132\030.experimot.msgs.Vector3d", 236);
+    "\n\013sonar.proto\022\021Indriya.Core.Msgs\032\npose.p"
+    "roto\032\016vector3d.proto\"\266\001\n\005Sonar\022\r\n\005frame\030"
+    "\001 \002(\t\022+\n\nworld_pose\030\002 \002(\0132\027.Indriya.Core"
+    ".Msgs.Pose\022\021\n\trange_min\030\003 \002(\001\022\021\n\trange_m"
+    "ax\030\004 \002(\001\022\016\n\006radius\030\005 \002(\001\022\r\n\005range\030\006 \002(\001\022"
+    ",\n\007contact\030\007 \001(\0132\033.Indriya.Core.Msgs.Vec"
+    "tor3d", 245);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "sonar.proto", &protobuf_RegisterTypes);
   Sonar::default_instance_ = new Sonar();
@@ -132,12 +134,12 @@ const int Sonar::kContactFieldNumber;
 Sonar::Sonar()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Sonar)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Sonar)
 }
 
 void Sonar::InitAsDefaultInstance() {
-  world_pose_ = const_cast< ::experimot::msgs::Pose*>(&::experimot::msgs::Pose::default_instance());
-  contact_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
+  world_pose_ = const_cast< ::Indriya::Core::Msgs::Pose*>(&::Indriya::Core::Msgs::Pose::default_instance());
+  contact_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
 }
 
 Sonar::Sonar(const Sonar& from)
@@ -145,7 +147,7 @@ Sonar::Sonar(const Sonar& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Sonar)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Sonar)
 }
 
 void Sonar::SharedCtor() {
@@ -162,7 +164,7 @@ void Sonar::SharedCtor() {
 }
 
 Sonar::~Sonar() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Sonar)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Sonar)
   SharedDtor();
 }
 
@@ -214,10 +216,10 @@ void Sonar::Clear() {
       frame_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_world_pose()) {
-      if (world_pose_ != NULL) world_pose_->::experimot::msgs::Pose::Clear();
+      if (world_pose_ != NULL) world_pose_->::Indriya::Core::Msgs::Pose::Clear();
     }
     if (has_contact()) {
-      if (contact_ != NULL) contact_->::experimot::msgs::Vector3d::Clear();
+      if (contact_ != NULL) contact_->::Indriya::Core::Msgs::Vector3d::Clear();
     }
   }
 
@@ -234,7 +236,7 @@ bool Sonar::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Sonar)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Sonar)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -248,7 +250,7 @@ bool Sonar::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->frame().data(), this->frame().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Sonar.frame");
+            "Indriya.Core.Msgs.Sonar.frame");
         } else {
           goto handle_unusual;
         }
@@ -256,7 +258,7 @@ bool Sonar::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Pose world_pose = 2;
+      // required .Indriya.Core.Msgs.Pose world_pose = 2;
       case 2: {
         if (tag == 18) {
          parse_world_pose:
@@ -329,7 +331,7 @@ bool Sonar::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Vector3d contact = 7;
+      // optional .Indriya.Core.Msgs.Vector3d contact = 7;
       case 7: {
         if (tag == 58) {
          parse_contact:
@@ -356,28 +358,28 @@ bool Sonar::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Sonar)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Sonar)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Sonar)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Sonar)
   return false;
 #undef DO_
 }
 
 void Sonar::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Sonar)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Sonar)
   // required string frame = 1;
   if (has_frame()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->frame().data(), this->frame().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Sonar.frame");
+      "Indriya.Core.Msgs.Sonar.frame");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->frame(), output);
   }
 
-  // required .experimot.msgs.Pose world_pose = 2;
+  // required .Indriya.Core.Msgs.Pose world_pose = 2;
   if (has_world_pose()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->world_pose_, output);
@@ -403,7 +405,7 @@ void Sonar::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(6, this->range(), output);
   }
 
-  // optional .experimot.msgs.Vector3d contact = 7;
+  // optional .Indriya.Core.Msgs.Vector3d contact = 7;
   if (has_contact()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       7, *this->contact_, output);
@@ -413,24 +415,24 @@ void Sonar::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Sonar)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Sonar)
 }
 
 ::google::protobuf::uint8* Sonar::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Sonar)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Sonar)
   // required string frame = 1;
   if (has_frame()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->frame().data(), this->frame().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Sonar.frame");
+      "Indriya.Core.Msgs.Sonar.frame");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->frame(), target);
   }
 
-  // required .experimot.msgs.Pose world_pose = 2;
+  // required .Indriya.Core.Msgs.Pose world_pose = 2;
   if (has_world_pose()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -457,7 +459,7 @@ void Sonar::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(6, this->range(), target);
   }
 
-  // optional .experimot.msgs.Vector3d contact = 7;
+  // optional .Indriya.Core.Msgs.Vector3d contact = 7;
   if (has_contact()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -468,7 +470,7 @@ void Sonar::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Sonar)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Sonar)
   return target;
 }
 
@@ -483,7 +485,7 @@ int Sonar::RequiredFieldsByteSizeFallback() const {
   }
 
   if (has_world_pose()) {
-    // required .experimot.msgs.Pose world_pose = 2;
+    // required .Indriya.Core.Msgs.Pose world_pose = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->world_pose_);
@@ -520,7 +522,7 @@ int Sonar::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->frame());
 
-    // required .experimot.msgs.Pose world_pose = 2;
+    // required .Indriya.Core.Msgs.Pose world_pose = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->world_pose_);
@@ -540,7 +542,7 @@ int Sonar::ByteSize() const {
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
-  // optional .experimot.msgs.Vector3d contact = 7;
+  // optional .Indriya.Core.Msgs.Vector3d contact = 7;
   if (has_contact()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -578,7 +580,7 @@ void Sonar::MergeFrom(const Sonar& from) {
       frame_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.frame_);
     }
     if (from.has_world_pose()) {
-      mutable_world_pose()->::experimot::msgs::Pose::MergeFrom(from.world_pose());
+      mutable_world_pose()->::Indriya::Core::Msgs::Pose::MergeFrom(from.world_pose());
     }
     if (from.has_range_min()) {
       set_range_min(from.range_min());
@@ -593,7 +595,7 @@ void Sonar::MergeFrom(const Sonar& from) {
       set_range(from.range());
     }
     if (from.has_contact()) {
-      mutable_contact()->::experimot::msgs::Vector3d::MergeFrom(from.contact());
+      mutable_contact()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.contact());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -668,28 +670,28 @@ void Sonar::InternalSwap(Sonar* other) {
   clear_has_frame();
 }
  const ::std::string& Sonar::frame() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sonar.frame)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sonar.frame)
   return frame_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Sonar::set_frame(const ::std::string& value) {
   set_has_frame();
   frame_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sonar.frame)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sonar.frame)
 }
  void Sonar::set_frame(const char* value) {
   set_has_frame();
   frame_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Sonar.frame)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Sonar.frame)
 }
  void Sonar::set_frame(const char* value, size_t size) {
   set_has_frame();
   frame_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Sonar.frame)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Sonar.frame)
 }
  ::std::string* Sonar::mutable_frame() {
   set_has_frame();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Sonar.frame)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Sonar.frame)
   return frame_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Sonar::release_frame() {
@@ -703,10 +705,10 @@ void Sonar::InternalSwap(Sonar* other) {
     clear_has_frame();
   }
   frame_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), frame);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Sonar.frame)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Sonar.frame)
 }
 
-// required .experimot.msgs.Pose world_pose = 2;
+// required .Indriya.Core.Msgs.Pose world_pose = 2;
  bool Sonar::has_world_pose() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -717,28 +719,28 @@ void Sonar::InternalSwap(Sonar* other) {
   _has_bits_[0] &= ~0x00000002u;
 }
  void Sonar::clear_world_pose() {
-  if (world_pose_ != NULL) world_pose_->::experimot::msgs::Pose::Clear();
+  if (world_pose_ != NULL) world_pose_->::Indriya::Core::Msgs::Pose::Clear();
   clear_has_world_pose();
 }
- const ::experimot::msgs::Pose& Sonar::world_pose() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sonar.world_pose)
+ const ::Indriya::Core::Msgs::Pose& Sonar::world_pose() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sonar.world_pose)
   return world_pose_ != NULL ? *world_pose_ : *default_instance_->world_pose_;
 }
- ::experimot::msgs::Pose* Sonar::mutable_world_pose() {
+ ::Indriya::Core::Msgs::Pose* Sonar::mutable_world_pose() {
   set_has_world_pose();
   if (world_pose_ == NULL) {
-    world_pose_ = new ::experimot::msgs::Pose;
+    world_pose_ = new ::Indriya::Core::Msgs::Pose;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Sonar.world_pose)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Sonar.world_pose)
   return world_pose_;
 }
- ::experimot::msgs::Pose* Sonar::release_world_pose() {
+ ::Indriya::Core::Msgs::Pose* Sonar::release_world_pose() {
   clear_has_world_pose();
-  ::experimot::msgs::Pose* temp = world_pose_;
+  ::Indriya::Core::Msgs::Pose* temp = world_pose_;
   world_pose_ = NULL;
   return temp;
 }
- void Sonar::set_allocated_world_pose(::experimot::msgs::Pose* world_pose) {
+ void Sonar::set_allocated_world_pose(::Indriya::Core::Msgs::Pose* world_pose) {
   delete world_pose_;
   world_pose_ = world_pose;
   if (world_pose) {
@@ -746,7 +748,7 @@ void Sonar::InternalSwap(Sonar* other) {
   } else {
     clear_has_world_pose();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Sonar.world_pose)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Sonar.world_pose)
 }
 
 // required double range_min = 3;
@@ -764,13 +766,13 @@ void Sonar::InternalSwap(Sonar* other) {
   clear_has_range_min();
 }
  double Sonar::range_min() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sonar.range_min)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sonar.range_min)
   return range_min_;
 }
  void Sonar::set_range_min(double value) {
   set_has_range_min();
   range_min_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sonar.range_min)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sonar.range_min)
 }
 
 // required double range_max = 4;
@@ -788,13 +790,13 @@ void Sonar::InternalSwap(Sonar* other) {
   clear_has_range_max();
 }
  double Sonar::range_max() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sonar.range_max)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sonar.range_max)
   return range_max_;
 }
  void Sonar::set_range_max(double value) {
   set_has_range_max();
   range_max_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sonar.range_max)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sonar.range_max)
 }
 
 // required double radius = 5;
@@ -812,13 +814,13 @@ void Sonar::InternalSwap(Sonar* other) {
   clear_has_radius();
 }
  double Sonar::radius() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sonar.radius)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sonar.radius)
   return radius_;
 }
  void Sonar::set_radius(double value) {
   set_has_radius();
   radius_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sonar.radius)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sonar.radius)
 }
 
 // required double range = 6;
@@ -836,16 +838,16 @@ void Sonar::InternalSwap(Sonar* other) {
   clear_has_range();
 }
  double Sonar::range() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sonar.range)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sonar.range)
   return range_;
 }
  void Sonar::set_range(double value) {
   set_has_range();
   range_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Sonar.range)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Sonar.range)
 }
 
-// optional .experimot.msgs.Vector3d contact = 7;
+// optional .Indriya.Core.Msgs.Vector3d contact = 7;
  bool Sonar::has_contact() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -856,28 +858,28 @@ void Sonar::InternalSwap(Sonar* other) {
   _has_bits_[0] &= ~0x00000040u;
 }
  void Sonar::clear_contact() {
-  if (contact_ != NULL) contact_->::experimot::msgs::Vector3d::Clear();
+  if (contact_ != NULL) contact_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_contact();
 }
- const ::experimot::msgs::Vector3d& Sonar::contact() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Sonar.contact)
+ const ::Indriya::Core::Msgs::Vector3d& Sonar::contact() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Sonar.contact)
   return contact_ != NULL ? *contact_ : *default_instance_->contact_;
 }
- ::experimot::msgs::Vector3d* Sonar::mutable_contact() {
+ ::Indriya::Core::Msgs::Vector3d* Sonar::mutable_contact() {
   set_has_contact();
   if (contact_ == NULL) {
-    contact_ = new ::experimot::msgs::Vector3d;
+    contact_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Sonar.contact)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Sonar.contact)
   return contact_;
 }
- ::experimot::msgs::Vector3d* Sonar::release_contact() {
+ ::Indriya::Core::Msgs::Vector3d* Sonar::release_contact() {
   clear_has_contact();
-  ::experimot::msgs::Vector3d* temp = contact_;
+  ::Indriya::Core::Msgs::Vector3d* temp = contact_;
   contact_ = NULL;
   return temp;
 }
- void Sonar::set_allocated_contact(::experimot::msgs::Vector3d* contact) {
+ void Sonar::set_allocated_contact(::Indriya::Core::Msgs::Vector3d* contact) {
   delete contact_;
   contact_ = contact;
   if (contact) {
@@ -885,15 +887,16 @@ void Sonar::InternalSwap(Sonar* other) {
   } else {
     clear_has_contact();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Sonar.contact)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Sonar.contact)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Sonar", Sonar)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Sonar", Sonar)
 // @@protoc_insertion_point(global_scope)

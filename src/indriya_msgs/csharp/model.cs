@@ -13,7 +13,7 @@
 // Note: requires additional types generated from: pose.proto
 // Note: requires additional types generated from: visual.proto
 // Note: requires additional types generated from: vector3d.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Model")]
   public partial class Model : global::ProtoBuf.IExtensible
@@ -43,24 +43,24 @@ namespace experimot.msgs
       get { return _is_static; }
       set { _is_static = value; }
     }
-    private experimot.msgs.Pose _pose = null;
+    private Indriya.Core.Msgs.Pose _pose = null;
     [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"pose", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Pose pose
+    public Indriya.Core.Msgs.Pose pose
     {
       get { return _pose; }
       set { _pose = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Joint> _joint = new global::System.Collections.Generic.List<experimot.msgs.Joint>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Joint> _joint = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Joint>();
     [global::ProtoBuf.ProtoMember(5, Name=@"joint", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Joint> joint
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Joint> joint
     {
       get { return _joint; }
     }
   
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Link> _link = new global::System.Collections.Generic.List<experimot.msgs.Link>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Link> _link = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Link>();
     [global::ProtoBuf.ProtoMember(6, Name=@"link", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Link> link
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Link> link
     {
       get { return _link; }
     }
@@ -73,17 +73,17 @@ namespace experimot.msgs
       get { return _deleted; }
       set { _deleted = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Visual> _visual = new global::System.Collections.Generic.List<experimot.msgs.Visual>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Visual> _visual = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Visual>();
     [global::ProtoBuf.ProtoMember(8, Name=@"visual", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Visual> visual
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Visual> visual
     {
       get { return _visual; }
     }
   
-    private experimot.msgs.Vector3d _scale = null;
+    private Indriya.Core.Msgs.Vector3d _scale = null;
     [global::ProtoBuf.ProtoMember(9, IsRequired = false, Name=@"scale", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Vector3d scale
+    public Indriya.Core.Msgs.Vector3d scale
     {
       get { return _scale; }
       set { _scale = value; }

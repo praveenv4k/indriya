@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -79,11 +80,11 @@ void protobuf_AddDesc_fluid_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_vector3d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector3d_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\013fluid.proto\022\016experimot.msgs\032\016vector3d."
-    "proto\"A\n\005Fluid\022\014\n\004name\030\001 \002(\t\022*\n\010position"
-    "\030\002 \003(\0132\030.experimot.msgs.Vector3d", 112);
+    "\n\013fluid.proto\022\021Indriya.Core.Msgs\032\016vector"
+    "3d.proto\"D\n\005Fluid\022\014\n\004name\030\001 \002(\t\022-\n\010posit"
+    "ion\030\002 \003(\0132\033.Indriya.Core.Msgs.Vector3d", 118);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fluid.proto", &protobuf_RegisterTypes);
   Fluid::default_instance_ = new Fluid();
@@ -118,7 +119,7 @@ const int Fluid::kPositionFieldNumber;
 Fluid::Fluid()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Fluid)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Fluid)
 }
 
 void Fluid::InitAsDefaultInstance() {
@@ -129,7 +130,7 @@ Fluid::Fluid(const Fluid& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Fluid)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Fluid)
 }
 
 void Fluid::SharedCtor() {
@@ -140,7 +141,7 @@ void Fluid::SharedCtor() {
 }
 
 Fluid::~Fluid() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Fluid)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Fluid)
   SharedDtor();
 }
 
@@ -190,7 +191,7 @@ bool Fluid::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Fluid)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Fluid)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -204,7 +205,7 @@ bool Fluid::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Fluid.name");
+            "Indriya.Core.Msgs.Fluid.name");
         } else {
           goto handle_unusual;
         }
@@ -212,7 +213,7 @@ bool Fluid::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .experimot.msgs.Vector3d position = 2;
+      // repeated .Indriya.Core.Msgs.Vector3d position = 2;
       case 2: {
         if (tag == 18) {
          parse_position:
@@ -240,28 +241,28 @@ bool Fluid::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Fluid)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Fluid)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Fluid)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Fluid)
   return false;
 #undef DO_
 }
 
 void Fluid::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Fluid)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Fluid)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Fluid.name");
+      "Indriya.Core.Msgs.Fluid.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
 
-  // repeated .experimot.msgs.Vector3d position = 2;
+  // repeated .Indriya.Core.Msgs.Vector3d position = 2;
   for (unsigned int i = 0, n = this->position_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->position(i), output);
@@ -271,24 +272,24 @@ void Fluid::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Fluid)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Fluid)
 }
 
 ::google::protobuf::uint8* Fluid::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Fluid)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Fluid)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Fluid.name");
+      "Indriya.Core.Msgs.Fluid.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
   }
 
-  // repeated .experimot.msgs.Vector3d position = 2;
+  // repeated .Indriya.Core.Msgs.Vector3d position = 2;
   for (unsigned int i = 0, n = this->position_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -299,7 +300,7 @@ void Fluid::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Fluid)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Fluid)
   return target;
 }
 
@@ -312,7 +313,7 @@ int Fluid::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->name());
   }
-  // repeated .experimot.msgs.Vector3d position = 2;
+  // repeated .Indriya.Core.Msgs.Vector3d position = 2;
   total_size += 1 * this->position_size();
   for (int i = 0; i < this->position_size(); i++) {
     total_size +=
@@ -414,28 +415,28 @@ void Fluid::InternalSwap(Fluid* other) {
   clear_has_name();
 }
  const ::std::string& Fluid::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Fluid.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Fluid.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Fluid::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Fluid.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Fluid.name)
 }
  void Fluid::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Fluid.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Fluid.name)
 }
  void Fluid::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Fluid.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Fluid.name)
 }
  ::std::string* Fluid::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Fluid.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Fluid.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Fluid::release_name() {
@@ -449,36 +450,36 @@ void Fluid::InternalSwap(Fluid* other) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Fluid.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Fluid.name)
 }
 
-// repeated .experimot.msgs.Vector3d position = 2;
+// repeated .Indriya.Core.Msgs.Vector3d position = 2;
  int Fluid::position_size() const {
   return position_.size();
 }
  void Fluid::clear_position() {
   position_.Clear();
 }
- const ::experimot::msgs::Vector3d& Fluid::position(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Fluid.position)
+ const ::Indriya::Core::Msgs::Vector3d& Fluid::position(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Fluid.position)
   return position_.Get(index);
 }
- ::experimot::msgs::Vector3d* Fluid::mutable_position(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Fluid.position)
+ ::Indriya::Core::Msgs::Vector3d* Fluid::mutable_position(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Fluid.position)
   return position_.Mutable(index);
 }
- ::experimot::msgs::Vector3d* Fluid::add_position() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Fluid.position)
+ ::Indriya::Core::Msgs::Vector3d* Fluid::add_position() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Fluid.position)
   return position_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector3d >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector3d >&
 Fluid::position() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Fluid.position)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Fluid.position)
   return position_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector3d >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector3d >*
 Fluid::mutable_position() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Fluid.position)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Fluid.position)
   return &position_;
 }
 
@@ -486,8 +487,9 @@ Fluid::mutable_position() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Fluid", Fluid)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Fluid", Fluid)
 // @@protoc_insertion_point(global_scope)

@@ -10,23 +10,23 @@
 // Generated from: proto/planegeom.proto
 // Note: requires additional types generated from: vector3d.proto
 // Note: requires additional types generated from: vector2d.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"PlaneGeom")]
   public partial class PlaneGeom : global::ProtoBuf.IExtensible
   {
     public PlaneGeom() {}
     
-    private experimot.msgs.Vector3d _normal;
+    private Indriya.Core.Msgs.Vector3d _normal;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"normal", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Vector3d normal
+    public Indriya.Core.Msgs.Vector3d normal
     {
       get { return _normal; }
       set { _normal = value; }
     }
-    private experimot.msgs.Vector2d _size;
+    private Indriya.Core.Msgs.Vector2d _size;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"size", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Vector2d size
+    public Indriya.Core.Msgs.Vector2d size
     {
       get { return _size; }
       set { _size = value; }

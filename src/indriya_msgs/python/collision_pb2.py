@@ -21,9 +21,9 @@ import visual_pb2 as visual__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='collision.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x0f\x63ollision.proto\x12\x0e\x65xperimot.msgs\x1a\npose.proto\x1a\x0egeometry.proto\x1a\rsurface.proto\x1a\x0cvisual.proto\"\xf2\x01\n\tCollision\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x13\n\x0blaser_retro\x18\x03 \x01(\x01\x12\x14\n\x0cmax_contacts\x18\x04 \x01(\x01\x12\"\n\x04pose\x18\x05 \x01(\x0b\x32\x14.experimot.msgs.Pose\x12*\n\x08geometry\x18\x06 \x01(\x0b\x32\x18.experimot.msgs.Geometry\x12(\n\x07surface\x18\x07 \x01(\x0b\x32\x17.experimot.msgs.Surface\x12&\n\x06visual\x18\x08 \x03(\x0b\x32\x16.experimot.msgs.Visual')
+  serialized_pb=_b('\n\x0f\x63ollision.proto\x12\x11Indriya.Core.Msgs\x1a\npose.proto\x1a\x0egeometry.proto\x1a\rsurface.proto\x1a\x0cvisual.proto\"\xfe\x01\n\tCollision\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x13\n\x0blaser_retro\x18\x03 \x01(\x01\x12\x14\n\x0cmax_contacts\x18\x04 \x01(\x01\x12%\n\x04pose\x18\x05 \x01(\x0b\x32\x17.Indriya.Core.Msgs.Pose\x12-\n\x08geometry\x18\x06 \x01(\x0b\x32\x1b.Indriya.Core.Msgs.Geometry\x12+\n\x07surface\x18\x07 \x01(\x0b\x32\x1a.Indriya.Core.Msgs.Surface\x12)\n\x06visual\x18\x08 \x03(\x0b\x32\x19.Indriya.Core.Msgs.Visual')
   ,
   dependencies=[pose__pb2.DESCRIPTOR,geometry__pb2.DESCRIPTOR,surface__pb2.DESCRIPTOR,visual__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -33,62 +33,62 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _COLLISION = _descriptor.Descriptor(
   name='Collision',
-  full_name='experimot.msgs.Collision',
+  full_name='Indriya.Core.Msgs.Collision',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='experimot.msgs.Collision.id', index=0,
+      name='id', full_name='Indriya.Core.Msgs.Collision.id', index=0,
       number=1, type=13, cpp_type=3, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='name', full_name='experimot.msgs.Collision.name', index=1,
+      name='name', full_name='Indriya.Core.Msgs.Collision.name', index=1,
       number=2, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='laser_retro', full_name='experimot.msgs.Collision.laser_retro', index=2,
+      name='laser_retro', full_name='Indriya.Core.Msgs.Collision.laser_retro', index=2,
       number=3, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='max_contacts', full_name='experimot.msgs.Collision.max_contacts', index=3,
+      name='max_contacts', full_name='Indriya.Core.Msgs.Collision.max_contacts', index=3,
       number=4, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='pose', full_name='experimot.msgs.Collision.pose', index=4,
+      name='pose', full_name='Indriya.Core.Msgs.Collision.pose', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='geometry', full_name='experimot.msgs.Collision.geometry', index=5,
+      name='geometry', full_name='Indriya.Core.Msgs.Collision.geometry', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='surface', full_name='experimot.msgs.Collision.surface', index=6,
+      name='surface', full_name='Indriya.Core.Msgs.Collision.surface', index=6,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='visual', full_name='experimot.msgs.Collision.visual', index=7,
+      name='visual', full_name='Indriya.Core.Msgs.Collision.visual', index=7,
       number=8, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -106,8 +106,8 @@ _COLLISION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=93,
-  serialized_end=335,
+  serialized_start=96,
+  serialized_end=350,
 )
 
 _COLLISION.fields_by_name['pose'].message_type = pose__pb2._POSE
@@ -119,7 +119,7 @@ DESCRIPTOR.message_types_by_name['Collision'] = _COLLISION
 Collision = _reflection.GeneratedProtocolMessageType('Collision', (_message.Message,), dict(
   DESCRIPTOR = _COLLISION,
   __module__ = 'collision_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Collision)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Collision)
   ))
 _sym_db.RegisterMessage(Collision)
 

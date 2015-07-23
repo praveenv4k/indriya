@@ -19,9 +19,9 @@ import image_pb2 as image__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='images_stamped.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x14images_stamped.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\x1a\x0bimage.proto\"Y\n\rImagesStamped\x12\"\n\x04time\x18\x01 \x02(\x0b\x32\x14.experimot.msgs.Time\x12$\n\x05image\x18\x02 \x03(\x0b\x32\x15.experimot.msgs.Image')
+  serialized_pb=_b('\n\x14images_stamped.proto\x12\x11Indriya.Core.Msgs\x1a\ntime.proto\x1a\x0bimage.proto\"_\n\rImagesStamped\x12%\n\x04time\x18\x01 \x02(\x0b\x32\x17.Indriya.Core.Msgs.Time\x12\'\n\x05image\x18\x02 \x03(\x0b\x32\x18.Indriya.Core.Msgs.Image')
   ,
   dependencies=[time__pb2.DESCRIPTOR,image__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -31,20 +31,20 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _IMAGESSTAMPED = _descriptor.Descriptor(
   name='ImagesStamped',
-  full_name='experimot.msgs.ImagesStamped',
+  full_name='Indriya.Core.Msgs.ImagesStamped',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='time', full_name='experimot.msgs.ImagesStamped.time', index=0,
+      name='time', full_name='Indriya.Core.Msgs.ImagesStamped.time', index=0,
       number=1, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='image', full_name='experimot.msgs.ImagesStamped.image', index=1,
+      name='image', full_name='Indriya.Core.Msgs.ImagesStamped.image', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -62,8 +62,8 @@ _IMAGESSTAMPED = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=65,
-  serialized_end=154,
+  serialized_start=68,
+  serialized_end=163,
 )
 
 _IMAGESSTAMPED.fields_by_name['time'].message_type = time__pb2._TIME
@@ -73,7 +73,7 @@ DESCRIPTOR.message_types_by_name['ImagesStamped'] = _IMAGESSTAMPED
 ImagesStamped = _reflection.GeneratedProtocolMessageType('ImagesStamped', (_message.Message,), dict(
   DESCRIPTOR = _IMAGESSTAMPED,
   __module__ = 'images_stamped_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.ImagesStamped)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.ImagesStamped)
   ))
 _sym_db.RegisterMessage(ImagesStamped)
 

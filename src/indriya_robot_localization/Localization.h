@@ -52,7 +52,7 @@ typedef boost::shared_ptr<Localization> LocalizationPtr;
 
 class Localization{
 public:
-	Localization(boost::asio::io_service& io, experimot::msgs::NodePtr& pNode)
+	Localization(boost::asio::io_service& io, Indriya::Core::Msgs::NodePtr& pNode)
 		: strand_(io),
 		m_SensorTimer(io, boost::posix_time::milliseconds(20)),
 		m_RobotTimer(io, boost::posix_time::milliseconds(40)),
@@ -748,7 +748,7 @@ private:
 	int m_nTdmCycle;
 
 	bool m_bVisualize;
-	experimot::msgs::NodePtr m_pNode;
+	Indriya::Core::Msgs::NodePtr m_pNode;
 	RobotStateListenerPtr m_pRobotStateListenerPtr;
 	TorsoPosePublisherPtr m_pTorsoPosePublisherPtr;
 	LocalizationResponderPtr m_pLocalizationResponderPtr;

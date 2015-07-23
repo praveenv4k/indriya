@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_world_5fcontrol_2eproto();
@@ -129,14 +130,14 @@ class WorldControl : public ::google::protobuf::Message {
   ::google::protobuf::uint32 multi_step() const;
   void set_multi_step(::google::protobuf::uint32 value);
 
-  // optional .experimot.msgs.WorldReset reset = 4;
+  // optional .Indriya.Core.Msgs.WorldReset reset = 4;
   bool has_reset() const;
   void clear_reset();
   static const int kResetFieldNumber = 4;
-  const ::experimot::msgs::WorldReset& reset() const;
-  ::experimot::msgs::WorldReset* mutable_reset();
-  ::experimot::msgs::WorldReset* release_reset();
-  void set_allocated_reset(::experimot::msgs::WorldReset* reset);
+  const ::Indriya::Core::Msgs::WorldReset& reset() const;
+  ::Indriya::Core::Msgs::WorldReset* mutable_reset();
+  ::Indriya::Core::Msgs::WorldReset* release_reset();
+  void set_allocated_reset(::Indriya::Core::Msgs::WorldReset* reset);
 
   // optional uint32 seed = 5;
   bool has_seed() const;
@@ -145,7 +146,7 @@ class WorldControl : public ::google::protobuf::Message {
   ::google::protobuf::uint32 seed() const;
   void set_seed(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.WorldControl)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.WorldControl)
  private:
   inline void set_has_pause();
   inline void clear_has_pause();
@@ -164,7 +165,7 @@ class WorldControl : public ::google::protobuf::Message {
   bool pause_;
   bool step_;
   ::google::protobuf::uint32 multi_step_;
-  ::experimot::msgs::WorldReset* reset_;
+  ::Indriya::Core::Msgs::WorldReset* reset_;
   ::google::protobuf::uint32 seed_;
   friend void  protobuf_AddDesc_world_5fcontrol_2eproto();
   friend void protobuf_AssignDesc_world_5fcontrol_2eproto();
@@ -196,13 +197,13 @@ inline void WorldControl::clear_pause() {
   clear_has_pause();
 }
 inline bool WorldControl::pause() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldControl.pause)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldControl.pause)
   return pause_;
 }
 inline void WorldControl::set_pause(bool value) {
   set_has_pause();
   pause_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldControl.pause)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldControl.pause)
 }
 
 // optional bool step = 2;
@@ -220,13 +221,13 @@ inline void WorldControl::clear_step() {
   clear_has_step();
 }
 inline bool WorldControl::step() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldControl.step)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldControl.step)
   return step_;
 }
 inline void WorldControl::set_step(bool value) {
   set_has_step();
   step_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldControl.step)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldControl.step)
 }
 
 // optional uint32 multi_step = 3;
@@ -244,16 +245,16 @@ inline void WorldControl::clear_multi_step() {
   clear_has_multi_step();
 }
 inline ::google::protobuf::uint32 WorldControl::multi_step() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldControl.multi_step)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldControl.multi_step)
   return multi_step_;
 }
 inline void WorldControl::set_multi_step(::google::protobuf::uint32 value) {
   set_has_multi_step();
   multi_step_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldControl.multi_step)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldControl.multi_step)
 }
 
-// optional .experimot.msgs.WorldReset reset = 4;
+// optional .Indriya.Core.Msgs.WorldReset reset = 4;
 inline bool WorldControl::has_reset() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -264,28 +265,28 @@ inline void WorldControl::clear_has_reset() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void WorldControl::clear_reset() {
-  if (reset_ != NULL) reset_->::experimot::msgs::WorldReset::Clear();
+  if (reset_ != NULL) reset_->::Indriya::Core::Msgs::WorldReset::Clear();
   clear_has_reset();
 }
-inline const ::experimot::msgs::WorldReset& WorldControl::reset() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldControl.reset)
+inline const ::Indriya::Core::Msgs::WorldReset& WorldControl::reset() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldControl.reset)
   return reset_ != NULL ? *reset_ : *default_instance_->reset_;
 }
-inline ::experimot::msgs::WorldReset* WorldControl::mutable_reset() {
+inline ::Indriya::Core::Msgs::WorldReset* WorldControl::mutable_reset() {
   set_has_reset();
   if (reset_ == NULL) {
-    reset_ = new ::experimot::msgs::WorldReset;
+    reset_ = new ::Indriya::Core::Msgs::WorldReset;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.WorldControl.reset)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.WorldControl.reset)
   return reset_;
 }
-inline ::experimot::msgs::WorldReset* WorldControl::release_reset() {
+inline ::Indriya::Core::Msgs::WorldReset* WorldControl::release_reset() {
   clear_has_reset();
-  ::experimot::msgs::WorldReset* temp = reset_;
+  ::Indriya::Core::Msgs::WorldReset* temp = reset_;
   reset_ = NULL;
   return temp;
 }
-inline void WorldControl::set_allocated_reset(::experimot::msgs::WorldReset* reset) {
+inline void WorldControl::set_allocated_reset(::Indriya::Core::Msgs::WorldReset* reset) {
   delete reset_;
   reset_ = reset;
   if (reset) {
@@ -293,7 +294,7 @@ inline void WorldControl::set_allocated_reset(::experimot::msgs::WorldReset* res
   } else {
     clear_has_reset();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.WorldControl.reset)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.WorldControl.reset)
 }
 
 // optional uint32 seed = 5;
@@ -311,24 +312,25 @@ inline void WorldControl::clear_seed() {
   clear_has_seed();
 }
 inline ::google::protobuf::uint32 WorldControl::seed() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldControl.seed)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldControl.seed)
   return seed_;
 }
 inline void WorldControl::set_seed(::google::protobuf::uint32 value) {
   set_has_seed();
   seed_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldControl.seed)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldControl.seed)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::WorldControl> WorldControlPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::WorldControl> WorldControlPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::WorldControl const> ConstWorldControlPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::WorldControl const> ConstWorldControlPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_world_5fcontrol_2eproto__INCLUDED

@@ -18,9 +18,9 @@ import pose_stamped_pb2 as pose__stamped__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='pose_trajectory.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x15pose_trajectory.proto\x12\x0e\x65xperimot.msgs\x1a\x12pose_stamped.proto\"]\n\x0ePoseTrajectory\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\r\x12\x31\n\x0cpose_stamped\x18\x03 \x03(\x0b\x32\x1b.experimot.msgs.PoseStamped')
+  serialized_pb=_b('\n\x15pose_trajectory.proto\x12\x11Indriya.Core.Msgs\x1a\x12pose_stamped.proto\"`\n\x0ePoseTrajectory\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\r\x12\x34\n\x0cpose_stamped\x18\x03 \x03(\x0b\x32\x1e.Indriya.Core.Msgs.PoseStamped')
   ,
   dependencies=[pose__stamped__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,27 +30,27 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _POSETRAJECTORY = _descriptor.Descriptor(
   name='PoseTrajectory',
-  full_name='experimot.msgs.PoseTrajectory',
+  full_name='Indriya.Core.Msgs.PoseTrajectory',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='experimot.msgs.PoseTrajectory.name', index=0,
+      name='name', full_name='Indriya.Core.Msgs.PoseTrajectory.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='id', full_name='experimot.msgs.PoseTrajectory.id', index=1,
+      name='id', full_name='Indriya.Core.Msgs.PoseTrajectory.id', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='pose_stamped', full_name='experimot.msgs.PoseTrajectory.pose_stamped', index=2,
+      name='pose_stamped', full_name='Indriya.Core.Msgs.PoseTrajectory.pose_stamped', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -68,8 +68,8 @@ _POSETRAJECTORY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=61,
-  serialized_end=154,
+  serialized_start=64,
+  serialized_end=160,
 )
 
 _POSETRAJECTORY.fields_by_name['pose_stamped'].message_type = pose__stamped__pb2._POSESTAMPED
@@ -78,7 +78,7 @@ DESCRIPTOR.message_types_by_name['PoseTrajectory'] = _POSETRAJECTORY
 PoseTrajectory = _reflection.GeneratedProtocolMessageType('PoseTrajectory', (_message.Message,), dict(
   DESCRIPTOR = _POSETRAJECTORY,
   __module__ = 'pose_trajectory_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.PoseTrajectory)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.PoseTrajectory)
   ))
 _sym_db.RegisterMessage(PoseTrajectory)
 

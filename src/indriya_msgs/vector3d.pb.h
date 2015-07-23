@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_vector3d_2eproto();
@@ -128,7 +129,7 @@ class Vector3d : public ::google::protobuf::Message {
   double z() const;
   void set_z(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Vector3d)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Vector3d)
  private:
   inline void set_has_x();
   inline void clear_has_x();
@@ -176,13 +177,13 @@ inline void Vector3d::clear_x() {
   clear_has_x();
 }
 inline double Vector3d::x() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Vector3d.x)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Vector3d.x)
   return x_;
 }
 inline void Vector3d::set_x(double value) {
   set_has_x();
   x_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Vector3d.x)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Vector3d.x)
 }
 
 // required double y = 3;
@@ -200,13 +201,13 @@ inline void Vector3d::clear_y() {
   clear_has_y();
 }
 inline double Vector3d::y() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Vector3d.y)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Vector3d.y)
   return y_;
 }
 inline void Vector3d::set_y(double value) {
   set_has_y();
   y_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Vector3d.y)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Vector3d.y)
 }
 
 // required double z = 4;
@@ -224,24 +225,25 @@ inline void Vector3d::clear_z() {
   clear_has_z();
 }
 inline double Vector3d::z() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Vector3d.z)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Vector3d.z)
   return z_;
 }
 inline void Vector3d::set_z(double value) {
   set_has_z();
   z_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Vector3d.z)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Vector3d.z)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Vector3d> Vector3dPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Vector3d> Vector3dPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Vector3d const> ConstVector3dPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Vector3d const> ConstVector3dPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_vector3d_2eproto__INCLUDED

@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -81,10 +82,10 @@ void protobuf_AddDesc_world_5freset_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\021world_reset.proto\022\016experimot.msgs\"T\n\nW"
-    "orldReset\022\021\n\003all\030\001 \001(\010:\004true\022\030\n\ttime_onl"
-    "y\030\002 \001(\010:\005false\022\031\n\nmodel_only\030\003 \001(\010:\005fals"
-    "e", 121);
+    "\n\021world_reset.proto\022\021Indriya.Core.Msgs\"T"
+    "\n\nWorldReset\022\021\n\003all\030\001 \001(\010:\004true\022\030\n\ttime_"
+    "only\030\002 \001(\010:\005false\022\031\n\nmodel_only\030\003 \001(\010:\005f"
+    "alse", 124);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "world_reset.proto", &protobuf_RegisterTypes);
   WorldReset::default_instance_ = new WorldReset();
@@ -120,7 +121,7 @@ const int WorldReset::kModelOnlyFieldNumber;
 WorldReset::WorldReset()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.WorldReset)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.WorldReset)
 }
 
 void WorldReset::InitAsDefaultInstance() {
@@ -131,7 +132,7 @@ WorldReset::WorldReset(const WorldReset& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.WorldReset)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.WorldReset)
 }
 
 void WorldReset::SharedCtor() {
@@ -143,7 +144,7 @@ void WorldReset::SharedCtor() {
 }
 
 WorldReset::~WorldReset() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.WorldReset)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.WorldReset)
   SharedDtor();
 }
 
@@ -204,7 +205,7 @@ bool WorldReset::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.WorldReset)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.WorldReset)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -268,17 +269,17 @@ bool WorldReset::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.WorldReset)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.WorldReset)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.WorldReset)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.WorldReset)
   return false;
 #undef DO_
 }
 
 void WorldReset::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.WorldReset)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.WorldReset)
   // optional bool all = 1 [default = true];
   if (has_all()) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->all(), output);
@@ -298,12 +299,12 @@ void WorldReset::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.WorldReset)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.WorldReset)
 }
 
 ::google::protobuf::uint8* WorldReset::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.WorldReset)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.WorldReset)
   // optional bool all = 1 [default = true];
   if (has_all()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->all(), target);
@@ -323,7 +324,7 @@ void WorldReset::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.WorldReset)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.WorldReset)
   return target;
 }
 
@@ -444,13 +445,13 @@ void WorldReset::InternalSwap(WorldReset* other) {
   clear_has_all();
 }
  bool WorldReset::all() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldReset.all)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldReset.all)
   return all_;
 }
  void WorldReset::set_all(bool value) {
   set_has_all();
   all_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldReset.all)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldReset.all)
 }
 
 // optional bool time_only = 2 [default = false];
@@ -468,13 +469,13 @@ void WorldReset::InternalSwap(WorldReset* other) {
   clear_has_time_only();
 }
  bool WorldReset::time_only() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldReset.time_only)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldReset.time_only)
   return time_only_;
 }
  void WorldReset::set_time_only(bool value) {
   set_has_time_only();
   time_only_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldReset.time_only)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldReset.time_only)
 }
 
 // optional bool model_only = 3 [default = false];
@@ -492,21 +493,22 @@ void WorldReset::InternalSwap(WorldReset* other) {
   clear_has_model_only();
 }
  bool WorldReset::model_only() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WorldReset.model_only)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WorldReset.model_only)
   return model_only_;
 }
  void WorldReset::set_model_only(bool value) {
   set_has_model_only();
   model_only_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WorldReset.model_only)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WorldReset.model_only)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.WorldReset", WorldReset)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.WorldReset", WorldReset)
 // @@protoc_insertion_point(global_scope)

@@ -18,9 +18,9 @@ import time_pb2 as time__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='diagnostics.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x11\x64iagnostics.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\"\x91\x02\n\x0b\x44iagnostics\x12\x32\n\x04time\x18\x01 \x03(\x0b\x32$.experimot.msgs.Diagnostics.DiagTime\x12\'\n\treal_time\x18\x02 \x02(\x0b\x32\x14.experimot.msgs.Time\x12&\n\x08sim_time\x18\x03 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\x18\n\x10real_time_factor\x18\x04 \x02(\x01\x1a\x63\n\x08\x44iagTime\x12\x0c\n\x04name\x18\x01 \x02(\t\x12%\n\x07\x65lapsed\x18\x02 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\"\n\x04wall\x18\x03 \x02(\x0b\x32\x14.experimot.msgs.Time')
+  serialized_pb=_b('\n\x11\x64iagnostics.proto\x12\x11Indriya.Core.Msgs\x1a\ntime.proto\"\xa0\x02\n\x0b\x44iagnostics\x12\x35\n\x04time\x18\x01 \x03(\x0b\x32\'.Indriya.Core.Msgs.Diagnostics.DiagTime\x12*\n\treal_time\x18\x02 \x02(\x0b\x32\x17.Indriya.Core.Msgs.Time\x12)\n\x08sim_time\x18\x03 \x02(\x0b\x32\x17.Indriya.Core.Msgs.Time\x12\x18\n\x10real_time_factor\x18\x04 \x02(\x01\x1ai\n\x08\x44iagTime\x12\x0c\n\x04name\x18\x01 \x02(\t\x12(\n\x07\x65lapsed\x18\x02 \x02(\x0b\x32\x17.Indriya.Core.Msgs.Time\x12%\n\x04wall\x18\x03 \x02(\x0b\x32\x17.Indriya.Core.Msgs.Time')
   ,
   dependencies=[time__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,27 +30,27 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _DIAGNOSTICS_DIAGTIME = _descriptor.Descriptor(
   name='DiagTime',
-  full_name='experimot.msgs.Diagnostics.DiagTime',
+  full_name='Indriya.Core.Msgs.Diagnostics.DiagTime',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='experimot.msgs.Diagnostics.DiagTime.name', index=0,
+      name='name', full_name='Indriya.Core.Msgs.Diagnostics.DiagTime.name', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='elapsed', full_name='experimot.msgs.Diagnostics.DiagTime.elapsed', index=1,
+      name='elapsed', full_name='Indriya.Core.Msgs.Diagnostics.DiagTime.elapsed', index=1,
       number=2, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='wall', full_name='experimot.msgs.Diagnostics.DiagTime.wall', index=2,
+      name='wall', full_name='Indriya.Core.Msgs.Diagnostics.DiagTime.wall', index=2,
       number=3, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -68,40 +68,40 @@ _DIAGNOSTICS_DIAGTIME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=224,
-  serialized_end=323,
+  serialized_start=236,
+  serialized_end=341,
 )
 
 _DIAGNOSTICS = _descriptor.Descriptor(
   name='Diagnostics',
-  full_name='experimot.msgs.Diagnostics',
+  full_name='Indriya.Core.Msgs.Diagnostics',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='time', full_name='experimot.msgs.Diagnostics.time', index=0,
+      name='time', full_name='Indriya.Core.Msgs.Diagnostics.time', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='real_time', full_name='experimot.msgs.Diagnostics.real_time', index=1,
+      name='real_time', full_name='Indriya.Core.Msgs.Diagnostics.real_time', index=1,
       number=2, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='sim_time', full_name='experimot.msgs.Diagnostics.sim_time', index=2,
+      name='sim_time', full_name='Indriya.Core.Msgs.Diagnostics.sim_time', index=2,
       number=3, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='real_time_factor', full_name='experimot.msgs.Diagnostics.real_time_factor', index=3,
+      name='real_time_factor', full_name='Indriya.Core.Msgs.Diagnostics.real_time_factor', index=3,
       number=4, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -119,8 +119,8 @@ _DIAGNOSTICS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=50,
-  serialized_end=323,
+  serialized_start=53,
+  serialized_end=341,
 )
 
 _DIAGNOSTICS_DIAGTIME.fields_by_name['elapsed'].message_type = time__pb2._TIME
@@ -136,12 +136,12 @@ Diagnostics = _reflection.GeneratedProtocolMessageType('Diagnostics', (_message.
   DiagTime = _reflection.GeneratedProtocolMessageType('DiagTime', (_message.Message,), dict(
     DESCRIPTOR = _DIAGNOSTICS_DIAGTIME,
     __module__ = 'diagnostics_pb2'
-    # @@protoc_insertion_point(class_scope:experimot.msgs.Diagnostics.DiagTime)
+    # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Diagnostics.DiagTime)
     ))
   ,
   DESCRIPTOR = _DIAGNOSTICS,
   __module__ = 'diagnostics_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Diagnostics)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Diagnostics)
   ))
 _sym_db.RegisterMessage(Diagnostics)
 _sym_db.RegisterMessage(Diagnostics.DiagTime)

@@ -18,9 +18,9 @@ import vector2d_pb2 as vector2d__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='polylinegeom.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x12polylinegeom.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector2d.proto\"C\n\x08Polyline\x12\x0e\n\x06height\x18\x01 \x02(\x01\x12\'\n\x05point\x18\x02 \x03(\x0b\x32\x18.experimot.msgs.Vector2d')
+  serialized_pb=_b('\n\x12polylinegeom.proto\x12\x11Indriya.Core.Msgs\x1a\x0evector2d.proto\"F\n\x08Polyline\x12\x0e\n\x06height\x18\x01 \x02(\x01\x12*\n\x05point\x18\x02 \x03(\x0b\x32\x1b.Indriya.Core.Msgs.Vector2d')
   ,
   dependencies=[vector2d__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,20 +30,20 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _POLYLINE = _descriptor.Descriptor(
   name='Polyline',
-  full_name='experimot.msgs.Polyline',
+  full_name='Indriya.Core.Msgs.Polyline',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='height', full_name='experimot.msgs.Polyline.height', index=0,
+      name='height', full_name='Indriya.Core.Msgs.Polyline.height', index=0,
       number=1, type=1, cpp_type=5, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='point', full_name='experimot.msgs.Polyline.point', index=1,
+      name='point', full_name='Indriya.Core.Msgs.Polyline.point', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -61,8 +61,8 @@ _POLYLINE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=54,
-  serialized_end=121,
+  serialized_start=57,
+  serialized_end=127,
 )
 
 _POLYLINE.fields_by_name['point'].message_type = vector2d__pb2._VECTOR2D
@@ -71,7 +71,7 @@ DESCRIPTOR.message_types_by_name['Polyline'] = _POLYLINE
 Polyline = _reflection.GeneratedProtocolMessageType('Polyline', (_message.Message,), dict(
   DESCRIPTOR = _POLYLINE,
   __module__ = 'polylinegeom_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Polyline)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Polyline)
   ))
 _sym_db.RegisterMessage(Polyline)
 

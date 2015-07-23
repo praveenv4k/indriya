@@ -18,9 +18,9 @@ import vector2d_pb2 as vector2d__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='distortion.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x10\x64istortion.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector2d.proto\"r\n\nDistortion\x12(\n\x06\x63\x65nter\x18\x01 \x01(\x0b\x32\x18.experimot.msgs.Vector2d\x12\n\n\x02k1\x18\x02 \x01(\x01\x12\n\n\x02k2\x18\x03 \x01(\x01\x12\n\n\x02k3\x18\x04 \x01(\x01\x12\n\n\x02p1\x18\x05 \x01(\x01\x12\n\n\x02p2\x18\x06 \x01(\x01')
+  serialized_pb=_b('\n\x10\x64istortion.proto\x12\x11Indriya.Core.Msgs\x1a\x0evector2d.proto\"u\n\nDistortion\x12+\n\x06\x63\x65nter\x18\x01 \x01(\x0b\x32\x1b.Indriya.Core.Msgs.Vector2d\x12\n\n\x02k1\x18\x02 \x01(\x01\x12\n\n\x02k2\x18\x03 \x01(\x01\x12\n\n\x02k3\x18\x04 \x01(\x01\x12\n\n\x02p1\x18\x05 \x01(\x01\x12\n\n\x02p2\x18\x06 \x01(\x01')
   ,
   dependencies=[vector2d__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,48 +30,48 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _DISTORTION = _descriptor.Descriptor(
   name='Distortion',
-  full_name='experimot.msgs.Distortion',
+  full_name='Indriya.Core.Msgs.Distortion',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='center', full_name='experimot.msgs.Distortion.center', index=0,
+      name='center', full_name='Indriya.Core.Msgs.Distortion.center', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='k1', full_name='experimot.msgs.Distortion.k1', index=1,
+      name='k1', full_name='Indriya.Core.Msgs.Distortion.k1', index=1,
       number=2, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='k2', full_name='experimot.msgs.Distortion.k2', index=2,
+      name='k2', full_name='Indriya.Core.Msgs.Distortion.k2', index=2,
       number=3, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='k3', full_name='experimot.msgs.Distortion.k3', index=3,
+      name='k3', full_name='Indriya.Core.Msgs.Distortion.k3', index=3,
       number=4, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='p1', full_name='experimot.msgs.Distortion.p1', index=4,
+      name='p1', full_name='Indriya.Core.Msgs.Distortion.p1', index=4,
       number=5, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='p2', full_name='experimot.msgs.Distortion.p2', index=5,
+      name='p2', full_name='Indriya.Core.Msgs.Distortion.p2', index=5,
       number=6, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -89,8 +89,8 @@ _DISTORTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=52,
-  serialized_end=166,
+  serialized_start=55,
+  serialized_end=172,
 )
 
 _DISTORTION.fields_by_name['center'].message_type = vector2d__pb2._VECTOR2D
@@ -99,7 +99,7 @@ DESCRIPTOR.message_types_by_name['Distortion'] = _DISTORTION
 Distortion = _reflection.GeneratedProtocolMessageType('Distortion', (_message.Message,), dict(
   DESCRIPTOR = _DISTORTION,
   __module__ = 'distortion_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Distortion)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Distortion)
   ))
 _sym_db.RegisterMessage(Distortion)
 

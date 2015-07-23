@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -81,14 +82,14 @@ void protobuf_AddDesc_pose_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_vector3d_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_quaternion_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector3d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_quaternion_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\npose.proto\022\016experimot.msgs\032\016vector3d.p"
-    "roto\032\020quaternion.proto\"}\n\004Pose\022\014\n\004name\030\001"
-    " \001(\t\022\n\n\002id\030\002 \001(\r\022*\n\010position\030\003 \002(\0132\030.exp"
-    "erimot.msgs.Vector3d\022/\n\013orientation\030\004 \002("
-    "\0132\032.experimot.msgs.Quaternion", 189);
+    "\n\npose.proto\022\021Indriya.Core.Msgs\032\016vector3"
+    "d.proto\032\020quaternion.proto\"\203\001\n\004Pose\022\014\n\004na"
+    "me\030\001 \001(\t\022\n\n\002id\030\002 \001(\r\022-\n\010position\030\003 \002(\0132\033"
+    ".Indriya.Core.Msgs.Vector3d\0222\n\013orientati"
+    "on\030\004 \002(\0132\035.Indriya.Core.Msgs.Quaternion", 199);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "pose.proto", &protobuf_RegisterTypes);
   Pose::default_instance_ = new Pose();
@@ -125,12 +126,12 @@ const int Pose::kOrientationFieldNumber;
 Pose::Pose()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Pose)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Pose)
 }
 
 void Pose::InitAsDefaultInstance() {
-  position_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
-  orientation_ = const_cast< ::experimot::msgs::Quaternion*>(&::experimot::msgs::Quaternion::default_instance());
+  position_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
+  orientation_ = const_cast< ::Indriya::Core::Msgs::Quaternion*>(&::Indriya::Core::Msgs::Quaternion::default_instance());
 }
 
 Pose::Pose(const Pose& from)
@@ -138,7 +139,7 @@ Pose::Pose(const Pose& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Pose)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Pose)
 }
 
 void Pose::SharedCtor() {
@@ -152,7 +153,7 @@ void Pose::SharedCtor() {
 }
 
 Pose::~Pose() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Pose)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Pose)
   SharedDtor();
 }
 
@@ -196,10 +197,10 @@ void Pose::Clear() {
     }
     id_ = 0u;
     if (has_position()) {
-      if (position_ != NULL) position_->::experimot::msgs::Vector3d::Clear();
+      if (position_ != NULL) position_->::Indriya::Core::Msgs::Vector3d::Clear();
     }
     if (has_orientation()) {
-      if (orientation_ != NULL) orientation_->::experimot::msgs::Quaternion::Clear();
+      if (orientation_ != NULL) orientation_->::Indriya::Core::Msgs::Quaternion::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -212,7 +213,7 @@ bool Pose::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Pose)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Pose)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -226,7 +227,7 @@ bool Pose::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Pose.name");
+            "Indriya.Core.Msgs.Pose.name");
         } else {
           goto handle_unusual;
         }
@@ -249,7 +250,7 @@ bool Pose::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Vector3d position = 3;
+      // required .Indriya.Core.Msgs.Vector3d position = 3;
       case 3: {
         if (tag == 26) {
          parse_position:
@@ -262,7 +263,7 @@ bool Pose::MergePartialFromCodedStream(
         break;
       }
 
-      // required .experimot.msgs.Quaternion orientation = 4;
+      // required .Indriya.Core.Msgs.Quaternion orientation = 4;
       case 4: {
         if (tag == 34) {
          parse_orientation:
@@ -289,23 +290,23 @@ bool Pose::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Pose)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Pose)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Pose)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Pose)
   return false;
 #undef DO_
 }
 
 void Pose::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Pose)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Pose)
   // optional string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Pose.name");
+      "Indriya.Core.Msgs.Pose.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
@@ -315,13 +316,13 @@ void Pose::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->id(), output);
   }
 
-  // required .experimot.msgs.Vector3d position = 3;
+  // required .Indriya.Core.Msgs.Vector3d position = 3;
   if (has_position()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, *this->position_, output);
   }
 
-  // required .experimot.msgs.Quaternion orientation = 4;
+  // required .Indriya.Core.Msgs.Quaternion orientation = 4;
   if (has_orientation()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, *this->orientation_, output);
@@ -331,18 +332,18 @@ void Pose::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Pose)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Pose)
 }
 
 ::google::protobuf::uint8* Pose::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Pose)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Pose)
   // optional string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Pose.name");
+      "Indriya.Core.Msgs.Pose.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
@@ -353,14 +354,14 @@ void Pose::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->id(), target);
   }
 
-  // required .experimot.msgs.Vector3d position = 3;
+  // required .Indriya.Core.Msgs.Vector3d position = 3;
   if (has_position()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         3, *this->position_, target);
   }
 
-  // required .experimot.msgs.Quaternion orientation = 4;
+  // required .Indriya.Core.Msgs.Quaternion orientation = 4;
   if (has_orientation()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -371,7 +372,7 @@ void Pose::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Pose)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Pose)
   return target;
 }
 
@@ -379,14 +380,14 @@ int Pose::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
   if (has_position()) {
-    // required .experimot.msgs.Vector3d position = 3;
+    // required .Indriya.Core.Msgs.Vector3d position = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->position_);
   }
 
   if (has_orientation()) {
-    // required .experimot.msgs.Quaternion orientation = 4;
+    // required .Indriya.Core.Msgs.Quaternion orientation = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->orientation_);
@@ -398,12 +399,12 @@ int Pose::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x0000000c) ^ 0x0000000c) == 0) {  // All required fields are present.
-    // required .experimot.msgs.Vector3d position = 3;
+    // required .Indriya.Core.Msgs.Vector3d position = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->position_);
 
-    // required .experimot.msgs.Quaternion orientation = 4;
+    // required .Indriya.Core.Msgs.Quaternion orientation = 4;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->orientation_);
@@ -461,10 +462,10 @@ void Pose::MergeFrom(const Pose& from) {
       set_id(from.id());
     }
     if (from.has_position()) {
-      mutable_position()->::experimot::msgs::Vector3d::MergeFrom(from.position());
+      mutable_position()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.position());
     }
     if (from.has_orientation()) {
-      mutable_orientation()->::experimot::msgs::Quaternion::MergeFrom(from.orientation());
+      mutable_orientation()->::Indriya::Core::Msgs::Quaternion::MergeFrom(from.orientation());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -536,28 +537,28 @@ void Pose::InternalSwap(Pose* other) {
   clear_has_name();
 }
  const ::std::string& Pose::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Pose.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Pose.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Pose::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Pose.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Pose.name)
 }
  void Pose::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Pose.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Pose.name)
 }
  void Pose::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Pose.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Pose.name)
 }
  ::std::string* Pose::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Pose.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Pose.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Pose::release_name() {
@@ -571,7 +572,7 @@ void Pose::InternalSwap(Pose* other) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Pose.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Pose.name)
 }
 
 // optional uint32 id = 2;
@@ -589,16 +590,16 @@ void Pose::InternalSwap(Pose* other) {
   clear_has_id();
 }
  ::google::protobuf::uint32 Pose::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Pose.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Pose.id)
   return id_;
 }
  void Pose::set_id(::google::protobuf::uint32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Pose.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Pose.id)
 }
 
-// required .experimot.msgs.Vector3d position = 3;
+// required .Indriya.Core.Msgs.Vector3d position = 3;
  bool Pose::has_position() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -609,28 +610,28 @@ void Pose::InternalSwap(Pose* other) {
   _has_bits_[0] &= ~0x00000004u;
 }
  void Pose::clear_position() {
-  if (position_ != NULL) position_->::experimot::msgs::Vector3d::Clear();
+  if (position_ != NULL) position_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_position();
 }
- const ::experimot::msgs::Vector3d& Pose::position() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Pose.position)
+ const ::Indriya::Core::Msgs::Vector3d& Pose::position() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Pose.position)
   return position_ != NULL ? *position_ : *default_instance_->position_;
 }
- ::experimot::msgs::Vector3d* Pose::mutable_position() {
+ ::Indriya::Core::Msgs::Vector3d* Pose::mutable_position() {
   set_has_position();
   if (position_ == NULL) {
-    position_ = new ::experimot::msgs::Vector3d;
+    position_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Pose.position)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Pose.position)
   return position_;
 }
- ::experimot::msgs::Vector3d* Pose::release_position() {
+ ::Indriya::Core::Msgs::Vector3d* Pose::release_position() {
   clear_has_position();
-  ::experimot::msgs::Vector3d* temp = position_;
+  ::Indriya::Core::Msgs::Vector3d* temp = position_;
   position_ = NULL;
   return temp;
 }
- void Pose::set_allocated_position(::experimot::msgs::Vector3d* position) {
+ void Pose::set_allocated_position(::Indriya::Core::Msgs::Vector3d* position) {
   delete position_;
   position_ = position;
   if (position) {
@@ -638,10 +639,10 @@ void Pose::InternalSwap(Pose* other) {
   } else {
     clear_has_position();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Pose.position)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Pose.position)
 }
 
-// required .experimot.msgs.Quaternion orientation = 4;
+// required .Indriya.Core.Msgs.Quaternion orientation = 4;
  bool Pose::has_orientation() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -652,28 +653,28 @@ void Pose::InternalSwap(Pose* other) {
   _has_bits_[0] &= ~0x00000008u;
 }
  void Pose::clear_orientation() {
-  if (orientation_ != NULL) orientation_->::experimot::msgs::Quaternion::Clear();
+  if (orientation_ != NULL) orientation_->::Indriya::Core::Msgs::Quaternion::Clear();
   clear_has_orientation();
 }
- const ::experimot::msgs::Quaternion& Pose::orientation() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Pose.orientation)
+ const ::Indriya::Core::Msgs::Quaternion& Pose::orientation() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Pose.orientation)
   return orientation_ != NULL ? *orientation_ : *default_instance_->orientation_;
 }
- ::experimot::msgs::Quaternion* Pose::mutable_orientation() {
+ ::Indriya::Core::Msgs::Quaternion* Pose::mutable_orientation() {
   set_has_orientation();
   if (orientation_ == NULL) {
-    orientation_ = new ::experimot::msgs::Quaternion;
+    orientation_ = new ::Indriya::Core::Msgs::Quaternion;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Pose.orientation)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Pose.orientation)
   return orientation_;
 }
- ::experimot::msgs::Quaternion* Pose::release_orientation() {
+ ::Indriya::Core::Msgs::Quaternion* Pose::release_orientation() {
   clear_has_orientation();
-  ::experimot::msgs::Quaternion* temp = orientation_;
+  ::Indriya::Core::Msgs::Quaternion* temp = orientation_;
   orientation_ = NULL;
   return temp;
 }
- void Pose::set_allocated_orientation(::experimot::msgs::Quaternion* orientation) {
+ void Pose::set_allocated_orientation(::Indriya::Core::Msgs::Quaternion* orientation) {
   delete orientation_;
   orientation_ = orientation;
   if (orientation) {
@@ -681,15 +682,16 @@ void Pose::InternalSwap(Pose* other) {
   } else {
     clear_has_orientation();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Pose.orientation)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Pose.orientation)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Pose", Pose)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Pose", Pose)
 // @@protoc_insertion_point(global_scope)

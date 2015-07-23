@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_joint_5fvalue_5fmap_2eproto();
@@ -122,7 +123,7 @@ class JointValue : public ::google::protobuf::Message {
   double value() const;
   void set_value(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.JointValue)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.JointValue)
  private:
   inline void set_has_id();
   inline void clear_has_id();
@@ -210,25 +211,25 @@ class JointValueVector : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .experimot.msgs.JointValue JointValues = 1;
+  // repeated .Indriya.Core.Msgs.JointValue JointValues = 1;
   int jointvalues_size() const;
   void clear_jointvalues();
   static const int kJointValuesFieldNumber = 1;
-  const ::experimot::msgs::JointValue& jointvalues(int index) const;
-  ::experimot::msgs::JointValue* mutable_jointvalues(int index);
-  ::experimot::msgs::JointValue* add_jointvalues();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::JointValue >&
+  const ::Indriya::Core::Msgs::JointValue& jointvalues(int index) const;
+  ::Indriya::Core::Msgs::JointValue* mutable_jointvalues(int index);
+  ::Indriya::Core::Msgs::JointValue* add_jointvalues();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::JointValue >&
       jointvalues() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::JointValue >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::JointValue >*
       mutable_jointvalues();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.JointValueVector)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.JointValueVector)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::JointValue > jointvalues_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::JointValue > jointvalues_;
   friend void  protobuf_AddDesc_joint_5fvalue_5fmap_2eproto();
   friend void protobuf_AssignDesc_joint_5fvalue_5fmap_2eproto();
   friend void protobuf_ShutdownFile_joint_5fvalue_5fmap_2eproto();
@@ -259,13 +260,13 @@ inline void JointValue::clear_id() {
   clear_has_id();
 }
 inline ::google::protobuf::int32 JointValue::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointValue.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointValue.id)
   return id_;
 }
 inline void JointValue::set_id(::google::protobuf::int32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.JointValue.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.JointValue.id)
 }
 
 // required double value = 2;
@@ -283,58 +284,59 @@ inline void JointValue::clear_value() {
   clear_has_value();
 }
 inline double JointValue::value() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointValue.value)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointValue.value)
   return value_;
 }
 inline void JointValue::set_value(double value) {
   set_has_value();
   value_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.JointValue.value)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.JointValue.value)
 }
 
 // -------------------------------------------------------------------
 
 // JointValueVector
 
-// repeated .experimot.msgs.JointValue JointValues = 1;
+// repeated .Indriya.Core.Msgs.JointValue JointValues = 1;
 inline int JointValueVector::jointvalues_size() const {
   return jointvalues_.size();
 }
 inline void JointValueVector::clear_jointvalues() {
   jointvalues_.Clear();
 }
-inline const ::experimot::msgs::JointValue& JointValueVector::jointvalues(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.JointValueVector.JointValues)
+inline const ::Indriya::Core::Msgs::JointValue& JointValueVector::jointvalues(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.JointValueVector.JointValues)
   return jointvalues_.Get(index);
 }
-inline ::experimot::msgs::JointValue* JointValueVector::mutable_jointvalues(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.JointValueVector.JointValues)
+inline ::Indriya::Core::Msgs::JointValue* JointValueVector::mutable_jointvalues(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.JointValueVector.JointValues)
   return jointvalues_.Mutable(index);
 }
-inline ::experimot::msgs::JointValue* JointValueVector::add_jointvalues() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.JointValueVector.JointValues)
+inline ::Indriya::Core::Msgs::JointValue* JointValueVector::add_jointvalues() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.JointValueVector.JointValues)
   return jointvalues_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::JointValue >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::JointValue >&
 JointValueVector::jointvalues() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.JointValueVector.JointValues)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.JointValueVector.JointValues)
   return jointvalues_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::JointValue >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::JointValue >*
 JointValueVector::mutable_jointvalues() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.JointValueVector.JointValues)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.JointValueVector.JointValues)
   return &jointvalues_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::JointValue> JointValuePtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::JointValue> JointValuePtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::JointValue const> ConstJointValuePtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::JointValue const> ConstJointValuePtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_joint_5fvalue_5fmap_2eproto__INCLUDED

@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -83,10 +84,10 @@ void protobuf_AddDesc_track_5fvisual_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\022track_visual.proto\022\016experimot.msgs\"h\n\013"
-    "TrackVisual\022\014\n\004name\030\001 \002(\t\022\n\n\002id\030\002 \001(\r\022\033\n"
-    "\023inherit_orientation\030\003 \001(\010\022\020\n\010min_dist\030\004"
-    " \001(\001\022\020\n\010max_dist\030\005 \001(\001", 142);
+    "\n\022track_visual.proto\022\021Indriya.Core.Msgs\""
+    "h\n\013TrackVisual\022\014\n\004name\030\001 \002(\t\022\n\n\002id\030\002 \001(\r"
+    "\022\033\n\023inherit_orientation\030\003 \001(\010\022\020\n\010min_dis"
+    "t\030\004 \001(\001\022\020\n\010max_dist\030\005 \001(\001", 145);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "track_visual.proto", &protobuf_RegisterTypes);
   TrackVisual::default_instance_ = new TrackVisual();
@@ -124,7 +125,7 @@ const int TrackVisual::kMaxDistFieldNumber;
 TrackVisual::TrackVisual()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.TrackVisual)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.TrackVisual)
 }
 
 void TrackVisual::InitAsDefaultInstance() {
@@ -135,7 +136,7 @@ TrackVisual::TrackVisual(const TrackVisual& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.TrackVisual)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.TrackVisual)
 }
 
 void TrackVisual::SharedCtor() {
@@ -150,7 +151,7 @@ void TrackVisual::SharedCtor() {
 }
 
 TrackVisual::~TrackVisual() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.TrackVisual)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.TrackVisual)
   SharedDtor();
 }
 
@@ -214,7 +215,7 @@ bool TrackVisual::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.TrackVisual)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.TrackVisual)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -228,7 +229,7 @@ bool TrackVisual::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.TrackVisual.name");
+            "Indriya.Core.Msgs.TrackVisual.name");
         } else {
           goto handle_unusual;
         }
@@ -310,23 +311,23 @@ bool TrackVisual::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.TrackVisual)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.TrackVisual)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.TrackVisual)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.TrackVisual)
   return false;
 #undef DO_
 }
 
 void TrackVisual::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.TrackVisual)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.TrackVisual)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.TrackVisual.name");
+      "Indriya.Core.Msgs.TrackVisual.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
@@ -355,18 +356,18 @@ void TrackVisual::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.TrackVisual)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.TrackVisual)
 }
 
 ::google::protobuf::uint8* TrackVisual::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.TrackVisual)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.TrackVisual)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.TrackVisual.name");
+      "Indriya.Core.Msgs.TrackVisual.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
@@ -396,7 +397,7 @@ void TrackVisual::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.TrackVisual)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.TrackVisual)
   return target;
 }
 
@@ -540,28 +541,28 @@ void TrackVisual::InternalSwap(TrackVisual* other) {
   clear_has_name();
 }
  const ::std::string& TrackVisual::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.TrackVisual.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.TrackVisual.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void TrackVisual::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.TrackVisual.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.TrackVisual.name)
 }
  void TrackVisual::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.TrackVisual.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.TrackVisual.name)
 }
  void TrackVisual::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.TrackVisual.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.TrackVisual.name)
 }
  ::std::string* TrackVisual::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.TrackVisual.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.TrackVisual.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* TrackVisual::release_name() {
@@ -575,7 +576,7 @@ void TrackVisual::InternalSwap(TrackVisual* other) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.TrackVisual.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.TrackVisual.name)
 }
 
 // optional uint32 id = 2;
@@ -593,13 +594,13 @@ void TrackVisual::InternalSwap(TrackVisual* other) {
   clear_has_id();
 }
  ::google::protobuf::uint32 TrackVisual::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.TrackVisual.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.TrackVisual.id)
   return id_;
 }
  void TrackVisual::set_id(::google::protobuf::uint32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.TrackVisual.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.TrackVisual.id)
 }
 
 // optional bool inherit_orientation = 3;
@@ -617,13 +618,13 @@ void TrackVisual::InternalSwap(TrackVisual* other) {
   clear_has_inherit_orientation();
 }
  bool TrackVisual::inherit_orientation() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.TrackVisual.inherit_orientation)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.TrackVisual.inherit_orientation)
   return inherit_orientation_;
 }
  void TrackVisual::set_inherit_orientation(bool value) {
   set_has_inherit_orientation();
   inherit_orientation_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.TrackVisual.inherit_orientation)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.TrackVisual.inherit_orientation)
 }
 
 // optional double min_dist = 4;
@@ -641,13 +642,13 @@ void TrackVisual::InternalSwap(TrackVisual* other) {
   clear_has_min_dist();
 }
  double TrackVisual::min_dist() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.TrackVisual.min_dist)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.TrackVisual.min_dist)
   return min_dist_;
 }
  void TrackVisual::set_min_dist(double value) {
   set_has_min_dist();
   min_dist_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.TrackVisual.min_dist)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.TrackVisual.min_dist)
 }
 
 // optional double max_dist = 5;
@@ -665,21 +666,22 @@ void TrackVisual::InternalSwap(TrackVisual* other) {
   clear_has_max_dist();
 }
  double TrackVisual::max_dist() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.TrackVisual.max_dist)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.TrackVisual.max_dist)
   return max_dist_;
 }
  void TrackVisual::set_max_dist(double value) {
   set_has_max_dist();
   max_dist_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.TrackVisual.max_dist)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.TrackVisual.max_dist)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.TrackVisual", TrackVisual)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.TrackVisual", TrackVisual)
 // @@protoc_insertion_point(global_scope)

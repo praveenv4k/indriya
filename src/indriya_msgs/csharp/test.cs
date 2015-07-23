@@ -9,16 +9,16 @@
 
 // Generated from: proto/test.proto
 // Note: requires additional types generated from: header.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Test")]
   public partial class Test : global::ProtoBuf.IExtensible
   {
     public Test() {}
     
-    private experimot.msgs.Header _header;
+    private Indriya.Core.Msgs.Header _header;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"header", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Header header
+    public Indriya.Core.Msgs.Header header
     {
       get { return _header; }
       set { _header = value; }

@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_fog_2eproto();
@@ -156,21 +157,21 @@ class Fog : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .experimot.msgs.Fog.FogType type = 1;
+  // optional .Indriya.Core.Msgs.Fog.FogType type = 1;
   bool has_type() const;
   void clear_type();
   static const int kTypeFieldNumber = 1;
-  ::experimot::msgs::Fog_FogType type() const;
-  void set_type(::experimot::msgs::Fog_FogType value);
+  ::Indriya::Core::Msgs::Fog_FogType type() const;
+  void set_type(::Indriya::Core::Msgs::Fog_FogType value);
 
-  // optional .experimot.msgs.Color color = 2;
+  // optional .Indriya.Core.Msgs.Color color = 2;
   bool has_color() const;
   void clear_color();
   static const int kColorFieldNumber = 2;
-  const ::experimot::msgs::Color& color() const;
-  ::experimot::msgs::Color* mutable_color();
-  ::experimot::msgs::Color* release_color();
-  void set_allocated_color(::experimot::msgs::Color* color);
+  const ::Indriya::Core::Msgs::Color& color() const;
+  ::Indriya::Core::Msgs::Color* mutable_color();
+  ::Indriya::Core::Msgs::Color* release_color();
+  void set_allocated_color(::Indriya::Core::Msgs::Color* color);
 
   // optional float density = 3;
   bool has_density() const;
@@ -193,7 +194,7 @@ class Fog : public ::google::protobuf::Message {
   float end() const;
   void set_end(float value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Fog)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Fog)
  private:
   inline void set_has_type();
   inline void clear_has_type();
@@ -209,7 +210,7 @@ class Fog : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::Color* color_;
+  ::Indriya::Core::Msgs::Color* color_;
   int type_;
   float density_;
   float start_;
@@ -229,7 +230,7 @@ class Fog : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // Fog
 
-// optional .experimot.msgs.Fog.FogType type = 1;
+// optional .Indriya.Core.Msgs.Fog.FogType type = 1;
 inline bool Fog::has_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -243,18 +244,18 @@ inline void Fog::clear_type() {
   type_ = 1;
   clear_has_type();
 }
-inline ::experimot::msgs::Fog_FogType Fog::type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Fog.type)
-  return static_cast< ::experimot::msgs::Fog_FogType >(type_);
+inline ::Indriya::Core::Msgs::Fog_FogType Fog::type() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Fog.type)
+  return static_cast< ::Indriya::Core::Msgs::Fog_FogType >(type_);
 }
-inline void Fog::set_type(::experimot::msgs::Fog_FogType value) {
-  assert(::experimot::msgs::Fog_FogType_IsValid(value));
+inline void Fog::set_type(::Indriya::Core::Msgs::Fog_FogType value) {
+  assert(::Indriya::Core::Msgs::Fog_FogType_IsValid(value));
   set_has_type();
   type_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Fog.type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Fog.type)
 }
 
-// optional .experimot.msgs.Color color = 2;
+// optional .Indriya.Core.Msgs.Color color = 2;
 inline bool Fog::has_color() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -265,28 +266,28 @@ inline void Fog::clear_has_color() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void Fog::clear_color() {
-  if (color_ != NULL) color_->::experimot::msgs::Color::Clear();
+  if (color_ != NULL) color_->::Indriya::Core::Msgs::Color::Clear();
   clear_has_color();
 }
-inline const ::experimot::msgs::Color& Fog::color() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Fog.color)
+inline const ::Indriya::Core::Msgs::Color& Fog::color() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Fog.color)
   return color_ != NULL ? *color_ : *default_instance_->color_;
 }
-inline ::experimot::msgs::Color* Fog::mutable_color() {
+inline ::Indriya::Core::Msgs::Color* Fog::mutable_color() {
   set_has_color();
   if (color_ == NULL) {
-    color_ = new ::experimot::msgs::Color;
+    color_ = new ::Indriya::Core::Msgs::Color;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Fog.color)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Fog.color)
   return color_;
 }
-inline ::experimot::msgs::Color* Fog::release_color() {
+inline ::Indriya::Core::Msgs::Color* Fog::release_color() {
   clear_has_color();
-  ::experimot::msgs::Color* temp = color_;
+  ::Indriya::Core::Msgs::Color* temp = color_;
   color_ = NULL;
   return temp;
 }
-inline void Fog::set_allocated_color(::experimot::msgs::Color* color) {
+inline void Fog::set_allocated_color(::Indriya::Core::Msgs::Color* color) {
   delete color_;
   color_ = color;
   if (color) {
@@ -294,7 +295,7 @@ inline void Fog::set_allocated_color(::experimot::msgs::Color* color) {
   } else {
     clear_has_color();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Fog.color)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Fog.color)
 }
 
 // optional float density = 3;
@@ -312,13 +313,13 @@ inline void Fog::clear_density() {
   clear_has_density();
 }
 inline float Fog::density() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Fog.density)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Fog.density)
   return density_;
 }
 inline void Fog::set_density(float value) {
   set_has_density();
   density_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Fog.density)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Fog.density)
 }
 
 // optional float start = 4;
@@ -336,13 +337,13 @@ inline void Fog::clear_start() {
   clear_has_start();
 }
 inline float Fog::start() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Fog.start)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Fog.start)
   return start_;
 }
 inline void Fog::set_start(float value) {
   set_has_start();
   start_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Fog.start)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Fog.start)
 }
 
 // optional float end = 5;
@@ -360,38 +361,39 @@ inline void Fog::clear_end() {
   clear_has_end();
 }
 inline float Fog::end() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Fog.end)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Fog.end)
   return end_;
 }
 inline void Fog::set_end(float value) {
   set_has_end();
   end_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Fog.end)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Fog.end)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Fog> FogPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Fog> FogPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::experimot::msgs::Fog_FogType> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Indriya::Core::Msgs::Fog_FogType> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::Fog_FogType>() {
-  return ::experimot::msgs::Fog_FogType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Indriya::Core::Msgs::Fog_FogType>() {
+  return ::Indriya::Core::Msgs::Fog_FogType_descriptor();
 }
 
 }  // namespace protobuf
 }  // namespace google
 #endif  // SWIG
 
-typedef const boost::shared_ptr<experimot::msgs::Fog const> ConstFogPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Fog const> ConstFogPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_fog_2eproto__INCLUDED

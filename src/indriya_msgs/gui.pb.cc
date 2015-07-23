@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -80,14 +81,14 @@ void protobuf_AddDesc_gui_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_gui_5fcamera_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_plugin_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_gui_5fcamera_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_plugin_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\tgui.proto\022\016experimot.msgs\032\020gui_camera."
-    "proto\032\014plugin.proto\"l\n\003GUI\022\022\n\nfullscreen"
-    "\030\001 \001(\010\022)\n\006camera\030\002 \001(\0132\031.experimot.msgs."
-    "GUICamera\022&\n\006plugin\030\003 \003(\0132\026.experimot.ms"
-    "gs.Plugin", 169);
+    "\n\tgui.proto\022\021Indriya.Core.Msgs\032\020gui_came"
+    "ra.proto\032\014plugin.proto\"r\n\003GUI\022\022\n\nfullscr"
+    "een\030\001 \001(\010\022,\n\006camera\030\002 \001(\0132\034.Indriya.Core"
+    ".Msgs.GUICamera\022)\n\006plugin\030\003 \003(\0132\031.Indriy"
+    "a.Core.Msgs.Plugin", 178);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "gui.proto", &protobuf_RegisterTypes);
   GUI::default_instance_ = new GUI();
@@ -123,11 +124,11 @@ const int GUI::kPluginFieldNumber;
 GUI::GUI()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.GUI)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.GUI)
 }
 
 void GUI::InitAsDefaultInstance() {
-  camera_ = const_cast< ::experimot::msgs::GUICamera*>(&::experimot::msgs::GUICamera::default_instance());
+  camera_ = const_cast< ::Indriya::Core::Msgs::GUICamera*>(&::Indriya::Core::Msgs::GUICamera::default_instance());
 }
 
 GUI::GUI(const GUI& from)
@@ -135,7 +136,7 @@ GUI::GUI(const GUI& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.GUI)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.GUI)
 }
 
 void GUI::SharedCtor() {
@@ -146,7 +147,7 @@ void GUI::SharedCtor() {
 }
 
 GUI::~GUI() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.GUI)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.GUI)
   SharedDtor();
 }
 
@@ -185,7 +186,7 @@ void GUI::Clear() {
   if (_has_bits_[0 / 32] & 3) {
     fullscreen_ = false;
     if (has_camera()) {
-      if (camera_ != NULL) camera_->::experimot::msgs::GUICamera::Clear();
+      if (camera_ != NULL) camera_->::Indriya::Core::Msgs::GUICamera::Clear();
     }
   }
   plugin_.Clear();
@@ -199,7 +200,7 @@ bool GUI::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.GUI)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.GUI)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -219,7 +220,7 @@ bool GUI::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.GUICamera camera = 2;
+      // optional .Indriya.Core.Msgs.GUICamera camera = 2;
       case 2: {
         if (tag == 18) {
          parse_camera:
@@ -232,7 +233,7 @@ bool GUI::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .experimot.msgs.Plugin plugin = 3;
+      // repeated .Indriya.Core.Msgs.Plugin plugin = 3;
       case 3: {
         if (tag == 26) {
          parse_plugin:
@@ -260,29 +261,29 @@ bool GUI::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.GUI)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.GUI)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.GUI)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.GUI)
   return false;
 #undef DO_
 }
 
 void GUI::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.GUI)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.GUI)
   // optional bool fullscreen = 1;
   if (has_fullscreen()) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->fullscreen(), output);
   }
 
-  // optional .experimot.msgs.GUICamera camera = 2;
+  // optional .Indriya.Core.Msgs.GUICamera camera = 2;
   if (has_camera()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->camera_, output);
   }
 
-  // repeated .experimot.msgs.Plugin plugin = 3;
+  // repeated .Indriya.Core.Msgs.Plugin plugin = 3;
   for (unsigned int i = 0, n = this->plugin_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, this->plugin(i), output);
@@ -292,25 +293,25 @@ void GUI::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.GUI)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.GUI)
 }
 
 ::google::protobuf::uint8* GUI::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.GUI)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.GUI)
   // optional bool fullscreen = 1;
   if (has_fullscreen()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->fullscreen(), target);
   }
 
-  // optional .experimot.msgs.GUICamera camera = 2;
+  // optional .Indriya.Core.Msgs.GUICamera camera = 2;
   if (has_camera()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         2, *this->camera_, target);
   }
 
-  // repeated .experimot.msgs.Plugin plugin = 3;
+  // repeated .Indriya.Core.Msgs.Plugin plugin = 3;
   for (unsigned int i = 0, n = this->plugin_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -321,7 +322,7 @@ void GUI::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.GUI)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.GUI)
   return target;
 }
 
@@ -334,7 +335,7 @@ int GUI::ByteSize() const {
       total_size += 1 + 1;
     }
 
-    // optional .experimot.msgs.GUICamera camera = 2;
+    // optional .Indriya.Core.Msgs.GUICamera camera = 2;
     if (has_camera()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -342,7 +343,7 @@ int GUI::ByteSize() const {
     }
 
   }
-  // repeated .experimot.msgs.Plugin plugin = 3;
+  // repeated .Indriya.Core.Msgs.Plugin plugin = 3;
   total_size += 1 * this->plugin_size();
   for (int i = 0; i < this->plugin_size(); i++) {
     total_size +=
@@ -381,7 +382,7 @@ void GUI::MergeFrom(const GUI& from) {
       set_fullscreen(from.fullscreen());
     }
     if (from.has_camera()) {
-      mutable_camera()->::experimot::msgs::GUICamera::MergeFrom(from.camera());
+      mutable_camera()->::Indriya::Core::Msgs::GUICamera::MergeFrom(from.camera());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -449,16 +450,16 @@ void GUI::InternalSwap(GUI* other) {
   clear_has_fullscreen();
 }
  bool GUI::fullscreen() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GUI.fullscreen)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GUI.fullscreen)
   return fullscreen_;
 }
  void GUI::set_fullscreen(bool value) {
   set_has_fullscreen();
   fullscreen_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.GUI.fullscreen)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GUI.fullscreen)
 }
 
-// optional .experimot.msgs.GUICamera camera = 2;
+// optional .Indriya.Core.Msgs.GUICamera camera = 2;
  bool GUI::has_camera() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -469,28 +470,28 @@ void GUI::InternalSwap(GUI* other) {
   _has_bits_[0] &= ~0x00000002u;
 }
  void GUI::clear_camera() {
-  if (camera_ != NULL) camera_->::experimot::msgs::GUICamera::Clear();
+  if (camera_ != NULL) camera_->::Indriya::Core::Msgs::GUICamera::Clear();
   clear_has_camera();
 }
- const ::experimot::msgs::GUICamera& GUI::camera() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GUI.camera)
+ const ::Indriya::Core::Msgs::GUICamera& GUI::camera() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GUI.camera)
   return camera_ != NULL ? *camera_ : *default_instance_->camera_;
 }
- ::experimot::msgs::GUICamera* GUI::mutable_camera() {
+ ::Indriya::Core::Msgs::GUICamera* GUI::mutable_camera() {
   set_has_camera();
   if (camera_ == NULL) {
-    camera_ = new ::experimot::msgs::GUICamera;
+    camera_ = new ::Indriya::Core::Msgs::GUICamera;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GUI.camera)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GUI.camera)
   return camera_;
 }
- ::experimot::msgs::GUICamera* GUI::release_camera() {
+ ::Indriya::Core::Msgs::GUICamera* GUI::release_camera() {
   clear_has_camera();
-  ::experimot::msgs::GUICamera* temp = camera_;
+  ::Indriya::Core::Msgs::GUICamera* temp = camera_;
   camera_ = NULL;
   return temp;
 }
- void GUI::set_allocated_camera(::experimot::msgs::GUICamera* camera) {
+ void GUI::set_allocated_camera(::Indriya::Core::Msgs::GUICamera* camera) {
   delete camera_;
   camera_ = camera;
   if (camera) {
@@ -498,36 +499,36 @@ void GUI::InternalSwap(GUI* other) {
   } else {
     clear_has_camera();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GUI.camera)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.GUI.camera)
 }
 
-// repeated .experimot.msgs.Plugin plugin = 3;
+// repeated .Indriya.Core.Msgs.Plugin plugin = 3;
  int GUI::plugin_size() const {
   return plugin_.size();
 }
  void GUI::clear_plugin() {
   plugin_.Clear();
 }
- const ::experimot::msgs::Plugin& GUI::plugin(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GUI.plugin)
+ const ::Indriya::Core::Msgs::Plugin& GUI::plugin(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GUI.plugin)
   return plugin_.Get(index);
 }
- ::experimot::msgs::Plugin* GUI::mutable_plugin(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GUI.plugin)
+ ::Indriya::Core::Msgs::Plugin* GUI::mutable_plugin(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GUI.plugin)
   return plugin_.Mutable(index);
 }
- ::experimot::msgs::Plugin* GUI::add_plugin() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.GUI.plugin)
+ ::Indriya::Core::Msgs::Plugin* GUI::add_plugin() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.GUI.plugin)
   return plugin_.Add();
 }
- const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Plugin >&
+ const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Plugin >&
 GUI::plugin() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.GUI.plugin)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.GUI.plugin)
   return plugin_;
 }
- ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Plugin >*
+ ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Plugin >*
 GUI::mutable_plugin() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.GUI.plugin)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.GUI.plugin)
   return &plugin_;
 }
 
@@ -535,8 +536,9 @@ GUI::mutable_plugin() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.GUI", GUI)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.GUI", GUI)
 // @@protoc_insertion_point(global_scope)

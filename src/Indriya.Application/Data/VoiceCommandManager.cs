@@ -2,8 +2,8 @@ using System;
 using System.ComponentModel;
 using System.Globalization;
 using System.Runtime.CompilerServices;
-using experimot.msgs;
 using Experimot.Scheduler.Annotations;
+using Indriya.Core.Msgs;
 
 namespace Indriya.Application.Data
 {

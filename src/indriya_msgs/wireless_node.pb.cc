@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -81,9 +82,9 @@ void protobuf_AddDesc_wireless_5fnode_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\023wireless_node.proto\022\016experimot.msgs\"F\n"
-    "\014WirelessNode\022\r\n\005essid\030\001 \002(\t\022\021\n\tfrequenc"
-    "y\030\002 \002(\001\022\024\n\014signal_level\030\003 \002(\001", 109);
+    "\n\023wireless_node.proto\022\021Indriya.Core.Msgs"
+    "\"F\n\014WirelessNode\022\r\n\005essid\030\001 \002(\t\022\021\n\tfrequ"
+    "ency\030\002 \002(\001\022\024\n\014signal_level\030\003 \002(\001", 112);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "wireless_node.proto", &protobuf_RegisterTypes);
   WirelessNode::default_instance_ = new WirelessNode();
@@ -119,7 +120,7 @@ const int WirelessNode::kSignalLevelFieldNumber;
 WirelessNode::WirelessNode()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.WirelessNode)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.WirelessNode)
 }
 
 void WirelessNode::InitAsDefaultInstance() {
@@ -130,7 +131,7 @@ WirelessNode::WirelessNode(const WirelessNode& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.WirelessNode)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.WirelessNode)
 }
 
 void WirelessNode::SharedCtor() {
@@ -143,7 +144,7 @@ void WirelessNode::SharedCtor() {
 }
 
 WirelessNode::~WirelessNode() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.WirelessNode)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.WirelessNode)
   SharedDtor();
 }
 
@@ -207,7 +208,7 @@ bool WirelessNode::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.WirelessNode)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.WirelessNode)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -221,7 +222,7 @@ bool WirelessNode::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->essid().data(), this->essid().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.WirelessNode.essid");
+            "Indriya.Core.Msgs.WirelessNode.essid");
         } else {
           goto handle_unusual;
         }
@@ -273,23 +274,23 @@ bool WirelessNode::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.WirelessNode)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.WirelessNode)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.WirelessNode)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.WirelessNode)
   return false;
 #undef DO_
 }
 
 void WirelessNode::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.WirelessNode)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.WirelessNode)
   // required string essid = 1;
   if (has_essid()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->essid().data(), this->essid().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.WirelessNode.essid");
+      "Indriya.Core.Msgs.WirelessNode.essid");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->essid(), output);
   }
@@ -308,18 +309,18 @@ void WirelessNode::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.WirelessNode)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.WirelessNode)
 }
 
 ::google::protobuf::uint8* WirelessNode::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.WirelessNode)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.WirelessNode)
   // required string essid = 1;
   if (has_essid()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->essid().data(), this->essid().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.WirelessNode.essid");
+      "Indriya.Core.Msgs.WirelessNode.essid");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->essid(), target);
@@ -339,7 +340,7 @@ void WirelessNode::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.WirelessNode)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.WirelessNode)
   return target;
 }
 
@@ -482,28 +483,28 @@ void WirelessNode::InternalSwap(WirelessNode* other) {
   clear_has_essid();
 }
  const ::std::string& WirelessNode::essid() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WirelessNode.essid)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WirelessNode.essid)
   return essid_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void WirelessNode::set_essid(const ::std::string& value) {
   set_has_essid();
   essid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.WirelessNode.essid)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WirelessNode.essid)
 }
  void WirelessNode::set_essid(const char* value) {
   set_has_essid();
   essid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.WirelessNode.essid)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.WirelessNode.essid)
 }
  void WirelessNode::set_essid(const char* value, size_t size) {
   set_has_essid();
   essid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.WirelessNode.essid)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.WirelessNode.essid)
 }
  ::std::string* WirelessNode::mutable_essid() {
   set_has_essid();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.WirelessNode.essid)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.WirelessNode.essid)
   return essid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* WirelessNode::release_essid() {
@@ -517,7 +518,7 @@ void WirelessNode::InternalSwap(WirelessNode* other) {
     clear_has_essid();
   }
   essid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), essid);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.WirelessNode.essid)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.WirelessNode.essid)
 }
 
 // required double frequency = 2;
@@ -535,13 +536,13 @@ void WirelessNode::InternalSwap(WirelessNode* other) {
   clear_has_frequency();
 }
  double WirelessNode::frequency() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WirelessNode.frequency)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WirelessNode.frequency)
   return frequency_;
 }
  void WirelessNode::set_frequency(double value) {
   set_has_frequency();
   frequency_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WirelessNode.frequency)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WirelessNode.frequency)
 }
 
 // required double signal_level = 3;
@@ -559,21 +560,22 @@ void WirelessNode::InternalSwap(WirelessNode* other) {
   clear_has_signal_level();
 }
  double WirelessNode::signal_level() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.WirelessNode.signal_level)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.WirelessNode.signal_level)
   return signal_level_;
 }
  void WirelessNode::set_signal_level(double value) {
   set_has_signal_level();
   signal_level_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.WirelessNode.signal_level)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.WirelessNode.signal_level)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.WirelessNode", WirelessNode)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.WirelessNode", WirelessNode)
 // @@protoc_insertion_point(global_scope)

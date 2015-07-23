@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -81,9 +82,9 @@ void protobuf_AddDesc_selection_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\017selection.proto\022\016experimot.msgs\">\n\tSel"
-    "ection\022\n\n\002id\030\001 \002(\r\022\014\n\004name\030\002 \002(\t\022\027\n\010sele"
-    "cted\030\003 \001(\010:\005false", 97);
+    "\n\017selection.proto\022\021Indriya.Core.Msgs\">\n\t"
+    "Selection\022\n\n\002id\030\001 \002(\r\022\014\n\004name\030\002 \002(\t\022\027\n\010s"
+    "elected\030\003 \001(\010:\005false", 100);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "selection.proto", &protobuf_RegisterTypes);
   Selection::default_instance_ = new Selection();
@@ -119,7 +120,7 @@ const int Selection::kSelectedFieldNumber;
 Selection::Selection()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Selection)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Selection)
 }
 
 void Selection::InitAsDefaultInstance() {
@@ -130,7 +131,7 @@ Selection::Selection(const Selection& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Selection)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Selection)
 }
 
 void Selection::SharedCtor() {
@@ -143,7 +144,7 @@ void Selection::SharedCtor() {
 }
 
 Selection::~Selection() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Selection)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Selection)
   SharedDtor();
 }
 
@@ -207,7 +208,7 @@ bool Selection::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Selection)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Selection)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -236,7 +237,7 @@ bool Selection::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Selection.name");
+            "Indriya.Core.Msgs.Selection.name");
         } else {
           goto handle_unusual;
         }
@@ -273,17 +274,17 @@ bool Selection::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Selection)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Selection)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Selection)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Selection)
   return false;
 #undef DO_
 }
 
 void Selection::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Selection)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Selection)
   // required uint32 id = 1;
   if (has_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
@@ -294,7 +295,7 @@ void Selection::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Selection.name");
+      "Indriya.Core.Msgs.Selection.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->name(), output);
   }
@@ -308,12 +309,12 @@ void Selection::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Selection)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Selection)
 }
 
 ::google::protobuf::uint8* Selection::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Selection)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Selection)
   // required uint32 id = 1;
   if (has_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
@@ -324,7 +325,7 @@ void Selection::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Selection.name");
+      "Indriya.Core.Msgs.Selection.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->name(), target);
@@ -339,7 +340,7 @@ void Selection::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Selection)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Selection)
   return target;
 }
 
@@ -483,13 +484,13 @@ void Selection::InternalSwap(Selection* other) {
   clear_has_id();
 }
  ::google::protobuf::uint32 Selection::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Selection.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Selection.id)
   return id_;
 }
  void Selection::set_id(::google::protobuf::uint32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Selection.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Selection.id)
 }
 
 // required string name = 2;
@@ -507,28 +508,28 @@ void Selection::InternalSwap(Selection* other) {
   clear_has_name();
 }
  const ::std::string& Selection::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Selection.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Selection.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Selection::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Selection.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Selection.name)
 }
  void Selection::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Selection.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Selection.name)
 }
  void Selection::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Selection.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Selection.name)
 }
  ::std::string* Selection::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Selection.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Selection.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Selection::release_name() {
@@ -542,7 +543,7 @@ void Selection::InternalSwap(Selection* other) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Selection.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Selection.name)
 }
 
 // optional bool selected = 3 [default = false];
@@ -560,21 +561,22 @@ void Selection::InternalSwap(Selection* other) {
   clear_has_selected();
 }
  bool Selection::selected() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Selection.selected)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Selection.selected)
   return selected_;
 }
  void Selection::set_selected(bool value) {
   set_has_selected();
   selected_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Selection.selected)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Selection.selected)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Selection", Selection)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Selection", Selection)
 // @@protoc_insertion_point(global_scope)

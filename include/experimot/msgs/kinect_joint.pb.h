@@ -34,8 +34,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_kinect_5fjoint_2eproto();
@@ -244,37 +245,37 @@ class KinectJoint : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .experimot.msgs.KinectJoint.JointType Type = 1;
+  // required .Indriya.Core.Msgs.KinectJoint.JointType Type = 1;
   bool has_type() const;
   void clear_type();
   static const int kTypeFieldNumber = 1;
-  ::experimot::msgs::KinectJoint_JointType type() const;
-  void set_type(::experimot::msgs::KinectJoint_JointType value);
+  ::Indriya::Core::Msgs::KinectJoint_JointType type() const;
+  void set_type(::Indriya::Core::Msgs::KinectJoint_JointType value);
 
-  // required .experimot.msgs.KinectJoint.TrackingState State = 2;
+  // required .Indriya.Core.Msgs.KinectJoint.TrackingState State = 2;
   bool has_state() const;
   void clear_state();
   static const int kStateFieldNumber = 2;
-  ::experimot::msgs::KinectJoint_TrackingState state() const;
-  void set_state(::experimot::msgs::KinectJoint_TrackingState value);
+  ::Indriya::Core::Msgs::KinectJoint_TrackingState state() const;
+  void set_state(::Indriya::Core::Msgs::KinectJoint_TrackingState value);
 
-  // required .experimot.msgs.Vector3d Position = 3;
+  // required .Indriya.Core.Msgs.Vector3d Position = 3;
   bool has_position() const;
   void clear_position();
   static const int kPositionFieldNumber = 3;
-  const ::experimot::msgs::Vector3d& position() const;
-  ::experimot::msgs::Vector3d* mutable_position();
-  ::experimot::msgs::Vector3d* release_position();
-  void set_allocated_position(::experimot::msgs::Vector3d* position);
+  const ::Indriya::Core::Msgs::Vector3d& position() const;
+  ::Indriya::Core::Msgs::Vector3d* mutable_position();
+  ::Indriya::Core::Msgs::Vector3d* release_position();
+  void set_allocated_position(::Indriya::Core::Msgs::Vector3d* position);
 
-  // required .experimot.msgs.Quaternion Orientation = 4;
+  // required .Indriya.Core.Msgs.Quaternion Orientation = 4;
   bool has_orientation() const;
   void clear_orientation();
   static const int kOrientationFieldNumber = 4;
-  const ::experimot::msgs::Quaternion& orientation() const;
-  ::experimot::msgs::Quaternion* mutable_orientation();
-  ::experimot::msgs::Quaternion* release_orientation();
-  void set_allocated_orientation(::experimot::msgs::Quaternion* orientation);
+  const ::Indriya::Core::Msgs::Quaternion& orientation() const;
+  ::Indriya::Core::Msgs::Quaternion* mutable_orientation();
+  ::Indriya::Core::Msgs::Quaternion* release_orientation();
+  void set_allocated_orientation(::Indriya::Core::Msgs::Quaternion* orientation);
 
   // optional float Angle = 5 [default = -1000];
   bool has_angle() const;
@@ -283,7 +284,7 @@ class KinectJoint : public ::google::protobuf::Message {
   float angle() const;
   void set_angle(float value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.KinectJoint)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.KinectJoint)
  private:
   inline void set_has_type();
   inline void clear_has_type();
@@ -304,8 +305,8 @@ class KinectJoint : public ::google::protobuf::Message {
   mutable int _cached_size_;
   int type_;
   int state_;
-  ::experimot::msgs::Vector3d* position_;
-  ::experimot::msgs::Quaternion* orientation_;
+  ::Indriya::Core::Msgs::Vector3d* position_;
+  ::Indriya::Core::Msgs::Quaternion* orientation_;
   float angle_;
   friend void  protobuf_AddDesc_kinect_5fjoint_2eproto();
   friend void protobuf_AssignDesc_kinect_5fjoint_2eproto();
@@ -322,7 +323,7 @@ class KinectJoint : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // KinectJoint
 
-// required .experimot.msgs.KinectJoint.JointType Type = 1;
+// required .Indriya.Core.Msgs.KinectJoint.JointType Type = 1;
 inline bool KinectJoint::has_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -336,18 +337,18 @@ inline void KinectJoint::clear_type() {
   type_ = 0;
   clear_has_type();
 }
-inline ::experimot::msgs::KinectJoint_JointType KinectJoint::type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectJoint.Type)
-  return static_cast< ::experimot::msgs::KinectJoint_JointType >(type_);
+inline ::Indriya::Core::Msgs::KinectJoint_JointType KinectJoint::type() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectJoint.Type)
+  return static_cast< ::Indriya::Core::Msgs::KinectJoint_JointType >(type_);
 }
-inline void KinectJoint::set_type(::experimot::msgs::KinectJoint_JointType value) {
-  assert(::experimot::msgs::KinectJoint_JointType_IsValid(value));
+inline void KinectJoint::set_type(::Indriya::Core::Msgs::KinectJoint_JointType value) {
+  assert(::Indriya::Core::Msgs::KinectJoint_JointType_IsValid(value));
   set_has_type();
   type_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.KinectJoint.Type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.KinectJoint.Type)
 }
 
-// required .experimot.msgs.KinectJoint.TrackingState State = 2;
+// required .Indriya.Core.Msgs.KinectJoint.TrackingState State = 2;
 inline bool KinectJoint::has_state() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -361,18 +362,18 @@ inline void KinectJoint::clear_state() {
   state_ = 0;
   clear_has_state();
 }
-inline ::experimot::msgs::KinectJoint_TrackingState KinectJoint::state() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectJoint.State)
-  return static_cast< ::experimot::msgs::KinectJoint_TrackingState >(state_);
+inline ::Indriya::Core::Msgs::KinectJoint_TrackingState KinectJoint::state() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectJoint.State)
+  return static_cast< ::Indriya::Core::Msgs::KinectJoint_TrackingState >(state_);
 }
-inline void KinectJoint::set_state(::experimot::msgs::KinectJoint_TrackingState value) {
-  assert(::experimot::msgs::KinectJoint_TrackingState_IsValid(value));
+inline void KinectJoint::set_state(::Indriya::Core::Msgs::KinectJoint_TrackingState value) {
+  assert(::Indriya::Core::Msgs::KinectJoint_TrackingState_IsValid(value));
   set_has_state();
   state_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.KinectJoint.State)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.KinectJoint.State)
 }
 
-// required .experimot.msgs.Vector3d Position = 3;
+// required .Indriya.Core.Msgs.Vector3d Position = 3;
 inline bool KinectJoint::has_position() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -383,28 +384,28 @@ inline void KinectJoint::clear_has_position() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void KinectJoint::clear_position() {
-  if (position_ != NULL) position_->::experimot::msgs::Vector3d::Clear();
+  if (position_ != NULL) position_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_position();
 }
-inline const ::experimot::msgs::Vector3d& KinectJoint::position() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectJoint.Position)
+inline const ::Indriya::Core::Msgs::Vector3d& KinectJoint::position() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectJoint.Position)
   return position_ != NULL ? *position_ : *default_instance_->position_;
 }
-inline ::experimot::msgs::Vector3d* KinectJoint::mutable_position() {
+inline ::Indriya::Core::Msgs::Vector3d* KinectJoint::mutable_position() {
   set_has_position();
   if (position_ == NULL) {
-    position_ = new ::experimot::msgs::Vector3d;
+    position_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.KinectJoint.Position)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.KinectJoint.Position)
   return position_;
 }
-inline ::experimot::msgs::Vector3d* KinectJoint::release_position() {
+inline ::Indriya::Core::Msgs::Vector3d* KinectJoint::release_position() {
   clear_has_position();
-  ::experimot::msgs::Vector3d* temp = position_;
+  ::Indriya::Core::Msgs::Vector3d* temp = position_;
   position_ = NULL;
   return temp;
 }
-inline void KinectJoint::set_allocated_position(::experimot::msgs::Vector3d* position) {
+inline void KinectJoint::set_allocated_position(::Indriya::Core::Msgs::Vector3d* position) {
   delete position_;
   position_ = position;
   if (position) {
@@ -412,10 +413,10 @@ inline void KinectJoint::set_allocated_position(::experimot::msgs::Vector3d* pos
   } else {
     clear_has_position();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.KinectJoint.Position)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.KinectJoint.Position)
 }
 
-// required .experimot.msgs.Quaternion Orientation = 4;
+// required .Indriya.Core.Msgs.Quaternion Orientation = 4;
 inline bool KinectJoint::has_orientation() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -426,28 +427,28 @@ inline void KinectJoint::clear_has_orientation() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void KinectJoint::clear_orientation() {
-  if (orientation_ != NULL) orientation_->::experimot::msgs::Quaternion::Clear();
+  if (orientation_ != NULL) orientation_->::Indriya::Core::Msgs::Quaternion::Clear();
   clear_has_orientation();
 }
-inline const ::experimot::msgs::Quaternion& KinectJoint::orientation() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectJoint.Orientation)
+inline const ::Indriya::Core::Msgs::Quaternion& KinectJoint::orientation() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectJoint.Orientation)
   return orientation_ != NULL ? *orientation_ : *default_instance_->orientation_;
 }
-inline ::experimot::msgs::Quaternion* KinectJoint::mutable_orientation() {
+inline ::Indriya::Core::Msgs::Quaternion* KinectJoint::mutable_orientation() {
   set_has_orientation();
   if (orientation_ == NULL) {
-    orientation_ = new ::experimot::msgs::Quaternion;
+    orientation_ = new ::Indriya::Core::Msgs::Quaternion;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.KinectJoint.Orientation)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.KinectJoint.Orientation)
   return orientation_;
 }
-inline ::experimot::msgs::Quaternion* KinectJoint::release_orientation() {
+inline ::Indriya::Core::Msgs::Quaternion* KinectJoint::release_orientation() {
   clear_has_orientation();
-  ::experimot::msgs::Quaternion* temp = orientation_;
+  ::Indriya::Core::Msgs::Quaternion* temp = orientation_;
   orientation_ = NULL;
   return temp;
 }
-inline void KinectJoint::set_allocated_orientation(::experimot::msgs::Quaternion* orientation) {
+inline void KinectJoint::set_allocated_orientation(::Indriya::Core::Msgs::Quaternion* orientation) {
   delete orientation_;
   orientation_ = orientation;
   if (orientation) {
@@ -455,7 +456,7 @@ inline void KinectJoint::set_allocated_orientation(::experimot::msgs::Quaternion
   } else {
     clear_has_orientation();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.KinectJoint.Orientation)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.KinectJoint.Orientation)
 }
 
 // optional float Angle = 5 [default = -1000];
@@ -473,43 +474,44 @@ inline void KinectJoint::clear_angle() {
   clear_has_angle();
 }
 inline float KinectJoint::angle() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.KinectJoint.Angle)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.KinectJoint.Angle)
   return angle_;
 }
 inline void KinectJoint::set_angle(float value) {
   set_has_angle();
   angle_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.KinectJoint.Angle)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.KinectJoint.Angle)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::KinectJoint> KinectJointPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::KinectJoint> KinectJointPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::experimot::msgs::KinectJoint_TrackingState> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Indriya::Core::Msgs::KinectJoint_TrackingState> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::KinectJoint_TrackingState>() {
-  return ::experimot::msgs::KinectJoint_TrackingState_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Indriya::Core::Msgs::KinectJoint_TrackingState>() {
+  return ::Indriya::Core::Msgs::KinectJoint_TrackingState_descriptor();
 }
-template <> struct is_proto_enum< ::experimot::msgs::KinectJoint_JointType> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Indriya::Core::Msgs::KinectJoint_JointType> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::KinectJoint_JointType>() {
-  return ::experimot::msgs::KinectJoint_JointType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Indriya::Core::Msgs::KinectJoint_JointType>() {
+  return ::Indriya::Core::Msgs::KinectJoint_JointType_descriptor();
 }
 
 }  // namespace protobuf
 }  // namespace google
 #endif  // SWIG
 
-typedef const boost::shared_ptr<experimot::msgs::KinectJoint const> ConstKinectJointPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::KinectJoint const> ConstKinectJointPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_kinect_5fjoint_2eproto__INCLUDED

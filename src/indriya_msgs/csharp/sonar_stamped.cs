@@ -10,23 +10,23 @@
 // Generated from: proto/sonar_stamped.proto
 // Note: requires additional types generated from: time.proto
 // Note: requires additional types generated from: sonar.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"SonarStamped")]
   public partial class SonarStamped : global::ProtoBuf.IExtensible
   {
     public SonarStamped() {}
     
-    private experimot.msgs.Time _time;
+    private Indriya.Core.Msgs.Time _time;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"time", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Time time
+    public Indriya.Core.Msgs.Time time
     {
       get { return _time; }
       set { _time = value; }
     }
-    private experimot.msgs.Sonar _sonar;
+    private Indriya.Core.Msgs.Sonar _sonar;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"sonar", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Sonar sonar
+    public Indriya.Core.Msgs.Sonar sonar
     {
       get { return _sonar; }
       set { _sonar = value; }

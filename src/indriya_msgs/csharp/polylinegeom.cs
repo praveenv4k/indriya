@@ -9,7 +9,7 @@
 
 // Generated from: proto/polylinegeom.proto
 // Note: requires additional types generated from: vector2d.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Polyline")]
   public partial class Polyline : global::ProtoBuf.IExtensible
@@ -23,9 +23,9 @@ namespace experimot.msgs
       get { return _height; }
       set { _height = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Vector2d> _point = new global::System.Collections.Generic.List<experimot.msgs.Vector2d>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector2d> _point = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector2d>();
     [global::ProtoBuf.ProtoMember(2, Name=@"point", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Vector2d> point
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector2d> point
     {
       get { return _point; }
     }

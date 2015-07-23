@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -81,15 +82,15 @@ void protobuf_AddDesc_link_5fdata_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_vector3d_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_time_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector3d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_time_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\017link_data.proto\022\016experimot.msgs\032\016vecto"
-    "r3d.proto\032\ntime.proto\"\243\001\n\010LinkData\022\"\n\004ti"
-    "me\030\001 \002(\0132\024.experimot.msgs.Time\022\014\n\004name\030\002"
-    " \002(\t\0221\n\017linear_velocity\030\003 \001(\0132\030.experimo"
-    "t.msgs.Vector3d\0222\n\020angular_velocity\030\004 \001("
-    "\0132\030.experimot.msgs.Vector3d", 227);
+    "\n\017link_data.proto\022\021Indriya.Core.Msgs\032\016ve"
+    "ctor3d.proto\032\ntime.proto\"\254\001\n\010LinkData\022%\n"
+    "\004time\030\001 \002(\0132\027.Indriya.Core.Msgs.Time\022\014\n\004"
+    "name\030\002 \002(\t\0224\n\017linear_velocity\030\003 \001(\0132\033.In"
+    "driya.Core.Msgs.Vector3d\0225\n\020angular_velo"
+    "city\030\004 \001(\0132\033.Indriya.Core.Msgs.Vector3d", 239);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "link_data.proto", &protobuf_RegisterTypes);
   LinkData::default_instance_ = new LinkData();
@@ -126,13 +127,13 @@ const int LinkData::kAngularVelocityFieldNumber;
 LinkData::LinkData()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.LinkData)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.LinkData)
 }
 
 void LinkData::InitAsDefaultInstance() {
-  time_ = const_cast< ::experimot::msgs::Time*>(&::experimot::msgs::Time::default_instance());
-  linear_velocity_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
-  angular_velocity_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
+  time_ = const_cast< ::Indriya::Core::Msgs::Time*>(&::Indriya::Core::Msgs::Time::default_instance());
+  linear_velocity_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
+  angular_velocity_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
 }
 
 LinkData::LinkData(const LinkData& from)
@@ -140,7 +141,7 @@ LinkData::LinkData(const LinkData& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.LinkData)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.LinkData)
 }
 
 void LinkData::SharedCtor() {
@@ -154,7 +155,7 @@ void LinkData::SharedCtor() {
 }
 
 LinkData::~LinkData() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.LinkData)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.LinkData)
   SharedDtor();
 }
 
@@ -195,16 +196,16 @@ LinkData* LinkData::New(::google::protobuf::Arena* arena) const {
 void LinkData::Clear() {
   if (_has_bits_[0 / 32] & 15) {
     if (has_time()) {
-      if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+      if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
     }
     if (has_name()) {
       name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_linear_velocity()) {
-      if (linear_velocity_ != NULL) linear_velocity_->::experimot::msgs::Vector3d::Clear();
+      if (linear_velocity_ != NULL) linear_velocity_->::Indriya::Core::Msgs::Vector3d::Clear();
     }
     if (has_angular_velocity()) {
-      if (angular_velocity_ != NULL) angular_velocity_->::experimot::msgs::Vector3d::Clear();
+      if (angular_velocity_ != NULL) angular_velocity_->::Indriya::Core::Msgs::Vector3d::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -217,13 +218,13 @@ bool LinkData::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.LinkData)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.LinkData)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .experimot.msgs.Time time = 1;
+      // required .Indriya.Core.Msgs.Time time = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -244,7 +245,7 @@ bool LinkData::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.LinkData.name");
+            "Indriya.Core.Msgs.LinkData.name");
         } else {
           goto handle_unusual;
         }
@@ -252,7 +253,7 @@ bool LinkData::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Vector3d linear_velocity = 3;
+      // optional .Indriya.Core.Msgs.Vector3d linear_velocity = 3;
       case 3: {
         if (tag == 26) {
          parse_linear_velocity:
@@ -265,7 +266,7 @@ bool LinkData::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Vector3d angular_velocity = 4;
+      // optional .Indriya.Core.Msgs.Vector3d angular_velocity = 4;
       case 4: {
         if (tag == 34) {
          parse_angular_velocity:
@@ -292,18 +293,18 @@ bool LinkData::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.LinkData)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.LinkData)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.LinkData)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.LinkData)
   return false;
 #undef DO_
 }
 
 void LinkData::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.LinkData)
-  // required .experimot.msgs.Time time = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.LinkData)
+  // required .Indriya.Core.Msgs.Time time = 1;
   if (has_time()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->time_, output);
@@ -314,18 +315,18 @@ void LinkData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.LinkData.name");
+      "Indriya.Core.Msgs.LinkData.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->name(), output);
   }
 
-  // optional .experimot.msgs.Vector3d linear_velocity = 3;
+  // optional .Indriya.Core.Msgs.Vector3d linear_velocity = 3;
   if (has_linear_velocity()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, *this->linear_velocity_, output);
   }
 
-  // optional .experimot.msgs.Vector3d angular_velocity = 4;
+  // optional .Indriya.Core.Msgs.Vector3d angular_velocity = 4;
   if (has_angular_velocity()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, *this->angular_velocity_, output);
@@ -335,13 +336,13 @@ void LinkData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.LinkData)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.LinkData)
 }
 
 ::google::protobuf::uint8* LinkData::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.LinkData)
-  // required .experimot.msgs.Time time = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.LinkData)
+  // required .Indriya.Core.Msgs.Time time = 1;
   if (has_time()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -353,20 +354,20 @@ void LinkData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.LinkData.name");
+      "Indriya.Core.Msgs.LinkData.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->name(), target);
   }
 
-  // optional .experimot.msgs.Vector3d linear_velocity = 3;
+  // optional .Indriya.Core.Msgs.Vector3d linear_velocity = 3;
   if (has_linear_velocity()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         3, *this->linear_velocity_, target);
   }
 
-  // optional .experimot.msgs.Vector3d angular_velocity = 4;
+  // optional .Indriya.Core.Msgs.Vector3d angular_velocity = 4;
   if (has_angular_velocity()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -377,7 +378,7 @@ void LinkData::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.LinkData)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.LinkData)
   return target;
 }
 
@@ -385,7 +386,7 @@ int LinkData::RequiredFieldsByteSizeFallback() const {
   int total_size = 0;
 
   if (has_time()) {
-    // required .experimot.msgs.Time time = 1;
+    // required .Indriya.Core.Msgs.Time time = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->time_);
@@ -404,7 +405,7 @@ int LinkData::ByteSize() const {
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required .experimot.msgs.Time time = 1;
+    // required .Indriya.Core.Msgs.Time time = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->time_);
@@ -418,14 +419,14 @@ int LinkData::ByteSize() const {
     total_size += RequiredFieldsByteSizeFallback();
   }
   if (_has_bits_[2 / 32] & 12) {
-    // optional .experimot.msgs.Vector3d linear_velocity = 3;
+    // optional .Indriya.Core.Msgs.Vector3d linear_velocity = 3;
     if (has_linear_velocity()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->linear_velocity_);
     }
 
-    // optional .experimot.msgs.Vector3d angular_velocity = 4;
+    // optional .Indriya.Core.Msgs.Vector3d angular_velocity = 4;
     if (has_angular_velocity()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -460,17 +461,17 @@ void LinkData::MergeFrom(const LinkData& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_time()) {
-      mutable_time()->::experimot::msgs::Time::MergeFrom(from.time());
+      mutable_time()->::Indriya::Core::Msgs::Time::MergeFrom(from.time());
     }
     if (from.has_name()) {
       set_has_name();
       name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
     }
     if (from.has_linear_velocity()) {
-      mutable_linear_velocity()->::experimot::msgs::Vector3d::MergeFrom(from.linear_velocity());
+      mutable_linear_velocity()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.linear_velocity());
     }
     if (from.has_angular_velocity()) {
-      mutable_angular_velocity()->::experimot::msgs::Vector3d::MergeFrom(from.angular_velocity());
+      mutable_angular_velocity()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.angular_velocity());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -530,7 +531,7 @@ void LinkData::InternalSwap(LinkData* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // LinkData
 
-// required .experimot.msgs.Time time = 1;
+// required .Indriya.Core.Msgs.Time time = 1;
  bool LinkData::has_time() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -541,28 +542,28 @@ void LinkData::InternalSwap(LinkData* other) {
   _has_bits_[0] &= ~0x00000001u;
 }
  void LinkData::clear_time() {
-  if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+  if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_time();
 }
- const ::experimot::msgs::Time& LinkData::time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LinkData.time)
+ const ::Indriya::Core::Msgs::Time& LinkData::time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LinkData.time)
   return time_ != NULL ? *time_ : *default_instance_->time_;
 }
- ::experimot::msgs::Time* LinkData::mutable_time() {
+ ::Indriya::Core::Msgs::Time* LinkData::mutable_time() {
   set_has_time();
   if (time_ == NULL) {
-    time_ = new ::experimot::msgs::Time;
+    time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LinkData.time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LinkData.time)
   return time_;
 }
- ::experimot::msgs::Time* LinkData::release_time() {
+ ::Indriya::Core::Msgs::Time* LinkData::release_time() {
   clear_has_time();
-  ::experimot::msgs::Time* temp = time_;
+  ::Indriya::Core::Msgs::Time* temp = time_;
   time_ = NULL;
   return temp;
 }
- void LinkData::set_allocated_time(::experimot::msgs::Time* time) {
+ void LinkData::set_allocated_time(::Indriya::Core::Msgs::Time* time) {
   delete time_;
   time_ = time;
   if (time) {
@@ -570,7 +571,7 @@ void LinkData::InternalSwap(LinkData* other) {
   } else {
     clear_has_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LinkData.time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LinkData.time)
 }
 
 // required string name = 2;
@@ -588,28 +589,28 @@ void LinkData::InternalSwap(LinkData* other) {
   clear_has_name();
 }
  const ::std::string& LinkData::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LinkData.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LinkData.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void LinkData::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.LinkData.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.LinkData.name)
 }
  void LinkData::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.LinkData.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.LinkData.name)
 }
  void LinkData::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.LinkData.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.LinkData.name)
 }
  ::std::string* LinkData::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LinkData.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LinkData.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* LinkData::release_name() {
@@ -623,10 +624,10 @@ void LinkData::InternalSwap(LinkData* other) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LinkData.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LinkData.name)
 }
 
-// optional .experimot.msgs.Vector3d linear_velocity = 3;
+// optional .Indriya.Core.Msgs.Vector3d linear_velocity = 3;
  bool LinkData::has_linear_velocity() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -637,28 +638,28 @@ void LinkData::InternalSwap(LinkData* other) {
   _has_bits_[0] &= ~0x00000004u;
 }
  void LinkData::clear_linear_velocity() {
-  if (linear_velocity_ != NULL) linear_velocity_->::experimot::msgs::Vector3d::Clear();
+  if (linear_velocity_ != NULL) linear_velocity_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_linear_velocity();
 }
- const ::experimot::msgs::Vector3d& LinkData::linear_velocity() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LinkData.linear_velocity)
+ const ::Indriya::Core::Msgs::Vector3d& LinkData::linear_velocity() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LinkData.linear_velocity)
   return linear_velocity_ != NULL ? *linear_velocity_ : *default_instance_->linear_velocity_;
 }
- ::experimot::msgs::Vector3d* LinkData::mutable_linear_velocity() {
+ ::Indriya::Core::Msgs::Vector3d* LinkData::mutable_linear_velocity() {
   set_has_linear_velocity();
   if (linear_velocity_ == NULL) {
-    linear_velocity_ = new ::experimot::msgs::Vector3d;
+    linear_velocity_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LinkData.linear_velocity)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LinkData.linear_velocity)
   return linear_velocity_;
 }
- ::experimot::msgs::Vector3d* LinkData::release_linear_velocity() {
+ ::Indriya::Core::Msgs::Vector3d* LinkData::release_linear_velocity() {
   clear_has_linear_velocity();
-  ::experimot::msgs::Vector3d* temp = linear_velocity_;
+  ::Indriya::Core::Msgs::Vector3d* temp = linear_velocity_;
   linear_velocity_ = NULL;
   return temp;
 }
- void LinkData::set_allocated_linear_velocity(::experimot::msgs::Vector3d* linear_velocity) {
+ void LinkData::set_allocated_linear_velocity(::Indriya::Core::Msgs::Vector3d* linear_velocity) {
   delete linear_velocity_;
   linear_velocity_ = linear_velocity;
   if (linear_velocity) {
@@ -666,10 +667,10 @@ void LinkData::InternalSwap(LinkData* other) {
   } else {
     clear_has_linear_velocity();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LinkData.linear_velocity)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LinkData.linear_velocity)
 }
 
-// optional .experimot.msgs.Vector3d angular_velocity = 4;
+// optional .Indriya.Core.Msgs.Vector3d angular_velocity = 4;
  bool LinkData::has_angular_velocity() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -680,28 +681,28 @@ void LinkData::InternalSwap(LinkData* other) {
   _has_bits_[0] &= ~0x00000008u;
 }
  void LinkData::clear_angular_velocity() {
-  if (angular_velocity_ != NULL) angular_velocity_->::experimot::msgs::Vector3d::Clear();
+  if (angular_velocity_ != NULL) angular_velocity_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_angular_velocity();
 }
- const ::experimot::msgs::Vector3d& LinkData::angular_velocity() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.LinkData.angular_velocity)
+ const ::Indriya::Core::Msgs::Vector3d& LinkData::angular_velocity() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.LinkData.angular_velocity)
   return angular_velocity_ != NULL ? *angular_velocity_ : *default_instance_->angular_velocity_;
 }
- ::experimot::msgs::Vector3d* LinkData::mutable_angular_velocity() {
+ ::Indriya::Core::Msgs::Vector3d* LinkData::mutable_angular_velocity() {
   set_has_angular_velocity();
   if (angular_velocity_ == NULL) {
-    angular_velocity_ = new ::experimot::msgs::Vector3d;
+    angular_velocity_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.LinkData.angular_velocity)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.LinkData.angular_velocity)
   return angular_velocity_;
 }
- ::experimot::msgs::Vector3d* LinkData::release_angular_velocity() {
+ ::Indriya::Core::Msgs::Vector3d* LinkData::release_angular_velocity() {
   clear_has_angular_velocity();
-  ::experimot::msgs::Vector3d* temp = angular_velocity_;
+  ::Indriya::Core::Msgs::Vector3d* temp = angular_velocity_;
   angular_velocity_ = NULL;
   return temp;
 }
- void LinkData::set_allocated_angular_velocity(::experimot::msgs::Vector3d* angular_velocity) {
+ void LinkData::set_allocated_angular_velocity(::Indriya::Core::Msgs::Vector3d* angular_velocity) {
   delete angular_velocity_;
   angular_velocity_ = angular_velocity;
   if (angular_velocity) {
@@ -709,15 +710,16 @@ void LinkData::InternalSwap(LinkData* other) {
   } else {
     clear_has_angular_velocity();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.LinkData.angular_velocity)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.LinkData.angular_velocity)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.LinkData", LinkData)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.LinkData", LinkData)
 // @@protoc_insertion_point(global_scope)

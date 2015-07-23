@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_quaternion_2eproto();
@@ -135,7 +136,7 @@ class Quaternion : public ::google::protobuf::Message {
   double w() const;
   void set_w(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Quaternion)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Quaternion)
  private:
   inline void set_has_x();
   inline void clear_has_x();
@@ -186,13 +187,13 @@ inline void Quaternion::clear_x() {
   clear_has_x();
 }
 inline double Quaternion::x() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Quaternion.x)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Quaternion.x)
   return x_;
 }
 inline void Quaternion::set_x(double value) {
   set_has_x();
   x_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Quaternion.x)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Quaternion.x)
 }
 
 // required double y = 3;
@@ -210,13 +211,13 @@ inline void Quaternion::clear_y() {
   clear_has_y();
 }
 inline double Quaternion::y() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Quaternion.y)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Quaternion.y)
   return y_;
 }
 inline void Quaternion::set_y(double value) {
   set_has_y();
   y_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Quaternion.y)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Quaternion.y)
 }
 
 // required double z = 4;
@@ -234,13 +235,13 @@ inline void Quaternion::clear_z() {
   clear_has_z();
 }
 inline double Quaternion::z() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Quaternion.z)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Quaternion.z)
   return z_;
 }
 inline void Quaternion::set_z(double value) {
   set_has_z();
   z_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Quaternion.z)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Quaternion.z)
 }
 
 // required double w = 5;
@@ -258,24 +259,25 @@ inline void Quaternion::clear_w() {
   clear_has_w();
 }
 inline double Quaternion::w() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Quaternion.w)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Quaternion.w)
   return w_;
 }
 inline void Quaternion::set_w(double value) {
   set_has_w();
   w_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Quaternion.w)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Quaternion.w)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Quaternion> QuaternionPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Quaternion> QuaternionPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Quaternion const> ConstQuaternionPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Quaternion const> ConstQuaternionPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_quaternion_2eproto__INCLUDED

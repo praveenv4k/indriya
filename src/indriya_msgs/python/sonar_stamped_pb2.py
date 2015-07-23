@@ -19,9 +19,9 @@ import sonar_pb2 as sonar__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='sonar_stamped.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x13sonar_stamped.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\x1a\x0bsonar.proto\"X\n\x0cSonarStamped\x12\"\n\x04time\x18\x01 \x02(\x0b\x32\x14.experimot.msgs.Time\x12$\n\x05sonar\x18\x02 \x02(\x0b\x32\x15.experimot.msgs.Sonar')
+  serialized_pb=_b('\n\x13sonar_stamped.proto\x12\x11Indriya.Core.Msgs\x1a\ntime.proto\x1a\x0bsonar.proto\"^\n\x0cSonarStamped\x12%\n\x04time\x18\x01 \x02(\x0b\x32\x17.Indriya.Core.Msgs.Time\x12\'\n\x05sonar\x18\x02 \x02(\x0b\x32\x18.Indriya.Core.Msgs.Sonar')
   ,
   dependencies=[time__pb2.DESCRIPTOR,sonar__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -31,20 +31,20 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _SONARSTAMPED = _descriptor.Descriptor(
   name='SonarStamped',
-  full_name='experimot.msgs.SonarStamped',
+  full_name='Indriya.Core.Msgs.SonarStamped',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='time', full_name='experimot.msgs.SonarStamped.time', index=0,
+      name='time', full_name='Indriya.Core.Msgs.SonarStamped.time', index=0,
       number=1, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='sonar', full_name='experimot.msgs.SonarStamped.sonar', index=1,
+      name='sonar', full_name='Indriya.Core.Msgs.SonarStamped.sonar', index=1,
       number=2, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -62,8 +62,8 @@ _SONARSTAMPED = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=64,
-  serialized_end=152,
+  serialized_start=67,
+  serialized_end=161,
 )
 
 _SONARSTAMPED.fields_by_name['time'].message_type = time__pb2._TIME
@@ -73,7 +73,7 @@ DESCRIPTOR.message_types_by_name['SonarStamped'] = _SONARSTAMPED
 SonarStamped = _reflection.GeneratedProtocolMessageType('SonarStamped', (_message.Message,), dict(
   DESCRIPTOR = _SONARSTAMPED,
   __module__ = 'sonar_stamped_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.SonarStamped)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.SonarStamped)
   ))
 _sym_db.RegisterMessage(SonarStamped)
 

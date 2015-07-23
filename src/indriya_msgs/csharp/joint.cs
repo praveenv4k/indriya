@@ -11,7 +11,7 @@
 // Note: requires additional types generated from: axis.proto
 // Note: requires additional types generated from: pose.proto
 // Note: requires additional types generated from: sensor.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Joint")]
   public partial class Joint : global::ProtoBuf.IExtensible
@@ -40,10 +40,10 @@ namespace experimot.msgs
       get { return _angle; }
     }
   
-    private experimot.msgs.Joint.Type _type = experimot.msgs.Joint.Type.REVOLUTE;
+    private Indriya.Core.Msgs.Joint.Type _type = Indriya.Core.Msgs.Joint.Type.REVOLUTE;
     [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(experimot.msgs.Joint.Type.REVOLUTE)]
-    public experimot.msgs.Joint.Type type
+    [global::System.ComponentModel.DefaultValue(Indriya.Core.Msgs.Joint.Type.REVOLUTE)]
+    public Indriya.Core.Msgs.Joint.Type type
     {
       get { return _type; }
       set { _type = value; }
@@ -80,26 +80,26 @@ namespace experimot.msgs
       get { return _child_id; }
       set { _child_id = value; }
     }
-    private experimot.msgs.Pose _pose = null;
+    private Indriya.Core.Msgs.Pose _pose = null;
     [global::ProtoBuf.ProtoMember(9, IsRequired = false, Name=@"pose", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Pose pose
+    public Indriya.Core.Msgs.Pose pose
     {
       get { return _pose; }
       set { _pose = value; }
     }
-    private experimot.msgs.Axis _axis1 = null;
+    private Indriya.Core.Msgs.Axis _axis1 = null;
     [global::ProtoBuf.ProtoMember(10, IsRequired = false, Name=@"axis1", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Axis axis1
+    public Indriya.Core.Msgs.Axis axis1
     {
       get { return _axis1; }
       set { _axis1 = value; }
     }
-    private experimot.msgs.Axis _axis2 = null;
+    private Indriya.Core.Msgs.Axis _axis2 = null;
     [global::ProtoBuf.ProtoMember(11, IsRequired = false, Name=@"axis2", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.Axis axis2
+    public Indriya.Core.Msgs.Axis axis2
     {
       get { return _axis2; }
       set { _axis2 = value; }
@@ -168,9 +168,9 @@ namespace experimot.msgs
       get { return _suspension_erp; }
       set { _suspension_erp = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Sensor> _sensor = new global::System.Collections.Generic.List<experimot.msgs.Sensor>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Sensor> _sensor = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Sensor>();
     [global::ProtoBuf.ProtoMember(20, Name=@"sensor", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Sensor> sensor
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Sensor> sensor
     {
       get { return _sensor; }
     }

@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_gesture_2eproto();
@@ -170,12 +171,12 @@ class GestureDescription : public ::google::protobuf::Message {
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // required .experimot.msgs.GestureDescription.GestureType type = 2;
+  // required .Indriya.Core.Msgs.GestureDescription.GestureType type = 2;
   bool has_type() const;
   void clear_type();
   static const int kTypeFieldNumber = 2;
-  ::experimot::msgs::GestureDescription_GestureType type() const;
-  void set_type(::experimot::msgs::GestureDescription_GestureType value);
+  ::Indriya::Core::Msgs::GestureDescription_GestureType type() const;
+  void set_type(::Indriya::Core::Msgs::GestureDescription_GestureType value);
 
   // optional bool active = 3;
   bool has_active() const;
@@ -198,7 +199,7 @@ class GestureDescription : public ::google::protobuf::Message {
   ::google::protobuf::int32 confidence() const;
   void set_confidence(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.GestureDescription)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.GestureDescription)
  private:
   inline void set_has_name();
   inline void clear_has_name();
@@ -307,31 +308,31 @@ class GestureRecognitionModule : public ::google::protobuf::Message {
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // repeated .experimot.msgs.Param params = 2;
+  // repeated .Indriya.Core.Msgs.Param params = 2;
   int params_size() const;
   void clear_params();
   static const int kParamsFieldNumber = 2;
-  const ::experimot::msgs::Param& params(int index) const;
-  ::experimot::msgs::Param* mutable_params(int index);
-  ::experimot::msgs::Param* add_params();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+  const ::Indriya::Core::Msgs::Param& params(int index) const;
+  ::Indriya::Core::Msgs::Param* mutable_params(int index);
+  ::Indriya::Core::Msgs::Param* add_params();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >&
       params() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >*
       mutable_params();
 
-  // repeated .experimot.msgs.GestureDescription motions = 3;
+  // repeated .Indriya.Core.Msgs.GestureDescription motions = 3;
   int motions_size() const;
   void clear_motions();
   static const int kMotionsFieldNumber = 3;
-  const ::experimot::msgs::GestureDescription& motions(int index) const;
-  ::experimot::msgs::GestureDescription* mutable_motions(int index);
-  ::experimot::msgs::GestureDescription* add_motions();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureDescription >&
+  const ::Indriya::Core::Msgs::GestureDescription& motions(int index) const;
+  ::Indriya::Core::Msgs::GestureDescription* mutable_motions(int index);
+  ::Indriya::Core::Msgs::GestureDescription* add_motions();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::GestureDescription >&
       motions() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureDescription >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::GestureDescription >*
       mutable_motions();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.GestureRecognitionModule)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.GestureRecognitionModule)
  private:
   inline void set_has_name();
   inline void clear_has_name();
@@ -340,8 +341,8 @@ class GestureRecognitionModule : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param > params_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureDescription > motions_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param > params_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::GestureDescription > motions_;
   friend void  protobuf_AddDesc_gesture_2eproto();
   friend void protobuf_AssignDesc_gesture_2eproto();
   friend void protobuf_ShutdownFile_gesture_2eproto();
@@ -415,25 +416,25 @@ class GestureRecognitionModules : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .experimot.msgs.GestureRecognitionModule modules = 1;
+  // repeated .Indriya.Core.Msgs.GestureRecognitionModule modules = 1;
   int modules_size() const;
   void clear_modules();
   static const int kModulesFieldNumber = 1;
-  const ::experimot::msgs::GestureRecognitionModule& modules(int index) const;
-  ::experimot::msgs::GestureRecognitionModule* mutable_modules(int index);
-  ::experimot::msgs::GestureRecognitionModule* add_modules();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureRecognitionModule >&
+  const ::Indriya::Core::Msgs::GestureRecognitionModule& modules(int index) const;
+  ::Indriya::Core::Msgs::GestureRecognitionModule* mutable_modules(int index);
+  ::Indriya::Core::Msgs::GestureRecognitionModule* add_modules();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::GestureRecognitionModule >&
       modules() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureRecognitionModule >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::GestureRecognitionModule >*
       mutable_modules();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.GestureRecognitionModules)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.GestureRecognitionModules)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureRecognitionModule > modules_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::GestureRecognitionModule > modules_;
   friend void  protobuf_AddDesc_gesture_2eproto();
   friend void protobuf_AssignDesc_gesture_2eproto();
   friend void protobuf_ShutdownFile_gesture_2eproto();
@@ -514,16 +515,16 @@ class GestureTrigger : public ::google::protobuf::Message {
   ::google::protobuf::int32 id() const;
   void set_id(::google::protobuf::int32 value);
 
-  // required .experimot.msgs.GestureDescription motion = 2;
+  // required .Indriya.Core.Msgs.GestureDescription motion = 2;
   bool has_motion() const;
   void clear_motion();
   static const int kMotionFieldNumber = 2;
-  const ::experimot::msgs::GestureDescription& motion() const;
-  ::experimot::msgs::GestureDescription* mutable_motion();
-  ::experimot::msgs::GestureDescription* release_motion();
-  void set_allocated_motion(::experimot::msgs::GestureDescription* motion);
+  const ::Indriya::Core::Msgs::GestureDescription& motion() const;
+  ::Indriya::Core::Msgs::GestureDescription* mutable_motion();
+  ::Indriya::Core::Msgs::GestureDescription* release_motion();
+  void set_allocated_motion(::Indriya::Core::Msgs::GestureDescription* motion);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.GestureTrigger)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.GestureTrigger)
  private:
   inline void set_has_id();
   inline void clear_has_id();
@@ -536,7 +537,7 @@ class GestureTrigger : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::GestureDescription* motion_;
+  ::Indriya::Core::Msgs::GestureDescription* motion_;
   ::google::protobuf::int32 id_;
   friend void  protobuf_AddDesc_gesture_2eproto();
   friend void protobuf_AssignDesc_gesture_2eproto();
@@ -618,19 +619,19 @@ class GestureTriggers : public ::google::protobuf::Message {
   ::google::protobuf::int32 id() const;
   void set_id(::google::protobuf::int32 value);
 
-  // repeated .experimot.msgs.GestureDescription motion = 2;
+  // repeated .Indriya.Core.Msgs.GestureDescription motion = 2;
   int motion_size() const;
   void clear_motion();
   static const int kMotionFieldNumber = 2;
-  const ::experimot::msgs::GestureDescription& motion(int index) const;
-  ::experimot::msgs::GestureDescription* mutable_motion(int index);
-  ::experimot::msgs::GestureDescription* add_motion();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureDescription >&
+  const ::Indriya::Core::Msgs::GestureDescription& motion(int index) const;
+  ::Indriya::Core::Msgs::GestureDescription* mutable_motion(int index);
+  ::Indriya::Core::Msgs::GestureDescription* add_motion();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::GestureDescription >&
       motion() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureDescription >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::GestureDescription >*
       mutable_motion();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.GestureTriggers)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.GestureTriggers)
  private:
   inline void set_has_id();
   inline void clear_has_id();
@@ -638,7 +639,7 @@ class GestureTriggers : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureDescription > motion_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::GestureDescription > motion_;
   ::google::protobuf::int32 id_;
   friend void  protobuf_AddDesc_gesture_2eproto();
   friend void protobuf_AssignDesc_gesture_2eproto();
@@ -670,28 +671,28 @@ inline void GestureDescription::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& GestureDescription::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GestureDescription.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GestureDescription.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void GestureDescription::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.GestureDescription.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GestureDescription.name)
 }
 inline void GestureDescription::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.GestureDescription.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.GestureDescription.name)
 }
 inline void GestureDescription::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.GestureDescription.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.GestureDescription.name)
 }
 inline ::std::string* GestureDescription::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GestureDescription.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GestureDescription.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* GestureDescription::release_name() {
@@ -705,10 +706,10 @@ inline void GestureDescription::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GestureDescription.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.GestureDescription.name)
 }
 
-// required .experimot.msgs.GestureDescription.GestureType type = 2;
+// required .Indriya.Core.Msgs.GestureDescription.GestureType type = 2;
 inline bool GestureDescription::has_type() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -722,15 +723,15 @@ inline void GestureDescription::clear_type() {
   type_ = 0;
   clear_has_type();
 }
-inline ::experimot::msgs::GestureDescription_GestureType GestureDescription::type() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GestureDescription.type)
-  return static_cast< ::experimot::msgs::GestureDescription_GestureType >(type_);
+inline ::Indriya::Core::Msgs::GestureDescription_GestureType GestureDescription::type() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GestureDescription.type)
+  return static_cast< ::Indriya::Core::Msgs::GestureDescription_GestureType >(type_);
 }
-inline void GestureDescription::set_type(::experimot::msgs::GestureDescription_GestureType value) {
-  assert(::experimot::msgs::GestureDescription_GestureType_IsValid(value));
+inline void GestureDescription::set_type(::Indriya::Core::Msgs::GestureDescription_GestureType value) {
+  assert(::Indriya::Core::Msgs::GestureDescription_GestureType_IsValid(value));
   set_has_type();
   type_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.GestureDescription.type)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GestureDescription.type)
 }
 
 // optional bool active = 3;
@@ -748,13 +749,13 @@ inline void GestureDescription::clear_active() {
   clear_has_active();
 }
 inline bool GestureDescription::active() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GestureDescription.active)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GestureDescription.active)
   return active_;
 }
 inline void GestureDescription::set_active(bool value) {
   set_has_active();
   active_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.GestureDescription.active)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GestureDescription.active)
 }
 
 // optional int32 progress = 4;
@@ -772,13 +773,13 @@ inline void GestureDescription::clear_progress() {
   clear_has_progress();
 }
 inline ::google::protobuf::int32 GestureDescription::progress() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GestureDescription.progress)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GestureDescription.progress)
   return progress_;
 }
 inline void GestureDescription::set_progress(::google::protobuf::int32 value) {
   set_has_progress();
   progress_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.GestureDescription.progress)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GestureDescription.progress)
 }
 
 // optional int32 confidence = 5;
@@ -796,13 +797,13 @@ inline void GestureDescription::clear_confidence() {
   clear_has_confidence();
 }
 inline ::google::protobuf::int32 GestureDescription::confidence() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GestureDescription.confidence)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GestureDescription.confidence)
   return confidence_;
 }
 inline void GestureDescription::set_confidence(::google::protobuf::int32 value) {
   set_has_confidence();
   confidence_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.GestureDescription.confidence)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GestureDescription.confidence)
 }
 
 // -------------------------------------------------------------------
@@ -824,28 +825,28 @@ inline void GestureRecognitionModule::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& GestureRecognitionModule::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GestureRecognitionModule.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GestureRecognitionModule.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void GestureRecognitionModule::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.GestureRecognitionModule.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GestureRecognitionModule.name)
 }
 inline void GestureRecognitionModule::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.GestureRecognitionModule.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.GestureRecognitionModule.name)
 }
 inline void GestureRecognitionModule::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.GestureRecognitionModule.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.GestureRecognitionModule.name)
 }
 inline ::std::string* GestureRecognitionModule::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GestureRecognitionModule.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GestureRecognitionModule.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* GestureRecognitionModule::release_name() {
@@ -859,66 +860,66 @@ inline void GestureRecognitionModule::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GestureRecognitionModule.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.GestureRecognitionModule.name)
 }
 
-// repeated .experimot.msgs.Param params = 2;
+// repeated .Indriya.Core.Msgs.Param params = 2;
 inline int GestureRecognitionModule::params_size() const {
   return params_.size();
 }
 inline void GestureRecognitionModule::clear_params() {
   params_.Clear();
 }
-inline const ::experimot::msgs::Param& GestureRecognitionModule::params(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GestureRecognitionModule.params)
+inline const ::Indriya::Core::Msgs::Param& GestureRecognitionModule::params(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GestureRecognitionModule.params)
   return params_.Get(index);
 }
-inline ::experimot::msgs::Param* GestureRecognitionModule::mutable_params(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GestureRecognitionModule.params)
+inline ::Indriya::Core::Msgs::Param* GestureRecognitionModule::mutable_params(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GestureRecognitionModule.params)
   return params_.Mutable(index);
 }
-inline ::experimot::msgs::Param* GestureRecognitionModule::add_params() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.GestureRecognitionModule.params)
+inline ::Indriya::Core::Msgs::Param* GestureRecognitionModule::add_params() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.GestureRecognitionModule.params)
   return params_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >&
 GestureRecognitionModule::params() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.GestureRecognitionModule.params)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.GestureRecognitionModule.params)
   return params_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Param >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Param >*
 GestureRecognitionModule::mutable_params() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.GestureRecognitionModule.params)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.GestureRecognitionModule.params)
   return &params_;
 }
 
-// repeated .experimot.msgs.GestureDescription motions = 3;
+// repeated .Indriya.Core.Msgs.GestureDescription motions = 3;
 inline int GestureRecognitionModule::motions_size() const {
   return motions_.size();
 }
 inline void GestureRecognitionModule::clear_motions() {
   motions_.Clear();
 }
-inline const ::experimot::msgs::GestureDescription& GestureRecognitionModule::motions(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GestureRecognitionModule.motions)
+inline const ::Indriya::Core::Msgs::GestureDescription& GestureRecognitionModule::motions(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GestureRecognitionModule.motions)
   return motions_.Get(index);
 }
-inline ::experimot::msgs::GestureDescription* GestureRecognitionModule::mutable_motions(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GestureRecognitionModule.motions)
+inline ::Indriya::Core::Msgs::GestureDescription* GestureRecognitionModule::mutable_motions(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GestureRecognitionModule.motions)
   return motions_.Mutable(index);
 }
-inline ::experimot::msgs::GestureDescription* GestureRecognitionModule::add_motions() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.GestureRecognitionModule.motions)
+inline ::Indriya::Core::Msgs::GestureDescription* GestureRecognitionModule::add_motions() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.GestureRecognitionModule.motions)
   return motions_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureDescription >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::GestureDescription >&
 GestureRecognitionModule::motions() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.GestureRecognitionModule.motions)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.GestureRecognitionModule.motions)
   return motions_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureDescription >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::GestureDescription >*
 GestureRecognitionModule::mutable_motions() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.GestureRecognitionModule.motions)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.GestureRecognitionModule.motions)
   return &motions_;
 }
 
@@ -926,33 +927,33 @@ GestureRecognitionModule::mutable_motions() {
 
 // GestureRecognitionModules
 
-// repeated .experimot.msgs.GestureRecognitionModule modules = 1;
+// repeated .Indriya.Core.Msgs.GestureRecognitionModule modules = 1;
 inline int GestureRecognitionModules::modules_size() const {
   return modules_.size();
 }
 inline void GestureRecognitionModules::clear_modules() {
   modules_.Clear();
 }
-inline const ::experimot::msgs::GestureRecognitionModule& GestureRecognitionModules::modules(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GestureRecognitionModules.modules)
+inline const ::Indriya::Core::Msgs::GestureRecognitionModule& GestureRecognitionModules::modules(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GestureRecognitionModules.modules)
   return modules_.Get(index);
 }
-inline ::experimot::msgs::GestureRecognitionModule* GestureRecognitionModules::mutable_modules(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GestureRecognitionModules.modules)
+inline ::Indriya::Core::Msgs::GestureRecognitionModule* GestureRecognitionModules::mutable_modules(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GestureRecognitionModules.modules)
   return modules_.Mutable(index);
 }
-inline ::experimot::msgs::GestureRecognitionModule* GestureRecognitionModules::add_modules() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.GestureRecognitionModules.modules)
+inline ::Indriya::Core::Msgs::GestureRecognitionModule* GestureRecognitionModules::add_modules() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.GestureRecognitionModules.modules)
   return modules_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureRecognitionModule >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::GestureRecognitionModule >&
 GestureRecognitionModules::modules() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.GestureRecognitionModules.modules)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.GestureRecognitionModules.modules)
   return modules_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureRecognitionModule >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::GestureRecognitionModule >*
 GestureRecognitionModules::mutable_modules() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.GestureRecognitionModules.modules)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.GestureRecognitionModules.modules)
   return &modules_;
 }
 
@@ -975,16 +976,16 @@ inline void GestureTrigger::clear_id() {
   clear_has_id();
 }
 inline ::google::protobuf::int32 GestureTrigger::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GestureTrigger.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GestureTrigger.id)
   return id_;
 }
 inline void GestureTrigger::set_id(::google::protobuf::int32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.GestureTrigger.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GestureTrigger.id)
 }
 
-// required .experimot.msgs.GestureDescription motion = 2;
+// required .Indriya.Core.Msgs.GestureDescription motion = 2;
 inline bool GestureTrigger::has_motion() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -995,28 +996,28 @@ inline void GestureTrigger::clear_has_motion() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void GestureTrigger::clear_motion() {
-  if (motion_ != NULL) motion_->::experimot::msgs::GestureDescription::Clear();
+  if (motion_ != NULL) motion_->::Indriya::Core::Msgs::GestureDescription::Clear();
   clear_has_motion();
 }
-inline const ::experimot::msgs::GestureDescription& GestureTrigger::motion() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GestureTrigger.motion)
+inline const ::Indriya::Core::Msgs::GestureDescription& GestureTrigger::motion() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GestureTrigger.motion)
   return motion_ != NULL ? *motion_ : *default_instance_->motion_;
 }
-inline ::experimot::msgs::GestureDescription* GestureTrigger::mutable_motion() {
+inline ::Indriya::Core::Msgs::GestureDescription* GestureTrigger::mutable_motion() {
   set_has_motion();
   if (motion_ == NULL) {
-    motion_ = new ::experimot::msgs::GestureDescription;
+    motion_ = new ::Indriya::Core::Msgs::GestureDescription;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GestureTrigger.motion)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GestureTrigger.motion)
   return motion_;
 }
-inline ::experimot::msgs::GestureDescription* GestureTrigger::release_motion() {
+inline ::Indriya::Core::Msgs::GestureDescription* GestureTrigger::release_motion() {
   clear_has_motion();
-  ::experimot::msgs::GestureDescription* temp = motion_;
+  ::Indriya::Core::Msgs::GestureDescription* temp = motion_;
   motion_ = NULL;
   return temp;
 }
-inline void GestureTrigger::set_allocated_motion(::experimot::msgs::GestureDescription* motion) {
+inline void GestureTrigger::set_allocated_motion(::Indriya::Core::Msgs::GestureDescription* motion) {
   delete motion_;
   motion_ = motion;
   if (motion) {
@@ -1024,7 +1025,7 @@ inline void GestureTrigger::set_allocated_motion(::experimot::msgs::GestureDescr
   } else {
     clear_has_motion();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GestureTrigger.motion)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.GestureTrigger.motion)
 }
 
 // -------------------------------------------------------------------
@@ -1046,68 +1047,69 @@ inline void GestureTriggers::clear_id() {
   clear_has_id();
 }
 inline ::google::protobuf::int32 GestureTriggers::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GestureTriggers.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GestureTriggers.id)
   return id_;
 }
 inline void GestureTriggers::set_id(::google::protobuf::int32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.GestureTriggers.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GestureTriggers.id)
 }
 
-// repeated .experimot.msgs.GestureDescription motion = 2;
+// repeated .Indriya.Core.Msgs.GestureDescription motion = 2;
 inline int GestureTriggers::motion_size() const {
   return motion_.size();
 }
 inline void GestureTriggers::clear_motion() {
   motion_.Clear();
 }
-inline const ::experimot::msgs::GestureDescription& GestureTriggers::motion(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GestureTriggers.motion)
+inline const ::Indriya::Core::Msgs::GestureDescription& GestureTriggers::motion(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GestureTriggers.motion)
   return motion_.Get(index);
 }
-inline ::experimot::msgs::GestureDescription* GestureTriggers::mutable_motion(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GestureTriggers.motion)
+inline ::Indriya::Core::Msgs::GestureDescription* GestureTriggers::mutable_motion(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GestureTriggers.motion)
   return motion_.Mutable(index);
 }
-inline ::experimot::msgs::GestureDescription* GestureTriggers::add_motion() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.GestureTriggers.motion)
+inline ::Indriya::Core::Msgs::GestureDescription* GestureTriggers::add_motion() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.GestureTriggers.motion)
   return motion_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureDescription >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::GestureDescription >&
 GestureTriggers::motion() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.GestureTriggers.motion)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.GestureTriggers.motion)
   return motion_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::GestureDescription >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::GestureDescription >*
 GestureTriggers::mutable_motion() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.GestureTriggers.motion)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.GestureTriggers.motion)
   return &motion_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::GestureDescription> GestureDescriptionPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::GestureDescription> GestureDescriptionPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::experimot::msgs::GestureDescription_GestureType> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Indriya::Core::Msgs::GestureDescription_GestureType> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::experimot::msgs::GestureDescription_GestureType>() {
-  return ::experimot::msgs::GestureDescription_GestureType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Indriya::Core::Msgs::GestureDescription_GestureType>() {
+  return ::Indriya::Core::Msgs::GestureDescription_GestureType_descriptor();
 }
 
 }  // namespace protobuf
 }  // namespace google
 #endif  // SWIG
 
-typedef const boost::shared_ptr<experimot::msgs::GestureDescription const> ConstGestureDescriptionPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::GestureDescription const> ConstGestureDescriptionPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_gesture_2eproto__INCLUDED

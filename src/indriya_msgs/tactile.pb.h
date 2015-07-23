@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_tactile_2eproto();
@@ -148,16 +149,16 @@ class Tactile : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedField< double >*
       mutable_pressure();
 
-  // required .experimot.msgs.Time time = 4;
+  // required .Indriya.Core.Msgs.Time time = 4;
   bool has_time() const;
   void clear_time();
   static const int kTimeFieldNumber = 4;
-  const ::experimot::msgs::Time& time() const;
-  ::experimot::msgs::Time* mutable_time();
-  ::experimot::msgs::Time* release_time();
-  void set_allocated_time(::experimot::msgs::Time* time);
+  const ::Indriya::Core::Msgs::Time& time() const;
+  ::Indriya::Core::Msgs::Time* mutable_time();
+  ::Indriya::Core::Msgs::Time* release_time();
+  void set_allocated_time(::Indriya::Core::Msgs::Time* time);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Tactile)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Tactile)
  private:
   inline void set_has_time();
   inline void clear_has_time();
@@ -168,7 +169,7 @@ class Tactile : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::std::string> collision_name_;
   ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > collision_id_;
   ::google::protobuf::RepeatedField< double > pressure_;
-  ::experimot::msgs::Time* time_;
+  ::Indriya::Core::Msgs::Time* time_;
   friend void  protobuf_AddDesc_tactile_2eproto();
   friend void protobuf_AssignDesc_tactile_2eproto();
   friend void protobuf_ShutdownFile_tactile_2eproto();
@@ -192,49 +193,49 @@ inline void Tactile::clear_collision_name() {
   collision_name_.Clear();
 }
 inline const ::std::string& Tactile::collision_name(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Tactile.collision_name)
   return collision_name_.Get(index);
 }
 inline ::std::string* Tactile::mutable_collision_name(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Tactile.collision_name)
   return collision_name_.Mutable(index);
 }
 inline void Tactile::set_collision_name(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Tactile.collision_name)
   collision_name_.Mutable(index)->assign(value);
 }
 inline void Tactile::set_collision_name(int index, const char* value) {
   collision_name_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Tactile.collision_name)
 }
 inline void Tactile::set_collision_name(int index, const char* value, size_t size) {
   collision_name_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Tactile.collision_name)
 }
 inline ::std::string* Tactile::add_collision_name() {
   return collision_name_.Add();
 }
 inline void Tactile::add_collision_name(const ::std::string& value) {
   collision_name_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Tactile.collision_name)
 }
 inline void Tactile::add_collision_name(const char* value) {
   collision_name_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_add_char:Indriya.Core.Msgs.Tactile.collision_name)
 }
 inline void Tactile::add_collision_name(const char* value, size_t size) {
   collision_name_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_add_pointer:Indriya.Core.Msgs.Tactile.collision_name)
 }
 inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
 Tactile::collision_name() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Tactile.collision_name)
   return collision_name_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
 Tactile::mutable_collision_name() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Tactile.collision_name)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Tactile.collision_name)
   return &collision_name_;
 }
 
@@ -246,25 +247,25 @@ inline void Tactile::clear_collision_id() {
   collision_id_.Clear();
 }
 inline ::google::protobuf::uint32 Tactile::collision_id(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Tactile.collision_id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Tactile.collision_id)
   return collision_id_.Get(index);
 }
 inline void Tactile::set_collision_id(int index, ::google::protobuf::uint32 value) {
   collision_id_.Set(index, value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Tactile.collision_id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Tactile.collision_id)
 }
 inline void Tactile::add_collision_id(::google::protobuf::uint32 value) {
   collision_id_.Add(value);
-  // @@protoc_insertion_point(field_add:experimot.msgs.Tactile.collision_id)
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Tactile.collision_id)
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
 Tactile::collision_id() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Tactile.collision_id)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Tactile.collision_id)
   return collision_id_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
 Tactile::mutable_collision_id() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Tactile.collision_id)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Tactile.collision_id)
   return &collision_id_;
 }
 
@@ -276,29 +277,29 @@ inline void Tactile::clear_pressure() {
   pressure_.Clear();
 }
 inline double Tactile::pressure(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Tactile.pressure)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Tactile.pressure)
   return pressure_.Get(index);
 }
 inline void Tactile::set_pressure(int index, double value) {
   pressure_.Set(index, value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Tactile.pressure)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Tactile.pressure)
 }
 inline void Tactile::add_pressure(double value) {
   pressure_.Add(value);
-  // @@protoc_insertion_point(field_add:experimot.msgs.Tactile.pressure)
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Tactile.pressure)
 }
 inline const ::google::protobuf::RepeatedField< double >&
 Tactile::pressure() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Tactile.pressure)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Tactile.pressure)
   return pressure_;
 }
 inline ::google::protobuf::RepeatedField< double >*
 Tactile::mutable_pressure() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Tactile.pressure)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Tactile.pressure)
   return &pressure_;
 }
 
-// required .experimot.msgs.Time time = 4;
+// required .Indriya.Core.Msgs.Time time = 4;
 inline bool Tactile::has_time() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -309,28 +310,28 @@ inline void Tactile::clear_has_time() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void Tactile::clear_time() {
-  if (time_ != NULL) time_->::experimot::msgs::Time::Clear();
+  if (time_ != NULL) time_->::Indriya::Core::Msgs::Time::Clear();
   clear_has_time();
 }
-inline const ::experimot::msgs::Time& Tactile::time() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Tactile.time)
+inline const ::Indriya::Core::Msgs::Time& Tactile::time() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Tactile.time)
   return time_ != NULL ? *time_ : *default_instance_->time_;
 }
-inline ::experimot::msgs::Time* Tactile::mutable_time() {
+inline ::Indriya::Core::Msgs::Time* Tactile::mutable_time() {
   set_has_time();
   if (time_ == NULL) {
-    time_ = new ::experimot::msgs::Time;
+    time_ = new ::Indriya::Core::Msgs::Time;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Tactile.time)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Tactile.time)
   return time_;
 }
-inline ::experimot::msgs::Time* Tactile::release_time() {
+inline ::Indriya::Core::Msgs::Time* Tactile::release_time() {
   clear_has_time();
-  ::experimot::msgs::Time* temp = time_;
+  ::Indriya::Core::Msgs::Time* temp = time_;
   time_ = NULL;
   return temp;
 }
-inline void Tactile::set_allocated_time(::experimot::msgs::Time* time) {
+inline void Tactile::set_allocated_time(::Indriya::Core::Msgs::Time* time) {
   delete time_;
   time_ = time;
   if (time) {
@@ -338,18 +339,19 @@ inline void Tactile::set_allocated_time(::experimot::msgs::Time* time) {
   } else {
     clear_has_time();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Tactile.time)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Tactile.time)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Tactile> TactilePtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Tactile> TactilePtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Tactile const> ConstTactilePtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Tactile const> ConstTactilePtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_tactile_2eproto__INCLUDED

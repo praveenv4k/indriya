@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_human_2eproto();
@@ -124,34 +125,34 @@ class Human : public ::google::protobuf::Message {
   bool tracked() const;
   void set_tracked(bool value);
 
-  // required .experimot.msgs.Vector3d torso_position = 3;
+  // required .Indriya.Core.Msgs.Vector3d torso_position = 3;
   bool has_torso_position() const;
   void clear_torso_position();
   static const int kTorsoPositionFieldNumber = 3;
-  const ::experimot::msgs::Vector3d& torso_position() const;
-  ::experimot::msgs::Vector3d* mutable_torso_position();
-  ::experimot::msgs::Vector3d* release_torso_position();
-  void set_allocated_torso_position(::experimot::msgs::Vector3d* torso_position);
+  const ::Indriya::Core::Msgs::Vector3d& torso_position() const;
+  ::Indriya::Core::Msgs::Vector3d* mutable_torso_position();
+  ::Indriya::Core::Msgs::Vector3d* release_torso_position();
+  void set_allocated_torso_position(::Indriya::Core::Msgs::Vector3d* torso_position);
 
-  // required .experimot.msgs.Vector3d head_position = 4;
+  // required .Indriya.Core.Msgs.Vector3d head_position = 4;
   bool has_head_position() const;
   void clear_head_position();
   static const int kHeadPositionFieldNumber = 4;
-  const ::experimot::msgs::Vector3d& head_position() const;
-  ::experimot::msgs::Vector3d* mutable_head_position();
-  ::experimot::msgs::Vector3d* release_head_position();
-  void set_allocated_head_position(::experimot::msgs::Vector3d* head_position);
+  const ::Indriya::Core::Msgs::Vector3d& head_position() const;
+  ::Indriya::Core::Msgs::Vector3d* mutable_head_position();
+  ::Indriya::Core::Msgs::Vector3d* release_head_position();
+  void set_allocated_head_position(::Indriya::Core::Msgs::Vector3d* head_position);
 
-  // required .experimot.msgs.Quaternion orientation = 5;
+  // required .Indriya.Core.Msgs.Quaternion orientation = 5;
   bool has_orientation() const;
   void clear_orientation();
   static const int kOrientationFieldNumber = 5;
-  const ::experimot::msgs::Quaternion& orientation() const;
-  ::experimot::msgs::Quaternion* mutable_orientation();
-  ::experimot::msgs::Quaternion* release_orientation();
-  void set_allocated_orientation(::experimot::msgs::Quaternion* orientation);
+  const ::Indriya::Core::Msgs::Quaternion& orientation() const;
+  ::Indriya::Core::Msgs::Quaternion* mutable_orientation();
+  ::Indriya::Core::Msgs::Quaternion* release_orientation();
+  void set_allocated_orientation(::Indriya::Core::Msgs::Quaternion* orientation);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Human)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Human)
  private:
   inline void set_has_id();
   inline void clear_has_id();
@@ -172,9 +173,9 @@ class Human : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::int32 id_;
   bool tracked_;
-  ::experimot::msgs::Vector3d* torso_position_;
-  ::experimot::msgs::Vector3d* head_position_;
-  ::experimot::msgs::Quaternion* orientation_;
+  ::Indriya::Core::Msgs::Vector3d* torso_position_;
+  ::Indriya::Core::Msgs::Vector3d* head_position_;
+  ::Indriya::Core::Msgs::Quaternion* orientation_;
   friend void  protobuf_AddDesc_human_2eproto();
   friend void protobuf_AssignDesc_human_2eproto();
   friend void protobuf_ShutdownFile_human_2eproto();
@@ -248,25 +249,25 @@ class Humans : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .experimot.msgs.Human human = 1;
+  // repeated .Indriya.Core.Msgs.Human human = 1;
   int human_size() const;
   void clear_human();
   static const int kHumanFieldNumber = 1;
-  const ::experimot::msgs::Human& human(int index) const;
-  ::experimot::msgs::Human* mutable_human(int index);
-  ::experimot::msgs::Human* add_human();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Human >&
+  const ::Indriya::Core::Msgs::Human& human(int index) const;
+  ::Indriya::Core::Msgs::Human* mutable_human(int index);
+  ::Indriya::Core::Msgs::Human* add_human();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Human >&
       human() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Human >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Human >*
       mutable_human();
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Humans)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Humans)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Human > human_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Human > human_;
   friend void  protobuf_AddDesc_human_2eproto();
   friend void protobuf_AssignDesc_human_2eproto();
   friend void protobuf_ShutdownFile_human_2eproto();
@@ -297,13 +298,13 @@ inline void Human::clear_id() {
   clear_has_id();
 }
 inline ::google::protobuf::int32 Human::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Human.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Human.id)
   return id_;
 }
 inline void Human::set_id(::google::protobuf::int32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Human.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Human.id)
 }
 
 // required bool tracked = 2;
@@ -321,16 +322,16 @@ inline void Human::clear_tracked() {
   clear_has_tracked();
 }
 inline bool Human::tracked() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Human.tracked)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Human.tracked)
   return tracked_;
 }
 inline void Human::set_tracked(bool value) {
   set_has_tracked();
   tracked_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Human.tracked)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Human.tracked)
 }
 
-// required .experimot.msgs.Vector3d torso_position = 3;
+// required .Indriya.Core.Msgs.Vector3d torso_position = 3;
 inline bool Human::has_torso_position() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -341,28 +342,28 @@ inline void Human::clear_has_torso_position() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void Human::clear_torso_position() {
-  if (torso_position_ != NULL) torso_position_->::experimot::msgs::Vector3d::Clear();
+  if (torso_position_ != NULL) torso_position_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_torso_position();
 }
-inline const ::experimot::msgs::Vector3d& Human::torso_position() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Human.torso_position)
+inline const ::Indriya::Core::Msgs::Vector3d& Human::torso_position() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Human.torso_position)
   return torso_position_ != NULL ? *torso_position_ : *default_instance_->torso_position_;
 }
-inline ::experimot::msgs::Vector3d* Human::mutable_torso_position() {
+inline ::Indriya::Core::Msgs::Vector3d* Human::mutable_torso_position() {
   set_has_torso_position();
   if (torso_position_ == NULL) {
-    torso_position_ = new ::experimot::msgs::Vector3d;
+    torso_position_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Human.torso_position)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Human.torso_position)
   return torso_position_;
 }
-inline ::experimot::msgs::Vector3d* Human::release_torso_position() {
+inline ::Indriya::Core::Msgs::Vector3d* Human::release_torso_position() {
   clear_has_torso_position();
-  ::experimot::msgs::Vector3d* temp = torso_position_;
+  ::Indriya::Core::Msgs::Vector3d* temp = torso_position_;
   torso_position_ = NULL;
   return temp;
 }
-inline void Human::set_allocated_torso_position(::experimot::msgs::Vector3d* torso_position) {
+inline void Human::set_allocated_torso_position(::Indriya::Core::Msgs::Vector3d* torso_position) {
   delete torso_position_;
   torso_position_ = torso_position;
   if (torso_position) {
@@ -370,10 +371,10 @@ inline void Human::set_allocated_torso_position(::experimot::msgs::Vector3d* tor
   } else {
     clear_has_torso_position();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Human.torso_position)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Human.torso_position)
 }
 
-// required .experimot.msgs.Vector3d head_position = 4;
+// required .Indriya.Core.Msgs.Vector3d head_position = 4;
 inline bool Human::has_head_position() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -384,28 +385,28 @@ inline void Human::clear_has_head_position() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void Human::clear_head_position() {
-  if (head_position_ != NULL) head_position_->::experimot::msgs::Vector3d::Clear();
+  if (head_position_ != NULL) head_position_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_head_position();
 }
-inline const ::experimot::msgs::Vector3d& Human::head_position() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Human.head_position)
+inline const ::Indriya::Core::Msgs::Vector3d& Human::head_position() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Human.head_position)
   return head_position_ != NULL ? *head_position_ : *default_instance_->head_position_;
 }
-inline ::experimot::msgs::Vector3d* Human::mutable_head_position() {
+inline ::Indriya::Core::Msgs::Vector3d* Human::mutable_head_position() {
   set_has_head_position();
   if (head_position_ == NULL) {
-    head_position_ = new ::experimot::msgs::Vector3d;
+    head_position_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Human.head_position)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Human.head_position)
   return head_position_;
 }
-inline ::experimot::msgs::Vector3d* Human::release_head_position() {
+inline ::Indriya::Core::Msgs::Vector3d* Human::release_head_position() {
   clear_has_head_position();
-  ::experimot::msgs::Vector3d* temp = head_position_;
+  ::Indriya::Core::Msgs::Vector3d* temp = head_position_;
   head_position_ = NULL;
   return temp;
 }
-inline void Human::set_allocated_head_position(::experimot::msgs::Vector3d* head_position) {
+inline void Human::set_allocated_head_position(::Indriya::Core::Msgs::Vector3d* head_position) {
   delete head_position_;
   head_position_ = head_position;
   if (head_position) {
@@ -413,10 +414,10 @@ inline void Human::set_allocated_head_position(::experimot::msgs::Vector3d* head
   } else {
     clear_has_head_position();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Human.head_position)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Human.head_position)
 }
 
-// required .experimot.msgs.Quaternion orientation = 5;
+// required .Indriya.Core.Msgs.Quaternion orientation = 5;
 inline bool Human::has_orientation() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -427,28 +428,28 @@ inline void Human::clear_has_orientation() {
   _has_bits_[0] &= ~0x00000010u;
 }
 inline void Human::clear_orientation() {
-  if (orientation_ != NULL) orientation_->::experimot::msgs::Quaternion::Clear();
+  if (orientation_ != NULL) orientation_->::Indriya::Core::Msgs::Quaternion::Clear();
   clear_has_orientation();
 }
-inline const ::experimot::msgs::Quaternion& Human::orientation() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Human.orientation)
+inline const ::Indriya::Core::Msgs::Quaternion& Human::orientation() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Human.orientation)
   return orientation_ != NULL ? *orientation_ : *default_instance_->orientation_;
 }
-inline ::experimot::msgs::Quaternion* Human::mutable_orientation() {
+inline ::Indriya::Core::Msgs::Quaternion* Human::mutable_orientation() {
   set_has_orientation();
   if (orientation_ == NULL) {
-    orientation_ = new ::experimot::msgs::Quaternion;
+    orientation_ = new ::Indriya::Core::Msgs::Quaternion;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Human.orientation)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Human.orientation)
   return orientation_;
 }
-inline ::experimot::msgs::Quaternion* Human::release_orientation() {
+inline ::Indriya::Core::Msgs::Quaternion* Human::release_orientation() {
   clear_has_orientation();
-  ::experimot::msgs::Quaternion* temp = orientation_;
+  ::Indriya::Core::Msgs::Quaternion* temp = orientation_;
   orientation_ = NULL;
   return temp;
 }
-inline void Human::set_allocated_orientation(::experimot::msgs::Quaternion* orientation) {
+inline void Human::set_allocated_orientation(::Indriya::Core::Msgs::Quaternion* orientation) {
   delete orientation_;
   orientation_ = orientation;
   if (orientation) {
@@ -456,52 +457,53 @@ inline void Human::set_allocated_orientation(::experimot::msgs::Quaternion* orie
   } else {
     clear_has_orientation();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Human.orientation)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Human.orientation)
 }
 
 // -------------------------------------------------------------------
 
 // Humans
 
-// repeated .experimot.msgs.Human human = 1;
+// repeated .Indriya.Core.Msgs.Human human = 1;
 inline int Humans::human_size() const {
   return human_.size();
 }
 inline void Humans::clear_human() {
   human_.Clear();
 }
-inline const ::experimot::msgs::Human& Humans::human(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Humans.human)
+inline const ::Indriya::Core::Msgs::Human& Humans::human(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Humans.human)
   return human_.Get(index);
 }
-inline ::experimot::msgs::Human* Humans::mutable_human(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Humans.human)
+inline ::Indriya::Core::Msgs::Human* Humans::mutable_human(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Humans.human)
   return human_.Mutable(index);
 }
-inline ::experimot::msgs::Human* Humans::add_human() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Humans.human)
+inline ::Indriya::Core::Msgs::Human* Humans::add_human() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Humans.human)
   return human_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Human >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Human >&
 Humans::human() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Humans.human)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Humans.human)
   return human_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Human >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Human >*
 Humans::mutable_human() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Humans.human)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Humans.human)
   return &human_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Human> HumanPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Human> HumanPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Human const> ConstHumanPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Human const> ConstHumanPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_human_2eproto__INCLUDED

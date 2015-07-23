@@ -18,9 +18,9 @@ import time_pb2 as time__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='tactile.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\rtactile.proto\x12\x0e\x65xperimot.msgs\x1a\ntime.proto\"m\n\x07Tactile\x12\x16\n\x0e\x63ollision_name\x18\x01 \x03(\t\x12\x14\n\x0c\x63ollision_id\x18\x02 \x03(\r\x12\x10\n\x08pressure\x18\x03 \x03(\x01\x12\"\n\x04time\x18\x04 \x02(\x0b\x32\x14.experimot.msgs.Time')
+  serialized_pb=_b('\n\rtactile.proto\x12\x11Indriya.Core.Msgs\x1a\ntime.proto\"p\n\x07Tactile\x12\x16\n\x0e\x63ollision_name\x18\x01 \x03(\t\x12\x14\n\x0c\x63ollision_id\x18\x02 \x03(\r\x12\x10\n\x08pressure\x18\x03 \x03(\x01\x12%\n\x04time\x18\x04 \x02(\x0b\x32\x17.Indriya.Core.Msgs.Time')
   ,
   dependencies=[time__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,34 +30,34 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _TACTILE = _descriptor.Descriptor(
   name='Tactile',
-  full_name='experimot.msgs.Tactile',
+  full_name='Indriya.Core.Msgs.Tactile',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='collision_name', full_name='experimot.msgs.Tactile.collision_name', index=0,
+      name='collision_name', full_name='Indriya.Core.Msgs.Tactile.collision_name', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='collision_id', full_name='experimot.msgs.Tactile.collision_id', index=1,
+      name='collision_id', full_name='Indriya.Core.Msgs.Tactile.collision_id', index=1,
       number=2, type=13, cpp_type=3, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='pressure', full_name='experimot.msgs.Tactile.pressure', index=2,
+      name='pressure', full_name='Indriya.Core.Msgs.Tactile.pressure', index=2,
       number=3, type=1, cpp_type=5, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='time', full_name='experimot.msgs.Tactile.time', index=3,
+      name='time', full_name='Indriya.Core.Msgs.Tactile.time', index=3,
       number=4, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -75,8 +75,8 @@ _TACTILE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=45,
-  serialized_end=154,
+  serialized_start=48,
+  serialized_end=160,
 )
 
 _TACTILE.fields_by_name['time'].message_type = time__pb2._TIME
@@ -85,7 +85,7 @@ DESCRIPTOR.message_types_by_name['Tactile'] = _TACTILE
 Tactile = _reflection.GeneratedProtocolMessageType('Tactile', (_message.Message,), dict(
   DESCRIPTOR = _TACTILE,
   __module__ = 'tactile_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Tactile)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Tactile)
   ))
 _sym_db.RegisterMessage(Tactile)
 

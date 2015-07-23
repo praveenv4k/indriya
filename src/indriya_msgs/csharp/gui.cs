@@ -10,7 +10,7 @@
 // Generated from: proto/gui.proto
 // Note: requires additional types generated from: gui_camera.proto
 // Note: requires additional types generated from: plugin.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"GUI")]
   public partial class GUI : global::ProtoBuf.IExtensible
@@ -25,17 +25,17 @@ namespace experimot.msgs
       get { return _fullscreen; }
       set { _fullscreen = value; }
     }
-    private experimot.msgs.GUICamera _camera = null;
+    private Indriya.Core.Msgs.GUICamera _camera = null;
     [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"camera", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public experimot.msgs.GUICamera camera
+    public Indriya.Core.Msgs.GUICamera camera
     {
       get { return _camera; }
       set { _camera = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Plugin> _plugin = new global::System.Collections.Generic.List<experimot.msgs.Plugin>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Plugin> _plugin = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Plugin>();
     [global::ProtoBuf.ProtoMember(3, Name=@"plugin", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Plugin> plugin
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Plugin> plugin
     {
       get { return _plugin; }
     }

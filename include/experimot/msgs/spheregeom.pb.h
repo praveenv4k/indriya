@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_spheregeom_2eproto();
@@ -114,7 +115,7 @@ class SphereGeom : public ::google::protobuf::Message {
   double radius() const;
   void set_radius(double value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.SphereGeom)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.SphereGeom)
  private:
   inline void set_has_radius();
   inline void clear_has_radius();
@@ -153,24 +154,25 @@ inline void SphereGeom::clear_radius() {
   clear_has_radius();
 }
 inline double SphereGeom::radius() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.SphereGeom.radius)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.SphereGeom.radius)
   return radius_;
 }
 inline void SphereGeom::set_radius(double value) {
   set_has_radius();
   radius_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.SphereGeom.radius)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.SphereGeom.radius)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::SphereGeom> SphereGeomPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::SphereGeom> SphereGeomPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::SphereGeom const> ConstSphereGeomPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::SphereGeom const> ConstSphereGeomPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_spheregeom_2eproto__INCLUDED

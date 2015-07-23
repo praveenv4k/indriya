@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -84,14 +85,14 @@ void protobuf_AddDesc_projector_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_pose_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_pose_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\017projector.proto\022\016experimot.msgs\032\npose."
-    "proto\"\247\001\n\tProjector\022\014\n\004name\030\001 \002(\t\022\017\n\007tex"
-    "ture\030\002 \001(\t\022\"\n\004pose\030\003 \001(\0132\024.experimot.msg"
-    "s.Pose\022\022\n\003fov\030\004 \001(\001:\0050.785\022\026\n\tnear_clip\030"
-    "\005 \001(\001:\0030.1\022\024\n\010far_clip\030\006 \001(\001:\00210\022\025\n\007enab"
-    "led\030\007 \001(\010:\004true", 215);
+    "\n\017projector.proto\022\021Indriya.Core.Msgs\032\npo"
+    "se.proto\"\252\001\n\tProjector\022\014\n\004name\030\001 \002(\t\022\017\n\007"
+    "texture\030\002 \001(\t\022%\n\004pose\030\003 \001(\0132\027.Indriya.Co"
+    "re.Msgs.Pose\022\022\n\003fov\030\004 \001(\001:\0050.785\022\026\n\tnear"
+    "_clip\030\005 \001(\001:\0030.1\022\024\n\010far_clip\030\006 \001(\001:\00210\022\025"
+    "\n\007enabled\030\007 \001(\010:\004true", 221);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "projector.proto", &protobuf_RegisterTypes);
   Projector::default_instance_ = new Projector();
@@ -131,11 +132,11 @@ const int Projector::kEnabledFieldNumber;
 Projector::Projector()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Projector)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Projector)
 }
 
 void Projector::InitAsDefaultInstance() {
-  pose_ = const_cast< ::experimot::msgs::Pose*>(&::experimot::msgs::Pose::default_instance());
+  pose_ = const_cast< ::Indriya::Core::Msgs::Pose*>(&::Indriya::Core::Msgs::Pose::default_instance());
 }
 
 Projector::Projector(const Projector& from)
@@ -143,7 +144,7 @@ Projector::Projector(const Projector& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Projector)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Projector)
 }
 
 void Projector::SharedCtor() {
@@ -160,7 +161,7 @@ void Projector::SharedCtor() {
 }
 
 Projector::~Projector() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Projector)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Projector)
   SharedDtor();
 }
 
@@ -206,7 +207,7 @@ void Projector::Clear() {
       texture_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_pose()) {
-      if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+      if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
     }
     fov_ = 0.785;
     near_clip_ = 0.1;
@@ -223,7 +224,7 @@ bool Projector::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Projector)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Projector)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -237,7 +238,7 @@ bool Projector::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Projector.name");
+            "Indriya.Core.Msgs.Projector.name");
         } else {
           goto handle_unusual;
         }
@@ -254,7 +255,7 @@ bool Projector::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->texture().data(), this->texture().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Projector.texture");
+            "Indriya.Core.Msgs.Projector.texture");
         } else {
           goto handle_unusual;
         }
@@ -262,7 +263,7 @@ bool Projector::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Pose pose = 3;
+      // optional .Indriya.Core.Msgs.Pose pose = 3;
       case 3: {
         if (tag == 26) {
          parse_pose:
@@ -349,23 +350,23 @@ bool Projector::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Projector)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Projector)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Projector)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Projector)
   return false;
 #undef DO_
 }
 
 void Projector::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Projector)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Projector)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Projector.name");
+      "Indriya.Core.Msgs.Projector.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
@@ -375,12 +376,12 @@ void Projector::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->texture().data(), this->texture().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Projector.texture");
+      "Indriya.Core.Msgs.Projector.texture");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->texture(), output);
   }
 
-  // optional .experimot.msgs.Pose pose = 3;
+  // optional .Indriya.Core.Msgs.Pose pose = 3;
   if (has_pose()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, *this->pose_, output);
@@ -410,18 +411,18 @@ void Projector::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Projector)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Projector)
 }
 
 ::google::protobuf::uint8* Projector::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Projector)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Projector)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Projector.name");
+      "Indriya.Core.Msgs.Projector.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
@@ -432,13 +433,13 @@ void Projector::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->texture().data(), this->texture().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Projector.texture");
+      "Indriya.Core.Msgs.Projector.texture");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->texture(), target);
   }
 
-  // optional .experimot.msgs.Pose pose = 3;
+  // optional .Indriya.Core.Msgs.Pose pose = 3;
   if (has_pose()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -469,7 +470,7 @@ void Projector::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Projector)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Projector)
   return target;
 }
 
@@ -490,7 +491,7 @@ int Projector::ByteSize() const {
           this->texture());
     }
 
-    // optional .experimot.msgs.Pose pose = 3;
+    // optional .Indriya.Core.Msgs.Pose pose = 3;
     if (has_pose()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -553,7 +554,7 @@ void Projector::MergeFrom(const Projector& from) {
       texture_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.texture_);
     }
     if (from.has_pose()) {
-      mutable_pose()->::experimot::msgs::Pose::MergeFrom(from.pose());
+      mutable_pose()->::Indriya::Core::Msgs::Pose::MergeFrom(from.pose());
     }
     if (from.has_fov()) {
       set_fov(from.fov());
@@ -637,28 +638,28 @@ void Projector::InternalSwap(Projector* other) {
   clear_has_name();
 }
  const ::std::string& Projector::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Projector.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Projector.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Projector::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Projector.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Projector.name)
 }
  void Projector::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Projector.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Projector.name)
 }
  void Projector::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Projector.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Projector.name)
 }
  ::std::string* Projector::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Projector.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Projector.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Projector::release_name() {
@@ -672,7 +673,7 @@ void Projector::InternalSwap(Projector* other) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Projector.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Projector.name)
 }
 
 // optional string texture = 2;
@@ -690,28 +691,28 @@ void Projector::InternalSwap(Projector* other) {
   clear_has_texture();
 }
  const ::std::string& Projector::texture() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Projector.texture)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Projector.texture)
   return texture_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Projector::set_texture(const ::std::string& value) {
   set_has_texture();
   texture_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Projector.texture)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Projector.texture)
 }
  void Projector::set_texture(const char* value) {
   set_has_texture();
   texture_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Projector.texture)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Projector.texture)
 }
  void Projector::set_texture(const char* value, size_t size) {
   set_has_texture();
   texture_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Projector.texture)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Projector.texture)
 }
  ::std::string* Projector::mutable_texture() {
   set_has_texture();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Projector.texture)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Projector.texture)
   return texture_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Projector::release_texture() {
@@ -725,10 +726,10 @@ void Projector::InternalSwap(Projector* other) {
     clear_has_texture();
   }
   texture_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), texture);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Projector.texture)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Projector.texture)
 }
 
-// optional .experimot.msgs.Pose pose = 3;
+// optional .Indriya.Core.Msgs.Pose pose = 3;
  bool Projector::has_pose() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -739,28 +740,28 @@ void Projector::InternalSwap(Projector* other) {
   _has_bits_[0] &= ~0x00000004u;
 }
  void Projector::clear_pose() {
-  if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+  if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
   clear_has_pose();
 }
- const ::experimot::msgs::Pose& Projector::pose() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Projector.pose)
+ const ::Indriya::Core::Msgs::Pose& Projector::pose() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Projector.pose)
   return pose_ != NULL ? *pose_ : *default_instance_->pose_;
 }
- ::experimot::msgs::Pose* Projector::mutable_pose() {
+ ::Indriya::Core::Msgs::Pose* Projector::mutable_pose() {
   set_has_pose();
   if (pose_ == NULL) {
-    pose_ = new ::experimot::msgs::Pose;
+    pose_ = new ::Indriya::Core::Msgs::Pose;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Projector.pose)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Projector.pose)
   return pose_;
 }
- ::experimot::msgs::Pose* Projector::release_pose() {
+ ::Indriya::Core::Msgs::Pose* Projector::release_pose() {
   clear_has_pose();
-  ::experimot::msgs::Pose* temp = pose_;
+  ::Indriya::Core::Msgs::Pose* temp = pose_;
   pose_ = NULL;
   return temp;
 }
- void Projector::set_allocated_pose(::experimot::msgs::Pose* pose) {
+ void Projector::set_allocated_pose(::Indriya::Core::Msgs::Pose* pose) {
   delete pose_;
   pose_ = pose;
   if (pose) {
@@ -768,7 +769,7 @@ void Projector::InternalSwap(Projector* other) {
   } else {
     clear_has_pose();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Projector.pose)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Projector.pose)
 }
 
 // optional double fov = 4 [default = 0.785];
@@ -786,13 +787,13 @@ void Projector::InternalSwap(Projector* other) {
   clear_has_fov();
 }
  double Projector::fov() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Projector.fov)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Projector.fov)
   return fov_;
 }
  void Projector::set_fov(double value) {
   set_has_fov();
   fov_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Projector.fov)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Projector.fov)
 }
 
 // optional double near_clip = 5 [default = 0.1];
@@ -810,13 +811,13 @@ void Projector::InternalSwap(Projector* other) {
   clear_has_near_clip();
 }
  double Projector::near_clip() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Projector.near_clip)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Projector.near_clip)
   return near_clip_;
 }
  void Projector::set_near_clip(double value) {
   set_has_near_clip();
   near_clip_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Projector.near_clip)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Projector.near_clip)
 }
 
 // optional double far_clip = 6 [default = 10];
@@ -834,13 +835,13 @@ void Projector::InternalSwap(Projector* other) {
   clear_has_far_clip();
 }
  double Projector::far_clip() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Projector.far_clip)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Projector.far_clip)
   return far_clip_;
 }
  void Projector::set_far_clip(double value) {
   set_has_far_clip();
   far_clip_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Projector.far_clip)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Projector.far_clip)
 }
 
 // optional bool enabled = 7 [default = true];
@@ -858,21 +859,22 @@ void Projector::InternalSwap(Projector* other) {
   clear_has_enabled();
 }
  bool Projector::enabled() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Projector.enabled)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Projector.enabled)
   return enabled_;
 }
  void Projector::set_enabled(bool value) {
   set_has_enabled();
   enabled_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Projector.enabled)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Projector.enabled)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Projector", Projector)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Projector", Projector)
 // @@protoc_insertion_point(global_scope)

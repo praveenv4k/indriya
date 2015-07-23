@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -90,16 +91,16 @@ void protobuf_AddDesc_raysensor_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\017raysensor.proto\022\016experimot.msgs\"\307\002\n\tRa"
-    "ySensor\022\024\n\014display_scan\030\001 \001(\010\022\032\n\022horizon"
-    "tal_samples\030\002 \001(\005\022\035\n\025horizontal_resoluti"
-    "on\030\003 \001(\001\022\034\n\024horizontal_min_angle\030\004 \001(\001\022\034"
-    "\n\024horizontal_max_angle\030\005 \001(\001\022\030\n\020vertical"
-    "_samples\030\006 \001(\005\022\033\n\023vertical_resolution\030\007 "
-    "\001(\001\022\032\n\022vertical_min_angle\030\010 \001(\001\022\032\n\022verti"
-    "cal_max_angle\030\t \001(\001\022\021\n\trange_min\030\n \001(\001\022\021"
-    "\n\trange_max\030\013 \001(\001\022\030\n\020range_resolution\030\014 "
-    "\001(\001", 363);
+    "\n\017raysensor.proto\022\021Indriya.Core.Msgs\"\307\002\n"
+    "\tRaySensor\022\024\n\014display_scan\030\001 \001(\010\022\032\n\022hori"
+    "zontal_samples\030\002 \001(\005\022\035\n\025horizontal_resol"
+    "ution\030\003 \001(\001\022\034\n\024horizontal_min_angle\030\004 \001("
+    "\001\022\034\n\024horizontal_max_angle\030\005 \001(\001\022\030\n\020verti"
+    "cal_samples\030\006 \001(\005\022\033\n\023vertical_resolution"
+    "\030\007 \001(\001\022\032\n\022vertical_min_angle\030\010 \001(\001\022\032\n\022ve"
+    "rtical_max_angle\030\t \001(\001\022\021\n\trange_min\030\n \001("
+    "\001\022\021\n\trange_max\030\013 \001(\001\022\030\n\020range_resolution"
+    "\030\014 \001(\001", 366);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "raysensor.proto", &protobuf_RegisterTypes);
   RaySensor::default_instance_ = new RaySensor();
@@ -144,7 +145,7 @@ const int RaySensor::kRangeResolutionFieldNumber;
 RaySensor::RaySensor()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.RaySensor)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.RaySensor)
 }
 
 void RaySensor::InitAsDefaultInstance() {
@@ -155,7 +156,7 @@ RaySensor::RaySensor(const RaySensor& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.RaySensor)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.RaySensor)
 }
 
 void RaySensor::SharedCtor() {
@@ -176,7 +177,7 @@ void RaySensor::SharedCtor() {
 }
 
 RaySensor::~RaySensor() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.RaySensor)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.RaySensor)
   SharedDtor();
 }
 
@@ -238,7 +239,7 @@ bool RaySensor::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.RaySensor)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.RaySensor)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -437,17 +438,17 @@ bool RaySensor::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.RaySensor)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.RaySensor)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.RaySensor)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.RaySensor)
   return false;
 #undef DO_
 }
 
 void RaySensor::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.RaySensor)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.RaySensor)
   // optional bool display_scan = 1;
   if (has_display_scan()) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->display_scan(), output);
@@ -512,12 +513,12 @@ void RaySensor::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.RaySensor)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.RaySensor)
 }
 
 ::google::protobuf::uint8* RaySensor::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.RaySensor)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.RaySensor)
   // optional bool display_scan = 1;
   if (has_display_scan()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->display_scan(), target);
@@ -582,7 +583,7 @@ void RaySensor::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.RaySensor)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.RaySensor)
   return target;
 }
 
@@ -792,13 +793,13 @@ void RaySensor::InternalSwap(RaySensor* other) {
   clear_has_display_scan();
 }
  bool RaySensor::display_scan() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RaySensor.display_scan)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RaySensor.display_scan)
   return display_scan_;
 }
  void RaySensor::set_display_scan(bool value) {
   set_has_display_scan();
   display_scan_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.RaySensor.display_scan)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.RaySensor.display_scan)
 }
 
 // optional int32 horizontal_samples = 2;
@@ -816,13 +817,13 @@ void RaySensor::InternalSwap(RaySensor* other) {
   clear_has_horizontal_samples();
 }
  ::google::protobuf::int32 RaySensor::horizontal_samples() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RaySensor.horizontal_samples)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RaySensor.horizontal_samples)
   return horizontal_samples_;
 }
  void RaySensor::set_horizontal_samples(::google::protobuf::int32 value) {
   set_has_horizontal_samples();
   horizontal_samples_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.RaySensor.horizontal_samples)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.RaySensor.horizontal_samples)
 }
 
 // optional double horizontal_resolution = 3;
@@ -840,13 +841,13 @@ void RaySensor::InternalSwap(RaySensor* other) {
   clear_has_horizontal_resolution();
 }
  double RaySensor::horizontal_resolution() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RaySensor.horizontal_resolution)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RaySensor.horizontal_resolution)
   return horizontal_resolution_;
 }
  void RaySensor::set_horizontal_resolution(double value) {
   set_has_horizontal_resolution();
   horizontal_resolution_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.RaySensor.horizontal_resolution)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.RaySensor.horizontal_resolution)
 }
 
 // optional double horizontal_min_angle = 4;
@@ -864,13 +865,13 @@ void RaySensor::InternalSwap(RaySensor* other) {
   clear_has_horizontal_min_angle();
 }
  double RaySensor::horizontal_min_angle() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RaySensor.horizontal_min_angle)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RaySensor.horizontal_min_angle)
   return horizontal_min_angle_;
 }
  void RaySensor::set_horizontal_min_angle(double value) {
   set_has_horizontal_min_angle();
   horizontal_min_angle_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.RaySensor.horizontal_min_angle)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.RaySensor.horizontal_min_angle)
 }
 
 // optional double horizontal_max_angle = 5;
@@ -888,13 +889,13 @@ void RaySensor::InternalSwap(RaySensor* other) {
   clear_has_horizontal_max_angle();
 }
  double RaySensor::horizontal_max_angle() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RaySensor.horizontal_max_angle)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RaySensor.horizontal_max_angle)
   return horizontal_max_angle_;
 }
  void RaySensor::set_horizontal_max_angle(double value) {
   set_has_horizontal_max_angle();
   horizontal_max_angle_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.RaySensor.horizontal_max_angle)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.RaySensor.horizontal_max_angle)
 }
 
 // optional int32 vertical_samples = 6;
@@ -912,13 +913,13 @@ void RaySensor::InternalSwap(RaySensor* other) {
   clear_has_vertical_samples();
 }
  ::google::protobuf::int32 RaySensor::vertical_samples() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RaySensor.vertical_samples)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RaySensor.vertical_samples)
   return vertical_samples_;
 }
  void RaySensor::set_vertical_samples(::google::protobuf::int32 value) {
   set_has_vertical_samples();
   vertical_samples_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.RaySensor.vertical_samples)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.RaySensor.vertical_samples)
 }
 
 // optional double vertical_resolution = 7;
@@ -936,13 +937,13 @@ void RaySensor::InternalSwap(RaySensor* other) {
   clear_has_vertical_resolution();
 }
  double RaySensor::vertical_resolution() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RaySensor.vertical_resolution)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RaySensor.vertical_resolution)
   return vertical_resolution_;
 }
  void RaySensor::set_vertical_resolution(double value) {
   set_has_vertical_resolution();
   vertical_resolution_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.RaySensor.vertical_resolution)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.RaySensor.vertical_resolution)
 }
 
 // optional double vertical_min_angle = 8;
@@ -960,13 +961,13 @@ void RaySensor::InternalSwap(RaySensor* other) {
   clear_has_vertical_min_angle();
 }
  double RaySensor::vertical_min_angle() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RaySensor.vertical_min_angle)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RaySensor.vertical_min_angle)
   return vertical_min_angle_;
 }
  void RaySensor::set_vertical_min_angle(double value) {
   set_has_vertical_min_angle();
   vertical_min_angle_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.RaySensor.vertical_min_angle)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.RaySensor.vertical_min_angle)
 }
 
 // optional double vertical_max_angle = 9;
@@ -984,13 +985,13 @@ void RaySensor::InternalSwap(RaySensor* other) {
   clear_has_vertical_max_angle();
 }
  double RaySensor::vertical_max_angle() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RaySensor.vertical_max_angle)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RaySensor.vertical_max_angle)
   return vertical_max_angle_;
 }
  void RaySensor::set_vertical_max_angle(double value) {
   set_has_vertical_max_angle();
   vertical_max_angle_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.RaySensor.vertical_max_angle)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.RaySensor.vertical_max_angle)
 }
 
 // optional double range_min = 10;
@@ -1008,13 +1009,13 @@ void RaySensor::InternalSwap(RaySensor* other) {
   clear_has_range_min();
 }
  double RaySensor::range_min() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RaySensor.range_min)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RaySensor.range_min)
   return range_min_;
 }
  void RaySensor::set_range_min(double value) {
   set_has_range_min();
   range_min_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.RaySensor.range_min)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.RaySensor.range_min)
 }
 
 // optional double range_max = 11;
@@ -1032,13 +1033,13 @@ void RaySensor::InternalSwap(RaySensor* other) {
   clear_has_range_max();
 }
  double RaySensor::range_max() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RaySensor.range_max)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RaySensor.range_max)
   return range_max_;
 }
  void RaySensor::set_range_max(double value) {
   set_has_range_max();
   range_max_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.RaySensor.range_max)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.RaySensor.range_max)
 }
 
 // optional double range_resolution = 12;
@@ -1056,21 +1057,22 @@ void RaySensor::InternalSwap(RaySensor* other) {
   clear_has_range_resolution();
 }
  double RaySensor::range_resolution() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.RaySensor.range_resolution)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.RaySensor.range_resolution)
   return range_resolution_;
 }
  void RaySensor::set_range_resolution(double value) {
   set_has_range_resolution();
   range_resolution_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.RaySensor.range_resolution)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.RaySensor.range_resolution)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.RaySensor", RaySensor)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.RaySensor", RaySensor)
 // @@protoc_insertion_point(global_scope)

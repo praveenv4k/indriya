@@ -175,14 +175,14 @@ public:
 			m_pSocket->recv(&data);
 
 			{
-				experimot::msgs::JointValueVector jVector;
+				Indriya::Core::Msgs::JointValueVector jVector;
 				if (jVector.ParseFromArray(data.data(), data.size())){
 					//jVector.PrintDebugString();
 					//std::cout << "Size: " << jvMap.map_field_size() << std::endl;
 					std::vector<double> jointValues;
 					jointValues.resize(jVector.jointvalues_size());
 					for (google::protobuf::int32 i = 0; i < jVector.jointvalues_size(); i++){
-						const experimot::msgs::JointValue& jVal = jVector.jointvalues(i);
+						const Indriya::Core::Msgs::JointValue& jVal = jVector.jointvalues(i);
 						jointValues[jVal.id()] = jVal.value();
 					}
 
@@ -225,7 +225,7 @@ public:
 		m_pSocket->setsockopt(ZMQ_SUBSCRIBE, m_strSubsribeTo.c_str(), m_strSubsribeTo.size());
 	}
 
-	static void ProtoToRave(const experimot::msgs::Pose& pose, OpenRAVE::Transform& tfm){
+	static void ProtoToRave(const Indriya::Core::Msgs::Pose& pose, OpenRAVE::Transform& tfm){
 		// Set Position
 		tfm.trans[0] = pose.position().x() / 1000;
 		tfm.trans[1] = pose.position().y() / 1000;
@@ -238,11 +238,11 @@ public:
 		tfm.rot[3] = pose.orientation().z();
 	}
 
-	static void ProtoToRave(const experimot::msgs::Pose_V& poses, const std::string& frameName, OpenRAVE::Transform& tfm){
+	static void ProtoToRave(const Indriya::Core::Msgs::Pose_V& poses, const std::string& frameName, OpenRAVE::Transform& tfm){
 		// Set Position
 		for (int i = 0; i < poses.pose_size(); i++){
 			if (poses.pose(i).name() == frameName){
-				const experimot::msgs::Pose pose = poses.pose(i);
+				const Indriya::Core::Msgs::Pose pose = poses.pose(i);
 				tfm.trans[0] = pose.position().x() / 1000;
 				tfm.trans[1] = pose.position().y() / 1000;
 				tfm.trans[2] = pose.position().z() / 1000;
@@ -265,7 +265,7 @@ public:
 			m_pSocket->recv(&data);
 
 			{
-				experimot::msgs::Pose_V pose;
+				Indriya::Core::Msgs::Pose_V pose;
 				if (pose.ParseFromArray(data.data(), data.size())){
 					Transform tfm;
 					ProtoToRave(pose, "torso_frame_kinect", tfm);
@@ -309,7 +309,7 @@ public:
 		m_pSocket->setsockopt(ZMQ_SUBSCRIBE, m_strSubsribeTo.c_str(), m_strSubsribeTo.size());
 	}
 
-	void KinectPointsProcess(const experimot::msgs::Vector3d& p0, RaveVector<float>& p0_out){
+	void KinectPointsProcess(const Indriya::Core::Msgs::Vector3d& p0, RaveVector<float>& p0_out){
 #if 1
 		//p0_out = RaveVector<float>(p0.z(), p0.x(), p0.y());
 		p0_out = RaveVector<float>(p0.x(), p0.y(), p0.z());
@@ -333,7 +333,7 @@ public:
 			m_pSocket->recv(&data);
 
 			{
-				experimot::msgs::KinectBodies kBodies;
+				Indriya::Core::Msgs::KinectBodies kBodies;
 				if (kBodies.ParseFromArray(data.data(), data.size())){
 					//kBodies.PrintDebugString();
 					EnvironmentMutex::scoped_lock lock(penv->GetMutex()); // lock environment
@@ -345,7 +345,7 @@ public:
 					}
 					else{
 						for (google::protobuf::int32 i = 0; i < kBodies.body_size(); i++){
-							const experimot::msgs::KinectBody& kBody = kBodies.body(i);
+							const Indriya::Core::Msgs::KinectBody& kBody = kBodies.body(i);
 							RaveVector<float> bColor;
 							KinectBodyHelper::Instance()->GetBodyColor(kBody.trackingid(), bColor);
 							const std::vector<std::tuple<KinectJoint_JointType, KinectJoint_JointType>>& boneMap = KinectBodyHelper::Instance()->GetBones();
@@ -353,8 +353,8 @@ public:
 								KinectJoint_JointType item1 = std::get<0>(*it);
 								KinectJoint_JointType item2 = std::get<1>(*it);
 
-								const experimot::msgs::KinectJoint& joint0 = kBody.joints(item1);
-								const experimot::msgs::KinectJoint& joint1 = kBody.joints(item2);
+								const Indriya::Core::Msgs::KinectJoint& joint0 = kBody.joints(item1);
+								const Indriya::Core::Msgs::KinectJoint& joint1 = kBody.joints(item2);
 
 								// If we can't find either of these joints, exit
 								if (joint0.state() == KinectJoint_TrackingState::KinectJoint_TrackingState_NotTracked ||
@@ -373,8 +373,8 @@ public:
 										boneW = bone_width;
 									}
 
-									const experimot::msgs::Vector3d& jointPos0 = joint0.position();
-									const experimot::msgs::Vector3d& jointPos1 = joint1.position();
+									const Indriya::Core::Msgs::Vector3d& jointPos0 = joint0.position();
+									const Indriya::Core::Msgs::Vector3d& jointPos1 = joint1.position();
 									RaveVector<float> jp0, jp1;
 									KinectPointsProcess(jointPos0, jp0);
 									KinectPointsProcess(jointPos1, jp1);
@@ -393,7 +393,7 @@ public:
 							{
 								bool draw = true;
 								RaveVector<float> drawBrush;
-								const experimot::msgs::KinectJoint& joint = kBody.joints(i);
+								const Indriya::Core::Msgs::KinectJoint& joint = kBody.joints(i);
 								KinectJoint_TrackingState state = joint.state();
 
 								if (state == KinectJoint_TrackingState::KinectJoint_TrackingState_Tracked)
@@ -411,7 +411,7 @@ public:
 
 								if (draw)
 								{
-									const experimot::msgs::Vector3d& jointPos = joint.position();
+									const Indriya::Core::Msgs::Vector3d& jointPos = joint.position();
 									RaveVector<float> pos(jointPos.x(), jointPos.y(), jointPos.z());
 									KinectPointsProcess(jointPos, pos);
 									jointPoints.push_back(pos);
@@ -486,7 +486,7 @@ public:
 		m_pSocket->setsockopt(ZMQ_SUBSCRIBE, m_strSubsribeTo.c_str(), m_strSubsribeTo.size());
 	}
 
-	void Convert(const experimot::msgs::Vector3d& trans, const experimot::msgs::Quaternion& rot, Transform& p0_out){
+	void Convert(const Indriya::Core::Msgs::Vector3d& trans, const Indriya::Core::Msgs::Quaternion& rot, Transform& p0_out){
 		p0_out.trans = Vector(trans.x(), trans.y(), trans.z());
 		Vector quat = Vector(rot.w(), rot.x(), rot.y(), rot.z());
 		quat = quat.normalize4();
@@ -505,7 +505,7 @@ public:
 				m_pSocket->recv(&data);
 
 				{
-					experimot::msgs::Humans humans;
+					Indriya::Core::Msgs::Humans humans;
 					if (humans.ParseFromArray(data.data(), data.size())){
 						//kBodies.PrintDebugString();
 						EnvironmentMutex::scoped_lock lock(penv->GetMutex()); // lock environment
@@ -519,7 +519,7 @@ public:
 						else{
 							continue; // For debug
 							for (google::protobuf::int32 i = 0; i < humans.human_size(); i++){
-								const experimot::msgs::Human& human = humans.human(i);
+								const Indriya::Core::Msgs::Human& human = humans.human(i);
 								stringstream ss;
 								ss << "human" << human.id();
 								std::string fileName(ss.str() + ".kinbody.xml");
@@ -638,11 +638,11 @@ public:
 				))
 			{
 				{
-					//experimot::msgs::JointValueMapPtr jointValMapPtr = experimot::msgs::JointValueMapPtr(new experimot::msgs::JointValueMap);
-					experimot::msgs::JointValueVector jVector;
+					//Indriya::Core::Msgs::JointValueMapPtr jointValMapPtr = Indriya::Core::Msgs::JointValueMapPtr(new Indriya::Core::Msgs::JointValueMap);
+					Indriya::Core::Msgs::JointValueVector jVector;
 					vector<double> jointVals;
 					for (google::protobuf::int32 id = 0; id < vals.size(); id++){
-						experimot::msgs::JointValue* pJoint = jVector.add_jointvalues();
+						Indriya::Core::Msgs::JointValue* pJoint = jVector.add_jointvalues();
 						pJoint->set_id(id);
 						pJoint->set_value(vals[jointMap[id]]);
 					}
@@ -671,7 +671,7 @@ private:
 	ZmqContextPtr m_pContext;
 	ZmqSocketPtr m_pSocket;
 	std::string m_strPublisherName;
-	std::vector<experimot::msgs::JointValueVector> m_pJointValueVector;
+	std::vector<Indriya::Core::Msgs::JointValueVector> m_pJointValueVector;
 };
 
 // Default location of Nao
@@ -687,8 +687,8 @@ private:
 //w : 0.53522962205139013
 //}
 
-experimot::msgs::NodePtr AcquireParameters(int argc, char** argv){
-	experimot::msgs::NodePtr pInfo;
+Indriya::Core::Msgs::NodePtr AcquireParameters(int argc, char** argv){
+	Indriya::Core::Msgs::NodePtr pInfo;
 	if (argv != NULL){
 		if (argc > 2){
 			std::cout
@@ -730,7 +730,7 @@ experimot::msgs::NodePtr AcquireParameters(int argc, char** argv){
 				// there are any problems 
 
 				if (!name.empty() && !param.empty()){
-					pInfo = experimot::msgs::NodePtr(new experimot::msgs::Node());
+					pInfo = Indriya::Core::Msgs::NodePtr(new Indriya::Core::Msgs::Node());
 					if (ParameterClient::Get(param, name, pInfo, 1000)){
 						pInfo->PrintDebugString();
 					}
@@ -762,7 +762,7 @@ int main(int argc, char ** argv)
 		string viewername = "qtcoin";
 		string kinectModel = "box2.kinbody.xml";
 
-		experimot::msgs::NodePtr pInfo = AcquireParameters(argc, argv);
+		Indriya::Core::Msgs::NodePtr pInfo = AcquireParameters(argc, argv);
 
 		if (pInfo != 0){
 			scenefilename = ParameterHelper::GetParam(pInfo->param(), "scenefilename", scenefilename);

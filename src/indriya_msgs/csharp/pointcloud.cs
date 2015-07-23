@@ -9,16 +9,16 @@
 
 // Generated from: proto/pointcloud.proto
 // Note: requires additional types generated from: vector3d.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"PointCloud")]
   public partial class PointCloud : global::ProtoBuf.IExtensible
   {
     public PointCloud() {}
     
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Vector3d> _points = new global::System.Collections.Generic.List<experimot.msgs.Vector3d>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector3d> _points = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector3d>();
     [global::ProtoBuf.ProtoMember(1, Name=@"points", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Vector3d> points
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector3d> points
     {
       get { return _points; }
     }

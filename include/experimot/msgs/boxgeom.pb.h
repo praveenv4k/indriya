@@ -32,8 +32,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_boxgeom_2eproto();
@@ -108,16 +109,16 @@ class BoxGeom : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .experimot.msgs.Vector3d size = 1;
+  // required .Indriya.Core.Msgs.Vector3d size = 1;
   bool has_size() const;
   void clear_size();
   static const int kSizeFieldNumber = 1;
-  const ::experimot::msgs::Vector3d& size() const;
-  ::experimot::msgs::Vector3d* mutable_size();
-  ::experimot::msgs::Vector3d* release_size();
-  void set_allocated_size(::experimot::msgs::Vector3d* size);
+  const ::Indriya::Core::Msgs::Vector3d& size() const;
+  ::Indriya::Core::Msgs::Vector3d* mutable_size();
+  ::Indriya::Core::Msgs::Vector3d* release_size();
+  void set_allocated_size(::Indriya::Core::Msgs::Vector3d* size);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.BoxGeom)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.BoxGeom)
  private:
   inline void set_has_size();
   inline void clear_has_size();
@@ -125,7 +126,7 @@ class BoxGeom : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::experimot::msgs::Vector3d* size_;
+  ::Indriya::Core::Msgs::Vector3d* size_;
   friend void  protobuf_AddDesc_boxgeom_2eproto();
   friend void protobuf_AssignDesc_boxgeom_2eproto();
   friend void protobuf_ShutdownFile_boxgeom_2eproto();
@@ -141,7 +142,7 @@ class BoxGeom : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // BoxGeom
 
-// required .experimot.msgs.Vector3d size = 1;
+// required .Indriya.Core.Msgs.Vector3d size = 1;
 inline bool BoxGeom::has_size() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -152,28 +153,28 @@ inline void BoxGeom::clear_has_size() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void BoxGeom::clear_size() {
-  if (size_ != NULL) size_->::experimot::msgs::Vector3d::Clear();
+  if (size_ != NULL) size_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_size();
 }
-inline const ::experimot::msgs::Vector3d& BoxGeom::size() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.BoxGeom.size)
+inline const ::Indriya::Core::Msgs::Vector3d& BoxGeom::size() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.BoxGeom.size)
   return size_ != NULL ? *size_ : *default_instance_->size_;
 }
-inline ::experimot::msgs::Vector3d* BoxGeom::mutable_size() {
+inline ::Indriya::Core::Msgs::Vector3d* BoxGeom::mutable_size() {
   set_has_size();
   if (size_ == NULL) {
-    size_ = new ::experimot::msgs::Vector3d;
+    size_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.BoxGeom.size)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.BoxGeom.size)
   return size_;
 }
-inline ::experimot::msgs::Vector3d* BoxGeom::release_size() {
+inline ::Indriya::Core::Msgs::Vector3d* BoxGeom::release_size() {
   clear_has_size();
-  ::experimot::msgs::Vector3d* temp = size_;
+  ::Indriya::Core::Msgs::Vector3d* temp = size_;
   size_ = NULL;
   return temp;
 }
-inline void BoxGeom::set_allocated_size(::experimot::msgs::Vector3d* size) {
+inline void BoxGeom::set_allocated_size(::Indriya::Core::Msgs::Vector3d* size) {
   delete size_;
   size_ = size;
   if (size) {
@@ -181,18 +182,19 @@ inline void BoxGeom::set_allocated_size(::experimot::msgs::Vector3d* size) {
   } else {
     clear_has_size();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.BoxGeom.size)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.BoxGeom.size)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::BoxGeom> BoxGeomPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::BoxGeom> BoxGeomPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::BoxGeom const> ConstBoxGeomPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::BoxGeom const> ConstBoxGeomPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_boxgeom_2eproto__INCLUDED

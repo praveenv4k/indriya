@@ -54,7 +54,7 @@ public:
 		_init();
 	}
 
-	MarkerDetection2(experimot::msgs::NodePtr& pNode){
+	MarkerDetection2(Indriya::Core::Msgs::NodePtr& pNode){
 		max_error = std::numeric_limits<double>::max();
 		init_detection = 0;
 		m_nCubeSize = ParameterHelper::GetParam<int>(pNode->param(), "cube_size", CUBE_SIZE);

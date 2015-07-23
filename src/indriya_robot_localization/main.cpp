@@ -25,9 +25,9 @@
 int main(int argc, char *argv[])
 {
 	try {
-		experimot::msgs::NodePtr nodeInfo;
+		Indriya::Core::Msgs::NodePtr nodeInfo;
 		if (argv != NULL){
-			experimot::msgs::Node _node;
+			Indriya::Core::Msgs::Node _node;
 			for (int i = 0; i < argc; i++){
 				std::cout
 					<< "arg " << i + 1 << " : " << std::string(argv[i]) << std::endl;
@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
 					// there are any problems 
 
 					if (!name.empty() && !param.empty()){
-						nodeInfo = experimot::msgs::NodePtr(new experimot::msgs::Node());
+						nodeInfo = Indriya::Core::Msgs::NodePtr(new Indriya::Core::Msgs::Node());
 						if (ParameterClient::Get(param, name, nodeInfo, 1000)){
 							nodeInfo->PrintDebugString();
 						}

@@ -10,23 +10,23 @@
 // Generated from: proto/contacts.proto
 // Note: requires additional types generated from: contact.proto
 // Note: requires additional types generated from: time.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Contacts")]
   public partial class Contacts : global::ProtoBuf.IExtensible
   {
     public Contacts() {}
     
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Contact> _contact = new global::System.Collections.Generic.List<experimot.msgs.Contact>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Contact> _contact = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Contact>();
     [global::ProtoBuf.ProtoMember(1, Name=@"contact", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Contact> contact
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Contact> contact
     {
       get { return _contact; }
     }
   
-    private experimot.msgs.Time _time;
+    private Indriya.Core.Msgs.Time _time;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"time", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public experimot.msgs.Time time
+    public Indriya.Core.Msgs.Time time
     {
       get { return _time; }
       set { _time = value; }

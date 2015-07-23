@@ -18,9 +18,9 @@ import header_pb2 as header__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='test.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\ntest.proto\x12\x0e\x65xperimot.msgs\x1a\x0cheader.proto\".\n\x04Test\x12&\n\x06header\x18\x01 \x02(\x0b\x32\x16.experimot.msgs.Header')
+  serialized_pb=_b('\n\ntest.proto\x12\x11Indriya.Core.Msgs\x1a\x0cheader.proto\"1\n\x04Test\x12)\n\x06header\x18\x01 \x02(\x0b\x32\x19.Indriya.Core.Msgs.Header')
   ,
   dependencies=[header__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,13 +30,13 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _TEST = _descriptor.Descriptor(
   name='Test',
-  full_name='experimot.msgs.Test',
+  full_name='Indriya.Core.Msgs.Test',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='header', full_name='experimot.msgs.Test.header', index=0,
+      name='header', full_name='Indriya.Core.Msgs.Test.header', index=0,
       number=1, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -54,8 +54,8 @@ _TEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=44,
-  serialized_end=90,
+  serialized_start=47,
+  serialized_end=96,
 )
 
 _TEST.fields_by_name['header'].message_type = header__pb2._HEADER
@@ -64,7 +64,7 @@ DESCRIPTOR.message_types_by_name['Test'] = _TEST
 Test = _reflection.GeneratedProtocolMessageType('Test', (_message.Message,), dict(
   DESCRIPTOR = _TEST,
   __module__ = 'test_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Test)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Test)
   ))
 _sym_db.RegisterMessage(Test)
 

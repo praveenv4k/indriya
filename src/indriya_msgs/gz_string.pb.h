@@ -31,8 +31,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_gz_5fstring_2eproto();
@@ -119,7 +120,7 @@ class GzString : public ::google::protobuf::Message {
   ::std::string* release_data();
   void set_allocated_data(::std::string* data);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.GzString)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.GzString)
  private:
   inline void set_has_data();
   inline void clear_has_data();
@@ -158,28 +159,28 @@ inline void GzString::clear_data() {
   clear_has_data();
 }
 inline const ::std::string& GzString::data() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.GzString.data)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.GzString.data)
   return data_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void GzString::set_data(const ::std::string& value) {
   set_has_data();
   data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.GzString.data)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.GzString.data)
 }
 inline void GzString::set_data(const char* value) {
   set_has_data();
   data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.GzString.data)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.GzString.data)
 }
 inline void GzString::set_data(const char* value, size_t size) {
   set_has_data();
   data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.GzString.data)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.GzString.data)
 }
 inline ::std::string* GzString::mutable_data() {
   set_has_data();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.GzString.data)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.GzString.data)
   return data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* GzString::release_data() {
@@ -193,18 +194,19 @@ inline void GzString::set_allocated_data(::std::string* data) {
     clear_has_data();
   }
   data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.GzString.data)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.GzString.data)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::GzString> GzStringPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::GzString> GzStringPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::GzString const> ConstGzStringPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::GzString const> ConstGzStringPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_gz_5fstring_2eproto__INCLUDED

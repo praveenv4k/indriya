@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -92,25 +93,26 @@ void protobuf_AddDesc_visual_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_pose_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_geometry_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_material_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_plugin_2eproto();
-  ::experimot::msgs::protobuf_AddDesc_vector3d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_pose_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_geometry_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_material_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_plugin_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector3d_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\014visual.proto\022\016experimot.msgs\032\npose.pro"
-    "to\032\016geometry.proto\032\016material.proto\032\014plug"
-    "in.proto\032\016vector3d.proto\"\217\003\n\006Visual\022\014\n\004n"
-    "ame\030\001 \002(\t\022\n\n\002id\030\002 \001(\r\022\023\n\013parent_name\030\003 \002"
-    "(\t\022\021\n\tparent_id\030\004 \001(\r\022\024\n\014cast_shadows\030\005 "
-    "\001(\010\022\024\n\014transparency\030\006 \001(\001\022\023\n\013laser_retro"
-    "\030\007 \001(\001\022\"\n\004pose\030\010 \001(\0132\024.experimot.msgs.Po"
-    "se\022*\n\010geometry\030\t \001(\0132\030.experimot.msgs.Ge"
-    "ometry\022*\n\010material\030\n \001(\0132\030.experimot.msg"
-    "s.Material\022\017\n\007visible\030\013 \001(\010\022\021\n\tdelete_me"
-    "\030\014 \001(\010\022\021\n\tis_static\030\r \001(\010\022&\n\006plugin\030\016 \001("
-    "\0132\026.experimot.msgs.Plugin\022\'\n\005scale\030\017 \001(\013"
-    "2\030.experimot.msgs.Vector3d", 506);
+    "\n\014visual.proto\022\021Indriya.Core.Msgs\032\npose."
+    "proto\032\016geometry.proto\032\016material.proto\032\014p"
+    "lugin.proto\032\016vector3d.proto\"\236\003\n\006Visual\022\014"
+    "\n\004name\030\001 \002(\t\022\n\n\002id\030\002 \001(\r\022\023\n\013parent_name\030"
+    "\003 \002(\t\022\021\n\tparent_id\030\004 \001(\r\022\024\n\014cast_shadows"
+    "\030\005 \001(\010\022\024\n\014transparency\030\006 \001(\001\022\023\n\013laser_re"
+    "tro\030\007 \001(\001\022%\n\004pose\030\010 \001(\0132\027.Indriya.Core.M"
+    "sgs.Pose\022-\n\010geometry\030\t \001(\0132\033.Indriya.Cor"
+    "e.Msgs.Geometry\022-\n\010material\030\n \001(\0132\033.Indr"
+    "iya.Core.Msgs.Material\022\017\n\007visible\030\013 \001(\010\022"
+    "\021\n\tdelete_me\030\014 \001(\010\022\021\n\tis_static\030\r \001(\010\022)\n"
+    "\006plugin\030\016 \001(\0132\031.Indriya.Core.Msgs.Plugin"
+    "\022*\n\005scale\030\017 \001(\0132\033.Indriya.Core.Msgs.Vect"
+    "or3d", 524);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "visual.proto", &protobuf_RegisterTypes);
   Visual::default_instance_ = new Visual();
@@ -158,15 +160,15 @@ const int Visual::kScaleFieldNumber;
 Visual::Visual()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Visual)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Visual)
 }
 
 void Visual::InitAsDefaultInstance() {
-  pose_ = const_cast< ::experimot::msgs::Pose*>(&::experimot::msgs::Pose::default_instance());
-  geometry_ = const_cast< ::experimot::msgs::Geometry*>(&::experimot::msgs::Geometry::default_instance());
-  material_ = const_cast< ::experimot::msgs::Material*>(&::experimot::msgs::Material::default_instance());
-  plugin_ = const_cast< ::experimot::msgs::Plugin*>(&::experimot::msgs::Plugin::default_instance());
-  scale_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
+  pose_ = const_cast< ::Indriya::Core::Msgs::Pose*>(&::Indriya::Core::Msgs::Pose::default_instance());
+  geometry_ = const_cast< ::Indriya::Core::Msgs::Geometry*>(&::Indriya::Core::Msgs::Geometry::default_instance());
+  material_ = const_cast< ::Indriya::Core::Msgs::Material*>(&::Indriya::Core::Msgs::Material::default_instance());
+  plugin_ = const_cast< ::Indriya::Core::Msgs::Plugin*>(&::Indriya::Core::Msgs::Plugin::default_instance());
+  scale_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
 }
 
 Visual::Visual(const Visual& from)
@@ -174,7 +176,7 @@ Visual::Visual(const Visual& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Visual)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Visual)
 }
 
 void Visual::SharedCtor() {
@@ -199,7 +201,7 @@ void Visual::SharedCtor() {
 }
 
 Visual::~Visual() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Visual)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Visual)
   SharedDtor();
 }
 
@@ -259,22 +261,22 @@ void Visual::Clear() {
     }
     cast_shadows_ = false;
     if (has_pose()) {
-      if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+      if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
     }
   }
   if (_has_bits_[8 / 32] & 32512) {
     ZR_(visible_, is_static_);
     if (has_geometry()) {
-      if (geometry_ != NULL) geometry_->::experimot::msgs::Geometry::Clear();
+      if (geometry_ != NULL) geometry_->::Indriya::Core::Msgs::Geometry::Clear();
     }
     if (has_material()) {
-      if (material_ != NULL) material_->::experimot::msgs::Material::Clear();
+      if (material_ != NULL) material_->::Indriya::Core::Msgs::Material::Clear();
     }
     if (has_plugin()) {
-      if (plugin_ != NULL) plugin_->::experimot::msgs::Plugin::Clear();
+      if (plugin_ != NULL) plugin_->::Indriya::Core::Msgs::Plugin::Clear();
     }
     if (has_scale()) {
-      if (scale_ != NULL) scale_->::experimot::msgs::Vector3d::Clear();
+      if (scale_ != NULL) scale_->::Indriya::Core::Msgs::Vector3d::Clear();
     }
   }
 
@@ -291,7 +293,7 @@ bool Visual::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Visual)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Visual)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -305,7 +307,7 @@ bool Visual::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Visual.name");
+            "Indriya.Core.Msgs.Visual.name");
         } else {
           goto handle_unusual;
         }
@@ -337,7 +339,7 @@ bool Visual::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->parent_name().data(), this->parent_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "experimot.msgs.Visual.parent_name");
+            "Indriya.Core.Msgs.Visual.parent_name");
         } else {
           goto handle_unusual;
         }
@@ -405,7 +407,7 @@ bool Visual::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Pose pose = 8;
+      // optional .Indriya.Core.Msgs.Pose pose = 8;
       case 8: {
         if (tag == 66) {
          parse_pose:
@@ -418,7 +420,7 @@ bool Visual::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Geometry geometry = 9;
+      // optional .Indriya.Core.Msgs.Geometry geometry = 9;
       case 9: {
         if (tag == 74) {
          parse_geometry:
@@ -431,7 +433,7 @@ bool Visual::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Material material = 10;
+      // optional .Indriya.Core.Msgs.Material material = 10;
       case 10: {
         if (tag == 82) {
          parse_material:
@@ -489,7 +491,7 @@ bool Visual::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Plugin plugin = 14;
+      // optional .Indriya.Core.Msgs.Plugin plugin = 14;
       case 14: {
         if (tag == 114) {
          parse_plugin:
@@ -502,7 +504,7 @@ bool Visual::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Vector3d scale = 15;
+      // optional .Indriya.Core.Msgs.Vector3d scale = 15;
       case 15: {
         if (tag == 122) {
          parse_scale:
@@ -529,23 +531,23 @@ bool Visual::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Visual)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Visual)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Visual)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Visual)
   return false;
 #undef DO_
 }
 
 void Visual::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Visual)
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Visual)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Visual.name");
+      "Indriya.Core.Msgs.Visual.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
@@ -560,7 +562,7 @@ void Visual::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->parent_name().data(), this->parent_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Visual.parent_name");
+      "Indriya.Core.Msgs.Visual.parent_name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       3, this->parent_name(), output);
   }
@@ -585,19 +587,19 @@ void Visual::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(7, this->laser_retro(), output);
   }
 
-  // optional .experimot.msgs.Pose pose = 8;
+  // optional .Indriya.Core.Msgs.Pose pose = 8;
   if (has_pose()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       8, *this->pose_, output);
   }
 
-  // optional .experimot.msgs.Geometry geometry = 9;
+  // optional .Indriya.Core.Msgs.Geometry geometry = 9;
   if (has_geometry()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       9, *this->geometry_, output);
   }
 
-  // optional .experimot.msgs.Material material = 10;
+  // optional .Indriya.Core.Msgs.Material material = 10;
   if (has_material()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       10, *this->material_, output);
@@ -618,13 +620,13 @@ void Visual::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(13, this->is_static(), output);
   }
 
-  // optional .experimot.msgs.Plugin plugin = 14;
+  // optional .Indriya.Core.Msgs.Plugin plugin = 14;
   if (has_plugin()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       14, *this->plugin_, output);
   }
 
-  // optional .experimot.msgs.Vector3d scale = 15;
+  // optional .Indriya.Core.Msgs.Vector3d scale = 15;
   if (has_scale()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       15, *this->scale_, output);
@@ -634,18 +636,18 @@ void Visual::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Visual)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Visual)
 }
 
 ::google::protobuf::uint8* Visual::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Visual)
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Visual)
   // required string name = 1;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Visual.name");
+      "Indriya.Core.Msgs.Visual.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
@@ -661,7 +663,7 @@ void Visual::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->parent_name().data(), this->parent_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "experimot.msgs.Visual.parent_name");
+      "Indriya.Core.Msgs.Visual.parent_name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->parent_name(), target);
@@ -687,21 +689,21 @@ void Visual::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(7, this->laser_retro(), target);
   }
 
-  // optional .experimot.msgs.Pose pose = 8;
+  // optional .Indriya.Core.Msgs.Pose pose = 8;
   if (has_pose()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         8, *this->pose_, target);
   }
 
-  // optional .experimot.msgs.Geometry geometry = 9;
+  // optional .Indriya.Core.Msgs.Geometry geometry = 9;
   if (has_geometry()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         9, *this->geometry_, target);
   }
 
-  // optional .experimot.msgs.Material material = 10;
+  // optional .Indriya.Core.Msgs.Material material = 10;
   if (has_material()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -723,14 +725,14 @@ void Visual::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(13, this->is_static(), target);
   }
 
-  // optional .experimot.msgs.Plugin plugin = 14;
+  // optional .Indriya.Core.Msgs.Plugin plugin = 14;
   if (has_plugin()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         14, *this->plugin_, target);
   }
 
-  // optional .experimot.msgs.Vector3d scale = 15;
+  // optional .Indriya.Core.Msgs.Vector3d scale = 15;
   if (has_scale()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -741,7 +743,7 @@ void Visual::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Visual)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Visual)
   return target;
 }
 
@@ -811,7 +813,7 @@ int Visual::ByteSize() const {
       total_size += 1 + 8;
     }
 
-    // optional .experimot.msgs.Pose pose = 8;
+    // optional .Indriya.Core.Msgs.Pose pose = 8;
     if (has_pose()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -820,14 +822,14 @@ int Visual::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & 32512) {
-    // optional .experimot.msgs.Geometry geometry = 9;
+    // optional .Indriya.Core.Msgs.Geometry geometry = 9;
     if (has_geometry()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->geometry_);
     }
 
-    // optional .experimot.msgs.Material material = 10;
+    // optional .Indriya.Core.Msgs.Material material = 10;
     if (has_material()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -849,14 +851,14 @@ int Visual::ByteSize() const {
       total_size += 1 + 1;
     }
 
-    // optional .experimot.msgs.Plugin plugin = 14;
+    // optional .Indriya.Core.Msgs.Plugin plugin = 14;
     if (has_plugin()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->plugin_);
     }
 
-    // optional .experimot.msgs.Vector3d scale = 15;
+    // optional .Indriya.Core.Msgs.Vector3d scale = 15;
     if (has_scale()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -914,15 +916,15 @@ void Visual::MergeFrom(const Visual& from) {
       set_laser_retro(from.laser_retro());
     }
     if (from.has_pose()) {
-      mutable_pose()->::experimot::msgs::Pose::MergeFrom(from.pose());
+      mutable_pose()->::Indriya::Core::Msgs::Pose::MergeFrom(from.pose());
     }
   }
   if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_geometry()) {
-      mutable_geometry()->::experimot::msgs::Geometry::MergeFrom(from.geometry());
+      mutable_geometry()->::Indriya::Core::Msgs::Geometry::MergeFrom(from.geometry());
     }
     if (from.has_material()) {
-      mutable_material()->::experimot::msgs::Material::MergeFrom(from.material());
+      mutable_material()->::Indriya::Core::Msgs::Material::MergeFrom(from.material());
     }
     if (from.has_visible()) {
       set_visible(from.visible());
@@ -934,10 +936,10 @@ void Visual::MergeFrom(const Visual& from) {
       set_is_static(from.is_static());
     }
     if (from.has_plugin()) {
-      mutable_plugin()->::experimot::msgs::Plugin::MergeFrom(from.plugin());
+      mutable_plugin()->::Indriya::Core::Msgs::Plugin::MergeFrom(from.plugin());
     }
     if (from.has_scale()) {
-      mutable_scale()->::experimot::msgs::Vector3d::MergeFrom(from.scale());
+      mutable_scale()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.scale());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -1029,28 +1031,28 @@ void Visual::InternalSwap(Visual* other) {
   clear_has_name();
 }
  const ::std::string& Visual::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Visual.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Visual.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Visual::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Visual.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Visual.name)
 }
  void Visual::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Visual.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Visual.name)
 }
  void Visual::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Visual.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Visual.name)
 }
  ::std::string* Visual::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Visual.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Visual.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Visual::release_name() {
@@ -1064,7 +1066,7 @@ void Visual::InternalSwap(Visual* other) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Visual.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Visual.name)
 }
 
 // optional uint32 id = 2;
@@ -1082,13 +1084,13 @@ void Visual::InternalSwap(Visual* other) {
   clear_has_id();
 }
  ::google::protobuf::uint32 Visual::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Visual.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Visual.id)
   return id_;
 }
  void Visual::set_id(::google::protobuf::uint32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Visual.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Visual.id)
 }
 
 // required string parent_name = 3;
@@ -1106,28 +1108,28 @@ void Visual::InternalSwap(Visual* other) {
   clear_has_parent_name();
 }
  const ::std::string& Visual::parent_name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Visual.parent_name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Visual.parent_name)
   return parent_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Visual::set_parent_name(const ::std::string& value) {
   set_has_parent_name();
   parent_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Visual.parent_name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Visual.parent_name)
 }
  void Visual::set_parent_name(const char* value) {
   set_has_parent_name();
   parent_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Visual.parent_name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Visual.parent_name)
 }
  void Visual::set_parent_name(const char* value, size_t size) {
   set_has_parent_name();
   parent_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Visual.parent_name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Visual.parent_name)
 }
  ::std::string* Visual::mutable_parent_name() {
   set_has_parent_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Visual.parent_name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Visual.parent_name)
   return parent_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Visual::release_parent_name() {
@@ -1141,7 +1143,7 @@ void Visual::InternalSwap(Visual* other) {
     clear_has_parent_name();
   }
   parent_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), parent_name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Visual.parent_name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Visual.parent_name)
 }
 
 // optional uint32 parent_id = 4;
@@ -1159,13 +1161,13 @@ void Visual::InternalSwap(Visual* other) {
   clear_has_parent_id();
 }
  ::google::protobuf::uint32 Visual::parent_id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Visual.parent_id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Visual.parent_id)
   return parent_id_;
 }
  void Visual::set_parent_id(::google::protobuf::uint32 value) {
   set_has_parent_id();
   parent_id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Visual.parent_id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Visual.parent_id)
 }
 
 // optional bool cast_shadows = 5;
@@ -1183,13 +1185,13 @@ void Visual::InternalSwap(Visual* other) {
   clear_has_cast_shadows();
 }
  bool Visual::cast_shadows() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Visual.cast_shadows)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Visual.cast_shadows)
   return cast_shadows_;
 }
  void Visual::set_cast_shadows(bool value) {
   set_has_cast_shadows();
   cast_shadows_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Visual.cast_shadows)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Visual.cast_shadows)
 }
 
 // optional double transparency = 6;
@@ -1207,13 +1209,13 @@ void Visual::InternalSwap(Visual* other) {
   clear_has_transparency();
 }
  double Visual::transparency() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Visual.transparency)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Visual.transparency)
   return transparency_;
 }
  void Visual::set_transparency(double value) {
   set_has_transparency();
   transparency_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Visual.transparency)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Visual.transparency)
 }
 
 // optional double laser_retro = 7;
@@ -1231,16 +1233,16 @@ void Visual::InternalSwap(Visual* other) {
   clear_has_laser_retro();
 }
  double Visual::laser_retro() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Visual.laser_retro)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Visual.laser_retro)
   return laser_retro_;
 }
  void Visual::set_laser_retro(double value) {
   set_has_laser_retro();
   laser_retro_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Visual.laser_retro)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Visual.laser_retro)
 }
 
-// optional .experimot.msgs.Pose pose = 8;
+// optional .Indriya.Core.Msgs.Pose pose = 8;
  bool Visual::has_pose() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -1251,28 +1253,28 @@ void Visual::InternalSwap(Visual* other) {
   _has_bits_[0] &= ~0x00000080u;
 }
  void Visual::clear_pose() {
-  if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+  if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
   clear_has_pose();
 }
- const ::experimot::msgs::Pose& Visual::pose() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Visual.pose)
+ const ::Indriya::Core::Msgs::Pose& Visual::pose() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Visual.pose)
   return pose_ != NULL ? *pose_ : *default_instance_->pose_;
 }
- ::experimot::msgs::Pose* Visual::mutable_pose() {
+ ::Indriya::Core::Msgs::Pose* Visual::mutable_pose() {
   set_has_pose();
   if (pose_ == NULL) {
-    pose_ = new ::experimot::msgs::Pose;
+    pose_ = new ::Indriya::Core::Msgs::Pose;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Visual.pose)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Visual.pose)
   return pose_;
 }
- ::experimot::msgs::Pose* Visual::release_pose() {
+ ::Indriya::Core::Msgs::Pose* Visual::release_pose() {
   clear_has_pose();
-  ::experimot::msgs::Pose* temp = pose_;
+  ::Indriya::Core::Msgs::Pose* temp = pose_;
   pose_ = NULL;
   return temp;
 }
- void Visual::set_allocated_pose(::experimot::msgs::Pose* pose) {
+ void Visual::set_allocated_pose(::Indriya::Core::Msgs::Pose* pose) {
   delete pose_;
   pose_ = pose;
   if (pose) {
@@ -1280,10 +1282,10 @@ void Visual::InternalSwap(Visual* other) {
   } else {
     clear_has_pose();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Visual.pose)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Visual.pose)
 }
 
-// optional .experimot.msgs.Geometry geometry = 9;
+// optional .Indriya.Core.Msgs.Geometry geometry = 9;
  bool Visual::has_geometry() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -1294,28 +1296,28 @@ void Visual::InternalSwap(Visual* other) {
   _has_bits_[0] &= ~0x00000100u;
 }
  void Visual::clear_geometry() {
-  if (geometry_ != NULL) geometry_->::experimot::msgs::Geometry::Clear();
+  if (geometry_ != NULL) geometry_->::Indriya::Core::Msgs::Geometry::Clear();
   clear_has_geometry();
 }
- const ::experimot::msgs::Geometry& Visual::geometry() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Visual.geometry)
+ const ::Indriya::Core::Msgs::Geometry& Visual::geometry() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Visual.geometry)
   return geometry_ != NULL ? *geometry_ : *default_instance_->geometry_;
 }
- ::experimot::msgs::Geometry* Visual::mutable_geometry() {
+ ::Indriya::Core::Msgs::Geometry* Visual::mutable_geometry() {
   set_has_geometry();
   if (geometry_ == NULL) {
-    geometry_ = new ::experimot::msgs::Geometry;
+    geometry_ = new ::Indriya::Core::Msgs::Geometry;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Visual.geometry)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Visual.geometry)
   return geometry_;
 }
- ::experimot::msgs::Geometry* Visual::release_geometry() {
+ ::Indriya::Core::Msgs::Geometry* Visual::release_geometry() {
   clear_has_geometry();
-  ::experimot::msgs::Geometry* temp = geometry_;
+  ::Indriya::Core::Msgs::Geometry* temp = geometry_;
   geometry_ = NULL;
   return temp;
 }
- void Visual::set_allocated_geometry(::experimot::msgs::Geometry* geometry) {
+ void Visual::set_allocated_geometry(::Indriya::Core::Msgs::Geometry* geometry) {
   delete geometry_;
   geometry_ = geometry;
   if (geometry) {
@@ -1323,10 +1325,10 @@ void Visual::InternalSwap(Visual* other) {
   } else {
     clear_has_geometry();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Visual.geometry)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Visual.geometry)
 }
 
-// optional .experimot.msgs.Material material = 10;
+// optional .Indriya.Core.Msgs.Material material = 10;
  bool Visual::has_material() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -1337,28 +1339,28 @@ void Visual::InternalSwap(Visual* other) {
   _has_bits_[0] &= ~0x00000200u;
 }
  void Visual::clear_material() {
-  if (material_ != NULL) material_->::experimot::msgs::Material::Clear();
+  if (material_ != NULL) material_->::Indriya::Core::Msgs::Material::Clear();
   clear_has_material();
 }
- const ::experimot::msgs::Material& Visual::material() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Visual.material)
+ const ::Indriya::Core::Msgs::Material& Visual::material() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Visual.material)
   return material_ != NULL ? *material_ : *default_instance_->material_;
 }
- ::experimot::msgs::Material* Visual::mutable_material() {
+ ::Indriya::Core::Msgs::Material* Visual::mutable_material() {
   set_has_material();
   if (material_ == NULL) {
-    material_ = new ::experimot::msgs::Material;
+    material_ = new ::Indriya::Core::Msgs::Material;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Visual.material)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Visual.material)
   return material_;
 }
- ::experimot::msgs::Material* Visual::release_material() {
+ ::Indriya::Core::Msgs::Material* Visual::release_material() {
   clear_has_material();
-  ::experimot::msgs::Material* temp = material_;
+  ::Indriya::Core::Msgs::Material* temp = material_;
   material_ = NULL;
   return temp;
 }
- void Visual::set_allocated_material(::experimot::msgs::Material* material) {
+ void Visual::set_allocated_material(::Indriya::Core::Msgs::Material* material) {
   delete material_;
   material_ = material;
   if (material) {
@@ -1366,7 +1368,7 @@ void Visual::InternalSwap(Visual* other) {
   } else {
     clear_has_material();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Visual.material)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Visual.material)
 }
 
 // optional bool visible = 11;
@@ -1384,13 +1386,13 @@ void Visual::InternalSwap(Visual* other) {
   clear_has_visible();
 }
  bool Visual::visible() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Visual.visible)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Visual.visible)
   return visible_;
 }
  void Visual::set_visible(bool value) {
   set_has_visible();
   visible_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Visual.visible)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Visual.visible)
 }
 
 // optional bool delete_me = 12;
@@ -1408,13 +1410,13 @@ void Visual::InternalSwap(Visual* other) {
   clear_has_delete_me();
 }
  bool Visual::delete_me() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Visual.delete_me)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Visual.delete_me)
   return delete_me_;
 }
  void Visual::set_delete_me(bool value) {
   set_has_delete_me();
   delete_me_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Visual.delete_me)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Visual.delete_me)
 }
 
 // optional bool is_static = 13;
@@ -1432,16 +1434,16 @@ void Visual::InternalSwap(Visual* other) {
   clear_has_is_static();
 }
  bool Visual::is_static() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Visual.is_static)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Visual.is_static)
   return is_static_;
 }
  void Visual::set_is_static(bool value) {
   set_has_is_static();
   is_static_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Visual.is_static)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Visual.is_static)
 }
 
-// optional .experimot.msgs.Plugin plugin = 14;
+// optional .Indriya.Core.Msgs.Plugin plugin = 14;
  bool Visual::has_plugin() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -1452,28 +1454,28 @@ void Visual::InternalSwap(Visual* other) {
   _has_bits_[0] &= ~0x00002000u;
 }
  void Visual::clear_plugin() {
-  if (plugin_ != NULL) plugin_->::experimot::msgs::Plugin::Clear();
+  if (plugin_ != NULL) plugin_->::Indriya::Core::Msgs::Plugin::Clear();
   clear_has_plugin();
 }
- const ::experimot::msgs::Plugin& Visual::plugin() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Visual.plugin)
+ const ::Indriya::Core::Msgs::Plugin& Visual::plugin() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Visual.plugin)
   return plugin_ != NULL ? *plugin_ : *default_instance_->plugin_;
 }
- ::experimot::msgs::Plugin* Visual::mutable_plugin() {
+ ::Indriya::Core::Msgs::Plugin* Visual::mutable_plugin() {
   set_has_plugin();
   if (plugin_ == NULL) {
-    plugin_ = new ::experimot::msgs::Plugin;
+    plugin_ = new ::Indriya::Core::Msgs::Plugin;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Visual.plugin)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Visual.plugin)
   return plugin_;
 }
- ::experimot::msgs::Plugin* Visual::release_plugin() {
+ ::Indriya::Core::Msgs::Plugin* Visual::release_plugin() {
   clear_has_plugin();
-  ::experimot::msgs::Plugin* temp = plugin_;
+  ::Indriya::Core::Msgs::Plugin* temp = plugin_;
   plugin_ = NULL;
   return temp;
 }
- void Visual::set_allocated_plugin(::experimot::msgs::Plugin* plugin) {
+ void Visual::set_allocated_plugin(::Indriya::Core::Msgs::Plugin* plugin) {
   delete plugin_;
   plugin_ = plugin;
   if (plugin) {
@@ -1481,10 +1483,10 @@ void Visual::InternalSwap(Visual* other) {
   } else {
     clear_has_plugin();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Visual.plugin)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Visual.plugin)
 }
 
-// optional .experimot.msgs.Vector3d scale = 15;
+// optional .Indriya.Core.Msgs.Vector3d scale = 15;
  bool Visual::has_scale() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -1495,28 +1497,28 @@ void Visual::InternalSwap(Visual* other) {
   _has_bits_[0] &= ~0x00004000u;
 }
  void Visual::clear_scale() {
-  if (scale_ != NULL) scale_->::experimot::msgs::Vector3d::Clear();
+  if (scale_ != NULL) scale_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_scale();
 }
- const ::experimot::msgs::Vector3d& Visual::scale() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Visual.scale)
+ const ::Indriya::Core::Msgs::Vector3d& Visual::scale() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Visual.scale)
   return scale_ != NULL ? *scale_ : *default_instance_->scale_;
 }
- ::experimot::msgs::Vector3d* Visual::mutable_scale() {
+ ::Indriya::Core::Msgs::Vector3d* Visual::mutable_scale() {
   set_has_scale();
   if (scale_ == NULL) {
-    scale_ = new ::experimot::msgs::Vector3d;
+    scale_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Visual.scale)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Visual.scale)
   return scale_;
 }
- ::experimot::msgs::Vector3d* Visual::release_scale() {
+ ::Indriya::Core::Msgs::Vector3d* Visual::release_scale() {
   clear_has_scale();
-  ::experimot::msgs::Vector3d* temp = scale_;
+  ::Indriya::Core::Msgs::Vector3d* temp = scale_;
   scale_ = NULL;
   return temp;
 }
- void Visual::set_allocated_scale(::experimot::msgs::Vector3d* scale) {
+ void Visual::set_allocated_scale(::Indriya::Core::Msgs::Vector3d* scale) {
   delete scale_;
   scale_ = scale;
   if (scale) {
@@ -1524,15 +1526,16 @@ void Visual::InternalSwap(Visual* other) {
   } else {
     clear_has_scale();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Visual.scale)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Visual.scale)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Visual", Visual)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Visual", Visual)
 // @@protoc_insertion_point(global_scope)

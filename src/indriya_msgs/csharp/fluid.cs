@@ -9,7 +9,7 @@
 
 // Generated from: proto/fluid.proto
 // Note: requires additional types generated from: vector3d.proto
-namespace experimot.msgs
+namespace Indriya.Core.Msgs
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Fluid")]
   public partial class Fluid : global::ProtoBuf.IExtensible
@@ -23,9 +23,9 @@ namespace experimot.msgs
       get { return _name; }
       set { _name = value; }
     }
-    private readonly global::System.Collections.Generic.List<experimot.msgs.Vector3d> _position = new global::System.Collections.Generic.List<experimot.msgs.Vector3d>();
+    private readonly global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector3d> _position = new global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector3d>();
     [global::ProtoBuf.ProtoMember(2, Name=@"position", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<experimot.msgs.Vector3d> position
+    public global::System.Collections.Generic.List<Indriya.Core.Msgs.Vector3d> position
     {
       get { return _position; }
     }

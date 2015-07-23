@@ -19,9 +19,9 @@ import subscribe_pb2 as subscribe__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='topic_info.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x10topic_info.proto\x12\x0e\x65xperimot.msgs\x1a\rpublish.proto\x1a\x0fsubscribe.proto\"x\n\tTopicInfo\x12\x10\n\x08msg_type\x18\x01 \x02(\t\x12*\n\tpublisher\x18\x02 \x03(\x0b\x32\x17.experimot.msgs.Publish\x12-\n\nsubscriber\x18\x03 \x03(\x0b\x32\x19.experimot.msgs.Subscribe')
+  serialized_pb=_b('\n\x10topic_info.proto\x12\x11Indriya.Core.Msgs\x1a\rpublish.proto\x1a\x0fsubscribe.proto\"~\n\tTopicInfo\x12\x10\n\x08msg_type\x18\x01 \x02(\t\x12-\n\tpublisher\x18\x02 \x03(\x0b\x32\x1a.Indriya.Core.Msgs.Publish\x12\x30\n\nsubscriber\x18\x03 \x03(\x0b\x32\x1c.Indriya.Core.Msgs.Subscribe')
   ,
   dependencies=[publish__pb2.DESCRIPTOR,subscribe__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -31,27 +31,27 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _TOPICINFO = _descriptor.Descriptor(
   name='TopicInfo',
-  full_name='experimot.msgs.TopicInfo',
+  full_name='Indriya.Core.Msgs.TopicInfo',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='msg_type', full_name='experimot.msgs.TopicInfo.msg_type', index=0,
+      name='msg_type', full_name='Indriya.Core.Msgs.TopicInfo.msg_type', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='publisher', full_name='experimot.msgs.TopicInfo.publisher', index=1,
+      name='publisher', full_name='Indriya.Core.Msgs.TopicInfo.publisher', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='subscriber', full_name='experimot.msgs.TopicInfo.subscriber', index=2,
+      name='subscriber', full_name='Indriya.Core.Msgs.TopicInfo.subscriber', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -69,8 +69,8 @@ _TOPICINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=68,
-  serialized_end=188,
+  serialized_start=71,
+  serialized_end=197,
 )
 
 _TOPICINFO.fields_by_name['publisher'].message_type = publish__pb2._PUBLISH
@@ -80,7 +80,7 @@ DESCRIPTOR.message_types_by_name['TopicInfo'] = _TOPICINFO
 TopicInfo = _reflection.GeneratedProtocolMessageType('TopicInfo', (_message.Message,), dict(
   DESCRIPTOR = _TOPICINFO,
   __module__ = 'topic_info_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.TopicInfo)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.TopicInfo)
   ))
 _sym_db.RegisterMessage(TopicInfo)
 

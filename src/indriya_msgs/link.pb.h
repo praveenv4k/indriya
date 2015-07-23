@@ -37,8 +37,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_link_2eproto();
@@ -160,70 +161,70 @@ class Link : public ::google::protobuf::Message {
   bool enabled() const;
   void set_enabled(bool value);
 
-  // optional .experimot.msgs.Inertial inertial = 7;
+  // optional .Indriya.Core.Msgs.Inertial inertial = 7;
   bool has_inertial() const;
   void clear_inertial();
   static const int kInertialFieldNumber = 7;
-  const ::experimot::msgs::Inertial& inertial() const;
-  ::experimot::msgs::Inertial* mutable_inertial();
-  ::experimot::msgs::Inertial* release_inertial();
-  void set_allocated_inertial(::experimot::msgs::Inertial* inertial);
+  const ::Indriya::Core::Msgs::Inertial& inertial() const;
+  ::Indriya::Core::Msgs::Inertial* mutable_inertial();
+  ::Indriya::Core::Msgs::Inertial* release_inertial();
+  void set_allocated_inertial(::Indriya::Core::Msgs::Inertial* inertial);
 
-  // optional .experimot.msgs.Pose pose = 8;
+  // optional .Indriya.Core.Msgs.Pose pose = 8;
   bool has_pose() const;
   void clear_pose();
   static const int kPoseFieldNumber = 8;
-  const ::experimot::msgs::Pose& pose() const;
-  ::experimot::msgs::Pose* mutable_pose();
-  ::experimot::msgs::Pose* release_pose();
-  void set_allocated_pose(::experimot::msgs::Pose* pose);
+  const ::Indriya::Core::Msgs::Pose& pose() const;
+  ::Indriya::Core::Msgs::Pose* mutable_pose();
+  ::Indriya::Core::Msgs::Pose* release_pose();
+  void set_allocated_pose(::Indriya::Core::Msgs::Pose* pose);
 
-  // repeated .experimot.msgs.Visual visual = 9;
+  // repeated .Indriya.Core.Msgs.Visual visual = 9;
   int visual_size() const;
   void clear_visual();
   static const int kVisualFieldNumber = 9;
-  const ::experimot::msgs::Visual& visual(int index) const;
-  ::experimot::msgs::Visual* mutable_visual(int index);
-  ::experimot::msgs::Visual* add_visual();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Visual >&
+  const ::Indriya::Core::Msgs::Visual& visual(int index) const;
+  ::Indriya::Core::Msgs::Visual* mutable_visual(int index);
+  ::Indriya::Core::Msgs::Visual* add_visual();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Visual >&
       visual() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Visual >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Visual >*
       mutable_visual();
 
-  // repeated .experimot.msgs.Collision collision = 10;
+  // repeated .Indriya.Core.Msgs.Collision collision = 10;
   int collision_size() const;
   void clear_collision();
   static const int kCollisionFieldNumber = 10;
-  const ::experimot::msgs::Collision& collision(int index) const;
-  ::experimot::msgs::Collision* mutable_collision(int index);
-  ::experimot::msgs::Collision* add_collision();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Collision >&
+  const ::Indriya::Core::Msgs::Collision& collision(int index) const;
+  ::Indriya::Core::Msgs::Collision* mutable_collision(int index);
+  ::Indriya::Core::Msgs::Collision* add_collision();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Collision >&
       collision() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Collision >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Collision >*
       mutable_collision();
 
-  // repeated .experimot.msgs.Sensor sensor = 11;
+  // repeated .Indriya.Core.Msgs.Sensor sensor = 11;
   int sensor_size() const;
   void clear_sensor();
   static const int kSensorFieldNumber = 11;
-  const ::experimot::msgs::Sensor& sensor(int index) const;
-  ::experimot::msgs::Sensor* mutable_sensor(int index);
-  ::experimot::msgs::Sensor* add_sensor();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Sensor >&
+  const ::Indriya::Core::Msgs::Sensor& sensor(int index) const;
+  ::Indriya::Core::Msgs::Sensor* mutable_sensor(int index);
+  ::Indriya::Core::Msgs::Sensor* add_sensor();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Sensor >&
       sensor() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Sensor >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Sensor >*
       mutable_sensor();
 
-  // repeated .experimot.msgs.Projector projector = 12;
+  // repeated .Indriya.Core.Msgs.Projector projector = 12;
   int projector_size() const;
   void clear_projector();
   static const int kProjectorFieldNumber = 12;
-  const ::experimot::msgs::Projector& projector(int index) const;
-  ::experimot::msgs::Projector* mutable_projector(int index);
-  ::experimot::msgs::Projector* add_projector();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Projector >&
+  const ::Indriya::Core::Msgs::Projector& projector(int index) const;
+  ::Indriya::Core::Msgs::Projector* mutable_projector(int index);
+  ::Indriya::Core::Msgs::Projector* add_projector();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Projector >&
       projector() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Projector >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Projector >*
       mutable_projector();
 
   // optional bool canonical = 13;
@@ -233,7 +234,7 @@ class Link : public ::google::protobuf::Message {
   bool canonical() const;
   void set_canonical(bool value);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Link)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Link)
  private:
   inline void set_has_id();
   inline void clear_has_id();
@@ -263,12 +264,12 @@ class Link : public ::google::protobuf::Message {
   bool gravity_;
   bool kinematic_;
   bool enabled_;
-  ::experimot::msgs::Inertial* inertial_;
-  ::experimot::msgs::Pose* pose_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Visual > visual_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Collision > collision_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Sensor > sensor_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Projector > projector_;
+  ::Indriya::Core::Msgs::Inertial* inertial_;
+  ::Indriya::Core::Msgs::Pose* pose_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Visual > visual_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Collision > collision_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Sensor > sensor_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Projector > projector_;
   bool canonical_;
   friend void  protobuf_AddDesc_link_2eproto();
   friend void protobuf_AssignDesc_link_2eproto();
@@ -300,13 +301,13 @@ inline void Link::clear_id() {
   clear_has_id();
 }
 inline ::google::protobuf::uint32 Link::id() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Link.id)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Link.id)
   return id_;
 }
 inline void Link::set_id(::google::protobuf::uint32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Link.id)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Link.id)
 }
 
 // required string name = 2;
@@ -324,28 +325,28 @@ inline void Link::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& Link::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Link.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Link.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Link::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Link.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Link.name)
 }
 inline void Link::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Link.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Link.name)
 }
 inline void Link::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Link.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Link.name)
 }
 inline ::std::string* Link::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Link.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Link.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Link::release_name() {
@@ -359,7 +360,7 @@ inline void Link::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Link.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Link.name)
 }
 
 // optional bool self_collide = 3;
@@ -377,13 +378,13 @@ inline void Link::clear_self_collide() {
   clear_has_self_collide();
 }
 inline bool Link::self_collide() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Link.self_collide)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Link.self_collide)
   return self_collide_;
 }
 inline void Link::set_self_collide(bool value) {
   set_has_self_collide();
   self_collide_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Link.self_collide)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Link.self_collide)
 }
 
 // optional bool gravity = 4;
@@ -401,13 +402,13 @@ inline void Link::clear_gravity() {
   clear_has_gravity();
 }
 inline bool Link::gravity() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Link.gravity)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Link.gravity)
   return gravity_;
 }
 inline void Link::set_gravity(bool value) {
   set_has_gravity();
   gravity_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Link.gravity)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Link.gravity)
 }
 
 // optional bool kinematic = 5;
@@ -425,13 +426,13 @@ inline void Link::clear_kinematic() {
   clear_has_kinematic();
 }
 inline bool Link::kinematic() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Link.kinematic)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Link.kinematic)
   return kinematic_;
 }
 inline void Link::set_kinematic(bool value) {
   set_has_kinematic();
   kinematic_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Link.kinematic)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Link.kinematic)
 }
 
 // optional bool enabled = 6;
@@ -449,16 +450,16 @@ inline void Link::clear_enabled() {
   clear_has_enabled();
 }
 inline bool Link::enabled() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Link.enabled)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Link.enabled)
   return enabled_;
 }
 inline void Link::set_enabled(bool value) {
   set_has_enabled();
   enabled_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Link.enabled)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Link.enabled)
 }
 
-// optional .experimot.msgs.Inertial inertial = 7;
+// optional .Indriya.Core.Msgs.Inertial inertial = 7;
 inline bool Link::has_inertial() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -469,28 +470,28 @@ inline void Link::clear_has_inertial() {
   _has_bits_[0] &= ~0x00000040u;
 }
 inline void Link::clear_inertial() {
-  if (inertial_ != NULL) inertial_->::experimot::msgs::Inertial::Clear();
+  if (inertial_ != NULL) inertial_->::Indriya::Core::Msgs::Inertial::Clear();
   clear_has_inertial();
 }
-inline const ::experimot::msgs::Inertial& Link::inertial() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Link.inertial)
+inline const ::Indriya::Core::Msgs::Inertial& Link::inertial() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Link.inertial)
   return inertial_ != NULL ? *inertial_ : *default_instance_->inertial_;
 }
-inline ::experimot::msgs::Inertial* Link::mutable_inertial() {
+inline ::Indriya::Core::Msgs::Inertial* Link::mutable_inertial() {
   set_has_inertial();
   if (inertial_ == NULL) {
-    inertial_ = new ::experimot::msgs::Inertial;
+    inertial_ = new ::Indriya::Core::Msgs::Inertial;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Link.inertial)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Link.inertial)
   return inertial_;
 }
-inline ::experimot::msgs::Inertial* Link::release_inertial() {
+inline ::Indriya::Core::Msgs::Inertial* Link::release_inertial() {
   clear_has_inertial();
-  ::experimot::msgs::Inertial* temp = inertial_;
+  ::Indriya::Core::Msgs::Inertial* temp = inertial_;
   inertial_ = NULL;
   return temp;
 }
-inline void Link::set_allocated_inertial(::experimot::msgs::Inertial* inertial) {
+inline void Link::set_allocated_inertial(::Indriya::Core::Msgs::Inertial* inertial) {
   delete inertial_;
   inertial_ = inertial;
   if (inertial) {
@@ -498,10 +499,10 @@ inline void Link::set_allocated_inertial(::experimot::msgs::Inertial* inertial) 
   } else {
     clear_has_inertial();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Link.inertial)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Link.inertial)
 }
 
-// optional .experimot.msgs.Pose pose = 8;
+// optional .Indriya.Core.Msgs.Pose pose = 8;
 inline bool Link::has_pose() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -512,28 +513,28 @@ inline void Link::clear_has_pose() {
   _has_bits_[0] &= ~0x00000080u;
 }
 inline void Link::clear_pose() {
-  if (pose_ != NULL) pose_->::experimot::msgs::Pose::Clear();
+  if (pose_ != NULL) pose_->::Indriya::Core::Msgs::Pose::Clear();
   clear_has_pose();
 }
-inline const ::experimot::msgs::Pose& Link::pose() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Link.pose)
+inline const ::Indriya::Core::Msgs::Pose& Link::pose() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Link.pose)
   return pose_ != NULL ? *pose_ : *default_instance_->pose_;
 }
-inline ::experimot::msgs::Pose* Link::mutable_pose() {
+inline ::Indriya::Core::Msgs::Pose* Link::mutable_pose() {
   set_has_pose();
   if (pose_ == NULL) {
-    pose_ = new ::experimot::msgs::Pose;
+    pose_ = new ::Indriya::Core::Msgs::Pose;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Link.pose)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Link.pose)
   return pose_;
 }
-inline ::experimot::msgs::Pose* Link::release_pose() {
+inline ::Indriya::Core::Msgs::Pose* Link::release_pose() {
   clear_has_pose();
-  ::experimot::msgs::Pose* temp = pose_;
+  ::Indriya::Core::Msgs::Pose* temp = pose_;
   pose_ = NULL;
   return temp;
 }
-inline void Link::set_allocated_pose(::experimot::msgs::Pose* pose) {
+inline void Link::set_allocated_pose(::Indriya::Core::Msgs::Pose* pose) {
   delete pose_;
   pose_ = pose;
   if (pose) {
@@ -541,126 +542,126 @@ inline void Link::set_allocated_pose(::experimot::msgs::Pose* pose) {
   } else {
     clear_has_pose();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Link.pose)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Link.pose)
 }
 
-// repeated .experimot.msgs.Visual visual = 9;
+// repeated .Indriya.Core.Msgs.Visual visual = 9;
 inline int Link::visual_size() const {
   return visual_.size();
 }
 inline void Link::clear_visual() {
   visual_.Clear();
 }
-inline const ::experimot::msgs::Visual& Link::visual(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Link.visual)
+inline const ::Indriya::Core::Msgs::Visual& Link::visual(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Link.visual)
   return visual_.Get(index);
 }
-inline ::experimot::msgs::Visual* Link::mutable_visual(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Link.visual)
+inline ::Indriya::Core::Msgs::Visual* Link::mutable_visual(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Link.visual)
   return visual_.Mutable(index);
 }
-inline ::experimot::msgs::Visual* Link::add_visual() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Link.visual)
+inline ::Indriya::Core::Msgs::Visual* Link::add_visual() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Link.visual)
   return visual_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Visual >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Visual >&
 Link::visual() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Link.visual)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Link.visual)
   return visual_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Visual >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Visual >*
 Link::mutable_visual() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Link.visual)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Link.visual)
   return &visual_;
 }
 
-// repeated .experimot.msgs.Collision collision = 10;
+// repeated .Indriya.Core.Msgs.Collision collision = 10;
 inline int Link::collision_size() const {
   return collision_.size();
 }
 inline void Link::clear_collision() {
   collision_.Clear();
 }
-inline const ::experimot::msgs::Collision& Link::collision(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Link.collision)
+inline const ::Indriya::Core::Msgs::Collision& Link::collision(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Link.collision)
   return collision_.Get(index);
 }
-inline ::experimot::msgs::Collision* Link::mutable_collision(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Link.collision)
+inline ::Indriya::Core::Msgs::Collision* Link::mutable_collision(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Link.collision)
   return collision_.Mutable(index);
 }
-inline ::experimot::msgs::Collision* Link::add_collision() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Link.collision)
+inline ::Indriya::Core::Msgs::Collision* Link::add_collision() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Link.collision)
   return collision_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Collision >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Collision >&
 Link::collision() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Link.collision)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Link.collision)
   return collision_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Collision >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Collision >*
 Link::mutable_collision() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Link.collision)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Link.collision)
   return &collision_;
 }
 
-// repeated .experimot.msgs.Sensor sensor = 11;
+// repeated .Indriya.Core.Msgs.Sensor sensor = 11;
 inline int Link::sensor_size() const {
   return sensor_.size();
 }
 inline void Link::clear_sensor() {
   sensor_.Clear();
 }
-inline const ::experimot::msgs::Sensor& Link::sensor(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Link.sensor)
+inline const ::Indriya::Core::Msgs::Sensor& Link::sensor(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Link.sensor)
   return sensor_.Get(index);
 }
-inline ::experimot::msgs::Sensor* Link::mutable_sensor(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Link.sensor)
+inline ::Indriya::Core::Msgs::Sensor* Link::mutable_sensor(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Link.sensor)
   return sensor_.Mutable(index);
 }
-inline ::experimot::msgs::Sensor* Link::add_sensor() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Link.sensor)
+inline ::Indriya::Core::Msgs::Sensor* Link::add_sensor() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Link.sensor)
   return sensor_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Sensor >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Sensor >&
 Link::sensor() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Link.sensor)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Link.sensor)
   return sensor_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Sensor >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Sensor >*
 Link::mutable_sensor() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Link.sensor)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Link.sensor)
   return &sensor_;
 }
 
-// repeated .experimot.msgs.Projector projector = 12;
+// repeated .Indriya.Core.Msgs.Projector projector = 12;
 inline int Link::projector_size() const {
   return projector_.size();
 }
 inline void Link::clear_projector() {
   projector_.Clear();
 }
-inline const ::experimot::msgs::Projector& Link::projector(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Link.projector)
+inline const ::Indriya::Core::Msgs::Projector& Link::projector(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Link.projector)
   return projector_.Get(index);
 }
-inline ::experimot::msgs::Projector* Link::mutable_projector(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Link.projector)
+inline ::Indriya::Core::Msgs::Projector* Link::mutable_projector(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Link.projector)
   return projector_.Mutable(index);
 }
-inline ::experimot::msgs::Projector* Link::add_projector() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Link.projector)
+inline ::Indriya::Core::Msgs::Projector* Link::add_projector() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Link.projector)
   return projector_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Projector >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Projector >&
 Link::projector() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Link.projector)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Link.projector)
   return projector_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Projector >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Projector >*
 Link::mutable_projector() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Link.projector)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Link.projector)
   return &projector_;
 }
 
@@ -679,24 +680,25 @@ inline void Link::clear_canonical() {
   clear_has_canonical();
 }
 inline bool Link::canonical() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Link.canonical)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Link.canonical)
   return canonical_;
 }
 inline void Link::set_canonical(bool value) {
   set_has_canonical();
   canonical_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Link.canonical)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Link.canonical)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Link> LinkPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Link> LinkPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Link const> ConstLinkPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Link const> ConstLinkPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_link_2eproto__INCLUDED

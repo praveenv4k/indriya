@@ -33,8 +33,9 @@
 #include "MsgFactory.h"
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_road_2eproto();
@@ -128,28 +129,28 @@ class Road : public ::google::protobuf::Message {
   double width() const;
   void set_width(double value);
 
-  // repeated .experimot.msgs.Vector3d point = 3;
+  // repeated .Indriya.Core.Msgs.Vector3d point = 3;
   int point_size() const;
   void clear_point();
   static const int kPointFieldNumber = 3;
-  const ::experimot::msgs::Vector3d& point(int index) const;
-  ::experimot::msgs::Vector3d* mutable_point(int index);
-  ::experimot::msgs::Vector3d* add_point();
-  const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector3d >&
+  const ::Indriya::Core::Msgs::Vector3d& point(int index) const;
+  ::Indriya::Core::Msgs::Vector3d* mutable_point(int index);
+  ::Indriya::Core::Msgs::Vector3d* add_point();
+  const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector3d >&
       point() const;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector3d >*
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector3d >*
       mutable_point();
 
-  // optional .experimot.msgs.Material material = 4;
+  // optional .Indriya.Core.Msgs.Material material = 4;
   bool has_material() const;
   void clear_material();
   static const int kMaterialFieldNumber = 4;
-  const ::experimot::msgs::Material& material() const;
-  ::experimot::msgs::Material* mutable_material();
-  ::experimot::msgs::Material* release_material();
-  void set_allocated_material(::experimot::msgs::Material* material);
+  const ::Indriya::Core::Msgs::Material& material() const;
+  ::Indriya::Core::Msgs::Material* mutable_material();
+  ::Indriya::Core::Msgs::Material* release_material();
+  void set_allocated_material(::Indriya::Core::Msgs::Material* material);
 
-  // @@protoc_insertion_point(class_scope:experimot.msgs.Road)
+  // @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Road)
  private:
   inline void set_has_name();
   inline void clear_has_name();
@@ -166,8 +167,8 @@ class Road : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   double width_;
-  ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector3d > point_;
-  ::experimot::msgs::Material* material_;
+  ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector3d > point_;
+  ::Indriya::Core::Msgs::Material* material_;
   friend void  protobuf_AddDesc_road_2eproto();
   friend void protobuf_AssignDesc_road_2eproto();
   friend void protobuf_ShutdownFile_road_2eproto();
@@ -198,28 +199,28 @@ inline void Road::clear_name() {
   clear_has_name();
 }
 inline const ::std::string& Road::name() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Road.name)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Road.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Road::set_name(const ::std::string& value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Road.name)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Road.name)
 }
 inline void Road::set_name(const char* value) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:experimot.msgs.Road.name)
+  // @@protoc_insertion_point(field_set_char:Indriya.Core.Msgs.Road.name)
 }
 inline void Road::set_name(const char* value, size_t size) {
   set_has_name();
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:experimot.msgs.Road.name)
+  // @@protoc_insertion_point(field_set_pointer:Indriya.Core.Msgs.Road.name)
 }
 inline ::std::string* Road::mutable_name() {
   set_has_name();
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Road.name)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Road.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Road::release_name() {
@@ -233,7 +234,7 @@ inline void Road::set_allocated_name(::std::string* name) {
     clear_has_name();
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Road.name)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Road.name)
 }
 
 // required double width = 2;
@@ -251,46 +252,46 @@ inline void Road::clear_width() {
   clear_has_width();
 }
 inline double Road::width() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Road.width)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Road.width)
   return width_;
 }
 inline void Road::set_width(double value) {
   set_has_width();
   width_ = value;
-  // @@protoc_insertion_point(field_set:experimot.msgs.Road.width)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Road.width)
 }
 
-// repeated .experimot.msgs.Vector3d point = 3;
+// repeated .Indriya.Core.Msgs.Vector3d point = 3;
 inline int Road::point_size() const {
   return point_.size();
 }
 inline void Road::clear_point() {
   point_.Clear();
 }
-inline const ::experimot::msgs::Vector3d& Road::point(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Road.point)
+inline const ::Indriya::Core::Msgs::Vector3d& Road::point(int index) const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Road.point)
   return point_.Get(index);
 }
-inline ::experimot::msgs::Vector3d* Road::mutable_point(int index) {
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Road.point)
+inline ::Indriya::Core::Msgs::Vector3d* Road::mutable_point(int index) {
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Road.point)
   return point_.Mutable(index);
 }
-inline ::experimot::msgs::Vector3d* Road::add_point() {
-  // @@protoc_insertion_point(field_add:experimot.msgs.Road.point)
+inline ::Indriya::Core::Msgs::Vector3d* Road::add_point() {
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Road.point)
   return point_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector3d >&
+inline const ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector3d >&
 Road::point() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Road.point)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Road.point)
   return point_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::experimot::msgs::Vector3d >*
+inline ::google::protobuf::RepeatedPtrField< ::Indriya::Core::Msgs::Vector3d >*
 Road::mutable_point() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Road.point)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Road.point)
   return &point_;
 }
 
-// optional .experimot.msgs.Material material = 4;
+// optional .Indriya.Core.Msgs.Material material = 4;
 inline bool Road::has_material() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -301,28 +302,28 @@ inline void Road::clear_has_material() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void Road::clear_material() {
-  if (material_ != NULL) material_->::experimot::msgs::Material::Clear();
+  if (material_ != NULL) material_->::Indriya::Core::Msgs::Material::Clear();
   clear_has_material();
 }
-inline const ::experimot::msgs::Material& Road::material() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Road.material)
+inline const ::Indriya::Core::Msgs::Material& Road::material() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Road.material)
   return material_ != NULL ? *material_ : *default_instance_->material_;
 }
-inline ::experimot::msgs::Material* Road::mutable_material() {
+inline ::Indriya::Core::Msgs::Material* Road::mutable_material() {
   set_has_material();
   if (material_ == NULL) {
-    material_ = new ::experimot::msgs::Material;
+    material_ = new ::Indriya::Core::Msgs::Material;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Road.material)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Road.material)
   return material_;
 }
-inline ::experimot::msgs::Material* Road::release_material() {
+inline ::Indriya::Core::Msgs::Material* Road::release_material() {
   clear_has_material();
-  ::experimot::msgs::Material* temp = material_;
+  ::Indriya::Core::Msgs::Material* temp = material_;
   material_ = NULL;
   return temp;
 }
-inline void Road::set_allocated_material(::experimot::msgs::Material* material) {
+inline void Road::set_allocated_material(::Indriya::Core::Msgs::Material* material) {
   delete material_;
   material_ = material;
   if (material) {
@@ -330,18 +331,19 @@ inline void Road::set_allocated_material(::experimot::msgs::Material* material) 
   } else {
     clear_has_material();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Road.material)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Road.material)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
-typedef boost::shared_ptr<experimot::msgs::Road> RoadPtr;
+typedef boost::shared_ptr<Indriya::Core::Msgs::Road> RoadPtr;
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-typedef const boost::shared_ptr<experimot::msgs::Road const> ConstRoadPtr;
+typedef const boost::shared_ptr<Indriya::Core::Msgs::Road const> ConstRoadPtr;
 // @@protoc_insertion_point(global_scope)
 
 #endif  // PROTOBUF_road_2eproto__INCLUDED

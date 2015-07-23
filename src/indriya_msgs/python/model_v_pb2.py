@@ -18,9 +18,9 @@ import model_pb2 as model__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='model_v.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\rmodel_v.proto\x12\x0e\x65xperimot.msgs\x1a\x0bmodel.proto\"0\n\x07Model_V\x12%\n\x06models\x18\x02 \x03(\x0b\x32\x15.experimot.msgs.Model')
+  serialized_pb=_b('\n\rmodel_v.proto\x12\x11Indriya.Core.Msgs\x1a\x0bmodel.proto\"3\n\x07Model_V\x12(\n\x06models\x18\x02 \x03(\x0b\x32\x18.Indriya.Core.Msgs.Model')
   ,
   dependencies=[model__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,13 +30,13 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _MODEL_V = _descriptor.Descriptor(
   name='Model_V',
-  full_name='experimot.msgs.Model_V',
+  full_name='Indriya.Core.Msgs.Model_V',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='models', full_name='experimot.msgs.Model_V.models', index=0,
+      name='models', full_name='Indriya.Core.Msgs.Model_V.models', index=0,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -54,8 +54,8 @@ _MODEL_V = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=46,
-  serialized_end=94,
+  serialized_start=49,
+  serialized_end=100,
 )
 
 _MODEL_V.fields_by_name['models'].message_type = model__pb2._MODEL
@@ -64,7 +64,7 @@ DESCRIPTOR.message_types_by_name['Model_V'] = _MODEL_V
 Model_V = _reflection.GeneratedProtocolMessageType('Model_V', (_message.Message,), dict(
   DESCRIPTOR = _MODEL_V,
   __module__ = 'model_v_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Model_V)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Model_V)
   ))
 _sym_db.RegisterMessage(Model_V)
 

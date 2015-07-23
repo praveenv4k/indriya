@@ -16,8 +16,9 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace experimot {
-namespace msgs {
+namespace Indriya {
+namespace Core {
+namespace Msgs {
 
 namespace {
 
@@ -80,13 +81,13 @@ void protobuf_AddDesc_joystick_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::experimot::msgs::protobuf_AddDesc_vector3d_2eproto();
+  ::Indriya::Core::Msgs::protobuf_AddDesc_vector3d_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\016joystick.proto\022\016experimot.msgs\032\016vector"
-    "3d.proto\"v\n\010Joystick\022-\n\013translation\030\001 \001("
-    "\0132\030.experimot.msgs.Vector3d\022*\n\010rotation\030"
-    "\002 \001(\0132\030.experimot.msgs.Vector3d\022\017\n\007butto"
-    "ns\030\003 \003(\005", 168);
+    "\n\016joystick.proto\022\021Indriya.Core.Msgs\032\016vec"
+    "tor3d.proto\"|\n\010Joystick\0220\n\013translation\030\001"
+    " \001(\0132\033.Indriya.Core.Msgs.Vector3d\022-\n\010rot"
+    "ation\030\002 \001(\0132\033.Indriya.Core.Msgs.Vector3d"
+    "\022\017\n\007buttons\030\003 \003(\005", 177);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "joystick.proto", &protobuf_RegisterTypes);
   Joystick::default_instance_ = new Joystick();
@@ -122,12 +123,12 @@ const int Joystick::kButtonsFieldNumber;
 Joystick::Joystick()
   : ::google::protobuf::Message() , _internal_metadata_(NULL)  {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:experimot.msgs.Joystick)
+  // @@protoc_insertion_point(constructor:Indriya.Core.Msgs.Joystick)
 }
 
 void Joystick::InitAsDefaultInstance() {
-  translation_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
-  rotation_ = const_cast< ::experimot::msgs::Vector3d*>(&::experimot::msgs::Vector3d::default_instance());
+  translation_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
+  rotation_ = const_cast< ::Indriya::Core::Msgs::Vector3d*>(&::Indriya::Core::Msgs::Vector3d::default_instance());
 }
 
 Joystick::Joystick(const Joystick& from)
@@ -135,7 +136,7 @@ Joystick::Joystick(const Joystick& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:experimot.msgs.Joystick)
+  // @@protoc_insertion_point(copy_constructor:Indriya.Core.Msgs.Joystick)
 }
 
 void Joystick::SharedCtor() {
@@ -146,7 +147,7 @@ void Joystick::SharedCtor() {
 }
 
 Joystick::~Joystick() {
-  // @@protoc_insertion_point(destructor:experimot.msgs.Joystick)
+  // @@protoc_insertion_point(destructor:Indriya.Core.Msgs.Joystick)
   SharedDtor();
 }
 
@@ -185,10 +186,10 @@ Joystick* Joystick::New(::google::protobuf::Arena* arena) const {
 void Joystick::Clear() {
   if (_has_bits_[0 / 32] & 3) {
     if (has_translation()) {
-      if (translation_ != NULL) translation_->::experimot::msgs::Vector3d::Clear();
+      if (translation_ != NULL) translation_->::Indriya::Core::Msgs::Vector3d::Clear();
     }
     if (has_rotation()) {
-      if (rotation_ != NULL) rotation_->::experimot::msgs::Vector3d::Clear();
+      if (rotation_ != NULL) rotation_->::Indriya::Core::Msgs::Vector3d::Clear();
     }
   }
   buttons_.Clear();
@@ -202,13 +203,13 @@ bool Joystick::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:experimot.msgs.Joystick)
+  // @@protoc_insertion_point(parse_start:Indriya.Core.Msgs.Joystick)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .experimot.msgs.Vector3d translation = 1;
+      // optional .Indriya.Core.Msgs.Vector3d translation = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -220,7 +221,7 @@ bool Joystick::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .experimot.msgs.Vector3d rotation = 2;
+      // optional .Indriya.Core.Msgs.Vector3d rotation = 2;
       case 2: {
         if (tag == 18) {
          parse_rotation:
@@ -266,24 +267,24 @@ bool Joystick::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:experimot.msgs.Joystick)
+  // @@protoc_insertion_point(parse_success:Indriya.Core.Msgs.Joystick)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:experimot.msgs.Joystick)
+  // @@protoc_insertion_point(parse_failure:Indriya.Core.Msgs.Joystick)
   return false;
 #undef DO_
 }
 
 void Joystick::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:experimot.msgs.Joystick)
-  // optional .experimot.msgs.Vector3d translation = 1;
+  // @@protoc_insertion_point(serialize_start:Indriya.Core.Msgs.Joystick)
+  // optional .Indriya.Core.Msgs.Vector3d translation = 1;
   if (has_translation()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->translation_, output);
   }
 
-  // optional .experimot.msgs.Vector3d rotation = 2;
+  // optional .Indriya.Core.Msgs.Vector3d rotation = 2;
   if (has_rotation()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->rotation_, output);
@@ -299,20 +300,20 @@ void Joystick::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:experimot.msgs.Joystick)
+  // @@protoc_insertion_point(serialize_end:Indriya.Core.Msgs.Joystick)
 }
 
 ::google::protobuf::uint8* Joystick::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:experimot.msgs.Joystick)
-  // optional .experimot.msgs.Vector3d translation = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:Indriya.Core.Msgs.Joystick)
+  // optional .Indriya.Core.Msgs.Vector3d translation = 1;
   if (has_translation()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, *this->translation_, target);
   }
 
-  // optional .experimot.msgs.Vector3d rotation = 2;
+  // optional .Indriya.Core.Msgs.Vector3d rotation = 2;
   if (has_rotation()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -329,7 +330,7 @@ void Joystick::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:experimot.msgs.Joystick)
+  // @@protoc_insertion_point(serialize_to_array_end:Indriya.Core.Msgs.Joystick)
   return target;
 }
 
@@ -337,14 +338,14 @@ int Joystick::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & 3) {
-    // optional .experimot.msgs.Vector3d translation = 1;
+    // optional .Indriya.Core.Msgs.Vector3d translation = 1;
     if (has_translation()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->translation_);
     }
 
-    // optional .experimot.msgs.Vector3d rotation = 2;
+    // optional .Indriya.Core.Msgs.Vector3d rotation = 2;
     if (has_rotation()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -390,10 +391,10 @@ void Joystick::MergeFrom(const Joystick& from) {
   buttons_.MergeFrom(from.buttons_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_translation()) {
-      mutable_translation()->::experimot::msgs::Vector3d::MergeFrom(from.translation());
+      mutable_translation()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.translation());
     }
     if (from.has_rotation()) {
-      mutable_rotation()->::experimot::msgs::Vector3d::MergeFrom(from.rotation());
+      mutable_rotation()->::Indriya::Core::Msgs::Vector3d::MergeFrom(from.rotation());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -448,7 +449,7 @@ void Joystick::InternalSwap(Joystick* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Joystick
 
-// optional .experimot.msgs.Vector3d translation = 1;
+// optional .Indriya.Core.Msgs.Vector3d translation = 1;
  bool Joystick::has_translation() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -459,28 +460,28 @@ void Joystick::InternalSwap(Joystick* other) {
   _has_bits_[0] &= ~0x00000001u;
 }
  void Joystick::clear_translation() {
-  if (translation_ != NULL) translation_->::experimot::msgs::Vector3d::Clear();
+  if (translation_ != NULL) translation_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_translation();
 }
- const ::experimot::msgs::Vector3d& Joystick::translation() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joystick.translation)
+ const ::Indriya::Core::Msgs::Vector3d& Joystick::translation() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joystick.translation)
   return translation_ != NULL ? *translation_ : *default_instance_->translation_;
 }
- ::experimot::msgs::Vector3d* Joystick::mutable_translation() {
+ ::Indriya::Core::Msgs::Vector3d* Joystick::mutable_translation() {
   set_has_translation();
   if (translation_ == NULL) {
-    translation_ = new ::experimot::msgs::Vector3d;
+    translation_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Joystick.translation)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Joystick.translation)
   return translation_;
 }
- ::experimot::msgs::Vector3d* Joystick::release_translation() {
+ ::Indriya::Core::Msgs::Vector3d* Joystick::release_translation() {
   clear_has_translation();
-  ::experimot::msgs::Vector3d* temp = translation_;
+  ::Indriya::Core::Msgs::Vector3d* temp = translation_;
   translation_ = NULL;
   return temp;
 }
- void Joystick::set_allocated_translation(::experimot::msgs::Vector3d* translation) {
+ void Joystick::set_allocated_translation(::Indriya::Core::Msgs::Vector3d* translation) {
   delete translation_;
   translation_ = translation;
   if (translation) {
@@ -488,10 +489,10 @@ void Joystick::InternalSwap(Joystick* other) {
   } else {
     clear_has_translation();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Joystick.translation)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Joystick.translation)
 }
 
-// optional .experimot.msgs.Vector3d rotation = 2;
+// optional .Indriya.Core.Msgs.Vector3d rotation = 2;
  bool Joystick::has_rotation() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -502,28 +503,28 @@ void Joystick::InternalSwap(Joystick* other) {
   _has_bits_[0] &= ~0x00000002u;
 }
  void Joystick::clear_rotation() {
-  if (rotation_ != NULL) rotation_->::experimot::msgs::Vector3d::Clear();
+  if (rotation_ != NULL) rotation_->::Indriya::Core::Msgs::Vector3d::Clear();
   clear_has_rotation();
 }
- const ::experimot::msgs::Vector3d& Joystick::rotation() const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joystick.rotation)
+ const ::Indriya::Core::Msgs::Vector3d& Joystick::rotation() const {
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joystick.rotation)
   return rotation_ != NULL ? *rotation_ : *default_instance_->rotation_;
 }
- ::experimot::msgs::Vector3d* Joystick::mutable_rotation() {
+ ::Indriya::Core::Msgs::Vector3d* Joystick::mutable_rotation() {
   set_has_rotation();
   if (rotation_ == NULL) {
-    rotation_ = new ::experimot::msgs::Vector3d;
+    rotation_ = new ::Indriya::Core::Msgs::Vector3d;
   }
-  // @@protoc_insertion_point(field_mutable:experimot.msgs.Joystick.rotation)
+  // @@protoc_insertion_point(field_mutable:Indriya.Core.Msgs.Joystick.rotation)
   return rotation_;
 }
- ::experimot::msgs::Vector3d* Joystick::release_rotation() {
+ ::Indriya::Core::Msgs::Vector3d* Joystick::release_rotation() {
   clear_has_rotation();
-  ::experimot::msgs::Vector3d* temp = rotation_;
+  ::Indriya::Core::Msgs::Vector3d* temp = rotation_;
   rotation_ = NULL;
   return temp;
 }
- void Joystick::set_allocated_rotation(::experimot::msgs::Vector3d* rotation) {
+ void Joystick::set_allocated_rotation(::Indriya::Core::Msgs::Vector3d* rotation) {
   delete rotation_;
   rotation_ = rotation;
   if (rotation) {
@@ -531,7 +532,7 @@ void Joystick::InternalSwap(Joystick* other) {
   } else {
     clear_has_rotation();
   }
-  // @@protoc_insertion_point(field_set_allocated:experimot.msgs.Joystick.rotation)
+  // @@protoc_insertion_point(field_set_allocated:Indriya.Core.Msgs.Joystick.rotation)
 }
 
 // repeated int32 buttons = 3;
@@ -542,25 +543,25 @@ void Joystick::InternalSwap(Joystick* other) {
   buttons_.Clear();
 }
  ::google::protobuf::int32 Joystick::buttons(int index) const {
-  // @@protoc_insertion_point(field_get:experimot.msgs.Joystick.buttons)
+  // @@protoc_insertion_point(field_get:Indriya.Core.Msgs.Joystick.buttons)
   return buttons_.Get(index);
 }
  void Joystick::set_buttons(int index, ::google::protobuf::int32 value) {
   buttons_.Set(index, value);
-  // @@protoc_insertion_point(field_set:experimot.msgs.Joystick.buttons)
+  // @@protoc_insertion_point(field_set:Indriya.Core.Msgs.Joystick.buttons)
 }
  void Joystick::add_buttons(::google::protobuf::int32 value) {
   buttons_.Add(value);
-  // @@protoc_insertion_point(field_add:experimot.msgs.Joystick.buttons)
+  // @@protoc_insertion_point(field_add:Indriya.Core.Msgs.Joystick.buttons)
 }
  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
 Joystick::buttons() const {
-  // @@protoc_insertion_point(field_list:experimot.msgs.Joystick.buttons)
+  // @@protoc_insertion_point(field_list:Indriya.Core.Msgs.Joystick.buttons)
   return buttons_;
 }
  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 Joystick::mutable_buttons() {
-  // @@protoc_insertion_point(field_mutable_list:experimot.msgs.Joystick.buttons)
+  // @@protoc_insertion_point(field_mutable_list:Indriya.Core.Msgs.Joystick.buttons)
   return &buttons_;
 }
 
@@ -568,8 +569,9 @@ Joystick::mutable_buttons() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace msgs
-}  // namespace experimot
+}  // namespace Msgs
+}  // namespace Core
+}  // namespace Indriya
 
-EX_REGISTER_STATIC_MSG("experimot.msgs.Joystick", Joystick)
+EX_REGISTER_STATIC_MSG("Indriya.Core.Msgs.Joystick", Joystick)
 // @@protoc_insertion_point(global_scope)

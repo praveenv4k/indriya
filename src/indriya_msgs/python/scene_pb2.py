@@ -23,9 +23,9 @@ import model_pb2 as model__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='scene.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\x0bscene.proto\x12\x0e\x65xperimot.msgs\x1a\x0b\x63olor.proto\x1a\tfog.proto\x1a\tsky.proto\x1a\x0blight.proto\x1a\x0bjoint.proto\x1a\x0bmodel.proto\"\xc3\x02\n\x05Scene\x12\x0c\n\x04name\x18\x01 \x02(\t\x12&\n\x07\x61mbient\x18\x02 \x01(\x0b\x32\x15.experimot.msgs.Color\x12)\n\nbackground\x18\x03 \x01(\x0b\x32\x15.experimot.msgs.Color\x12 \n\x03sky\x18\x04 \x01(\x0b\x32\x13.experimot.msgs.Sky\x12\x15\n\x07shadows\x18\x05 \x01(\x08:\x04true\x12 \n\x03\x66og\x18\x06 \x01(\x0b\x32\x13.experimot.msgs.Fog\x12\x0c\n\x04grid\x18\x07 \x01(\x08\x12$\n\x05model\x18\x08 \x03(\x0b\x32\x15.experimot.msgs.Model\x12$\n\x05light\x18\t \x03(\x0b\x32\x15.experimot.msgs.Light\x12$\n\x05joint\x18\n \x03(\x0b\x32\x15.experimot.msgs.Joint')
+  serialized_pb=_b('\n\x0bscene.proto\x12\x11Indriya.Core.Msgs\x1a\x0b\x63olor.proto\x1a\tfog.proto\x1a\tsky.proto\x1a\x0blight.proto\x1a\x0bjoint.proto\x1a\x0bmodel.proto\"\xd8\x02\n\x05Scene\x12\x0c\n\x04name\x18\x01 \x02(\t\x12)\n\x07\x61mbient\x18\x02 \x01(\x0b\x32\x18.Indriya.Core.Msgs.Color\x12,\n\nbackground\x18\x03 \x01(\x0b\x32\x18.Indriya.Core.Msgs.Color\x12#\n\x03sky\x18\x04 \x01(\x0b\x32\x16.Indriya.Core.Msgs.Sky\x12\x15\n\x07shadows\x18\x05 \x01(\x08:\x04true\x12#\n\x03\x66og\x18\x06 \x01(\x0b\x32\x16.Indriya.Core.Msgs.Fog\x12\x0c\n\x04grid\x18\x07 \x01(\x08\x12\'\n\x05model\x18\x08 \x03(\x0b\x32\x18.Indriya.Core.Msgs.Model\x12\'\n\x05light\x18\t \x03(\x0b\x32\x18.Indriya.Core.Msgs.Light\x12\'\n\x05joint\x18\n \x03(\x0b\x32\x18.Indriya.Core.Msgs.Joint')
   ,
   dependencies=[color__pb2.DESCRIPTOR,fog__pb2.DESCRIPTOR,sky__pb2.DESCRIPTOR,light__pb2.DESCRIPTOR,joint__pb2.DESCRIPTOR,model__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -35,76 +35,76 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _SCENE = _descriptor.Descriptor(
   name='Scene',
-  full_name='experimot.msgs.Scene',
+  full_name='Indriya.Core.Msgs.Scene',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='experimot.msgs.Scene.name', index=0,
+      name='name', full_name='Indriya.Core.Msgs.Scene.name', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='ambient', full_name='experimot.msgs.Scene.ambient', index=1,
+      name='ambient', full_name='Indriya.Core.Msgs.Scene.ambient', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='background', full_name='experimot.msgs.Scene.background', index=2,
+      name='background', full_name='Indriya.Core.Msgs.Scene.background', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='sky', full_name='experimot.msgs.Scene.sky', index=3,
+      name='sky', full_name='Indriya.Core.Msgs.Scene.sky', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='shadows', full_name='experimot.msgs.Scene.shadows', index=4,
+      name='shadows', full_name='Indriya.Core.Msgs.Scene.shadows', index=4,
       number=5, type=8, cpp_type=7, label=1,
       has_default_value=True, default_value=True,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='fog', full_name='experimot.msgs.Scene.fog', index=5,
+      name='fog', full_name='Indriya.Core.Msgs.Scene.fog', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='grid', full_name='experimot.msgs.Scene.grid', index=6,
+      name='grid', full_name='Indriya.Core.Msgs.Scene.grid', index=6,
       number=7, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='model', full_name='experimot.msgs.Scene.model', index=7,
+      name='model', full_name='Indriya.Core.Msgs.Scene.model', index=7,
       number=8, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='light', full_name='experimot.msgs.Scene.light', index=8,
+      name='light', full_name='Indriya.Core.Msgs.Scene.light', index=8,
       number=9, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='joint', full_name='experimot.msgs.Scene.joint', index=9,
+      name='joint', full_name='Indriya.Core.Msgs.Scene.joint', index=9,
       number=10, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -122,8 +122,8 @@ _SCENE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=106,
-  serialized_end=429,
+  serialized_start=109,
+  serialized_end=453,
 )
 
 _SCENE.fields_by_name['ambient'].message_type = color__pb2._COLOR
@@ -138,7 +138,7 @@ DESCRIPTOR.message_types_by_name['Scene'] = _SCENE
 Scene = _reflection.GeneratedProtocolMessageType('Scene', (_message.Message,), dict(
   DESCRIPTOR = _SCENE,
   __module__ = 'scene_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Scene)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Scene)
   ))
 _sym_db.RegisterMessage(Scene)
 

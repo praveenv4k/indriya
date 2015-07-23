@@ -20,9 +20,9 @@ import joint_wrench_pb2 as joint__wrench__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='contact.proto',
-  package='experimot.msgs',
+  package='Indriya.Core.Msgs',
   #syntax='proto2',
-  serialized_pb=_b('\n\rcontact.proto\x12\x0e\x65xperimot.msgs\x1a\x0evector3d.proto\x1a\ntime.proto\x1a\x12joint_wrench.proto\"\xf6\x01\n\x07\x43ontact\x12\x12\n\ncollision1\x18\x01 \x02(\t\x12\x12\n\ncollision2\x18\x02 \x02(\t\x12*\n\x08position\x18\x03 \x03(\x0b\x32\x18.experimot.msgs.Vector3d\x12(\n\x06normal\x18\x04 \x03(\x0b\x32\x18.experimot.msgs.Vector3d\x12\r\n\x05\x64\x65pth\x18\x05 \x03(\x01\x12+\n\x06wrench\x18\x06 \x03(\x0b\x32\x1b.experimot.msgs.JointWrench\x12\"\n\x04time\x18\x07 \x02(\x0b\x32\x14.experimot.msgs.Time\x12\r\n\x05world\x18\x08 \x02(\t')
+  serialized_pb=_b('\n\rcontact.proto\x12\x11Indriya.Core.Msgs\x1a\x0evector3d.proto\x1a\ntime.proto\x1a\x12joint_wrench.proto\"\x82\x02\n\x07\x43ontact\x12\x12\n\ncollision1\x18\x01 \x02(\t\x12\x12\n\ncollision2\x18\x02 \x02(\t\x12-\n\x08position\x18\x03 \x03(\x0b\x32\x1b.Indriya.Core.Msgs.Vector3d\x12+\n\x06normal\x18\x04 \x03(\x0b\x32\x1b.Indriya.Core.Msgs.Vector3d\x12\r\n\x05\x64\x65pth\x18\x05 \x03(\x01\x12.\n\x06wrench\x18\x06 \x03(\x0b\x32\x1e.Indriya.Core.Msgs.JointWrench\x12%\n\x04time\x18\x07 \x02(\x0b\x32\x17.Indriya.Core.Msgs.Time\x12\r\n\x05world\x18\x08 \x02(\t')
   ,
   dependencies=[vector3d__pb2.DESCRIPTOR,time__pb2.DESCRIPTOR,joint__wrench__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -32,62 +32,62 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _CONTACT = _descriptor.Descriptor(
   name='Contact',
-  full_name='experimot.msgs.Contact',
+  full_name='Indriya.Core.Msgs.Contact',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='collision1', full_name='experimot.msgs.Contact.collision1', index=0,
+      name='collision1', full_name='Indriya.Core.Msgs.Contact.collision1', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='collision2', full_name='experimot.msgs.Contact.collision2', index=1,
+      name='collision2', full_name='Indriya.Core.Msgs.Contact.collision2', index=1,
       number=2, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='position', full_name='experimot.msgs.Contact.position', index=2,
+      name='position', full_name='Indriya.Core.Msgs.Contact.position', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='normal', full_name='experimot.msgs.Contact.normal', index=3,
+      name='normal', full_name='Indriya.Core.Msgs.Contact.normal', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='depth', full_name='experimot.msgs.Contact.depth', index=4,
+      name='depth', full_name='Indriya.Core.Msgs.Contact.depth', index=4,
       number=5, type=1, cpp_type=5, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='wrench', full_name='experimot.msgs.Contact.wrench', index=5,
+      name='wrench', full_name='Indriya.Core.Msgs.Contact.wrench', index=5,
       number=6, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='time', full_name='experimot.msgs.Contact.time', index=6,
+      name='time', full_name='Indriya.Core.Msgs.Contact.time', index=6,
       number=7, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='world', full_name='experimot.msgs.Contact.world', index=7,
+      name='world', full_name='Indriya.Core.Msgs.Contact.world', index=7,
       number=8, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -105,8 +105,8 @@ _CONTACT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=82,
-  serialized_end=328,
+  serialized_start=85,
+  serialized_end=343,
 )
 
 _CONTACT.fields_by_name['position'].message_type = vector3d__pb2._VECTOR3D
@@ -118,7 +118,7 @@ DESCRIPTOR.message_types_by_name['Contact'] = _CONTACT
 Contact = _reflection.GeneratedProtocolMessageType('Contact', (_message.Message,), dict(
   DESCRIPTOR = _CONTACT,
   __module__ = 'contact_pb2'
-  # @@protoc_insertion_point(class_scope:experimot.msgs.Contact)
+  # @@protoc_insertion_point(class_scope:Indriya.Core.Msgs.Contact)
   ))
 _sym_db.RegisterMessage(Contact)
 
