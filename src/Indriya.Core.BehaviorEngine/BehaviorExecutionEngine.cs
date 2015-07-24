@@ -347,15 +347,77 @@ namespace Indriya.Core.BehaviorEngine
                                 if (!CheckExecutionComplete(type))
                                 {
                                     var result = CheckTrigger(type);
-                                    if (result != null)
+                                    if (result != null && result.Active)
                                     {
-                                        if (result.Active)
-                                        {
-                                            var activeJobs = Scheduler.GetCurrentlyExecutingJobs();
+                                        var activeJobs = Scheduler.GetCurrentlyExecutingJobs();
 
-                                            // No active jobs so we can just schedule the incoming request
-                                            if (activeJobs.Count == 0)
+                                        // No active jobs so we can just schedule the incoming request
+                                        if (activeJobs.Count == 0)
+                                        {
+                                            IJobDetail detail = JobBuilder.Create<BehaviorExecutionTask>()
+                                                .WithIdentity(jobKey)
+                                                .Build();
+                                            detail.JobDataMap.Add("BehaviorType", type);
+                                            detail.JobDataMap.Add("ExecutionContext",
+                                                new BehaviorExecutionContext(_contextServer));
+                                            detail.JobDataMap.Add("TriggerResult", result);
+                                            ITrigger trigger =
+                                                TriggerBuilder.Create().ForJob(detail).StartNow().Build();
+                                            Scheduler.ScheduleJob(detail, trigger);
+                                            Console.WriteLine(
+                                                @"New job about to be scheduled Job : {0}, Module : {1}",
+                                                jobKey.Name,
+                                                jobKey.Group);
+                                        }
+                                        else
+                                        {
+                                            foreach (var activeJob in activeJobs)
                                             {
+                                                if (activeJob != null)
+                                                {
+                                                    object activeType;
+                                                    activeJob.JobDetail.JobDataMap.TryGetValue("BehaviorType",
+                                                        out activeType);
+                                                    var activeBehavior = activeType as Type;
+                                                    if (activeBehavior != null)
+                                                    {
+                                                        int current = GetBehaviorPriority(type);
+                                                        int active = GetBehaviorPriority(activeBehavior);
+                                                        // If the incoming behavior has high priority than the active job
+                                                        if (current > active)
+                                                        {
+                                                            // Preemption action
+                                                            object execContextObject;
+                                                            activeJob.JobDetail.JobDataMap.TryGetValue(
+                                                                "ExecutionContext",
+                                                                out execContextObject);
+                                                            var execContext =
+                                                                execContextObject as BehaviorExecutionContext;
+                                                            if (execContext != null)
+                                                            {
+                                                                execContext.CancelRequest = true;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            var currentTime = DateTime.Now;
+                                            bool noActiveJob = false;
+                                            //while ((DateTime.Now - currentTime) < new TimeSpan(0, 0, 0, 1))
+                                            while ((DateTime.Now - currentTime) < new TimeSpan(0, 0, 0, 60))
+                                            {
+                                                var jobs = Scheduler.GetCurrentlyExecutingJobs();
+                                                if (jobs.Count == 0)
+                                                {
+                                                    noActiveJob = true;
+                                                    break;
+                                                }
+                                                System.Threading.Thread.Sleep(1);
+                                            }
+                                            if (noActiveJob)
+                                            {
+                                                Log.InfoFormat("All active jobs are premepted");
+
                                                 IJobDetail detail = JobBuilder.Create<BehaviorExecutionTask>()
                                                     .WithIdentity(jobKey)
                                                     .Build();
@@ -373,72 +435,7 @@ namespace Indriya.Core.BehaviorEngine
                                             }
                                             else
                                             {
-                                                foreach (var activeJob in activeJobs)
-                                                {
-                                                    if (activeJob != null)
-                                                    {
-                                                        object activeType;
-                                                        activeJob.JobDetail.JobDataMap.TryGetValue("BehaviorType",
-                                                            out activeType);
-                                                        var activeBehavior = activeType as Type;
-                                                        if (activeBehavior != null)
-                                                        {
-                                                            int current = GetBehaviorPriority(type);
-                                                            int active = GetBehaviorPriority(activeBehavior);
-                                                            // If the incoming behavior has high priority than the active job
-                                                            if (current > active)
-                                                            {
-                                                                // Preemption action
-                                                                object execContextObject;
-                                                                activeJob.JobDetail.JobDataMap.TryGetValue(
-                                                                    "ExecutionContext",
-                                                                    out execContextObject);
-                                                                var execContext =
-                                                                    execContextObject as BehaviorExecutionContext;
-                                                                if (execContext != null)
-                                                                {
-                                                                    execContext.CancelRequest = true;
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                                var currentTime = DateTime.Now;
-                                                bool noActiveJob = false;
-                                                //while ((DateTime.Now - currentTime) < new TimeSpan(0, 0, 0, 1))
-                                                while ((DateTime.Now - currentTime) < new TimeSpan(0, 0, 0, 60))
-                                                {
-                                                    var jobs = Scheduler.GetCurrentlyExecutingJobs();
-                                                    if (jobs.Count == 0)
-                                                    {
-                                                        noActiveJob = true;
-                                                        break;
-                                                    }
-                                                    System.Threading.Thread.Sleep(1);
-                                                }
-                                                if (noActiveJob)
-                                                {
-                                                    Log.InfoFormat("All active jobs are premepted");
-
-                                                    IJobDetail detail = JobBuilder.Create<BehaviorExecutionTask>()
-                                                        .WithIdentity(jobKey)
-                                                        .Build();
-                                                    detail.JobDataMap.Add("BehaviorType", type);
-                                                    detail.JobDataMap.Add("ExecutionContext",
-                                                        new BehaviorExecutionContext(_contextServer));
-                                                    detail.JobDataMap.Add("TriggerResult", result);
-                                                    ITrigger trigger =
-                                                        TriggerBuilder.Create().ForJob(detail).StartNow().Build();
-                                                    Scheduler.ScheduleJob(detail, trigger);
-                                                    Console.WriteLine(
-                                                        @"New job about to be scheduled Job : {0}, Module : {1}",
-                                                        jobKey.Name,
-                                                        jobKey.Group);
-                                                }
-                                                else
-                                                {
-                                                    Log.InfoFormat("Cannot premept the active jobs");
-                                                }
+                                                Log.InfoFormat("Cannot premept the active jobs");
                                             }
                                         }
                                     }

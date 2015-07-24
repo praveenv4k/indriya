@@ -108,6 +108,70 @@ namespace Indriya.Core.Util
             return default(T);
         }
 
+        public static T ReceiveAndParseProtoMessage<T>(NetMQSocket socket) where T : class
+        {
+            if (socket != null)
+            {
+                var msg = socket.ReceiveMessage();
+                if (msg != null)
+                {
+                    if (msg.FrameCount > 0)
+                    {
+                        return ParseProtoMessage<T>(msg.First.Buffer);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine(@"Message buffer empty!");
+                }
+            }
+            return default(T);
+        }
+
+        public static T RequestProtoMessage<T>(string server, string request, int timeout) where T : class
+        {
+            try
+            {
+                using (var context = NetMQContext.Create())
+                {
+                    using (var socket = context.CreateRequestSocket())
+                    {
+                        socket.Connect(server);
+                        socket.Send(request);
+
+                        return ReceiveAndParseProtoMessage<T>(socket, timeout);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("{1} : {0}", ex.StackTrace, ex.Message);
+            }
+            return default(T);
+        }
+
+        public static T RequestProtoMessage<T>(string server, string request) where T : class
+        {
+            try
+            {
+                using (var context = NetMQContext.Create())
+                {
+                    using (var socket = context.CreateRequestSocket())
+                    {
+                        socket.Connect(server);
+                        socket.Send(request);
+
+                        return ReceiveAndParseProtoMessage<T>(socket);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("{1} : {0}", ex.StackTrace, ex.Message);
+            }
+            return default(T);
+        }
+
         public static void SerializeProtoMessage<T>(NetMQSocket socket, T msg) where T : class
         {
             if (socket != null)

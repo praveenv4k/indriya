@@ -37,7 +37,7 @@ namespace Indriya.Kinect.Speech
                 {
                     var options = new CommandLineOptions();
                     Parser.Default.ParseArguments(args, options);
-                    info = GetNodeInfo(options.Name, options.ParameterServer);
+                    info = MessageUtil.RequestProtoMessage<Node>(options.ParameterServer, options.Name);
 
                     if (info != null)
                     {
@@ -80,43 +80,6 @@ namespace Indriya.Kinect.Speech
                 }
                 recognizer.Terminate();
             }
-        }
-
-        private static Node GetNodeInfo(string name, string server, int timeout = 1000)
-        {
-            try
-            {
-                using (var context = NetMQContext.Create())
-                {
-                    using (var socket = context.CreateRequestSocket())
-                    {
-                        socket.Connect(server);
-                        socket.Send(name);
-
-                        var msg = socket.ReceiveMessage();
-                        if (msg != null)
-                        {
-                            if (msg.FrameCount > 0)
-                            {
-                                using (var memStream = new MemoryStream(msg.First.Buffer))
-                                {
-                                    var nodeInfo = Serializer.Deserialize<Node>(memStream);
-                                    return nodeInfo;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine("Message buffer empty!");
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("{1} : {0}", ex.StackTrace, ex.Message);
-            }
-            return null;
         }
     }
 }
