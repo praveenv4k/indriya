@@ -2,14 +2,14 @@
 using System.IO;
 using System.Linq;
 using Common.Logging;
-using Indriya.Core.Util;
 using Indriya.Core.Data;
 using Indriya.Core.Schema;
+using Indriya.Core.Util;
 using Nancy.TinyIoc;
 using NetMQ;
 using ProtoBuf;
 
-namespace Indriya.Application
+namespace Indriya.Application.Core
 {
     public class ParameterServer : IDisposable
     {
@@ -71,7 +71,7 @@ namespace Indriya.Application
                             if (req.Contains("motion"))
                             {
                                 var motionModule =
-                                    MessageUtil.ReceiveAndParseProtoMessage<Core.Msgs.GestureRecognitionModule>(_socket,
+                                    MessageUtil.ReceiveAndParseProtoMessage<Indriya.Core.Msgs.GestureRecognitionModule>(_socket,
                                         RecvTimeout);
                                 if (motionModule != null)
                                 {
@@ -89,7 +89,7 @@ namespace Indriya.Application
                             else if (req.Contains("behavior"))
                             {
                                 var behaviorModule =
-                                    MessageUtil.ReceiveAndParseProtoMessage<Core.Msgs.RobotBehaviorModule>(_socket,
+                                    MessageUtil.ReceiveAndParseProtoMessage<Indriya.Core.Msgs.RobotBehaviorModule>(_socket,
                                         RecvTimeout);
                                 if (behaviorModule != null)
                                 {
@@ -107,7 +107,7 @@ namespace Indriya.Application
                             else if (req.Contains("speech"))
                             {
                                 var behaviorModule =
-                                    MessageUtil.ReceiveAndParseProtoMessage<Core.Msgs.VoiceRecognitionModule>(_socket,
+                                    MessageUtil.ReceiveAndParseProtoMessage<Indriya.Core.Msgs.VoiceRecognitionModule>(_socket,
                                         RecvTimeout);
                                 if (behaviorModule != null)
                                 {

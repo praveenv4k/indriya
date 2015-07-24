@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Common.Logging;
-using Indriya.Core;
 using Indriya.Core.Data;
 using Indriya.Core.Schema;
 using Indriya.Core.Util;
@@ -9,7 +8,7 @@ using Nancy.TinyIoc;
 using NetMQ;
 using Newtonsoft.Json;
 
-namespace Indriya.Application
+namespace Indriya.Application.Core
 {
     public class ContextServer : IDisposable
     {

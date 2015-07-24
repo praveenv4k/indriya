@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using Indriya.Application.Core;
 using Indriya.Application.Properties;
 using Indriya.Application.Mvvm;
 using Indriya.Core.Data;

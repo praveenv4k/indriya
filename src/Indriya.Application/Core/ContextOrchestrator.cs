@@ -5,7 +5,6 @@ using System.Linq;
 using System.Reflection;
 using System.Windows;
 using Common.Logging;
-using Indriya.Core;
 using Indriya.Core.Data;
 using Indriya.Core.Schema;
 using Indriya.Core.Util;
@@ -14,13 +13,13 @@ using NetMQ;
 using ProtoBuf;
 using Expression = System.Linq.Expressions.Expression;
 
-namespace Indriya.Application.Tasks
+namespace Indriya.Application.Core
 {
-    public class ContextSync : IDisposable
+    public class ContextOrchestrator : IDisposable
     {
         private readonly Context _ctx;
         private NetMQContext _netctx;
-        private static readonly ILog Log = LogManager.GetLogger(typeof (ContextSync));
+        private static readonly ILog Log = LogManager.GetLogger(typeof (ContextOrchestrator));
 
         private readonly IList<socket> _publishers;
         private const string MessageNamespace = "Indriya.Core.Msgs";
@@ -36,7 +35,7 @@ namespace Indriya.Application.Tasks
         private bool _disposed;
         private readonly int _interval=100;
 
-        public ContextSync()
+        public ContextOrchestrator()
         {
             _ctx = TinyIoCContainer.Current.Resolve<Context>();
             var config = TinyIoCContainer.Current.Resolve<AppConfig>();

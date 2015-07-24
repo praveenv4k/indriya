@@ -160,24 +160,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BootStrapper.cs" />
+    <Compile Include="Core\BootStrapper.cs" />
     <Compile Include="Mvvm\BrowserViewModel.cs" />
     <Compile Include="Mvvm\DelegateCommand.cs" />
     <Compile Include="Mvvm\DelegateCommandT.cs" />
     <Compile Include="Mvvm\MainWindowViewModel.cs" />
     <Compile Include="Mvvm\PropertyChangedExtensionMethods.cs" />
     <Compile Include="Mvvm\ViewModelBase.cs" />
-    <Compile Include="ContextServer.cs" />
+    <Compile Include="Core\ContextServer.cs" />
     <Compile Include="Tasks\JobListener.cs" />
-    <Compile Include="ParameterServer.cs" />
+    <Compile Include="Core\ParameterServer.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Tasks\SimpleTask.cs" />
-    <Compile Include="Tasks\ContextSync.cs" />
+    <Compile Include="Core\ContextOrchestrator.cs" />
     <Compile Include="Tasks\SimpleBehaviorTask.cs" />
     <Compile Include="Tests\Test.cs" />
-    <Compile Include="Web\ExperimotWeb.cs" />
+    <Compile Include="Web\IndriyaWeb.cs" />
+    <Compile Include="Web\IndriyaWebRootPath.cs" />
+    <Compile Include="Web\IndriyaWebRootPathProvider.cs" />
     <Compile Include="Web\Modules\IndexModule.cs" />
-    <Compile Include="Web\ExperimotWebBootStrapper.cs" />
+    <Compile Include="Web\IndriyaWebBootStrapper.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

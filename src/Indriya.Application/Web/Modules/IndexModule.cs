@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Common.Logging;
-using Indriya.Core;
+using Indriya.Application.Core;
 using Indriya.Core.Data;
 using Indriya.Core.Schema;
 using Indriya.Core.Util;
@@ -23,7 +23,7 @@ namespace Indriya.Application.Web.Modules
     public class IndexModule : NancyModule
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof (IndexModule));
-        private static readonly string WebRoot = WebRootPath.GetRootPath();
+        private static readonly string WebRoot = IndriyaWebRootPath.GetRootPath();
 
         public IndexModule()
         {

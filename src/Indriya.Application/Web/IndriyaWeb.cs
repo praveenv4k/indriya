@@ -42,7 +42,7 @@ namespace Indriya.Application.Web
                     //    UrlReservations = new UrlReservations() { CreateAutomatically = true }
                     //};
 
-                    _host = new NancyHost(new Uri(uriStr), new ExperimotWebBootStrapper());
+                    _host = new NancyHost(new Uri(uriStr), new IndriyaWebBootStrapper());
 
                     _host.Start();
 

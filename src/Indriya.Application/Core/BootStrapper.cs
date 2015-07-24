@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using Common.Logging;
 using Indriya.Application.Tasks;
 using Indriya.Application.Web;
-using Indriya.Core;
 using Indriya.Core.BehaviorEngine;
 using Indriya.Core.Data;
 using Indriya.Core.Schema;
@@ -19,7 +18,7 @@ using Quartz;
 using Quartz.Impl;
 using Quartz.Impl.Matchers;
 
-namespace Indriya.Application
+namespace Indriya.Application.Core
 {
     internal class BootStrapper
     {
@@ -69,7 +68,7 @@ namespace Indriya.Application
             var context = new Context();
             TinyIoCContainer.Current.Register(context);
 
-            var contextSync = new ContextSync();
+            var contextSync = new ContextOrchestrator();
             TinyIoCContainer.Current.Register(contextSync);
 
             var parameterServer = new ParameterServer();
@@ -214,7 +213,7 @@ namespace Indriya.Application
         {
             try
             {
-                var sync = arg as ContextSync;
+                var sync = arg as ContextOrchestrator;
                 if (sync != null)
                 {
                     Log.Info("Context sync Started");
@@ -241,7 +240,7 @@ namespace Indriya.Application
             TinyIoCContainer.Current.Register<Context>().AsSingleton();
             TinyIoCContainer.Current.Register<ParameterServer>().AsSingleton();
             TinyIoCContainer.Current.Register<ContextServer>().AsSingleton();
-            TinyIoCContainer.Current.Register<ContextSync>().AsSingleton();
+            TinyIoCContainer.Current.Register<ContextOrchestrator>().AsSingleton();
             TinyIoCContainer.Current.Register<StdSchedulerFactory>().AsSingleton();
             TinyIoCContainer.Current.Register<IndriyaWeb>().AsSingleton();
         }

@@ -1,52 +1,17 @@
-﻿using System;
-using Nancy;
+﻿using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Conventions;
 using Nancy.TinyIoc;
 
 namespace Indriya.Application.Web
 {
-    public class ExperimotRootPathProvider : IRootPathProvider
-    {
-        public string GetRootPath()
-        {
-            return WebRootPath.GetRootPath();
-        }
-    }
-
-    public static class WebRootPath
-    {
-        private const string WebRoot = @"C:/Work/Develop/src/github/indriya/src/Indriya.Web/www";
-
-        public static string GetRootPath()
-        {
-            string root = string.Empty;
-            try
-            {
-                root = Environment.GetEnvironmentVariable("INDRIYA_WEB_ROOT");
-                if (string.IsNullOrEmpty(root))
-                {
-                    root = WebRoot;
-                }
-            }
-            catch (Exception ex)
-            {
-                if (string.IsNullOrEmpty(root))
-                {
-                    root = WebRoot;
-                }
-            }
-            return root;
-        }
-    }
-
-    internal class ExperimotWebBootStrapper : DefaultNancyBootstrapper
+    internal class IndriyaWebBootStrapper : DefaultNancyBootstrapper
     {
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
             base.ApplicationStartup(container, pipelines);
 
-            var root = WebRootPath.GetRootPath();
+            var root = IndriyaWebRootPath.GetRootPath();
             Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("files",
                 System.IO.Path.Combine(root, "files")));
             Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("fonts",
@@ -69,7 +34,7 @@ namespace Indriya.Application.Web
 
         protected override IRootPathProvider RootPathProvider
         {
-            get { return new ExperimotRootPathProvider(); }
+            get { return new IndriyaWebRootPathProvider(); }
         }
     }
 }

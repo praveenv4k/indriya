@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using Indriya.Application.Core;
 using Indriya.Core.Schema;
 using Nancy.TinyIoc;
 
