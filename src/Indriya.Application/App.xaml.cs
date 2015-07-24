@@ -1,6 +1,5 @@
 ﻿using System.Windows;
-using Experimot.Core;
-using Indriya.Core;
+using Indriya.Core.Schema;
 using Nancy.TinyIoc;
 
 namespace Indriya.Application
@@ -12,7 +11,7 @@ namespace Indriya.Application
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            const string configFile = "experimot_config.xml";
+            const string configFile = "IndriyaConfig.xml";
             if (!string.IsNullOrEmpty(configFile))
             {
                 var bootStrapper = new BootStrapper(configFile);

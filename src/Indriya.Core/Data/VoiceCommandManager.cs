@@ -2,10 +2,10 @@ using System;
 using System.ComponentModel;
 using System.Globalization;
 using System.Runtime.CompilerServices;
-using Experimot.Scheduler.Annotations;
+using Indriya.Core.Properties;
 using Indriya.Core.Msgs;
 
-namespace Indriya.Application.Data
+namespace Indriya.Core.Data
 {
     /// <summary>
     /// Voice command manager

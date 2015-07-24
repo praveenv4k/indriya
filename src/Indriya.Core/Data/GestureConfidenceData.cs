@@ -1,6 +1,6 @@
 using System;
 
-namespace Indriya.Application.Data
+namespace Indriya.Core.Data
 {
     /// <summary>
     /// Represents gesture confidence data

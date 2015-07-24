@@ -1,12 +1,12 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Caliburn.Micro;
-using Experimot.Core.Annotations;
+using Indriya.Core.Properties;
 using Indriya.Core.Msgs;
 using Newtonsoft.Json;
 
-namespace Indriya.Application.Data
+namespace Indriya.Core.Data
 {
     /// <summary>
     /// Represents information about a human
@@ -17,7 +17,7 @@ namespace Indriya.Application.Data
 
         private KinectBody _body;
 
-        private readonly BindableCollection<Gesture> _gestures;
+        private readonly ObservableCollection<Gesture> _gestures;
         private Vector3d _headPosition;
         private Vector3d _torsoPosition;
         private Quaternion _torsoOrientation;
@@ -29,7 +29,7 @@ namespace Indriya.Application.Data
         public Human(int id)
         {
             _id = id;
-            _gestures = new BindableCollection<Gesture>();
+            _gestures = new ObservableCollection<Gesture>();
         }
 
         /// <summary>
@@ -128,7 +128,7 @@ namespace Indriya.Application.Data
         /// <summary>
         /// List of gestures
         /// </summary>
-        public BindableCollection<Gesture> Gestures
+        public ObservableCollection<Gesture> Gestures
         {
             get { return _gestures; }
         }

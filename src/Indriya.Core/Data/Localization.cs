@@ -1,10 +1,10 @@
 using System.Collections.Concurrent;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Experimot.Core.Annotations;
+using Indriya.Core.Properties;
 using Indriya.Core.Msgs;
 
-namespace Indriya.Application.Data
+namespace Indriya.Core.Data
 {
     /// <summary>
     /// Represents the localization information

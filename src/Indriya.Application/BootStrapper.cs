@@ -7,11 +7,12 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Common.Logging;
-using Indriya.Application.Data;
 using Indriya.Application.Tasks;
 using Indriya.Application.Web;
 using Indriya.Core;
 using Indriya.Core.BehaviorEngine;
+using Indriya.Core.Data;
+using Indriya.Core.Schema;
 using Indriya.Core.Util;
 using Nancy.TinyIoc;
 using Quartz;
@@ -88,9 +89,9 @@ namespace Indriya.Application
             bool enableWebServer = ParameterUtil.Get(config.parameters, "WebServerEnabled", false);
             if (enableWebServer)
             {
-                var server = new ExperimotWeb(config);
+                var server = new IndriyaWeb(config);
                 TinyIoCContainer.Current.Register(server);
-                _tasks.Add(Task.Factory.StartNew(() => RunExperimotServer(server)));
+                _tasks.Add(Task.Factory.StartNew(() => RunWebServer(server)));
             }
 
             InitializeScheduler();
@@ -156,26 +157,26 @@ namespace Indriya.Application
         /// <summary>
         /// Web server task
         /// </summary>
-        /// <param name="arg">An instance of the ExperimotWeb</param>
-        private void RunExperimotServer(object arg)
+        /// <param name="arg">An instance of the IndriyaWeb</param>
+        private void RunWebServer(object arg)
         {
             try
             {
-                var server = arg as ExperimotWeb;
+                var server = arg as IndriyaWeb;
                 if (server != null)
                 {
                     server.Start();
-                    Log.Info("Experimot server Started");
+                    Log.Info("Indriya server Started");
                 }
                 else
                 {
                     Log.Info("server instance null. looks like it is disabled");
                 }
-                Log.Info("Experimot server Completed");
+                Log.Info("Indriya server Completed");
             }
             catch (Exception ex)
             {
-                Log.ErrorFormat("Exception in experimot web server: {0}", ex.StackTrace);
+                Log.ErrorFormat("Exception in Indriya web server: {0}", ex.StackTrace);
             }
         }
 
@@ -216,7 +217,7 @@ namespace Indriya.Application
             TinyIoCContainer.Current.Register<ContextServer>().AsSingleton();
             TinyIoCContainer.Current.Register<ContextSync>().AsSingleton();
             TinyIoCContainer.Current.Register<StdSchedulerFactory>().AsSingleton();
-            TinyIoCContainer.Current.Register<ExperimotWeb>().AsSingleton();
+            TinyIoCContainer.Current.Register<IndriyaWeb>().AsSingleton();
         }
 
         /// <summary>
@@ -368,7 +369,7 @@ namespace Indriya.Application
                             Log.Info("Quartz Scheduler Shutdown");
                         }
 
-                        var server = TinyIoCContainer.Current.Resolve<ExperimotWeb>(ResolveOptions.FailUnregisteredOnly);
+                        var server = TinyIoCContainer.Current.Resolve<IndriyaWeb>(ResolveOptions.FailUnregisteredOnly);
                         if (server != null)
                         {
                             server.Stop();

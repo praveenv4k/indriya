@@ -1,19 +1,20 @@
 ﻿using System;
 using Common.Logging;
 using Indriya.Core;
+using Indriya.Core.Schema;
 using Indriya.Core.Util;
 using Nancy.Hosting.Self;
 
 namespace Indriya.Application.Web
 {
-    internal class ExperimotWeb : IDisposable
+    internal class IndriyaWeb : IDisposable
     {
         private readonly AppConfig _config;
         private bool _disposed;
-        private static readonly ILog Log = LogManager.GetLogger(typeof (ExperimotWeb));
+        private static readonly ILog Log = LogManager.GetLogger(typeof (IndriyaWeb));
         private NancyHost _host;
 
-        public ExperimotWeb(AppConfig config)
+        public IndriyaWeb(AppConfig config)
         {
             _config = config;
         }

@@ -4,24 +4,20 @@
 //    <NameSpace>Indriya.Core</NameSpace><Collection>ObservableCollection</Collection><codeType>CSharp</codeType><EnableDataBinding>True</EnableDataBinding><EnableLazyLoading>False</EnableLazyLoading><TrackingChangesEnable>False</TrackingChangesEnable><GenTrackingClasses>False</GenTrackingClasses><HidePrivateFieldInIDE>False</HidePrivateFieldInIDE><EnableSummaryComment>False</EnableSummaryComment><VirtualProp>False</VirtualProp><IncludeSerializeMethod>True</IncludeSerializeMethod><UseBaseClass>False</UseBaseClass><GenBaseClass>False</GenBaseClass><GenerateCloneMethod>True</GenerateCloneMethod><GenerateDataContracts>False</GenerateDataContracts><CodeBaseTag>Net40</CodeBaseTag><SerializeMethodName>Serialize</SerializeMethodName><DeserializeMethodName>Deserialize</DeserializeMethodName><SaveToFileMethodName>SaveToFile</SaveToFileMethodName><LoadFromFileMethodName>LoadFromFile</LoadFromFileMethodName><GenerateXMLAttributes>True</GenerateXMLAttributes><OrderXMLAttrib>True</OrderXMLAttrib><EnableEncoding>False</EnableEncoding><AutomaticProperties>False</AutomaticProperties><GenerateShouldSerialize>False</GenerateShouldSerialize><DisableDebug>False</DisableDebug><PropNameSpecified>Default</PropNameSpecified><Encoder>UTF8</Encoder><CustomUsings></CustomUsings><ExcludeIncludedTypes>False</ExcludeIncludedTypes><EnableInitializeFields>True</EnableInitializeFields>
 //  </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Indriya.Core
+
+using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.IO;
+using System.Xml.Serialization;
+
+namespace Indriya.Core.Schema
 {
-    using System;
-    using System.Diagnostics;
-    using System.Xml.Serialization;
-    using System.Collections;
-    using System.Xml.Schema;
-    using System.ComponentModel;
-    using System.IO;
-    using System.Text;
-    using System.Collections.ObjectModel;
-
-
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig", IsNullable = false)]
+    [Serializable()]
+    [DesignerCategory("code")]
+    [XmlType(AnonymousType = true, Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig")]
+    [XmlRoot(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig", IsNullable = false)]
     public partial class AppConfig : System.ComponentModel.INotifyPropertyChanged
     {
 
@@ -37,8 +33,8 @@ namespace Indriya.Core
             this.parametersField = new ObservableCollection<param_type>();
         }
 
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 0)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("param", IsNullable = false)]
+        [XmlArray(Order = 0)]
+        [XmlArrayItem("param", IsNullable = false)]
         public ObservableCollection<param_type> parameters
         {
             get
@@ -63,8 +59,8 @@ namespace Indriya.Core
             }
         }
 
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 1)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
+        [XmlArray(Order = 1)]
+        [XmlArrayItem(IsNullable = false)]
         public ObservableCollection<node> nodes
         {
             get
@@ -297,10 +293,10 @@ namespace Indriya.Core
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig", IsNullable = true)]
+    [Serializable()]
+    [DesignerCategory("code")]
+    [XmlType(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig")]
+    [XmlRoot(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig", IsNullable = true)]
     public partial class param_type : System.ComponentModel.INotifyPropertyChanged
     {
 
@@ -314,7 +310,7 @@ namespace Indriya.Core
 
         private static System.Xml.Serialization.XmlSerializer serializer;
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public string key
         {
             get
@@ -339,7 +335,7 @@ namespace Indriya.Core
             }
         }
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public string value
         {
             get
@@ -364,7 +360,7 @@ namespace Indriya.Core
             }
         }
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public dataType type
         {
             get
@@ -381,7 +377,7 @@ namespace Indriya.Core
             }
         }
 
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [XmlIgnore()]
         public bool typeSpecified
         {
             get
@@ -606,9 +602,9 @@ namespace Indriya.Core
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig", IsNullable = false)]
+    [Serializable()]
+    [XmlType(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig")]
+    [XmlRoot(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig", IsNullable = false)]
     public enum dataType
     {
 
@@ -632,10 +628,10 @@ namespace Indriya.Core
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig", IsNullable = true)]
+    [Serializable()]
+    [DesignerCategory("code")]
+    [XmlType(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig")]
+    [XmlRoot(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig", IsNullable = true)]
     public partial class socket : System.ComponentModel.INotifyPropertyChanged
     {
 
@@ -651,7 +647,7 @@ namespace Indriya.Core
 
         private static System.Xml.Serialization.XmlSerializer serializer;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [XmlElement(Order = 0)]
         public string host
         {
             get
@@ -676,7 +672,7 @@ namespace Indriya.Core
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [XmlElement(Order = 1)]
         public int port
         {
             get
@@ -693,7 +689,7 @@ namespace Indriya.Core
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [XmlElement(Order = 2)]
         public string topic
         {
             get
@@ -718,7 +714,7 @@ namespace Indriya.Core
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        [XmlElement(Order = 3)]
         public string msg_type
         {
             get
@@ -743,7 +739,7 @@ namespace Indriya.Core
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
+        [XmlElement(Order = 4)]
         public string name
         {
             get
@@ -976,10 +972,10 @@ namespace Indriya.Core
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig", IsNullable = true)]
+    [Serializable()]
+    [DesignerCategory("code")]
+    [XmlType(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig")]
+    [XmlRoot(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig", IsNullable = true)]
     public partial class process : System.ComponentModel.INotifyPropertyChanged
     {
 
@@ -991,7 +987,7 @@ namespace Indriya.Core
 
         private static System.Xml.Serialization.XmlSerializer serializer;
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [XmlElement(Order = 0)]
         public string type
         {
             get
@@ -1016,7 +1012,7 @@ namespace Indriya.Core
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        [XmlElement(Order = 1)]
         public string path
         {
             get
@@ -1041,7 +1037,7 @@ namespace Indriya.Core
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
+        [XmlElement(Order = 2)]
         public string args
         {
             get
@@ -1274,10 +1270,10 @@ namespace Indriya.Core
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig", IsNullable = true)]
+    [Serializable()]
+    [DesignerCategory("code")]
+    [XmlType(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig")]
+    [XmlRoot(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig", IsNullable = true)]
     public partial class node : System.ComponentModel.INotifyPropertyChanged
     {
 
@@ -1306,7 +1302,7 @@ namespace Indriya.Core
             this.typeField = nodeType.misc;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        [XmlElement(Order = 0)]
         public process process
         {
             get
@@ -1331,8 +1327,8 @@ namespace Indriya.Core
             }
         }
 
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 1)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("param", IsNullable = false)]
+        [XmlArray(Order = 1)]
+        [XmlArrayItem("param", IsNullable = false)]
         public ObservableCollection<param_type> parameters
         {
             get
@@ -1357,8 +1353,8 @@ namespace Indriya.Core
             }
         }
 
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 2)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("publish", IsNullable = false)]
+        [XmlArray(Order = 2)]
+        [XmlArrayItem("publish", IsNullable = false)]
         public ObservableCollection<socket> publishers
         {
             get
@@ -1383,8 +1379,8 @@ namespace Indriya.Core
             }
         }
 
-        [System.Xml.Serialization.XmlArrayAttribute(Order = 3)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("subscribe", IsNullable = false)]
+        [XmlArray(Order = 3)]
+        [XmlArrayItem("subscribe", IsNullable = false)]
         public ObservableCollection<socket> subscribers
         {
             get
@@ -1409,7 +1405,7 @@ namespace Indriya.Core
             }
         }
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public bool enabled
         {
             get
@@ -1426,7 +1422,7 @@ namespace Indriya.Core
             }
         }
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [XmlAttribute()]
         public string name
         {
             get
@@ -1451,8 +1447,8 @@ namespace Indriya.Core
             }
         }
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        [System.ComponentModel.DefaultValueAttribute(nodeType.misc)]
+        [XmlAttribute()]
+        [DefaultValue(nodeType.misc)]
         public nodeType type
         {
             get
@@ -1677,9 +1673,9 @@ namespace Indriya.Core
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig", IsNullable = false)]
+    [Serializable()]
+    [XmlType(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig")]
+    [XmlRoot(Namespace = "http://www.tuat.ac.jp/~venture/IndriyaConfig", IsNullable = false)]
     public enum nodeType
     {
 

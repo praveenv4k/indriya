@@ -161,26 +161,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BootStrapper.cs" />
-    <Compile Include="Data\ExecutionRequest.cs" />
-    <Compile Include="Data\VoiceCommand.cs" />
-    <Compile Include="Data\VoiceCommandManager.cs" />
     <Compile Include="Mvvm\BrowserViewModel.cs" />
-    <Compile Include="Data\Context.cs" />
-    <Compile Include="Data\Behavior.cs" />
-    <Compile Include="Data\BehaviorMode.cs" />
-    <Compile Include="Data\BehaviorState.cs" />
-    <Compile Include="Data\ExperimotMsgsExtenstions.cs" />
-    <Compile Include="Data\Gesture.cs" />
-    <Compile Include="Data\GestureArgs.cs" />
-    <Compile Include="Data\GestureConfidenceData.cs" />
-    <Compile Include="Data\GestureConfidenceLevels.cs" />
-    <Compile Include="Data\GestureMode.cs" />
-    <Compile Include="Data\GestureModule.cs" />
-    <Compile Include="Data\Human.cs" />
-    <Compile Include="Data\Localization.cs" />
-    <Compile Include="Data\ManipulatableObject.cs" />
-    <Compile Include="Data\Robot.cs" />
-    <Compile Include="Data\SensorData.cs" />
     <Compile Include="Mvvm\DelegateCommand.cs" />
     <Compile Include="Mvvm\DelegateCommandT.cs" />
     <Compile Include="Mvvm\MainWindowViewModel.cs" />
@@ -249,7 +230,7 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Content Include="experimot_config.xml">
+    <Content Include="IndriyaConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>

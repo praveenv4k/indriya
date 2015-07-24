@@ -1,4 +1,4 @@
-﻿using Indriya.Application.Data;
+﻿using Indriya.Core.Data;
 using Nancy.TinyIoc;
 
 namespace Indriya.Application.Mvvm

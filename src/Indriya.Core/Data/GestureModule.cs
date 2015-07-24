@@ -1,9 +1,10 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Indriya.Core.Properties;
 using Indriya.Core.Msgs;
 
-namespace Indriya.Application.Data
+namespace Indriya.Core.Data
 {
     /// <summary>
     /// Represents a gesture module
@@ -13,7 +14,7 @@ namespace Indriya.Application.Data
         private string _name;
         public event PropertyChangedEventHandler PropertyChanged;
 
-        [Experimot.Scheduler.Annotations.NotifyPropertyChangedInvocator]
+        [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             var handler = PropertyChanged;

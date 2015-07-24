@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Indriya.Core.Msgs;
+using Indriya.Core.Schema;
 
 namespace Indriya.Core.Util
 {

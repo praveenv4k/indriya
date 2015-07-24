@@ -61,8 +61,20 @@
       <HintPath>..\..\packages\AsyncIO.0.1.17.0\lib\net40\AsyncIO.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Common.Logging, Version=3.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Common.Logging.3.2.0\lib\net40\Common.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Common.Logging.Core.3.2.0\lib\net40\Common.Logging.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NetMQ, Version=3.3.0.12, Culture=neutral, PublicKeyToken=a6decef4ddc58b3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NetMQ.3.3.0.12-rc1\lib\net40\NetMQ.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="protobuf-net, Version=2.0.0.668, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
@@ -77,6 +89,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Behavior.cs" />
+    <Compile Include="Data\BehaviorMode.cs" />
+    <Compile Include="Data\BehaviorState.cs" />
+    <Compile Include="Data\Context.cs" />
+    <Compile Include="Data\ExecutionRequest.cs" />
+    <Compile Include="Data\ExperimotMsgsExtenstions.cs" />
+    <Compile Include="Data\Gesture.cs" />
+    <Compile Include="Data\GestureArgs.cs" />
+    <Compile Include="Data\GestureConfidenceData.cs" />
+    <Compile Include="Data\GestureConfidenceLevels.cs" />
+    <Compile Include="Data\GestureMode.cs" />
+    <Compile Include="Data\GestureModule.cs" />
+    <Compile Include="Data\Human.cs" />
+    <Compile Include="Data\Localization.cs" />
+    <Compile Include="Data\ManipulatableObject.cs" />
+    <Compile Include="Data\Robot.cs" />
+    <Compile Include="Data\SensorData.cs" />
+    <Compile Include="Data\VoiceCommand.cs" />
+    <Compile Include="Data\VoiceCommandManager.cs" />
     <Compile Include="MessagePublisher.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

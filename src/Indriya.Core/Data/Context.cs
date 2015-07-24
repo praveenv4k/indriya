@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using Caliburn.Micro;
-using Experimot.Scheduler.Annotations;
 using Indriya.Core.Msgs;
+using Indriya.Core.Properties;
 using Newtonsoft.Json;
 using ILog = Common.Logging.ILog;
 using LogManager = Common.Logging.LogManager;
 
-namespace Indriya.Application.Data
+namespace Indriya.Core.Data
 {
     /// <summary>
     /// Represents the application context
@@ -28,12 +28,12 @@ namespace Indriya.Application.Data
             orientation = new Quaternion() {w = 1, x = 0, y = 0, z = 0}
         };
 
-        private BindableCollection<Human> _humans;
+        private ObservableCollection<Human> _humans;
         private IDictionary<string, ManipulatableObject> _objects;
         private readonly object _object = new object();
-        private BindableCollection<GestureModule> _motionModules;
-        private BindableCollection<VoiceRecognitionModule> _voiceModules;
-        private BindableCollection<RobotBehaviorModule> _behaviorModules;
+        private ObservableCollection<GestureModule> _motionModules;
+        private ObservableCollection<VoiceRecognitionModule> _voiceModules;
+        private ObservableCollection<RobotBehaviorModule> _behaviorModules;
         private static readonly ILog Log = LogManager.GetLogger<Context>();
         private readonly VoiceCommandManager _voiceCommandManager;
         private bool _serializeHuman;
@@ -43,13 +43,13 @@ namespace Indriya.Application.Data
         /// </summary>
         public Context()
         {
-            Humans = new BindableCollection<Human>();
+            Humans = new ObservableCollection<Human>();
             Robot = new Robot();
             _voiceCommandManager = new VoiceCommandManager();
             Objects = new ConcurrentDictionary<string, ManipulatableObject>();
-            MotionModules = new BindableCollection<GestureModule>();
-            BehaviorModules = new BindableCollection<RobotBehaviorModule>();
-            VoiceRecognitionModules = new BindableCollection<VoiceRecognitionModule>();
+            MotionModules = new ObservableCollection<GestureModule>();
+            BehaviorModules = new ObservableCollection<RobotBehaviorModule>();
+            VoiceRecognitionModules = new ObservableCollection<VoiceRecognitionModule>();
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace Indriya.Application.Data
         /// <summary>
         /// Collection of human in the environment
         /// </summary>
-        public BindableCollection<Human> Humans
+        public ObservableCollection<Human> Humans
         {
             get { return _humans; }
             set { _humans = value; }
@@ -87,7 +87,7 @@ namespace Indriya.Application.Data
         /// <summary>
         /// List of registered Motion recognition modules
         /// </summary>
-        public BindableCollection<GestureModule> MotionModules
+        public ObservableCollection<GestureModule> MotionModules
         {
             get { return _motionModules; }
             set { _motionModules = value; }
@@ -96,7 +96,7 @@ namespace Indriya.Application.Data
         /// <summary>
         /// List of registered Robot behavior modules
         /// </summary>
-        public BindableCollection<RobotBehaviorModule> BehaviorModules
+        public ObservableCollection<RobotBehaviorModule> BehaviorModules
         {
             get { return _behaviorModules; }
             set { _behaviorModules = value; }
@@ -105,7 +105,7 @@ namespace Indriya.Application.Data
         /// <summary>
         /// List of registered speech recognition modules
         /// </summary>
-        public BindableCollection<VoiceRecognitionModule> VoiceRecognitionModules
+        public ObservableCollection<VoiceRecognitionModule> VoiceRecognitionModules
         {
             get { return _voiceModules; }
             set { _voiceModules = value; }

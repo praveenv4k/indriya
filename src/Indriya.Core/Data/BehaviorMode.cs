@@ -1,4 +1,4 @@
-namespace Indriya.Application.Data
+namespace Indriya.Core.Data
 {
     /// <summary>
     /// Represents the behavior execution mode

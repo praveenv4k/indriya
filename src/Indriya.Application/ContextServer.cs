@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Linq;
 using Common.Logging;
-using Indriya.Application.Data;
 using Indriya.Core;
+using Indriya.Core.Data;
+using Indriya.Core.Schema;
 using Indriya.Core.Util;
 using Nancy.TinyIoc;
 using NetMQ;
