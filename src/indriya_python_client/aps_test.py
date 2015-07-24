@@ -14,9 +14,9 @@ from apscheduler.executors.pool import ThreadPoolExecutor, ProcessPoolExecutor
 from os.path import dirname
 from os.path import abspath
 
-dev = os.environ["DEV_SDK_ROOT"]
-dir1 = os.path.join(dev,"experimot","scripts","msgs")
-dir2 = os.path.join(dev,"experimot","scripts","experimot_robot_interface")
+dev = os.environ["INDRIYA_ROOT"]
+dir1 = os.path.join(dev,"scripts","msgs")
+dir2 = os.path.join(dev,"scripts","experimot_robot_interface")
 
 sys.path.append(dir1)
 sys.path.append(dir2)

@@ -472,13 +472,14 @@ public:
 		m_pSocket->connect("tcp://localhost:5571");
 		m_strSubsribeTo = std::string("HPP");
 		m_pSocket->setsockopt(ZMQ_SUBSCRIBE, m_strSubsribeTo.c_str(), m_strSubsribeTo.size());
+		m_strHumanModel = "data/human";
 	}
 
-	HumanPoseListener(const string host, int port, const string topic){
+	HumanPoseListener(const string host, int port, const string topic, const string humanTorsoBaseModel){
 		std::stringstream ss;
 		ss << host << ":" << port;
 		string strAddr = ss.str();
-
+		m_strHumanModel = humanTorsoBaseModel;
 		m_pContext = ZmqContextPtr(new zmq::context_t(1));
 		m_pSocket = ZmqSocketPtr(new zmq::socket_t(*m_pContext, ZMQ_SUB));
 		m_pSocket->connect(strAddr.c_str());
@@ -521,7 +522,7 @@ public:
 							for (google::protobuf::int32 i = 0; i < humans.human_size(); i++){
 								const Indriya::Core::Msgs::Human& human = humans.human(i);
 								stringstream ss;
-								ss << "human" << human.id();
+								ss << m_strHumanModel << human.id();
 								std::string fileName(ss.str() + ".kinbody.xml");
 								RaveVector<float> bColor;
 								KinectBodyHelper::Instance()->GetBodyColor(human.id()-1, bColor);
@@ -552,6 +553,7 @@ private:
 	ZmqContextPtr m_pContext;
 	ZmqSocketPtr m_pSocket;
 	std::string m_strSubsribeTo;
+	std::string m_strHumanModel;
 };
 
 class RobotStatePublisher{
@@ -760,7 +762,8 @@ int main(int argc, char ** argv)
 		HumanPoseListenerPtr pHumanPoseListener;
 		string scenefilename = "data/nao.dae";
 		string viewername = "qtcoin";
-		string kinectModel = "box2.kinbody.xml";
+		string kinectModel = "data/kinect.kinbody.xml";
+		string humanTorsoBaseModel = "data/human";
 
 		Indriya::Core::Msgs::NodePtr pInfo = AcquireParameters(argc, argv);
 
@@ -768,6 +771,7 @@ int main(int argc, char ** argv)
 			scenefilename = ParameterHelper::GetParam(pInfo->param(), "scenefilename", scenefilename);
 			viewername = ParameterHelper::GetParam(pInfo->param(), "viewername", viewername);
 			kinectModel = ParameterHelper::GetParam(pInfo->param(), "kinect_model", kinectModel);
+			humanTorsoBaseModel = ParameterHelper::GetParam(pInfo->param(), "human_torso_base_model", humanTorsoBaseModel);
 
 			for (int i = 0; i < pInfo->subscriber_size(); i++){
 				auto& sub = pInfo->subscriber(i);
@@ -781,7 +785,7 @@ int main(int argc, char ** argv)
 					pKinectListener = KinectStateListenerPtr(new KinectStateListener(sub.host(), sub.port(), sub.topic()));
 				}
 				if (sub.msg_type() == "Humans"){
-					pHumanPoseListener = HumanPoseListenerPtr(new HumanPoseListener(sub.host(), sub.port(), sub.topic()));
+					pHumanPoseListener = HumanPoseListenerPtr(new HumanPoseListener(sub.host(), sub.port(), sub.topic(), humanTorsoBaseModel));
 				}
 			}
 			std::cout << "Initialized node from configuration file " << std::endl;

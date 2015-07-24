@@ -15,8 +15,8 @@ import transformations
 from os.path import dirname
 from os.path import abspath
 
-dev = os.environ["DEV_SDK_ROOT"]
-dir1 = os.path.join(dev,"experimot","scripts","msgs")
+dev = os.environ["INDRIYA_ROOT"]
+dir1 = os.path.join(dev,"scripts","msgs")
 
 sys.path.append(dir1)
 

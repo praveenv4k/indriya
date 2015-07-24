@@ -29,22 +29,22 @@
     <param key="ContextServerPort" value="5800" type="int"/>
     <param key="ContextServerInterval" value="40" type="int"/>
     <param key="ContextSyncInterval" value="80" type="int"/>
-    <param key="MainProgramFilePath" value="%DEV_SDK_ROOT%\experimot\bin\scriptcs\main.csx" type="string"/>
-    <param key="MainProgramFolder" value="%DEV_SDK_ROOT%\experimot\bin\scriptcs\" type="string"/>
+    <param key="MainProgramFilePath" value="%INDRIYA_ROOT%\bin\scriptcs\main.csx" type="string"/>
+    <param key="MainProgramFolder" value="%INDRIYA_ROOT%\bin\scriptcs\" type="string"/>
     <!-- TODO Define Parameter for Periods of ContextServer, ContextSync, ParameterServer, GesturePeriod-->
   </parameters>
   <nodes>
-    <node enabled="false" name="localization">
+    <node enabled="true" name="localization">
       <process>
         <type>executable</type>
-        <path>%DEV_SDK_ROOT%\experimot\bin\indriya_robot_localization.exe</path>
+        <path>%INDRIYA_ROOT%\bin\indriya_robot_localization.exe</path>
         <args></args>
       </process>
       <parameters>
         <param key="cube_size" value="80" type="int"/>
         <param key="marker_size" value="60" type="int"/>
         <param key="comm_timeout" value="100" type="int"/>
-        <param key="calib_file" value="camera_calibration_kinect_1600.xml" type="string"/>
+        <param key="calib_file" value="%INDRIYA_ROOT%\data\calib\camera_calibration_kinect_1600.xml" type="string"/>
         <param key="sensor_process_cycle" value="20" type="int"/>
         <param key="robot_listener_cycle" value="40" type="int"/>
         <param key="pose_publisher_cycle" value="80" type="int"/>
@@ -87,10 +87,10 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="true" name="gesture_recognition">
+    <node enabled="false" name="gesture_recognition">
       <process>
         <type>executable</type>
-        <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Indriya.Kinect.Perception\Indriya.Kinect.Perception.exe</path>
+        <path>%INDRIYA_ROOT%\bin\nodes\Indriya.Kinect.Perception\Indriya.Kinect.Perception.exe</path>
         <args></args>
       </process>
       <parameters>
@@ -130,10 +130,10 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="true" name="speech_recognition">
+    <node enabled="false" name="speech_recognition">
       <process>
         <type>executable</type>
-        <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Indriya.Kinect.Speech\Indriya.Kinect.Speech.exe</path>
+        <path>%INDRIYA_ROOT%\bin\nodes\Indriya.Kinect.Speech\Indriya.Kinect.Speech.exe</path>
         <args></args>
       </process>
       <parameters>
@@ -161,12 +161,13 @@
     <node enabled="false" name="simulation">
       <process>
         <type>executable</type>
-        <path>%DEV_SDK_ROOT%\experimot\bin\indriya_rave.exe</path>
+        <path>%INDRIYA_ROOT%\bin\indriya_rave.exe</path>
         <args></args>
       </process>
       <parameters>
-        <param key="scenefilename" value="data/nao.dae" type="string"/>
-        <param key="kinect_model" value="box2.kinbody.xml" type="string"/>
+        <param key="scenefilename" value="robots/nao.dae" type="string"/>
+        <param key="kinect_model" value="data/kinect.kinbody.xml" type="string"/>
+        <param key="human_torso_base_model" value="data/human" type="string"/>
         <param key="viewername" value="qtcoin" type="string"/>
         <param key="visualize" value="1" type="int"/>
       </parameters>
@@ -219,7 +220,7 @@
     <node enabled="false" name="localization_logger">
       <process>
         <type>executable</type>
-        <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Indriya.Localization.Logger\Indriya.Localization.Logger.exe</path>
+        <path>%INDRIYA_ROOT%\bin\nodes\Indriya.Localization.Logger\Indriya.Localization.Logger.exe</path>
         <args></args>
       </process>
       <parameters>
@@ -259,7 +260,7 @@
     <node enabled="false" name="imu_perception">
       <process>
         <type>executable</type>
-        <path>%DEV_SDK_ROOT%\experimot\bin\nodes\Indriya.Imu.Perception\Indriya.Imu.Perception.exe</path>
+        <path>%INDRIYA_ROOT%\bin\nodes\Indriya.Imu.Perception\Indriya.Imu.Perception.exe</path>
         <args></args>
       </process>
       <publishers>
@@ -292,7 +293,7 @@
       <process>
         <type>executable</type>
         <path>python.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\scripts\indriya_robot_interface\ReadJointValues.py</args>
+        <args>%INDRIYA_ROOT%\scripts\indriya_robot_interface\ReadJointValues.py</args>
       </process>
       <parameters>
         <param key="ROBOTIP" value="$NAO-A-ROBOTIP" type="string"/>
@@ -319,14 +320,14 @@
       <process>
         <type>executable</type>
         <path>python.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\scripts\indriya_python_client\experimot_relative_localize.py</args>
+        <args>%INDRIYA_ROOT%\scripts\indriya_python_client\experimot_relative_localize.py</args>
       </process>
     </node>
-    <node enabled="true" name="hiro_manager">
+    <node enabled="false" name="hiro_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\scripts\indriya_robot_interface\behaviors\behaviormanager.py</args>
+        <args>%INDRIYA_ROOT%\scripts\indriya_robot_interface\behaviors\behaviormanager.py</args>
       </process>
       <parameters>
         <param key="ROBOTIP" value="$NAO-A-ROBOTIP" type="string"/>
@@ -341,7 +342,7 @@
       <process>
         <type>executable</type>
         <path>python.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\scripts\indriya_robot_interface\odometry.py</args>
+        <args>%INDRIYA_ROOT%\scripts\indriya_robot_interface\odometry.py</args>
       </process>
       <parameters>
       </parameters>
@@ -350,7 +351,7 @@
       <process>
         <type>executable</type>
         <path>python.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\scripts\indriya_robot_interface\behaviors\behaviormanager.py</args>
+        <args>%INDRIYA_ROOT%\scripts\indriya_robot_interface\behaviors\behaviormanager.py</args>
       </process>
       <parameters>
         <param key="ROBOTIP" value="$NAO-B-ROBOTIP" type="string"/>
@@ -365,7 +366,7 @@
       <process>
         <type>executable</type>
         <path>python.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\scripts\indriya_robot_interface\behaviors\imitation_manager.py</args>
+        <args>%INDRIYA_ROOT%\scripts\indriya_robot_interface\behaviors\imitation_manager.py</args>
       </process>
       <parameters>
         <param key="ROBOTIP" value="$NAO-A-ROBOTIP" type="string"/>
@@ -389,7 +390,7 @@
       <process>
         <type>executable</type>
         <path>python.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\scripts\indriya_python_client\aps_test.py</args>
+        <args>%INDRIYA_ROOT%\scripts\indriya_python_client\aps_test.py</args>
       </process>
       <parameters>
         <param key="BehaviorManagerName" value="nao_behavior_manager" type="string"/>
@@ -398,8 +399,8 @@
     <node enabled="false" name="scriptcs_program">
       <process>
         <type>scriptcs</type>
-        <path>%DEV_SDK_ROOT%\experimot\bin\scriptcs\scriptcs.exe</path>
-        <args>%DEV_SDK_ROOT%\experimot\bin\scriptcs\main_program.csx -logLevel debug</args>
+        <path>%INDRIYA_ROOT%\bin\scriptcs\scriptcs.exe</path>
+        <args>%INDRIYA_ROOT%\bin\scriptcs\main_program.csx -logLevel debug</args>
       </process>
       <parameters>
         <param key="BehaviorManagerName" value="nao_behavior_manager" type="string"/>

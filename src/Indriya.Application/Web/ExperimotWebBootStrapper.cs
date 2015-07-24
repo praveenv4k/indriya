@@ -16,14 +16,14 @@ namespace Indriya.Application.Web
 
     public static class WebRootPath
     {
-        private const string WebRoot = @"C:/Work/Develop/src/github/indriya/src/Experimot.Web/www";
+        private const string WebRoot = @"C:/Work/Develop/src/github/indriya/src/Indriya.Web/www";
 
         public static string GetRootPath()
         {
             string root = string.Empty;
             try
             {
-                root = Environment.GetEnvironmentVariable("WEB_ROOT");
+                root = Environment.GetEnvironmentVariable("INDRIYA_WEB_ROOT");
                 if (string.IsNullOrEmpty(root))
                 {
                     root = WebRoot;

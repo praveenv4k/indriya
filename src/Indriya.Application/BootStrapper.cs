@@ -63,6 +63,7 @@ namespace Indriya.Application
             TinyIoCContainer.Current.Register(this);
 
             var config = AppConfig.LoadFromFile(configFile);
+            PrepareConfigData(config);
             TinyIoCContainer.Current.Register(config);
 
             var context = new Context();
@@ -96,6 +97,31 @@ namespace Indriya.Application
 
             InitializeScheduler();
         }
+
+        private void PrepareConfigData(AppConfig config)
+        {
+            if (config != null)
+            {
+                foreach (var parameter in config.parameters)
+                {
+                    if (parameter.type == dataType.@string || parameter.type == dataType.file)
+                    {
+                        parameter.value = Environment.ExpandEnvironmentVariables(parameter.value);
+                    }
+                }
+                foreach (var node in config.nodes)
+                {
+                    foreach (var parameter in node.parameters)
+                    {
+                        if (parameter.type == dataType.@string || parameter.type == dataType.file)
+                        {
+                            parameter.value = Environment.ExpandEnvironmentVariables(parameter.value);
+                        }
+                    }
+                }
+            }
+        }
+
 
         /// <summary>
         /// Parameter server task
