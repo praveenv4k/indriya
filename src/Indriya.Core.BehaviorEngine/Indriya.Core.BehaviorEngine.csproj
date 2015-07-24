@@ -60,6 +60,10 @@
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="protobuf-net, Version=2.0.0.668, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\protobuf-net.2.0.0.668\lib\net40\protobuf-net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Quartz, Version=2.3.2.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Quartz.2.3.2\lib\net40\Quartz.dll</HintPath>
       <Private>True</Private>
@@ -121,6 +125,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Indriya.Core.Msgs\Indriya.Core.Msgs.csproj">
+      <Project>{45e9e170-76b7-4e71-b557-9b131e0c175b}</Project>
+      <Name>Indriya.Core.Msgs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Indriya.Core\Indriya.Core.csproj">
+      <Project>{35ca8818-7e08-4b4c-a5f3-1f1e5dd0b973}</Project>
+      <Name>Indriya.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

@@ -23,6 +23,14 @@ namespace Indriya.Core.Data
         private Quaternion _torsoOrientation;
 
         /// <summary>
+        /// Default constructor
+        /// </summary>
+        public Human() : this(-1)
+        {
+
+        }
+
+        /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="id">Identifier of the human</param>

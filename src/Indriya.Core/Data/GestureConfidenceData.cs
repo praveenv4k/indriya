@@ -26,6 +26,15 @@ namespace Indriya.Core.Data
         private readonly GestureConfidenceLevels _level;
         private bool _lastActive;
         private bool _active;
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public GestureConfidenceData() : this(GestureConfidenceLevels.Low)
+        {
+
+        }
+
         /// <summary>
         /// Constructor
         /// </summary>

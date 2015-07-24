@@ -271,7 +271,12 @@ namespace Indriya.Core.Data
                 }
                 if (Humans.Count > 0 && !_serializeHuman)
                 {
-                    Console.WriteLine(JsonConvert.SerializeObject(Humans));
+                    var humansStr = JsonConvert.SerializeObject(Humans);
+                    var humansObj = JsonConvert.DeserializeObject<ObservableCollection<Human>>(humansStr);
+                    if (humansObj != null)
+                    {
+                        Console.WriteLine(humansStr);
+                    }
                     _serializeHuman = true;
                 }
             }

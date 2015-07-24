@@ -15,8 +15,16 @@ namespace Indriya.Core.Data
         private string _name;
         private GestureMode _gestureMode;
         private bool _active;
-        private readonly Dictionary<GestureConfidenceLevels, GestureConfidenceData> _confidenceDict;
+        private Dictionary<GestureConfidenceLevels, GestureConfidenceData> _confidenceDict;
         protected const int GesturePeriod = 2;
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public Gesture() : this("", GestureMode.Discrete)
+        {
+
+        }
 
         /// <summary>
         /// Constructor
@@ -32,7 +40,7 @@ namespace Indriya.Core.Data
             Confidence = 0;
             Count = 0;
             Progress = 0;
-            _confidenceDict = new Dictionary<GestureConfidenceLevels, GestureConfidenceData>
+            ConfidenceDict = new Dictionary<GestureConfidenceLevels, GestureConfidenceData>
             {
                 {GestureConfidenceLevels.Low, new GestureConfidenceData(GestureConfidenceLevels.Low)},
                 {GestureConfidenceLevels.Average, new GestureConfidenceData(GestureConfidenceLevels.Average)},
@@ -201,6 +209,7 @@ namespace Indriya.Core.Data
         public Dictionary<GestureConfidenceLevels, GestureConfidenceData> ConfidenceDict
         {
             get { return _confidenceDict; }
+            set { _confidenceDict = value; }
         }
 
         /// <summary>

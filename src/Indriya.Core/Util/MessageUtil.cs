@@ -1,12 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using Common.Logging;
 using Indriya.Core.Msgs;
 using Indriya.Core.Schema;
+using NetMQ;
+using ProtoBuf;
 
 namespace Indriya.Core.Util
 {
     public class MessageUtil
     {
+        private static readonly ILog Log = LogManager.GetLogger(typeof (MessageUtil));
+
         public static Node XmlToMessageNode(node node)
         {
             var ret = new Node {name = node.name};
@@ -59,6 +66,58 @@ namespace Indriya.Core.Util
                 }).ToList();
             }
             return new List<Param>();
+        }
+
+        public static T ParseProtoMessage<T>(byte[] msgBuffer) where T : class
+        {
+            if (msgBuffer != null)
+            {
+                try
+                {
+                    using (var memStream = new MemoryStream(msgBuffer))
+                    {
+                        var msg = Serializer.Deserialize<T>(memStream);
+                        return msg;
+                    }
+                }
+                catch (ProtoException ex)
+                {
+                    Log.ErrorFormat("Exception while deserializing registration message: {0} ", ex.Message);
+                }
+            }
+            return default(T);
+        }
+
+        public static T ReceiveAndParseProtoMessage<T>(NetMQSocket socket, int timeout) where T : class
+        {
+            if (socket != null)
+            {
+                var msg = socket.ReceiveMessage(new TimeSpan(0, 0, 0, 0, timeout));
+                if (msg != null)
+                {
+                    if (msg.FrameCount > 0)
+                    {
+                        return ParseProtoMessage<T>(msg.First.Buffer);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine(@"Message buffer empty!");
+                }
+            }
+            return default(T);
+        }
+
+        public static void SerializeProtoMessage<T>(NetMQSocket socket, T msg) where T : class
+        {
+            if (socket != null)
+            {
+                using (var ms = new MemoryStream())
+                {
+                    Serializer.Serialize(ms, msg);
+                    socket.Send(ms.GetBuffer(), (int) ms.Length);
+                }
+            }
         }
     }
 }

@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using Common.Logging;
+using Indriya.Core.Data;
+using Indriya.Core.Msgs;
 using NetMQ;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Quartz.Util;
 using SharpDX;
+using Human = Indriya.Core.Data.Human;
+using Quaternion = SharpDX.Quaternion;
 
 namespace Indriya.Core.BehaviorEngine
 { // ReSharper disable FunctionComplexityOverflow
-// ReSharper disable LoopCanBeConvertedToQuery
 
     public static class RobotStatusString
     {
@@ -65,132 +70,76 @@ namespace Indriya.Core.BehaviorEngine
             return resp;
         }
 
+        public static T GetContextObject<T>(string server, int timeout, string reqName) where T : class
+        {
+            T ret = default(T);
+            using (var ctx = NetMQContext.Create())
+            {
+                using (var socket = ctx.CreateRequestSocket())
+                {
+                    socket.Connect(server);
+                    socket.Send(reqName);
+                    var resp = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, timeout));
+                    ret = JsonConvert.DeserializeObject<T>(resp);
+                }
+            }
+            return ret;
+        }
+
         public void UpdateBehaviorResponderInfo(BehaviorInfo info)
         {
             if (info != null && !string.IsNullOrEmpty(info.BehaviorName) && !string.IsNullOrEmpty(info.RobotName))
             {
                 Log.InfoFormat("Getting runtime information for {0} : {1}", info.BehaviorName, info.RobotName);
-                var resp = GetContextJsonString(ContextServer, RecvTimeout,
+                var module = GetContextObject<Core.Msgs.RobotBehaviorModule>(ContextServer, RecvTimeout,
                     string.Format("behavior_module/robot/{0}", info.RobotName));
                 //Log.InfoFormat("Context: {1}, Behavior Modules  : {0}", resp, ContextServer);
-                if (!string.IsNullOrEmpty(resp))
+                if (module != null)
                 {
-                    var module = JObject.Parse(resp);
-                    //if (modules != null && modules.Count > 0)
-                    if (module != null)
+                    Log.InfoFormat("Module not null");
+                    var moduleName = module.name;
+                    var responder = module.responder;
+                    string host = string.Empty;
+                    int port = 0;
+                    if (responder != null)
                     {
-                        Log.InfoFormat("Module not null");
-                        var moduleName = module.Value<string>("name");
-                        var responder = module.SelectToken("$.responder");
-                        string host = string.Empty;
-                        int port = 0;
-                        if (responder != null)
-                        {
-                            host = responder.Value<string>("Host");
-                            port = responder.Value<int>("Port");
-                        }
-                        var behaviors = module.SelectToken("$.behaviors");
-                        foreach (var behavior in behaviors)
-                        {
-                            string name = behavior.Value<string>("name");
-                            string functionName = behavior.Value<string>("function_name");
-                            var args = behavior.SelectToken("$.arg");
-                            if (info.BehaviorName == name)
-                            {
-                                var parameters = new Dictionary<string, object>();
-                                // ReSharper disable once LoopCanBeConvertedToQuery
-                                foreach (var arg in args)
-                                {
-                                    parameters.Add(arg.Value<string>("name"), new Dictionary<string, object>
-                                    {
-                                        {"value", arg.Value<string>("value")},
-                                        {"place_holder", arg.Value<string>("place_holder")},
-                                        {"type", arg.Value<string>("type")}
-                                    });
-                                }
-
-                                var matchingBehavior = info;
-                                matchingBehavior.ModuleName = moduleName;
-                                matchingBehavior.FunctionName = functionName;
-                                matchingBehavior.Ip = host;
-                                matchingBehavior.Port = port;
-                                foreach (var parameter in parameters)
-                                {
-                                    if (!matchingBehavior.Parameters.ContainsKey(parameter.Key))
-                                    {
-                                        matchingBehavior.Parameters.Add(parameter);
-                                    }
-                                }
-                                Log.InfoFormat("Obtained the responder info: {0}:{1}", host, port);
-                                break;
-                            }
-                        }
+                        host = responder.Host;
+                        port = responder.Port;
                     }
-                }
-            }
-        }
-
-        public void UpdateBehaviorResponderInfo2(BehaviorInfo info)
-        {
-            if (info != null && !string.IsNullOrEmpty(info.BehaviorName))
-            {
-                var resp = GetContextJsonString(ContextServer, RecvTimeout, "behavior_modules");
-                //Log.InfoFormat("Context: {1}, Behavior Modules  : {0}", resp, ContextServer);
-                if (!string.IsNullOrEmpty(resp))
-                {
-                    var modules = JArray.Parse(resp);
-                    if (modules != null && modules.Count > 0)
+                    var behaviors = module.behaviors;
+                    foreach (var behavior in behaviors)
                     {
-                        foreach (var module in modules)
+                        string name = behavior.name;
+                        string functionName = behavior.function_name;
+                        var args = behavior.arg;
+                        if (info.BehaviorName == name)
                         {
-                            var moduleName = module.Value<string>("name");
-                            string robot = module.Value<string>("robot");
-                            if (info.RobotName == robot)
+                            var parameters = new Dictionary<string, object>();
+                            // ReSharper disable once LoopCanBeConvertedToQuery
+                            foreach (var arg in args)
                             {
-                                var responder = module.SelectToken("$.responder");
-                                string host = string.Empty;
-                                int port = 0;
-                                if (responder != null)
+                                parameters.Add(arg.name, new Dictionary<string, object>
                                 {
-                                    host = responder.Value<string>("Host");
-                                    port = responder.Value<int>("Port");
-                                }
-                                var behaviors = module.SelectToken("$.behaviors");
-                                foreach (var behavior in behaviors)
-                                {
-                                    string name = behavior.Value<string>("name");
-                                    string functionName = behavior.Value<string>("function_name");
-                                    var args = behavior.SelectToken("$.arg");
-                                    if (info.BehaviorName == name)
-                                    {
-                                        var parameters = new Dictionary<string, object>();
-                                        // ReSharper disable once LoopCanBeConvertedToQuery
-                                        foreach (var arg in args)
-                                        {
-                                            parameters.Add(arg.Value<string>("name"), new Dictionary<string, object>
-                                            {
-                                                {"value", arg.Value<string>("value")},
-                                                {"place_holder", arg.Value<string>("place_holder")},
-                                                {"type", arg.Value<string>("type")}
-                                            });
-                                        }
+                                    {"value", arg.value},
+                                    {"place_holder", arg.place_holder},
+                                    {"type", arg.type}
+                                });
+                            }
 
-                                        var matchingBehavior = info;
-                                        matchingBehavior.ModuleName = moduleName;
-                                        matchingBehavior.FunctionName = functionName;
-                                        matchingBehavior.Ip = host;
-                                        matchingBehavior.Port = port;
-                                        foreach (var parameter in parameters)
-                                        {
-                                            if (!matchingBehavior.Parameters.ContainsKey(parameter.Key))
-                                            {
-                                                matchingBehavior.Parameters.Add(parameter);
-                                            }
-                                        }
-                                        break;
-                                    }
+                            var matchingBehavior = info;
+                            matchingBehavior.ModuleName = moduleName;
+                            matchingBehavior.FunctionName = functionName;
+                            matchingBehavior.Ip = host;
+                            matchingBehavior.Port = port;
+                            foreach (var parameter in parameters)
+                            {
+                                if (!matchingBehavior.Parameters.ContainsKey(parameter.Key))
+                                {
+                                    matchingBehavior.Parameters.Add(parameter);
                                 }
                             }
+                            Log.InfoFormat("Obtained the responder info: {0}:{1}", host, port);
+                            break;
                         }
                     }
                 }
@@ -359,13 +308,8 @@ namespace Indriya.Core.BehaviorEngine
 
         public bool GetHumanExists()
         {
-            var humansStr = GetContextJsonString(ContextServer, RecvTimeout, "humans");
-            if (!string.IsNullOrEmpty(humansStr))
-            {
-                var humans = JArray.Parse(humansStr);
-                return humans.Count > 0;
-            }
-            return false;
+            var humans = GetContextObject<ObservableCollection<Human>>(ContextServer, RecvTimeout, "humans");
+            return (humans != null && humans.Count > 0);
         }
 
         public void GetNearestHuman(out int id, out double distance)
@@ -373,13 +317,11 @@ namespace Indriya.Core.BehaviorEngine
             id = -1;
             distance = double.PositiveInfinity;
 
-            var humansStr = GetContextJsonString(ContextServer, RecvTimeout, "humans");
-            var robotStr = GetContextJsonString(ContextServer, RecvTimeout, "robot");
-            var worldFrameStr = GetContextJsonString(ContextServer, RecvTimeout, "world_frame");
-            if (!string.IsNullOrEmpty(humansStr) && !string.IsNullOrEmpty(robotStr) && !string.IsNullOrEmpty(worldFrameStr))
+            var humans = GetContextObject<ObservableCollection<Human>>(ContextServer, RecvTimeout, "humans");
+            var robot = GetContextObject<Robot>(ContextServer, RecvTimeout, "robot");
+            var worldFrame = GetContextObject<Core.Msgs.Pose>(ContextServer, RecvTimeout, "world_frame");
+            if (humans!=null && robot!=null && worldFrame!=null)
             {
-                var humans = JArray.Parse(humansStr);
-
                 Matrix3x3 robotRot;
                 Matrix3x3 worldRot;
 
@@ -389,9 +331,9 @@ namespace Indriya.Core.BehaviorEngine
                 Vector3 robotTrans;
                 Vector3 worldTrans;
 
-                GetLocalizationFromRobotJson(robotStr, out robotTrans, out robotRot,
+                GetLocalizationFromRobot(robot, out robotTrans, out robotRot,
                     out robotQ);
-                GetWorldFrameMatrix(worldFrameStr, out worldTrans, out worldRot, out worldQ);
+                GetWorldFrameMatrix(worldFrame, out worldTrans, out worldRot, out worldQ);
 
                 foreach (var human in humans)
                 {
@@ -399,7 +341,7 @@ namespace Indriya.Core.BehaviorEngine
                     Matrix3x3 humanRot;
                     Quaternion humanQ;
                     Vector3 humanTrans;
-                    GetHumanPoseFromJson(human, out humanTrans, out humanRot, out humanQ);
+                    GetHumanPose(human, out humanTrans, out humanRot, out humanQ);
 
                     // Compute the displacement of Robot and Human wrt to world frame
                     worldRot.Invert();
@@ -427,7 +369,7 @@ namespace Indriya.Core.BehaviorEngine
                     if (length < distance)
                     {
                         distance = length;
-                        id = human.Value<int>("Id");
+                        id = human.Id;
                     }
                 }
             }
@@ -458,31 +400,26 @@ namespace Indriya.Core.BehaviorEngine
                 Confidence = 0,
                 Name = gestureName
             };
-            var humanStr = GetContextJsonString(ContextServer, RecvTimeout, "humans");
-            if (!string.IsNullOrEmpty(humanStr))
+            var humans = GetContextObject<ObservableCollection<Human>>(ContextServer, RecvTimeout, "humans");
+            if (humans!=null && humans.Count > 0)
             {
-                var humanArray = JArray.Parse(humanStr);
-                foreach (var human in humanArray)
+                if (gestureName == "HumanDetected")
                 {
-                    if (gestureName == "HumanDetected")
+                    ret.HumanId = humans.First().Id;
+                    ret.Active = true;
+                    ret.Confidence = 91;
+                }
+                else
+                {
+                    foreach (var human in humans)
                     {
-                        ret.HumanId = human.Value<int>("Id");
-                        ret.Active = true;
-                        ret.Confidence = 91;
-                        break;
-                    }
-
-                    var gestures = human.SelectToken("$.Gestures");
-                    foreach (var gesture in gestures)
-                    {
-                        string name = gesture.Value<string>("Name");
-                        if (name != gestureName)
+                        var gestures = human.Gestures;
+                        foreach (var gesture in from gesture in gestures let name = gesture.Name where name == gestureName select gesture)
                         {
-                            continue;
+                            ret.HumanId = human.Id;
+                            ret.Active = gesture.Active;
+                            ret.Confidence = gesture.Confidence;
                         }
-                        ret.HumanId = human.Value<int>("Id");
-                        ret.Active = gesture.Value<bool>("Active");
-                        ret.Confidence = gesture.Value<int>("Confidence");
                     }
                 }
             }
@@ -493,40 +430,40 @@ namespace Indriya.Core.BehaviorEngine
         public List<GestureInfo> GetGestureInfoList(string gestureName)
         {
             var ret = new List<GestureInfo>();
-            var humanStr = GetContextJsonString(ContextServer, RecvTimeout, "humans");
-            if (!string.IsNullOrEmpty(humanStr))
+            try
             {
-                var humanArray = JArray.Parse(humanStr);
-                foreach (var human in humanArray)
+                var humans = GetContextObject<ObservableCollection<Human>>(ContextServer, RecvTimeout, "humans");
+                if (humans != null && humans.Count > 0)
                 {
                     if (gestureName == "HumanDetected")
                     {
                         ret.Add(new GestureInfo
                         {
                             Name = gestureName,
-                            HumanId = human.Value<int>("Id"),
+                            HumanId = humans.First().Id,
                             Active = true,
                             Confidence = 91
                         });
-                        break;
                     }
-                    var gestures = human.SelectToken("$.Gestures");
-                    foreach (var gesture in gestures)
-                    {
-                        string name = gesture.Value<string>("Name");
-                        if (name != gestureName)
-                        {
-                            continue;
-                        }
-                        ret.Add(new GestureInfo
+
+                    ret.AddRange(from human in humans
+                        let gestures = human.Gestures
+                        from gesture in gestures
+                        let name = gesture.Name
+                        where name == gestureName
+                        select new GestureInfo
                         {
                             Name = gestureName,
-                            HumanId = human.Value<int>("Id"),
-                            Active = gesture.Value<bool>("Active"),
-                            Confidence = gesture.Value<int>("Confidence")
+                            HumanId = human.Id,
+                            Active = gesture.Active,
+                            Confidence = gesture.Confidence
                         });
-                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Log.ErrorFormat("{0} : {1}", ex.Message, ex.StackTrace);
+                throw;
             }
             //Console.WriteLine(@"GetGestureInfo : {0}, Confidence : {1}", gestureName, ret.Confidence);
             return ret;
@@ -540,30 +477,26 @@ namespace Indriya.Core.BehaviorEngine
                 Confidence = 0,
                 Name = voiceCommand
             };
-            var voiceCommandStr = GetContextJsonString(ContextServer, RecvTimeout, "voice_command");
-            if (!string.IsNullOrEmpty(voiceCommandStr))
+            var voiceCommandMgr = GetContextObject<VoiceCommandManager>(ContextServer, RecvTimeout, "voice_command");
+            if (voiceCommandMgr != null)
             {
-                var voiceCommandObj = JObject.Parse(voiceCommandStr);
-                if (voiceCommandObj != null)
+                var current = voiceCommandMgr.Current;
+                if (current != null)
                 {
-                    var current = voiceCommandObj.SelectToken("$.Current");
-                    if (current != null && current.HasValues)
+                    var command = current.Command;
+                    var confidence = current.Confidence;
+                    var triggerAt = current.TriggerAt;
+                    var now = DateTime.Now;
+                    var span = now - triggerAt;
+                    if (span > new TimeSpan(0, 0, 0, 0, SpeechDuration))
                     {
-                        var command = current.Value<string>("Command");
-                        var confidence = current.Value<int>("Confidence");
-                        var triggerAt = current.Value<DateTime>("TriggerAt");
-                        var now = DateTime.Now;
-                        var span = now - triggerAt;
-                        if (span > new TimeSpan(0, 0, 0, 0, SpeechDuration))
+                    }
+                    else
+                    {
+                        if (String.Compare(command, voiceCommand, StringComparison.OrdinalIgnoreCase) == 0)
                         {
-                        }
-                        else
-                        {
-                            if (String.Compare(command, voiceCommand, StringComparison.OrdinalIgnoreCase) == 0)
-                            {
-                                ret.Active = true;
-                                ret.Confidence = confidence;
-                            }
+                            ret.Active = true;
+                            ret.Confidence = confidence;
                         }
                     }
                 }
@@ -578,35 +511,32 @@ namespace Indriya.Core.BehaviorEngine
                 Active = false,
                 Confidence = 0
             };
-            var voiceCommandStr = GetContextJsonString(ContextServer, RecvTimeout, "voice_command");
-            if (!string.IsNullOrEmpty(voiceCommandStr))
+            var voiceCommandMgr = GetContextObject<VoiceCommandManager>(ContextServer, RecvTimeout, "voice_command");
+            if (voiceCommandMgr != null)
             {
-                var voiceCommandObj = JObject.Parse(voiceCommandStr);
-                if (voiceCommandObj != null)
+
+                var current = voiceCommandMgr.Current;
+                if (current != null)
                 {
-                    var current = voiceCommandObj.SelectToken("$.Current");
-                    if (current != null && current.HasValues)
+                    var command = current.Command;
+                    var active = current.Active;
+                    var confidence = current.Confidence;
+                    var triggerAt = current.TriggerAt;
+                    var now = DateTime.Now;
+                    var span = now - triggerAt;
+                    if (span > new TimeSpan(0, 0, 0, 1))
                     {
-                        var command = current.Value<string>("Command");
-                        var active = current.Value<bool>("Active");
-                        var confidence = current.Value<int>("Confidence");
-                        var triggerAt = current.Value<DateTime>("TriggerAt");
-                        var now = DateTime.Now;
-                        var span = now - triggerAt;
-                        if (span > new TimeSpan(0, 0, 0, 1))
-                        {
-                        }
-                        else
-                        {
-                            ret.Active = active;
-                            ret.Confidence = confidence;
-                            ret.Name = command;
-                            //if (String.Compare(command, voiceCommand, StringComparison.OrdinalIgnoreCase) == 0)
-                            //{
-                            //    ret.Active = true;
-                            //    ret.Confidence = confidence;
-                            //}
-                        }
+                    }
+                    else
+                    {
+                        ret.Active = active;
+                        ret.Confidence = confidence;
+                        ret.Name = command;
+                        //if (String.Compare(command, voiceCommand, StringComparison.OrdinalIgnoreCase) == 0)
+                        //{
+                        //    ret.Active = true;
+                        //    ret.Confidence = confidence;
+                        //}
                     }
                 }
             }
@@ -634,13 +564,13 @@ namespace Indriya.Core.BehaviorEngine
                     float.TryParse(rotDict.TryGetAndReturn("value").ToString(), out isRotation);
 
                     // Get Robot String
-                    var robotString = GetContextJsonString(ContextServer, RecvTimeout, "robot");
+                    var robotString = GetContextObject<Robot>(ContextServer, RecvTimeout, "robot");
 
                     // Get World String
-                    var worldFrame = GetContextJsonString(ContextServer, RecvTimeout, "world_frame");
+                    var worldFrame = GetContextObject<Pose>(ContextServer, RecvTimeout, "world_frame");
 
 
-                    var humanInfo = GetContextJsonString(ContextServer, RecvTimeout,
+                    var humanInfo = GetContextObject<Human>(ContextServer, RecvTimeout,
                         string.Format("human/{0}", trigger.HumanId));
                     if (isHuman > 0 && isRotation > 0)
                     {
@@ -658,8 +588,8 @@ namespace Indriya.Core.BehaviorEngine
                         Vector3 humanTrans;
 
                         // Get the transformation from the JSON strings
-                        GetHumanPoseFromJson(humanInfo, out humanTrans, out humanRot, out humanQ);
-                        GetLocalizationFromRobotJson(robotString, out robotTrans, out robotRot,
+                        GetHumanPose(humanInfo, out humanTrans, out humanRot, out humanQ);
+                        GetLocalizationFromRobot(robotString, out robotTrans, out robotRot,
                             out robotQ);
                         GetWorldFrameMatrix(worldFrame, out worldTrans, out worldRot, out worldQ);
 
@@ -760,8 +690,8 @@ namespace Indriya.Core.BehaviorEngine
                         Vector3 humanTrans;
 
                         // Get the transformation from the JSON strings
-                        GetHumanPoseFromJson(humanInfo, out humanTrans, out humanRot, out humanQ);
-                        GetLocalizationFromRobotJson(robotString, out robotTrans, out robotRot,
+                        GetHumanPose(humanInfo, out humanTrans, out humanRot, out humanQ);
+                        GetLocalizationFromRobot(robotString, out robotTrans, out robotRot,
                             out robotQ);
                         GetWorldFrameMatrix(worldFrame, out worldTrans, out worldRot, out worldQ);
 
@@ -986,6 +916,33 @@ namespace Indriya.Core.BehaviorEngine
             }
         }
 
+        public static void GetWorldFrameMatrix(Pose worldFrame, out Vector3 translation, out Matrix3x3 rotation, out Quaternion q)
+        {
+            translation = new Vector3(0, 0, 0);
+            rotation = Matrix3x3.Identity;
+            q = Quaternion.Identity;
+
+            var pos = worldFrame.position;
+            var orient = worldFrame.orientation;
+            if (pos != null)
+            {
+                translation.X = (float)pos.x / 1000;
+                translation.Y = (float)pos.y / 1000;
+                translation.Z = (float)pos.z / 1000;
+            }
+            if (orient != null)
+            {
+                q = new Quaternion
+                {
+                    X = (float)orient.x,
+                    Y = (float)orient.y,
+                    Z = (float)orient.z,
+                    W = (float)orient.w
+                };
+                rotation = Matrix3x3.RotationQuaternion(q);
+            }
+        }
+
         public static void GetLocalizationFromRobotJson(string robotJson, out Vector3 translation, out Matrix3x3 rotation, out Quaternion q)
         {
             translation = new Vector3(0, 0, 0);
@@ -1010,6 +967,34 @@ namespace Indriya.Core.BehaviorEngine
                     Y = orient.Value<float>("y"),
                     Z = orient.Value<float>("z"),
                     W = orient.Value<float>("w")
+                };
+                rotation = Matrix3x3.RotationQuaternion(q);
+            }
+        }
+
+        public static void GetLocalizationFromRobot(Robot robot, out Vector3 translation, out Matrix3x3 rotation,
+            out Quaternion q)
+        {
+            translation = new Vector3(0, 0, 0);
+            rotation = Matrix3x3.Identity;
+            q = Quaternion.Identity;
+
+            var pos = robot.Localization.Position;
+            var orient = robot.Localization.Orientation;
+            if (pos != null)
+            {
+                translation.X = (float) pos.x/1000;
+                translation.Y = (float) pos.y/1000;
+                translation.Z = (float) pos.z/1000;
+            }
+            if (orient != null)
+            {
+                q = new Quaternion
+                {
+                    X = (float) orient.x,
+                    Y = (float) orient.y,
+                    Z = (float) orient.z,
+                    W = (float) orient.w
                 };
                 rotation = Matrix3x3.RotationQuaternion(q);
             }
@@ -1056,6 +1041,47 @@ namespace Indriya.Core.BehaviorEngine
                             Y = orient.Value<float>("y"),
                             Z = orient.Value<float>("z"),
                             W = orient.Value<float>("w")
+                        };
+                    }
+                    rotation = Matrix3x3.RotationQuaternion(q);
+                }
+            }
+        }
+
+        public static void GetHumanPose(Human human, out Vector3 translation, out Matrix3x3 rotation, out Quaternion q)
+        {
+            translation = new Vector3(0, 0, 0);
+            rotation = Matrix3x3.Identity;
+            q = Quaternion.Identity;
+
+            if (human != null)
+            {
+                var pos = human.TorsoPosition;
+                var orient = human.TorsoOrientation;
+
+                if (pos != null)
+                {
+                    // Already in metres
+                    translation.X = (float)pos.x;
+                    translation.Y = (float)pos.y;
+                    translation.Z = (float)pos.z;
+                }
+                if (orient != null)
+                {
+                    // Check NaN
+                    var x = orient.x;
+                    if (double.IsNaN(x))
+                    {
+
+                    }
+                    else
+                    {
+                        q = new Quaternion
+                        {
+                            X = (float)orient.x,
+                            Y = (float)orient.y,
+                            Z = (float)orient.z,
+                            W = (float)orient.w
                         };
                     }
                     rotation = Matrix3x3.RotationQuaternion(q);
