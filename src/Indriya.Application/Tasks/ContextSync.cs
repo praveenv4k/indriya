@@ -23,7 +23,7 @@ namespace Indriya.Application.Tasks
         private static readonly ILog Log = LogManager.GetLogger(typeof (ContextSync));
 
         private readonly IList<socket> _publishers;
-        private const string MessageNamespace = "experimot.msgs";
+        private const string MessageNamespace = "Indriya.Core.Msgs";
         public delegate void UpdateDelegate<in T>(T item);
 
         private struct DelegateInfo

@@ -125,6 +125,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="Experimot.snk" />
     <None Include="packages.config" />
     <None Include="Schema\blockly_program.xsd">

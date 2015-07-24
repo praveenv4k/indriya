@@ -13,7 +13,7 @@ from os.path import abspath
 
 dev = os.environ["DEV_SDK_ROOT"]
 dir1 = os.path.join(dev,"experimot","scripts","msgs")
-dir2 = os.path.join(dev,"experimot","scripts","experimot_robot_interface")
+dir2 = os.path.join(dev,"experimot","scripts","indriya_robot_interface")
 
 #currdir = dirname(__file__)
 #parent = abspath(os.path.join(currdir,os.pardir))

@@ -13,8 +13,8 @@
                 <TextBlock Text="{Binding}" 
                         Margin="4 0"
                         VerticalAlignment="Center"
-                        Foreground="White"
-                        FontSize="11" 
+                        Foreground="Black"
+                        FontSize="14" 
                         FontWeight="Normal"
                         Width="{Binding
                         RelativeSource={RelativeSource
@@ -74,17 +74,17 @@
             <!--<Expander Header="{Binding Humans.Count, StringFormat='Human Information - Count: {0}'}" HorizontalAlignment="Stretch" IsExpanded="False" >-->
                 <Expander HorizontalAlignment="Stretch" IsExpanded="False" HeaderTemplate="{StaticResource titleText}" Header="Human Information">
                     <ItemsControl ItemsSource="{Binding Humans}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border BorderBrush="DimGray" BorderThickness="2" CornerRadius="2">
-                                <Grid Margin="0,0,0,5">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <TextBlock HorizontalAlignment="Center" Text="{Binding Id, StringFormat='Human - {0}'}" Grid.Row="0" />
-                                    <DataGrid ItemsSource="{Binding Gestures}" Grid.Row="1" IsReadOnly="True" VerticalScrollBarVisibility="Auto"></DataGrid>
-                                    <!--<ItemsControl ItemsSource="{Binding Gestures}" Grid.Row="1">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="DimGray" BorderThickness="2" CornerRadius="2">
+                                    <Grid Margin="0,0,0,5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock HorizontalAlignment="Center" Text="{Binding Id, StringFormat='Human - {0}'}" Grid.Row="0" />
+                                        <DataGrid ItemsSource="{Binding Gestures}" Grid.Row="1" IsReadOnly="True" VerticalScrollBarVisibility="Auto"></DataGrid>
+                                        <!--<ItemsControl ItemsSource="{Binding Gestures}" Grid.Row="1">
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
                                                 <StackPanel>
@@ -94,12 +94,12 @@
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>
                                     </ItemsControl>-->
-                                </Grid>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </Expander>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Expander>
             <Expander Header="Object Information" DataContext="{Binding Robot}" HorizontalAlignment="Stretch" IsExpanded="False">
             </Expander>
             <Expander Header="Speech Recognition" DataContext="{Binding VoiceCommandManager}" HorizontalAlignment="Stretch" IsExpanded="False">
