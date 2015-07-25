@@ -139,7 +139,7 @@
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(TargetDir)*.*" "$(DEV_SDK_ROOT)\experimot\bin\nodes\$(TargetName)" /S /R /Y /I</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(TargetDir)*.*" "$(INDRIYA_ROOT)\bin" /S /R /Y /I</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

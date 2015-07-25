@@ -34,7 +34,7 @@
     <!-- TODO Define Parameter for Periods of ContextServer, ContextSync, ParameterServer, GesturePeriod-->
   </parameters>
   <nodes>
-    <node enabled="true" name="localization">
+    <node enabled="false" name="localization">
       <process>
         <type>executable</type>
         <path>%INDRIYA_ROOT%\bin\indriya_robot_localization.exe</path>

@@ -219,7 +219,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(KINECTSDK20_DIR)Redist\VGB\$(Platform)\vgbtechs" "$(TargetDir)\vgbtechs" /S /R /Y /I
-xcopy "$(TargetDir)*.*" "$(DEV_SDK_ROOT)\experimot\bin\nodes\$(TargetName)" /S /R /Y /I</PostBuildEvent>
+xcopy "$(TargetDir)*.*" "$(INDRIYA_ROOT)\bin" /S /R /Y /I</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
