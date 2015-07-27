@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
 	<Product Id="*" Name="IndriyaInstaller" Language="1033" Version="0.1.0.0" Manufacturer="GVLab" UpgradeCode="5e8e74f1-f639-4333-b3c1-da2708cfa6fa">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 		<MediaTemplate />
 
+    <WixVariable Id="BinSource" Value="$(env.INDRIYA_ROOT)\bin"/>
+    <WixVariable Id="DataSource" Value="$(env.INDRIYA_ROOT)\data"/>
+    <WixVariable Id="ScriptsSource" Value="$(env.INDRIYA_ROOT)\scripts"/>
+    <WixVariable Id="ShareDataSource" Value="$(env.INDRIYA_ROOT)\share"/>
+    <WixVariable Id="WebSource" Value="$(env.INDRIYA_WEB_ROOT)"/>
+    
 		<Feature Id="ProductFeature" Title="IndriyaInstaller" Level="1">
 			<ComponentGroupRef Id="ProductComponents" />
+      <ComponentGroupRef Id="Bin" />
 		</Feature>
     <PropertyRef Id="NETFRAMEWORK45"/>
+
+    <UI Id="IndriyaInstallerUI">
+    <UIRef Id="WixUI_FeatureTree"/>
+    </UI>
 	</Product>
+  
   
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
-				<Directory Id="INSTALLFOLDER" Name="IndriyaInstaller" />
+        <Directory Id="Indriya" Name="Indriya">
+				  <Directory Id="INSTALLFOLDER" Name="IndriyaInstaller" />
+          <Directory Id="BIN" Name="bin" />
+        </Directory>
 			</Directory>
 		</Directory>
 	</Fragment>
