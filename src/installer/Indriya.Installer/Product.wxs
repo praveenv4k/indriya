@@ -15,6 +15,10 @@
 		<Feature Id="ProductFeature" Title="IndriyaInstaller" Level="1">
 			<ComponentGroupRef Id="ProductComponents" />
       <ComponentGroupRef Id="Bin" />
+      <ComponentGroupRef Id="Data" />
+      <ComponentGroupRef Id="Share" />
+      <ComponentGroupRef Id="Scripts" />
+      <ComponentGroupRef Id="Web" />
 		</Feature>
     <PropertyRef Id="NETFRAMEWORK45"/>
 
@@ -29,7 +33,21 @@
 			<Directory Id="ProgramFilesFolder">
         <Directory Id="Indriya" Name="Indriya">
 				  <Directory Id="INSTALLFOLDER" Name="IndriyaInstaller" />
-          <Directory Id="BIN" Name="bin" />
+          <Directory Id="BIN" Name="bin">
+            
+          </Directory>
+          <Directory Id="DATA" Name="data">
+            
+          </Directory>
+          <Directory Id="SHARE" Name="share">
+            
+          </Directory>
+          <Directory Id="SCRIPTS" Name="scripts" >
+            
+          </Directory>
+          <Directory Id="WEB" Name="web" >
+            
+          </Directory>
         </Directory>
 			</Directory>
 		</Directory>

@@ -2,49 +2,49 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <Fragment>
         <DirectoryRef Id="BIN">
-            <Component Id="cmpE948A79C06EF7B446AA1FD96EB5F8B17" Guid="{4C29DD33-7813-4761-AEEF-0296B93D9575}">
+            <Component Id="cmpE948A79C06EF7B446AA1FD96EB5F8B17" Guid="{BF198CB1-793E-47B4-842A-851770A3747A}">
                 <File Id="filAB9EE28115024405654ADF9E3575F8D4" KeyPath="yes" Source="!(wix.BinSource)\alvar200.dll" />
             </Component>
-            <Component Id="cmpF44C59884AEED16FD9EC74505178A841" Guid="{7235D883-A20A-46D1-A930-5C612FBBCC01}">
+            <Component Id="cmpF44C59884AEED16FD9EC74505178A841" Guid="{2637E3F9-6FB4-4110-924E-D140F6719BE0}">
                 <File Id="fil9D81BF09CA8BE79F3BFBE89824A6041F" KeyPath="yes" Source="!(wix.BinSource)\alvar200d.dll" />
             </Component>
-            <Component Id="cmpDA92D24CDBA8A969D6227AE1BCEAF69D" Guid="{45A0701E-48B1-4CC8-BF95-BA2C9A079209}">
+            <Component Id="cmpDA92D24CDBA8A969D6227AE1BCEAF69D" Guid="{D362266F-C176-4E30-802D-74B3D54B5E92}">
                 <File Id="filB483CABFFDB9BBA5DC179185ABFF2C6D" KeyPath="yes" Source="!(wix.BinSource)\assimp-vc120-mt.dll" />
             </Component>
-            <Component Id="cmpDF26A5DB71551E3B8ED4C69D0D532302" Guid="{239E173A-95FE-478A-9244-F466A8A299BA}">
+            <Component Id="cmpDF26A5DB71551E3B8ED4C69D0D532302" Guid="{3D758188-E0C2-48F2-A755-270AD4455351}">
                 <File Id="filEA6FDF5C8DE937817F8AAAB5E4AEFF30" KeyPath="yes" Source="!(wix.BinSource)\assimp-vc120-mtd.dll" />
             </Component>
-            <Component Id="cmp35E1E335DDDAD78C96907A493A585B15" Guid="{AACDFB23-3A5B-4252-BCEA-2F5AD1B93A2D}">
+            <Component Id="cmp35E1E335DDDAD78C96907A493A585B15" Guid="{BF159128-AD5C-4E32-807C-232DCB58E559}">
                 <File Id="fil0B28B36C92E2BC33C22FC40744AED491" KeyPath="yes" Source="!(wix.BinSource)\AsyncIO.dll" />
             </Component>
-            <Component Id="cmpFE2596CC4238C194C546639C069D9906" Guid="{BC436C22-7096-4DF7-BEAB-C9FDA4CF2D3D}">
+            <Component Id="cmpFE2596CC4238C194C546639C069D9906" Guid="{87B95B12-1C5B-4F3A-8203-473A27EA090D}">
                 <File Id="filAB7380AFD6D0014A1E977A93828BB35B" KeyPath="yes" Source="!(wix.BinSource)\boost_chrono-vc120-mt-1_57.dll" />
             </Component>
-            <Component Id="cmpF1A5D5FD28A82BB1A9F5143F4E32D2B8" Guid="{1BD40569-EC9A-4EB7-983E-3783C16CEE02}">
+            <Component Id="cmpF1A5D5FD28A82BB1A9F5143F4E32D2B8" Guid="{AF8D1DBD-F9DD-4FAF-A188-79962075C11B}">
                 <File Id="fil89082A86497E74A132C89D739B0A9FB8" KeyPath="yes" Source="!(wix.BinSource)\boost_date_time-vc120-mt-1_57.dll" />
             </Component>
-            <Component Id="cmp80138DB62AFB3EAC5A06BE9C0F1E436F" Guid="{C4251E09-1E83-4AA3-BCD5-549CE0575C65}">
+            <Component Id="cmp80138DB62AFB3EAC5A06BE9C0F1E436F" Guid="{AB9DFDA8-4123-4326-BB74-7F4B105FAAF7}">
                 <File Id="fil26CE9AA4891E7D363A94E11CEF8B2B9D" KeyPath="yes" Source="!(wix.BinSource)\boost_filesystem-vc120-mt-1_57.dll" />
             </Component>
-            <Component Id="cmp2349077D6B96FDC6C14E46531438A4EE" Guid="{60939C81-092E-4EF4-87E8-5936BB5D5B68}">
+            <Component Id="cmp2349077D6B96FDC6C14E46531438A4EE" Guid="{C2B3B41A-921D-4E58-A096-AE1F6EAF825C}">
                 <File Id="fil78B7024DE43398676D945E108626844D" KeyPath="yes" Source="!(wix.BinSource)\boost_iostreams-vc120-mt-1_57.dll" />
             </Component>
-            <Component Id="cmpCED95B67E3BBCC25D67339FBD3A1A25F" Guid="{8A7EC4C2-ADF1-47CC-885F-7D1F15E4A1B6}">
+            <Component Id="cmpCED95B67E3BBCC25D67339FBD3A1A25F" Guid="{3B6CF646-30F2-4D3F-99CF-A8D814499824}">
                 <File Id="fil1DBEAE3DD8EB5C259C6A35297370227F" KeyPath="yes" Source="!(wix.BinSource)\boost_regex-vc120-mt-1_57.dll" />
             </Component>
-            <Component Id="cmp85079B7400A76C6A8C2304525B50276D" Guid="{F1498D39-17C6-4C70-BA10-369C91263B73}">
+            <Component Id="cmp85079B7400A76C6A8C2304525B50276D" Guid="{F2E4846A-04B7-4CF9-9232-9249B47F31B4}">
                 <File Id="filE8AC4DBF5A175674ABA892F72FB5EE91" KeyPath="yes" Source="!(wix.BinSource)\boost_system-vc120-mt-1_57.dll" />
             </Component>
-            <Component Id="cmpA94E624985C4428E29512FD4A340EB7F" Guid="{A823252F-CE60-4211-B6ED-8E08670034A4}">
+            <Component Id="cmpA94E624985C4428E29512FD4A340EB7F" Guid="{51898827-6B42-4284-AE83-42B4B4F3484C}">
                 <File Id="fil1CF939B5AD3CE7EAC4BD79AD9C90656E" KeyPath="yes" Source="!(wix.BinSource)\boost_thread-vc120-mt-1_57.dll" />
             </Component>
-            <Component Id="cmp2E7F8C7B888A677418A1380A072FA3D6" Guid="{6C234A47-1C67-45CB-89F3-0A68403EFA4A}">
+            <Component Id="cmp2E7F8C7B888A677418A1380A072FA3D6" Guid="{9FF43ED9-962D-4E4E-B421-D9772EF4A664}">
                 <File Id="filA912DCB87D5E367C4889BD902D54A99E" KeyPath="yes" Source="!(wix.BinSource)\boost_timer-vc120-mt-1_57.dll" />
             </Component>
-            <Component Id="cmp8FD905A638907665550C70B7E22481A0" Guid="{B0A300D6-9A71-4EC2-9501-83AAD136E0CB}">
+            <Component Id="cmp8FD905A638907665550C70B7E22481A0" Guid="{F9D4D183-7E92-4B55-9CF2-EE3124F928A4}">
                 <File Id="fil61D92B26D2EEF75C9FF9A6506F4DD03C" KeyPath="yes" Source="!(wix.BinSource)\boost_zlib-vc120-mt-1_57.dll" />
             </Component>
-            <Component Id="cmp36C768B3149DAA607BC304A4E965A72E" Guid="{942E0FE8-BE00-47FC-AC6A-70033581612B}">
+            <Component Id="cmp36C768B3149DAA607BC304A4E965A72E" Guid="{B9D2F52F-38DC-43C8-8C33-D19BC4BFEFEA}">
                 <Class Id="{25257E77-B998-3F0D-AB04-91FD14A1623F}" Context="InprocServer32" Description="Caliburn.Micro.Screen" ThreadingModel="both" ForeignServer="mscoree.dll">
                     <ProgId Id="Caliburn.Micro.Screen" Description="Caliburn.Micro.Screen" />
                 </Class>
@@ -191,80 +191,80 @@
                 <RegistryValue Root="HKCR" Key="CLSID\{F9E6BEEB-C4F4-306C-8244-778127D9B0BA}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="CLSID\{F9E6BEEB-C4F4-306C-8244-778127D9B0BA}\InprocServer32" Name="CodeBase" Value="file:///[#fil1D0374A184D56D43A48DCF74BBE86E77]" Type="string" Action="write" />
             </Component>
-            <Component Id="cmp4B63C55EC0FED2A3260449DF837AA7EE" Guid="{6832368D-814D-453C-A6FA-02FFC71006C4}">
+            <Component Id="cmp4B63C55EC0FED2A3260449DF837AA7EE" Guid="{12B98919-7141-4633-B8E1-7E96C1F07BCA}">
                 <File Id="fil7F7754A347ABEC546AF6E6E4BCDD6CBD" KeyPath="yes" Source="!(wix.BinSource)\Caliburn.Micro.Platform.Core.dll" />
             </Component>
-            <Component Id="cmp4D4970CE42C597D592CAAEF0D4859B65" Guid="{9C3D2A6C-21BD-462B-B941-38315500D86B}">
+            <Component Id="cmp4D4970CE42C597D592CAAEF0D4859B65" Guid="{A9D2A507-3063-4CED-B627-D730147EECA5}">
                 <File Id="fil84F88913546E267D23AD18B11AA81451" KeyPath="yes" Source="!(wix.BinSource)\Caliburn.Micro.Platform.Core.xml" />
             </Component>
-            <Component Id="cmpD158BD4A43D77225340DDBB24C4B3697" Guid="{E04FAB10-0FB1-49F6-9162-3BF5AC1E6697}">
+            <Component Id="cmpD158BD4A43D77225340DDBB24C4B3697" Guid="{76A5A9F7-D9D4-4963-988A-CAE9CA781478}">
                 <File Id="filD1C725D13FEC6449A02321C2870BE0A2" KeyPath="yes" Source="!(wix.BinSource)\Caliburn.Micro.Platform.dll" />
             </Component>
-            <Component Id="cmpC8C1FEBAA14D6278F22135DA997C4A58" Guid="{DE8B3A05-C1E4-43D4-A58B-DB9DEDAA10AB}">
+            <Component Id="cmpC8C1FEBAA14D6278F22135DA997C4A58" Guid="{42F06285-25C4-4AC2-8D41-776E26B7A201}">
                 <File Id="fil7BA1CEEF3E6F01EFDDAAEBCCE301758C" KeyPath="yes" Source="!(wix.BinSource)\Caliburn.Micro.Platform.xml" />
             </Component>
-            <Component Id="cmp74819EA915A2215C16CA82A617AEAD85" Guid="{7C9026C2-A5B8-44FE-8718-E83C4981E9C4}">
+            <Component Id="cmp74819EA915A2215C16CA82A617AEAD85" Guid="{A2069CF1-674E-4597-94BB-6529F89ACF3E}">
                 <File Id="fil657B7488B0D6340A3BB813746FAAC70E" KeyPath="yes" Source="!(wix.BinSource)\Caliburn.Micro.xml" />
             </Component>
-            <Component Id="cmpBDE8C03BC67F9E9D4CD4FBB60DCB2D76" Guid="{DB1FB0AF-1AF4-4C2B-BD54-CECB93FFC9B1}">
+            <Component Id="cmpBDE8C03BC67F9E9D4CD4FBB60DCB2D76" Guid="{B5198412-98A5-47CE-B834-DD50489A98C6}">
                 <File Id="filD4C2AE64CC5CE8E8C65D4E35DBD4014B" KeyPath="yes" Source="!(wix.BinSource)\cef.pak" />
             </Component>
-            <Component Id="cmp4EE2E8AF26EF1AB676A48E47C404AE11" Guid="{A419E8C7-B62F-461D-863D-F53165571C6F}">
+            <Component Id="cmp4EE2E8AF26EF1AB676A48E47C404AE11" Guid="{C5A77CE5-F012-4A4E-80A9-0FEA9CE7CBA5}">
                 <File Id="filE52FFB337810D51C4458F647F6738AD0" KeyPath="yes" Source="!(wix.BinSource)\CefSharp.BrowserSubprocess.Core.dll" />
             </Component>
-            <Component Id="cmp9DD7A29A9F44CE9CAC6652C7AB3806CA" Guid="{77516180-5EBC-454E-9833-55F4EFE0333B}">
+            <Component Id="cmp9DD7A29A9F44CE9CAC6652C7AB3806CA" Guid="{18F22E0F-571F-4F10-B690-9F67C3EFFDC8}">
                 <File Id="filA64082C867C4343569CCC36B72DFCA39" KeyPath="yes" Source="!(wix.BinSource)\CefSharp.BrowserSubprocess.exe" />
             </Component>
-            <Component Id="cmp725E4BC79268D4D35CB6DB1DDE10BE48" Guid="{008BD4EC-5A6C-4369-9E1A-C9C65BD7EA80}">
+            <Component Id="cmp725E4BC79268D4D35CB6DB1DDE10BE48" Guid="{DB976592-FCCF-4640-8473-0A69AA2CEB18}">
                 <File Id="filD6FA80BEF7F5A2E9ECA08A19AE72ED17" KeyPath="yes" Source="!(wix.BinSource)\CefSharp.Core.dll" />
             </Component>
-            <Component Id="cmp11783A61E867F8768863679523FDF96B" Guid="{60820FE1-8EF1-41E7-83C8-F1036C7BF2BE}">
+            <Component Id="cmp11783A61E867F8768863679523FDF96B" Guid="{A73225E8-466B-4004-857B-923A2F9E52DE}">
                 <File Id="fil8765D1ADEAED1D2B08D8C56274CD384A" KeyPath="yes" Source="!(wix.BinSource)\CefSharp.Core.xml" />
             </Component>
-            <Component Id="cmp72505388D86FF9148F9857372C8B99C8" Guid="{60F3978F-9F38-4582-ADA3-214CA179358B}">
+            <Component Id="cmp72505388D86FF9148F9857372C8B99C8" Guid="{B9EC1C08-08CF-40ED-81B0-FDFC46795137}">
                 <File Id="fil7794296D52C91F691D695BC8DE8D43F8" KeyPath="yes" Source="!(wix.BinSource)\CefSharp.dll" />
             </Component>
-            <Component Id="cmpFE53843D04ED42FB3163A26C911DB069" Guid="{F117AA8B-F2B0-4AEB-8B37-250CC4CDF3C2}">
+            <Component Id="cmpFE53843D04ED42FB3163A26C911DB069" Guid="{23361E72-910E-445F-8EFF-39795007AC55}">
                 <File Id="fil4F9D4712E51C6DADF7882884B37007E6" KeyPath="yes" Source="!(wix.BinSource)\CefSharp.Wpf.dll" />
             </Component>
-            <Component Id="cmpE09F4C8F5649B67E3A726A2144A5902E" Guid="{AB3BFEA0-D242-4A5F-B78B-4758CE45560C}">
+            <Component Id="cmpE09F4C8F5649B67E3A726A2144A5902E" Guid="{9E0B275B-87C7-4EC0-B7B2-D12402320017}">
                 <File Id="filC6B233BBAEC24E9427BC8834DD764185" KeyPath="yes" Source="!(wix.BinSource)\CefSharp.Wpf.xml" />
             </Component>
-            <Component Id="cmp035A1C3C4F795FD8ABD04F4C37CBF58F" Guid="{1C3AE689-7E61-46BD-89AE-D7B98F9F5957}">
+            <Component Id="cmp035A1C3C4F795FD8ABD04F4C37CBF58F" Guid="{6E4365C0-AFAE-4324-8FC3-511545C374A6}">
                 <File Id="fil76FE480853FB303B53235E621C99DC17" KeyPath="yes" Source="!(wix.BinSource)\CefSharp.xml" />
             </Component>
-            <Component Id="cmpF2609DC2815C73BD654FF692D0AFF528" Guid="{5AA0B4FD-E8ED-4AA7-85C5-917640E9F199}">
+            <Component Id="cmpF2609DC2815C73BD654FF692D0AFF528" Guid="{C4562F28-5F92-4E86-B2F0-53A24B88B243}">
                 <File Id="filB63E25211D034A2036879A4D14B815AA" KeyPath="yes" Source="!(wix.BinSource)\cef_100_percent.pak" />
             </Component>
-            <Component Id="cmp008C04198BDC46E400D8EF36D9F02664" Guid="{90FE0FB6-85BC-46AF-87AD-535D40711D15}">
+            <Component Id="cmp008C04198BDC46E400D8EF36D9F02664" Guid="{703611E0-92D0-42DF-B431-854A4610FAA1}">
                 <File Id="fil8FBEC58C72302A8E686660AD6B632A46" KeyPath="yes" Source="!(wix.BinSource)\cef_200_percent.pak" />
             </Component>
-            <Component Id="cmpF2FB732573861B683267ED299DFF3627" Guid="{1062959A-BFA1-4A49-8A23-ABDB4EE9E01A}">
+            <Component Id="cmpF2FB732573861B683267ED299DFF3627" Guid="{43B8D1CE-AB9F-46C8-BE03-A757C5145867}">
                 <File Id="filB0C171B63EE9CAD139CC1E0799CF8FA9" KeyPath="yes" Source="!(wix.BinSource)\coin4.dll" />
             </Component>
-            <Component Id="cmp59D577C731503019E1806869B284E442" Guid="{CFE943C4-BA5C-4783-8EB2-309F46464B6E}">
+            <Component Id="cmp59D577C731503019E1806869B284E442" Guid="{B8E2CE31-9EDC-416D-8633-378733D964C4}">
                 <File Id="fil1A7A7043266F05D750A16A33C1D9C5D4" KeyPath="yes" Source="!(wix.BinSource)\collada-dom2.4-dp-vc120-mt.dll" />
             </Component>
-            <Component Id="cmpC5899D4FA0CA40A145818EAFC0E3650A" Guid="{7835EA7A-4262-4763-85B4-1703D19E7056}">
+            <Component Id="cmpC5899D4FA0CA40A145818EAFC0E3650A" Guid="{5CA6FCA5-C2F9-4AA6-943A-DC7E3A19C042}">
                 <File Id="fil3C65D358CC882882A40BD8FC4702B74B" KeyPath="yes" Source="!(wix.BinSource)\CommandLine.dll" />
             </Component>
-            <Component Id="cmpB58C79F80464C8B780464C544D10907A" Guid="{8ED023AD-E9BE-415C-8BFF-45DDCD443C50}">
+            <Component Id="cmpB58C79F80464C8B780464C544D10907A" Guid="{C2B1810E-EEAE-49DE-8B63-DFA935A3BCAC}">
                 <File Id="fil82F74E0E1292012BE6999D0B4426AC71" KeyPath="yes" Source="!(wix.BinSource)\CommandLine.xml" />
             </Component>
-            <Component Id="cmp2FECD240A2DCB2D9573F3AF8A5E7B4AE" Guid="{542567E4-96B2-4243-85F4-E075E4BC1E3B}">
+            <Component Id="cmp2FECD240A2DCB2D9573F3AF8A5E7B4AE" Guid="{1F29A882-96CE-4346-B38E-0760FF5E31A5}">
                 <File Id="filE111B2A517F504E59C4621C77BABA4BF" KeyPath="yes" Source="!(wix.BinSource)\Common.Logging.Core.dll" />
                 <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="Class" Value="Common.Logging.LogLevel" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="Assembly" Value="Common.Logging.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="CodeBase" Value="file:///[#filE111B2A517F504E59C4621C77BABA4BF]" Type="string" Action="write" />
             </Component>
-            <Component Id="cmp3C4A316CBDCEA26E721AD6D7EFAE4D1C" Guid="{0731A533-0ED2-478B-9410-34501DEC4D7F}">
+            <Component Id="cmp3C4A316CBDCEA26E721AD6D7EFAE4D1C" Guid="{CCB82318-2E3E-440E-B4FA-859DA5200296}">
                 <File Id="fil799BD241326C3FE3584D06A79280E469" KeyPath="yes" Source="!(wix.BinSource)\Common.Logging.Core.pdb" />
             </Component>
-            <Component Id="cmp5F1A08C89E571B9ECFA30F0D6CEEA1C5" Guid="{551E9F90-3ECE-4126-AEF9-3F9ABABCBDE0}">
+            <Component Id="cmp5F1A08C89E571B9ECFA30F0D6CEEA1C5" Guid="{E6B9147E-E0ED-4F86-87AE-8BC172838F06}">
                 <File Id="filC7009CB390562216D635533CDD10A7AD" KeyPath="yes" Source="!(wix.BinSource)\Common.Logging.Core.xml" />
             </Component>
-            <Component Id="cmp880583595EAE42D89E8E4DC24CDC526D" Guid="{D0667618-AC76-4C09-956C-4E0D4E0D0068}">
+            <Component Id="cmp880583595EAE42D89E8E4DC24CDC526D" Guid="{3146A8BA-71D2-4997-BF26-1355F9FC4BC9}">
                 <Class Id="{09B02D14-C9C6-35D7-8B48-D683C15F8B8D}" Context="InprocServer32" Description="Common.Logging.Simple.CapturingLoggerFactoryAdapter" ThreadingModel="both" ForeignServer="mscoree.dll">
                     <ProgId Id="Common.Logging.Simple.CapturingLoggerFactoryAdapter" Description="Common.Logging.Simple.CapturingLoggerFactoryAdapter" />
                 </Class>
@@ -423,46 +423,46 @@
                 <RegistryValue Root="HKCR" Key="CLSID\{EDAB1550-1518-39A4-921B-452CBBD68E0F}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="CLSID\{EDAB1550-1518-39A4-921B-452CBBD68E0F}\InprocServer32" Name="CodeBase" Value="file:///[#fil6B28E9327B2399A6ECF129A2A24DB21B]" Type="string" Action="write" />
             </Component>
-            <Component Id="cmpA72B09560CDE3CCE032EB26948523EB0" Guid="{27EB485A-4DE1-49D8-B6BD-F42B5640BF43}">
+            <Component Id="cmpA72B09560CDE3CCE032EB26948523EB0" Guid="{D953D6FE-A457-4C2B-885B-931081E08B75}">
                 <File Id="fil01BDDE692C23EE4A528D012C695B960D" KeyPath="yes" Source="!(wix.BinSource)\Common.Logging.pdb" />
             </Component>
-            <Component Id="cmpA4EC141A68CC29FD3D02295BCF8F0C87" Guid="{DD38D206-58FF-4961-8B68-2479374D10EF}">
+            <Component Id="cmpA4EC141A68CC29FD3D02295BCF8F0C87" Guid="{6B60E886-3585-469B-9167-F9E6C2491E0C}">
                 <File Id="fil1EE0B666449B16F41AEE2BA31108C0B4" KeyPath="yes" Source="!(wix.BinSource)\Common.Logging.xml" />
             </Component>
-            <Component Id="cmp3423B7921DD5B25BA2AF3703A195A59E" Guid="{7C19B5CD-A896-4A1A-94A5-58137F73D84B}">
+            <Component Id="cmp3423B7921DD5B25BA2AF3703A195A59E" Guid="{94B6BE39-0803-453F-BC26-1189EDB61C8E}">
                 <File Id="fil3C314A14AB23629D24C2BB553A7138B5" KeyPath="yes" Source="!(wix.BinSource)\common.xslt" />
             </Component>
-            <Component Id="cmp5B23682C976A575B8556400524939187" Guid="{265EED10-8FA1-4124-854F-EB93F9DF2E4B}">
+            <Component Id="cmp5B23682C976A575B8556400524939187" Guid="{CA1D175D-5D25-4360-93EA-A9CCF0A1944A}">
                 <File Id="filD72FEDF72A49406B65EFEEED5B7F6046" KeyPath="yes" Source="!(wix.BinSource)\csharp.xslt" />
             </Component>
-            <Component Id="cmp797C8831CBDFBB91629B6B1DECC9A537" Guid="{1BBCCB5C-3C6F-4155-889D-381C399027AD}">
+            <Component Id="cmp797C8831CBDFBB91629B6B1DECC9A537" Guid="{836BB599-242D-4749-8463-B7BBA79085DA}">
                 <File Id="filF213F4566B78E986674BFC93A4B95554" KeyPath="yes" Source="!(wix.BinSource)\CsvHelper.dll" />
             </Component>
-            <Component Id="cmp5D77BDF98724925CA07545D166F08657" Guid="{4C09887D-8B95-473C-96F2-3A57BB761657}">
+            <Component Id="cmp5D77BDF98724925CA07545D166F08657" Guid="{77F22023-0627-454D-A970-EDA4AEB86CED}">
                 <File Id="filCA53662D16FBE72808B46B11CA17D42D" KeyPath="yes" Source="!(wix.BinSource)\CsvHelper.pdb" />
             </Component>
-            <Component Id="cmp154E190ADFE18AA0814276ACA921F548" Guid="{0DD5D563-3965-41C6-8244-803808B1AE98}">
+            <Component Id="cmp154E190ADFE18AA0814276ACA921F548" Guid="{CD0EA14E-AC3F-45F1-B33F-2C7FDCEEF04B}">
                 <File Id="filECAC135D5C39E14CDB8192F3D9318C2D" KeyPath="yes" Source="!(wix.BinSource)\CsvHelper.xml" />
             </Component>
-            <Component Id="cmp8B3828647D7D8A2700CDE7FD2DC3DE18" Guid="{5065CFC2-E439-4D9C-A2E0-2934FC3681FD}">
+            <Component Id="cmp8B3828647D7D8A2700CDE7FD2DC3DE18" Guid="{1F9E9B95-29E2-4753-8869-72471CCB1103}">
                 <File Id="filAF9440691E00959C32CAB644FC40BE79" KeyPath="yes" Source="!(wix.BinSource)\d3dcompiler_43.dll" />
             </Component>
-            <Component Id="cmp9A900F79406CBB65BB1940FD4402ADAB" Guid="{03C48CE6-553A-4AC5-BD83-4DCB28FEBDBC}">
+            <Component Id="cmp9A900F79406CBB65BB1940FD4402ADAB" Guid="{147E2DCF-B106-4E11-B700-99CB573BC4DB}">
                 <File Id="fil63F0CF51B3E9B49F19045B798C69FAE5" KeyPath="yes" Source="!(wix.BinSource)\d3dcompiler_47.dll" />
             </Component>
-            <Component Id="cmp90F14A4666E39B87EA582008D2B18DBE" Guid="{2D210009-10C9-4E64-A0D7-C5C1435AEC29}">
+            <Component Id="cmp90F14A4666E39B87EA582008D2B18DBE" Guid="{B87BA61F-0F18-4997-BC61-4D2FE5B56280}">
                 <File Id="filBA56E2F86E694CA7A704B1224FD2EFAA" KeyPath="yes" Source="!(wix.BinSource)\datalog.csv" />
             </Component>
-            <Component Id="cmp1F7E243B7333AF8469955DF74E1E70D8" Guid="{40906D5B-BAB9-4AAA-95B7-0D534915F2D9}">
+            <Component Id="cmp1F7E243B7333AF8469955DF74E1E70D8" Guid="{6CB6E783-6BAC-4010-A117-A43EBDC371B1}">
                 <File Id="filD39B53FFF3A3438EE9D3780722B1786D" KeyPath="yes" Source="!(wix.BinSource)\descriptor.proto" />
             </Component>
-            <Component Id="cmp997FAFBF8D1F0D0CFC97F28C4D46BC00" Guid="{768C2676-65FB-464E-BD09-E4790B6E10D4}">
+            <Component Id="cmp997FAFBF8D1F0D0CFC97F28C4D46BC00" Guid="{14024D83-7B7B-40F2-9E8B-752AC0445031}">
                 <File Id="fil27EB74FD3215918F7EC34E76508533E5" KeyPath="yes" Source="!(wix.BinSource)\devtools_resources.pak" />
             </Component>
-            <Component Id="cmp97CF49D68D80A011E84EBC5F4507859C" Guid="{D83857E6-F7C0-4C19-9239-D21A9D0DE583}">
+            <Component Id="cmp97CF49D68D80A011E84EBC5F4507859C" Guid="{8B1212BD-EBAC-49C7-A503-F183915B3458}">
                 <File Id="fil91A62982E7937BD00ADCADFBCA8C6B22" KeyPath="yes" Source="!(wix.BinSource)\drawstuff.dll" />
             </Component>
-            <Component Id="cmp68FF9F65A31E71CB25F7DEAB219B9CE4" Guid="{7362343C-F8FD-43F3-8F05-5B0260C64771}">
+            <Component Id="cmp68FF9F65A31E71CB25F7DEAB219B9CE4" Guid="{0C09D640-6A25-4443-A1CA-AEC1FA3BD6AC}">
                 <Class Id="{0DC5D869-251A-30BE-AA40-3B401E5764C2}" Context="InprocServer32" Description="Dynamitey.DynamicObjects.Dummy" ThreadingModel="both" ForeignServer="mscoree.dll">
                     <ProgId Id="Dynamitey.DynamicObjects.Dummy" Description="Dynamitey.DynamicObjects.Dummy" />
                 </Class>
@@ -566,193 +566,193 @@
                 <RegistryValue Root="HKCR" Key="Record\{1A51CE35-AADF-3020-B956-E1196C4E9E38}\1.0.2.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="Record\{1A51CE35-AADF-3020-B956-E1196C4E9E38}\1.0.2.0" Name="CodeBase" Value="file:///[#fil0B64EF2D1D07F062D5C7B58555B08469]" Type="string" Action="write" />
             </Component>
-            <Component Id="cmp5C05EB8AAEB891B9AF5667AD4B9CA5AC" Guid="{A5A19ADB-87AB-4BA5-956B-A883B804BDFF}">
+            <Component Id="cmp5C05EB8AAEB891B9AF5667AD4B9CA5AC" Guid="{07310468-ED56-40CF-AA4A-DEDEF9B79ABA}">
                 <File Id="fil7E8B47D206DFD42D540913DB84FD9913" KeyPath="yes" Source="!(wix.BinSource)\Dynamitey.pdb" />
             </Component>
-            <Component Id="cmp23B4C0C4F60D13D9D22B2FFE606CCB86" Guid="{758D519B-EFAF-4909-820C-34C3079C39BD}">
+            <Component Id="cmp23B4C0C4F60D13D9D22B2FFE606CCB86" Guid="{12C4B4C7-30EE-4BE1-91ED-11CBF41E5688}">
                 <File Id="fil381D3D6A1D250D77AE3A9C5B6A792475" KeyPath="yes" Source="!(wix.BinSource)\Dynamitey.xml" />
             </Component>
-            <Component Id="cmp32D5B73A55072210515EDF05E896AFBD" Guid="{06947834-9450-4E9A-96DA-5D4E765A9726}">
+            <Component Id="cmp32D5B73A55072210515EDF05E896AFBD" Guid="{E563B63E-CD32-4354-9554-D2D8E0B7943D}">
                 <File Id="fil556B77B6A1DD525F28748C5940BC99A4" KeyPath="yes" Source="!(wix.BinSource)\Experimot.Core.dll" />
             </Component>
-            <Component Id="cmp27CC900798F14B964A003B7CA4579FC6" Guid="{94CABFE9-8C64-454C-9623-FF56AC4C8044}">
+            <Component Id="cmp27CC900798F14B964A003B7CA4579FC6" Guid="{C15AB75F-F7A4-46BB-A6AE-2373FE5389C6}">
                 <File Id="filA1849521A59C61A06D77F41CA994D86C" KeyPath="yes" Source="!(wix.BinSource)\Experimot.Core.pdb" />
             </Component>
-            <Component Id="cmpB25F80F89DC6E47639AEA2016D4B2F28" Guid="{0EC8498A-55B0-4227-AE97-E67FAB4244A4}">
+            <Component Id="cmpB25F80F89DC6E47639AEA2016D4B2F28" Guid="{B673CAC4-CB02-4BA9-9F64-C94E2384098A}">
                 <File Id="filE1C103499E96B39E1FA2DEFB703D6A5B" KeyPath="yes" Source="!(wix.BinSource)\Experimot.Core.Speech.vshost.exe" />
             </Component>
-            <Component Id="cmpFD3D0A95DD5AB6F6CC0D2EF98019B84C" Guid="{E760D6E5-D8E8-4EB8-A42D-A6839CB46E50}">
+            <Component Id="cmpFD3D0A95DD5AB6F6CC0D2EF98019B84C" Guid="{9529A7CC-7E3F-406D-880C-97FC82BEFEE1}">
                 <File Id="filFFDB18EE77EC11DB0D1A8FB3997FDA2A" KeyPath="yes" Source="!(wix.BinSource)\Experimot.Core.Speech.vshost.exe.manifest" />
             </Component>
-            <Component Id="cmp468EF7260EF91EDC50BA877F58992982" Guid="{3C5987E2-40B6-4D09-A9AF-FE54B2273A7F}">
+            <Component Id="cmp468EF7260EF91EDC50BA877F58992982" Guid="{1A181770-7BC7-410E-9BE8-BB1EDEE550C6}">
                 <File Id="fil204DAFCA1FF5049D61DA77166100019C" KeyPath="yes" Source="!(wix.BinSource)\Experimot.Kinect.Playback.exe.config" />
             </Component>
-            <Component Id="cmpB8E4BB6664A43A5E66BADF306D663C3A" Guid="{93878CD9-01A1-4237-93AE-D1F96D245D61}">
+            <Component Id="cmpB8E4BB6664A43A5E66BADF306D663C3A" Guid="{7F34D442-28B0-4DE3-AFB9-7FB4C7B2C270}">
                 <File Id="filB28202F62BA173FA4404BC55BE5872AB" KeyPath="yes" Source="!(wix.BinSource)\Experimot.Kinect.Playback.pdb" />
             </Component>
-            <Component Id="cmp844A4E1995623EA7A1FA604B7E4F9AFF" Guid="{02CA41CF-E616-43E3-895A-5DED9E7D1366}">
+            <Component Id="cmp844A4E1995623EA7A1FA604B7E4F9AFF" Guid="{9E4118E4-9627-4A9B-BBDE-1E6AC2F02662}">
                 <File Id="filA725BF7A8C61323ED52964B6EA147682" KeyPath="yes" Source="!(wix.BinSource)\ffmpegsumo.dll" />
             </Component>
-            <Component Id="cmp1DA058BD7E0976E45C8E37D49A0CC2CE" Guid="{B22D5CE7-7810-47D0-B3F4-BD5562F411E6}">
+            <Component Id="cmp1DA058BD7E0976E45C8E37D49A0CC2CE" Guid="{D712B44E-FF64-4782-B298-64630E55AD8C}">
                 <File Id="fil721E2C54A80BC0059E95CE1BFE1AA235" KeyPath="yes" Source="!(wix.BinSource)\icudtl.dat" />
             </Component>
-            <Component Id="cmp08DA8AAEFAD5FB879FB3CC83010D5DF9" Guid="{14159110-AD40-45D0-AEDD-BC023716CF7B}">
+            <Component Id="cmp08DA8AAEFAD5FB879FB3CC83010D5DF9" Guid="{3F91F746-A00F-40AE-946D-8E658D058DB4}">
                 <File Id="fil77D490E41D136B4CB1FE6314BE91CF24" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Application.exe" />
             </Component>
-            <Component Id="cmp3415944545025111A37BE31C8E9D514A" Guid="{0C0B82C1-03EF-4A63-828F-BED2F8CCA23D}">
+            <Component Id="cmp3415944545025111A37BE31C8E9D514A" Guid="{C74A0039-2B71-434C-B3CD-05E63ADD8054}">
                 <File Id="fil7E72B90525B08D4FAC2F229F20DED89C" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Application.exe.config" />
             </Component>
-            <Component Id="cmpE1900EF0CBA28B44A250B5CDA322D6AF" Guid="{8AB5CA4D-2577-4EF1-825A-9FB3D3E0E984}">
+            <Component Id="cmpE1900EF0CBA28B44A250B5CDA322D6AF" Guid="{897DD4C1-459F-4916-AD7B-531E29E10674}">
                 <File Id="fil6CFB7F3B39D6BFE790A2D19EE79273D7" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Application.pdb" />
             </Component>
-            <Component Id="cmp439595C8D1C79E86AF0CC2DEFAA5A44C" Guid="{519FF624-D9B6-4421-B6D0-E8395C01269A}">
+            <Component Id="cmp439595C8D1C79E86AF0CC2DEFAA5A44C" Guid="{1CCC5568-9C07-44A5-AF1B-2828FAF87253}">
                 <File Id="fil68261D79FEB5C588E47807DA2BF5E6F2" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Application.vshost.exe" />
             </Component>
-            <Component Id="cmp633B3C20591B22DB59DBCB175CC474D6" Guid="{FF716DF2-A3FA-45B6-9EDA-A4CF1DC54C44}">
+            <Component Id="cmp633B3C20591B22DB59DBCB175CC474D6" Guid="{2B6AB83F-90CF-42C6-A7C1-1FA8F0D049F9}">
                 <File Id="filD0587A6DAC064F526757E37E88C812D8" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Application.vshost.exe.config" />
             </Component>
-            <Component Id="cmpE24F688C9A6C5D84FECAC0B4F1C235C8" Guid="{6C863A91-65D4-4D86-B8A0-2A8ABC02D044}">
+            <Component Id="cmpE24F688C9A6C5D84FECAC0B4F1C235C8" Guid="{157957A8-0B82-41FF-BACD-D359B52CA7A2}">
                 <File Id="fil94AF13AAFDB9D41DF589AEACAB81FBD3" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Application.vshost.exe.manifest" />
             </Component>
-            <Component Id="cmpF34F411D196B65FF82B9BA78E8956F91" Guid="{B98ED2FD-3DA8-495F-914B-55FEA24075C0}">
+            <Component Id="cmpF34F411D196B65FF82B9BA78E8956F91" Guid="{DA5A0DE2-1CD2-43C3-BD97-63578FD6C916}">
                 <File Id="filE90AFCC6E0EA43D5830D696822014BFE" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Core.BehaviorEngine.dll" />
             </Component>
-            <Component Id="cmp5EBD46988393C451A9C97636C32F37F6" Guid="{86642AF1-721B-4F8E-8C0B-2632FC926D07}">
+            <Component Id="cmp5EBD46988393C451A9C97636C32F37F6" Guid="{AD19AC02-7BF9-45EE-8FE4-C8051F4BEF13}">
                 <File Id="filFF550337E289C93AE1077817C76C8139" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Core.BehaviorEngine.pdb" />
             </Component>
-            <Component Id="cmpAC01F48D4866EE69EE0C2DD0957C004A" Guid="{B6394FA1-1ED7-4DBB-9160-34C908B11210}">
+            <Component Id="cmpAC01F48D4866EE69EE0C2DD0957C004A" Guid="{46A84601-5C3B-4435-8728-EFE68ED89C09}">
                 <File Id="filD9B14D290E6D7D803D9C3277EC17DA42" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Core.dll" />
             </Component>
-            <Component Id="cmp3584AE885ABC855334154A0A3957CBED" Guid="{2B406C2A-9DCA-4BC8-8F44-48BA14EC7618}">
+            <Component Id="cmp3584AE885ABC855334154A0A3957CBED" Guid="{86B68B22-EAD3-48FA-BDB8-D64598ADC785}">
                 <File Id="fil53EDE33DC049561ABBC9E6C32D298E9A" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Core.Msgs.dll" />
             </Component>
-            <Component Id="cmpB090212237CAFE63DCC58BD675A10FA2" Guid="{B68B58B4-1CBD-44C5-9D25-483718E13469}">
+            <Component Id="cmpB090212237CAFE63DCC58BD675A10FA2" Guid="{37D3680A-396D-48FD-8210-8C75E76A55D2}">
                 <File Id="fil0607272ADA4C79946E6FCBD4CFB85141" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Core.Msgs.pdb" />
             </Component>
-            <Component Id="cmp7BB8070C3538C91D158EC8B988207672" Guid="{A5163528-2AE4-42B5-B92A-CAF12743F1BE}">
+            <Component Id="cmp7BB8070C3538C91D158EC8B988207672" Guid="{93567350-1959-4005-9EC0-CA0A8126FBEA}">
                 <File Id="fil91EB3DBDC1ACBE841F8B873640789ADA" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Core.pdb" />
             </Component>
-            <Component Id="cmp726CE0877B3A4002F48250F68A4DB1C4" Guid="{77604C74-C76B-4367-A4E8-A94B636E0546}">
+            <Component Id="cmp726CE0877B3A4002F48250F68A4DB1C4" Guid="{805F4DD3-C70D-44F8-84C5-B551835B031D}">
                 <File Id="fil6CCDCDA824D08D3ABA4CE62B52D9E9C0" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Imu.Perception.exe" />
             </Component>
-            <Component Id="cmp9BAFF81230D0D842551E3346B2B2EE09" Guid="{030A8656-F75F-4CEF-9143-B0BBA6938C08}">
+            <Component Id="cmp9BAFF81230D0D842551E3346B2B2EE09" Guid="{38E3D4A5-7004-4180-9CA9-ECEC13DAD2AB}">
                 <File Id="filC7BE5B90D90529F3E58242E3BD190850" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Imu.Perception.exe.config" />
             </Component>
-            <Component Id="cmpFD78B2C066713AEAD4322F433108C44F" Guid="{CB49C823-B6B4-4AED-8E1F-6A66AF0B3D0C}">
+            <Component Id="cmpFD78B2C066713AEAD4322F433108C44F" Guid="{A3835470-78B4-4686-9239-FC5EE0152B60}">
                 <File Id="fil9302F5D95AC8B8672EA46EF11BE2D0BD" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Imu.Perception.pdb" />
             </Component>
-            <Component Id="cmp692E5A3E94EFB7CB378458A369365AD9" Guid="{4A855CAC-DF68-46C1-8174-D1CDA651AEA3}">
+            <Component Id="cmp692E5A3E94EFB7CB378458A369365AD9" Guid="{8D521EB9-9553-4229-A698-A414EA78847B}">
                 <File Id="filED47F2520F0CB53E597AC199AAA8785E" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Kinect.Perception.exe" />
             </Component>
-            <Component Id="cmp48B60EBED90E572064DD48633484AF09" Guid="{8C924A37-4CE9-44EA-A64B-E83FCEDBEB3B}">
+            <Component Id="cmp48B60EBED90E572064DD48633484AF09" Guid="{716349C3-F136-46F7-A513-7A49CBFB239E}">
                 <File Id="fil89CBAC5BF0EBD4F0380A76720D6F6EF6" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Kinect.Perception.exe.config" />
             </Component>
-            <Component Id="cmp0D868CDC6BE3DCF6B9733156FDC76291" Guid="{ED4478A7-9CE7-44AA-BEFB-54CBAEA29848}">
+            <Component Id="cmp0D868CDC6BE3DCF6B9733156FDC76291" Guid="{1CB975AA-1327-40D2-AAF0-8B8BAA7138A6}">
                 <File Id="filA3457D75E95D7023FB4483D67E14C577" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Kinect.Perception.pdb" />
             </Component>
-            <Component Id="cmpD3032B7D80815444A731AB87231843EE" Guid="{C2FF6D64-A25E-4405-B037-7F7AA321112E}">
+            <Component Id="cmpD3032B7D80815444A731AB87231843EE" Guid="{D6D647DC-5D23-4B6C-8CBC-DB5C5978C58E}">
                 <File Id="fil6198B176BD852DFE1317494F856C4A06" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Kinect.Playback.exe" />
             </Component>
-            <Component Id="cmp831DE0A9184A26158A57354664877058" Guid="{3DB99073-150B-47ED-A080-B236A6F12F74}">
+            <Component Id="cmp831DE0A9184A26158A57354664877058" Guid="{7E9B6397-8101-4FE1-A9B8-E7969270BC9C}">
                 <File Id="filE739E68CD444729D7EE102096CF909B2" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Kinect.Playback.exe.config" />
             </Component>
-            <Component Id="cmpB60373D2A1BBFC10C0D844C7346B0DE8" Guid="{75BF3517-1969-421C-B085-DBAE7962AA8C}">
+            <Component Id="cmpB60373D2A1BBFC10C0D844C7346B0DE8" Guid="{689EFD4C-38BD-4413-B217-1DBD40A061B7}">
                 <File Id="fil555182B68074868069A9DAFD8A90D83A" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Kinect.Playback.pdb" />
             </Component>
-            <Component Id="cmp85C6C53050843CD97A16C64607900D40" Guid="{61DA1CD5-0F26-4EF2-A1DA-3B42205B42D9}">
+            <Component Id="cmp85C6C53050843CD97A16C64607900D40" Guid="{DBFD35F6-08FD-4197-B002-B60487BE0F16}">
                 <File Id="filFE75F9ACD269440C2B8DA975F150F34E" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Kinect.Speech.exe" />
             </Component>
-            <Component Id="cmp11312264495EC9B60143673C91EAFE90" Guid="{B203C2E6-3D9C-495E-BD1B-F349C043F896}">
+            <Component Id="cmp11312264495EC9B60143673C91EAFE90" Guid="{3F0E0918-D66C-40B3-91AA-D549DDAE9F54}">
                 <File Id="fil1B48433142CC91A14D522C1327B1AFA5" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Kinect.Speech.exe.config" />
             </Component>
-            <Component Id="cmpB95B495DA56D85EAB3E8FB7F1471BAEA" Guid="{E26F9633-DF36-47E1-A83B-DDC795F08145}">
+            <Component Id="cmpB95B495DA56D85EAB3E8FB7F1471BAEA" Guid="{7E16966B-57CC-4966-853F-552E900D6370}">
                 <File Id="filB85027C5C673EF687CEB474A9CBA8D5E" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Kinect.Speech.pdb" />
             </Component>
-            <Component Id="cmp6282555F38CBAD4FB591DFC10800AFA7" Guid="{263F9B0A-22E1-4FEE-B170-12C0C367ECC4}">
+            <Component Id="cmp6282555F38CBAD4FB591DFC10800AFA7" Guid="{C30A1A69-A860-4A0F-B9A6-FF0712FF3626}">
                 <File Id="fil90C039FD2625D1641F8B90FCD7D9C9C6" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Localization.Logger.exe" />
             </Component>
-            <Component Id="cmp80B3DEFDB6F973B11B4077FC1F5FAED7" Guid="{1987BD16-13E5-4CE4-A85C-1796247FBA4D}">
+            <Component Id="cmp80B3DEFDB6F973B11B4077FC1F5FAED7" Guid="{0DE0F1A9-FBC9-46EF-A524-E309C86F2061}">
                 <File Id="fil13F70909A49E5D6CFE0E97A6B9AF62FF" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Localization.Logger.exe.config" />
             </Component>
-            <Component Id="cmp45E5CC3AF1B81D3013353805C5F58D90" Guid="{60AE34D9-5AEF-44BC-8763-3D39EED74E7B}">
+            <Component Id="cmp45E5CC3AF1B81D3013353805C5F58D90" Guid="{1089E774-5BD8-40A2-8651-9450CD98A547}">
                 <File Id="fil5771B0D2BE6151295B4E7D7665303B25" KeyPath="yes" Source="!(wix.BinSource)\Indriya.Localization.Logger.pdb" />
             </Component>
-            <Component Id="cmpEAB70E65C37D5D6DC44F449B6003891F" Guid="{1643B3CC-CA1D-4976-8F24-955453106438}">
+            <Component Id="cmpEAB70E65C37D5D6DC44F449B6003891F" Guid="{7F4161EF-BF77-4286-B018-D09D0ED1D9B6}">
                 <File Id="filF26D509BFC8DECA41A8B5812D324622E" KeyPath="yes" Source="!(wix.BinSource)\IndriyaConfig.xml" />
             </Component>
-            <Component Id="cmp5051862C1C7ACCFC5289F614AB136C6E" Guid="{E2F76521-0EDA-451A-A770-E7332C925B5F}">
+            <Component Id="cmp5051862C1C7ACCFC5289F614AB136C6E" Guid="{77B987B7-8766-4A81-8AF8-40CF3C894F63}">
                 <File Id="filE2BD077DCB9B5C2944169DF83572ED79" KeyPath="yes" Source="!(wix.BinSource)\indriya_kinect_calibration.exe" />
             </Component>
-            <Component Id="cmpA485C640D26BEB857C3FB2DD34D33334" Guid="{193F1812-88FA-4AEC-85C2-B1AEDE758477}">
+            <Component Id="cmpA485C640D26BEB857C3FB2DD34D33334" Guid="{CE28DBB5-AA5F-43CB-A546-4FAB18ECA25C}">
                 <File Id="filD8934DF58518104FA6A855075BDB3EAD" KeyPath="yes" Source="!(wix.BinSource)\indriya_kinect_calibration.pdb" />
             </Component>
-            <Component Id="cmp4A8CC666F259A10D744C240B52DCC7F3" Guid="{726B8885-0DF9-4541-BACF-B5194F089786}">
+            <Component Id="cmp4A8CC666F259A10D744C240B52DCC7F3" Guid="{5049C660-A1A9-4DC4-B70B-7AEF98F1B84E}">
                 <File Id="fil2699C95BB1C1DE875F28CA97945638B5" KeyPath="yes" Source="!(wix.BinSource)\indriya_rave.exe" />
             </Component>
-            <Component Id="cmpB19635A93071ED9B2DA5259B874FDF93" Guid="{7E7A762D-38F6-47B4-B9F0-0BD3B1464605}">
+            <Component Id="cmpB19635A93071ED9B2DA5259B874FDF93" Guid="{5B02BF72-1324-46ED-AB32-AB3D894E4D18}">
                 <File Id="fil2E81146C58C4CA85123D7DC24EE231CE" KeyPath="yes" Source="!(wix.BinSource)\indriya_rave.pdb" />
             </Component>
-            <Component Id="cmp8D055F8441039D38A0BE614328728041" Guid="{19491070-8858-4F7B-B7CB-C374EEE80939}">
+            <Component Id="cmp8D055F8441039D38A0BE614328728041" Guid="{CE1D5688-FAC9-46D9-A654-3BD9271D01E7}">
                 <File Id="fil5CC3EE2B0310419EDF2D7740EF7C9026" KeyPath="yes" Source="!(wix.BinSource)\indriya_robot_localization.exe" />
             </Component>
-            <Component Id="cmp9BAF0698C5136B3263C00A1AED64EF32" Guid="{0D83674E-B473-4FF5-B7CE-181260320BE6}">
+            <Component Id="cmp9BAF0698C5136B3263C00A1AED64EF32" Guid="{67AA82F0-F681-47C2-A0C4-A09279BB054F}">
                 <File Id="fil0394C4F5630B0A3EF4CFE09815B305C0" KeyPath="yes" Source="!(wix.BinSource)\indriya_robot_localization.pdb" />
             </Component>
-            <Component Id="cmp122B2B5B066931F07AF3665343AE6949" Guid="{2C6A6E8F-FA6C-446A-8AC8-FC6BA112F9F8}">
+            <Component Id="cmp122B2B5B066931F07AF3665343AE6949" Guid="{49272E2B-8BD1-46FF-B2FE-4741D8814B39}">
                 <File Id="filAC6B4F8117F8ED5EE20206D1B695B0DF" KeyPath="yes" Source="!(wix.BinSource)\KinectEx.dll" />
             </Component>
-            <Component Id="cmpEED6DF04592E74D706E05B3999F5834A" Guid="{12A90272-4CDF-40F6-8F03-90D3CBA74647}">
+            <Component Id="cmpEED6DF04592E74D706E05B3999F5834A" Guid="{6C21643C-232F-4ABE-A275-287376F6F2EF}">
                 <File Id="fil5C2949538C725D07F06B792B18F93FC3" KeyPath="yes" Source="!(wix.BinSource)\KinectEx.pdb" />
             </Component>
-            <Component Id="cmpE97D223C8F27C6DE26D6863C33480345" Guid="{89783F53-62EB-4097-A985-1EAD8D16B2EB}">
+            <Component Id="cmpE97D223C8F27C6DE26D6863C33480345" Guid="{9C767DA6-37ED-4B39-B6E9-A5DC53302877}">
                 <File Id="fil241AE989BFF4741EF6006F10A46F44AB" KeyPath="yes" Source="!(wix.BinSource)\kinect_nao_map.json" />
             </Component>
-            <Component Id="cmpD16CF01C4BDF598FD7217BEE3801756C" Guid="{FD48854B-0EBD-4E7A-A149-A03D6A9A3194}">
+            <Component Id="cmpD16CF01C4BDF598FD7217BEE3801756C" Guid="{D335C975-5524-462C-9125-C7E987D4B552}">
                 <File Id="fil0906C6510BAE4324F3BACDA4849220D4" KeyPath="yes" Source="!(wix.BinSource)\KStudioService.dll" />
             </Component>
-            <Component Id="cmpCD19DFB387FA48B98189E51E2D27F427" Guid="{3BC5B1AA-BF42-432B-A6EF-92CBBD79F152}">
+            <Component Id="cmpCD19DFB387FA48B98189E51E2D27F427" Guid="{B8BBA426-C757-4CCC-B19E-FDF7029D7D46}">
                 <File Id="filBA2320B6EA5161A79D8C5F40784EE745" KeyPath="yes" Source="!(wix.BinSource)\libbz2.dll" />
             </Component>
-            <Component Id="cmp0DADA5D04D1D63392A14635CB6A69D2E" Guid="{D49C6D34-14D4-4D4E-AB2F-D7B1445E151D}">
+            <Component Id="cmp0DADA5D04D1D63392A14635CB6A69D2E" Guid="{3D10869A-63F2-479A-835F-B0019BD0445F}">
                 <File Id="filFA7374C6E5649FE6A72800B20188BD22" KeyPath="yes" Source="!(wix.BinSource)\libcef.dll" />
             </Component>
-            <Component Id="cmp3417F81A57946EEC375F27C87848A1CA" Guid="{09D46418-FFF2-447A-AD18-103A9EE88923}">
+            <Component Id="cmp3417F81A57946EEC375F27C87848A1CA" Guid="{EE9C2367-9F0B-4D53-94E3-A09CD4331CAC}">
                 <File Id="filE2B77CF7B9E37D2D1863604DA8A4F67B" KeyPath="yes" Source="!(wix.BinSource)\libEGL.dll" />
             </Component>
-            <Component Id="cmp243B4EB1E8BB3FF5DACEE4E0311E9261" Guid="{8F963F4A-784E-4E8C-8417-B5197FCB1E61}">
+            <Component Id="cmp243B4EB1E8BB3FF5DACEE4E0311E9261" Guid="{D43FC90A-82C3-4976-B8C8-1401FF3A174A}">
                 <File Id="filD7C4E4090C897BF8EA136BE2B3C16041" KeyPath="yes" Source="!(wix.BinSource)\libGLESv2.dll" />
             </Component>
-            <Component Id="cmp15AEF639AB8C5753BA165A9F2BE6A3A6" Guid="{6081DB43-5792-47F2-BC34-C380EDB17AE1}">
+            <Component Id="cmp15AEF639AB8C5753BA165A9F2BE6A3A6" Guid="{90137EC5-96BA-4F13-9290-6A5458CB726D}">
                 <File Id="filA2C64C7FFBB89A8B5CC6280DB07891AF" KeyPath="yes" Source="!(wix.BinSource)\libxml2.dll" />
             </Component>
-            <Component Id="cmp27AE7D3324D48E058C8CA1FA6905C59E" Guid="{70DC5D0C-89EC-455E-ADAB-6B47F7DA90D8}">
+            <Component Id="cmp27AE7D3324D48E058C8CA1FA6905C59E" Guid="{59859B02-2A1B-4377-949A-CC38F8135653}">
                 <File Id="fil0E84C74CF780C13ACFC233592C3D2AFB" KeyPath="yes" Source="!(wix.BinSource)\libzmq.dll" />
             </Component>
-            <Component Id="cmp47251FC5A703D94D9FC06AB2B7E9EA2A" Guid="{DEE634AD-7258-4065-B735-ED85B8C5723D}">
+            <Component Id="cmp47251FC5A703D94D9FC06AB2B7E9EA2A" Guid="{605D60E0-A7BD-4E57-8873-CA68FC7B7A3F}">
                 <File Id="filA4B4177F5B4ECA20E0A09BF1D6FC0098" KeyPath="yes" Source="!(wix.BinSource)\Microsoft.Kinect.dll" />
             </Component>
-            <Component Id="cmp6DE4269D58F43852A795AFD346B9CFF8" Guid="{4A21919C-C83F-4123-BEAE-5D5441F1A429}">
+            <Component Id="cmp6DE4269D58F43852A795AFD346B9CFF8" Guid="{E3614486-C660-4860-82F4-ACB6369D14A6}">
                 <File Id="filAA2DA6C2C5C744E5E948A76BDEDEF39B" KeyPath="yes" Source="!(wix.BinSource)\Microsoft.Kinect.Tools.dll" />
             </Component>
-            <Component Id="cmp11C0E40CCD8598BBD315066284750DE0" Guid="{4095559D-46AA-4ADA-9F82-0344F8BB6629}">
+            <Component Id="cmp11C0E40CCD8598BBD315066284750DE0" Guid="{6E5365F7-DEB4-4BB3-B3C1-7EDA197139EA}">
                 <File Id="filB0B0C5CCE21634FE0C6A0C060844E746" KeyPath="yes" Source="!(wix.BinSource)\Microsoft.Kinect.Tools.xml" />
             </Component>
-            <Component Id="cmpD42AFEB94CC7F7BEECF187752AEABEFE" Guid="{F24822A9-1744-4EF5-A87F-FF084B1E4F2C}">
+            <Component Id="cmpD42AFEB94CC7F7BEECF187752AEABEFE" Guid="{536BBC3A-6E8F-4C2B-9CFD-48E2A8835F30}">
                 <File Id="filEC01428056D39144A5DF65F98455DA0A" KeyPath="yes" Source="!(wix.BinSource)\Microsoft.Kinect.VisualGestureBuilder.dll" />
             </Component>
-            <Component Id="cmp135BF3BADEFF74FFFC9156484CB999D5" Guid="{5606910F-70E9-44A7-B7F5-572BF0C47552}">
+            <Component Id="cmp135BF3BADEFF74FFFC9156484CB999D5" Guid="{783AD3BE-D86E-4907-B0EF-E1E1A2945A9E}">
                 <File Id="fil49DA1163CABAB0B41E353BBE87C18A0B" KeyPath="yes" Source="!(wix.BinSource)\Microsoft.Kinect.VisualGestureBuilder.xml" />
             </Component>
-            <Component Id="cmpE41D24622B022548C03087EC0EECB00A" Guid="{1A730C1D-1FB7-4BF9-A2A4-59CBB7A17BD3}">
+            <Component Id="cmpE41D24622B022548C03087EC0EECB00A" Guid="{3CFEBBCA-13DF-4243-B2D0-DB027E41D032}">
                 <File Id="filFF6C25BE9785AB1B974F5D8697B0FB26" KeyPath="yes" Source="!(wix.BinSource)\Microsoft.Kinect.xml" />
             </Component>
-            <Component Id="cmp53EA03EF40FD89A83306C2303646668D" Guid="{4CA4522E-4E07-4760-B3D6-3B9B2FB948AA}">
+            <Component Id="cmp53EA03EF40FD89A83306C2303646668D" Guid="{335B80AA-5BF5-4785-9A31-CB1CE933456D}">
                 <File Id="fil27F0F55293C2991207865E98CAE8D453" KeyPath="yes" Source="!(wix.BinSource)\msvcp120.dll" />
             </Component>
-            <Component Id="cmp5110A968AEDE54DAEF29DFF00CCDD239" Guid="{FDCC87C4-7046-4C94-B990-627AD35E74F9}">
+            <Component Id="cmp5110A968AEDE54DAEF29DFF00CCDD239" Guid="{BF4ED62A-5EB5-4A2C-A5CB-83D99FFB2E63}">
                 <File Id="fil93785935F88D4EFA16633FCA41CB1856" KeyPath="yes" Source="!(wix.BinSource)\msvcr120.dll" />
             </Component>
-            <Component Id="cmp59EB83D6AB445600319D40E0864C616D" Guid="{26CBCF30-E6DA-41F3-B647-AFF1B148558D}">
+            <Component Id="cmp59EB83D6AB445600319D40E0864C616D" Guid="{05391E2D-6437-4229-A145-62271F58F030}">
                 <Class Id="{0014E9F1-F239-3656-8755-F225562C10C3}" Context="InprocServer32" Description="Nancy.Diagnostics.ResponseData" ThreadingModel="both" ForeignServer="mscoree.dll">
                     <ProgId Id="Nancy.Diagnostics.ResponseData" Description="Nancy.Diagnostics.ResponseData" />
                 </Class>
@@ -2056,7 +2056,7 @@
                 <RegistryValue Root="HKCR" Key="Record\{CFCDFEB6-A2CD-3940-B70A-709B9E58E62D}\1.2.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="Record\{CFCDFEB6-A2CD-3940-B70A-709B9E58E62D}\1.2.0.0" Name="CodeBase" Value="file:///[#filC99103F3F2547312F37E7DFD770CF435]" Type="string" Action="write" />
             </Component>
-            <Component Id="cmpA61DAB697918B62DECF5D65F98115382" Guid="{B1163BBF-4C95-454B-B9B8-A0FE4A65E381}">
+            <Component Id="cmpA61DAB697918B62DECF5D65F98115382" Guid="{A7DDC3B8-E63A-4B5A-BDBC-2C0ABA312322}">
                 <Class Id="{0A904263-B42B-3B9F-A045-A3248CE77D27}" Context="InprocServer32" Description="Nancy.Hosting.Self.FileSystemRootPathProvider" ThreadingModel="both" ForeignServer="mscoree.dll">
                     <ProgId Id="Nancy.Hosting.Self.FileSystemRootPathProvider" Description="Nancy.Hosting.Self.FileSystemRootPathProvider" />
                 </Class>
@@ -2095,460 +2095,460 @@
                 <RegistryValue Root="HKCR" Key="CLSID\{E5B326DA-EEED-3BA3-88B4-A450D653FB64}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="CLSID\{E5B326DA-EEED-3BA3-88B4-A450D653FB64}\InprocServer32" Name="CodeBase" Value="file:///[#fil4118E325A0F279351A93A2DC174F3CF2]" Type="string" Action="write" />
             </Component>
-            <Component Id="cmpEC44E7268B19B5786B8AC0ACD860CA5D" Guid="{ADCB2ADD-A5A3-4C4A-A1D5-C977DCD1D6F9}">
+            <Component Id="cmpEC44E7268B19B5786B8AC0ACD860CA5D" Guid="{FD79F535-F03A-4AF8-8200-B69567FBB871}">
                 <File Id="fil17FD26717252FD1DA5D9EF6C46227B7A" KeyPath="yes" Source="!(wix.BinSource)\Nancy.Hosting.Self.xml" />
             </Component>
-            <Component Id="cmpE66666A4085B3C85C8429DAAE290E4D6" Guid="{A188D9D8-0742-4BB0-B7AA-B961B0EAA927}">
+            <Component Id="cmpE66666A4085B3C85C8429DAAE290E4D6" Guid="{412B0F28-5B27-4DD8-9973-6A1FCF660770}">
                 <File Id="fil0A1DBDB8E1446F518240FEA695998835" KeyPath="yes" Source="!(wix.BinSource)\Nancy.xml" />
             </Component>
-            <Component Id="cmpA59157834ED072677BC33872A1D97EEE" Guid="{C368ED1B-8871-43C5-880F-71417363DDD2}">
+            <Component Id="cmpA59157834ED072677BC33872A1D97EEE" Guid="{A85FBE6A-0206-460C-9748-A63E921EDE1C}">
                 <File Id="fil2387168AC681A3373DD91604CE7248EA" KeyPath="yes" Source="!(wix.BinSource)\nao_joints_h25v50.json" />
             </Component>
-            <Component Id="cmpD4B0D32C6E584CBF013D2935499E37A9" Guid="{901142A4-51A8-4178-B2A4-AE100F232C2F}">
+            <Component Id="cmpD4B0D32C6E584CBF013D2935499E37A9" Guid="{B2E95B2E-F59B-4F3A-85C5-CC7A544DAE35}">
                 <File Id="fil4A3038056441A3CF2FA457485AA8587E" KeyPath="yes" Source="!(wix.BinSource)\NCalc.dll" />
             </Component>
-            <Component Id="cmpD5501A91FA9FBEF8AA5EECC72D41C428" Guid="{B07727B1-728E-43AF-940B-1BB82A178DC0}">
+            <Component Id="cmpD5501A91FA9FBEF8AA5EECC72D41C428" Guid="{0B37952D-C6CA-43F9-B214-1EC735AB1C65}">
                 <File Id="fil26FEDAD20718C9FA754AF6CF97E2D022" KeyPath="yes" Source="!(wix.BinSource)\NetMQ.dll" />
             </Component>
-            <Component Id="cmp241E7842B73339BEEC7557FA453EB711" Guid="{DC140E12-B7D3-44EC-BEC6-AB9BF3A5A91C}">
+            <Component Id="cmp241E7842B73339BEEC7557FA453EB711" Guid="{2248882C-43E3-44E6-ADFB-27CAFBBE6770}">
                 <File Id="filFF253ED14BBCC3570BC720EB313ADDB2" KeyPath="yes" Source="!(wix.BinSource)\Newtonsoft.Json.dll" />
             </Component>
-            <Component Id="cmp68B8EAD03E9D7FA0BFB52F053965CEBE" Guid="{BD2F47EA-28CA-4426-9BCE-B721C167B35E}">
+            <Component Id="cmp68B8EAD03E9D7FA0BFB52F053965CEBE" Guid="{45291299-6D4F-4600-A984-BFDE29D2571C}">
                 <File Id="filFA273DE55190F6F5BF5BC2B758806C9B" KeyPath="yes" Source="!(wix.BinSource)\Newtonsoft.Json.xml" />
             </Component>
-            <Component Id="cmpB26AD07E7D14E671177011EBF5742DF4" Guid="{AA44BA44-C861-4E0C-8D02-BDD51A9DBE64}">
+            <Component Id="cmpB26AD07E7D14E671177011EBF5742DF4" Guid="{A0E7C773-2CD3-4C15-A02F-E0B60CC70D7E}">
                 <File Id="filE919C2CBAD3F80F0AC47C5EB4F402315" KeyPath="yes" Source="!(wix.BinSource)\ode_double.dll" />
             </Component>
-            <Component Id="cmpA51C7E6B1E5B996CCEE30C475134DE0C" Guid="{FA361F15-32D0-4C05-979E-91AFD26E4BEE}">
+            <Component Id="cmpA51C7E6B1E5B996CCEE30C475134DE0C" Guid="{8517A4D2-EB94-415E-992E-25DE38A7C8F8}">
                 <File Id="fil980AB340F63FC92E8B57BB4D32621738" KeyPath="yes" Source="!(wix.BinSource)\opencv_calib3d2410.dll" />
             </Component>
-            <Component Id="cmp9E71C5774C033CD56F5AEB915E5DE58E" Guid="{E1E2AF0E-4626-4C54-B4C9-5D131747DDC5}">
+            <Component Id="cmp9E71C5774C033CD56F5AEB915E5DE58E" Guid="{201D8126-A6B0-48B3-B1A5-0A288D83686E}">
                 <File Id="filB6062E5996B633C2FF09DC2FA06E78E9" KeyPath="yes" Source="!(wix.BinSource)\opencv_calib3d2410d.dll" />
             </Component>
-            <Component Id="cmp0441EE064A4C8589C10BD84C78255F26" Guid="{932417A6-E959-44E4-B78F-2D071A662927}">
+            <Component Id="cmp0441EE064A4C8589C10BD84C78255F26" Guid="{4A86FF2B-5501-4498-86BF-856B9DB3E5FF}">
                 <File Id="fil613D6239D61C765FA99BEE6F23E4507E" KeyPath="yes" Source="!(wix.BinSource)\opencv_contrib2410.dll" />
             </Component>
-            <Component Id="cmp495A919AC9EC0F6CB348A26B53B86274" Guid="{F9CA0986-4390-4913-BF7D-E02521F10DE7}">
+            <Component Id="cmp495A919AC9EC0F6CB348A26B53B86274" Guid="{BA28D123-2C15-433A-9D6F-2C047F7F9799}">
                 <File Id="fil455E27FAB6FF89E2EADF689DA162161F" KeyPath="yes" Source="!(wix.BinSource)\opencv_contrib2410d.dll" />
             </Component>
-            <Component Id="cmpC42B1E42ABE4CD6D2BDFDD8D1D0B8F41" Guid="{502C9D43-3D80-42E3-8E6D-7439231D0CEC}">
+            <Component Id="cmpC42B1E42ABE4CD6D2BDFDD8D1D0B8F41" Guid="{FF7D7EAA-9087-4B6F-B71B-61A7D17D214A}">
                 <File Id="filD9E9BFCB0D4957547CBC0E1D06122107" KeyPath="yes" Source="!(wix.BinSource)\opencv_core2410.dll" />
             </Component>
-            <Component Id="cmp013D1B6183AE8AF57606DBE5A97B3905" Guid="{0E2DD0D0-2D34-40E4-AF7F-90D9B1A59D46}">
+            <Component Id="cmp013D1B6183AE8AF57606DBE5A97B3905" Guid="{3FE5763D-0B34-431B-8D96-E30B7B35B90D}">
                 <File Id="fil173FDE85198A1C14092E7B9AE130A75E" KeyPath="yes" Source="!(wix.BinSource)\opencv_core2410d.dll" />
             </Component>
-            <Component Id="cmp1639D75B28628BEBB9A2419274D3F0BD" Guid="{5239F65F-BE50-4E6D-BA2E-718690A0F81F}">
+            <Component Id="cmp1639D75B28628BEBB9A2419274D3F0BD" Guid="{FDF4CE96-85CD-46CB-82DA-255390BDFAD5}">
                 <File Id="filB604A7C80985AC096766AD0E86902FED" KeyPath="yes" Source="!(wix.BinSource)\opencv_features2d2410.dll" />
             </Component>
-            <Component Id="cmp9DF638BD4CC1F4ED2E129FD005A2FC71" Guid="{C72CAD4F-BF5F-42D2-A161-7B3CBE06BD92}">
+            <Component Id="cmp9DF638BD4CC1F4ED2E129FD005A2FC71" Guid="{56AFDFB5-77F7-42CF-B531-F9C4CFFF9EE8}">
                 <File Id="filF98B4DBA03E712B5C18D5701303136E5" KeyPath="yes" Source="!(wix.BinSource)\opencv_features2d2410d.dll" />
             </Component>
-            <Component Id="cmp3143658D7D8CFDE6D9FF990C534C0CFE" Guid="{835FC779-96EA-483B-AAD5-E8C2FEB98F53}">
+            <Component Id="cmp3143658D7D8CFDE6D9FF990C534C0CFE" Guid="{937FDD01-E8C2-4FD4-B54C-566F37FFDBE4}">
                 <File Id="filB069F18CC3195ECE6388B08A851B01CB" KeyPath="yes" Source="!(wix.BinSource)\opencv_ffmpeg2410.dll" />
             </Component>
-            <Component Id="cmp61857DD35E646C23C2BCF63213DB2367" Guid="{40C016EA-9863-4923-8AA1-3834CDB37CCC}">
+            <Component Id="cmp61857DD35E646C23C2BCF63213DB2367" Guid="{45829718-7412-42B7-82CC-DF5521FAA32D}">
                 <File Id="filB5B3513E1C7137EF377B941DCAA969EA" KeyPath="yes" Source="!(wix.BinSource)\opencv_flann2410.dll" />
             </Component>
-            <Component Id="cmp470D2567E6A2FA748DC1A679E062D3D1" Guid="{D277B859-7358-47D6-8E0E-B06254589BFD}">
+            <Component Id="cmp470D2567E6A2FA748DC1A679E062D3D1" Guid="{533309F2-ED26-4883-964D-B8D1FE94D9A5}">
                 <File Id="fil9C07384B228AAD381A1C1C26E6BBE358" KeyPath="yes" Source="!(wix.BinSource)\opencv_flann2410d.dll" />
             </Component>
-            <Component Id="cmpF275AF7628C3326F9A9B0001506B17F4" Guid="{5698F9EC-43BF-45C9-BC63-646A2E5E25D2}">
+            <Component Id="cmpF275AF7628C3326F9A9B0001506B17F4" Guid="{D88B7570-BC44-432C-AE84-1DAFF2D6E1B7}">
                 <File Id="fil118B1F9299F339B1027B5EA56AB1F26B" KeyPath="yes" Source="!(wix.BinSource)\opencv_gpu2410.dll" />
             </Component>
-            <Component Id="cmpF15FC8E99563447E5818D35460824A1B" Guid="{4F11339B-F4B8-432B-A796-4B5C24089F3B}">
+            <Component Id="cmpF15FC8E99563447E5818D35460824A1B" Guid="{B40CE523-0FA4-415B-ACF9-3F4F20958F80}">
                 <File Id="filD16E3A2D7EFA8FAA3132C137A1E0F8DC" KeyPath="yes" Source="!(wix.BinSource)\opencv_gpu2410d.dll" />
             </Component>
-            <Component Id="cmp2462BDE4D5779E12D560E9999A9A80A8" Guid="{4E1F7E9B-8286-45C6-9C57-5191259107D4}">
+            <Component Id="cmp2462BDE4D5779E12D560E9999A9A80A8" Guid="{AA1A4F6B-40FA-4D99-BFDD-6856739989E3}">
                 <File Id="fil72E1CC928A1C36FB0C0C8CB4BBB1EB68" KeyPath="yes" Source="!(wix.BinSource)\opencv_highgui2410.dll" />
             </Component>
-            <Component Id="cmp0184389E9850AA13C0628DB416F4760E" Guid="{143260B7-0EC3-48B3-9511-3F6E4CEDAB53}">
+            <Component Id="cmp0184389E9850AA13C0628DB416F4760E" Guid="{903FF76A-62BE-4CB4-B9AC-ADF48A70FB40}">
                 <File Id="filD19734139DC1E061770FA15B258D8774" KeyPath="yes" Source="!(wix.BinSource)\opencv_highgui2410d.dll" />
             </Component>
-            <Component Id="cmpF853E45C8D0D0F7A0CBC8F0ADB0A7572" Guid="{A08C6943-9218-45A0-8E3E-9D752680DF36}">
+            <Component Id="cmpF853E45C8D0D0F7A0CBC8F0ADB0A7572" Guid="{821121E8-3FD1-49A5-A840-B9AB1C4A3FED}">
                 <File Id="filB837E0182667AF440E3F4F9A658D69D9" KeyPath="yes" Source="!(wix.BinSource)\opencv_imgproc2410.dll" />
             </Component>
-            <Component Id="cmp14B8C5ECAAA6F56B91F6E6950F88064E" Guid="{A5816B66-4A2A-4F4D-B8E3-A593B88DD7E8}">
+            <Component Id="cmp14B8C5ECAAA6F56B91F6E6950F88064E" Guid="{037BB948-4CFC-41DB-9F46-0AB203753373}">
                 <File Id="filCFE3BB528F97BD1A0154CF7744402C19" KeyPath="yes" Source="!(wix.BinSource)\opencv_imgproc2410d.dll" />
             </Component>
-            <Component Id="cmp5E397A7DA5771258EF6159A6F936019C" Guid="{851A6A55-348C-4104-A541-E02442E2F37B}">
+            <Component Id="cmp5E397A7DA5771258EF6159A6F936019C" Guid="{47722758-B91B-473C-A7A0-58C4BDB35A20}">
                 <File Id="filC32CAF7479FBBDFE3C6EF13ECF5D374F" KeyPath="yes" Source="!(wix.BinSource)\opencv_legacy2410.dll" />
             </Component>
-            <Component Id="cmpB5B38C48218E181FA73B0B601D86E4E1" Guid="{11C28AE1-4992-4AB6-A3D6-76025BA8DF80}">
+            <Component Id="cmpB5B38C48218E181FA73B0B601D86E4E1" Guid="{D4E34A56-1866-492C-A75E-08EA164EF448}">
                 <File Id="fil9DE89B96A43D0901430A4B628A9EEC16" KeyPath="yes" Source="!(wix.BinSource)\opencv_legacy2410d.dll" />
             </Component>
-            <Component Id="cmpB600AC0C811546865241975C5BAFE771" Guid="{08FF6E40-96EB-4679-AF58-1440E0DC32DE}">
+            <Component Id="cmpB600AC0C811546865241975C5BAFE771" Guid="{1FDA8FD1-A505-4AEB-B652-F627D9837490}">
                 <File Id="fil9C7880AE60E077B16A233946F7B64DB3" KeyPath="yes" Source="!(wix.BinSource)\opencv_ml2410.dll" />
             </Component>
-            <Component Id="cmp50A47AD74E00D93840A8984A2F8E3746" Guid="{99184EAB-3317-49D3-AF22-EE9EA6E8F185}">
+            <Component Id="cmp50A47AD74E00D93840A8984A2F8E3746" Guid="{5DC7B0BF-112C-49B1-A182-A2CE668FA437}">
                 <File Id="filA7BE656B72838D71DE13F6123E98262B" KeyPath="yes" Source="!(wix.BinSource)\opencv_ml2410d.dll" />
             </Component>
-            <Component Id="cmpE8E6C88E983F377ECCAB38FFFD2B5002" Guid="{F4330752-1BC3-4B6B-B782-21B0730335E4}">
+            <Component Id="cmpE8E6C88E983F377ECCAB38FFFD2B5002" Guid="{09B26490-F411-420E-98AF-D8CDD6ACF3A2}">
                 <File Id="fil4EAA7E83A7B321FDC6475C70CE64697D" KeyPath="yes" Source="!(wix.BinSource)\opencv_nonfree2410.dll" />
             </Component>
-            <Component Id="cmp644D84B04A2C7D6BC40A446FCDF8556C" Guid="{6E89499A-0F31-4E3F-91B6-A533DBD1F686}">
+            <Component Id="cmp644D84B04A2C7D6BC40A446FCDF8556C" Guid="{D9A6CC8B-0984-416B-B65D-0C1ECDC759C9}">
                 <File Id="filA8F1C06788A890E18AAD57CD343F9935" KeyPath="yes" Source="!(wix.BinSource)\opencv_nonfree2410d.dll" />
             </Component>
-            <Component Id="cmp0161FCC7373FE62670403E52D0A9F266" Guid="{D5F36AAB-A7B8-4322-B6CD-3F28D2C0B915}">
+            <Component Id="cmp0161FCC7373FE62670403E52D0A9F266" Guid="{9103E205-FFB1-4DCE-A045-A55622971CF8}">
                 <File Id="fil00DD1BEC3C56BAC79AC82B9CB85C4DAD" KeyPath="yes" Source="!(wix.BinSource)\opencv_objdetect2410.dll" />
             </Component>
-            <Component Id="cmp130E0D7038889E9C2718A7AE756B007E" Guid="{A4DF4E2A-0FCC-4FFE-9291-66D028A3A47A}">
+            <Component Id="cmp130E0D7038889E9C2718A7AE756B007E" Guid="{FC363120-51E6-48BC-87F5-9011000C2960}">
                 <File Id="fil9E6756AEA8CDC96BE43F95BB199E427C" KeyPath="yes" Source="!(wix.BinSource)\opencv_objdetect2410d.dll" />
             </Component>
-            <Component Id="cmpF861567F4B960808C02A29395661B7EB" Guid="{1F9C8063-181A-45BE-AFB4-15EE982F67BD}">
+            <Component Id="cmpF861567F4B960808C02A29395661B7EB" Guid="{1D599299-A90F-4199-A782-3844320412C9}">
                 <File Id="fil8B6785739FB314B1E4A62C0D87C5820A" KeyPath="yes" Source="!(wix.BinSource)\opencv_ocl2410.dll" />
             </Component>
-            <Component Id="cmp590BFB13FCD8FF7EF3C4DEB2038BDD39" Guid="{74B999E6-B10B-4245-B647-44292066639F}">
+            <Component Id="cmp590BFB13FCD8FF7EF3C4DEB2038BDD39" Guid="{EE265CF7-557B-40F1-B590-5AE73A38114E}">
                 <File Id="fil49F417B6A6FBAD51FD0D448DB89FF405" KeyPath="yes" Source="!(wix.BinSource)\opencv_ocl2410d.dll" />
             </Component>
-            <Component Id="cmpDD3159939E6C46E73115D57E5A2B6DB7" Guid="{4BECB1AC-2DF3-4DBB-9C9B-1ECFDB5C92E8}">
+            <Component Id="cmpDD3159939E6C46E73115D57E5A2B6DB7" Guid="{CBC275C4-D7A2-43A1-A6E4-ECF45A70311C}">
                 <File Id="fil270E145664234F7F7DBD07506E877B82" KeyPath="yes" Source="!(wix.BinSource)\opencv_photo2410.dll" />
             </Component>
-            <Component Id="cmp15489755D84F4AF8336772D5716D4FD2" Guid="{86B5A51E-6086-4AC8-9682-BF85C96D030C}">
+            <Component Id="cmp15489755D84F4AF8336772D5716D4FD2" Guid="{7C2EB27E-B32D-434C-B763-DFFC130AACB7}">
                 <File Id="filEDF9A7C61D04405945F720628756747D" KeyPath="yes" Source="!(wix.BinSource)\opencv_photo2410d.dll" />
             </Component>
-            <Component Id="cmp2C19D43A63F67A979EFC1D39802FFDEE" Guid="{F9E17828-5B23-4F00-BCF3-681836FB93FE}">
+            <Component Id="cmp2C19D43A63F67A979EFC1D39802FFDEE" Guid="{2CF7C0B3-0505-486B-9B3F-0514D2D43330}">
                 <File Id="filFFD04E331319A34ABB350CD27E1CED3F" KeyPath="yes" Source="!(wix.BinSource)\opencv_stitching2410.dll" />
             </Component>
-            <Component Id="cmpDCED4536D7A20DEE9D200055D53E6E65" Guid="{F6899DAA-D26F-4F43-A5BD-1E7D9EAEA579}">
+            <Component Id="cmpDCED4536D7A20DEE9D200055D53E6E65" Guid="{C01DE0A8-605E-407F-A294-2A31A1EF6659}">
                 <File Id="fil4F85C759B2D3552899585E75EBFA77C8" KeyPath="yes" Source="!(wix.BinSource)\opencv_stitching2410d.dll" />
             </Component>
-            <Component Id="cmp2C4A10B1830E104DDAFAA77FB02A96B6" Guid="{CBF507A1-C728-421A-B191-08B933C9F3E3}">
+            <Component Id="cmp2C4A10B1830E104DDAFAA77FB02A96B6" Guid="{D9D93C1F-28F2-4C9C-8AC1-3FA1078CB37C}">
                 <File Id="fil5B9593F2D533B0502873E068B022C059" KeyPath="yes" Source="!(wix.BinSource)\opencv_superres2410.dll" />
             </Component>
-            <Component Id="cmp6C210AFFF1D996A5D27E33120398FD3D" Guid="{45C819CA-49CF-492F-8C5D-80C7CEB53707}">
+            <Component Id="cmp6C210AFFF1D996A5D27E33120398FD3D" Guid="{033395A3-FD21-400F-A370-204E2BED8DB0}">
                 <File Id="filBE02A01B05EA61682FC076894F43D0CC" KeyPath="yes" Source="!(wix.BinSource)\opencv_superres2410d.dll" />
             </Component>
-            <Component Id="cmp4A7FA583FBE646A899F0C13B23848C01" Guid="{1366D4F1-00DE-42CD-84F0-A758EAECC01A}">
+            <Component Id="cmp4A7FA583FBE646A899F0C13B23848C01" Guid="{8611178E-F3E9-4691-9C48-07D34D03E1F3}">
                 <File Id="filD75CABCB7DBB9E62D63575862845CDC4" KeyPath="yes" Source="!(wix.BinSource)\opencv_video2410.dll" />
             </Component>
-            <Component Id="cmp0FEACEB1F77147ED9717B03CE54C7A65" Guid="{37DF9E64-341C-4AD2-8C18-1873A5A40B8D}">
+            <Component Id="cmp0FEACEB1F77147ED9717B03CE54C7A65" Guid="{33809EB8-27AF-44BD-AE2A-986FE61C805E}">
                 <File Id="fil58483917F5626E158810D70ABDE203CF" KeyPath="yes" Source="!(wix.BinSource)\opencv_video2410d.dll" />
             </Component>
-            <Component Id="cmp286EE8B4D2E0582D8BB9CC5D77E0DE61" Guid="{BF82E547-5606-405C-A5EE-8EFDA28A45E8}">
+            <Component Id="cmp286EE8B4D2E0582D8BB9CC5D77E0DE61" Guid="{A8F8D64F-C370-4B53-A570-3BA8DF61E64A}">
                 <File Id="fil41B50A0EA24D2CC27E50031BBBFCB779" KeyPath="yes" Source="!(wix.BinSource)\opencv_videostab2410.dll" />
             </Component>
-            <Component Id="cmp7E9A2B37F02B463DF3CEB83B69D2773B" Guid="{B3858BC5-6C3A-4D2F-A6A8-BB4323B05171}">
+            <Component Id="cmp7E9A2B37F02B463DF3CEB83B69D2773B" Guid="{A11874D0-85C0-4600-95B6-9C045DCC44A0}">
                 <File Id="filD616B2C230B493572338F7CFECC1B6EF" KeyPath="yes" Source="!(wix.BinSource)\opencv_videostab2410d.dll" />
             </Component>
-            <Component Id="cmp335204E4D346BAE10177724942C00152" Guid="{8D8008DA-F4D4-42AE-A16A-F709CA926E98}">
+            <Component Id="cmp335204E4D346BAE10177724942C00152" Guid="{C04C2686-022A-4F3E-B16A-5BC09C96B3D9}">
                 <File Id="filD6FE8BAEC779F6FDE83CE1F30E37927D" KeyPath="yes" Source="!(wix.BinSource)\OpenNI2.dll" />
             </Component>
-            <Component Id="cmpF292BA98BB6F49940DA3CF66EF14951E" Guid="{0DF1D81A-953E-4CBB-9D20-E596E08E5B3B}">
+            <Component Id="cmpF292BA98BB6F49940DA3CF66EF14951E" Guid="{C34C8B94-9891-42A1-9A18-E2C0C3BE110B}">
                 <File Id="fil9B1A39846BC3066E4C48F9185EEF491A" KeyPath="yes" Source="!(wix.BinSource)\openrave-config.exe" />
             </Component>
-            <Component Id="cmp31B601055F8E7E2A75F557C64716FBCD" Guid="{ABB9C77C-B2FC-493D-B2BA-4742609C0429}">
+            <Component Id="cmp31B601055F8E7E2A75F557C64716FBCD" Guid="{D72CE556-B0A4-4108-8C00-343F4CC5AB72}">
                 <File Id="fil93AF0328E3F897A387A1468188B7EB39" KeyPath="yes" Source="!(wix.BinSource)\openrave-createplugin.py" />
             </Component>
-            <Component Id="cmp71788CEBB91CA9DF8D4FA024AB421CB2" Guid="{04B60CC6-0D67-45F7-881F-8736C0A99A2E}">
+            <Component Id="cmp71788CEBB91CA9DF8D4FA024AB421CB2" Guid="{C18442EB-0AFC-4DF4-B232-8DDFFD32479D}">
                 <File Id="fil1A9FDAB66B8A627E87E9085E5ABE0643" KeyPath="yes" Source="!(wix.BinSource)\openrave-robot.py" />
             </Component>
-            <Component Id="cmp223158E01403CFDC88876697EB6B54ED" Guid="{D26EE581-5607-4F57-99F4-098B8617CD96}">
+            <Component Id="cmp223158E01403CFDC88876697EB6B54ED" Guid="{59E3FF21-9FDB-4519-9930-77FF1096867F}">
                 <File Id="fil3D28EA06CCE9439F3382AC4A06AEE97F" KeyPath="yes" Source="!(wix.BinSource)\openrave.exe" />
             </Component>
-            <Component Id="cmpA7687E0331A723BC6F72AA5C686BA0F5" Guid="{00CCA1D3-0BD2-4CE5-A4A1-3795BDC06714}">
+            <Component Id="cmpA7687E0331A723BC6F72AA5C686BA0F5" Guid="{93C39CAB-BB6F-41AC-A15A-6A172A0B1327}">
                 <File Id="filA65B0FA638231C698406C34842F759C1" KeyPath="yes" Source="!(wix.BinSource)\openrave.py" />
             </Component>
-            <Component Id="cmp53D3993C83936711A0A361E5A20FC16F" Guid="{979F7EBF-2217-4740-8C39-C8751502BDC0}">
+            <Component Id="cmp53D3993C83936711A0A361E5A20FC16F" Guid="{2675F3F8-1F03-4A21-92A1-A6AE0870A654}">
                 <File Id="fil4874C700A2B4E793541A8157FD7049E6" KeyPath="yes" Source="!(wix.BinSource)\openrave0.9-vc120-mt-core.dll" />
             </Component>
-            <Component Id="cmp31E0E92191297F9EF70C26072EE69C0A" Guid="{A2B607E1-D67A-478D-963F-6A911FD735ED}">
+            <Component Id="cmp31E0E92191297F9EF70C26072EE69C0A" Guid="{1634257B-CC0B-4D8C-B642-6714B62B74CA}">
                 <File Id="filF4B5F69D589699DF59446B32D611A23C" KeyPath="yes" Source="!(wix.BinSource)\openrave0.9-vc120-mt-core_c.dll" />
             </Component>
-            <Component Id="cmpEFF7AAD659AD13D0438CE19A993C186A" Guid="{AF18DCCD-5FB3-452F-A08C-BC654800BFDE}">
+            <Component Id="cmpEFF7AAD659AD13D0438CE19A993C186A" Guid="{FB3BDFB4-68CA-437E-A944-F81902954621}">
                 <File Id="filE23DAB4114D4922DD4857C742289EACF" KeyPath="yes" Source="!(wix.BinSource)\openrave0.9-vc120-mt.dll" />
             </Component>
-            <Component Id="cmp75E44C7207012D724797A86CB08FF0B0" Guid="{1B9D6E5A-F51A-4182-8E64-F224A3E606F8}">
+            <Component Id="cmp75E44C7207012D724797A86CB08FF0B0" Guid="{61A5E1B1-F8BC-4717-9B69-C13C19936A79}">
                 <File Id="fil83361623213991531570699DC8322B1F" KeyPath="yes" Source="!(wix.BinSource)\openrave0.9-vc120-mt_c.dll" />
             </Component>
-            <Component Id="cmp42714B4AB79D14C17115C3148FA73CD1" Guid="{091CF056-97FB-48F2-8BF7-4422C031BA45}">
+            <Component Id="cmp42714B4AB79D14C17115C3148FA73CD1" Guid="{8F8914F7-3C74-47ED-B220-0EAEA29A98FB}">
                 <File Id="filA6BC5DD2C5AA931B49345B6E29324506" KeyPath="yes" Source="!(wix.BinSource)\pdf.dll" />
             </Component>
-            <Component Id="cmp69A829A8BC21B8900981350A12C57835" Guid="{20B7CDA8-3B98-4656-AD4B-70931215DB46}">
+            <Component Id="cmp69A829A8BC21B8900981350A12C57835" Guid="{74EFA0C3-56F3-4D95-B301-08A1697E8E08}">
                 <File Id="filF68F9DBD29B9951EA96EC949DC626C07" KeyPath="yes" Source="!(wix.BinSource)\protobuf-net.dll" />
             </Component>
-            <Component Id="cmp7A28F2DFAD360AB2CD3E18DBB49746A1" Guid="{AC94503E-BAFE-4049-A017-A26D62583376}">
+            <Component Id="cmp7A28F2DFAD360AB2CD3E18DBB49746A1" Guid="{07C91471-3CEB-44E4-80BD-8148B33980A1}">
                 <File Id="fil360F3C28BC53174A67B3957510423CB6" KeyPath="yes" Source="!(wix.BinSource)\protobuf-net.pdb" />
             </Component>
-            <Component Id="cmp30E136D962DA47007A6D29EBCCB0A2E4" Guid="{523113EF-A7EB-4AC4-AF75-F9F470CDA093}">
+            <Component Id="cmp30E136D962DA47007A6D29EBCCB0A2E4" Guid="{1BDC431F-2C27-4ABA-8893-43CB34BD52AD}">
                 <File Id="fil366E52EE4CA060BF63BFABEAB4EB9CEE" KeyPath="yes" Source="!(wix.BinSource)\protobuf-net.xml" />
             </Component>
-            <Component Id="cmpC231BFC87C96EF638D345E08AF068D32" Guid="{A5E2E408-4BFD-43E5-8FC9-151B8B801DE0}">
+            <Component Id="cmpC231BFC87C96EF638D345E08AF068D32" Guid="{37DDAB18-D75F-4AEB-A3B1-72F50FDEDEBA}">
                 <File Id="filA713FF21356EB2C432F7F5983805A0CD" KeyPath="yes" Source="!(wix.BinSource)\protoc-license.txt" />
             </Component>
-            <Component Id="cmpF6D0C6AA87467CECA681A425C6F5F81C" Guid="{55518F34-0A4C-4482-B840-6F6836D73C9C}">
+            <Component Id="cmpF6D0C6AA87467CECA681A425C6F5F81C" Guid="{69D149CB-10A9-43E7-9AA3-E96884371607}">
                 <File Id="fil49F593FFC50913D0AA09E49CE0F68FEE" KeyPath="yes" Source="!(wix.BinSource)\QtCore4.dll" />
             </Component>
-            <Component Id="cmp22CA37DE8C8EEFD5B45EB16D01641202" Guid="{0E2F6DD5-D45F-4A28-AEB6-227272664E54}">
+            <Component Id="cmp22CA37DE8C8EEFD5B45EB16D01641202" Guid="{2A570F0B-4A06-44F4-B58E-3183845A1A11}">
                 <File Id="fil8C3E435752B87A73B87882255DA3F6AD" KeyPath="yes" Source="!(wix.BinSource)\QtGui4.dll" />
             </Component>
-            <Component Id="cmpE24C279BC60A017C5075D7F00E4B8915" Guid="{1549B51F-F2A6-41B6-A80B-660FA38FD361}">
+            <Component Id="cmpE24C279BC60A017C5075D7F00E4B8915" Guid="{04F05E6F-D98C-4588-8F5B-8521559A59D7}">
                 <File Id="filAE8BC4FF7B7F389E6629FB256BFB51D1" KeyPath="yes" Source="!(wix.BinSource)\QtOpenGL4.dll" />
             </Component>
-            <Component Id="cmp881EE21B4D8CB4A306D839F99B370984" Guid="{77521D60-F1F2-494B-9DDE-50712B58EAB7}">
+            <Component Id="cmp881EE21B4D8CB4A306D839F99B370984" Guid="{0ED8DEC3-35C1-46D8-A275-F0301B7B3004}">
                 <File Id="fil387EF91F429E40373A3084F7BA6BDCBD" KeyPath="yes" Source="!(wix.BinSource)\Quartz.dll" />
             </Component>
-            <Component Id="cmp61E06B55E426EE9DF1F4B1883219E041" Guid="{A7166D32-684D-4F6E-8076-17B0635E7C65}">
+            <Component Id="cmp61E06B55E426EE9DF1F4B1883219E041" Guid="{E4364EDF-FE5B-4777-A633-BE28B90845C5}">
                 <File Id="filF8199C951A1BC1EA3470D87C3C67EB02" KeyPath="yes" Source="!(wix.BinSource)\Quartz.pdb" />
             </Component>
-            <Component Id="cmp8CA07BB79460633201B10DC5752F9695" Guid="{EA498B0E-2A26-4623-9B3C-252B6E2494F8}">
+            <Component Id="cmp8CA07BB79460633201B10DC5752F9695" Guid="{C6224BAF-A0C6-4E5A-9800-06FD3A0E0AE2}">
                 <File Id="fil4C1314AC82DAB696DC8C98BABE3F7983" KeyPath="yes" Source="!(wix.BinSource)\Quartz.xml" />
             </Component>
-            <Component Id="cmp8B2CE1549EE748404B2CD967ABE6D155" Guid="{F09FEF19-ECA3-4A43-9B72-D3433B17D8AD}">
+            <Component Id="cmp8B2CE1549EE748404B2CD967ABE6D155" Guid="{29576B0F-E40B-4765-BCBA-5CA1603436E2}">
                 <File Id="fil85DDB798B4D5888EB347F04FF00BA194" KeyPath="yes" Source="!(wix.BinSource)\quartz_config.xml" />
             </Component>
-            <Component Id="cmp094D7C566B32A7B2C8213FCA67707CCD" Guid="{2665B1F0-8396-4FA2-A101-5214C554E777}">
+            <Component Id="cmp094D7C566B32A7B2C8213FCA67707CCD" Guid="{414416D3-5BA6-4E62-8BAE-2EF206579AA4}">
                 <File Id="filA8067468441D74D2C130F8C23130C26D" KeyPath="yes" Source="!(wix.BinSource)\SharpDX.dll" />
             </Component>
-            <Component Id="cmp594E558D011C0DB2F732E344DF4FB90B" Guid="{9021237B-3866-43C7-97E0-40D77510B591}">
+            <Component Id="cmp594E558D011C0DB2F732E344DF4FB90B" Guid="{F8058CF0-A550-43A2-B24F-D97EAC19E292}">
                 <File Id="filED9E52A20CEFACF9C93B71F723B97D87" KeyPath="yes" Source="!(wix.BinSource)\SharpDX.Mathematics.dll" />
             </Component>
-            <Component Id="cmp17D845B9CD688056CCEDE9CA4085171B" Guid="{44EF9EFB-2D46-46A0-B5E5-2E3857091802}">
+            <Component Id="cmp17D845B9CD688056CCEDE9CA4085171B" Guid="{417949A6-10F9-4CA4-9757-512A14F53D43}">
                 <File Id="fil7D368CF5505EA3F81AFF029753B70CDE" KeyPath="yes" Source="!(wix.BinSource)\SharpDX.Mathematics.xml" />
             </Component>
-            <Component Id="cmpBC3BD9FDEAB3E2E01AD809479A29C617" Guid="{8790003A-790B-4244-9D2E-BB4125276581}">
+            <Component Id="cmpBC3BD9FDEAB3E2E01AD809479A29C617" Guid="{448B1BD6-BF0F-41EF-8893-1A2E645193E0}">
                 <File Id="fil94CAA92CCB0CCBD661709C54B946E9DF" KeyPath="yes" Source="!(wix.BinSource)\SharpDX.xml" />
             </Component>
-            <Component Id="cmp395E005EF930C5707017890E67C4FC1A" Guid="{19E954E6-14A3-4020-9DD1-B43511725A72}">
+            <Component Id="cmp395E005EF930C5707017890E67C4FC1A" Guid="{03FC4E79-70F0-4212-8D2B-966B2EE172C7}">
                 <File Id="filC0A7744109E3A14F3C075A9ED101B95F" KeyPath="yes" Source="!(wix.BinSource)\simage1.dll" />
             </Component>
-            <Component Id="cmpB0581C327D25AD1594A8EED9AD5151D8" Guid="{8B2EC875-55AC-47BE-90C3-AC586ED44799}">
+            <Component Id="cmpB0581C327D25AD1594A8EED9AD5151D8" Guid="{173AF084-32BB-4FED-8B71-42D7A75F31CB}">
                 <File Id="filF138A006FF173974239B81456C8F27F7" KeyPath="yes" Source="!(wix.BinSource)\soqt1.dll" />
             </Component>
-            <Component Id="cmpFEF2BD5452BEDCE9377DFC5AF788EEBB" Guid="{BD807E5D-9441-48E9-9E9E-BC1C702F3061}">
+            <Component Id="cmpFEF2BD5452BEDCE9377DFC5AF788EEBB" Guid="{C421AE91-E288-42BD-BA00-15D3E5FF086B}">
                 <File Id="filB54A318204A05390ADC78166BE06CC44" KeyPath="yes" Source="!(wix.BinSource)\SpeechGrammar_en-US.xml" />
             </Component>
-            <Component Id="cmpBBB5213B0D70749829252FE78DB709CE" Guid="{8217854E-55D1-4816-8B63-57F3F147613D}">
+            <Component Id="cmpBBB5213B0D70749829252FE78DB709CE" Guid="{4690D6FC-A716-4CB4-B6A6-A9839E623C81}">
                 <File Id="fil8B62C343ABC7D42A193B7A5CCEF180FD" KeyPath="yes" Source="!(wix.BinSource)\SpeechGrammar_ja-JP.xml" />
             </Component>
-            <Component Id="cmpF5730C92213BA3272DDA3A5657DFF782" Guid="{A9FD2B24-DAA7-4B1D-BF41-08F9FBC31801}">
+            <Component Id="cmpF5730C92213BA3272DDA3A5657DFF782" Guid="{FCD956DD-6715-45AC-9D66-3AF379C17E99}">
                 <File Id="fil4222513F3974FF001D4C7E3874324D04" KeyPath="yes" Source="!(wix.BinSource)\System.Windows.Interactivity.dll" />
             </Component>
-            <Component Id="cmp4A10FC05FC183C9A41303BB655F4209C" Guid="{C0627C7B-AEE5-4032-98C6-4EC2A3C200F3}">
+            <Component Id="cmp4A10FC05FC183C9A41303BB655F4209C" Guid="{8DA27552-5141-4E4F-8F10-A366BDCBF315}">
                 <File Id="fil1187DBAFFA0E23D61DF5A2E368321776" KeyPath="yes" Source="!(wix.BinSource)\vb.xslt" />
             </Component>
-            <Component Id="cmp875897A95478A50086E806621D8A626A" Guid="{A4F3C6CC-F59A-45AF-B2B3-AC543E952D81}">
+            <Component Id="cmp875897A95478A50086E806621D8A626A" Guid="{D1A72AC5-E1C0-4D5E-B779-ACC13EBEBE74}">
                 <File Id="filE39FB8483FA703F576B040CDDBE5F357" KeyPath="yes" Source="!(wix.BinSource)\WriteableBitmapEx.Wpf.dll" />
             </Component>
-            <Component Id="cmp34025BC91FFD53431CF876D39AB02640" Guid="{27A331FB-0CFE-47D6-ACEA-312614DDD167}">
+            <Component Id="cmp34025BC91FFD53431CF876D39AB02640" Guid="{C3EA0768-DADE-43B3-BFBD-8585C71E2B89}">
                 <File Id="fil5DA02DC65F1B32C9D0C0DDAED0CAA0D2" KeyPath="yes" Source="!(wix.BinSource)\WriteableBitmapEx.Wpf.pdb" />
             </Component>
-            <Component Id="cmp9BCB96719FCFB8B06E9B5E618C2E6622" Guid="{E7EF49B4-66AA-48F7-B412-53282FC9D441}">
+            <Component Id="cmp9BCB96719FCFB8B06E9B5E618C2E6622" Guid="{BBFF2A7C-6A93-464C-8E6F-14E43AAC0804}">
                 <File Id="fil347108EA48310A1D34689562B57744F7" KeyPath="yes" Source="!(wix.BinSource)\WriteableBitmapEx.Wpf.xml" />
             </Component>
-            <Component Id="cmp76884E9C44203FD69F93D9EEF783AB76" Guid="{3A69762D-9D52-4680-8169-13050C1DDF72}">
+            <Component Id="cmp76884E9C44203FD69F93D9EEF783AB76" Guid="{4DC4F3E5-47AF-493D-AD27-8AAA87BCD2F1}">
                 <File Id="fil32BB94CCE7FB819EE06BC30188F1BF8F" KeyPath="yes" Source="!(wix.BinSource)\xml.xslt" />
             </Component>
             <Directory Id="dir8EB44B171807CC5C94AC6E8587FEC222" Name="Database">
-                <Component Id="cmp3F63715743F43F72D9FA23FEECAFAFDF" Guid="{B00594AF-DE2F-48CF-B325-375188E1BCE8}">
+                <Component Id="cmp3F63715743F43F72D9FA23FEECAFAFDF" Guid="{FBF549CE-43DB-4BA8-9A7A-C009CB8EA551}">
                     <File Id="fil84C2F823022434C212A1373720E81A48" KeyPath="yes" Source="!(wix.BinSource)\Database\experimot.gbd" />
                 </Component>
-                <Component Id="cmp69CD4E6DFC7F018F2389C8DD2D3A6D8F" Guid="{E3E21A3F-80D9-4EE0-89F3-66AC1CB35CD2}">
+                <Component Id="cmp69CD4E6DFC7F018F2389C8DD2D3A6D8F" Guid="{F329F055-AE83-4265-AC25-47C44321D0BB}">
                     <File Id="filA08FB9375D10E3E560ECCB6E92A09787" KeyPath="yes" Source="!(wix.BinSource)\Database\Seated.gbd" />
                 </Component>
             </Directory>
             <Directory Id="dir7BEFF4D2863F25496E286E50418FB87B" Name="de">
-                <Component Id="cmp6B6B23AED9A84001FF53053EF958CF4A" Guid="{2EC1A052-1DE5-48E9-9D19-213320CF57CB}">
+                <Component Id="cmp6B6B23AED9A84001FF53053EF958CF4A" Guid="{25C3BA90-2339-4A02-8B58-7B2EF6FC4570}">
                     <File Id="fil2101CC9F0B749D21121F0ABE7D6F419A" KeyPath="yes" Source="!(wix.BinSource)\de\System.Windows.Interactivity.resources.dll" />
                 </Component>
             </Directory>
             <Directory Id="dir602DA7C2F9B4DDAA94351A1943E12C18" Name="en">
-                <Component Id="cmpE7DE30448FF7BEECBE9D45721968225A" Guid="{C24ED073-AA76-4043-A16B-DBEFF1D3EE5C}">
+                <Component Id="cmpE7DE30448FF7BEECBE9D45721968225A" Guid="{CC6F4163-E8DE-4604-A5DB-20AC383F7FB5}">
                     <File Id="fil3029C87F641A068C7A8B8E6B9DD012D9" KeyPath="yes" Source="!(wix.BinSource)\en\System.Windows.Interactivity.resources.dll" />
                 </Component>
             </Directory>
             <Directory Id="dir7618E30BF98456C4460F2AF598B2C695" Name="es">
-                <Component Id="cmpBF9D99DC0878C9FC9FA039025213929E" Guid="{998E12AA-ABD6-4969-A050-B0549489EF7D}">
+                <Component Id="cmpBF9D99DC0878C9FC9FA039025213929E" Guid="{74796B73-F71B-4595-8BDB-A6646757DD0A}">
                     <File Id="fil4926F61FF61CCABB6BA42B5984C87A8D" KeyPath="yes" Source="!(wix.BinSource)\es\System.Windows.Interactivity.resources.dll" />
                 </Component>
             </Directory>
             <Directory Id="dir4905A40AB7A13D8078CA30DD8871C042" Name="fr">
-                <Component Id="cmpB32663F11E10F2D9D19992CD44A08BF1" Guid="{B8E32548-7954-42C2-A384-3E3E1E0E4598}">
+                <Component Id="cmpB32663F11E10F2D9D19992CD44A08BF1" Guid="{C2294ABB-B236-4477-807C-9D59FEDCEAED}">
                     <File Id="fil75FEB2763689B58D4174C66FA91C7EE7" KeyPath="yes" Source="!(wix.BinSource)\fr\System.Windows.Interactivity.resources.dll" />
                 </Component>
             </Directory>
             <Directory Id="dir5618FE8D34F76FF1F18241280262FAC4" Name="it">
-                <Component Id="cmpF31CD460998A17E1B38FA6EF0EA948F6" Guid="{2B8BAC65-1D8F-4573-9DB5-B921E5ADC13A}">
+                <Component Id="cmpF31CD460998A17E1B38FA6EF0EA948F6" Guid="{DD13D53F-C05F-48D5-807E-AA319669DA3B}">
                     <File Id="fil9A1118EBD0971C4E753D8E126E331DC8" KeyPath="yes" Source="!(wix.BinSource)\it\System.Windows.Interactivity.resources.dll" />
                 </Component>
             </Directory>
             <Directory Id="dirB81F5207CE4D27D7290EF509FA241FE7" Name="ja">
-                <Component Id="cmpEB60788DD08F7F74BD1D5B64A52E8918" Guid="{82C08EB3-90D2-4E1E-BC28-16D2B7FB397C}">
+                <Component Id="cmpEB60788DD08F7F74BD1D5B64A52E8918" Guid="{CFAF13F6-3DB9-4D09-8259-93EEE81E1676}">
                     <File Id="fil66984209DDED24BE586DF5A94D9E6073" KeyPath="yes" Source="!(wix.BinSource)\ja\System.Windows.Interactivity.resources.dll" />
                 </Component>
             </Directory>
             <Directory Id="dir03070CDFDE3371FB29098E590A7F4DAE" Name="ko">
-                <Component Id="cmpAC5CF0FF6E4C48D4DE73B1AF4D88E305" Guid="{B6A7BA92-37F3-404F-899C-A3CA078DF9E6}">
+                <Component Id="cmpAC5CF0FF6E4C48D4DE73B1AF4D88E305" Guid="{38EC8CD6-B6C1-467F-A00D-86641E716B0A}">
                     <File Id="filAD8F9EB685751E91E8610DCBD5BD64CE" KeyPath="yes" Source="!(wix.BinSource)\ko\System.Windows.Interactivity.resources.dll" />
                 </Component>
             </Directory>
             <Directory Id="dir8F725ED39C4429A00B8E841BC6B8E24D" Name="locales">
-                <Component Id="cmp08C16293A92EFA492102A37156DB9B6D" Guid="{C07A1E74-B284-4DFE-961C-488BD60F0152}">
+                <Component Id="cmp08C16293A92EFA492102A37156DB9B6D" Guid="{F492808F-DD6E-4960-83A9-A9BCEDDF0613}">
                     <File Id="fil379C3774A9A562AED91C5CF5D1B2DED2" KeyPath="yes" Source="!(wix.BinSource)\locales\am.pak" />
                 </Component>
-                <Component Id="cmpDAA174331D4F65DE7718EA4802C662C1" Guid="{FE374335-A51A-4D95-8BE0-36403D1534D3}">
+                <Component Id="cmpDAA174331D4F65DE7718EA4802C662C1" Guid="{2E18C5D3-2DB1-496C-9094-1FCC5BC1682A}">
                     <File Id="fil92FD05F2EE5DFA4F16EE1050DB52C523" KeyPath="yes" Source="!(wix.BinSource)\locales\ar.pak" />
                 </Component>
-                <Component Id="cmpED0C9F2D36AA7F6FB5886C631452263E" Guid="{88C4EC7C-6ECD-43FE-A5AB-4E7EBAAC54C2}">
+                <Component Id="cmpED0C9F2D36AA7F6FB5886C631452263E" Guid="{0B48A736-8C2E-472B-B7AF-D598AD66249D}">
                     <File Id="fil948EA2F2C40099B4E4D538B4E4B30129" KeyPath="yes" Source="!(wix.BinSource)\locales\bg.pak" />
                 </Component>
-                <Component Id="cmp176969CDDF387F3AE4333E9C64626362" Guid="{6B27BBDA-80D7-44BD-BFA9-572D71A59E59}">
+                <Component Id="cmp176969CDDF387F3AE4333E9C64626362" Guid="{69EA0D90-778D-4CAE-9DC7-8884B286B540}">
                     <File Id="filCC7D63DF88C825C2230A8AF1C613CAFB" KeyPath="yes" Source="!(wix.BinSource)\locales\bn.pak" />
                 </Component>
-                <Component Id="cmpD3D697C10C23983193D899058D0BBD73" Guid="{53F80B00-4562-4325-8910-567AA7BDFB0B}">
+                <Component Id="cmpD3D697C10C23983193D899058D0BBD73" Guid="{CD582E88-2AFD-4D03-B178-5A644504F0B9}">
                     <File Id="fil427F577C726BD900F92AAF8B83406EDF" KeyPath="yes" Source="!(wix.BinSource)\locales\ca.pak" />
                 </Component>
-                <Component Id="cmpF3ED6A101ADB170676CCABE8DA8B586E" Guid="{1D636EFA-42FF-4E31-95C5-FE24272B9E31}">
+                <Component Id="cmpF3ED6A101ADB170676CCABE8DA8B586E" Guid="{689B5589-5F0D-4E9D-A413-50CCD0CE45AF}">
                     <File Id="fil8C73EA3FBC3D9F65FCD8D974B202E3AE" KeyPath="yes" Source="!(wix.BinSource)\locales\cs.pak" />
                 </Component>
-                <Component Id="cmp4B784297B36DE5479802A5E32D9ACAD8" Guid="{59652726-4B39-48B9-95FC-772D784FFE34}">
+                <Component Id="cmp4B784297B36DE5479802A5E32D9ACAD8" Guid="{C494EDC1-4C63-4B18-99CA-0EB24ED4FF76}">
                     <File Id="filB6AD9C590AEDA072140DE064215797AC" KeyPath="yes" Source="!(wix.BinSource)\locales\da.pak" />
                 </Component>
-                <Component Id="cmp53DDABFD930356224BCDC033EB0E20E4" Guid="{9769FF96-E5BA-4037-9174-BC592449FB07}">
+                <Component Id="cmp53DDABFD930356224BCDC033EB0E20E4" Guid="{055BDEB2-B044-49AF-9ABC-8D3E857C9741}">
                     <File Id="filB5C990563EB76EC8A255CF026EA89E62" KeyPath="yes" Source="!(wix.BinSource)\locales\de.pak" />
                 </Component>
-                <Component Id="cmp8C1E5CD924174D47226B2EB77442FBA2" Guid="{82DDD9DA-39A4-40EB-8847-E2835B021B2D}">
+                <Component Id="cmp8C1E5CD924174D47226B2EB77442FBA2" Guid="{B156B188-A639-4250-9996-ABCAC2764F52}">
                     <File Id="fil8088A29E30891E0408FE6CF1187498AA" KeyPath="yes" Source="!(wix.BinSource)\locales\el.pak" />
                 </Component>
-                <Component Id="cmp2FDBD3273636AFA0E39B07FDEA0EC1F5" Guid="{21DDFAE8-4897-4305-BB0A-08CAD4C12686}">
+                <Component Id="cmp2FDBD3273636AFA0E39B07FDEA0EC1F5" Guid="{CF85D90F-73FA-43DD-A996-92B2C5760959}">
                     <File Id="fil6F62EF90A809B41DC1886B4BAA94EA1D" KeyPath="yes" Source="!(wix.BinSource)\locales\en-GB.pak" />
                 </Component>
-                <Component Id="cmpF94A756669D71EF191D2BD04DCE4D340" Guid="{E493668C-A8F4-46B2-A52B-87DF541AC25B}">
+                <Component Id="cmpF94A756669D71EF191D2BD04DCE4D340" Guid="{14A4C317-6DD9-4BBD-B67A-2D0C71C45C56}">
                     <File Id="filFAB83FA5727D5917E3D44DC2D35CAC32" KeyPath="yes" Source="!(wix.BinSource)\locales\en-US.pak" />
                 </Component>
-                <Component Id="cmpEC4CF14EC0B662DF245D8F62CEF736B8" Guid="{352D90D8-3AF8-4AF4-AA5B-E627F368E2D7}">
+                <Component Id="cmpEC4CF14EC0B662DF245D8F62CEF736B8" Guid="{5DC6F6FE-1C9F-412F-AF04-A528273ABE26}">
                     <File Id="fil209109583675961857059B419AB0FF94" KeyPath="yes" Source="!(wix.BinSource)\locales\es-419.pak" />
                 </Component>
-                <Component Id="cmpFBDE2845A1A6797187C8B4A671B2A1ED" Guid="{6DBAEC30-A9EA-40EC-818C-5D6FD761B3FC}">
+                <Component Id="cmpFBDE2845A1A6797187C8B4A671B2A1ED" Guid="{6AB466E3-F77C-40E3-B35E-47A3733DAFBC}">
                     <File Id="filD2B36496DE729C0C224EF8BF4626EBF4" KeyPath="yes" Source="!(wix.BinSource)\locales\es.pak" />
                 </Component>
-                <Component Id="cmp091FC207D4D9239A305F546A22D1264D" Guid="{E6CC75A0-6100-45B2-B8D3-C5E128552FC7}">
+                <Component Id="cmp091FC207D4D9239A305F546A22D1264D" Guid="{C1C1A467-5A0B-4B05-8C24-8314939A56BD}">
                     <File Id="filA336249C9550D6599DA5F439375A7094" KeyPath="yes" Source="!(wix.BinSource)\locales\et.pak" />
                 </Component>
-                <Component Id="cmpFB237DAAFCE5AE814C2F28543D38298C" Guid="{0C77A6DE-F2DF-47EC-BF69-2469609020DB}">
+                <Component Id="cmpFB237DAAFCE5AE814C2F28543D38298C" Guid="{B285A2E0-47FE-4D27-BD82-4D407F36A509}">
                     <File Id="fil75312539BC85D7C265A4537FF2E3AF48" KeyPath="yes" Source="!(wix.BinSource)\locales\fa.pak" />
                 </Component>
-                <Component Id="cmp4F004E6A383F810C11395D6B69F783A7" Guid="{7C83C23A-4626-43DB-826F-B05A7D54DA64}">
+                <Component Id="cmp4F004E6A383F810C11395D6B69F783A7" Guid="{83DAAA35-6271-4A49-AEA7-9F867C7D2A8B}">
                     <File Id="fil5D0F0E8FDD200509A1E026806CFAC617" KeyPath="yes" Source="!(wix.BinSource)\locales\fi.pak" />
                 </Component>
-                <Component Id="cmp6522840E255E758B4B7F1B9834FC0A18" Guid="{A171DFB5-F514-40C5-827E-64754643C810}">
+                <Component Id="cmp6522840E255E758B4B7F1B9834FC0A18" Guid="{44E9C509-C3F6-4D02-B622-59637C3A3DF3}">
                     <File Id="filE3EEFCFD0F6EA075C74E304DADE54A7A" KeyPath="yes" Source="!(wix.BinSource)\locales\fil.pak" />
                 </Component>
-                <Component Id="cmpDC259B159B03253C8B4A0B70A2DBDE12" Guid="{7110DD2A-2437-4830-A8BA-0CEEF1478AFC}">
+                <Component Id="cmpDC259B159B03253C8B4A0B70A2DBDE12" Guid="{918F9482-C60D-4FD7-8C86-070A07E12A2D}">
                     <File Id="fil581128832BBEAEFD2726D41B8CD8D5B4" KeyPath="yes" Source="!(wix.BinSource)\locales\fr.pak" />
                 </Component>
-                <Component Id="cmp3E153B1DACFF59D26EBDBFD06AD0E0D7" Guid="{4BA14A93-605C-41E5-8752-2D325289F726}">
+                <Component Id="cmp3E153B1DACFF59D26EBDBFD06AD0E0D7" Guid="{02F26F09-171C-4F4E-9F30-116BA1A98591}">
                     <File Id="fil75C2D99E470BCDDCF82EC9CB00EC04FC" KeyPath="yes" Source="!(wix.BinSource)\locales\gu.pak" />
                 </Component>
-                <Component Id="cmpC83CCC118E1972DF97BD09FF75588442" Guid="{8770432F-6DCA-4E35-AB76-F8935C02F4E3}">
+                <Component Id="cmpC83CCC118E1972DF97BD09FF75588442" Guid="{48181929-12D0-4CB9-8D4E-5A3B13608FBC}">
                     <File Id="filA881E82A3D7C5367A1692F15EDD48447" KeyPath="yes" Source="!(wix.BinSource)\locales\he.pak" />
                 </Component>
-                <Component Id="cmp701A5EDFD2F2C43329A130B0A6625EBA" Guid="{D0BFFA95-DB8B-48AA-BC71-94A53CE4C6BA}">
+                <Component Id="cmp701A5EDFD2F2C43329A130B0A6625EBA" Guid="{F1C3F0A3-0B72-43DC-B107-660130070671}">
                     <File Id="filC94322D746032C5A1D8AA5539F762204" KeyPath="yes" Source="!(wix.BinSource)\locales\hi.pak" />
                 </Component>
-                <Component Id="cmpFB4BB9361C879A5A1268312293E8DE3A" Guid="{0725BB10-CD0B-4188-BDD3-81F18125A43C}">
+                <Component Id="cmpFB4BB9361C879A5A1268312293E8DE3A" Guid="{3A26CEBB-4CAE-46BB-A6FC-AB2BBA15C459}">
                     <File Id="fil7C8414FFC757BC0C1EF08BD5837DF76F" KeyPath="yes" Source="!(wix.BinSource)\locales\hr.pak" />
                 </Component>
-                <Component Id="cmpBD8B746CE1149386540596113A7A1E1A" Guid="{B58B7972-3373-4C9D-9D80-6221EAF5075B}">
+                <Component Id="cmpBD8B746CE1149386540596113A7A1E1A" Guid="{D9FD9509-5434-4996-902B-4293769EF149}">
                     <File Id="fil1CBB8B29E3647B7D646418B0480CB083" KeyPath="yes" Source="!(wix.BinSource)\locales\hu.pak" />
                 </Component>
-                <Component Id="cmp44200A3E54C4DCFBCA5DCC1B9770F6CD" Guid="{C99A5883-42DE-4B8D-AFAF-41C8CC13A736}">
+                <Component Id="cmp44200A3E54C4DCFBCA5DCC1B9770F6CD" Guid="{C90C5E15-D143-41FE-83FF-4F3712335BD3}">
                     <File Id="fil6354929D4C8D6F681F251CEFE10F75B0" KeyPath="yes" Source="!(wix.BinSource)\locales\id.pak" />
                 </Component>
-                <Component Id="cmpF55E4D41B0C7C0D2EEA1D27684AF4A35" Guid="{8E71914C-C319-4F7A-AD87-C9FE2804F6C2}">
+                <Component Id="cmpF55E4D41B0C7C0D2EEA1D27684AF4A35" Guid="{CCCBD0C5-E16B-4278-ADA7-C275110F0F0B}">
                     <File Id="fil091078983A2CC713BA46923664B0B614" KeyPath="yes" Source="!(wix.BinSource)\locales\it.pak" />
                 </Component>
-                <Component Id="cmp46CD56A8E0825DB8E49C6ED79A0DAD23" Guid="{518F79BA-E840-42B5-A391-7A48EFA451A8}">
+                <Component Id="cmp46CD56A8E0825DB8E49C6ED79A0DAD23" Guid="{52FB6FB5-0121-4FEB-B185-E2D78343EB91}">
                     <File Id="filAEF3A74ABB076C72EA7C825CCE92655A" KeyPath="yes" Source="!(wix.BinSource)\locales\ja.pak" />
                 </Component>
-                <Component Id="cmp7CDB6A562C1825B4F676D93F034F426F" Guid="{F726DE57-EFE6-4E08-848D-F9B5F71D428D}">
+                <Component Id="cmp7CDB6A562C1825B4F676D93F034F426F" Guid="{375F68B2-E1FB-4E41-A547-52E5A8D5CD2D}">
                     <File Id="fil85A98BFAFD164A091F0D46E67B0A7DC3" KeyPath="yes" Source="!(wix.BinSource)\locales\kn.pak" />
                 </Component>
-                <Component Id="cmp452963A5FA28ED2C7E6884C3A616C05A" Guid="{348BEF4F-D041-40DA-8A33-A0ED224CEDD5}">
+                <Component Id="cmp452963A5FA28ED2C7E6884C3A616C05A" Guid="{CEF06A30-9273-467C-8001-24A86EC29107}">
                     <File Id="fil21D3FA1B295046D3D0DFE3EE10FEAAF1" KeyPath="yes" Source="!(wix.BinSource)\locales\ko.pak" />
                 </Component>
-                <Component Id="cmpB107B979C649D1DB298E5C22897A184F" Guid="{755A3E0A-FD98-4E6F-A61B-CD084E81E2C1}">
+                <Component Id="cmpB107B979C649D1DB298E5C22897A184F" Guid="{16821DD0-1B0A-4EBF-8679-4F42634B1AA0}">
                     <File Id="filDB6A8E51F91B86BFC7F545CF34CD62AA" KeyPath="yes" Source="!(wix.BinSource)\locales\lt.pak" />
                 </Component>
-                <Component Id="cmp163B23AA4DAEC059611EDF7A78570D4D" Guid="{A3F2E0DD-85AF-49CE-B285-9F8DD990D5F2}">
+                <Component Id="cmp163B23AA4DAEC059611EDF7A78570D4D" Guid="{C7FF6B1D-992D-4235-97FA-49F2FD73A901}">
                     <File Id="fil7723D4CF9138941B64339E553741267B" KeyPath="yes" Source="!(wix.BinSource)\locales\lv.pak" />
                 </Component>
-                <Component Id="cmp38689C2F3211C34785DC19C280C7A1AF" Guid="{FA570735-ABDF-474C-9EE6-AFA1BBA36014}">
+                <Component Id="cmp38689C2F3211C34785DC19C280C7A1AF" Guid="{21F15098-A2CB-485A-B8C9-0511C284853B}">
                     <File Id="fil60746D124F2B08C498E2D5426DD7FF61" KeyPath="yes" Source="!(wix.BinSource)\locales\ml.pak" />
                 </Component>
-                <Component Id="cmpDCF188A989A66A5784C1098FE65D15B1" Guid="{F4F4853F-A1A3-40CD-8C56-439CF6CBA120}">
+                <Component Id="cmpDCF188A989A66A5784C1098FE65D15B1" Guid="{FAC26EE3-E71B-4EB2-9A27-666CF9A06AEE}">
                     <File Id="fil4CED83D3898DB224860950FA1928A82A" KeyPath="yes" Source="!(wix.BinSource)\locales\mr.pak" />
                 </Component>
-                <Component Id="cmp1632B1799BFCC985E79182EE38555B22" Guid="{91D1244D-1107-4132-BA11-2F8E53DF7B1A}">
+                <Component Id="cmp1632B1799BFCC985E79182EE38555B22" Guid="{F78962DD-3BBF-4DB1-81E6-BD3C3352D9E2}">
                     <File Id="fil8444BDA78F2DC89B88D440811DBD7264" KeyPath="yes" Source="!(wix.BinSource)\locales\ms.pak" />
                 </Component>
-                <Component Id="cmpCA0F7CB68D0BDF57C657DE4798FED2D9" Guid="{2CEA1E98-6546-402D-A12F-96994A2704E4}">
+                <Component Id="cmpCA0F7CB68D0BDF57C657DE4798FED2D9" Guid="{45466192-ACA1-482E-93FE-F63C8B5CDFA7}">
                     <File Id="fil9C9173D76C22F3461C3ED7BF4DED07DE" KeyPath="yes" Source="!(wix.BinSource)\locales\nb.pak" />
                 </Component>
-                <Component Id="cmpF037BD25C9EAD118C9C3986537705DE7" Guid="{75AFE7AB-48AC-4CEE-B3D3-8BECA026350E}">
+                <Component Id="cmpF037BD25C9EAD118C9C3986537705DE7" Guid="{F043E1BD-0916-45D6-8CE5-6EEA9D289728}">
                     <File Id="filE3116E5B2389BDF297E8EDCC89A35749" KeyPath="yes" Source="!(wix.BinSource)\locales\nl.pak" />
                 </Component>
-                <Component Id="cmp2FA03BDC3C63B7E366DD4DAE1048747A" Guid="{DDCFDABF-CE71-48D0-8FBB-109F20AC2032}">
+                <Component Id="cmp2FA03BDC3C63B7E366DD4DAE1048747A" Guid="{48919B39-1E19-4DB9-925B-907DBE9AB80B}">
                     <File Id="filB628C517E09AC3B8A62DE2EF6AA341FB" KeyPath="yes" Source="!(wix.BinSource)\locales\pl.pak" />
                 </Component>
-                <Component Id="cmpEBD760AFE525469B9649EF86B47D59F2" Guid="{485E2B24-ADAA-40ED-A549-68781F328880}">
+                <Component Id="cmpEBD760AFE525469B9649EF86B47D59F2" Guid="{BE34D5C5-3810-4AD7-9357-FC7B4BF1BA1F}">
                     <File Id="filBA23DB9490543121F9A7D1C932B8BD3F" KeyPath="yes" Source="!(wix.BinSource)\locales\pt-BR.pak" />
                 </Component>
-                <Component Id="cmpF334BAD46875D7A545D0EB7BA65ED994" Guid="{3AD843C5-8564-45D0-B623-91964C8C021F}">
+                <Component Id="cmpF334BAD46875D7A545D0EB7BA65ED994" Guid="{FE4515E6-96B0-460E-8D8F-14D660527380}">
                     <File Id="filDA17A91F3E7DA6275005793B4605AD0B" KeyPath="yes" Source="!(wix.BinSource)\locales\pt-PT.pak" />
                 </Component>
-                <Component Id="cmpB3741B3BC8254A12F94D75DE94066571" Guid="{970D1292-C854-43CB-A364-EEAA1959AEA0}">
+                <Component Id="cmpB3741B3BC8254A12F94D75DE94066571" Guid="{22D489FB-6B58-4005-AF73-05C3C3B1EAE1}">
                     <File Id="fil2DED67C0445B42DDDDA48B2761DFAE0D" KeyPath="yes" Source="!(wix.BinSource)\locales\ro.pak" />
                 </Component>
-                <Component Id="cmp4B18C42FB1B71A9F3DC42B9D01ABD6AC" Guid="{625401A2-7DD6-4F78-9CC1-80080101C53A}">
+                <Component Id="cmp4B18C42FB1B71A9F3DC42B9D01ABD6AC" Guid="{840007AD-AC3B-42BE-8E27-EFB8D72EC1A2}">
                     <File Id="filB7644325BD2A649188357526323061A1" KeyPath="yes" Source="!(wix.BinSource)\locales\ru.pak" />
                 </Component>
-                <Component Id="cmp93CC9FE510A87FF7313CE66F31370CCF" Guid="{FDD07D6B-372E-4371-8998-48F65C6F627A}">
+                <Component Id="cmp93CC9FE510A87FF7313CE66F31370CCF" Guid="{1EF952C4-5138-4394-A5AD-5F4258AC9E21}">
                     <File Id="filC37C6CF9DCB8F70B0125C392ABE713C0" KeyPath="yes" Source="!(wix.BinSource)\locales\sk.pak" />
                 </Component>
-                <Component Id="cmpD72268E58FCD8554877BD0B85FF91C1E" Guid="{F448116B-C228-42F8-9122-A714801A41A5}">
+                <Component Id="cmpD72268E58FCD8554877BD0B85FF91C1E" Guid="{A7543D38-D509-43B9-8329-66425F79B1D4}">
                     <File Id="fil1770B720DC15B4B21BBF65068E815F6C" KeyPath="yes" Source="!(wix.BinSource)\locales\sl.pak" />
                 </Component>
-                <Component Id="cmp354B19CFEA2E3FE72807A1C11087C6D8" Guid="{0E8CEF97-B72C-4811-A920-68E42A58541C}">
+                <Component Id="cmp354B19CFEA2E3FE72807A1C11087C6D8" Guid="{7496DCFA-3710-4432-8529-EF0396202292}">
                     <File Id="filB6BAA3D8B9C6B2A7EE6CD9E5296BEDCB" KeyPath="yes" Source="!(wix.BinSource)\locales\sr.pak" />
                 </Component>
-                <Component Id="cmp6A4F72250E3B5A7395E78AEBFA5EAB20" Guid="{B4631409-2DC3-44BC-B9E0-A97B91741648}">
+                <Component Id="cmp6A4F72250E3B5A7395E78AEBFA5EAB20" Guid="{4076849D-B2CD-4E05-8C89-F85A0706C61D}">
                     <File Id="fil1CD88C29A6E0558213302578ABE5492A" KeyPath="yes" Source="!(wix.BinSource)\locales\sv.pak" />
                 </Component>
-                <Component Id="cmpB36E501757BA01ADF41F6E7BE77821BA" Guid="{BF15AF30-B8C3-4E52-BCB2-4B7AECFC2204}">
+                <Component Id="cmpB36E501757BA01ADF41F6E7BE77821BA" Guid="{93B19C96-F78C-4BFF-91BA-5788DCDD6886}">
                     <File Id="fil2239302547283403A9A4FE05E7FF2D79" KeyPath="yes" Source="!(wix.BinSource)\locales\sw.pak" />
                 </Component>
-                <Component Id="cmp7C9D6B70DED6E66B5E55B3558057692F" Guid="{E1A11B9D-1988-4C2E-8C1B-66069B9D7106}">
+                <Component Id="cmp7C9D6B70DED6E66B5E55B3558057692F" Guid="{B562B2F1-7094-4615-A774-DE17524C3758}">
                     <File Id="filA099F24FFDE83777B5462A18FCC69281" KeyPath="yes" Source="!(wix.BinSource)\locales\ta.pak" />
                 </Component>
-                <Component Id="cmp82603FB2DE6F6CBEEE1F28FAA7931EF7" Guid="{66A996E6-6049-4E74-8DBE-02415C7D7AD7}">
+                <Component Id="cmp82603FB2DE6F6CBEEE1F28FAA7931EF7" Guid="{018A2BFE-6097-4F90-8CCB-BB5E3D0B0476}">
                     <File Id="fil05D500E2D7123151CCCE53B923CBF367" KeyPath="yes" Source="!(wix.BinSource)\locales\te.pak" />
                 </Component>
-                <Component Id="cmp48D734E48492345B4EDA3F4B9090DEA9" Guid="{F8A2FFD2-0B46-4AC3-A996-525D3E9CDF7B}">
+                <Component Id="cmp48D734E48492345B4EDA3F4B9090DEA9" Guid="{99C0E13A-17DA-4BF2-AC0B-E6182274952E}">
                     <File Id="fil09D233C9333D570E8C48479F4F001635" KeyPath="yes" Source="!(wix.BinSource)\locales\th.pak" />
                 </Component>
-                <Component Id="cmp86E0AB4B82952BE8B62F48E7BDB1759B" Guid="{57E6778D-D5B0-411F-919B-7A32D174E008}">
+                <Component Id="cmp86E0AB4B82952BE8B62F48E7BDB1759B" Guid="{86DA652D-50DD-4C46-9EE8-86DECDA3C4DD}">
                     <File Id="filF9BB33DB66125B277FDDB0EC15AECC8E" KeyPath="yes" Source="!(wix.BinSource)\locales\tr.pak" />
                 </Component>
-                <Component Id="cmp7EAF7ABCF776DDF059BB69E1332AE78E" Guid="{26F61844-94DF-49DF-87F5-215FDEA87525}">
+                <Component Id="cmp7EAF7ABCF776DDF059BB69E1332AE78E" Guid="{CCA426A1-7D79-4DD6-8C59-C4C8AAFD0C70}">
                     <File Id="filEB294324982B58E6E5BBF9664A5087AE" KeyPath="yes" Source="!(wix.BinSource)\locales\uk.pak" />
                 </Component>
-                <Component Id="cmp496E3B7F14F94875E0C3659F6FDA3C9A" Guid="{264FD477-D93A-4AD2-A359-CB1A15605A14}">
+                <Component Id="cmp496E3B7F14F94875E0C3659F6FDA3C9A" Guid="{35AE4B31-FA03-4853-98BA-837C66558A6B}">
                     <File Id="fil737A8E018B574890074E7899AB9A366E" KeyPath="yes" Source="!(wix.BinSource)\locales\vi.pak" />
                 </Component>
-                <Component Id="cmp8CD3F96047958FD82FFDD4654D9C6161" Guid="{DB0E53C0-B9D2-4288-B1EF-C7A88AF68BA4}">
+                <Component Id="cmp8CD3F96047958FD82FFDD4654D9C6161" Guid="{3E5CD345-EB5F-4031-A33A-2A14533761A1}">
                     <File Id="filF314F7C58AE3F65D5A49D84E38B19C10" KeyPath="yes" Source="!(wix.BinSource)\locales\zh-CN.pak" />
                 </Component>
-                <Component Id="cmpEF43E4A3519798D4FE7519BA1C9D426E" Guid="{8DF01BDA-5290-475E-881A-02167D330A64}">
+                <Component Id="cmpEF43E4A3519798D4FE7519BA1C9D426E" Guid="{94710992-D054-4E67-99D3-0B7EF0C734D6}">
                     <File Id="fil7681B955410E5343ADCDF3AFFD1BD4EF" KeyPath="yes" Source="!(wix.BinSource)\locales\zh-TW.pak" />
                 </Component>
             </Directory>
             <Directory Id="dir106421B43BA664F63324E9AAD4AD9728" Name="ru">
-                <Component Id="cmpDAD56DE387B586E6FFF1D496BF9ADBFA" Guid="{BFE52E87-0F95-402C-B516-841E7BAA8F9A}">
+                <Component Id="cmpDAD56DE387B586E6FFF1D496BF9ADBFA" Guid="{FAB181AF-A918-4A7C-B521-9645F969F598}">
                     <File Id="fil0FD4A84C810A044125918D5A82CCED10" KeyPath="yes" Source="!(wix.BinSource)\ru\System.Windows.Interactivity.resources.dll" />
                 </Component>
             </Directory>
             <Directory Id="dir6AC8B1FF97D45EDF8331F1C9319E7E98" Name="scriptcs">
-                <Component Id="cmp7FF3D0CBBEBEFBCE049CFEE126CEFC76" Guid="{CDC55767-1D8B-4B70-A908-48454ADE62A0}">
+                <Component Id="cmp7FF3D0CBBEBEFBCE049CFEE126CEFC76" Guid="{8A3566A2-9BE6-4192-9101-72D91F4EE2F6}">
                     <Class Id="{26B60252-D739-3376-AB9F-B42CB6EA3685}" Context="InprocServer32" Description="Autofac.Core.UniqueService" ThreadingModel="both" ForeignServer="mscoree.dll">
                         <ProgId Id="Autofac.Core.UniqueService" Description="Autofac.Core.UniqueService" />
                     </Class>
@@ -2752,20 +2752,20 @@
                     <RegistryValue Root="HKCR" Key="Record\{7DBDF76A-E5A2-384F-ABC3-2A68D9AB789F}\3.3.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                     <RegistryValue Root="HKCR" Key="Record\{7DBDF76A-E5A2-384F-ABC3-2A68D9AB789F}\3.3.0.0" Name="CodeBase" Value="file:///[#fil2739B55C11E9ABB4FA0FB4AC361519EA]" Type="string" Action="write" />
                 </Component>
-                <Component Id="cmpD878881A1D8F19230211FB109F1A2E8D" Guid="{38B95B28-1B5A-4224-9CDB-FA0E07144307}">
+                <Component Id="cmpD878881A1D8F19230211FB109F1A2E8D" Guid="{EA8C305A-9783-420A-810C-30565F1B8C59}">
                     <File Id="fil019656AC8FC060A972E1E1810A5500E3" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\Autofac.Integration.Mef.dll" />
                 </Component>
-                <Component Id="cmpA14BA81E0B4B06D495555794B39F7683" Guid="{EC0F1BF5-085E-4A51-918B-1ECB0DA2F679}">
+                <Component Id="cmpA14BA81E0B4B06D495555794B39F7683" Guid="{A93E69C3-4518-44FD-AB41-A85F08A9542B}">
                     <File Id="filAC4B59BD5A15060C1E4258D0380A1A6B" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\Common.Logging.Core.dll" />
                     <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="Class" Value="Common.Logging.LogLevel" Type="string" Action="write" />
                     <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="Assembly" Value="Common.Logging.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e" Type="string" Action="write" />
                     <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                     <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="CodeBase" Value="file:///[#filE111B2A517F504E59C4621C77BABA4BF]" Type="string" Action="write" />
                 </Component>
-                <Component Id="cmp1C9DED8ADF0EA818649FA6B8564E08E3" Guid="{9DB98C9F-78AA-41B8-AADD-717E9E856DA2}">
+                <Component Id="cmp1C9DED8ADF0EA818649FA6B8564E08E3" Guid="{2DA6F610-64E0-47E8-98E0-AB0AF18B9FFC}">
                     <File Id="filC924BD29EBC4D73E24A7F4DEA6811BC5" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\Common.Logging.Core.pdb" />
                 </Component>
-                <Component Id="cmp240CCE8C0801A2C5C08A5C42D0BD2968" Guid="{95792202-DF50-4596-B80C-67D54CD47B84}">
+                <Component Id="cmp240CCE8C0801A2C5C08A5C42D0BD2968" Guid="{489A8360-3957-4CE2-8926-5248EFEF3B94}">
                     <Class Id="{09B02D14-C9C6-35D7-8B48-D683C15F8B8D}" Context="InprocServer32" Description="Common.Logging.Simple.CapturingLoggerFactoryAdapter" ThreadingModel="both" ForeignServer="mscoree.dll">
                         <ProgId Id="Common.Logging.Simple.CapturingLoggerFactoryAdapter" Description="Common.Logging.Simple.CapturingLoggerFactoryAdapter" />
                     </Class>
@@ -2924,40 +2924,40 @@
                     <RegistryValue Root="HKCR" Key="CLSID\{EDAB1550-1518-39A4-921B-452CBBD68E0F}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                     <RegistryValue Root="HKCR" Key="CLSID\{EDAB1550-1518-39A4-921B-452CBBD68E0F}\InprocServer32" Name="CodeBase" Value="file:///[#fil6B28E9327B2399A6ECF129A2A24DB21B]" Type="string" Action="write" />
                 </Component>
-                <Component Id="cmp121A2419BCA6B165529FD0A6AAA81994" Guid="{A919D7BC-6060-4412-9BBE-46271C1E05BD}">
+                <Component Id="cmp121A2419BCA6B165529FD0A6AAA81994" Guid="{B5911E86-9D97-444B-BBC8-7F4A9B9A687D}">
                     <File Id="fil24F08734B129599C27D97D634263758E" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\Common.Logging.pdb" />
                 </Component>
-                <Component Id="cmpC2FEB7825C2B72A90A66F529DA41950B" Guid="{595D04AD-4DA7-452E-BB55-F313624C967F}">
+                <Component Id="cmpC2FEB7825C2B72A90A66F529DA41950B" Guid="{20D49F1E-05DC-4CEF-BFEA-9A13B30D0F16}">
                     <File Id="filA2946AA138D86972A0E8C7C6CD1715C4" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\GeneratedProgram.csx" />
                 </Component>
-                <Component Id="cmp49C1FC48B9F71A72A6AA7430ECF317D8" Guid="{29FC7B5E-AAC1-4FCA-BBF1-5A5002615421}">
+                <Component Id="cmp49C1FC48B9F71A72A6AA7430ECF317D8" Guid="{ADEDEE61-F4C2-47C5-85CC-38A13DA5AEF1}">
                     <File Id="filA043F180FCC35AD3ABBED029938F700B" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\ICSharpCode.NRefactory.CSharp.dll" />
                 </Component>
-                <Component Id="cmp0A1617B85F5EF257A8E90749155E1A19" Guid="{08D67F61-49CA-46A4-96D1-C0731E0BA6B2}">
+                <Component Id="cmp0A1617B85F5EF257A8E90749155E1A19" Guid="{5C71DB4F-76FA-45D0-A5A5-6073ADD77BD8}">
                     <File Id="fil5D71E8BA0F2DBAF08B274945AFE4C7B2" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\ICSharpCode.NRefactory.dll" />
                 </Component>
-                <Component Id="cmpEDE7EA02FDEAE1CCC9C04B9F4B6A37C0" Guid="{5DDEEEFA-B055-4EA6-B1FC-5ACA56EB79C5}">
+                <Component Id="cmpEDE7EA02FDEAE1CCC9C04B9F4B6A37C0" Guid="{76E5EFE2-558E-4D6F-9487-705A2FA0B88F}">
                     <File Id="filF79CED900731E15AAA8067756A045E3E" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\main_program.csx" />
                 </Component>
-                <Component Id="cmpCF8865906593BD6C67F381457F8049C8" Guid="{9B5154AD-ABF0-4C0F-9155-4F0B189CA484}">
+                <Component Id="cmpCF8865906593BD6C67F381457F8049C8" Guid="{8C8989D8-52D1-4B8A-9988-93D1E9BDF45F}">
                     <File Id="fil8320F429105C94200AD940079B558C88" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\Microsoft.Web.XmlTransform.dll" />
                 </Component>
-                <Component Id="cmp386F7785B7595059A4C3237D9AEC1054" Guid="{252AF3EC-BB4D-4449-B46C-85BAC440D83F}">
+                <Component Id="cmp386F7785B7595059A4C3237D9AEC1054" Guid="{2D672975-B779-494F-9D89-111BD3E9ABA0}">
                     <File Id="filD9F9E9D07BF417770C13C9A5751369CE" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\Mono.Cecil.dll" />
                 </Component>
-                <Component Id="cmp20DEC1AC4E9D75FB2219A5E4BDFCD583" Guid="{E2AE4575-D290-421A-889B-C79AAEA0535B}">
+                <Component Id="cmp20DEC1AC4E9D75FB2219A5E4BDFCD583" Guid="{0051D68F-88A3-4B6E-8C2A-69CE4C32BA52}">
                     <File Id="filF64F45FDC11D5E155BA090B75C0E987F" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\Mono.CSharp.dll" />
                 </Component>
-                <Component Id="cmpD4EBF68AF105E19ED01CDF8605E0623A" Guid="{D22FCB21-464A-4C17-913D-A8F785FFBBF7}">
+                <Component Id="cmpD4EBF68AF105E19ED01CDF8605E0623A" Guid="{89A853AA-5C11-4AAF-8A89-04724D6475DA}">
                     <File Id="filCE1DC3D18ADEB3CE0659B560445112C4" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\Newtonsoft.Json.dll" />
                 </Component>
-                <Component Id="cmpCADD4A85D07B72AC3672A5B86AEEE4C6" Guid="{61FA7406-82C9-44B7-BDF7-72E2708FAE3F}">
+                <Component Id="cmpCADD4A85D07B72AC3672A5B86AEEE4C6" Guid="{3C66F1D8-A409-406E-9081-2FB22A921048}">
                     <File Id="fil2D898BC3C0EE0FF75842804C55CB8024" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\NuGet.Core.dll" />
                 </Component>
-                <Component Id="cmp930C93D97ED6E76533B795F908AB0681" Guid="{73A8C450-27EB-4348-BFCF-7EF565827772}">
+                <Component Id="cmp930C93D97ED6E76533B795F908AB0681" Guid="{F7D430AC-76D5-4847-ACFB-4E1272F02D13}">
                     <File Id="fil35211888C4C2274CC956826E3B67C5DB" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\PowerArgs.dll" />
                 </Component>
-                <Component Id="cmpA17EEBEC07059F378B3FA92F78B89A5D" Guid="{CE1F68F1-BB55-4E1F-A1B5-1B294222B2D4}">
+                <Component Id="cmpA17EEBEC07059F378B3FA92F78B89A5D" Guid="{4097D786-4B05-4F53-8C6E-13E75545EDD1}">
                     <File Id="fil496D4987CD31E28981D3DA95F6D36800" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\Roslyn.Compilers.CSharp.dll" />
                     <RegistryValue Root="HKCR" Key="Record\{1E288A04-014B-3002-B60A-5772E5B99005}\1.2.0.0" Name="Class" Value="Roslyn.Compilers.CSharp.TypedConstant" Type="string" Action="write" />
                     <RegistryValue Root="HKCR" Key="Record\{1E288A04-014B-3002-B60A-5772E5B99005}\1.2.0.0" Name="Assembly" Value="Roslyn.Compilers.CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Type="string" Action="write" />
@@ -3100,7 +3100,7 @@
                     <RegistryValue Root="HKCR" Key="Record\{E9B21D87-BFD5-3C66-A782-E27A18921CB5}\1.2.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                     <RegistryValue Root="HKCR" Key="Record\{E9B21D87-BFD5-3C66-A782-E27A18921CB5}\1.2.0.0" Name="CodeBase" Value="file:///[#fil496D4987CD31E28981D3DA95F6D36800]" Type="string" Action="write" />
                 </Component>
-                <Component Id="cmp4A9C458958C5D0A01A811A0FB37244AE" Guid="{121C17E1-747C-4D47-BC65-2F7A340DC7F6}">
+                <Component Id="cmp4A9C458958C5D0A01A811A0FB37244AE" Guid="{5A4C0C75-E5A3-4626-BD7F-A418EF459C73}">
                     <Class Id="{DC23D4B4-7D9F-3726-B0F9-8EBE9A661C57}" Context="InprocServer32" Description="Roslyn.Compilers.SyntaxAnnotation" ThreadingModel="both" ForeignServer="mscoree.dll">
                         <ProgId Id="Roslyn.Compilers.SyntaxAnnotation" Description="Roslyn.Compilers.SyntaxAnnotation" />
                     </Class>
@@ -3403,124 +3403,124 @@
                     <RegistryValue Root="HKCR" Key="Record\{FA99FF89-9D54-38EE-AB01-AF2B2DCBC20E}\1.2.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                     <RegistryValue Root="HKCR" Key="Record\{FA99FF89-9D54-38EE-AB01-AF2B2DCBC20E}\1.2.0.0" Name="CodeBase" Value="file:///[#filD7E62F14473C69909FA0635945D2315D]" Type="string" Action="write" />
                 </Component>
-                <Component Id="cmp35B5C98CCEB6FCE3D32A29CBDD35555F" Guid="{3886E570-7BE7-4C96-835E-964903A3AC01}">
+                <Component Id="cmp35B5C98CCEB6FCE3D32A29CBDD35555F" Guid="{CFA5564B-BFFD-47A4-B885-92BC8CD06055}">
                     <File Id="filD28AEACCFC1C3DBB3CF0B12C26C7EE13" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\ScriptCs.Contracts.dll" />
                 </Component>
-                <Component Id="cmpA0F029392AA4FCCFF052C268C0D94890" Guid="{A59C8B84-BD34-4B07-8B7A-44BA7764F53F}">
+                <Component Id="cmpA0F029392AA4FCCFF052C268C0D94890" Guid="{4350D30C-61EB-40BA-8E90-CF73E38287C5}">
                     <File Id="fil84B1E03FB7D7A591AD27BD250E9C42CE" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\ScriptCs.Contracts.pdb" />
                 </Component>
-                <Component Id="cmp1AC2EDF06F272135928BDA8A81DBDAD8" Guid="{76EA8C7E-A990-40AE-A104-DD2AC16754CD}">
+                <Component Id="cmp1AC2EDF06F272135928BDA8A81DBDAD8" Guid="{91C6DCE5-0C24-4A44-BDCF-ACDD82610928}">
                     <File Id="fil19E365630738DE84CC237B61CC4D2B4D" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\ScriptCs.Core.dll" />
                 </Component>
-                <Component Id="cmpCDD950D1D77AB157C4C4AC12BEA2D125" Guid="{7BA2CE8D-E680-4876-B1F2-C20F0BA3D770}">
+                <Component Id="cmpCDD950D1D77AB157C4C4AC12BEA2D125" Guid="{C5EE91B7-0040-434F-82DE-DE9C165F1163}">
                     <File Id="filDFFB4FE0DB2E4EBD12679B96BFB61C86" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\ScriptCs.Core.pdb" />
                 </Component>
-                <Component Id="cmpAE6E67856AC78A27BA931CA0E0B8B592" Guid="{FF0EA681-CA13-4795-8FA9-14F3C21E44C7}">
+                <Component Id="cmpAE6E67856AC78A27BA931CA0E0B8B592" Guid="{8CD9AD4F-328C-4FED-BE4C-AAA88842366B}">
                     <File Id="filC9AC3E2B967A1A7143F09F558EB6E5CF" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\ScriptCs.Engine.Mono.dll" />
                 </Component>
-                <Component Id="cmpAF53C731F0C67A034D6B52A131440545" Guid="{E9F21FC7-5971-4ED3-9C9D-45A398FA70CA}">
+                <Component Id="cmpAF53C731F0C67A034D6B52A131440545" Guid="{8B6AED71-6053-411E-A20B-FDA0424D783E}">
                     <File Id="fil563C7B2BFBE36BBC61DC0D111D206BBD" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\ScriptCs.Engine.Mono.pdb" />
                 </Component>
-                <Component Id="cmpA4AFAF1E35C4BA696C3D3DFA4BD2C94A" Guid="{1D21FB5D-6250-4E1C-ABD9-2ECA4654FBC3}">
+                <Component Id="cmpA4AFAF1E35C4BA696C3D3DFA4BD2C94A" Guid="{ABC2DA2C-CA69-45C8-B581-262189F79945}">
                     <File Id="filE660FACC1DB2F62BC76CB3772ED9D110" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\ScriptCs.Engine.Roslyn.dll" />
                 </Component>
-                <Component Id="cmpCDE656F8E886C38F2A034A435ACD5C82" Guid="{3FE6D29F-36D8-425A-8A35-D08A62FFF825}">
+                <Component Id="cmpCDE656F8E886C38F2A034A435ACD5C82" Guid="{850A2FAB-AF87-4803-A6E1-660F3ADC7988}">
                     <File Id="filCB826A034B96C4B98FDF173E984DE9F9" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\ScriptCs.Engine.Roslyn.pdb" />
                 </Component>
-                <Component Id="cmpFC6D5154E37A98FBD36493BC10B08D6C" Guid="{71B3069F-BA0C-422F-81AE-31A5CFA71C8D}">
+                <Component Id="cmpFC6D5154E37A98FBD36493BC10B08D6C" Guid="{5D139BBF-F1B6-485B-B570-061078E1F3C5}">
                     <File Id="fil47EF27643754E3AFC8364B0C54468893" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs.exe" />
                 </Component>
-                <Component Id="cmpBD2E10B062250B162FA64318FB267DB2" Guid="{6E23CF4E-C0E9-4CE3-BD27-84473C6E8932}">
+                <Component Id="cmpBD2E10B062250B162FA64318FB267DB2" Guid="{267FC90F-36CB-4960-8FD6-1C5C00DFF2CE}">
                     <File Id="filEFFDE79B40A035992743F1508C32188B" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs.exe.config" />
                 </Component>
-                <Component Id="cmp39348A55E79A6B0BA8369A4D5BF1F027" Guid="{AF611C3C-F7CD-45A3-9129-848A66AD5FD1}">
+                <Component Id="cmp39348A55E79A6B0BA8369A4D5BF1F027" Guid="{30776ECB-16A1-4A69-9869-B7FF340878B5}">
                     <File Id="fil5E4F631DF86B4C23FF2551C889C47018" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\ScriptCs.Hosting.dll" />
                 </Component>
-                <Component Id="cmp9F6053AE545CC0ABE471659C8F3AC4F7" Guid="{6AA866E2-741C-4065-A4BA-E07EE63F7A81}">
+                <Component Id="cmp9F6053AE545CC0ABE471659C8F3AC4F7" Guid="{C9D8F87D-9353-454E-826F-0D6601042F33}">
                     <File Id="fil8F8C7979FCCBC518F8A06A8D78F0EBFD" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\ScriptCs.Hosting.pdb" />
                 </Component>
-                <Component Id="cmp655DC5CF7D2A350C6451BA060486DACC" Guid="{05E04AD7-5E6E-414F-BFC8-196941F0E18E}">
+                <Component Id="cmp655DC5CF7D2A350C6451BA060486DACC" Guid="{5DD53F97-22ED-4F2C-8BA2-5841FA4A3C0A}">
                     <File Id="filA18E51C184586E6FFABFC797121B9C5B" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs.pdb" />
                 </Component>
-                <Component Id="cmpE42BF7C12C72E2BCD838E30A616B2756" Guid="{E67E625B-8127-4357-8002-DA550C922C3A}">
+                <Component Id="cmpE42BF7C12C72E2BCD838E30A616B2756" Guid="{E1C903F5-5166-4975-86EA-3BCE84A9C222}">
                     <File Id="fil39B41CA37D6BBFF1E78DF373201A5161" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs.vshost.exe" />
                 </Component>
-                <Component Id="cmp29C628D7AE97C77469A1186614AFA86B" Guid="{1C4391E7-BC41-4E02-9092-E93F861E802A}">
+                <Component Id="cmp29C628D7AE97C77469A1186614AFA86B" Guid="{2DC64886-9FD8-496A-96F0-0F681BF384E6}">
                     <File Id="fil558EF204A779245D4D4EB6F6B7247DEB" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs.vshost.exe.config" />
                 </Component>
                 <Directory Id="dirA87F6D8305ED0A1EC84E6032941B1E26" Name="log">
-                    <Component Id="cmp8B8AC385EA4681E34BF547C98472F8B7" Guid="{015158FD-7158-45C2-84F1-29C275DE6BE5}">
+                    <Component Id="cmp8B8AC385EA4681E34BF547C98472F8B7" Guid="{7CCD8264-CF3A-4E28-A1B8-58305442C98A}">
                         <File Id="fil8218B6A0C7745A5D5ECB1466DC8B4C88" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\log\ProgramAnalytics.csv" />
                     </Component>
                     <Directory Id="dir025127DE9569C7D38345F55EB34332F0" Name="programs">
-                        <Component Id="cmpD0EEF983043C389E0EC1D85BFF0C82FF" Guid="{ACDE60F3-BA65-4519-B358-86CA848D8F18}">
+                        <Component Id="cmpD0EEF983043C389E0EC1D85BFF0C82FF" Guid="{7D8B9D35-7DFC-4FDF-B025-862C39E6BBF0}">
                             <File Id="fil78EC89EB59EB3B590A2521AEB00286F4" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\log\programs\20150722164134.csx" />
                         </Component>
-                        <Component Id="cmp01ED47B7D031719A5CB044F6D366CA4C" Guid="{1A1C1437-1EFA-4645-9D56-2B138E536126}">
+                        <Component Id="cmp01ED47B7D031719A5CB044F6D366CA4C" Guid="{89BA4284-7E77-4357-A97C-789E3A477279}">
                             <File Id="fil3C2A9ACA2942CFC062B4FE1B2B0779B6" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\log\programs\20150722164234.csx" />
                         </Component>
-                        <Component Id="cmp9A8FFC49F6BB73EA5A451025D6D7E8C5" Guid="{0EDAC703-8D9E-463F-A66C-E36AD437AF73}">
+                        <Component Id="cmp9A8FFC49F6BB73EA5A451025D6D7E8C5" Guid="{370FE3D9-8680-4D0E-9D6B-D665E55B5E4A}">
                             <File Id="fil776BE919FBFA5319D82FABE5A1AFBE96" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\log\programs\20150722164417.csx" />
                         </Component>
-                        <Component Id="cmp9ABD2C0FF89E5BF8DA81D65EEFAA5494" Guid="{24C68DF8-67F6-4A90-809C-C2A5C486D962}">
+                        <Component Id="cmp9ABD2C0FF89E5BF8DA81D65EEFAA5494" Guid="{35AB7D63-9AFF-46DA-A1EE-6BA3E821A746}">
                             <File Id="filE3E18B89C836BF6B8424B0CA96D90C72" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\log\programs\20150722164644.csx" />
                         </Component>
-                        <Component Id="cmp4EC26CF6C4C8464BD9F231A9A1D652BB" Guid="{B7DB3520-1289-48E9-B09F-571D6DE04A2F}">
+                        <Component Id="cmp4EC26CF6C4C8464BD9F231A9A1D652BB" Guid="{0CAE2F28-3FF5-4A5D-AFE8-DDA34FBE24BF}">
                             <File Id="filFEAE33729CAE9BFA2DD25BBD33D7067E" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\log\programs\20150722164731.csx" />
                         </Component>
-                        <Component Id="cmp7C35190DF7F010367DD70785F1AF4213" Guid="{4F61F678-6C42-4CBE-A1B5-14A357393B6D}">
+                        <Component Id="cmp7C35190DF7F010367DD70785F1AF4213" Guid="{4AD2016F-8733-4F4C-9981-DECD603DAD98}">
                             <File Id="fil0C0F0E681CC628FBDA11FAC39BAE0648" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\log\programs\20150722164927.csx" />
                         </Component>
-                        <Component Id="cmpB4E0AFC9DFDE9F7217F5ECD9968970D0" Guid="{E8682BC2-47F8-4C73-9C76-1D52D008FE3F}">
+                        <Component Id="cmpB4E0AFC9DFDE9F7217F5ECD9968970D0" Guid="{6D7950A4-297E-48D1-9C8F-FECB8048453F}">
                             <File Id="fil3DDA063E1D38A456EE52CA3AC921BD10" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\log\programs\20150722165033.csx" />
                         </Component>
-                        <Component Id="cmp6DEECE4F471DD4A460F27EE363D31450" Guid="{C544C270-298E-48EE-A020-07297EFB55A9}">
+                        <Component Id="cmp6DEECE4F471DD4A460F27EE363D31450" Guid="{679DEF89-B1AA-4B5E-AD4B-29481D568A95}">
                             <File Id="fil07D517DBC43400985C5A3641A671AC87" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\log\programs\20150722165725.csx" />
                         </Component>
-                        <Component Id="cmp93A90F4FDCC05782C246A821DEAF76AD" Guid="{8FDE88C2-413E-45B8-BEAB-625CD9C5C706}">
+                        <Component Id="cmp93A90F4FDCC05782C246A821DEAF76AD" Guid="{36B017EF-7E34-404F-BAF4-83ADBF7D0F87}">
                             <File Id="fil6EE2E5FC5EB8071A7788DD0338FF0830" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\log\programs\20150722165946.csx" />
                         </Component>
-                        <Component Id="cmpDDC94DFA9E7F5962A9EBC2732EBFEE05" Guid="{B70C1B3E-DCB1-4385-B5AF-35A64ECCCDB4}">
+                        <Component Id="cmpDDC94DFA9E7F5962A9EBC2732EBFEE05" Guid="{1B9DD055-89C0-41E1-867F-3A101489BBF6}">
                             <File Id="filDDAEADEB27CB8FF46232AF47BBF0F8DF" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\log\programs\20150722170043.csx" />
                         </Component>
-                        <Component Id="cmp88FAC89B0127D7850752C0F922178F1A" Guid="{08C61247-F410-45DB-87B7-8CBA3E78F07E}">
+                        <Component Id="cmp88FAC89B0127D7850752C0F922178F1A" Guid="{5ECBAEBD-92B8-4227-A41E-0B6484371BDC}">
                             <File Id="fil3C818571A711512E0EF477B3473DFED5" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\log\programs\20150722170759.csx" />
                         </Component>
-                        <Component Id="cmpE5F711EFB240174076143EDCCCEAE8A8" Guid="{0E52E388-4131-4268-A502-87D40D778A2C}">
+                        <Component Id="cmpE5F711EFB240174076143EDCCCEAE8A8" Guid="{64E5702A-4C98-4766-B22F-3815E6239699}">
                             <File Id="filB9665E9102CC21B46578C96B4DE7C685" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\log\programs\20150722172046.csx" />
                         </Component>
-                        <Component Id="cmp68B855C3DBB0454115736C9C4F99274C" Guid="{D25CF4F5-2CDA-4C8C-A37B-AFEBBE1DCF94}">
+                        <Component Id="cmp68B855C3DBB0454115736C9C4F99274C" Guid="{CCF16C79-29D1-403D-B16D-F0717E17336C}">
                             <File Id="filD45459E4DF2AE8B276C282163663AFFD" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\log\programs\20150722172142.csx" />
                         </Component>
-                        <Component Id="cmp6C033E394AFEAE2670670EE56D801CA6" Guid="{8AC6F95F-B45B-4ECD-9528-F91340C398C4}">
+                        <Component Id="cmp6C033E394AFEAE2670670EE56D801CA6" Guid="{F48E9C8D-B518-4CA6-BD9B-823BBC3D77CA}">
                             <File Id="fil6B8C20F2B9AC5E02A70A173D4D7E07E3" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\log\programs\20150724123512.csx" />
                         </Component>
-                        <Component Id="cmpF61ABF4D9F05CEF9BF617585664E09F1" Guid="{732F6F59-9C5A-458C-A6D0-F179A411355B}">
+                        <Component Id="cmpF61ABF4D9F05CEF9BF617585664E09F1" Guid="{98478372-2FFB-479B-B350-6CD1127EE22F}">
                             <File Id="fil0BBFF6FDCC12FD7A39107D1594A62FF3" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\log\programs\20150724144320.csx" />
                         </Component>
-                        <Component Id="cmp3330F54C05D35FB89C990895BBA0DE30" Guid="{857BFEA9-51F6-4BBE-B744-76A1CE639914}">
+                        <Component Id="cmp3330F54C05D35FB89C990895BBA0DE30" Guid="{47E9F486-10FF-4281-9B15-9E9F39B4C552}">
                             <File Id="filEBAD05D07983001B683BFADE8B2C48FB" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\log\programs\20150724150647.csx" />
                         </Component>
                     </Directory>
                 </Directory>
                 <Directory Id="dirF8F58026C2D7ED27859F5098C0B591F6" Name="scriptcs_bin">
-                    <Component Id="cmp82277A21A63252D6EE610A310777A70A" Guid="{CB7307A0-9BF9-4FA2-8756-0E25B1EAEA4B}">
+                    <Component Id="cmp82277A21A63252D6EE610A310777A70A" Guid="{0A8CDB82-1949-4A91-86E1-78EFA61F568C}">
                         <File Id="fil1B734A5C3FF1563490FD17F666DE16F1" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\AsyncIO.dll" />
                     </Component>
-                    <Component Id="cmp15174E5D8A446002C4E179E683844316" Guid="{A56AAD14-5604-4E7D-96AC-BBC8A0E3A5E0}">
+                    <Component Id="cmp15174E5D8A446002C4E179E683844316" Guid="{C55855FC-9487-44B3-A74D-29E43B9CD7D2}">
                         <File Id="fil915F3759AF69FD9CE066BB358BE2C67E" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\Common.Logging.Core.dll" />
                         <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="Class" Value="Common.Logging.LogLevel" Type="string" Action="write" />
                         <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="Assembly" Value="Common.Logging.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e" Type="string" Action="write" />
                         <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                         <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="CodeBase" Value="file:///[#filE111B2A517F504E59C4621C77BABA4BF]" Type="string" Action="write" />
                     </Component>
-                    <Component Id="cmp979C47AB15EA766DC96A537076D0E79F" Guid="{680702CA-D382-4F74-ACDD-527E4F54839A}">
+                    <Component Id="cmp979C47AB15EA766DC96A537076D0E79F" Guid="{54043EF4-7537-4A10-B562-FFAEAB56C278}">
                         <File Id="fil006E5B75D89DE0597A79CC2F70B7E3B2" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\Common.Logging.Core.pdb" />
                     </Component>
-                    <Component Id="cmp50472D94EEA340EE6B8608FF14D3794D" Guid="{4DB666BE-8BAD-4558-B178-6B1448A3C1CE}">
+                    <Component Id="cmp50472D94EEA340EE6B8608FF14D3794D" Guid="{05F276A5-C8DB-4519-844C-8249CEFB3C70}">
                         <File Id="fil6F4440A0051F48E6FB9990B84ADB3B4C" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\Common.Logging.Core.xml" />
                     </Component>
-                    <Component Id="cmp63297D7F9027CDFC1C7771B28B0F3B97" Guid="{5BF73165-B09E-4E62-BFC3-4ED5CA6D6D09}">
+                    <Component Id="cmp63297D7F9027CDFC1C7771B28B0F3B97" Guid="{27FE48FF-FEE1-40FB-92CF-5192D0248211}">
                         <Class Id="{09B02D14-C9C6-35D7-8B48-D683C15F8B8D}" Context="InprocServer32" Description="Common.Logging.Simple.CapturingLoggerFactoryAdapter" ThreadingModel="both" ForeignServer="mscoree.dll">
                             <ProgId Id="Common.Logging.Simple.CapturingLoggerFactoryAdapter" Description="Common.Logging.Simple.CapturingLoggerFactoryAdapter" />
                         </Class>
@@ -3679,93 +3679,93 @@
                         <RegistryValue Root="HKCR" Key="CLSID\{EDAB1550-1518-39A4-921B-452CBBD68E0F}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                         <RegistryValue Root="HKCR" Key="CLSID\{EDAB1550-1518-39A4-921B-452CBBD68E0F}\InprocServer32" Name="CodeBase" Value="file:///[#fil6B28E9327B2399A6ECF129A2A24DB21B]" Type="string" Action="write" />
                     </Component>
-                    <Component Id="cmp853894AB937170BF0CF41724A89A3B6D" Guid="{77A9EA6C-DA52-49D9-A06C-B186BBEF5EA6}">
+                    <Component Id="cmp853894AB937170BF0CF41724A89A3B6D" Guid="{1103469B-85EF-444D-85D7-F0EF87CA8205}">
                         <File Id="fil1BAD4C1D0E5EEE051368EAE0742AD9B9" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\Common.Logging.pdb" />
                     </Component>
-                    <Component Id="cmp510F03174F70D35A48B75B10429B972F" Guid="{262F7A80-9ABC-40BE-A087-1AE9DAD6E97A}">
+                    <Component Id="cmp510F03174F70D35A48B75B10429B972F" Guid="{8D88F149-3CDD-46A8-B34B-17779C6E3D0C}">
                         <File Id="filFF455723F008E0058066EA7ED14EE592" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\Common.Logging.xml" />
                     </Component>
-                    <Component Id="cmpFDEF181A1FD93B4BB7EE67CC25CD51A4" Guid="{A3542F5F-6BC1-4A6D-A0AE-73A6444A5B2A}">
+                    <Component Id="cmpFDEF181A1FD93B4BB7EE67CC25CD51A4" Guid="{89BA09BC-E908-4015-A6F8-BB108C1D95F5}">
                         <File Id="fil6501A3E99D0DF11BB009E888B3401771" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\CsvHelper.dll" />
                     </Component>
-                    <Component Id="cmpA5F6B9BFA43C477C971A0826895CDD06" Guid="{2E20C607-F3F4-49EB-8D61-98A5045A5793}">
+                    <Component Id="cmpA5F6B9BFA43C477C971A0826895CDD06" Guid="{E39F9569-2C05-4921-9753-7450A3AB3EEE}">
                         <File Id="fil7C5B52748148DC9838435B804BBC5453" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\CsvHelper.pdb" />
                     </Component>
-                    <Component Id="cmp97B5F92231614FFD28B66974250B89B5" Guid="{0DA87316-7F0A-4C1C-B6F6-2C00F7D3F80A}">
+                    <Component Id="cmp97B5F92231614FFD28B66974250B89B5" Guid="{6714E80B-2223-4B07-9365-F91C5A2E6910}">
                         <File Id="fil6AA929EF34ED7C9AD8D9F177CEDC7DC9" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\CsvHelper.xml" />
                     </Component>
-                    <Component Id="cmp3014DD2399FA444E773F7F740ED689DE" Guid="{D37AAFFB-681B-4C96-B87B-5375E73A5E73}">
+                    <Component Id="cmp3014DD2399FA444E773F7F740ED689DE" Guid="{EB438775-7B9B-4EE4-A75E-A3A654990A37}">
                         <File Id="fil5E1B0817AF389F3E1A0AE9B91EBCDE2B" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\Indriya.Core.BehaviorEngine.dll" />
                     </Component>
-                    <Component Id="cmpFAC0AEAB4FA15D5AE5C5C1E4668AC652" Guid="{82740620-ABA4-45F9-B934-162AF238D8B9}">
+                    <Component Id="cmpFAC0AEAB4FA15D5AE5C5C1E4668AC652" Guid="{A30BE04C-501C-453F-92D2-637740ABB959}">
                         <File Id="fil20C31DA9C87AAE5287A5FE07F48C6207" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\Indriya.Core.BehaviorEngine.dll.config" />
                     </Component>
-                    <Component Id="cmp352BFCA1A7E0808A9A64646709D64F74" Guid="{EC4102F5-793B-42B0-A7A8-C23E48E7019B}">
+                    <Component Id="cmp352BFCA1A7E0808A9A64646709D64F74" Guid="{8C8D22AE-5561-447C-B703-03ED2996D883}">
                         <File Id="fil9615F86414DCEF310F012A449D318EDC" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\Indriya.Core.BehaviorEngine.pdb" />
                     </Component>
-                    <Component Id="cmp97E9C2871EFC19DE96B653D9C33C13BB" Guid="{77C508E6-335D-41BE-9E05-57429E30588B}">
+                    <Component Id="cmp97E9C2871EFC19DE96B653D9C33C13BB" Guid="{FB5F62D3-FFFD-4C81-9979-A23F5C0A82A2}">
                         <File Id="filCCBB3BF154520B3FD14CB277C6A3FC1F" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\Indriya.Core.dll" />
                     </Component>
-                    <Component Id="cmpD7047A617FB9510CB5333FF81DC16F84" Guid="{14890136-AE57-4FFB-8FA2-55FC3CBFE3F5}">
+                    <Component Id="cmpD7047A617FB9510CB5333FF81DC16F84" Guid="{B1AD1E98-48E2-48F2-BA31-103AC3C18728}">
                         <File Id="filC7B3CD1BB2C4A0E212737656780E6731" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\Indriya.Core.Msgs.dll" />
                     </Component>
-                    <Component Id="cmpC17445FDE68346E4465DABF87C809038" Guid="{F08373EA-AC05-4BE1-BD4B-F56A652F3BE9}">
+                    <Component Id="cmpC17445FDE68346E4465DABF87C809038" Guid="{647A6C05-5D67-4B4A-AA4F-89CBD6E76635}">
                         <File Id="filA9BCBE4AD56AE1988070D1326128E256" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\Indriya.Core.Msgs.pdb" />
                     </Component>
-                    <Component Id="cmp47C9DAEC7E930A8D8CFD4DD6526155F0" Guid="{C4777DCB-71B2-4ADD-AC1C-94D598C1551F}">
+                    <Component Id="cmp47C9DAEC7E930A8D8CFD4DD6526155F0" Guid="{CFA663E8-44B6-4D07-825D-303CB5A850B9}">
                         <File Id="fil6AEDFD8FE8D80F26BF283ABE338DB942" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\Indriya.Core.pdb" />
                     </Component>
-                    <Component Id="cmp4FC48DF33CEE4914B7E81C43F67830BE" Guid="{428C53B5-13C0-4E63-95BF-45F3248C82F1}">
+                    <Component Id="cmp4FC48DF33CEE4914B7E81C43F67830BE" Guid="{5FA4392B-385B-459F-9DD5-7408EFA54BEC}">
                         <File Id="fil7AD49199B384B59747DA5A4CD85A5664" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\NCalc.dll" />
                     </Component>
-                    <Component Id="cmp69E2A55D82909E696FA581F7F234A8D4" Guid="{3C6D0616-1136-41F1-AA32-A554D8C50429}">
+                    <Component Id="cmp69E2A55D82909E696FA581F7F234A8D4" Guid="{DB827210-FCA7-462B-9039-53035155569C}">
                         <File Id="filE60AB63E1014C53B5DC7FA8F1BCDD103" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\NetMQ.dll" />
                     </Component>
-                    <Component Id="cmp36CF8900A2B282AD08185328F558C248" Guid="{5C173D31-776C-40F8-8456-5D024A44D7DA}">
+                    <Component Id="cmp36CF8900A2B282AD08185328F558C248" Guid="{B3A6F45A-86F8-4E34-876A-E383056653DF}">
                         <File Id="filED3DC2B7C8A504BCAD30B247F4296E7F" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\Newtonsoft.Json.dll" />
                     </Component>
-                    <Component Id="cmp253C1F1960D923AB597A66F405B17E94" Guid="{F9CCAE68-D143-4FDD-8A46-AF138A69830E}">
+                    <Component Id="cmp253C1F1960D923AB597A66F405B17E94" Guid="{D5278C75-E89A-412D-9B97-FC19E989C097}">
                         <File Id="fil1F6F5C1805FBC88FEEACD0FBFB12DA38" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\Newtonsoft.Json.xml" />
                     </Component>
-                    <Component Id="cmpC4D82554B2FB796B78CC31906BA0D069" Guid="{0A4FE840-EBF4-4C24-9924-46BBB2EA4D53}">
+                    <Component Id="cmpC4D82554B2FB796B78CC31906BA0D069" Guid="{48DD5674-DB75-4FFD-83B3-5D580F23779D}">
                         <File Id="filF64A5611A0FDCD6DA354EADBBBAB9890" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\protobuf-net.dll" />
                     </Component>
-                    <Component Id="cmpE26F42659026A4AA84C0BBA7E6E47E8E" Guid="{BA686DFD-7B0A-45F0-84C7-77719212D59F}">
+                    <Component Id="cmpE26F42659026A4AA84C0BBA7E6E47E8E" Guid="{45A84178-3896-4E93-9329-7FFC34A7BBBF}">
                         <File Id="fil0A46A10B24752AC568FB103A64764ED0" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\protobuf-net.pdb" />
                     </Component>
-                    <Component Id="cmpB34943D5BCC9C8444980311BCC77B052" Guid="{6D2A6526-DC48-4610-B215-50EA0803FB39}">
+                    <Component Id="cmpB34943D5BCC9C8444980311BCC77B052" Guid="{421D6E8B-B830-49E0-B4E5-2DBE58DC4729}">
                         <File Id="filBDB9804C2711A3DA22AB9B5EBB7AF60F" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\protobuf-net.xml" />
                     </Component>
-                    <Component Id="cmp4990BC664E2CCD29861A88C0DF0CAD3F" Guid="{FAE6F2EB-4B44-4759-8798-A4FA75D3A76C}">
+                    <Component Id="cmp4990BC664E2CCD29861A88C0DF0CAD3F" Guid="{B7775892-FD12-4D9B-A98A-7725DDCF5F1B}">
                         <File Id="fil245062ED72D96A2028267AB7841CEBC1" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\Quartz.dll" />
                     </Component>
-                    <Component Id="cmp383EDAEF77F9F2E95714C01DFCF263D6" Guid="{0306228D-FEF2-4256-A9AB-F3076F18815C}">
+                    <Component Id="cmp383EDAEF77F9F2E95714C01DFCF263D6" Guid="{0F4515D9-93B7-43E4-930D-3229EBE355C1}">
                         <File Id="fil0FA76E2639CB8ABAD281BEEF8C36CE4B" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\Quartz.pdb" />
                     </Component>
-                    <Component Id="cmpB766DD2FC2509762AAEE1CFF817FFB9A" Guid="{C29C1493-5D68-4A79-A0C4-B7F6592EC1A9}">
+                    <Component Id="cmpB766DD2FC2509762AAEE1CFF817FFB9A" Guid="{CF8770D7-C9A8-4F1A-8605-8A7D7188BD54}">
                         <File Id="fil25D6FE81778E8DE0DB04278D7F7FCBB1" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\Quartz.xml" />
                     </Component>
-                    <Component Id="cmp436B9AB10CF97C2810F725298A771DC1" Guid="{E1539B74-4CC2-41FB-BD2D-8E963937E02F}">
+                    <Component Id="cmp436B9AB10CF97C2810F725298A771DC1" Guid="{DC9848D0-2AEE-4322-BC29-277BD1298E1F}">
                         <File Id="filF0FA3451101FEFDC4B1A6656FC35C33C" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\SharpDX.dll" />
                     </Component>
-                    <Component Id="cmp79F9E05FF35664A001BB81C4DA54994A" Guid="{588B157C-6481-4AE8-A368-C1DE14358FA5}">
+                    <Component Id="cmp79F9E05FF35664A001BB81C4DA54994A" Guid="{DDAFAD1E-D931-4ED6-8F99-559DACF9C1E7}">
                         <File Id="filCB94BABF231FAB1C7F791E6CD0368AEF" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\SharpDX.Mathematics.dll" />
                     </Component>
-                    <Component Id="cmp663D8C920A5E649756CCB839C1935B9C" Guid="{1D1F67FB-1846-44ED-BBAC-FFEB19A81C1C}">
+                    <Component Id="cmp663D8C920A5E649756CCB839C1935B9C" Guid="{CE1E1570-4DF7-45E1-9792-2FCDA2F1B376}">
                         <File Id="fil016DD59D5815606DD695579005691BF1" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\SharpDX.Mathematics.xml" />
                     </Component>
-                    <Component Id="cmp1FC1DF9EC9E09A26E4A13CE1DAF754F5" Guid="{E92B6FB5-2D6E-4BA3-8A96-8AB86505C03A}">
+                    <Component Id="cmp1FC1DF9EC9E09A26E4A13CE1DAF754F5" Guid="{8EB1ADB9-AC6F-4D94-8071-A516DE1E2ED2}">
                         <File Id="filDAC2536DCFD1619B55D7EC7FD8BCB257" KeyPath="yes" Source="!(wix.BinSource)\scriptcs\scriptcs_bin\SharpDX.xml" />
                     </Component>
                 </Directory>
             </Directory>
             <Directory Id="dir4BD021E1800EB4F504E59D389CA3446C" Name="zh-Hans">
-                <Component Id="cmp4B151C9791CB22DD26A05B3ED2D9D359" Guid="{D4A72EFF-5920-4629-A382-BA07019D6AFB}">
+                <Component Id="cmp4B151C9791CB22DD26A05B3ED2D9D359" Guid="{0D7C96DE-5236-4952-BA4B-A02638A2F754}">
                     <File Id="fil25319AB247715891E676D327F41CBEBA" KeyPath="yes" Source="!(wix.BinSource)\zh-Hans\System.Windows.Interactivity.resources.dll" />
                 </Component>
             </Directory>
             <Directory Id="dir82A2A26A4735FE7F16BFDDCC4CE99562" Name="zh-Hant">
-                <Component Id="cmpC5D5AD1E1D424F444A258202C4128FD9" Guid="{BA60E611-4D56-436B-A109-A481688AEC49}">
+                <Component Id="cmpC5D5AD1E1D424F444A258202C4128FD9" Guid="{7D6E60CD-A7E8-48EC-8709-4517BD5454C3}">
                     <File Id="fil74EC876EADFF3BB646051933BA538021" KeyPath="yes" Source="!(wix.BinSource)\zh-Hant\System.Windows.Interactivity.resources.dll" />
                 </Component>
             </Directory>

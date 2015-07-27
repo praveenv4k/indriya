@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="DATA">
+            <Directory Id="dir621E4AEC50C733F7D47E9CAFBD21B26B" Name="calib">
+                <Component Id="cmpEB1F3AAFEC39FC47AAB77C5FCCC65799" Guid="{5E405D84-07B0-48C0-B3A0-8E564C6C3BFA}">
+                    <File Id="filA7C7DBE3797FD7482E5F5BD667F4A644" KeyPath="yes" Source="!(wix.DataSource)\calib\camera_calibration_kinect_1600.xml" />
+                </Component>
+                <Component Id="cmp613BDFBF4952EC9DDDF47B41F472F37B" Guid="{02809937-4428-449F-8D02-919C05599220}">
+                    <File Id="fil59516EE36A1EC783FDCA3BA511E13BF7" KeyPath="yes" Source="!(wix.DataSource)\calib\camera_calibration_kinect_1600_al.xml" />
+                </Component>
+                <Component Id="cmp303A06B0D27B6FB9BB6205F5E917ECB1" Guid="{DA3C2A59-9545-4640-BF03-461A7A42FF29}">
+                    <File Id="fil668EF07D41F2BE5815BA839D48E5A7CF" KeyPath="yes" Source="!(wix.DataSource)\calib\camera_calibration_kinect_1600_old.xml" />
+                </Component>
+                <Component Id="cmpB619ED43F5499D0CE379B12091FADCDF" Guid="{EA1778F3-81A8-472F-AA08-4DFABDB67E43}">
+                    <File Id="filD8AD7DB5AE1835DF42BA3A1988F9D8EC" KeyPath="yes" Source="!(wix.DataSource)\calib\out_camera_data.yml" />
+                </Component>
+                <Component Id="cmpF9849CEB8BB36FE8A352675FABF00474" Guid="{38B77B2F-EE42-49FF-9DEE-FA9EDEA694E7}">
+                    <File Id="filDDBEE83291E5B42293413E0D0E4E4FBF" KeyPath="yes" Source="!(wix.DataSource)\calib\out_camera_data_first.yml" />
+                </Component>
+                <Component Id="cmpEF5D0D38B1751E99467A452AA5C6DDC5" Guid="{D59591DD-4126-4BC7-AE15-4892B1C0FED5}">
+                    <File Id="filF9CD4EF4F8818BBE37E4E448013E7055" KeyPath="yes" Source="!(wix.DataSource)\calib\sample_opencv_calib.xml" />
+                </Component>
+            </Directory>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="Data">
+            <ComponentRef Id="cmpEB1F3AAFEC39FC47AAB77C5FCCC65799" />
+            <ComponentRef Id="cmp613BDFBF4952EC9DDDF47B41F472F37B" />
+            <ComponentRef Id="cmp303A06B0D27B6FB9BB6205F5E917ECB1" />
+            <ComponentRef Id="cmpB619ED43F5499D0CE379B12091FADCDF" />
+            <ComponentRef Id="cmpF9849CEB8BB36FE8A352675FABF00474" />
+            <ComponentRef Id="cmpEF5D0D38B1751E99467A452AA5C6DDC5" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>
