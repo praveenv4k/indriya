@@ -148,17 +148,20 @@ namespace Indriya.Kinect.Perception
                 contentGrid.Children.Add(contentControl);
             }
 
-            if (_kBodyPub == null)
+            if (node == null)
             {
-                _kBodyPub = new KinectBodyPublisher();
-            }
-            if (_humanPub == null)
-            {
-                _humanPub = new HumanPosePublisher();
-            }
-            if (_naoJoints == null)
-            {
-                _naoJoints = new NaoJointPublisher();
+                if (_kBodyPub == null)
+                {
+                    _kBodyPub = new KinectBodyPublisher();
+                }
+                if (_humanPub == null)
+                {
+                    _humanPub = new HumanPosePublisher();
+                }
+                if (_naoJoints == null)
+                {
+                    _naoJoints = new NaoJointPublisher();
+                }
             }
         }
 

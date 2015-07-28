@@ -287,6 +287,43 @@ namespace Indriya.Core.BehaviorEngine
         public bool Active { get; set; }
         public bool HumanInLoop { get; set; }
         public int HumanId { get; set; }
+
+        public static TriggerResult operator |(TriggerResult t1, TriggerResult t2)
+        {
+            var ret = new TriggerResult();
+            if (t1 != null && t2 != null)
+            {
+                ret.Active = t1.Active | t2.Active;
+                ret.HumanInLoop = t1.HumanInLoop | t2.HumanInLoop;
+                ret.HumanId = t1.HumanInLoop ? t1.HumanId : t2.HumanInLoop ? t2.HumanId : -1;
+            }
+            return ret;
+        }
+
+        public static TriggerResult operator &(TriggerResult t1, TriggerResult t2)
+        {
+            var ret = new TriggerResult() {HumanId = -1};
+            if (t1 != null && t2 != null)
+            {
+                ret.Active = t1.Active & t2.Active;
+                ret.HumanInLoop = t1.HumanInLoop & t2.HumanInLoop;
+                if (ret.HumanInLoop)
+                {
+                    ret.HumanId = t1.HumanInLoop ? t1.HumanId : t2.HumanInLoop ? t2.HumanId : -1;
+                }
+            }
+            return ret;
+        }
+
+        public static bool operator false(TriggerResult t)
+        {
+            return false;
+        }
+
+        public static bool operator true(TriggerResult t)
+        {
+            return false;
+        }
     }
 
     public delegate bool CheckTriggerDelegate(IBehaviorExecutionContext context, out TriggerResult result);

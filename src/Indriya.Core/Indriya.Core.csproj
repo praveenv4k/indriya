@@ -51,7 +51,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>Experimot.snk</AssemblyOriginatorKeyFile>
@@ -67,6 +67,10 @@
     </Reference>
     <Reference Include="Common.Logging.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Common.Logging.Core.3.2.0\lib\net40\Common.Logging.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Deedle, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Deedle.1.2.3\lib\net40\Deedle.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NetMQ, Version=3.3.0.12, Culture=neutral, PublicKeyToken=a6decef4ddc58b3a, processorArchitecture=MSIL">
@@ -94,7 +98,7 @@
     <Compile Include="Data\BehaviorState.cs" />
     <Compile Include="Data\Context.cs" />
     <Compile Include="Data\ExecutionRequest.cs" />
-    <Compile Include="Data\ExperimotMsgsExtenstions.cs" />
+    <Compile Include="Data\IndriyaMsgsExtenstions.cs" />
     <Compile Include="Data\Gesture.cs" />
     <Compile Include="Data\GestureArgs.cs" />
     <Compile Include="Data\GestureConfidenceData.cs" />

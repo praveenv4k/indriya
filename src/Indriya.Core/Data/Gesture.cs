@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Indriya.Core.Properties;
 using Indriya.Core.Msgs;
+using Deedle;
 
 namespace Indriya.Core.Data
 {
@@ -12,6 +13,7 @@ namespace Indriya.Core.Data
     /// </summary>
     public class Gesture : INotifyPropertyChanged
     {
+        private readonly SeriesBuilder<long, int> _gestureSeries;
         private string _name;
         private GestureMode _gestureMode;
         private bool _active;
@@ -48,6 +50,7 @@ namespace Indriya.Core.Data
                 {GestureConfidenceLevels.Better, new GestureConfidenceData(GestureConfidenceLevels.Better)},
                 {GestureConfidenceLevels.Best, new GestureConfidenceData(GestureConfidenceLevels.Best)},
             };
+            _gestureSeries = new SeriesBuilder<long, int>();
         }
 
         /// <summary>
@@ -89,7 +92,7 @@ namespace Indriya.Core.Data
                 Active = trigger.active;
                 Confidence = trigger.confidence;
                 Progress = trigger.progress;
-
+                _gestureSeries.Add(DateTime.Now.Ticks, trigger.confidence);
                 UpdateConfidenceLevels(Confidence);
             }
         }

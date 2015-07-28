@@ -87,10 +87,10 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false" name="gesture_recognition">
+    <node enabled="true" name="gesture_recognition">
       <process>
         <type>executable</type>
-        <path>%INDRIYA_ROOT%\bin\nodes\Indriya.Kinect.Perception\Indriya.Kinect.Perception.exe</path>
+        <path>%INDRIYA_ROOT%\bin\Indriya.Kinect.Perception.exe</path>
         <args></args>
       </process>
       <parameters>

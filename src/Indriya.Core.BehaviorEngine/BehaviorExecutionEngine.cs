@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Remoting.Messaging;
 using Common.Logging;
 using CsvHelper;
 using Quartz;
@@ -187,8 +188,16 @@ namespace Indriya.Core.BehaviorEngine
 
         private TriggerResult CheckTrigger(Type cyclicBehavior)
         {
+            //bool ret = ((Func<bool>) (() =>
+            //{
+            //    return true;
+            //}))() | ((Func<bool>)(() =>
+            //{
+            //    return false;
+            //}))();
             return InvokeGenericMethod<TriggerResult>(cyclicBehavior, "CheckTrigger",
                 new BehaviorExecutionContext(_contextServer));
+
         }
 
         public void ExecuteCyclicBehavior2()

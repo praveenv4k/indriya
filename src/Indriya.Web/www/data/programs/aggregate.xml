@@ -1,0 +1,18 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_composable_simple" id="1" inline="false" x="88" y="88">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="trigger" id="2">
+        <field name="MOTION_TRIGGER">HumanDetected</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="debug_print" id="7">
+        <field name="DEBUG_STRING">This is a debug string</field>
+      </block>
+    </statement>
+  </block>
+</xml>

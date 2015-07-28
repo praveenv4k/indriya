@@ -89,6 +89,7 @@ Blockly.CSharp['behavior_simple'] = function(block) {
 Blockly.CSharp['behavior_composable'] = function(block) {
     var textBehaviorName = block.getFieldValue('behavior_name');
     var trigger = Blockly.CSharp.valueToCode(this, 'trigger', Blockly.CSharp.ORDER_ATOMIC);
+    trigger = 'result = ' + trigger + ';';
     var initDo = Blockly.CSharp.statementToCode(block, 'INIT_DO');
     var statementsDo = Blockly.CSharp.statementToCode(block, 'DO');
     var exitDo = Blockly.CSharp.statementToCode(block, 'EXIT_DO');
@@ -152,6 +153,7 @@ Blockly.CSharp['behavior_composable'] = function(block) {
 Blockly.CSharp['behavior_composable_simple'] = function(block) {
     var textBehaviorName = block.getFieldValue('behavior_name');
     var trigger = Blockly.CSharp.valueToCode(this, 'trigger', Blockly.CSharp.ORDER_ATOMIC);
+    trigger = 'result = ' + trigger + ';';
     var statementsDo = Blockly.CSharp.statementToCode(block, 'DO');
 
     var dropdownPriorities = block.getFieldValue('priorities');
@@ -498,19 +500,39 @@ Blockly.CSharp['therapy_action'] = function(block) {
     return genCode;
 };
 
-Blockly.CSharp['trigger'] = function (block) {
+Blockly.CSharp['trigger'] = function(block) {
     var trigger = block.getFieldValue('MOTION_TRIGGER');
 
-    var genCode = 'var gestureInfoList = context.GetGestureInfoList(\"' + trigger + '\");\n' +
-        'var gestureInfo = gestureInfoList.FirstOrDefault(s=>s.Confidence > 80);\n'+
-        'if (gestureInfo.Active && gestureInfo.Confidence > 80)\n' +
-        '{\n' +
-        'Console.WriteLine("Gesture trigger received : {0} - {1}", gestureInfo.Name, gestureInfo.Confidence);\n' +
-        'result.HumanId = gestureInfo.HumanId;\n' +
-        'result.HumanInLoop = true;\n' +
-        'result.Active = true;\n' +
-        '}\n';
-    return [genCode, Blockly.CSharp.ORDER_ATOMIC];
+    //var genCode = 'var gestureInfoList = context.GetGestureInfoList(\"' + trigger + '\");\n' +
+    //    'var gestureInfo = gestureInfoList.FirstOrDefault(s=>s.Confidence > 80);\n'+
+    //    'if (gestureInfo.Active && gestureInfo.Confidence > 80)\n' +
+    //    '{\n' +
+    //    'Console.WriteLine("Gesture trigger received : {0} - {1}", gestureInfo.Name, gestureInfo.Confidence);\n' +
+    //    'result.HumanId = gestureInfo.HumanId;\n' +
+    //    'result.HumanInLoop = true;\n' +
+    //    'result.Active = true;\n' +
+    //    '}\n';
+    //((Func<bool>) (() =>
+    //        //{
+    //        //    return true;
+    //        //}))()
+
+    var code = [];
+    code.push('((Func<TriggerResult>) (() => {');
+    code.push('var ret = new TriggerResult(){Active = false};');
+    code.push('var gestureInfoList = context.GetGestureInfoList(\"' + trigger + '\");');
+    code.push('var gestureInfo = gestureInfoList.FirstOrDefault(s=>s.Confidence > 80);');
+    code.push('if (gestureInfo.Active && gestureInfo.Confidence > 80)');
+    code.push('{');
+    code.push('Console.WriteLine("Gesture trigger received : {0} - {1}", gestureInfo.Name, gestureInfo.Confidence);');
+    code.push('ret.HumanId = gestureInfo.HumanId;');
+    code.push('ret.HumanInLoop = true;');
+    code.push('ret.Active = true;');
+    code.push('}');
+    code.push('return ret;');
+    code.push('}))()');
+    return [code.join('\n'), Blockly.CSharp.ORDER_ATOMIC];
+    //return [genCode, Blockly.CSharp.ORDER_ATOMIC];
 };
 
 Blockly.CSharp['voice_trigger'] = function (block) {
@@ -613,4 +635,15 @@ Blockly.CSharp['parallel_execute'] = function(block) {
     code.push('Task.WaitAll(' + listVarName + '.ToArray());');
     code.push('System.Console.WriteLine("Parallel action execution complete");');
     return code.join('\n');
+};
+
+Blockly.CSharp['trigger_logic_operation'] = function (block) {
+    // Operations 'and', 'or'.
+    var operator = (block.getFieldValue('OP') == 'AND') ? '&' : '|';
+    var order = (operator == '&') ? Blockly.CSharp.ORDER_LOGICAL_AND :
+        Blockly.CSharp.ORDER_LOGICAL_OR;
+    var argument0 = Blockly.CSharp.valueToCode(block, 'A', order) || 'false';
+    var argument1 = Blockly.CSharp.valueToCode(block, 'B', order) || 'false';
+    var code = argument0 + ' ' + operator + ' ' + argument1;
+    return [code, order];
 };

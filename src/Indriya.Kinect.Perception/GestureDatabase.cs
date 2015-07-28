@@ -5,12 +5,14 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Common.Logging;
 using Microsoft.Kinect.VisualGestureBuilder;
 
 namespace Indriya.Kinect.Perception
 {
     public class GestureDatabase
     {
+        private static readonly ILog Log = LogManager.GetLogger<GestureDatabase>();
         private readonly List<Gesture> _gestures;
         private readonly Dictionary<string, ImageSource> _gestureImageDict;
 
@@ -24,6 +26,7 @@ namespace Indriya.Kinect.Perception
                 {
                     foreach (var gesture in database.AvailableGestures)
                     {
+                        Log.InfoFormat("Adding gesture from db : {0}", gesture.Name);
                         _gestures.Add(gesture);
                         string uri = string.Concat("Images\\", gesture.Name, ".png");
                         if (CanLoadResource(new Uri(uri, UriKind.Relative)))

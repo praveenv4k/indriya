@@ -3,7 +3,7 @@
     /// <summary>
     /// Message extension class
     /// </summary>
-    public static class ExperimotMsgsExtenstions
+    public static class IndriyaMsgsExtenstions
     {
         /// <summary>
         /// To convert a Vector3d object to string
