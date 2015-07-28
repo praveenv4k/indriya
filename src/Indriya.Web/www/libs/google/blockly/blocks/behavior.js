@@ -116,7 +116,12 @@ Blockly.Blocks.behaviors.StandardBehaviors =
 Blockly.Blocks.behaviors.Robots =
 [
     ["Hiro", 'Hiro'],
-    ["Taro", 'Taro']
+    ["Taro", 'Taro'],
+    ["Orange", 'Orange'],
+    ["Gray", 'Gray'],
+    ["Silver", 'Silver'],
+    ["Macaroon", 'Macaroon'],
+    ["Spring", 'Spring']
 ];
 
 Blockly.Blocks.behaviors.VoiceProperties =

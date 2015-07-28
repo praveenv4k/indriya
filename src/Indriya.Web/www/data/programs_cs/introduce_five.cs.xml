@@ -1,0 +1,67 @@
+// ReSharper disable RedundantUsingDirective
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+// Main Behavior Program
+
+using Indriya.Core.BehaviorEngine;
+
+public class StartupBehavior : IExecuteOnceBehavior
+{
+    public void Execute(IBehaviorExecutionContext context)
+    {
+        // STARTUP_BLOCK
+          var var_67c7421c_1673_f140_be1c_eaa3b91fded0= new BehaviorInfo
+  {
+  BehaviorName = "Say Expressively",
+  RobotName = "Orange",Parameters = new Dictionary<string, object>
+  {
+  {"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Hello, I am orange!", true, "string")}
+  }
+  };
+
+  BehaviorModuleHelper.Execute(context, var_67c7421c_1673_f140_be1c_eaa3b91fded0);
+  var var_add5bde3_4b27_2919_8b34_aa0b2f678478= new BehaviorInfo
+  {
+  BehaviorName = "Say Expressively",
+  RobotName = "Gray",Parameters = new Dictionary<string, object>
+  {
+  {"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Hello, I am gray!", true, "string")}
+  }
+  };
+
+  BehaviorModuleHelper.Execute(context, var_add5bde3_4b27_2919_8b34_aa0b2f678478);
+  var var_0514780d_7a1d_c7fe_ad89_44660e85813c= new BehaviorInfo
+  {
+  BehaviorName = "Say Expressively",
+  RobotName = "Macaroon",Parameters = new Dictionary<string, object>
+  {
+  {"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Hello, I am macaroon!", true, "string")}
+  }
+  };
+
+  BehaviorModuleHelper.Execute(context, var_0514780d_7a1d_c7fe_ad89_44660e85813c);
+  var var_c459bdc8_d521_74f9_bbf6_3e6f63b5a56b= new BehaviorInfo
+  {
+  BehaviorName = "Say Expressively",
+  RobotName = "Spring",Parameters = new Dictionary<string, object>
+  {
+  {"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Hello, I am spring!", true, "string")}
+  }
+  };
+
+  BehaviorModuleHelper.Execute(context, var_c459bdc8_d521_74f9_bbf6_3e6f63b5a56b);
+  var var_6807ea04_1ee2_b938_a3f7_9b085d89c6ad= new BehaviorInfo
+  {
+  BehaviorName = "Say Expressively",
+  RobotName = "Silver",Parameters = new Dictionary<string, object>
+  {
+  {"msg", BehaviorModuleHelper.CreateBehaviorParameterOptions("Hello, I am silver!", true, "string")}
+  }
+  };
+
+  BehaviorModuleHelper.Execute(context, var_6807ea04_1ee2_b938_a3f7_9b085d89c6ad);
+
+    }
+}

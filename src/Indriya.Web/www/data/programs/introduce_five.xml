@@ -1,0 +1,34 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_startup" id="2" x="163" y="163">
+    <statement name="DO">
+      <block type="animated_say_action" id="39">
+        <field name="SAY_TEXT">Hello, I am orange!</field>
+        <field name="ROBOT">Orange</field>
+        <next>
+          <block type="animated_say_action" id="40">
+            <field name="SAY_TEXT">Hello, I am gray!</field>
+            <field name="ROBOT">Gray</field>
+            <next>
+              <block type="animated_say_action" id="42">
+                <field name="SAY_TEXT">Hello, I am macaroon!</field>
+                <field name="ROBOT">Macaroon</field>
+                <next>
+                  <block type="animated_say_action" id="43">
+                    <field name="SAY_TEXT">Hello, I am spring!</field>
+                    <field name="ROBOT">Spring</field>
+                    <next>
+                      <block type="animated_say_action" id="41">
+                        <field name="SAY_TEXT">Hello, I am silver!</field>
+                        <field name="ROBOT">Silver</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
