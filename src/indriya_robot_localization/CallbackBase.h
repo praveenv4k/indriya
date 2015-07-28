@@ -9,9 +9,10 @@
 #include <typeinfo>
 #include <vector>
 #include <sstream>
-#include <pcl/pcl_macros.h>
-#include <pcl/io/boost.h>
-#include <pcl/exceptions.h>
+//#include <pcl/pcl_macros.h>
+//#include <pcl/io/boost.h>
+//#include <pcl/exceptions.h>
+#include <boost\signals2.hpp>
 
 class CallbackBase
 {
