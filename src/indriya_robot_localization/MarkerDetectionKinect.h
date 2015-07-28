@@ -14,7 +14,7 @@
 #include "NaoHeadTransformHelper.h"
 #include "Indriya\Common\Common.h"
 #include "KinectPcl\Kinect2_PCL.h"
-#include "CallbackBase.h"
+#include "Indriya\Common\CallbackBase.h"
 #include "RobotPoseInfo.h"
 #include "Kinect_Filtering.h"
 

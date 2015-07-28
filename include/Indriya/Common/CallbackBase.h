@@ -1,4 +1,4 @@
-#include <pcl/pcl_config.h>
+//#include <pcl/pcl_config.h>
 
 #ifndef __CALLBACK_BASE_H__
 #define __CALLBACK_BASE_H__

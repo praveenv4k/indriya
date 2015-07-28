@@ -49,6 +49,7 @@
 #include <boost\program_options.hpp>
 #include <Indriya\Common\ParameterClient.h>
 #include <Indriya\Common\ParameterHelper.h>
+#include <Indriya\Common\CallbackBase.h>
 #include <boost\signals2.hpp>
 
 boost::atomic<bool> done(false);
@@ -145,10 +146,8 @@ void orInitEnvironment(EnvironmentBasePtr penv, std::string& scenefilename, std:
 }
 
 template <typename T>
-class MessageSubscriber
+class MessageSubscriber :CallbackBase
 {
-protected:
-	boost::signals2::signal<signal_indriya_message>* signal_message;
 private:
 	ZmqContextPtr m_pContext;
 	ZmqSocketPtr m_pSocket;
@@ -195,10 +194,15 @@ public:
 		m_strAddr = ss.str();
 	}
 
+	~MessageSubscriber(){
+		disconnect_all_slots<signal_indriya_message>();
+	}
+
 
 	void Initialize()
 	{
 		InitZmq();
+		signal_message = createSignal<signal_indriya_message>();
 	}
 
 	void Terminate()
@@ -206,29 +210,28 @@ public:
 		TerminateZmq();
 	}
 
-	virtual void Update(T msg)
-	{
-		Publish(msg);
+	virtual void Spin(){
+
 	}
 
+	virtual void Update(T msg)
+	{
+		ReceiveMsg(msg);
+		if (signal_message->num_slots() > 0) {
+			signal_message->operator()(msg);
+		}
+	}
+protected:
+	boost::signals2::signal<signal_indriya_message>* signal_message;
 protected:
 	virtual bool IsValid(T msg)
 	{
-		if (msg != NULL)
-		{
-			return true;
-		}
-		return false;
+		return true;
 	}
 
-	virtual void Publish(T msg){
-		if (msg != NULL && m_pSocket != 0 && IsValid(msg))
+	virtual void ReceiveMsg(T msg){
+		if (m_pSocket != 0 && IsValid(msg))
 		{
-			std::string str;
-			msg->SerializeToString(&str);
-			if (s_sendmore(*m_pSocket, m_strTopic)){
-				s_send(*m_pSocket, str);
-			}
 		}
 	}
 };
@@ -925,6 +928,11 @@ typedef boost::shared_ptr<KinectStateListener> KinectStateListenerPtr;
 typedef boost::shared_ptr<TorsoPoseListener> TorsoPoseListenerPtr;
 typedef boost::shared_ptr<HumanPoseListener> HumanPoseListenerPtr;
 
+void dummyFn(const Node& something)
+{
+	
+}
+
 int main(int argc, char ** argv)
 {
 	try{
@@ -968,7 +976,9 @@ int main(int argc, char ** argv)
 			pKinectListener = KinectStateListenerPtr(new KinectStateListener());
 			pHumanPoseListener = HumanPoseListenerPtr(new HumanPoseListener());
 		}
-		MessagePublisher<Node> nodePub("", 0, "");
+		//MessageSubscriber<Node> nodePub("", 0, "");
+		//boost::function<void(const Node&)> fn2(boost::bind(dummyFn, _1));
+		//nodePub.registerCallback(fn2);
 		RaveInitialize(true); // start openrave core
 		EnvironmentBasePtr penv = RaveCreateEnvironment(); // create the main environment
 		RaveSetDebugLevel(Level_Info);

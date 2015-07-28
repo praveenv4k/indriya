@@ -65,9 +65,6 @@
     <ClInclude Include="MarkerDetectionKinect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CallbackBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Kinect_Filtering.h">
       <Filter>Header Files</Filter>
     </ClInclude>

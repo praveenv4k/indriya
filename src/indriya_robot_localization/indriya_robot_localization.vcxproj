@@ -106,7 +106,6 @@
     </Xml>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CallbackBase.h" />
     <ClInclude Include="Kinect_Filtering.h" />
     <ClInclude Include="LocalizationKinect.h" />
     <ClInclude Include="LocalizationResponder.h" />
