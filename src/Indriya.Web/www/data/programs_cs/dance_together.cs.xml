@@ -1,0 +1,133 @@
+// ReSharper disable RedundantUsingDirective
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+// Main Behavior Program
+
+using Indriya.Core.BehaviorEngine;
+
+public class StartupBehavior : IExecuteOnceBehavior
+{
+    public void Execute(IBehaviorExecutionContext context)
+    {
+        // STARTUP_BLOCK
+          var var_12a4f609_bfcc_157e_8f19_2a4bbf6a3106 = new List<Task>();
+  var var_196540fc_52e8_3822_b4ce_7036464c953c = new Action( () =>
+  {
+    var var_c21a124a_6e8e_7759_85ef_f3da4380391d= new BehaviorInfo{BehaviorName = "Stand",RobotName = "Hiro"};
+
+    BehaviorModuleHelper.Execute(context, var_c21a124a_6e8e_7759_85ef_f3da4380391d);
+
+  });
+  var_12a4f609_bfcc_157e_8f19_2a4bbf6a3106.Add(Task.Run(var_196540fc_52e8_3822_b4ce_7036464c953c));
+  var var_205d1d91_459a_a3ee_95de_fe4fb6cb4637 = new Action( () =>
+  {
+    var var_0489a046_84aa_711c_b2c5_e16dcfad0ba7= new BehaviorInfo{BehaviorName = "Stand",RobotName = "Taro"};
+
+    BehaviorModuleHelper.Execute(context, var_0489a046_84aa_711c_b2c5_e16dcfad0ba7);
+
+  });
+  var_12a4f609_bfcc_157e_8f19_2a4bbf6a3106.Add(Task.Run(var_205d1d91_459a_a3ee_95de_fe4fb6cb4637));
+  var var_a420a108_b148_316a_9c08_538b27abebde = new Action( () =>
+  {
+    var var_1a2e630e_ded5_2fd2_b5dd_ae033974540f= new BehaviorInfo{BehaviorName = "Stand",RobotName = "Orange"};
+
+    BehaviorModuleHelper.Execute(context, var_1a2e630e_ded5_2fd2_b5dd_ae033974540f);
+
+  });
+  var_12a4f609_bfcc_157e_8f19_2a4bbf6a3106.Add(Task.Run(var_a420a108_b148_316a_9c08_538b27abebde));
+  var var_aa2edece_df48_7ef1_aae4_c4ae9ee2370c = new Action( () =>
+  {
+    var var_48df0506_d530_e9b8_9256_8faa13bf8255= new BehaviorInfo{BehaviorName = "Stand",RobotName = "Gray"};
+
+    BehaviorModuleHelper.Execute(context, var_48df0506_d530_e9b8_9256_8faa13bf8255);
+
+  });
+  var_12a4f609_bfcc_157e_8f19_2a4bbf6a3106.Add(Task.Run(var_aa2edece_df48_7ef1_aae4_c4ae9ee2370c));
+  var var_b15c65d4_790e_8393_8c33_8a1733b95a30 = new Action( () =>
+  {
+    var var_bd2e56cb_17d1_ff67_b393_50581b22fda8= new BehaviorInfo{BehaviorName = "Stand",RobotName = "Silver"};
+
+    BehaviorModuleHelper.Execute(context, var_bd2e56cb_17d1_ff67_b393_50581b22fda8);
+
+  });
+  var_12a4f609_bfcc_157e_8f19_2a4bbf6a3106.Add(Task.Run(var_b15c65d4_790e_8393_8c33_8a1733b95a30));
+  var var_09d1ab96_0462_8e85_88a4_5307ad9efad7 = new Action( () =>
+  {
+    var var_83ccd6c0_ed1b_6a35_b119_226e898adde1= new BehaviorInfo{BehaviorName = "Stand",RobotName = "Macaroon"};
+
+    BehaviorModuleHelper.Execute(context, var_83ccd6c0_ed1b_6a35_b119_226e898adde1);
+
+  });
+  var_12a4f609_bfcc_157e_8f19_2a4bbf6a3106.Add(Task.Run(var_09d1ab96_0462_8e85_88a4_5307ad9efad7));
+  var var_6eb20b7f_9707_9a93_87e2_86cba50ac935 = new Action( () =>
+  {
+    var var_e1ca2ceb_4599_4235_b829_a1f865b74e0b= new BehaviorInfo{BehaviorName = "Stand",RobotName = "Spring"};
+
+    BehaviorModuleHelper.Execute(context, var_e1ca2ceb_4599_4235_b829_a1f865b74e0b);
+
+  });
+  var_12a4f609_bfcc_157e_8f19_2a4bbf6a3106.Add(Task.Run(var_6eb20b7f_9707_9a93_87e2_86cba50ac935));
+  Task.WaitAll(var_12a4f609_bfcc_157e_8f19_2a4bbf6a3106.ToArray());
+  System.Console.WriteLine("Parallel action execution complete");var var_411a3bf7_4ea3_3da1_8ea0_92619aeda664 = new List<Task>();
+  var var_c7572496_d4aa_08e8_af02_08179d7a69da = new Action( () =>
+  {
+    var var_3928832f_5014_bd94_be22_3d2181e8ea01= new BehaviorInfo{BehaviorName = "Dance",RobotName = "Hiro"};
+
+    BehaviorModuleHelper.Execute(context, var_3928832f_5014_bd94_be22_3d2181e8ea01);
+
+  });
+  var_411a3bf7_4ea3_3da1_8ea0_92619aeda664.Add(Task.Run(var_c7572496_d4aa_08e8_af02_08179d7a69da));
+  var var_bd38f025_4dca_966c_917c_d29bd29440c0 = new Action( () =>
+  {
+    var var_3e00ae38_8be7_b06c_9099_557d6fb2cef4= new BehaviorInfo{BehaviorName = "Dance",RobotName = "Taro"};
+
+    BehaviorModuleHelper.Execute(context, var_3e00ae38_8be7_b06c_9099_557d6fb2cef4);
+
+  });
+  var_411a3bf7_4ea3_3da1_8ea0_92619aeda664.Add(Task.Run(var_bd38f025_4dca_966c_917c_d29bd29440c0));
+  var var_1f2b067e_99c8_92af_8e00_9af525e84e8e = new Action( () =>
+  {
+    var var_27751409_fdd7_2752_8119_f856ef7f7fb4= new BehaviorInfo{BehaviorName = "Dance",RobotName = "Orange"};
+
+    BehaviorModuleHelper.Execute(context, var_27751409_fdd7_2752_8119_f856ef7f7fb4);
+
+  });
+  var_411a3bf7_4ea3_3da1_8ea0_92619aeda664.Add(Task.Run(var_1f2b067e_99c8_92af_8e00_9af525e84e8e));
+  var var_f53e8ae4_4720_e9ae_b7ce_22141ab3a957 = new Action( () =>
+  {
+    var var_f1ba46ac_1cc0_7dcc_97f6_469325bf0ac8= new BehaviorInfo{BehaviorName = "Dance",RobotName = "Gray"};
+
+    BehaviorModuleHelper.Execute(context, var_f1ba46ac_1cc0_7dcc_97f6_469325bf0ac8);
+
+  });
+  var_411a3bf7_4ea3_3da1_8ea0_92619aeda664.Add(Task.Run(var_f53e8ae4_4720_e9ae_b7ce_22141ab3a957));
+  var var_3364fd5a_b7b2_4f9d_ac1d_2e2bc4a36103 = new Action( () =>
+  {
+    var var_a2627fdd_891e_60ba_8b99_383992dfdb5d= new BehaviorInfo{BehaviorName = "Dance",RobotName = "Silver"};
+
+    BehaviorModuleHelper.Execute(context, var_a2627fdd_891e_60ba_8b99_383992dfdb5d);
+
+  });
+  var_411a3bf7_4ea3_3da1_8ea0_92619aeda664.Add(Task.Run(var_3364fd5a_b7b2_4f9d_ac1d_2e2bc4a36103));
+  var var_1a7d0305_6ab5_908c_997e_a7729f42f249 = new Action( () =>
+  {
+    var var_143cb327_b62b_7c8d_8018_d268d1562fc7= new BehaviorInfo{BehaviorName = "Dance",RobotName = "Macaroon"};
+
+    BehaviorModuleHelper.Execute(context, var_143cb327_b62b_7c8d_8018_d268d1562fc7);
+
+  });
+  var_411a3bf7_4ea3_3da1_8ea0_92619aeda664.Add(Task.Run(var_1a7d0305_6ab5_908c_997e_a7729f42f249));
+  var var_c2b01fba_5b4c_4097_a6fc_09ad7de5037c = new Action( () =>
+  {
+    var var_11dd4436_e0c4_a706_a1f7_798abefa2ddd= new BehaviorInfo{BehaviorName = "Dance",RobotName = "Spring"};
+
+    BehaviorModuleHelper.Execute(context, var_11dd4436_e0c4_a706_a1f7_798abefa2ddd);
+
+  });
+  var_411a3bf7_4ea3_3da1_8ea0_92619aeda664.Add(Task.Run(var_c2b01fba_5b4c_4097_a6fc_09ad7de5037c));
+  Task.WaitAll(var_411a3bf7_4ea3_3da1_8ea0_92619aeda664.ToArray());
+  System.Console.WriteLine("Parallel action execution complete");
+    }
+}
