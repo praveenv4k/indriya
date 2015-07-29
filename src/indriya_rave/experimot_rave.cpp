@@ -950,11 +950,11 @@ typedef boost::shared_ptr<RobotStateListener> RobotStateListenerPtr;
 typedef boost::shared_ptr<KinectStateListener> KinectStateListenerPtr;
 typedef boost::shared_ptr<TorsoPoseListener> TorsoPoseListenerPtr;
 typedef boost::shared_ptr<HumanPoseListener> HumanPoseListenerPtr;
-typedef boost::shared_ptr<MessageSubscriber<Indriya::Core::Msgs::Humans>> MessageSubscriberPtr;
+typedef boost::shared_ptr<MessageSubscriber<Indriya::Core::Msgs::KinectBodies>> MessageSubscriberPtr;
 
-void dummyFn(const Indriya::Core::Msgs::Humans& humans)
+void dummyFn(const Indriya::Core::Msgs::KinectBodies& bodies)
 {
-	if (humans.human_size() > 0){
+	if (bodies.body_size() > 0){
 		std::cout << "Invoked from callback" << std::endl;
 	}
 }
@@ -996,7 +996,7 @@ int main(int argc, char ** argv)
 				}
 				if (sub.msg_type() == "KinectBodies"){
 					pKinectListener = KinectStateListenerPtr(new KinectStateListener(sub.host(), sub.port(), sub.topic()));
-					pMessageSubscriber = MessageSubscriberPtr(new MessageSubscriber<Indriya::Core::Msgs::Humans>(sub.host(), sub.port(), sub.topic()));
+					pMessageSubscriber = MessageSubscriberPtr(new MessageSubscriber<Indriya::Core::Msgs::KinectBodies>(sub.host(), sub.port(), sub.topic()));
 				}
 				if (sub.msg_type() == "Humans"){
 					pHumanPoseListener = HumanPoseListenerPtr(new HumanPoseListener(sub.host(), sub.port(), sub.topic(), humanTorsoBaseModel));
@@ -1032,9 +1032,9 @@ int main(int argc, char ** argv)
 		boost::thread thTorsoSubscriber(boost::bind(&TorsoPoseListener::Listen, pTorsoPoseListener, penv));
 		boost::thread thHumanSubscriber(boost::bind(&HumanPoseListener::Listen, pHumanPoseListener, penv));
 
-		boost::function<void(const Indriya::Core::Msgs::Humans&)> fn2(boost::bind(dummyFn, _1));
-		pMessageSubscriber->registerCallback(fn2);
+		boost::function<void(const Indriya::Core::Msgs::KinectBodies&)> fn2(boost::bind(dummyFn, _1));
 		pMessageSubscriber->Initialize();
+		pMessageSubscriber->registerCallback(fn2);
 		pMessageSubscriber->Run(100, 100);
 
 		thviewer.join(); // wait for the viewer thread to exit
