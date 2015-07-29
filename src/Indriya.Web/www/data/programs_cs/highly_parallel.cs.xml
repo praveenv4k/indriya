@@ -1,0 +1,61 @@
+// ReSharper disable RedundantUsingDirective
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+// Main Behavior Program
+
+using Indriya.Core.BehaviorEngine;
+
+public class StartupBehavior : IExecuteOnceBehavior
+{
+    public void Execute(IBehaviorExecutionContext context)
+    {
+        // STARTUP_BLOCK
+          var var_9800b16b_98bb_9c0d_92ae_3a5058d67970 = new List<Task>();
+  var var_9c1a408d_c60a_67fa_8337_215b728562fa = new Action( () =>
+  {
+    System.Console.WriteLine("This is a debug string 1");
+
+  });
+  var_9800b16b_98bb_9c0d_92ae_3a5058d67970.Add(Task.Run(var_9c1a408d_c60a_67fa_8337_215b728562fa));
+  var var_5298504a_fd15_3034_bbbd_3ffd6e93b790 = new Action( () =>
+  {
+    System.Console.WriteLine("This is a debug string 2");
+
+  });
+  var_9800b16b_98bb_9c0d_92ae_3a5058d67970.Add(Task.Run(var_5298504a_fd15_3034_bbbd_3ffd6e93b790));
+  var var_630b4a63_a376_0912_90ed_7e14da483d86 = new Action( () =>
+  {
+    System.Console.WriteLine("This is a debug string 3");
+
+  });
+  var_9800b16b_98bb_9c0d_92ae_3a5058d67970.Add(Task.Run(var_630b4a63_a376_0912_90ed_7e14da483d86));
+  var var_03b8c2e7_b3b8_00dd_b91b_5a9a8ba80241 = new Action( () =>
+  {
+    System.Console.WriteLine("This is a debug string 4");
+
+  });
+  var_9800b16b_98bb_9c0d_92ae_3a5058d67970.Add(Task.Run(var_03b8c2e7_b3b8_00dd_b91b_5a9a8ba80241));
+  var var_967b7cac_3f07_1eba_afc6_e4840232a676 = new Action( () =>
+  {
+    System.Console.WriteLine("This is a debug string 5");
+
+  });
+  var_9800b16b_98bb_9c0d_92ae_3a5058d67970.Add(Task.Run(var_967b7cac_3f07_1eba_afc6_e4840232a676));
+  var var_a65d522c_72a8_c2e3_aadb_860a521da2cf = new Action( () =>
+  {
+    System.Console.WriteLine("This is a debug string 6");
+
+  });
+  var_9800b16b_98bb_9c0d_92ae_3a5058d67970.Add(Task.Run(var_a65d522c_72a8_c2e3_aadb_860a521da2cf));
+  var var_1fdf4649_722b_b696_a880_f32adf3b32cd = new Action( () =>
+  {
+    System.Console.WriteLine("This is a debug string 7");
+
+  });
+  var_9800b16b_98bb_9c0d_92ae_3a5058d67970.Add(Task.Run(var_1fdf4649_722b_b696_a880_f32adf3b32cd));
+  Task.WaitAll(var_9800b16b_98bb_9c0d_92ae_3a5058d67970.ToArray());
+  System.Console.WriteLine("Parallel action execution complete");
+    }
+}

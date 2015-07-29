@@ -322,7 +322,7 @@ namespace Indriya.Application.Web.Modules
                                 }
 
                                 var value = dynDict["value"];
-                                Log.InfoFormat("Value  : {0}", value);
+                                //Log.InfoFormat("Value  : {0}", value);
                                 if (!string.IsNullOrEmpty(value))
                                 {
                                     var programsFolder = Path.Combine(WebRoot, "data", "programs");
@@ -370,7 +370,7 @@ namespace Indriya.Application.Web.Modules
                                 }
 
                                 var value = dynDict["value"];
-                                Log.InfoFormat("Value  : {0}", value);
+                                //Log.InfoFormat("Value  : {0}", value);
                                 if (!string.IsNullOrEmpty(value))
                                 {
                                     var programsFolder = Path.Combine(WebRoot, "data", "programs_cs");

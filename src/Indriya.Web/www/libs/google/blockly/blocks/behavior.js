@@ -160,6 +160,19 @@ Blockly.Blocks.behaviors.ConfidenceProperties =
     ["95%", "95"]
 ];
 
+Blockly.Blocks.behaviors.ParallelTaskCount =
+[
+    ["2", "2"],
+    ["3", "3"],
+    ["4", "4"],
+    ["5", "5"],
+    ["6", "6"],
+    ["7", "7"],
+    ["8", "8"],
+    ["9", "9"],
+    ["10", "10"]
+];
+
 Blockly.Blocks['gesture_count_up_trigger'] = {
     /**
      * Block for 'counting' loop.
@@ -263,7 +276,7 @@ Blockly.Blocks['behavior_sleek'] = {
         var confidenceDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.ConfidenceProperties, function(option) {
         });
 
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(330);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
@@ -455,7 +468,7 @@ Blockly.Blocks['behavior_simple'] = {
             }
         });
 
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(330);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
@@ -582,7 +595,7 @@ Blockly.Blocks['behavior_simple_count'] = {
         var confidenceDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.ConfidenceProperties, function (option) {
         });
 
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(330);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
@@ -733,7 +746,7 @@ Blockly.Blocks['behavior_startup'] = {
     init: function() {
         var nameText = "Startup Behavior";
 
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(200);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
@@ -751,7 +764,7 @@ Blockly.Blocks['behavior_exit'] = {
     init: function() {
         var nameText = "Exit Behavior";
 
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(400);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_CENTRE)
@@ -775,7 +788,7 @@ Blockly.Blocks['behavior'] = {
         if (name !== nameText) {
             console.log("Resolved name : " + name);
         }
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(300);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -831,7 +844,7 @@ Blockly.Blocks['behavior_composable'] = {
             this.sourceBlock_.updateShape_(runUntilInput);
         });
 
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(210);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -925,7 +938,7 @@ Blockly.Blocks['behavior_composable_simple'] = {
             this.sourceBlock_.updateShape_(runUntilInput);
         });
 
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(210);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -1002,7 +1015,7 @@ Blockly.Blocks['gesture_trigger'] = {
     init: function() {
         var gestureDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.GestureProperties, function(option) {
         });
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(20);
         this.appendDummyInput()
             .appendField("When");
@@ -1024,7 +1037,7 @@ Blockly.Blocks['trigger'] = {
     init: function () {
         var gestureDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.GestureProperties, function (option) {
         });
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(75);
         this.appendDummyInput()
             .appendField("Gesture : ");
@@ -1041,7 +1054,7 @@ Blockly.Blocks['voice_trigger'] = {
     init: function () {
         var voiceDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.VoiceProperties, function (option) {
         });
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(75);
         this.appendDummyInput()
             .appendField("Speech trigger : ");
@@ -1056,7 +1069,7 @@ Blockly.Blocks['voice_trigger'] = {
 
 Blockly.Blocks['voice_trigger2'] = {
     init: function () {
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(290);
         this.appendDummyInput()
             .appendField("Speech trigger : ");
@@ -1070,7 +1083,7 @@ Blockly.Blocks['voice_trigger2'] = {
 
 Blockly.Blocks['priority'] = {
     init: function() {
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(100);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -1082,7 +1095,7 @@ Blockly.Blocks['priority'] = {
 
 Blockly.Blocks['wait_voice_response'] = {
     init: function () {
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(195);
         this.appendDummyInput()
             .appendField("Wait Voice response");
@@ -1104,7 +1117,7 @@ Blockly.Blocks['robot_action'] = {
         var standardBehaviors = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.StandardBehaviors, function (option) {
         });
 
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(225);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -1127,7 +1140,7 @@ Blockly.Blocks['set_language'] = {
         var languages = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.Languages, function (option) {
         });
 
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(225);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -1147,7 +1160,7 @@ Blockly.Blocks['set_language'] = {
 
 Blockly.Blocks['turn_action'] = {
     init: function () {
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(225);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -1167,7 +1180,7 @@ Blockly.Blocks['turn_action'] = {
 
 Blockly.Blocks['move_action'] = {
     init: function () {
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(225);
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -1188,7 +1201,7 @@ Blockly.Blocks['move_action'] = {
 
 Blockly.Blocks['approach_action'] = {
     init: function() {
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(225);
         this.appendDummyInput()
             .appendField("approach human with distance")
@@ -1208,7 +1221,7 @@ Blockly.Blocks['approach_action'] = {
 
 Blockly.Blocks['therapy_action'] = {
     init: function() {
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(215);
         this.appendDummyInput()
             .appendField("Demonstrate therapy exercise ")
@@ -1227,7 +1240,7 @@ Blockly.Blocks['therapy_action'] = {
 
 Blockly.Blocks['animated_say_action'] = {
     init: function() {
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(230);
         this.appendDummyInput()
             .appendField("Say Expressively \"")
@@ -1247,7 +1260,7 @@ Blockly.Blocks['animated_say_action'] = {
 
 Blockly.Blocks['robot_rest_action'] = {
     init: function () {
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(230);
         this.appendDummyInput()
             .appendField("Rest ");
@@ -1264,7 +1277,7 @@ Blockly.Blocks['robot_rest_action'] = {
 
 Blockly.Blocks['animated_say_action_arg'] = {
     init: function() {
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(120);
         this.appendDummyInput()
             .appendField("Say Expressively")
@@ -1321,7 +1334,7 @@ Blockly.Blocks['animated_say_action_arg'] = {
 
 Blockly.Blocks['parallel_execute'] = {
     init: function () {
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(20);
         this.appendStatementInput("BRANCH1")
             .appendField("ROBOT1 DO");
@@ -1333,9 +1346,79 @@ Blockly.Blocks['parallel_execute'] = {
     }
 };
 
+Blockly.Blocks['parallel_execute_multi'] = {
+    init: function() {
+        var taskCountDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.ParallelTaskCount, function (option) {
+            console.log(option);
+            this.sourceBlock_.updateShape_(option);
+        });
+
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
+        this.setColour(210);
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Tasks count")
+            .appendField(taskCountDropdown, "taskCount");
+        this.appendStatementInput("BRANCH1")
+            .appendField("ROBOT1 DO");
+        this.appendStatementInput("BRANCH2")
+            .appendField("ROBOT2 DO");
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setTooltip('');
+    },
+    /**
+  * Create XML to represent whether the 'divisorInput' should be present.
+  * @return {Element} XML storage element.
+  * @this Blockly.Block
+  */
+    mutationToDom: function() {
+        var container = document.createElement('mutation');
+        var taskCount = this.getFieldValue('taskCount');
+        container.setAttribute('task_count', taskCount);
+        return container;
+    },
+    /**
+     * Parse XML to restore the 'divisorInput'.
+     * @param {!Element} xmlElement XML storage element.
+     * @this Blockly.Block
+     */
+    domToMutation: function(xmlElement) {
+        var taskCount = xmlElement.getAttribute('task_count');
+        console.log("Mutation taskCount: " + taskCount);
+        this.updateShape_(taskCount);
+    },
+    /**
+   * Modify this block to have (or not have) an input for 'is divisible by'.
+   * @param {boolean} divisorInput True if this block has a divisor input.
+   * @private
+   * @this Blockly.Block
+   */
+    updateShape_: function(taskStrCount) {
+        var taskCount = parseInt(taskStrCount, 10);
+        // Add or remove a Value Input.
+        for (var j = 1; j <= taskCount; j++) {
+            var branchExists = this.getInput('BRANCH' + j);
+            if (branchExists) {
+
+            } else {
+                this.appendStatementInput('BRANCH' + j)
+                    .appendField('ROBOT' + j + ' DO');
+            }
+        }
+        for (var i = 10; i >= taskCount + 1; i--) {
+            var extraBranch = this.getInput('BRANCH' + i);
+            console.log(extraBranch);
+            if (extraBranch) {
+                this.removeInput('BRANCH' + i, true);
+            }
+        }
+    }
+};
+
 Blockly.Blocks['sleep_for'] = {
     init: function () {
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(20);
         this.appendDummyInput()
             .appendField("Sleep for ")
@@ -1351,7 +1434,7 @@ Blockly.Blocks['sleep_for'] = {
 
 Blockly.Blocks['debug_print'] = {
     init: function () {
-        this.setHelpUrl('https://github.com/praveenv4k/ExPeriMot');
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
         this.setColour(20);
         this.appendDummyInput()
             .appendField("Console print ")

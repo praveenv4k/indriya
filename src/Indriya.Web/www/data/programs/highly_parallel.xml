@@ -1,0 +1,45 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_startup" id="5" x="38" y="63">
+    <statement name="DO">
+      <block type="parallel_execute_multi" id="6">
+        <mutation task_count="7"></mutation>
+        <field name="taskCount">7</field>
+        <statement name="BRANCH1">
+          <block type="debug_print" id="7">
+            <field name="DEBUG_STRING">This is a debug string 1</field>
+          </block>
+        </statement>
+        <statement name="BRANCH2">
+          <block type="debug_print" id="8">
+            <field name="DEBUG_STRING">This is a debug string 2</field>
+          </block>
+        </statement>
+        <statement name="BRANCH3">
+          <block type="debug_print" id="9">
+            <field name="DEBUG_STRING">This is a debug string 3</field>
+          </block>
+        </statement>
+        <statement name="BRANCH4">
+          <block type="debug_print" id="10">
+            <field name="DEBUG_STRING">This is a debug string 4</field>
+          </block>
+        </statement>
+        <statement name="BRANCH5">
+          <block type="debug_print" id="11">
+            <field name="DEBUG_STRING">This is a debug string 5</field>
+          </block>
+        </statement>
+        <statement name="BRANCH6">
+          <block type="debug_print" id="12">
+            <field name="DEBUG_STRING">This is a debug string 6</field>
+          </block>
+        </statement>
+        <statement name="BRANCH7">
+          <block type="debug_print" id="13">
+            <field name="DEBUG_STRING">This is a debug string 7</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

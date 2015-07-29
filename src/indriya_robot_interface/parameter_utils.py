@@ -21,7 +21,7 @@ def getNodeParameters(name,parameterServerAddress,timeout):
                 print "parsing parameter response"
                 node.ParseFromString(str)
                 sock.close()
-                print node
+                #print node
                 return node
     except:
         print "getNodeParameters : ", sys.exc_info()
@@ -102,7 +102,7 @@ def register_behaviors(node,robot,parameterServerAddress,behaviors):
         desc.type = robot_behavior_pb2.BehaviorDescription.Blocking
         desc.state = robot_behavior_pb2.BehaviorDescription.Idle
 
-    print behaviorModule
+    #print behaviorModule
 
     try:
         with zmq.Context.instance() as ctx: 

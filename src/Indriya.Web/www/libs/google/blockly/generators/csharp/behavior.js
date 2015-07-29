@@ -637,6 +637,28 @@ Blockly.CSharp['parallel_execute'] = function(block) {
     return code.join('\n');
 };
 
+Blockly.CSharp['parallel_execute_multi'] = function(block) {
+    var count = block.getFieldValue('taskCount');
+    var code = [];
+    var listVarName = generateUniqueVarName();
+    code.push('var ' + listVarName + ' = new List<Task>();');
+    for (var i = 1; i <= count; i++) {
+        var actionName = generateUniqueVarName();
+
+        var statementsBranch = Blockly.CSharp.statementToCode(block, 'BRANCH' + i);
+
+        code.push('var ' + actionName + ' = new Action( () => ');
+        code.push('{');
+        code.push(statementsBranch);
+        code.push('});');
+
+        code.push(listVarName + '.Add(Task.Run(' + actionName + '));');
+    }
+    code.push('Task.WaitAll(' + listVarName + '.ToArray());');
+    code.push('System.Console.WriteLine("Parallel action execution complete");');
+    return code.join('\n');
+};
+
 Blockly.CSharp['trigger_logic_operation'] = function (block) {
     // Operations 'and', 'or'.
     var operator = (block.getFieldValue('OP') == 'AND') ? '&' : '|';
