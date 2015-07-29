@@ -170,7 +170,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="false" name="simulation">
+    <node enabled="true" name="simulation">
       <process>
         <type>executable</type>
         <path>%INDRIYA_ROOT%\bin\indriya_rave.exe</path>
@@ -391,7 +391,7 @@
       </parameters>
     </node>
     
-    <node enabled="true" name="silver_manager">
+    <node enabled="false" name="silver_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>

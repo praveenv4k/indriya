@@ -146,7 +146,7 @@ void orInitEnvironment(EnvironmentBasePtr penv, std::string& scenefilename, std:
 }
 
 template <typename T>
-class MessageSubscriber :CallbackBase
+class MessageSubscriber :public CallbackBase
 {
 private:
 	ZmqContextPtr m_pContext;
@@ -155,7 +155,11 @@ private:
 	std::string m_strHost;
 	std::string m_strTopic;
 	std::string m_strAddr;
-
+	volatile bool m_bStopThread;
+	bool m_bThreadStarted;
+	boost::thread m_SubscriberThread;
+	int m_nPeriod;
+	int m_nTimeout;
 	void InitZmq()
 	{
 		if (m_pContext == 0)
@@ -180,9 +184,23 @@ private:
 		}
 	}
 
+	void RunThread(){
+		while (!m_bStopThread){
+			zmq::message_t address;
+			m_pSocket->recv(&address);
+			zmq::message_t data;
+			m_pSocket->recv(&data);
+			T msg;
+			if (msg.ParseFromArray(data.data(), data.size())){
+				if (signal_message->num_slots() > 0) {
+					signal_message->operator()(msg);
+				}
+			}
+		}
+	}
 public:
 	typedef void (signal_indriya_message)(const T&);
-	MessageSubscriber(string host, uint port, string topic)
+	MessageSubscriber(string host, uint port, string topic) :m_bStopThread(false), m_bThreadStarted(false), m_nPeriod(100), m_nTimeout(100)
 	{
 		m_strHost = host;
 		m_nPort = port;
@@ -195,9 +213,9 @@ public:
 	}
 
 	~MessageSubscriber(){
+		Stop();
 		disconnect_all_slots<signal_indriya_message>();
 	}
-
 
 	void Initialize()
 	{
@@ -210,30 +228,35 @@ public:
 		TerminateZmq();
 	}
 
-	virtual void Spin(){
-
-	}
-
-	virtual void Update(T msg)
-	{
-		ReceiveMsg(msg);
-		if (signal_message->num_slots() > 0) {
-			signal_message->operator()(msg);
+	virtual void Run(int periodMilliSeconds, int timeout){
+		m_nPeriod = periodMilliSeconds;
+		m_nTimeout = timeout;
+		if (!m_bThreadStarted){
+			m_SubscriberThread = boost::thread(&MessageSubscriber::RunThread, this);
+			m_bThreadStarted = true;
 		}
 	}
+
+	virtual void Stop(){
+		if (m_bThreadStarted){
+			m_bStopThread = true;
+			if (m_SubscriberThread.joinable()){
+				m_SubscriberThread.join();
+			}
+			m_bThreadStarted = false;
+		}
+	}
+
+	virtual void WaitCompletion(){
+		if (m_bThreadStarted){
+			if (m_SubscriberThread.joinable()){
+				m_SubscriberThread.join();
+			}
+		}
+	}
+
 protected:
 	boost::signals2::signal<signal_indriya_message>* signal_message;
-protected:
-	virtual bool IsValid(T msg)
-	{
-		return true;
-	}
-
-	virtual void ReceiveMsg(T msg){
-		if (m_pSocket != 0 && IsValid(msg))
-		{
-		}
-	}
 };
 
 template <typename T>
@@ -927,10 +950,18 @@ typedef boost::shared_ptr<RobotStateListener> RobotStateListenerPtr;
 typedef boost::shared_ptr<KinectStateListener> KinectStateListenerPtr;
 typedef boost::shared_ptr<TorsoPoseListener> TorsoPoseListenerPtr;
 typedef boost::shared_ptr<HumanPoseListener> HumanPoseListenerPtr;
+typedef boost::shared_ptr<MessageSubscriber<Indriya::Core::Msgs::Humans>> MessageSubscriberPtr;
 
-void dummyFn(const Node& something)
+void dummyFn(const Indriya::Core::Msgs::Humans& humans)
 {
-	
+	if (humans.human_size() > 0){
+		std::cout << "Invoked from callback" << std::endl;
+	}
+}
+
+void dummyFn2(int something)
+{
+
 }
 
 int main(int argc, char ** argv)
@@ -940,6 +971,8 @@ int main(int argc, char ** argv)
 		KinectStateListenerPtr pKinectListener;
 		TorsoPoseListenerPtr pTorsoPoseListener;
 		HumanPoseListenerPtr pHumanPoseListener;
+		MessageSubscriberPtr pMessageSubscriber;
+
 		string scenefilename = "data/nao.dae";
 		string viewername = "qtcoin";
 		string kinectModel = "data/kinect.kinbody.xml";
@@ -963,6 +996,7 @@ int main(int argc, char ** argv)
 				}
 				if (sub.msg_type() == "KinectBodies"){
 					pKinectListener = KinectStateListenerPtr(new KinectStateListener(sub.host(), sub.port(), sub.topic()));
+					pMessageSubscriber = MessageSubscriberPtr(new MessageSubscriber<Indriya::Core::Msgs::Humans>(sub.host(), sub.port(), sub.topic()));
 				}
 				if (sub.msg_type() == "Humans"){
 					pHumanPoseListener = HumanPoseListenerPtr(new HumanPoseListener(sub.host(), sub.port(), sub.topic(), humanTorsoBaseModel));
@@ -976,9 +1010,6 @@ int main(int argc, char ** argv)
 			pKinectListener = KinectStateListenerPtr(new KinectStateListener());
 			pHumanPoseListener = HumanPoseListenerPtr(new HumanPoseListener());
 		}
-		//MessageSubscriber<Node> nodePub("", 0, "");
-		//boost::function<void(const Node&)> fn2(boost::bind(dummyFn, _1));
-		//nodePub.registerCallback(fn2);
 		RaveInitialize(true); // start openrave core
 		EnvironmentBasePtr penv = RaveCreateEnvironment(); // create the main environment
 		RaveSetDebugLevel(Level_Info);
@@ -1000,10 +1031,17 @@ int main(int argc, char ** argv)
 		boost::thread thKinectSubscriber(boost::bind(&KinectStateListener::Listen, pKinectListener, penv));
 		boost::thread thTorsoSubscriber(boost::bind(&TorsoPoseListener::Listen, pTorsoPoseListener, penv));
 		boost::thread thHumanSubscriber(boost::bind(&HumanPoseListener::Listen, pHumanPoseListener, penv));
+
+		boost::function<void(const Indriya::Core::Msgs::Humans&)> fn2(boost::bind(dummyFn, _1));
+		pMessageSubscriber->registerCallback(fn2);
+		pMessageSubscriber->Initialize();
+		pMessageSubscriber->Run(100, 100);
+
 		thviewer.join(); // wait for the viewer thread to exit
 
 		done = true;
 
+		pMessageSubscriber->Stop();
 		thRobotSubscriber.join();
 		thKinectSubscriber.join();
 		thTorsoSubscriber.join();
