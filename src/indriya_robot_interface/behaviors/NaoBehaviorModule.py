@@ -16,7 +16,9 @@ class NaoBehaviorModule:
         self.data = []
         self.ROBOT_IP = robot_ip
         self.ROBOT_PORT = robot_port
-        self.language = None
+        #self.language = None
+        self.language = 'English'
+        self.volume_set = False
 
     def getPostureProxy(self):
         return ALProxy("ALRobotPosture", self.ROBOT_IP, self.ROBOT_PORT)
@@ -38,6 +40,9 @@ class NaoBehaviorModule:
 
     def getMemoryProxy(self):
         return  ALProxy("ALMemory", self.ROBOT_IP, self.ROBOT_PORT)
+
+    def getAudioDeviceProxy(self):
+        return  ALProxy("ALAudioDevice", self.ROBOT_IP, self.ROBOT_PORT)
 
     def getLandmarkDetectionProxy(self):
         return  ALProxy("ALLandMarkDetection", self.ROBOT_IP, self.ROBOT_PORT)
@@ -153,10 +158,15 @@ class NaoBehaviorModule:
             return [id,managerProxy]
             #self.defaultBehaviors(managerProxy, name)
         return []
-
+     
     def action_sayExpressively(self,params):
         language = params.get('lang','')
         msg = params.get('msg','')
+
+        if self.volume_set==False:
+            setSpeakerVolume(75)
+            self.volume_set = True
+
         #if language is '' and msg is not '':
         #    # Try to detect language
         #    apiKey = os.environ['LANGUAGE_DETECT_APIKEY']
@@ -184,6 +194,22 @@ class NaoBehaviorModule:
                 configuration = {"bodyLanguageMode":"contextual"}
                 id= proxy.post.say(msg,configuration)
                 return [id,proxy]
+        return []
+
+    def setSpeakerVolume(volume):
+        try:
+            proxy = self.getAudioDeviceProxy()
+            if proxy is not None:
+                id = proxy.setOutputVolume(volume)
+        except:
+            print "Set speaker volume occured : ", sys.exc_info()
+
+    def action_setSpeakerVolume(self,params):
+        volume = params.get('volume',50)
+        proxy = self.getAudioDeviceProxy()
+        if proxy is not None:
+            id = proxy.post.setOutputVolume(volume)
+            return [id,proxy]
         return []
 
     def action_goToPosture(self,params):
