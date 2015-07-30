@@ -85,8 +85,11 @@ Blockly.Blocks.behaviors.GestureProperties =
     ["WaveRight", 'Greet_Right'],
     ["LiftLeftHand", "LiftHand_Left"],
     ["LiftRightHand", "LiftHand_Right"],
-    ["HumanDetected", 'HumanDetected']
-    ,["Seated", "Seated"]
+    ["HumanDetected", 'HumanDetected'],
+    ["HandsUp", 'HandsUp'],
+    ["HandsFront", 'HandsFront'],
+    ["Bow", 'Bow'],
+    ["Seated", "Seated"]
     //,["SmartWave", 'IMU_WAVE']
 ];
 
@@ -110,7 +113,16 @@ Blockly.Blocks.behaviors.StandardBehaviors =
     //["LyingBack", "LyingBack"],
     //["Sit", "Sit"],
     ["LabIntroduction", "LabIntroduction"]
-    ,["Dance", "Dance"]
+    , ["Dance", "Dance"]
+    , ["Nod head", "nod"]
+    , ["Pledge pose", "pledge"]
+    , ["Attention pose", "attention"]
+    , ["See left", "gaze_left"]
+    , ["See right", "gaze_right"]
+    , ["Lift hands up", "hands_up"]
+    , ["Lift hands lateral", "side_up"]
+    , ["Lift hands front", "front_up"]
+    , ["Bow", "bow"]
 ];
 
 Blockly.Blocks.behaviors.Robots =
@@ -1271,7 +1283,24 @@ Blockly.Blocks['robot_rest_action'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        this.setTooltip('Say expressively to the human');
+        this.setTooltip('Turn off motors of the robot');
+    }
+};
+
+Blockly.Blocks['robot_wakeup_action'] = {
+    init: function () {
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
+        this.setColour(230);
+        this.appendDummyInput()
+            .appendField("Wake up ");
+        var robots = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.Robots, function (option) {
+        });
+        this.appendDummyInput()
+            .appendField(robots, "ROBOT");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setTooltip('Turn on motors of the robot');
     }
 };
 

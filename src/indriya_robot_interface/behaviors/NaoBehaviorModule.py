@@ -56,12 +56,12 @@ class NaoBehaviorModule:
       ''' Know which behaviors are installed on the robot '''
 
       installed = managerProxy.getInstalledBehaviors()
-      print "Behaviors on the robot:"
-      print installed
+      #print "Behaviors on the robot:"
+      #print installed
 
-      names = managerProxy.getRunningBehaviors()
-      print "Running behaviors:"
-      print names
+      #names = managerProxy.getRunningBehaviors()
+      #print "Running behaviors:"
+      #print names
 
       return installed
 
@@ -164,7 +164,7 @@ class NaoBehaviorModule:
         msg = params.get('msg','')
 
         if self.volume_set==False:
-            setSpeakerVolume(75)
+            self.setSpeakerVolume(75)
             self.volume_set = True
 
         #if language is '' and msg is not '':
@@ -196,7 +196,7 @@ class NaoBehaviorModule:
                 return [id,proxy]
         return []
 
-    def setSpeakerVolume(volume):
+    def setSpeakerVolume(self,volume):
         try:
             proxy = self.getAudioDeviceProxy()
             if proxy is not None:
@@ -277,6 +277,13 @@ class NaoBehaviorModule:
             return [id,proxy]
         return []
 
+    def action_wakeUp(self,params):
+        proxy = self.getMotionProxy()
+        if proxy is not None:
+            id = proxy.post.wakeUp()
+            return [id,proxy]
+        return []
+
     def action_moveToward(self,params):
         #x = float(params.get('x','0.0').encode('utf-8'))
         #y = float(params.get('y','0.0').encode('utf-8'))
@@ -339,34 +346,37 @@ class NaoBehaviorModule:
             behaviorStr = insBehavior.replace('.lastUploadedChoregrapheBehavior/','',1)
             cap_dict[behaviorStr] = {'function':'action_executeBehavior','args':{'name':self.createArg(behaviorStr)}}
 
-        cap_dict['Look At']= {'function':'action_lookAt',
+        cap_dict['Look At'] = {'function':'action_lookAt',
                                        'args':{'x':self.createArg(0.0,True,'float'),
                                                'y':self.createArg(0.0,True,'float'),
                                                'z':self.createArg(0.0,True,'float'),
                                                'frame':self.createArg('torso',True)}}
 
-        cap_dict['Move To']= {'function':'action_moveTo',
+        cap_dict['Move To'] = {'function':'action_moveTo',
                                        'args':{'x':self.createArg(0.0,True,'float'),
                                                'y':self.createArg(0.0,True,'float'),
                                                'theta':self.createArg(0.0,True,'float')}}
 
-        cap_dict['Track People']= {'function':'action_trackPeople',
+        cap_dict['Track People'] = {'function':'action_trackPeople',
                                        'args':{'x':self.createArg(0.0,True,'float'),
                                                'y':self.createArg(0.0,True,'float'),
                                                'theta':self.createArg(0.0,True,'float')}}
 
-        cap_dict['Move Toward']= {'function':'action_moveToward',
+        cap_dict['Move Toward'] = {'function':'action_moveToward',
                                        'args':{'x':self.createArg(0.0,True,'float'),
                                                'y':self.createArg(0.0,True,'float'),
                                                'z':self.createArg(0.0,True,'float')}}
 
-        cap_dict['Take Rest']= {'function':'action_rest',
+        cap_dict['Take Rest'] = {'function':'action_rest',
                                        'args':{'val':self.createArg(0.0,False,'float')}}
 
-        cap_dict['Set Language']= {'function':'action_setLanguage',
+        cap_dict['Wake up'] = {'function':'action_wakeUp',
+                                       'args':{'val':self.createArg(0.0,False,'float')}}
+
+        cap_dict['Set Language'] = {'function':'action_setLanguage',
                                        'args':{'lang':self.createArg(0.0,True,'string')}}
 
-        cap_dict['Say Expressively']= {'function':'action_sayExpressively',
+        cap_dict['Say Expressively'] = {'function':'action_sayExpressively',
                               'args':{'lang':self.createArg('',True),
                                       'msg':self.createArg('Hello!',True)}}
 

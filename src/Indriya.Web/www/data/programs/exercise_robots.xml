@@ -1,0 +1,343 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_composable_simple" id="1" inline="false" x="363" y="-112">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="logic_operation" id="2" inline="true">
+        <field name="OP">AND</field>
+        <value name="A">
+          <block type="trigger" id="3">
+            <field name="MOTION_TRIGGER">LiftHand_Left</field>
+          </block>
+        </value>
+        <value name="B">
+          <block type="trigger" id="4">
+            <field name="MOTION_TRIGGER">LiftHand_Right</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="parallel_execute_multi" id="74">
+        <mutation task_count="7"></mutation>
+        <field name="taskCount">7</field>
+        <statement name="BRANCH1">
+          <block type="robot_action" id="6">
+            <field name="actions">side_up</field>
+            <field name="ROBOT">Hiro</field>
+          </block>
+        </statement>
+        <statement name="BRANCH2">
+          <block type="robot_action" id="82">
+            <field name="actions">side_up</field>
+            <field name="ROBOT">Taro</field>
+          </block>
+        </statement>
+        <statement name="BRANCH3">
+          <block type="robot_action" id="83">
+            <field name="actions">side_up</field>
+            <field name="ROBOT">Orange</field>
+          </block>
+        </statement>
+        <statement name="BRANCH4">
+          <block type="robot_action" id="84">
+            <field name="actions">side_up</field>
+            <field name="ROBOT">Gray</field>
+          </block>
+        </statement>
+        <statement name="BRANCH5">
+          <block type="robot_action" id="85">
+            <field name="actions">side_up</field>
+            <field name="ROBOT">Silver</field>
+          </block>
+        </statement>
+        <statement name="BRANCH6">
+          <block type="robot_action" id="86">
+            <field name="actions">side_up</field>
+            <field name="ROBOT">Macaroon</field>
+          </block>
+        </statement>
+        <statement name="BRANCH7">
+          <block type="robot_action" id="87">
+            <field name="actions">side_up</field>
+            <field name="ROBOT">Spring</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="25" inline="false" x="913" y="-12">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="trigger" id="26">
+        <field name="MOTION_TRIGGER">Seated</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="parallel_execute_multi" id="50">
+        <mutation task_count="7"></mutation>
+        <field name="taskCount">7</field>
+        <statement name="BRANCH1">
+          <block type="robot_rest_action" id="67">
+            <field name="ROBOT">Hiro</field>
+          </block>
+        </statement>
+        <statement name="BRANCH2">
+          <block type="robot_rest_action" id="68">
+            <field name="ROBOT">Taro</field>
+          </block>
+        </statement>
+        <statement name="BRANCH3">
+          <block type="robot_rest_action" id="69">
+            <field name="ROBOT">Orange</field>
+          </block>
+        </statement>
+        <statement name="BRANCH4">
+          <block type="robot_rest_action" id="70">
+            <field name="ROBOT">Gray</field>
+          </block>
+        </statement>
+        <statement name="BRANCH5">
+          <block type="robot_rest_action" id="71">
+            <field name="ROBOT">Silver</field>
+          </block>
+        </statement>
+        <statement name="BRANCH6">
+          <block type="robot_rest_action" id="72">
+            <field name="ROBOT">Macaroon</field>
+          </block>
+        </statement>
+        <statement name="BRANCH7">
+          <block type="robot_rest_action" id="73">
+            <field name="ROBOT">Spring</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_startup" id="8" x="1288" y="-12">
+    <statement name="DO">
+      <block type="parallel_execute_multi" id="43">
+        <mutation task_count="7"></mutation>
+        <field name="taskCount">7</field>
+        <statement name="BRANCH1">
+          <block type="robot_wakeup_action" id="9">
+            <field name="ROBOT">Hiro</field>
+          </block>
+        </statement>
+        <statement name="BRANCH2">
+          <block type="robot_wakeup_action" id="44">
+            <field name="ROBOT">Taro</field>
+          </block>
+        </statement>
+        <statement name="BRANCH3">
+          <block type="robot_wakeup_action" id="45">
+            <field name="ROBOT">Orange</field>
+          </block>
+        </statement>
+        <statement name="BRANCH4">
+          <block type="robot_wakeup_action" id="46">
+            <field name="ROBOT">Gray</field>
+          </block>
+        </statement>
+        <statement name="BRANCH5">
+          <block type="robot_wakeup_action" id="47">
+            <field name="ROBOT">Silver</field>
+          </block>
+        </statement>
+        <statement name="BRANCH6">
+          <block type="robot_wakeup_action" id="48">
+            <field name="ROBOT">Macaroon</field>
+          </block>
+        </statement>
+        <statement name="BRANCH7">
+          <block type="robot_wakeup_action" id="49">
+            <field name="ROBOT">Spring</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="88" inline="false" x="413" y="488">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="trigger" id="90">
+        <field name="MOTION_TRIGGER">Bow</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="parallel_execute_multi" id="92">
+        <mutation task_count="7"></mutation>
+        <field name="taskCount">7</field>
+        <statement name="BRANCH1">
+          <block type="robot_action" id="93">
+            <field name="actions">bow</field>
+            <field name="ROBOT">Hiro</field>
+          </block>
+        </statement>
+        <statement name="BRANCH2">
+          <block type="robot_action" id="94">
+            <field name="actions">bow</field>
+            <field name="ROBOT">Taro</field>
+          </block>
+        </statement>
+        <statement name="BRANCH3">
+          <block type="robot_action" id="95">
+            <field name="actions">bow</field>
+            <field name="ROBOT">Orange</field>
+          </block>
+        </statement>
+        <statement name="BRANCH4">
+          <block type="robot_action" id="96">
+            <field name="actions">bow</field>
+            <field name="ROBOT">Gray</field>
+          </block>
+        </statement>
+        <statement name="BRANCH5">
+          <block type="robot_action" id="97">
+            <field name="actions">bow</field>
+            <field name="ROBOT">Silver</field>
+          </block>
+        </statement>
+        <statement name="BRANCH6">
+          <block type="robot_action" id="98">
+            <field name="actions">bow</field>
+            <field name="ROBOT">Macaroon</field>
+          </block>
+        </statement>
+        <statement name="BRANCH7">
+          <block type="robot_action" id="99">
+            <field name="actions">bow</field>
+            <field name="ROBOT">Spring</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="100" inline="false" x="813" y="488">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="trigger" id="101">
+        <field name="MOTION_TRIGGER">HandsFront</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="parallel_execute_multi" id="102">
+        <mutation task_count="7"></mutation>
+        <field name="taskCount">7</field>
+        <statement name="BRANCH1">
+          <block type="robot_action" id="103">
+            <field name="actions">front_up</field>
+            <field name="ROBOT">Hiro</field>
+          </block>
+        </statement>
+        <statement name="BRANCH2">
+          <block type="robot_action" id="104">
+            <field name="actions">front_up</field>
+            <field name="ROBOT">Taro</field>
+          </block>
+        </statement>
+        <statement name="BRANCH3">
+          <block type="robot_action" id="105">
+            <field name="actions">front_up</field>
+            <field name="ROBOT">Orange</field>
+          </block>
+        </statement>
+        <statement name="BRANCH4">
+          <block type="robot_action" id="106">
+            <field name="actions">front_up</field>
+            <field name="ROBOT">Gray</field>
+          </block>
+        </statement>
+        <statement name="BRANCH5">
+          <block type="robot_action" id="107">
+            <field name="actions">front_up</field>
+            <field name="ROBOT">Silver</field>
+          </block>
+        </statement>
+        <statement name="BRANCH6">
+          <block type="robot_action" id="108">
+            <field name="actions">front_up</field>
+            <field name="ROBOT">Macaroon</field>
+          </block>
+        </statement>
+        <statement name="BRANCH7">
+          <block type="robot_action" id="109">
+            <field name="actions">front_up</field>
+            <field name="ROBOT">Spring</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="110" inline="false" x="1288" y="513">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="trigger" id="111">
+        <field name="MOTION_TRIGGER">HandsUp</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="parallel_execute_multi" id="112">
+        <mutation task_count="7"></mutation>
+        <field name="taskCount">7</field>
+        <statement name="BRANCH1">
+          <block type="robot_action" id="113">
+            <field name="actions">hands_up</field>
+            <field name="ROBOT">Hiro</field>
+          </block>
+        </statement>
+        <statement name="BRANCH2">
+          <block type="robot_action" id="114">
+            <field name="actions">hands_up</field>
+            <field name="ROBOT">Taro</field>
+          </block>
+        </statement>
+        <statement name="BRANCH3">
+          <block type="robot_action" id="115">
+            <field name="actions">hands_up</field>
+            <field name="ROBOT">Orange</field>
+          </block>
+        </statement>
+        <statement name="BRANCH4">
+          <block type="robot_action" id="116">
+            <field name="actions">hands_up</field>
+            <field name="ROBOT">Gray</field>
+          </block>
+        </statement>
+        <statement name="BRANCH5">
+          <block type="robot_action" id="117">
+            <field name="actions">hands_up</field>
+            <field name="ROBOT">Silver</field>
+          </block>
+        </statement>
+        <statement name="BRANCH6">
+          <block type="robot_action" id="118">
+            <field name="actions">hands_up</field>
+            <field name="ROBOT">Macaroon</field>
+          </block>
+        </statement>
+        <statement name="BRANCH7">
+          <block type="robot_action" id="119">
+            <field name="actions">hands_up</field>
+            <field name="ROBOT">Spring</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

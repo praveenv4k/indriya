@@ -1,0 +1,152 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_composable_simple" id="1" inline="false" x="138" y="13">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="logic_operation" id="2" inline="true">
+        <field name="OP">AND</field>
+        <value name="A">
+          <block type="trigger" id="3">
+            <field name="MOTION_TRIGGER">LiftHand_Left</field>
+          </block>
+        </value>
+        <value name="B">
+          <block type="trigger" id="4">
+            <field name="MOTION_TRIGGER">LiftHand_Right</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="5">
+        <field name="SAY_TEXT">lift both hands</field>
+        <field name="ROBOT">Taro</field>
+        <next>
+          <block type="robot_action" id="6">
+            <field name="actions">side_up</field>
+            <field name="ROBOT">Taro</field>
+            <next>
+              <block type="sleep_for" id="7">
+                <field name="SLEEP_FOR">3000</field>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_startup" id="8" x="888" y="13">
+    <statement name="DO">
+      <block type="robot_wakeup_action" id="9">
+        <field name="ROBOT">Taro</field>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="10" inline="false" x="563" y="138">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="trigger" id="11">
+        <field name="MOTION_TRIGGER">HandsFront</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="12">
+        <field name="SAY_TEXT">Hands front</field>
+        <field name="ROBOT">Taro</field>
+        <next>
+          <block type="robot_action" id="13">
+            <field name="actions">front_up</field>
+            <field name="ROBOT">Taro</field>
+            <next>
+              <block type="sleep_for" id="14">
+                <field name="SLEEP_FOR">3000</field>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="15" inline="false" x="138" y="238">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="trigger" id="16">
+        <field name="MOTION_TRIGGER">HandsUp</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="17">
+        <field name="SAY_TEXT">Hands up</field>
+        <field name="ROBOT">Taro</field>
+        <next>
+          <block type="robot_action" id="18">
+            <field name="actions">hands_up</field>
+            <field name="ROBOT">Taro</field>
+            <next>
+              <block type="sleep_for" id="19">
+                <field name="SLEEP_FOR">3000</field>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="25" inline="false" x="563" y="388">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="trigger" id="26">
+        <field name="MOTION_TRIGGER">Seated</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="robot_rest_action" id="38">
+        <field name="ROBOT">Taro</field>
+        <next>
+          <block type="sleep_for" id="28">
+            <field name="SLEEP_FOR">3000</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="20" inline="false" x="138" y="463">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="trigger" id="21">
+        <field name="MOTION_TRIGGER">Bow</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="22">
+        <field name="SAY_TEXT">bow</field>
+        <field name="ROBOT">Taro</field>
+        <next>
+          <block type="robot_action" id="23">
+            <field name="actions">bow</field>
+            <field name="ROBOT">Taro</field>
+            <next>
+              <block type="sleep_for" id="24">
+                <field name="SLEEP_FOR">3000</field>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

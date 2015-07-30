@@ -329,6 +329,23 @@ Blockly.CSharp['robot_rest_action'] = function (block) {
     return genCode;
 };
 
+Blockly.CSharp['robot_wakeup_action'] = function (block) {
+    var robotName = block.getFieldValue('ROBOT');
+
+    var newVarName = generateUniqueVarName();
+    var behavior = 'var ' + newVarName +
+        '= new BehaviorInfo\n' +
+        '{\n' +
+        'BehaviorName = "Wake up",\n' +
+        'RobotName = \"' + robotName + '\",' +
+        'Parameters = new Dictionary<string, object>()\n' +
+        '};\n';
+
+    var genCode = behavior + '\n';
+    genCode += 'BehaviorModuleHelper.Execute(context, ' + newVarName + ');\n';
+    return genCode;
+};
+
 Blockly.CSharp['animated_say_action_arg'] = function(block) {
     //return "";
     var argName = Blockly.CSharp.valueToCode(this, 'ARG_NAME', Blockly.CSharp.ORDER_ATOMIC);
@@ -517,12 +534,14 @@ Blockly.CSharp['trigger'] = function(block) {
     //        //    return true;
     //        //}))()
 
+    var confidence = 90;
+
     var code = [];
     code.push('((Func<TriggerResult>) (() => {');
     code.push('var ret = new TriggerResult(){Active = false};');
     code.push('var gestureInfoList = context.GetGestureInfoList(\"' + trigger + '\");');
-    code.push('var gestureInfo = gestureInfoList.FirstOrDefault(s=>s.Confidence > 80);');
-    code.push('if (gestureInfo.Active && gestureInfo.Confidence > 80)');
+    code.push('var gestureInfo = gestureInfoList.FirstOrDefault(s=>s.Confidence > ' + confidence + ');');
+    code.push('if (gestureInfo.Active && gestureInfo.Confidence > ' + confidence + ')');
     code.push('{');
     code.push('Console.WriteLine("Gesture trigger received : {0} - {1}", gestureInfo.Name, gestureInfo.Confidence);');
     code.push('ret.HumanId = gestureInfo.HumanId;');

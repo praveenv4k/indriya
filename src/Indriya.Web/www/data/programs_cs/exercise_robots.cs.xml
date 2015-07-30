@@ -1,0 +1,1283 @@
+// ReSharper disable RedundantUsingDirective
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+// Main Behavior Program
+
+// ReSharper disable CheckNamespace
+
+using System;
+using Indriya.Core.BehaviorEngine;
+
+public class Behavior_2f93f118_589f_81d5_bba7_3873ec11fc91 : ITriggerBehavior
+{
+    public string Name { get; set; }
+
+    protected static BehaviorExecutionPriority Priority;
+
+    public Behavior_2f93f118_589f_81d5_bba7_3873ec11fc91()
+    {
+        GetPriority();
+        GetExecutionLifetime();
+        GetUid();
+    }
+
+    public static BehaviorExecutionPriority GetPriority()
+    {
+        // SET_PRIORITY
+        Priority = BehaviorExecutionPriority.low;
+
+        return Priority;
+    }
+
+    protected static BehaviorExecutionLifetime ExecutionLifetime;
+
+    public static BehaviorExecutionLifetime GetExecutionLifetime()
+    {
+        // SET_EXECUTION_LIFETIME
+        ExecutionLifetime = BehaviorExecutionLifetime.forever;
+
+        return ExecutionLifetime;
+    }
+
+    public int Id { get; set; }
+
+    protected static string Uid;
+
+    public static string GetUid()
+    {
+        // SET_UID
+        Uid = "2f93f118_589f_81d5_bba7_3873ec11fc91";
+
+        return Uid;
+    }
+
+    private static bool _initActionsComplete;
+    private static bool _cyclicActionsComplete;
+    private static bool _exitActionsComplete;
+
+    public static TriggerResult CheckTrigger(IBehaviorExecutionContext context)
+    {
+        var result = new TriggerResult {Active = false};
+
+        if (context != null && !ExecutionComplete)
+        {
+            result = (((Func<TriggerResult>) (() => {
+var ret = new TriggerResult(){Active = false};
+var gestureInfoList = context.GetGestureInfoList("LiftHand_Left");
+var gestureInfo = gestureInfoList.FirstOrDefault(s=>s.Confidence > 95);
+if (gestureInfo.Active && gestureInfo.Confidence > 95)
+{
+Console.WriteLine("Gesture trigger received : {0} - {1}", gestureInfo.Name, gestureInfo.Confidence);
+ret.HumanId = gestureInfo.HumanId;
+ret.HumanInLoop = true;
+ret.Active = true;
+}
+return ret;
+}))() && ((Func<TriggerResult>) (() => {
+var ret = new TriggerResult(){Active = false};
+var gestureInfoList = context.GetGestureInfoList("LiftHand_Right");
+var gestureInfo = gestureInfoList.FirstOrDefault(s=>s.Confidence > 95);
+if (gestureInfo.Active && gestureInfo.Confidence > 95)
+{
+Console.WriteLine("Gesture trigger received : {0} - {1}", gestureInfo.Name, gestureInfo.Confidence);
+ret.HumanId = gestureInfo.HumanId;
+ret.HumanInLoop = true;
+ret.Active = true;
+}
+return ret;
+}))());
+        }
+        return result;
+    }
+
+    public bool ExecutionUntil(IBehaviorExecutionContext context)
+    {
+        if (context != null)
+        {
+            // EXECUTE_UNTIL
+            // EXECUTE_UNTIL_HERE
+        }
+        return true;
+    }
+
+    public string ActiveResource { get; set; }
+
+    public static bool InitActionsComplete
+    {
+        get { return _initActionsComplete; }
+        set { _initActionsComplete = value; }
+    }
+
+    public static bool CyclicActionsComplete
+    {
+        get { return _cyclicActionsComplete; }
+        set { _cyclicActionsComplete = value; }
+    }
+
+    public static bool ExitActionsComplete
+    {
+        get { return _exitActionsComplete; }
+        set { _exitActionsComplete = value; }
+    }
+
+    public static bool ExecutionComplete
+    {
+        get { return InitActionsComplete & CyclicActionsComplete & ExitActionsComplete; }
+    }
+
+    public bool ExecuteInit(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!InitActionsComplete)
+        {
+            // INIT_BLOCK
+            // INIT_BLOCK_HERE
+            InitActionsComplete = true;
+        }
+        return InitActionsComplete;
+    }
+
+    public bool ExecuteCyclic(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!CyclicActionsComplete && InitActionsComplete)
+        {
+            // CYCLIC_BLOCK
+              var var_2b662a63_2fab_a2c8_aec7_5b6df714ec61 = new List<Task>();
+  var var_4e71079b_df49_7b08_a92f_9d38acf35492 = new Action( () =>
+  {
+    var var_1ee012cc_4230_d786_b3a6_f085648c60ec= new BehaviorInfo{BehaviorName = "side_up",RobotName = "Hiro"};
+
+    BehaviorModuleHelper.Execute(context, var_1ee012cc_4230_d786_b3a6_f085648c60ec);
+
+  });
+  var_2b662a63_2fab_a2c8_aec7_5b6df714ec61.Add(Task.Run(var_4e71079b_df49_7b08_a92f_9d38acf35492));
+  var var_8955cb82_0223_e810_91fd_cf4b5242cf3e = new Action( () =>
+  {
+    var var_ed9f30ae_bfa2_7fd9_9b21_aeb634355bd8= new BehaviorInfo{BehaviorName = "side_up",RobotName = "Taro"};
+
+    BehaviorModuleHelper.Execute(context, var_ed9f30ae_bfa2_7fd9_9b21_aeb634355bd8);
+
+  });
+  var_2b662a63_2fab_a2c8_aec7_5b6df714ec61.Add(Task.Run(var_8955cb82_0223_e810_91fd_cf4b5242cf3e));
+  var var_fb72d873_7c78_9d9d_8b38_9142a7afdf78 = new Action( () =>
+  {
+    var var_5b16eaf9_d9db_6589_aa12_a1f453121cbf= new BehaviorInfo{BehaviorName = "side_up",RobotName = "Orange"};
+
+    BehaviorModuleHelper.Execute(context, var_5b16eaf9_d9db_6589_aa12_a1f453121cbf);
+
+  });
+  var_2b662a63_2fab_a2c8_aec7_5b6df714ec61.Add(Task.Run(var_fb72d873_7c78_9d9d_8b38_9142a7afdf78));
+  var var_d6ce89bc_845e_be4a_8a5f_786e60734139 = new Action( () =>
+  {
+    var var_ebbd9e3f_dae4_4dd9_a0c1_6b11c4741648= new BehaviorInfo{BehaviorName = "side_up",RobotName = "Gray"};
+
+    BehaviorModuleHelper.Execute(context, var_ebbd9e3f_dae4_4dd9_a0c1_6b11c4741648);
+
+  });
+  var_2b662a63_2fab_a2c8_aec7_5b6df714ec61.Add(Task.Run(var_d6ce89bc_845e_be4a_8a5f_786e60734139));
+  var var_091b1f76_c628_1054_a1ec_7558d02f8493 = new Action( () =>
+  {
+    var var_e0bb3869_0e22_76ea_804c_f04e4c4792d4= new BehaviorInfo{BehaviorName = "side_up",RobotName = "Silver"};
+
+    BehaviorModuleHelper.Execute(context, var_e0bb3869_0e22_76ea_804c_f04e4c4792d4);
+
+  });
+  var_2b662a63_2fab_a2c8_aec7_5b6df714ec61.Add(Task.Run(var_091b1f76_c628_1054_a1ec_7558d02f8493));
+  var var_4133f1f9_3140_64c9_a961_dc7b6c5e1c7b = new Action( () =>
+  {
+    var var_b4bd03b3_6ad3_497a_9613_8ac86269770d= new BehaviorInfo{BehaviorName = "side_up",RobotName = "Macaroon"};
+
+    BehaviorModuleHelper.Execute(context, var_b4bd03b3_6ad3_497a_9613_8ac86269770d);
+
+  });
+  var_2b662a63_2fab_a2c8_aec7_5b6df714ec61.Add(Task.Run(var_4133f1f9_3140_64c9_a961_dc7b6c5e1c7b));
+  var var_deb1144b_3ef0_01a6_a798_96f1f4e858a7 = new Action( () =>
+  {
+    var var_71bd99f0_1251_1bec_9f2e_8fb24df65050= new BehaviorInfo{BehaviorName = "side_up",RobotName = "Spring"};
+
+    BehaviorModuleHelper.Execute(context, var_71bd99f0_1251_1bec_9f2e_8fb24df65050);
+
+  });
+  var_2b662a63_2fab_a2c8_aec7_5b6df714ec61.Add(Task.Run(var_deb1144b_3ef0_01a6_a798_96f1f4e858a7));
+  Task.WaitAll(var_2b662a63_2fab_a2c8_aec7_5b6df714ec61.ToArray());
+  System.Console.WriteLine("Parallel action execution complete");
+
+            if (ExecutionLifetime == BehaviorExecutionLifetime.once)
+            {
+                CyclicActionsComplete = true;
+            }
+            else if (ExecutionLifetime == BehaviorExecutionLifetime.until)
+            {
+                var complete = ExecutionUntil(context);
+                CyclicActionsComplete = !complete;
+            }
+        }
+        return CyclicActionsComplete;
+    }
+
+    public bool ExecuteExit(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!ExitActionsComplete && CyclicActionsComplete)
+        {
+            // EXIT_BLOCK
+            // EXIT_BLOCK_HERE
+            ExitActionsComplete = true;
+        }
+        return ExitActionsComplete;
+    }
+
+    public bool Execute(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        try
+        {
+            ExecuteInit(context, trigger);
+            ExecuteCyclic(context, trigger);
+            ExecuteExit(context, trigger);
+            System.Console.WriteLine(@"Lifetime: {3} Init : {0}, Cyclic: {1}, Exit: {2}", InitActionsComplete,
+                CyclicActionsComplete,
+                ExitActionsComplete, ExecutionLifetime);
+        }
+        catch (BehaviorCanceledException ex)
+        {
+            Console.WriteLine(@"Execution canceled : {0}, {1} ,{2}", GetUid(), ex.Message, ex.StackTrace);
+        }
+        return ExecutionComplete;
+    }
+}
+// ReSharper disable CheckNamespace
+
+using System;
+using Indriya.Core.BehaviorEngine;
+
+public class Behavior_edede904_2736_8591_a41a_4ab7085463a4 : ITriggerBehavior
+{
+    public string Name { get; set; }
+
+    protected static BehaviorExecutionPriority Priority;
+
+    public Behavior_edede904_2736_8591_a41a_4ab7085463a4()
+    {
+        GetPriority();
+        GetExecutionLifetime();
+        GetUid();
+    }
+
+    public static BehaviorExecutionPriority GetPriority()
+    {
+        // SET_PRIORITY
+        Priority = BehaviorExecutionPriority.low;
+
+        return Priority;
+    }
+
+    protected static BehaviorExecutionLifetime ExecutionLifetime;
+
+    public static BehaviorExecutionLifetime GetExecutionLifetime()
+    {
+        // SET_EXECUTION_LIFETIME
+        ExecutionLifetime = BehaviorExecutionLifetime.once;
+
+        return ExecutionLifetime;
+    }
+
+    public int Id { get; set; }
+
+    protected static string Uid;
+
+    public static string GetUid()
+    {
+        // SET_UID
+        Uid = "edede904_2736_8591_a41a_4ab7085463a4";
+
+        return Uid;
+    }
+
+    private static bool _initActionsComplete;
+    private static bool _cyclicActionsComplete;
+    private static bool _exitActionsComplete;
+
+    public static TriggerResult CheckTrigger(IBehaviorExecutionContext context)
+    {
+        var result = new TriggerResult {Active = false};
+
+        if (context != null && !ExecutionComplete)
+        {
+            result = ((Func<TriggerResult>) (() => {
+var ret = new TriggerResult(){Active = false};
+var gestureInfoList = context.GetGestureInfoList("Seated");
+var gestureInfo = gestureInfoList.FirstOrDefault(s=>s.Confidence > 95);
+if (gestureInfo.Active && gestureInfo.Confidence > 95)
+{
+Console.WriteLine("Gesture trigger received : {0} - {1}", gestureInfo.Name, gestureInfo.Confidence);
+ret.HumanId = gestureInfo.HumanId;
+ret.HumanInLoop = true;
+ret.Active = true;
+}
+return ret;
+}))();
+        }
+        return result;
+    }
+
+    public bool ExecutionUntil(IBehaviorExecutionContext context)
+    {
+        if (context != null)
+        {
+            // EXECUTE_UNTIL
+            // EXECUTE_UNTIL_HERE
+        }
+        return true;
+    }
+
+    public string ActiveResource { get; set; }
+
+    public static bool InitActionsComplete
+    {
+        get { return _initActionsComplete; }
+        set { _initActionsComplete = value; }
+    }
+
+    public static bool CyclicActionsComplete
+    {
+        get { return _cyclicActionsComplete; }
+        set { _cyclicActionsComplete = value; }
+    }
+
+    public static bool ExitActionsComplete
+    {
+        get { return _exitActionsComplete; }
+        set { _exitActionsComplete = value; }
+    }
+
+    public static bool ExecutionComplete
+    {
+        get { return InitActionsComplete & CyclicActionsComplete & ExitActionsComplete; }
+    }
+
+    public bool ExecuteInit(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!InitActionsComplete)
+        {
+            // INIT_BLOCK
+            // INIT_BLOCK_HERE
+            InitActionsComplete = true;
+        }
+        return InitActionsComplete;
+    }
+
+    public bool ExecuteCyclic(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!CyclicActionsComplete && InitActionsComplete)
+        {
+            // CYCLIC_BLOCK
+              var var_61ec50de_ae9e_defb_b303_cffd86c88119 = new List<Task>();
+  var var_d9ee9a4b_9d4c_c60d_8984_5811515ed970 = new Action( () =>
+  {
+    var var_21f6a507_fb09_8826_90c4_b29cbaf925bc= new BehaviorInfo
+    {
+    BehaviorName = "Take Rest",
+    RobotName = "Hiro",Parameters = new Dictionary<string, object>()
+    };
+
+    BehaviorModuleHelper.Execute(context, var_21f6a507_fb09_8826_90c4_b29cbaf925bc);
+
+  });
+  var_61ec50de_ae9e_defb_b303_cffd86c88119.Add(Task.Run(var_d9ee9a4b_9d4c_c60d_8984_5811515ed970));
+  var var_abc81c75_d4f0_8637_96ea_3ff7a7501c34 = new Action( () =>
+  {
+    var var_153cf09a_8d09_c61e_b60e_f4baa98db972= new BehaviorInfo
+    {
+    BehaviorName = "Take Rest",
+    RobotName = "Taro",Parameters = new Dictionary<string, object>()
+    };
+
+    BehaviorModuleHelper.Execute(context, var_153cf09a_8d09_c61e_b60e_f4baa98db972);
+
+  });
+  var_61ec50de_ae9e_defb_b303_cffd86c88119.Add(Task.Run(var_abc81c75_d4f0_8637_96ea_3ff7a7501c34));
+  var var_4e33bfe2_03b6_3cad_bd46_7432639df378 = new Action( () =>
+  {
+    var var_e394d22c_0c96_5c97_b637_b9c925c20c2b= new BehaviorInfo
+    {
+    BehaviorName = "Take Rest",
+    RobotName = "Orange",Parameters = new Dictionary<string, object>()
+    };
+
+    BehaviorModuleHelper.Execute(context, var_e394d22c_0c96_5c97_b637_b9c925c20c2b);
+
+  });
+  var_61ec50de_ae9e_defb_b303_cffd86c88119.Add(Task.Run(var_4e33bfe2_03b6_3cad_bd46_7432639df378));
+  var var_e3b1f9de_ab4a_30a2_9d93_975a014bc101 = new Action( () =>
+  {
+    var var_02f42180_e1f8_5472_857a_db98b120c35e= new BehaviorInfo
+    {
+    BehaviorName = "Take Rest",
+    RobotName = "Gray",Parameters = new Dictionary<string, object>()
+    };
+
+    BehaviorModuleHelper.Execute(context, var_02f42180_e1f8_5472_857a_db98b120c35e);
+
+  });
+  var_61ec50de_ae9e_defb_b303_cffd86c88119.Add(Task.Run(var_e3b1f9de_ab4a_30a2_9d93_975a014bc101));
+  var var_3e53a783_6d1a_3fa2_9594_58ba4037d7bf = new Action( () =>
+  {
+    var var_619413e3_fe9b_7dbc_ba8e_e859d2c5c77d= new BehaviorInfo
+    {
+    BehaviorName = "Take Rest",
+    RobotName = "Silver",Parameters = new Dictionary<string, object>()
+    };
+
+    BehaviorModuleHelper.Execute(context, var_619413e3_fe9b_7dbc_ba8e_e859d2c5c77d);
+
+  });
+  var_61ec50de_ae9e_defb_b303_cffd86c88119.Add(Task.Run(var_3e53a783_6d1a_3fa2_9594_58ba4037d7bf));
+  var var_8d7b9486_84f6_fc7e_89c5_a29b5d5907d0 = new Action( () =>
+  {
+    var var_f5542981_bad3_1634_a77b_e810fe3a37ec= new BehaviorInfo
+    {
+    BehaviorName = "Take Rest",
+    RobotName = "Macaroon",Parameters = new Dictionary<string, object>()
+    };
+
+    BehaviorModuleHelper.Execute(context, var_f5542981_bad3_1634_a77b_e810fe3a37ec);
+
+  });
+  var_61ec50de_ae9e_defb_b303_cffd86c88119.Add(Task.Run(var_8d7b9486_84f6_fc7e_89c5_a29b5d5907d0));
+  var var_e74a6857_af3c_27a0_abae_72caa1de313b = new Action( () =>
+  {
+    var var_980db8d1_3169_54dd_994b_347e763e084c= new BehaviorInfo
+    {
+    BehaviorName = "Take Rest",
+    RobotName = "Spring",Parameters = new Dictionary<string, object>()
+    };
+
+    BehaviorModuleHelper.Execute(context, var_980db8d1_3169_54dd_994b_347e763e084c);
+
+  });
+  var_61ec50de_ae9e_defb_b303_cffd86c88119.Add(Task.Run(var_e74a6857_af3c_27a0_abae_72caa1de313b));
+  Task.WaitAll(var_61ec50de_ae9e_defb_b303_cffd86c88119.ToArray());
+  System.Console.WriteLine("Parallel action execution complete");
+
+            if (ExecutionLifetime == BehaviorExecutionLifetime.once)
+            {
+                CyclicActionsComplete = true;
+            }
+            else if (ExecutionLifetime == BehaviorExecutionLifetime.until)
+            {
+                var complete = ExecutionUntil(context);
+                CyclicActionsComplete = !complete;
+            }
+        }
+        return CyclicActionsComplete;
+    }
+
+    public bool ExecuteExit(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!ExitActionsComplete && CyclicActionsComplete)
+        {
+            // EXIT_BLOCK
+            // EXIT_BLOCK_HERE
+            ExitActionsComplete = true;
+        }
+        return ExitActionsComplete;
+    }
+
+    public bool Execute(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        try
+        {
+            ExecuteInit(context, trigger);
+            ExecuteCyclic(context, trigger);
+            ExecuteExit(context, trigger);
+            System.Console.WriteLine(@"Lifetime: {3} Init : {0}, Cyclic: {1}, Exit: {2}", InitActionsComplete,
+                CyclicActionsComplete,
+                ExitActionsComplete, ExecutionLifetime);
+        }
+        catch (BehaviorCanceledException ex)
+        {
+            Console.WriteLine(@"Execution canceled : {0}, {1} ,{2}", GetUid(), ex.Message, ex.StackTrace);
+        }
+        return ExecutionComplete;
+    }
+}
+using Indriya.Core.BehaviorEngine;
+
+public class StartupBehavior : IExecuteOnceBehavior
+{
+    public void Execute(IBehaviorExecutionContext context)
+    {
+        // STARTUP_BLOCK
+          var var_9e0c54f1_78c3_3d8e_9527_f1410d0e23b3 = new List<Task>();
+  var var_134876fb_3b3e_836d_b1fd_f892b56573cd = new Action( () =>
+  {
+    var var_7b2a7aa4_17ea_3d32_a741_cc252090a0a2= new BehaviorInfo
+    {
+    BehaviorName = "Wake up",
+    RobotName = "Hiro",Parameters = new Dictionary<string, object>()
+    };
+
+    BehaviorModuleHelper.Execute(context, var_7b2a7aa4_17ea_3d32_a741_cc252090a0a2);
+
+  });
+  var_9e0c54f1_78c3_3d8e_9527_f1410d0e23b3.Add(Task.Run(var_134876fb_3b3e_836d_b1fd_f892b56573cd));
+  var var_8df7eceb_77c9_628c_a183_f3ac2e681109 = new Action( () =>
+  {
+    var var_9d1b59ee_5896_04d7_9c84_24fa2b532cff= new BehaviorInfo
+    {
+    BehaviorName = "Wake up",
+    RobotName = "Taro",Parameters = new Dictionary<string, object>()
+    };
+
+    BehaviorModuleHelper.Execute(context, var_9d1b59ee_5896_04d7_9c84_24fa2b532cff);
+
+  });
+  var_9e0c54f1_78c3_3d8e_9527_f1410d0e23b3.Add(Task.Run(var_8df7eceb_77c9_628c_a183_f3ac2e681109));
+  var var_bf5fe695_8322_bd87_b33f_d98966c72c88 = new Action( () =>
+  {
+    var var_48207b4d_9411_7f08_bfe4_f5d29ffc2b7a= new BehaviorInfo
+    {
+    BehaviorName = "Wake up",
+    RobotName = "Orange",Parameters = new Dictionary<string, object>()
+    };
+
+    BehaviorModuleHelper.Execute(context, var_48207b4d_9411_7f08_bfe4_f5d29ffc2b7a);
+
+  });
+  var_9e0c54f1_78c3_3d8e_9527_f1410d0e23b3.Add(Task.Run(var_bf5fe695_8322_bd87_b33f_d98966c72c88));
+  var var_1a5dd8c0_2cfc_3393_bd52_1587ca326a64 = new Action( () =>
+  {
+    var var_80fc46b5_f5ad_415a_8db3_d7b41e31ac05= new BehaviorInfo
+    {
+    BehaviorName = "Wake up",
+    RobotName = "Gray",Parameters = new Dictionary<string, object>()
+    };
+
+    BehaviorModuleHelper.Execute(context, var_80fc46b5_f5ad_415a_8db3_d7b41e31ac05);
+
+  });
+  var_9e0c54f1_78c3_3d8e_9527_f1410d0e23b3.Add(Task.Run(var_1a5dd8c0_2cfc_3393_bd52_1587ca326a64));
+  var var_ad3ba2fe_b582_e05a_b813_650607ae1026 = new Action( () =>
+  {
+    var var_8f665ddc_6372_3893_a8df_f2dc27c1d0ed= new BehaviorInfo
+    {
+    BehaviorName = "Wake up",
+    RobotName = "Silver",Parameters = new Dictionary<string, object>()
+    };
+
+    BehaviorModuleHelper.Execute(context, var_8f665ddc_6372_3893_a8df_f2dc27c1d0ed);
+
+  });
+  var_9e0c54f1_78c3_3d8e_9527_f1410d0e23b3.Add(Task.Run(var_ad3ba2fe_b582_e05a_b813_650607ae1026));
+  var var_aa7f0c5f_0d49_ba6d_949b_4864188b1bd8 = new Action( () =>
+  {
+    var var_1a96fdc5_980a_3be1_91cb_3dda4fcf9bae= new BehaviorInfo
+    {
+    BehaviorName = "Wake up",
+    RobotName = "Macaroon",Parameters = new Dictionary<string, object>()
+    };
+
+    BehaviorModuleHelper.Execute(context, var_1a96fdc5_980a_3be1_91cb_3dda4fcf9bae);
+
+  });
+  var_9e0c54f1_78c3_3d8e_9527_f1410d0e23b3.Add(Task.Run(var_aa7f0c5f_0d49_ba6d_949b_4864188b1bd8));
+  var var_964f79fa_5031_fa8a_88e5_6c212c7fdeb0 = new Action( () =>
+  {
+    var var_77bd0f00_f143_c434_8d67_bd08c3bc3f81= new BehaviorInfo
+    {
+    BehaviorName = "Wake up",
+    RobotName = "Spring",Parameters = new Dictionary<string, object>()
+    };
+
+    BehaviorModuleHelper.Execute(context, var_77bd0f00_f143_c434_8d67_bd08c3bc3f81);
+
+  });
+  var_9e0c54f1_78c3_3d8e_9527_f1410d0e23b3.Add(Task.Run(var_964f79fa_5031_fa8a_88e5_6c212c7fdeb0));
+  Task.WaitAll(var_9e0c54f1_78c3_3d8e_9527_f1410d0e23b3.ToArray());
+  System.Console.WriteLine("Parallel action execution complete");
+    }
+}
+// ReSharper disable CheckNamespace
+
+using System;
+using Indriya.Core.BehaviorEngine;
+
+public class Behavior_bd346fae_8af3_68e7_aa5d_1c7cca5572b9 : ITriggerBehavior
+{
+    public string Name { get; set; }
+
+    protected static BehaviorExecutionPriority Priority;
+
+    public Behavior_bd346fae_8af3_68e7_aa5d_1c7cca5572b9()
+    {
+        GetPriority();
+        GetExecutionLifetime();
+        GetUid();
+    }
+
+    public static BehaviorExecutionPriority GetPriority()
+    {
+        // SET_PRIORITY
+        Priority = BehaviorExecutionPriority.low;
+
+        return Priority;
+    }
+
+    protected static BehaviorExecutionLifetime ExecutionLifetime;
+
+    public static BehaviorExecutionLifetime GetExecutionLifetime()
+    {
+        // SET_EXECUTION_LIFETIME
+        ExecutionLifetime = BehaviorExecutionLifetime.once;
+
+        return ExecutionLifetime;
+    }
+
+    public int Id { get; set; }
+
+    protected static string Uid;
+
+    public static string GetUid()
+    {
+        // SET_UID
+        Uid = "bd346fae_8af3_68e7_aa5d_1c7cca5572b9";
+
+        return Uid;
+    }
+
+    private static bool _initActionsComplete;
+    private static bool _cyclicActionsComplete;
+    private static bool _exitActionsComplete;
+
+    public static TriggerResult CheckTrigger(IBehaviorExecutionContext context)
+    {
+        var result = new TriggerResult {Active = false};
+
+        if (context != null && !ExecutionComplete)
+        {
+            result = ((Func<TriggerResult>) (() => {
+var ret = new TriggerResult(){Active = false};
+var gestureInfoList = context.GetGestureInfoList("Bow");
+var gestureInfo = gestureInfoList.FirstOrDefault(s=>s.Confidence > 95);
+if (gestureInfo.Active && gestureInfo.Confidence > 95)
+{
+Console.WriteLine("Gesture trigger received : {0} - {1}", gestureInfo.Name, gestureInfo.Confidence);
+ret.HumanId = gestureInfo.HumanId;
+ret.HumanInLoop = true;
+ret.Active = true;
+}
+return ret;
+}))();
+        }
+        return result;
+    }
+
+    public bool ExecutionUntil(IBehaviorExecutionContext context)
+    {
+        if (context != null)
+        {
+            // EXECUTE_UNTIL
+            // EXECUTE_UNTIL_HERE
+        }
+        return true;
+    }
+
+    public string ActiveResource { get; set; }
+
+    public static bool InitActionsComplete
+    {
+        get { return _initActionsComplete; }
+        set { _initActionsComplete = value; }
+    }
+
+    public static bool CyclicActionsComplete
+    {
+        get { return _cyclicActionsComplete; }
+        set { _cyclicActionsComplete = value; }
+    }
+
+    public static bool ExitActionsComplete
+    {
+        get { return _exitActionsComplete; }
+        set { _exitActionsComplete = value; }
+    }
+
+    public static bool ExecutionComplete
+    {
+        get { return InitActionsComplete & CyclicActionsComplete & ExitActionsComplete; }
+    }
+
+    public bool ExecuteInit(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!InitActionsComplete)
+        {
+            // INIT_BLOCK
+            // INIT_BLOCK_HERE
+            InitActionsComplete = true;
+        }
+        return InitActionsComplete;
+    }
+
+    public bool ExecuteCyclic(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!CyclicActionsComplete && InitActionsComplete)
+        {
+            // CYCLIC_BLOCK
+              var var_aa7fcb58_b085_da42_bcd1_9daadaae8e21 = new List<Task>();
+  var var_8a85cc4b_6102_d92b_afe3_8daac98f0041 = new Action( () =>
+  {
+    var var_6d66f1e1_e11a_0d08_91cd_5c4a38ccc5f4= new BehaviorInfo{BehaviorName = "bow",RobotName = "Hiro"};
+
+    BehaviorModuleHelper.Execute(context, var_6d66f1e1_e11a_0d08_91cd_5c4a38ccc5f4);
+
+  });
+  var_aa7fcb58_b085_da42_bcd1_9daadaae8e21.Add(Task.Run(var_8a85cc4b_6102_d92b_afe3_8daac98f0041));
+  var var_0c4d9056_4655_7dd5_879c_0d18602a77c3 = new Action( () =>
+  {
+    var var_1e10cdfa_12fc_4b34_a4a8_0ddb44b09466= new BehaviorInfo{BehaviorName = "bow",RobotName = "Taro"};
+
+    BehaviorModuleHelper.Execute(context, var_1e10cdfa_12fc_4b34_a4a8_0ddb44b09466);
+
+  });
+  var_aa7fcb58_b085_da42_bcd1_9daadaae8e21.Add(Task.Run(var_0c4d9056_4655_7dd5_879c_0d18602a77c3));
+  var var_edef04e5_231e_a99e_a8a4_491413e68984 = new Action( () =>
+  {
+    var var_125cdd09_f6e1_7204_9bde_9219d31d2c33= new BehaviorInfo{BehaviorName = "bow",RobotName = "Orange"};
+
+    BehaviorModuleHelper.Execute(context, var_125cdd09_f6e1_7204_9bde_9219d31d2c33);
+
+  });
+  var_aa7fcb58_b085_da42_bcd1_9daadaae8e21.Add(Task.Run(var_edef04e5_231e_a99e_a8a4_491413e68984));
+  var var_e44053b3_eb5e_0026_9f65_9a5b5b6e3099 = new Action( () =>
+  {
+    var var_65251d2e_187a_83cc_8589_83958c036181= new BehaviorInfo{BehaviorName = "bow",RobotName = "Gray"};
+
+    BehaviorModuleHelper.Execute(context, var_65251d2e_187a_83cc_8589_83958c036181);
+
+  });
+  var_aa7fcb58_b085_da42_bcd1_9daadaae8e21.Add(Task.Run(var_e44053b3_eb5e_0026_9f65_9a5b5b6e3099));
+  var var_2194f689_833d_7421_adbc_09a11bb1202e = new Action( () =>
+  {
+    var var_d0705eb3_e494_1a29_91f4_166be48f845d= new BehaviorInfo{BehaviorName = "bow",RobotName = "Silver"};
+
+    BehaviorModuleHelper.Execute(context, var_d0705eb3_e494_1a29_91f4_166be48f845d);
+
+  });
+  var_aa7fcb58_b085_da42_bcd1_9daadaae8e21.Add(Task.Run(var_2194f689_833d_7421_adbc_09a11bb1202e));
+  var var_ae0f65ba_9c76_72b7_99b2_ddf7bd29c914 = new Action( () =>
+  {
+    var var_9651dbc5_c53b_2ec5_ac2c_19ed778d50b8= new BehaviorInfo{BehaviorName = "bow",RobotName = "Macaroon"};
+
+    BehaviorModuleHelper.Execute(context, var_9651dbc5_c53b_2ec5_ac2c_19ed778d50b8);
+
+  });
+  var_aa7fcb58_b085_da42_bcd1_9daadaae8e21.Add(Task.Run(var_ae0f65ba_9c76_72b7_99b2_ddf7bd29c914));
+  var var_9ec700c8_68e9_8a49_9e25_816bdd574f1f = new Action( () =>
+  {
+    var var_595d5588_99b0_bef7_ad8e_0515eeaa8c79= new BehaviorInfo{BehaviorName = "bow",RobotName = "Spring"};
+
+    BehaviorModuleHelper.Execute(context, var_595d5588_99b0_bef7_ad8e_0515eeaa8c79);
+
+  });
+  var_aa7fcb58_b085_da42_bcd1_9daadaae8e21.Add(Task.Run(var_9ec700c8_68e9_8a49_9e25_816bdd574f1f));
+  Task.WaitAll(var_aa7fcb58_b085_da42_bcd1_9daadaae8e21.ToArray());
+  System.Console.WriteLine("Parallel action execution complete");
+
+            if (ExecutionLifetime == BehaviorExecutionLifetime.once)
+            {
+                CyclicActionsComplete = true;
+            }
+            else if (ExecutionLifetime == BehaviorExecutionLifetime.until)
+            {
+                var complete = ExecutionUntil(context);
+                CyclicActionsComplete = !complete;
+            }
+        }
+        return CyclicActionsComplete;
+    }
+
+    public bool ExecuteExit(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!ExitActionsComplete && CyclicActionsComplete)
+        {
+            // EXIT_BLOCK
+            // EXIT_BLOCK_HERE
+            ExitActionsComplete = true;
+        }
+        return ExitActionsComplete;
+    }
+
+    public bool Execute(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        try
+        {
+            ExecuteInit(context, trigger);
+            ExecuteCyclic(context, trigger);
+            ExecuteExit(context, trigger);
+            System.Console.WriteLine(@"Lifetime: {3} Init : {0}, Cyclic: {1}, Exit: {2}", InitActionsComplete,
+                CyclicActionsComplete,
+                ExitActionsComplete, ExecutionLifetime);
+        }
+        catch (BehaviorCanceledException ex)
+        {
+            Console.WriteLine(@"Execution canceled : {0}, {1} ,{2}", GetUid(), ex.Message, ex.StackTrace);
+        }
+        return ExecutionComplete;
+    }
+}
+// ReSharper disable CheckNamespace
+
+using System;
+using Indriya.Core.BehaviorEngine;
+
+public class Behavior_337644e4_e0cd_60db_886a_0314e2d11702 : ITriggerBehavior
+{
+    public string Name { get; set; }
+
+    protected static BehaviorExecutionPriority Priority;
+
+    public Behavior_337644e4_e0cd_60db_886a_0314e2d11702()
+    {
+        GetPriority();
+        GetExecutionLifetime();
+        GetUid();
+    }
+
+    public static BehaviorExecutionPriority GetPriority()
+    {
+        // SET_PRIORITY
+        Priority = BehaviorExecutionPriority.low;
+
+        return Priority;
+    }
+
+    protected static BehaviorExecutionLifetime ExecutionLifetime;
+
+    public static BehaviorExecutionLifetime GetExecutionLifetime()
+    {
+        // SET_EXECUTION_LIFETIME
+        ExecutionLifetime = BehaviorExecutionLifetime.once;
+
+        return ExecutionLifetime;
+    }
+
+    public int Id { get; set; }
+
+    protected static string Uid;
+
+    public static string GetUid()
+    {
+        // SET_UID
+        Uid = "337644e4_e0cd_60db_886a_0314e2d11702";
+
+        return Uid;
+    }
+
+    private static bool _initActionsComplete;
+    private static bool _cyclicActionsComplete;
+    private static bool _exitActionsComplete;
+
+    public static TriggerResult CheckTrigger(IBehaviorExecutionContext context)
+    {
+        var result = new TriggerResult {Active = false};
+
+        if (context != null && !ExecutionComplete)
+        {
+            result = ((Func<TriggerResult>) (() => {
+var ret = new TriggerResult(){Active = false};
+var gestureInfoList = context.GetGestureInfoList("HandsFront");
+var gestureInfo = gestureInfoList.FirstOrDefault(s=>s.Confidence > 95);
+if (gestureInfo.Active && gestureInfo.Confidence > 95)
+{
+Console.WriteLine("Gesture trigger received : {0} - {1}", gestureInfo.Name, gestureInfo.Confidence);
+ret.HumanId = gestureInfo.HumanId;
+ret.HumanInLoop = true;
+ret.Active = true;
+}
+return ret;
+}))();
+        }
+        return result;
+    }
+
+    public bool ExecutionUntil(IBehaviorExecutionContext context)
+    {
+        if (context != null)
+        {
+            // EXECUTE_UNTIL
+            // EXECUTE_UNTIL_HERE
+        }
+        return true;
+    }
+
+    public string ActiveResource { get; set; }
+
+    public static bool InitActionsComplete
+    {
+        get { return _initActionsComplete; }
+        set { _initActionsComplete = value; }
+    }
+
+    public static bool CyclicActionsComplete
+    {
+        get { return _cyclicActionsComplete; }
+        set { _cyclicActionsComplete = value; }
+    }
+
+    public static bool ExitActionsComplete
+    {
+        get { return _exitActionsComplete; }
+        set { _exitActionsComplete = value; }
+    }
+
+    public static bool ExecutionComplete
+    {
+        get { return InitActionsComplete & CyclicActionsComplete & ExitActionsComplete; }
+    }
+
+    public bool ExecuteInit(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!InitActionsComplete)
+        {
+            // INIT_BLOCK
+            // INIT_BLOCK_HERE
+            InitActionsComplete = true;
+        }
+        return InitActionsComplete;
+    }
+
+    public bool ExecuteCyclic(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!CyclicActionsComplete && InitActionsComplete)
+        {
+            // CYCLIC_BLOCK
+              var var_a869e319_0cf7_6dbd_b3bf_5a5f8dc51d3d = new List<Task>();
+  var var_e14f8ca4_8b43_ad1c_b131_3b4c64825265 = new Action( () =>
+  {
+    var var_9018eba4_841c_b72e_bed8_06e073266860= new BehaviorInfo{BehaviorName = "front_up",RobotName = "Hiro"};
+
+    BehaviorModuleHelper.Execute(context, var_9018eba4_841c_b72e_bed8_06e073266860);
+
+  });
+  var_a869e319_0cf7_6dbd_b3bf_5a5f8dc51d3d.Add(Task.Run(var_e14f8ca4_8b43_ad1c_b131_3b4c64825265));
+  var var_2fa8632b_b253_db96_8662_60a48dcdb468 = new Action( () =>
+  {
+    var var_919ca9e5_bca1_0ca2_bc2e_d868fa0b3274= new BehaviorInfo{BehaviorName = "front_up",RobotName = "Taro"};
+
+    BehaviorModuleHelper.Execute(context, var_919ca9e5_bca1_0ca2_bc2e_d868fa0b3274);
+
+  });
+  var_a869e319_0cf7_6dbd_b3bf_5a5f8dc51d3d.Add(Task.Run(var_2fa8632b_b253_db96_8662_60a48dcdb468));
+  var var_a1793196_31a0_e2f6_a6ac_69e3dcc5272e = new Action( () =>
+  {
+    var var_7bf708b4_dfb6_1385_a6f1_fd9874c0c949= new BehaviorInfo{BehaviorName = "front_up",RobotName = "Orange"};
+
+    BehaviorModuleHelper.Execute(context, var_7bf708b4_dfb6_1385_a6f1_fd9874c0c949);
+
+  });
+  var_a869e319_0cf7_6dbd_b3bf_5a5f8dc51d3d.Add(Task.Run(var_a1793196_31a0_e2f6_a6ac_69e3dcc5272e));
+  var var_4c9cf936_8075_6bfe_bffd_706968547af4 = new Action( () =>
+  {
+    var var_47d6503a_75e6_6c23_8eef_0ba7a06c63e6= new BehaviorInfo{BehaviorName = "front_up",RobotName = "Gray"};
+
+    BehaviorModuleHelper.Execute(context, var_47d6503a_75e6_6c23_8eef_0ba7a06c63e6);
+
+  });
+  var_a869e319_0cf7_6dbd_b3bf_5a5f8dc51d3d.Add(Task.Run(var_4c9cf936_8075_6bfe_bffd_706968547af4));
+  var var_48085c4f_4bd4_8e7c_9bbe_a6137d81a541 = new Action( () =>
+  {
+    var var_8404bcc4_a6fc_eb38_b3dc_65ccc2bc14ab= new BehaviorInfo{BehaviorName = "front_up",RobotName = "Silver"};
+
+    BehaviorModuleHelper.Execute(context, var_8404bcc4_a6fc_eb38_b3dc_65ccc2bc14ab);
+
+  });
+  var_a869e319_0cf7_6dbd_b3bf_5a5f8dc51d3d.Add(Task.Run(var_48085c4f_4bd4_8e7c_9bbe_a6137d81a541));
+  var var_44658014_a5ed_afe0_96e2_699e9e45592c = new Action( () =>
+  {
+    var var_40bc23ac_8429_42bf_8de9_30f5a6efab99= new BehaviorInfo{BehaviorName = "front_up",RobotName = "Macaroon"};
+
+    BehaviorModuleHelper.Execute(context, var_40bc23ac_8429_42bf_8de9_30f5a6efab99);
+
+  });
+  var_a869e319_0cf7_6dbd_b3bf_5a5f8dc51d3d.Add(Task.Run(var_44658014_a5ed_afe0_96e2_699e9e45592c));
+  var var_03adbe62_5e23_3cd4_b499_55508129b74e = new Action( () =>
+  {
+    var var_daf5836c_1bcf_5764_a6d5_1a493d12d1a1= new BehaviorInfo{BehaviorName = "front_up",RobotName = "Spring"};
+
+    BehaviorModuleHelper.Execute(context, var_daf5836c_1bcf_5764_a6d5_1a493d12d1a1);
+
+  });
+  var_a869e319_0cf7_6dbd_b3bf_5a5f8dc51d3d.Add(Task.Run(var_03adbe62_5e23_3cd4_b499_55508129b74e));
+  Task.WaitAll(var_a869e319_0cf7_6dbd_b3bf_5a5f8dc51d3d.ToArray());
+  System.Console.WriteLine("Parallel action execution complete");
+
+            if (ExecutionLifetime == BehaviorExecutionLifetime.once)
+            {
+                CyclicActionsComplete = true;
+            }
+            else if (ExecutionLifetime == BehaviorExecutionLifetime.until)
+            {
+                var complete = ExecutionUntil(context);
+                CyclicActionsComplete = !complete;
+            }
+        }
+        return CyclicActionsComplete;
+    }
+
+    public bool ExecuteExit(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!ExitActionsComplete && CyclicActionsComplete)
+        {
+            // EXIT_BLOCK
+            // EXIT_BLOCK_HERE
+            ExitActionsComplete = true;
+        }
+        return ExitActionsComplete;
+    }
+
+    public bool Execute(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        try
+        {
+            ExecuteInit(context, trigger);
+            ExecuteCyclic(context, trigger);
+            ExecuteExit(context, trigger);
+            System.Console.WriteLine(@"Lifetime: {3} Init : {0}, Cyclic: {1}, Exit: {2}", InitActionsComplete,
+                CyclicActionsComplete,
+                ExitActionsComplete, ExecutionLifetime);
+        }
+        catch (BehaviorCanceledException ex)
+        {
+            Console.WriteLine(@"Execution canceled : {0}, {1} ,{2}", GetUid(), ex.Message, ex.StackTrace);
+        }
+        return ExecutionComplete;
+    }
+}
+// ReSharper disable CheckNamespace
+
+using System;
+using Indriya.Core.BehaviorEngine;
+
+public class Behavior_f4eb6f92_598e_3459_9f9f_343dc6d262ce : ITriggerBehavior
+{
+    public string Name { get; set; }
+
+    protected static BehaviorExecutionPriority Priority;
+
+    public Behavior_f4eb6f92_598e_3459_9f9f_343dc6d262ce()
+    {
+        GetPriority();
+        GetExecutionLifetime();
+        GetUid();
+    }
+
+    public static BehaviorExecutionPriority GetPriority()
+    {
+        // SET_PRIORITY
+        Priority = BehaviorExecutionPriority.low;
+
+        return Priority;
+    }
+
+    protected static BehaviorExecutionLifetime ExecutionLifetime;
+
+    public static BehaviorExecutionLifetime GetExecutionLifetime()
+    {
+        // SET_EXECUTION_LIFETIME
+        ExecutionLifetime = BehaviorExecutionLifetime.once;
+
+        return ExecutionLifetime;
+    }
+
+    public int Id { get; set; }
+
+    protected static string Uid;
+
+    public static string GetUid()
+    {
+        // SET_UID
+        Uid = "f4eb6f92_598e_3459_9f9f_343dc6d262ce";
+
+        return Uid;
+    }
+
+    private static bool _initActionsComplete;
+    private static bool _cyclicActionsComplete;
+    private static bool _exitActionsComplete;
+
+    public static TriggerResult CheckTrigger(IBehaviorExecutionContext context)
+    {
+        var result = new TriggerResult {Active = false};
+
+        if (context != null && !ExecutionComplete)
+        {
+            result = ((Func<TriggerResult>) (() => {
+var ret = new TriggerResult(){Active = false};
+var gestureInfoList = context.GetGestureInfoList("HandsUp");
+var gestureInfo = gestureInfoList.FirstOrDefault(s=>s.Confidence > 95);
+if (gestureInfo.Active && gestureInfo.Confidence > 95)
+{
+Console.WriteLine("Gesture trigger received : {0} - {1}", gestureInfo.Name, gestureInfo.Confidence);
+ret.HumanId = gestureInfo.HumanId;
+ret.HumanInLoop = true;
+ret.Active = true;
+}
+return ret;
+}))();
+        }
+        return result;
+    }
+
+    public bool ExecutionUntil(IBehaviorExecutionContext context)
+    {
+        if (context != null)
+        {
+            // EXECUTE_UNTIL
+            // EXECUTE_UNTIL_HERE
+        }
+        return true;
+    }
+
+    public string ActiveResource { get; set; }
+
+    public static bool InitActionsComplete
+    {
+        get { return _initActionsComplete; }
+        set { _initActionsComplete = value; }
+    }
+
+    public static bool CyclicActionsComplete
+    {
+        get { return _cyclicActionsComplete; }
+        set { _cyclicActionsComplete = value; }
+    }
+
+    public static bool ExitActionsComplete
+    {
+        get { return _exitActionsComplete; }
+        set { _exitActionsComplete = value; }
+    }
+
+    public static bool ExecutionComplete
+    {
+        get { return InitActionsComplete & CyclicActionsComplete & ExitActionsComplete; }
+    }
+
+    public bool ExecuteInit(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!InitActionsComplete)
+        {
+            // INIT_BLOCK
+            // INIT_BLOCK_HERE
+            InitActionsComplete = true;
+        }
+        return InitActionsComplete;
+    }
+
+    public bool ExecuteCyclic(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!CyclicActionsComplete && InitActionsComplete)
+        {
+            // CYCLIC_BLOCK
+              var var_282bc568_cab2_0345_bac7_51ff5b9db53d = new List<Task>();
+  var var_7604d48c_f9fc_6b5d_91ac_cc3527719e98 = new Action( () =>
+  {
+    var var_65ad6512_efa7_36b2_bc3e_dc5b245502fc= new BehaviorInfo{BehaviorName = "hands_up",RobotName = "Hiro"};
+
+    BehaviorModuleHelper.Execute(context, var_65ad6512_efa7_36b2_bc3e_dc5b245502fc);
+
+  });
+  var_282bc568_cab2_0345_bac7_51ff5b9db53d.Add(Task.Run(var_7604d48c_f9fc_6b5d_91ac_cc3527719e98));
+  var var_53f9be85_e289_e585_b28f_4e420cc9b508 = new Action( () =>
+  {
+    var var_42673342_4695_8949_bdc3_483b02e301b9= new BehaviorInfo{BehaviorName = "hands_up",RobotName = "Taro"};
+
+    BehaviorModuleHelper.Execute(context, var_42673342_4695_8949_bdc3_483b02e301b9);
+
+  });
+  var_282bc568_cab2_0345_bac7_51ff5b9db53d.Add(Task.Run(var_53f9be85_e289_e585_b28f_4e420cc9b508));
+  var var_36465c12_3af3_d851_a037_f56213054a15 = new Action( () =>
+  {
+    var var_4ee756bb_453f_f1a3_bc5b_8fb025f8d9f1= new BehaviorInfo{BehaviorName = "hands_up",RobotName = "Orange"};
+
+    BehaviorModuleHelper.Execute(context, var_4ee756bb_453f_f1a3_bc5b_8fb025f8d9f1);
+
+  });
+  var_282bc568_cab2_0345_bac7_51ff5b9db53d.Add(Task.Run(var_36465c12_3af3_d851_a037_f56213054a15));
+  var var_24bdc5a0_d567_5566_8e40_b8ce3e5bb392 = new Action( () =>
+  {
+    var var_b2d48c4c_0e3a_d9c9_83b5_b2ac5fe150ed= new BehaviorInfo{BehaviorName = "hands_up",RobotName = "Gray"};
+
+    BehaviorModuleHelper.Execute(context, var_b2d48c4c_0e3a_d9c9_83b5_b2ac5fe150ed);
+
+  });
+  var_282bc568_cab2_0345_bac7_51ff5b9db53d.Add(Task.Run(var_24bdc5a0_d567_5566_8e40_b8ce3e5bb392));
+  var var_10987102_94de_1b91_9ce5_4dc70b60eea8 = new Action( () =>
+  {
+    var var_58c0e635_9d7c_c409_a4f6_df3d68aad96d= new BehaviorInfo{BehaviorName = "hands_up",RobotName = "Silver"};
+
+    BehaviorModuleHelper.Execute(context, var_58c0e635_9d7c_c409_a4f6_df3d68aad96d);
+
+  });
+  var_282bc568_cab2_0345_bac7_51ff5b9db53d.Add(Task.Run(var_10987102_94de_1b91_9ce5_4dc70b60eea8));
+  var var_e2562229_4deb_d56c_aacd_de29bded51ac = new Action( () =>
+  {
+    var var_6423fe9c_52d1_0e76_92d2_7a0d628a57c0= new BehaviorInfo{BehaviorName = "hands_up",RobotName = "Macaroon"};
+
+    BehaviorModuleHelper.Execute(context, var_6423fe9c_52d1_0e76_92d2_7a0d628a57c0);
+
+  });
+  var_282bc568_cab2_0345_bac7_51ff5b9db53d.Add(Task.Run(var_e2562229_4deb_d56c_aacd_de29bded51ac));
+  var var_355935ed_1637_5df3_8d3f_e9fe1f6c3608 = new Action( () =>
+  {
+    var var_f9c9cc39_0696_96a6_905d_529bdae51a94= new BehaviorInfo{BehaviorName = "hands_up",RobotName = "Spring"};
+
+    BehaviorModuleHelper.Execute(context, var_f9c9cc39_0696_96a6_905d_529bdae51a94);
+
+  });
+  var_282bc568_cab2_0345_bac7_51ff5b9db53d.Add(Task.Run(var_355935ed_1637_5df3_8d3f_e9fe1f6c3608));
+  Task.WaitAll(var_282bc568_cab2_0345_bac7_51ff5b9db53d.ToArray());
+  System.Console.WriteLine("Parallel action execution complete");
+
+            if (ExecutionLifetime == BehaviorExecutionLifetime.once)
+            {
+                CyclicActionsComplete = true;
+            }
+            else if (ExecutionLifetime == BehaviorExecutionLifetime.until)
+            {
+                var complete = ExecutionUntil(context);
+                CyclicActionsComplete = !complete;
+            }
+        }
+        return CyclicActionsComplete;
+    }
+
+    public bool ExecuteExit(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        if (!ExitActionsComplete && CyclicActionsComplete)
+        {
+            // EXIT_BLOCK
+            // EXIT_BLOCK_HERE
+            ExitActionsComplete = true;
+        }
+        return ExitActionsComplete;
+    }
+
+    public bool Execute(IBehaviorExecutionContext context, TriggerResult trigger)
+    {
+        try
+        {
+            ExecuteInit(context, trigger);
+            ExecuteCyclic(context, trigger);
+            ExecuteExit(context, trigger);
+            System.Console.WriteLine(@"Lifetime: {3} Init : {0}, Cyclic: {1}, Exit: {2}", InitActionsComplete,
+                CyclicActionsComplete,
+                ExitActionsComplete, ExecutionLifetime);
+        }
+        catch (BehaviorCanceledException ex)
+        {
+            Console.WriteLine(@"Execution canceled : {0}, {1} ,{2}", GetUid(), ex.Message, ex.StackTrace);
+        }
+        return ExecutionComplete;
+    }
+}

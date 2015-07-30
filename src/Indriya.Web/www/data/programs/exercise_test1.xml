@@ -1,0 +1,138 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_composable_simple" id="5" inline="false" x="63" y="13">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="trigger" id="18">
+        <field name="MOTION_TRIGGER">Greet_Left</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="32">
+        <field name="SAY_TEXT">Left hand wave</field>
+        <field name="ROBOT">Taro</field>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="33" inline="false" x="513" y="13">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="trigger" id="34">
+        <field name="MOTION_TRIGGER">Greet_Right</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="35">
+        <field name="SAY_TEXT">Right hand wave</field>
+        <field name="ROBOT">Taro</field>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="36" inline="false" x="63" y="188">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="trigger" id="37">
+        <field name="MOTION_TRIGGER">LiftHand_Left</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="38">
+        <field name="SAY_TEXT">lift left hand</field>
+        <field name="ROBOT">Taro</field>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="39" inline="false" x="513" y="188">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="trigger" id="40">
+        <field name="MOTION_TRIGGER">LiftHand_Right</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="41">
+        <field name="SAY_TEXT">lift right hand</field>
+        <field name="ROBOT">Taro</field>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="42" inline="false" x="63" y="363">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="trigger" id="43">
+        <field name="MOTION_TRIGGER">HandsUp</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="44">
+        <field name="SAY_TEXT">Hands up</field>
+        <field name="ROBOT">Taro</field>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="45" inline="false" x="513" y="363">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="trigger" id="46">
+        <field name="MOTION_TRIGGER">HandsFront</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="47">
+        <field name="SAY_TEXT">Hands front</field>
+        <field name="ROBOT">Taro</field>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="48" inline="false" x="63" y="538">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="trigger" id="49">
+        <field name="MOTION_TRIGGER">Bow</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="50">
+        <field name="SAY_TEXT">bow</field>
+        <field name="ROBOT">Taro</field>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="51" inline="false" x="513" y="538">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">forever</field>
+    <value name="trigger">
+      <block type="trigger" id="52">
+        <field name="MOTION_TRIGGER">Seated</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="animated_say_action" id="53">
+        <field name="SAY_TEXT">seated</field>
+        <field name="ROBOT">Taro</field>
+      </block>
+    </statement>
+  </block>
+</xml>
