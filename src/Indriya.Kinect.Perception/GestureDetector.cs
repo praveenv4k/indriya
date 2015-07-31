@@ -225,7 +225,9 @@ namespace Indriya.Kinect.Perception
                 {
                     GestureTriggers triggers = new GestureTriggers {id = GestureResultView.BodyIndex};
                     //GestureTriggers triggers = new GestureTriggers { id = (int)TrackingId };
-                    Log.InfoFormat("Publishing gesture results for body: {0}", GestureResultView.BodyIndex);
+                    //Log.InfoFormat("Publishing gesture results for body: {0}", GestureResultView.BodyIndex);
+                    //Console.WriteLine(@"Publishing gesture results for body: {0}", GestureResultView.BodyIndex);
+                    Console.WriteLine(GestureResultView.BodyIndex);
                     // For publishing
 
 #if ORIGINAL

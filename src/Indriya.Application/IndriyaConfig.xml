@@ -173,7 +173,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="true" name="simulation">
+    <node enabled="false" name="simulation">
       <process>
         <type>executable</type>
         <path>%INDRIYA_ROOT%\bin\indriya_rave.exe</path>
@@ -338,7 +338,7 @@
         <args>%INDRIYA_ROOT%\scripts\indriya_python_client\experimot_relative_localize.py</args>
       </process>
     </node>
-    <node enabled="true" name="hiro_manager">
+    <node enabled="false" name="hiro_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>
@@ -362,7 +362,7 @@
       <parameters>
       </parameters>
     </node>
-    <node enabled="true" name="taro_manager">
+    <node enabled="false" name="taro_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>

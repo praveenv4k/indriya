@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Common.Logging;
@@ -11,9 +12,12 @@ using Indriya.Application.Tasks;
 using Indriya.Application.Web;
 using Indriya.Core.BehaviorEngine;
 using Indriya.Core.Data;
+using Indriya.Core.Msgs;
 using Indriya.Core.Schema;
 using Indriya.Core.Util;
 using Nancy.TinyIoc;
+using NetMQ;
+using ProtoBuf;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Impl.Matchers;
@@ -83,7 +87,8 @@ namespace Indriya.Application.Core
             {
                 Task.Factory.StartNew(() => RunParameterServer(parameterServer)),
                 Task.Factory.StartNew(() => RunContextSync(contextSync)),
-                Task.Factory.StartNew(() => RunContextServer(contextServer))
+                Task.Factory.StartNew(() => RunContextServer(contextServer)),
+                Task.Factory.StartNew(() => UpdateGestures(200))
             };
 
             bool enableWebServer = ParameterUtil.Get(config.parameters, "WebServerEnabled", false);
@@ -228,6 +233,61 @@ namespace Indriya.Application.Core
             catch (Exception ex)
             {
                 Log.ErrorFormat("Exception in Context Sync Task: {0}", ex.StackTrace);
+            }
+        }
+
+        public void UpdateGestures(int timeout)
+        {
+            var config = TinyIoCContainer.Current.Resolve<AppConfig>();
+            var context = TinyIoCContainer.Current.Resolve<Context>();
+            if (config != null && context != null)
+            {
+                Indriya.Core.Schema.socket publisher = null;
+                foreach (var node in config.nodes)
+                {
+                    foreach (var pub in node.publishers)
+                    {
+                        if (pub.msg_type == "GestureTriggers" && pub.topic == "GTP")
+                        {
+                            publisher = pub;
+                            break;
+                        }
+                    }
+                }
+                if (publisher != null)
+                {
+                    using (var ctx = NetMQ.NetMQContext.Create())
+                    using (var socket = ctx.CreateSubscriberSocket())
+                    {
+                        string addr = string.Format("{0}:{1}", "tcp://localhost", publisher.port);
+                        socket.Connect(addr);
+                        socket.Subscribe(publisher.topic);
+                        while (!_shouldStop)
+                        {
+                            var topic = socket.ReceiveString(new TimeSpan(0, 0, 0, 0, timeout));
+                            if (topic != null)
+                            {
+                                byte[] msg = socket.Receive();
+                                if (msg != null)
+                                {
+                                    using (var memStream = new MemoryStream(msg))
+                                    {
+                                        var gt = Serializer.Deserialize<GestureTriggers>(memStream);
+                                        App.Current.Dispatcher.Invoke(delegate // <--- HERE
+                                        {
+                                            context.Update2(gt);
+                                        });
+                                        //delegateInfo.DelegateType.DynamicInvoke(new object[] {ret});
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine(string.Format("Message buffer empty!"));
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 

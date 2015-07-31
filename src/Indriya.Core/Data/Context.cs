@@ -286,7 +286,7 @@ namespace Indriya.Core.Data
         /// Update the gesture triggers from the gesture recognition module
         /// </summary>
         /// <param name="triggers">Gesture trigger list</param>
-        public void Update(GestureTriggers triggers)
+        public void Update2(GestureTriggers triggers)
         {
             if (triggers != null)
             {
@@ -316,7 +316,6 @@ namespace Indriya.Core.Data
                                         item.Gestures.Add(newGest);
                                     }
                                 }
-
                             }
                         }
                     }
