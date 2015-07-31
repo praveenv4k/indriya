@@ -1,23 +1,3 @@
-/** \example orloadviewer.cpp
-    \author Rosen Diankov
-
-    Shows how to load a robot into the openrave environment and start a viewer in a separate thread.
-
-    Usage:
-    \verbatim
-    orloadviewer [--num n] [--scene filename] viewername
-    \endverbatim
-
-    - \b --num - Number of environments/viewers to create simultaneously
-    - \b --scene - The filename of the scene to load.
-
-    Example:
-    \verbatim
-    ./orloadviewer --scene data/lab1.env.xml qtcoin
-    \endverbatim
-
-    <b>Full Example Code:</b>
- */
 #include <openrave-core.h>
 #include <vector>
 #include <cstring>
@@ -50,6 +30,9 @@
 #include <Indriya\Common\ParameterClient.h>
 #include <Indriya\Common\ParameterHelper.h>
 #include <Indriya\Common\CallbackBase.h>
+#include <Indriya\Common\MessageSubscriber.h>
+#include <Indriya\Common\MessagePublisher.h>
+
 #include <boost\signals2.hpp>
 
 boost::atomic<bool> done(false);
@@ -57,15 +40,6 @@ boost::atomic<bool> done(false);
 using namespace OpenRAVE;
 using namespace std;
 using namespace boost;
-
-#define FOREACH(it, v) for(BOOST_TYPEOF(v) ::iterator it = (v).begin(), __itend__=(v).end(); it != __itend__; ++(it))
-#define FOREACHC(it, v) for(BOOST_TYPEOF(v) ::const_iterator it = (v).begin(), __itend__=(v).end(); it != __itend__; ++(it))
-
-typedef boost::shared_ptr<zmq::context_t> ZmqContextPtr;
-typedef boost::shared_ptr<zmq::socket_t> ZmqSocketPtr;
-typedef boost::shared_ptr<zmq::message_t> ZmqMessagePtr;
-
-
 
 void SetViewer(EnvironmentBasePtr penv, const string& viewername)
 {
@@ -144,202 +118,6 @@ void orInitEnvironment(EnvironmentBasePtr penv, std::string& scenefilename, std:
 		penv->Add(pModel);
 	}
 }
-
-template <typename T>
-class MessageSubscriber :public CallbackBase
-{
-private:
-	ZmqContextPtr m_pContext;
-	ZmqSocketPtr m_pSocket;
-	uint m_nPort;
-	std::string m_strHost;
-	std::string m_strTopic;
-	std::string m_strAddr;
-	volatile bool m_bStopThread;
-	bool m_bThreadStarted;
-	boost::thread m_SubscriberThread;
-	int m_nPeriod;
-	int m_nTimeout;
-	void InitZmq()
-	{
-		if (m_pContext == 0)
-		{
-			m_pContext = ZmqContextPtr(new zmq::context_t(1));
-			m_pSocket = ZmqSocketPtr(new zmq::socket_t(*m_pContext, ZMQ_SUB));
-
-			m_pSocket->connect(m_strAddr.c_str());
-			m_pSocket->setsockopt(ZMQ_SUBSCRIBE, m_strTopic.c_str(), m_strTopic.size());
-		}
-	}
-
-	void TerminateZmq()
-	{
-		if (m_pSocket != null)
-		{
-			m_pSocket->close();
-			if (m_pContext != null)
-			{
-				m_pContext->close();
-			}
-		}
-	}
-
-	void RunThread(){
-		while (!m_bStopThread){
-			zmq::message_t address;
-			m_pSocket->recv(&address);
-			zmq::message_t data;
-			m_pSocket->recv(&data);
-			T msg;
-			if (msg.ParseFromArray(data.data(), data.size())){
-				if (signal_message->num_slots() > 0) {
-					signal_message->operator()(msg);
-				}
-			}
-		}
-	}
-public:
-	typedef void (signal_indriya_message)(const T&);
-	MessageSubscriber(string host, uint port, string topic) :m_bStopThread(false), m_bThreadStarted(false), m_nPeriod(100), m_nTimeout(100)
-	{
-		m_strHost = host;
-		m_nPort = port;
-		m_strTopic = topic;
-
-		std::stringstream ss;
-		ss << m_strHost << ":" << m_nPort;
-
-		m_strAddr = ss.str();
-	}
-
-	~MessageSubscriber(){
-		Stop();
-		disconnect_all_slots<signal_indriya_message>();
-	}
-
-	void Initialize()
-	{
-		InitZmq();
-		signal_message = createSignal<signal_indriya_message>();
-	}
-
-	void Terminate()
-	{
-		TerminateZmq();
-	}
-
-	virtual void Run(int periodMilliSeconds, int timeout){
-		m_nPeriod = periodMilliSeconds;
-		m_nTimeout = timeout;
-		if (!m_bThreadStarted){
-			m_SubscriberThread = boost::thread(&MessageSubscriber::RunThread, this);
-			m_bThreadStarted = true;
-		}
-	}
-
-	virtual void Stop(){
-		if (m_bThreadStarted){
-			m_bStopThread = true;
-			if (m_SubscriberThread.joinable()){
-				m_SubscriberThread.join();
-			}
-			m_bThreadStarted = false;
-		}
-	}
-
-	virtual void WaitCompletion(){
-		if (m_bThreadStarted){
-			if (m_SubscriberThread.joinable()){
-				m_SubscriberThread.join();
-			}
-		}
-	}
-
-protected:
-	boost::signals2::signal<signal_indriya_message>* signal_message;
-};
-
-template <typename T>
-class MessagePublisher
-{
-private:
-	ZmqContextPtr m_pContext;
-	ZmqSocketPtr m_pSocket;
-	uint m_nPort;
-	std::string m_strHost;
-	std::string m_strTopic;
-	std::string m_strAddr;
-
-	void InitZmq()
-	{
-		if (m_pContext == 0)
-		{
-			m_pContext = ZmqContextPtr(new zmq::context_t(1));
-			m_pSocket = ZmqSocketPtr(new zmq::socket_t(*m_pContext, ZMQ_PUB));
-
-
-			m_pSocket->bind(m_strAddr.c_str());
-		}
-	}
-
-	void TerminateZmq()
-	{
-		if (m_pSocket != null)
-		{
-			m_pSocket->close();
-			if (m_pContext != null)
-			{
-				m_pContext->close();
-			}
-		}
-	}
-
-public:
-	MessagePublisher(string host, uint port, string topic)
-	{
-		m_strHost = host;
-		m_nPort = port;
-		m_strTopic = topic;
-
-		std::stringstream ss;
-		ss << m_strHost << ":" << m_nPort;
-
-		m_strAddr = ss.str();
-	}
-
-
-	void Initialize()
-	{
-		InitZmq();
-	}
-
-	void Terminate()
-	{
-		TerminateZmq();
-	}
-
-	virtual void Update(T& msg)
-	{
-		Publish(msg);
-	}
-
-protected:
-	virtual bool IsValid(T& msg)
-	{
-		return true;
-	}
-
-	virtual void Publish(T& msg){
-		if (m_pSocket != 0 && IsValid(msg))
-		{
-			std::string str;
-			msg.SerializeToString(&str);
-			if (s_sendmore(*m_pSocket, m_strTopic)){
-				s_send(*m_pSocket, str);
-			}
-		}
-	}
-};
 
 class RobotStateListener{
 public:
@@ -539,7 +317,7 @@ public:
 					int bone_width = KinectBodyHelper::Instance()->GetBoneWidth();
 					int no_conf_width = 2;
 					if (kBodies.body_size() <= 0){
-						std::cout << "There is no body information" << std::endl;
+						//std::cout << "There is no body information" << std::endl;
 					}
 					else{
 						for (google::protobuf::int32 i = 0; i < kBodies.body_size(); i++){
@@ -713,7 +491,7 @@ public:
 						}
 						listgraphs.clear();
 						if (humans.human_size() <= 0){
-							std::cout << "There is no body information" << std::endl;
+							//std::cout << "There is no body information" << std::endl;
 						}
 						else{
 							continue; // For debug
@@ -874,19 +652,6 @@ private:
 	std::vector<Indriya::Core::Msgs::JointValueVector> m_pJointValueVector;
 };
 
-// Default location of Nao
-//position{
-//x: 84.682732203775871
-//y : -43.060926653530942
-//z : 1139.326178779198
-//}
-//orientation{
-//x: 0.517639095032381
-//y : -0.46421923037403362
-//z : 0.47966605583856331
-//w : 0.53522962205139013
-//}
-
 Indriya::Core::Msgs::NodePtr AcquireParameters(int argc, char** argv){
 	Indriya::Core::Msgs::NodePtr pInfo;
 	if (argv != NULL){
@@ -957,11 +722,6 @@ void dummyFn(const Indriya::Core::Msgs::KinectBodies& bodies)
 	if (bodies.body_size() > 0){
 		std::cout << "Invoked from callback" << std::endl;
 	}
-}
-
-void dummyFn2(int something)
-{
-
 }
 
 int main(int argc, char ** argv)
@@ -1041,7 +801,7 @@ int main(int argc, char ** argv)
 
 		done = true;
 
-		pMessageSubscriber->Stop();
+		//pMessageSubscriber->Stop();
 		thRobotSubscriber.join();
 		thKinectSubscriber.join();
 		thTorsoSubscriber.join();

@@ -88,7 +88,7 @@
     <ClInclude Include="KinectBodyHelper.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="experimot_rave.cpp" />
+    <ClCompile Include="indriya_rave.cpp" />
     <ClCompile Include="KinectBodyHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
