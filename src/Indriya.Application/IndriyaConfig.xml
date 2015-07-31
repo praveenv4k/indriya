@@ -18,10 +18,10 @@
 
     <!--<param key="NAO-A-ROBOTIP" value="127.0.0.1" type="string"/>
     <param key="NAO-A-ROBOTPORT" value="52375" type="int"/>-->
-    <param key="NAO-A-ROBOTIP" value="192.168.11.14" type="string"/>
+    <param key="NAO-A-ROBOTIP" value="192.168.11.3" type="string"/>
     <param key="NAO-A-ROBOTPORT" value="9559" type="int"/>
     
-    <param key="NAO-B-ROBOTIP" value="192.168.11.67" type="string"/>
+    <param key="NAO-B-ROBOTIP" value="192.168.11.4" type="string"/>
     <param key="NAO-B-ROBOTPORT" value="9559" type="int"/>
 
     <param key="NAO-ORANGE-ROBOTIP" value="192.168.11.10" type="string"/>
@@ -338,7 +338,7 @@
         <args>%INDRIYA_ROOT%\scripts\indriya_python_client\experimot_relative_localize.py</args>
       </process>
     </node>
-    <node enabled="false" name="hiro_manager">
+    <node enabled="true" name="hiro_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>
@@ -362,7 +362,7 @@
       <parameters>
       </parameters>
     </node>
-    <node enabled="false" name="taro_manager">
+    <node enabled="true" name="taro_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>
