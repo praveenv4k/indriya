@@ -88,7 +88,7 @@ namespace Indriya.Application.Core
                 Task.Factory.StartNew(() => RunParameterServer(parameterServer)),
                 Task.Factory.StartNew(() => RunContextSync(contextSync)),
                 Task.Factory.StartNew(() => RunContextServer(contextServer)),
-                Task.Factory.StartNew(() => UpdateGestures(200))
+                Task.Factory.StartNew(() => UpdateGestures(100))
             };
 
             bool enableWebServer = ParameterUtil.Get(config.parameters, "WebServerEnabled", false);
@@ -242,7 +242,7 @@ namespace Indriya.Application.Core
             var context = TinyIoCContainer.Current.Resolve<Context>();
             if (config != null && context != null)
             {
-                Indriya.Core.Schema.socket publisher = null;
+                socket publisher = null;
                 foreach (var node in config.nodes)
                 {
                     foreach (var pub in node.publishers)
@@ -256,7 +256,7 @@ namespace Indriya.Application.Core
                 }
                 if (publisher != null)
                 {
-                    using (var ctx = NetMQ.NetMQContext.Create())
+                    using (var ctx = NetMQContext.Create())
                     using (var socket = ctx.CreateSubscriberSocket())
                     {
                         string addr = string.Format("{0}:{1}", "tcp://localhost", publisher.port);
@@ -285,6 +285,7 @@ namespace Indriya.Application.Core
                                     Console.WriteLine(string.Format("Message buffer empty!"));
                                 }
                             }
+                            //Thread.Sleep(100);
                         }
                     }
                 }

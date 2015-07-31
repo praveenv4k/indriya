@@ -294,7 +294,7 @@ namespace Indriya.Core.Data
                 {
                     if (_humans.Count > 0)
                     {
-                        Console.WriteLine(triggers.id);
+                        //Console.WriteLine(triggers.id);
                         
                         var item = _humans.FirstOrDefault(s => s.Body.TrackingId == triggers.id);
                         if (item != null)
