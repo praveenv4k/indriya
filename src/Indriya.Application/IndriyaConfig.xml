@@ -145,10 +145,10 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="false" name="speech_recognition">
+    <node enabled="true" name="speech_recognition">
       <process>
         <type>executable</type>
-        <path>%INDRIYA_ROOT%\bin\nodes\Indriya.Kinect.Speech\Indriya.Kinect.Speech.exe</path>
+        <path>%INDRIYA_ROOT%\bin\Indriya.Kinect.Speech.exe</path>
         <args></args>
       </process>
       <parameters>

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Experimot.Localization.Logger")]
+[assembly: AssemblyTitle("Indriya.Localization.Logger")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Hewlett-Packard Company")]
-[assembly: AssemblyProduct("Experimot.Localization.Logger")]
-[assembly: AssemblyCopyright("Copyright © Hewlett-Packard Company 2015")]
+[assembly: AssemblyCompany("GVLab")]
+[assembly: AssemblyProduct("Indriya.Localization.Logger")]
+[assembly: AssemblyCopyright("Copyright © Praveenkumar VASUDEVAN 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
