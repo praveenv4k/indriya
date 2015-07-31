@@ -15,6 +15,7 @@ namespace Indriya.Kinect.Perception
         private readonly string _host;
         private readonly uint _port;
         private readonly string _topic;
+        private readonly object _sync = new object();
 
         private static GestureTriggerPublisher _publisher;
 
@@ -89,12 +90,15 @@ namespace Indriya.Kinect.Perception
         {
             if (gesture != null && gesture.motion.Count > 0 && _socket != null)
             {
-                _socket.SendMore(_topic);
-
-                using (var ms = new MemoryStream())
+                lock (_sync)
                 {
-                    Serializer.Serialize(ms, gesture);
-                    _socket.Send(ms.GetBuffer(), (int) ms.Length);
+                    _socket.SendMore(_topic);
+
+                    using (var ms = new MemoryStream())
+                    {
+                        Serializer.Serialize(ms, gesture);
+                        _socket.Send(ms.GetBuffer(), (int) ms.Length);
+                    }
                 }
             }
         }

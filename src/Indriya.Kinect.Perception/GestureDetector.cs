@@ -71,7 +71,7 @@ namespace Indriya.Kinect.Perception
                     foreach (var gesture in database.Gestures)
                     {
                         _vgbFrameSource.AddGesture(gesture);
-                        _vgbFrameSource.SetIsEnabled(gesture, true);
+                        //_vgbFrameSource.SetIsEnabled(gesture, true);
                     }
                 }
             }
@@ -224,8 +224,11 @@ namespace Indriya.Kinect.Perception
                     _vgbFrameSource.Gestures.Count > 0 && GestureResultView != null)
                 {
                     GestureTriggers triggers = new GestureTriggers {id = GestureResultView.BodyIndex};
-
+                    //GestureTriggers triggers = new GestureTriggers { id = (int)TrackingId };
+                    Log.InfoFormat("Publishing gesture results for body: {0}", GestureResultView.BodyIndex);
                     // For publishing
+
+#if ORIGINAL
                     foreach (Gesture gesture in _vgbFrameSource.Gestures)
                     {
                         //System.Diagnostics.Debug.WriteLine(gesture.Name);
@@ -250,6 +253,23 @@ namespace Indriya.Kinect.Perception
                             triggers.motion.Add(trigger);
                         }
                     }
+#else
+                    foreach (var discreteResult in discreteResults)
+                    {
+                        var gesture = discreteResult.Key;
+                        var result = discreteResult.Value;
+                        var trigger = new GestureDescription
+                        {
+                            name = gesture.Name,
+                            progress = 0,
+                            type = (GestureDescription.GestureType)gesture.GestureType,
+                            active = result != null && result.Detected,
+                            confidence = result != null ? (int)(result.Confidence * 100.00) : 0
+                        };
+                        triggers.motion.Add(trigger);
+                    }
+#endif
+
                     GestureTriggerPublisher.Instance.PublishGestureTrigger(triggers);
 
                 }
