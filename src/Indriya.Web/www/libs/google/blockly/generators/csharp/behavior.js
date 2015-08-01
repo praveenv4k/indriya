@@ -557,13 +557,27 @@ Blockly.CSharp['trigger'] = function(block) {
 Blockly.CSharp['voice_trigger'] = function (block) {
     var trigger = block.getFieldValue('VOICE_TRIGGER');
 
-    var genCode = 'var voiceCommand = context.GetVoiceCommand(\"' + trigger + '\");\n' +
-        'if (voiceCommand.Active && voiceCommand.Confidence > 70)\n' +
-        '{\n' +
-        'Console.WriteLine("Voice trigger received : {0} - {1}", voiceCommand.Name, voiceCommand.Confidence);\n' +
-        'result.Active = true;\n' +
-        '}\n';
-    return [genCode, Blockly.CSharp.ORDER_ATOMIC];
+    //var genCode = 'var voiceCommand = context.GetVoiceCommand(\"' + trigger + '\");\n' +
+    //    'if (voiceCommand.Active && voiceCommand.Confidence > 70)\n' +
+    //    '{\n' +
+    //    'Console.WriteLine("Voice trigger received : {0} - {1}", voiceCommand.Name, voiceCommand.Confidence);\n' +
+    //    'result.Active = true;\n' +
+    //    '}\n';
+    //return [genCode, Blockly.CSharp.ORDER_ATOMIC];
+
+    var confidence = 70;
+    var code = [];
+    code.push('((Func<TriggerResult>) (() => {');
+    code.push('var ret = new TriggerResult(){Active = false};');
+    code.push('var voiceCommand = context.GetVoiceCommand(\"' + trigger + '\");');
+    code.push('if (voiceCommand.Active && voiceCommand.Confidence > ' + confidence + ')');
+    code.push('{');
+    code.push('Console.WriteLine("Voice trigger received : {0} - {1}", voiceCommand.Name, voiceCommand.Confidence);');
+    code.push('ret.Active = true;');
+    code.push('}');
+    code.push('return ret;');
+    code.push('}))()');
+    return [code.join('\n'), Blockly.CSharp.ORDER_ATOMIC];
 };
 
 Blockly.CSharp['voice_trigger2'] = function (block) {
