@@ -19,6 +19,7 @@
       <ComponentGroupRef Id="Data" />
       <ComponentGroupRef Id="Share" />
       <ComponentGroupRef Id="Scripts" />
+      <ComponentGroupRef Id="Scriptcs" />
       <ComponentGroupRef Id="Web" />
       <ComponentGroupRef Id="SetEnvironmentVariables" />
 		</Feature>
@@ -41,10 +42,7 @@
         <Directory Id="INDRIYADATAFOLDER" Name="Indriya">
           <Directory Id="WEB" Name="web" >
           </Directory>
-          <Directory Id="INDRIYA_DATA" Name="data">
-            <Directory Id="GENERATED_PROGRAMS" Name="programs">
-              
-            </Directory>
+          <Directory Id="SCRIPTCS" Name="scriptcs">
           </Directory>
         </Directory>
       </Directory>
@@ -54,7 +52,7 @@
 	<Fragment>
     <ComponentGroup Id="SetEnvironmentVariables">
       <Component Id="IndriyaRootEnvVar" Directory="INSTALLFOLDER" Guid="{A0DC7FF2-5A18-428E-B433-B0D82703D72E}" KeyPath="yes">
-        <Environment Id="INDRIYA_ROOT2"
+        <Environment Id="INDRIYA_ROOT"
                          Action="set"
                          Part="all"
                          Name="INDRIYA_ROOT2"
@@ -63,7 +61,7 @@
                          Value="[INSTALLFOLDER]" />
       </Component>
       <Component Id="IndriyaWebEnvVar" Directory="WEB" Guid="{41B19076-19A2-44B2-8251-B1FEF3BDA463}" KeyPath="yes">
-        <Environment Id="INDRIYA_WEB_ROOT2"
+        <Environment Id="INDRIYA_WEB_ROOT"
                          Action="set"
                          Part="all"
                          Name="INDRIYA_WEB_ROOT2"
@@ -71,14 +69,14 @@
                          System="no"
                          Value="[WEB]" />
       </Component>
-      <Component Id="IndriyaDataEnvVar" Directory="INDRIYA_DATA" Guid="{41B19076-19A2-44B2-8251-B1FEF3BDA463}" KeyPath="yes">
-        <Environment Id="INDRIYA_DATA_ROOT2"
+      <Component Id="IndriyaDataEnvVar" Directory="INDRIYADATAFOLDER" Guid="{BC901EE9-93EC-49CD-93BD-B83C3BB92C92}" KeyPath="yes">
+        <Environment Id="INDRIYA_DATA_ROOT"
                          Action="set"
                          Part="all"
                          Name="INDRIYA_DATA_ROOT2"
                          Permanent="no"
                          System="no"
-                         Value="[INDRIYA_DATA]" />
+                         Value="[INDRIYADATAFOLDER]" />
       </Component>
     </ComponentGroup>
 		<!--<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">

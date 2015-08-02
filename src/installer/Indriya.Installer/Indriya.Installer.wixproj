@@ -25,6 +25,7 @@
     <Compile Include="Bin.wxs" />
     <Compile Include="Data.wxs" />
     <Compile Include="Product.wxs" />
+    <Compile Include="Scriptcs.wxs" />
     <Compile Include="Scripts.wxs" />
     <Compile Include="Share.wxs" />
     <Compile Include="Web.wxs" />

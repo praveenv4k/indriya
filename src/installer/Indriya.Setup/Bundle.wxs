@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
   <Bundle Name="Indriya setup" Version="1.0.0.0" Manufacturer="GVLab" UpgradeCode="951b63ff-cedb-48f9-9c93-a9339b084f38">
-    <!--<BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense" />-->
+    <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense" />
     <Chain>
       <!--<PackageGroupRef Id="Netfx45Xxx"/>-->
       <PackageGroupRef Id="vcredist"/>

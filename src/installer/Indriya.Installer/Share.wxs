@@ -3,135 +3,135 @@
     <Fragment>
         <DirectoryRef Id="SHARE">
             <Directory Id="dir0D016585833C5C4F4BB679D67AF98E71" Name="openrave-0.9">
-                <Component Id="cmp202F861D7B1DB8C1447C7CC0D9EB259A" Guid="{51CEE84D-6F3E-4402-A6FD-C39124B48D1D}">
+                <Component Id="cmp202F861D7B1DB8C1447C7CC0D9EB259A" Guid="{893915C6-CBAF-4FB3-9626-8858B54BE830}">
                     <File Id="filA9517E2ED5408CEBE4AD9E481917BC68" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\COPYING" />
                 </Component>
-                <Component Id="cmp04C347DBF948A7F954640B6B57C3D00F" Guid="{CD96F3E4-231B-4252-9A92-40E26605FC6C}">
+                <Component Id="cmp04C347DBF948A7F954640B6B57C3D00F" Guid="{A8A68FED-9066-4CE5-A1B4-C4D0EA30C208}">
                     <File Id="fil43D6D645EB56DE363EBA67C3A40D0DF2" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\LICENSE.apache" />
                 </Component>
-                <Component Id="cmp0A7C9459660CC2FD4E8414ED1F090ABA" Guid="{B0753ED5-CA2A-4BD6-B4C2-F33F2F48927B}">
+                <Component Id="cmp0A7C9459660CC2FD4E8414ED1F090ABA" Guid="{27EC35D1-1A22-4365-8D74-EE710B450CAB}">
                     <File Id="filF2F91269B9779AD93C2A2B38A6F0CA37" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\LICENSE.lgpl" />
                 </Component>
                 <Directory Id="dir06C8E18EE7E18C4D97D2390F024AA56A" Name="data">
-                    <Component Id="cmpE10B97FA89C82150EB82D39AFB2424B8" Guid="{84C3B624-1883-4D33-A42C-6C60AA05A9F8}">
+                    <Component Id="cmpE10B97FA89C82150EB82D39AFB2424B8" Guid="{A27FC3CD-E7F6-44BE-8072-3BA661D5AE3A}">
                         <File Id="filB01151E16497819CAF8C381C71CB031C" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\data\datalog.csv" />
                     </Component>
-                    <Component Id="cmpABE54C85E4221D7EBF6BE799EB23E371" Guid="{9BDF390E-7459-43A2-9943-8406C2A24707}">
+                    <Component Id="cmpABE54C85E4221D7EBF6BE799EB23E371" Guid="{DF88CCCE-4D07-4CFB-B9C4-5DD3BD6158EF}">
                         <File Id="filF8C0C50287503987EF1D13CDD862E53A" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\data\human1.kinbody.xml" />
                     </Component>
-                    <Component Id="cmp0D969DB3FAF9ECE9AEE48DFC58FF0A89" Guid="{C83CDC19-1ED2-4A6F-8A5C-6DB1E2792B66}">
+                    <Component Id="cmp0D969DB3FAF9ECE9AEE48DFC58FF0A89" Guid="{F7EFFFC8-58E0-4DE4-AC0B-253DCB5967B1}">
                         <File Id="fil8640CDD2DF2F4075F3900D6C5C660A7B" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\data\human2.kinbody.xml" />
                     </Component>
-                    <Component Id="cmp35C2F264F3823325869E1820C9694BC7" Guid="{C00510D6-8A40-44D8-8C01-F1B9B52432DE}">
+                    <Component Id="cmp35C2F264F3823325869E1820C9694BC7" Guid="{E5036E26-20E8-4CB9-9A69-ED5D9C5B0989}">
                         <File Id="fil47F3713BB5AB81D7D37D10ECA44233CF" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\data\human3.kinbody.xml" />
                     </Component>
-                    <Component Id="cmpE2ACE6028D4619AC980904D74E1B6611" Guid="{E1DF699B-E8D8-4CB1-B4D7-9175A76A7587}">
+                    <Component Id="cmpE2ACE6028D4619AC980904D74E1B6611" Guid="{D535DFFB-E553-459D-AC4F-91311E9BCA97}">
                         <File Id="fil3F4CE52CA43D9E2BD2D5073AFF8FC7DD" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\data\human4.kinbody.xml" />
                     </Component>
-                    <Component Id="cmpF5511057F5C838C0B79738FD86C01C38" Guid="{CCA17BDC-8B98-410B-871E-39C3FA7572D5}">
+                    <Component Id="cmpF5511057F5C838C0B79738FD86C01C38" Guid="{8B2D4178-62BB-4515-A3DB-10809D189BE0}">
                         <File Id="fil6193EB0B0E32ED4FF9695950C0D2D301" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\data\human5.kinbody.xml" />
                     </Component>
-                    <Component Id="cmpAFC36ECE26C476F8E0C6BB24D7422925" Guid="{0440FCED-C98D-4ED1-B6D7-32289887EA1B}">
+                    <Component Id="cmpAFC36ECE26C476F8E0C6BB24D7422925" Guid="{5ED9A2C9-DC29-438B-9031-1B855366D346}">
                         <File Id="fil2A3790CB6DF0C401C0CB5F87E6949476" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\data\human6.kinbody.xml" />
                     </Component>
-                    <Component Id="cmpAC527221B33D0EC9B4AD72E487D4098A" Guid="{415BFC22-8366-40F0-9756-0E25E3B1C160}">
+                    <Component Id="cmpAC527221B33D0EC9B4AD72E487D4098A" Guid="{93D2AFD6-5F00-4B4E-8FD2-CEE7FC9C30D6}">
                         <File Id="filE1958431BD02EB18B934B932B512B1DD" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\data\kinect.kinbody.xml" />
                     </Component>
                 </Directory>
                 <Directory Id="dir4E1F43B2F642935B861C6CFE0D6E6AF9" Name="plugins">
-                    <Component Id="cmpD07DA6EFE1306B64FAD40D4F08A41699" Guid="{DFAA7053-AD5E-4537-8078-E4DA06297CE6}">
+                    <Component Id="cmpD07DA6EFE1306B64FAD40D4F08A41699" Guid="{76F13968-E0AB-451C-B6DB-0DD72F0FACB8}">
                         <File Id="fil0A83AC325B2FF08601E10464D7BB709A" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\basecontrollers.dll" />
                     </Component>
-                    <Component Id="cmpF827C82CF3787D386BC06725190AFB2B" Guid="{AA5AA0FD-4E3E-4941-9373-0EB15B3C7F59}">
+                    <Component Id="cmpF827C82CF3787D386BC06725190AFB2B" Guid="{E3FB12E7-D173-41F4-BF9D-15E90EDF6706}">
                         <File Id="fil750BD135820B927B6694B87AC38B73C5" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\basecontrollers.lib" />
                     </Component>
-                    <Component Id="cmp95950FF9DE9ECA4C0C9B1565684FEC4D" Guid="{C1E9CBB0-0754-4FE4-8DB8-BCF6ED7D08BF}">
+                    <Component Id="cmp95950FF9DE9ECA4C0C9B1565684FEC4D" Guid="{459F2FD1-0F19-41A9-819D-5A479FDAAF53}">
                         <File Id="filA3F81E8C2B0248F6764201448034DE58" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\baserobots.dll" />
                     </Component>
-                    <Component Id="cmp642BD115917D9BDC8B635BCB2D4C4A50" Guid="{2C0CCEF8-B61C-40F9-BCA5-EBF0F7348ABF}">
+                    <Component Id="cmp642BD115917D9BDC8B635BCB2D4C4A50" Guid="{7C3F65CC-0D47-44D4-8AB0-C08E4E0C27B8}">
                         <File Id="fil6B84506D8C9B314566C7E6EDB11FAF7D" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\baserobots.lib" />
                     </Component>
-                    <Component Id="cmp98F62F23D732C4315EFCFE1860C443C2" Guid="{8EDE5E46-8C06-4BBB-8B60-1981EDA5FC93}">
+                    <Component Id="cmp98F62F23D732C4315EFCFE1860C443C2" Guid="{B225ACA3-8B2E-4297-9448-16E62671EAF0}">
                         <File Id="fil3312B415B3D5B78EFF4323368293D2E8" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\basesamplers.dll" />
                     </Component>
-                    <Component Id="cmpCCC292CDA8E4F56076F4C0FE989904E2" Guid="{84A0490B-7EFA-4034-8721-C6EC7BC06E15}">
+                    <Component Id="cmpCCC292CDA8E4F56076F4C0FE989904E2" Guid="{6676304F-87B1-45A4-9054-27CC932BA7DD}">
                         <File Id="fil0C721E2CF322182D0F390C43A86035A8" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\basesamplers.lib" />
                     </Component>
-                    <Component Id="cmp539F9EC0AA948CD5BBD2241FC00573BD" Guid="{BAA66031-E6AA-42DB-B301-09D2CFE5F9BE}">
+                    <Component Id="cmp539F9EC0AA948CD5BBD2241FC00573BD" Guid="{13CB20E0-00C2-41CE-81E2-520C76A6CBA6}">
                         <File Id="fil744DDC2FC8C462504FCF83641F56A743" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\basesensors.dll" />
                     </Component>
-                    <Component Id="cmpA3724CDC4B8C480341EF9D6D054E1B08" Guid="{F0C25026-5768-4C28-A177-13AF5DF14835}">
+                    <Component Id="cmpA3724CDC4B8C480341EF9D6D054E1B08" Guid="{653738D6-05FD-4108-9B77-D6C2D2535405}">
                         <File Id="fil83DB52DD9D5E80CB0831609B13324C3A" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\basesensors.lib" />
                     </Component>
-                    <Component Id="cmp74575C06B6B88C8B3D151824909AF1A8" Guid="{81BB6E75-E448-4521-85C4-F3A8E3401A40}">
+                    <Component Id="cmp74575C06B6B88C8B3D151824909AF1A8" Guid="{36A9AE13-568D-4D68-BE1C-6A81FBB26553}">
                         <File Id="fil3042C074BF312F1FB819C8BAF572AB5E" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\configurationcache.dll" />
                     </Component>
-                    <Component Id="cmpA0A10BEE5C4042782C8377C31750A652" Guid="{4845794E-2AD6-493A-88E7-6FAA7245D540}">
+                    <Component Id="cmpA0A10BEE5C4042782C8377C31750A652" Guid="{C36A8DA0-00BC-4209-9034-D0D9F603FE1E}">
                         <File Id="filB10F8590D254BAC10C2D96A7AE5C16E8" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\configurationcache.lib" />
                     </Component>
-                    <Component Id="cmpCE4DCDAB0A9608D14A152CB5C8432B17" Guid="{B7D999CF-CD01-48E2-AA77-D3A93A8CFD94}">
+                    <Component Id="cmpCE4DCDAB0A9608D14A152CB5C8432B17" Guid="{F0DEDF09-D7AD-4B70-B425-98B918B5FF20}">
                         <File Id="fil8A290607FAC4A70516449C2FDAA98570" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\dualmanipulation.dll" />
                     </Component>
-                    <Component Id="cmp04650187EE424F3E971DC15F06AC140E" Guid="{8CD68347-3A03-4548-A5D1-8045B0D05889}">
+                    <Component Id="cmp04650187EE424F3E971DC15F06AC140E" Guid="{A136AC42-AD1D-49D1-A4B1-0A077B86521B}">
                         <File Id="fil5820FA42678AF033248569F1529E504E" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\dualmanipulation.lib" />
                     </Component>
-                    <Component Id="cmp80D41E6D9E0CBCED5D68CFA318EDD3C1" Guid="{E0E07184-4736-4CEC-863C-57EE49CFF415}">
+                    <Component Id="cmp80D41E6D9E0CBCED5D68CFA318EDD3C1" Guid="{1B6043A2-4AE1-4119-9800-5B93A35FAC14}">
                         <File Id="fil7E23DF307ADBBB63B718DE55FB59B55A" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\grasper.dll" />
                     </Component>
-                    <Component Id="cmpA1011DA22BC2D0D0BCDB3502A4BE4B68" Guid="{C119073B-8F2A-4365-B91E-C21B68AD5C9C}">
+                    <Component Id="cmpA1011DA22BC2D0D0BCDB3502A4BE4B68" Guid="{935AAA84-170B-472A-87EB-1051EA710AB6}">
                         <File Id="fil922FFAFB24B5706568F5D4F21365C69D" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\grasper.lib" />
                     </Component>
-                    <Component Id="cmpD75FB29DFDEC6C532A451C33FE3F65B2" Guid="{55B351E5-8980-4247-9B0A-E441585EBB24}">
+                    <Component Id="cmpD75FB29DFDEC6C532A451C33FE3F65B2" Guid="{B18AFB47-0448-43FC-B71F-B5A209837189}">
                         <File Id="fil3155F379A9ABE5893140E54BBEC45133" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\ikfastsolvers.dll" />
                     </Component>
-                    <Component Id="cmpF48344A709419CE362E42AA89EB58D4D" Guid="{25081EF0-A24E-414C-88B2-7456F54E5E0D}">
+                    <Component Id="cmpF48344A709419CE362E42AA89EB58D4D" Guid="{26B21115-B14E-415F-B647-A8C246B70BFA}">
                         <File Id="fil184A2F1201F6706D1F762CDAAFF6B479" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\ikfastsolvers.lib" />
                     </Component>
-                    <Component Id="cmp6FE8858FE21B78B3EA7B8CCAEB024920" Guid="{CBC0E892-FC56-4204-80B7-C8390A5F1663}">
+                    <Component Id="cmp6FE8858FE21B78B3EA7B8CCAEB024920" Guid="{9E04F3DE-9E9B-43C5-AD85-5A27BD88A8C7}">
                         <File Id="fil7E49265F358DB9CBD54AA79240B7AC3A" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\logging.dll" />
                     </Component>
-                    <Component Id="cmp98EFA9D9C2CA5BC77EB81EC000AC3CC9" Guid="{0DC528AF-D2CE-4F6D-9F8A-A48122493B0F}">
+                    <Component Id="cmp98EFA9D9C2CA5BC77EB81EC000AC3CC9" Guid="{164EFD74-B04E-45EA-B2A4-F7B9A50FF4BC}">
                         <File Id="fil02D2C18895D1E09C86F8CE360AEE6D23" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\logging.lib" />
                     </Component>
-                    <Component Id="cmpD10ED451D0B29563A136BD9BB341F876" Guid="{A4BCD9A7-92B8-4486-BD24-89964516C63C}">
+                    <Component Id="cmpD10ED451D0B29563A136BD9BB341F876" Guid="{F09B15A3-B5D1-4755-BD0A-AD55D74B024D}">
                         <File Id="fil3A85F52620648F4733C211F3BCE6676E" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\oderave.dll" />
                     </Component>
-                    <Component Id="cmp05907CB32E8F2E41F580A1027308491F" Guid="{098FD0F8-F4D2-4A59-BE6E-89F38C0D3385}">
+                    <Component Id="cmp05907CB32E8F2E41F580A1027308491F" Guid="{EE32B9C9-9E47-42DD-9292-A8531CEF395F}">
                         <File Id="filEAD4274A86C4D279C85E73E2C1150C34" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\oderave.lib" />
                     </Component>
-                    <Component Id="cmp150567C31B3D3556811AFDA196B688F4" Guid="{A7E2B7A8-E030-4A51-8E6E-65107B20F84A}">
+                    <Component Id="cmp150567C31B3D3556811AFDA196B688F4" Guid="{0A918DF8-243E-429B-BB93-6BB2E9202324}">
                         <File Id="fil70BA6868512BE6355D8E60DA3D714C3B" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\pqprave.dll" />
                     </Component>
-                    <Component Id="cmp93668E06E4ABEAE6CE98234AD3579D22" Guid="{29AD8D22-ED62-40C8-BFD9-F280E0100CF9}">
+                    <Component Id="cmp93668E06E4ABEAE6CE98234AD3579D22" Guid="{548A095D-29FE-41B3-905A-5951B4DA43A0}">
                         <File Id="filD066710E146AE85A66F1A7E72E667F85" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\pqprave.lib" />
                     </Component>
-                    <Component Id="cmp28583CC4030B74E88DCB4046D004E12B" Guid="{0DF7F606-CDB9-479B-9A94-ECF83A5F6759}">
+                    <Component Id="cmp28583CC4030B74E88DCB4046D004E12B" Guid="{9AFBD5DD-5393-4102-B1C0-5C4A06362462}">
                         <File Id="fil10C57DDAFFC2E8140D2F34E6CF7CAC7D" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\qtcoinrave.dll" />
                     </Component>
-                    <Component Id="cmp0A4FEFEF4CF5CD90E767A1015C9F7E38" Guid="{C98969FD-0DE4-4C9A-8E58-FF33FC88A3FF}">
+                    <Component Id="cmp0A4FEFEF4CF5CD90E767A1015C9F7E38" Guid="{4D089C43-94FF-4351-9EDF-47C933AE6031}">
                         <File Id="filD96D35E8EF2689AF8128000AF40C482A" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\qtcoinrave.lib" />
                     </Component>
-                    <Component Id="cmpCCD8DD4EEA0FD1D3931776A313A6B8FC" Guid="{BA11A2A0-AA97-488E-8B1B-18A6841ED98B}">
+                    <Component Id="cmpCCD8DD4EEA0FD1D3931776A313A6B8FC" Guid="{BDFDD60E-D982-464B-B3C5-EC6EE8AEA66A}">
                         <File Id="fil33D5A2EF5DF51EB4CB09F5C6A3CA6E29" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\rmanipulation.dll" />
                     </Component>
-                    <Component Id="cmp0C7E79198B76E83BF3FB2CBDC3E5C66C" Guid="{335FFC65-D585-4B05-9664-9201AD02AE23}">
+                    <Component Id="cmp0C7E79198B76E83BF3FB2CBDC3E5C66C" Guid="{812A8680-160B-45E6-BD37-041DEFD9A8FC}">
                         <File Id="filD156962EB60ED0EB51B0A58F1534B0B5" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\rmanipulation.lib" />
                     </Component>
-                    <Component Id="cmp47A93306D723BEE55ACB53430BC9D139" Guid="{36C10BD7-28BC-4C49-9017-159B84901C3F}">
+                    <Component Id="cmp47A93306D723BEE55ACB53430BC9D139" Guid="{1FA3E66A-3BE5-4CD6-AB67-135C02D1BB6A}">
                         <File Id="filE1F7FBDA8FFA084CD5D7F9B5E021599D" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\rplanners.dll" />
                     </Component>
-                    <Component Id="cmp5D1975A1FF69356A56ACA7F8274EA1A8" Guid="{EBDAD872-AAD7-4A1C-B1CA-1731B65BBDE3}">
+                    <Component Id="cmp5D1975A1FF69356A56ACA7F8274EA1A8" Guid="{C42F2747-52E2-4CAE-A1D2-0B4DFD88F9C0}">
                         <File Id="filD68927EAC09B4C80C0B4A85CEF2B7151" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\rplanners.lib" />
                     </Component>
-                    <Component Id="cmpB1538BB5F7C977BB97E280A2B83AE83F" Guid="{CDF55D2E-452B-44BA-A146-3FA1CDFAE429}">
+                    <Component Id="cmpB1538BB5F7C977BB97E280A2B83AE83F" Guid="{ADF3A027-97C2-48DF-B413-EC0B4F0FAA99}">
                         <File Id="filA99E2FABA0E2F8B64D1D02AB7BA594E9" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\textserver.dll" />
                     </Component>
-                    <Component Id="cmpBA5AEA7F1B8F4536183D521C77ED6A9F" Guid="{9983A4BC-EA1C-4BB8-914A-88DCD2EFEAC7}">
+                    <Component Id="cmpBA5AEA7F1B8F4536183D521C77ED6A9F" Guid="{565BDA28-2D1D-4917-97F3-C601623D1C3F}">
                         <File Id="filD47EBB8224DAB63B105B02395088E47E" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\plugins\textserver.lib" />
                     </Component>
                 </Directory>
                 <Directory Id="dir60EE809FEB1D95CAA4EAB3BECED14706" Name="robots">
-                    <Component Id="cmp7F433323712F312F7425668F85929234" Guid="{F8F929FE-828D-4302-AE33-05AD5A891F05}">
+                    <Component Id="cmp7F433323712F312F7425668F85929234" Guid="{E1DA217A-88DD-474B-89BF-692CF14CC3FA}">
                         <File Id="filD0D060FC0352023B7471E70F600C729F" KeyPath="yes" Source="!(wix.ShareDataSource)\openrave-0.9\robots\nao.dae" />
                     </Component>
                 </Directory>

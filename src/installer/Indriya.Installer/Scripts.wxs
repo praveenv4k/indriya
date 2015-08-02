@@ -3,470 +3,470 @@
     <Fragment>
         <DirectoryRef Id="SCRIPTS">
             <Directory Id="dir4E39571601144484589A9B135E35EA09" Name="indriya_robot_interface">
-                <Component Id="cmp5F6C98B9BC5AE40B37CB35B798CCED38" Guid="{118F6230-5C8C-452D-831A-53D663A15AC1}">
+                <Component Id="cmp5F6C98B9BC5AE40B37CB35B798CCED38" Guid="{A6A63517-84A6-493B-B7FB-B259C94C2633}">
                     <File Id="fil63C2377F39DE05EF158A9D100073D153" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\control_loop.py" />
                 </Component>
-                <Component Id="cmp8133E229B8A698B01C9B56D2C70A6349" Guid="{ADDB233A-B355-4BB3-82B0-5C01877015BB}">
+                <Component Id="cmp8133E229B8A698B01C9B56D2C70A6349" Guid="{20B8646E-F975-4C33-9718-25F3A84548E3}">
                     <File Id="fil3228755DDAB801896E43FF0512608B89" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\JointPublisher.py" />
                 </Component>
-                <Component Id="cmpFDEC48B236D2FB06DA0A026F468238F7" Guid="{EA6A828C-E8D0-463D-89D3-999BDC32EE4B}">
+                <Component Id="cmpFDEC48B236D2FB06DA0A026F468238F7" Guid="{28C1C7D5-F16C-4926-AD3F-4CE567FE8EDE}">
                     <File Id="fil8BE6D0543AE2F3FDF98B1682E13E6B48" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\motion_walk.py" />
                 </Component>
-                <Component Id="cmp8A0BCCEB52BC94407A6117E09FFF87CA" Guid="{5AF6F3DB-2764-4C0C-BCE9-D42539B966DF}">
+                <Component Id="cmp8A0BCCEB52BC94407A6117E09FFF87CA" Guid="{43020094-177C-4F8D-B12E-89289A994AE4}">
                     <File Id="fil8FF8BA5E6BE22CC9E2C6822ACE36A9D8" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\odometry.py" />
                 </Component>
-                <Component Id="cmp9468357D0F83B0DC73D97C506D2F1CE9" Guid="{631D2390-241D-4BA3-A714-C18D0DD692B9}">
+                <Component Id="cmp9468357D0F83B0DC73D97C506D2F1CE9" Guid="{F7FB357C-5279-48BA-8867-DEC9E79DC1B6}">
                     <File Id="fil3D4444CFF135302E7858D604A41639DE" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\parameter_utils.py" />
                 </Component>
-                <Component Id="cmp3FC7E8F52B448CD39511A34335A8A5B4" Guid="{42575A86-389B-4D36-9D01-BB02FBE2AE03}">
+                <Component Id="cmp3FC7E8F52B448CD39511A34335A8A5B4" Guid="{BB1CEC8C-EB95-42C1-A845-EA1D3B5CF719}">
                     <File Id="fil08261EF6A7A312DFCED3252BA97D7318" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\parameter_utils.pyc" />
                 </Component>
-                <Component Id="cmp1EA63A3BD2C3A0997BD6BF39BBD6DCD5" Guid="{79998967-475A-4120-831F-89BA3A03B176}">
+                <Component Id="cmp1EA63A3BD2C3A0997BD6BF39BBD6DCD5" Guid="{BA881B61-C6AC-4580-A042-1A60221F95A4}">
                     <File Id="fil1DE01BF8F6719373632B0B25CD116E3B" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\plot_example.py" />
                 </Component>
-                <Component Id="cmp31048995FA5B865EB4D2E0FFFE10527E" Guid="{86FA1A77-FA6D-4CAB-BBDD-39D2FAF5E761}">
+                <Component Id="cmp31048995FA5B865EB4D2E0FFFE10527E" Guid="{C6936985-DE22-4E74-B3AF-72094712E8AD}">
                     <File Id="filD3185CE9A23D1615D5A32686E832B70C" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\ReadJointValues.py" />
                 </Component>
-                <Component Id="cmpACED6ADCEA3EDD31F68D44DF12377CBB" Guid="{203B4BF4-2F04-4AA8-8B31-A136D0D2F882}">
+                <Component Id="cmpACED6ADCEA3EDD31F68D44DF12377CBB" Guid="{718D64D8-7D54-4E62-A811-D11F336A99DA}">
                     <File Id="filF6A49220A72F90832CE2CB678DB5D86D" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\read_values.py" />
                 </Component>
-                <Component Id="cmpC87C9750AFD1E7716A486B0E530D26A6" Guid="{23A5A530-638A-4894-B885-DF314B4A5E20}">
+                <Component Id="cmpC87C9750AFD1E7716A486B0E530D26A6" Guid="{590284F0-9675-4D79-8941-77F23D6A9D05}">
                     <File Id="fil7E239273F40AD8B354F83C433005A2BF" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\test_dir.py" />
                 </Component>
-                <Component Id="cmpEBDC42C78F5EF0B6E2AF1D7E1FB25DB2" Guid="{AF6C8099-6D0A-4CB2-B633-4D2E964E547B}">
+                <Component Id="cmpEBDC42C78F5EF0B6E2AF1D7E1FB25DB2" Guid="{0317F406-FAD6-4144-AD46-3EFF31032673}">
                     <File Id="fil39BD87B39BF52E0F59E33999B31ADC18" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\transformations.py" />
                 </Component>
                 <Directory Id="dir6CF5881215FEDE43F4FBFD1113BE4EF3" Name="behaviors">
-                    <Component Id="cmp9A1E607D05DAF0FA38DD2E9BDD889FD0" Guid="{48A94AFD-B9B1-4B25-BC59-53AFC6D9C100}">
+                    <Component Id="cmp9A1E607D05DAF0FA38DD2E9BDD889FD0" Guid="{F8614BD8-C29C-42BB-9A23-17E46F9A4603}">
                         <File Id="fil98D3E8A5D41FCC74C8D9D0687013A319" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\behaviors\albehaviormanager.py" />
                     </Component>
-                    <Component Id="cmp5A8C69C7143572B63529BE122DD142A6" Guid="{B1EFB26E-0A82-4A91-9CC1-0F5576DBBBE8}">
+                    <Component Id="cmp5A8C69C7143572B63529BE122DD142A6" Guid="{41E95A7A-BD82-4FE2-AEC6-4C921D0BF843}">
                         <File Id="fil6DEF1BF5AE215301E115306738C24FA7" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\behaviors\aleventtracker_start.py" />
                     </Component>
-                    <Component Id="cmpD2B73ED71E1E90A3D94EE57B5C06AE0F" Guid="{C13B8202-086C-4FA7-BC53-8576ECBEDF23}">
+                    <Component Id="cmpD2B73ED71E1E90A3D94EE57B5C06AE0F" Guid="{05F6B530-840D-4C73-9535-B192186A7EB1}">
                         <File Id="filDC954436F7F651B8595D773F2C6D1077" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\behaviors\alfacetracker_start.py" />
                     </Component>
-                    <Component Id="cmpB0BAEB38B1B6DC2EE8A1C3F8ED54A0F0" Guid="{FC42B349-CD6B-492B-B6B9-E81837079A63}">
+                    <Component Id="cmpB0BAEB38B1B6DC2EE8A1C3F8ED54A0F0" Guid="{9BD7616C-3AE4-41DE-82E1-9CDE8AF6622D}">
                         <File Id="fil5AEB537D8A7AD3F73F9E76909C748994" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\behaviors\allandmarkdetection.py" />
                     </Component>
-                    <Component Id="cmpB8AD5EB246FE2801245FC07355B0FB04" Guid="{A90050A4-E4AE-4113-BD62-76CFEE0524E1}">
+                    <Component Id="cmpB8AD5EB246FE2801245FC07355B0FB04" Guid="{448ACA74-2164-4DA4-8C5B-4A2CD4FFB773}">
                         <File Id="filAD56B63DA0EA3300EE79334D074BDC57" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\behaviors\allarmtracker_start.py" />
                     </Component>
-                    <Component Id="cmpF305CD76D7D49A59F1F07F399C76A74D" Guid="{325D23FF-4BF1-4685-A97A-FDF79C71D57C}">
+                    <Component Id="cmpF305CD76D7D49A59F1F07F399C76A74D" Guid="{BC10D0E3-5CE7-43E9-99E0-897B58D6A2C5}">
                         <File Id="fil5C7447977656F326D5D42B13CC4D346D" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\behaviors\allocalization.py" />
                     </Component>
-                    <Component Id="cmp3B3551CE069DF3047B6C229A47B76EEC" Guid="{3AE0219C-3AFC-46AF-B594-AA10EE88381F}">
+                    <Component Id="cmp3B3551CE069DF3047B6C229A47B76EEC" Guid="{CC56E523-BFA5-402D-B2F6-30EE198534F3}">
                         <File Id="fil0F8484C03452F1B4261F0885F153ECF1" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\behaviors\almotion_setangles.py" />
                     </Component>
-                    <Component Id="cmp6AF4D7AA562ED1DE93715630BD6E6638" Guid="{085D9A18-036E-4F11-815D-C6F4FE350ED3}">
+                    <Component Id="cmp6AF4D7AA562ED1DE93715630BD6E6638" Guid="{F29584BB-ACA6-44A9-9832-DCD14CD49649}">
                         <File Id="fil949C2C14F4BB091F1F35F6196DEAD8D7" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\behaviors\alredballtracker_start.py" />
                     </Component>
-                    <Component Id="cmp3F2BE1685E2CCDD63A95AC786204E78B" Guid="{1F9241AB-B115-4F1D-BD81-B6170C6CB31F}">
+                    <Component Id="cmp3F2BE1685E2CCDD63A95AC786204E78B" Guid="{8483203E-7D63-4FBC-9B97-42DBA2E04071}">
                         <File Id="filC354114EDE0B5678EF66DFC909ABDE75" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\behaviors\alrobotposture.py" />
                     </Component>
-                    <Component Id="cmpA1804C777B4A0638AFC9E26DF1A1291E" Guid="{D2B89B43-B95D-4A9B-91EA-4AAE1C45026B}">
+                    <Component Id="cmpA1804C777B4A0638AFC9E26DF1A1291E" Guid="{54750AE5-D673-4BD3-B293-FC767FC117E9}">
                         <File Id="filF9BB04DEBB6B1DC20F7919AD2DE3BAC6" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\behaviors\altts.py" />
                     </Component>
-                    <Component Id="cmp9D80C4FC89BAB2064F74912969D97A24" Guid="{DE95C938-49DE-4C8D-9D28-5867A46F229A}">
+                    <Component Id="cmp9D80C4FC89BAB2064F74912969D97A24" Guid="{4B4CEDF9-F0D8-43B1-B97E-A6013246CCA3}">
                         <File Id="fil1527FA64AD04394C56AE8B75734E9974" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\behaviors\behaviormanager.py" />
                     </Component>
-                    <Component Id="cmpD8F78519425209B59CB83B833E0B5389" Guid="{5784EAE0-34A6-4875-B330-B35CB452FBE9}">
+                    <Component Id="cmpD8F78519425209B59CB83B833E0B5389" Guid="{A8744715-D2B8-46EF-B631-8872E8D74CCB}">
                         <File Id="fil075B9F26107E3988029C470C11960F41" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\behaviors\hand_wave.py" />
                     </Component>
-                    <Component Id="cmpB4F2F2C53EA148288D230CDC97037467" Guid="{5816ECAF-4E5A-46E3-96E8-ECCCB5DE90FB}">
+                    <Component Id="cmpB4F2F2C53EA148288D230CDC97037467" Guid="{1642CE66-43E4-4AEB-98AB-CB875BA6B480}">
                         <File Id="fil7DDCBA790429CAF9DA3DF4D8F1988C65" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\behaviors\imitation_manager.py" />
                     </Component>
-                    <Component Id="cmp408B17C53C70A2C8BDF627775C4B994F" Guid="{49E4A2D7-FC68-419A-8863-F98F3E8F37CE}">
+                    <Component Id="cmp408B17C53C70A2C8BDF627775C4B994F" Guid="{6BDF4F10-4578-4DAF-A398-D34FD1CDA283}">
                         <File Id="filBEF8777C0E6A69381FF32783AA2DCAF6" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\behaviors\NaoBehaviorModule.py" />
                     </Component>
-                    <Component Id="cmp4E0E515CE2A032D5E38F78AEFE3F8CDE" Guid="{BCF20E86-AD7D-4175-A266-510B3E9B79B6}">
+                    <Component Id="cmp4E0E515CE2A032D5E38F78AEFE3F8CDE" Guid="{5D6B3709-903F-408F-AC55-8C575B71F7F0}">
                         <File Id="filF710B4A282856E14EE2EC5D42639A9A2" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\behaviors\NaoBehaviorModule.pyc" />
                     </Component>
-                    <Component Id="cmpCB6D23A2373618E05CF60D888D753B2E" Guid="{9FBE0981-EA47-47A9-A32D-A3F73C129924}">
+                    <Component Id="cmpCB6D23A2373618E05CF60D888D753B2E" Guid="{9063240D-F1CC-43B8-ACBD-1C01E310F44E}">
                         <File Id="fil54A91BD45D8912D8FC2FAD61558AF3F8" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\behaviors\PeopleTracker.py" />
                     </Component>
-                    <Component Id="cmpD907B08F8CEF56641C765C87355C4B52" Guid="{6A8B80B1-0380-4620-B13C-7539EC8B8791}">
+                    <Component Id="cmpD907B08F8CEF56641C765C87355C4B52" Guid="{97A128A9-73B7-41AF-8F18-9E052975233D}">
                         <File Id="filA4BC9F816F50DF55EED74D29726376FE" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\behaviors\PeopleTracker.pyc" />
                     </Component>
-                    <Component Id="cmp46D1A9F63DD330DA8BDE602001C2753D" Guid="{1E5A8C98-C278-4A2C-87AB-B20EAEBA608B}">
+                    <Component Id="cmp46D1A9F63DD330DA8BDE602001C2753D" Guid="{A9003EC3-B8C5-49F9-A696-02FCBC0F89BC}">
                         <File Id="filBF935B21CA09B692E04ECAD910CE23DD" KeyPath="yes" Source="!(wix.ScriptsSource)\indriya_robot_interface\behaviors\qimessaging.py" />
                     </Component>
                 </Directory>
             </Directory>
             <Directory Id="dir2B55889EC1994E8CF662EBD63DFA1BEC" Name="msgs">
-                <Component Id="cmpCD2CD635309CE344D5176B9A32288743" Guid="{86AF20CF-A14C-4A4D-93D9-4FE917FA4B79}">
+                <Component Id="cmpCD2CD635309CE344D5176B9A32288743" Guid="{C0AD72C2-ADF6-41C0-ACFD-0C844ED8AEAF}">
                     <File Id="filE943E91E1C2B94A69C6E0FA799B1EE74" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\axis_pb2.py" />
                 </Component>
-                <Component Id="cmpC76B309B4520079B9ACC8F7F7ECBE8EF" Guid="{A69E74B2-B4AA-4206-8A6A-08682FAFE15F}">
+                <Component Id="cmpC76B309B4520079B9ACC8F7F7ECBE8EF" Guid="{9E37557D-C314-4B39-9628-A3F88D40BBF3}">
                     <File Id="fil0AB7EBC009CBEB359E0147F487373CFF" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\boxgeom_pb2.py" />
                 </Component>
-                <Component Id="cmp2BF1FA379D37D82C998A52F0BFC8F9D3" Guid="{95E8DDA0-02AC-42A8-9E93-EFD57B14B969}">
+                <Component Id="cmp2BF1FA379D37D82C998A52F0BFC8F9D3" Guid="{919C372C-65C4-4F5C-99B3-6131961C563E}">
                     <File Id="filC17ACC1DA28EA84E7E0B510834E9186B" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\camerasensor_pb2.py" />
                 </Component>
-                <Component Id="cmp72A121F87FEFA66581DE799EC4B0BBCC" Guid="{8D6831BB-AEE4-43B1-A1DB-61727410CCC2}">
+                <Component Id="cmp72A121F87FEFA66581DE799EC4B0BBCC" Guid="{98E0ED93-192F-4E53-96CD-5D458D813B4F}">
                     <File Id="fil186B4F8536527ED16A0B7D03276BB1FE" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\camera_cmd_pb2.py" />
                 </Component>
-                <Component Id="cmp4E7F33706E2C303C10E8368F64A9A044" Guid="{C4266171-1279-48C5-8AAD-1F01E3C736B3}">
+                <Component Id="cmp4E7F33706E2C303C10E8368F64A9A044" Guid="{CEDA9C24-40DA-43FF-8155-1F549479E15F}">
                     <File Id="fil5CDB5405DF45F83C041F6357C55498E0" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\collision_pb2.py" />
                 </Component>
-                <Component Id="cmp9B119A132BD7F6679CCDD4A21785B263" Guid="{1EFA9B8E-761A-4918-89BF-7FD1A7F60385}">
+                <Component Id="cmp9B119A132BD7F6679CCDD4A21785B263" Guid="{5C7F68AD-D5E0-4CA1-9131-1A93851BCA39}">
                     <File Id="filD6ED9BAE860E34482816A188C3C9BCD8" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\color_pb2.py" />
                 </Component>
-                <Component Id="cmp349F59676C7C3F1669B7D077E56E0EEC" Guid="{14A67F33-B61D-4341-BBDF-3898DFDE2143}">
+                <Component Id="cmp349F59676C7C3F1669B7D077E56E0EEC" Guid="{10747C2A-98C2-4F06-A7B3-F9A415933A3E}">
                     <File Id="fil031A7E85F11B5747C191DC53ADBB51F0" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\contactsensor_pb2.py" />
                 </Component>
-                <Component Id="cmp336BE0727F93F675AD2A7F020EA07406" Guid="{370B32D9-72F1-4B6C-B3DD-C282860D075B}">
+                <Component Id="cmp336BE0727F93F675AD2A7F020EA07406" Guid="{244D6870-4E31-4811-BFDA-97ECC2EF5D6E}">
                     <File Id="fil0B3936EE1CA88374B4EC60A275918E31" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\contacts_pb2.py" />
                 </Component>
-                <Component Id="cmpC84A8387E5B5DA99CAED7D7FBBA9A43C" Guid="{16289918-1102-4A68-9854-A8A7D01BA6C9}">
+                <Component Id="cmpC84A8387E5B5DA99CAED7D7FBBA9A43C" Guid="{7E9FE897-16A7-4A36-9572-AE35C5E1F14B}">
                     <File Id="filCB329C21484308A6866B6AB1460240B5" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\contact_pb2.py" />
                 </Component>
-                <Component Id="cmp3E6312B6CB1549898EE59B722AC52BE6" Guid="{03CB5057-7475-4BF5-A970-A1A201079625}">
+                <Component Id="cmp3E6312B6CB1549898EE59B722AC52BE6" Guid="{872195CF-254D-4F76-B88E-4E4A8C47D8DF}">
                     <File Id="filF85DA2E1DCB1360E67B93B1EA8C2B2BD" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\cylindergeom_pb2.py" />
                 </Component>
-                <Component Id="cmpC6A4EA438046542338AC19082E9200B5" Guid="{26E6005F-9949-47D9-B3ED-53EFD3A7F624}">
+                <Component Id="cmpC6A4EA438046542338AC19082E9200B5" Guid="{7033B18C-2312-4195-8328-8CC125118C8C}">
                     <File Id="fil2137BEB87E03BB5066CFF7C9CECC7ABB" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\diagnostics_pb2.py" />
                 </Component>
-                <Component Id="cmpF74ECB1600F30EA37F5867FBD2A7A143" Guid="{47345410-0C57-4C7A-8764-34FD9DA42EF0}">
+                <Component Id="cmpF74ECB1600F30EA37F5867FBD2A7A143" Guid="{D208652F-B5EE-45E5-87C0-B1F89D40961C}">
                     <File Id="filE881FD0871E5489151FFB82746A1AB81" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\distortion_pb2.py" />
                 </Component>
-                <Component Id="cmp5D8AB2570A77F44A11549C5204D2CF80" Guid="{295E61E2-9385-47AB-A999-929FD2911FA8}">
+                <Component Id="cmp5D8AB2570A77F44A11549C5204D2CF80" Guid="{F4D3789F-2664-4DCF-B5A4-0197A1AD770C}">
                     <File Id="fil9C1C77E4C7F984FD2537080B8253910E" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\factory_pb2.py" />
                 </Component>
-                <Component Id="cmp00073C78C800CB578339F9484E91F6B3" Guid="{2BE6F2AF-55B4-4ED1-B655-1C052835B10E}">
+                <Component Id="cmp00073C78C800CB578339F9484E91F6B3" Guid="{B0A26B14-7C76-476E-B1CF-7EA73212A17D}">
                     <File Id="filA80C6D1673D6344E8D3B244BF83A7365" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\fluid_pb2.py" />
                 </Component>
-                <Component Id="cmp36C749341107E3F41FF440A759AC7685" Guid="{DD811DA0-0A46-4063-BF43-814E534AE17C}">
+                <Component Id="cmp36C749341107E3F41FF440A759AC7685" Guid="{F41283D6-DE5D-4AAC-9B30-9F3CB5BD2DAC}">
                     <File Id="fil3BDE0F4C48D1CE47169D7E49E582678F" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\fog_pb2.py" />
                 </Component>
-                <Component Id="cmpE8FDC69549DD30848332E36BF16169C5" Guid="{44CA9182-5425-44FB-8FEA-0A6CFAFF2082}">
+                <Component Id="cmpE8FDC69549DD30848332E36BF16169C5" Guid="{BFD1020F-B87A-4A27-B992-E76E7F6C8DC2}">
                     <File Id="filAE5DE4B069B53911DBEA29443F85433B" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\friction_pb2.py" />
                 </Component>
-                <Component Id="cmp2A346F3FBDC68DA0B2B6B2876B3BC2A7" Guid="{AD552C0B-9A62-4E55-BFB2-5834088FA675}">
+                <Component Id="cmp2A346F3FBDC68DA0B2B6B2876B3BC2A7" Guid="{1EEA3BBC-EC9C-4FEB-B1CB-B2F30746A53B}">
                     <File Id="filDCE08D1FBCA8FE0B730110FB5CB1BD34" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\geometry_pb2.py" />
                 </Component>
-                <Component Id="cmp0C5E68EF8FF82E8107BC05B6659F05E3" Guid="{EA990730-49E4-4606-9D27-4B693CC1BF5B}">
+                <Component Id="cmp0C5E68EF8FF82E8107BC05B6659F05E3" Guid="{6A75FE3E-CCE4-41D7-A981-507F258D2684}">
                     <File Id="filEB8F865E5B0B9739C609F1DF94C2E667" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\gesture_pb2.py" />
                 </Component>
-                <Component Id="cmp900287365E79866B48EA34F2EEAE9A34" Guid="{5D7866FA-3994-4FF9-BF36-F1C49897ABFD}">
+                <Component Id="cmp900287365E79866B48EA34F2EEAE9A34" Guid="{0DA57AF0-9FAE-4C55-BD2E-A423DD2D9D3B}">
                     <File Id="fil1FF10F144E4B6F307C5D331D4B582F55" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\gps_pb2.py" />
                 </Component>
-                <Component Id="cmp01F4A82379FAEB2BE3AB037ACE128BEF" Guid="{F031E035-25BE-4761-A5C8-AC80E06D4056}">
+                <Component Id="cmp01F4A82379FAEB2BE3AB037ACE128BEF" Guid="{883B06D4-DDDB-44BA-A9BE-C7351EBECF34}">
                     <File Id="filEC0BF8039911083B885375FD1220EA10" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\gui_camera_pb2.py" />
                 </Component>
-                <Component Id="cmp0E78DB49726C656BB42C14ECABA8BA69" Guid="{3525C425-BDE3-4855-A311-C021768E4685}">
+                <Component Id="cmp0E78DB49726C656BB42C14ECABA8BA69" Guid="{397D1BB3-79F2-440D-AAE5-A45CC8FF581C}">
                     <File Id="fil10395BA87BC1C9115120B297FD725158" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\gui_pb2.py" />
                 </Component>
-                <Component Id="cmpA683E327EE80909D534A85156454CA41" Guid="{07ACAD56-8E00-46C7-97A5-3CDCFFB8F8EE}">
+                <Component Id="cmpA683E327EE80909D534A85156454CA41" Guid="{06025073-B7A3-482F-9B31-5C09BF1411D3}">
                     <File Id="fil30754FA5A2FFCD4126BC5C2C4E67FAB4" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\gz_string_pb2.py" />
                 </Component>
-                <Component Id="cmp61955468AE2C579014DFAAC1E5520789" Guid="{A6821C8B-D3FB-4647-A9EE-1E6685DB99EA}">
+                <Component Id="cmp61955468AE2C579014DFAAC1E5520789" Guid="{1A709ECC-A354-4E5A-89A1-B4BC990301FF}">
                     <File Id="fil6BEF98D43A4904685B74B5FDDFA0AAAF" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\gz_string_v_pb2.py" />
                 </Component>
-                <Component Id="cmp0D8F4E9F0D0ECA352E446821BF2F1D3D" Guid="{83B1B423-CA69-4D8C-8333-7783D89CA461}">
+                <Component Id="cmp0D8F4E9F0D0ECA352E446821BF2F1D3D" Guid="{827C68F2-B9CD-4E20-8627-7B26F4979B19}">
                     <File Id="filC64A61FDFC73B4D894FB24C4885195E6" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\header_pb2.py" />
                 </Component>
-                <Component Id="cmpD3580484D394DC109A914CCD65666649" Guid="{417BDC5B-6061-4F81-9EB9-F4EC322BEE3D}">
+                <Component Id="cmpD3580484D394DC109A914CCD65666649" Guid="{4D06D549-D54E-4A7F-B63C-1E76C5E6727C}">
                     <File Id="filD17E73346D958EDB8D966EDA32D8E08F" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\heightmapgeom_pb2.py" />
                 </Component>
-                <Component Id="cmp47C471C3D91AB9BBB2132DE75A379C64" Guid="{19781EC1-E45F-4CD8-80A1-610A8483CE35}">
+                <Component Id="cmp47C471C3D91AB9BBB2132DE75A379C64" Guid="{FD9AD96A-9AEF-490A-A059-0407D488564F}">
                     <File Id="fil29D35E980BDEC7960F821371036B6CA1" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\human_pb2.py" />
                 </Component>
-                <Component Id="cmpA2EF6ADA625BB3A28E1D8AEC339273BA" Guid="{B857E6AD-272D-452D-B8A3-BE8A360C804D}">
+                <Component Id="cmpA2EF6ADA625BB3A28E1D8AEC339273BA" Guid="{EFEE66E8-80F6-4045-AEF4-53E24D979075}">
                     <File Id="fil2D2151AC96A736A290E1A91044484490" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\human_pb2.pyc" />
                 </Component>
-                <Component Id="cmp1F5D7D96A015846EDB733CE69BD5F6BC" Guid="{0BB0E624-774D-47EA-896F-65AC5B087819}">
+                <Component Id="cmp1F5D7D96A015846EDB733CE69BD5F6BC" Guid="{22F81E82-8823-475A-9ABC-99A82E48FF24}">
                     <File Id="filC360526E831CC3EFB7EDEC77727A7E73" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\hydra_pb2.py" />
                 </Component>
-                <Component Id="cmp024948D5596392CF76426D7A1BEB701B" Guid="{7744F68F-66C2-4431-A8A4-163E9B13753F}">
+                <Component Id="cmp024948D5596392CF76426D7A1BEB701B" Guid="{48F5EAD9-EB4A-4550-A121-E752B589BD31}">
                     <File Id="filF5B8404A31E460657E138A035E241A46" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\imagegeom_pb2.py" />
                 </Component>
-                <Component Id="cmp15542E8245BBC8BEC80470A1D6DE7580" Guid="{F14011E0-99F3-4EC6-A7F6-AEFF4CCE1D7D}">
+                <Component Id="cmp15542E8245BBC8BEC80470A1D6DE7580" Guid="{E5038ED2-03A8-4640-B1B1-513FF5CAA235}">
                     <File Id="filD1C86995B5779C1ED369CF3B02EBA3BD" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\images_stamped_pb2.py" />
                 </Component>
-                <Component Id="cmpA7F2A2E73E3814CFC2747E03289BDDA5" Guid="{D816E461-65DF-4F8B-939B-4474EC5CAF2F}">
+                <Component Id="cmpA7F2A2E73E3814CFC2747E03289BDDA5" Guid="{4066392B-4D51-43B6-B132-D48779624CA6}">
                     <File Id="fil2B2D0D07DC923A36B714C8F21B96930F" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\image_pb2.py" />
                 </Component>
-                <Component Id="cmp74B5274450EBD7450361DA715B55AFB0" Guid="{78FE4BAA-7E4D-469B-BD47-E2B245C63C11}">
+                <Component Id="cmp74B5274450EBD7450361DA715B55AFB0" Guid="{C08C06D8-69F4-40E0-AFAC-0CDD033D68DB}">
                     <File Id="fil2B11B8093022CCF97E53462714CA6C61" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\image_stamped_pb2.py" />
                 </Component>
-                <Component Id="cmpCD8920B16498ED279EBFC6C75C3CC842" Guid="{0FF62A42-71E0-4D89-BFD6-31230A0EE14B}">
+                <Component Id="cmpCD8920B16498ED279EBFC6C75C3CC842" Guid="{751500E6-00D1-412C-B596-0689571E8E09}">
                     <File Id="fil38EA8E022FDD07945EE76B24688761A4" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\imu_pb2.py" />
                 </Component>
-                <Component Id="cmpDE763F6120D7306A349CD2D9AC28CEE3" Guid="{8A908B7B-5192-428D-8DE4-732B4014A830}">
+                <Component Id="cmpDE763F6120D7306A349CD2D9AC28CEE3" Guid="{1D69A770-5252-4BAE-B796-EE11999FF1D3}">
                     <File Id="filF6ECD95AA56AC59D2920FDF7B16DF7D3" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\inertial_pb2.py" />
                 </Component>
-                <Component Id="cmpB2E155DB1CBE94B1E84F5E32E5457480" Guid="{3365A306-BF4E-47C5-96CC-9DF22A9B9A97}">
+                <Component Id="cmpB2E155DB1CBE94B1E84F5E32E5457480" Guid="{A5639DB6-4C02-4B03-AAAF-098A9DBB0FB0}">
                     <File Id="filB5BFB65D3086CB1C38CA63836A3A7290" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\int_pb2.py" />
                 </Component>
-                <Component Id="cmp3760CFDDF5B338F088D27802102B56B3" Guid="{37253D78-4781-4962-8D3A-6B6D0B853D25}">
+                <Component Id="cmp3760CFDDF5B338F088D27802102B56B3" Guid="{619B6F81-AEBF-454A-9804-5B034BC844F7}">
                     <File Id="fil61F049322C055389F2689FDE556E4151" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\joint_animation_pb2.py" />
                 </Component>
-                <Component Id="cmp2602E8C93C1178F44AFD2D48FFE19B9B" Guid="{23B3B41F-21AA-413E-8620-1A0C0823C225}">
+                <Component Id="cmp2602E8C93C1178F44AFD2D48FFE19B9B" Guid="{BA60659E-39DC-4556-8108-7EF0393CCEA9}">
                     <File Id="fil1ECB7B406964559E27BC5AB0CC692E24" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\joint_cmd_pb2.py" />
                 </Component>
-                <Component Id="cmp2CBCBE31468C9AE6BEEA56180ADB1B03" Guid="{25034740-A87F-43A0-A000-819074D1F335}">
+                <Component Id="cmp2CBCBE31468C9AE6BEEA56180ADB1B03" Guid="{C00599D7-DAB7-432A-BDB6-DDD4A18FC1C1}">
                     <File Id="filE6D28A1FEA3710F51DF57B58272A67AF" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\joint_pb2.py" />
                 </Component>
-                <Component Id="cmp76BC8E8DE6D7A32D37D81FB937304954" Guid="{F9CADE31-7D5C-43EB-8CEC-CB9F5617C0BE}">
+                <Component Id="cmp76BC8E8DE6D7A32D37D81FB937304954" Guid="{13D0A84D-B36A-4471-9789-9498A9B2EA82}">
                     <File Id="fil00C34F3EB0C25BADACF15F57CBA5827A" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\joint_value_map_pb2.py" />
                 </Component>
-                <Component Id="cmpA4243663018C4696A6E8FDA228864E9E" Guid="{2125A824-1ADE-4DB7-8A49-1255975456C6}">
+                <Component Id="cmpA4243663018C4696A6E8FDA228864E9E" Guid="{5E806CC9-5CA9-43ED-9CB2-14508B0F9A8D}">
                     <File Id="fil661F6104F77397AFBFB8494EC66AEF7B" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\joint_value_map_pb2.pyc" />
                 </Component>
-                <Component Id="cmp6F8A137BEBDA0E0CB68EB39C682F1ECA" Guid="{F413DFCD-DE39-4F90-9102-9D0180E86692}">
+                <Component Id="cmp6F8A137BEBDA0E0CB68EB39C682F1ECA" Guid="{0425FC8D-75ED-4287-8E2C-83A5A2F5697A}">
                     <File Id="fil202D2DEDECEB5BA96AB46581016690F4" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\joint_wrench_pb2.py" />
                 </Component>
-                <Component Id="cmp3ACBF81DD991C0801315C70773DA5933" Guid="{B3C2E4C5-C325-4D29-812A-65FDE927E44C}">
+                <Component Id="cmp3ACBF81DD991C0801315C70773DA5933" Guid="{947CA8FF-41C7-46D1-BE12-D94C360E0484}">
                     <File Id="fil400D9B7BA3316F32127A78F9E6A34093" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\joint_wrench_stamped_pb2.py" />
                 </Component>
-                <Component Id="cmpC7B3ED0163817334E6930B1B724E39AB" Guid="{D4D40DEE-54D2-46C1-A991-83464EC32202}">
+                <Component Id="cmpC7B3ED0163817334E6930B1B724E39AB" Guid="{88E928CA-B489-4276-BB8D-DB02CEC96242}">
                     <File Id="filF944C1A51EE245628C22D04A86BEF93B" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\joystick_pb2.py" />
                 </Component>
-                <Component Id="cmp3A3E015D063C96371B5D5A36CE1EAD4D" Guid="{2D8DB704-2BF9-4991-8DEE-E4CA87DD6077}">
+                <Component Id="cmp3A3E015D063C96371B5D5A36CE1EAD4D" Guid="{FEEFFF71-3095-47E1-A6A8-EDA2AB47E85A}">
                     <File Id="filBDFAAEF71B70B3C623021BD9F385D26B" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\kinect_body_pb2.py" />
                 </Component>
-                <Component Id="cmpA47A06B27C76953009445FDE5EBEA9F4" Guid="{34E60563-FB21-4D79-BFB3-873DFA2B4B86}">
+                <Component Id="cmpA47A06B27C76953009445FDE5EBEA9F4" Guid="{950DC791-A404-4051-9609-D5E69483BF4B}">
                     <File Id="fil39A38C8B234FEE3D388AEC79E6AED573" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\kinect_joint_pb2.py" />
                 </Component>
-                <Component Id="cmpA92B7E8E824A8C9AC1A4D9F23D7C1A73" Guid="{D03630FA-75CD-497D-AEC1-644759A124E4}">
+                <Component Id="cmpA92B7E8E824A8C9AC1A4D9F23D7C1A73" Guid="{6587B55F-456D-4A8B-9B37-5A5CE7AA3BFD}">
                     <File Id="filDAA390CB8B438AE381ACFF7C7ADF64C4" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\laserscan_pb2.py" />
                 </Component>
-                <Component Id="cmp26C282CA90AD9AD6562730132605CB99" Guid="{E83C7C51-3DB9-42DC-B2A6-F344078385F2}">
+                <Component Id="cmp26C282CA90AD9AD6562730132605CB99" Guid="{8054A0C0-BC1E-4DAC-95B2-2479789288F6}">
                     <File Id="filD24DCFC90BF2750FEA02EB814DC2D089" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\laserscan_stamped_pb2.py" />
                 </Component>
-                <Component Id="cmpC69FE1BE488E5440E1FCF34DDB110C5C" Guid="{AA8B6658-FEDD-409E-ADF2-72929905E471}">
+                <Component Id="cmpC69FE1BE488E5440E1FCF34DDB110C5C" Guid="{53849B19-806D-4184-8D3C-55CA344F233A}">
                     <File Id="filDAF74D87DBE7328D998E6C2CC8948450" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\light_pb2.py" />
                 </Component>
-                <Component Id="cmpA31BB2EC64004DBAE9D2DB1C513ABCDA" Guid="{3A98B376-A7C7-46D2-8E62-30B6FA09BC3D}">
+                <Component Id="cmpA31BB2EC64004DBAE9D2DB1C513ABCDA" Guid="{64A2000E-F49D-49EB-9377-92EA68C8486C}">
                     <File Id="fil8E104D4EF92BF7A9A3D057DAE4A10738" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\link_data_pb2.py" />
                 </Component>
-                <Component Id="cmp3132793B880A550DE147C0BC44BD0291" Guid="{6C69288F-C80B-4F58-87A4-7EAB724A610E}">
+                <Component Id="cmp3132793B880A550DE147C0BC44BD0291" Guid="{529529FF-15C9-4968-897C-5F9018E6EAC1}">
                     <File Id="filE1ADAE4CBE95F5A6B41FF65D6823DB03" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\link_pb2.py" />
                 </Component>
-                <Component Id="cmp68636D4E9ECD15B4A59B41B3DF2A1664" Guid="{09E59AB3-E4DD-4D4F-9695-2274C4DD0954}">
+                <Component Id="cmp68636D4E9ECD15B4A59B41B3DF2A1664" Guid="{3150F12B-C003-42B2-9640-390F97E07F06}">
                     <File Id="fil20D003BA08DD2AA2185C9C52A438A007" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\log_control_pb2.py" />
                 </Component>
-                <Component Id="cmp7B0FB17B2646BC8C095C16430C16F144" Guid="{5A564B7A-AE45-4F5F-92CC-392CB99E2EE4}">
+                <Component Id="cmp7B0FB17B2646BC8C095C16430C16F144" Guid="{63C0AC02-9D4E-47F9-9472-C87207431C6D}">
                     <File Id="filA0D85BFFF55C4A10C991CA2E5351483A" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\log_status_pb2.py" />
                 </Component>
-                <Component Id="cmp118109C685AC5ADF80506DAD04FE9D9E" Guid="{CE7D60C1-8804-4769-B6D6-858BC2A21DF7}">
+                <Component Id="cmp118109C685AC5ADF80506DAD04FE9D9E" Guid="{366364EB-33FE-40AF-ADFB-930DF1870F38}">
                     <File Id="fil72A26F1AA865C5D4EF3F326DA42E2FAA" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\material_pb2.py" />
                 </Component>
-                <Component Id="cmp954B218D333F9F8834B2AE111B74DD7E" Guid="{5E11147A-8BDD-44AD-9C6E-9BB6A750F67D}">
+                <Component Id="cmp954B218D333F9F8834B2AE111B74DD7E" Guid="{369D319E-8483-4BFE-B4EA-03CA5B1A6FB5}">
                     <File Id="fil96A5FDBD547D18B5E945FA50A6416655" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\meshgeom_pb2.py" />
                 </Component>
-                <Component Id="cmp3CA76030C77A6C5C717FBB0C29B740A7" Guid="{6610D4C6-E054-456B-A16E-E79D2355EEC0}">
+                <Component Id="cmp3CA76030C77A6C5C717FBB0C29B740A7" Guid="{54B1273A-4EE5-486E-88E6-54F42C0DAE97}">
                     <File Id="fil257255E6D35A9B74026EC9605527E58B" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\model_configuration_pb2.py" />
                 </Component>
-                <Component Id="cmp2F16CFEB7CF6091A915D1A492BAF31E0" Guid="{32F440C0-F81A-4793-B8E4-9A93F41659B1}">
+                <Component Id="cmp2F16CFEB7CF6091A915D1A492BAF31E0" Guid="{8E4F1E89-7833-4C2C-955F-174AD94B3172}">
                     <File Id="fil70709721FBFACF3A879368B0FDAAFDD5" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\model_pb2.py" />
                 </Component>
-                <Component Id="cmp7168657785AE7BCA4824EAFA0610A35B" Guid="{7D17E34F-6E6F-400E-A61B-CDC27DFD3936}">
+                <Component Id="cmp7168657785AE7BCA4824EAFA0610A35B" Guid="{F304414E-EFBE-43BF-B01C-B398878E8B29}">
                     <File Id="filD8ADBFB55BFA84412731EF78CA071DA7" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\model_v_pb2.py" />
                 </Component>
-                <Component Id="cmp0DBC81E45E8285620F06EA33D1A58C3D" Guid="{C6DC5406-0E97-446E-857D-705EBD3B0134}">
+                <Component Id="cmp0DBC81E45E8285620F06EA33D1A58C3D" Guid="{B1E26063-46A0-42AF-A655-C328982E793D}">
                     <File Id="filB0448FCF9EAB5DEA54DB596E2F16EF83" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\node_pb2.py" />
                 </Component>
-                <Component Id="cmp50ABFFB3EE2122FD01001AB0C2110168" Guid="{CD32D9DC-365D-4B1A-BC5A-ED8C33079D22}">
+                <Component Id="cmp50ABFFB3EE2122FD01001AB0C2110168" Guid="{9BCF0A6C-EC97-4D35-99FC-35CC415420C9}">
                     <File Id="fil7888D72A83F9F6D421A3ED3788BF03FF" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\node_pb2.pyc" />
                 </Component>
-                <Component Id="cmpBFBA7C8FA39588D05349FBE784838D1B" Guid="{0704E6D1-8F0D-4666-B6D1-C2E9F9A63BFD}">
+                <Component Id="cmpBFBA7C8FA39588D05349FBE784838D1B" Guid="{7F26AF46-655B-4571-8690-5BF81360CB36}">
                     <File Id="filE9561E55FCAEE77DBBA7C36CD0673266" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\packet_pb2.py" />
                 </Component>
-                <Component Id="cmp30A74B06E701898899DE0322C50FBAB0" Guid="{FD5B95E5-E800-4935-A8D6-CBE831F94632}">
+                <Component Id="cmp30A74B06E701898899DE0322C50FBAB0" Guid="{FB06AFD6-86F1-43F2-9C34-C4376733506F}">
                     <File Id="filEAD0D34BA3D02B52F0F6538E02F99DB2" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\param_pb2.py" />
                 </Component>
-                <Component Id="cmp697AB8C5C3C5B970EC5FE0116C0FD260" Guid="{3BF5095D-8A34-46ED-9F52-29824EDB68CA}">
+                <Component Id="cmp697AB8C5C3C5B970EC5FE0116C0FD260" Guid="{0B740332-ED79-49DF-B285-79280287CFB3}">
                     <File Id="fil54103B69EE2F8C766A96C8E84F64EE9A" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\param_pb2.pyc" />
                 </Component>
-                <Component Id="cmp6EA02D3FC29C24B47E033FE4B518543E" Guid="{269E1CAA-5583-45C4-9AF3-35C9D7B96B51}">
+                <Component Id="cmp6EA02D3FC29C24B47E033FE4B518543E" Guid="{61254DEB-6829-4E24-A078-1C5B1A8AA2E9}">
                     <File Id="fil6E62FCC416C53FA833A8B86AED565ECE" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\physics_pb2.py" />
                 </Component>
-                <Component Id="cmpC94B6EA21175465CEB7355C753023A55" Guid="{0ACA7FB7-5601-43B0-B2AA-01F489AAB6C2}">
+                <Component Id="cmpC94B6EA21175465CEB7355C753023A55" Guid="{1AEC484C-263E-4DBE-815C-E7500FF60E24}">
                     <File Id="filB950A94EF0D32406B6289208BD18106C" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\pid_pb2.py" />
                 </Component>
-                <Component Id="cmp097919AAF98932BE512CFE0DC3F1B244" Guid="{E5D6F681-11E1-4611-B4DE-204EA0614B8E}">
+                <Component Id="cmp097919AAF98932BE512CFE0DC3F1B244" Guid="{72B310E2-D34C-4BA7-8AB7-11F71AAD2613}">
                     <File Id="filA005F7A221F3391EDF1A7F68E3967430" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\planegeom_pb2.py" />
                 </Component>
-                <Component Id="cmp017AFBEBED832790E3656EAAA8F73D74" Guid="{97BEE988-1308-4ECC-A4F1-60E02AC1D4E9}">
+                <Component Id="cmp017AFBEBED832790E3656EAAA8F73D74" Guid="{9F5F7EA5-F67A-42CF-A953-7F27E641E889}">
                     <File Id="fil26D190F1D77496C9B5577959029F1E12" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\plugin_pb2.py" />
                 </Component>
-                <Component Id="cmpC8AD1CE781709AC9909ABE3D9E014BA5" Guid="{94380A14-BACD-4D25-9F1D-A8E20207D016}">
+                <Component Id="cmpC8AD1CE781709AC9909ABE3D9E014BA5" Guid="{89CC4B99-D770-4530-9B8F-A5E2FFA44033}">
                     <File Id="filB1E5391C1088F82F224316330837DCD0" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\pointcloud_pb2.py" />
                 </Component>
-                <Component Id="cmp8219A1F7EA27EB488C078CF931D561C3" Guid="{AE019A23-BE15-43D7-9429-8DB7F85FA932}">
+                <Component Id="cmp8219A1F7EA27EB488C078CF931D561C3" Guid="{A18DCBBD-E848-4CCB-9450-F36FE6BD9067}">
                     <File Id="fil05DD4AC8DD316F9A59FAC800D90411BA" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\polylinegeom_pb2.py" />
                 </Component>
-                <Component Id="cmp2ABFB0C251065D0E32A67AED7C8BA0F5" Guid="{5B02D159-9E61-4FE2-AE59-19E5A7AD634F}">
+                <Component Id="cmp2ABFB0C251065D0E32A67AED7C8BA0F5" Guid="{F2BF27A0-539C-42A7-9176-8CD7AA5452C5}">
                     <File Id="filD2DB98D2EB52B72A23FD3B586D7B6F46" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\poses_stamped_pb2.py" />
                 </Component>
-                <Component Id="cmp2A5EDBC4681666A4A6C441ADC94D8A39" Guid="{A7710F58-CB8C-47EB-9937-CBB11E91692E}">
+                <Component Id="cmp2A5EDBC4681666A4A6C441ADC94D8A39" Guid="{28506058-9D0B-4F3C-BE64-733502C1F13B}">
                     <File Id="filFDBF284F4DB2F67865C2248A5144FBB9" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\pose_animation_pb2.py" />
                 </Component>
-                <Component Id="cmp5C4A1AA4053003B945F31F8D571FE85A" Guid="{3206F85B-C766-40E9-A20A-C3B4E74C5BD2}">
+                <Component Id="cmp5C4A1AA4053003B945F31F8D571FE85A" Guid="{A5E66AF2-5D4E-405B-A457-2139A29963B6}">
                     <File Id="fil0529F98A014126432906C3F4611D413D" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\pose_pb2.py" />
                 </Component>
-                <Component Id="cmp350149C66EDCB1AD710C91BAA1D94735" Guid="{4EDC5DF9-D168-4F19-B7C6-1561A0978A98}">
+                <Component Id="cmp350149C66EDCB1AD710C91BAA1D94735" Guid="{469B42AE-0129-4DDF-A833-06FC84F8F086}">
                     <File Id="fil48CB4A6F317A9D97AF23EBB4B5B75099" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\pose_pb2.pyc" />
                 </Component>
-                <Component Id="cmp2BA0998FA3A5C8EAE0C73961F2139346" Guid="{3DBECA75-47D5-41E0-B7CA-304E8318C850}">
+                <Component Id="cmp2BA0998FA3A5C8EAE0C73961F2139346" Guid="{716168C0-CAE6-4167-853C-8511132531B8}">
                     <File Id="fil0E2092EE6E5442D53269A6265F2DADBA" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\pose_stamped_pb2.py" />
                 </Component>
-                <Component Id="cmp5A0E4041BDF5290E2892DEBEE1AC8FB5" Guid="{EC1ADBF7-1F2A-4BAE-A382-CF11E66482F5}">
+                <Component Id="cmp5A0E4041BDF5290E2892DEBEE1AC8FB5" Guid="{E780C03B-E6D7-49EC-9408-91FDC11C83A6}">
                     <File Id="fil605A94A0714387DC5833EBB7A0FBE6CD" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\pose_trajectory_pb2.py" />
                 </Component>
-                <Component Id="cmp299653CD097E32E5DC89A9877C340426" Guid="{C255CB20-337B-4B20-8781-76ECFCB5BDD8}">
+                <Component Id="cmp299653CD097E32E5DC89A9877C340426" Guid="{9F070C24-DF03-470E-B1FB-14BDB917008D}">
                     <File Id="fil662FAC7A29540EB529D615A20253D66A" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\pose_v_pb2.py" />
                 </Component>
-                <Component Id="cmp722FA7431D905A1E12D5D3768DC1FB18" Guid="{FE47EE91-8B84-4F3D-8B5D-CAD303795D7E}">
+                <Component Id="cmp722FA7431D905A1E12D5D3768DC1FB18" Guid="{9755A74B-0470-4EFF-AD0A-3249D5222C2B}">
                     <File Id="fil125E1EE2D0F6253D3F9560E8C4558D17" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\pose_v_pb2.pyc" />
                 </Component>
-                <Component Id="cmp563F0B9157FAAD57425AA6313A09D9A6" Guid="{EC5CB40B-73F2-42C9-ACCF-6BD7C2D12762}">
+                <Component Id="cmp563F0B9157FAAD57425AA6313A09D9A6" Guid="{1F50B133-EC5D-4CDC-A073-F9A515C988B9}">
                     <File Id="fil3F54CEA69ED8974FEFC281AB068A5762" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\projector_pb2.py" />
                 </Component>
-                <Component Id="cmp25CA66760594A93062086273A47B1926" Guid="{7A66D3B8-070C-4E3D-B585-7D6304DCEF20}">
+                <Component Id="cmp25CA66760594A93062086273A47B1926" Guid="{10A232E9-2280-4D66-935B-BEAE2B65175C}">
                     <File Id="fil733C7D43BDC8A1C479108077290A8E57" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\propagation_grid_pb2.py" />
                 </Component>
-                <Component Id="cmp6DBAAF88513F518C603FCC9EC6AF8770" Guid="{C8BA82DE-6DAD-42B8-AEDC-5404DF387965}">
+                <Component Id="cmp6DBAAF88513F518C603FCC9EC6AF8770" Guid="{CFE72A98-7CA6-4C2F-9EDC-87036670D1E5}">
                     <File Id="filD0C118AEC873194FEF43203DD407DD92" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\propagation_particle_pb2.py" />
                 </Component>
-                <Component Id="cmpEEA50E6FF32D759FBFA9102D790CF882" Guid="{EF8DE80A-F7E7-48EC-9685-16182A132EDA}">
+                <Component Id="cmpEEA50E6FF32D759FBFA9102D790CF882" Guid="{0E1A973E-FC82-438F-9E95-87B627963888}">
                     <File Id="fil24DA52FF8B23B64108785D087DAA47B1" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\publishers_pb2.py" />
                 </Component>
-                <Component Id="cmp1235B40E4319EAB79355B1F4E970C58A" Guid="{DF612543-BBDA-4DDB-8897-AA97732B695C}">
+                <Component Id="cmp1235B40E4319EAB79355B1F4E970C58A" Guid="{B97406ED-1B8C-45A7-92FF-8D023859462C}">
                     <File Id="filF171F01AB3B1F5E84FC2A897F2D7228D" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\publish_pb2.py" />
                 </Component>
-                <Component Id="cmp8DD510145224E497697476FF10ED7FFD" Guid="{E14911F8-1F98-442A-B862-25AA7B557CD4}">
+                <Component Id="cmp8DD510145224E497697476FF10ED7FFD" Guid="{8ADB24E5-D428-4BFE-80D8-27E7B81D844F}">
                     <File Id="filF471AB02A932E6AD7FAB1996A5803DE3" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\publish_pb2.pyc" />
                 </Component>
-                <Component Id="cmp09F5E251DD74BD6801A9782FF60DB1AC" Guid="{9BDF4791-0119-4C67-B7DD-1EFB2D82FB29}">
+                <Component Id="cmp09F5E251DD74BD6801A9782FF60DB1AC" Guid="{5C996B77-BBC8-40C9-AFDF-756EB849A467}">
                     <File Id="fil1E4F1775942A76B6C5B8F007BD16680A" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\quaternion_pb2.py" />
                 </Component>
-                <Component Id="cmp229F93E7835CEE1FF03C77E7E013AEBD" Guid="{C09AB009-DEE0-4426-873D-B481A46CAAA6}">
+                <Component Id="cmp229F93E7835CEE1FF03C77E7E013AEBD" Guid="{597164E9-D4B1-422A-819B-C0C377454232}">
                     <File Id="fil86B62E429F39A49C0D53C1181C14CB8D" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\quaternion_pb2.pyc" />
                 </Component>
-                <Component Id="cmpF8DD1C209764FEBD1DA6F2DE04F6A0AB" Guid="{54B54EF7-7795-4E25-90D5-A38B3862B9F6}">
+                <Component Id="cmpF8DD1C209764FEBD1DA6F2DE04F6A0AB" Guid="{16E7D514-5F5D-44CB-B06B-8BA5E6346EB1}">
                     <File Id="filC838AC6FF12FCE05AEBC71C8E1323992" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\raysensor_pb2.py" />
                 </Component>
-                <Component Id="cmpDC278F21D12AB47C695C18C83EAD3276" Guid="{08739790-6B78-4F5C-A234-CF63F8F5E00A}">
+                <Component Id="cmpDC278F21D12AB47C695C18C83EAD3276" Guid="{EE2D0B70-A52E-40D9-941E-48EAAE89AE37}">
                     <File Id="fil1A56E21BFFAC56EFB550C24F8C3F17DA" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\request_pb2.py" />
                 </Component>
-                <Component Id="cmp03275B6F8523B05D27A9280E3D8708FE" Guid="{CE6F4642-EAD8-4A41-B708-DC2978C5FAFC}">
+                <Component Id="cmp03275B6F8523B05D27A9280E3D8708FE" Guid="{DDD98C26-AADC-4342-A67C-86A1A90A9D35}">
                     <File Id="fil7B4B6C6DEADFCAC982B75C3990D42D4B" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\request_pb2.pyc" />
                 </Component>
-                <Component Id="cmp3D147CBDB8DB13C668AFA6A044B40299" Guid="{2133D52B-283D-4610-8224-EB855EF6DC56}">
+                <Component Id="cmp3D147CBDB8DB13C668AFA6A044B40299" Guid="{87B6CA45-E3B8-4E88-ADAD-5684A2B4C3F1}">
                     <File Id="fil1103CB49FE0358ABAC87F6757F714738" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\response_pb2.py" />
                 </Component>
-                <Component Id="cmp5DA533CA9981B38D208840316AB979D9" Guid="{334470F6-32FB-4C41-8311-FB42D8870533}">
+                <Component Id="cmp5DA533CA9981B38D208840316AB979D9" Guid="{F75CD636-3A05-4184-9253-7823256F63FB}">
                     <File Id="fil8BF51B75B0746DC2F13D7D070E5084D3" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\response_pb2.pyc" />
                 </Component>
-                <Component Id="cmp5BAA99AE79274036358CE4523890DAB4" Guid="{3DA8F79C-3ADC-4D9C-BD37-532E978AB4B1}">
+                <Component Id="cmp5BAA99AE79274036358CE4523890DAB4" Guid="{285D5CE0-357B-4B0D-9869-71B3AAEEA06B}">
                     <File Id="filC73704D97A282F878C58B25C236F9664" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\road_pb2.py" />
                 </Component>
-                <Component Id="cmp29A598413C6BCA41B935E04F67E7B1CB" Guid="{300E0866-BCA8-4AE5-9B8B-96CFC12C453B}">
+                <Component Id="cmp29A598413C6BCA41B935E04F67E7B1CB" Guid="{1BD372CB-ADF6-421F-A9D8-3466D28B3A35}">
                     <File Id="filD4844709DCD459EC8459E4417D267D53" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\robot_behavior_pb2.py" />
                 </Component>
-                <Component Id="cmpBB7655D0588197095B1F63164451213D" Guid="{0421571C-12E7-4C5A-9980-B57479843BDB}">
+                <Component Id="cmpBB7655D0588197095B1F63164451213D" Guid="{3C20DD5A-5532-44EA-B85B-CF842D0572FE}">
                     <File Id="filD3A3A8DA073CC82DAD122A4FDEC0D4B3" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\robot_behavior_pb2.pyc" />
                 </Component>
-                <Component Id="cmpA708F6D1927B77C82A37B6EC9838F74E" Guid="{9BB3463A-C312-41DE-81D9-DCC31B2E766A}">
+                <Component Id="cmpA708F6D1927B77C82A37B6EC9838F74E" Guid="{4293CB86-1B51-44B7-9DB6-16240E58AA9C}">
                     <File Id="fil2ED1160CDA51D731F538EF4A488A3096" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\scene_pb2.py" />
                 </Component>
-                <Component Id="cmp6ECCD34288A101B5D70F4C681CCDB0BE" Guid="{6F04A98F-2050-4DBC-ABED-A439C90D589D}">
+                <Component Id="cmp6ECCD34288A101B5D70F4C681CCDB0BE" Guid="{1A6C7A30-2F08-4A96-AC6A-8BA96459DC65}">
                     <File Id="fil3DCC338914BA0431D4E5F9AF45D99A09" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\selection_pb2.py" />
                 </Component>
-                <Component Id="cmp38031B5E0F3397D9EF27DBF7B502052D" Guid="{3643D96A-6DEB-4D5D-8195-31FFE9FACD00}">
+                <Component Id="cmp38031B5E0F3397D9EF27DBF7B502052D" Guid="{5EFB5E81-CBED-4113-B607-91BE7BDD8D04}">
                     <File Id="fil79E331C875C0F0495385BBBECFB76128" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\sensor_pb2.py" />
                 </Component>
-                <Component Id="cmp75E5BA0EFD7BB804BB7BC9C33362F7A0" Guid="{CE8A65FA-E899-422C-8E9D-847D5EB7B6E2}">
+                <Component Id="cmp75E5BA0EFD7BB804BB7BC9C33362F7A0" Guid="{68FF8FE2-4989-4CB4-803E-6F366A0CD915}">
                     <File Id="filB018866C3A3A31EC5E062302047E38C5" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\server_control_pb2.py" />
                 </Component>
-                <Component Id="cmp4DE320E4BBC6D8DCD77044502D86A5AC" Guid="{A8104EC0-B0BD-4A3C-8A99-A2A104E01763}">
+                <Component Id="cmp4DE320E4BBC6D8DCD77044502D86A5AC" Guid="{75E72475-992E-4059-AEFA-AAC5D021797E}">
                     <File Id="filD0A04A9EE8172FB660DA2ED623740D29" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\shadows_pb2.py" />
                 </Component>
-                <Component Id="cmp57E70CEF1D4894C26F6E2F617197D8D6" Guid="{38721D69-6C9E-4A72-8CF1-7DAEE6D67F1D}">
+                <Component Id="cmp57E70CEF1D4894C26F6E2F617197D8D6" Guid="{E374A4D6-1C47-4498-9430-E7D56C0280EF}">
                     <File Id="fil101208ED09E1B6623BCCA190845D5661" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\sim_event_pb2.py" />
                 </Component>
-                <Component Id="cmp9EC58BD472D6DF59E1B40340A2E66EFC" Guid="{2FF7D652-D281-428F-AEBD-AAD7597F46D4}">
+                <Component Id="cmp9EC58BD472D6DF59E1B40340A2E66EFC" Guid="{48FE4613-EB0B-4AE3-9225-C6200EE76D33}">
                     <File Id="fil16D6BE6079F947D144D98A31DDF6AD0A" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\sky_pb2.py" />
                 </Component>
-                <Component Id="cmpCC6280379F9A10CD5CECFA1EB8F2C881" Guid="{946597E8-9EA9-4AB1-8A36-2032DD20FD81}">
+                <Component Id="cmpCC6280379F9A10CD5CECFA1EB8F2C881" Guid="{4BBCCE93-4ADF-4C93-8800-5BF98218AA1F}">
                     <File Id="fil4F0BA134A864C3ECBB41A5720036B3F7" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\sonar_pb2.py" />
                 </Component>
-                <Component Id="cmp0B56A90F3CB21D64E020C0F11EB85D03" Guid="{83A54D3D-C9F9-4B5B-9491-0540CA229223}">
+                <Component Id="cmp0B56A90F3CB21D64E020C0F11EB85D03" Guid="{E098C85C-A680-4795-A85E-BEABFDBC3D22}">
                     <File Id="filB967EEFBF74D84D4DCDFDAAC38C41744" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\sonar_stamped_pb2.py" />
                 </Component>
-                <Component Id="cmp392B1CBAFC9AB10143157E51485A7A22" Guid="{693BE73F-97DC-408D-8018-7A74A6EF48DF}">
+                <Component Id="cmp392B1CBAFC9AB10143157E51485A7A22" Guid="{4E0D0F33-A0A3-4F21-B248-9000C1AC1EB0}">
                     <File Id="filD02F5DC6D29CD427D901CAFC82672723" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\spheregeom_pb2.py" />
                 </Component>
-                <Component Id="cmp3A10E3EBEB068A8F37C044E7EA4C59B7" Guid="{8CCB6EBA-71DF-43F0-8245-A9AC7D5B7C3E}">
+                <Component Id="cmp3A10E3EBEB068A8F37C044E7EA4C59B7" Guid="{5BB23DEC-04FB-4128-B33E-7A57362455AD}">
                     <File Id="fil385EBE2E269C412FDD003439C3CEDE94" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\spherical_coordinates_pb2.py" />
                 </Component>
-                <Component Id="cmpCEB303EB4AF4BA50F52C460E0A121AA9" Guid="{E9B418E4-7FCA-4946-B4BD-61946B4144D3}">
+                <Component Id="cmpCEB303EB4AF4BA50F52C460E0A121AA9" Guid="{C77A42FD-65F0-4C61-A2A0-CB894ACD7CCA}">
                     <File Id="filC7AC37158D92E9D475CB441F22AA7864" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\subscribe_pb2.py" />
                 </Component>
-                <Component Id="cmpB1727DF3A93640822445BBE46A433BC9" Guid="{22607DC6-572E-4FDF-96F1-934F5C540199}">
+                <Component Id="cmpB1727DF3A93640822445BBE46A433BC9" Guid="{955314DE-37ED-4406-8D1D-44289C02B7F0}">
                     <File Id="fil898518765D63EB43C275AF1234BBE0E8" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\subscribe_pb2.pyc" />
                 </Component>
-                <Component Id="cmp1C1AB8309B3335253643EAB681ACA2AE" Guid="{39D000F1-27F6-4B4B-9A94-A0A57174F8A1}">
+                <Component Id="cmp1C1AB8309B3335253643EAB681ACA2AE" Guid="{FD34F540-0B53-411B-9457-F189059F32C8}">
                     <File Id="filF46FA54FE5A5ED20ECF8C36424CB4E10" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\surface_pb2.py" />
                 </Component>
-                <Component Id="cmp59F2AF5D7F7224B15741616FEC55881D" Guid="{7E21BE71-A6E9-420C-AEED-F2BEF468D1BD}">
+                <Component Id="cmp59F2AF5D7F7224B15741616FEC55881D" Guid="{2AA3937C-31C6-4F5A-962F-10F5BB8D836B}">
                     <File Id="filC8537DF1CFB0485EE334683D2463ED78" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\tactile_pb2.py" />
                 </Component>
-                <Component Id="cmpA9C02A4E20715EB484D9DAB683EAB8FF" Guid="{4513C778-8C84-4711-9343-39A3143DFCE7}">
+                <Component Id="cmpA9C02A4E20715EB484D9DAB683EAB8FF" Guid="{CC4EEE30-D98F-4E9C-AF1B-F2BABB0EF762}">
                     <File Id="fil2F8A1D2FFC0B0CA1785D82D19E8C8F3C" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\test_pb2.py" />
                 </Component>
-                <Component Id="cmp4DC484666DEDCE3F93478A3D36C221DC" Guid="{FFB6D0C1-7B72-4A62-A8A2-A81EAF23F61C}">
+                <Component Id="cmp4DC484666DEDCE3F93478A3D36C221DC" Guid="{1FA49E4C-D22D-421D-A387-01C974DCD366}">
                     <File Id="fil655EDD112F16A750E6CB54B73EBB96EE" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\time_pb2.py" />
                 </Component>
-                <Component Id="cmpE9A594F20DDC9C52535DA9DB3BAD9487" Guid="{C0142C2C-6F21-4E85-8AC3-213F8E3543DA}">
+                <Component Id="cmpE9A594F20DDC9C52535DA9DB3BAD9487" Guid="{D4FC83D1-4CF9-40E2-8CBE-B17F8E2397BD}">
                     <File Id="fil3B512DDBC4AECDBA64F9ABD74CD2DE5E" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\topic_info_pb2.py" />
                 </Component>
-                <Component Id="cmpA8E18BFEF8FAC0F1B340BA17A9C5D6FD" Guid="{A1C7CB38-3D3B-4DEB-9116-F05C26C5260B}">
+                <Component Id="cmpA8E18BFEF8FAC0F1B340BA17A9C5D6FD" Guid="{9700EE16-D587-4579-8883-116942A3A6EE}">
                     <File Id="fil0973F8F677AD13B7305B73D25473D71C" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\track_visual_pb2.py" />
                 </Component>
-                <Component Id="cmpD83F714E726243A697E065053F2AD602" Guid="{0E247300-9557-442D-95E2-887E4D4A41CF}">
+                <Component Id="cmpD83F714E726243A697E065053F2AD602" Guid="{ECE2CF06-4A46-4D6E-BF23-C2323C6CFE80}">
                     <File Id="fil87E6D508A3AD615939096E67FF3DAF22" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\vector2d_pb2.py" />
                 </Component>
-                <Component Id="cmp79BE1A9025FBA80DA227DD79ED855875" Guid="{56E63DCC-21F8-4421-8DC2-7FA90100750C}">
+                <Component Id="cmp79BE1A9025FBA80DA227DD79ED855875" Guid="{3A4964B1-22A7-44F9-8EE1-94CC8CC1CB48}">
                     <File Id="filC4834229F3191B5BA31B2826F1CFF72A" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\vector3d_pb2.py" />
                 </Component>
-                <Component Id="cmpEA4DCF4FE5512F02E46B791DA9C159F6" Guid="{E34341E0-45E5-4B4C-B9AA-26854C614EE8}">
+                <Component Id="cmpEA4DCF4FE5512F02E46B791DA9C159F6" Guid="{736F536A-4334-411C-B717-4D2A21386C23}">
                     <File Id="fil6EDBDDD940457966E8B30AB1CF636DBC" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\vector3d_pb2.pyc" />
                 </Component>
-                <Component Id="cmpF1C3B234AB25BE341D6C58AE1E9035C5" Guid="{B9006819-E05F-4EBA-A010-281F563652B0}">
+                <Component Id="cmpF1C3B234AB25BE341D6C58AE1E9035C5" Guid="{C328184B-5B8A-48CA-8817-8113ABC8BA73}">
                     <File Id="fil55E8AD0B660A8E198135DB4872DFB6E5" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\visual_pb2.py" />
                 </Component>
-                <Component Id="cmpED3CB2350EDA7F7DFF15B83C2221E21D" Guid="{5EF1B4C7-395E-4688-B173-28682E6EA53D}">
+                <Component Id="cmpED3CB2350EDA7F7DFF15B83C2221E21D" Guid="{11C9C5E8-0E4C-46DD-8D04-95FA5AF464A1}">
                     <File Id="fil9F6DA8C830D8378201C0122ABF410471" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\voice_pb2.py" />
                 </Component>
-                <Component Id="cmp642EE2C76055A592E22764044A696C16" Guid="{EBF0B7EE-C0AF-48E5-B2F6-BCFE56F9D608}">
+                <Component Id="cmp642EE2C76055A592E22764044A696C16" Guid="{C2B90387-A54E-4561-9319-581CC638C40F}">
                     <File Id="filFCC9A38925D89FE43D230EA32D5392D3" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\wireless_nodes_pb2.py" />
                 </Component>
-                <Component Id="cmp1CD69F73BB1CB9C498F7D843739702A1" Guid="{53D23ABA-FCB9-4396-A35B-46ED0D34D72D}">
+                <Component Id="cmp1CD69F73BB1CB9C498F7D843739702A1" Guid="{3218C231-C3A1-4343-9A6B-4184E94152E1}">
                     <File Id="filDB98D9B4253441E634C24F13656CC544" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\wireless_node_pb2.py" />
                 </Component>
-                <Component Id="cmp9FB11B2419DABBB4C97C28AE2A6AF756" Guid="{93DCC259-B8BB-47C7-B281-F7CF4EAB1A1A}">
+                <Component Id="cmp9FB11B2419DABBB4C97C28AE2A6AF756" Guid="{E9339E5A-0D6A-4623-878E-7D5B55FC4C6C}">
                     <File Id="fil313F3C6273DC4494571003A75323321A" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\world_control_pb2.py" />
                 </Component>
-                <Component Id="cmpB7331AD944B6BC8CF6F33081F76E3B3A" Guid="{37EE7BC6-C8CB-4DD7-8364-2E37ADF91101}">
+                <Component Id="cmpB7331AD944B6BC8CF6F33081F76E3B3A" Guid="{88049F99-D68E-4985-A984-5766C1219999}">
                     <File Id="filF01D67622ACFD03D8C714554A5203B87" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\world_modify_pb2.py" />
                 </Component>
-                <Component Id="cmpFA7D4E180B69C3D96EA4E941D90BB00A" Guid="{25DDEAEC-0400-455D-9514-A84F0CAFE01E}">
+                <Component Id="cmpFA7D4E180B69C3D96EA4E941D90BB00A" Guid="{FC5064BA-AAB8-449C-B901-B73F72684062}">
                     <File Id="filAA007E04917816952491CF9B552121C8" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\world_reset_pb2.py" />
                 </Component>
-                <Component Id="cmpCA1F9501B4D9DF62BCAD778F016AC919" Guid="{541CF51E-278C-4D64-A6E4-FA5264E2915F}">
+                <Component Id="cmpCA1F9501B4D9DF62BCAD778F016AC919" Guid="{C0DDDBB0-0D74-4B31-963C-84FB23BC58B6}">
                     <File Id="filA8B8ABBB575445F0F52B14B9C66EB73E" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\world_stats_pb2.py" />
                 </Component>
-                <Component Id="cmp9CCEE011AB756B4E9C5422A1EECF9FF2" Guid="{CB9795C8-1A14-4FD4-A17F-3767469AE852}">
+                <Component Id="cmp9CCEE011AB756B4E9C5422A1EECF9FF2" Guid="{06622D4D-311F-4B11-BAE6-64836A11393C}">
                     <File Id="filCA911CD7EED84E389247C0F628A1D8C4" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\wrench_pb2.py" />
                 </Component>
-                <Component Id="cmpA15D5ED4781CBB72AFEDE3166CED2B7C" Guid="{66587827-DE5D-459B-9388-FA27B7675021}">
+                <Component Id="cmpA15D5ED4781CBB72AFEDE3166CED2B7C" Guid="{253EC69D-EA16-4D38-A598-DC0341921A5A}">
                     <File Id="fil2A9E1895DD34B8588607465EC13B1429" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\wrench_stamped_pb2.py" />
                 </Component>
-                <Component Id="cmpD53923BF69DD9094A96654C60D018B25" Guid="{4351D2C4-7BC0-48BF-9106-7D39910C781D}">
+                <Component Id="cmpD53923BF69DD9094A96654C60D018B25" Guid="{B6C2FF24-EE81-4414-B50B-AE874355B989}">
                     <File Id="fil4D4D185E1D167845E0CD497A9E87ED4F" KeyPath="yes" Source="!(wix.ScriptsSource)\msgs\__init__.py" />
                 </Component>
             </Directory>
