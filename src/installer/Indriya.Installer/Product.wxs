@@ -10,6 +10,7 @@
     <WixVariable Id="DataSource" Value="$(env.INDRIYA_ROOT)\data"/>
     <WixVariable Id="ScriptsSource" Value="$(env.INDRIYA_ROOT)\scripts"/>
     <WixVariable Id="ShareDataSource" Value="$(env.INDRIYA_ROOT)\share"/>
+    <WixVariable Id="ScriptCsDataSource" Value="$(env.INDRIYA_DATA_ROOT)\scriptcs"/>
     <WixVariable Id="WebSource" Value="$(env.INDRIYA_WEB_ROOT)"/>
     
 		<Feature Id="ProductFeature" Title="IndriyaInstaller" Level="1">
