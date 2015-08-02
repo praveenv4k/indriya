@@ -1,11 +1,10 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
-using Indriya.Application.Core;
+using CefSharp;
+using Common.Logging;
 using Indriya.Application.Properties;
 using Indriya.Application.Mvvm;
-using Indriya.Core.Data;
-using Nancy.TinyIoc;
 
 namespace Indriya.Application
 {
@@ -15,6 +14,7 @@ namespace Indriya.Application
     // ReSharper disable once RedundantExtendsListEntry
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        private static readonly ILog Log = LogManager.GetLogger<MainWindow>();
         public MainWindow()
         {
             DataContext = new MainWindowViewModel();
@@ -29,23 +29,9 @@ namespace Indriya.Application
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private void ProgramExecution(ExecutionRequest req)
+        private void BrowserOnConsoleMessage(object sender, ConsoleMessageEventArgs e)
         {
-            var bootStrapper = TinyIoCContainer.Current.Resolve<BootStrapper>();
-            if (bootStrapper != null)
-            {
-                bootStrapper.MainProgramExecutionRequest(req);
-            }
-        }
-
-        private void ProgramRun(object sender, RoutedEventArgs e)
-        {
-            ProgramExecution(ExecutionRequest.Start);
-        }
-
-        private void ProgramStop(object sender, RoutedEventArgs e)
-        {
-            ProgramExecution(ExecutionRequest.Stop);
+            Log.InfoFormat("Browser message - [Line: {0}, Source: {1}] : , Message: {2}", e.Line, e.Source, e.Message);
         }
     }
 }

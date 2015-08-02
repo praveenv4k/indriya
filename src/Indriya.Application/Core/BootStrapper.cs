@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Common.Logging;
-using Indriya.Application.Tasks;
 using Indriya.Application.Web;
 using Indriya.Core.BehaviorEngine;
 using Indriya.Core.Data;
@@ -18,9 +15,6 @@ using Indriya.Core.Util;
 using Nancy.TinyIoc;
 using NetMQ;
 using ProtoBuf;
-using Quartz;
-using Quartz.Impl;
-using Quartz.Impl.Matchers;
 
 namespace Indriya.Application.Core
 {
@@ -99,7 +93,7 @@ namespace Indriya.Application.Core
                 _tasks.Add(Task.Factory.StartNew(() => RunWebServer(server)));
             }
 
-            InitializeScheduler();
+            //InitializeScheduler();
         }
 
         private void PrepareConfigData(AppConfig config)
@@ -302,31 +296,31 @@ namespace Indriya.Application.Core
             TinyIoCContainer.Current.Register<ParameterServer>().AsSingleton();
             TinyIoCContainer.Current.Register<ContextServer>().AsSingleton();
             TinyIoCContainer.Current.Register<ContextOrchestrator>().AsSingleton();
-            TinyIoCContainer.Current.Register<StdSchedulerFactory>().AsSingleton();
+            //TinyIoCContainer.Current.Register<StdSchedulerFactory>().AsSingleton();
             TinyIoCContainer.Current.Register<IndriyaWeb>().AsSingleton();
         }
 
         /// <summary>
         /// Initialize the Job Scheduler
         /// </summary>
-        private void InitializeScheduler()
-        {
-            // our properties that enable XML configuration plugin
-            // and makes it watch for changes every two minutes (120 seconds)
-            var properties = new NameValueCollection();
-            properties["quartz.plugin.triggHistory.type"] = "Quartz.Plugin.History.LoggingJobHistoryPlugin";
+        //private void InitializeScheduler()
+        //{
+        //    // our properties that enable XML configuration plugin
+        //    // and makes it watch for changes every two minutes (120 seconds)
+        //    var properties = new NameValueCollection();
+        //    properties["quartz.plugin.triggHistory.type"] = "Quartz.Plugin.History.LoggingJobHistoryPlugin";
 
-            properties["quartz.plugin.jobInitializer.type"] = "Quartz.Plugin.Xml.XMLSchedulingDataProcessorPlugin";
-            properties["quartz.plugin.jobInitializer.fileNames"] = "quartz_config.xml";
-            properties["quartz.plugin.jobInitializer.failOnFileNotFound"] = "true";
-            //properties["quartz.plugin.jobInitializer.scanInterval"] = "120";
+        //    properties["quartz.plugin.jobInitializer.type"] = "Quartz.Plugin.Xml.XMLSchedulingDataProcessorPlugin";
+        //    properties["quartz.plugin.jobInitializer.fileNames"] = "quartz_config.xml";
+        //    properties["quartz.plugin.jobInitializer.failOnFileNotFound"] = "true";
+        //    //properties["quartz.plugin.jobInitializer.scanInterval"] = "120";
 
-            var factory = new StdSchedulerFactory(properties);
-            TinyIoCContainer.Current.Register(factory);
-            var scheduler = factory.GetScheduler();
+        //    var factory = new StdSchedulerFactory(properties);
+        //    TinyIoCContainer.Current.Register(factory);
+        //    var scheduler = factory.GetScheduler();
 
-            scheduler.ListenerManager.AddJobListener(new JobListenerImpl(), GroupMatcher<JobKey>.AnyGroup());
-        }
+        //    scheduler.ListenerManager.AddJobListener(new JobListenerImpl(), GroupMatcher<JobKey>.AnyGroup());
+        //}
 
         /// <summary>
         /// Startup the processes configured in the configuration XML
@@ -396,11 +390,11 @@ namespace Indriya.Application.Core
                     }
                 }
 
-                var factory = TinyIoCContainer.Current.Resolve<StdSchedulerFactory>();
-                if (factory != null)
-                {
-                    factory.GetScheduler().Start();
-                }
+                //var factory = TinyIoCContainer.Current.Resolve<StdSchedulerFactory>();
+                //if (factory != null)
+                //{
+                //    factory.GetScheduler().Start();
+                //}
                 _startup = true;
             }
         }
@@ -442,18 +436,18 @@ namespace Indriya.Application.Core
                     }
                     try
                     {
-                        var factory = TinyIoCContainer.Current.Resolve<StdSchedulerFactory>();
-                        var scheduler = factory.GetScheduler();
-                        if (scheduler != null)
-                        {
-                            var keys = scheduler.GetJobKeys(GroupMatcher<JobKey>.GroupEquals("MainGroup"));
-                            if (keys != null && keys.Count > 0)
-                            {
-                                scheduler.DeleteJobs(keys.ToList());
-                            }
-                            scheduler.Shutdown();
-                            Log.Info("Quartz Scheduler Shutdown");
-                        }
+                        //var factory = TinyIoCContainer.Current.Resolve<StdSchedulerFactory>();
+                        //var scheduler = factory.GetScheduler();
+                        //if (scheduler != null)
+                        //{
+                        //    var keys = scheduler.GetJobKeys(GroupMatcher<JobKey>.GroupEquals("MainGroup"));
+                        //    if (keys != null && keys.Count > 0)
+                        //    {
+                        //        scheduler.DeleteJobs(keys.ToList());
+                        //    }
+                        //    scheduler.Shutdown();
+                        //    Log.Info("Quartz Scheduler Shutdown");
+                        //}
 
                         var server = TinyIoCContainer.Current.Resolve<IndriyaWeb>(ResolveOptions.FailUnregisteredOnly);
                         if (server != null)

@@ -135,7 +135,7 @@ namespace Indriya.Application.Web.Modules
                 try
                 {
                     int id = parameters.id;
-                    string json = Experimot.Scheduler.Tests.TestJointValues.Instance.GetJointValues(id);
+                    string json = Tests.TestJointValues.Instance.GetJointValues(id);
                     var resp = new Response()
                     {
                         ContentType = "application/json",

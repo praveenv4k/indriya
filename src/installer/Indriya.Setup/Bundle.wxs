@@ -10,7 +10,7 @@
       <RollbackBoundary/>
       <!-- TODO: Define the list of chained packages. -->
       <!-- <MsiPackage SourceFile="path\to\your.msi" /> -->
-      <MsiPackage Id="IndriyaSetup" Compressed="yes" DisplayInternalUI="yes" SourceFile="$(var.Indriya.Installer.TargetPath)" Vital="yes"/>
+      <MsiPackage Id="Indriya installation" Compressed="yes" DisplayInternalUI="yes" SourceFile="$(var.Indriya.Installer.TargetPath)" Vital="yes"/>
     </Chain>
   </Bundle>
 </Wix>

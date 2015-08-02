@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Common.Logging;
-using Indriya.Core;
 using Indriya.Core.BehaviorEngine;
 using Indriya.Core.Data;
 using Indriya.Core.Schema;
@@ -15,7 +14,7 @@ using SharpDX;
 
 // ReSharper disable FunctionComplexityOverflow
 // ReSharper disable once LoopCanBeConvertedToQuery
-namespace Experimot.Scheduler.Tests
+namespace Indriya.Application.Tests
 {
     internal class Test
     {
@@ -278,11 +277,11 @@ namespace Experimot.Scheduler.Tests
             };
 
             
-            var humanmat = MotionBehaviorTask.GetMatrixFromPose(q,
+            var humanmat = BehaviorExecutionContext.GetMatrixFromPose(q,
                 new Vector3(0,0,0));
-            var worldMat = MotionBehaviorTask.GetMatrixFromPose(world,
+            var worldMat = BehaviorExecutionContext.GetMatrixFromPose(world,
                 new Vector3(0, 0, 0));
-            var robotMat = MotionBehaviorTask.GetMatrixFromPose(robot,
+            var robotMat = BehaviorExecutionContext.GetMatrixFromPose(robot,
                 new Vector3(0, 0, 0));
 
             //var humanRot =  Matrix3x3.RotationQuaternion(q);
@@ -318,10 +317,10 @@ namespace Experimot.Scheduler.Tests
             var yUnit = Vector2.UnitX;
             // Now we find the angle of rotation needed to do this alignment
             var angle = Math.Acos(Vector2.Dot(toHumanVec,Vector2.UnitY));
-            angle = MotionBehaviorTask.AngleBetween(xUnit, toHumanVec);
-            angle = MotionBehaviorTask.AngleBetween(Vector2.UnitY, toHumanVec);
+            angle = BehaviorExecutionContext.GetRelativeAngle(xUnit, toHumanVec);
+            angle = BehaviorExecutionContext.GetRelativeAngle(Vector2.UnitY, toHumanVec);
 
-            var relAngle = MotionBehaviorTask.GetRelativeAngle(yUnit, toHumanVec);
+            var relAngle = BehaviorExecutionContext.GetRelativeAngle(yUnit, toHumanVec);
 
 
             Console.WriteLine(@"Robot: {0}, Human: {1}, Angle: {2}, Relative Angle: {3}", rDisp, hDisp,
@@ -347,11 +346,11 @@ namespace Experimot.Scheduler.Tests
             Console.WriteLine(@"Robot wrt World : {0}, ZAngle:{3}, Axis: {1}, Angle: {2}", hRobot, hRobotQ.Axis,
                 hRobotQ.Angle, MathUtil.RadiansToDegrees(hRobotYaw));
 
-            var humanTrans = MotionBehaviorTask.GetMatrixFromPose(Quaternion.Identity,
+            var humanTrans = BehaviorExecutionContext.GetMatrixFromPose(Quaternion.Identity,
                 new Vector3(0.4264857172966f, 0.482540011405945f, 2.79593229293823f));
-            var worldTrans = MotionBehaviorTask.GetMatrixFromPose(Quaternion.Identity,
+            var worldTrans = BehaviorExecutionContext.GetMatrixFromPose(Quaternion.Identity,
                 new Vector3(0.251437573434929f, -0.735386669475668f, 2.16429300194067f));
-            var robotTrans = MotionBehaviorTask.GetMatrixFromPose(Quaternion.Identity,
+            var robotTrans = BehaviorExecutionContext.GetMatrixFromPose(Quaternion.Identity,
                 new Vector3(-0.162226432126277f, -0.510568576421518f, 2.05852739944453f));
 
             worldTrans.Invert();

@@ -33,13 +33,13 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="400"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <!--<cefSharp:ChromiumWebBrowser DataContext="{Binding TabViewModel}" Grid.Row="0" Grid.Column="0" x:Name="browser"
+        <cefSharp:ChromiumWebBrowser DataContext="{Binding TabViewModel}" Grid.Row="0" Grid.Column="0" x:Name="browser"
                                   Address="{Binding Address, Mode=TwoWay}"
                                   Title="{Binding Title, Mode=OneWayToSource}"
                                   AllowDrop="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                                  WebBrowser="{Binding WebBrowser, Mode=OneWayToSource}">
+                                  WebBrowser="{Binding WebBrowser, Mode=OneWayToSource}" ConsoleMessage="BrowserOnConsoleMessage">
             
-        </cefSharp:ChromiumWebBrowser>-->
+        </cefSharp:ChromiumWebBrowser>
         <ScrollViewer HorizontalAlignment="Stretch"
 		      VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="1">
         <StackPanel  Orientation="Vertical" DataContext="{Binding Context}">

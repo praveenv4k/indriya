@@ -127,10 +127,6 @@
       <HintPath>..\..\packages\protobuf-net.2.0.0.668\lib\net40\protobuf-net.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Quartz, Version=2.3.2.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Quartz.2.3.2\lib\net40\Quartz.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="SharpDX, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SharpDX.3.0.0-alpha01\lib\net45\SharpDX.dll</HintPath>
       <Private>True</Private>
@@ -168,12 +164,9 @@
     <Compile Include="Mvvm\PropertyChangedExtensionMethods.cs" />
     <Compile Include="Mvvm\ViewModelBase.cs" />
     <Compile Include="Core\ContextServer.cs" />
-    <Compile Include="Tasks\JobListener.cs" />
     <Compile Include="Core\ParameterServer.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="Tasks\SimpleTask.cs" />
     <Compile Include="Core\ContextOrchestrator.cs" />
-    <Compile Include="Tasks\SimpleBehaviorTask.cs" />
     <Compile Include="Tests\Test.cs" />
     <Compile Include="Web\IndriyaWeb.cs" />
     <Compile Include="Web\IndriyaWebRootPath.cs" />
@@ -213,9 +206,6 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="datalog.csv" />
-    <None Include="job_scheduling_data_2_0.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="nao_joints_h25v50.json">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -235,9 +225,6 @@
     <Content Include="IndriyaConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="quartz_config.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
