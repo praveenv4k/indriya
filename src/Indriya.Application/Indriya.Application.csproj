@@ -221,6 +221,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <SplashScreen Include="indriya_splash2.jpg" />
     <None Include="kinect_nao_map.json">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
