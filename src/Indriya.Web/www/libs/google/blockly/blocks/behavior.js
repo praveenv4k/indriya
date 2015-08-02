@@ -86,8 +86,8 @@ Blockly.Blocks.behaviors.GestureProperties =
     ["LiftLeftHand", "LiftHand_Left"],
     ["LiftRightHand", "LiftHand_Right"],
     ["HumanDetected", 'HumanDetected'],
-    ["HandsUp", 'HandsUp'],
-    ["HandsFront", 'HandsFront'],
+    //["HandsUp", 'HandsUp'],
+    //["HandsFront", 'HandsFront'],
     ["Bow", 'Bow'],
     ["Seated", "Seated"]
     //,["SmartWave", 'IMU_WAVE']
