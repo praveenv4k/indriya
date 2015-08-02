@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
-  <Bundle Name="Indriya setup" Version="1.0.0.0" Manufacturer="GVLab" UpgradeCode="951b63ff-cedb-48f9-9c93-a9339b084f38">
+  <Bundle Name="Indriya bundle" Version="1.0.0.0" Manufacturer="GVLab" UpgradeCode="951b63ff-cedb-48f9-9c93-a9339b084f38">
     <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense" />
     <Chain>
       <!--<PackageGroupRef Id="Netfx45Xxx"/>-->
@@ -10,7 +10,7 @@
       <RollbackBoundary/>
       <!-- TODO: Define the list of chained packages. -->
       <!-- <MsiPackage SourceFile="path\to\your.msi" /> -->
-      <MsiPackage Id="Indriya installation" Compressed="yes" DisplayInternalUI="yes" SourceFile="$(var.Indriya.Installer.TargetPath)" Vital="yes"/>
+      <MsiPackage Id="IndriyaInstaller" Compressed="yes" DisplayInternalUI="yes" SourceFile="$(var.Indriya.Installer.TargetPath)" Vital="yes"/>
     </Chain>
   </Bundle>
 </Wix>

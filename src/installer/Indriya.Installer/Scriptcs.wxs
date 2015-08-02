@@ -2,7 +2,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <Fragment>
         <DirectoryRef Id="SCRIPTCS">
-            <Component Id="cmpF7932E14878A84EE280610EABB30E704" Guid="{2D3D8831-1276-47E7-8ADF-624FC9EA97E8}">
+            <Component Id="cmpF7932E14878A84EE280610EABB30E704" Guid="{7FE49BFA-AD70-4E99-ACDB-8650BDD66AC0}">
                 <Class Id="{26B60252-D739-3376-AB9F-B42CB6EA3685}" Context="InprocServer32" Description="Autofac.Core.UniqueService" ThreadingModel="both" ForeignServer="mscoree.dll">
                     <ProgId Id="Autofac.Core.UniqueService" Description="Autofac.Core.UniqueService" />
                 </Class>
@@ -206,20 +206,20 @@
                 <RegistryValue Root="HKCR" Key="Record\{7DBDF76A-E5A2-384F-ABC3-2A68D9AB789F}\3.3.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="Record\{7DBDF76A-E5A2-384F-ABC3-2A68D9AB789F}\3.3.0.0" Name="CodeBase" Value="file:///[#fil6449DDEB5C22C38E7DF77A843186B1C7]" Type="string" Action="write" />
             </Component>
-            <Component Id="cmp0BD8DA14DB7210CA48C6798661827AD2" Guid="{5EC41A19-690C-470C-905F-0E6B84626933}">
+            <Component Id="cmp0BD8DA14DB7210CA48C6798661827AD2" Guid="{C02E9AC0-D109-4FC8-BF3A-9AD9DC9D8A14}">
                 <File Id="filF2565AC37456DB590962AA42E566A2E2" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\Autofac.Integration.Mef.dll" />
             </Component>
-            <Component Id="cmp34AB816EAF8C9DFBAAAE8DC59D13D8DF" Guid="{05D78C46-E7B2-47EF-A070-EAC86447EAD6}">
+            <Component Id="cmp34AB816EAF8C9DFBAAAE8DC59D13D8DF" Guid="{896B972B-DAD8-49C0-B91B-FEC5A94FE86E}">
                 <File Id="filDC121BC31795C0E3B3B63D7700DB6598" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\Common.Logging.Core.dll" />
                 <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="Class" Value="Common.Logging.LogLevel" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="Assembly" Value="Common.Logging.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="CodeBase" Value="file:///[#filDC121BC31795C0E3B3B63D7700DB6598]" Type="string" Action="write" />
             </Component>
-            <Component Id="cmp2396B72E5FB4FB55CD8D1B5334BC4373" Guid="{D45D5A30-F509-4B85-A76D-D50E5368BA93}">
+            <Component Id="cmp2396B72E5FB4FB55CD8D1B5334BC4373" Guid="{7E925E34-F6D0-4E89-9CD9-73BF0C8CD354}">
                 <File Id="fil33C79543B1CC39533A6F2654F4C2E88F" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\Common.Logging.Core.pdb" />
             </Component>
-            <Component Id="cmp03AE7FC4E08959B2D181B9F1BF670B9E" Guid="{D6478FB7-4EB7-42AD-A1A5-C6FDDFCAA558}">
+            <Component Id="cmp03AE7FC4E08959B2D181B9F1BF670B9E" Guid="{5036C42F-B426-417A-93B0-DBBD8F59CCFD}">
                 <Class Id="{09B02D14-C9C6-35D7-8B48-D683C15F8B8D}" Context="InprocServer32" Description="Common.Logging.Simple.CapturingLoggerFactoryAdapter" ThreadingModel="both" ForeignServer="mscoree.dll">
                     <ProgId Id="Common.Logging.Simple.CapturingLoggerFactoryAdapter" Description="Common.Logging.Simple.CapturingLoggerFactoryAdapter" />
                 </Class>
@@ -378,37 +378,40 @@
                 <RegistryValue Root="HKCR" Key="CLSID\{EDAB1550-1518-39A4-921B-452CBBD68E0F}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="CLSID\{EDAB1550-1518-39A4-921B-452CBBD68E0F}\InprocServer32" Name="CodeBase" Value="file:///[#filBC5998F157F2AAA8E1F5CC065812ED0C]" Type="string" Action="write" />
             </Component>
-            <Component Id="cmp277027B019F252519458FCB2C0750244" Guid="{C9A8BCC0-330C-497A-AF80-5E8EB347EFAB}">
+            <Component Id="cmp277027B019F252519458FCB2C0750244" Guid="{9C26584C-D4B1-420E-A60A-C3D4408EF8C2}">
                 <File Id="fil3F5123D7F4DC53C6904946C29662FF91" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\Common.Logging.pdb" />
             </Component>
-            <Component Id="cmpDD16216E52B49671F65D4FB84808FAF5" Guid="{7A52F13F-E371-4DD9-A1F2-AA75D7A5F7B7}">
+            <Component Id="cmp0CA6B1751844EC01CC06D64B46F5758B" Guid="{8147C76F-0E61-4910-8652-BE213316E579}">
+                <File Id="fil713FA815F4996B9771E27B83EA423955" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\GeneratedProgram.csx" />
+            </Component>
+            <Component Id="cmpDD16216E52B49671F65D4FB84808FAF5" Guid="{63370343-2E6E-47E9-87A0-54AFDC4D2269}">
                 <File Id="fil018315A76461DF1A0A7AFCBE36377785" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\ICSharpCode.NRefactory.CSharp.dll" />
             </Component>
-            <Component Id="cmp76E923848854CFFE71F8F6B17AECD9FF" Guid="{59B5E2CA-BF03-4DFB-938C-416636F63AA3}">
+            <Component Id="cmp76E923848854CFFE71F8F6B17AECD9FF" Guid="{30B32FA8-BF85-43D0-9AB5-71D2C06574C8}">
                 <File Id="fil19163315FB305EF80A8F47F5AFDBA87B" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\ICSharpCode.NRefactory.dll" />
             </Component>
-            <Component Id="cmpE089732A26B8BE4DC7A4A3C97D7B405F" Guid="{1B5B8A82-32F7-4592-8093-05E6F649833F}">
+            <Component Id="cmpE089732A26B8BE4DC7A4A3C97D7B405F" Guid="{0D11AF42-A6F0-4295-BBCA-BDD84E17A6DC}">
                 <File Id="filECCFF56E438720D57993098F3617FBD9" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\main_program.csx" />
             </Component>
-            <Component Id="cmp0A0FE66A858BDB3189D812B4101F3B1F" Guid="{1F5085EE-B8A4-4B85-B051-D4121149FB5A}">
+            <Component Id="cmp0A0FE66A858BDB3189D812B4101F3B1F" Guid="{66ADDF89-833B-430E-8B5B-29A74F71316A}">
                 <File Id="fil9E5251092D06602B0CD72518990AE8ED" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\Microsoft.Web.XmlTransform.dll" />
             </Component>
-            <Component Id="cmpF9817D65617829485C90321861B88272" Guid="{565CAC0D-0F14-4D38-B753-D8408569D61A}">
+            <Component Id="cmpF9817D65617829485C90321861B88272" Guid="{D1CF125C-6464-4053-B509-6DF3C6BF17F0}">
                 <File Id="filC7B782347FA016487C106B0A6A277BC7" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\Mono.Cecil.dll" />
             </Component>
-            <Component Id="cmp7303A06A89F00EF91774BE6FDE3C47A6" Guid="{0F0573B1-F0A8-4656-B054-1EEC623B77A8}">
+            <Component Id="cmp7303A06A89F00EF91774BE6FDE3C47A6" Guid="{D654B065-6235-45F0-A772-DF63101406A6}">
                 <File Id="filA0D6AC7BFB1D90B7E5662FE7CA6A82D8" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\Mono.CSharp.dll" />
             </Component>
-            <Component Id="cmp4A11A27504D030EFDC4449DD5DDAACC7" Guid="{CDBBC0C6-B3F1-4BEA-AFF8-04434A4ECC03}">
+            <Component Id="cmp4A11A27504D030EFDC4449DD5DDAACC7" Guid="{A0A83F9C-1260-40E6-BFBF-40150E4EB9F9}">
                 <File Id="fil3C7E8880940AE54C080CFC4E673FA65B" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\Newtonsoft.Json.dll" />
             </Component>
-            <Component Id="cmp2B5632A1150ACBC9947EAD22A126F09C" Guid="{DEBB4A01-2B91-4AA8-B139-55A960907A1D}">
+            <Component Id="cmp2B5632A1150ACBC9947EAD22A126F09C" Guid="{F57F4B77-E88C-4034-814B-E044C6D04FBD}">
                 <File Id="fil79DD65E9139A3057C856EC0FBDCF679D" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\NuGet.Core.dll" />
             </Component>
-            <Component Id="cmp9C7EA45070D197A7681520A90F63BB5F" Guid="{890F3745-6ECA-4850-8035-086A029162DD}">
+            <Component Id="cmp9C7EA45070D197A7681520A90F63BB5F" Guid="{32676126-12C6-420A-B95C-99AF508335E5}">
                 <File Id="fil33B859DABA5EC7B91F2FBBBCC94C3DFF" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\PowerArgs.dll" />
             </Component>
-            <Component Id="cmpC4DE1BBC578C2D684C483E60113D80F4" Guid="{F6F2170A-E7E3-49CE-B27C-9F25B42EF523}">
+            <Component Id="cmpC4DE1BBC578C2D684C483E60113D80F4" Guid="{226D1F75-B63C-4DA4-AB51-75B182219946}">
                 <File Id="fil7E1B9F8BBEDFAF7C872CA3215C1C9A4B" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\Roslyn.Compilers.CSharp.dll" />
                 <RegistryValue Root="HKCR" Key="Record\{1E288A04-014B-3002-B60A-5772E5B99005}\1.2.0.0" Name="Class" Value="Roslyn.Compilers.CSharp.TypedConstant" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="Record\{1E288A04-014B-3002-B60A-5772E5B99005}\1.2.0.0" Name="Assembly" Value="Roslyn.Compilers.CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Type="string" Action="write" />
@@ -551,7 +554,7 @@
                 <RegistryValue Root="HKCR" Key="Record\{E9B21D87-BFD5-3C66-A782-E27A18921CB5}\1.2.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="Record\{E9B21D87-BFD5-3C66-A782-E27A18921CB5}\1.2.0.0" Name="CodeBase" Value="file:///[#fil7E1B9F8BBEDFAF7C872CA3215C1C9A4B]" Type="string" Action="write" />
             </Component>
-            <Component Id="cmp4746BD0EC0BAFBDD7D2A066DA8CF67A0" Guid="{BD12A244-6081-422C-896A-D204034275EA}">
+            <Component Id="cmp4746BD0EC0BAFBDD7D2A066DA8CF67A0" Guid="{B88D43FB-EAC2-43E2-B376-43D495F88793}">
                 <Class Id="{DC23D4B4-7D9F-3726-B0F9-8EBE9A661C57}" Context="InprocServer32" Description="Roslyn.Compilers.SyntaxAnnotation" ThreadingModel="both" ForeignServer="mscoree.dll">
                     <ProgId Id="Roslyn.Compilers.SyntaxAnnotation" Description="Roslyn.Compilers.SyntaxAnnotation" />
                 </Class>
@@ -854,69 +857,79 @@
                 <RegistryValue Root="HKCR" Key="Record\{FA99FF89-9D54-38EE-AB01-AF2B2DCBC20E}\1.2.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                 <RegistryValue Root="HKCR" Key="Record\{FA99FF89-9D54-38EE-AB01-AF2B2DCBC20E}\1.2.0.0" Name="CodeBase" Value="file:///[#fil4EB15E6308A5650933DD33C554040B47]" Type="string" Action="write" />
             </Component>
-            <Component Id="cmpC8625074A25D33511C76FFD727FE12B5" Guid="{349FFAE0-2A9C-4FBA-85E1-F1FBD7BA21B0}">
+            <Component Id="cmpC8625074A25D33511C76FFD727FE12B5" Guid="{A908C96E-09A6-4299-8997-6A43CAB4CD02}">
                 <File Id="fil32AE2B293BF26F027772542ABB691493" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\ScriptCs.Contracts.dll" />
             </Component>
-            <Component Id="cmp70C64C3EE192BED350C19EE298F66E67" Guid="{9E1F0271-C042-44A9-AEFF-E716BE602B63}">
+            <Component Id="cmp70C64C3EE192BED350C19EE298F66E67" Guid="{BAA2E8B2-A905-4F00-B335-C03C9441CA51}">
                 <File Id="fil7A4F406578ADDDE5321158567E08DCEB" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\ScriptCs.Contracts.pdb" />
             </Component>
-            <Component Id="cmpAFE2841798E60482E633320D7C9F68C2" Guid="{AC31D52F-A310-4D30-A76E-75700486A6F4}">
+            <Component Id="cmpAFE2841798E60482E633320D7C9F68C2" Guid="{CAC4BB7D-4211-45B0-8B32-42C54B3678C4}">
                 <File Id="fil378506D9EC4D732B5D20F99ADB3F126E" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\ScriptCs.Core.dll" />
             </Component>
-            <Component Id="cmp9D9DC7DC2F52F91D4859207B07512D4A" Guid="{D6AA6656-9C3E-4075-AD0D-500D3F4E2BB4}">
+            <Component Id="cmp9D9DC7DC2F52F91D4859207B07512D4A" Guid="{4BD632F4-9A84-4C89-B974-FB2239193C51}">
                 <File Id="fil802D6C84E6CF4F736F68615B87950017" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\ScriptCs.Core.pdb" />
             </Component>
-            <Component Id="cmp0241E14A83220DE2731C48F383254AB5" Guid="{22676DDD-28C0-4D48-8347-21EBA0A12389}">
+            <Component Id="cmp0241E14A83220DE2731C48F383254AB5" Guid="{EDE2DFAF-B1A1-44BA-9C86-EAC4E33BF57E}">
                 <File Id="fil637734111A9970C0463D07326A2A1625" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\ScriptCs.Engine.Mono.dll" />
             </Component>
-            <Component Id="cmp1F625D6FEFBDD36FEC8D943967BBD870" Guid="{8B56E974-2A8F-4530-867B-AA6897903EA0}">
+            <Component Id="cmp1F625D6FEFBDD36FEC8D943967BBD870" Guid="{3778429A-F0D1-407B-95BC-3E1420B1D3F2}">
                 <File Id="fil76A60D2FC9E7B93B564545D2DE39C067" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\ScriptCs.Engine.Mono.pdb" />
             </Component>
-            <Component Id="cmp911EAC0A021EAE4B54D8CED0AC058E1B" Guid="{CC0A0B05-093D-43AC-8CF1-B9A8A96D7B49}">
+            <Component Id="cmp911EAC0A021EAE4B54D8CED0AC058E1B" Guid="{8941AE51-7146-4DF1-9ED9-A0687AB8BCFA}">
                 <File Id="fil634BBDC68DB7E66450B99D6946371D0B" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\ScriptCs.Engine.Roslyn.dll" />
             </Component>
-            <Component Id="cmpCC60C788C1C2340463020C47D2CD96BF" Guid="{09AAF4F7-0E98-465C-AD08-0A0657326CE9}">
+            <Component Id="cmpCC60C788C1C2340463020C47D2CD96BF" Guid="{FE8291F1-F294-4B4D-B9AC-29CE88A1386C}">
                 <File Id="filA196FED49EC1736C174870F65042E124" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\ScriptCs.Engine.Roslyn.pdb" />
             </Component>
-            <Component Id="cmp2F42EA1A76676608186F9DF7EA840F24" Guid="{BF56A382-600E-47E1-9F4F-EFC627AEEA6E}">
+            <Component Id="cmp2F42EA1A76676608186F9DF7EA840F24" Guid="{7F5B02CC-C2A3-4C4F-B6AF-76D2F138CE05}">
                 <File Id="filADC8527B596B6F03321C0AA9A84DC22F" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs.exe" />
             </Component>
-            <Component Id="cmp36149C778AEBEFF7237F2137160F1F84" Guid="{1B474045-C594-40CD-A6DF-F2185EFA4AFE}">
+            <Component Id="cmp36149C778AEBEFF7237F2137160F1F84" Guid="{DC505188-5344-4037-9C10-34F7D74A0399}">
                 <File Id="fil7FEE56CACBCB911BA776C0B7B9D76135" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs.exe.config" />
             </Component>
-            <Component Id="cmpD1F8B18CCF43501E0467B6E26D068B78" Guid="{017FA5D2-6C0C-48C4-A34C-5C4EC7F3E2F0}">
+            <Component Id="cmpD1F8B18CCF43501E0467B6E26D068B78" Guid="{9EDA6AE1-596A-456C-8FBA-466AE67222E4}">
                 <File Id="fil37098DCFAEDC200BD34231981851ADFB" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\ScriptCs.Hosting.dll" />
             </Component>
-            <Component Id="cmp417638B4F46D9240236DDE236006E3CD" Guid="{A97C8D4D-648E-42C1-9867-304664027C62}">
+            <Component Id="cmp417638B4F46D9240236DDE236006E3CD" Guid="{AA94384F-B862-47FE-A450-5E6874A8B4A2}">
                 <File Id="fil109D2C779396EE34CB06F690581D4491" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\ScriptCs.Hosting.pdb" />
             </Component>
-            <Component Id="cmp64AA5780D7E467212F4AAFA4ACA359B5" Guid="{CB18E1D7-79DB-45FB-AB2F-9E244D1C094D}">
+            <Component Id="cmp64AA5780D7E467212F4AAFA4ACA359B5" Guid="{D2C4D26A-ACA9-4E8C-AAF6-9460F577867E}">
                 <File Id="fil3BE6A38AEE0F78EB4712B5442314C778" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs.pdb" />
             </Component>
-            <Component Id="cmp4CD28BB88F998B4802FB6C535179693E" Guid="{5D2B9A3B-1D43-4454-A033-C5412C80D7F1}">
+            <Component Id="cmp4CD28BB88F998B4802FB6C535179693E" Guid="{1DF1C99D-0F7E-48B4-85FA-49100084C853}">
                 <File Id="fil22F66086E67ABFB902E25B4645E0144B" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs.vshost.exe" />
             </Component>
-            <Component Id="cmp15F62CA82DFD787A0F26729656546CCA" Guid="{ABC8E31C-661C-4342-A3A5-FCA5205D9893}">
+            <Component Id="cmp15F62CA82DFD787A0F26729656546CCA" Guid="{36DF8E7E-D2FD-49C7-8A32-FDFAFE4542BD}">
                 <File Id="fil3ED30D8A74E076E3D75323A71972C25A" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs.vshost.exe.config" />
             </Component>
+            <Directory Id="dir2E97D5310ECE797F26E73F187E7871AA" Name="log">
+                <Component Id="cmp43C383DE606F65230576E6D60A2B685A" Guid="{C6744762-44B0-4485-95DB-9085BB9D2667}">
+                    <File Id="filCED8D221BDD63DD5CA9777BC47642D26" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\log\ProgramAnalytics.csv" />
+                </Component>
+                <Directory Id="dirF164B4B38F918E2DFAD63F0BE3BCCB15" Name="programs">
+                    <Component Id="cmp259463070E82C4A091593F15CBB9AE12" Guid="{55299F90-EF19-40FF-9626-E7A5D0833966}">
+                        <File Id="filADDFDC1512C7D51F1F9E3A7BB1BAEDE7" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\log\programs\20150802165944.csx" />
+                    </Component>
+                </Directory>
+            </Directory>
             <Directory Id="dirC242D18FD4AEE9303EB226CE517214AC" Name="scriptcs_bin">
-                <Component Id="cmp3704812EF8B48BEAA81B0E8A43A0A53B" Guid="{A139B463-007B-49CC-B2E2-EADC12F35EFC}">
+                <Component Id="cmp3704812EF8B48BEAA81B0E8A43A0A53B" Guid="{F35B6609-C1C4-4A95-A3BC-BADB66EA0461}">
                     <File Id="filCD1697F68FD79DB499EB59A766B00D6F" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\AsyncIO.dll" />
                 </Component>
-                <Component Id="cmpF863FDE495DA9B88563433ADC1F41A03" Guid="{453AEAAA-21D0-4A80-822F-BDABB2361D1D}">
+                <Component Id="cmpF863FDE495DA9B88563433ADC1F41A03" Guid="{E41E80E1-7459-4C24-9E80-D380417BDB41}">
                     <File Id="fil6567F6F4111EC5C3B8F80A2049258ACE" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\Common.Logging.Core.dll" />
                     <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="Class" Value="Common.Logging.LogLevel" Type="string" Action="write" />
                     <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="Assembly" Value="Common.Logging.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e" Type="string" Action="write" />
                     <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                     <RegistryValue Root="HKCR" Key="Record\{BE4DE95C-CB6B-3240-905C-A094FBB3D146}\3.2.0.0" Name="CodeBase" Value="file:///[#filDC121BC31795C0E3B3B63D7700DB6598]" Type="string" Action="write" />
                 </Component>
-                <Component Id="cmp50D13F7019EE18B5C77460AB9F1880B9" Guid="{26E4A652-43B5-4818-9741-E51D9898630F}">
+                <Component Id="cmp50D13F7019EE18B5C77460AB9F1880B9" Guid="{F26076D6-A3A0-4F3C-AB5A-CB98093507CA}">
                     <File Id="fil3FE5B04078C674DF98C7E47B898D9C44" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\Common.Logging.Core.pdb" />
                 </Component>
-                <Component Id="cmp1C83ED63054C4E5A00516305F0C6496A" Guid="{77F5C111-FF80-4BF7-B241-18BEEC8D57A4}">
+                <Component Id="cmp1C83ED63054C4E5A00516305F0C6496A" Guid="{A2B68527-976E-46F8-959E-A10203296F52}">
                     <File Id="fil8868AB8AB1A6A33A7BD8494241E40FA6" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\Common.Logging.Core.xml" />
                 </Component>
-                <Component Id="cmpB1B0251A60844E6857D1E3F617727AEC" Guid="{0DEC4A98-7BDC-49C7-8D03-C19F78A6B00E}">
+                <Component Id="cmpB1B0251A60844E6857D1E3F617727AEC" Guid="{89829D66-53D4-402E-A3FA-2AC8E17DA8B0}">
                     <Class Id="{09B02D14-C9C6-35D7-8B48-D683C15F8B8D}" Context="InprocServer32" Description="Common.Logging.Simple.CapturingLoggerFactoryAdapter" ThreadingModel="both" ForeignServer="mscoree.dll">
                         <ProgId Id="Common.Logging.Simple.CapturingLoggerFactoryAdapter" Description="Common.Logging.Simple.CapturingLoggerFactoryAdapter" />
                     </Class>
@@ -1075,22 +1088,22 @@
                     <RegistryValue Root="HKCR" Key="CLSID\{EDAB1550-1518-39A4-921B-452CBBD68E0F}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                     <RegistryValue Root="HKCR" Key="CLSID\{EDAB1550-1518-39A4-921B-452CBBD68E0F}\InprocServer32" Name="CodeBase" Value="file:///[#filBC5998F157F2AAA8E1F5CC065812ED0C]" Type="string" Action="write" />
                 </Component>
-                <Component Id="cmp280F8F8B00685D5713CB51ABEA90B608" Guid="{88082A2D-0AB7-4455-93DD-782B758482E3}">
+                <Component Id="cmp280F8F8B00685D5713CB51ABEA90B608" Guid="{DE5CF0D0-F565-49ED-B2C9-96352B22354D}">
                     <File Id="fil117017296D2D3E8BB79EC5ABE4287A0D" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\Common.Logging.pdb" />
                 </Component>
-                <Component Id="cmpBFD00C364B6620DFC2B555CF1AAF0D16" Guid="{B235386F-B021-429C-9B72-F2B05E819163}">
+                <Component Id="cmpBFD00C364B6620DFC2B555CF1AAF0D16" Guid="{E560B0BD-C19F-4B1F-A320-0B50C7DF78D1}">
                     <File Id="fil38FD7A4DD59F065FD0923A25FC434EF6" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\Common.Logging.xml" />
                 </Component>
-                <Component Id="cmp1692FA1C09A7F14AC060908F7A9C29F0" Guid="{65632E66-1D0C-46C3-B71A-F42ED1083696}">
+                <Component Id="cmp1692FA1C09A7F14AC060908F7A9C29F0" Guid="{B6079502-0D65-4EDA-A13A-A0802F9645AD}">
                     <File Id="fil819D8F182663EC4F2D397560FF01ECD9" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\CsvHelper.dll" />
                 </Component>
-                <Component Id="cmpF306CEC0AB52342A73A1B6D324D35E09" Guid="{3B44422C-9A4F-4803-8DAD-734749ACAB56}">
+                <Component Id="cmpF306CEC0AB52342A73A1B6D324D35E09" Guid="{A318A954-B348-4153-8C9A-16A88DB56A04}">
                     <File Id="filA67A6CD6585E2E30EA80308FD0262918" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\CsvHelper.pdb" />
                 </Component>
-                <Component Id="cmpFAC9FAD5FC909C93382D059AD012CF9F" Guid="{4F06342D-1498-4D57-9D56-2C4E51223AB7}">
+                <Component Id="cmpFAC9FAD5FC909C93382D059AD012CF9F" Guid="{75966140-4A4C-4E2F-B399-4BE9557BFB17}">
                     <File Id="fil1CA1B37A7C3923CFA20C845763E21ED3" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\CsvHelper.xml" />
                 </Component>
-                <Component Id="cmp79A20C0A548EB9E7FD159518990BBF6B" Guid="{11059DC6-0F0E-4526-A161-2A6C30430705}">
+                <Component Id="cmp79A20C0A548EB9E7FD159518990BBF6B" Guid="{726E9C22-5DFF-4B83-AAC4-2A80E87BA7DF}">
                     <Class Id="{0E987435-AE60-3B43-AB6D-15E6365244EE}" Context="InprocServer32" Description="Deedle.Indices.Virtual.VirtualIndexBuilder" ThreadingModel="both" ForeignServer="mscoree.dll">
                         <ProgId Id="Deedle.Indices.Virtual.VirtualIndexBuilder" Description="Deedle.Indices.Virtual.VirtualIndexBuilder" />
                     </Class>
@@ -1166,79 +1179,79 @@
                     <RegistryValue Root="HKCR" Key="Record\{F3970B82-7ADC-3D25-AF51-16EB2172B915}\1.2.3.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
                     <RegistryValue Root="HKCR" Key="Record\{F3970B82-7ADC-3D25-AF51-16EB2172B915}\1.2.3.0" Name="CodeBase" Value="file:///[#fil40A6DEA7200B29949A51AC24EDD78AFB]" Type="string" Action="write" />
                 </Component>
-                <Component Id="cmp25C943F723A3A0BF24F143DE1E475D2F" Guid="{5439228F-838E-4000-AD35-2843497B0553}">
+                <Component Id="cmp25C943F723A3A0BF24F143DE1E475D2F" Guid="{C6691D59-29F9-44EE-8529-6AB15CEDB7D6}">
                     <File Id="filE91D29C1893BB40AB62904F4172251F9" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\Deedle.pdb" />
                 </Component>
-                <Component Id="cmp0CFC027F8EE5A69B8DF204E01EDD471F" Guid="{57C73ACB-7E34-4DFC-B70F-53337263C7F3}">
+                <Component Id="cmp0CFC027F8EE5A69B8DF204E01EDD471F" Guid="{7DA76F3E-4F81-47B3-AB84-7ECC42CA1427}">
                     <File Id="filCB6B1DD520955FDE10D73264EE4CE1D3" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\Deedle.xml" />
                 </Component>
-                <Component Id="cmp5D27F9082D51095EA17D1434A21FDAAC" Guid="{F05D49DA-F0EA-4A2F-BD5E-6F26BA548328}">
+                <Component Id="cmp5D27F9082D51095EA17D1434A21FDAAC" Guid="{A7A08A8B-84B4-4992-B6CF-1C1EE4CD445C}">
                     <File Id="fil3C6009A33DB9742AF23CA4BF7525ACA7" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\FSharp.Core.dll" />
                 </Component>
-                <Component Id="cmp9539AB52A589CA47DBDB64A0CA1A1A5D" Guid="{F23EDE7A-4083-4549-8C8A-53757F594E2B}">
+                <Component Id="cmp9539AB52A589CA47DBDB64A0CA1A1A5D" Guid="{E2763DA9-1052-4F95-ADC5-4B444D872670}">
                     <File Id="fil1DD867FF7FCBAF6B29877E11029BA0D8" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\FSharp.Core.xml" />
                 </Component>
-                <Component Id="cmp8BD5D4A5C40BF8E3BF6B2C5F34D65892" Guid="{179E13E2-5291-46A6-AAA4-306D418DDC19}">
+                <Component Id="cmp8BD5D4A5C40BF8E3BF6B2C5F34D65892" Guid="{848DDBD7-807A-41CB-8C84-631D59E9C8CE}">
                     <File Id="filC61D27AE5A4E5A3CDF5BB880565D9307" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\Indriya.Core.BehaviorEngine.dll" />
                 </Component>
-                <Component Id="cmp7B12E2A7C1C0D880EB2312BCF180B34E" Guid="{F6EF9A1C-AE66-453D-AF21-7437347D304C}">
+                <Component Id="cmp7B12E2A7C1C0D880EB2312BCF180B34E" Guid="{FE85E0E3-CE30-4A9C-A3C7-4065D4C8F914}">
                     <File Id="filD7A168036C74B3961D200FA0FF2A7A6B" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\Indriya.Core.BehaviorEngine.dll.config" />
                 </Component>
-                <Component Id="cmp3AEFFE3E8C5ABA7537B4D19A5B202538" Guid="{A22C622F-5429-4F36-B0F9-0E458D022826}">
+                <Component Id="cmp3AEFFE3E8C5ABA7537B4D19A5B202538" Guid="{5E7B2437-B170-4CC1-8C8D-C0D838135740}">
                     <File Id="fil1F79C60CC0747C67C41AC59EF175C819" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\Indriya.Core.BehaviorEngine.pdb" />
                 </Component>
-                <Component Id="cmpB7A25815560820ABBC206E7242CFFAAC" Guid="{7AF10D27-0314-43BA-946E-89814FAF1B82}">
+                <Component Id="cmpB7A25815560820ABBC206E7242CFFAAC" Guid="{EDF4D2FD-4317-467B-8A33-022B364638D1}">
                     <File Id="filF8DD7DE22529025B18D43EF9B3F534A0" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\Indriya.Core.dll" />
                 </Component>
-                <Component Id="cmp87670F082D24AC7DC4C59F29B8EFC4A1" Guid="{FEF00D64-C2EE-47F0-99F5-E15D42521F19}">
+                <Component Id="cmp87670F082D24AC7DC4C59F29B8EFC4A1" Guid="{2FADB2F3-F044-45F0-8B15-0E42D56AE65C}">
                     <File Id="fil77BF5C256BB94FE4E17213AB92370146" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\Indriya.Core.Msgs.dll" />
                 </Component>
-                <Component Id="cmpF79381B0625442B68D5BB8CAE5214ED7" Guid="{35F88A70-C7E4-4B1D-96BC-DBC752731AF7}">
+                <Component Id="cmpF79381B0625442B68D5BB8CAE5214ED7" Guid="{C1099E25-9019-40B9-8189-3E1FED2FF007}">
                     <File Id="filC603FA7440B9B8684898C7D38D89BFF4" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\Indriya.Core.Msgs.pdb" />
                 </Component>
-                <Component Id="cmp668DF518E4486D1C01D327252CECC26A" Guid="{C776DA38-2F90-40D4-91A3-F4AD9F39B0CA}">
+                <Component Id="cmp668DF518E4486D1C01D327252CECC26A" Guid="{0606D993-4738-47D4-A481-DBC3F5C0774A}">
                     <File Id="fil44C42027D0D444A274DD9933FD60CB57" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\Indriya.Core.pdb" />
                 </Component>
-                <Component Id="cmp6C0A79A128FE6672ED5EC42F9CD7B7F8" Guid="{D5FBEBB3-6A0B-44B0-9F9C-59A5B1C677D6}">
+                <Component Id="cmp6C0A79A128FE6672ED5EC42F9CD7B7F8" Guid="{F02D5D5B-FC0A-4225-828E-55733BD1F6FD}">
                     <File Id="filBFE667EB38C852EEDB71B41E0D6F7FBE" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\NCalc.dll" />
                 </Component>
-                <Component Id="cmp455FBB89EA3A36D451690FAEBB2EC08F" Guid="{E9CA31CB-98E0-48E1-B5AC-0AB7B4B97ADB}">
+                <Component Id="cmp455FBB89EA3A36D451690FAEBB2EC08F" Guid="{DD29BB07-8DA8-4490-A26C-C03CE2AB45D2}">
                     <File Id="filBF23E718DBCFAD7F658CF0C52C100934" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\NetMQ.dll" />
                 </Component>
-                <Component Id="cmpB8EE9D0BE286403AE3FA50A8F2ADABA2" Guid="{4144DE98-C8F4-4F50-8221-15B486AA95B0}">
+                <Component Id="cmpB8EE9D0BE286403AE3FA50A8F2ADABA2" Guid="{230EA8EF-C80E-45A5-8E71-FEF77C8B65C6}">
                     <File Id="filCAE5D63DCDF01D267030A80994419098" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\Newtonsoft.Json.dll" />
                 </Component>
-                <Component Id="cmpF5535859F2DED13C0D3A6A9854C0FF9D" Guid="{A4758A1B-CABB-4B0B-822E-26C893784779}">
+                <Component Id="cmpF5535859F2DED13C0D3A6A9854C0FF9D" Guid="{026F6404-5A2F-4513-8CB0-D60266AA52FC}">
                     <File Id="fil8B939C7D5F7CA9DDAD8A9D6978056D5E" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\Newtonsoft.Json.xml" />
                 </Component>
-                <Component Id="cmpC63E8F77C4010F266A99BF8FE9E58F66" Guid="{C2353F9E-E788-472A-8034-34C484E316C8}">
+                <Component Id="cmpC63E8F77C4010F266A99BF8FE9E58F66" Guid="{D213A40B-D5C1-453D-9445-97FC4388C3A1}">
                     <File Id="fil1AE45A7DF582496F576112C393221408" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\protobuf-net.dll" />
                 </Component>
-                <Component Id="cmp05056D8560BE1758DEE83818B4FFCCB5" Guid="{E979149D-8B46-4B74-BE64-F54056DB7ACD}">
+                <Component Id="cmp05056D8560BE1758DEE83818B4FFCCB5" Guid="{F5853FB5-0B7C-4EFF-97C9-67313D3B24D0}">
                     <File Id="fil3D5AFE6B2016283922F474CB295C2258" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\protobuf-net.pdb" />
                 </Component>
-                <Component Id="cmp474A8E885CC75198E49140469CF308BE" Guid="{76A1481B-5FD9-4865-8F48-6E02EA71353B}">
+                <Component Id="cmp474A8E885CC75198E49140469CF308BE" Guid="{177CD560-E11E-40C0-BDF5-CB5F115993A2}">
                     <File Id="fil1E8478365ED772E5BFC3C63767954D1E" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\protobuf-net.xml" />
                 </Component>
-                <Component Id="cmp9DC9E74B61506AE39E3B82A5D7C0660C" Guid="{8D01FDE1-BF0E-491E-AAB0-6BE1FC7B22E2}">
+                <Component Id="cmp9DC9E74B61506AE39E3B82A5D7C0660C" Guid="{3C12401A-89FE-43DE-ACE2-0B4D20F6C43E}">
                     <File Id="filF75737264C5808D05194904F51D66AF6" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\Quartz.dll" />
                 </Component>
-                <Component Id="cmpBD560DA082D91CF3DD2003CBE5F5E3A0" Guid="{366C7748-01A6-471A-8BA5-AF88DF5CCEC0}">
+                <Component Id="cmpBD560DA082D91CF3DD2003CBE5F5E3A0" Guid="{5AB9CD54-949E-4D97-AC5B-73D3A8D7C7C7}">
                     <File Id="fil24A2BE5BD7E39672E7F25EC9841EBED5" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\Quartz.pdb" />
                 </Component>
-                <Component Id="cmp656D4DA5F9E0B38306E0D71E84E92F03" Guid="{0BA239EB-2DF4-4D88-9666-FFBC1D4581B4}">
+                <Component Id="cmp656D4DA5F9E0B38306E0D71E84E92F03" Guid="{91E4FFFD-D49C-4CA9-A6AD-EF22D72EEDFA}">
                     <File Id="fil7A0ECD7D930251DB7B29B9F3D3306B8E" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\Quartz.xml" />
                 </Component>
-                <Component Id="cmpE0DF69745A89B1DDAA1ABBF1938E3C99" Guid="{AE643B73-29A3-4711-8320-06C90857E19A}">
+                <Component Id="cmpE0DF69745A89B1DDAA1ABBF1938E3C99" Guid="{1969B09E-35D1-4922-8FAF-5E8E3E40E2D7}">
                     <File Id="filC13030CC7390EB6EF01B84DA30956320" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\SharpDX.dll" />
                 </Component>
-                <Component Id="cmpB0E7CA0AEAECF8B2176689CB408C9771" Guid="{7809BB11-94D4-4CDF-9AF8-1EC05A01449D}">
+                <Component Id="cmpB0E7CA0AEAECF8B2176689CB408C9771" Guid="{4FECF6D0-F6BF-4281-A56E-E78E509E3C24}">
                     <File Id="filBA755BBE536495733B9045AE250E1D3D" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\SharpDX.Mathematics.dll" />
                 </Component>
-                <Component Id="cmp389530D135BE14588B0E63DBF61E70AA" Guid="{5E3F3286-E30F-492D-B369-FC7A515F5038}">
+                <Component Id="cmp389530D135BE14588B0E63DBF61E70AA" Guid="{FAF85DF2-1561-4286-9495-F4A3D661A9CC}">
                     <File Id="filF46E4BC4D9FE259C0DB10183C25E164F" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\SharpDX.Mathematics.xml" />
                 </Component>
-                <Component Id="cmp94120E68F909BFAC9695C25690C695EB" Guid="{F13B43D9-7D02-4C9A-82D5-AF4BC7F52BEF}">
+                <Component Id="cmp94120E68F909BFAC9695C25690C695EB" Guid="{791089E3-73F6-4C83-B79D-F3181190C37C}">
                     <File Id="filFEB1CD6025D43F770B44104FC4E709AC" KeyPath="yes" Source="!(wix.ScriptCsDataSource)\scriptcs_bin\SharpDX.xml" />
                 </Component>
             </Directory>
@@ -1252,6 +1265,7 @@
             <ComponentRef Id="cmp2396B72E5FB4FB55CD8D1B5334BC4373" />
             <ComponentRef Id="cmp03AE7FC4E08959B2D181B9F1BF670B9E" />
             <ComponentRef Id="cmp277027B019F252519458FCB2C0750244" />
+            <ComponentRef Id="cmp0CA6B1751844EC01CC06D64B46F5758B" />
             <ComponentRef Id="cmpDD16216E52B49671F65D4FB84808FAF5" />
             <ComponentRef Id="cmp76E923848854CFFE71F8F6B17AECD9FF" />
             <ComponentRef Id="cmpE089732A26B8BE4DC7A4A3C97D7B405F" />
@@ -1278,6 +1292,8 @@
             <ComponentRef Id="cmp64AA5780D7E467212F4AAFA4ACA359B5" />
             <ComponentRef Id="cmp4CD28BB88F998B4802FB6C535179693E" />
             <ComponentRef Id="cmp15F62CA82DFD787A0F26729656546CCA" />
+            <ComponentRef Id="cmp43C383DE606F65230576E6D60A2B685A" />
+            <ComponentRef Id="cmp259463070E82C4A091593F15CBB9AE12" />
             <ComponentRef Id="cmp3704812EF8B48BEAA81B0E8A43A0A53B" />
             <ComponentRef Id="cmpF863FDE495DA9B88563433ADC1F41A03" />
             <ComponentRef Id="cmp50D13F7019EE18B5C77460AB9F1880B9" />
