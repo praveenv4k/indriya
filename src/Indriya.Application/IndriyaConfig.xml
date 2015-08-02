@@ -23,29 +23,15 @@
     
     <param key="NAO-B-ROBOTIP" value="192.168.11.4" type="string"/>
     <param key="NAO-B-ROBOTPORT" value="9559" type="int"/>
-
-    <param key="NAO-ORANGE-ROBOTIP" value="192.168.11.10" type="string"/>
-    <param key="NAO-ORANGE-ROBOTPORT" value="9559" type="int"/>
-    
-    <param key="NAO-GRAY-ROBOTIP" value="192.168.11.8" type="string"/>
-    <param key="NAO-GRAY-ROBOTPORT" value="9559" type="int"/>
-    
-    <param key="NAO-SPRING-ROBOTIP" value="192.168.11.7" type="string"/>
-    <param key="NAO-SPRING-ROBOTPORT" value="9559" type="int"/>
-    
-    <param key="NAO-MACAROON-ROBOTIP" value="192.168.11.62" type="string"/>
-    <param key="NAO-MACAROON-ROBOTPORT" value="9559" type="int"/>
-    
-    <param key="NAO-SILVER-ROBOTIP" value="192.168.11.9" type="string"/>
-    <param key="NAO-SILVER-ROBOTPORT" value="9559" type="int"/>
     
     <param key="ContextServerHost" value="tcp://*" type="string"/>
     <param key="ContextClientHost" value="tcp://localhost" type="string"/>
     <param key="ContextServerPort" value="5800" type="int"/>
     <param key="ContextServerInterval" value="40" type="int"/>
     <param key="ContextSyncInterval" value="80" type="int"/>
-    <param key="MainProgramFilePath" value="%INDRIYA_ROOT%\bin\scriptcs\main.csx" type="string"/>
-    <param key="MainProgramFolder" value="%INDRIYA_ROOT%\bin\scriptcs\" type="string"/>
+    <param key="MainProgramFilePath" value="%INDRIYA_DATA_ROOT%\scriptcs\main.csx" type="string"/>
+    <!--<param key="MainProgramFolder" value="%INDRIYA_ROOT%\bin\scriptcs\" type="string"/>-->
+    <param key="MainProgramFolder" value="%INDRIYA_DATA_ROOT%\scriptcs\" type="string"/>
     <!-- TODO Define Parameter for Periods of ContextServer, ContextSync, ParameterServer, GesturePeriod-->
   </parameters>
   <nodes>
@@ -304,7 +290,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="true" name="robot_interface">
+    <node enabled="false" name="robot_interface">
       <process>
         <type>executable</type>
         <path>python.exe</path>
@@ -338,7 +324,7 @@
         <args>%INDRIYA_ROOT%\scripts\indriya_python_client\experimot_relative_localize.py</args>
       </process>
     </node>
-    <node enabled="true" name="hiro_manager">
+    <node enabled="false" name="hiro_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>
@@ -362,7 +348,7 @@
       <parameters>
       </parameters>
     </node>
-    <node enabled="true" name="taro_manager">
+    <node enabled="false" name="taro_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>
@@ -377,87 +363,6 @@
         <param key="RequestServerPort" value="5591" type="int"/>
       </parameters>
     </node>
-    
-    <node enabled="false" name="orange_manager">
-      <process>
-        <type>executable</type>
-        <path>python.exe</path>
-        <args>%INDRIYA_ROOT%\scripts\indriya_robot_interface\behaviors\behaviormanager.py</args>
-      </process>
-      <parameters>
-        <param key="ROBOTIP" value="$NAO-ORANGE-ROBOTIP" type="string"/>
-        <param key="ROBOTPORT" value="$NAO-ORANGE-ROBOTPORT" type="string"/>
-        <param key="ROBOTNAME" value="Orange" type="string"/>
-        <param key="RequestServerIP" value="tcp://*" type="string"/>
-        <param key="RequestClientIP" value="tcp://localhost" type="string"/>
-        <param key="RequestServerPort" value="6200" type="int"/>
-      </parameters>
-    </node>
-    
-    <node enabled="false" name="silver_manager">
-      <process>
-        <type>executable</type>
-        <path>python.exe</path>
-        <args>%INDRIYA_ROOT%\scripts\indriya_robot_interface\behaviors\behaviormanager.py</args>
-      </process>
-      <parameters>
-        <param key="ROBOTIP" value="$NAO-SILVER-ROBOTIP" type="string"/>
-        <param key="ROBOTPORT" value="$NAO-SILVER-ROBOTPORT" type="string"/>
-        <param key="ROBOTNAME" value="Silver" type="string"/>
-        <param key="RequestServerIP" value="tcp://*" type="string"/>
-        <param key="RequestClientIP" value="tcp://localhost" type="string"/>
-        <param key="RequestServerPort" value="6201" type="int"/>
-      </parameters>
-    </node>
-    
-    <node enabled="false" name="macaroon_manager">
-      <process>
-        <type>executable</type>
-        <path>python.exe</path>
-        <args>%INDRIYA_ROOT%\scripts\indriya_robot_interface\behaviors\behaviormanager.py</args>
-      </process>
-      <parameters>
-        <param key="ROBOTIP" value="$NAO-MACAROON-ROBOTIP" type="string"/>
-        <param key="ROBOTPORT" value="$NAO-MACAROON-ROBOTPORT" type="string"/>
-        <param key="ROBOTNAME" value="Macaroon" type="string"/>
-        <param key="RequestServerIP" value="tcp://*" type="string"/>
-        <param key="RequestClientIP" value="tcp://localhost" type="string"/>
-        <param key="RequestServerPort" value="6202" type="int"/>
-      </parameters>
-    </node>
-      
-    <node enabled="false" name="spring_manager">
-      <process>
-        <type>executable</type>
-        <path>python.exe</path>
-        <args>%INDRIYA_ROOT%\scripts\indriya_robot_interface\behaviors\behaviormanager.py</args>
-      </process>
-      <parameters>
-        <param key="ROBOTIP" value="$NAO-SPRING-ROBOTIP" type="string"/>
-        <param key="ROBOTPORT" value="$NAO-SPRING-ROBOTPORT" type="string"/>
-        <param key="ROBOTNAME" value="Spring" type="string"/>
-        <param key="RequestServerIP" value="tcp://*" type="string"/>
-        <param key="RequestClientIP" value="tcp://localhost" type="string"/>
-        <param key="RequestServerPort" value="6203" type="int"/>
-      </parameters>
-    </node>
-          
-    <node enabled="false" name="gray_manager">
-      <process>
-        <type>executable</type>
-        <path>python.exe</path>
-        <args>%INDRIYA_ROOT%\scripts\indriya_robot_interface\behaviors\behaviormanager.py</args>
-      </process>
-      <parameters>
-        <param key="ROBOTIP" value="$NAO-GRAY-ROBOTIP" type="string"/>
-        <param key="ROBOTPORT" value="$NAO-GRAY-ROBOTPORT" type="string"/>
-        <param key="ROBOTNAME" value="Gray" type="string"/>
-        <param key="RequestServerIP" value="tcp://*" type="string"/>
-        <param key="RequestClientIP" value="tcp://localhost" type="string"/>
-        <param key="RequestServerPort" value="6204" type="int"/>
-      </parameters>
-    </node>
-    
       
     <node enabled="false" name="nao_imitation_manager">
       <process>
@@ -496,8 +401,9 @@
     <node enabled="false" name="scriptcs_program">
       <process>
         <type>scriptcs</type>
-        <path>%INDRIYA_ROOT%\bin\scriptcs\scriptcs.exe</path>
-        <args>%INDRIYA_ROOT%\bin\scriptcs\main_program.csx -logLevel debug</args>
+        <path>%INDRIYA_DATA_ROOT%\scriptcs\scriptcs.exe</path>
+        <!--<args>%INDRIYA_ROOT%\bin\scriptcs\main_program.csx -logLevel debug</args>-->
+        <args>%INDRIYA_DATA_ROOT%\scriptcs\main_program.csx -logLevel debug</args>
       </process>
       <parameters>
         <param key="BehaviorManagerName" value="nao_behavior_manager" type="string"/>

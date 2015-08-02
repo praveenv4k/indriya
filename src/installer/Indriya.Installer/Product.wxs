@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
-	<Product Id="*" Name="IndriyaInstaller" Language="1033" Version="0.1.0.0" Manufacturer="GVLab" UpgradeCode="5e8e74f1-f639-4333-b3c1-da2708cfa6fa">
+	<Product Id="*" Name="Indriya" Language="1033" Version="0.1.0.0" Manufacturer="GVLab" UpgradeCode="5e8e74f1-f639-4333-b3c1-da2708cfa6fa">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -13,52 +13,74 @@
     <WixVariable Id="WebSource" Value="$(env.INDRIYA_WEB_ROOT)"/>
     
 		<Feature Id="ProductFeature" Title="IndriyaInstaller" Level="1">
-			<ComponentGroupRef Id="ProductComponents" />
-      <ComponentGroupRef Id="Bin" />
+			<!--<ComponentGroupRef Id="ProductComponents" />-->
+      <ComponentGroupRef Id="Bin" />      
       <ComponentGroupRef Id="Data" />
       <ComponentGroupRef Id="Share" />
       <ComponentGroupRef Id="Scripts" />
       <ComponentGroupRef Id="Web" />
+      <ComponentGroupRef Id="SetEnvironmentVariables" />
 		</Feature>
-    <PropertyRef Id="NETFRAMEWORK45"/>
-
     <UI Id="IndriyaInstallerUI">
-    <UIRef Id="WixUI_FeatureTree"/>
+      <UIRef Id="WixUI_FeatureTree"/>
     </UI>
 	</Product>
-  
   
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
-        <Directory Id="Indriya" Name="Indriya">
-				  <Directory Id="INSTALLFOLDER" Name="IndriyaInstaller" />
-          <Directory Id="BIN" Name="bin">
-            
-          </Directory>
-          <Directory Id="DATA" Name="data">
-            
-          </Directory>
-          <Directory Id="SHARE" Name="share">
-            
-          </Directory>
-          <Directory Id="SCRIPTS" Name="scripts" >
-            
-          </Directory>
-          <Directory Id="WEB" Name="web" >
-            
-          </Directory>
+        <Directory Id="INSTALLFOLDER" Name="Indriya">
+          <Directory Id="BIN" Name="bin"/>
+          <Directory Id="DATA" Name="data"/>
+          <Directory Id="SHARE" Name="share"/>
+          <Directory Id="SCRIPTS" Name="scripts" />
         </Directory>
 			</Directory>
+      <Directory Id="CommonAppDataFolder">
+        <Directory Id="INDRIYADATAFOLDER" Name="Indriya">
+          <Directory Id="WEB" Name="web" >
+          </Directory>
+          <Directory Id="INDRIYA_DATA" Name="data">
+            <Directory Id="GENERATED_PROGRAMS" Name="programs">
+              
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
 		</Directory>
 	</Fragment>
 
 	<Fragment>
-		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
-			<!-- <Component Id="ProductComponent"> -->
-				<!-- TODO: Insert files, registry keys, and other resources here. -->
-			<!-- </Component> -->
-		</ComponentGroup>
+    <ComponentGroup Id="SetEnvironmentVariables">
+      <Component Id="IndriyaRootEnvVar" Directory="INSTALLFOLDER" Guid="{A0DC7FF2-5A18-428E-B433-B0D82703D72E}" KeyPath="yes">
+        <Environment Id="INDRIYA_ROOT2"
+                         Action="set"
+                         Part="all"
+                         Name="INDRIYA_ROOT2"
+                         Permanent="no"
+                         System="no"
+                         Value="[INSTALLFOLDER]" />
+      </Component>
+      <Component Id="IndriyaWebEnvVar" Directory="WEB" Guid="{41B19076-19A2-44B2-8251-B1FEF3BDA463}" KeyPath="yes">
+        <Environment Id="INDRIYA_WEB_ROOT2"
+                         Action="set"
+                         Part="all"
+                         Name="INDRIYA_WEB_ROOT2"
+                         Permanent="no"
+                         System="no"
+                         Value="[WEB]" />
+      </Component>
+      <Component Id="IndriyaDataEnvVar" Directory="INDRIYA_DATA" Guid="{41B19076-19A2-44B2-8251-B1FEF3BDA463}" KeyPath="yes">
+        <Environment Id="INDRIYA_DATA_ROOT2"
+                         Action="set"
+                         Part="all"
+                         Name="INDRIYA_DATA_ROOT2"
+                         Permanent="no"
+                         System="no"
+                         Value="[INDRIYA_DATA]" />
+      </Component>
+    </ComponentGroup>
+		<!--<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+		</ComponentGroup>-->
 	</Fragment>
 </Wix>

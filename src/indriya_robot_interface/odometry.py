@@ -132,7 +132,9 @@ def makeMotion(ip,port,lock):
     posture = getPostureProxy(ip,port)
     memory = getMemoryProxy(ip,port)
     moveInit(motion,posture)
-    ret = action_moveTo(motion,posture,0.6,0.5,math.pi/2)
+    #ret = action_moveTo(motion,posture,1.2,0,math.pi/2)
+    ret = action_moveTo(motion,posture,0.75,0,0)
+
     #ret = action_moveTo(motion,posture,0.75,0,0)
     #global gPose
     while ret[1].isRunning(ret[0]):
@@ -237,18 +239,21 @@ def makeMotion(ip,port,lock):
 
 if __name__ == "__main__":
     # Real Robot
-    ROBOT_IP = "192.168.11.41"
+    ROBOT_IP = "192.168.11.3"
     ROBOT_PORT = 9559
     try:
         # create a lock object for synchronization
         lock = thread.allocate_lock()
-        time.sleep(8)
+        time.sleep(5)
         #memory = ALProxy("ALMemory", ROBOT_IP, ROBOT_PORT)
         #thread.start_new_thread(recordPositionValues,(memory,lock))
+
         thread.start_new_thread(localize_client,(stop,lock))
+
         time.sleep(2)
         #stop = True
         makeMotion(ROBOT_IP,ROBOT_PORT,lock)
+        #makeMotion(ROBOT_IP,ROBOT_PORT,lock)
     except:
       print "Exception occured : ", sys.exc_info()
 

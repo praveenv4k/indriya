@@ -145,8 +145,8 @@
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>xcopy /i/f/s/y $(ProjectDir)*Template.cs* %25WEB_ROOT%25\data\templates\*.cs
-xcopy "$(TargetDir)*.*" "$(DEV_SDK_ROOT)\experimot\bin\scriptcs\scriptcs_bin" /S /R /Y /I</PostBuildEvent>
+    <PostBuildEvent>xcopy /i/f/s/y $(ProjectDir)*Template.cs* %25INDRIYA_WEB_ROOT%25\data\templates\*.cs
+xcopy "$(TargetDir)*.*" "$(INDRIYA_DATA_ROOT)\scriptcs\scriptcs_bin" /S /R /Y /I</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

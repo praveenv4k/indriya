@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{464dce7e-4f29-4169-bf26-d563de3a5712}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>control_loop.py</StartupFile>
+    <StartupFile>odometry.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -44,6 +44,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="behaviors\imitation_manager.py" />
+    <Compile Include="behaviors\allocalization.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="behaviors\NaoBehaviorModule.py" />
     <Compile Include="behaviors\PeopleTracker.py">
       <SubType>Code</SubType>
