@@ -35,7 +35,7 @@
     <!-- TODO Define Parameter for Periods of ContextServer, ContextSync, ParameterServer, GesturePeriod-->
   </parameters>
   <nodes>
-    <node enabled="true" name="localization">
+    <node enabled="false" name="localization">
       <process>
         <type>executable</type>
         <path>%INDRIYA_ROOT%\bin\indriya_robot_localization.exe</path>
@@ -131,7 +131,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="true" name="speech_recognition">
+    <node enabled="false" name="speech_recognition">
       <process>
         <type>executable</type>
         <path>%INDRIYA_ROOT%\bin\Indriya.Kinect.Speech.exe</path>
@@ -347,6 +347,24 @@
       </process>
       <parameters>
       </parameters>
+    </node>
+    <node enabled="true" name="kinect_state_listener">
+      <process>
+        <type>executable</type>
+        <path>python.exe</path>
+        <args>%INDRIYA_ROOT%\scripts\indriya_robot_interface\KinectStateListener.py</args>
+      </process>
+      <parameters>
+      </parameters>
+      <subscribers>
+        <subscribe>
+          <host>tcp://localhost</host>
+          <port>5570</port>
+          <topic>KSP</topic>
+          <msg_type>KinectBodies</msg_type>
+          <name>KinectStateListener</name>
+        </subscribe>
+      </subscribers>
     </node>
     <node enabled="false" name="taro_manager">
       <process>

@@ -58,6 +58,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="JointPublisher.py" />
+    <Compile Include="KinectStateListener.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="motion_walk.py" />
     <Compile Include="odometry.py">
       <SubType>Code</SubType>
