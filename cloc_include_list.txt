@@ -1,5 +1,6 @@
 include/indriya/common
 src/Indriya.Core
+src/Indriya.Core.BehaviorEngine
 src/Indriya.Core.Msgs
 src/Indriya.Core.NLP
 src/Indriya.Imu.Perception
