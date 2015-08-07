@@ -1,0 +1,14 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_startup" id="3" x="363" y="88">
+    <statement name="DO">
+      <block type="wait_gesture" id="6">
+        <field name="GESTURE">LiftHand_Left</field>
+        <next>
+          <block type="debug_print" id="11">
+            <field name="DEBUG_STRING">This is a debug string</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

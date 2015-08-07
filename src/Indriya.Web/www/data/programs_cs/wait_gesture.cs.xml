@@ -1,0 +1,27 @@
+// ReSharper disable RedundantUsingDirective
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+// Main Behavior Program
+
+using Indriya.Core.BehaviorEngine;
+
+public class StartupBehavior : IExecuteOnceBehavior
+{
+    public void Execute(IBehaviorExecutionContext context)
+    {
+        // STARTUP_BLOCK
+          var var_6f6a5cea_5205_4cca_a9c1_41b28cc372c0 = null;
+  while (true)
+  {
+  var var_8c8146dc_8c9d_0c97_b2a5_3e4e30bf637a = context.GetGestureInfoList("");
+  var var_6f6a5cea_5205_4cca_a9c1_41b28cc372c0 = var_8c8146dc_8c9d_0c97_b2a5_3e4e30bf637a.FirstOrDefault(s=>s.Confidence > 90);
+  if (var_6f6a5cea_5205_4cca_a9c1_41b28cc372c0.Active && var_6f6a5cea_5205_4cca_a9c1_41b28cc372c0.Confidence > 90)
+  {
+  break;
+  }
+  }System.Console.WriteLine("This is a debug string");
+
+    }
+}

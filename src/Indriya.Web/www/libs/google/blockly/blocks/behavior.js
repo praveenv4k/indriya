@@ -1124,6 +1124,23 @@ Blockly.Blocks['wait_voice_response'] = {
     }
 };
 
+Blockly.Blocks['wait_gesture'] = {
+    init: function () {
+        var gestureDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.GestureProperties, function (option) {
+        });
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
+        this.setColour(230);
+        this.appendDummyInput()
+            .appendField("Wait for gesture");
+        this.appendDummyInput()
+            .appendField(gestureDropdown, "GESTURE");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setTooltip('Wait for the gesture');
+    }
+};
+
 Blockly.Blocks['robot_action'] = {
     init: function () {
         var standardBehaviors = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.StandardBehaviors, function (option) {

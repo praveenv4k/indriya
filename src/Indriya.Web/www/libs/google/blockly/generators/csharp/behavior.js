@@ -625,6 +625,26 @@ Blockly.CSharp['wait_voice_response'] = function(block) {
     return code.join('\n');
 };
 
+Blockly.CSharp['wait_gesture'] = function (block) {
+    var gesture = block.getFieldValue('GESTURE');
+    var code = [];
+    var confidence = 90;
+    var listVarName = generateUniqueVarName();
+    var gestureInfoVarName = generateUniqueVarName();
+
+    code.push('GestureInfo ' + gestureInfoVarName + ';');
+    code.push('while (true)');
+    code.push('{');
+    code.push('var ' + listVarName + ' = context.GetGestureInfoList(\"' + gesture + '\");');
+    code.push(gestureInfoVarName + ' = ' + listVarName + '.FirstOrDefault(s=>s.Confidence > ' + confidence + ');');
+    code.push('if (' + gestureInfoVarName + '.Active && ' + gestureInfoVarName + '.Confidence > ' + confidence + ')');
+    code.push('{');
+    code.push('break;');
+    code.push('}');
+    code.push('}');
+    return code.join('\n');
+};
+
 Blockly.CSharp['priority'] = function (block) {
     var priority = block.getFieldValue('priorities');
     var code = 'set_priority(\"' + priority + '\");\n';

@@ -348,7 +348,7 @@
       <parameters>
       </parameters>
     </node>
-    <node enabled="true" name="kinect_state_listener">
+    <node enabled="false" name="kinect_state_listener">
       <process>
         <type>executable</type>
         <path>python.exe</path>
