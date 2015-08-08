@@ -121,6 +121,7 @@
     <Compile Include="Util\LinqXmlExtensions.cs" />
     <Compile Include="Util\MessageUtil.cs" />
     <Compile Include="Util\ParameterUtil.cs" />
+    <Compile Include="Util\ReflectionUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

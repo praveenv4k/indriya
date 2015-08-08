@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.Remoting.Messaging;
 using Common.Logging;
 using CsvHelper;
 using Quartz;
+using Indriya.Core.Util;
 
 namespace Indriya.Core.BehaviorEngine
 { // ReSharper disable FunctionComplexityOverflow
@@ -100,35 +100,11 @@ namespace Indriya.Core.BehaviorEngine
             }
         }
 
-        public object InvokeStaticMethod(Type typeName, string methodName, params object[] parameters)
-        {
-            if (typeName != null && !string.IsNullOrEmpty(methodName))
-            {
-                MethodInfo staticMethodInfo = typeName.GetMethod(methodName);
-                if (staticMethodInfo != null && staticMethodInfo.IsStatic)
-                {
-                    return staticMethodInfo.Invoke(null, parameters);
-                }
-            }
-            return null;
-        }
-
-        public object InvokeStaticProperty(Type typeName, string propName)
-        {
-            if (typeName != null && !string.IsNullOrEmpty(propName))
-            {
-                var staticPropertyInfo = typeName.GetProperty(propName);
-                if (staticPropertyInfo != null)
-                {
-                    return staticPropertyInfo.GetValue(null);
-                }
-            }
-            return null;
-        }
+        
 
         private int GetBehaviorPriority(Type behaviorType)
         {
-            var priorityObject = InvokeStaticMethod(behaviorType, "GetPriority");
+            var priorityObject = ReflectionUtil.InvokeStaticMethod(behaviorType, "GetPriority");
             var ret = BehaviorExecutionPriority.low;
 
             if (priorityObject != null)
@@ -161,29 +137,11 @@ namespace Indriya.Core.BehaviorEngine
             return false;
         }
 
-        private bool InvokeBooleanProperty(Type cyclicBehavior, string methodName)
-        {
-            var priorityObject = InvokeStaticProperty(cyclicBehavior, methodName);
-            var ret = false;
-
-            if (priorityObject != null)
-            {
-                if (bool.TryParse(priorityObject.ToString(), out ret))
-                {
-                }
-            }
-            return ret;
-        }
-
-        private T InvokeGenericMethod<T>(Type cyclicBehavior, string methodName, params object[] parameters) where T : class
-        {
-            var returnObject = InvokeStaticMethod(cyclicBehavior, methodName, parameters);
-            return returnObject as T;
-        }
+        
 
         private bool CheckExecutionComplete(Type cyclicBehavior)
         {
-            return InvokeBooleanProperty(cyclicBehavior, "ExecutionComplete");
+            return ReflectionUtil.InvokeBooleanProperty(cyclicBehavior, "ExecutionComplete");
         }
 
         private TriggerResult CheckTrigger(Type cyclicBehavior)
@@ -195,7 +153,7 @@ namespace Indriya.Core.BehaviorEngine
             //{
             //    return false;
             //}))();
-            return InvokeGenericMethod<TriggerResult>(cyclicBehavior, "CheckTrigger",
+            return ReflectionUtil.InvokeGenericMethod<TriggerResult>(cyclicBehavior, "CheckTrigger",
                 new BehaviorExecutionContext(_contextServer));
 
         }
@@ -223,7 +181,7 @@ namespace Indriya.Core.BehaviorEngine
                             {
                                 if (result.Active)
                                 {
-                                    string uid = InvokeGenericMethod<string>(type, "GetUid");
+                                    string uid = ReflectionUtil.InvokeGenericMethod<string>(type, "GetUid");
                                     if (!string.IsNullOrEmpty(uid) && Scheduler != null)
                                     {
                                         var jobKey = JobKey.Create(string.Format("Task_{0}", uid), uid);
@@ -347,7 +305,7 @@ namespace Indriya.Core.BehaviorEngine
                 {
                     foreach (var type in sortedList)
                     {
-                        string uid = InvokeGenericMethod<string>(type, "GetUid");
+                        string uid = ReflectionUtil.InvokeGenericMethod<string>(type, "GetUid");
                         if (!string.IsNullOrEmpty(uid) && Scheduler != null)
                         {
                             var jobKey = JobKey.Create(string.Format("Task_{0}", uid), uid);
@@ -533,9 +491,6 @@ namespace Indriya.Core.BehaviorEngine
            return  AppDomain.CurrentDomain.GetAssemblies()
                        .SelectMany(t => t.GetTypes())
                        .Where(t => t.IsClass && t.Name == className).ToList();
-
-            //return Assembly.GetExecutingAssembly().GetTypes()
-            //    .Where(t => t.IsClass && t.Name == className).ToList();
         }
 
         public static IList<Type> GetTypes(Type interfaceType)
@@ -543,8 +498,6 @@ namespace Indriya.Core.BehaviorEngine
             return AppDomain.CurrentDomain.GetAssemblies()
                        .SelectMany(t => t.GetTypes())
                        .Where(t => t.IsClass && interfaceType.IsAssignableFrom(t) && !t.Name.Contains("Template")).ToList();
-            //return Assembly.GetExecutingAssembly().GetTypes()
-            //    .Where(t => t.IsClass && interfaceType.IsAssignableFrom(t) && !t.Name.Contains("Template")).ToList();
         }
 
         public void JobToBeExecuted(IJobExecutionContext context)
