@@ -72,7 +72,7 @@ namespace Indriya.Core.BehaviorEngine
 
         public static T GetContextObject<T>(string server, int timeout, string reqName) where T : class
         {
-            T ret = default(T);
+            T ret;
             using (var ctx = NetMQContext.Create())
             {
                 using (var socket = ctx.CreateRequestSocket())
@@ -91,7 +91,7 @@ namespace Indriya.Core.BehaviorEngine
             if (info != null && !string.IsNullOrEmpty(info.BehaviorName) && !string.IsNullOrEmpty(info.RobotName))
             {
                 Log.InfoFormat("Getting runtime information for {0} : {1}", info.BehaviorName, info.RobotName);
-                var module = GetContextObject<Core.Msgs.RobotBehaviorModule>(ContextServer, RecvTimeout,
+                var module = GetContextObject<RobotBehaviorModule>(ContextServer, RecvTimeout,
                     string.Format("behavior_module/robot/{0}", info.RobotName));
                 //Log.InfoFormat("Context: {1}, Behavior Modules  : {0}", resp, ContextServer);
                 if (module != null)
@@ -148,7 +148,7 @@ namespace Indriya.Core.BehaviorEngine
 
         public void SyncExecuteBehavior(BehaviorInfo behaviorInfo)
         {
-            //try
+            try
             {
                 DisplayRobotPose();
                 using (var ctx = NetMQContext.Create())
@@ -265,10 +265,11 @@ namespace Indriya.Core.BehaviorEngine
                     }
                 }
             }
-            //catch (Exception ex)
-            //{
-            //    Log.ErrorFormat("Motion Behavior Task error : {0}", ex.Message);
-            //}
+            catch (Exception ex)
+            {
+                Log.ErrorFormat("Motion Behavior Task error : {0}, {1}", ex.Message, ex.StackTrace);
+                throw;
+            }
         }
 
         public void SyncExecuteBehavior2(BehaviorInfo behaviorInfo)
@@ -319,7 +320,7 @@ namespace Indriya.Core.BehaviorEngine
 
             var humans = GetContextObject<ObservableCollection<Human>>(ContextServer, RecvTimeout, "humans");
             var robot = GetContextObject<Robot>(ContextServer, RecvTimeout, "robot");
-            var worldFrame = GetContextObject<Core.Msgs.Pose>(ContextServer, RecvTimeout, "world_frame");
+            var worldFrame = GetContextObject<Pose>(ContextServer, RecvTimeout, "world_frame");
             if (humans!=null && robot!=null && worldFrame!=null)
             {
                 Matrix3x3 robotRot;
