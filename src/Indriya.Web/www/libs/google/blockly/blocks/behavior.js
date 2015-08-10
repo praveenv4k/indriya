@@ -1062,6 +1062,20 @@ Blockly.Blocks['trigger'] = {
     }
 };
 
+Blockly.Blocks['variable_trigger'] = {
+    init: function () {
+        this.setHelpUrl('https://github.com/praveenv4k/Indriya');
+        this.setColour(230);
+        this.appendDummyInput()
+            .appendField("Variable trigger");
+        this.appendValueInput("VARIABLE_NAME")
+            .setCheck("Boolean");
+        this.setInputsInline(true);
+        this.setOutput(true, "Boolean");
+        this.setTooltip('Trigger a block using a variable');
+    }
+};
+
 Blockly.Blocks['voice_trigger'] = {
     init: function () {
         var voiceDropdown = new Blockly.FieldDropdown(Blockly.Blocks.behaviors.VoiceProperties, function (option) {

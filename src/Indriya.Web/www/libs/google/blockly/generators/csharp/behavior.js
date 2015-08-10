@@ -554,6 +554,18 @@ Blockly.CSharp['trigger'] = function(block) {
     //return [genCode, Blockly.CSharp.ORDER_ATOMIC];
 };
 
+Blockly.CSharp['variable_trigger'] = function (block) {
+    var variableTrigger = Blockly.CSharp.valueToCode(this, 'VARIABLE_NAME', Blockly.CSharp.ORDER_ATOMIC);
+    var code = [];
+    code.push('((Func<TriggerResult>) (() => {');
+    code.push('var ret = new TriggerResult(){Active = false};');
+    code.push('ret.Active = ' + variableTrigger + ';');
+    code.push('return ret;');
+    code.push('}))()');
+    return [code.join('\n'), Blockly.CSharp.ORDER_ATOMIC];
+    //return [genCode, Blockly.CSharp.ORDER_ATOMIC];
+};
+
 Blockly.CSharp['voice_trigger'] = function (block) {
     var trigger = block.getFieldValue('VOICE_TRIGGER');
 

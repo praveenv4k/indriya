@@ -1,0 +1,49 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="behavior_startup" id="2" x="213" y="38">
+    <statement name="DO">
+      <block type="variables_set" id="11" inline="true">
+        <field name="VAR">count</field>
+        <value name="VALUE">
+          <block type="math_number" id="16">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="behavior_composable_simple" id="4" inline="false" x="188" y="163">
+    <mutation run_until="false" run_logic=""></mutation>
+    <field name="behavior_name">default</field>
+    <field name="priorities">low</field>
+    <field name="execution">once</field>
+    <value name="trigger">
+      <block type="variable_trigger" id="8" inline="true">
+        <value name="VARIABLE_NAME">
+          <block type="logic_compare" id="23" inline="true">
+            <field name="OP">GT</field>
+            <value name="A">
+              <block type="variables_get" id="28">
+                <field name="VAR">count</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="33">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="debug_print" id="60">
+        <field name="DEBUG_STRING">This is a debug string</field>
+        <next>
+          <block type="sleep_for" id="65">
+            <field name="SLEEP_FOR">1000</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

@@ -4,7 +4,7 @@
     <param key="ApplicationName" value="ExperiMot" type="string"/>
     <param key="Author" value="Praveenkumar VASUDEVAN" type="string"/>
     <param key="Institution" value="GVLab" type="string"/>
-    <param key="Description" value="An Experimental Platform for Human Robot Interaction based on Human Motion" type="string"/>
+    <param key="Description" value="An experimental platform for Human-robot Interaction based on human behaviors" type="string"/>
     <param key="ParameterServerHost" value="tcp://*" type="string"/>
     <param key="ParameterClientHost" value="tcp://localhost" type="string"/>
     <param key="ParameterServerPort" value="5560" type="int"/>
@@ -88,7 +88,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="true" name="gesture_recognition">
+    <node enabled="false" name="gesture_recognition">
       <process>
         <type>executable</type>
         <path>%INDRIYA_ROOT%\bin\Indriya.Kinect.Perception.exe</path>
@@ -324,7 +324,7 @@
         <args>%INDRIYA_ROOT%\scripts\indriya_python_client\experimot_relative_localize.py</args>
       </process>
     </node>
-    <node enabled="true" name="hiro_manager">
+    <node enabled="false" name="hiro_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>
