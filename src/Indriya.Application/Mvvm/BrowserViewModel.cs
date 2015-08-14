@@ -200,5 +200,38 @@ namespace Indriya.Application.Mvvm
             // Part of the Focus hack further described in the OnPropertyChanged() method...
             Keyboard.ClearFocus();
         }
+
+        #region ContentId
+
+        private string _contentId = null;
+        public string ContentId
+        {
+            get { return _contentId; }
+            set { PropertyChanged.ChangeAndNotify(ref _contentId, value, () => ContentId); }
+        }
+
+        #endregion
+
+        #region IsSelected
+
+        private bool _isSelected = true;
+        public bool IsSelected
+        {
+            get { return _isSelected; }
+            set { PropertyChanged.ChangeAndNotify(ref _isSelected, value, () => IsSelected); }
+        }
+
+        #endregion
+
+        #region IsActive
+
+        private bool _isActive = true;
+        public bool IsActive
+        {
+            get { return _isActive; }
+            set { PropertyChanged.ChangeAndNotify(ref _isActive, value, () => IsActive); }
+        }
+
+        #endregion
     }
 }

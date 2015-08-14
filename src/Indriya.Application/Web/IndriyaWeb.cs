@@ -46,7 +46,7 @@ namespace Indriya.Application.Web
 
                     _host.Start();
 
-                    Log.InfoFormat("Experimot web interface started at {0}", uriStr);
+                    Log.InfoFormat("Indriya web interface started at {0}", uriStr);
                 }
             }
         }
@@ -58,7 +58,7 @@ namespace Indriya.Application.Web
                 _host.Stop();
                 _host.Dispose();
                 _host = null;
-                Log.Info("Experimot web interface stopped");
+                Log.Info("Indriya web interface stopped");
             }
         }
 

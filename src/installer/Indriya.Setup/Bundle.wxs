@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
   <Bundle Name="Indriya bundle" Version="1.0.0.0" Manufacturer="GVLab" UpgradeCode="951b63ff-cedb-48f9-9c93-a9339b084f38">
     <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense" />
     <Chain>
       <!--<PackageGroupRef Id="Netfx45Xxx"/>-->
-      <PackageGroupRef Id="vcredist"/>
+      <PackageGroupRef Id="VCRedist120_x86"/>
       <RollbackBoundary/>
       <PackageGroupRef Id="NetFx45Redist"/>
       <RollbackBoundary/>
@@ -13,4 +13,27 @@
       <MsiPackage Id="IndriyaInstaller" Compressed="yes" DisplayInternalUI="yes" SourceFile="$(var.Indriya.Installer.TargetPath)" Vital="yes"/>
     </Chain>
   </Bundle>
+  <Fragment>
+    <util:ProductSearch
+       Id="VCRedist120_x86"
+       Variable="VCRedist120_x86"
+       ProductCode="{13A4EE12-23EA-3371-91EE-EFB36DDFFF3E}"
+       Result="state" />
+    <PackageGroup Id="VCRedist120_x86">
+      <ExePackage
+        Id="VCRedist120_x86"
+        Name="redistVC120\vcredist_x86.exe"
+        SourceFile="VS2013\vcredist_x86.exe"
+        DownloadUrl="http://go.microsoft.com/fwlink/?LinkID=320712"
+        DetectCondition="VCRedist120_x86 &gt;= 3"
+        Permanent="yes"
+        PerMachine="yes"
+        Cache="no"
+        Vital="yes"
+        Compressed="no"
+        LogPathVariable="VCRedist120_x86_log"
+        DisplayName="Microsoft Visual C++ 2013 Redistributable (x86) - 12.0.30501"
+        Protocol="burn" />
+    </PackageGroup>
+  </Fragment>
 </Wix>

@@ -7,7 +7,7 @@ define(['app', 'underscore', 'backbone', 'marionette', 'jquery', 'text!templates
             template: _.template(template),
             // View Event Handlers
             events: {
-                'click .open-button' : 'onOpen'
+                'click .open-button': 'onOpen'
             },
             onOpen: function() {
                 console.log("Open clicked " + this.selectedIndex);
@@ -16,10 +16,10 @@ define(['app', 'underscore', 'backbone', 'marionette', 'jquery', 'text!templates
                     console.log("Selected Item : " + model.get("name"));
                     var globalCh = Backbone.Wreqr.radio.channel('global');
                     globalCh.vent.trigger("loadProgram", model);
-               }
+                }
             },
-            selectedIndex : undefined,
-            onShow: function () {
+            selectedIndex: undefined,
+            onShow: function() {
                 var _this = this;
                 console.log(this.collection);
                 //$("#header ul").append('<li><a href="/user/messages"><span class="tab">Message Center</span></a></li>');
@@ -28,11 +28,11 @@ define(['app', 'underscore', 'backbone', 'marionette', 'jquery', 'text!templates
                     //console.log(model.get("description"));
                     $("#program-list").append('<li class="ui-widget-content program-list-item">' + model.get('name') + '</li>');
                 });
-                
+
                 $("#program-list").selectable({
-                    stop: function () {
+                    stop: function() {
                         var result = $("#select-program").empty();
-                        $(".ui-selected", this).each(function () {
+                        $(".ui-selected", this).each(function() {
                             var index = $("#program-list li").index(this);
                             _this.selectedIndex = index;
                             result.append(" #" + (index + 1));

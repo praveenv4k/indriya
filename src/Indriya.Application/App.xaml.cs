@@ -19,6 +19,8 @@ namespace Indriya.Application
                 var bootStrapper = new BootStrapper(configFile);
                 RunTests(TinyIoCContainer.Current.Resolve<AppConfig>());
                 bootStrapper.StartUp();
+                // Wait until the web server is running. Mimic delay
+                System.Threading.Thread.Sleep(1000);
             }
             base.OnStartup(e);
         }

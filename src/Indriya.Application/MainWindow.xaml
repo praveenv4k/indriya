@@ -4,9 +4,10 @@
          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
+        xmlns:mvvm="clr-namespace:Indriya.Application.Mvvm"
        xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
-             
-        Title="Indriya Application" Height="768" Width="1024" FontSize="14">
+             xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
+        Title="Indriya Application" Height="800" Width="1200" FontSize="14">
     <Grid>
         <Grid.Resources>
             <DataTemplate x:Key="titleText">
@@ -24,146 +25,362 @@
                         TextWrapping="Wrap"/>
             </DataTemplate>
         </Grid.Resources>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="250"></RowDefinition>
-            <!--<RowDefinition></RowDefinition>-->
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
+        <!--<Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="400"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <cefSharp:ChromiumWebBrowser DataContext="{Binding TabViewModel}" Grid.Row="0" Grid.Column="0" x:Name="browser"
+            <ColumnDefinition Width="200"></ColumnDefinition>
+        </Grid.ColumnDefinitions>-->
+        <!--<cefSharp:ChromiumWebBrowser DataContext="{Binding TabViewModel}" Grid.Row="0" Grid.Column="0" x:Name="browser"
                                   Address="{Binding Address, Mode=TwoWay}"
                                   Title="{Binding Title, Mode=OneWayToSource}"
                                   AllowDrop="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                                   WebBrowser="{Binding WebBrowser, Mode=OneWayToSource}" ConsoleMessage="BrowserOnConsoleMessage">
             
-        </cefSharp:ChromiumWebBrowser>
-        <ScrollViewer HorizontalAlignment="Stretch"
-		      VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="1">
-        <StackPanel  Orientation="Vertical" DataContext="{Binding Context}">
-            <TextBlock HorizontalAlignment="Center" FontSize="18">World Description</TextBlock>
-            <Expander Header="Robot Information" DataContext="{Binding Robot}" HorizontalAlignment="Stretch" IsExpanded="False">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <StackPanel DataContext="{Binding Localization}" Grid.Row="0">
-                        <TextBlock>Position</TextBlock>
-                        <StackPanel DataContext="{Binding Position}" Orientation="Horizontal" HorizontalAlignment="Stretch">
-                            <TextBlock Text="{Binding x, StringFormat='X: {0:0.#} mm'}" Margin="5"></TextBlock>
-                            <TextBlock Text="{Binding y, StringFormat='Y: {0:0.#} mm'}" Margin="5"></TextBlock>
-                            <TextBlock Text="{Binding z, StringFormat='Z: {0:0.#} mm'}" Margin="5"></TextBlock>
-                        </StackPanel>
-                        <TextBlock>Orientation</TextBlock>
-                        <StackPanel DataContext="{Binding Orientation}" Orientation="Horizontal" HorizontalAlignment="Stretch">
-                            <TextBlock Text="{Binding w, StringFormat='W: {0:0.####}'}" Margin="5"></TextBlock>
-                            <TextBlock Text="{Binding x, StringFormat='X: {0:0.####}'}" Margin="5"></TextBlock>
-                            <TextBlock Text="{Binding y, StringFormat='Y: {0:0.####}'}" Margin="5"></TextBlock>
-                            <TextBlock Text="{Binding z, StringFormat='Z: {0:0.####}'}" Margin="5"></TextBlock>
-                        </StackPanel>
-                    </StackPanel>
-                    <StackPanel Grid.Row="1">
-                    </StackPanel>
-                    
-                    
-                </Grid>
-            </Expander>
-            <!--<Expander Header="{Binding Humans.Count, StringFormat='Human Information - Count: {0}'}" HorizontalAlignment="Stretch" IsExpanded="False" >-->
-                <Expander HorizontalAlignment="Stretch" IsExpanded="False" HeaderTemplate="{StaticResource titleText}" Header="Human Information">
-                    <ItemsControl ItemsSource="{Binding Humans}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Border BorderBrush="DimGray" BorderThickness="2" CornerRadius="2">
-                                    <Grid Margin="0,0,0,5">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition></RowDefinition>
-                                            <RowDefinition></RowDefinition>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock HorizontalAlignment="Center" Text="{Binding Id, StringFormat='Human - {0}'}" Grid.Row="0" />
-                                        <DataGrid ItemsSource="{Binding Gestures}" Grid.Row="1" IsReadOnly="True" VerticalScrollBarVisibility="Auto"></DataGrid>
-                                        <!--<ItemsControl ItemsSource="{Binding Gestures}" Grid.Row="1">
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <StackPanel>
-                                                    <TextBlock HorizontalAlignment="Center" Text="{Binding Name, StringFormat='Name - {0}'}" />
-                                                    <TextBlock HorizontalAlignment="Center" Text="{Binding Mode, StringFormat='Mode - {0}'}" />
-                                                </StackPanel>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>-->
-                                    </Grid>
-                                </Border>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Expander>
-            <Expander Header="Object Information" DataContext="{Binding Robot}" HorizontalAlignment="Stretch" IsExpanded="False">
-            </Expander>
-            <Expander Header="Speech Recognition" DataContext="{Binding VoiceCommandManager}" HorizontalAlignment="Stretch" IsExpanded="False">
-                    <StackPanel DataContext="{Binding Current}">
-                        <TextBlock HorizontalAlignment="Stretch" Text="{Binding Command, StringFormat='Command - {0}'}"></TextBlock>
-                        <TextBlock HorizontalAlignment="Stretch" Text="{Binding Active, StringFormat='Active - {0}'}"></TextBlock>
-                        <TextBlock HorizontalAlignment="Stretch" Text="{Binding Confidence, StringFormat='Confidence - {0}'}"></TextBlock>
-                        <TextBlock HorizontalAlignment="Stretch" Text="{Binding Language, StringFormat='Language - {0}'}"></TextBlock>
-                        <TextBlock HorizontalAlignment="Stretch" Text="{Binding TriggerAt, StringFormat='TriggerAt - {0}'}"></TextBlock>
-                    </StackPanel>
-                </Expander>
-            <Expander Header="Motion Modules" HorizontalAlignment="Stretch" IsExpanded="False">
-                <ItemsControl ItemsSource="{Binding MotionModules}">
-                    <ItemsControl.ItemTemplate>
+        </cefSharp:ChromiumWebBrowser>-->
+
+
+        <!--<avalonDock:DockingManager x:Name="dockingManager" DocumentsSource="{Binding Documents}" AnchorablesSource="{Binding Anchorables}">-->
+        <avalonDock:DockingManager x:Name="dockingManager" DocumentsSource="{Binding Documents}">
+            <avalonDock:DockingManager.LayoutItemContainerStyle>
+                <Style TargetType="{x:Type avalonDock:LayoutItem}">
+                    <Setter Property="Title" Value="{Binding Model.Title}" />
+                </Style>
+            </avalonDock:DockingManager.LayoutItemContainerStyle>
+            <avalonDock:DockingManager.LayoutItemTemplateSelector>
+                <mvvm:DocumentTemplateSelector>
+                    <mvvm:DocumentTemplateSelector.Template>
                         <DataTemplate>
-                            <Border BorderBrush="DimGray" BorderThickness="2" CornerRadius="2">
-                                <Grid Margin="0,0,0,5">
+                        <cefSharp:ChromiumWebBrowser Address="{Binding Address, Mode=TwoWay}"
+                                      Title="{Binding Title, Mode=OneWayToSource}"
+                                      AllowDrop="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                      WebBrowser="{Binding WebBrowser, Mode=OneWayToSource}" ConsoleMessage="BrowserOnConsoleMessage">
+                        </cefSharp:ChromiumWebBrowser>
+                        </DataTemplate>
+                    </mvvm:DocumentTemplateSelector.Template>
+                </mvvm:DocumentTemplateSelector>
+            </avalonDock:DockingManager.LayoutItemTemplateSelector>
+            <!--<avalonDock:DockingManager.AnchorTemplate>
+                <ControlTemplate TargetType="avalonDock:LayoutAnchorControl">
+                    <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <StackPanel  Orientation="Vertical">
+                            <TextBlock HorizontalAlignment="Center" FontSize="18">World Description</TextBlock>
+                            <Expander Header="Robot Information" DataContext="{Binding Robot}" HorizontalAlignment="Stretch" IsExpanded="False">
+                                <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition></RowDefinition>
                                         <RowDefinition></RowDefinition>
                                     </Grid.RowDefinitions>
-                                    <TextBlock HorizontalAlignment="Center" Text="{Binding Name}" Grid.Row="0" />
-                                    <DataGrid ItemsSource="{Binding Gestures}" Grid.Row="1" IsReadOnly="True" VerticalScrollBarVisibility="Auto"></DataGrid>
-                                </Grid>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </Expander>
-            <Expander Header="Behavior Modules" HorizontalAlignment="Stretch" IsExpanded="False">
-                <ItemsControl ItemsSource="{Binding BehaviorModules}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border BorderBrush="DimGray" BorderThickness="2" CornerRadius="2">
-                                    <Grid Margin="0,0,0,5">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition></RowDefinition>
-                                            <RowDefinition></RowDefinition>
-                                        </Grid.RowDefinitions>
-                                        <StackPanel Orientation="Horizontal" Grid.Row="0">
-                                            <TextBlock HorizontalAlignment="Right" Text="{Binding name}"  />
-                                            <TextBlock HorizontalAlignment="Left" Text="{Binding robot}"  />
+                                    <StackPanel DataContext="{Binding Localization}" Grid.Row="0">
+                                        <TextBlock>Position</TextBlock>
+                                        <StackPanel DataContext="{Binding Position}" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                            <TextBlock Text="{Binding x, StringFormat='X: {0:0.#} mm'}" Margin="5"></TextBlock>
+                                            <TextBlock Text="{Binding y, StringFormat='Y: {0:0.#} mm'}" Margin="5"></TextBlock>
+                                            <TextBlock Text="{Binding z, StringFormat='Z: {0:0.#} mm'}" Margin="5"></TextBlock>
                                         </StackPanel>
+                                        <TextBlock>Orientation</TextBlock>
+                                        <StackPanel DataContext="{Binding Orientation}" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                            <TextBlock Text="{Binding w, StringFormat='W: {0:0.####}'}" Margin="5"></TextBlock>
+                                            <TextBlock Text="{Binding x, StringFormat='X: {0:0.####}'}" Margin="5"></TextBlock>
+                                            <TextBlock Text="{Binding y, StringFormat='Y: {0:0.####}'}" Margin="5"></TextBlock>
+                                            <TextBlock Text="{Binding z, StringFormat='Z: {0:0.####}'}" Margin="5"></TextBlock>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1">
+                                    </StackPanel>
 
-                                        <DataGrid ItemsSource="{Binding behaviors}" Grid.Row="1" IsReadOnly="True"></DataGrid>
-                                    </Grid>
-                                </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </Expander>
-            <!--<StackPanel Orientation="Horizontal" Margin="5">
-                <Button Height="35" Width="100" Margin="5" Click="ProgramRun">Run</Button>
-                <Button Height="35" Width="100" Margin="5" Click="ProgramStop">Stop</Button>
-            </StackPanel>-->
-        </StackPanel>
-        </ScrollViewer>
-        <RichTextBox x:Name="textBox" Grid.Row="1" Grid.ColumnSpan="2">
-            
-        </RichTextBox>
-        <!--<xctk:PropertyGrid ShowSortOptions="False" IsCategorized="False"
-                       BorderThickness="0" 
-                           IsReadOnly="True"
-                       Background="#EEEEF2" x:Name="context" Grid.Row="0" Grid.RowSpan="1" Grid.Column="1" SelectedObject="{Binding Context}"></xctk:PropertyGrid>-->
-        
+
+                                </Grid>
+                            </Expander>
+                            <Expander HorizontalAlignment="Stretch" IsExpanded="False" HeaderTemplate="{StaticResource titleText}" Header="Human Information">
+                                <ItemsControl ItemsSource="{Binding Humans}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border BorderBrush="DimGray" BorderThickness="2" CornerRadius="2">
+                                                <Grid Margin="0,0,0,5">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <TextBlock HorizontalAlignment="Center" Text="{Binding Id, StringFormat='Human - {0}'}" Grid.Row="0" />
+                                                    <DataGrid ItemsSource="{Binding Gestures}" Grid.Row="1" IsReadOnly="True" VerticalScrollBarVisibility="Auto"></DataGrid>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Expander>
+                            <Expander Header="Object Information" DataContext="{Binding Robot}" HorizontalAlignment="Stretch" IsExpanded="False">
+                            </Expander>
+                            <Expander Header="Speech Recognition" DataContext="{Binding VoiceCommandManager}" HorizontalAlignment="Stretch" IsExpanded="False">
+                                <StackPanel DataContext="{Binding Current}">
+                                    <TextBlock HorizontalAlignment="Stretch" Text="{Binding Command, StringFormat='Command - {0}'}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Stretch" Text="{Binding Active, StringFormat='Active - {0}'}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Stretch" Text="{Binding Confidence, StringFormat='Confidence - {0}'}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Stretch" Text="{Binding Language, StringFormat='Language - {0}'}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Stretch" Text="{Binding TriggerAt, StringFormat='TriggerAt - {0}'}"></TextBlock>
+                                </StackPanel>
+                            </Expander>
+                            <Expander Header="Motion Modules" HorizontalAlignment="Stretch" IsExpanded="False">
+                                <ItemsControl ItemsSource="{Binding MotionModules}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border BorderBrush="DimGray" BorderThickness="2" CornerRadius="2">
+                                                <Grid Margin="0,0,0,5">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <TextBlock HorizontalAlignment="Center" Text="{Binding Name}" Grid.Row="0" />
+                                                    <DataGrid ItemsSource="{Binding Gestures}" Grid.Row="1" IsReadOnly="True" VerticalScrollBarVisibility="Auto"></DataGrid>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Expander>
+                            <Expander Header="Behavior Modules" HorizontalAlignment="Stretch" IsExpanded="False">
+                                <ItemsControl ItemsSource="{Binding BehaviorModules}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border BorderBrush="DimGray" BorderThickness="2" CornerRadius="2">
+                                                <Grid Margin="0,0,0,5">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <StackPanel Orientation="Horizontal" Grid.Row="0">
+                                                        <TextBlock HorizontalAlignment="Right" Text="{Binding name}"  />
+                                                        <TextBlock HorizontalAlignment="Left" Text="{Binding robot}"  />
+                                                    </StackPanel>
+
+                                                    <DataGrid ItemsSource="{Binding behaviors}" Grid.Row="1" IsReadOnly="True"></DataGrid>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Expander>
+                        </StackPanel>
+                    </ScrollViewer>
+                </ControlTemplate>
+            </avalonDock:DockingManager.AnchorTemplate>-->
+            <avalonDock:LayoutRoot>
+                <avalonDock:LayoutPanel Orientation="Horizontal">
+                    <avalonDock:LayoutDocumentPane/>
+                    <avalonDock:LayoutAnchorablePane DockMinWidth="250"/>
+                    <!--<avalonDock:LayoutAnchorablePane  DockWidth="250">
+                        <avalonDock:LayoutAnchorable>
+                            <ControlTemplate>
+                                <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                    <StackPanel  Orientation="Vertical">
+                                        --><!--<TextBlock HorizontalAlignment="Center" FontSize="18">World Description</TextBlock>--><!--
+                                        <Expander Header="Robot Information" DataContext="{Binding Robot}" HorizontalAlignment="Stretch" IsExpanded="False">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <StackPanel DataContext="{Binding Localization}" Grid.Row="0">
+                                                    <TextBlock>Position</TextBlock>
+                                                    <StackPanel DataContext="{Binding Position}" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                                        <TextBlock Text="{Binding x, StringFormat='X: {0:0.#} mm'}" Margin="5"></TextBlock>
+                                                        <TextBlock Text="{Binding y, StringFormat='Y: {0:0.#} mm'}" Margin="5"></TextBlock>
+                                                        <TextBlock Text="{Binding z, StringFormat='Z: {0:0.#} mm'}" Margin="5"></TextBlock>
+                                                    </StackPanel>
+                                                    <TextBlock>Orientation</TextBlock>
+                                                    <StackPanel DataContext="{Binding Orientation}" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                                        <TextBlock Text="{Binding w, StringFormat='W: {0:0.####}'}" Margin="5"></TextBlock>
+                                                        <TextBlock Text="{Binding x, StringFormat='X: {0:0.####}'}" Margin="5"></TextBlock>
+                                                        <TextBlock Text="{Binding y, StringFormat='Y: {0:0.####}'}" Margin="5"></TextBlock>
+                                                        <TextBlock Text="{Binding z, StringFormat='Z: {0:0.####}'}" Margin="5"></TextBlock>
+                                                    </StackPanel>
+                                                </StackPanel>
+                                                <StackPanel Grid.Row="1">
+                                                </StackPanel>
+
+
+                                            </Grid>
+                                        </Expander>
+                                        <Expander HorizontalAlignment="Stretch" IsExpanded="False" HeaderTemplate="{StaticResource titleText}" Header="Human Information">
+                                            <ItemsControl ItemsSource="{Binding Humans}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border BorderBrush="DimGray" BorderThickness="2" CornerRadius="2">
+                                                            <Grid Margin="0,0,0,5">
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition></RowDefinition>
+                                                                    <RowDefinition></RowDefinition>
+                                                                </Grid.RowDefinitions>
+                                                                <TextBlock HorizontalAlignment="Center" Text="{Binding Id, StringFormat='Human - {0}'}" Grid.Row="0" />
+                                                                <DataGrid ItemsSource="{Binding Gestures}" Grid.Row="1" IsReadOnly="True" VerticalScrollBarVisibility="Auto"></DataGrid>
+                                                            </Grid>
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Expander>
+                                        <Expander Header="Object Information" DataContext="{Binding Robot}" HorizontalAlignment="Stretch" IsExpanded="False">
+                                        </Expander>
+                                        <Expander Header="Speech Recognition" DataContext="{Binding VoiceCommandManager}" HorizontalAlignment="Stretch" IsExpanded="False">
+                                            <StackPanel DataContext="{Binding Current}">
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding Command, StringFormat='Command - {0}'}"></TextBlock>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding Active, StringFormat='Active - {0}'}"></TextBlock>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding Confidence, StringFormat='Confidence - {0}'}"></TextBlock>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding Language, StringFormat='Language - {0}'}"></TextBlock>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding TriggerAt, StringFormat='TriggerAt - {0}'}"></TextBlock>
+                                            </StackPanel>
+                                        </Expander>
+                                        <Expander Header="Motion Modules" HorizontalAlignment="Stretch" IsExpanded="False">
+                                            <ItemsControl ItemsSource="{Binding MotionModules}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border BorderBrush="DimGray" BorderThickness="2" CornerRadius="2">
+                                                            <Grid Margin="0,0,0,5">
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition></RowDefinition>
+                                                                    <RowDefinition></RowDefinition>
+                                                                </Grid.RowDefinitions>
+                                                                <TextBlock HorizontalAlignment="Center" Text="{Binding Name}" Grid.Row="0" />
+                                                                <DataGrid ItemsSource="{Binding Gestures}" Grid.Row="1" IsReadOnly="True" VerticalScrollBarVisibility="Auto"></DataGrid>
+                                                            </Grid>
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Expander>
+                                        <Expander Header="Behavior Modules" HorizontalAlignment="Stretch" IsExpanded="False">
+                                            <ItemsControl ItemsSource="{Binding BehaviorModules}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border BorderBrush="DimGray" BorderThickness="2" CornerRadius="2">
+                                                            <Grid Margin="0,0,0,5">
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition></RowDefinition>
+                                                                    <RowDefinition></RowDefinition>
+                                                                </Grid.RowDefinitions>
+                                                                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                                                                    <TextBlock HorizontalAlignment="Right" Text="{Binding name}"  />
+                                                                    <TextBlock HorizontalAlignment="Left" Text="{Binding robot}"  />
+                                                                </StackPanel>
+
+                                                                <DataGrid ItemsSource="{Binding behaviors}" Grid.Row="1" IsReadOnly="True"></DataGrid>
+                                                            </Grid>
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Expander>
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </ControlTemplate>
+                        </avalonDock:LayoutAnchorable>
+                    </avalonDock:LayoutAnchorablePane>-->
+                    <!--<avalonDock:LayoutAnchorablePane DockWidth="250">
+                        <avalonDock:LayoutAnchorable Title="Application context">
+                            <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <StackPanel  Orientation="Vertical" DataContext="{Binding Context}">
+                                        <TextBlock HorizontalAlignment="Center" FontSize="18">World Description</TextBlock>
+                                    <Expander Header="Robot Information" DataContext="{Binding Context.Robot}" HorizontalAlignment="Stretch" IsExpanded="False">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <StackPanel DataContext="{Binding Localization}" Grid.Row="0">
+                                                <TextBlock>Position</TextBlock>
+                                                <StackPanel DataContext="{Binding Position}" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                                    <TextBlock Text="{Binding x, StringFormat='X: {0:0.#} mm'}" Margin="5"></TextBlock>
+                                                    <TextBlock Text="{Binding y, StringFormat='Y: {0:0.#} mm'}" Margin="5"></TextBlock>
+                                                    <TextBlock Text="{Binding z, StringFormat='Z: {0:0.#} mm'}" Margin="5"></TextBlock>
+                                                </StackPanel>
+                                                <TextBlock>Orientation</TextBlock>
+                                                <StackPanel DataContext="{Binding Orientation}" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                                    <TextBlock Text="{Binding w, StringFormat='W: {0:0.####}'}" Margin="5"></TextBlock>
+                                                    <TextBlock Text="{Binding x, StringFormat='X: {0:0.####}'}" Margin="5"></TextBlock>
+                                                    <TextBlock Text="{Binding y, StringFormat='Y: {0:0.####}'}" Margin="5"></TextBlock>
+                                                    <TextBlock Text="{Binding z, StringFormat='Z: {0:0.####}'}" Margin="5"></TextBlock>
+                                                </StackPanel>
+                                            </StackPanel>
+                                            <StackPanel Grid.Row="1">
+                                            </StackPanel>
+
+
+                                        </Grid>
+                                    </Expander>
+                                    <Expander HorizontalAlignment="Stretch" IsExpanded="False" HeaderTemplate="{StaticResource titleText}" Header="Human Information">
+                                        <ItemsControl ItemsSource="{Binding Humans}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border BorderBrush="DimGray" BorderThickness="2" CornerRadius="2">
+                                                        <Grid Margin="0,0,0,5">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition></RowDefinition>
+                                                                <RowDefinition></RowDefinition>
+                                                            </Grid.RowDefinitions>
+                                                            <TextBlock HorizontalAlignment="Center" Text="{Binding Id, StringFormat='Human - {0}'}" Grid.Row="0" />
+                                                            <DataGrid ItemsSource="{Binding Gestures}" Grid.Row="1" IsReadOnly="True" VerticalScrollBarVisibility="Auto"></DataGrid>
+                                                        </Grid>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Expander>
+                                    <Expander Header="Object Information" DataContext="{Binding Robot}" HorizontalAlignment="Stretch" IsExpanded="False">
+                                    </Expander>
+                                    <Expander Header="Speech Recognition" DataContext="{Binding VoiceCommandManager}" HorizontalAlignment="Stretch" IsExpanded="False">
+                                        <StackPanel DataContext="{Binding Current}">
+                                            <TextBlock HorizontalAlignment="Stretch" Text="{Binding Command, StringFormat='Command - {0}'}"></TextBlock>
+                                            <TextBlock HorizontalAlignment="Stretch" Text="{Binding Active, StringFormat='Active - {0}'}"></TextBlock>
+                                            <TextBlock HorizontalAlignment="Stretch" Text="{Binding Confidence, StringFormat='Confidence - {0}'}"></TextBlock>
+                                            <TextBlock HorizontalAlignment="Stretch" Text="{Binding Language, StringFormat='Language - {0}'}"></TextBlock>
+                                            <TextBlock HorizontalAlignment="Stretch" Text="{Binding TriggerAt, StringFormat='TriggerAt - {0}'}"></TextBlock>
+                                        </StackPanel>
+                                    </Expander>
+                                    <Expander Header="Motion Modules" HorizontalAlignment="Stretch" IsExpanded="False">
+                                        <ItemsControl ItemsSource="{Binding MotionModules}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border BorderBrush="DimGray" BorderThickness="2" CornerRadius="2">
+                                                        <Grid Margin="0,0,0,5">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition></RowDefinition>
+                                                                <RowDefinition></RowDefinition>
+                                                            </Grid.RowDefinitions>
+                                                            <TextBlock HorizontalAlignment="Center" Text="{Binding Name}" Grid.Row="0" />
+                                                            <DataGrid ItemsSource="{Binding Gestures}" Grid.Row="1" IsReadOnly="True" VerticalScrollBarVisibility="Auto"></DataGrid>
+                                                        </Grid>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Expander>
+                                    <Expander Header="Behavior Modules" HorizontalAlignment="Stretch" IsExpanded="False">
+                                        <ItemsControl ItemsSource="{Binding BehaviorModules}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border BorderBrush="DimGray" BorderThickness="2" CornerRadius="2">
+                                                        <Grid Margin="0,0,0,5">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition></RowDefinition>
+                                                                <RowDefinition></RowDefinition>
+                                                            </Grid.RowDefinitions>
+                                                            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                                                                <TextBlock HorizontalAlignment="Right" Text="{Binding name}"  />
+                                                                <TextBlock HorizontalAlignment="Left" Text="{Binding robot}"  />
+                                                            </StackPanel>
+
+                                                            <DataGrid ItemsSource="{Binding behaviors}" Grid.Row="1" IsReadOnly="True"></DataGrid>
+                                                        </Grid>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Expander>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </avalonDock:LayoutAnchorable>
+                    </avalonDock:LayoutAnchorablePane>-->
+                </avalonDock:LayoutPanel>
+            </avalonDock:LayoutRoot>
+        </avalonDock:DockingManager>
     </Grid>
 </Window>

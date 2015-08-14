@@ -20,7 +20,7 @@ define(['app', 'underscore', 'backbone', 'marionette', 'jquery', 'text!templates
                 var globalCh = Backbone.Wreqr.radio.channel('global');
                 globalCh.vent.trigger("saveProgram", name);
             },
-            onShow: function () {
+            onShow: function() {
                 var name = "";
                 console.log(this.model);
                 if (this.model != undefined) {

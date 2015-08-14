@@ -40,17 +40,14 @@
       <Name>WixNetFxExtension</Name>
     </WixExtension>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Generated" />
-  </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <PropertyGroup>
-    <PreBuildEvent>"$(WIX)bin\heat.exe" dir $(INDRIYA_ROOT)\bin\ -gg -srd -sfrag -var wix.BinSource -dr BIN -cg Bin -out "$(ProjectDir)Bin.wxs"
-"$(WIX)bin\heat.exe" dir $(INDRIYA_ROOT)\data\ -gg -srd -sfrag -var wix.DataSource -dr DATA -cg Data -out "$(ProjectDir)Data.wxs"
-"$(WIX)bin\heat.exe" dir $(INDRIYA_ROOT)\scripts\ -gg -srd -sfrag -var wix.ScriptsSource -dr SCRIPTS -cg Scripts -out "$(ProjectDir)Scripts.wxs"
-"$(WIX)bin\heat.exe" dir $(INDRIYA_ROOT)\share\ -gg -srd -sfrag -var wix.ShareDataSource -dr SHARE -cg Share -out "$(ProjectDir)Share.wxs"
-"$(WIX)bin\heat.exe" dir $(INDRIYA_DATA_ROOT)\scriptcs\ -gg -srd -sfrag -var wix.ScriptCsDataSource -dr SCRIPTCS -cg Scriptcs -out "$(ProjectDir)Scriptcs.wxs"
-"$(WIX)bin\heat.exe" dir $(INDRIYA_WEB_ROOT) -gg -srd -sfrag -var wix.WebSource -dr WEB -cg Web -out "$(ProjectDir)Web.wxs"</PreBuildEvent>
+    <PreBuildEvent>"$(WIX)bin\heat.exe" dir $(INDRIYA_ROOT)\bin\ -gg -srd -sfrag -var wix.BinPath -dr BIN -cg Bin -out "$(ProjectDir)Bin.wxs"
+"$(WIX)bin\heat.exe" dir $(INDRIYA_ROOT)\data\ -gg -srd -sfrag -var wix.DataPath -dr DATA -cg Data -out "$(ProjectDir)Data.wxs"
+"$(WIX)bin\heat.exe" dir $(INDRIYA_ROOT)\scripts\ -gg -srd -sfrag -var wix.ScriptsPath -dr SCRIPTS -cg Scripts -out "$(ProjectDir)Scripts.wxs"
+"$(WIX)bin\heat.exe" dir $(INDRIYA_ROOT)\share\ -gg -srd -sfrag -var wix.ShareDataPath -dr SHARE -cg Share -out "$(ProjectDir)Share.wxs"
+"$(WIX)bin\heat.exe" dir $(INDRIYA_DATA_ROOT)\scriptcs\ -gg -srd -sfrag -var wix.ScriptCsDataPath -dr SCRIPTCS -cg Scriptcs -out "$(ProjectDir)Scriptcs.wxs"
+"$(WIX)bin\heat.exe" dir $(INDRIYA_WEB_ROOT) -gg -srd -sfrag -var wix.WebPath -dr WEB -cg Web -out "$(ProjectDir)Web.wxs"</PreBuildEvent>
   </PropertyGroup>
   <!--
 	To modify your build process, add your task inside one of the targets below and uncomment it.

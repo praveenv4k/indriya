@@ -6,12 +6,12 @@
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 		<MediaTemplate />
 
-    <WixVariable Id="BinSource" Value="$(env.INDRIYA_ROOT)\bin"/>
-    <WixVariable Id="DataSource" Value="$(env.INDRIYA_ROOT)\data"/>
-    <WixVariable Id="ScriptsSource" Value="$(env.INDRIYA_ROOT)\scripts"/>
-    <WixVariable Id="ShareDataSource" Value="$(env.INDRIYA_ROOT)\share"/>
-    <WixVariable Id="ScriptCsDataSource" Value="$(env.INDRIYA_DATA_ROOT)\scriptcs"/>
-    <WixVariable Id="WebSource" Value="$(env.INDRIYA_WEB_ROOT)"/>
+    <WixVariable Id="BinPath" Value="$(env.INDRIYA_ROOT)\bin"/>
+    <WixVariable Id="DataPath" Value="$(env.INDRIYA_ROOT)\data"/>
+    <WixVariable Id="ScriptsPath" Value="$(env.INDRIYA_ROOT)\scripts"/>
+    <WixVariable Id="ShareDataPath" Value="$(env.INDRIYA_ROOT)\share"/>
+    <WixVariable Id="ScriptCsDataPath" Value="$(env.INDRIYA_DATA_ROOT)\scriptcs"/>
+    <WixVariable Id="WebPath" Value="$(env.INDRIYA_WEB_ROOT)"/>
     
 		<Feature Id="ProductFeature" Title="IndriyaInstaller" Level="1">
 			<!--<ComponentGroupRef Id="ProductComponents" />-->
@@ -99,7 +99,5 @@
                          Value="[INDRIYADATAFOLDER]" />
       </Component>
     </ComponentGroup>
-		<!--<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-		</ComponentGroup>-->
 	</Fragment>
 </Wix>

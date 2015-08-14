@@ -1,15 +1,15 @@
 ﻿// program.js
 // Praveenkumar VASUDEVAN
 define(["jquery", "backbone"],
-    function ($, backbone) {
+    function($, backbone) {
         var program = backbone.Model.extend({
-            initialize: function () {
+            initialize: function() {
             },
             defaults: {
+            
             },
-            validate: function (attrs) {
+            validate: function(attrs) {
             }
         });
         return program;
-    }
-);
+    });
