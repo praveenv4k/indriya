@@ -1,32 +1,15 @@
 ﻿// Model.js
-// --------
+// Praveenkumar VASUDEVAN
 define(["jquery", "backbone"],
-
-    function ($, backbone) {
-
-        // Creates a new Backbone Model class object
+    function($, backbone) {
         var model = backbone.Model.extend({
-
-            // Model Constructor
-            initialize: function () {
-
+            initialize: function() {
             },
-
-            // Default values for all of the Model attributes
             defaults: {
-
+            
             },
-
-            // Gets called automatically by Backbone when the set and/or save methods are called (Add your own logic)
-            validate: function (attrs) {
-
+            validate: function(attrs) {
             }
-
         });
-
-        // Returns the Model class
         return model;
-
-    }
-
-);
+    });

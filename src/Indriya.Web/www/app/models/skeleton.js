@@ -1,4 +1,6 @@
-﻿define(['jquery', 'underscore', 'backbone'],
+﻿// skeleton.js
+// Praveenkumar VASUDEVAN
+define(['jquery', 'underscore', 'backbone'],
     function ($, _, backbone) {
         //ItemView provides some default rendering logic
         var skeleton = backbone.Model.extend({

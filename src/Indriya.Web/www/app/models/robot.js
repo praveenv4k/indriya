@@ -1,6 +1,7 @@
-﻿define(['jquery', 'underscore', 'backbone'],
-    function ($, _, backbone) {
-        //ItemView provides some default rendering logic
+﻿// robot.js
+// Praveenkumar VASUDEVAN
+define(['jquery', 'underscore', 'backbone'],
+    function($, _, backbone) {
         var robot = backbone.Model.extend({
             url: '/robot'
         });

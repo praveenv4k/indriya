@@ -1,4 +1,6 @@
-﻿define(['jquery', 'underscore', 'backbone'],
+﻿// jointvalue.js
+// Praveenkumar VASUDEVAN
+define(['jquery', 'underscore', 'backbone'],
     function($, _, backbone) {
         //ItemView provides some default rendering logic
         var JointValues = backbone.Model.extend({

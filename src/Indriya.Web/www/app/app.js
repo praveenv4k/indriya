@@ -2,7 +2,7 @@
     function($, Backbone, Marionette, _) {
         var app = new Backbone.Marionette.Application();
 
-        function isMobile() {
+        function isMobileDevice() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
             return ((/iPhone|iPod|iPad|Android|BlackBerry|Opera Mini|IEMobile/).test(userAgent));
         }
@@ -23,7 +23,7 @@
             Backbone.history.start();
         });
 
-        app.mobile = isMobile();
+        app.mobile = isMobileDevice();
 
         return app;
     });

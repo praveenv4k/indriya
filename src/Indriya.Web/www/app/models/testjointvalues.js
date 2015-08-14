@@ -1,6 +1,7 @@
-﻿define(['jquery', 'underscore', 'backbone'],
+﻿// testjointvalues.js
+// Praveenkumar VASUDEVAN
+define(['jquery', 'underscore', 'backbone'],
     function($, _, backbone) {
-        //ItemView provides some default rendering logic
         var testJointVals = backbone.Model.extend({
             urlRoot: '/testjointvals/',
             id: 0,

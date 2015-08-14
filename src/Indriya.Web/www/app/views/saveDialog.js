@@ -1,4 +1,6 @@
-﻿define(['app', 'underscore', 'backbone', 'marionette', 'jquery', 'text!templates/saveDialog.html', 'backboneMarionetteModals'],
+﻿// saveDialog.js
+// Praveenkumar VASUDEVAN
+define(['app', 'underscore', 'backbone', 'marionette', 'jquery', 'text!templates/saveDialog.html', 'backboneMarionetteModals'],
     function(app, _, Backbone, Marionette, $, template) {
         //ItemView provides some default rendering logic
         return Backbone.Modal.extend({
@@ -24,7 +26,6 @@
                 if (this.model != undefined) {
                     name = this.model.get('name');
                 }
-                //result = $("#program-save-text").empty();
                 if (name === "") {
                     var d = new Date($.now());
                     name = d.getYear() + d.getMonth() + d.getDay() + "_" + d.getHours() + d.getMinutes() + d.getSeconds();
@@ -34,13 +35,4 @@
             submitEl: '.bbm-button'
 
         });
-        //return Marionette.Modals.extend({
-        //    template: _.template(template),
-        //    // View Event Handlers
-        //    events: {
-
-        //    },
-        //    submitEl: '.bbm-button'
-
-        //});
     });
