@@ -3,23 +3,23 @@
     <Fragment>
         <DirectoryRef Id="DATA">
             <Directory Id="dir621E4AEC50C733F7D47E9CAFBD21B26B" Name="calib">
-                <Component Id="cmpEB1F3AAFEC39FC47AAB77C5FCCC65799" Guid="{89761B93-F407-4C0A-A9E8-D693EC12F4B1}">
-                    <File Id="filA7C7DBE3797FD7482E5F5BD667F4A644" KeyPath="yes" Source="!(wix.DataSource)\calib\camera_calibration_kinect_1600.xml" />
+                <Component Id="cmpEB1F3AAFEC39FC47AAB77C5FCCC65799" Guid="{EFD7AC03-EBD1-47C3-9337-68344CCE0D1A}">
+                    <File Id="filA7C7DBE3797FD7482E5F5BD667F4A644" KeyPath="yes" Source="!(wix.DataPath)\calib\camera_calibration_kinect_1600.xml" />
                 </Component>
-                <Component Id="cmp613BDFBF4952EC9DDDF47B41F472F37B" Guid="{779A07C4-81F9-42A9-8EBA-44AB9D705760}">
-                    <File Id="fil59516EE36A1EC783FDCA3BA511E13BF7" KeyPath="yes" Source="!(wix.DataSource)\calib\camera_calibration_kinect_1600_al.xml" />
+                <Component Id="cmp613BDFBF4952EC9DDDF47B41F472F37B" Guid="{98DAB0A6-82A1-4C40-B524-57DB3EFFBDBB}">
+                    <File Id="fil59516EE36A1EC783FDCA3BA511E13BF7" KeyPath="yes" Source="!(wix.DataPath)\calib\camera_calibration_kinect_1600_al.xml" />
                 </Component>
-                <Component Id="cmp303A06B0D27B6FB9BB6205F5E917ECB1" Guid="{D673E601-A96A-4879-84B9-8F49C8310EA9}">
-                    <File Id="fil668EF07D41F2BE5815BA839D48E5A7CF" KeyPath="yes" Source="!(wix.DataSource)\calib\camera_calibration_kinect_1600_old.xml" />
+                <Component Id="cmp303A06B0D27B6FB9BB6205F5E917ECB1" Guid="{C4B2D62A-C8BF-445E-BB4E-83C93B7C4C6A}">
+                    <File Id="fil668EF07D41F2BE5815BA839D48E5A7CF" KeyPath="yes" Source="!(wix.DataPath)\calib\camera_calibration_kinect_1600_old.xml" />
                 </Component>
-                <Component Id="cmpB619ED43F5499D0CE379B12091FADCDF" Guid="{D0774C6C-70A6-4CE5-8CCA-64AE1FC2109F}">
-                    <File Id="filD8AD7DB5AE1835DF42BA3A1988F9D8EC" KeyPath="yes" Source="!(wix.DataSource)\calib\out_camera_data.yml" />
+                <Component Id="cmpB619ED43F5499D0CE379B12091FADCDF" Guid="{BBEA1EF4-AE6D-4041-AAAD-07829957ABCE}">
+                    <File Id="filD8AD7DB5AE1835DF42BA3A1988F9D8EC" KeyPath="yes" Source="!(wix.DataPath)\calib\out_camera_data.yml" />
                 </Component>
-                <Component Id="cmpF9849CEB8BB36FE8A352675FABF00474" Guid="{DBE018B8-FBBC-4E21-B357-3E0DFC9457F2}">
-                    <File Id="filDDBEE83291E5B42293413E0D0E4E4FBF" KeyPath="yes" Source="!(wix.DataSource)\calib\out_camera_data_first.yml" />
+                <Component Id="cmpF9849CEB8BB36FE8A352675FABF00474" Guid="{00E42C13-8731-4D5A-AD1C-A7C6C0782BFE}">
+                    <File Id="filDDBEE83291E5B42293413E0D0E4E4FBF" KeyPath="yes" Source="!(wix.DataPath)\calib\out_camera_data_first.yml" />
                 </Component>
-                <Component Id="cmpEF5D0D38B1751E99467A452AA5C6DDC5" Guid="{95AD67A3-3CB6-4D29-B9BA-53890B32F1CA}">
-                    <File Id="filF9CD4EF4F8818BBE37E4E448013E7055" KeyPath="yes" Source="!(wix.DataSource)\calib\sample_opencv_calib.xml" />
+                <Component Id="cmpEF5D0D38B1751E99467A452AA5C6DDC5" Guid="{E7BD3BCE-0CDE-412B-8AE2-CB2F39C97F34}">
+                    <File Id="filF9CD4EF4F8818BBE37E4E448013E7055" KeyPath="yes" Source="!(wix.DataPath)\calib\sample_opencv_calib.xml" />
                 </Component>
             </Directory>
         </DirectoryRef>

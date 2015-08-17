@@ -39,7 +39,8 @@
           <Directory Id="SCRIPTS" Name="scripts" />
         </Directory>
 			</Directory>
-      <Directory Id="ProgramMenuFolder">
+      <!--<Directory Id="ProgramMenuFolder">-->
+      <Directory Id="DesktopFolder" Name="Desktop">
         <Directory Id="ApplicationProgramsFolder" Name="Indriya"/>
       </Directory>
       <Directory Id="CommonAppDataFolder">
@@ -53,18 +54,18 @@
 		</Directory>
     <DirectoryRef Id="ApplicationProgramsFolder">
       <Component Id="ApplicationShortcut" Guid="{6BA7AE3C-E983-4257-A990-51C11CE1A0FD}">
-        <!--<Shortcut Id="ApplicationStartMenuShortcut"
-             Name="Indriya"
-           Description="HRI scenario designer"
-            Target="[#Indriya.Application.exe]"
-                  WorkingDirectory="BIN"/>-->
         <Shortcut Id="ApplicationStartMenuShortcut"
              Name="Indriya"
            Description="HRI scenario designer"
-            Target="[BIN]\Indriya.Application.exe"
+            Target="[BIN]Indriya.Application.exe"
                   WorkingDirectory="BIN"/>
+        <!--<Shortcut Id="ApplicationStartMenuShortcut"
+             Name="Indriya"
+           Description="HRI scenario designer"
+            Target="[BIN]\Indriya.Application.exe"
+                  WorkingDirectory="BIN"/>-->
         <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
-        <RegistryValue Root="HKCU" Key="Software\Microsoft\Indriya" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+        <RegistryValue Root="HKCU" Key="Software/Indriya" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
       </Component>
     </DirectoryRef>
 	</Fragment>
@@ -75,7 +76,7 @@
         <Environment Id="INDRIYA_ROOT"
                          Action="set"
                          Part="all"
-                         Name="INDRIYA_ROOT2"
+                         Name="INDRIYA_ROOT"
                          Permanent="no"
                          System="no"
                          Value="[INSTALLFOLDER]" />
@@ -84,7 +85,7 @@
         <Environment Id="INDRIYA_WEB_ROOT"
                          Action="set"
                          Part="all"
-                         Name="INDRIYA_WEB_ROOT2"
+                         Name="INDRIYA_WEB_ROOT"
                          Permanent="no"
                          System="no"
                          Value="[WEB]" />
@@ -93,7 +94,7 @@
         <Environment Id="INDRIYA_DATA_ROOT"
                          Action="set"
                          Part="all"
-                         Name="INDRIYA_DATA_ROOT2"
+                         Name="INDRIYA_DATA_ROOT"
                          Permanent="no"
                          System="no"
                          Value="[INDRIYADATAFOLDER]" />
