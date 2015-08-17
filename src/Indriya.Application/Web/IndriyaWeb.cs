@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using Common.Logging;
 using Indriya.Core;
 using Indriya.Core.Schema;
@@ -27,32 +28,41 @@ namespace Indriya.Application.Web
 
         public void Start()
         {
-            if (_config != null && _config.parameters != null && _config.parameters.Count > 0 && _host == null)
+            try
             {
-                var enabled = ParameterUtil.Get(_config.parameters, "WebServerEnabled", false);
-                if (enabled)
+                if (_config != null && _config.parameters != null && _config.parameters.Count > 0 && _host == null)
                 {
-                    var host = ParameterUtil.Get(_config.parameters, "WebServerHost", "http://localhost");
-                    var port = ParameterUtil.Get(_config.parameters, "WebServerPort", 8888);
+                    var enabled = ParameterUtil.Get(_config.parameters, "WebServerEnabled", false);
+                    if (enabled)
+                    {
+                        var host = ParameterUtil.Get(_config.parameters, "WebServerHost", "http://localhost");
+                        var port = ParameterUtil.Get(_config.parameters, "WebServerPort", 8888);
 
-                    var uriStr = string.Format("{0}:{1}", host, port);
+                        var uriStr = string.Format("{0}:{1}", host, port);
 
-                    //HostConfiguration hostConfigs = new HostConfiguration()
-                    //{
-                    //    UrlReservations = new UrlReservations() { CreateAutomatically = true }
-                    //};
+                        //string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
 
-                    //var config = new HostConfiguration();
-                    //config.RewriteLocalhost = false;
+                        HostConfiguration config = new HostConfiguration()
+                        {
+                            UrlReservations = new UrlReservations() { CreateAutomatically = true}
+                        };
 
-                    //_host = new NancyHost(new Uri(uriStr), new IndriyaWebBootStrapper(), config);
+                        //var config = new HostConfiguration();
+                        //config.RewriteLocalhost = false;
 
-                    _host = new NancyHost(new Uri(uriStr), new IndriyaWebBootStrapper());
+                        _host = new NancyHost(new Uri(uriStr), new IndriyaWebBootStrapper(), config);
 
-                    _host.Start();
+                        //_host = new NancyHost(new Uri(uriStr), new IndriyaWebBootStrapper());
 
-                    Log.InfoFormat("Indriya web interface started at {0}", uriStr);
+                        _host.Start();
+
+                        Log.InfoFormat("Indriya web interface started at {0}", uriStr);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + '\n' + ex.StackTrace, ex.Message);
             }
         }
 
