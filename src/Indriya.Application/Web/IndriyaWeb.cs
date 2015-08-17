@@ -42,6 +42,11 @@ namespace Indriya.Application.Web
                     //    UrlReservations = new UrlReservations() { CreateAutomatically = true }
                     //};
 
+                    //var config = new HostConfiguration();
+                    //config.RewriteLocalhost = false;
+
+                    //_host = new NancyHost(new Uri(uriStr), new IndriyaWebBootStrapper(), config);
+
                     _host = new NancyHost(new Uri(uriStr), new IndriyaWebBootStrapper());
 
                     _host.Start();
