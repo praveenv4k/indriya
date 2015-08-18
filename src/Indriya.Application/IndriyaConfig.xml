@@ -17,7 +17,7 @@
     <param key="DateTimeFormatString" value="yyyy/MM/dd HH:mm:ss.fff" type="string"/>
 
     <param key="NAO-A-ROBOTIP" value="127.0.0.1" type="string"/>
-    <param key="NAO-A-ROBOTPORT" value="61058" type="int"/>
+    <param key="NAO-A-ROBOTPORT" value="52108" type="int"/>
     <!--<param key="NAO-A-ROBOTIP" value="192.168.11.3" type="string"/>
     <param key="NAO-A-ROBOTPORT" value="9559" type="int"/>-->
     
@@ -88,7 +88,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false" name="gesture_recognition">
+    <node enabled="true" name="gesture_recognition">
       <process>
         <type>executable</type>
         <path>%INDRIYA_ROOT%\bin\Indriya.Kinect.Perception.exe</path>
@@ -131,7 +131,7 @@
         </publish>
       </publishers>
     </node>
-    <node enabled="false" name="speech_recognition">
+    <node enabled="true" name="speech_recognition">
       <process>
         <type>executable</type>
         <path>%INDRIYA_ROOT%\bin\Indriya.Kinect.Speech.exe</path>
@@ -290,7 +290,7 @@
         </subscribe>
       </subscribers>
     </node>
-    <node enabled="false" name="robot_interface">
+    <node enabled="true" name="robot_interface">
       <process>
         <type>executable</type>
         <path>python.exe</path>
@@ -324,7 +324,7 @@
         <args>%INDRIYA_ROOT%\scripts\indriya_python_client\experimot_relative_localize.py</args>
       </process>
     </node>
-    <node enabled="false" name="hiro_manager">
+    <node enabled="true" name="hiro_manager">
       <process>
         <type>executable</type>
         <path>python.exe</path>
