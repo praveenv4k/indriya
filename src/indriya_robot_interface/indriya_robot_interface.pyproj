@@ -39,6 +39,8 @@
     <Compile Include="behaviors\altts.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="behaviors\PepperBehaviorModule.py" />
+    <Compile Include="behaviors\pepper_behaviormanager.py" />
     <Compile Include="behaviors\behaviormanager.py" />
     <Compile Include="behaviors\hand_wave.py">
       <SubType>Code</SubType>

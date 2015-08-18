@@ -24,6 +24,9 @@
     <param key="NAO-B-ROBOTIP" value="192.168.11.4" type="string"/>
     <param key="NAO-B-ROBOTPORT" value="9559" type="int"/>
     
+    <param key="PEPPER-ROBOTIP" value="192.168.11.4" type="string"/>
+    <param key="PEPPER-ROBOTPORT" value="9559" type="int"/>
+    
     <param key="ContextServerHost" value="tcp://*" type="string"/>
     <param key="ContextClientHost" value="tcp://localhost" type="string"/>
     <param key="ContextServerPort" value="5800" type="int"/>
@@ -337,6 +340,21 @@
         <param key="RequestServerIP" value="tcp://*" type="string"/>
         <param key="RequestClientIP" value="tcp://localhost" type="string"/>
         <param key="RequestServerPort" value="5590" type="int"/>
+      </parameters>
+    </node>
+    <node enabled="true" name="pepper_manager">
+      <process>
+        <type>executable</type>
+        <path>python.exe</path>
+        <args>%INDRIYA_ROOT%\scripts\indriya_robot_interface\behaviors\pepper_behaviormanager.py</args>
+      </process>
+      <parameters>
+        <param key="ROBOTIP" value="$PEPPER-ROBOTIP" type="string"/>
+        <param key="ROBOTPORT" value="$PEPPER-ROBOTPORT" type="string"/>
+        <param key="ROBOTNAME" value="Haruka" type="string"/>
+        <param key="RequestServerIP" value="tcp://*" type="string"/>
+        <param key="RequestClientIP" value="tcp://localhost" type="string"/>
+        <param key="RequestServerPort" value="5594" type="int"/>
       </parameters>
     </node>
     <node enabled="false" name="nao_odometry">
