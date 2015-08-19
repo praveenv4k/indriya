@@ -3,7 +3,10 @@
 ### About
 
 - The aim of this master thesis project is to develop an experimental platform for human robot interaction 
-understanding the human motions. Human motion capture is done using kinect for windows v2 sensor.
+understanding the human behaviors. Human motion capture is done using kinect for windows v2 sensor and either Kinect microphone or an external microphone could be used as speech input.
+
+### Project homepage
+ - http://praveenv4k.github.io/indriya
 
 ### Requirements
 
@@ -31,11 +34,12 @@ understanding the human motions. Human motion capture is done using kinect for w
 	- RequireJS
 	- Threejs
 	- Underscore
+	- Google blockly
 
 ### Build steps
 
-- Open ExPeriMot.sln
-- Choose the build configuration (Debug/Release)
+- Open indriya.sln
+- Choose the "Release|Mixed Platforms" configuration
 - Click Menu->Build->Build Solution
 
 ### Configuration Steps
@@ -45,8 +49,8 @@ understanding the human motions. Human motion capture is done using kinect for w
 
 ### Running the application
 
-* Configure the IP address of the robot in the experimot_config.xml (ROBOTIP and ROBOTPORT)
-* Run the application Experimot.Scheduler.exe
+* Configure the IP address of the robot in the IndriyaConfig.xml (ROBOTIP and ROBOTPORT)
+* Run the application Indriya.Application.exe
 * Open the browser and go to http://IP_ADDRESS_OF_MACHINE:8888
 * The behavior can be designed from the "Design" tab of the web application and press RUN to run the behavior
 * The interaction between the robot and human can be visualized in a virtual environment in the "Visualize" tab
